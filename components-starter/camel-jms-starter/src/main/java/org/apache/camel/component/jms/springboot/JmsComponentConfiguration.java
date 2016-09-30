@@ -2886,8 +2886,6 @@ name|ExceptionListener
 name|exceptionListener
 decl_stmt|;
 comment|/**          * Specifies a org.springframework.util.ErrorHandler to be invoked in          * case of any uncaught exceptions thrown while processing a Message. By          * default these exceptions will be logged at the WARN level, if no          * errorHandler has been configured. You can configure logging level and          * whether stack traces should be logged using errorHandlerLoggingLevel          * and errorHandlerLogStackTrace options. This makes it much easier to          * configure, than having to code a custom errorHandler.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|errorHandler
 specifier|private
 name|ErrorHandler
@@ -2931,8 +2929,6 @@ name|Boolean
 name|exposeListenerSession
 decl_stmt|;
 comment|/**          * Allows you to specify a custom task executor for consuming messages.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|taskExecutor
 specifier|private
 name|TaskExecutor
@@ -2989,8 +2985,6 @@ name|Long
 name|receiveTimeout
 decl_stmt|;
 comment|/**          * The Spring transaction manager to use.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|transactionManager
 specifier|private
 name|PlatformTransactionManager
@@ -3075,8 +3069,6 @@ name|Long
 name|timeToLive
 decl_stmt|;
 comment|/**          * To use a custom Spring          * org.springframework.jms.support.converter.MessageConverter so you can          * be in control how to map to/from a javax.jms.Message.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|messageConverter
 specifier|private
 name|MessageConverter
@@ -3150,16 +3142,12 @@ name|Boolean
 name|preserveMessageQos
 decl_stmt|;
 comment|/**          * Allows you to use your own implementation of the          * org.springframework.jms.core.JmsOperations interface. Camel uses          * JmsTemplate as default. Can be used for testing purpose, but not used          * much as stated in the spring API docs.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|jmsOperations
 specifier|private
 name|JmsOperations
 name|jmsOperations
 decl_stmt|;
 comment|/**          * A pluggable          * org.springframework.jms.support.destination.DestinationResolver that          * allows you to use your own resolver (for example, to lookup the real          * destination in a JNDI registry).          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|destinationResolver
 specifier|private
 name|DestinationResolver
@@ -3174,8 +3162,6 @@ name|JmsProviderMetadata
 name|providerMetadata
 decl_stmt|;
 comment|/**          * Sets the {@link JmsOperations} used to deduce the          * {@link JmsProviderMetadata} details which if none is customized one          * is lazily created on demand          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|metadataJmsOperations
 specifier|private
 name|JmsOperations
@@ -3236,8 +3222,6 @@ name|JmsMessageType
 name|jmsMessageType
 decl_stmt|;
 comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|jmsKeyFormatStrategy
 specifier|private
 name|JmsKeyFormatStrategy
@@ -3316,8 +3300,6 @@ name|Boolean
 name|allowNullBody
 decl_stmt|;
 comment|/**          * Registry ID of the MessageListenerContainerFactory used to determine          * what          * org.springframework.jms.listener.AbstractMessageListenerContainer to          * use to consume messages. Setting this will automatically set          * consumerType to Custom.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|messageListenerContainerFactory
 specifier|private
 name|MessageListenerContainerFactory
@@ -3342,8 +3324,6 @@ name|Boolean
 name|includeAllJMSXProperties
 decl_stmt|;
 comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of<tt>javax.jms.Message</tt> objects when          * Camel is sending a JMS message.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|messageCreatedStrategy
 specifier|private
 name|MessageCreatedStrategy

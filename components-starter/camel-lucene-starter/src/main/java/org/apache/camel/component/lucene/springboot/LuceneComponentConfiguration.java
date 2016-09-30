@@ -227,8 +227,6 @@ name|File
 name|indexDirectory
 decl_stmt|;
 comment|/**          * An Analyzer builds TokenStreams, which analyze text. It thus          * represents a policy for extracting index terms from text. The value          * for analyzer can be any class that extends the abstract class          * org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of          * analyzers out of the box          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|analyzer
 specifier|private
 name|Analyzer

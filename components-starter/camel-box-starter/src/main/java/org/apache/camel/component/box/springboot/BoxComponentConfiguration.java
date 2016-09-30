@@ -249,8 +249,6 @@ name|String
 name|clientSecret
 decl_stmt|;
 comment|/**          * OAuth Secure Storage callback, can be used to provide and or save          * OAuth tokens. The callback may return null on first call to allow the          * component to login and authorize application and obtain an OAuth          * token, which can then be saved in the secure storage. For the          * component to be able to create a token automatically a user password          * must be provided.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|authSecureStorage
 specifier|private
 name|IAuthSecureStorage
@@ -269,8 +267,6 @@ name|String
 name|userPassword
 decl_stmt|;
 comment|/**          * OAuth listener for token updates, if the Camel application needs to          * use the access token outside the route          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|refreshListener
 specifier|private
 name|OAuthRefreshListener
@@ -295,8 +291,6 @@ name|String
 name|sharedPassword
 decl_stmt|;
 comment|/**          * Custom Box SDK configuration, not required normally          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|boxConfig
 specifier|private
 name|IBoxConfig

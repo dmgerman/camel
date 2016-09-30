@@ -429,16 +429,12 @@ name|String
 name|realm
 decl_stmt|;
 comment|/**          * Sets a {@link SecurityConstraint} to use for checking if a web          * resource is restricted or not          *<p/>          * By default this is<tt>null</tt>, which means all resources is          * restricted.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|securityConstraint
 specifier|private
 name|SecurityConstraint
 name|securityConstraint
 decl_stmt|;
 comment|/**          * Sets the {@link SecurityAuthenticator} to use for authenticating the          * {@link HttpPrincipal} .          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|securityAuthenticator
 specifier|private
 name|SecurityAuthenticator

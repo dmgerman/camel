@@ -224,8 +224,6 @@ name|DigitalSignatureConfiguration
 operator|.
 name|class
 decl_stmt|;
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|camelContext
 specifier|private
 name|CamelContext

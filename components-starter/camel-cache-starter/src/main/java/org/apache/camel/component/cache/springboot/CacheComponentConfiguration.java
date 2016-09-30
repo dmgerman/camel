@@ -148,8 +148,6 @@ class|class
 name|CacheComponentConfiguration
 block|{
 comment|/**      * To use the given CacheManagerFactory for creating the CacheManager. By      * default the DefaultCacheManagerFactory is used.      */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|cacheManagerFactory
 specifier|private
 name|CacheManagerFactory

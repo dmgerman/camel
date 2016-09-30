@@ -456,8 +456,6 @@ name|encoders
 decl_stmt|;
 comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads. Must override          * org.jboss.netty.channel.ChannelDownStreamHandler.          */
 annotation|@
-name|NestedConfigurationProperty
-annotation|@
 name|Deprecated
 DECL|field|encoder
 specifier|private
@@ -465,8 +463,6 @@ name|ChannelHandler
 name|encoder
 decl_stmt|;
 comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads. Must override          * org.jboss.netty.channel.ChannelUpStreamHandler.          */
-annotation|@
-name|NestedConfigurationProperty
 annotation|@
 name|Deprecated
 DECL|field|decoder
@@ -535,8 +531,6 @@ name|Boolean
 name|allowDefaultCodec
 decl_stmt|;
 comment|/**          * To use a custom ClientPipelineFactory          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|clientPipelineFactory
 specifier|private
 name|ClientPipelineFactory
@@ -782,16 +776,12 @@ name|String
 name|passphrase
 decl_stmt|;
 comment|/**          * To use a custom ServerPipelineFactory          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|serverPipelineFactory
 specifier|private
 name|ServerPipelineFactory
 name|serverPipelineFactory
 decl_stmt|;
 comment|/**          * To use a custom NettyServerBootstrapFactory          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|nettyServerBootstrapFactory
 specifier|private
 name|NettyServerBootstrapFactory
@@ -804,24 +794,18 @@ name|Map
 name|options
 decl_stmt|;
 comment|/**          * To use a explicit org.jboss.netty.channel.socket.nio.BossPool as the          * boss thread pool. For example to share a thread pool with multiple          * consumers. By default each consumer has their own boss pool with 1          * core thread.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|bossPool
 specifier|private
 name|BossPool
 name|bossPool
 decl_stmt|;
 comment|/**          * To use a explicit org.jboss.netty.channel.socket.nio.WorkerPool as          * the worker thread pool. For example to share a thread pool with          * multiple consumers. By default each consumer has their own worker          * pool with 2 x cpu count core threads.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|workerPool
 specifier|private
 name|WorkerPool
 name|workerPool
 decl_stmt|;
 comment|/**          * To use a explicit ChannelGroup.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|channelGroup
 specifier|private
 name|ChannelGroup

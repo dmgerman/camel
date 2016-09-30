@@ -251,8 +251,6 @@ name|Mina2TextLineDelimiter
 name|textlineDelimiter
 decl_stmt|;
 comment|/**          * To use a custom minda codec implementation.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|codec
 specifier|private
 name|ProtocolCodecFactory

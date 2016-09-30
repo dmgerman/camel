@@ -519,8 +519,6 @@ name|String
 name|pollCommand
 decl_stmt|;
 comment|/**          * Sets the KeyPairProvider reference to use when connecting using          * Certificates to the remote SSH Server.          *           * @param keyPairProvider          *            KeyPairProvider reference to use in authenticating. If set          *            to 'null', then will attempt to connect using          *            username/password settings.          * @see KeyPairProvider          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|keyPairProvider
 specifier|private
 name|KeyPairProvider

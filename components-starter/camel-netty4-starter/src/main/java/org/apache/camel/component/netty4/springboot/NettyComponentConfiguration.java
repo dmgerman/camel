@@ -474,8 +474,6 @@ name|encoders
 decl_stmt|;
 comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads.          */
 annotation|@
-name|NestedConfigurationProperty
-annotation|@
 name|Deprecated
 DECL|field|encoder
 specifier|private
@@ -483,8 +481,6 @@ name|ChannelHandler
 name|encoder
 decl_stmt|;
 comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads.          */
-annotation|@
-name|NestedConfigurationProperty
 annotation|@
 name|Deprecated
 DECL|field|decoder
@@ -560,8 +556,6 @@ name|allowDefaultCodec
 decl_stmt|;
 comment|/**          * @deprecated use #setClientInitializerFactory          */
 annotation|@
-name|NestedConfigurationProperty
-annotation|@
 name|Deprecated
 DECL|field|clientPipelineFactory
 specifier|private
@@ -569,8 +563,6 @@ name|ClientInitializerFactory
 name|clientPipelineFactory
 decl_stmt|;
 comment|/**          * To use a custom ClientInitializerFactory          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|clientInitializerFactory
 specifier|private
 name|ClientInitializerFactory
@@ -808,8 +800,6 @@ name|passphrase
 decl_stmt|;
 comment|/**          * @deprecated use #setServerInitializerFactory          */
 annotation|@
-name|NestedConfigurationProperty
-annotation|@
 name|Deprecated
 DECL|field|serverPipelineFactory
 specifier|private
@@ -817,16 +807,12 @@ name|ServerInitializerFactory
 name|serverPipelineFactory
 decl_stmt|;
 comment|/**          * To use a custom ServerInitializerFactory          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|serverInitializerFactory
 specifier|private
 name|ServerInitializerFactory
 name|serverInitializerFactory
 decl_stmt|;
 comment|/**          * To use a custom NettyServerBootstrapFactory          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|nettyServerBootstrapFactory
 specifier|private
 name|NettyServerBootstrapFactory
@@ -845,24 +831,18 @@ name|Boolean
 name|nativeTransport
 decl_stmt|;
 comment|/**          * Set the BossGroup which could be used for handling the new connection          * of the server side across the NettyEndpoint          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|bossGroup
 specifier|private
 name|EventLoopGroup
 name|bossGroup
 decl_stmt|;
 comment|/**          * To use a explicit EventLoopGroup as the boss thread pool. For example          * to share a thread pool with multiple consumers. By default each          * consumer has their own boss pool with 1 core thread.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|workerGroup
 specifier|private
 name|EventLoopGroup
 name|workerGroup
 decl_stmt|;
 comment|/**          * To use a explicit ChannelGroup.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|channelGroup
 specifier|private
 name|ChannelGroup

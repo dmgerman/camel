@@ -247,8 +247,6 @@ operator|.
 name|class
 decl_stmt|;
 comment|/**          * To use a custom          * {@link org.apache.camel.component.mail.JavaMailSender} for sending          * emails.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|javaMailSender
 specifier|private
 name|JavaMailSender
@@ -469,8 +467,6 @@ name|Boolean
 name|handleFailedMessage
 decl_stmt|;
 comment|/**          * To use a custom AttachmentsContentTransferEncodingResolver to resolve          * what content-type-encoding to use for attachments.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|attachmentsContentTransferEncodingResolver
 specifier|private
 name|AttachmentsContentTransferEncodingResolver
