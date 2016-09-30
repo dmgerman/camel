@@ -108,6 +108,8 @@ DECL|field|concurrentConsumers
 specifier|private
 name|Integer
 name|concurrentConsumers
+init|=
+literal|1
 decl_stmt|;
 comment|/**      * Sets the default queue factory.      */
 annotation|@
