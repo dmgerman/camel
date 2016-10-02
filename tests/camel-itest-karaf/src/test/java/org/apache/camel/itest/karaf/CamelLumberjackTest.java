@@ -81,11 +81,6 @@ name|CamelLumberjackTest
 extends|extends
 name|BaseKarafTest
 block|{
-DECL|method|CamelLumberjackTest ()
-specifier|public
-name|CamelLumberjackTest
-parameter_list|()
-block|{     }
 DECL|field|COMPONENT
 specifier|public
 specifier|static
@@ -100,6 +95,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|CamelLumberjackTest ()
+specifier|public
+name|CamelLumberjackTest
+parameter_list|()
+block|{     }
 annotation|@
 name|Test
 DECL|method|test ()

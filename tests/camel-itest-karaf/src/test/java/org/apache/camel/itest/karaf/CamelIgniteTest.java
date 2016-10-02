@@ -88,9 +88,7 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|junit
-operator|.
-name|PaxExam
+name|Option
 import|;
 end_import
 
@@ -104,7 +102,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|Option
+name|junit
+operator|.
+name|PaxExam
 import|;
 end_import
 
