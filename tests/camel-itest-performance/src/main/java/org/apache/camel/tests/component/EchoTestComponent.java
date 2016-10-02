@@ -229,7 +229,7 @@ extends|extends
 name|DefaultEndpoint
 block|{
 DECL|method|EchoEndpoint (String uri, Component component)
-specifier|public
+specifier|protected
 name|EchoEndpoint
 parameter_list|(
 name|String
@@ -307,7 +307,7 @@ implements|implements
 name|AsyncProcessor
 block|{
 DECL|method|EchoProducer (Endpoint endpoint)
-specifier|public
+specifier|protected
 name|EchoProducer
 parameter_list|(
 name|Endpoint

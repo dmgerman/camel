@@ -418,7 +418,7 @@ name|PerformanceTestConsumer
 name|consumer
 decl_stmt|;
 DECL|method|PerformanceTestEndpoint (String uri, Component component)
-specifier|public
+specifier|protected
 name|PerformanceTestEndpoint
 parameter_list|(
 name|String
@@ -542,7 +542,7 @@ extends|extends
 name|DefaultConsumer
 block|{
 DECL|method|PerformanceTestConsumer (Endpoint endpoint, Processor processor)
-specifier|public
+specifier|protected
 name|PerformanceTestConsumer
 parameter_list|(
 name|Endpoint
@@ -573,7 +573,7 @@ implements|implements
 name|AsyncProcessor
 block|{
 DECL|method|PerformanceTestProducer (Endpoint endpoint)
-specifier|public
+specifier|protected
 name|PerformanceTestProducer
 parameter_list|(
 name|Endpoint
