@@ -240,6 +240,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|StreamCache
 import|;
 end_import
@@ -865,6 +877,8 @@ name|class
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 if|if
 condition|(
 operator|!
@@ -882,7 +896,8 @@ name|src
 init|=
 literal|null
 decl_stmt|;
-comment|// many of the common format that can have a Source created directly
+comment|// many of the common format that can have a Source created
+comment|// directly
 if|if
 condition|(
 name|value
@@ -989,7 +1004,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// assuming staxsource is preferred, otherwise use the one preferred
+comment|// assuming staxsource is preferred, otherwise use the
+comment|// one preferred
 name|TypeConverter
 name|tc
 init|=
@@ -1251,6 +1267,16 @@ name|T
 operator|)
 name|p
 return|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+comment|// the internal conversion to XML can throw an exception if the content is not XML
+comment|// ignore this and return Void.TYPE to indicate that we cannot convert this
 block|}
 comment|// no we could not do it currently
 return|return
