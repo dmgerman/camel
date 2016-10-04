@@ -1312,6 +1312,25 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Checks if the key in question is in the repository.      *       * @param key Object - key in question      */
+DECL|method|containsKey (Object key)
+specifier|public
+name|boolean
+name|containsKey
+parameter_list|(
+name|Object
+name|key
+parameter_list|)
+block|{
+return|return
+name|cache
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+return|;
+block|}
 DECL|method|isAllowSerializedHeaders ()
 specifier|public
 name|boolean
