@@ -301,11 +301,7 @@ name|DeflaterOutputStream
 argument_list|(
 name|stream
 argument_list|,
-operator|new
-name|Deflater
-argument_list|(
-name|compressionLevel
-argument_list|)
+name|deflater
 argument_list|)
 decl_stmt|;
 try|try
