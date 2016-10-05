@@ -1322,6 +1322,12 @@ name|Object
 name|key
 parameter_list|)
 block|{
+if|if
+condition|(
+name|cache
+operator|!=
+literal|null
+condition|)
 return|return
 name|cache
 operator|.
@@ -1329,6 +1335,10 @@ name|containsKey
 argument_list|(
 name|key
 argument_list|)
+return|;
+else|else
+return|return
+literal|false
 return|;
 block|}
 DECL|method|isAllowSerializedHeaders ()
