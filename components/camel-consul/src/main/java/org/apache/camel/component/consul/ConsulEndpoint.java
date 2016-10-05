@@ -164,7 +164,7 @@ literal|"Consul"
 argument_list|,
 name|syntax
 operator|=
-literal|"consul://apiEndpoint"
+literal|"consul:apiEndpoint"
 argument_list|,
 name|label
 operator|=
@@ -186,11 +186,6 @@ literal|"The consul configuration"
 argument_list|)
 annotation|@
 name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|configuration
 specifier|private
 specifier|final
