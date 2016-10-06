@@ -1150,13 +1150,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testCreateNewEndpointForGauge ()
 specifier|public
 name|void
@@ -1184,10 +1177,31 @@ argument_list|,
 literal|"a name"
 argument_list|)
 decl_stmt|;
+name|assertThat
+argument_list|(
 name|endpoint
-operator|.
-name|createProducer
+argument_list|,
+name|is
+argument_list|(
+name|notNullValue
 argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|endpoint
+argument_list|,
+name|is
+argument_list|(
+name|instanceOf
+argument_list|(
+name|MetricsEndpoint
+operator|.
+name|class
+argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

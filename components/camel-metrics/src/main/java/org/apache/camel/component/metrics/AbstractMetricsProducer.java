@@ -120,7 +120,7 @@ name|HEADER_PATTERN
 init|=
 name|MetricsConstants
 operator|.
-name|HEADER_PERFIX
+name|HEADER_PREFIX
 operator|+
 literal|"*"
 decl_stmt|;

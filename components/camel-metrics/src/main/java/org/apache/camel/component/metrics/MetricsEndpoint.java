@@ -301,6 +301,18 @@ specifier|private
 name|Long
 name|decrement
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Subject value when using gauge type"
+argument_list|)
+DECL|field|subject
+specifier|private
+name|Object
+name|subject
+decl_stmt|;
 DECL|method|MetricsEndpoint (String uri, Component component, MetricRegistry registry, MetricsType metricsType, String metricsName)
 specifier|public
 name|MetricsEndpoint
@@ -455,6 +467,24 @@ block|{
 return|return
 operator|new
 name|TimerProducer
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|metricsType
+operator|==
+name|MetricsType
+operator|.
+name|GAUGE
+condition|)
+block|{
+return|return
+operator|new
+name|GaugeProducer
 argument_list|(
 name|this
 argument_list|)
@@ -645,6 +675,32 @@ operator|.
 name|decrement
 operator|=
 name|decrement
+expr_stmt|;
+block|}
+DECL|method|getSubject ()
+specifier|public
+name|Object
+name|getSubject
+parameter_list|()
+block|{
+return|return
+name|subject
+return|;
+block|}
+DECL|method|setSubject (Object subject)
+specifier|public
+name|void
+name|setSubject
+parameter_list|(
+name|Object
+name|subject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subject
+operator|=
+name|subject
 expr_stmt|;
 block|}
 block|}

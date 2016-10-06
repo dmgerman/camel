@@ -178,7 +178,7 @@ name|metrics
 operator|.
 name|MetricsConstants
 operator|.
-name|HEADER_PERFIX
+name|HEADER_PREFIX
 import|;
 end_import
 
@@ -418,7 +418,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"."
 operator|+
-name|HEADER_PERFIX
+name|HEADER_PREFIX
 argument_list|,
 literal|"value"
 argument_list|)
@@ -471,7 +471,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HEADER_PERFIX
+name|HEADER_PREFIX
 operator|+
 literal|"notExistingHeader"
 argument_list|,
@@ -484,7 +484,7 @@ name|put
 argument_list|(
 literal|"."
 operator|+
-name|HEADER_PERFIX
+name|HEADER_PREFIX
 argument_list|,
 literal|"value"
 argument_list|)
