@@ -706,6 +706,15 @@ name|Boolean
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|ROUTE_COVERAGE_LOG_ENTRY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ROUTE_COVERAGE_LOG_ENTRY
+init|=
+literal|"Route coverage ({} out of {} routes used)"
+decl_stmt|;
 DECL|field|threadCamelContext
 specifier|private
 specifier|static
@@ -876,15 +885,6 @@ init|=
 operator|new
 name|CamelTestWatcher
 argument_list|()
-decl_stmt|;
-DECL|field|ROUTE_COVERAGE_LOG_ENTRY
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ROUTE_COVERAGE_LOG_ENTRY
-init|=
-literal|"Route coverage ({} out of {} routes used)"
 decl_stmt|;
 comment|/**      * Use the RouteBuilder or not      * @return<tt>true</tt> then {@link CamelContext} will be auto started,      *<tt>false</tt> then {@link CamelContext} will<b>not</b> be auto started (you will have to start it manually)      */
 DECL|method|isUseRouteBuilder ()
