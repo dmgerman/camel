@@ -1751,27 +1751,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-name|serversRegistry
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|registerConsumer (UndertowConsumer consumer)
 specifier|public
 name|void
