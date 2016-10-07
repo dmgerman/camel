@@ -23,6 +23,7 @@ end_package
 begin_class
 DECL|class|StringEscape
 specifier|public
+specifier|final
 class|class
 name|StringEscape
 implements|implements
@@ -36,6 +37,32 @@ name|commands
 operator|.
 name|StringEscape
 block|{
+DECL|field|instance
+specifier|private
+specifier|static
+name|StringEscape
+name|instance
+init|=
+operator|new
+name|StringEscape
+argument_list|()
+decl_stmt|;
+DECL|method|StringEscape ()
+specifier|private
+name|StringEscape
+parameter_list|()
+block|{     }
+DECL|method|getInstance ()
+specifier|public
+specifier|static
+name|StringEscape
+name|getInstance
+parameter_list|()
+block|{
+return|return
+name|instance
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|unescapeJava (String str)

@@ -38,13 +38,35 @@ name|org
 operator|.
 name|apache
 operator|.
-name|felix
+name|karaf
 operator|.
-name|gogo
+name|shell
 operator|.
-name|commands
+name|api
+operator|.
+name|action
 operator|.
 name|Command
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|karaf
+operator|.
+name|shell
+operator|.
+name|api
+operator|.
+name|action
+operator|.
+name|lifecycle
+operator|.
+name|Service
 import|;
 end_import
 
@@ -64,6 +86,8 @@ name|description
 operator|=
 literal|"Display the Camel route definition in XML"
 argument_list|)
+annotation|@
+name|Service
 DECL|class|RouteShow
 specifier|public
 class|class
@@ -71,10 +95,10 @@ name|RouteShow
 extends|extends
 name|AbstractRouteCommand
 block|{
-DECL|method|doExecute ()
+DECL|method|execute ()
 specifier|public
 name|Object
-name|doExecute
+name|execute
 parameter_list|()
 throws|throws
 name|Exception
@@ -95,7 +119,7 @@ name|command
 operator|.
 name|execute
 argument_list|(
-name|camelController
+name|this
 argument_list|,
 name|System
 operator|.
