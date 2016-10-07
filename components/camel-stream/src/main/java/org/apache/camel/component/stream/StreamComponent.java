@@ -114,6 +114,13 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setKind
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|answer

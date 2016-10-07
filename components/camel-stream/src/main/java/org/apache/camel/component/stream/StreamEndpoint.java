@@ -198,7 +198,7 @@ literal|"Stream"
 argument_list|,
 name|syntax
 operator|=
-literal|"stream:url"
+literal|"stream:kind"
 argument_list|,
 name|consumerClass
 operator|=
@@ -253,6 +253,13 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
+DECL|field|kind
+specifier|private
+name|String
+name|kind
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|url
 specifier|private
 name|String
@@ -579,6 +586,33 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
+DECL|method|getKind ()
+specifier|public
+name|String
+name|getKind
+parameter_list|()
+block|{
+return|return
+name|kind
+return|;
+block|}
+comment|/**      * Kind of stream to use such as System.in or System.out.      */
+DECL|method|setKind (String kind)
+specifier|public
+name|void
+name|setKind
+parameter_list|(
+name|String
+name|kind
+parameter_list|)
+block|{
+name|this
+operator|.
+name|kind
+operator|=
+name|kind
+expr_stmt|;
+block|}
 DECL|method|getFileName ()
 specifier|public
 name|String
