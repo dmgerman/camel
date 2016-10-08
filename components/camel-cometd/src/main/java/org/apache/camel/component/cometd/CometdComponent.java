@@ -1910,8 +1910,8 @@ name|CometdComponentSslContextFactory
 extends|extends
 name|SslContextFactory
 block|{
-annotation|@
-name|Override
+comment|// to support jetty 9.2.
+comment|// TODO: remove this class when we have upgraded to jetty 9.3
 DECL|method|checkKeyStore ()
 specifier|public
 name|void
