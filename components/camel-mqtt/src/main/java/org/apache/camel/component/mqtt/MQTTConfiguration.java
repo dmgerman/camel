@@ -416,6 +416,24 @@ DECL|field|version
 name|String
 name|version
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|lazySessionCreation
+specifier|private
+name|boolean
+name|lazySessionCreation
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * These a properties that are looked for in an Exchange - to publish to      */
 annotation|@
 name|UriParam
@@ -1777,6 +1795,33 @@ name|setReconnectDelayMax
 argument_list|(
 name|reconnectDelayMax
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isLazySessionCreation ()
+specifier|public
+name|boolean
+name|isLazySessionCreation
+parameter_list|()
+block|{
+return|return
+name|lazySessionCreation
+return|;
+block|}
+comment|/**      * Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.      */
+DECL|method|setLazySessionCreation (boolean lazySessionCreation)
+specifier|public
+name|void
+name|setLazySessionCreation
+parameter_list|(
+name|boolean
+name|lazySessionCreation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lazySessionCreation
+operator|=
+name|lazySessionCreation
 expr_stmt|;
 block|}
 block|}

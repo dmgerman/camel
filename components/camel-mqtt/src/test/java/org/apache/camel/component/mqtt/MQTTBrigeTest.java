@@ -250,7 +250,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mqtt:foo?publishTopicName=test/topic1&host="
+literal|"mqtt:foo?publishTopicName=test/topic1&lazySessionCreation=false&host="
 operator|+
 name|MQTTTestSupport
 operator|.
@@ -275,7 +275,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mqtt:foo?publishTopicName=test/resulttopic&host="
+literal|"mqtt:foo?publishTopicName=test/resulttopic&lazySessionCreation=false&host="
 operator|+
 name|MQTTTestSupport
 operator|.
