@@ -721,6 +721,18 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|publishedEndpointUrl
+specifier|private
+name|String
+name|publishedEndpointUrl
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"advanced"
 argument_list|)
 DECL|field|headerFilterStrategy
@@ -1759,6 +1771,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|publishedEndpointUrl
+operator|!=
+literal|null
+condition|)
+block|{
+name|factory
+operator|.
+name|setPublishedEndpointUrl
+argument_list|(
+name|publishedEndpointUrl
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we need to avoid flushing the setting from spring or blueprint
 if|if
 condition|(
@@ -2320,6 +2347,33 @@ argument_list|(
 name|address
 argument_list|)
 return|;
+block|}
+DECL|method|getPublishedEndpointUrl ()
+specifier|public
+name|String
+name|getPublishedEndpointUrl
+parameter_list|()
+block|{
+return|return
+name|publishedEndpointUrl
+return|;
+block|}
+comment|/**      * This option can override the endpointUrl that published from the WADL which can be accessed with resource address url plus ?_wadl      */
+DECL|method|setPublishedEndpointUrl (String publishedEndpointUrl)
+specifier|public
+name|void
+name|setPublishedEndpointUrl
+parameter_list|(
+name|String
+name|publishedEndpointUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|publishedEndpointUrl
+operator|=
+name|publishedEndpointUrl
+expr_stmt|;
 block|}
 comment|/**      * This option enables CXF Logging Feature which writes inbound and outbound REST messages to log.      */
 DECL|method|isLoggingFeatureEnabled ()
