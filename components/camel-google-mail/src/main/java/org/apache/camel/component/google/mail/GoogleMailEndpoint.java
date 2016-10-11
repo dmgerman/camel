@@ -594,7 +594,9 @@ argument_list|()
 operator|)
 operator|.
 name|getClient
-argument_list|()
+argument_list|(
+name|configuration
+argument_list|)
 return|;
 block|}
 annotation|@
