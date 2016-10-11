@@ -160,6 +160,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The camel chronicle-engine component let you leverage the power of OpenHFT's<a href="https://github.com/OpenHFT/Chronicle-Engine">Chronicle-Engine</a>.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

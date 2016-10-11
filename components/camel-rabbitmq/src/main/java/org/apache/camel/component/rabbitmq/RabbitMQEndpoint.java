@@ -320,6 +320,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The rabbitmq component allows you produce and consume messages from<a href="http://www.rabbitmq.com/">RabbitMQ</a> instances.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

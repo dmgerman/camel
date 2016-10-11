@@ -110,6 +110,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The ehcache component enables you to perform caching operations using<a href="http://www.ehcache.org">Ehcache</a> as cache implementation.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Camel endpoint for a telegram bot.  */
+comment|/**  * The telegram component provides access to the<a href="https://core.telegram.org/bots/api">Telegram Bot API</a>.  */
 end_comment
 
 begin_class

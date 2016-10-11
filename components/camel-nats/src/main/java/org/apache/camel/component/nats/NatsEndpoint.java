@@ -108,6 +108,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The nats component allows you produce and consume messages from<a href="http://nats.io/">NATS</a>.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

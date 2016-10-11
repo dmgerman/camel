@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a JCache endpoint.  */
+comment|/**  * The jcache component enables you to perform caching operations using JSR107/JCache as cache implementation.  */
 end_comment
 
 begin_class

@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a ServiceNow endpoint.  */
+comment|/**  * The servicenow component is used to integrate Camel with<a href="http://www.servicenow.com/">ServiceNow</a> cloud services.  */
 end_comment
 
 begin_class

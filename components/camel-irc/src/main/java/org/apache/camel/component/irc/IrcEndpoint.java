@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For IRC chat communication.  */
+comment|/**  * The irc component implements an<a href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a> (Internet Relay Chat) transport.  */
 end_comment
 
 begin_class

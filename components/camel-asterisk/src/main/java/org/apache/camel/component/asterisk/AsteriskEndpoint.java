@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Asterisk endpoint.  */
+comment|/**  * The asterisk component is used to interact with Asterisk PBX Server<a href="http://www.asterisk.org">Asterisk PBX Server</a>.  */
 end_comment
 
 begin_class

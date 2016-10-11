@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The sql component can be used to perform SQL query to a database.  */
+comment|/**  * The sql component allows you to work with databases using JDBC Stored Procedure queries.  */
 end_comment
 
 begin_class

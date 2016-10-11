@@ -154,6 +154,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The influxdb component allows you to interact with<a href="https://influxdata.com/time-series-platform/influxdb/">InfluxDB</a>, a time series database.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

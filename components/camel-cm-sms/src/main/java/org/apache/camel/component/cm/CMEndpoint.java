@@ -160,6 +160,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The influxdb component allows to integrate with<a href="https://www.cmtelecom.com/">CM SMS Gateway</a>.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

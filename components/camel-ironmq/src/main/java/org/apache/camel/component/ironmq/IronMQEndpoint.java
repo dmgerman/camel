@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a IronMQ endpoint.  */
+comment|/**  * The ironmq provides integration with<a href="https://www.iron.io/">IronMQ</a> an elastic and durable hosted message queue as a service.  */
 end_comment
 
 begin_class

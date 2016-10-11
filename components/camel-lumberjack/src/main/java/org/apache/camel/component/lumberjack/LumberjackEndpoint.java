@@ -160,6 +160,10 @@ name|SSLContextParameters
 import|;
 end_import
 
+begin_comment
+comment|/**  * The lumberjack retrieves logs sent over the network using the Lumberjack protocol.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -206,6 +206,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Component for working with MongoDB GridFS.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a etcd endpoint.  */
+comment|/**  * The camel etcd component allows you to work with<a href="https://coreos.com/etcd">Etcd</a>, a distributed, A distributed, reliable key-value store.  */
 end_comment
 
 begin_class
