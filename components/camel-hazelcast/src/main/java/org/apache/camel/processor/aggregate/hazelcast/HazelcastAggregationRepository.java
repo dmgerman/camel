@@ -1328,6 +1328,7 @@ name|cache
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|cache
 operator|.
@@ -1336,10 +1337,13 @@ argument_list|(
 name|key
 argument_list|)
 return|;
+block|}
 else|else
+block|{
 return|return
 literal|false
 return|;
+block|}
 block|}
 DECL|method|isAllowSerializedHeaders ()
 specifier|public
