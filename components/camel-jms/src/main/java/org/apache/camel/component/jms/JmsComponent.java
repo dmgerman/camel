@@ -3028,7 +3028,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Password must also be provided when using username/password as credentials."
+literal|"Username must also be provided when using username/password as credentials."
 argument_list|)
 throw|;
 block|}
@@ -3038,7 +3038,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Username must also be provided when using username/password as credentials."
+literal|"Password must also be provided when using username/password as credentials."
 argument_list|)
 throw|;
 block|}
