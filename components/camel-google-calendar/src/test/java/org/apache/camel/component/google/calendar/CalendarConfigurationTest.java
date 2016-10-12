@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -106,6 +116,26 @@ name|org
 operator|.
 name|junit
 operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -127,6 +157,24 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|api
+operator|.
+name|services
+operator|.
+name|calendar
+operator|.
+name|model
+operator|.
+name|Calendar
 import|;
 end_import
 
@@ -190,6 +238,26 @@ operator|+
 literal|"/get?clientId=a&clientSecret=b&applicationName=c&accessToken=d&refreshToken=e"
 decl_stmt|;
 annotation|@
+name|Before
+annotation|@
+name|Override
+DECL|method|createTestCalendar ()
+specifier|public
+name|void
+name|createTestCalendar
+parameter_list|()
+block|{     }
+annotation|@
+name|After
+annotation|@
+name|Override
+DECL|method|deleteTestCalendar ()
+specifier|public
+name|void
+name|deleteTestCalendar
+parameter_list|()
+block|{     }
+annotation|@
 name|Override
 DECL|method|createCamelContext ()
 specifier|protected
@@ -225,7 +293,7 @@ name|context
 operator|.
 name|addComponent
 argument_list|(
-literal|"google-drive"
+literal|"google-calendar"
 argument_list|,
 name|component
 argument_list|)
