@@ -1238,11 +1238,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Assembles a query from the given map.      *      * @param options  the map with the options (eg key/value pairs)      * @param ampersand to use& for Java code, and&amp; for XML      * @return a query string with<tt>key1=value&key2=value2&...</tt>, or an empty string if there is no options.      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createQueryString (Map<String, String> options, String ampersand, boolean encode)
 specifier|public
 specifier|static
