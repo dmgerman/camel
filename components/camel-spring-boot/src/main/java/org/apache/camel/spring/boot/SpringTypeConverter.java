@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -47,18 +57,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|StreamCache
 import|;
 end_import
 
@@ -221,7 +219,7 @@ argument_list|()
 operator|||
 name|value
 operator|instanceof
-name|List
+name|Collection
 operator|)
 condition|)
 block|{
