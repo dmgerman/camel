@@ -500,7 +500,7 @@ name|class
 operator|.
 name|getDeclaredMethod
 argument_list|(
-literal|"getProperty"
+literal|"retrieveValue"
 argument_list|,
 name|String
 operator|.
