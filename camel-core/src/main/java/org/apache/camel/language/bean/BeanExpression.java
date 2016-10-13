@@ -2037,6 +2037,13 @@ operator|>
 name|num
 operator|-
 literal|1
+operator|&&
+name|list
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 return|return
