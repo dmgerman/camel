@@ -325,6 +325,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"ZK"
+argument_list|,
+name|enums
+operator|=
+literal|"ZK,DRILLBIT"
 argument_list|)
 DECL|field|mode
 specifier|private
