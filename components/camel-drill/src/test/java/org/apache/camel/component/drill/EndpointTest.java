@@ -104,10 +104,12 @@ DECL|field|MODE
 specifier|private
 specifier|static
 specifier|final
-name|String
+name|DrillConnectionMode
 name|MODE
 init|=
-literal|"zk"
+name|DrillConnectionMode
+operator|.
+name|ZK
 decl_stmt|;
 annotation|@
 name|Test

@@ -78,17 +78,6 @@ name|DrillComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-DECL|enum|DrillConnectionMode
-specifier|protected
-enum|enum
-name|DrillConnectionMode
-block|{
-DECL|enumConstant|ZK
-DECL|enumConstant|DRILLBIT
-name|ZK
-block|,
-name|DRILLBIT
-block|}
 DECL|method|DrillComponent ()
 specifier|public
 name|DrillComponent
@@ -168,20 +157,6 @@ operator|.
 name|setHost
 argument_list|(
 name|remaining
-argument_list|)
-expr_stmt|;
-comment|// check mode
-name|DrillConnectionMode
-operator|.
-name|valueOf
-argument_list|(
-name|endpoint
-operator|.
-name|getMode
-argument_list|()
-operator|.
-name|toUpperCase
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

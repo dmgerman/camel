@@ -54,24 +54,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|drill
-operator|.
-name|DrillComponent
-operator|.
-name|DrillConnectionMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|mock
 operator|.
 name|MockEndpoint
@@ -138,18 +120,12 @@ decl_stmt|;
 DECL|field|mode
 specifier|private
 specifier|final
-name|String
+name|DrillConnectionMode
 name|mode
 init|=
 name|DrillConnectionMode
 operator|.
 name|DRILLBIT
-operator|.
-name|name
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|()
 decl_stmt|;
 DECL|field|query
 specifier|private
@@ -157,7 +133,7 @@ specifier|final
 name|String
 name|query
 init|=
-literal|"select * from schema.db"
+literal|"select * from query"
 decl_stmt|;
 annotation|@
 name|Test
@@ -249,6 +225,9 @@ operator|+
 literal|"?mode="
 operator|+
 name|mode
+operator|.
+name|name
+argument_list|()
 argument_list|)
 operator|.
 name|log

@@ -118,24 +118,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|drill
-operator|.
-name|DrillComponent
-operator|.
-name|DrillConnectionMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultPollingEndpoint
@@ -342,14 +324,16 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"zk"
+literal|"ZK"
 argument_list|)
 DECL|field|mode
 specifier|private
-name|String
+name|DrillConnectionMode
 name|mode
 init|=
-literal|"zk"
+name|DrillConnectionMode
+operator|.
+name|ZK
 decl_stmt|;
 comment|/**      * creates a drill endpoint      *      * @param uri the endpoint uri      * @param component the component      */
 DECL|method|DrillEndpoint (String uri, DrillComponent component)
@@ -433,17 +417,11 @@ if|if
 condition|(
 name|mode
 operator|.
-name|toUpperCase
-argument_list|()
-operator|.
 name|equals
 argument_list|(
 name|DrillConnectionMode
 operator|.
 name|DRILLBIT
-operator|.
-name|name
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -451,6 +429,12 @@ comment|// TODO JIRA BUG connection mode
 name|url
 operator|+=
 name|mode
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
 operator|+
 literal|"="
 operator|+
@@ -462,6 +446,12 @@ block|{
 name|url
 operator|+=
 name|mode
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
 operator|+
 literal|"="
 operator|+
@@ -694,7 +684,7 @@ block|}
 comment|/**      * Connection mode: zk: Zookeeper drillbit: Drillbit direct connection      * https://drill.apache.org/docs/using-the-jdbc-driver/      *       * @return      */
 DECL|method|getMode ()
 specifier|public
-name|String
+name|DrillConnectionMode
 name|getMode
 parameter_list|()
 block|{
@@ -702,12 +692,12 @@ return|return
 name|mode
 return|;
 block|}
-DECL|method|setMode (String mode)
+DECL|method|setMode (DrillConnectionMode mode)
 specifier|public
 name|void
 name|setMode
 parameter_list|(
-name|String
+name|DrillConnectionMode
 name|mode
 parameter_list|)
 block|{
