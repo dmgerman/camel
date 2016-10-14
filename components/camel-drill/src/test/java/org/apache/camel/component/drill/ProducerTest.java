@@ -133,7 +133,7 @@ specifier|final
 name|String
 name|host
 init|=
-literal|"bizzy"
+literal|"localhost"
 decl_stmt|;
 DECL|field|mode
 specifier|private
@@ -157,7 +157,7 @@ specifier|final
 name|String
 name|query
 init|=
-literal|"select * from mongo.view.events limit 100"
+literal|"select * from schema.db"
 decl_stmt|;
 annotation|@
 name|Test
