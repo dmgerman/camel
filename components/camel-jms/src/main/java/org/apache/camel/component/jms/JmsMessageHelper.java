@@ -229,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class for {@link javax.jms.Message}.  *  * @version   */
+comment|/**  * Utility class for {@link javax.jms.Message}.  *  * @version  */
 end_comment
 
 begin_class
@@ -1507,7 +1507,42 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|byte
+index|[]
+name|bytes
+init|=
+name|message
+operator|.
+name|getJMSCorrelationIDAsBytes
+argument_list|()
+decl_stmt|;
+name|boolean
+name|isNull
+init|=
+literal|true
+decl_stmt|;
+for|for
+control|(
+name|byte
+name|b
+range|:
+name|bytes
+control|)
+if|if
+condition|(
+name|b
+operator|!=
+literal|0
+condition|)
+name|isNull
+operator|=
+literal|false
+expr_stmt|;
 return|return
+name|isNull
+condition|?
+literal|null
+else|:
 operator|new
 name|String
 argument_list|(
