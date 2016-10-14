@@ -127,6 +127,15 @@ name|DrillConnectionMode
 operator|.
 name|DRILLBIT
 decl_stmt|;
+DECL|field|port
+specifier|private
+specifier|final
+name|Integer
+name|port
+init|=
+literal|31010
+decl_stmt|;
+comment|// default drillbit port
 DECL|field|query
 specifier|private
 specifier|final
@@ -228,6 +237,10 @@ name|mode
 operator|.
 name|name
 argument_list|()
+operator|+
+literal|"&port="
+operator|+
+name|port
 argument_list|)
 operator|.
 name|log
