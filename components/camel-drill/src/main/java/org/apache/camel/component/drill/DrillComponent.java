@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -55,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link DrillEndpoint}. It holds the list  * of named direct endpoints.  */
+comment|/**  * Represents the component that manages {@link DrillEndpoint}. It holds the  * list of named direct endpoints.  */
 end_comment
 
 begin_class
@@ -66,6 +78,17 @@ name|DrillComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+DECL|enum|DrillConnectionMode
+specifier|protected
+enum|enum
+name|DrillConnectionMode
+block|{
+DECL|enumConstant|ZK
+DECL|enumConstant|DRILLBIT
+name|ZK
+block|,
+name|DRILLBIT
+block|}
 DECL|method|DrillComponent ()
 specifier|public
 name|DrillComponent
@@ -73,6 +96,25 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
+name|DrillEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|DrillComponent (final CamelContext context)
+specifier|public
+name|DrillComponent
+parameter_list|(
+specifier|final
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
 name|DrillEndpoint
 operator|.
 name|class
@@ -119,6 +161,27 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|parameters
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setHost
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
+comment|// check mode
+name|DrillConnectionMode
+operator|.
+name|valueOf
+argument_list|(
+name|endpoint
+operator|.
+name|getMode
+argument_list|()
+operator|.
+name|toUpperCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

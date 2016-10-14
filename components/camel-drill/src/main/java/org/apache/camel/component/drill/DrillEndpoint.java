@@ -60,6 +60,22 @@ end_import
 
 begin_import
 import|import
+name|oadd
+operator|.
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -91,6 +107,24 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|drill
+operator|.
+name|DrillComponent
+operator|.
+name|DrillConnectionMode
 import|;
 end_import
 
@@ -193,7 +227,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The drill component gives you the ability to quering into apache drill cluster.  */
+comment|/**  * The drill component gives you the ability to quering into apache drill  * cluster.  */
 end_comment
 
 begin_class
@@ -210,7 +244,7 @@ literal|"DRILL"
 argument_list|,
 name|syntax
 operator|=
-literal|"drill:host:port"
+literal|"drill:host"
 argument_list|,
 name|producerOnly
 operator|=
@@ -232,7 +266,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"ZooKeeper host name or IP address"
+literal|"Host name or IP address"
 argument_list|)
 annotation|@
 name|Metadata
@@ -247,11 +281,11 @@ name|String
 name|host
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"ZooKeeper port number"
+literal|"Port number"
 argument_list|)
 annotation|@
 name|Metadata
@@ -276,52 +310,48 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Storage plugin"
+literal|"Drill directory"
 argument_list|,
 name|defaultValue
 operator|=
 literal|""
-argument_list|)
-DECL|field|schema
-specifier|private
-name|String
-name|schema
-init|=
-literal|""
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"Drill directory in ZooKeeper"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"/Drill"
 argument_list|)
 DECL|field|directory
 specifier|private
 name|String
 name|directory
 init|=
-literal|"/Drill"
+literal|""
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"drillbits1"
+literal|""
 argument_list|)
 DECL|field|clusterId
 specifier|private
 name|String
 name|clusterId
 init|=
-literal|"drillbits1"
+literal|""
 decl_stmt|;
-comment|/**      * creates a drill endpoint      *      * @param uri       the endpoint uri      * @param component the component      */
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"zk"
+argument_list|)
+DECL|field|mode
+specifier|private
+name|String
+name|mode
+init|=
+literal|"zk"
+decl_stmt|;
+comment|/**      * creates a drill endpoint      *      * @param uri the endpoint uri      * @param component the component      */
 DECL|method|DrillEndpoint (String uri, DrillComponent component)
 specifier|public
 name|DrillEndpoint
@@ -394,21 +424,90 @@ name|String
 name|toJDBCUri
 parameter_list|()
 block|{
-comment|//jdbc:drill:zk=<zk name>[:<port>][,<zk name2>[:<port>]...<directory>/<cluster ID>;[schema=<storage plugin>]
-return|return
-literal|"jdbc:drill:zk="
+name|String
+name|url
+init|=
+literal|"jdbc:drill:"
+decl_stmt|;
+if|if
+condition|(
+name|mode
+operator|.
+name|toUpperCase
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|DrillConnectionMode
+operator|.
+name|DRILLBIT
+operator|.
+name|name
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// TODO JIRA BUG connection mode
+name|url
+operator|+=
+name|mode
+operator|+
+literal|"="
+operator|+
+name|host
+expr_stmt|;
+block|}
+else|else
+block|{
+name|url
+operator|+=
+name|mode
+operator|+
+literal|"="
 operator|+
 name|host
 operator|+
 literal|":"
 operator|+
 name|port
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isNotBlank
+argument_list|(
+name|directory
+argument_list|)
+condition|)
+block|{
+name|url
+operator|+=
+literal|"/"
 operator|+
 name|directory
-operator|+
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|StringUtils
+operator|.
+name|isNotBlank
+argument_list|(
+name|clusterId
+argument_list|)
+condition|)
+block|{
+name|url
+operator|+=
 literal|"/"
 operator|+
 name|clusterId
+expr_stmt|;
+block|}
+return|return
+name|url
 return|;
 block|}
 annotation|@
@@ -494,7 +593,7 @@ return|return
 name|host
 return|;
 block|}
-comment|/**      * ZooKeeper host name or IP address. Use local instead of a host name or IP address to connect to the local Drillbit      *       * @param host      */
+comment|/**      * ZooKeeper host name or IP address. Use local instead of a host name or IP      * address to connect to the local Drillbit      *       * @param host      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -575,7 +674,7 @@ return|return
 name|clusterId
 return|;
 block|}
-comment|/**      * Cluster ID      *       * https://drill.apache.org/docs/using-the-jdbc-driver/#determining-the-cluster-id      *       * @param clusterId      */
+comment|/**      * Cluster ID      * https://drill.apache.org/docs/using-the-jdbc-driver/#determining-the-cluster-id      *       * @param clusterId      */
 DECL|method|setClusterId (String clusterId)
 specifier|public
 name|void
@@ -592,31 +691,31 @@ operator|=
 name|clusterId
 expr_stmt|;
 block|}
-comment|/**      * Storage plugin      *       * https://drill.apache.org/docs/storage-plugin-registration      *       * @return      */
-DECL|method|getSchema ()
+comment|/**      * Connection mode: zk: Zookeeper drillbit: Drillbit direct connection      * https://drill.apache.org/docs/using-the-jdbc-driver/      *       * @return      */
+DECL|method|getMode ()
 specifier|public
 name|String
-name|getSchema
+name|getMode
 parameter_list|()
 block|{
 return|return
-name|schema
+name|mode
 return|;
 block|}
-DECL|method|setSchema (String schema)
+DECL|method|setMode (String mode)
 specifier|public
 name|void
-name|setSchema
+name|setMode
 parameter_list|(
 name|String
-name|schema
+name|mode
 parameter_list|)
 block|{
 name|this
 operator|.
-name|schema
+name|mode
 operator|=
-name|schema
+name|mode
 expr_stmt|;
 block|}
 block|}
