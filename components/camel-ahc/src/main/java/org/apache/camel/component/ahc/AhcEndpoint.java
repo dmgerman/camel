@@ -134,6 +134,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|http
+operator|.
+name|common
+operator|.
+name|cookie
+operator|.
+name|CookieHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -486,6 +504,18 @@ DECL|field|connectionClose
 specifier|private
 name|boolean
 name|connectionClose
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|cookieHandler
+specifier|private
+name|CookieHandler
+name|cookieHandler
 decl_stmt|;
 DECL|method|AhcEndpoint (String endpointUri, AhcComponent component, URI httpUri)
 specifier|public
@@ -962,6 +992,33 @@ operator|.
 name|connectionClose
 operator|=
 name|connectionClose
+expr_stmt|;
+block|}
+DECL|method|getCookieHandler ()
+specifier|public
+name|CookieHandler
+name|getCookieHandler
+parameter_list|()
+block|{
+return|return
+name|cookieHandler
+return|;
+block|}
+comment|/**      * Configure a cookie handler to maintain a HTTP session      */
+DECL|method|setCookieHandler (CookieHandler cookieHandler)
+specifier|public
+name|void
+name|setCookieHandler
+parameter_list|(
+name|CookieHandler
+name|cookieHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cookieHandler
+operator|=
+name|cookieHandler
 expr_stmt|;
 block|}
 annotation|@

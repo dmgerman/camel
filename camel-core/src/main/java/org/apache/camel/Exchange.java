@@ -230,6 +230,12 @@ name|CONTENT_TYPE
 init|=
 literal|"Content-Type"
 decl_stmt|;
+DECL|field|COOKIE_HANDLER
+name|String
+name|COOKIE_HANDLER
+init|=
+literal|"CamelCookieHandler"
+decl_stmt|;
 DECL|field|CORRELATION_ID
 name|String
 name|CORRELATION_ID

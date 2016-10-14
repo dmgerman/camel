@@ -146,6 +146,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|http
+operator|.
+name|common
+operator|.
+name|cookie
+operator|.
+name|CookieHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|UriEndpoint
@@ -1302,7 +1320,7 @@ return|return
 name|cookieStore
 return|;
 block|}
-comment|/**      * To use a custom org.apache.http.client.CookieStore.      * By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store.      * Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie      * shouldn't be stored as we are just bridging (eg acting as a proxy).      */
+comment|/**      * To use a custom org.apache.http.client.CookieStore.      * By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store.      * Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie      * shouldn't be stored as we are just bridging (eg acting as a proxy).      * If a cookieHandler is set then the cookie store is also forced to be a noop cookie store as cookie handling is      * then performed by the cookieHandler.      */
 DECL|method|setCookieStore (CookieStore cookieStore)
 specifier|public
 name|void
@@ -1317,6 +1335,32 @@ operator|.
 name|cookieStore
 operator|=
 name|cookieStore
+expr_stmt|;
+block|}
+DECL|method|setCookieHandler (CookieHandler cookieHandler)
+specifier|public
+name|void
+name|setCookieHandler
+parameter_list|(
+name|CookieHandler
+name|cookieHandler
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setCookieHandler
+argument_list|(
+name|cookieHandler
+argument_list|)
+expr_stmt|;
+comment|// if we set an explicit cookie handler
+name|this
+operator|.
+name|cookieStore
+operator|=
+operator|new
+name|NoopCookieStore
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|isAuthenticationPreemptive ()
