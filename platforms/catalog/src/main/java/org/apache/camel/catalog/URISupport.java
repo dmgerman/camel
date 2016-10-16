@@ -161,7 +161,7 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-comment|/**      * Normalizes the URI so unsafe charachters is encoded      *      * @param uri the input uri      * @return as URI instance      * @throws URISyntaxException is thrown if syntax error in the input uri      */
+comment|/**      * Normalizes the URI so unsafe characters is encoded      *      * @param uri the input uri      * @return as URI instance      * @throws URISyntaxException is thrown if syntax error in the input uri      */
 DECL|method|normalizeUri (String uri)
 specifier|public
 specifier|static
