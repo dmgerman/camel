@@ -49,6 +49,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -613,8 +625,6 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-name|String
-operator|.
 name|format
 argument_list|(
 literal|"Missing %s from the text: %s"
@@ -653,8 +663,6 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-name|String
-operator|.
 name|format
 argument_list|(
 literal|"Missing %s from the text: %s"
@@ -1070,30 +1078,6 @@ block|}
 block|}
 block|}
 block|}
-comment|// first try to resolve the key as it is
-name|String
-name|value
-init|=
-name|parseProperty
-argument_list|(
-name|key
-argument_list|,
-literal|null
-argument_list|,
-name|properties
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|value
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|value
-return|;
-block|}
 comment|// they key may have a get or else expression
 name|String
 name|defaultValue
@@ -1154,13 +1138,14 @@ argument_list|(
 name|augmentedKey
 argument_list|)
 decl_stmt|;
+name|String
 name|value
-operator|=
+init|=
 name|doGetPropertyValue
 argument_list|(
 name|augmentedKey
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|value
