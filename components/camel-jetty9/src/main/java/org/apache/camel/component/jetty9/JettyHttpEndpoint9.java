@@ -290,8 +290,16 @@ name|getHeaderFilterStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: this option may not work with jetty9 afair
-comment|//this.binding.setEagerCheckContentAvailable(isEagerCheckContentAvailable());
+name|this
+operator|.
+name|binding
+operator|.
+name|setEagerCheckContentAvailable
+argument_list|(
+name|isEagerCheckContentAvailable
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|binding
