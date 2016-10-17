@@ -500,7 +500,7 @@ name|class
 operator|.
 name|getDeclaredMethod
 argument_list|(
-literal|"getProperty"
+literal|"retrieveValue"
 argument_list|,
 name|String
 operator|.
@@ -529,7 +529,7 @@ literal|"Cannot add blueprint property placeholder: "
 operator|+
 name|id
 operator|+
-literal|" as the method getProperty is not accessible"
+literal|" as the method retrieveValue is not accessible"
 argument_list|,
 name|e
 argument_list|)
