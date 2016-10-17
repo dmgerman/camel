@@ -222,7 +222,7 @@ literal|"drill"
 argument_list|,
 name|title
 operator|=
-literal|"DRILL"
+literal|"Drill"
 argument_list|,
 name|syntax
 operator|=
