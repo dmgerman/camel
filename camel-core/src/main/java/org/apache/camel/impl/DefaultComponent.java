@@ -337,49 +337,13 @@ name|String
 name|uri
 parameter_list|)
 block|{
-comment|// Give components a chance to preprocess URIs and migrate to URI syntax that discourages invalid URIs
-comment|// (see CAMEL-4425)
-comment|// check URI string to the unsafe URI characters
-name|String
-name|encodedUri
-init|=
+return|return
 name|UnsafeUriCharactersEncoder
 operator|.
 name|encode
 argument_list|(
 name|uri
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|encodedUri
-operator|.
-name|equals
-argument_list|(
-name|uri
-argument_list|)
-condition|)
-block|{
-comment|// uri supplied is not really valid
-comment|// we just don't want to log the password setting here
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Supplied URI '{}' contains unsafe characters, please check encoding"
-argument_list|,
-name|URISupport
-operator|.
-name|sanitizeUri
-argument_list|(
-name|uri
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|encodedUri
 return|;
 block|}
 DECL|method|createEndpoint (String uri)
@@ -1524,7 +1488,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Resolves a reference list parameter in the registry and removes it from      * the map.      *       * @param parameters      *            parameter map.      * @param key      *            parameter map key.      * @param elementType      *            result list element type.      * @return the list of referenced objects or an empty list if the parameter      *         map doesn't contain the key.      * @throws IllegalArgumentException if any of the referenced objects was       *         not found in registry.      * @see EndpointHelper#resolveReferenceListParameter(CamelContext, String, Class)      */
+comment|/**      * Resolves a reference list parameter in the registry and removes it from      * the map.      *       * @param parameters parameter map.      * @param key parameter map key.      * @param elementType result list element type.      * @return the list of referenced objects or an empty list if the parameter      *         map doesn't contain the key.      * @throws IllegalArgumentException if any of the referenced objects was      *         not found in registry.      * @see EndpointHelper#resolveReferenceListParameter(CamelContext, String, Class)      */
 DECL|method|resolveAndRemoveReferenceListParameter (Map<String, Object> parameters, String key, Class<T> elementType)
 specifier|public
 parameter_list|<
@@ -1572,7 +1536,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves a reference list parameter in the registry and removes it from      * the map.      *       * @param parameters      *            parameter map.      * @param key      *            parameter map key.      * @param elementType      *            result list element type.      * @param defaultValue      *            default value to use if the parameter map doesn't      *            contain the key.      * @return the list of referenced objects or the default value.      * @throws IllegalArgumentException if any of the referenced objects was       *         not found in registry.      * @see EndpointHelper#resolveReferenceListParameter(CamelContext, String, Class)      */
+comment|/**      * Resolves a reference list parameter in the registry and removes it from      * the map.      *       * @param parameters parameter map.      * @param key parameter map key.      * @param elementType result list element type.      * @param defaultValue default value to use if the parameter map doesn't      *            contain the key.      * @return the list of referenced objects or the default value.      * @throws IllegalArgumentException if any of the referenced objects was       *         not found in registry.      * @see EndpointHelper#resolveReferenceListParameter(CamelContext, String, Class)      */
 DECL|method|resolveAndRemoveReferenceListParameter (Map<String, Object> parameters, String key, Class<T> elementType, List<T> defaultValue)
 specifier|public
 parameter_list|<

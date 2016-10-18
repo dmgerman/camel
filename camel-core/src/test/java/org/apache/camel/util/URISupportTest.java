@@ -1311,6 +1311,35 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSanitizeUriWithRawPassword ()
+specifier|public
+name|void
+name|testSanitizeUriWithRawPassword
+parameter_list|()
+block|{
+name|String
+name|uri
+init|=
+literal|"http://foo?username=me&password=RAW(me#@123)&foo=bar"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"http://foo?username=me&password=xxxxxx&foo=bar"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|uri
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testNormalizeEndpointUriWithUserInfoSpecialSign ()
 specifier|public
 name|void
