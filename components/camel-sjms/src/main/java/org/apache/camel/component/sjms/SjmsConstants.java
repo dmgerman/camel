@@ -30,6 +30,12 @@ name|JMS_MESSAGE_TYPE
 init|=
 literal|"JmsMessageType"
 decl_stmt|;
+DECL|field|JMS_SESSION
+name|String
+name|JMS_SESSION
+init|=
+literal|"CamelJMSSession"
+decl_stmt|;
 block|}
 end_interface
 

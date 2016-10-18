@@ -652,6 +652,24 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"transaction,advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|sharedJMSSession
+specifier|private
+name|boolean
+name|sharedJMSSession
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer"
 argument_list|)
 DECL|field|namedReplyTo
@@ -1999,6 +2017,33 @@ operator|.
 name|transacted
 operator|=
 name|transacted
+expr_stmt|;
+block|}
+DECL|method|isSharedJMSSession ()
+specifier|public
+name|boolean
+name|isSharedJMSSession
+parameter_list|()
+block|{
+return|return
+name|sharedJMSSession
+return|;
+block|}
+comment|/**      * Specifies whether to share JMS session with other SJMS endpoints.      * Turn this off if your route is accessing to multiple JMS providers.      * If you need transaction against multiple JMS providers, use jms      * component to leverage XA transaction.      */
+DECL|method|setSharedJMSSession (boolean share)
+specifier|public
+name|void
+name|setSharedJMSSession
+parameter_list|(
+name|boolean
+name|share
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sharedJMSSession
+operator|=
+name|share
 expr_stmt|;
 block|}
 DECL|method|getNamedReplyTo ()

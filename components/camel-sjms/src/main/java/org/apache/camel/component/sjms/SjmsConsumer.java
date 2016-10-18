@@ -1290,6 +1290,14 @@ argument_list|)
 expr_stmt|;
 name|messageHandler
 operator|.
+name|setSharedJMSSession
+argument_list|(
+name|isSharedJMSSession
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|messageHandler
+operator|.
 name|setTopic
 argument_list|(
 name|isTopic
@@ -1343,6 +1351,21 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|isTransacted
+argument_list|()
+return|;
+block|}
+comment|/**      * Use to determine if JMS session should be propagated to share with other SJMS endpoints.      *      * @return true if shared, otherwise false      */
+DECL|method|isSharedJMSSession ()
+specifier|public
+name|boolean
+name|isSharedJMSSession
+parameter_list|()
+block|{
+return|return
+name|getEndpoint
+argument_list|()
+operator|.
+name|isSharedJMSSession
 argument_list|()
 return|;
 block|}
