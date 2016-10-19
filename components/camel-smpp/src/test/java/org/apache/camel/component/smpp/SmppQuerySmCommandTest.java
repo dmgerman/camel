@@ -158,7 +158,7 @@ name|easymock
 operator|.
 name|EasyMock
 operator|.
-name|expect
+name|createMock
 import|;
 end_import
 
@@ -170,7 +170,7 @@ name|easymock
 operator|.
 name|EasyMock
 operator|.
-name|createMock
+name|expect
 import|;
 end_import
 

@@ -154,6 +154,18 @@ name|easymock
 operator|.
 name|EasyMock
 operator|.
+name|createMock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|easymock
+operator|.
+name|EasyMock
+operator|.
 name|eq
 import|;
 end_import
@@ -179,18 +191,6 @@ operator|.
 name|EasyMock
 operator|.
 name|isA
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|createMock
 import|;
 end_import
 
