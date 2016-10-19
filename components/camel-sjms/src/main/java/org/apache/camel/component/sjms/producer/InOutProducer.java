@@ -884,6 +884,20 @@ name|Exception
 block|{
 if|if
 condition|(
+name|isEndpointTransacted
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"InOut exchange pattern is incompatible with transacted=true as it cuases a deadlock. Please use transacted=false or InOnly exchange pattern."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|ObjectHelper
 operator|.
 name|isEmpty
