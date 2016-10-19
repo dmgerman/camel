@@ -1387,7 +1387,7 @@ return|return
 name|defaultFallbackEnabled
 return|;
 block|}
-comment|/**      * If true, the component does not attempt to find a default for the key by looking after the colon separator.      */
+comment|/**      * If false, the component does not attempt to find a default for the key by looking after the colon separator.      */
 DECL|method|setDefaultFallbackEnabled (boolean defaultFallbackEnabled)
 specifier|public
 name|void
