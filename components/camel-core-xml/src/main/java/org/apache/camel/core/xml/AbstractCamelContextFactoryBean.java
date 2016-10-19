@@ -4308,7 +4308,7 @@ if|if
 condition|(
 name|def
 operator|.
-name|getDisableDefaultValueResolution
+name|getDefaultFallbackEnabled
 argument_list|()
 operator|!=
 literal|null
@@ -4316,11 +4316,11 @@ condition|)
 block|{
 name|pc
 operator|.
-name|setDisableDefaultValueResolution
+name|setDefaultFallbackEnabled
 argument_list|(
 name|def
 operator|.
-name|getDisableDefaultValueResolution
+name|getDefaultFallbackEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;

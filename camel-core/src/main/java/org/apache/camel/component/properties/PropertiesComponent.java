@@ -414,10 +414,12 @@ name|fallbackToUnaugmentedProperty
 init|=
 literal|true
 decl_stmt|;
-DECL|field|disableDefaultValueResolution
+DECL|field|defaultFallbackEnabled
 specifier|private
 name|boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
+init|=
+literal|true
 decl_stmt|;
 DECL|field|prefixToken
 specifier|private
@@ -979,7 +981,7 @@ name|propertySuffixResolved
 argument_list|,
 name|fallbackToUnaugmentedProperty
 argument_list|,
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 argument_list|)
 return|;
 block|}
@@ -1375,31 +1377,31 @@ operator|=
 name|fallbackToUnaugmentedProperty
 expr_stmt|;
 block|}
-DECL|method|isDisableDefaultValueResolution ()
+DECL|method|isDefaultFallbackEnabled ()
 specifier|public
 name|boolean
-name|isDisableDefaultValueResolution
+name|isDefaultFallbackEnabled
 parameter_list|()
 block|{
 return|return
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 return|;
 block|}
 comment|/**      * If true, the component does not attempt to find a default for the key by looking after the colon separator.      */
-DECL|method|setDisableDefaultValueResolution (boolean disableDefaultValueResolution)
+DECL|method|setDefaultFallbackEnabled (boolean defaultFallbackEnabled)
 specifier|public
 name|void
-name|setDisableDefaultValueResolution
+name|setDefaultFallbackEnabled
 parameter_list|(
 name|boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 parameter_list|)
 block|{
 name|this
 operator|.
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 operator|=
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 expr_stmt|;
 block|}
 DECL|method|isIgnoreMissingLocation ()

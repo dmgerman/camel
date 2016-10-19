@@ -718,7 +718,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean disableDefaultValueResolution)
+DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean defaultFallbackEnabled)
 specifier|public
 name|String
 name|parseUri
@@ -745,7 +745,7 @@ name|boolean
 name|fallbackToUnaugmentedProperty
 parameter_list|,
 name|boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
@@ -786,7 +786,7 @@ name|propertySuffix
 argument_list|,
 name|fallbackToUnaugmentedProperty
 argument_list|,
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 argument_list|)
 expr_stmt|;
 block|}

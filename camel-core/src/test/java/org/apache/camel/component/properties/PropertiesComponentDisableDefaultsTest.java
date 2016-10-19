@@ -223,9 +223,9 @@ argument_list|()
 decl_stmt|;
 name|component
 operator|.
-name|setDisableDefaultValueResolution
+name|setDefaultFallbackEnabled
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|component

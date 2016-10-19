@@ -171,10 +171,10 @@ name|Boolean
 name|fallbackToUnaugmentedProperty
 decl_stmt|;
 comment|/**      * If true the component does not attempt to find a default for the key by      * looking after the colon separator.      */
-DECL|field|disableDefaultValueResolution
+DECL|field|defaultFallbackEnabled
 specifier|private
 name|Boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 decl_stmt|;
 comment|/**      * Whether to silently ignore if a location cannot be located such as a      * properties file not found.      */
 DECL|field|ignoreMissingLocation
@@ -448,30 +448,30 @@ operator|=
 name|fallbackToUnaugmentedProperty
 expr_stmt|;
 block|}
-DECL|method|getDisableDefaultValueResolution ()
+DECL|method|getDefaultFallbackEnabled ()
 specifier|public
 name|Boolean
-name|getDisableDefaultValueResolution
+name|getDefaultFallbackEnabled
 parameter_list|()
 block|{
 return|return
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 return|;
 block|}
-DECL|method|setDisableDefaultValueResolution ( Boolean disableDefaultValueResolution)
+DECL|method|setDefaultFallbackEnabled (Boolean defaultFallbackEnabled)
 specifier|public
 name|void
-name|setDisableDefaultValueResolution
+name|setDefaultFallbackEnabled
 parameter_list|(
 name|Boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 parameter_list|)
 block|{
 name|this
 operator|.
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 operator|=
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 expr_stmt|;
 block|}
 DECL|method|getIgnoreMissingLocation ()

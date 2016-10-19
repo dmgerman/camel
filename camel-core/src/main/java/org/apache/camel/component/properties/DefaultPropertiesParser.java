@@ -213,7 +213,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean disableDefaultValueResolution)
+DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean defaultFallbackEnabled)
 specifier|public
 name|String
 name|parseUri
@@ -240,7 +240,7 @@ name|boolean
 name|fallbackToUnaugmentedProperty
 parameter_list|,
 name|boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
@@ -263,7 +263,7 @@ name|propertySuffix
 argument_list|,
 name|fallbackToUnaugmentedProperty
 argument_list|,
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 argument_list|)
 decl_stmt|;
 return|return
@@ -337,13 +337,13 @@ specifier|final
 name|boolean
 name|fallbackToUnaugmentedProperty
 decl_stmt|;
-DECL|field|disableDefaultValueResolution
+DECL|field|defaultFallbackEnabled
 specifier|private
 specifier|final
 name|boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 decl_stmt|;
-DECL|method|ParsingContext (Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean disableDefaultValueResolution)
+DECL|method|ParsingContext (Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean defaultFallbackEnabled)
 name|ParsingContext
 parameter_list|(
 name|Properties
@@ -365,7 +365,7 @@ name|boolean
 name|fallbackToUnaugmentedProperty
 parameter_list|,
 name|boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 parameter_list|)
 block|{
 name|this
@@ -406,9 +406,9 @@ name|fallbackToUnaugmentedProperty
 expr_stmt|;
 name|this
 operator|.
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 operator|=
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 expr_stmt|;
 block|}
 comment|/**          * Parses the given input string and replaces all properties          *          * @param input Input string          * @return Evaluated string          */
@@ -1102,8 +1102,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 operator|&&
 name|key
 operator|.

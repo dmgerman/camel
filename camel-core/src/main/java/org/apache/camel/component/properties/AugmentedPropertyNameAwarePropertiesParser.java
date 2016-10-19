@@ -40,8 +40,8 @@ name|AugmentedPropertyNameAwarePropertiesParser
 extends|extends
 name|PropertiesParser
 block|{
-comment|/**      * Parses the string, applying the optional {@code propertyPrefix} and      * {@code propertySuffix} to the parsed property names, and replaces the      * property placeholders with values from the given properties.      *       * @param text the text to be parsed      * @param properties the properties resolved which values should be looked      *            up      * @param prefixToken the prefix token      * @param suffixToken the suffix token      * @param propertyPrefix the optional property name prefix to augment parsed      *            property names with      * @param propertySuffix the optional property name suffix to augment parsed      *            property names with      * @param fallbackToUnaugmentedProperty flag indicating if the originally      *            parsed property name should by used for resolution if there is      *            no match to the augmented property name      * @param disableDefaultValueResolution flag indicating if the value after colon      *                                      should be the default value to use it      *                                      the property has not been resolved      *                  * @return the parsed text with replaced placeholders      *      * @throws IllegalArgumentException if uri syntax is not valid or a property      *             is not found      */
-DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean disableDefaultValueResolution)
+comment|/**      * Parses the string, applying the optional {@code propertyPrefix} and      * {@code propertySuffix} to the parsed property names, and replaces the      * property placeholders with values from the given properties.      *       * @param text the text to be parsed      * @param properties the properties resolved which values should be looked      *            up      * @param prefixToken the prefix token      * @param suffixToken the suffix token      * @param propertyPrefix the optional property name prefix to augment parsed      *            property names with      * @param propertySuffix the optional property name suffix to augment parsed      *            property names with      * @param fallbackToUnaugmentedProperty flag indicating if the originally      *            parsed property name should by used for resolution if there is      *            no match to the augmented property name      * @param defaultFallbackEnabled flag indicating if the value after colon      *                               should be the default value to use it      *                               the property has not been resolved      *                  * @return the parsed text with replaced placeholders      *      * @throws IllegalArgumentException if uri syntax is not valid or a property      *             is not found      */
+DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean defaultFallbackEnabled)
 name|String
 name|parseUri
 parameter_list|(
@@ -67,7 +67,7 @@ name|boolean
 name|fallbackToUnaugmentedProperty
 parameter_list|,
 name|boolean
-name|disableDefaultValueResolution
+name|defaultFallbackEnabled
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
