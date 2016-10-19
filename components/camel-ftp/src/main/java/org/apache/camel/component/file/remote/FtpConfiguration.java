@@ -109,6 +109,18 @@ specifier|private
 name|String
 name|activePortRange
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|)
+DECL|field|chmod
+specifier|private
+name|String
+name|chmod
+decl_stmt|;
 DECL|method|FtpConfiguration ()
 specifier|public
 name|FtpConfiguration
@@ -201,6 +213,33 @@ name|activePortRange
 operator|=
 name|activePortRange
 expr_stmt|;
+block|}
+comment|/**      * Allows you to set chmod on the stored file. For example chmod=640.      */
+DECL|method|setChmod (String chmod)
+specifier|public
+name|void
+name|setChmod
+parameter_list|(
+name|String
+name|chmod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|chmod
+operator|=
+name|chmod
+expr_stmt|;
+block|}
+DECL|method|getChmod ()
+specifier|public
+name|String
+name|getChmod
+parameter_list|()
+block|{
+return|return
+name|chmod
+return|;
 block|}
 block|}
 end_class

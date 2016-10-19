@@ -3421,6 +3421,84 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// after storing file, we may set chmod on the file
+name|String
+name|chmod
+init|=
+operator|(
+operator|(
+name|FtpConfiguration
+operator|)
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|)
+operator|.
+name|getChmod
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|chmod
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Setting chmod: {} on file: {}"
+argument_list|,
+name|chmod
+argument_list|,
+name|targetName
+argument_list|)
+expr_stmt|;
+name|String
+name|command
+init|=
+literal|"chmod "
+operator|+
+name|chmod
+operator|+
+literal|" "
+operator|+
+name|targetName
+decl_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client sendSiteCommand: {}"
+argument_list|,
+name|command
+argument_list|)
+expr_stmt|;
+name|boolean
+name|success
+init|=
+name|client
+operator|.
+name|sendSiteCommand
+argument_list|(
+name|command
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client sendSiteCommand successful: {}"
+argument_list|,
+name|success
+argument_list|)
+expr_stmt|;
+block|}
 comment|// store client reply information after the operation
 name|exchange
 operator|.
