@@ -414,6 +414,11 @@ name|fallbackToUnaugmentedProperty
 init|=
 literal|true
 decl_stmt|;
+DECL|field|disableDefaultValueResolution
+specifier|private
+name|boolean
+name|disableDefaultValueResolution
+decl_stmt|;
 DECL|field|prefixToken
 specifier|private
 name|String
@@ -973,6 +978,8 @@ argument_list|,
 name|propertySuffixResolved
 argument_list|,
 name|fallbackToUnaugmentedProperty
+argument_list|,
+name|disableDefaultValueResolution
 argument_list|)
 return|;
 block|}
@@ -1366,6 +1373,33 @@ operator|.
 name|fallbackToUnaugmentedProperty
 operator|=
 name|fallbackToUnaugmentedProperty
+expr_stmt|;
+block|}
+DECL|method|isDisableDefaultValueResolution ()
+specifier|public
+name|boolean
+name|isDisableDefaultValueResolution
+parameter_list|()
+block|{
+return|return
+name|disableDefaultValueResolution
+return|;
+block|}
+comment|/**      * If true, the component does not attempt to find a default for the key by looking after the colon separator.      */
+DECL|method|setDisableDefaultValueResolution (boolean disableDefaultValueResolution)
+specifier|public
+name|void
+name|setDisableDefaultValueResolution
+parameter_list|(
+name|boolean
+name|disableDefaultValueResolution
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableDefaultValueResolution
+operator|=
+name|disableDefaultValueResolution
 expr_stmt|;
 block|}
 DECL|method|isIgnoreMissingLocation ()

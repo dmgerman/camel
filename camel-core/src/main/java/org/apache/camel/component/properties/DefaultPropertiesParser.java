@@ -49,18 +49,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -218,10 +206,14 @@ argument_list|,
 literal|null
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
-DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty)
+annotation|@
+name|Override
+DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean disableDefaultValueResolution)
 specifier|public
 name|String
 name|parseUri
@@ -246,6 +238,9 @@ name|propertySuffix
 parameter_list|,
 name|boolean
 name|fallbackToUnaugmentedProperty
+parameter_list|,
+name|boolean
+name|disableDefaultValueResolution
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
@@ -267,6 +262,8 @@ argument_list|,
 name|propertySuffix
 argument_list|,
 name|fallbackToUnaugmentedProperty
+argument_list|,
+name|disableDefaultValueResolution
 argument_list|)
 decl_stmt|;
 return|return
@@ -340,7 +337,13 @@ specifier|final
 name|boolean
 name|fallbackToUnaugmentedProperty
 decl_stmt|;
-DECL|method|ParsingContext (Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty)
+DECL|field|disableDefaultValueResolution
+specifier|private
+specifier|final
+name|boolean
+name|disableDefaultValueResolution
+decl_stmt|;
+DECL|method|ParsingContext (Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty, boolean disableDefaultValueResolution)
 name|ParsingContext
 parameter_list|(
 name|Properties
@@ -360,6 +363,9 @@ name|propertySuffix
 parameter_list|,
 name|boolean
 name|fallbackToUnaugmentedProperty
+parameter_list|,
+name|boolean
+name|disableDefaultValueResolution
 parameter_list|)
 block|{
 name|this
@@ -397,6 +403,12 @@ operator|.
 name|fallbackToUnaugmentedProperty
 operator|=
 name|fallbackToUnaugmentedProperty
+expr_stmt|;
+name|this
+operator|.
+name|disableDefaultValueResolution
+operator|=
+name|disableDefaultValueResolution
 expr_stmt|;
 block|}
 comment|/**          * Parses the given input string and replaces all properties          *          * @param input Input string          * @return Evaluated string          */
@@ -625,6 +637,8 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
+name|String
+operator|.
 name|format
 argument_list|(
 literal|"Missing %s from the text: %s"
@@ -663,6 +677,8 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
+name|String
+operator|.
 name|format
 argument_list|(
 literal|"Missing %s from the text: %s"
@@ -1086,6 +1102,9 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|disableDefaultValueResolution
+operator|&&
 name|key
 operator|.
 name|contains
