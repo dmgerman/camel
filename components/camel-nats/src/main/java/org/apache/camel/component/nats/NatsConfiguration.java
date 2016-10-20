@@ -84,6 +84,22 @@ name|UriPath
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriParams
@@ -277,6 +293,46 @@ name|int
 name|poolSize
 init|=
 literal|10
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|secure
+specifier|private
+name|boolean
+name|secure
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|tlsDebug
+specifier|private
+name|boolean
+name|tlsDebug
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|description
+operator|=
+literal|"SSL configuration"
+argument_list|)
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 comment|/**      * URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.      */
 DECL|method|getServers ()
@@ -654,6 +710,87 @@ operator|.
 name|poolSize
 operator|=
 name|poolSize
+expr_stmt|;
+block|}
+comment|/**      * set set secure option indicating TLS is required      */
+DECL|method|isSecure ()
+specifier|public
+name|boolean
+name|isSecure
+parameter_list|()
+block|{
+return|return
+name|secure
+return|;
+block|}
+DECL|method|setSecure (boolean secure)
+specifier|public
+name|void
+name|setSecure
+parameter_list|(
+name|boolean
+name|secure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secure
+operator|=
+name|secure
+expr_stmt|;
+block|}
+comment|/**      * TLS Debug, it will add additional console output      */
+DECL|method|isTlsDebug ()
+specifier|public
+name|boolean
+name|isTlsDebug
+parameter_list|()
+block|{
+return|return
+name|tlsDebug
+return|;
+block|}
+DECL|method|setTlsDebug (boolean tlsDebug)
+specifier|public
+name|void
+name|setTlsDebug
+parameter_list|(
+name|boolean
+name|tlsDebug
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tlsDebug
+operator|=
+name|tlsDebug
+expr_stmt|;
+block|}
+comment|/**      * To configure security using SSLContextParameters      */
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|addPropertyIfNotNull (Properties props, String key, T value)
