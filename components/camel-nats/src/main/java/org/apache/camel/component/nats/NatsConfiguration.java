@@ -712,7 +712,7 @@ operator|=
 name|poolSize
 expr_stmt|;
 block|}
-comment|/**      * set set secure option indicating TLS is required      */
+comment|/**      * Set secure option indicating TLS is required      */
 DECL|method|isSecure ()
 specifier|public
 name|boolean
