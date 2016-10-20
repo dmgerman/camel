@@ -454,7 +454,7 @@ return|return
 name|userName
 return|;
 block|}
-comment|/**      * ServiceNow user account name, MUST be provided      */
+comment|/**      * ServiceNow user account name      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -481,7 +481,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * ServiceNow account password, MUST be provided      */
+comment|/**      * ServiceNow account password      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
