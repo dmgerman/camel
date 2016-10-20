@@ -59,13 +59,13 @@ specifier|private
 name|String
 name|apiUrl
 decl_stmt|;
-comment|/**      * ServiceNow user account name MUST be provided      */
+comment|/**      * ServiceNow user account name      */
 DECL|field|userName
 specifier|private
 name|String
 name|userName
 decl_stmt|;
-comment|/**      * ServiceNow account password MUST be provided      */
+comment|/**      * ServiceNow account password      */
 DECL|field|password
 specifier|private
 name|String
