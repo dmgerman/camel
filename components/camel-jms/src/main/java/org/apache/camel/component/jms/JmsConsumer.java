@@ -911,6 +911,16 @@ name|startListenerContainer
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"The listenerContainer is not instantiated. Probably there was a timeout during the Suspend operation. Please restart your consumer route."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getDestinationName ()
