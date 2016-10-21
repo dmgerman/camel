@@ -138,26 +138,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: fails for some odd reason with java.lang.ClassNotFoundException: org.apache.camel.loanbroker.queue.version.LoanBrokerRoute"
-argument_list|)
 DECL|class|LoanBrokerQueueTest
 specifier|public
 class|class

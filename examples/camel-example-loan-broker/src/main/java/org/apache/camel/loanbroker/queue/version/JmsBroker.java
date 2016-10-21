@@ -269,7 +269,14 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"./target"
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"broker.tmp.datadir"
+argument_list|,
+literal|"./target/broker-tmp"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
