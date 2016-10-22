@@ -714,6 +714,10 @@ name|messageListener
 operator|=
 literal|null
 expr_stmt|;
+name|initialized
+operator|=
+literal|false
+expr_stmt|;
 comment|// shutdown thread pool if listener container was using a private thread pool
 if|if
 condition|(
