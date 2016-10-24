@@ -28,11 +28,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|builder
 operator|.
-name|boot
-operator|.
-name|FatJarRouter
+name|RouteBuilder
 import|;
 end_import
 
@@ -74,11 +72,11 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|boot
+name|context
 operator|.
-name|autoconfigure
+name|annotation
 operator|.
-name|SpringBootApplication
+name|Bean
 import|;
 end_import
 
@@ -88,23 +86,21 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|context
+name|stereotype
 operator|.
-name|annotation
-operator|.
-name|Bean
+name|Component
 import|;
 end_import
 
 begin_class
 annotation|@
-name|SpringBootApplication
+name|Component
 DECL|class|MySpringBootRouter
 specifier|public
 class|class
 name|MySpringBootRouter
 extends|extends
-name|FatJarRouter
+name|RouteBuilder
 block|{
 annotation|@
 name|Autowired
