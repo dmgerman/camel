@@ -432,6 +432,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|routeDefinitionValid
+specifier|protected
+specifier|final
+name|AtomicBoolean
+name|routeDefinitionValid
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|true
+argument_list|)
+decl_stmt|;
 DECL|field|bundleContext
 specifier|private
 name|BundleContext
@@ -449,18 +461,6 @@ argument_list|<
 name|?
 argument_list|>
 name|registration
-decl_stmt|;
-DECL|field|routeDefinitionValid
-specifier|protected
-specifier|final
-name|AtomicBoolean
-name|routeDefinitionValid
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|true
-argument_list|)
 decl_stmt|;
 DECL|method|BlueprintCamelContext ()
 specifier|public
