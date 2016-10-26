@@ -553,6 +553,36 @@ argument_list|)
 expr_stmt|;
 comment|// The other form date can be get from the message
 comment|// header
+comment|// For binary attachment, header should also be populated by DataHandler but not payload
+name|Object
+name|header
+init|=
+name|in
+operator|.
+name|getHeader
+argument_list|(
+literal|"NOTICE.txt"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|DataHandler
+operator|.
+name|class
+argument_list|,
+name|header
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|data
+argument_list|,
+name|header
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getOut
