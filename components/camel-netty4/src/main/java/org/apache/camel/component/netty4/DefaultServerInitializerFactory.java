@@ -1017,7 +1017,13 @@ name|engine
 operator|.
 name|setUseClientMode
 argument_list|(
-literal|false
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isClientMode
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|engine
