@@ -6229,6 +6229,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|RouteDefinition
+name|toBeRemoved
+init|=
+name|routeDefinition
+decl_stmt|;
 name|String
 name|id
 init|=
@@ -6255,6 +6260,13 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+name|toBeRemoved
+operator|=
+name|getRouteDefinition
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
 block|}
 name|this
 operator|.
@@ -6262,7 +6274,7 @@ name|routeDefinitions
 operator|.
 name|remove
 argument_list|(
-name|routeDefinition
+name|toBeRemoved
 argument_list|)
 expr_stmt|;
 block|}
