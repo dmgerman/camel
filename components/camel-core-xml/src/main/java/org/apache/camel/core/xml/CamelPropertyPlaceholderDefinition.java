@@ -161,11 +161,6 @@ name|IdentifiedType
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
 DECL|field|location
 specifier|private
 name|String
@@ -304,6 +299,21 @@ argument_list|<
 name|CamelPropertyPlaceholderFunctionDefinition
 argument_list|>
 name|functions
+decl_stmt|;
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"propertiesLocation"
+argument_list|)
+DECL|field|locations
+specifier|private
+name|List
+argument_list|<
+name|CamelPropertyPlaceholderLocationDefinition
+argument_list|>
+name|locations
 decl_stmt|;
 DECL|method|getLocation ()
 specifier|public
@@ -660,6 +670,39 @@ operator|.
 name|functions
 operator|=
 name|functions
+expr_stmt|;
+block|}
+DECL|method|getLocations ()
+specifier|public
+name|List
+argument_list|<
+name|CamelPropertyPlaceholderLocationDefinition
+argument_list|>
+name|getLocations
+parameter_list|()
+block|{
+return|return
+name|locations
+return|;
+block|}
+comment|/**      * List of property locations to use.      */
+DECL|method|setLocations (List<CamelPropertyPlaceholderLocationDefinition> locations)
+specifier|public
+name|void
+name|setLocations
+parameter_list|(
+name|List
+argument_list|<
+name|CamelPropertyPlaceholderLocationDefinition
+argument_list|>
+name|locations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locations
+operator|=
+name|locations
 expr_stmt|;
 block|}
 block|}

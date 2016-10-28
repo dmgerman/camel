@@ -54,6 +54,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -1025,7 +1035,7 @@ return|return
 name|locations
 return|;
 block|}
-comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
+comment|/**      * A list of locations to load properties.      * This option will override any default locations and only use the locations from this option.      */
 DECL|method|setLocations (String[] locations)
 specifier|public
 name|void
@@ -1094,6 +1104,51 @@ name|locations
 operator|=
 name|locations
 expr_stmt|;
+block|}
+comment|/**      * A list of locations to load properties.      * This option will override any default locations and only use the locations from this option.      */
+DECL|method|setLocations (Collection<String> locations)
+specifier|public
+name|void
+name|setLocations
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|locations
+parameter_list|)
+block|{
+if|if
+condition|(
+name|locations
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|locations
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|setLocations
+argument_list|(
+name|locations
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|String
+index|[
+name|locations
+operator|.
+name|size
+argument_list|()
+index|]
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
 DECL|method|setLocation (String location)

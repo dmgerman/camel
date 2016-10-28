@@ -220,21 +220,15 @@ condition|)
 block|{
 comment|// auto lookup blueprint property placeholders to use if none explicit was configured
 comment|// this is convention over configuration
-name|String
-index|[]
-name|ids
-init|=
-name|blueprint
-operator|.
-name|lookupPropertyPlaceholderIds
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|String
 name|id
 range|:
-name|ids
+name|blueprint
+operator|.
+name|lookupPropertyPlaceholderIds
+argument_list|()
 control|)
 block|{
 name|blueprint

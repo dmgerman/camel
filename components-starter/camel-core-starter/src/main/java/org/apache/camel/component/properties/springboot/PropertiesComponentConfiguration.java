@@ -111,7 +111,7 @@ specifier|public
 class|class
 name|PropertiesComponentConfiguration
 block|{
-comment|/**      * A list of locations to load properties. You can use comma to separate      * multiple locations. This option will override any default locations and      * only use the locations from this option.      */
+comment|/**      * A list of locations to load properties. This option will override any      * default locations and only use the locations from this option.      */
 DECL|field|locations
 specifier|private
 name|String
