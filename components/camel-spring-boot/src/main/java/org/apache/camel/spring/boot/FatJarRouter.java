@@ -57,6 +57,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|FatJarRouter
 specifier|public
 class|class
