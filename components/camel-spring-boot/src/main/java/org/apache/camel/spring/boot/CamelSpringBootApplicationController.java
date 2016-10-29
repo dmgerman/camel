@@ -258,6 +258,11 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// should use the latch on this instance
+name|CamelSpringBootApplicationController
+operator|.
+name|this
+operator|.
 name|latch
 operator|.
 name|countDown
