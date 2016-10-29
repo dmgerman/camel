@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -27,22 +27,6 @@ operator|.
 name|camel
 operator|.
 name|ManagementStatisticsLevel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedAttribute
 import|;
 end_import
 
@@ -141,6 +125,12 @@ DECL|field|mainRunController
 specifier|private
 name|boolean
 name|mainRunController
+decl_stmt|;
+comment|/**      * Whether to include non-singleton beans (prototypes) when scanning for RouteBuilder instances.      * By default only singleton beans is included in the context scan.      */
+DECL|field|includeNonSingletons
+specifier|private
+name|boolean
+name|includeNonSingletons
 decl_stmt|;
 comment|/**      * Is used to limit the maximum length of the logging Camel message bodies. If the message body      * is longer than the limit, the log message is clipped. Use a value of 0 or negative to have unlimited length.      * Use for example 1000 to log at at most 1000 chars.      */
 DECL|field|logDebugMaxChars
@@ -1567,6 +1557,32 @@ operator|.
 name|tracerFormatterMaxChars
 operator|=
 name|tracerFormatterMaxChars
+expr_stmt|;
+block|}
+DECL|method|isIncludeNonSingletons ()
+specifier|public
+name|boolean
+name|isIncludeNonSingletons
+parameter_list|()
+block|{
+return|return
+name|includeNonSingletons
+return|;
+block|}
+DECL|method|setIncludeNonSingletons (boolean includeNonSingletons)
+specifier|public
+name|void
+name|setIncludeNonSingletons
+parameter_list|(
+name|boolean
+name|includeNonSingletons
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeNonSingletons
+operator|=
+name|includeNonSingletons
 expr_stmt|;
 block|}
 block|}

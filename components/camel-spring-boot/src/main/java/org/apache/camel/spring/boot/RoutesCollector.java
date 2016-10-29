@@ -398,6 +398,13 @@ argument_list|(
 name|RoutesBuilder
 operator|.
 name|class
+argument_list|,
+name|configurationProperties
+operator|.
+name|isIncludeNonSingletons
+argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|values
