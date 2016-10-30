@@ -2289,15 +2289,10 @@ argument_list|()
 decl_stmt|;
 name|msg
 operator|.
-name|copyFrom
+name|copyFromWithNewBody
 argument_list|(
 name|old
-argument_list|)
-expr_stmt|;
-name|msg
-operator|.
-name|setBody
-argument_list|(
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;

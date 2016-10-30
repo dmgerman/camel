@@ -317,15 +317,10 @@ argument_list|()
 decl_stmt|;
 name|out
 operator|.
-name|copyFrom
+name|copyFromWithNewBody
 argument_list|(
 name|in
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|setBody
-argument_list|(
+argument_list|,
 name|list
 argument_list|)
 expr_stmt|;

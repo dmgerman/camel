@@ -303,13 +303,25 @@ name|Message
 name|copy
 parameter_list|()
 function_decl|;
-comment|/**      * Copies the contents of the other message into this message      *      * @param message the other message      */
+comment|/**      * Copies the contents of the other message into this message      *<p/>      * If you need to do a copy and then set a new body,      * then use {@link #copyFromWithNewBody(Message, Object)} method instead.      *      * @param message the other message      * @see #copyFromWithNewBody(Message, Object)      */
 DECL|method|copyFrom (Message message)
 name|void
 name|copyFrom
 parameter_list|(
 name|Message
 name|message
+parameter_list|)
+function_decl|;
+comment|/**      * Copies the contents (except the body) of the other message into this message and uses the provided new body instead      *      * @param message the other message      * @param newBody the new body to use      */
+DECL|method|copyFromWithNewBody (Message message, Object newBody)
+name|void
+name|copyFromWithNewBody
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|Object
+name|newBody
 parameter_list|)
 function_decl|;
 comment|/**      * Copies the attachments of the other message into this message      *      * @param message the other message      */

@@ -567,6 +567,39 @@ block|{
 comment|// the same instance so do not need to copy
 return|return;
 block|}
+name|copyFromWithNewBody
+argument_list|(
+name|that
+argument_list|,
+name|that
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|copyFromWithNewBody (Message that, Object newBody)
+specifier|public
+name|void
+name|copyFromWithNewBody
+parameter_list|(
+name|Message
+name|that
+parameter_list|,
+name|Object
+name|newBody
+parameter_list|)
+block|{
+if|if
+condition|(
+name|that
+operator|==
+name|this
+condition|)
+block|{
+comment|// the same instance so do not need to copy
+return|return;
+block|}
 name|setMessageId
 argument_list|(
 name|that
@@ -577,10 +610,7 @@ argument_list|)
 expr_stmt|;
 name|setBody
 argument_list|(
-name|that
-operator|.
-name|getBody
-argument_list|()
+name|newBody
 argument_list|)
 expr_stmt|;
 name|setFault
