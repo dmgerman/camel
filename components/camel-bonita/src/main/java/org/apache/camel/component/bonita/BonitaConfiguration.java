@@ -200,7 +200,7 @@ return|return
 name|hostname
 return|;
 block|}
-comment|/**       * Hostname where Bonita engine runs      */
+comment|/**      * Hostname where Bonita engine runs      */
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -227,7 +227,7 @@ return|return
 name|port
 return|;
 block|}
-comment|/** 	 * Port of the server hosting Bonita engine 	 */
+comment|/**      * Port of the server hosting Bonita engine      */
 DECL|method|setPort (String port)
 specifier|public
 name|void
@@ -254,7 +254,7 @@ return|return
 name|processName
 return|;
 block|}
-comment|/** 	 * Name of the process involved in the operation 	 */
+comment|/**      * Name of the process involved in the operation      */
 DECL|method|setProcessName (String processName)
 specifier|public
 name|void
@@ -323,6 +323,7 @@ argument_list|)
 operator|!=
 literal|null
 condition|)
+block|{
 name|this
 operator|.
 name|hostname
@@ -337,6 +338,7 @@ argument_list|(
 literal|"hostname"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|parameters
@@ -348,6 +350,7 @@ argument_list|)
 operator|!=
 literal|null
 condition|)
+block|{
 name|this
 operator|.
 name|port
@@ -362,6 +365,7 @@ argument_list|(
 literal|"port"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|parameters
@@ -373,6 +377,7 @@ argument_list|)
 operator|!=
 literal|null
 condition|)
+block|{
 name|this
 operator|.
 name|processName
@@ -387,6 +392,7 @@ argument_list|(
 literal|"processName"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getUsername ()
 specifier|public

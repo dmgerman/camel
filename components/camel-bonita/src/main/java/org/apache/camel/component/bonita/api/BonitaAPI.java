@@ -21,48 +21,12 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|client
-operator|.
-name|Entity
-operator|.
-name|entity
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
 name|io
 operator|.
 name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
 import|;
 end_import
 
@@ -83,30 +47,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-operator|.
-name|Entry
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|HttpsURLConnection
 import|;
 end_import
 
@@ -153,22 +93,18 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
+import|import static
+name|javax
 operator|.
-name|apache
+name|ws
 operator|.
-name|camel
+name|rs
 operator|.
-name|component
+name|client
 operator|.
-name|bonita
+name|Entity
 operator|.
-name|api
-operator|.
-name|model
-operator|.
-name|CaseCreationResponse
+name|entity
 import|;
 end_import
 
@@ -188,7 +124,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|FileInput
+name|CaseCreationResponse
 import|;
 end_import
 
@@ -393,7 +329,7 @@ name|ProcessDefinitionResponse
 argument_list|>
 argument_list|>
 argument_list|()
-block|{ 				}
+block|{                         }
 argument_list|)
 decl_stmt|;
 if|if

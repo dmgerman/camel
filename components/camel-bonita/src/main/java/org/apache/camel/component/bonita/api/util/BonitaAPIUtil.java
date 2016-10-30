@@ -23,22 +23,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|client
-operator|.
-name|Entity
-operator|.
-name|entity
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -191,6 +175,38 @@ operator|.
 name|core
 operator|.
 name|MediaType
+import|;
+end_import
+
+begin_import
+import|import static
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|client
+operator|.
+name|Entity
+operator|.
+name|entity
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|jaxrs
+operator|.
+name|json
+operator|.
+name|JacksonJsonProvider
 import|;
 end_import
 
@@ -385,22 +401,6 @@ operator|.
 name|file
 operator|.
 name|FileDataBodyPart
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|jaxrs
-operator|.
-name|json
-operator|.
-name|JacksonJsonProvider
 import|;
 end_import
 
@@ -673,7 +673,7 @@ argument_list|(
 name|filePart
 argument_list|)
 decl_stmt|;
-comment|//			resource.request().header("ContentType", "application/json");
+comment|// resource.request().header("ContentType", "application/json");
 return|return
 name|resource
 operator|.
@@ -720,7 +720,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|prepareInputs (ProcessDefinitionResponse processDefinition, Map<String,Serializable> inputs)
+DECL|method|prepareInputs (ProcessDefinitionResponse processDefinition, Map<String, Serializable> inputs)
 specifier|public
 name|Map
 argument_list|<

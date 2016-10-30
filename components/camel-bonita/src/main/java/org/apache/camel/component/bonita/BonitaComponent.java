@@ -156,7 +156,7 @@ operator|new
 name|BonitaConfiguration
 argument_list|()
 decl_stmt|;
-comment|//        configuration.setParameters(parameters);
+comment|// configuration.setParameters(parameters);
 name|setProperties
 argument_list|(
 name|configuration

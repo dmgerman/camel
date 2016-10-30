@@ -64,6 +64,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|jaxrs
+operator|.
+name|json
+operator|.
+name|JacksonJsonProvider
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -116,28 +132,17 @@ name|ClientConfig
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|jaxrs
-operator|.
-name|json
-operator|.
-name|JacksonJsonProvider
-import|;
-end_import
-
 begin_class
 DECL|class|BonitaAPIBuilder
 specifier|public
 class|class
 name|BonitaAPIBuilder
 block|{
+DECL|method|BonitaAPIBuilder ()
+specifier|protected
+name|BonitaAPIBuilder
+parameter_list|()
+block|{      }
 DECL|method|build (BonitaAPIConfig bonitaAPIConfig)
 specifier|public
 specifier|static
