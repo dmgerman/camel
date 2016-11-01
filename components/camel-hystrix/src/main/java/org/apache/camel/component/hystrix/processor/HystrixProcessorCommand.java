@@ -198,39 +198,13 @@ name|Message
 name|getFallback
 parameter_list|()
 block|{
-comment|// only run fallback if there was an exception
-name|Exception
+comment|// grab the exception that caused the error (can be failure in run, or from hystrix if short circuited)
+name|Throwable
 name|exception
 init|=
-name|exchange
-operator|.
-name|getException
+name|getExecutionException
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|exception
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|exchange
-operator|.
-name|hasOut
-argument_list|()
-condition|?
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-else|:
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-return|;
-block|}
 if|if
 condition|(
 name|fallback
@@ -238,6 +212,13 @@ operator|!=
 literal|null
 operator|||
 name|fallbackCommand
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|exception
 operator|!=
 literal|null
 condition|)
@@ -262,6 +243,17 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error occurred processing. Will now run fallback."
+argument_list|)
+expr_stmt|;
+block|}
 comment|// store the last to endpoint as the failure endpoint
 if|if
 condition|(
