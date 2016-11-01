@@ -66,24 +66,6 @@ name|component
 operator|.
 name|bonita
 operator|.
-name|consumer
-operator|.
-name|BonitaConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|bonita
-operator|.
 name|exception
 operator|.
 name|BonitaException
@@ -188,10 +170,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents a bonita endpoint.  */
-end_comment
-
 begin_class
 annotation|@
 name|UriEndpoint
@@ -208,11 +186,9 @@ name|syntax
 operator|=
 literal|"bonita:operation"
 argument_list|,
-name|consumerClass
+name|consumerOnly
 operator|=
-name|BonitaConsumer
-operator|.
-name|class
+literal|true
 argument_list|,
 name|label
 operator|=
@@ -348,15 +324,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+throw|throw
 operator|new
-name|BonitaConsumer
+name|UnsupportedOperationException
 argument_list|(
-name|this
-argument_list|,
-name|processor
+literal|"Consumer not supported"
 argument_list|)
-return|;
+throw|;
 block|}
 DECL|method|isSingleton ()
 specifier|public

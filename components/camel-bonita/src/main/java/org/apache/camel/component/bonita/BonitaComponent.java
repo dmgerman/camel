@@ -84,10 +84,6 @@ name|UriEndpointComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link BonitaEndpoint}.  */
-end_comment
-
 begin_class
 DECL|class|BonitaComponent
 specifier|public
@@ -156,7 +152,6 @@ operator|new
 name|BonitaConfiguration
 argument_list|()
 decl_stmt|;
-comment|// configuration.setParameters(parameters);
 name|setProperties
 argument_list|(
 name|configuration
@@ -164,21 +159,49 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+name|BonitaOperation
+name|op
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|tryConvertTo
+argument_list|(
+name|BonitaOperation
+operator|.
+name|class
+argument_list|,
+name|remaining
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|op
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid operation "
+operator|+
+name|remaining
+argument_list|)
+throw|;
+block|}
 name|configuration
 operator|.
 name|setOperation
 argument_list|(
-name|BonitaOperation
-operator|.
-name|valueOf
-argument_list|(
-name|remaining
-argument_list|)
+name|op
 argument_list|)
 expr_stmt|;
-name|Endpoint
-name|endpoint
-init|=
+return|return
 operator|new
 name|BonitaEndpoint
 argument_list|(
@@ -188,9 +211,6 @@ name|this
 argument_list|,
 name|configuration
 argument_list|)
-decl_stmt|;
-return|return
-name|endpoint
 return|;
 block|}
 block|}
