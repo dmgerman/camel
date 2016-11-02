@@ -454,10 +454,6 @@ argument_list|,
 name|EventType
 operator|.
 name|EVT_CACHE_OBJECT_EXPIRED
-argument_list|,
-name|EventType
-operator|.
-name|EVT_CACHE_OBJECT_READ
 argument_list|)
 operator|.
 name|inOrder
