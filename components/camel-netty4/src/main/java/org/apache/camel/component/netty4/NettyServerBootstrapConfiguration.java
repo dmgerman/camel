@@ -299,7 +299,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer,advanced"
+literal|"advanced"
 argument_list|)
 DECL|field|workerCount
 specifier|protected
@@ -619,7 +619,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer,advanced"
+literal|"advanced"
 argument_list|)
 DECL|field|workerGroup
 specifier|protected
@@ -1612,7 +1612,7 @@ return|return
 name|workerGroup
 return|;
 block|}
-comment|/**      * To use a explicit EventLoopGroup as the boss thread pool.      * For example to share a thread pool with multiple consumers. By default each consumer has their own boss pool with 1 core thread.      */
+comment|/**      * To use a explicit EventLoopGroup as the boss thread pool.      * For example to share a thread pool with multiple consumers or producers. By default each consumer or producer has their own worker pool with 2 x cpu count core threads.      */
 DECL|method|setWorkerGroup (EventLoopGroup workerGroup)
 specifier|public
 name|void
