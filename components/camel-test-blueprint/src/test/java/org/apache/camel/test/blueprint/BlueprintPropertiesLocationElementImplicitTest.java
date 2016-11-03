@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -47,6 +57,22 @@ operator|.
 name|properties
 operator|.
 name|PropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|PropertiesLocation
 import|;
 end_import
 
@@ -146,8 +172,10 @@ argument_list|,
 name|pc
 argument_list|)
 expr_stmt|;
-name|String
-index|[]
+name|List
+argument_list|<
+name|PropertiesLocation
+argument_list|>
 name|locations
 init|=
 name|pc
@@ -168,7 +196,8 @@ literal|2
 argument_list|,
 name|locations
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|template

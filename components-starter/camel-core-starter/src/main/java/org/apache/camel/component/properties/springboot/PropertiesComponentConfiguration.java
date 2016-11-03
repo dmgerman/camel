@@ -26,7 +26,33 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Properties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|PropertiesLocation
 import|;
 end_import
 
@@ -114,8 +140,10 @@ block|{
 comment|/**      * A list of locations to load properties. This option will override any      * default locations and only use the locations from this option.      */
 DECL|field|locations
 specifier|private
-name|String
-index|[]
+name|List
+argument_list|<
+name|PropertiesLocation
+argument_list|>
 name|locations
 decl_stmt|;
 comment|/**      * A list of locations to load properties. You can use comma to separate      * multiple locations. This option will override any default locations and      * only use the locations from this option.      */
@@ -214,8 +242,10 @@ name|systemPropertiesMode
 decl_stmt|;
 DECL|method|getLocations ()
 specifier|public
-name|String
-index|[]
+name|List
+argument_list|<
+name|PropertiesLocation
+argument_list|>
 name|getLocations
 parameter_list|()
 block|{
@@ -223,13 +253,15 @@ return|return
 name|locations
 return|;
 block|}
-DECL|method|setLocations (String[] locations)
+DECL|method|setLocations (List<PropertiesLocation> locations)
 specifier|public
 name|void
 name|setLocations
 parameter_list|(
-name|String
-index|[]
+name|List
+argument_list|<
+name|PropertiesLocation
+argument_list|>
 name|locations
 parameter_list|)
 block|{

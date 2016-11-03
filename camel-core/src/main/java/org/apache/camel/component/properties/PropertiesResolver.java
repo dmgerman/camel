@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Properties
 import|;
 end_import
@@ -50,8 +60,8 @@ specifier|public
 interface|interface
 name|PropertiesResolver
 block|{
-comment|/**      * Resolve properties from the given uri      *      * @param context the camel context      * @param ignoreMissingLocation ignore silently if the property file is missing      * @param uri uri(s) defining the source(s)      * @return the properties      * @throws Exception is thrown if resolving the properties failed      */
-DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... uri)
+comment|/**      * Resolve properties from the given uri      *      * @param context the camel context      * @param ignoreMissingLocation ignore silently if the property file is missing      * @param locations location(s) defining the source(s)      * @return the properties      * @throws Exception is thrown if resolving the properties failed      */
+DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, List<PropertiesLocation> locations)
 name|Properties
 name|resolveProperties
 parameter_list|(
@@ -61,9 +71,11 @@ parameter_list|,
 name|boolean
 name|ignoreMissingLocation
 parameter_list|,
-name|String
-modifier|...
-name|uri
+name|List
+argument_list|<
+name|PropertiesLocation
+argument_list|>
+name|locations
 parameter_list|)
 throws|throws
 name|Exception

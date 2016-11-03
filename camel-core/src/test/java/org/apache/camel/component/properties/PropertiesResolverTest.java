@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Properties
 import|;
 end_import
@@ -228,7 +238,7 @@ name|MyCustomResolver
 implements|implements
 name|PropertiesResolver
 block|{
-DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... uri)
+DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, List<PropertiesLocation> locations)
 specifier|public
 name|Properties
 name|resolveProperties
@@ -239,9 +249,11 @@ parameter_list|,
 name|boolean
 name|ignoreMissingLocation
 parameter_list|,
-name|String
-modifier|...
-name|uri
+name|List
+argument_list|<
+name|PropertiesLocation
+argument_list|>
+name|locations
 parameter_list|)
 throws|throws
 name|Exception

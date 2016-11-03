@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Properties
 import|;
 end_import
@@ -227,7 +237,7 @@ name|BridgePropertyPlaceholderConfigurer
 block|{
 annotation|@
 name|Override
-DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... uri)
+DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, List<PropertiesLocation> locations)
 specifier|public
 name|Properties
 name|resolveProperties
@@ -238,9 +248,11 @@ parameter_list|,
 name|boolean
 name|ignoreMissingLocation
 parameter_list|,
-name|String
-modifier|...
-name|uri
+name|List
+argument_list|<
+name|PropertiesLocation
+argument_list|>
+name|locations
 parameter_list|)
 throws|throws
 name|Exception
@@ -256,7 +268,7 @@ name|context
 argument_list|,
 name|ignoreMissingLocation
 argument_list|,
-name|uri
+name|locations
 argument_list|)
 decl_stmt|;
 comment|// define the additional properties we need to provide so that the uri "direct:{{foo}}" by the "from" clause
