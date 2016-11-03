@@ -216,6 +216,22 @@ specifier|private
 name|String
 name|ciphers
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
+DECL|field|preferredAuthentications
+specifier|private
+name|String
+name|preferredAuthentications
+decl_stmt|;
 DECL|method|ScpConfiguration ()
 specifier|public
 name|ScpConfiguration
@@ -490,6 +506,34 @@ parameter_list|()
 block|{
 return|return
 name|ciphers
+return|;
+block|}
+comment|/**      * Set a comma separated list of authentications that will be used in order of preference. 	 * Possible authentication methods are defined by JCraft JSCH. Some examples include: gssapi-with-mic,publickey,keyboard-interactive,password      * If not specified the JSCH and/or system defaults will be used.      */
+DECL|method|setPreferredAuthentications (final String preferredAuthentications)
+specifier|public
+name|void
+name|setPreferredAuthentications
+parameter_list|(
+specifier|final
+name|String
+name|preferredAuthentications
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preferredAuthentications
+operator|=
+name|preferredAuthentications
+expr_stmt|;
+block|}
+DECL|method|getPreferredAuthentications ()
+specifier|public
+name|String
+name|getPreferredAuthentications
+parameter_list|()
+block|{
+return|return
+name|preferredAuthentications
 return|;
 block|}
 block|}
