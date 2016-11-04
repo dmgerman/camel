@@ -607,7 +607,7 @@ name|resolveProperty
 argument_list|(
 name|camelRoot
 argument_list|(
-literal|"spring-boot-dm/pom.xml"
+literal|"platforms/spring-boot/spring-boot-dm/pom.xml"
 argument_list|)
 argument_list|,
 name|property

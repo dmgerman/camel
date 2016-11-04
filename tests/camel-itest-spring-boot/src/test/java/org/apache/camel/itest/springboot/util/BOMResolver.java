@@ -606,6 +606,8 @@ operator|new
 name|IllegalStateException
 argument_list|(
 literal|"Cannot initialize the version resolver"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -817,6 +819,27 @@ argument_list|(
 operator|new
 name|DefaultArtifact
 argument_list|(
+literal|"org.apache.camel:spring-boot:pom:"
+operator|+
+name|camelVersion
+argument_list|)
+operator|.
+name|setFile
+argument_list|(
+name|camelRoot
+argument_list|(
+literal|"platforms/spring-boot/pom.xml"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|neededArtifacts
+operator|.
+name|add
+argument_list|(
+operator|new
+name|DefaultArtifact
+argument_list|(
 literal|"org.apache.camel:camel-spring-boot-dm:pom:"
 operator|+
 name|camelVersion
@@ -826,7 +849,7 @@ name|setFile
 argument_list|(
 name|camelRoot
 argument_list|(
-literal|"spring-boot-dm/pom.xml"
+literal|"platforms/spring-boot/spring-boot-dm/pom.xml"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -847,7 +870,7 @@ name|setFile
 argument_list|(
 name|camelRoot
 argument_list|(
-literal|"spring-boot-dm/camel-spring-boot-dependencies/pom.xml"
+literal|"platforms/spring-boot/spring-boot-dm/camel-spring-boot-dependencies/pom.xml"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -867,7 +890,7 @@ name|setFile
 argument_list|(
 name|camelRoot
 argument_list|(
-literal|"spring-boot-dm/camel-starter-parent/pom.xml"
+literal|"platforms/spring-boot/spring-boot-dm/camel-starter-parent/pom.xml"
 argument_list|)
 argument_list|)
 decl_stmt|;
