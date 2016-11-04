@@ -216,7 +216,35 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|AggregationStrategyClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|ExpressionClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|PredicateClause
 import|;
 end_import
 
@@ -2996,6 +3024,53 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+DECL|method|aggregationStrategy ()
+specifier|public
+name|AggregationStrategyClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+name|aggregationStrategy
+parameter_list|()
+block|{
+name|AggregationStrategyClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+name|clause
+init|=
+operator|new
+name|AggregationStrategyClause
+argument_list|<>
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|setAggregationStrategy
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+DECL|method|strategy ()
+specifier|public
+name|AggregationStrategyClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+name|strategy
+parameter_list|()
+block|{
+return|return
+name|aggregationStrategy
+argument_list|()
+return|;
+block|}
 comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
@@ -3155,6 +3230,53 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+DECL|method|completionPredicate ()
+specifier|public
+name|PredicateClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+name|completionPredicate
+parameter_list|()
+block|{
+name|PredicateClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+name|clause
+init|=
+operator|new
+name|PredicateClause
+argument_list|<>
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|completionPredicate
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+DECL|method|completion ()
+specifier|public
+name|PredicateClause
+argument_list|<
+name|AggregateDefinition
+argument_list|>
+name|completion
+parameter_list|()
+block|{
+return|return
+name|completionPredicate
+argument_list|()
 return|;
 block|}
 comment|/**      * Indicates to complete all current aggregated exchanges when the context is stopped      */
