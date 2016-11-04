@@ -508,7 +508,7 @@ return|return
 name|ciphers
 return|;
 block|}
-comment|/**      * Set a comma separated list of authentications that will be used in order of preference. 	 * Possible authentication methods are defined by JCraft JSCH. Some examples include: gssapi-with-mic,publickey,keyboard-interactive,password      * If not specified the JSCH and/or system defaults will be used.      */
+comment|/**      * Set a comma separated list of authentications that will be used in order of preference.      * Possible authentication methods are defined by JCraft JSCH. Some examples include: gssapi-with-mic,publickey,keyboard-interactive,password      * If not specified the JSCH and/or system defaults will be used.      */
 DECL|method|setPreferredAuthentications (final String preferredAuthentications)
 specifier|public
 name|void
