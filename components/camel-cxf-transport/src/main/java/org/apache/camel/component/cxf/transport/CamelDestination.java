@@ -1322,9 +1322,6 @@ name|camelExchange
 operator|.
 name|getOut
 argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
 argument_list|,
 name|camelExchange
 argument_list|)

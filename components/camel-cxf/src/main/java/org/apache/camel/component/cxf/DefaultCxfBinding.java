@@ -312,9 +312,9 @@ name|cxf
 operator|.
 name|common
 operator|.
-name|message
+name|header
 operator|.
-name|CxfConstants
+name|CxfHeaderHelper
 import|;
 end_import
 
@@ -330,9 +330,11 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|util
+name|common
 operator|.
-name|CxfUtils
+name|message
+operator|.
+name|CxfConstants
 import|;
 end_import
 
@@ -3389,13 +3391,17 @@ name|cxfMessage
 argument_list|)
 expr_stmt|;
 comment|// Copy the http header to CAMEL as we do in camel-cxfrs
-name|CxfUtils
+name|CxfHeaderHelper
 operator|.
 name|copyHttpHeadersFromCxfToCamel
 argument_list|(
+name|headerFilterStrategy
+argument_list|,
 name|cxfMessage
 argument_list|,
 name|camelMessage
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 if|if

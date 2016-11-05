@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.util
+DECL|package|org.apache.camel.component.cxf.common.message
 package|package
 name|org
 operator|.
@@ -16,7 +16,9 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|util
+name|common
+operator|.
+name|message
 package|;
 end_package
 
@@ -133,26 +135,6 @@ operator|.
 name|header
 operator|.
 name|CxfHeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cxf
-operator|.
-name|common
-operator|.
-name|message
-operator|.
-name|CxfMessageHelper
 import|;
 end_import
 
