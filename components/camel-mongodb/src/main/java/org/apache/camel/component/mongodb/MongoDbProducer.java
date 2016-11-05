@@ -3027,7 +3027,7 @@ argument_list|(
 name|exchange1
 argument_list|)
 decl_stmt|;
-name|String
+name|Object
 name|id
 init|=
 name|exchange1
@@ -3036,11 +3036,7 @@ name|getIn
 argument_list|()
 operator|.
 name|getMandatoryBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|BasicDBObject
 name|o
