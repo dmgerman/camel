@@ -78,6 +78,21 @@ specifier|public
 interface|interface
 name|CamelCatalog
 block|{
+comment|/**      * To plugin a custom {@link RuntimeProvider} that amends the catalog to only include information that is supported on the runtime.      */
+DECL|method|setRuntimeProvider (RuntimeProvider provider)
+name|void
+name|setRuntimeProvider
+parameter_list|(
+name|RuntimeProvider
+name|provider
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link RuntimeProvider} in use.      * @return      */
+DECL|method|getRuntimeProvider ()
+name|RuntimeProvider
+name|getRuntimeProvider
+parameter_list|()
+function_decl|;
 comment|/**      * Enables caching of the resources which makes the catalog faster, but keeps data in memory during caching.      *<p/>      * The catalog does not cache by default.      */
 DECL|method|enableCache ()
 name|void
