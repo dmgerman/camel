@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -106,16 +106,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -147,6 +137,18 @@ operator|.
 name|util
 operator|.
 name|TreeSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
 import|;
 end_import
 
@@ -260,6 +262,20 @@ init|=
 literal|128
 operator|*
 literal|1024
+decl_stmt|;
+DECL|field|ARTIFACT_PATTERN
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|ARTIFACT_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"\"artifactId\": \"camel-(.*)\""
+argument_list|)
 decl_stmt|;
 comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
@@ -641,17 +657,6 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|alternativeSchemes
-init|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|File
@@ -660,6 +665,36 @@ range|:
 name|jsonFiles
 control|)
 block|{
+comment|// for spring-boot we need to amend the json file to use -starter as the artifact-id
+try|try
+block|{
+name|String
+name|text
+init|=
+name|loadText
+argument_list|(
+operator|new
+name|FileInputStream
+argument_list|(
+name|file
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|text
+operator|=
+name|ARTIFACT_PATTERN
+operator|.
+name|matcher
+argument_list|(
+name|text
+argument_list|)
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"\"artifactId\": \"camel-$1-starter\""
+argument_list|)
+expr_stmt|;
+comment|// write new json file
 name|File
 name|to
 init|=
@@ -674,14 +709,31 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-try|try
-block|{
-name|copyFile
+name|FileOutputStream
+name|fos
+init|=
+operator|new
+name|FileOutputStream
 argument_list|(
-name|file
-argument_list|,
 name|to
+argument_list|,
+literal|false
 argument_list|)
+decl_stmt|;
+name|fos
+operator|.
+name|write
+argument_list|(
+name|text
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|fos
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -694,13 +746,9 @@ throw|throw
 operator|new
 name|MojoFailureException
 argument_list|(
-literal|"Cannot copy file from "
+literal|"Cannot write json file "
 operator|+
 name|file
-operator|+
-literal|" -> "
-operator|+
-name|to
 argument_list|,
 name|e
 argument_list|)
@@ -1112,6 +1160,36 @@ range|:
 name|jsonFiles
 control|)
 block|{
+comment|// for spring-boot we need to amend the json file to use -starter as the artifact-id
+try|try
+block|{
+name|String
+name|text
+init|=
+name|loadText
+argument_list|(
+operator|new
+name|FileInputStream
+argument_list|(
+name|file
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|text
+operator|=
+name|ARTIFACT_PATTERN
+operator|.
+name|matcher
+argument_list|(
+name|text
+argument_list|)
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"\"artifactId\": \"camel-$1-starter\""
+argument_list|)
+expr_stmt|;
+comment|// write new json file
 name|File
 name|to
 init|=
@@ -1126,14 +1204,31 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-try|try
-block|{
-name|copyFile
+name|FileOutputStream
+name|fos
+init|=
+operator|new
+name|FileOutputStream
 argument_list|(
-name|file
-argument_list|,
 name|to
+argument_list|,
+literal|false
 argument_list|)
+decl_stmt|;
+name|fos
+operator|.
+name|write
+argument_list|(
+name|text
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|fos
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -1146,13 +1241,9 @@ throw|throw
 operator|new
 name|MojoFailureException
 argument_list|(
-literal|"Cannot copy file from "
+literal|"Cannot write json file "
 operator|+
 name|file
-operator|+
-literal|" -> "
-operator|+
-name|to
 argument_list|,
 name|e
 argument_list|)
@@ -1564,6 +1655,36 @@ range|:
 name|jsonFiles
 control|)
 block|{
+comment|// for spring-boot we need to amend the json file to use -starter as the artifact-id
+try|try
+block|{
+name|String
+name|text
+init|=
+name|loadText
+argument_list|(
+operator|new
+name|FileInputStream
+argument_list|(
+name|file
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|text
+operator|=
+name|ARTIFACT_PATTERN
+operator|.
+name|matcher
+argument_list|(
+name|text
+argument_list|)
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"\"artifactId\": \"camel-$1-starter\""
+argument_list|)
+expr_stmt|;
+comment|// write new json file
 name|File
 name|to
 init|=
@@ -1578,14 +1699,31 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-try|try
-block|{
-name|copyFile
+name|FileOutputStream
+name|fos
+init|=
+operator|new
+name|FileOutputStream
 argument_list|(
-name|file
-argument_list|,
 name|to
+argument_list|,
+literal|false
 argument_list|)
+decl_stmt|;
+name|fos
+operator|.
+name|write
+argument_list|(
+name|text
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|fos
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -1598,13 +1736,9 @@ throw|throw
 operator|new
 name|MojoFailureException
 argument_list|(
-literal|"Cannot copy file from "
+literal|"Cannot write json file "
 operator|+
 name|file
-operator|+
-literal|" -> "
-operator|+
-name|to
 argument_list|,
 name|e
 argument_list|)

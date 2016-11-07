@@ -36,10 +36,6 @@ specifier|public
 interface|interface
 name|RuntimeProvider
 block|{
-comment|// TODO: maven archetype GAV
-comment|// original GAV
-comment|// spring-boot GAV
-comment|// karaf feature name
 comment|/**      * Gets the {@link CamelCatalog}      */
 DECL|method|getCamelCatalog ()
 name|CamelCatalog
@@ -59,6 +55,24 @@ comment|/**      * Name of provider such as<tt>default</tt>,<tt>karaf</tt>,<tt>s
 DECL|method|getProviderName ()
 name|String
 name|getProviderName
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the directory where the component json files are stored in the catalog JAR file      */
+DECL|method|getComponentJSonSchemaDirectory ()
+name|String
+name|getComponentJSonSchemaDirectory
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the directory where the data format json files are stored in the catalog JAR file      */
+DECL|method|getDataFormatJSonSchemaDirectory ()
+name|String
+name|getDataFormatJSonSchemaDirectory
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the directory where the language json files are stored in the catalog JAR file      */
+DECL|method|getLanguageJSonSchemaDirectory ()
+name|String
+name|getLanguageJSonSchemaDirectory
 parameter_list|()
 function_decl|;
 comment|/**      * Find all the component names from the Camel catalog supported by the provider      */
