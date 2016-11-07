@@ -93,10 +93,14 @@ literal|"org/apache/camel/catalog/languages.properties"
 decl_stmt|;
 DECL|field|camelCatalog
 specifier|private
-specifier|final
 name|CamelCatalog
 name|camelCatalog
 decl_stmt|;
+DECL|method|DefaultRuntimeProvider ()
+specifier|public
+name|DefaultRuntimeProvider
+parameter_list|()
+block|{     }
 DECL|method|DefaultRuntimeProvider (CamelCatalog camelCatalog)
 specifier|public
 name|DefaultRuntimeProvider
@@ -123,6 +127,24 @@ block|{
 return|return
 name|camelCatalog
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setCamelCatalog (CamelCatalog camelCatalog)
+specifier|public
+name|void
+name|setCamelCatalog
+parameter_list|(
+name|CamelCatalog
+name|camelCatalog
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelCatalog
+operator|=
+name|camelCatalog
+expr_stmt|;
 block|}
 annotation|@
 name|Override

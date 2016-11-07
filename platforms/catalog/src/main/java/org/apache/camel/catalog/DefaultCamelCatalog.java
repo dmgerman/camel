@@ -906,6 +906,16 @@ name|runtimeProvider
 operator|=
 name|runtimeProvider
 expr_stmt|;
+comment|// inject CamelCatalog to the provider
+name|this
+operator|.
+name|runtimeProvider
+operator|.
+name|setCamelCatalog
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.catalog
+DECL|package|org.apache.camel.catalog.karaf
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|catalog
+operator|.
+name|karaf
 package|;
 end_package
 
@@ -26,70 +28,137 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  * A pluggable strategy for chosen runtime to run Camel such as default, karaf, spring-boot, etc.  * This allows third party runtimes to provide their own provider, that can amend the catalog  * to match the runtime. For example spring-boot or karaf does not support all the default Camel components.  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|CamelCatalog
+import|;
+end_import
 
-begin_interface
-DECL|interface|RuntimeProvider
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|RuntimeProvider
+import|;
+end_import
+
+begin_class
+DECL|class|KarafRuntimeProvider
 specifier|public
-interface|interface
+class|class
+name|KarafRuntimeProvider
+implements|implements
 name|RuntimeProvider
 block|{
-comment|// TODO: maven archetype GAV
-comment|// original GAV
-comment|// spring-boot GAV
-comment|// karaf feature name
-comment|/**      * Gets the {@link CamelCatalog}      */
+DECL|field|camelCatalog
+specifier|private
+name|CamelCatalog
+name|camelCatalog
+decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getCamelCatalog ()
+specifier|public
 name|CamelCatalog
 name|getCamelCatalog
 parameter_list|()
-function_decl|;
-comment|/**      * Sets the {@link CamelCatalog} to use      */
+block|{
+return|return
+name|camelCatalog
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|setCamelCatalog (CamelCatalog camelCatalog)
+specifier|public
 name|void
 name|setCamelCatalog
 parameter_list|(
 name|CamelCatalog
 name|camelCatalog
 parameter_list|)
-function_decl|;
-comment|/**      * Name of provider such as<tt>default</tt>,<tt>karaf</tt>,<tt>spring-boot</tt>      */
+block|{
+name|this
+operator|.
+name|camelCatalog
+operator|=
+name|camelCatalog
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|getProviderName ()
+specifier|public
 name|String
 name|getProviderName
 parameter_list|()
-function_decl|;
-comment|/**      * Find all the component names from the Camel catalog supported by the provider      */
+block|{
+return|return
+literal|"karaf"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|findComponentNames ()
+specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
 name|findComponentNames
 parameter_list|()
-function_decl|;
-comment|/**      * Find all the data format names from the Camel catalog supported by the provider      */
+block|{
+comment|// parse the karaf features xml file
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|findDataFormatNames ()
+specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
 name|findDataFormatNames
 parameter_list|()
-function_decl|;
-comment|/**      * Find all the language names from the Camel catalog supported by the provider      */
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|findLanguageNames ()
+specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
 name|findLanguageNames
 parameter_list|()
-function_decl|;
+block|{
+return|return
+literal|null
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
