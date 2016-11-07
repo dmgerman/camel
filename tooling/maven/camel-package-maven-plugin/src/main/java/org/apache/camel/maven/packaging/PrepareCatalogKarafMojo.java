@@ -2825,6 +2825,7 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+comment|// load features.xml file and parse it
 name|Set
 argument_list|<
 name|String
@@ -2838,7 +2839,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-comment|// load features.xml file
 name|InputStream
 name|is
 init|=
@@ -3007,7 +3007,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// the name attribute is the maven artifact id of the component
 name|String
 name|artifactId
 init|=
@@ -3038,7 +3037,6 @@ literal|"camel-"
 argument_list|)
 condition|)
 block|{
-comment|// find the component name based on the artifact id
 name|answer
 operator|.
 name|add
