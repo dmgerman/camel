@@ -4759,6 +4759,24 @@ name|PROTOCOL_HEADERS
 argument_list|)
 expr_stmt|;
 block|}
+name|cxfContext
+operator|.
+name|put
+argument_list|(
+name|SoapBindingConstants
+operator|.
+name|SOAP_ACTION
+argument_list|,
+name|camelHeaders
+operator|.
+name|get
+argument_list|(
+name|SoapBindingConstants
+operator|.
+name|SOAP_ACTION
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getContentFromCxf (Message message, DataFormat dataFormat, String encoding)
 specifier|protected
