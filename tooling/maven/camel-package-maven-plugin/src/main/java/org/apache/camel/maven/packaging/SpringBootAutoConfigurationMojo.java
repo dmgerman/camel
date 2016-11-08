@@ -1188,12 +1188,9 @@ name|Collectors
 operator|.
 name|groupingBy
 argument_list|(
-name|m
-lambda|->
-name|m
-operator|.
+name|ComponentModel
+operator|::
 name|getJavaType
-argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1245,12 +1242,9 @@ argument_list|()
 operator|.
 name|map
 argument_list|(
-name|m
-lambda|->
-name|m
-operator|.
+name|ComponentModel
+operator|::
 name|getScheme
-argument_list|()
 argument_list|)
 operator|.
 name|sorted
@@ -1264,9 +1258,9 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// only create source code if the component has options that can be used in auto configuration
-if|if
-condition|(
+name|boolean
+name|hasOptions
+init|=
 operator|!
 name|model
 operator|.
@@ -1275,8 +1269,7 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
+decl_stmt|;
 comment|// use springboot as sub package name so the code is not in normal
 comment|// package so the Spring Boot JARs can be optional at runtime
 name|int
@@ -1340,6 +1333,11 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|createComponentConfigurationSource
 argument_list|(
 name|pkg
@@ -1349,6 +1347,7 @@ argument_list|,
 name|overrideComponentName
 argument_list|)
 expr_stmt|;
+block|}
 name|createComponentAutoConfigurationSource
 argument_list|(
 name|pkg
@@ -1356,6 +1355,8 @@ argument_list|,
 name|model
 argument_list|,
 name|aliases
+argument_list|,
+name|hasOptions
 argument_list|)
 expr_stmt|;
 name|createComponentSpringFactorySource
@@ -1365,7 +1366,6 @@ argument_list|,
 name|model
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1598,9 +1598,9 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// only create source code if the data format has options that can be used in auto configuration
-if|if
-condition|(
+name|boolean
+name|hasOptions
+init|=
 operator|!
 name|model
 operator|.
@@ -1609,8 +1609,7 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
+decl_stmt|;
 comment|// use springboot as sub package name so the code is not in normal
 comment|// package so the Spring Boot JARs can be optional at runtime
 name|int
@@ -1674,6 +1673,11 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|createDataFormatConfigurationSource
 argument_list|(
 name|pkg
@@ -1683,6 +1687,7 @@ argument_list|,
 name|overrideDataformatName
 argument_list|)
 expr_stmt|;
+block|}
 name|createDataFormatAutoConfigurationSource
 argument_list|(
 name|pkg
@@ -1690,6 +1695,8 @@ argument_list|,
 name|model
 argument_list|,
 name|aliases
+argument_list|,
+name|hasOptions
 argument_list|)
 expr_stmt|;
 name|createDataFormatSpringFactorySource
@@ -1699,7 +1706,6 @@ argument_list|,
 name|model
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1932,9 +1938,9 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// only create source code if the language has options that can be used in auto configuration
-if|if
-condition|(
+name|boolean
+name|hasOptions
+init|=
 operator|!
 name|model
 operator|.
@@ -1943,8 +1949,7 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
+decl_stmt|;
 comment|// use springboot as sub package name so the code is not in normal
 comment|// package so the Spring Boot JARs can be optional at runtime
 name|int
@@ -2008,6 +2013,11 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|createLanguageConfigurationSource
 argument_list|(
 name|pkg
@@ -2017,6 +2027,7 @@ argument_list|,
 name|overrideLanguageName
 argument_list|)
 expr_stmt|;
+block|}
 name|createLanguageAutoConfigurationSource
 argument_list|(
 name|pkg
@@ -2024,6 +2035,8 @@ argument_list|,
 name|model
 argument_list|,
 name|aliases
+argument_list|,
+name|hasOptions
 argument_list|)
 expr_stmt|;
 name|createLanguageSpringFactorySource
@@ -2033,7 +2046,6 @@ argument_list|,
 name|model
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -5482,7 +5494,7 @@ name|fileName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createComponentAutoConfigurationSource (String packageName, ComponentModel model, List<String> componentAliases)
+DECL|method|createComponentAutoConfigurationSource (String packageName, ComponentModel model, List<String> componentAliases, boolean hasOptions)
 specifier|private
 name|void
 name|createComponentAutoConfigurationSource
@@ -5498,6 +5510,9 @@ argument_list|<
 name|String
 argument_list|>
 name|componentAliases
+parameter_list|,
+name|boolean
+name|hasOptions
 parameter_list|)
 throws|throws
 name|MojoFailureException
@@ -5618,6 +5633,11 @@ argument_list|,
 literal|"ComponentConfiguration"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|AnnotationSource
 argument_list|<
 name|JavaClassSource
@@ -5644,7 +5664,6 @@ operator|+
 literal|".class"
 argument_list|)
 expr_stmt|;
-comment|// add method for auto configure
 name|javaClass
 operator|.
 name|addImport
@@ -5663,6 +5682,14 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
+literal|"org.apache.camel.util.IntrospectionSupport"
+argument_list|)
+expr_stmt|;
+block|}
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
 name|model
 operator|.
 name|getJavaType
@@ -5676,13 +5703,7 @@ argument_list|(
 literal|"org.apache.camel.CamelContext"
 argument_list|)
 expr_stmt|;
-name|javaClass
-operator|.
-name|addImport
-argument_list|(
-literal|"org.apache.camel.util.IntrospectionSupport"
-argument_list|)
-expr_stmt|;
+comment|// add method for auto configure
 name|String
 name|body
 init|=
@@ -5692,6 +5713,8 @@ name|model
 operator|.
 name|getShortJavaType
 argument_list|()
+argument_list|,
+name|hasOptions
 argument_list|)
 decl_stmt|;
 name|String
@@ -5752,6 +5775,11 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|method
 operator|.
 name|addParameter
@@ -5761,6 +5789,7 @@ argument_list|,
 literal|"configuration"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Determine all the aliases
 name|String
 index|[]
@@ -5875,7 +5904,7 @@ name|fileName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createDataFormatAutoConfigurationSource (String packageName, DataFormatModel model, List<String> dataFormatAliases)
+DECL|method|createDataFormatAutoConfigurationSource (String packageName, DataFormatModel model, List<String> dataFormatAliases, boolean hasOptions)
 specifier|private
 name|void
 name|createDataFormatAutoConfigurationSource
@@ -5891,6 +5920,9 @@ argument_list|<
 name|String
 argument_list|>
 name|dataFormatAliases
+parameter_list|,
+name|boolean
+name|hasOptions
 parameter_list|)
 throws|throws
 name|MojoFailureException
@@ -6011,6 +6043,11 @@ argument_list|,
 literal|"DataFormatConfiguration"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|AnnotationSource
 argument_list|<
 name|JavaClassSource
@@ -6037,7 +6074,6 @@ operator|+
 literal|".class"
 argument_list|)
 expr_stmt|;
-comment|// add method for auto configure
 name|javaClass
 operator|.
 name|addImport
@@ -6050,6 +6086,21 @@ operator|.
 name|addImport
 argument_list|(
 literal|"java.util.Map"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.util.IntrospectionSupport"
+argument_list|)
+expr_stmt|;
+block|}
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.CamelContextAware"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -6069,20 +6120,6 @@ argument_list|(
 literal|"org.apache.camel.CamelContext"
 argument_list|)
 expr_stmt|;
-name|javaClass
-operator|.
-name|addImport
-argument_list|(
-literal|"org.apache.camel.CamelContextAware"
-argument_list|)
-expr_stmt|;
-name|javaClass
-operator|.
-name|addImport
-argument_list|(
-literal|"org.apache.camel.util.IntrospectionSupport"
-argument_list|)
-expr_stmt|;
 name|String
 name|body
 init|=
@@ -6092,6 +6129,8 @@ name|model
 operator|.
 name|getShortJavaType
 argument_list|()
+argument_list|,
+name|hasOptions
 argument_list|)
 decl_stmt|;
 name|String
@@ -6152,6 +6191,11 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|method
 operator|.
 name|addParameter
@@ -6161,6 +6205,7 @@ argument_list|,
 literal|"configuration"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Determine all the aliases
 comment|// adding the '-dataformat' suffix to prevent collision with component names
 name|String
@@ -6276,7 +6321,7 @@ name|fileName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createLanguageAutoConfigurationSource (String packageName, LanguageModel model, List<String> languageAliases)
+DECL|method|createLanguageAutoConfigurationSource (String packageName, LanguageModel model, List<String> languageAliases, boolean hasOptions)
 specifier|private
 name|void
 name|createLanguageAutoConfigurationSource
@@ -6292,6 +6337,9 @@ argument_list|<
 name|String
 argument_list|>
 name|languageAliases
+parameter_list|,
+name|boolean
+name|hasOptions
 parameter_list|)
 throws|throws
 name|MojoFailureException
@@ -6412,6 +6460,11 @@ argument_list|,
 literal|"LanguageConfiguration"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|AnnotationSource
 argument_list|<
 name|JavaClassSource
@@ -6438,7 +6491,6 @@ operator|+
 literal|".class"
 argument_list|)
 expr_stmt|;
-comment|// add method for auto configure
 name|javaClass
 operator|.
 name|addImport
@@ -6451,6 +6503,21 @@ operator|.
 name|addImport
 argument_list|(
 literal|"java.util.Map"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.util.IntrospectionSupport"
+argument_list|)
+expr_stmt|;
+block|}
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.CamelContextAware"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -6470,20 +6537,6 @@ argument_list|(
 literal|"org.apache.camel.CamelContext"
 argument_list|)
 expr_stmt|;
-name|javaClass
-operator|.
-name|addImport
-argument_list|(
-literal|"org.apache.camel.CamelContextAware"
-argument_list|)
-expr_stmt|;
-name|javaClass
-operator|.
-name|addImport
-argument_list|(
-literal|"org.apache.camel.util.IntrospectionSupport"
-argument_list|)
-expr_stmt|;
 name|String
 name|body
 init|=
@@ -6493,6 +6546,8 @@ name|model
 operator|.
 name|getShortJavaType
 argument_list|()
+argument_list|,
+name|hasOptions
 argument_list|)
 decl_stmt|;
 name|String
@@ -6860,7 +6915,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createComponentBody (String shortJavaType)
+DECL|method|createComponentBody (String shortJavaType, boolean hasOptions)
 specifier|private
 specifier|static
 name|String
@@ -6868,6 +6923,9 @@ name|createComponentBody
 parameter_list|(
 name|String
 name|shortJavaType
+parameter_list|,
+name|boolean
+name|hasOptions
 parameter_list|)
 block|{
 name|StringBuilder
@@ -6918,6 +6976,11 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -7065,6 +7128,7 @@ argument_list|(
 literal|"IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), component, parameters);\n"
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -7086,7 +7150,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|createDataFormatBody (String shortJavaType)
+DECL|method|createDataFormatBody (String shortJavaType, boolean hasOptions)
 specifier|private
 specifier|static
 name|String
@@ -7094,6 +7158,9 @@ name|createDataFormatBody
 parameter_list|(
 name|String
 name|shortJavaType
+parameter_list|,
+name|boolean
+name|hasOptions
 parameter_list|)
 block|{
 name|StringBuilder
@@ -7151,6 +7218,11 @@ argument_list|(
 literal|"}\n"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -7186,6 +7258,7 @@ argument_list|(
 literal|"IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), dataformat, parameters);\n"
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -7207,7 +7280,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|createLanguageBody (String shortJavaType)
+DECL|method|createLanguageBody (String shortJavaType, boolean hasOptions)
 specifier|private
 specifier|static
 name|String
@@ -7215,6 +7288,9 @@ name|createLanguageBody
 parameter_list|(
 name|String
 name|shortJavaType
+parameter_list|,
+name|boolean
+name|hasOptions
 parameter_list|)
 block|{
 name|StringBuilder
@@ -7272,6 +7348,11 @@ argument_list|(
 literal|"}\n"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -7307,6 +7388,7 @@ argument_list|(
 literal|"IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), language, parameters);\n"
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
