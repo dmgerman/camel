@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.grape.springboot
+DECL|package|org.apache.camel.component.controlbus.springboot
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|grape
+name|controlbus
 operator|.
 name|springboot
 package|;
@@ -42,9 +42,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|grape
+name|controlbus
 operator|.
-name|GrapeEndpoint
+name|ControlBusComponent
 import|;
 end_import
 
@@ -138,17 +138,17 @@ name|type
 operator|=
 literal|"org.apache.camel.springboot.CamelAutoConfiguration"
 argument_list|)
-DECL|class|GrapeEndpoint
+DECL|class|ControlBusComponentAutoConfiguration
 specifier|public
 class|class
-name|GrapeEndpoint
+name|ControlBusComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"grape-component"
+literal|"controlbus-component"
 argument_list|)
 annotation|@
 name|ConditionalOnClass
@@ -160,14 +160,14 @@ argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
-name|GrapeEndpoint
+name|ControlBusComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureGrapeEndpoint (CamelContext camelContext)
+DECL|method|configureControlBusComponent ( CamelContext camelContext)
 specifier|public
-name|GrapeEndpoint
-name|configureGrapeEndpoint
+name|ControlBusComponent
+name|configureControlBusComponent
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -175,11 +175,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|GrapeEndpoint
+name|ControlBusComponent
 name|component
 init|=
 operator|new
-name|GrapeEndpoint
+name|ControlBusComponent
 argument_list|()
 decl_stmt|;
 name|component
