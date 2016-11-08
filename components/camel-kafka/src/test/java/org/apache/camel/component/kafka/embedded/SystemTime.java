@@ -91,6 +91,18 @@ block|{
 comment|// Ignore
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|hiResClockMs ()
+specifier|public
+name|long
+name|hiResClockMs
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
 block|}
 end_class
 
