@@ -1616,7 +1616,7 @@ literal|" not be suppressed like in the case of InOnly. Like InOnly the producer
 operator|+
 literal|" A consumer with this flag will behave like InOnly. This feature can be used to bridge InOut requests to"
 operator|+
-literal|" another queue so that a route on the other queue will send itÂ´s response directly back to the original JMSReplyTo."
+literal|" another queue so that a route on the other queue will send its response directly back to the original JMSReplyTo."
 argument_list|)
 DECL|field|disableReplyTo
 specifier|private
@@ -1885,7 +1885,9 @@ name|description
 operator|=
 literal|"If enabled and you are using Request Reply messaging (InOut) and an Exchange failed with a SOAP fault (not exception) on the consumer side,"
 operator|+
-literal|" then the fault flag on Message#isFault() will be send back in the response as a JMS header with the key JmsConstants#JMS_TRANSFER_FAULT."
+literal|" then the fault flag on Message#isFault() will be send back in the response as a JMS header with the key"
+operator|+
+literal|" org.apache.camel.component.jms.JmsConstants#JMS_TRANSFER_FAULT#JMS_TRANSFER_FAULT."
 operator|+
 literal|" If the client is Camel, the returned fault flag will be set on the {@link org.apache.camel.Message#setFault(boolean)}."
 operator|+
@@ -4996,7 +4998,7 @@ return|return
 name|disableReplyTo
 return|;
 block|}
-comment|/**      * If true, a producer will behave like a InOnly exchange with the exception that JMSReplyTo header is sent out and      * not be suppressed like in the case of InOnly. Like InOnly the producer will not wait for a reply.      * A consumer with this flag will behave like InOnly. This feature can be used to bridge InOut requests to      * another queue so that a route on the other queue will send itÂ´s response directly back to the original JMSReplyTo.      */
+comment|/**      * If true, a producer will behave like a InOnly exchange with the exception that JMSReplyTo header is sent out and      * not be suppressed like in the case of InOnly. Like InOnly the producer will not wait for a reply.      * A consumer with this flag will behave like InOnly. This feature can be used to bridge InOut requests to      * another queue so that a route on the other queue will send its response directly back to the original JMSReplyTo.      */
 DECL|method|setDisableReplyTo (boolean disableReplyTo)
 specifier|public
 name|void

@@ -3129,7 +3129,7 @@ specifier|private
 name|Boolean
 name|eagerLoadingOfProperties
 decl_stmt|;
-comment|/**          * If true, a producer will behave like a InOnly exchange with the          * exception that JMSReplyTo header is sent out and not be suppressed          * like in the case of InOnly. Like InOnly the producer will not wait          * for a reply. A consumer with this flag will behave like InOnly. This          * feature can be used to bridge InOut requests to another queue so that          * a route on the other queue will send itÂ´s response directly back to          * the original JMSReplyTo.          */
+comment|/**          * If true, a producer will behave like a InOnly exchange with the          * exception that JMSReplyTo header is sent out and not be suppressed          * like in the case of InOnly. Like InOnly the producer will not wait          * for a reply. A consumer with this flag will behave like InOnly. This          * feature can be used to bridge InOut requests to another queue so that          * a route on the other queue will send its response directly back to          * the original JMSReplyTo.          */
 DECL|field|disableReplyTo
 specifier|private
 name|Boolean
