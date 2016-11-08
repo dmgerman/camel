@@ -68,6 +68,22 @@ name|io
 operator|.
 name|undertow
 operator|.
+name|server
+operator|.
+name|handlers
+operator|.
+name|form
+operator|.
+name|EagerFormParsingHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|undertow
+operator|.
 name|util
 operator|.
 name|Headers
@@ -376,6 +392,24 @@ expr_stmt|;
 block|}
 return|return
 name|registrationInfo
+return|;
+block|}
+DECL|method|getHttpHandler ()
+specifier|public
+name|HttpHandler
+name|getHttpHandler
+parameter_list|()
+block|{
+comment|// wrap with EagerFormParsingHandler to enable undertow form parsers
+return|return
+operator|new
+name|EagerFormParsingHandler
+argument_list|()
+operator|.
+name|setNext
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 annotation|@

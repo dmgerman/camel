@@ -1890,6 +1890,9 @@ name|getHttpHandlerRegistrationInfo
 argument_list|()
 argument_list|,
 name|consumer
+operator|.
+name|getHttpHandler
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
