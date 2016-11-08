@@ -232,7 +232,7 @@ name|definition
 argument_list|)
 return|;
 block|}
-comment|/**      * Extract id from direct/seda route.      */
+comment|/**      * Extract id from routes      */
 DECL|method|extractId (RouteDefinition routeDefinition)
 specifier|private
 name|Optional
@@ -293,6 +293,7 @@ operator|.
 name|getUri
 argument_list|()
 decl_stmt|;
+comment|// we want to use the context-path of the route
 name|int
 name|colon
 init|=
