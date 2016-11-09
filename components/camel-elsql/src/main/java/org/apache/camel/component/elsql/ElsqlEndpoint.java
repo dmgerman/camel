@@ -371,7 +371,12 @@ argument_list|,
 name|label
 operator|=
 literal|"database,sql"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"batch"
 argument_list|)
+comment|// batch is not supported
 DECL|class|ElsqlEndpoint
 specifier|public
 class|class
