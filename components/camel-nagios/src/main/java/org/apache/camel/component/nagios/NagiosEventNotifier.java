@@ -251,6 +251,26 @@ name|hostName
 init|=
 literal|"localhost"
 decl_stmt|;
+DECL|method|NagiosEventNotifier ()
+specifier|public
+name|NagiosEventNotifier
+parameter_list|()
+block|{      }
+DECL|method|NagiosEventNotifier (NagiosPassiveCheckSender sender)
+specifier|public
+name|NagiosEventNotifier
+parameter_list|(
+name|NagiosPassiveCheckSender
+name|sender
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sender
+operator|=
+name|sender
+expr_stmt|;
+block|}
 DECL|method|notify (EventObject eventObject)
 specifier|public
 name|void
@@ -556,6 +576,13 @@ name|getNagiosSettings
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|sender
+operator|==
+literal|null
+condition|)
+block|{
 name|sender
 operator|=
 operator|new
@@ -564,6 +591,7 @@ argument_list|(
 name|nagiosSettings
 argument_list|)
 expr_stmt|;
+block|}
 name|log
 operator|.
 name|info
