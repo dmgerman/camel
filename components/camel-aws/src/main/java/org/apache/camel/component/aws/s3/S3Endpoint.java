@@ -706,6 +706,15 @@ argument_list|,
 name|bucketName
 argument_list|)
 expr_stmt|;
+name|String
+name|prefix
+init|=
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPrefix
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 name|s3Client
@@ -717,7 +726,7 @@ name|ListObjectsRequest
 argument_list|(
 name|bucketName
 argument_list|,
-literal|null
+name|prefix
 argument_list|,
 literal|null
 argument_list|,
