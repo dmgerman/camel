@@ -1635,7 +1635,7 @@ name|mm
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the MIME Multipart data format      *      * @param multipartSubType           the subtype of the MIME Multipart      * @param multipartWithoutAttachment defines whether a message without attachment is also marshaled      *                                   into a MIME Multipart (with only one body part).      * @param headersInline              define the MIME Multipart headers as part of the message body      *                                   or as Camel headers      * @param includeHeadeers            if headersInline is set to true all camel headers matching this      *                                   regex are also stored as MIME headers on the Multipart      * @param binaryContent              have binary encoding for binary content (true) or use Base-64      *                                   encoding for binary content (false)      */
+comment|/**      * Uses the MIME Multipart data format      *      * @param multipartSubType           the subtype of the MIME Multipart      * @param multipartWithoutAttachment defines whether a message without attachment is also marshaled      *                                   into a MIME Multipart (with only one body part).      * @param headersInline              define the MIME Multipart headers as part of the message body      *                                   or as Camel headers      * @param includeHeaders            if headersInline is set to true all camel headers matching this      *                                   regex are also stored as MIME headers on the Multipart      * @param binaryContent              have binary encoding for binary content (true) or use Base-64      *                                   encoding for binary content (false)      */
 DECL|method|mimeMultipart (String multipartSubType, boolean multipartWithoutAttachment, boolean headersInline, String includeHeaders, boolean binaryContent)
 specifier|public
 name|T
@@ -3458,7 +3458,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the YAML data format      *      * @param type          the yaml type to use      * @param type          the type for json snakeyaml type      */
+comment|/**      * Uses the YAML data format      *      * @param library the yaml type to use      * @param type the type for json snakeyaml type      */
 DECL|method|yaml (YAMLLibrary library, Class<?> type)
 specifier|public
 name|T

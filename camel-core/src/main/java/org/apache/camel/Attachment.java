@@ -69,7 +69,7 @@ name|String
 name|headerName
 parameter_list|)
 function_decl|;
-comment|/**      * Get all the headers for this header name. Returns null if no headers for      * this header name are available.      *      * @param headerName he name of this header      * @return a list of all header values      */
+comment|/**      * Get all the headers for this header name. Returns null if no headers for      * this header name are available.      *      * @param name The name of this header      * @return a list of all header values      */
 DECL|method|getHeaderAsList (String name)
 name|List
 argument_list|<

@@ -174,7 +174,7 @@ name|FluentProducerTemplate
 name|clearBody
 parameter_list|()
 function_decl|;
-comment|/**      * To customize the producer template for advanced usage like to set the      * executor service to use.      *      *<pre>      * {@code      * FluentProducerTemplate.on(context)      *     .withTemplateCustomizer(      *         template -> {      *             template.setExecutorService(myExecutor);      *             template.setMaximumCacheSize(10);      *         }      *      )      *     .withBody("the body")      *     .to("direct:start")      *     .request()      *</pre>      *      * Note that it is invoked only once.      *      * @param templateCustomizer the customizer      */
+comment|/**      * To customize the producer template for advanced usage like to set the      * executor service to use.      *      *<pre>      * {@code      * FluentProducerTemplate.on(context)      *     .withTemplateCustomizer(      *         template -> {      *             template.setExecutorService(myExecutor);      *             template.setMaximumCacheSize(10);      *         }      *      )      *     .withBody("the body")      *     .to("direct:start")      *     .request()}      *</pre>      *      * Note that it is invoked only once.      *      * @param templateCustomizer the customizer      */
 DECL|method|withTemplateCustomizer (java.util.function.Consumer<ProducerTemplate> templateCustomizer)
 name|FluentProducerTemplate
 name|withTemplateCustomizer
@@ -213,7 +213,7 @@ argument_list|>
 name|exchangeSupplier
 parameter_list|)
 function_decl|;
-comment|/**      * Set the processor to use for send/request.      *      *<pre>      * {@code      * FluentProducerTemplate.on(context)      *     .withProcessor(      *         exchange -> {      *             exchange.getIn().setHeader("Key1", "Val1")      *             exchange.getIn().setHeader("Key2", "Val2")      *             exchange.getIn().setBody("the body")      *         }      *      )      *     .to("direct:start")      *     .request()      *</pre>      *      * @param processor      * @return      */
+comment|/**      * Set the processor to use for send/request.      *      *<pre>      * {@code      * FluentProducerTemplate.on(context)      *     .withProcessor(      *         exchange -> {      *             exchange.getIn().setHeader("Key1", "Val1");      *             exchange.getIn().setHeader("Key2", "Val2");      *             exchange.getIn().setBody("the body");      *         }      *      )      *     .to("direct:start")      *     .request()}      *</pre>      *      * @param processor       */
 DECL|method|withProcessor (Processor processor)
 name|FluentProducerTemplate
 name|withProcessor

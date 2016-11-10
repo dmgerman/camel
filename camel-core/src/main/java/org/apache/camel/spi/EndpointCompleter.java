@@ -48,7 +48,7 @@ specifier|public
 interface|interface
 name|EndpointCompleter
 block|{
-comment|/**      * Given the configuration and completion text, return a list of possible completion values      * for a command line, IDE or web based tool.      *      * @returns the list of completion values if any (rather like bash completion, prefix values can be returned      * - such as just the directories in the current path rather than returning every possible file name on a disk).      */
+comment|/**      * Given the configuration and completion text, return a list of possible completion values      * for a command line, IDE or web based tool.      *      * @return the list of completion values if any (rather like bash completion, prefix values can be returned      * - such as just the directories in the current path rather than returning every possible file name on a disk).      */
 DECL|method|completeEndpointPath (ComponentConfiguration configuration, String completionText)
 name|List
 argument_list|<

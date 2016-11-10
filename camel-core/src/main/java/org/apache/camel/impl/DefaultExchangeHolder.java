@@ -1943,7 +1943,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * We only want to store exchange property values of primitive and String related types, and      * as well any caught exception that Camel routing engine has caught.      *<p/>      * This default implementation will allow the same values as {@link #getValidHeaderValue(String, Object)}      * and in addition any value of type {@link Throwable}.      *      * @param propertyName   the property name      * @param propertyValue  the property value      * @return  the value to use,<tt>null</tt> to ignore this header      */
+comment|/**      * We only want to store exchange property values of primitive and String related types, and      * as well any caught exception that Camel routing engine has caught.      *<p/>      * This default implementation will allow the same values as {@link #getValidHeaderValue(String, Object, boolean)}      * and in addition any value of type {@link Throwable}.      *      * @param propertyName   the property name      * @param propertyValue  the property value      * @return  the value to use,<tt>null</tt> to ignore this header      */
 DECL|method|getValidExchangePropertyValue (String propertyName, Object propertyValue, boolean allowSerializedHeaders)
 specifier|protected
 specifier|static

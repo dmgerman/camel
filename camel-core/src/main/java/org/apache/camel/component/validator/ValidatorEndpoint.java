@@ -1027,7 +1027,7 @@ return|return
 name|resourceResolverFactory
 return|;
 block|}
-comment|/** For creating a resource resolver which depends on the endpoint resource URI.       * Must not be used in combination with method {@link #setResourceResolver(LSResourceResolver).       * If not set then {@link DefaultValidatorResourceResolverFactory} is used       */
+comment|/** For creating a resource resolver which depends on the endpoint resource URI.       * Must not be used in combination with method {@link #setResourceResolver(LSResourceResolver)}.       * If not set then {@link DefaultValidatorResourceResolverFactory} is used       */
 DECL|method|setResourceResolverFactory (ValidatorResourceResolverFactory resourceResolverFactory)
 specifier|public
 name|void

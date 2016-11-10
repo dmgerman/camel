@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Can be used to create custom URI resolver for the XSLT endpoint. This  * interface is useful, if the custom URI resolver depends on the resource URI  * specified in the XSLT endpoint. The resource URI of the endpoint can be even  * dynamic, like in the following example:  *   *<pre>  * {@code<camel:recipientList>}   * {@code<camel:simple>}xslt:${header.XSLT_FILE}?uriResolverFactory=#uriResolverFactory{@code</camel:simple>}  * {@code</camel:recipientList>}  *</pre>  *   * The dynamic resource URI given in ${header.XSLT_FILE} will be past as  * resourceUri parameter in the method  * {@link #createUriResolver(CamelContext, String)}  */
+comment|/**  * Can be used to create custom URI resolver for the XSLT endpoint. This  * interface is useful, if the custom URI resolver depends on the resource URI  * specified in the XSLT endpoint. The resource URI of the endpoint can be even  * dynamic, like in the following example:  *   *<pre>  * {@code<camel:recipientList>}   * {@code<camel:simple>xslt:${header.XSLT_FILE}?uriResolverFactory=#uriResolverFactory</camel:simple>}  * {@code</camel:recipientList>}  *</pre>  *   * The dynamic resource URI given in ${header.XSLT_FILE} will be past as  * resourceUri parameter in the method  * {@link #createUriResolver(CamelContext, String)}  */
 end_comment
 
 begin_interface

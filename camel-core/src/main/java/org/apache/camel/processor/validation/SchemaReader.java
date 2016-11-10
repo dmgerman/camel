@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Reads the schema used in the processor {@link ValidatingProcessor}. Contains  * the method {@link clearCachedSchema()} to force re-reading the schema.  */
+comment|/**  * Reads the schema used in the processor {@link ValidatingProcessor}.  * A schema re-reading could be forced using {@link org.apache.camel.component.validator.ValidatorEndpoint#clearCachedSchema()}.  */
 end_comment
 
 begin_class
