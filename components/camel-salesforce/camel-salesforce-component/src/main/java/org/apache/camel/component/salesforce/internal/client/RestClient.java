@@ -351,6 +351,15 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
+comment|/**      * Fetches Organization Limits.      *      * @param responseCallback {@link ResponseCallback} to handle response or exception      */
+DECL|method|limits (ResponseCallback responseCallback)
+name|void
+name|limits
+parameter_list|(
+name|ResponseCallback
+name|responseCallback
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

@@ -244,6 +244,13 @@ name|GET_REPORT_RESULTS
 argument_list|(
 literal|"getReportResults"
 argument_list|)
+block|,
+comment|// limits API
+DECL|enumConstant|LIMITS
+name|LIMITS
+argument_list|(
+literal|"limits"
+argument_list|)
 block|;
 DECL|field|value
 specifier|private
