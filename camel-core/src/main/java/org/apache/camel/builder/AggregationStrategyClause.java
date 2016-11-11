@@ -330,7 +330,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
-DECL|method|body (final Class<B> type, final BiFunction<B, B, B> function)
+DECL|method|body (final Class<B> type, final BiFunction<B, B, Object> function)
 specifier|public
 parameter_list|<
 name|B
@@ -352,7 +352,55 @@ name|B
 argument_list|,
 name|B
 argument_list|,
-name|B
+name|Object
+argument_list|>
+name|function
+parameter_list|)
+block|{
+return|return
+name|body
+argument_list|(
+name|type
+argument_list|,
+name|type
+argument_list|,
+name|function
+argument_list|)
+return|;
+block|}
+comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+DECL|method|body (final Class<O> oldType, final Class<N> newType, final BiFunction<O, N, Object> function)
+specifier|public
+parameter_list|<
+name|O
+parameter_list|,
+name|N
+parameter_list|>
+name|T
+name|body
+parameter_list|(
+specifier|final
+name|Class
+argument_list|<
+name|O
+argument_list|>
+name|oldType
+parameter_list|,
+specifier|final
+name|Class
+argument_list|<
+name|N
+argument_list|>
+name|newType
+parameter_list|,
+specifier|final
+name|BiFunction
+argument_list|<
+name|O
+argument_list|,
+name|N
+argument_list|,
+name|Object
 argument_list|>
 name|function
 parameter_list|)
@@ -398,7 +446,7 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|B
+name|Object
 name|result
 init|=
 name|function
@@ -413,7 +461,7 @@ name|oldMessage
 operator|.
 name|getBody
 argument_list|(
-name|type
+name|oldType
 argument_list|)
 else|:
 literal|null
@@ -426,7 +474,7 @@ name|newMessage
 operator|.
 name|getBody
 argument_list|(
-name|type
+name|newType
 argument_list|)
 else|:
 literal|null

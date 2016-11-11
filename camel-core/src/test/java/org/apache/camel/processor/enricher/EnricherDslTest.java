@@ -101,7 +101,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"1"
+literal|1
 argument_list|)
 expr_stmt|;
 name|template
@@ -110,7 +110,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"2"
+literal|2
 argument_list|)
 expr_stmt|;
 name|template
@@ -119,7 +119,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"3"
+literal|3
 argument_list|)
 expr_stmt|;
 name|mock
@@ -164,6 +164,10 @@ argument_list|)
 operator|.
 name|body
 argument_list|(
+name|Integer
+operator|.
+name|class
+argument_list|,
 name|String
 operator|.
 name|class
