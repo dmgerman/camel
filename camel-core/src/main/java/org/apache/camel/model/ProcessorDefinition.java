@@ -1427,6 +1427,43 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+return|return
+name|wrapChannel
+argument_list|(
+name|routeContext
+argument_list|,
+name|processor
+argument_list|,
+name|child
+argument_list|,
+name|isInheritErrorHandler
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|wrapChannel (RouteContext routeContext, Processor processor, ProcessorDefinition<?> child, Boolean inheritErrorHandler)
+specifier|protected
+name|Processor
+name|wrapChannel
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|child
+parameter_list|,
+name|Boolean
+name|inheritErrorHandler
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// put a channel in between this and each output to control the route flow logic
 name|ModelChannel
 name|channel
@@ -1709,6 +1746,8 @@ argument_list|(
 name|channel
 argument_list|,
 name|routeContext
+argument_list|,
+name|inheritErrorHandler
 argument_list|)
 expr_stmt|;
 block|}
@@ -1733,6 +1772,8 @@ argument_list|(
 name|channel
 argument_list|,
 name|routeContext
+argument_list|,
+name|inheritErrorHandler
 argument_list|)
 expr_stmt|;
 block|}
@@ -1761,8 +1802,8 @@ return|return
 name|channel
 return|;
 block|}
-comment|/**      * Wraps the given channel in error handler (if error handler is inherited)      *      * @param channel       the channel      * @param routeContext  the route context      * @throws Exception can be thrown if failed to create error handler builder      */
-DECL|method|wrapChannelInErrorHandler (Channel channel, RouteContext routeContext)
+comment|/**      * Wraps the given channel in error handler (if error handler is inherited)      *      * @param channel             the channel      * @param routeContext        the route context      * @param inheritErrorHandler whether to inherit error handler      * @throws Exception can be thrown if failed to create error handler builder      */
+DECL|method|wrapChannelInErrorHandler (Channel channel, RouteContext routeContext, Boolean inheritErrorHandler)
 specifier|private
 name|void
 name|wrapChannelInErrorHandler
@@ -1772,19 +1813,20 @@ name|channel
 parameter_list|,
 name|RouteContext
 name|routeContext
+parameter_list|,
+name|Boolean
+name|inheritErrorHandler
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 if|if
 condition|(
-name|isInheritErrorHandler
-argument_list|()
+name|inheritErrorHandler
 operator|==
 literal|null
 operator|||
-name|isInheritErrorHandler
-argument_list|()
+name|inheritErrorHandler
 condition|)
 block|{
 name|log

@@ -728,7 +728,7 @@ argument_list|(
 name|loadBalancer
 argument_list|)
 expr_stmt|;
-comment|// some load balancers can only support a fixed number of outputs
+comment|// some load balancer can only support a fixed number of outputs
 name|int
 name|max
 init|=
@@ -842,8 +842,41 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
+name|Boolean
+name|inherit
+init|=
+name|inheritErrorHandler
+decl_stmt|;
+if|if
+condition|(
+name|loadBalancerType
+operator|instanceof
+name|FailoverLoadBalancerDefinition
+condition|)
+block|{
+comment|// special for failover load balancer where you can configure it to not inherit error handler for its children
+comment|// but the load balancer itself should inherit so Camels error handler can react afterwards
+name|inherit
+operator|=
+literal|true
+expr_stmt|;
+block|}
+name|Processor
+name|target
+init|=
+name|wrapChannel
+argument_list|(
+name|routeContext
+argument_list|,
 name|loadBalancer
+argument_list|,
+name|this
+argument_list|,
+name|inherit
+argument_list|)
+decl_stmt|;
+return|return
+name|target
 return|;
 block|}
 comment|// Fluent API
