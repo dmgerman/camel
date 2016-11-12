@@ -160,6 +160,10 @@ name|JdbcTemplate
 import|;
 end_import
 
+begin_comment
+comment|/**  * The sql component allows you to work with databases using JDBC Stored Procedure queries.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Statefull class that cached template functions.  */
+comment|/**  * Stateful class that cached template functions.  */
 end_comment
 
 begin_class
