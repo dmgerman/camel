@@ -325,7 +325,7 @@ literal|"The number of parallel streams consuming from the subscription"
 argument_list|,
 name|defaultValue
 operator|=
-literal|1
+literal|"1"
 argument_list|)
 DECL|field|concurrentConsumers
 specifier|private
@@ -347,7 +347,7 @@ literal|"The max number of messages to receive from the server in a single API c
 argument_list|,
 name|defaultValue
 operator|=
-literal|1
+literal|"1"
 argument_list|)
 DECL|field|maxMessagesPerPoll
 specifier|private
