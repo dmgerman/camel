@@ -50,6 +50,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -72,6 +82,24 @@ name|RubyFilterTest
 extends|extends
 name|XPathFilterTest
 block|{
+annotation|@
+name|Before
+DECL|method|setUpEnv ()
+specifier|public
+name|void
+name|setUpEnv
+parameter_list|()
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"org.jruby.embed.localcontext.scope"
+argument_list|,
+literal|"threadsafe"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|testSendMatchingMessage ()
