@@ -271,7 +271,7 @@ specifier|final
 name|int
 name|SEND_COUNT
 init|=
-literal|20
+literal|10
 decl_stmt|;
 DECL|field|receivedCount
 specifier|private

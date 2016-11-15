@@ -389,7 +389,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|5000
+literal|500
 argument_list|)
 expr_stmt|;
 name|log
@@ -460,7 +460,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?textline=true&clientMode=true&reconnect=true&reconnectInterval=2000"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&clientMode=true&reconnect=true&reconnectInterval=200"
 argument_list|)
 operator|.
 name|id

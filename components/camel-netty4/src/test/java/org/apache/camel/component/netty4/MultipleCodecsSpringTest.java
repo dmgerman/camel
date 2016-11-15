@@ -168,17 +168,6 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|await
-argument_list|(
-literal|1
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;

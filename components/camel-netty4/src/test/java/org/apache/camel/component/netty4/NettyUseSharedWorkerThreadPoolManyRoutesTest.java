@@ -292,7 +292,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|60
 condition|;
 name|i
 operator|++
