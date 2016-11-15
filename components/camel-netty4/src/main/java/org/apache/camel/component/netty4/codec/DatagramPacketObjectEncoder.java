@@ -217,7 +217,7 @@ operator|.
 name|alloc
 argument_list|()
 operator|.
-name|heapBuffer
+name|buffer
 argument_list|()
 decl_stmt|;
 name|delegateObjectEncoder
@@ -248,9 +248,6 @@ name|InetSocketAddress
 argument_list|>
 argument_list|(
 name|buf
-operator|.
-name|retain
-argument_list|()
 argument_list|,
 name|msg
 operator|.
