@@ -292,6 +292,18 @@ name|netty
 operator|.
 name|util
 operator|.
+name|ReferenceCountUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ImmediateEventExecutor
@@ -1210,6 +1222,22 @@ return|return
 literal|true
 return|;
 block|}
+return|return
+name|processWithBody
+argument_list|(
+name|exchange
+argument_list|,
+name|body
+argument_list|,
+operator|new
+name|BodyReleaseCallback
+argument_list|(
+name|callback
+argument_list|,
+name|body
+argument_list|)
+argument_list|)
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1235,6 +1263,23 @@ return|return
 literal|true
 return|;
 block|}
+block|}
+DECL|method|processWithBody (final Exchange exchange, Object body, BodyReleaseCallback callback)
+specifier|private
+name|boolean
+name|processWithBody
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|BodyReleaseCallback
+name|callback
+parameter_list|)
+block|{
 comment|// set the exchange encoding property
 if|if
 condition|(
@@ -1450,7 +1495,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|processWithConnectedChannel (final Exchange exchange, final AsyncCallback callback, final ChannelFuture channelFuture, final Object body)
+DECL|method|processWithConnectedChannel (final Exchange exchange, final BodyReleaseCallback callback, final ChannelFuture channelFuture, final Object body)
 specifier|public
 name|void
 name|processWithConnectedChannel
@@ -1460,7 +1505,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
-name|AsyncCallback
+name|BodyReleaseCallback
 name|callback
 parameter_list|,
 specifier|final
@@ -1742,6 +1787,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|//This will refer to original callback since netty will release body by itself
 specifier|final
 name|AsyncCallback
 name|producerCallback
@@ -1759,6 +1805,9 @@ comment|// as when reuse channel is enabled it will put the channel back in the 
 name|producerCallback
 operator|=
 name|callback
+operator|.
+name|getOriginalCallback
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -1771,6 +1820,9 @@ argument_list|(
 name|channelFuture
 argument_list|,
 name|callback
+operator|.
+name|getOriginalCallback
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3183,7 +3235,7 @@ decl_stmt|;
 DECL|field|callback
 specifier|private
 specifier|final
-name|AsyncCallback
+name|BodyReleaseCallback
 name|callback
 decl_stmt|;
 DECL|field|body
@@ -3192,13 +3244,13 @@ specifier|final
 name|Object
 name|body
 decl_stmt|;
-DECL|method|ChannelConnectedListener (Exchange exchange, AsyncCallback callback, Object body)
+DECL|method|ChannelConnectedListener (Exchange exchange, BodyReleaseCallback callback, Object body)
 name|ChannelConnectedListener
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|AsyncCallback
+name|BodyReleaseCallback
 name|callback
 parameter_list|,
 name|Object
@@ -3299,6 +3351,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 try|try
 block|{
@@ -3335,6 +3388,89 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|/**      * This class is used to release body in case when some error occured and body was not handed over      * to netty      */
+DECL|class|BodyReleaseCallback
+specifier|private
+specifier|static
+specifier|final
+class|class
+name|BodyReleaseCallback
+implements|implements
+name|AsyncCallback
+block|{
+DECL|field|body
+specifier|private
+specifier|volatile
+name|Object
+name|body
+decl_stmt|;
+DECL|field|originalCallback
+specifier|private
+specifier|final
+name|AsyncCallback
+name|originalCallback
+decl_stmt|;
+DECL|method|BodyReleaseCallback (AsyncCallback originalCallback, Object body)
+specifier|private
+name|BodyReleaseCallback
+parameter_list|(
+name|AsyncCallback
+name|originalCallback
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+block|{
+name|this
+operator|.
+name|body
+operator|=
+name|body
+expr_stmt|;
+name|this
+operator|.
+name|originalCallback
+operator|=
+name|originalCallback
+expr_stmt|;
+block|}
+DECL|method|getOriginalCallback ()
+specifier|public
+name|AsyncCallback
+name|getOriginalCallback
+parameter_list|()
+block|{
+return|return
+name|originalCallback
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|done (boolean doneSync)
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+name|ReferenceCountUtil
+operator|.
+name|release
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+name|originalCallback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
