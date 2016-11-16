@@ -236,6 +236,15 @@ argument_list|(
 name|in
 argument_list|)
 decl_stmt|;
+specifier|final
+name|String
+name|apiVersion
+init|=
+name|getApiVersion
+argument_list|(
+name|in
+argument_list|)
+decl_stmt|;
 name|Response
 name|response
 init|=
@@ -254,6 +263,11 @@ operator|.
 name|path
 argument_list|(
 literal|"now"
+argument_list|)
+operator|.
+name|path
+argument_list|(
+name|apiVersion
 argument_list|)
 operator|.
 name|path

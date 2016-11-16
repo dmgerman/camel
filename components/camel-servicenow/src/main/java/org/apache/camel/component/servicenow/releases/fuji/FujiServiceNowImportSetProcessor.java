@@ -156,7 +156,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doProcess (Exchange exchange, Class<?> requestModel, Class<?> responseModel, String action, String tableName, String sysId)
+DECL|method|doProcess (Exchange exchange, Class<?> requestModel, Class<?> responseModel, String action, String apiVersion, String tableName, String sysId)
 specifier|protected
 name|void
 name|doProcess
@@ -178,6 +178,9 @@ name|responseModel
 parameter_list|,
 name|String
 name|action
+parameter_list|,
+name|String
+name|apiVersion
 parameter_list|,
 name|String
 name|tableName
@@ -216,6 +219,8 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
+name|apiVersion
+argument_list|,
 name|tableName
 argument_list|,
 name|sysId
@@ -252,6 +257,8 @@ name|requestModel
 argument_list|,
 name|responseModel
 argument_list|,
+name|apiVersion
+argument_list|,
 name|tableName
 argument_list|)
 expr_stmt|;
@@ -282,13 +289,16 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * GET      * https://instance.service-now.com/api/now/import/{tableName}/{sys_id}      */
-DECL|method|retrieveRecord (Message in, String tableName, String sysId)
+DECL|method|retrieveRecord (Message in, String apiVersion, String tableName, String sysId)
 specifier|private
 name|Response
 name|retrieveRecord
 parameter_list|(
 name|Message
 name|in
+parameter_list|,
+name|String
+name|apiVersion
 parameter_list|,
 name|String
 name|tableName
@@ -315,6 +325,11 @@ operator|.
 name|path
 argument_list|(
 literal|"now"
+argument_list|)
+operator|.
+name|path
+argument_list|(
+name|apiVersion
 argument_list|)
 operator|.
 name|path
@@ -348,7 +363,7 @@ argument_list|)
 return|;
 block|}
 comment|/*      * POST      * https://instance.service-now.com/api/now/import/{tableName}      */
-DECL|method|createRecord (Message in, Class<?> requestModel, Class<?> responseModell, String tableName)
+DECL|method|createRecord (Message in, Class<?> requestModel, Class<?> responseModell, String apiVersion, String tableName)
 specifier|private
 name|Response
 name|createRecord
@@ -367,6 +382,9 @@ argument_list|<
 name|?
 argument_list|>
 name|responseModell
+parameter_list|,
+name|String
+name|apiVersion
 parameter_list|,
 name|String
 name|tableName
@@ -397,6 +415,11 @@ operator|.
 name|path
 argument_list|(
 literal|"now"
+argument_list|)
+operator|.
+name|path
+argument_list|(
+name|apiVersion
 argument_list|)
 operator|.
 name|path

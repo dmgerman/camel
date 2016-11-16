@@ -295,6 +295,18 @@ name|apiUrl
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|apiVersion
+specifier|private
+name|String
+name|apiVersion
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|resource
 specifier|private
 name|String
@@ -628,6 +640,33 @@ name|apiUrl
 operator|!=
 literal|null
 return|;
+block|}
+DECL|method|getApiVersion ()
+specifier|public
+name|String
+name|getApiVersion
+parameter_list|()
+block|{
+return|return
+name|apiVersion
+return|;
+block|}
+comment|/**      * The ServiceNow REST API version, default latest      */
+DECL|method|setApiVersion (String apiVersion)
+specifier|public
+name|void
+name|setApiVersion
+parameter_list|(
+name|String
+name|apiVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiVersion
+operator|=
+name|apiVersion
+expr_stmt|;
 block|}
 comment|/**      * ServiceNow user account name, MUST be provided      */
 DECL|method|setUserName (String userName)

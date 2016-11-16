@@ -294,6 +294,13 @@ name|Object
 name|path
 parameter_list|)
 block|{
+if|if
+condition|(
+name|path
+operator|!=
+literal|null
+condition|)
+block|{
 name|client
 operator|.
 name|path
@@ -301,6 +308,7 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|this
 return|;

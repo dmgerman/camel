@@ -172,7 +172,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doProcess (Exchange exchange, Class<?> requestModel, Class<?> responseModel, String action, String tableName, String sysId)
+DECL|method|doProcess (Exchange exchange, Class<?> requestModel, Class<?> responseModel, String action, String apiVersion, String tableName, String sysId)
 specifier|protected
 name|void
 name|doProcess
@@ -194,6 +194,9 @@ name|responseModel
 parameter_list|,
 name|String
 name|action
+parameter_list|,
+name|String
+name|apiVersion
 parameter_list|,
 name|String
 name|tableName
@@ -275,6 +278,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|String
+name|apiVersion
+init|=
+name|getApiVersion
+argument_list|(
+name|in
+argument_list|)
+decl_stmt|;
 return|return
 name|client
 operator|.
@@ -291,6 +303,11 @@ operator|.
 name|path
 argument_list|(
 literal|"now"
+argument_list|)
+operator|.
+name|path
+argument_list|(
+name|apiVersion
 argument_list|)
 operator|.
 name|path

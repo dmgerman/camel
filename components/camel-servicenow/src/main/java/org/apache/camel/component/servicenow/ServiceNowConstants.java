@@ -160,6 +160,15 @@ name|RESPONSE_META
 init|=
 literal|"CamelServiceNowResponseMeta"
 decl_stmt|;
+DECL|field|API_VERSION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|API_VERSION
+init|=
+literal|"CamelServiceNowApiVersion"
+decl_stmt|;
 DECL|field|ATTACHMENT_META_HEADER
 specifier|public
 specifier|static

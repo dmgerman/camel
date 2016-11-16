@@ -388,6 +388,12 @@ specifier|private
 name|String
 name|apiUrl
 decl_stmt|;
+comment|/**          * The ServiceNow REST API version, default latest          */
+DECL|field|apiVersion
+specifier|private
+name|String
+name|apiVersion
+decl_stmt|;
 comment|/**          * ServiceNow account password, MUST be provided          */
 DECL|field|password
 specifier|private
@@ -621,6 +627,32 @@ operator|.
 name|apiUrl
 operator|=
 name|apiUrl
+expr_stmt|;
+block|}
+DECL|method|getApiVersion ()
+specifier|public
+name|String
+name|getApiVersion
+parameter_list|()
+block|{
+return|return
+name|apiVersion
+return|;
+block|}
+DECL|method|setApiVersion (String apiVersion)
+specifier|public
+name|void
+name|setApiVersion
+parameter_list|(
+name|String
+name|apiVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiVersion
+operator|=
+name|apiVersion
 expr_stmt|;
 block|}
 DECL|method|getPassword ()
