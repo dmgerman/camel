@@ -112,8 +112,8 @@ return|;
 block|}
 block|}
 block|,
-DECL|enumConstant|HELSINKY
-name|HELSINKY
+DECL|enumConstant|HELSINKI
+name|HELSINKI
 block|{
 annotation|@
 name|Override

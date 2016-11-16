@@ -114,7 +114,7 @@ name|endpoint
 argument_list|,
 name|ServiceNowRelease
 operator|.
-name|HELSINKY
+name|HELSINKI
 argument_list|)
 expr_stmt|;
 name|bind

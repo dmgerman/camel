@@ -590,7 +590,7 @@ name|release
 init|=
 name|ServiceNowRelease
 operator|.
-name|HELSINKY
+name|HELSINKI
 decl_stmt|;
 DECL|method|getUserName ()
 specifier|public
