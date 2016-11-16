@@ -1050,6 +1050,28 @@ argument_list|)
 throw|;
 block|}
 block|}
+else|else
+block|{
+comment|// if we are here, there isResultSet is false. This can happen only if we are doing an update operation or there is no result.
+comment|// we can simply add the updateCount in this case.
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|SqlConstants
+operator|.
+name|SQL_UPDATE_COUNT
+argument_list|,
+name|ps
+operator|.
+name|getUpdateCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
