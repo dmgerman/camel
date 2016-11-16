@@ -229,9 +229,9 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|responseModel
 init|=
-name|getModel
+name|getResponseModel
 argument_list|(
 name|in
 argument_list|)
@@ -466,7 +466,7 @@ name|setBodyAndHeaders
 argument_list|(
 name|in
 argument_list|,
-name|model
+name|responseModel
 argument_list|,
 name|response
 argument_list|)

@@ -156,7 +156,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doProcess (Exchange exchange, Class<?> model, String action, String tableName, String sysId)
+DECL|method|doProcess (Exchange exchange, Class<?> requestModel, Class<?> responseModel, String action, String tableName, String sysId)
 specifier|protected
 name|void
 name|doProcess
@@ -168,7 +168,13 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|action
@@ -242,7 +248,9 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|model
+name|requestModel
+argument_list|,
+name|responseModel
 argument_list|,
 name|tableName
 argument_list|)
@@ -267,7 +275,7 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|model
+name|responseModel
 argument_list|,
 name|response
 argument_list|)
@@ -340,7 +348,7 @@ argument_list|)
 return|;
 block|}
 comment|/*      * POST      * https://instance.service-now.com/api/now/import/{tableName}      */
-DECL|method|createRecord (Message in, Class<?> model, String tableName)
+DECL|method|createRecord (Message in, Class<?> requestModel, Class<?> responseModell, String tableName)
 specifier|private
 name|Response
 name|createRecord
@@ -352,7 +360,13 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModell
 parameter_list|,
 name|String
 name|tableName
@@ -364,7 +378,7 @@ name|validateBody
 argument_list|(
 name|in
 argument_list|,
-name|model
+name|requestModel
 argument_list|)
 expr_stmt|;
 return|return

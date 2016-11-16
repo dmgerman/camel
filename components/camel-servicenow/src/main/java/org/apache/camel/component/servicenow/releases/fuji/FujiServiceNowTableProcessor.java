@@ -172,7 +172,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doProcess (Exchange exchange, Class<?> model, String action, String tableName, String sysId)
+DECL|method|doProcess (Exchange exchange, Class<?> requestModel, Class<?> responseModel, String action, String tableName, String sysId)
 specifier|protected
 name|void
 name|doProcess
@@ -184,7 +184,13 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|action
@@ -226,7 +232,9 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|model
+name|requestModel
+argument_list|,
+name|responseModel
 argument_list|,
 name|tableName
 argument_list|,
@@ -260,7 +268,9 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|model
+name|requestModel
+argument_list|,
+name|responseModel
 argument_list|,
 name|tableName
 argument_list|)
@@ -292,7 +302,9 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|model
+name|requestModel
+argument_list|,
+name|responseModel
 argument_list|,
 name|tableName
 argument_list|,
@@ -326,7 +338,9 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|model
+name|requestModel
+argument_list|,
+name|responseModel
 argument_list|,
 name|tableName
 argument_list|,
@@ -360,7 +374,9 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|model
+name|requestModel
+argument_list|,
+name|responseModel
 argument_list|,
 name|tableName
 argument_list|,
@@ -387,14 +403,14 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|model
+name|responseModel
 argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * GET      * https://instance.service-now.com/api/now/table/{tableName}      * https://instance.service-now.com/api/now/table/{tableName}/{sys_id}      */
-DECL|method|retrieveRecord (Message in, Class<?> model, String tableName, String sysId)
+DECL|method|retrieveRecord (Message in, Class<?> requestModel, Class<?> responseModel, String tableName, String sysId)
 specifier|private
 name|Response
 name|retrieveRecord
@@ -406,7 +422,13 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|tableName
@@ -590,7 +612,7 @@ argument_list|)
 return|;
 block|}
 comment|/*      * POST      * https://instance.service-now.com/api/now/table/{tableName}      */
-DECL|method|createRecord (Message in, Class<?> model, String tableName)
+DECL|method|createRecord (Message in, Class<?> requestModel, Class<?> responseModel, String tableName)
 specifier|private
 name|Response
 name|createRecord
@@ -602,7 +624,13 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|tableName
@@ -614,7 +642,7 @@ name|validateBody
 argument_list|(
 name|in
 argument_list|,
-name|model
+name|requestModel
 argument_list|)
 expr_stmt|;
 return|return
@@ -713,7 +741,7 @@ argument_list|)
 return|;
 block|}
 comment|/*      * PUT      * https://instance.service-now.com/api/now/table/{tableName}/{sys_id}      */
-DECL|method|modifyRecord (Message in, Class<?> model, String tableName, String sysId)
+DECL|method|modifyRecord (Message in, Class<?> requestModel, Class<?> responseModel, String tableName, String sysId)
 specifier|private
 name|Response
 name|modifyRecord
@@ -725,7 +753,13 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|tableName
@@ -740,7 +774,7 @@ name|validateBody
 argument_list|(
 name|in
 argument_list|,
-name|model
+name|requestModel
 argument_list|)
 expr_stmt|;
 return|return
@@ -851,7 +885,7 @@ argument_list|)
 return|;
 block|}
 comment|/*      * DELETE      * https://instance.service-now.com/api/now/table/{tableName}/{sys_id}      */
-DECL|method|deleteRecord (Message in, Class<?> model, String tableName, String sysId)
+DECL|method|deleteRecord (Message in, Class<?> requestModel, Class<?> responseModel, String tableName, String sysId)
 specifier|private
 name|Response
 name|deleteRecord
@@ -863,7 +897,13 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|tableName
@@ -923,7 +963,7 @@ argument_list|)
 return|;
 block|}
 comment|/*      * PATCH      * http://instance.service-now.com/api/now/table/{tableName}/{sys_id}      */
-DECL|method|updateRecord (Message in, Class<?> model, String tableName, String sysId)
+DECL|method|updateRecord (Message in, Class<?> requestModel, Class<?> responseModel, String tableName, String sysId)
 specifier|private
 name|Response
 name|updateRecord
@@ -935,7 +975,13 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|model
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|tableName
@@ -950,7 +996,7 @@ name|validateBody
 argument_list|(
 name|in
 argument_list|,
-name|model
+name|requestModel
 argument_list|)
 expr_stmt|;
 return|return
