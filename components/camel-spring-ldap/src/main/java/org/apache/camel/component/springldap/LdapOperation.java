@@ -18,8 +18,22 @@ name|springldap
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|ldap
+operator|.
+name|core
+operator|.
+name|LdapOperations
+import|;
+end_import
+
 begin_comment
-comment|/**  * The list of supported LDAP operations. Currently supported operations are  * search, bind, and unbind. Modify is currently not supported.  */
+comment|/**  * The list of supported LDAP operations. Currently supported operations are search, bind, and unbind, authenticate and modify_attributes.  *   * The function_driven operation expects a request {@link Object} along with an instance of {@link LdapOperationsFunction} that can be used to invoke any method on the  * {@link LdapOperations} instance  */
 end_comment
 
 begin_enum
@@ -31,11 +45,20 @@ block|{
 DECL|enumConstant|SEARCH
 DECL|enumConstant|BIND
 DECL|enumConstant|UNBIND
+DECL|enumConstant|AUTHENTICATE
+DECL|enumConstant|MODIFY_ATTRIBUTES
+DECL|enumConstant|FUNCTION_DRIVEN
 name|SEARCH
 block|,
 name|BIND
 block|,
 name|UNBIND
+block|,
+name|AUTHENTICATE
+block|,
+name|MODIFY_ATTRIBUTES
+block|,
+name|FUNCTION_DRIVEN
 block|}
 end_enum
 
