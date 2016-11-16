@@ -19,66 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-operator|.
-name|any
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-operator|.
-name|eq
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-operator|.
-name|isNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|verify
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|when
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -322,6 +262,66 @@ name|LdapQuery
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|isNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|verify
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
+import|;
+end_import
+
 begin_class
 DECL|class|SpringLdapProducerTest
 specifier|public
@@ -542,10 +542,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testNoDN_FunctionDrivenOperation ()
+DECL|method|testNoDNForFunctionDrivenOperation ()
 specifier|public
 name|void
-name|testNoDN_FunctionDrivenOperation
+name|testNoDNForFunctionDrivenOperation
 parameter_list|()
 throws|throws
 name|Exception

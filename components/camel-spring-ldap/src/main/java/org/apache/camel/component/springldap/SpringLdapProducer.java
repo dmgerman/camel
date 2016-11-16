@@ -19,24 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|springldap
-operator|.
-name|LdapOperation
-operator|.
-name|FUNCTION_DRIVEN
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -384,6 +366,8 @@ if|if
 condition|(
 name|operation
 operator|!=
+name|LdapOperation
+operator|.
 name|FUNCTION_DRIVEN
 operator|&&
 operator|(

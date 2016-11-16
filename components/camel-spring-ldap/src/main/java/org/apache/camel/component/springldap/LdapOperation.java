@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The list of supported LDAP operations. Currently supported operations are search, bind, and unbind, authenticate and modify_attributes.  *   * The function_driven operation expects a request {@link Object} along with an instance of {@link LdapOperationsFunction} that can be used to invoke any method on the  * {@link LdapOperations} instance  */
+comment|/**  * The list of supported LDAP operations. Currently supported operations are  * search, bind, and unbind, authenticate and modify_attributes. The  * function_driven operation expects a request {@link Object} along with an  * instance of {@link LdapOperationsFunction} that can be used to invoke any  * method on the {@link LdapOperations} instance  */
 end_comment
 
 begin_enum
