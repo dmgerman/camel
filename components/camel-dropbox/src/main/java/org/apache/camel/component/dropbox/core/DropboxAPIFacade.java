@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*   Licensed to the Apache Software Foundation (ASF) under one or more   contributor license agreements.  See the NOTICE file distributed with   this work for additional information regarding copyright ownership.   The ASF licenses this file to You under the Apache License, Version 2.0   (the "License"); you may not use this file except in compliance with   the License.  You may obtain a copy of the License at         http://www.apache.org/licenses/LICENSE-2.0    Unless required by applicable law or agreed to in writing, software   distributed under the License is distributed on an "AS IS" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions and   limitations under the License.  */
 end_comment
 
 begin_package
@@ -298,7 +298,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|client
 specifier|private
-specifier|static
 name|DbxClient
 name|client
 decl_stmt|;
@@ -377,15 +376,11 @@ name|remotePath
 decl_stmt|;
 name|DbxEntry
 name|entry
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
 name|entry
 operator|=
-name|DropboxAPIFacade
-operator|.
 name|client
 operator|.
 name|getMetadata
@@ -893,8 +888,6 @@ expr_stmt|;
 block|}
 name|uploadedFile
 operator|=
-name|DropboxAPIFacade
-operator|.
 name|client
 operator|.
 name|uploadFile
@@ -924,7 +917,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Search inside a remote path including its sub directories.      * The query param can be null.      * @param remotePath  the remote path where starting the search from      * @param query a space-separated list of substrings to search for. A file matches only if it contains all the substrings      * @return a DropboxResult object containing all the files found.      * @throws DropboxException      */
+comment|/**      * Search inside a remote path including its sub directories.      * The query param can be null.      * @param remotePath  the remote path where starting the search from      * @param query a space-separated list of sub-strings to search for. A file matches only if it contains all the sub-strings      * @return a DropboxResult object containing all the files found.      * @throws DropboxException      */
 DECL|method|search (String remotePath, String query)
 specifier|public
 name|DropboxSearchResult
@@ -939,11 +932,6 @@ parameter_list|)
 throws|throws
 name|DropboxException
 block|{
-name|DbxEntry
-operator|.
-name|WithChildren
-name|listing
-decl_stmt|;
 if|if
 condition|(
 name|query
@@ -960,17 +948,18 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|listing
-operator|=
-name|DropboxAPIFacade
+name|DbxEntry
 operator|.
+name|WithChildren
+name|listing
+init|=
 name|client
 operator|.
 name|getMetadataWithChildren
 argument_list|(
 name|remotePath
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 return|return
 operator|new
 name|DropboxSearchResult
@@ -1017,8 +1006,6 @@ name|DbxEntry
 argument_list|>
 name|entries
 init|=
-name|DropboxAPIFacade
-operator|.
 name|client
 operator|.
 name|searchFileAndFolderNames
@@ -1068,8 +1055,6 @@ name|DropboxException
 block|{
 try|try
 block|{
-name|DropboxAPIFacade
-operator|.
 name|client
 operator|.
 name|delete
@@ -1077,6 +1062,13 @@ argument_list|(
 name|remotePath
 argument_list|)
 expr_stmt|;
+return|return
+operator|new
+name|DropboxDelResult
+argument_list|(
+name|remotePath
+argument_list|)
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1094,13 +1086,6 @@ literal|" does not exist or can't obtain metadata"
 argument_list|)
 throw|;
 block|}
-return|return
-operator|new
-name|DropboxDelResult
-argument_list|(
-name|remotePath
-argument_list|)
-return|;
 block|}
 comment|/**      * Rename a remote path with the new path location.      * @param remotePath the existing remote path to be renamed      * @param newRemotePath the new remote path substituting the old one      * @return a DropboxResult object with the result of the move operation.      * @throws DropboxException      */
 DECL|method|move (String remotePath, String newRemotePath)
@@ -1119,8 +1104,6 @@ name|DropboxException
 block|{
 try|try
 block|{
-name|DropboxAPIFacade
-operator|.
 name|client
 operator|.
 name|move
@@ -1198,8 +1181,6 @@ operator|.
 name|WithChildren
 name|listing
 init|=
-name|DropboxAPIFacade
-operator|.
 name|client
 operator|.
 name|getMetadataWithChildren
@@ -1248,41 +1229,20 @@ parameter_list|)
 throws|throws
 name|DropboxException
 block|{
+try|try
+block|{
 name|DbxEntry
 operator|.
 name|WithChildren
 name|listing
-decl_stmt|;
-try|try
-block|{
-name|listing
-operator|=
-name|DropboxAPIFacade
-operator|.
+init|=
 name|client
 operator|.
 name|getMetadataWithChildren
 argument_list|(
 name|path
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|DbxException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|DropboxException
-argument_list|(
-name|path
-operator|+
-literal|" does not exist or can't obtain metadata"
-argument_list|)
-throw|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|listing
@@ -1314,6 +1274,13 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|entry
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|Collections
 operator|.
@@ -1331,6 +1298,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+block|}
+else|else
+block|{
 name|Map
 argument_list|<
 name|String
@@ -1450,6 +1420,30 @@ return|return
 name|result
 return|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|DbxException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|DropboxException
+argument_list|(
+name|path
+operator|+
+literal|" does not exist or can't obtain metadata"
+argument_list|)
+throw|;
+block|}
+return|return
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+return|;
+block|}
 DECL|method|downloadSingleFile (String path)
 specifier|private
 name|Map
@@ -1485,8 +1479,6 @@ operator|.
 name|File
 name|downloadedFile
 init|=
-name|DropboxAPIFacade
-operator|.
 name|client
 operator|.
 name|getFile

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*   Licensed to the Apache Software Foundation (ASF) under one or more   contributor license agreements.  See the NOTICE file distributed with   this work for additional information regarding copyright ownership.   The ASF licenses this file to You under the Apache License, Version 2.0   (the "License"); you may not use this file except in compliance with   the License.  You may obtain a copy of the License at         http://www.apache.org/licenses/LICENSE-2.0    Unless required by applicable law or agreed to in writing, software   distributed under the License is distributed on an "AS IS" BASIS,   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the License for the specific language governing permissions and   limitations under the License.  */
 end_comment
 
 begin_package
@@ -255,7 +255,7 @@ specifier|private
 name|String
 name|clientIdentifier
 decl_stmt|;
-comment|//reference to dropboxclient
+comment|//reference to dropbox client
 annotation|@
 name|UriParam
 DECL|field|client
@@ -296,8 +296,6 @@ specifier|public
 name|void
 name|createClient
 parameter_list|()
-throws|throws
-name|DropboxException
 block|{
 name|DbxRequestConfig
 name|config
@@ -316,9 +314,10 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|DbxClient
+name|this
+operator|.
 name|client
-init|=
+operator|=
 operator|new
 name|DbxClient
 argument_list|(
@@ -326,12 +325,6 @@ name|config
 argument_list|,
 name|accessToken
 argument_list|)
-decl_stmt|;
-name|this
-operator|.
-name|client
-operator|=
-name|client
 expr_stmt|;
 block|}
 DECL|method|getAccessToken ()
@@ -452,7 +445,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * A space-separated list of substrings to search for. A file matches only if it contains all the substrings. If this option is not set, all files will be matched.      */
+comment|/**      * A space-separated list of sub-strings to search for. A file matches only if it contains all the sub-strings. If this option is not set, all files will be matched.      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
