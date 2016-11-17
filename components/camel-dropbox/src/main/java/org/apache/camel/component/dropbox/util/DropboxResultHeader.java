@@ -30,7 +30,7 @@ DECL|enumConstant|DOWNLOADED_FILE
 DECL|enumConstant|DOWNLOADED_FILES
 DECL|enumConstant|UPLOADED_FILE
 DECL|enumConstant|UPLOADED_FILES
-DECL|enumConstant|FOUNDED_FILES
+DECL|enumConstant|FOUND_FILES
 DECL|enumConstant|DELETED_PATH
 DECL|enumConstant|MOVED_PATH
 name|DOWNLOADED_FILE
@@ -41,12 +41,12 @@ name|UPLOADED_FILE
 block|,
 name|UPLOADED_FILES
 block|,
-name|FOUNDED_FILES
+name|FOUND_FILES
 block|,
 name|DELETED_PATH
 block|,
 name|MOVED_PATH
-block|; }
+block|}
 end_enum
 
 end_unit

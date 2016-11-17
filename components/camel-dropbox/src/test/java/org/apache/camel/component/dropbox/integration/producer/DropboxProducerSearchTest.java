@@ -246,7 +246,7 @@ name|getHeader
 argument_list|(
 name|DropboxResultHeader
 operator|.
-name|FOUNDED_FILES
+name|FOUND_FILES
 operator|.
 name|name
 argument_list|()

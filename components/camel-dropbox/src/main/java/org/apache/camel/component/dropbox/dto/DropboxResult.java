@@ -32,6 +32,26 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_class
 DECL|class|DropboxResult
 specifier|public
@@ -55,22 +75,20 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-DECL|method|getResultEntries ()
-specifier|public
-name|Object
-name|getResultEntries
-parameter_list|()
-block|{
-return|return
-name|resultEntries
-return|;
-block|}
-DECL|method|setResultEntries (Object resultEntries)
+comment|//    public Map<String, OutputStream> getResultEntries()  {
+comment|//        return resultEntries;
+comment|//    }
+DECL|method|setResultEntries (Map<String, OutputStream> resultEntries)
 specifier|public
 name|void
 name|setResultEntries
 parameter_list|(
-name|Object
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|OutputStream
+argument_list|>
 name|resultEntries
 parameter_list|)
 block|{

@@ -55,57 +55,70 @@ DECL|class|DropboxMoveResult
 specifier|public
 class|class
 name|DropboxMoveResult
-extends|extends
-name|DropboxResult
 block|{
-comment|/**      * Object payload contained in Exchange      * Exchange Header and Body contains the mode path      * @param exchange      */
-annotation|@
-name|Override
-DECL|method|populateExchange (Exchange exchange)
+DECL|field|oldPath
+specifier|private
+specifier|final
+name|String
+name|oldPath
+decl_stmt|;
+DECL|field|newPath
+specifier|private
+specifier|final
+name|String
+name|newPath
+decl_stmt|;
+DECL|method|DropboxMoveResult (String oldPath, String newPath)
 specifier|public
-name|void
-name|populateExchange
+name|DropboxMoveResult
 parameter_list|(
-name|Exchange
-name|exchange
+name|String
+name|oldPath
+parameter_list|,
+name|String
+name|newPath
 parameter_list|)
 block|{
-name|String
-name|movedPath
-init|=
-operator|(
-name|String
-operator|)
-name|resultEntries
-decl_stmt|;
-name|exchange
+name|this
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setHeader
-argument_list|(
-name|DropboxResultHeader
-operator|.
-name|MOVED_PATH
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|movedPath
-argument_list|)
+name|oldPath
+operator|=
+name|oldPath
 expr_stmt|;
-name|exchange
+name|this
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|movedPath
-argument_list|)
+name|newPath
+operator|=
+name|newPath
 expr_stmt|;
 block|}
+DECL|method|getOldPath ()
+specifier|public
+name|String
+name|getOldPath
+parameter_list|()
+block|{
+return|return
+name|oldPath
+return|;
+block|}
+DECL|method|getNewPath ()
+specifier|public
+name|String
+name|getNewPath
+parameter_list|()
+block|{
+return|return
+name|newPath
+return|;
+block|}
+comment|/**      * Object payload contained in Exchange      * Exchange Header and Body contains the mode path      * @param exchange      */
+comment|//    @Override
+comment|//    public void populateExchange(Exchange exchange) {
+comment|//        String movedPath = (String)resultEntries;
+comment|//        exchange.getIn().setHeader(DropboxResultHeader.MOVED_PATH.name(), movedPath);
+comment|//        exchange.getIn().setBody(movedPath);
+comment|//    }
 block|}
 end_class
 
