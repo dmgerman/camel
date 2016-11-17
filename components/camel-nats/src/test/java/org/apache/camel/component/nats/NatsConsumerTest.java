@@ -203,12 +203,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"nats://localhost:4222?topic=test"
+literal|"nats://localhost:4222?topic=test&flushConnection=true"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"nats://localhost:4222?topic=test"
+literal|"nats://localhost:4222?topic=test&flushConnection=true"
 argument_list|)
 operator|.
 name|to
