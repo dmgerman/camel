@@ -164,7 +164,7 @@ name|pubsub
 init|=
 name|cf
 operator|.
-name|getClient
+name|getDefaultClient
 argument_list|()
 decl_stmt|;
 name|String

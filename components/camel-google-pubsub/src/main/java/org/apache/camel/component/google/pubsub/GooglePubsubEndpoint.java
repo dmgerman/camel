@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -517,29 +517,29 @@ name|loggerId
 argument_list|)
 expr_stmt|;
 block|}
-name|GooglePubsubConnectionFactory
-name|cf
-init|=
-operator|(
-literal|null
-operator|==
-name|connectionFactory
-operator|)
-condition|?
-name|getComponent
-argument_list|()
-operator|.
-name|getConnectionFactory
-argument_list|()
-else|:
-name|connectionFactory
-decl_stmt|;
+comment|// Default pubsub connection.
+comment|// With the publisher endpoints - the main publisher
+comment|// with the consumer endpoints  - the ack client
 name|pubsub
 operator|=
-name|cf
-operator|.
-name|getClient
+name|getConnectionFactory
 argument_list|()
+operator|.
+name|getDefaultClient
+argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Credential file location : {}"
+argument_list|,
+name|getConnectionFactory
+argument_list|()
+operator|.
+name|getCredentialsFileLocation
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|log
 operator|.
@@ -561,18 +561,6 @@ argument_list|,
 name|this
 operator|.
 name|destinationName
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"From file : {}"
-argument_list|,
-name|cf
-operator|.
-name|getCredentialsFileLocation
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -834,6 +822,7 @@ return|return
 name|pubsub
 return|;
 block|}
+comment|/**      * ConnectionFactory to obtain connection to PubSub Service. If non provided the default will be used.      */
 DECL|method|getConnectionFactory ()
 specifier|public
 name|GooglePubsubConnectionFactory
@@ -841,6 +830,18 @@ name|getConnectionFactory
 parameter_list|()
 block|{
 return|return
+operator|(
+literal|null
+operator|==
+name|connectionFactory
+operator|)
+condition|?
+name|getComponent
+argument_list|()
+operator|.
+name|getConnectionFactory
+argument_list|()
+else|:
 name|connectionFactory
 return|;
 block|}

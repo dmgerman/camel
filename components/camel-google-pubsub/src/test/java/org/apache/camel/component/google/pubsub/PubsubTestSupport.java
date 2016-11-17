@@ -496,7 +496,7 @@ argument_list|(
 name|SERVICE_URL
 argument_list|)
 operator|.
-name|getClient
+name|getDefaultClient
 argument_list|()
 decl_stmt|;
 name|String

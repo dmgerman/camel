@@ -137,11 +137,6 @@ specifier|abstract
 class|class
 name|PubsubAcknowledgement
 block|{
-DECL|field|logger
-specifier|private
-name|Logger
-name|logger
-decl_stmt|;
 DECL|field|subscriptionFullName
 specifier|private
 specifier|final
@@ -153,6 +148,11 @@ specifier|private
 specifier|final
 name|GooglePubsubEndpoint
 name|endpoint
+decl_stmt|;
+DECL|field|logger
+specifier|protected
+name|Logger
+name|logger
 decl_stmt|;
 DECL|method|PubsubAcknowledgement (GooglePubsubEndpoint endpoint)
 specifier|public
@@ -293,7 +293,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|resetAckDeadline (List<String> ackIdList)
+DECL|method|resetAckDeadline (List<String> ackIdList, Integer seconds)
 name|void
 name|resetAckDeadline
 parameter_list|(
@@ -302,6 +302,9 @@ argument_list|<
 name|String
 argument_list|>
 name|ackIdList
+parameter_list|,
+name|Integer
+name|seconds
 parameter_list|)
 block|{
 name|ModifyAckDeadlineRequest
@@ -318,7 +321,7 @@ argument_list|)
 operator|.
 name|setAckDeadlineSeconds
 argument_list|(
-literal|0
+name|seconds
 argument_list|)
 decl_stmt|;
 try|try

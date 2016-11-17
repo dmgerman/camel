@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -73,6 +73,22 @@ operator|.
 name|base
 operator|.
 name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|api
+operator|.
+name|services
+operator|.
+name|pubsub
+operator|.
+name|Pubsub
 import|;
 end_import
 
@@ -280,11 +296,6 @@ specifier|private
 name|Logger
 name|localLog
 decl_stmt|;
-DECL|field|executor
-specifier|private
-name|ExecutorService
-name|executor
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -303,6 +314,16 @@ specifier|final
 name|Synchronization
 name|ackStrategy
 decl_stmt|;
+DECL|field|executor
+specifier|private
+name|ExecutorService
+name|executor
+decl_stmt|;
+DECL|field|pubsub
+specifier|private
+name|Pubsub
+name|pubsub
+decl_stmt|;
 DECL|method|GooglePubsubConsumer (GooglePubsubEndpoint endpoint, Processor processor)
 name|GooglePubsubConsumer
 parameter_list|(
@@ -312,6 +333,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|super
 argument_list|(
@@ -342,6 +365,23 @@ argument_list|(
 name|this
 operator|.
 name|endpoint
+argument_list|)
+expr_stmt|;
+name|pubsub
+operator|=
+name|endpoint
+operator|.
+name|getConnectionFactory
+argument_list|()
+operator|.
+name|getMultiThreadClient
+argument_list|(
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getConcurrentConsumers
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
@@ -402,7 +442,17 @@ name|localLog
 operator|.
 name|info
 argument_list|(
-literal|"Starting Google PubSub consumer"
+literal|"Starting Google PubSub consumer for {}/{}"
+argument_list|,
+name|endpoint
+operator|.
+name|getProjectId
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getDestinationName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|executor
@@ -464,7 +514,17 @@ name|localLog
 operator|.
 name|info
 argument_list|(
-literal|"Stopping Google PubSub consumer"
+literal|"Stopping Google PubSub consumer for {}/{}"
+argument_list|,
+name|endpoint
+operator|.
+name|getProjectId
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getDestinationName
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -602,8 +662,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-try|try
-block|{
 if|if
 condition|(
 name|localLog
@@ -633,6 +691,8 @@ operator|!
 name|isSuspendingOrSuspended
 argument_list|()
 condition|)
+block|{
+try|try
 block|{
 name|PullRequest
 name|pullRequest
@@ -678,10 +738,7 @@ name|GooglePubsubConsumer
 operator|.
 name|this
 operator|.
-name|endpoint
-operator|.
-name|getPubsub
-argument_list|()
+name|pubsub
 operator|.
 name|projects
 argument_list|()
@@ -724,6 +781,18 @@ name|threadId
 argument_list|)
 expr_stmt|;
 block|}
+continue|continue;
+block|}
+if|if
+condition|(
+literal|null
+operator|==
+name|pullResponse
+operator|.
+name|getReceivedMessages
+argument_list|()
+condition|)
+block|{
 continue|continue;
 block|}
 name|List
@@ -938,7 +1007,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -949,22 +1017,12 @@ name|localLog
 operator|.
 name|error
 argument_list|(
-literal|"Requesting messages from PubSub Failed:"
+literal|"Failure getting messages from PubSub : "
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-name|RuntimeCamelException
-name|rce
-init|=
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-decl_stmt|;
-throw|throw
-name|rce
-throw|;
+block|}
 block|}
 block|}
 block|}

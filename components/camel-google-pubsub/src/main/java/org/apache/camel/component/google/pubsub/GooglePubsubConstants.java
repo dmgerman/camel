@@ -63,6 +63,15 @@ name|ATTRIBUTES
 init|=
 literal|"CamelGooglePubsub.Attributes"
 decl_stmt|;
+DECL|field|ACK_DEADLINE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ACK_DEADLINE
+init|=
+literal|"CamelGooglePubsub.AckDeadline"
+decl_stmt|;
 DECL|enum|AckMode
 specifier|public
 enum|enum
