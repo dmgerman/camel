@@ -37,6 +37,20 @@ name|serialVersionUID
 init|=
 literal|1L
 decl_stmt|;
+DECL|method|DropboxException (Throwable e)
+specifier|public
+name|DropboxException
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|DropboxException (String message)
 specifier|public
 name|DropboxException
