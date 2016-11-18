@@ -1131,6 +1131,14 @@ argument_list|)
 expr_stmt|;
 name|consumer
 operator|.
+name|setLockModeType
+argument_list|(
+name|getLockModeType
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
 name|setParameters
 argument_list|(
 name|getParameters
