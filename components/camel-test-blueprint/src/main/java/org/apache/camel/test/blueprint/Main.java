@@ -191,6 +191,12 @@ specifier|private
 name|String
 name|configAdminFileName
 decl_stmt|;
+comment|// ClassLoader used to scan for bundles in CamelBlueprintHelper.createBundleContext()
+DECL|field|loader
+specifier|private
+name|ClassLoader
+name|loader
+decl_stmt|;
 DECL|method|Main ()
 specifier|public
 name|Main
@@ -659,6 +665,36 @@ throws|throws
 name|Exception
 block|{
 return|return
+name|createBundleContext
+argument_list|(
+name|name
+argument_list|,
+name|loader
+argument_list|,
+name|configAdminPidFiles
+argument_list|)
+return|;
+block|}
+DECL|method|createBundleContext (String name, ClassLoader loader, String[] ... configAdminPidFiles)
+specifier|protected
+name|BundleContext
+name|createBundleContext
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|ClassLoader
+name|loader
+parameter_list|,
+name|String
+index|[]
+modifier|...
+name|configAdminPidFiles
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
 name|CamelBlueprintHelper
 operator|.
 name|createBundleContext
@@ -679,6 +715,8 @@ operator|.
 name|BUNDLE_VERSION
 argument_list|,
 literal|null
+argument_list|,
+name|loader
 argument_list|,
 name|configAdminPidFiles
 argument_list|)
@@ -868,6 +906,22 @@ operator|.
 name|configAdminFileName
 operator|=
 name|fileName
+expr_stmt|;
+block|}
+DECL|method|setLoader (ClassLoader loader)
+specifier|public
+name|void
+name|setLoader
+parameter_list|(
+name|ClassLoader
+name|loader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loader
+operator|=
+name|loader
 expr_stmt|;
 block|}
 block|}
