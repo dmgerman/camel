@@ -127,6 +127,11 @@ specifier|private
 name|Address
 name|address
 decl_stmt|;
+DECL|field|orders
+specifier|private
+name|int
+name|orders
+decl_stmt|;
 DECL|method|getId ()
 specifier|public
 name|Long
@@ -203,6 +208,32 @@ operator|.
 name|address
 operator|=
 name|address
+expr_stmt|;
+block|}
+DECL|method|getOrders ()
+specifier|public
+name|int
+name|getOrders
+parameter_list|()
+block|{
+return|return
+name|orders
+return|;
+block|}
+DECL|method|setOrders (int orders)
+specifier|public
+name|void
+name|setOrders
+parameter_list|(
+name|int
+name|orders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|orders
+operator|=
+name|orders
 expr_stmt|;
 block|}
 annotation|@
