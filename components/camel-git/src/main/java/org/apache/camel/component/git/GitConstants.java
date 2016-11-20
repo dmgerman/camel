@@ -60,6 +60,12 @@ name|GIT_COMMIT_ID
 init|=
 literal|"CamelGitCommitId"
 decl_stmt|;
+DECL|field|GIT_ALLOW_EMPTY
+name|String
+name|GIT_ALLOW_EMPTY
+init|=
+literal|"CamelGitAllowEmpty"
+decl_stmt|;
 block|}
 end_interface
 

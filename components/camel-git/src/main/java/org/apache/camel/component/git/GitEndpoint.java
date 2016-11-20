@@ -319,6 +319,27 @@ name|remoteName
 decl_stmt|;
 annotation|@
 name|UriParam
+comment|// Set to true For backward compatibility , better to set to false (native git behavior)
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|allowEmpty
+specifier|private
+name|boolean
+name|allowEmpty
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
 argument_list|(
 name|enums
 operator|=
@@ -708,6 +729,33 @@ operator|.
 name|remoteName
 operator|=
 name|remoteName
+expr_stmt|;
+block|}
+comment|/**      * The flag to manage empty git commits      */
+DECL|method|isAllowEmpty ()
+specifier|public
+name|boolean
+name|isAllowEmpty
+parameter_list|()
+block|{
+return|return
+name|allowEmpty
+return|;
+block|}
+DECL|method|setAllowEmpty (boolean allowEmpty)
+specifier|public
+name|void
+name|setAllowEmpty
+parameter_list|(
+name|boolean
+name|allowEmpty
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmpty
+operator|=
+name|allowEmpty
 expr_stmt|;
 block|}
 block|}
