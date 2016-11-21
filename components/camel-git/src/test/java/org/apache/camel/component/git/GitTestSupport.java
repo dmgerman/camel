@@ -354,6 +354,27 @@ return|return
 name|repo
 return|;
 block|}
+DECL|method|getGitTestRepository ()
+specifier|protected
+name|Git
+name|getGitTestRepository
+parameter_list|()
+throws|throws
+name|IOException
+throws|,
+name|IllegalStateException
+throws|,
+name|GitAPIException
+block|{
+return|return
+operator|new
+name|Git
+argument_list|(
+name|getTestRepository
+argument_list|()
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
