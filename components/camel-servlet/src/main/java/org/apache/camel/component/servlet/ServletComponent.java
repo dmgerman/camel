@@ -493,6 +493,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|Boolean
+name|attachmentMultipartBinding
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"attachmentMultipartBinding"
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|lenientContextPath
@@ -747,6 +761,32 @@ name|httpMethodRestrict
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|attachmentMultipartBinding
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|setAttachmentMultipartBinding
+argument_list|(
+name|attachmentMultipartBinding
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|endpoint
+operator|.
+name|setAttachmentMultipartBinding
+argument_list|(
+name|isAttachmentMultipartBinding
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|setProperties
 argument_list|(
 name|endpoint
@@ -987,7 +1027,7 @@ return|return
 name|attachmentMultipartBinding
 return|;
 block|}
-comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel {@link Exchange}.      *<p/>      * This is turn off by default as this may require servet specific configuration to enable this when using Servlet's.      */
+comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel {@link Exchange}.      *<p/>      * This is turn off by default as this may require servlet specific configuration to enable this when using Servlet's.      */
 DECL|method|setAttachmentMultipartBinding (boolean attachmentMultipartBinding)
 specifier|public
 name|void

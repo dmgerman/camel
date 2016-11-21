@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -263,6 +275,18 @@ specifier|private
 name|String
 name|servletName
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|attachmentMultipartBinding
+specifier|private
+name|boolean
+name|attachmentMultipartBinding
+decl_stmt|;
 DECL|method|ServletEndpoint ()
 specifier|public
 name|ServletEndpoint
@@ -342,9 +366,6 @@ block|{
 comment|// is attachment binding enabled?
 if|if
 condition|(
-name|getComponent
-argument_list|()
-operator|.
 name|isAttachmentMultipartBinding
 argument_list|()
 condition|)
@@ -534,6 +555,33 @@ block|{
 return|return
 name|servletName
 return|;
+block|}
+DECL|method|isAttachmentMultipartBinding ()
+specifier|public
+name|boolean
+name|isAttachmentMultipartBinding
+parameter_list|()
+block|{
+return|return
+name|attachmentMultipartBinding
+return|;
+block|}
+comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel {@link Exchange}.      *<p/>      * This is turn off by default as this may require servlet specific configuration to enable this when using Servlet's.      */
+DECL|method|setAttachmentMultipartBinding (boolean attachmentMultipartBinding)
+specifier|public
+name|void
+name|setAttachmentMultipartBinding
+parameter_list|(
+name|boolean
+name|attachmentMultipartBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|attachmentMultipartBinding
+operator|=
+name|attachmentMultipartBinding
+expr_stmt|;
 block|}
 annotation|@
 name|Override
