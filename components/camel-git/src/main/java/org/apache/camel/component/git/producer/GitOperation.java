@@ -122,6 +122,18 @@ name|CHERRYPICK_OPERATION
 init|=
 literal|"cherryPick"
 decl_stmt|;
+DECL|field|REMOTE_ADD_OPERATION
+name|String
+name|REMOTE_ADD_OPERATION
+init|=
+literal|"remoteAdd"
+decl_stmt|;
+DECL|field|REMOTE_LIST_OPERATION
+name|String
+name|REMOTE_LIST_OPERATION
+init|=
+literal|"remoteList"
+decl_stmt|;
 block|}
 end_interface
 

@@ -186,6 +186,14 @@ name|tagTest
 init|=
 literal|"testTag"
 decl_stmt|;
+DECL|field|remoteUriTest
+specifier|public
+specifier|final
+name|String
+name|remoteUriTest
+init|=
+literal|"https://github.com/oscerd/json-webserver-example.git"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -330,7 +338,10 @@ argument_list|)
 operator|.
 name|readEnvironment
 argument_list|()
-comment|// scan environment GIT_* variables
+comment|// scan
+comment|// environment
+comment|// GIT_*
+comment|// variables
 operator|.
 name|findGitDir
 argument_list|()

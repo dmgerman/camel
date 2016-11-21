@@ -344,7 +344,7 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"clone,init,add,remove,commit,commitAll,createBranch,deleteBranch,createTag,deleteTag,status,log,push,pull,showBranches,cherryPick"
+literal|"clone,init,add,remove,commit,commitAll,createBranch,deleteBranch,createTag,deleteTag,status,log,push,pull,showBranches,cherryPick,remoteAdd,remoteList"
 argument_list|,
 name|label
 operator|=
