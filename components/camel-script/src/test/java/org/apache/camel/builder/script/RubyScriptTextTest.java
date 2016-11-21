@@ -106,16 +106,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Ignore
 import|;
 end_import
@@ -156,24 +146,6 @@ name|messageCount
 init|=
 literal|500
 decl_stmt|;
-annotation|@
-name|Before
-DECL|method|configEnv ()
-specifier|public
-name|void
-name|configEnv
-parameter_list|()
-block|{
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"org.jruby.embed.localcontext.scope"
-argument_list|,
-literal|"threadsafe"
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|parallelExecutionWithCachedScriptAndReusedScriptEngine ()
