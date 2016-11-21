@@ -458,7 +458,7 @@ literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"2147483647"
+literal|"500"
 argument_list|)
 DECL|field|maxPollRecords
 specifier|private
@@ -4433,7 +4433,7 @@ return|return
 name|maxPollRecords
 return|;
 block|}
-comment|/**      * A unique string that identifies the consumer group this consumer belongs to.      * This property is required if the consumer uses either the group management functionality by using      *<code>subscribe(topic)</code> or the Kafka-based offset management strategy.      */
+comment|/**      * The maximum number of records returned in a single call to poll()      */
 DECL|method|setMaxPollRecords (Integer maxPollRecords)
 specifier|public
 name|void
