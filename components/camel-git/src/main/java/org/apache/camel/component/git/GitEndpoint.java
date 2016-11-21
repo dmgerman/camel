@@ -317,16 +317,17 @@ specifier|private
 name|String
 name|remoteName
 decl_stmt|;
+comment|// Set to true for backward compatibility , better to set to false (native git behavior)
 annotation|@
 name|UriParam
-comment|// Set to true For backward compatibility , better to set to false (native git behavior)
-annotation|@
-name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
-argument_list|,
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
 name|label
 operator|=
 literal|"producer"

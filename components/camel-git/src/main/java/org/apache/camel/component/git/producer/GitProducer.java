@@ -3267,7 +3267,10 @@ argument_list|)
 operator|.
 name|readEnvironment
 argument_list|()
-comment|// scan environment GIT_* variables
+comment|// scan
+comment|// environment
+comment|// GIT_*
+comment|// variables
 operator|.
 name|findGitDir
 argument_list|()
