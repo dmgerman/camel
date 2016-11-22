@@ -270,7 +270,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"async"
+literal|"reply"
 argument_list|,
 name|description
 operator|=
@@ -285,10 +285,10 @@ name|required
 operator|=
 literal|"false"
 argument_list|)
-DECL|field|async
+DECL|field|reply
 specifier|private
 name|boolean
-name|async
+name|reply
 decl_stmt|;
 DECL|method|FirebaseEndpoint (String uri, FirebaseComponent firebaseComponent, FirebaseConfig firebaseConfig)
 specifier|public
@@ -357,7 +357,7 @@ argument_list|()
 decl_stmt|;
 name|this
 operator|.
-name|setAsync
+name|setReply
 argument_list|(
 name|firebaseConfig
 operator|.
@@ -516,30 +516,30 @@ operator|=
 name|keyName
 expr_stmt|;
 block|}
-DECL|method|isAsync ()
+DECL|method|isReply ()
 specifier|public
 name|boolean
-name|isAsync
+name|isReply
 parameter_list|()
 block|{
 return|return
-name|async
+name|reply
 return|;
 block|}
-DECL|method|setAsync (boolean async)
+DECL|method|setReply (boolean reply)
 specifier|public
 name|void
-name|setAsync
+name|setReply
 parameter_list|(
 name|boolean
-name|async
+name|reply
 parameter_list|)
 block|{
 name|this
 operator|.
-name|async
+name|reply
 operator|=
-name|async
+name|reply
 expr_stmt|;
 block|}
 DECL|method|getFirebaseApp ()
