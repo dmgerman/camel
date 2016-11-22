@@ -62,6 +62,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|ws
@@ -119,6 +131,20 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|NotifyBuilder
 import|;
 end_import
 
@@ -296,6 +322,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|jaxrs
+operator|.
+name|utils
+operator|.
+name|ParameterizedCollectionType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -355,10 +397,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CxfRsProducerTest
+DECL|class|CxfRsAsyncProducerTest
 specifier|public
 class|class
-name|CxfRsProducerTest
+name|CxfRsAsyncProducerTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
@@ -383,7 +425,7 @@ name|CXFTestSupport
 operator|.
 name|getPort
 argument_list|(
-literal|"CxfRsProducerTest.jetty"
+literal|"CxfRsAsyncProducerTest.jetty"
 argument_list|)
 decl_stmt|;
 DECL|class|JettyProcessor
@@ -481,20 +523,9 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/cxf/jaxrs/CxfRsSpringProducer.xml"
+literal|"org/apache/camel/component/cxf/jaxrs/CxfRsSpringAsyncProducer.xml"
 argument_list|)
 return|;
-block|}
-DECL|method|setupDestinationURL (Message inMessage)
-specifier|protected
-name|void
-name|setupDestinationURL
-parameter_list|(
-name|Message
-name|inMessage
-parameter_list|)
-block|{
-comment|// do nothing here
 block|}
 annotation|@
 name|Test
@@ -545,11 +576,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|setupDestinationURL
-argument_list|(
-name|inMessage
-argument_list|)
-expr_stmt|;
 comment|// set the operation name
 name|inMessage
 operator|.
@@ -717,21 +743,10 @@ name|send
 argument_list|(
 literal|"direct://proxy"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -743,16 +758,11 @@ expr_stmt|;
 name|Message
 name|inMessage
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|setupDestinationURL
-argument_list|(
-name|inMessage
-argument_list|)
-expr_stmt|;
 comment|// set the operation name
 name|inMessage
 operator|.
@@ -779,7 +789,6 @@ operator|.
 name|FALSE
 argument_list|)
 expr_stmt|;
-comment|// set the parameters , if you just have one parameter
 comment|// camel will put this object into an Object[] itself
 name|inMessage
 operator|.
@@ -789,6 +798,211 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+decl_stmt|;
+comment|// get the response message
+name|List
+argument_list|<
+name|Customer
+argument_list|>
+name|response
+init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
+operator|(
+name|List
+argument_list|<
+name|?
+argument_list|>
+operator|)
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The response should not be null "
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Dan is missing!"
+argument_list|,
+name|response
+operator|.
+name|contains
+argument_list|(
+operator|new
+name|Customer
+argument_list|(
+literal|113
+argument_list|,
+literal|"Dan"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"John is missing!"
+argument_list|,
+name|response
+operator|.
+name|contains
+argument_list|(
+operator|new
+name|Customer
+argument_list|(
+literal|123
+argument_list|,
+literal|"John"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response code"
+argument_list|,
+literal|200
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testGetCustomersWithHttpCentralClientAPI ()
+specifier|public
+name|void
+name|testGetCustomersWithHttpCentralClientAPI
+parameter_list|()
+block|{
+name|Exchange
+name|exchange
+init|=
+name|template
+operator|.
+name|send
+argument_list|(
+literal|"direct://proxy"
+argument_list|,
+name|newExchange
+lambda|->
+block|{
+name|newExchange
+operator|.
+name|setPattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOut
+argument_list|)
+expr_stmt|;
+name|Message
+name|inMessage
+init|=
+name|newExchange
+operator|.
+name|getIn
+argument_list|()
+decl_stmt|;
+comment|// set the Http method
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_METHOD
+argument_list|,
+literal|"GET"
+argument_list|)
+expr_stmt|;
+comment|// set the relative path
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_PATH
+argument_list|,
+literal|"/customerservice/customers/"
+argument_list|)
+expr_stmt|;
+comment|// using the proxy client API
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+name|CxfConstants
+operator|.
+name|CAMEL_CXF_RS_USING_HTTP_API
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+comment|// set the headers
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+name|CxfConstants
+operator|.
+name|CAMEL_CXF_RS_RESPONSE_CLASS
+argument_list|,
+name|List
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+name|CxfConstants
+operator|.
+name|CAMEL_CXF_RS_RESPONSE_GENERIC_TYPE
+argument_list|,
+operator|new
+name|ParameterizedCollectionType
+argument_list|(
+name|Customer
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// camel will put this object into an Object[] itself
+name|inMessage
+operator|.
+name|setBody
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 argument_list|)
 decl_stmt|;
@@ -889,7 +1103,6 @@ name|void
 name|testGetCustomerWithHttpCentralClientAPI
 parameter_list|()
 block|{
-comment|// START SNIPPET: HttpExample
 name|Exchange
 name|exchange
 init|=
@@ -899,21 +1112,10 @@ name|send
 argument_list|(
 literal|"direct://http"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -925,16 +1127,11 @@ expr_stmt|;
 name|Message
 name|inMessage
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|setupDestinationURL
-argument_list|(
-name|inMessage
-argument_list|)
-expr_stmt|;
 comment|// using the http central client API
 name|inMessage
 operator|.
@@ -1005,7 +1202,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 decl_stmt|;
@@ -1096,7 +1292,6 @@ literal|"key"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: HttpExample
 block|}
 annotation|@
 name|Test
@@ -1126,23 +1321,12 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/?httpClientAPI=true&throwExceptionOnFailure=false&synchronous=true"
+literal|"/?httpClientAPI=true&throwExceptionOnFailure=false"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -1154,7 +1338,7 @@ expr_stmt|;
 name|Message
 name|message
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
@@ -1212,7 +1396,6 @@ argument_list|(
 name|customer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 decl_stmt|;
@@ -1280,23 +1463,12 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/?httpClientAPI=true&synchronous=true"
+literal|"/?httpClientAPI=true"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -1308,7 +1480,7 @@ expr_stmt|;
 name|Message
 name|message
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
@@ -1366,7 +1538,6 @@ argument_list|(
 name|customer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 decl_stmt|;
@@ -1435,21 +1606,10 @@ argument_list|()
 operator|+
 literal|"/?httpClientAPI=true"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -1461,7 +1621,7 @@ expr_stmt|;
 name|Message
 name|inMessage
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
@@ -1512,7 +1672,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 decl_stmt|;
@@ -1617,21 +1776,10 @@ argument_list|()
 operator|+
 literal|"/?httpClientAPI=true"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -1643,7 +1791,7 @@ expr_stmt|;
 name|Message
 name|inMessage
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
@@ -1688,7 +1836,7 @@ block|{
 literal|"123"
 block|}
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Specify the response class , cxfrs will use InputStream as the response object type
 name|inMessage
 operator|.
@@ -1712,10 +1860,15 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-argument_list|)
-decl_stmt|;
+block|)
+class|;
+end_class
+
+begin_comment
 comment|// get the response message
+end_comment
+
+begin_decl_stmt
 name|Customer
 name|response
 init|=
@@ -1730,6 +1883,9 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
+end_decl_stmt
+
+begin_expr_stmt
 name|assertNotNull
 argument_list|(
 literal|"The response should not be null "
@@ -1737,6 +1893,9 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
@@ -1754,6 +1913,9 @@ argument_list|,
 literal|"123"
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
@@ -1766,6 +1928,9 @@ argument_list|,
 literal|"John"
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|assertEquals
 argument_list|(
 literal|"Get a wrong response code"
@@ -1785,8 +1950,10 @@ name|HTTP_RESPONSE_CODE
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
+end_expr_stmt
+
+begin_function
+unit|}          @
 name|Test
 DECL|method|testAddCustomerUniqueResponseCodeWithHttpClientAPI ()
 specifier|public
@@ -1814,23 +1981,12 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"?httpClientAPI=true&synchronous=true"
+literal|"?httpClientAPI=true"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -1842,7 +1998,7 @@ expr_stmt|;
 name|Message
 name|inMessage
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
@@ -1900,7 +2056,6 @@ argument_list|(
 name|customer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 decl_stmt|;
@@ -1970,6 +2125,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Test
 DECL|method|testAddCustomerUniqueResponseCodeWithProxyAPI ()
@@ -2018,11 +2176,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|setupDestinationURL
-argument_list|(
-name|inMessage
-argument_list|)
-expr_stmt|;
 comment|// set the operation name
 name|inMessage
 operator|.
@@ -2149,6 +2302,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Test
 DECL|method|testAddCustomerUniqueResponseCode ()
@@ -2177,7 +2333,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"?httpClientAPI=true&synchronous=true"
+literal|"?httpClientAPI=true"
 argument_list|,
 operator|new
 name|Processor
@@ -2347,6 +2503,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Test
 DECL|method|testProducerWithQueryParameters ()
@@ -2375,23 +2534,12 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/testQuery?httpClientAPI=true&q1=12&q2=13&synchronous=true"
+literal|"/testQuery?httpClientAPI=true&q1=12&q2=13"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -2403,7 +2551,7 @@ expr_stmt|;
 name|Message
 name|inMessage
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
@@ -2441,7 +2589,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 argument_list|)
 decl_stmt|;
 comment|// get the response message
@@ -2477,6 +2624,9 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Test
 DECL|method|testProducerWithQueryParametersHeader ()
@@ -2505,23 +2655,12 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/testQuery?httpClientAPI=true&q1=12&q2=13&synchronous=true"
+literal|"/testQuery?httpClientAPI=true&q1=12&q2=13"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -2533,7 +2672,7 @@ expr_stmt|;
 name|Message
 name|inMessage
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
@@ -2575,11 +2714,7 @@ name|queryMap
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|queryMap
@@ -2620,7 +2755,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 argument_list|)
 decl_stmt|;
 comment|// get the response message
@@ -2656,6 +2790,9 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Test
 DECL|method|testRestServerDirectlyGetCustomer ()
@@ -2685,7 +2822,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/customerservice/customers/123?synchronous=true"
+literal|"/customerservice/customers/123"
 argument_list|,
 literal|null
 argument_list|,
@@ -2708,6 +2845,9 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Test
 DECL|method|testRestServerDirectlyAddCustomer ()
@@ -2751,7 +2891,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/customerservice/customers?synchronous=true"
+literal|"/customerservice/customers"
 argument_list|,
 name|input
 argument_list|,
@@ -2782,6 +2922,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_class
 DECL|class|TestFeature
 specifier|static
 class|class
@@ -2858,7 +3001,9 @@ block|{
 comment|//Do nothing
 block|}
 block|}
-empty_stmt|;
+end_class
+
+begin_function
 annotation|@
 name|Test
 DECL|method|testProducerWithFeature ()
@@ -2902,7 +3047,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/customerservice/customers/123?features=#myFeatures&synchronous=true"
+literal|"/customerservice/customers/123?features=#myFeatures"
 argument_list|,
 literal|null
 argument_list|,
@@ -2927,6 +3072,9 @@ name|initialized
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Test
 DECL|method|testProducer422Response ()
@@ -2955,23 +3103,12 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/?httpClientAPI=true&synchronous=true"
+literal|"/?httpClientAPI=true"
 argument_list|,
-operator|new
-name|Processor
-argument_list|()
+name|newExchange
+lambda|->
 block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|exchange
+name|newExchange
 operator|.
 name|setPattern
 argument_list|(
@@ -2983,7 +3120,7 @@ expr_stmt|;
 name|Message
 name|message
 init|=
-name|exchange
+name|newExchange
 operator|.
 name|getIn
 argument_list|()
@@ -3040,7 +3177,6 @@ argument_list|(
 name|customer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 decl_stmt|;
@@ -3102,8 +3238,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
