@@ -895,7 +895,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|get
+name|getExcerpt
 argument_list|(
 name|index
 operator|.
