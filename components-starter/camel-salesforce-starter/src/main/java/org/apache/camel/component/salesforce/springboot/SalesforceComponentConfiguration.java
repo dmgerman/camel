@@ -1032,6 +1032,12 @@ specifier|private
 name|Map
 name|initialReplayIdMap
 decl_stmt|;
+comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          *           * @param limit          */
+DECL|field|limit
+specifier|private
+name|Integer
+name|limit
+decl_stmt|;
 DECL|method|getFormat ()
 specifier|public
 name|PayloadFormat
@@ -1940,6 +1946,32 @@ operator|.
 name|initialReplayIdMap
 operator|=
 name|initialReplayIdMap
+expr_stmt|;
+block|}
+DECL|method|getLimit ()
+specifier|public
+name|Integer
+name|getLimit
+parameter_list|()
+block|{
+return|return
+name|limit
+return|;
+block|}
+DECL|method|setLimit (Integer limit)
+specifier|public
+name|void
+name|setLimit
+parameter_list|(
+name|Integer
+name|limit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|limit
+operator|=
+name|limit
 expr_stmt|;
 block|}
 block|}
