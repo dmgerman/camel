@@ -110,6 +110,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -231,6 +245,15 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"The operation to use"
+argument_list|)
 DECL|field|operationName
 specifier|private
 specifier|final
@@ -239,6 +262,15 @@ name|operationName
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"The name of the topic to use"
+argument_list|)
 DECL|field|topicName
 specifier|private
 specifier|final
