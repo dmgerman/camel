@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|firebase
@@ -131,24 +143,6 @@ operator|.
 name|data
 operator|.
 name|Operation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|firebase
-operator|.
-name|exception
-operator|.
-name|FirebaseException
 import|;
 end_import
 
@@ -479,7 +473,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|FirebaseException
+name|RuntimeCamelException
 argument_list|(
 literal|"Message forwarding failed"
 argument_list|,
