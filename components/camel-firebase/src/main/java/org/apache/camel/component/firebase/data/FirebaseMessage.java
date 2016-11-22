@@ -164,38 +164,6 @@ return|return
 name|databaseError
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"FirebaseMessage{"
-operator|+
-literal|"operation="
-operator|+
-name|operation
-operator|+
-literal|", dataSnapshot="
-operator|+
-name|dataSnapshot
-operator|+
-literal|", previousChildName='"
-operator|+
-name|previousChildName
-operator|+
-literal|'\''
-operator|+
-literal|", databaseError="
-operator|+
-name|databaseError
-operator|+
-literal|'}'
-return|;
-block|}
 DECL|class|Builder
 specifier|public
 specifier|static
