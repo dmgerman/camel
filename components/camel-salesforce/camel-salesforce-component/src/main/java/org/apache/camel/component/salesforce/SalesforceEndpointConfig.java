@@ -349,6 +349,15 @@ name|APEX_URL
 init|=
 literal|"apexUrl"
 decl_stmt|;
+DECL|field|LIMIT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|LIMIT
+init|=
+literal|"limit"
+decl_stmt|;
 comment|// prefix for parameters in headers
 DECL|field|APEX_QUERY_PARAM_PREFIX
 specifier|public
@@ -755,6 +764,13 @@ name|long
 name|maxBackoff
 init|=
 name|DEFAULT_MAX_BACKOFF
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|limit
+specifier|private
+name|Integer
+name|limit
 decl_stmt|;
 DECL|method|copy ()
 specifier|public
@@ -1862,6 +1878,15 @@ argument_list|,
 name|apexUrl
 argument_list|)
 expr_stmt|;
+name|valueMap
+operator|.
+name|put
+argument_list|(
+name|LIMIT
+argument_list|,
+name|limit
+argument_list|)
+expr_stmt|;
 comment|// apexQueryParams are handled explicitly in AbstractRestProcessor
 comment|// add bulk API properties
 if|if
@@ -2038,6 +2063,34 @@ operator|.
 name|initialReplayIdMap
 operator|=
 name|initialReplayIdMap
+expr_stmt|;
+block|}
+DECL|method|getLimit ()
+specifier|public
+name|Integer
+name|getLimit
+parameter_list|()
+block|{
+return|return
+name|limit
+return|;
+block|}
+comment|/**      * Limit on number of returned records. Applicable to some of the API, check the Salesforce documentation.      * @param limit      */
+DECL|method|setLimit (final Integer limit)
+specifier|public
+name|void
+name|setLimit
+parameter_list|(
+specifier|final
+name|Integer
+name|limit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|limit
+operator|=
+name|limit
 expr_stmt|;
 block|}
 block|}

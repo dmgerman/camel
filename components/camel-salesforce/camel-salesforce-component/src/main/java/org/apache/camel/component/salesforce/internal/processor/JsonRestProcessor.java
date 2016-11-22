@@ -616,6 +616,22 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|RECENT
+case|:
+comment|// handle known response type
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|RESPONSE_TYPE
+argument_list|,
+name|TypeReferences
+operator|.
+name|RECENT_ITEM_LIST_TYPE
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 name|LIMITS
 case|:
 comment|// handle known response type

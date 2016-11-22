@@ -135,6 +135,12 @@ argument_list|(
 literal|"apexCall"
 argument_list|)
 block|,
+DECL|enumConstant|RECENT
+name|RECENT
+argument_list|(
+literal|"recent"
+argument_list|)
+block|,
 comment|// bulk API
 DECL|enumConstant|CREATE_JOB
 name|CREATE_JOB

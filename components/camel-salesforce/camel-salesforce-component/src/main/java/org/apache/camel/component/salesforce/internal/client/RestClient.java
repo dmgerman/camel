@@ -351,6 +351,18 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
+comment|/**      * Fetches recently viewed records.      *      * @param limit      *            optional limit that specifies the maximum number of records to be returned. If this parameter is not      *            specified, the default maximum number of records returned is the maximum number of entries in      *            RecentlyViewed, which is 200 records per object.      * @param responseCallback      *            {@link ResponseCallback} to handle response or exception      */
+DECL|method|recent (Integer limit, ResponseCallback responseCallback)
+name|void
+name|recent
+parameter_list|(
+name|Integer
+name|limit
+parameter_list|,
+name|ResponseCallback
+name|responseCallback
+parameter_list|)
+function_decl|;
 comment|/**      * Fetches Organization Limits.      *      * @param responseCallback {@link ResponseCallback} to handle response or exception      */
 DECL|method|limits (ResponseCallback responseCallback)
 name|void
