@@ -147,7 +147,7 @@ specifier|private
 name|HttpRegistry
 name|httpRegistry
 decl_stmt|;
-comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel      * Exchange. This is turn off by default as this may require servet specific      * configuration to enable this when using Servlet's.      */
+comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel      * Exchange. This is turn off by default as this may require servlet      * specific configuration to enable this when using Servlet's.      */
 DECL|field|attachmentMultipartBinding
 specifier|private
 name|Boolean
