@@ -1722,14 +1722,6 @@ DECL|field|clientSocket
 name|Socket
 name|clientSocket
 decl_stmt|;
-DECL|field|acknowledgementGenerator
-name|Hl7AcknowledgementGenerator
-name|acknowledgementGenerator
-init|=
-operator|new
-name|Hl7AcknowledgementGenerator
-argument_list|()
-decl_stmt|;
 DECL|field|initialByte
 name|Integer
 name|initialByte

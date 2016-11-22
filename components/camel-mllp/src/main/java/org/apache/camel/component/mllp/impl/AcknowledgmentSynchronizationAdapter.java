@@ -514,7 +514,7 @@ expr_stmt|;
 return|return;
 block|}
 comment|// Find the acknowledgement body
-comment|// TODO:  Enhance this to say whether or not the acknowlment is missing or just of an uncovertable type
+comment|// TODO:  Enhance this to say whether or not the acknowledgment is missing or just of an unconvertible type
 name|byte
 index|[]
 name|acknowledgementMessageBytes

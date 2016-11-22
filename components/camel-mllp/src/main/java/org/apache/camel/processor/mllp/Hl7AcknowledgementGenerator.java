@@ -299,9 +299,9 @@ argument_list|(
 name|hl7Bytes
 argument_list|)
 expr_stmt|;
-name|message
+name|exchange
 operator|.
-name|setHeader
+name|setProperty
 argument_list|(
 name|MLLP_ACKNOWLEDGEMENT_TYPE
 argument_list|,
@@ -318,9 +318,9 @@ argument_list|(
 name|hl7Bytes
 argument_list|)
 expr_stmt|;
-name|message
+name|exchange
 operator|.
-name|setHeader
+name|setProperty
 argument_list|(
 name|MLLP_ACKNOWLEDGEMENT_TYPE
 argument_list|,
@@ -328,9 +328,9 @@ literal|"AE"
 argument_list|)
 expr_stmt|;
 block|}
-name|message
+name|exchange
 operator|.
-name|setHeader
+name|setProperty
 argument_list|(
 name|MLLP_ACKNOWLEDGEMENT
 argument_list|,
@@ -591,7 +591,12 @@ name|hl7MessageBytes
 argument_list|,
 literal|0
 argument_list|,
-literal|8
+name|fieldSeparatorIndexes
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// through MSH-2 (without trailing field separator)
