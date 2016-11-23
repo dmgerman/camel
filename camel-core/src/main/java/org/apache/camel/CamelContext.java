@@ -2023,7 +2023,7 @@ name|DataFormatResolver
 name|dataFormatResolver
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the properties that can be referenced in the camel context      *      * @param properties properties      */
+comment|/**      * Sets the properties that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global settings on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @param properties properties      */
 DECL|method|setProperties (Map<String, String> properties)
 name|void
 name|setProperties
@@ -2037,7 +2037,7 @@ argument_list|>
 name|properties
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the properties that can be referenced in the camel context      *      * @return the properties      */
+comment|/**      * Gets the properties that can be referenced in the camel context.      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global settings on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return the properties      */
 DECL|method|getProperties ()
 name|Map
 argument_list|<
@@ -2048,7 +2048,7 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the property value that can be referenced in the camel context      *      * @return the string value of property      */
+comment|/**      * Gets the property value that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global settings on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return the string value of property      */
 DECL|method|getProperty (String name)
 name|String
 name|getProperty
