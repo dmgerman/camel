@@ -355,7 +355,7 @@ argument_list|>
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      *       * @param contract      */
+comment|/**      * Sets a {@link Contract} which declares input/output message type on the route.      * @param contract {@link Contract} for this route      */
 DECL|method|setContract (Contract contract)
 name|void
 name|setContract

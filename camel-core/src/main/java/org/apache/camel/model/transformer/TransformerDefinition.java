@@ -277,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Transformer.  */
+comment|/**  *<p>Represents a {@link Transformer} which declaratively transforms message content  * according to the input type declared by {@link InputTypeDefinition} and/or output type  * declared by {@link OutputTypeDefinition}.</p>  *<p>If you specify from='java:com.example.ABC' and to='xml:XYZ', the transformer  * will be picked up when current message type is 'java:com.example.ABC' and expected  * message type is 'xml:XYZ'.  * If you specify from='java' to='xml', then it will be picked up for all of java  * to xml transformation.  * Also it's possible to specify scheme='xml' so that the transformer will be picked up  * for all of java to xml and xml to java transformation.</p>  *   * {@see Transformer}  * {@see InputTypeDefinition}  * {@see OutputTypeDefinition}  */
 end_comment
 
 begin_class
@@ -329,13 +329,6 @@ specifier|private
 name|String
 name|to
 decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
-decl_stmt|;
 DECL|method|createTransformer (CamelContext context)
 specifier|public
 name|Transformer
@@ -347,24 +340,23 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|context
-expr_stmt|;
 return|return
 name|doCreateTransformer
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 return|;
 block|}
 empty_stmt|;
-DECL|method|doCreateTransformer ()
+DECL|method|doCreateTransformer (CamelContext context)
 specifier|protected
 specifier|abstract
 name|Transformer
 name|doCreateTransformer
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
@@ -497,34 +489,6 @@ name|clazz
 operator|.
 name|getName
 argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Get the CamelContext.      * @return      */
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-comment|/**      * Set the CamelContext.      * @param camelContext CamelContext      */
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
 expr_stmt|;
 block|}
 block|}

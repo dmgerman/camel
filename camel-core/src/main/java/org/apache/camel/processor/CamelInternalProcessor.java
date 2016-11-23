@@ -523,7 +523,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Execute {@link UnitOfWork}</li>  *<li>Keeping track which route currently is being routed</li>  *<li>Execute {@link RoutePolicy}</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Debugging</li>  *<li>Message History</li>  *<li>Stream Caching</li>  *</ul>  * ... and more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorAdvice} advice (before and after advice)  * by executing the {@link CamelInternalProcessorAdvice#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorAdvice#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  *<p/>  *<b>Debugging tips:</b> Camel end users whom want to debug their Camel applications with the Camel source code, then make sure to  * read the source code of this class about the debugging tips, which you can find in the  * {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method.  *<p/>  * The added advices can implement {@link Ordered} to control in which order the advices are executed.  */
+comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Execute {@link UnitOfWork}</li>  *<li>Keeping track which route currently is being routed</li>  *<li>Execute {@link RoutePolicy}</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Debugging</li>  *<li>Message History</li>  *<li>Stream Caching</li>  *<li>{@link Transformer}</li>  *</ul>  * ... and more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorAdvice} advice (before and after advice)  * by executing the {@link CamelInternalProcessorAdvice#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorAdvice#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  *<p/>  *<b>Debugging tips:</b> Camel end users whom want to debug their Camel applications with the Camel source code, then make sure to  * read the source code of this class about the debugging tips, which you can find in the  * {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method.  *<p/>  * The added advices can implement {@link Ordered} to control in which order the advices are executed.  */
 end_comment
 
 begin_class
@@ -3890,7 +3890,7 @@ argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
-name|convertBody
+name|doTransform
 argument_list|(
 name|exchange
 operator|.
@@ -4007,7 +4007,7 @@ argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
-name|convertBody
+name|doTransform
 argument_list|(
 name|target
 argument_list|,
@@ -4038,11 +4038,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|convertBody (Message message, DataType from, DataType to)
+DECL|method|doTransform (Message message, DataType from, DataType to)
 specifier|private
 specifier|static
 name|void
-name|convertBody
+name|doTransform
 parameter_list|(
 name|Message
 name|message

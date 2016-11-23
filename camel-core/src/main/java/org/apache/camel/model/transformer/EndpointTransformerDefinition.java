@@ -247,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a EndpointTransformer.  */
+comment|/**  * Represents an endpoint {@link Transformer} which leverages camel {@link Endpoint} to  * perform transformation. A {@link ProcessorTransformer} will be created internally  * with a {@link SendProcessor} which forwards the message to the specified Endpoint.  * One of the Endpoint 'ref' or 'uri' needs to be specified.  *   * {@see TransformerDefinition}  * {@see ProcessorTransformer}  */
 end_comment
 
 begin_class
@@ -295,11 +295,14 @@ name|uri
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|doCreateTransformer ()
+DECL|method|doCreateTransformer (CamelContext context)
 specifier|protected
 name|Transformer
 name|doCreateTransformer
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -310,16 +313,14 @@ name|uri
 operator|!=
 literal|null
 condition|?
-name|getCamelContext
-argument_list|()
+name|context
 operator|.
 name|getEndpoint
 argument_list|(
 name|uri
 argument_list|)
 else|:
-name|getCamelContext
-argument_list|()
+name|context
 operator|.
 name|getRegistry
 argument_list|()
@@ -350,8 +351,7 @@ return|return
 operator|new
 name|ProcessorTransformer
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|context
 argument_list|)
 operator|.
 name|setProcessor

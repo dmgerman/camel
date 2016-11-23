@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Set data type of the input message.  */
+comment|/**  * Set data type of the input message.  * Type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'  * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.  * It's also possible to specify only scheme part, so that it works like a wildcard. If only 'xml'  * is specified, all the XML message matches. It's handy to add only one transformer/validator  * for all the transformation from/to XML.  *   * {@see OutputTypeDefinition}  */
 end_comment
 
 begin_class
@@ -148,16 +148,6 @@ specifier|private
 name|String
 name|urn
 decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|clazz
-specifier|private
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|clazz
-decl_stmt|;
 DECL|method|InputTypeDefinition ()
 specifier|public
 name|InputTypeDefinition
@@ -170,22 +160,6 @@ name|String
 name|getUrn
 parameter_list|()
 block|{
-if|if
-condition|(
-name|clazz
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-literal|"java:"
-operator|+
-name|clazz
-operator|.
-name|getName
-argument_list|()
-return|;
-block|}
 return|return
 name|urn
 return|;
@@ -222,9 +196,14 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|clazz
+name|urn
 operator|=
+literal|"java:"
+operator|+
 name|clazz
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

@@ -313,7 +313,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a BeanTransformer.  */
+comment|/**  * Represents a CustomTransformer. One of the bean reference (ref) or fully qualified class name (type)  * of the custom {@link Transformer} needs to be specified.  *   * {@see TransformerDefinition}  * {@see Transformer}  */
 end_comment
 
 begin_class
@@ -361,11 +361,14 @@ name|type
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|doCreateTransformer ()
+DECL|method|doCreateTransformer (CamelContext context)
 specifier|protected
 name|Transformer
 name|doCreateTransformer
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -400,8 +403,7 @@ condition|)
 block|{
 name|transformer
 operator|=
-name|getCamelContext
-argument_list|()
+name|context
 operator|.
 name|getRegistry
 argument_list|()
@@ -480,8 +482,7 @@ name|Transformer
 argument_list|>
 name|transformerClass
 init|=
-name|getCamelContext
-argument_list|()
+name|context
 operator|.
 name|getClassResolver
 argument_list|()
@@ -514,18 +515,22 @@ throw|;
 block|}
 name|transformer
 operator|=
-name|transformerClass
+name|context
+operator|.
+name|getInjector
+argument_list|()
 operator|.
 name|newInstance
-argument_list|()
+argument_list|(
+name|transformerClass
+argument_list|)
 expr_stmt|;
 block|}
 name|transformer
 operator|.
 name|setCamelContext
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|context
 argument_list|)
 expr_stmt|;
 return|return

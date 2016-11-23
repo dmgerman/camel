@@ -2079,14 +2079,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare an input type.      * @param name input type URN      * @return the builder      */
-DECL|method|inputType (String name)
+comment|/**      * Declare an input type.      * @param urn input type URN      * @return the builder      */
+DECL|method|inputType (String urn)
 specifier|public
 name|RouteDefinition
 name|inputType
 parameter_list|(
 name|String
-name|name
+name|urn
 parameter_list|)
 block|{
 name|inputType
@@ -2099,7 +2099,7 @@ name|inputType
 operator|.
 name|setUrn
 argument_list|(
-name|name
+name|urn
 argument_list|)
 expr_stmt|;
 return|return
@@ -2133,14 +2133,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare an output type.      * @param name output type URN      * @return the builder      */
-DECL|method|outputType (String name)
+comment|/**      * Declare an output type.      * @param urn output type URN      * @return the builder      */
+DECL|method|outputType (String urn)
 specifier|public
 name|RouteDefinition
 name|outputType
 parameter_list|(
 name|String
-name|name
+name|urn
 parameter_list|)
 block|{
 name|outputType
@@ -2153,14 +2153,14 @@ name|outputType
 operator|.
 name|setUrn
 argument_list|(
-name|name
+name|urn
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare an output type.      * @param clazz Class object of the output type      * @return the builder      */
+comment|/**      * Declare an output type with Java class.      * @param clazz Class object of the output type      * @return the builder      */
 DECL|method|outputType (Class clazz)
 specifier|public
 name|RouteDefinition

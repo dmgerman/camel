@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/transformer.html">Transformer</a>  * leverages DataFormat to perform transformation.  */
+comment|/**  * A {@link Transformer} implementation which leverages {@link DataFormat} to perform transformation.  *   * {@see Transformer}  */
 end_comment
 
 begin_class

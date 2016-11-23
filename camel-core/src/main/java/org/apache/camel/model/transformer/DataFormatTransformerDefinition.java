@@ -851,7 +851,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a DataFormatTransformer.  */
+comment|/**  * Represents a {@link DataFormatTransformer} which leverages {@link DataFormat} to perform  * transformation. One of the DataFormat 'ref' or DataFormat 'type' needs to be specified.  *   * {@see TransformerDefinition}  * {@see DataFormatTransformer}  */
 end_comment
 
 begin_class
@@ -1550,18 +1550,20 @@ name|ref
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|doCreateTransformer ()
+DECL|method|doCreateTransformer (CamelContext context)
 specifier|protected
 name|Transformer
 name|doCreateTransformer
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
 return|return
 operator|new
 name|DataFormatTransformer
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|context
 argument_list|)
 operator|.
 name|setDataFormatType
