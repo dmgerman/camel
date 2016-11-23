@@ -2011,7 +2011,7 @@ operator|.
 name|stream
 argument_list|()
 operator|.
-name|filter
+name|anyMatch
 argument_list|(
 name|isAnnotationType
 argument_list|(
@@ -2020,12 +2020,6 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-operator|.
-name|findAny
-argument_list|()
-operator|.
-name|isPresent
-argument_list|()
 condition|)
 block|{
 name|eventQualifiers
@@ -2948,19 +2942,13 @@ operator|::
 name|stream
 argument_list|)
 operator|.
-name|filter
+name|anyMatch
 argument_list|(
 name|isEqual
 argument_list|(
 name|DEFAULT
 argument_list|)
 argument_list|)
-operator|.
-name|findAny
-argument_list|()
-operator|.
-name|isPresent
-argument_list|()
 comment|// Or a bean with Camel annotations?
 operator|||
 name|concat
@@ -3011,7 +2999,7 @@ operator|::
 name|stream
 argument_list|)
 operator|.
-name|filter
+name|anyMatch
 argument_list|(
 name|isAnnotationType
 argument_list|(
@@ -3150,12 +3138,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
-operator|.
-name|findAny
-argument_list|()
-operator|.
-name|isPresent
-argument_list|()
 comment|// Or an injection point for Camel primitives?
 operator|||
 name|beans
@@ -3236,7 +3218,7 @@ operator|::
 name|stream
 argument_list|)
 operator|.
-name|filter
+name|anyMatch
 argument_list|(
 name|isAnnotationType
 argument_list|(
@@ -3263,12 +3245,6 @@ name|DEFAULT
 argument_list|)
 argument_list|)
 argument_list|)
-operator|.
-name|findAny
-argument_list|()
-operator|.
-name|isPresent
-argument_list|()
 return|;
 block|}
 end_function
@@ -3642,9 +3618,6 @@ name|ANY
 argument_list|,
 name|STARTUP
 argument_list|)
-operator|.
-name|stream
-argument_list|()
 operator|.
 name|forEach
 argument_list|(
