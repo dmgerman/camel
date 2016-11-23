@@ -689,7 +689,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Conversion has fallen back to generic Object -> DBObject, but unable to convert type {}. Returning null."
+literal|"Conversion has fallen back to generic Object -> DBObject, but unable to convert type {}. Returning null. {}"
 argument_list|,
 name|value
 operator|.
@@ -697,6 +697,21 @@ name|getClass
 argument_list|()
 operator|.
 name|getCanonicalName
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
