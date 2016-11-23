@@ -691,6 +691,11 @@ annotation|@
 name|Produces
 annotation|@
 name|ApplicationScoped
+annotation|@
+name|Named
+argument_list|(
+literal|"defaultContext"
+argument_list|)
 DECL|field|defaultFiredEvents
 specifier|private
 name|List
@@ -845,8 +850,6 @@ name|Produces
 annotation|@
 name|ApplicationScoped
 annotation|@
-name|Any
-annotation|@
 name|Named
 argument_list|(
 literal|"anyContext"
@@ -961,7 +964,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onDefaultContextStartingEvent (@bserves @efault CamelContextStartingEvent event, List<Class> events)
+DECL|method|onDefaultContextStartingEvent (@bserves @efault CamelContextStartingEvent event, @Named(R) List<Class> events)
 specifier|private
 name|void
 name|onDefaultContextStartingEvent
@@ -973,6 +976,11 @@ name|Default
 name|CamelContextStartingEvent
 name|event
 parameter_list|,
+annotation|@
+name|Named
+argument_list|(
+literal|"defaultContext"
+argument_list|)
 name|List
 argument_list|<
 name|Class
@@ -990,7 +998,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onDefaultContextStartedEvent (@bserves @efault CamelContextStartedEvent event, List<Class> events)
+DECL|method|onDefaultContextStartedEvent (@bserves @efault CamelContextStartedEvent event, @Named(R) List<Class> events)
 specifier|private
 name|void
 name|onDefaultContextStartedEvent
@@ -1002,6 +1010,11 @@ name|Default
 name|CamelContextStartedEvent
 name|event
 parameter_list|,
+annotation|@
+name|Named
+argument_list|(
+literal|"defaultContext"
+argument_list|)
 name|List
 argument_list|<
 name|Class
@@ -1019,7 +1032,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onDefaultExchangeEvent (@bserves @efault AbstractExchangeEvent event, List<Class> events)
+DECL|method|onDefaultExchangeEvent (@bserves @efault AbstractExchangeEvent event, @Named(R) List<Class> events)
 specifier|private
 name|void
 name|onDefaultExchangeEvent
@@ -1031,6 +1044,11 @@ name|Default
 name|AbstractExchangeEvent
 name|event
 parameter_list|,
+annotation|@
+name|Named
+argument_list|(
+literal|"defaultContext"
+argument_list|)
 name|List
 argument_list|<
 name|Class
@@ -1348,11 +1366,16 @@ name|InSequence
 argument_list|(
 literal|1
 argument_list|)
-DECL|method|configureCamelContexts (List<Class> defaultEvents, @ContextName(R) List<Class> firstEvents, @ContextName(R) List<Class> secondEvents, @Named(R) List<Class> anyEvents)
+DECL|method|configureCamelContexts (@amedR) List<Class> defaultEvents, @ContextName(R) List<Class> firstEvents, @ContextName(R) List<Class> secondEvents, @Named(R) List<Class> anyEvents)
 specifier|public
 name|void
 name|configureCamelContexts
 parameter_list|(
+annotation|@
+name|Named
+argument_list|(
+literal|"defaultContext"
+argument_list|)
 name|List
 argument_list|<
 name|Class
@@ -1522,11 +1545,16 @@ name|InSequence
 argument_list|(
 literal|2
 argument_list|)
-DECL|method|sendMessageToDefaultCamelContextInbound (List<Class> events)
+DECL|method|sendMessageToDefaultCamelContextInbound (@amedR) List<Class> events)
 specifier|public
 name|void
 name|sendMessageToDefaultCamelContextInbound
 parameter_list|(
+annotation|@
+name|Named
+argument_list|(
+literal|"defaultContext"
+argument_list|)
 name|List
 argument_list|<
 name|Class
@@ -1892,11 +1920,16 @@ name|InSequence
 argument_list|(
 literal|5
 argument_list|)
-DECL|method|stopCamelContexts (List<Class> defaultEvents, @ContextName(R) List<Class> firstEvents, @ContextName(R) List<Class> secondEvents, @Named(R) List<Class> anyEvents)
+DECL|method|stopCamelContexts (@amedR) List<Class> defaultEvents, @ContextName(R) List<Class> firstEvents, @ContextName(R) List<Class> secondEvents, @Named(R) List<Class> anyEvents)
 specifier|public
 name|void
 name|stopCamelContexts
 parameter_list|(
+annotation|@
+name|Named
+argument_list|(
+literal|"defaultContext"
+argument_list|)
 name|List
 argument_list|<
 name|Class
