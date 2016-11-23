@@ -100,26 +100,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|atmos
-operator|.
-name|util
-operator|.
-name|AtmosOperation
-operator|.
-name|get
-import|;
-end_import
-
 begin_class
 DECL|class|AtmosConsumerTest
 specifier|public

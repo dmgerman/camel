@@ -64,16 +64,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|fasterxml
@@ -327,26 +317,6 @@ operator|.
 name|dto
 operator|.
 name|SObjectDescription
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|salesforce
-operator|.
-name|api
-operator|.
-name|dto
-operator|.
-name|SearchResult
 import|;
 end_import
 

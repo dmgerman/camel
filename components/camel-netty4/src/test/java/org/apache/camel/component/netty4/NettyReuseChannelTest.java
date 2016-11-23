@@ -52,18 +52,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ChannelHandlerContext
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache

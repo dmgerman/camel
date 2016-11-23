@@ -154,16 +154,6 @@ name|scala
 operator|.
 name|collection
 operator|.
-name|Seq
-import|;
-end_import
-
-begin_import
-import|import
-name|scala
-operator|.
-name|collection
-operator|.
 name|mutable
 operator|.
 name|Buffer

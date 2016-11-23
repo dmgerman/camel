@@ -40,20 +40,6 @@ end_import
 
 begin_import
 import|import
-name|net
-operator|.
-name|sf
-operator|.
-name|ehcache
-operator|.
-name|store
-operator|.
-name|MemoryStoreEvictionPolicy
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache

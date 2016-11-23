@@ -404,24 +404,6 @@ name|component
 operator|.
 name|infinispan
 operator|.
-name|InfinispanConstants
-operator|.
-name|VALUE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|infinispan
-operator|.
 name|util
 operator|.
 name|UserUtils

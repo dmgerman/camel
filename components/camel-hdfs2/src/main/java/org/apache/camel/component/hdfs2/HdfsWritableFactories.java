@@ -250,20 +250,6 @@ name|Writable
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|hadoop
-operator|.
-name|io
-operator|.
-name|WritableComparable
-import|;
-end_import
-
 begin_class
 DECL|class|HdfsWritableFactories
 specifier|public

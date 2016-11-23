@@ -70,18 +70,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|el
-operator|.
-name|ExpressionFactoryImpl
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -125,22 +113,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|dozer
-operator|.
-name|DozerThreadContextClassLoader
 import|;
 end_import
 

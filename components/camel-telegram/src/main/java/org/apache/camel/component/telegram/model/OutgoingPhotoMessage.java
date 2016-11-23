@@ -20,16 +20,6 @@ name|model
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
 begin_comment
 comment|/**  * An outgoing photo message.  */
 end_comment

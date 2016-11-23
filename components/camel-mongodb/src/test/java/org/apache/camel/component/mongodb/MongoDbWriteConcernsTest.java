@@ -24,16 +24,6 @@ name|com
 operator|.
 name|mongodb
 operator|.
-name|WriteConcern
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
 name|WriteResult
 import|;
 end_import

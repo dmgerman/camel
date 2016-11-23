@@ -22,14 +22,6 @@ begin_import
 import|import
 name|spark
 operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|spark
-operator|.
 name|Route
 import|;
 end_import

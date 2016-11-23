@@ -66,22 +66,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|UseLatestAggregationStrategy
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment

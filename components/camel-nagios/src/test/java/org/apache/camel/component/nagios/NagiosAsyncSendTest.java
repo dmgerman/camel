@@ -28,20 +28,6 @@ name|jsendnsca
 operator|.
 name|core
 operator|.
-name|NagiosPassiveCheckSender
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|googlecode
-operator|.
-name|jsendnsca
-operator|.
-name|core
-operator|.
 name|NonBlockingNagiosPassiveCheckSender
 import|;
 end_import
@@ -79,16 +65,6 @@ operator|.
 name|junit
 operator|.
 name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mock
 import|;
 end_import
 

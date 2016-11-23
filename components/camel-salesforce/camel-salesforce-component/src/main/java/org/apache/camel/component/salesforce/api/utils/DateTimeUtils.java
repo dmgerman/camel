@@ -82,37 +82,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|time
-operator|.
-name|format
-operator|.
-name|ResolverStyle
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|regex
 operator|.
 name|Pattern
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|time
-operator|.
-name|format
-operator|.
-name|DateTimeFormatter
-operator|.
-name|ISO_LOCAL_DATE_TIME
 import|;
 end_import
 

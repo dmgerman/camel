@@ -42,16 +42,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|activation
-operator|.
-name|DataHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|mail
 operator|.
 name|Message
