@@ -98,11 +98,6 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"uncheked"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|chooseServer (List<ServiceCallServer> servers)
 specifier|public

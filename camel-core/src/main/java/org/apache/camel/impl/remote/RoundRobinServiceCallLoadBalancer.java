@@ -81,11 +81,6 @@ operator|-
 literal|1
 decl_stmt|;
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"uncheked"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|chooseServer (List<S> servers)
 specifier|public

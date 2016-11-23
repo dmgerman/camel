@@ -178,7 +178,7 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"uncheked"
+literal|"unchecked"
 argument_list|)
 DECL|method|tcclProxy (final T instance, Class<T> type, final ClassLoader classLoader)
 specifier|public
