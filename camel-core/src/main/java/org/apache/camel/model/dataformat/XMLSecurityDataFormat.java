@@ -2146,6 +2146,23 @@ name|nspaces
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getNamespaces ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getNamespaces
+parameter_list|()
+block|{
+return|return
+name|namespaces
+return|;
+block|}
 block|}
 end_class
 

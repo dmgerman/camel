@@ -1825,6 +1825,21 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getNamespaces ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getNamespaces
+parameter_list|()
+block|{
+return|return
+name|namespaces
+return|;
+block|}
 comment|/**      * Gets the {@link XPathFunction} for getting the input message body.      *<p/>      * A default function will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been started/used before.      */
 DECL|method|getBodyFunction ()
 specifier|public

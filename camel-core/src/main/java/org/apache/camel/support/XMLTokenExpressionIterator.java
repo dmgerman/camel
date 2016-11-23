@@ -464,6 +464,23 @@ operator|=
 name|nsmap
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getNamespaces ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getNamespaces
+parameter_list|()
+block|{
+return|return
+name|nsmap
+return|;
+block|}
 DECL|method|setMode (char mode)
 specifier|public
 name|void

@@ -2125,6 +2125,21 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getNamespaces ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getNamespaces
+parameter_list|()
+block|{
+return|return
+name|namespacePrefixes
+return|;
+block|}
 DECL|method|getExpression ()
 specifier|public
 name|XQueryExpression

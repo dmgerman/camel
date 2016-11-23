@@ -50,6 +50,17 @@ argument_list|>
 name|namespaces
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the XML Namespaces      */
+DECL|method|getNamespaces ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getNamespaces
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

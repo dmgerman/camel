@@ -515,6 +515,21 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getNamespaces ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getNamespaces
+parameter_list|()
+block|{
+return|return
+name|map
+return|;
+block|}
 comment|/**      * toString() implementation that outputs the namespace mappings with the following format: "[me: {prefix -> value}, {prefix -> value}], [parent: {prefix -> value}, {prefix -> value}].      * Recurses up the parent's chain.      */
 annotation|@
 name|Override
