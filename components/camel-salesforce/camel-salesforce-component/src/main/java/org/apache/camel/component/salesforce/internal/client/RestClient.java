@@ -60,6 +60,28 @@ name|SalesforceException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|dto
+operator|.
+name|approval
+operator|.
+name|ApprovalRequest
+import|;
+end_import
+
 begin_interface
 DECL|interface|RestClient
 specifier|public
@@ -370,6 +392,27 @@ name|limits
 parameter_list|(
 name|ResponseCallback
 name|responseCallback
+parameter_list|)
+function_decl|;
+comment|/**      * Submits, approves or rejects particular record.      *      * @param callback      *            {@link ResponseCallback} to handle response or exception      */
+DECL|method|approval (InputStream request, ResponseCallback callback)
+name|void
+name|approval
+parameter_list|(
+name|InputStream
+name|request
+parameter_list|,
+name|ResponseCallback
+name|callback
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a list of all approval processes.      *      * @param callback      *            {@link ResponseCallback} to handle response or exception      */
+DECL|method|approvals (ResponseCallback callback)
+name|void
+name|approvals
+parameter_list|(
+name|ResponseCallback
+name|callback
 parameter_list|)
 function_decl|;
 block|}

@@ -257,6 +257,19 @@ name|LIMITS
 argument_list|(
 literal|"limits"
 argument_list|)
+block|,
+comment|// Approval Processes and Process Rules API
+DECL|enumConstant|APPROVAL
+name|APPROVAL
+argument_list|(
+literal|"approval"
+argument_list|)
+block|,
+DECL|enumConstant|APPROVALS
+name|APPROVALS
+argument_list|(
+literal|"approvals"
+argument_list|)
 block|;
 DECL|field|value
 specifier|private

@@ -804,6 +804,8 @@ literal|"search"
 argument_list|,
 literal|"apexCall"
 argument_list|,
+literal|"recent"
+argument_list|,
 literal|"createJob"
 argument_list|,
 literal|"getJob"
@@ -839,6 +841,12 @@ argument_list|,
 literal|"getReportInstances"
 argument_list|,
 literal|"getReportResults"
+argument_list|,
+literal|"limits"
+argument_list|,
+literal|"approval"
+argument_list|,
+literal|"approvals"
 argument_list|,
 literal|"[PushTopicName]"
 argument_list|)
