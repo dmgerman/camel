@@ -471,11 +471,6 @@ name|on
 argument_list|)
 argument_list|)
 expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|TabularData
 name|data
 init|=

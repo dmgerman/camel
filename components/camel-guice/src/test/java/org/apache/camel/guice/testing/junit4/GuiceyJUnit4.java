@@ -259,11 +259,6 @@ name|Statement
 name|statement
 parameter_list|)
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 specifier|final
 name|Statement
 name|parent
@@ -309,11 +304,6 @@ block|}
 block|}
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 annotation|@
 name|Override
 DECL|method|withAfters (FrameworkMethod frameworkMethod, final Object test, Statement statement)

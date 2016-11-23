@@ -143,11 +143,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|LumberjackDisconnectionTest
 specifier|public
 class|class

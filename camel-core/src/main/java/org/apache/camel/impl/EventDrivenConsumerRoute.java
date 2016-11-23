@@ -449,11 +449,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|filter (String pattern)
 specifier|public
 name|List

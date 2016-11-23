@@ -2218,11 +2218,6 @@ name|getType
 argument_list|()
 decl_stmt|;
 comment|// Create format
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|FormattingOptions
 name|formattingOptions
 init|=

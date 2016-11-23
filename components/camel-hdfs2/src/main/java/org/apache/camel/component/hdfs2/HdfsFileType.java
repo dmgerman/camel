@@ -3763,11 +3763,6 @@ name|numBytes
 init|=
 literal|0
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"resource"
-argument_list|)
 name|PrintStream
 name|ps
 init|=

@@ -3082,11 +3082,6 @@ name|this
 return|;
 block|}
 comment|/**      * Calls the service      *      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|serviceCall ()
 specifier|public
 name|ServiceCallDefinition
@@ -7883,11 +7878,6 @@ name|this
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|process ()
 specifier|public
 name|ProcessClause
@@ -10225,11 +10215,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * This method will<tt>block</tt> until data is available, use the method with timeout if you do not      * want to risk waiting a long time before data is available from the resourceUri.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|pollEnrich (String resourceUri)
 specifier|public
 name|Type
@@ -10249,11 +10234,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * This method will<b>block</b> until data is available, use the method with timeout if you do not      * want to risk waiting a long time before data is available from the resourceUri.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|pollEnrich (String resourceUri, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Type
@@ -10279,11 +10259,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param timeout               timeout in millis to wait at most for data to be available.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|pollEnrich (String resourceUri, long timeout, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Type
@@ -10313,11 +10288,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri            URI of resource endpoint for obtaining additional data.      * @param timeout                timeout in millis to wait at most for data to be available.      * @param aggregationStrategyRef Reference of aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|pollEnrich (String resourceUri, long timeout, String aggregationStrategyRef)
 specifier|public
 name|Type
@@ -10648,11 +10618,6 @@ name|this
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param timeout               timeout in millis to wait at most for data to be available.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|pollEnrich (String resourceUri, long timeout)
 specifier|public
 name|Type

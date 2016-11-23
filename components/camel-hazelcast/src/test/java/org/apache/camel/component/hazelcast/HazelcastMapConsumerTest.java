@@ -244,11 +244,6 @@ name|argument
 decl_stmt|;
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|trainHazelcastInstance (HazelcastInstance hazelcastInstance)
 specifier|protected
 name|void
@@ -310,11 +305,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|verifyHazelcastInstance (HazelcastInstance hazelcastInstance)
 specifier|protected
 name|void

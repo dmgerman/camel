@@ -1641,11 +1641,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testBatch ()
 specifier|public
 name|void
@@ -1866,11 +1861,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testBatchMissingParamAtEnd ()
 specifier|public
 name|void
@@ -1985,11 +1975,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testBatchMissingParamAtBeginning ()
 specifier|public
 name|void

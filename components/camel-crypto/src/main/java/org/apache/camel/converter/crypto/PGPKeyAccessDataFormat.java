@@ -2128,11 +2128,6 @@ return|return
 name|sigGens
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"resource"
-argument_list|)
 DECL|method|unmarshal (Exchange exchange, InputStream encryptedStream)
 specifier|public
 name|Object

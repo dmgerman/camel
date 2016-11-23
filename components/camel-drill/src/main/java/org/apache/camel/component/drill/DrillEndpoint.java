@@ -484,11 +484,6 @@ return|return
 name|url
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|queryForList (ResultSet rs)
 specifier|public
 name|List

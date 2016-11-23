@@ -2868,11 +2868,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|getRouteModelAsXml (String routeId, String camelContextName)
 specifier|public
 name|String
@@ -3137,11 +3132,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|getRestModelAsXml (String camelContextName)
 specifier|public
 name|String

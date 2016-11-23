@@ -91,13 +91,6 @@ name|MockEndpoint
 name|mock
 decl_stmt|;
 annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"unchecked"
-block|}
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testOutputTypeSelectOneOutputClass ()
 specifier|public

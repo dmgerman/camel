@@ -136,11 +136,6 @@ specifier|final
 name|Cache
 name|cache
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|EhcacheProducer (EhcacheEndpoint endpoint, EhcacheConfiguration configuration)
 specifier|public
 name|EhcacheProducer

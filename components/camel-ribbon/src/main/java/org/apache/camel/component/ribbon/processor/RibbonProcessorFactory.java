@@ -255,11 +255,6 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createProcessor (RouteContext routeContext, ServiceCallDefinition definition, RibbonConfiguration cfg)
 specifier|protected
 name|Processor

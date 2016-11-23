@@ -1392,11 +1392,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// 6. update address in created entry
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 specifier|final
 name|Map
 argument_list|<

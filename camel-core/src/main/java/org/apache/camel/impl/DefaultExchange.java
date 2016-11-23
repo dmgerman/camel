@@ -708,11 +708,6 @@ return|return
 name|exchange
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|safeCopyHeaders (Map<String, Object> headers)
 specifier|private
 specifier|static

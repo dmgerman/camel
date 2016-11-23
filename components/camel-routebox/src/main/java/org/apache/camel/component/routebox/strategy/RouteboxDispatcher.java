@@ -789,11 +789,6 @@ return|return
 name|dispatchUri
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|getInnerContextConsumerList (CamelContext context)
 specifier|protected
 name|List

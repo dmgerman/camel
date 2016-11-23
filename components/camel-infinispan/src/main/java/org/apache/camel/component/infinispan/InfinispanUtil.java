@@ -331,11 +331,6 @@ literal|false
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|asRemote (BasicCacheContainer container)
 specifier|public
 specifier|static

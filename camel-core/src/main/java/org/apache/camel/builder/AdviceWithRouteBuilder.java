@@ -451,11 +451,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Weaves by matching sending to endpoints with the given uri of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|weaveByToUri (String pattern)
 specifier|public
 parameter_list|<

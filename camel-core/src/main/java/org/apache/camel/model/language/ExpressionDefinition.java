@@ -1495,11 +1495,6 @@ operator|=
 name|expressionType
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|configurePredicate (CamelContext camelContext, Predicate predicate)
 specifier|protected
 name|void
@@ -1535,11 +1530,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|configureExpression (CamelContext camelContext, Expression expression)
 specifier|protected
 name|void

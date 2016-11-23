@@ -87,11 +87,6 @@ parameter_list|()
 block|{     }
 comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      *      * @deprecated use the same method name with binding as parameter      */
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Deprecated
 DECL|method|createProxyObject (Endpoint endpoint, Producer producer, ClassLoader classLoader, Class<T>[] interfaces, MethodInfoCache methodCache)
 specifier|public
