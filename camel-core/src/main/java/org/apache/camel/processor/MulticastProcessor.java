@@ -1847,8 +1847,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// only start the aggregation task when the task is being executed to avoid staring
-comment|// the aggregation task to early and pile up too many threads
+comment|// start the aggregation task at this stage only in order not to pile up too many threads
 if|if
 condition|(
 name|aggregationTaskSubmitted
@@ -1861,7 +1860,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// but only submit the task once
+comment|// but only submit the aggregation task once
 name|aggregateExecutorService
 operator|.
 name|submit
