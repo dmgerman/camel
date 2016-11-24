@@ -190,15 +190,6 @@ name|BasicMessageFilter
 implements|implements
 name|MessageFilter
 block|{
-DECL|field|BREADCRUMB_ID
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|BREADCRUMB_ID
-init|=
-literal|"BreadcrumbId"
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|filterProducer (Exchange exchange, WebServiceMessage response)
@@ -474,10 +465,26 @@ operator|.
 name|SPRING_WS_ADDRESSING_CONSUMER_OUTPUT_ACTION
 argument_list|)
 expr_stmt|;
+comment|// This gets repeated again in the below 'for loop' and gets added as attribute to soapenv:header.
+comment|// This would have already been processed in SpringWebserviceProducer/Consumer instance.
 name|headerKeySet
 operator|.
 name|remove
 argument_list|(
+name|SpringWebserviceConstants
+operator|.
+name|SPRING_WS_SOAP_HEADER
+argument_list|)
+expr_stmt|;
+comment|// Replaced local constant 'BreadcrumbId' with the actual constant key in header 'breadcrumbId'
+comment|// from org.apache.camel.Exchange.BREADCRUMB_ID. Because of this case mismatch, this key never
+comment|// gets removed from header rather gets added to soapHeader all the time.
+name|headerKeySet
+operator|.
+name|remove
+argument_list|(
+name|Exchange
+operator|.
 name|BREADCRUMB_ID
 argument_list|)
 expr_stmt|;
