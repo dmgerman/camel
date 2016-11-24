@@ -455,6 +455,18 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|allowResponseHeaderOverride
+specifier|private
+name|boolean
+name|allowResponseHeaderOverride
+decl_stmt|;
 comment|/* Consumer configuration */
 annotation|@
 name|UriParam
@@ -1347,6 +1359,34 @@ operator|.
 name|messageIdStrategy
 operator|=
 name|messageIdStrategy
+expr_stmt|;
+block|}
+comment|/**      * @return boolean - true, will override header with spring-ws response message header      */
+DECL|method|isAllowResponseHeaderOverride ()
+specifier|public
+name|boolean
+name|isAllowResponseHeaderOverride
+parameter_list|()
+block|{
+return|return
+name|allowResponseHeaderOverride
+return|;
+block|}
+comment|/**      * Option to override soap response header in in/out exchange with header info from the actual service layer.      * If the invoked service appends or rewrites the soap header this option when set to true, allows the modified      * soap header to be overwritten in in/out message headers      *       * @param allowResponseHeaderOverride      *            - true, will override header with spring-ws response message header      */
+DECL|method|setAllowResponseHeaderOverride (boolean allowResponseHeaderOverride)
+specifier|public
+name|void
+name|setAllowResponseHeaderOverride
+parameter_list|(
+name|boolean
+name|allowResponseHeaderOverride
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowResponseHeaderOverride
+operator|=
+name|allowResponseHeaderOverride
 expr_stmt|;
 block|}
 block|}
