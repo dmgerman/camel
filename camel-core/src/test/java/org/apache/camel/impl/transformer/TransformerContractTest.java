@@ -80,18 +80,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -179,22 +167,6 @@ operator|.
 name|model
 operator|.
 name|DataFormatDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|dataformat
-operator|.
-name|JaxbDataFormat
 import|;
 end_import
 

@@ -16,28 +16,6 @@ name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|namespace
-operator|.
-name|QName
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Contract which represents the input type and/or output type of the {@link Endpoint} or {@link Processor}.  */
 end_comment

@@ -200,20 +200,6 @@ name|UriParams
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|UriPath
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents approval request sent to submit, approve or reject record.  *  * @see<a href=  *      "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_process_approvals.htm">  *      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_process_approvals.htm</a>  */
 end_comment
