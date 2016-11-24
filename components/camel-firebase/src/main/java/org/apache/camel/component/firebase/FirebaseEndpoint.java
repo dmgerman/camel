@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Firebase endpoint.  */
+comment|/**  * The Google FirebaseÂ component enables you to save and modify data in a Google Firebase database  * via the {@link FirebaseProducer} class.  * Furthermore it allows you to consume and process all child events mapped to a specific Firebase reference  * via the {@link FirebaseConsumer} class.  */
 end_comment
 
 begin_class
