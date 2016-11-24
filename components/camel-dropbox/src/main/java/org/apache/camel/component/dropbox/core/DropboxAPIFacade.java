@@ -370,7 +370,7 @@ specifier|final
 name|Exchange
 name|exchange
 decl_stmt|;
-comment|/**      * @param client the DbxClient performing dropbox low level operations      * @return the singleton instance of this class      */
+comment|/**      * @param client the DbxClient performing dropbox low level operations      * @param exchange the current Exchange      */
 DECL|method|DropboxAPIFacade (DbxClient client, Exchange exchange)
 specifier|public
 name|DropboxAPIFacade
@@ -395,7 +395,7 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-comment|/**      * Put or upload a new file or an entire directory to dropbox      * @param localPath  the file path or the dir path on the local filesystem      * @param remotePath the remote path destination on dropbox      * @param mode how a file should be saved on dropbox;      *             in case of "add" the new file will be renamed in case      *             a file with the same name already exists on dropbox.      *             in case of "force" the file already existing with the same name will be overridden.      * @return a DropboxResult object reporting for each remote path the result of the operation.      * @throws DropboxException      */
+comment|/**      * Put or upload a new file or an entire directory to dropbox      * @param localPath  the file path or the dir path on the local filesystem      * @param remotePath the remote path destination on dropbox      * @param mode how a file should be saved on dropbox;      *             in case of "add" the new file will be renamed in case      *             a file with the same name already exists on dropbox.      *             in case of "force" the file already existing with the same name will be overridden.      * @return a result object reporting for each remote path the result of the operation.      * @throws DropboxException      */
 DECL|method|put (String localPath, String remotePath, DropboxUploadMode mode)
 specifier|public
 name|DropboxFileUploadResult
@@ -427,8 +427,6 @@ name|remotePath
 decl_stmt|;
 name|DbxEntry
 name|entry
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -711,11 +709,7 @@ name|resultMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|DropboxResultCode
-argument_list|>
+argument_list|<>
 argument_list|(
 name|listFiles
 operator|.
@@ -970,7 +964,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Search inside a remote path including its sub directories.      * The query param can be null.      * @param remotePath  the remote path where starting the search from      * @param query a space-separated list of substrings to search for. A file matches only if it contains all the substrings      * @return a DropboxResult object containing all the files found.      * @throws DropboxException      */
+comment|/**      * Search inside a remote path including its sub directories.      * The query param can be null.      * @param remotePath  the remote path where starting the search from      * @param query a space-separated list of substrings to search for. A file matches only if it contains all the substrings      * @return a result object containing all the files found.      * @throws DropboxException      */
 DECL|method|search (String remotePath, String query)
 specifier|public
 name|DropboxSearchResult
@@ -1096,7 +1090,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Delete every files and subdirectories inside the remote directory.      * In case the remotePath is a file, delete the file.      * @param remotePath  the remote location to delete      * @return a DropboxResult object with the result of the delete operation.      * @throws DropboxException      */
+comment|/**      * Delete every files and subdirectories inside the remote directory.      * In case the remotePath is a file, delete the file.      * @param remotePath  the remote location to delete      * @return a result object with the result of the delete operation.      * @throws DropboxException      */
 DECL|method|del (String remotePath)
 specifier|public
 name|DropboxDelResult
@@ -1142,7 +1136,7 @@ name|remotePath
 argument_list|)
 return|;
 block|}
-comment|/**      * Rename a remote path with the new path location.      * @param remotePath the existing remote path to be renamed      * @param newRemotePath the new remote path substituting the old one      * @return a DropboxResult object with the result of the move operation.      * @throws DropboxException      */
+comment|/**      * Rename a remote path with the new path location.      * @param remotePath the existing remote path to be renamed      * @param newRemotePath the new remote path substituting the old one      * @return a result object with the result of the move operation.      * @throws DropboxException      */
 DECL|method|move (String remotePath, String newRemotePath)
 specifier|public
 name|DropboxMoveResult
@@ -1195,7 +1189,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get the content of every file inside the remote path.      * @param remotePath the remote path where to download from      * @return a DropboxResult object with the content (ByteArrayOutputStream) of every files inside the remote path.      * @throws DropboxException      */
+comment|/**      * Get the content of every file inside the remote path.      * @param remotePath the remote path where to download from      * @return a result object with the content (ByteArrayOutputStream) of every files inside the remote path.      * @throws DropboxException      */
 DECL|method|get (String remotePath)
 specifier|public
 name|DropboxFileDownloadResult
@@ -1324,7 +1318,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"downloading a single file..."
 argument_list|)
@@ -1437,11 +1431,16 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"can't download from "
-operator|+
+literal|"Cannot download from path={}, reason={}. This exception is ignored."
+argument_list|,
 name|entry
 operator|.
 name|path
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1546,10 +1545,10 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"downloaded path:"
-operator|+
+literal|"downloaded path={}"
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;

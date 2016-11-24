@@ -82,13 +82,6 @@ return|return
 name|newPath
 return|;
 block|}
-comment|/*       Object payload contained in Exchange       Exchange Header and Body contains the mode path       @param exchange      */
-comment|//    @Override
-comment|//    public void populateExchange(Exchange exchange) {
-comment|//        String movedPath = (String)resultEntries;
-comment|//        exchange.getIn().setHeader(DropboxResultHeader.MOVED_PATH.name(), movedPath);
-comment|//        exchange.getIn().setBody(movedPath);
-comment|//    }
 block|}
 end_class
 
