@@ -54,37 +54,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|derby
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|jdbc
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mybatis
-operator|.
-name|MyBatisComponent
+name|EmbeddedDriver
 import|;
 end_import
 
@@ -113,12 +87,10 @@ comment|/**  * Bean that creates the database table  */
 end_comment
 
 begin_class
-DECL|class|DatabaseBean
+DECL|class|DatabaseInitializationBean
 specifier|public
 class|class
-name|DatabaseBean
-implements|implements
-name|CamelContextAware
+name|DatabaseInitializationBean
 block|{
 DECL|field|LOG
 specifier|private
@@ -131,42 +103,24 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|DatabaseBean
+name|DatabaseInitializationBean
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
+DECL|field|url
+name|String
+name|url
 decl_stmt|;
-DECL|method|getCamelContext ()
+DECL|field|connection
+name|Connection
+name|connection
+decl_stmt|;
+DECL|method|DatabaseInitializationBean ()
 specifier|public
-name|CamelContext
-name|getCamelContext
+name|DatabaseInitializationBean
 parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|create ()
 specifier|public
 name|void
@@ -175,6 +129,41 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Creating database tables ..."
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|connection
+operator|==
+literal|null
+condition|)
+block|{
+name|EmbeddedDriver
+name|driver
+init|=
+operator|new
+name|EmbeddedDriver
+argument_list|()
+decl_stmt|;
+name|connection
+operator|=
+name|driver
+operator|.
+name|connect
+argument_list|(
+name|url
+operator|+
+literal|";create=true"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|sql
 init|=
@@ -192,13 +181,6 @@ literal|"  ORD_DELETED boolean\n"
 operator|+
 literal|")"
 decl_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Creating table orders ..."
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|execute
@@ -224,18 +206,25 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"... created table orders"
+literal|"Database tables created"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|destroy ()
+DECL|method|drop ()
 specifier|public
 name|void
-name|destroy
+name|drop
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Dropping database tables ..."
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|execute
@@ -252,6 +241,18 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+name|connection
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Database tables dropped"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|execute (String sql)
 specifier|private
@@ -264,44 +265,10 @@ parameter_list|)
 throws|throws
 name|SQLException
 block|{
-name|MyBatisComponent
-name|component
-init|=
-name|camelContext
-operator|.
-name|getComponent
-argument_list|(
-literal|"mybatis"
-argument_list|,
-name|MyBatisComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|Connection
-name|con
-init|=
-name|component
-operator|.
-name|getSqlSessionFactory
-argument_list|()
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getEnvironment
-argument_list|()
-operator|.
-name|getDataSource
-argument_list|()
-operator|.
-name|getConnection
-argument_list|()
-decl_stmt|;
 name|Statement
 name|stm
 init|=
-name|con
+name|connection
 operator|.
 name|createStatement
 argument_list|()
@@ -314,7 +281,7 @@ name|sql
 argument_list|)
 expr_stmt|;
 comment|// must commit connection
-name|con
+name|connection
 operator|.
 name|commit
 argument_list|()
@@ -324,10 +291,31 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|con
+block|}
+DECL|method|getUrl ()
+specifier|public
+name|String
+name|getUrl
+parameter_list|()
+block|{
+return|return
+name|url
+return|;
+block|}
+DECL|method|setUrl (String url)
+specifier|public
+name|void
+name|setUrl
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|this
 operator|.
-name|close
-argument_list|()
+name|url
+operator|=
+name|url
 expr_stmt|;
 block|}
 block|}
