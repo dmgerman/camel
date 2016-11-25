@@ -5672,7 +5672,7 @@ name|setStringValue
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"org.apache.camel.springboot.CamelAutoConfiguration"
+literal|"org.apache.camel.spring.boot.CamelAutoConfiguration"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -5688,7 +5688,7 @@ name|setStringValue
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"org.apache.camel.springboot.CamelAutoConfiguration"
+literal|"org.apache.camel.spring.boot.CamelAutoConfiguration"
 argument_list|)
 expr_stmt|;
 name|String
@@ -6098,7 +6098,7 @@ name|setStringValue
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"org.apache.camel.springboot.CamelAutoConfiguration"
+literal|"org.apache.camel.spring.boot.CamelAutoConfiguration"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -6114,7 +6114,7 @@ name|setStringValue
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"org.apache.camel.springboot.CamelAutoConfiguration"
+literal|"org.apache.camel.spring.boot.CamelAutoConfiguration"
 argument_list|)
 expr_stmt|;
 name|String
@@ -6531,7 +6531,7 @@ name|setStringValue
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"org.apache.camel.springboot.CamelAutoConfiguration"
+literal|"org.apache.camel.spring.boot.CamelAutoConfiguration"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -6547,7 +6547,7 @@ name|setStringValue
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"org.apache.camel.springboot.CamelAutoConfiguration"
+literal|"org.apache.camel.spring.boot.CamelAutoConfiguration"
 argument_list|)
 expr_stmt|;
 name|String
