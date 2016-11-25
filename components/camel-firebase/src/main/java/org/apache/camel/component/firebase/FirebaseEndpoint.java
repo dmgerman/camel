@@ -154,7 +154,7 @@ literal|"Firebase"
 argument_list|,
 name|syntax
 operator|=
-literal|"firebase:databaseUrl"
+literal|"firebase:name"
 argument_list|,
 name|consumerClass
 operator|=
@@ -164,7 +164,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"cloud,messaging"
+literal|"Firebase"
 argument_list|)
 DECL|class|FirebaseEndpoint
 specifier|public
