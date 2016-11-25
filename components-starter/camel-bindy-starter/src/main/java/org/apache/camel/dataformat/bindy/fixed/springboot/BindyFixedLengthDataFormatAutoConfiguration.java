@@ -216,14 +216,14 @@ name|ConditionalOnBean
 argument_list|(
 name|type
 operator|=
-literal|"org.apache.camel.springboot.CamelAutoConfiguration"
+literal|"org.apache.camel.spring.boot.CamelAutoConfiguration"
 argument_list|)
 annotation|@
 name|AutoConfigureAfter
 argument_list|(
 name|name
 operator|=
-literal|"org.apache.camel.springboot.CamelAutoConfiguration"
+literal|"org.apache.camel.spring.boot.CamelAutoConfiguration"
 argument_list|)
 annotation|@
 name|EnableConfigurationProperties
