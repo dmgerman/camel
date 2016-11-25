@@ -212,9 +212,9 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"consumer dropbox client created"
+literal|"Consumer DropBox client created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -254,9 +254,9 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"consumer dropbox client deleted"
+literal|"Consumer DropBox client deleted"
 argument_list|)
 expr_stmt|;
 block|}

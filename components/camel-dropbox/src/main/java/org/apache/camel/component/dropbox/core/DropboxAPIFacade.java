@@ -610,9 +610,9 @@ block|{
 comment|//verify uploading of a list of files inside a dir
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"uploading a dir..."
+literal|"Uploading a dir..."
 argument_list|)
 expr_stmt|;
 comment|//check if dropbox folder exists
@@ -777,14 +777,12 @@ try|try
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"uploading:"
-operator|+
+literal|"Uploading: {},{}"
+argument_list|,
 name|fileLocalPath
-operator|+
-literal|","
-operator|+
+argument_list|,
 name|dropboxPath
 argument_list|)
 expr_stmt|;
@@ -993,9 +991,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"search no query"
+literal|"Search no query"
 argument_list|)
 expr_stmt|;
 try|try
@@ -1040,10 +1038,10 @@ else|else
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"search by query:"
-operator|+
+literal|"Search by query: {}"
+argument_list|,
 name|query
 argument_list|)
 expr_stmt|;

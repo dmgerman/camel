@@ -300,18 +300,27 @@ name|getFound
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"consumer --> downloaded: "
-operator|+
+literal|"Downloaded: {}"
+argument_list|,
 name|result
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 comment|// send message to next processor in the route

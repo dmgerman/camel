@@ -183,9 +183,9 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"producer dropbox client created"
+literal|"Producer DropBox client created"
 argument_list|)
 expr_stmt|;
 block|}
@@ -224,9 +224,9 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"producer dropbox client deleted"
+literal|"Producer DropBox client deleted"
 argument_list|)
 expr_stmt|;
 block|}

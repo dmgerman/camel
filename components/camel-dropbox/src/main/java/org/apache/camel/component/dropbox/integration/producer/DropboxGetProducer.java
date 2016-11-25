@@ -381,10 +381,10 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"producer --> downloaded: "
-operator|+
+literal|"Downloaded: {}"
+argument_list|,
 name|result
 operator|.
 name|toString

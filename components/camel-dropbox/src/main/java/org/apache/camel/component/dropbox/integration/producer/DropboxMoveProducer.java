@@ -222,17 +222,15 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Moved from "
-operator|+
+literal|"Moved from {} to {}"
+argument_list|,
 name|configuration
 operator|.
 name|getRemotePath
 argument_list|()
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|configuration
 operator|.
 name|getNewRemotePath
