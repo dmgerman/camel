@@ -1,8 +1,4 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
-begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
-
 begin_package
 DECL|package|org.apache.camel.component.firebase
 package|package
@@ -122,20 +118,6 @@ name|UriParam
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|UriPath
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a Firebase endpoint.  */
 end_comment
@@ -180,31 +162,7 @@ name|FirebaseConfig
 name|firebaseConfig
 decl_stmt|;
 annotation|@
-name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"The Firebase database URL. Always uses https"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|databaseUrl
-specifier|private
-name|String
-name|databaseUrl
-decl_stmt|;
-annotation|@
 name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"The path in the database tree where the key value pairs are to be stored"
-argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -219,13 +177,6 @@ name|rootReference
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"The path to the JSON file which provided the keys used to connect to Firebase. #"
-operator|+
-literal|"This file is typically generated when you create the database"
-argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -244,12 +195,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"firebaseKey"
-argument_list|,
-name|description
-operator|=
-literal|"The Camel exchange header name in which "
-operator|+
-literal|"the Firebase key is specified. Only needed in case you are saving or updating data"
 argument_list|)
 annotation|@
 name|Metadata
@@ -271,12 +216,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"async"
-argument_list|,
-name|description
-operator|=
-literal|"If true, the save or update request (set value in Firebase terms) "
-operator|+
-literal|"is fired and the reply will be ignored, else the routing thread will wait and the reply will be saved in the exchange message"
 argument_list|)
 annotation|@
 name|Metadata
@@ -336,15 +275,6 @@ operator|.
 name|getServiceAccountFile
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|databaseUrl
-operator|=
-name|firebaseConfig
-operator|.
-name|getDatabaseUrl
-argument_list|()
 expr_stmt|;
 specifier|final
 name|String
@@ -553,16 +483,6 @@ name|firebaseConfig
 operator|.
 name|getFirebaseApp
 argument_list|()
-return|;
-block|}
-DECL|method|getDatabaseUrl ()
-specifier|public
-name|String
-name|getDatabaseUrl
-parameter_list|()
-block|{
-return|return
-name|databaseUrl
 return|;
 block|}
 block|}
