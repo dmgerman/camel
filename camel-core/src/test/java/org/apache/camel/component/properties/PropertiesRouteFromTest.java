@@ -213,7 +213,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<to uri=\"{{cool.end}}\""
+literal|"<to id=\"to1\" uri=\"{{cool.end}}\"/>"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -354,9 +354,9 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<param name=\"header_letter\" type=\"query\" description=\"header param description2\""
+literal|"<param collectionFormat=\"multi\" dataType=\"string\" defaultValue=\"b\" "
 operator|+
-literal|" defaultValue=\"b\" required=\"false\" collectionFormat=\"multi\" dataType=\"string\">"
+literal|"description=\"header param description2\" name=\"header_letter\" required=\"false\" type=\"query\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -366,9 +366,9 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<param name=\"header_count\" type=\"header\" description=\"header param description1\" "
+literal|"<param dataType=\"integer\" defaultValue=\"1\" "
 operator|+
-literal|"defaultValue=\"1\" required=\"true\" dataType=\"integer\""
+literal|"description=\"header param description1\" name=\"header_count\" required=\"true\" type=\"header\">"
 argument_list|)
 argument_list|)
 expr_stmt|;

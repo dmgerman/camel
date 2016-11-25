@@ -84,10 +84,6 @@ name|ModelHelper
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|DumpModelAsXmlPlaceholdersTest
 specifier|public
@@ -157,7 +153,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<route customId=\"true\" id=\"Gouda\" xmlns=\"http://camel.apache.org/schema/spring\">"
+literal|"<route xmlns=\"http://camel.apache.org/schema/spring\" customId=\"true\" id=\"Gouda\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -177,7 +173,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<to uri=\"direct:end-{{cheese.type}}\" customId=\"true\" id=\"log\"/>"
+literal|"<to customId=\"true\" id=\"log\" uri=\"direct:end-{{cheese.type}}\"/>"
 argument_list|)
 argument_list|)
 expr_stmt|;

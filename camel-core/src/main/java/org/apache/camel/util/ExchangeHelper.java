@@ -377,7 +377,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods for working with {@link Exchange} objects  *  * @version   */
+comment|/**  * Some helper methods for working with {@link Exchange} objects  *  * @version  */
 end_comment
 
 begin_class
