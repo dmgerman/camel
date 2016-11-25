@@ -148,7 +148,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"firebase-admin-connection.json"
+literal|"gil-sample-app-firebase-adminsdk-rcwg7-fea519a672.json"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
