@@ -227,7 +227,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|503
+literal|504
 argument_list|,
 name|cause
 operator|.

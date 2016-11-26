@@ -402,7 +402,7 @@ block|{
 try|try
 block|{
 name|String
-name|hosto
+name|host
 init|=
 name|endpoint
 operator|.
@@ -675,7 +675,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|hosto
+name|host
 operator|!=
 literal|null
 condition|)
@@ -684,7 +684,7 @@ name|result
 operator|.
 name|setHost
 argument_list|(
-name|hosto
+name|host
 argument_list|)
 expr_stmt|;
 block|}
