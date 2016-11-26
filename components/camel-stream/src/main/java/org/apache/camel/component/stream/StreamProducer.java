@@ -507,6 +507,13 @@ operator|.
 name|openConnection
 argument_list|()
 decl_stmt|;
+name|c
+operator|.
+name|setDoOutput
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 name|c
 operator|.
