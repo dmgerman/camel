@@ -474,6 +474,17 @@ name|Boolean
 name|apiDocs
 decl_stmt|;
 annotation|@
+name|XmlTransient
+DECL|field|usedForGeneratingNodeId
+specifier|private
+name|Boolean
+name|usedForGeneratingNodeId
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
+annotation|@
 name|Override
 DECL|method|getLabel ()
 specifier|public
@@ -1411,6 +1422,32 @@ return|return
 name|method
 return|;
 block|}
+block|}
+DECL|method|getUsedForGeneratingNodeId ()
+specifier|public
+name|Boolean
+name|getUsedForGeneratingNodeId
+parameter_list|()
+block|{
+return|return
+name|usedForGeneratingNodeId
+return|;
+block|}
+DECL|method|setUsedForGeneratingNodeId (Boolean usedForGeneratingNodeId)
+specifier|public
+name|void
+name|setUsedForGeneratingNodeId
+parameter_list|(
+name|Boolean
+name|usedForGeneratingNodeId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usedForGeneratingNodeId
+operator|=
+name|usedForGeneratingNodeId
+expr_stmt|;
 block|}
 block|}
 end_class
