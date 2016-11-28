@@ -127,10 +127,10 @@ specifier|private
 name|Address
 name|address
 decl_stmt|;
-DECL|field|orders
+DECL|field|orderCount
 specifier|private
 name|int
-name|orders
+name|orderCount
 decl_stmt|;
 DECL|method|getId ()
 specifier|public
@@ -210,30 +210,30 @@ operator|=
 name|address
 expr_stmt|;
 block|}
-DECL|method|getOrders ()
+DECL|method|getOrderCount ()
 specifier|public
 name|int
-name|getOrders
+name|getOrderCount
 parameter_list|()
 block|{
 return|return
-name|orders
+name|orderCount
 return|;
 block|}
-DECL|method|setOrders (int orders)
+DECL|method|setOrderCount (int orderCount)
 specifier|public
 name|void
-name|setOrders
+name|setOrderCount
 parameter_list|(
 name|int
-name|orders
+name|orderCount
 parameter_list|)
 block|{
 name|this
 operator|.
-name|orders
+name|orderCount
 operator|=
-name|orders
+name|orderCount
 expr_stmt|;
 block|}
 annotation|@
