@@ -1665,7 +1665,7 @@ name|isSSL
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|connectionFactory
 operator|.
