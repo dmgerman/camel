@@ -232,11 +232,6 @@ block|{
 literal|"camel.component.servlet.mapping.enabled=false"
 block|}
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: test fails"
-argument_list|)
 DECL|class|ServletMappingDisablingTest
 specifier|public
 class|class

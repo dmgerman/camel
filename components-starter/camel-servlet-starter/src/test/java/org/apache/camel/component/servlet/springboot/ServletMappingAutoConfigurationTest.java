@@ -248,11 +248,6 @@ name|WebEnvironment
 operator|.
 name|RANDOM_PORT
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO: test fails"
-argument_list|)
 DECL|class|ServletMappingAutoConfigurationTest
 specifier|public
 class|class
