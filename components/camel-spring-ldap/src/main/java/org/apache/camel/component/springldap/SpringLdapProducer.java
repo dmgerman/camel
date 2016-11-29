@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|BiFunction
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -554,8 +566,10 @@ break|break;
 case|case
 name|FUNCTION_DRIVEN
 case|:
-name|LdapOperationsFunction
+name|BiFunction
 argument_list|<
+name|LdapOperations
+argument_list|,
 name|Object
 argument_list|,
 name|?
@@ -563,8 +577,10 @@ argument_list|>
 name|ldapOperationFunction
 init|=
 operator|(
-name|LdapOperationsFunction
+name|BiFunction
 argument_list|<
+name|LdapOperations
+argument_list|,
 name|Object
 argument_list|,
 name|?
