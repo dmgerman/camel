@@ -566,7 +566,7 @@ return|return
 name|attachmentMultipartBinding
 return|;
 block|}
-comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel {@link Exchange}.      *<p/>      * This is turn off by default as this may require servlet specific configuration to enable this when using Servlet's.      */
+comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel {@link Exchange}.      *<p/>      * The options attachmentMultipartBinding=true and disableStreamCache=false cannot work together.      * Remove disableStreamCache to use AttachmentMultipartBinding.      *<p/>      * This is turn off by default as this may require servlet specific configuration to enable this when using Servlet's.      */
 DECL|method|setAttachmentMultipartBinding (boolean attachmentMultipartBinding)
 specifier|public
 name|void
