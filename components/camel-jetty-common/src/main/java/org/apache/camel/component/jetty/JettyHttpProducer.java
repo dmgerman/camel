@@ -72,6 +72,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -632,6 +642,57 @@ argument_list|,
 name|callback
 argument_list|)
 expr_stmt|;
+comment|// url must have scheme
+try|try
+block|{
+name|uri
+operator|=
+operator|new
+name|URI
+argument_list|(
+name|url
+argument_list|)
+expr_stmt|;
+name|String
+name|scheme
+init|=
+name|uri
+operator|.
+name|getScheme
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|scheme
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Url must include scheme: "
+operator|+
+name|url
+operator|+
+literal|". If you are bridging endpoints set bridgeEndpoint=true."
+operator|+
+literal|" If you want to call a specific url, then you may need to remove all CamelHttp* headers in the route before this."
+operator|+
+literal|" See more details at: http://camel.apache.org/how-to-remove-the-http-protocol-headers-in-the-camel-message.html"
+argument_list|)
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|URISyntaxException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 name|httpExchange
 operator|.
 name|setURL
