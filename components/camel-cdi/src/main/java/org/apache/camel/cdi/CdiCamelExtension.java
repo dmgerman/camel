@@ -1187,6 +1187,16 @@ argument_list|<>
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|configuration
+specifier|private
+specifier|final
+name|CdiCamelConfigurationEvent
+name|configuration
+init|=
+operator|new
+name|CdiCamelConfigurationEvent
+argument_list|()
+decl_stmt|;
 DECL|method|getEventEndpoint (String uri)
 name|CdiEventEndpoint
 argument_list|<
@@ -3376,6 +3386,19 @@ name|BeanManager
 name|manager
 parameter_list|)
 block|{
+comment|// Send event for Camel CDI configuration
+name|manager
+operator|.
+name|fireEvent
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+name|configuration
+operator|.
+name|unmodifiable
+argument_list|()
+expr_stmt|;
 name|Collection
 argument_list|<
 name|CamelContext
@@ -3466,6 +3489,14 @@ expr_stmt|;
 block|}
 block|}
 comment|// Add routes to Camel contexts
+if|if
+condition|(
+name|configuration
+operator|.
+name|autoConfigureRoutes
+argument_list|()
+condition|)
+block|{
 name|boolean
 name|deploymentException
 init|=
@@ -3603,6 +3634,7 @@ name|deploymentException
 condition|)
 block|{
 return|return;
+block|}
 block|}
 comment|// Trigger eager beans instantiation (calling toString is necessary to force
 comment|// the initialization of normal-scoped beans).
