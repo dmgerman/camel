@@ -76,6 +76,16 @@ name|OneToOne
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Version
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -131,6 +141,13 @@ DECL|field|orderCount
 specifier|private
 name|int
 name|orderCount
+decl_stmt|;
+annotation|@
+name|Version
+DECL|field|version
+specifier|private
+name|Long
+name|version
 decl_stmt|;
 DECL|method|getId ()
 specifier|public
@@ -250,6 +267,10 @@ literal|"Customer[id: "
 operator|+
 name|getId
 argument_list|()
+operator|+
+literal|", version: "
+operator|+
+name|version
 operator|+
 literal|", name: "
 operator|+
