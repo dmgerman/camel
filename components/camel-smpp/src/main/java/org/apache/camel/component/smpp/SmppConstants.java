@@ -58,6 +58,12 @@ name|DATA_CODING
 init|=
 literal|"CamelSmppDataCoding"
 decl_stmt|;
+DECL|field|DATA_SPLITTER
+name|String
+name|DATA_SPLITTER
+init|=
+literal|"CamelSmppSplitter"
+decl_stmt|;
 DECL|field|DELIVERED
 name|String
 name|DELIVERED
@@ -99,6 +105,12 @@ name|String
 name|ERROR
 init|=
 literal|"CamelSmppError"
+decl_stmt|;
+DECL|field|ESM_CLASS
+name|String
+name|ESM_CLASS
+init|=
+literal|"CamelSmppClass"
 decl_stmt|;
 DECL|field|ESME_ADDR
 name|String
