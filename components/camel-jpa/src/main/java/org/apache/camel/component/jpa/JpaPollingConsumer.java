@@ -146,16 +146,6 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|persistence
-operator|.
 name|LockModeType
 import|;
 end_import
@@ -167,6 +157,16 @@ operator|.
 name|persistence
 operator|.
 name|PersistenceException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|Query
 import|;
 end_import
 
