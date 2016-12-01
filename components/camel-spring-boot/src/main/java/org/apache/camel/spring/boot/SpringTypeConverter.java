@@ -196,7 +196,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|// do not attempt to convert List -> Map. Ognl expression may use this converter  as a fallback expecting null
+comment|// do not attempt to convert List -> Map. Ognl expression may use this converter as a fallback expecting null
 if|if
 condition|(
 name|type
