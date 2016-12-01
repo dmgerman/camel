@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.component.smpp
 package|package
@@ -35,16 +39,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Created by engin on 30/11/2016.  */
+comment|/**  * Splitter for messages use National Language Lock Table  *<p/>  * @see 3GPP 23.038 Reference  */
 end_comment
 
 begin_class
 DECL|class|SmppNLSTSplitter
+specifier|public
 class|class
 name|SmppNLSTSplitter
 extends|extends
 name|SmppSplitter
 block|{
+comment|/**      * The length of the UDH for single short message in bytes.      * 0x25 - UDHIE_NLI_IDENTIFIER      * 0x01 - Length of the header      * 0xXX - Locking shift table indicator the Language      */
 DECL|field|UDHIE_NLI_SINGLE_MSG_HEADER_LENGTH
 specifier|protected
 specifier|static
@@ -55,6 +61,7 @@ init|=
 literal|0x03
 decl_stmt|;
 comment|// header length for single message
+comment|/**      * The real length of the UDH for single short message      */
 DECL|field|UDHIE_NLI_SINGLE_MSG_HEADER_REAL_LENGTH
 specifier|protected
 specifier|static
@@ -66,6 +73,7 @@ name|UDHIE_NLI_SINGLE_MSG_HEADER_LENGTH
 operator|+
 literal|1
 decl_stmt|;
+comment|/**      * The length of the UDH for splitted short messages, in bytes.      * 0x08 Overall header length      * 0x00 The value that identifier length of the SAR fragment. (8bit reference number only)      * 0x03 The length of the SAR fragment      * 0xXX The reference number for SAR      * 0xXX Total number of splitted / segmented messages      * 0xXX Segment number      * 0x25 National language locking shift element identifier      * 0x01 Length of the header      * 0xXX Locking shift table indicator for the Language (ie: 0x01 for Turkish)      */
 DECL|field|UDHIE_NLI_MULTI_MSG_HEADER_LENGTH
 specifier|protected
 specifier|static
@@ -75,7 +83,7 @@ name|UDHIE_NLI_MULTI_MSG_HEADER_LENGTH
 init|=
 literal|0x08
 decl_stmt|;
-comment|// header length for multi message
+comment|/**      * The real length of the UDH for segmentet short messages      */
 DECL|field|UDHIE_NLI_MULTI_MSG_HEADER_REAL_LENGTH
 specifier|protected
 specifier|static
@@ -87,18 +95,7 @@ name|UDHIE_NLI_MULTI_MSG_HEADER_LENGTH
 operator|+
 literal|1
 decl_stmt|;
-DECL|field|UDHIE_SAR_REF_NUM_LENGTH
-specifier|protected
-specifier|static
-specifier|final
-name|int
-name|UDHIE_SAR_REF_NUM_LENGTH
-init|=
-literal|1
-decl_stmt|;
-comment|//        protected static final byte UDHIE_IDENTIFIER_SAR = 0x00;
-comment|//        protected static final byte UDHIE_SAR_LENGTH = 0x03;
-comment|//        protected static final int MAX_SEG_COUNT = 255;
+comment|/**      * The element identifier value for the National Language Locking Table      */
 DECL|field|UDHIE_NLI_IDENTIFIER
 specifier|protected
 specifier|static
@@ -108,6 +105,7 @@ name|UDHIE_NLI_IDENTIFIER
 init|=
 literal|0x25
 decl_stmt|;
+comment|/**      * The length of the NLI header      */
 DECL|field|UDHIE_NLI_HEADER_LENGTH
 specifier|protected
 specifier|static
@@ -117,6 +115,7 @@ name|UDHIE_NLI_HEADER_LENGTH
 init|=
 literal|0x01
 decl_stmt|;
+comment|/**      * The maximum length in chars of the NLI messages.      *<p/>      * Each letter will be represented as 7 bit (like GSM8)      */
 DECL|field|MAX_MSG_CHAR_SIZE
 specifier|public
 specifier|static
@@ -138,7 +137,6 @@ operator|+
 literal|1
 operator|)
 decl_stmt|;
-comment|// 155 for NLST
 DECL|field|MAX_SEG_BYTE_SIZE
 specifier|public
 specifier|static
@@ -156,6 +154,7 @@ literal|8
 operator|/
 literal|7
 decl_stmt|;
+comment|/**      * Locking shift table indicator for the Language, single byte      */
 DECL|field|languageIdentifier
 specifier|private
 name|byte
@@ -177,6 +176,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|method|SmppNLSTSplitter (int currentLength, byte languageIdentifier)
+specifier|public
 name|SmppNLSTSplitter
 parameter_list|(
 name|int
@@ -223,7 +223,7 @@ condition|)
 block|{
 name|byte
 index|[]
-name|nli_message
+name|nliMessage
 init|=
 operator|new
 name|byte
@@ -235,7 +235,7 @@ operator|.
 name|length
 index|]
 decl_stmt|;
-name|nli_message
+name|nliMessage
 index|[
 literal|0
 index|]
@@ -245,7 +245,7 @@ name|byte
 operator|)
 name|UDHIE_NLI_SINGLE_MSG_HEADER_LENGTH
 expr_stmt|;
-name|nli_message
+name|nliMessage
 index|[
 literal|1
 index|]
@@ -255,7 +255,7 @@ name|byte
 operator|)
 name|UDHIE_NLI_IDENTIFIER
 expr_stmt|;
-name|nli_message
+name|nliMessage
 index|[
 literal|2
 index|]
@@ -265,7 +265,7 @@ name|byte
 operator|)
 name|UDHIE_NLI_HEADER_LENGTH
 expr_stmt|;
-name|nli_message
+name|nliMessage
 index|[
 literal|3
 index|]
@@ -282,7 +282,7 @@ name|message
 argument_list|,
 literal|0
 argument_list|,
-name|nli_message
+name|nliMessage
 argument_list|,
 literal|4
 argument_list|,
@@ -297,7 +297,7 @@ name|byte
 index|[]
 index|[]
 block|{
-name|nli_message
+name|nliMessage
 block|}
 return|;
 block|}
@@ -396,7 +396,7 @@ control|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"segment number = {}"
 argument_list|,
@@ -430,7 +430,7 @@ expr_stmt|;
 block|}
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Length of data = {}"
 argument_list|,
@@ -452,7 +452,7 @@ index|]
 expr_stmt|;
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"segments[{}].length = {}"
 argument_list|,
@@ -542,7 +542,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// language stuff
+comment|// national language locking shift table, element identifier
 name|segments
 index|[
 name|i

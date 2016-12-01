@@ -400,6 +400,8 @@ parameter_list|(
 name|Message
 name|message
 parameter_list|)
+throws|throws
+name|SmppException
 block|{
 name|SmppSplitter
 name|splitter
@@ -446,13 +448,13 @@ return|return
 name|splitter
 return|;
 block|}
-name|logger
-operator|.
-name|warn
+throw|throw
+operator|new
+name|SmppException
 argument_list|(
 literal|"Invalid splitter given. Must be instance of SmppSplitter"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 name|Alphabet
 name|alphabet
