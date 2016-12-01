@@ -137,6 +137,11 @@ specifier|abstract
 class|class
 name|PubsubAcknowledgement
 block|{
+DECL|field|logger
+specifier|protected
+name|Logger
+name|logger
+decl_stmt|;
 DECL|field|subscriptionFullName
 specifier|private
 specifier|final
@@ -148,11 +153,6 @@ specifier|private
 specifier|final
 name|GooglePubsubEndpoint
 name|endpoint
-decl_stmt|;
-DECL|field|logger
-specifier|protected
-name|Logger
-name|logger
 decl_stmt|;
 DECL|method|PubsubAcknowledgement (GooglePubsubEndpoint endpoint)
 specifier|public
