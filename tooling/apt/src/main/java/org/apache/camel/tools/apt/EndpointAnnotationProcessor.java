@@ -1603,6 +1603,21 @@ name|excludeProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// only if its a consuemr capable component
+if|if
+condition|(
+name|uriEndpoint
+operator|.
+name|consumerOnly
+argument_list|()
+operator|||
+operator|!
+name|uriEndpoint
+operator|.
+name|producerOnly
+argument_list|()
+condition|)
+block|{
 comment|// This code is not my fault, it seems to honestly be the hacky way to find a class name in APT :)
 name|TypeMirror
 name|consumerType
@@ -1738,11 +1753,12 @@ name|warning
 argument_list|(
 name|processingEnv
 argument_list|,
-literal|"APT could not find consumer class "
+literal|"APT cannot find consumer class "
 operator|+
 name|consumerClassName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|writer
 operator|.

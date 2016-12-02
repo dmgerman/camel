@@ -2429,7 +2429,13 @@ name|warning
 argument_list|(
 name|processingEnv
 argument_list|,
-literal|"Cannot load file"
+literal|"APT cannot load file: "
+operator|+
+name|packageName
+operator|+
+literal|"/"
+operator|+
+name|fileName
 argument_list|)
 expr_stmt|;
 block|}
