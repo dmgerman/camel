@@ -157,6 +157,7 @@ argument_list|,
 literal|":"
 argument_list|)
 decl_stmt|;
+comment|// try to lookup data format in the registry or create it from resource
 name|DataFormat
 name|df
 init|=
@@ -168,6 +169,25 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|df
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if not, try to find a factory in the registry
+name|df
+operator|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|createDataFormat
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|df

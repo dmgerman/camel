@@ -619,7 +619,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
-name|resolveDataFormat
+name|createDataFormat
 argument_list|(
 name|getDataFormatName
 argument_list|()

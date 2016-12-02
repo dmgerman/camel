@@ -2072,6 +2072,15 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Creates the given data format given its name.      *      * @param name the data format name or a reference to a data format factory in the {@link Registry}      * @return the resolved data format, or<tt>null</tt> if not found      */
+DECL|method|createDataFormat (String name)
+name|DataFormat
+name|createDataFormat
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Resolve a data format definition given its name      *      * @param name the data format definition name or a reference to it in the {@link Registry}      * @return the resolved data format definition, or<tt>null</tt> if not found      */
 DECL|method|resolveDataFormatDefinition (String name)
 name|DataFormatDefinition

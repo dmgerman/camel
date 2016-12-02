@@ -50,6 +50,18 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Creates the given data format given its name.      *      * @param name the name of the data format factory to lookup in {@link org.apache.camel.spi.Registry} or create      * @param context the camel context      * @return the data format or<tt>null</tt> if not possible to resolve      */
+DECL|method|createDataFormat (String name, CamelContext context)
+name|DataFormat
+name|createDataFormat
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

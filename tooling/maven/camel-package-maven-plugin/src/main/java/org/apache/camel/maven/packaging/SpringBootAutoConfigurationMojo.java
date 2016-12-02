@@ -6515,6 +6515,27 @@ argument_list|(
 literal|"org.apache.camel.CamelContext"
 argument_list|)
 expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.RuntimeCamelException"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.spi.DataFormat"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.spi.DataFormatFactory"
+argument_list|)
+expr_stmt|;
 name|String
 name|body
 init|=
@@ -6537,6 +6558,8 @@ name|model
 operator|.
 name|getShortJavaType
 argument_list|()
+operator|+
+literal|"Factory"
 decl_stmt|;
 name|MethodSource
 argument_list|<
@@ -6564,17 +6587,7 @@ argument_list|)
 operator|.
 name|setReturnType
 argument_list|(
-name|model
-operator|.
-name|getShortJavaType
-argument_list|()
-argument_list|)
-operator|.
-name|addThrows
-argument_list|(
-name|Exception
-operator|.
-name|class
+literal|"org.apache.camel.spi.DataFormatFactory"
 argument_list|)
 decl_stmt|;
 name|method
@@ -6584,6 +6597,11 @@ argument_list|(
 literal|"CamelContext"
 argument_list|,
 literal|"camelContext"
+argument_list|)
+operator|.
+name|setFinal
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -6598,6 +6616,11 @@ argument_list|(
 name|configurationName
 argument_list|,
 literal|"configuration"
+argument_list|)
+operator|.
+name|setFinal
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -6618,7 +6641,7 @@ name|alias
 lambda|->
 name|alias
 operator|+
-literal|"-dataformat"
+literal|"-dataformat-factory"
 argument_list|)
 operator|.
 name|toArray
@@ -6646,20 +6669,6 @@ argument_list|(
 literal|"name"
 argument_list|,
 name|springBeanAliases
-argument_list|)
-expr_stmt|;
-name|method
-operator|.
-name|addAnnotation
-argument_list|(
-name|Scope
-operator|.
-name|class
-argument_list|)
-operator|.
-name|setStringValue
-argument_list|(
-literal|"prototype"
 argument_list|)
 expr_stmt|;
 name|method
@@ -7752,6 +7761,25 @@ name|sb
 operator|.
 name|append
 argument_list|(
+literal|"return new DataFormatFactory() {\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    public DataFormat newInstance() {\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"        "
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|shortJavaType
 argument_list|)
 operator|.
@@ -7779,7 +7807,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"if (CamelContextAware.class.isAssignableFrom("
+literal|"        if (CamelContextAware.class.isAssignableFrom("
 argument_list|)
 operator|.
 name|append
@@ -7796,35 +7824,35 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    CamelContextAware contextAware = CamelContextAware.class.cast(dataformat);\n"
+literal|"            CamelContextAware contextAware = CamelContextAware.class.cast(dataformat);\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    if (contextAware != null) {\n"
+literal|"            if (contextAware != null) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"        contextAware.setCamelContext(camelContext);\n"
+literal|"                contextAware.setCamelContext(camelContext);\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    }\n"
+literal|"            }\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"}\n"
+literal|"        }\n"
 argument_list|)
 expr_stmt|;
 if|if
@@ -7843,28 +7871,49 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Map<String, Object> parameters = new HashMap<>();\n"
+literal|"        try {\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"IntrospectionSupport.getProperties(configuration, parameters, null, false);\n"
+literal|"            Map<String, Object> parameters = new HashMap<>();\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"            IntrospectionSupport.getProperties(configuration, parameters, null, false);\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), dataformat, parameters);\n"
+literal|"            IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), dataformat, parameters);\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"        } catch (Exception e) {\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"            throw new RuntimeCamelException(e);\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"        }\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -7879,7 +7928,21 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"return dataformat;"
+literal|"        return dataformat;\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    }\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"};\n"
 argument_list|)
 expr_stmt|;
 return|return
