@@ -481,7 +481,7 @@ return|return
 name|subsystem
 return|;
 block|}
-comment|/** 	 * OpenStack Nova subsystem 	 */
+comment|/** 	 * OpenStack Keystone subsystem 	 */
 DECL|method|setSubsystem (String subsystem)
 specifier|public
 name|void

@@ -621,7 +621,6 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-comment|//TODO:
 DECL|method|messageToDomain (Message message)
 specifier|private
 name|Domain

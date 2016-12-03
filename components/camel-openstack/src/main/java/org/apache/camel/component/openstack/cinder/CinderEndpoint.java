@@ -394,7 +394,7 @@ return|return
 name|subsystem
 return|;
 block|}
-comment|/** 	 * OpenStack Nova subsystem 	 */
+comment|/** 	 * OpenStack Cinder subsystem 	 */
 DECL|method|setSubsystem (String subsystem)
 specifier|public
 name|void

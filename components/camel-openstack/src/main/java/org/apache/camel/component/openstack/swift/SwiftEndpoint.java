@@ -178,7 +178,7 @@ literal|"openstack-swift:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud"
+literal|"cloud, virtualization"
 argument_list|)
 DECL|class|SwiftEndpoint
 specifier|public
@@ -393,7 +393,7 @@ return|return
 name|subsystem
 return|;
 block|}
-comment|/** 	 * OpenStack Nova subsystem 	 */
+comment|/** 	 * OpenStack Swift subsystem 	 */
 DECL|method|setSubsystem (String subsystem)
 specifier|public
 name|void

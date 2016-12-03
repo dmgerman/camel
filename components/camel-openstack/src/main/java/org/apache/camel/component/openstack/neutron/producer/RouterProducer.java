@@ -921,7 +921,6 @@ name|routerInterface
 argument_list|)
 expr_stmt|;
 block|}
-comment|//TODO: more headers?
 DECL|method|messageToRouter (Message message)
 specifier|private
 name|Router

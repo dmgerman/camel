@@ -218,7 +218,7 @@ literal|"openstack-neutron:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud"
+literal|"cloud, virtualization"
 argument_list|)
 DECL|class|NeutronEndpoint
 specifier|public
@@ -464,7 +464,7 @@ return|return
 name|subsystem
 return|;
 block|}
-comment|/** 	 * OpenStack Nova subsystem 	 */
+comment|/** 	 * OpenStack Neutron subsystem 	 */
 DECL|method|setSubsystem (String subsystem)
 specifier|public
 name|void

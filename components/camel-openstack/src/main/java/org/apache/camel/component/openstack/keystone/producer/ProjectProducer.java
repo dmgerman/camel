@@ -302,7 +302,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unsuproutered operation "
+literal|"Unsupported operation "
 operator|+
 name|operation
 argument_list|)

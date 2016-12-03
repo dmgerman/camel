@@ -335,7 +335,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unsupgrouped operation "
+literal|"Unsupported operation "
 operator|+
 name|operation
 argument_list|)

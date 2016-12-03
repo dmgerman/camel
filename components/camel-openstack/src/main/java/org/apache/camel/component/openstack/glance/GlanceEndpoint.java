@@ -138,7 +138,7 @@ literal|"openstack-glance:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud"
+literal|"cloud, virtualization"
 argument_list|)
 DECL|class|GlanceEndpoint
 specifier|public
