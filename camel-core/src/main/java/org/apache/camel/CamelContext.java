@@ -833,7 +833,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *<p/>  * The context offers the following methods to control the lifecycle:  *<ul>  *<li>{@link #start()}  - to start (<b>important:</b> the start method is not blocked, see more details  *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>  *<li>{@link #stop()} - to shutdown (will stop all routes/components/endpoints etc and clear internal state/cache)</li>  *<li>{@link #suspend()} - to pause routing messages</li>  *<li>{@link #resume()} - to resume after a suspend</li>  *</ul>  *<p/>  *<b>Notice:</b> {@link #stop()} and {@link #suspend()} will gracefully stop/suspend routes ensuring any messages  * in progress will be given time to complete. See more details at {@link org.apache.camel.spi.ShutdownStrategy}.  *<p/>  * If you are doing a hot restart then it's advised to use the suspend/resume methods which ensure a faster  * restart but also allows any internal state to be kept as is.  * The stop/start approach will do a<i>cold</i> restart of Camel, where all internal state is reset.  *<p/>  * End users are advised to use suspend/resume. Using stop is for shutting down Camel and it's not guaranteed that  * when it's being started again using the start method that Camel will operate consistently.  *  * @version   */
+comment|/**  * Interface used to represent the CamelContext used to configure routes and the  * policies to use during message exchanges between endpoints.  *<p/>  * The CamelContext offers the following methods to control the lifecycle:  *<ul>  *<li>{@link #start()}  - to start (<b>important:</b> the start method is not blocked, see more details  *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>  *<li>{@link #stop()} - to shutdown (will stop all routes/components/endpoints etc and clear internal state/cache)</li>  *<li>{@link #suspend()} - to pause routing messages</li>  *<li>{@link #resume()} - to resume after a suspend</li>  *</ul>  *<p/>  *<b>Notice:</b> {@link #stop()} and {@link #suspend()} will gracefully stop/suspend routes ensuring any messages  * in progress will be given time to complete. See more details at {@link org.apache.camel.spi.ShutdownStrategy}.  *<p/>  * If you are doing a hot restart then it's advised to use the suspend/resume methods which ensure a faster  * restart but also allows any internal state to be kept as is.  * The stop/start approach will do a<i>cold</i> restart of Camel, where all internal state is reset.  *<p/>  * End users are advised to use suspend/resume. Using stop is for shutting down Camel and it's not guaranteed that  * when it's being started again using the start method that Camel will operate consistently.  *  * @version   */
 end_comment
 
 begin_interface
@@ -885,7 +885,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Gets the name (id) of the this context.      *      * @return the name      */
+comment|/**      * Gets the name (id) of the this CamelContext.      *      * @return the name      */
 DECL|method|getName ()
 name|String
 name|getName
@@ -927,13 +927,13 @@ name|String
 name|getManagementName
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the version of the this context.      *      * @return the version      */
+comment|/**      * Gets the version of the this CamelContext.      *      * @return the version      */
 DECL|method|getVersion ()
 name|String
 name|getVersion
 parameter_list|()
 function_decl|;
-comment|/**      * Get the status of this context      *      * @return the status      */
+comment|/**      * Get the status of this CamelContext      *      * @return the status      */
 DECL|method|getStatus ()
 name|ServiceStatus
 name|getStatus
@@ -953,7 +953,7 @@ parameter_list|()
 function_decl|;
 comment|// Service Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Adds a service to this context, which allows this context to control the lifecycle, ensuring      * the service is stopped when the context stops.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *      * @param object the service      * @throws Exception can be thrown when starting the service      */
+comment|/**      * Adds a service to this CamelContext, which allows this CamelContext to control the lifecycle, ensuring      * the service is stopped when the CamelContext stops.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *      * @param object the service      * @throws Exception can be thrown when starting the service      */
 DECL|method|addService (Object object)
 name|void
 name|addService
@@ -964,7 +964,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds a service to this context.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this context will control the lifecycle, ensuring      * the service is stopped when the context stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this context will not stop the service when the context stops.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown.      * @throws Exception can be thrown when starting the service      */
+comment|/**      * Adds a service to this CamelContext.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this CamelContext will control the lifecycle, ensuring      * the service is stopped when the CamelContext stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this CamelContext will not stop the service when the CamelContext stops.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown.      * @throws Exception can be thrown when starting the service      */
 DECL|method|addService (Object object, boolean stopOnShutdown)
 name|void
 name|addService
@@ -978,7 +978,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds a service to this context.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this context will control the lifecycle, ensuring      * the service is stopped when the context stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this context will not stop the service when the context stops.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown.      * @param forceStart whether to force starting the service right now, as otherwise the service may be deferred being started      *                   to later using {@link #deferStartService(Object, boolean)}      * @throws Exception can be thrown when starting the service      */
+comment|/**      * Adds a service to this CamelContext.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this CamelContext will control the lifecycle, ensuring      * the service is stopped when the CamelContext stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this CamelContext will not stop the service when the CamelContext stops.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown.      * @param forceStart whether to force starting the service right now, as otherwise the service may be deferred being started      *                   to later using {@link #deferStartService(Object, boolean)}      * @throws Exception can be thrown when starting the service      */
 DECL|method|addService (Object object, boolean stopOnShutdown, boolean forceStart)
 name|void
 name|addService
@@ -995,7 +995,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes a service from this context.      *<p/>      * The service is assumed to have been previously added using {@link #addService(Object)} method.      * This method will<b>not</b> change the service lifecycle.      *      * @param object the service      * @throws Exception can be thrown if error removing the service      * @return<tt>true</tt> if the service was removed,<tt>false</tt> if no service existed      */
+comment|/**      * Removes a service from this CamelContext.      *<p/>      * The service is assumed to have been previously added using {@link #addService(Object)} method.      * This method will<b>not</b> change the service lifecycle.      *      * @param object the service      * @throws Exception can be thrown if error removing the service      * @return<tt>true</tt> if the service was removed,<tt>false</tt> if no service existed      */
 DECL|method|removeService (Object object)
 name|boolean
 name|removeService
@@ -1006,7 +1006,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Has the given service already been added to this context?      *      * @param object the service      * @return<tt>true</tt> if already added,<tt>false</tt> if not.      */
+comment|/**      * Has the given service already been added to this CamelContext?      *      * @param object the service      * @return<tt>true</tt> if already added,<tt>false</tt> if not.      */
 DECL|method|hasService (Object object)
 name|boolean
 name|hasService
@@ -1015,7 +1015,7 @@ name|Object
 name|object
 parameter_list|)
 function_decl|;
-comment|/**      * Has the given service type already been added to this context?      *      * @param type the class type      * @return the service instance or<tt>null</tt> if not already added.      */
+comment|/**      * Has the given service type already been added to this CamelContext?      *      * @param type the class type      * @return the service instance or<tt>null</tt> if not already added.      */
 DECL|method|hasService (Class<T> type)
 parameter_list|<
 name|T
@@ -1030,7 +1030,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Defers starting the service until {@link CamelContext} is (almost started) or started and has initialized all its prior services and routes.      *<p/>      * If {@link CamelContext} is already started then the service is started immediately.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown. Setting this to<tt>true</tt> will keep a reference to the service in      *                       this {@link CamelContext} until the context is stopped. So do not use it for short lived services.      * @throws Exception can be thrown when starting the service, which is only attempted if {@link CamelContext} has already been started when calling this method.      */
+comment|/**      * Defers starting the service until {@link CamelContext} is (almost started) or started and has initialized all its prior services and routes.      *<p/>      * If {@link CamelContext} is already started then the service is started immediately.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown. Setting this to<tt>true</tt> will keep a reference to the service in      *                       this {@link CamelContext} until the CamelContext is stopped. So do not use it for short lived services.      * @throws Exception can be thrown when starting the service, which is only attempted if {@link CamelContext} has already been started when calling this method.      */
 DECL|method|deferStartService (Object object, boolean stopOnShutdown)
 name|void
 name|deferStartService
@@ -1078,7 +1078,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the context by name.      *<p/>      * Notice the returned component will be auto-started. If you do not intend to do that      * then use {@link #getComponent(String, boolean, boolean)}.      *      * @param componentName the name of the component      * @return the component      */
+comment|/**      * Gets a component from the CamelContext by name.      *<p/>      * Notice the returned component will be auto-started. If you do not intend to do that      * then use {@link #getComponent(String, boolean, boolean)}.      *      * @param componentName the name of the component      * @return the component      */
 DECL|method|getComponent (String componentName)
 name|Component
 name|getComponent
@@ -1087,7 +1087,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the context by name.      *<p/>      * Notice the returned component will be auto-started. If you do not intend to do that      * then use {@link #getComponent(String, boolean, boolean)}.      *      * @param name                 the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @return the component      */
+comment|/**      * Gets a component from the CamelContext by name.      *<p/>      * Notice the returned component will be auto-started. If you do not intend to do that      * then use {@link #getComponent(String, boolean, boolean)}.      *      * @param name                 the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @return the component      */
 DECL|method|getComponent (String name, boolean autoCreateComponents)
 name|Component
 name|getComponent
@@ -1099,7 +1099,7 @@ name|boolean
 name|autoCreateComponents
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the context by name.      *      * @param name                 the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @param autoStart            whether to auto start the component if {@link CamelContext} is already started.      * @return the component      */
+comment|/**      * Gets a component from the CamelContext by name.      *      * @param name                 the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @param autoStart            whether to auto start the component if {@link CamelContext} is already started.      * @return the component      */
 DECL|method|getComponent (String name, boolean autoCreateComponents, boolean autoStart)
 name|Component
 name|getComponent
@@ -1114,7 +1114,7 @@ name|boolean
 name|autoStart
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the context by name and specifying the expected type of component.      *      * @param name          the name to lookup      * @param componentType the expected type      * @return the component      */
+comment|/**      * Gets a component from the CamelContext by name and specifying the expected type of component.      *      * @param name          the name to lookup      * @param componentType the expected type      * @return the component      */
 DECL|method|getComponent (String name, Class<T> componentType)
 parameter_list|<
 name|T
@@ -1416,7 +1416,7 @@ argument_list|>
 name|getRouteStartupOrder
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the current routes in this context      *      * @return the current routes      */
+comment|/**      * Returns the current routes in this CamelContext      *      * @return the current routes      */
 DECL|method|getRoutes ()
 name|List
 argument_list|<
@@ -1503,7 +1503,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the managed Camel context client api      */
+comment|/**      * Gets the managed Camel CamelContext client api      */
 DECL|method|getManagedCamelContext ()
 name|ManagedCamelContextMBean
 name|getManagedCamelContext
@@ -1538,7 +1538,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Adds a collection of routes to this context using the given builder      * to build them.      *<p/>      *<b>Important:</b> The added routes will<b>only</b> be started, if {@link CamelContext}      * is already started. You may want to check the state of {@link CamelContext} before      * adding the routes, using the {@link org.apache.camel.CamelContext#getStatus()} method.      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link org.apache.camel.model.ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
+comment|/**      * Adds a collection of routes to this CamelContext using the given builder      * to build them.      *<p/>      *<b>Important:</b> The added routes will<b>only</b> be started, if {@link CamelContext}      * is already started. You may want to check the state of {@link CamelContext} before      * adding the routes, using the {@link org.apache.camel.CamelContext#getStatus()} method.      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link org.apache.camel.model.ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param builder the builder which will create the routes and add them to this CamelContext      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (RoutesBuilder builder)
 name|void
 name|addRoutes
@@ -1596,7 +1596,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route(s) definitions to remove      * @throws Exception if the route definitions could not be removed for whatever reason      */
+comment|/**      * Removes a collection of route definitions from the CamelContext - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route(s) definitions to remove      * @throws Exception if the route definitions could not be removed for whatever reason      */
 DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|removeRouteDefinitions
@@ -1610,7 +1610,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes a route definition from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinition route definition to remove      * @throws Exception if the route definition could not be removed for whatever reason      */
+comment|/**      * Removes a route definition from the CamelContext - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinition route definition to remove      * @throws Exception if the route definition could not be removed for whatever reason      */
 DECL|method|removeRouteDefinition (RouteDefinition routeDefinition)
 name|void
 name|removeRouteDefinition
@@ -1902,13 +1902,13 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Returns the configured property placeholder prefix token if and only if the context has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the prefix token or {@code null}      */
+comment|/**      * Returns the configured property placeholder prefix token if and only if the CamelContext has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the prefix token or {@code null}      */
 DECL|method|getPropertyPrefixToken ()
 name|String
 name|getPropertyPrefixToken
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the configured property placeholder suffix token if and only if the context has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the suffix token or {@code null}      */
+comment|/**      * Returns the configured property placeholder suffix token if and only if the CamelContext has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the suffix token or {@code null}      */
 DECL|method|getPropertySuffixToken ()
 name|String
 name|getPropertySuffixToken
@@ -2362,13 +2362,13 @@ name|AsyncProcessorAwaitManager
 name|manager
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the the application context class loader which may be helpful for running camel in other containers      *      * @return the application context class loader      */
+comment|/**      * Gets the the application CamelContext class loader which may be helpful for running camel in other containers      *      * @return the application CamelContext class loader      */
 DECL|method|getApplicationContextClassLoader ()
 name|ClassLoader
 name|getApplicationContextClassLoader
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the application context class loader      *      * @param classLoader the class loader      */
+comment|/**      * Sets the application CamelContext class loader      *      * @param classLoader the class loader      */
 DECL|method|setApplicationContextClassLoader (ClassLoader classLoader)
 name|void
 name|setApplicationContextClassLoader
