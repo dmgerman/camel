@@ -303,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OsgiParserFactory  *   * commons-net DefaultFTPFileEntryParserFactory uses Class.forName, and fails  * to load custom ParserFactories in OSGI.   This class is an alternative ParserFactory  * that can be used when Camel is used in an OSGI environment.  */
+comment|/**  * OsgiParserFactory  *   * commons-net DefaultFTPFileEntryParserFactory uses Class.forName, and fails  * to load custom ParserFactories in OSGI. This class is an alternative ParserFactory  * that can be used when Camel is used in an OSGI environment.  */
 end_comment
 
 begin_class

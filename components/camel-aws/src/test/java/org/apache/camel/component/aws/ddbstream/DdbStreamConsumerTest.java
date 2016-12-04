@@ -1466,6 +1466,19 @@ argument_list|>
 argument_list|>
 name|answers
 decl_stmt|;
+DECL|field|SHARD_ITERATOR_PATTERN
+specifier|private
+specifier|final
+name|Pattern
+name|SHARD_ITERATOR_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"shard_iterator_d_0*(\\d+)"
+argument_list|)
+decl_stmt|;
 DECL|method|GetRecordsAnswer (Map<String, String> shardIterators, Map<String, Collection<Record>> answers)
 name|GetRecordsAnswer
 parameter_list|(
@@ -1551,12 +1564,7 @@ decl_stmt|;
 name|Matcher
 name|m
 init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"shard_iterator_d_0*(\\d+)"
-argument_list|)
+name|SHARD_ITERATOR_PATTERN
 operator|.
 name|matcher
 argument_list|(

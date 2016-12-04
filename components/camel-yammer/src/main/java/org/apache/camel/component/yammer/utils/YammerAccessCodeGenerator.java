@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Use this to get an access token from yammer. You will need the   * consumer key and secret key for your app registered with yammer to do this.  *  */
+comment|/**  * Use this to get an access token from yammer. You will need the   * consumer key and secret key for your app registered with yammer to do this.  */
 end_comment
 
 begin_class

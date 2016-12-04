@@ -236,6 +236,7 @@ name|RestApiConsumerFactory
 block|{
 DECL|field|pattern
 specifier|private
+specifier|static
 specifier|final
 name|Pattern
 name|pattern

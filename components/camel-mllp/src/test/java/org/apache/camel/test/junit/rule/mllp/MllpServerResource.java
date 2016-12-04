@@ -724,7 +724,7 @@ name|hl7Message
 parameter_list|)
 block|{
 return|return
-name|evaluatePatten
+name|evaluatePattern
 argument_list|(
 name|hl7Message
 argument_list|,
@@ -744,7 +744,7 @@ name|hl7Message
 parameter_list|)
 block|{
 return|return
-name|evaluatePatten
+name|evaluatePattern
 argument_list|(
 name|hl7Message
 argument_list|,
@@ -965,10 +965,10 @@ literal|false
 return|;
 block|}
 block|}
-DECL|method|evaluatePatten (String hl7Message, Pattern pattern)
+DECL|method|evaluatePattern (String hl7Message, Pattern pattern)
 specifier|private
 name|boolean
-name|evaluatePatten
+name|evaluatePattern
 parameter_list|(
 name|String
 name|hl7Message

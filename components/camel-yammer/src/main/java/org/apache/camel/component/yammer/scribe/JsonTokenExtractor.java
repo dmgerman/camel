@@ -100,6 +100,20 @@ name|JsonTokenExtractor
 implements|implements
 name|AccessTokenExtractor
 block|{
+DECL|field|DEFAULT_ACCESS_TOKEN_PATTERN
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|DEFAULT_ACCESS_TOKEN_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"\"access_token\":\\s*\"(\\S*?)\""
+argument_list|)
+decl_stmt|;
 DECL|field|accessTokenPattern
 specifier|private
 name|Pattern
@@ -112,12 +126,7 @@ parameter_list|()
 block|{
 name|accessTokenPattern
 operator|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"\"access_token\":\\s*\"(\\S*?)\""
-argument_list|)
+name|DEFAULT_ACCESS_TOKEN_PATTERN
 expr_stmt|;
 block|}
 DECL|method|JsonTokenExtractor (String tokenRegex)

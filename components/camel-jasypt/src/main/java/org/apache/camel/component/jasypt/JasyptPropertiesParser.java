@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.component.properties.PropertiesParser} which is using  *&nbsp;<a href="http://www.jasypt.org/">Jasypt</a> to decrypt encrypted values.  *<p/>  * The parts of the values which should be decrpted must be enclosed in the prefix and suffix token.  */
+comment|/**  * A {@link org.apache.camel.component.properties.PropertiesParser} which is using  *&nbsp;<a href="http://www.jasypt.org/">Jasypt</a> to decrypt encrypted values.  *<p/>  * The parts of the values which should be decrypted must be enclosed in the prefix and suffix token.  */
 end_comment
 
 begin_class
@@ -150,33 +150,12 @@ name|JASYPT_SUFFIX_TOKEN
 init|=
 literal|")"
 decl_stmt|;
-DECL|field|encryptor
+DECL|field|JASYPT_REGEX
 specifier|private
-name|StringEncryptor
-name|encryptor
-decl_stmt|;
-DECL|field|password
-specifier|private
+specifier|static
+specifier|final
 name|String
-name|password
-decl_stmt|;
-DECL|field|algorithm
-specifier|private
-name|String
-name|algorithm
-decl_stmt|;
-DECL|field|pattern
-specifier|private
-name|Pattern
-name|pattern
-decl_stmt|;
-DECL|method|JasyptPropertiesParser ()
-specifier|public
-name|JasyptPropertiesParser
-parameter_list|()
-block|{
-name|String
-name|regex
+name|JASYPT_REGEX
 init|=
 name|JASYPT_PREFIX_TOKEN
 operator|.
@@ -198,16 +177,40 @@ argument_list|,
 literal|"\\)"
 argument_list|)
 decl_stmt|;
+DECL|field|pattern
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
 name|pattern
-operator|=
+init|=
 name|Pattern
 operator|.
 name|compile
 argument_list|(
-name|regex
+name|JASYPT_REGEX
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
+DECL|field|encryptor
+specifier|private
+name|StringEncryptor
+name|encryptor
+decl_stmt|;
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
+DECL|field|algorithm
+specifier|private
+name|String
+name|algorithm
+decl_stmt|;
+DECL|method|JasyptPropertiesParser ()
+specifier|public
+name|JasyptPropertiesParser
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|parseProperty (String key, String value, Properties properties)
@@ -391,10 +394,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-name|format
-argument_list|(
 literal|"Initialized encryptor using default algorithm and provided password"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -933,6 +933,34 @@ name|PACKAGE_NAME_PATTERN
 init|=
 literal|"(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)+\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*"
 decl_stmt|;
+DECL|field|MATCH_EVERYTHING_PATTERN
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|MATCH_EVERYTHING_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|".*"
+argument_list|)
+decl_stmt|;
+DECL|field|MATCH_NOTHING_PATTERN
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|MATCH_NOTHING_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"^$"
+argument_list|)
+decl_stmt|;
 DECL|field|SOBJECT_POJO_VM
 specifier|private
 specifier|static
@@ -2463,12 +2491,7 @@ block|{
 comment|// include everything by default if no include names are set
 name|incPattern
 operator|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|".*"
-argument_list|)
+name|MATCH_EVERYTHING_PATTERN
 expr_stmt|;
 block|}
 else|else
@@ -2476,12 +2499,7 @@ block|{
 comment|// include nothing by default if include names are set
 name|incPattern
 operator|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"^$"
-argument_list|)
+name|MATCH_NOTHING_PATTERN
 expr_stmt|;
 block|}
 comment|// check whether a pattern is in effect
@@ -2522,12 +2540,7 @@ block|{
 comment|// exclude nothing by default
 name|excPattern
 operator|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"^$"
-argument_list|)
+name|MATCH_NOTHING_PATTERN
 expr_stmt|;
 block|}
 specifier|final
