@@ -133,12 +133,12 @@ specifier|final
 class|class
 name|DropboxConfigurationValidator
 block|{
-DECL|field|pattern
+DECL|field|PATTERN
 specifier|private
 specifier|static
 specifier|final
 name|Pattern
-name|pattern
+name|PATTERN
 init|=
 name|Pattern
 operator|.
@@ -648,7 +648,7 @@ block|{
 name|Matcher
 name|matcher
 init|=
-name|pattern
+name|PATTERN
 operator|.
 name|matcher
 argument_list|(

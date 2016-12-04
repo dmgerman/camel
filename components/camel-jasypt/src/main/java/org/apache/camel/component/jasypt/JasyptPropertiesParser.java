@@ -177,12 +177,12 @@ argument_list|,
 literal|"\\)"
 argument_list|)
 decl_stmt|;
-DECL|field|pattern
+DECL|field|PATTERN
 specifier|private
 specifier|static
 specifier|final
 name|Pattern
-name|pattern
+name|PATTERN
 init|=
 name|Pattern
 operator|.
@@ -255,7 +255,7 @@ expr_stmt|;
 name|Matcher
 name|matcher
 init|=
-name|pattern
+name|PATTERN
 operator|.
 name|matcher
 argument_list|(

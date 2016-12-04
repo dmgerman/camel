@@ -1466,11 +1466,11 @@ argument_list|>
 argument_list|>
 name|answers
 decl_stmt|;
-DECL|field|SHARD_ITERATOR_PATTERN
+DECL|field|shardIteratorPattern
 specifier|private
 specifier|final
 name|Pattern
-name|SHARD_ITERATOR_PATTERN
+name|shardIteratorPattern
 init|=
 name|Pattern
 operator|.
@@ -1564,7 +1564,7 @@ decl_stmt|;
 name|Matcher
 name|m
 init|=
-name|SHARD_ITERATOR_PATTERN
+name|shardIteratorPattern
 operator|.
 name|matcher
 argument_list|(

@@ -234,12 +234,12 @@ name|RestConsumerFactory
 implements|,
 name|RestApiConsumerFactory
 block|{
-DECL|field|pattern
+DECL|field|PATTERN
 specifier|private
 specifier|static
 specifier|final
 name|Pattern
-name|pattern
+name|PATTERN
 init|=
 name|Pattern
 operator|.
@@ -1368,7 +1368,7 @@ comment|// spark-rest uses :name syntax instead of {name} so we need to replace 
 name|Matcher
 name|matcher
 init|=
-name|pattern
+name|PATTERN
 operator|.
 name|matcher
 argument_list|(
