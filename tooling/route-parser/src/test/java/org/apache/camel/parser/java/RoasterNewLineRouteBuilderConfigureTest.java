@@ -48,9 +48,7 @@ name|camel
 operator|.
 name|parser
 operator|.
-name|helper
-operator|.
-name|CamelJavaParserHelper
+name|ParserResult
 import|;
 end_import
 
@@ -64,7 +62,9 @@ name|camel
 operator|.
 name|parser
 operator|.
-name|ParserResult
+name|helper
+operator|.
+name|CamelJavaParserHelper
 import|;
 end_import
 
