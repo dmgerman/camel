@@ -129,9 +129,15 @@ end_import
 begin_class
 DECL|class|XmlRouteParser
 specifier|public
+specifier|final
 class|class
 name|XmlRouteParser
 block|{
+DECL|method|XmlRouteParser ()
+specifier|private
+name|XmlRouteParser
+parameter_list|()
+block|{     }
 DECL|method|parseXmlRouteEndpoints (InputStream xml, String baseDir, String fullyQualifiedFileName, List<CamelEndpointDetails> endpoints)
 specifier|public
 specifier|static

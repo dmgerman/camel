@@ -70,24 +70,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
-operator|.
-name|forge
-operator|.
-name|roaster
-operator|.
-name|model
-operator|.
-name|util
-operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|w3c
 operator|.
 name|dom
@@ -144,12 +126,38 @@ name|NodeList
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|forge
+operator|.
+name|roaster
+operator|.
+name|model
+operator|.
+name|util
+operator|.
+name|Strings
+import|;
+end_import
+
 begin_class
 DECL|class|CamelXmlHelper
 specifier|public
+specifier|final
 class|class
 name|CamelXmlHelper
 block|{
+DECL|method|CamelXmlHelper ()
+specifier|private
+name|CamelXmlHelper
+parameter_list|()
+block|{
+comment|// utility class
+block|}
 DECL|method|getSafeAttribute (Node node, String key)
 specifier|public
 specifier|static

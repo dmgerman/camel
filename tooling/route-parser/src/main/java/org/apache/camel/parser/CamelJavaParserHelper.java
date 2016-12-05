@@ -835,9 +835,17 @@ end_comment
 begin_class
 DECL|class|CamelJavaParserHelper
 specifier|public
+specifier|final
 class|class
 name|CamelJavaParserHelper
 block|{
+DECL|method|CamelJavaParserHelper ()
+specifier|private
+name|CamelJavaParserHelper
+parameter_list|()
+block|{
+comment|// utility class
+block|}
 DECL|method|findConfigureMethod (JavaClassSource clazz)
 specifier|public
 specifier|static
@@ -4282,7 +4290,6 @@ block|{
 name|Long
 name|num1
 init|=
-operator|(
 name|val1
 operator|!=
 literal|null
@@ -4295,12 +4302,10 @@ name|val1
 argument_list|)
 else|:
 literal|0
-operator|)
 decl_stmt|;
 name|Long
 name|num2
 init|=
-operator|(
 name|val2
 operator|!=
 literal|null
@@ -4313,7 +4318,6 @@ name|val2
 argument_list|)
 else|:
 literal|0
-operator|)
 decl_stmt|;
 name|answer
 operator|=
@@ -4330,25 +4334,13 @@ else|else
 block|{
 name|answer
 operator|=
-operator|(
 name|val1
 operator|!=
 literal|null
 condition|?
 name|val1
 else|:
-literal|""
-operator|)
-operator|+
-operator|(
 name|val2
-operator|!=
-literal|null
-condition|?
-name|val2
-else|:
-literal|""
-operator|)
 expr_stmt|;
 block|}
 if|if
@@ -4407,7 +4399,6 @@ block|{
 name|Long
 name|num3
 init|=
-operator|(
 name|val3
 operator|!=
 literal|null
@@ -4420,7 +4411,6 @@ name|val3
 argument_list|)
 else|:
 literal|0
-operator|)
 decl_stmt|;
 name|Long
 name|num

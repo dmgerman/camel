@@ -249,6 +249,11 @@ name|COLUMN_NUMBER_END
 init|=
 literal|"colNumberEnd"
 decl_stmt|;
+DECL|method|XmlLineNumberParser ()
+specifier|private
+name|XmlLineNumberParser
+parameter_list|()
+block|{     }
 comment|/**      * Parses the XML.      *      * @param is the XML content as an input stream      * @return the DOM model      * @throws Exception is thrown if error parsing      */
 DECL|method|parseXml (final InputStream is)
 specifier|public
