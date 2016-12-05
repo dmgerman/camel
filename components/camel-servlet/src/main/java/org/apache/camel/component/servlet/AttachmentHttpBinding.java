@@ -324,6 +324,19 @@ operator|=
 name|part
 expr_stmt|;
 block|}
+DECL|method|getSubmittedFileName ()
+specifier|public
+name|String
+name|getSubmittedFileName
+parameter_list|()
+block|{
+return|return
+name|part
+operator|.
+name|getSubmittedFileName
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getOutputStream ()
