@@ -308,7 +308,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|26
+literal|27
 argument_list|,
 name|findLineNumber
 argument_list|(
@@ -345,7 +345,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|29
+literal|30
 argument_list|,
 name|findLineNumber
 argument_list|(

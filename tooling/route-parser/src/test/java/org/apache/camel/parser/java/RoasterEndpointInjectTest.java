@@ -312,7 +312,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"27"
+literal|"28"
 argument_list|,
 name|details
 operator|.
@@ -346,7 +346,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"31"
+literal|"32"
 argument_list|,
 name|details
 operator|.
@@ -380,7 +380,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"35"
+literal|"36"
 argument_list|,
 name|details
 operator|.
