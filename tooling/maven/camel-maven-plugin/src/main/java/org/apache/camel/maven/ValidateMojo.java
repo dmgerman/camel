@@ -472,6 +472,7 @@ specifier|private
 name|boolean
 name|downloadVersion
 decl_stmt|;
+comment|// CHECKSTYLE:OFF
 annotation|@
 name|Override
 DECL|method|execute ()
@@ -2729,6 +2730,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// CHECKSTYLE:ON
 DECL|method|findCamelVersion (MavenProject project)
 specifier|private
 specifier|static

@@ -37,6 +37,11 @@ specifier|final
 class|class
 name|EndpointHelper
 block|{
+DECL|method|EndpointHelper ()
+specifier|private
+name|EndpointHelper
+parameter_list|()
+block|{     }
 comment|/**      * Matches the name with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param name    the name      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
 DECL|method|matchPattern (String name, String pattern)
 specifier|public
