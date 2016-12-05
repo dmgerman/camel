@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default header filtering strategy.  Users can configure filter by   * setting filter set and/or setting a regular expression.  Subclass can   * add extended filter logic in   * {@link #extendedFilter(org.apache.camel.spi.HeaderFilterStrategy.Direction, String, Object, org.apache.camel.Exchange)}  *   * Filters are associated with directions (in or out).  "In" direction is   * referred to propagating headers "to" Camel message.  The "out" direction  * is opposite which is referred to propagating headers from Camel message  * to a native message like JMS and CXF message.  You can see example of  * DefaultHeaderFilterStrategy are being extended and invoked in camel-jms   * and camel-cxf components.  *  * @version   */
+comment|/**  * The default header filtering strategy. Users can configure filter by  * setting filter set and/or setting a regular expression. Subclass can  * add extended filter logic in   * {@link #extendedFilter(org.apache.camel.spi.HeaderFilterStrategy.Direction, String, Object, org.apache.camel.Exchange)}  *   * Filters are associated with directions (in or out). "In" direction is  * referred to propagating headers "to" Camel message. The "out" direction  * is opposite which is referred to propagating headers from Camel message  * to a native message like JMS and CXF message. You can see example of  * DefaultHeaderFilterStrategy are being extended and invoked in camel-jms   * and camel-cxf components.  *  * @version   */
 end_comment
 
 begin_class
@@ -207,7 +207,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the "out" direction filter set.  The "out" direction is referred to       * copying headers from a Camel message to an external message.      *       * @return a set that contains header names that should be excluded.      */
+comment|/**      * Gets the "out" direction filter set. The "out" direction is referred to      * copying headers from a Camel message to an external message.      *       * @return a set that contains header names that should be excluded.      */
 DECL|method|getOutFilter ()
 specifier|public
 name|Set
@@ -238,7 +238,7 @@ return|return
 name|outFilter
 return|;
 block|}
-comment|/**      * Sets the "out" direction filter set.  The "out" direction is referred to       * copying headers from a Camel message to an external message.      *      * @param value  the filter      */
+comment|/**      * Sets the "out" direction filter set. The "out" direction is referred to      * copying headers from a Camel message to an external message.      *      * @param value  the filter      */
 DECL|method|setOutFilter (Set<String> value)
 specifier|public
 name|void
@@ -256,7 +256,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the "out" direction filter regular expression {@link Pattern}.  The      * "out" direction is referred to copying headers from Camel message to      * an external message.  If the pattern matches a header, the header will       * be filtered out.       *       * @return regular expression filter pattern      */
+comment|/**      * Gets the "out" direction filter regular expression {@link Pattern}. The      * "out" direction is referred to copying headers from Camel message to      * an external message. If the pattern matches a header, the header will      * be filtered out.       *       * @return regular expression filter pattern      */
 DECL|method|getOutFilterPattern ()
 specifier|public
 name|String
@@ -276,7 +276,7 @@ name|pattern
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the "out" direction filter regular expression {@link Pattern}.  The      * "out" direction is referred to copying headers from Camel message to      * an external message.  If the pattern matches a header, the header will       * be filtered out.       *       * @param value regular expression filter pattern      */
+comment|/**      * Sets the "out" direction filter regular expression {@link Pattern}. The      * "out" direction is referred to copying headers from Camel message to      * an external message. If the pattern matches a header, the header will      * be filtered out.       *       * @param value regular expression filter pattern      */
 DECL|method|setOutFilterPattern (String value)
 specifier|public
 name|void
@@ -311,7 +311,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the "in" direction filter set.  The "in" direction is referred to       * copying headers from an external message to a Camel message.      *       * @return a set that contains header names that should be excluded.      */
+comment|/**      * Gets the "in" direction filter set. The "in" direction is referred to      * copying headers from an external message to a Camel message.      *       * @return a set that contains header names that should be excluded.      */
 DECL|method|getInFilter ()
 specifier|public
 name|Set
@@ -342,7 +342,7 @@ return|return
 name|inFilter
 return|;
 block|}
-comment|/**      * Sets the "in" direction filter set.  The "in" direction is referred to       * copying headers from an external message to a Camel message.      *      * @param value the filter      */
+comment|/**      * Sets the "in" direction filter set. The "in" direction is referred to      * copying headers from an external message to a Camel message.      *      * @param value the filter      */
 DECL|method|setInFilter (Set<String> value)
 specifier|public
 name|void
@@ -360,7 +360,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the "in" direction filter regular expression {@link Pattern}.  The      * "in" direction is referred to copying headers from an external message      * to a Camel message.  If the pattern matches a header, the header will       * be filtered out.       *       * @return regular expression filter pattern      */
+comment|/**      * Gets the "in" direction filter regular expression {@link Pattern}. The      * "in" direction is referred to copying headers from an external message      * to a Camel message. If the pattern matches a header, the header will      * be filtered out.       *       * @return regular expression filter pattern      */
 DECL|method|getInFilterPattern ()
 specifier|public
 name|String
@@ -380,7 +380,7 @@ name|pattern
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the "in" direction filter regular expression {@link Pattern}.  The      * "in" direction is referred to copying headers from an external message      * to a Camel message.  If the pattern matches a header, the header will       * be filtered out.       *       * @param value regular expression filter pattern      */
+comment|/**      * Sets the "in" direction filter regular expression {@link Pattern}. The      * "in" direction is referred to copying headers from an external message      * to a Camel message. If the pattern matches a header, the header will      * be filtered out.       *       * @param value regular expression filter pattern      */
 DECL|method|setInFilterPattern (String value)
 specifier|public
 name|void
@@ -415,7 +415,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the isLowercase property which is a boolean to determine      * whether header names should be converted to lower case before      * checking it with the filter Set.  It does not affect filtering using      * regular expression pattern.      */
+comment|/**      * Gets the isLowercase property which is a boolean to determine      * whether header names should be converted to lower case before      * checking it with the filter Set. It does not affect filtering using      * regular expression pattern.      */
 DECL|method|isLowerCase ()
 specifier|public
 name|boolean
@@ -426,7 +426,7 @@ return|return
 name|lowerCase
 return|;
 block|}
-comment|/**      * Sets the isLowercase property which is a boolean to determine      * whether header names should be converted to lower case before      * checking it with the filter Set.  It does not affect filtering using      * regular expression pattern.      */
+comment|/**      * Sets the isLowercase property which is a boolean to determine      * whether header names should be converted to lower case before      * checking it with the filter Set. It does not affect filtering using      * regular expression pattern.      */
 DECL|method|setLowerCase (boolean value)
 specifier|public
 name|void
@@ -642,33 +642,14 @@ name|isCaseInsensitive
 argument_list|()
 condition|)
 block|{
-name|Iterator
-argument_list|<
-name|String
-argument_list|>
-name|it
-init|=
-name|filter
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
+for|for
+control|(
 name|String
 name|filterString
-init|=
-name|it
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
+range|:
+name|filter
+control|)
+block|{
 if|if
 condition|(
 name|filterString
@@ -732,8 +713,7 @@ return|;
 block|}
 block|}
 block|}
-if|if
-condition|(
+return|return
 name|extendedFilter
 argument_list|(
 name|direction
@@ -744,14 +724,6 @@ name|headerValue
 argument_list|,
 name|exchange
 argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 block|}
