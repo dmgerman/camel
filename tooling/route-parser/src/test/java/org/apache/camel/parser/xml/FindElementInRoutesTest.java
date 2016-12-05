@@ -60,6 +60,8 @@ name|camel
 operator|.
 name|parser
 operator|.
+name|helper
+operator|.
 name|CamelXmlHelper
 import|;
 end_import

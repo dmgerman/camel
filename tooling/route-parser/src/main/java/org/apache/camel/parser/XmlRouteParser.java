@@ -40,6 +40,54 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|parser
+operator|.
+name|helper
+operator|.
+name|CamelJavaParserHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|parser
+operator|.
+name|helper
+operator|.
+name|CamelXmlHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|parser
+operator|.
+name|helper
+operator|.
+name|XmlLineNumberParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -88,7 +136,7 @@ name|parser
 operator|.
 name|model
 operator|.
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 import|;
 end_import
 
@@ -120,11 +168,17 @@ name|camel
 operator|.
 name|parser
 operator|.
+name|helper
+operator|.
 name|CamelXmlHelper
 operator|.
 name|getSafeAttribute
 import|;
 end_import
+
+begin_comment
+comment|/**  * A Camel XML parser that parses Camel XML routes source code.  *<p/>  * This implementation is higher level details, and uses the lower level parser {@link CamelJavaParserHelper}.  */
+end_comment
 
 begin_class
 DECL|class|XmlRouteParser
@@ -138,6 +192,7 @@ specifier|private
 name|XmlRouteParser
 parameter_list|()
 block|{     }
+comment|/**      * Parses the XML source to discover Camel endpoints.      *      * @param xml                     the xml file as input stream      * @param baseDir                 the base of the source code      * @param fullyQualifiedFileName  the fully qualified source code file name      * @param endpoints               list to add discovered and parsed endpoints      */
 DECL|method|parseXmlRouteEndpoints (InputStream xml, String baseDir, String fullyQualifiedFileName, List<CamelEndpointDetails> endpoints)
 specifier|public
 specifier|static
@@ -472,7 +527,8 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|parseXmlRouteSimpleExpressions (InputStream xml, String baseDir, String fullyQualifiedFileName, List<CamelSimpleDetails> simpleExpressions)
+comment|/**      * Parses the XML source to discover Camel endpoints.      *      * @param xml                     the xml file as input stream      * @param baseDir                 the base of the source code      * @param fullyQualifiedFileName  the fully qualified source code file name      * @param simpleExpressions       list to add discovered and parsed simple expressions      */
+DECL|method|parseXmlRouteSimpleExpressions (InputStream xml, String baseDir, String fullyQualifiedFileName, List<CamelSimpleExpressionDetails> simpleExpressions)
 specifier|public
 specifier|static
 name|void
@@ -489,7 +545,7 @@ name|fullyQualifiedFileName
 parameter_list|,
 name|List
 argument_list|<
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 argument_list|>
 name|simpleExpressions
 parameter_list|)
@@ -620,11 +676,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 name|detail
 init|=
 operator|new
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 argument_list|()
 decl_stmt|;
 name|detail

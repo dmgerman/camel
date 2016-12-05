@@ -18,11 +18,15 @@ name|model
 package|;
 end_package
 
+begin_comment
+comment|/**  * Details about a parsed and discovered Camel simple expression.  */
+end_comment
+
 begin_class
-DECL|class|CamelSimpleDetails
+DECL|class|CamelSimpleExpressionDetails
 specifier|public
 class|class
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 block|{
 DECL|field|fileName
 specifier|private

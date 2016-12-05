@@ -16,6 +16,10 @@ name|parser
 package|;
 end_package
 
+begin_comment
+comment|/**  * Result of parsing Camel RouteBuilder or XML routes from the source code.  */
+end_comment
+
 begin_class
 DECL|class|ParserResult
 specifier|public
@@ -111,6 +115,7 @@ operator|=
 name|parsed
 expr_stmt|;
 block|}
+comment|/**      * Character based position in the source code (not line based).      */
 DECL|method|getPosition ()
 specifier|public
 name|int
@@ -121,22 +126,7 @@ return|return
 name|position
 return|;
 block|}
-DECL|method|setPosition (int position)
-specifier|public
-name|void
-name|setPosition
-parameter_list|(
-name|int
-name|position
-parameter_list|)
-block|{
-name|this
-operator|.
-name|position
-operator|=
-name|position
-expr_stmt|;
-block|}
+comment|/**      * The element such as a Camel endpoint uri      */
 DECL|method|getElement ()
 specifier|public
 name|String
@@ -147,22 +137,7 @@ return|return
 name|element
 return|;
 block|}
-DECL|method|setElement (String element)
-specifier|public
-name|void
-name|setElement
-parameter_list|(
-name|String
-name|element
-parameter_list|)
-block|{
-name|this
-operator|.
-name|element
-operator|=
-name|element
-expr_stmt|;
-block|}
+comment|/**      * Whether the element was successfully parsed. If the parser cannot parse      * the element for whatever reason this will return<tt>false</tt>.      */
 DECL|method|isParsed ()
 specifier|public
 name|boolean
@@ -173,22 +148,7 @@ return|return
 name|parsed
 return|;
 block|}
-DECL|method|setParsed (boolean parsed)
-specifier|public
-name|void
-name|setParsed
-parameter_list|(
-name|boolean
-name|parsed
-parameter_list|)
-block|{
-name|this
-operator|.
-name|parsed
-operator|=
-name|parsed
-expr_stmt|;
-block|}
+comment|/**      * The node which is typically a Camel EIP name such as<tt>to</tt>,<tt>wireTap</tt> etc.      */
 DECL|method|getNode ()
 specifier|public
 name|String

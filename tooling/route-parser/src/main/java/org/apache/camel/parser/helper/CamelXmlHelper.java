@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.parser
+DECL|package|org.apache.camel.parser.helper
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|parser
+operator|.
+name|helper
 package|;
 end_package
 
@@ -143,6 +145,10 @@ operator|.
 name|Strings
 import|;
 end_import
+
+begin_comment
+comment|/**  * Various XML helper methods used for parsing XML routes.  */
+end_comment
 
 begin_class
 DECL|class|CamelXmlHelper
@@ -1102,7 +1108,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO:
+comment|// must enforce the namespace to be http://camel.apache.org/schema/spring which is what the camel-core JAXB model uses
 name|Document
 name|root
 init|=

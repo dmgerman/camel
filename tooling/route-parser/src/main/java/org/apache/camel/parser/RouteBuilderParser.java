@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -76,6 +76,22 @@ name|camel
 operator|.
 name|parser
 operator|.
+name|helper
+operator|.
+name|CamelJavaParserHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|parser
+operator|.
 name|model
 operator|.
 name|CamelEndpointDetails
@@ -94,7 +110,7 @@ name|parser
 operator|.
 name|model
 operator|.
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 import|;
 end_import
 
@@ -332,6 +348,7 @@ specifier|private
 name|RouteBuilderParser
 parameter_list|()
 block|{     }
+comment|/**      * Parses the java source class to discover Camel endpoints.      *      * @param clazz                   the java source class      * @param baseDir                 the base of the source code      * @param fullyQualifiedFileName  the fully qualified source code file name      * @param endpoints               list to add discovered and parsed endpoints      */
 DECL|method|parseRouteBuilderEndpoints (JavaClassSource clazz, String baseDir, String fullyQualifiedFileName, List<CamelEndpointDetails> endpoints)
 specifier|public
 specifier|static
@@ -370,6 +387,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Parses the java source class to discover Camel endpoints.      *      * @param clazz                        the java source class      * @param baseDir                      the base of the source code      * @param fullyQualifiedFileName       the fully qualified source code file name      * @param endpoints                    list to add discovered and parsed endpoints      * @param unparsable                   list of unparsable nodes      * @param includeInlinedRouteBuilders  whether to include inlined route builders in the parsing      */
 DECL|method|parseRouteBuilderEndpoints (JavaClassSource clazz, String baseDir, String fullyQualifiedFileName, List<CamelEndpointDetails> endpoints, List<String> unparsable, boolean includeInlinedRouteBuilders)
 specifier|public
 specifier|static
@@ -1348,53 +1366,8 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|findEndpointByUri (List<CamelEndpointDetails> endpoints, String uri)
-specifier|private
-specifier|static
-name|CamelEndpointDetails
-name|findEndpointByUri
-parameter_list|(
-name|List
-argument_list|<
-name|CamelEndpointDetails
-argument_list|>
-name|endpoints
-parameter_list|,
-name|String
-name|uri
-parameter_list|)
-block|{
-for|for
-control|(
-name|CamelEndpointDetails
-name|detail
-range|:
-name|endpoints
-control|)
-block|{
-if|if
-condition|(
-name|uri
-operator|.
-name|equals
-argument_list|(
-name|detail
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|)
-condition|)
-block|{
-return|return
-name|detail
-return|;
-block|}
-block|}
-return|return
-literal|null
-return|;
-block|}
-DECL|method|parseRouteBuilderSimpleExpressions (JavaClassSource clazz, String baseDir, String fullyQualifiedFileName, List<CamelSimpleDetails> simpleExpressions)
+comment|/**      * Parses the java source class to discover Camel simple expressions.      *      * @param clazz                   the java source class      * @param baseDir                 the base of the source code      * @param fullyQualifiedFileName  the fully qualified source code file name      * @param simpleExpressions       list to add discovered and parsed simple expressions      */
+DECL|method|parseRouteBuilderSimpleExpressions (JavaClassSource clazz, String baseDir, String fullyQualifiedFileName, List<CamelSimpleExpressionDetails> simpleExpressions)
 specifier|public
 specifier|static
 name|void
@@ -1411,7 +1384,7 @@ name|fullyQualifiedFileName
 parameter_list|,
 name|List
 argument_list|<
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 argument_list|>
 name|simpleExpressions
 parameter_list|)
@@ -1495,11 +1468,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 name|details
 init|=
 operator|new
-name|CamelSimpleDetails
+name|CamelSimpleExpressionDetails
 argument_list|()
 decl_stmt|;
 name|details
@@ -1577,6 +1550,52 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+DECL|method|findEndpointByUri (List<CamelEndpointDetails> endpoints, String uri)
+specifier|private
+specifier|static
+name|CamelEndpointDetails
+name|findEndpointByUri
+parameter_list|(
+name|List
+argument_list|<
+name|CamelEndpointDetails
+argument_list|>
+name|endpoints
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+block|{
+for|for
+control|(
+name|CamelEndpointDetails
+name|detail
+range|:
+name|endpoints
+control|)
+block|{
+if|if
+condition|(
+name|uri
+operator|.
+name|equals
+argument_list|(
+name|detail
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+name|detail
+return|;
+block|}
+block|}
+return|return
+literal|null
+return|;
 block|}
 DECL|method|findLineNumber (String fullyQualifiedFileName, int position)
 specifier|private

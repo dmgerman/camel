@@ -18,6 +18,10 @@ name|model
 package|;
 end_package
 
+begin_comment
+comment|/**  * Details about a parsed and discovered Camel endpoint.  */
+end_comment
+
 begin_class
 DECL|class|CamelEndpointDetails
 specifier|public

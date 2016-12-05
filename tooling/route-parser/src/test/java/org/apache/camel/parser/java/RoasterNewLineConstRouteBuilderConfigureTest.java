@@ -48,6 +48,8 @@ name|camel
 operator|.
 name|parser
 operator|.
+name|helper
+operator|.
 name|CamelJavaParserHelper
 import|;
 end_import
