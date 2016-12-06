@@ -188,7 +188,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"Chronicle"
+literal|"datagrid,cache"
 argument_list|)
 DECL|class|ChronicleEngineEndpoint
 specifier|public
