@@ -273,9 +273,16 @@ argument_list|)
 expr_stmt|;
 name|swagger
 operator|.
-name|setDescription
+name|setTitle
 argument_list|(
 literal|"Camel Catalog REST Api"
+argument_list|)
+expr_stmt|;
+name|swagger
+operator|.
+name|setDescription
+argument_list|(
+literal|"REST Api for the Camel Catalog"
 argument_list|)
 expr_stmt|;
 name|swagger
