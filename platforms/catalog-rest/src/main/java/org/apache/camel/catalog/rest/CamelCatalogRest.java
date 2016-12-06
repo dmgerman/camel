@@ -222,6 +222,11 @@ argument_list|(
 literal|"/catalogVersion"
 argument_list|)
 annotation|@
+name|Produces
+argument_list|(
+literal|"text/plain"
+argument_list|)
+annotation|@
 name|ApiOperation
 argument_list|(
 name|value
