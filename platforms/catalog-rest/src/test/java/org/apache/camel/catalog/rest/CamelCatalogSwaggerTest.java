@@ -264,6 +264,37 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|swagger
+operator|.
+name|setSupportSwaggerUi
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|swagger
+operator|.
+name|setDescription
+argument_list|(
+literal|"Camel Catalog REST Api"
+argument_list|)
+expr_stmt|;
+name|swagger
+operator|.
+name|setVersion
+argument_list|(
+name|catalog
+operator|.
+name|getCatalogVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|swagger
+operator|.
+name|setContact
+argument_list|(
+literal|"Apache Camel"
+argument_list|)
+expr_stmt|;
 name|sf
 operator|.
 name|getFeatures
@@ -372,6 +403,7 @@ literal|"The version of this Camel Catalog"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// System.out.println("Swagger UI: http://localhost:9000/api-docs?url=/swagger.json");
 block|}
 block|}
 end_class

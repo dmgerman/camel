@@ -112,6 +112,18 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|swagger
+operator|.
+name|annotations
+operator|.
+name|ApiParam
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -202,7 +214,6 @@ operator|=
 name|catalog
 expr_stmt|;
 block|}
-comment|/**      * The version of this Camel Catalog      */
 annotation|@
 name|GET
 annotation|@
@@ -230,7 +241,6 @@ name|getCatalogVersion
 argument_list|()
 return|;
 block|}
-comment|/**      * Find all the component names from the Camel catalog      */
 annotation|@
 name|GET
 annotation|@
@@ -242,6 +252,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the component names from the Camel catalog"
 argument_list|)
 DECL|method|findComponentNames ()
 specifier|public
@@ -259,7 +276,6 @@ name|findComponentNames
 argument_list|()
 return|;
 block|}
-comment|/**      * Find all the data format names from the Camel catalog      */
 annotation|@
 name|GET
 annotation|@
@@ -271,6 +287,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the data format names from the Camel catalog"
 argument_list|)
 DECL|method|findDataFormatNames ()
 specifier|public
@@ -288,7 +311,6 @@ name|findDataFormatNames
 argument_list|()
 return|;
 block|}
-comment|/**      * Find all the language names from the Camel catalog      */
 annotation|@
 name|GET
 annotation|@
@@ -300,6 +322,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the language names from the Camel catalog"
 argument_list|)
 DECL|method|findLanguageNames ()
 specifier|public
@@ -317,7 +346,6 @@ name|findLanguageNames
 argument_list|()
 return|;
 block|}
-comment|/**      * Find all the model names from the Camel catalog      */
 annotation|@
 name|GET
 annotation|@
@@ -329,6 +357,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the model (EIP) names from the Camel catalog"
 argument_list|)
 DECL|method|findModelNames ()
 specifier|public
@@ -346,7 +381,6 @@ name|findModelNames
 argument_list|()
 return|;
 block|}
-comment|/**      * Find all the component names from the Camel catalog that matches the label      */
 annotation|@
 name|GET
 annotation|@
@@ -359,7 +393,14 @@ name|Produces
 argument_list|(
 literal|"application/json"
 argument_list|)
-DECL|method|findComponentNames (@athParamR) String filter)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the component names from the Camel catalog that matches the label"
+argument_list|)
+DECL|method|findComponentNames (@piParamR) @athParamR) String filter)
 specifier|public
 name|List
 argument_list|<
@@ -367,6 +408,11 @@ name|String
 argument_list|>
 name|findComponentNames
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"Filter used to only return component names that matches by their labels"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -385,7 +431,6 @@ name|filter
 argument_list|)
 return|;
 block|}
-comment|/**      * Find all the data format names from the Camel catalog that matches the label      */
 annotation|@
 name|GET
 annotation|@
@@ -398,7 +443,14 @@ name|Produces
 argument_list|(
 literal|"application/json"
 argument_list|)
-DECL|method|findDataFormatNames (@athParamR) String filter)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the data format names from the Camel catalog that matches the label"
+argument_list|)
+DECL|method|findDataFormatNames (@piParamR) @athParamR) String filter)
 specifier|public
 name|List
 argument_list|<
@@ -406,6 +458,11 @@ name|String
 argument_list|>
 name|findDataFormatNames
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"Filter used to only return data format names that matches by their labels"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -424,7 +481,6 @@ name|filter
 argument_list|)
 return|;
 block|}
-comment|/**      * Find all the language names from the Camel catalog that matches the label      */
 annotation|@
 name|GET
 annotation|@
@@ -437,7 +493,14 @@ name|Produces
 argument_list|(
 literal|"application/json"
 argument_list|)
-DECL|method|findLanguageNames (@athParamR) String filter)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the language names from the Camel catalog that matches the label"
+argument_list|)
+DECL|method|findLanguageNames (@piParamR) @athParamR) String filter)
 specifier|public
 name|List
 argument_list|<
@@ -445,6 +508,11 @@ name|String
 argument_list|>
 name|findLanguageNames
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"Filter used to only return language names that matches by their labels"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -463,7 +531,6 @@ name|filter
 argument_list|)
 return|;
 block|}
-comment|/**      * Find all the model names from the Camel catalog that matches the label      */
 annotation|@
 name|GET
 annotation|@
@@ -476,7 +543,14 @@ name|Produces
 argument_list|(
 literal|"application/json"
 argument_list|)
-DECL|method|findModelNames (@athParamR) String filter)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the model (EIP) names from the Camel catalog that matches the label"
+argument_list|)
+DECL|method|findModelNames (@piParamR) @athParamR) String filter)
 specifier|public
 name|List
 argument_list|<
@@ -484,6 +558,11 @@ name|String
 argument_list|>
 name|findModelNames
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"Filter used to only return model (EIP) names that matches by their labels"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -502,7 +581,6 @@ name|filter
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the component information as JSon format.      */
 annotation|@
 name|GET
 annotation|@
@@ -515,11 +593,23 @@ name|Produces
 argument_list|(
 literal|"application/json"
 argument_list|)
-DECL|method|componentJSonSchema (@athParamR) String name)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the component information as JSon format"
+argument_list|)
+DECL|method|componentJSonSchema (@piParamR) @athParamR) String name)
 specifier|public
 name|String
 name|componentJSonSchema
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"The name of the component"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -538,7 +628,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the data format information as JSon format.      */
 annotation|@
 name|GET
 annotation|@
@@ -551,11 +640,23 @@ name|Produces
 argument_list|(
 literal|"application/json"
 argument_list|)
-DECL|method|dataFormatJSonSchema (@athParamR) String name)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the data format information as JSon format"
+argument_list|)
+DECL|method|dataFormatJSonSchema (@piParamR) @athParamR) String name)
 specifier|public
 name|String
 name|dataFormatJSonSchema
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"The name of the data format"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -574,7 +675,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the language information as JSon format.      */
 annotation|@
 name|GET
 annotation|@
@@ -587,11 +687,23 @@ name|Produces
 argument_list|(
 literal|"application/json"
 argument_list|)
-DECL|method|languageJSonSchema (@athParamR) String name)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the language information as JSon format"
+argument_list|)
+DECL|method|languageJSonSchema (@piParamR) @athParamR) String name)
 specifier|public
 name|String
 name|languageJSonSchema
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"The name of the language"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -610,7 +722,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the model information as JSon format.      */
 annotation|@
 name|GET
 annotation|@
@@ -623,11 +734,23 @@ name|Produces
 argument_list|(
 literal|"application/json"
 argument_list|)
-DECL|method|modelJSonSchema (@athParamR) String name)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the model (EIP) information as JSon format"
+argument_list|)
+DECL|method|modelJSonSchema (@piParamR) @athParamR) String name)
 specifier|public
 name|String
 name|modelJSonSchema
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"The name of the model (EIP)"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -646,7 +769,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the component documentation as Ascii doc format.      */
 annotation|@
 name|GET
 annotation|@
@@ -659,11 +781,23 @@ name|Produces
 argument_list|(
 literal|"text/plain"
 argument_list|)
-DECL|method|componentAsciiDoc (@athParamR) String name)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the component documentation as Ascii doc format"
+argument_list|)
+DECL|method|componentAsciiDoc (@piParamR) @athParamR) String name)
 specifier|public
 name|String
 name|componentAsciiDoc
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"The name of the component"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -682,7 +816,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the data format documentation as Ascii doc format.      */
 annotation|@
 name|GET
 annotation|@
@@ -695,11 +828,23 @@ name|Produces
 argument_list|(
 literal|"text/plain"
 argument_list|)
-DECL|method|dataFormatAsciiDoc (@athParamR) String name)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the data format documentation as Ascii doc format"
+argument_list|)
+DECL|method|dataFormatAsciiDoc (@piParamR) @athParamR) String name)
 specifier|public
 name|String
 name|dataFormatAsciiDoc
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"The name of the data format"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -718,7 +863,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the language documentation as Ascii doc format.      */
 annotation|@
 name|GET
 annotation|@
@@ -731,11 +875,23 @@ name|Produces
 argument_list|(
 literal|"text/plain"
 argument_list|)
-DECL|method|languageAsciiDoc (@athParamR) String name)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the language documentation as Ascii doc format"
+argument_list|)
+DECL|method|languageAsciiDoc (@piParamR) @athParamR) String name)
 specifier|public
 name|String
 name|languageAsciiDoc
 parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"The name of the language"
+argument_list|)
 annotation|@
 name|PathParam
 argument_list|(
@@ -754,7 +910,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Find all the unique label names all the components are using.      */
 annotation|@
 name|GET
 annotation|@
@@ -766,6 +921,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the unique label names all the components are using"
 argument_list|)
 DECL|method|findComponentLabels ()
 specifier|public
@@ -783,7 +945,6 @@ name|findComponentLabels
 argument_list|()
 return|;
 block|}
-comment|/**      * Find all the unique label names all the data formats are using.      */
 annotation|@
 name|GET
 annotation|@
@@ -795,6 +956,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the unique label names all the data formats are using"
 argument_list|)
 DECL|method|findDataFormatLabels ()
 specifier|public
@@ -812,7 +980,6 @@ name|findDataFormatLabels
 argument_list|()
 return|;
 block|}
-comment|/**      * Find all the unique label names all the data formats are using.      */
 annotation|@
 name|GET
 annotation|@
@@ -824,6 +991,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the unique label names all the languages are using"
 argument_list|)
 DECL|method|findLanguageLabels ()
 specifier|public
@@ -841,7 +1015,6 @@ name|findLanguageLabels
 argument_list|()
 return|;
 block|}
-comment|/**      * Find all the unique label names all the models are using.      */
 annotation|@
 name|GET
 annotation|@
@@ -853,6 +1026,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Find all the unique label names all the models (EIP) are using."
 argument_list|)
 DECL|method|findModelLabels ()
 specifier|public
@@ -870,7 +1050,6 @@ name|findModelLabels
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the Apache Camel Maven Archetype catalog in XML format.      */
 annotation|@
 name|GET
 annotation|@
@@ -882,6 +1061,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/xml"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the Apache Camel Maven Archetype catalog in XML format"
 argument_list|)
 DECL|method|archetypeCatalogAsXml ()
 specifier|public
@@ -909,6 +1095,13 @@ name|Produces
 argument_list|(
 literal|"application/xml"
 argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the Camel Spring XML schema"
+argument_list|)
 DECL|method|springSchemaAsXml ()
 specifier|public
 name|String
@@ -935,6 +1128,13 @@ name|Produces
 argument_list|(
 literal|"application/xml"
 argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Returns the Camel Blueprint XML schema"
+argument_list|)
 DECL|method|blueprintSchemaAsXml ()
 specifier|public
 name|String
@@ -948,7 +1148,6 @@ name|blueprintSchemaAsXml
 argument_list|()
 return|;
 block|}
-comment|/**      * Lists all the components summary details in JSon      */
 annotation|@
 name|GET
 annotation|@
@@ -960,6 +1159,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Lists all the components summary details in JSon"
 argument_list|)
 DECL|method|listComponentsAsJson ()
 specifier|public
@@ -974,7 +1180,6 @@ name|listComponentsAsJson
 argument_list|()
 return|;
 block|}
-comment|/**      * Lists all the data formats summary details in JSon      */
 annotation|@
 name|GET
 annotation|@
@@ -986,6 +1191,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Lists all the data formats summary details in JSon"
 argument_list|)
 DECL|method|listDataFormatsAsJson ()
 specifier|public
@@ -1000,7 +1212,6 @@ name|listDataFormatsAsJson
 argument_list|()
 return|;
 block|}
-comment|/**      * Lists all the languages summary details in JSon      */
 annotation|@
 name|GET
 annotation|@
@@ -1012,6 +1223,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Lists all the languages summary details in JSon"
 argument_list|)
 DECL|method|listLanguagesAsJson ()
 specifier|public
@@ -1026,7 +1244,6 @@ name|listLanguagesAsJson
 argument_list|()
 return|;
 block|}
-comment|/**      * Lists all the models (EIPs) summary details in JSon      */
 annotation|@
 name|GET
 annotation|@
@@ -1038,6 +1255,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Lists all the models (EIP) summary details in JSon"
 argument_list|)
 DECL|method|listModelsAsJson ()
 specifier|public
@@ -1052,7 +1276,6 @@ name|listModelsAsJson
 argument_list|()
 return|;
 block|}
-comment|/**      * Reports a summary what the catalog contains in JSon      */
 annotation|@
 name|GET
 annotation|@
@@ -1064,6 +1287,13 @@ annotation|@
 name|Produces
 argument_list|(
 literal|"application/json"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Reports a summary what the catalog contains in JSon"
 argument_list|)
 DECL|method|summaryAsJson ()
 specifier|public
