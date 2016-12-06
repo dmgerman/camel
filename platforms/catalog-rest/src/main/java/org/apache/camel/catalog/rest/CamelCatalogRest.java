@@ -1087,7 +1087,6 @@ name|archetypeCatalogAsXml
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the Camel Spring XML schema      */
 annotation|@
 name|GET
 annotation|@
@@ -1120,7 +1119,6 @@ name|springSchemaAsXml
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the Camel Blueprint XML schema      */
 annotation|@
 name|GET
 annotation|@
