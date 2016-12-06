@@ -52,6 +52,15 @@ name|MLLP_ACKNOWLEDGEMENT
 init|=
 literal|"CamelMllpAcknowledgement"
 decl_stmt|;
+DECL|field|MLLP_ACKNOWLEDGEMENT_STRING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MLLP_ACKNOWLEDGEMENT_STRING
+init|=
+literal|"CamelMllpAcknowledgementString"
+decl_stmt|;
 DECL|field|MLLP_ACKNOWLEDGEMENT_TYPE
 specifier|public
 specifier|static

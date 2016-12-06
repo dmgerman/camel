@@ -19,16 +19,16 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Raised when a MLLP Producer or Consumer encounter a timeout reading a message or an acknowledgment  */
+comment|/**  * Raised when a MLLP Producer does not receive a HL7 acknowledgement within the configured timespan  */
 end_comment
 
 begin_class
-DECL|class|MllpTimeoutException
+DECL|class|MllpAcknowledgementTimeoutException
 specifier|public
 class|class
-name|MllpTimeoutException
+name|MllpAcknowledgementTimeoutException
 extends|extends
-name|MllpException
+name|MllpAcknowledgementException
 block|{
 DECL|field|EXCEPTION_MESSAGE
 specifier|static
@@ -36,52 +36,55 @@ specifier|final
 name|String
 name|EXCEPTION_MESSAGE
 init|=
-literal|"Timeout receiving HL7 Message"
+literal|"Timeout receiving HL7 Acknowledgement"
 decl_stmt|;
-DECL|method|MllpTimeoutException (byte[] partialHl7Message)
+DECL|method|MllpAcknowledgementTimeoutException (byte[] hl7Message)
 specifier|public
-name|MllpTimeoutException
+name|MllpAcknowledgementTimeoutException
 parameter_list|(
 name|byte
 index|[]
-name|partialHl7Message
+name|hl7Message
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|EXCEPTION_MESSAGE
 argument_list|,
-name|partialHl7Message
+name|hl7Message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MllpTimeoutException (String message, byte[] partialHl7Message)
+DECL|method|MllpAcknowledgementTimeoutException (byte[] hl7Message, byte[] partialHl7Acknowledgement)
 specifier|public
-name|MllpTimeoutException
+name|MllpAcknowledgementTimeoutException
 parameter_list|(
-name|String
-name|message
+name|byte
+index|[]
+name|hl7Message
 parameter_list|,
 name|byte
 index|[]
-name|partialHl7Message
+name|partialHl7Acknowledgement
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|message
+name|EXCEPTION_MESSAGE
 argument_list|,
-name|partialHl7Message
+name|hl7Message
+argument_list|,
+name|partialHl7Acknowledgement
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MllpTimeoutException (byte[] partialHl7Message, Throwable cause)
+DECL|method|MllpAcknowledgementTimeoutException (byte[] hl7Message, Throwable cause)
 specifier|public
-name|MllpTimeoutException
+name|MllpAcknowledgementTimeoutException
 parameter_list|(
 name|byte
 index|[]
-name|partialHl7Message
+name|hl7Message
 parameter_list|,
 name|Throwable
 name|cause
@@ -91,70 +94,16 @@ name|super
 argument_list|(
 name|EXCEPTION_MESSAGE
 argument_list|,
-name|partialHl7Message
+name|hl7Message
 argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MllpTimeoutException (String message, byte[] partialHl7Message, Throwable cause)
+DECL|method|MllpAcknowledgementTimeoutException (byte[] hl7Message, byte[] partialHl7Acknowledgement, Throwable cause)
 specifier|public
-name|MllpTimeoutException
+name|MllpAcknowledgementTimeoutException
 parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|byte
-index|[]
-name|partialHl7Message
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|,
-name|partialHl7Message
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|MllpTimeoutException (String message, byte[] hl7Message, byte[] partialHl7Acknowledgement)
-specifier|protected
-name|MllpTimeoutException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|byte
-index|[]
-name|hl7Message
-parameter_list|,
-name|byte
-index|[]
-name|partialHl7Acknowledgement
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|,
-name|hl7Message
-argument_list|,
-name|partialHl7Acknowledgement
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|MllpTimeoutException (String message, byte[] hl7Message, byte[] partialHl7Acknowledgement, Throwable cause)
-specifier|protected
-name|MllpTimeoutException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
 name|byte
 index|[]
 name|hl7Message
@@ -169,6 +118,108 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|EXCEPTION_MESSAGE
+argument_list|,
+name|hl7Message
+argument_list|,
+name|partialHl7Acknowledgement
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpAcknowledgementTimeoutException (String message, byte[] hl7Message)
+specifier|public
+name|MllpAcknowledgementTimeoutException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|hl7Message
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpAcknowledgementTimeoutException (String message, byte[] hl7Message, byte[] partialHl7Acknowledgement)
+specifier|public
+name|MllpAcknowledgementTimeoutException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Message
+parameter_list|,
+name|byte
+index|[]
+name|partialHl7Acknowledgement
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|hl7Message
+argument_list|,
+name|partialHl7Acknowledgement
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpAcknowledgementTimeoutException (String message, byte[] hl7Message, Throwable cause)
+specifier|public
+name|MllpAcknowledgementTimeoutException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|hl7Message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpAcknowledgementTimeoutException (String message, byte[] hl7Message, byte[] partialHl7Acknowledgement, Throwable cause)
+specifier|public
+name|MllpAcknowledgementTimeoutException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Message
+parameter_list|,
+name|byte
+index|[]
+name|partialHl7Acknowledgement
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
 name|message
 argument_list|,
 name|hl7Message
@@ -179,18 +230,18 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the HL7 message payload associated with this exception, if any.      *      * @return If the timeout occurred while attempting to receive an HL7 Message, this will be null.  If the timeout      * occurred while attempting to receive an HL7 Acknowledgement, this will be the HL7 Message.  If the timeout occurred      * while attempting to complete the read of an HL7 message (i.e. part of the message has already been read), this      * will be the partial acknowledgement payload that was read before the timeout.      */
-DECL|method|getHl7Message ()
+comment|/**      * Get the HL7 acknowledgement payload associated with this exception, if any.      *      * @return If the timeout occurred while attempting to receive an HL7 Message, this will be null.  If the timeout      * occurred while attempting to receive an HL7 Acknowledgement, this will be the HL7 Message.  If the timeout occurred      * while attempting to complete the read of an HL7 message (i.e. part of the message has already been read), this      * will be the partial acknowledgement payload that was read before the timeout.      */
+DECL|method|getHl7Acknowledgement ()
 specifier|public
 name|byte
 index|[]
-name|getHl7Message
+name|getHl7Acknowledgement
 parameter_list|()
 block|{
 return|return
 name|super
 operator|.
-name|getHl7Message
+name|getHl7Acknowledgement
 argument_list|()
 return|;
 block|}

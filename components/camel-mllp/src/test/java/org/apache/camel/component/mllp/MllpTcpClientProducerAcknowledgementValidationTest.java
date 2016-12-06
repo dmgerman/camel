@@ -229,10 +229,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MllpTcpClientProducerAcknowledgementTest
+DECL|class|MllpTcpClientProducerAcknowledgementValidationTest
 specifier|public
 class|class
-name|MllpTcpClientProducerAcknowledgementTest
+name|MllpTcpClientProducerAcknowledgementValidationTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -632,7 +632,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"mllp://%s:%d"
+literal|"mllp://%s:%d?validatePayload=true"
 argument_list|,
 name|mllpServer
 operator|.
@@ -1004,25 +1004,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|aa
+name|invalid
 operator|.
 name|expectedBodiesReceived
 argument_list|(
 name|TEST_MESSAGE
 argument_list|)
 expr_stmt|;
-name|aa
-operator|.
-name|expectedHeaderReceived
-argument_list|(
-name|MllpConstants
-operator|.
-name|MLLP_ACKNOWLEDGEMENT_TYPE
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedHeaderReceived
 argument_list|(
@@ -1036,7 +1025,7 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedHeaderReceived
 argument_list|(
@@ -1061,7 +1050,7 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-name|ar
+name|aa
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -1075,7 +1064,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|invalid
+name|ar
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -1122,25 +1111,14 @@ name|badAcknowledgement
 init|=
 literal|"A VERY BAD ACKNOWLEDGEMENT"
 decl_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedBodiesReceived
 argument_list|(
 name|TEST_MESSAGE
 argument_list|)
 expr_stmt|;
-name|aa
-operator|.
-name|expectedHeaderReceived
-argument_list|(
-name|MllpConstants
-operator|.
-name|MLLP_ACKNOWLEDGEMENT_TYPE
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedHeaderReceived
 argument_list|(
@@ -1154,7 +1132,7 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedHeaderReceived
 argument_list|(
@@ -1179,7 +1157,7 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-name|ar
+name|aa
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -1193,7 +1171,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|invalid
+name|ar
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -1249,7 +1227,7 @@ operator|+
 name|START_OF_BLOCK
 argument_list|)
 decl_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedBodiesReceived
 argument_list|(
@@ -1267,7 +1245,7 @@ argument_list|,
 literal|"AA"
 argument_list|)
 expr_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedHeaderReceived
 argument_list|(
@@ -1281,7 +1259,7 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedHeaderReceived
 argument_list|(
@@ -1306,7 +1284,7 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-name|ar
+name|aa
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -1320,7 +1298,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|invalid
+name|ar
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -1376,7 +1354,7 @@ operator|+
 name|END_OF_BLOCK
 argument_list|)
 decl_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedBodiesReceived
 argument_list|(
@@ -1394,7 +1372,7 @@ argument_list|,
 literal|"AA"
 argument_list|)
 expr_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedHeaderReceived
 argument_list|(
@@ -1408,7 +1386,7 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|aa
+name|invalid
 operator|.
 name|expectedHeaderReceived
 argument_list|(
@@ -1433,7 +1411,7 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-name|ar
+name|aa
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -1447,7 +1425,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|invalid
+name|ar
 operator|.
 name|expectedMessageCount
 argument_list|(

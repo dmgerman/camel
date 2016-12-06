@@ -375,18 +375,6 @@ index|[
 literal|2
 index|]
 decl_stmt|;
-specifier|final
-name|int
-name|groupInterval
-init|=
-literal|1000
-decl_stmt|;
-specifier|final
-name|boolean
-name|groupActiveOnly
-init|=
-literal|false
-decl_stmt|;
 name|builders
 index|[
 literal|0
@@ -408,7 +396,7 @@ parameter_list|()
 block|{
 name|fromF
 argument_list|(
-literal|"mllp://%s:%d?autoAck=true"
+literal|"mllp://%s:%d?autoAck=true&readTimeout=1000"
 argument_list|,
 name|mllpHost
 argument_list|,
@@ -440,22 +428,11 @@ name|log
 argument_list|(
 name|LoggingLevel
 operator|.
-name|DEBUG
+name|INFO
 argument_list|,
 name|routeId
 argument_list|,
 literal|"Receiving: ${body}"
-argument_list|)
-operator|.
-name|toF
-argument_list|(
-literal|"log://%s?level=INFO&groupInterval=%d&groupActiveOnly=%b"
-argument_list|,
-name|routeId
-argument_list|,
-name|groupInterval
-argument_list|,
-name|groupActiveOnly
 argument_list|)
 expr_stmt|;
 block|}
@@ -497,7 +474,7 @@ name|log
 argument_list|(
 name|LoggingLevel
 operator|.
-name|DEBUG
+name|INFO
 argument_list|,
 name|routeId
 argument_list|,
@@ -506,7 +483,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"mllp://%s:%d"
+literal|"mllp://%s:%d?readTimeout=5000"
 argument_list|,
 name|mllpHost
 argument_list|,
@@ -521,17 +498,6 @@ name|MllpConstants
 operator|.
 name|MLLP_ACKNOWLEDGEMENT
 argument_list|)
-argument_list|)
-operator|.
-name|toF
-argument_list|(
-literal|"log://%s?level=INFO&groupInterval=%d&groupActiveOnly=%b"
-argument_list|,
-name|routeId
-argument_list|,
-name|groupInterval
-argument_list|,
-name|groupActiveOnly
 argument_list|)
 expr_stmt|;
 block|}
@@ -614,10 +580,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testLoopbackMultipleMessages ()
+DECL|method|testLoopbackWithMultipleMessages ()
 specifier|public
 name|void
-name|testLoopbackMultipleMessages
+name|testLoopbackWithMultipleMessages
 parameter_list|()
 throws|throws
 name|Exception

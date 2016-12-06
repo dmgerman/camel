@@ -964,6 +964,13 @@ name|acknowledgement
 operator|.
 name|write
 argument_list|(
+name|SEGMENT_DELIMITER
+argument_list|)
+expr_stmt|;
+name|acknowledgement
+operator|.
+name|write
+argument_list|(
 name|MESSAGE_TERMINATOR
 argument_list|)
 expr_stmt|;

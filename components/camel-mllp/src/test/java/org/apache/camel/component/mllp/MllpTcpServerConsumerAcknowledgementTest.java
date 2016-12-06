@@ -602,6 +602,8 @@ literal|"MSA|AA|"
 operator|+
 literal|'\r'
 operator|+
+literal|'\r'
+operator|+
 literal|'\n'
 decl_stmt|;
 name|result
@@ -824,6 +826,8 @@ operator|+
 literal|'\r'
 operator|+
 literal|"MSA|AA|"
+operator|+
+literal|'\r'
 operator|+
 literal|'\r'
 operator|+

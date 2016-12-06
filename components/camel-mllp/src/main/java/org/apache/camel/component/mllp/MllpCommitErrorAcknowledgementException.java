@@ -28,7 +28,7 @@ specifier|public
 class|class
 name|MllpCommitErrorAcknowledgementException
 extends|extends
-name|MllpAcknowledgementException
+name|MllpNegativeAcknowledgementException
 block|{
 DECL|field|EXCEPTION_MESSAGE
 specifier|static
@@ -88,6 +88,18 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getAcknowledgmentType ()
+specifier|public
+name|String
+name|getAcknowledgmentType
+parameter_list|()
+block|{
+return|return
+literal|"CE"
+return|;
 block|}
 block|}
 end_class

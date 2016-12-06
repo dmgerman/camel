@@ -19,29 +19,58 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Raised when a MLLP Producer receives a HL7 Commit Reject Acknowledgement  */
+comment|/**  * Raised when a MLLP Consumer cannot deliver the MLLP Acknowledgement  */
 end_comment
 
 begin_class
-DECL|class|MllpCommitRejectAcknowledgementException
+DECL|class|MllpReceiveException
 specifier|public
 class|class
-name|MllpCommitRejectAcknowledgementException
+name|MllpReceiveException
 extends|extends
-name|MllpNegativeAcknowledgementException
+name|MllpException
 block|{
-DECL|field|EXCEPTION_MESSAGE
-specifier|static
-specifier|final
-name|String
-name|EXCEPTION_MESSAGE
-init|=
-literal|"HL7 Commit Reject Acknowledgment Received"
-decl_stmt|;
-DECL|method|MllpCommitRejectAcknowledgementException (byte[] hl7Message, byte[] hl7Acknowledgement)
+DECL|method|MllpReceiveException (String message)
 specifier|public
-name|MllpCommitRejectAcknowledgementException
+name|MllpReceiveException
 parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpReceiveException (String message, byte[] hl7Message)
+specifier|public
+name|MllpReceiveException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|hl7Message
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpReceiveException (String message, byte[] hl7Message, byte[] hl7Acknowledgement)
+specifier|public
+name|MllpReceiveException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
 name|byte
 index|[]
 name|hl7Message
@@ -53,7 +82,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|EXCEPTION_MESSAGE
+name|message
 argument_list|,
 name|hl7Message
 argument_list|,
@@ -61,10 +90,57 @@ name|hl7Acknowledgement
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MllpCommitRejectAcknowledgementException (byte[] hl7Message, byte[] hl7Acknowledgement, Throwable cause)
+DECL|method|MllpReceiveException (String message, Throwable cause)
 specifier|public
-name|MllpCommitRejectAcknowledgementException
+name|MllpReceiveException
 parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpReceiveException (String message, byte[] hl7Message, Throwable cause)
+specifier|public
+name|MllpReceiveException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|hl7Message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpReceiveException (String message, byte[] hl7Message, byte[] hl7Acknowledgement, Throwable cause)
+specifier|public
+name|MllpReceiveException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
 name|byte
 index|[]
 name|hl7Message
@@ -79,7 +155,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|EXCEPTION_MESSAGE
+name|message
 argument_list|,
 name|hl7Message
 argument_list|,
@@ -88,18 +164,6 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getAcknowledgmentType ()
-specifier|public
-name|String
-name|getAcknowledgmentType
-parameter_list|()
-block|{
-return|return
-literal|"CR"
-return|;
 block|}
 block|}
 end_class

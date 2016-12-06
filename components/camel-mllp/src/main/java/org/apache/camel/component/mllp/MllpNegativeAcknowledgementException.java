@@ -19,20 +19,21 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Raised when a MLLP Producer does not receive a HL7 acknowledgement within the configured timespan  */
+comment|/**  * Abstract base for all MLLP Negative Acknowledgements  */
 end_comment
 
 begin_class
-DECL|class|MllpAcknowledgementTimoutException
+DECL|class|MllpNegativeAcknowledgementException
 specifier|public
+specifier|abstract
 class|class
-name|MllpAcknowledgementTimoutException
+name|MllpNegativeAcknowledgementException
 extends|extends
-name|MllpTimeoutException
+name|MllpAcknowledgementException
 block|{
-DECL|method|MllpAcknowledgementTimoutException (String message, byte[] hl7Message)
+DECL|method|MllpNegativeAcknowledgementException (String message, byte[] hl7Message, byte[] hl7Acknowledgement)
 specifier|public
-name|MllpAcknowledgementTimoutException
+name|MllpNegativeAcknowledgementException
 parameter_list|(
 name|String
 name|message
@@ -40,6 +41,10 @@ parameter_list|,
 name|byte
 index|[]
 name|hl7Message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Acknowledgement
 parameter_list|)
 block|{
 name|super
@@ -47,12 +52,14 @@ argument_list|(
 name|message
 argument_list|,
 name|hl7Message
+argument_list|,
+name|hl7Acknowledgement
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MllpAcknowledgementTimoutException (String message, byte[] hl7Message, Throwable cause)
+DECL|method|MllpNegativeAcknowledgementException (String message, byte[] hl7Message, byte[] hl7Acknowledgement, Throwable cause)
 specifier|public
-name|MllpAcknowledgementTimoutException
+name|MllpNegativeAcknowledgementException
 parameter_list|(
 name|String
 name|message
@@ -60,6 +67,10 @@ parameter_list|,
 name|byte
 index|[]
 name|hl7Message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Acknowledgement
 parameter_list|,
 name|Throwable
 name|cause
@@ -71,10 +82,19 @@ name|message
 argument_list|,
 name|hl7Message
 argument_list|,
+name|hl7Acknowledgement
+argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getAcknowledgmentType ()
+specifier|public
+specifier|abstract
+name|String
+name|getAcknowledgmentType
+parameter_list|()
+function_decl|;
 block|}
 end_class
 
