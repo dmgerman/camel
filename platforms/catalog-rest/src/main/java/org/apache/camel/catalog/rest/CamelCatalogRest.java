@@ -88,6 +88,30 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|swagger
+operator|.
+name|annotations
+operator|.
+name|Api
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|swagger
+operator|.
+name|annotations
+operator|.
+name|ApiOperation
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -119,6 +143,17 @@ comment|/**  * A REST based {@link CamelCatalog} service as a JAX-RS resource cl
 end_comment
 
 begin_class
+annotation|@
+name|Api
+argument_list|(
+name|value
+operator|=
+literal|"/camel-catalog"
+argument_list|,
+name|description
+operator|=
+literal|"Camel Catalog REST API"
+argument_list|)
 annotation|@
 name|Path
 argument_list|(
@@ -174,6 +209,13 @@ annotation|@
 name|Path
 argument_list|(
 literal|"/catalogVersion"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"The version of this Camel Catalog"
 argument_list|)
 DECL|method|getCatalogVersion ()
 specifier|public
