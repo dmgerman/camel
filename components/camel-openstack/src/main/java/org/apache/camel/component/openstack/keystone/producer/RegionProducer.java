@@ -196,7 +196,7 @@ name|RegionProducer
 extends|extends
 name|AbstractKeystoneProducer
 block|{
-DECL|method|RegionProducer (KeystoneEndpoint endpoint, OSClient.OSClientV3 client)
+DECL|method|RegionProducer (KeystoneEndpoint endpoint, OSClient client)
 specifier|public
 name|RegionProducer
 parameter_list|(
@@ -204,8 +204,6 @@ name|KeystoneEndpoint
 name|endpoint
 parameter_list|,
 name|OSClient
-operator|.
-name|OSClientV3
 name|client
 parameter_list|)
 block|{

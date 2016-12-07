@@ -206,6 +206,20 @@ name|UriPath
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|openstack4j
+operator|.
+name|core
+operator|.
+name|transport
+operator|.
+name|Config
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -327,6 +341,13 @@ DECL|field|password
 specifier|private
 name|String
 name|password
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|config
+specifier|private
+name|Config
+name|config
 decl_stmt|;
 DECL|method|KeystoneEndpoint (String uri, KeystoneComponent component)
 specifier|public
@@ -650,6 +671,44 @@ name|host
 operator|=
 name|host
 expr_stmt|;
+block|}
+DECL|method|getConfig ()
+specifier|public
+name|Config
+name|getConfig
+parameter_list|()
+block|{
+return|return
+name|config
+return|;
+block|}
+comment|/** 	 *OpenStack configuration 	 */
+DECL|method|setConfig (Config config)
+specifier|public
+name|void
+name|setConfig
+parameter_list|(
+name|Config
+name|config
+parameter_list|)
+block|{
+name|this
+operator|.
+name|config
+operator|=
+name|config
+expr_stmt|;
+block|}
+comment|// v2 API is not supported (is deprecated)
+DECL|method|getApiVersion ()
+specifier|public
+name|String
+name|getApiVersion
+parameter_list|()
+block|{
+return|return
+name|v3
+return|;
 block|}
 block|}
 end_class

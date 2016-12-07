@@ -85,7 +85,7 @@ operator|.
 name|OSClientV3
 name|osV3Client
 decl_stmt|;
-DECL|method|AbstractKeystoneProducer (AbstractOpenstackEndpoint endpoint, OSClient.OSClientV3 client)
+DECL|method|AbstractKeystoneProducer (AbstractOpenstackEndpoint endpoint, OSClient client)
 specifier|public
 name|AbstractKeystoneProducer
 parameter_list|(
@@ -93,8 +93,6 @@ name|AbstractOpenstackEndpoint
 name|endpoint
 parameter_list|,
 name|OSClient
-operator|.
-name|OSClientV3
 name|client
 parameter_list|)
 block|{
@@ -105,8 +103,33 @@ argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|client
+operator|instanceof
+name|OSClient
+operator|.
+name|OSClientV3
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Only Identity API v3 is supported"
+argument_list|)
+throw|;
+block|}
 name|osV3Client
 operator|=
+operator|(
+name|OSClient
+operator|.
+name|OSClientV3
+operator|)
 name|client
 expr_stmt|;
 block|}

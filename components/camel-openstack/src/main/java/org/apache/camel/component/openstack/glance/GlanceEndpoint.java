@@ -106,6 +106,20 @@ name|UriPath
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|openstack4j
+operator|.
+name|core
+operator|.
+name|transport
+operator|.
+name|Config
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -209,6 +223,31 @@ DECL|field|password
 specifier|private
 name|String
 name|password
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|config
+specifier|private
+name|Config
+name|config
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+name|v3
+argument_list|,
+name|enums
+operator|=
+literal|"v2, v3"
+argument_list|)
+DECL|field|apiVersion
+specifier|private
+name|String
+name|apiVersion
+init|=
+name|v3
 decl_stmt|;
 DECL|method|GlanceEndpoint (String uri, GlanceComponent component)
 specifier|public
@@ -422,6 +461,60 @@ operator|.
 name|host
 operator|=
 name|host
+expr_stmt|;
+block|}
+DECL|method|getConfig ()
+specifier|public
+name|Config
+name|getConfig
+parameter_list|()
+block|{
+return|return
+name|config
+return|;
+block|}
+comment|/** 	 *OpenStack configuration 	 */
+DECL|method|setConfig (Config config)
+specifier|public
+name|void
+name|setConfig
+parameter_list|(
+name|Config
+name|config
+parameter_list|)
+block|{
+name|this
+operator|.
+name|config
+operator|=
+name|config
+expr_stmt|;
+block|}
+DECL|method|getApiVersion ()
+specifier|public
+name|String
+name|getApiVersion
+parameter_list|()
+block|{
+return|return
+name|apiVersion
+return|;
+block|}
+comment|/** 	 * OpenStack API version 	 */
+DECL|method|setApiVersion (String apiVersion)
+specifier|public
+name|void
+name|setApiVersion
+parameter_list|(
+name|String
+name|apiVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiVersion
+operator|=
+name|apiVersion
 expr_stmt|;
 block|}
 block|}

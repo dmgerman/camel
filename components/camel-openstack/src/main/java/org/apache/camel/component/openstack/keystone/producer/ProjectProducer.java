@@ -196,7 +196,7 @@ name|ProjectProducer
 extends|extends
 name|AbstractKeystoneProducer
 block|{
-DECL|method|ProjectProducer (KeystoneEndpoint endpoint, OSClient.OSClientV3 client)
+DECL|method|ProjectProducer (KeystoneEndpoint endpoint, OSClient client)
 specifier|public
 name|ProjectProducer
 parameter_list|(
@@ -204,8 +204,6 @@ name|KeystoneEndpoint
 name|endpoint
 parameter_list|,
 name|OSClient
-operator|.
-name|OSClientV3
 name|client
 parameter_list|)
 block|{
