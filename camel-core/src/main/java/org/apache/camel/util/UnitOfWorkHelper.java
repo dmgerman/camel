@@ -355,12 +355,10 @@ name|copy
 argument_list|)
 expr_stmt|;
 comment|// and honor if any was ordered by sorting it accordingly
-name|Collections
+name|copy
 operator|.
 name|sort
 argument_list|(
-name|copy
-argument_list|,
 operator|new
 name|OrderedComparator
 argument_list|()
@@ -503,12 +501,10 @@ name|copy
 argument_list|)
 expr_stmt|;
 comment|// and honor if any was ordered by sorting it accordingly
-name|Collections
+name|copy
 operator|.
 name|sort
 argument_list|(
-name|copy
-argument_list|,
 operator|new
 name|OrderedComparator
 argument_list|()
@@ -639,12 +635,10 @@ name|copy
 argument_list|)
 expr_stmt|;
 comment|// and honor if any was ordered by sorting it accordingly
-name|Collections
+name|copy
 operator|.
 name|sort
 argument_list|(
-name|copy
-argument_list|,
 operator|new
 name|OrderedComparator
 argument_list|()

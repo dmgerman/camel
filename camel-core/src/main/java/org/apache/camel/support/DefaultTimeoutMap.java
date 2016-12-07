@@ -1038,12 +1038,10 @@ argument_list|()
 condition|)
 block|{
 comment|// sort according to the expired time so we got the first expired first
-name|Collections
+name|expired
 operator|.
 name|sort
 argument_list|(
-name|expired
-argument_list|,
 operator|new
 name|Comparator
 argument_list|<

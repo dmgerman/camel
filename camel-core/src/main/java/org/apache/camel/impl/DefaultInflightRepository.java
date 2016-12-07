@@ -674,12 +674,10 @@ condition|(
 name|sortByLongestDuration
 condition|)
 block|{
-name|Collections
+name|values
 operator|.
 name|sort
 argument_list|(
-name|values
-argument_list|,
 operator|new
 name|Comparator
 argument_list|<
@@ -734,12 +732,10 @@ block|}
 else|else
 block|{
 comment|// else sort by exchange id
-name|Collections
+name|values
 operator|.
 name|sort
 argument_list|(
-name|values
-argument_list|,
 operator|new
 name|Comparator
 argument_list|<

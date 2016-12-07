@@ -6587,12 +6587,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Collections
+name|list
 operator|.
 name|sort
 argument_list|(
-name|list
-argument_list|,
 name|comparator
 argument_list|)
 expr_stmt|;

@@ -336,11 +336,11 @@ argument_list|(
 name|names
 argument_list|)
 decl_stmt|;
-name|Collections
+name|list
 operator|.
 name|sort
 argument_list|(
-name|list
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals

@@ -1031,12 +1031,10 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|Collections
+name|result
 operator|.
 name|sort
 argument_list|(
-name|result
-argument_list|,
 operator|new
 name|Comparator
 argument_list|<

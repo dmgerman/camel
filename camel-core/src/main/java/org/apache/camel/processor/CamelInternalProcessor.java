@@ -603,12 +603,10 @@ name|advice
 argument_list|)
 expr_stmt|;
 comment|// ensure advices are sorted so they are in the order we want
-name|Collections
+name|advices
 operator|.
 name|sort
 argument_list|(
-name|advices
-argument_list|,
 operator|new
 name|OrderedComparator
 argument_list|()

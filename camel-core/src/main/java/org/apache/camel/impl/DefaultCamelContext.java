@@ -19705,12 +19705,10 @@ expr_stmt|;
 block|}
 block|}
 comment|// sort the startup listeners so they are started in the right order
-name|Collections
+name|startupListeners
 operator|.
 name|sort
 argument_list|(
-name|startupListeners
-argument_list|,
 operator|new
 name|OrderedComparator
 argument_list|()

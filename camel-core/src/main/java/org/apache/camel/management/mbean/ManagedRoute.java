@@ -2125,12 +2125,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|Collections
+name|mps
 operator|.
 name|sort
 argument_list|(
-name|mps
-argument_list|,
 operator|new
 name|OrderProcessorMBeans
 argument_list|()

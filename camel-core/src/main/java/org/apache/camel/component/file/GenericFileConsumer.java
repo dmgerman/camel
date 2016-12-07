@@ -670,12 +670,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Collections
+name|files
 operator|.
 name|sort
 argument_list|(
-name|files
-argument_list|,
 name|endpoint
 operator|.
 name|getSorter
@@ -757,12 +755,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Collections
+name|exchanges
 operator|.
 name|sort
 argument_list|(
-name|exchanges
-argument_list|,
 name|endpoint
 operator|.
 name|getSortBy
