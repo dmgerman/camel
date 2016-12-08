@@ -383,7 +383,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parses the source code and validates the Camel routes has valid endpoint uris and simple expressions.  *  * @goal validate  * @requiresDependencyResolution compile+runtime  * @execute phase="process-test-classes"  */
+comment|/**  * Parses the source code and validates the Camel routes has valid endpoint uris and simple expressions.  *  * @goal validate  */
 end_comment
 
 begin_class
