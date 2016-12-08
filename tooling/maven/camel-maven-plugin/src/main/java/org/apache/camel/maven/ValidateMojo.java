@@ -1270,6 +1270,19 @@ range|:
 name|endpoints
 control|)
 block|{
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Validating endpoint: "
+operator|+
+name|detail
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|EndpointValidationResult
 name|result
 init|=
@@ -2035,6 +2048,19 @@ range|:
 name|simpleExpressions
 control|)
 block|{
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Validating simple expression: "
+operator|+
+name|detail
+operator|.
+name|getSimple
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|SimpleValidationResult
 name|result
 init|=
