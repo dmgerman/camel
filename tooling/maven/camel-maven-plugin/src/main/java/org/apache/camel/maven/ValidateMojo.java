@@ -604,7 +604,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// if using the same version as the fabric8-camel-maven-plugin we must still load it
+comment|// if using the same version as the camel-maven-plugin we must still load it
 if|if
 condition|(
 name|catalog
@@ -652,7 +652,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// force load version from the fabric8-camel-maven-plugin
+comment|// force load version from the camel-maven-plugin
 name|getLog
 argument_list|()
 operator|.
