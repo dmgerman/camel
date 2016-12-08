@@ -2962,16 +2962,6 @@ argument_list|(
 name|pkg
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|test
-operator|.
-name|matches
-argument_list|(
-name|clazz
-argument_list|)
-condition|)
-block|{
 name|classes
 operator|.
 name|add
@@ -2979,7 +2969,6 @@ argument_list|(
 name|clazz
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the class could be found and loaded so continue to next
 continue|continue;
 block|}
