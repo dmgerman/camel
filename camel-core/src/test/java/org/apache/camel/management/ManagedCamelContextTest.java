@@ -2453,6 +2453,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|delay
+argument_list|(
+literal|10
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"
@@ -2461,6 +2466,11 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:foo"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|transform
