@@ -21,24 +21,24 @@ package|;
 end_package
 
 begin_class
-DECL|class|TestPojo
+DECL|class|UnsafePojo
 specifier|public
 class|class
-name|TestPojo
+name|UnsafePojo
 block|{
 DECL|field|name
 specifier|private
 name|String
 name|name
 decl_stmt|;
-DECL|method|TestPojo ()
+DECL|method|UnsafePojo ()
 specifier|public
-name|TestPojo
+name|UnsafePojo
 parameter_list|()
 block|{     }
-DECL|method|TestPojo (String name)
+DECL|method|UnsafePojo (String name)
 specifier|public
-name|TestPojo
+name|UnsafePojo
 parameter_list|(
 name|String
 name|name
@@ -120,11 +120,11 @@ return|return
 literal|false
 return|;
 block|}
-name|TestPojo
+name|UnsafePojo
 name|pojo
 init|=
 operator|(
-name|TestPojo
+name|UnsafePojo
 operator|)
 name|o
 decl_stmt|;
@@ -179,7 +179,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"TestPojo {"
+literal|"UnsafePojo {"
 operator|+
 literal|"name='"
 operator|+

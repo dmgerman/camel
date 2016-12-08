@@ -135,15 +135,15 @@ import|;
 end_import
 
 begin_class
-DECL|class|SnakeYAMLMarshalTestHelper
+DECL|class|SnakeYAMLTestHelper
 specifier|public
 specifier|final
 class|class
-name|SnakeYAMLMarshalTestHelper
+name|SnakeYAMLTestHelper
 block|{
-DECL|method|SnakeYAMLMarshalTestHelper ()
+DECL|method|SnakeYAMLTestHelper ()
 specifier|protected
-name|SnakeYAMLMarshalTestHelper
+name|SnakeYAMLTestHelper
 parameter_list|()
 block|{     }
 DECL|method|createTestPojo ()
@@ -199,12 +199,13 @@ return|return
 name|map
 return|;
 block|}
-DECL|method|createDataFormat (Class<?> type)
+DECL|method|createDataFormat (final Class<?> type)
 specifier|public
 specifier|static
 name|SnakeYAMLDataFormat
 name|createDataFormat
 parameter_list|(
+specifier|final
 name|Class
 argument_list|<
 name|?
@@ -212,20 +213,30 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-return|return
-name|type
-operator|==
-literal|null
-condition|?
+name|SnakeYAMLDataFormat
+name|format
+init|=
 operator|new
 name|SnakeYAMLDataFormat
 argument_list|()
-else|:
-operator|new
-name|SnakeYAMLDataFormat
+decl_stmt|;
+if|if
+condition|(
+name|type
+operator|!=
+literal|null
+condition|)
+block|{
+name|format
+operator|.
+name|setUnmarshalType
 argument_list|(
 name|type
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|format
 return|;
 block|}
 DECL|method|createPrettyFlowDataFormat (Class<?> type, boolean prettyFlow)
@@ -245,23 +256,14 @@ name|prettyFlow
 parameter_list|)
 block|{
 name|SnakeYAMLDataFormat
-name|df
+name|format
 init|=
-name|type
-operator|==
-literal|null
-condition|?
-operator|new
-name|SnakeYAMLDataFormat
-argument_list|()
-else|:
-operator|new
-name|SnakeYAMLDataFormat
+name|createDataFormat
 argument_list|(
 name|type
 argument_list|)
 decl_stmt|;
-name|df
+name|format
 operator|.
 name|setPrettyFlow
 argument_list|(
@@ -269,7 +271,7 @@ name|prettyFlow
 argument_list|)
 expr_stmt|;
 return|return
-name|df
+name|format
 return|;
 block|}
 DECL|method|createClassTagDataFormat (Class<?> type, Tag tag)
@@ -289,15 +291,14 @@ name|tag
 parameter_list|)
 block|{
 name|SnakeYAMLDataFormat
-name|df
+name|format
 init|=
-operator|new
-name|SnakeYAMLDataFormat
+name|createDataFormat
 argument_list|(
 name|type
 argument_list|)
 decl_stmt|;
-name|df
+name|format
 operator|.
 name|addTag
 argument_list|(
@@ -307,7 +308,7 @@ name|tag
 argument_list|)
 expr_stmt|;
 return|return
-name|df
+name|format
 return|;
 block|}
 DECL|method|marshalAndUnmarshal ( CamelContext context, Object body, String mockName, String directIn, String directBack, String expected)

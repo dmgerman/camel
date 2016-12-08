@@ -146,7 +146,7 @@ name|component
 operator|.
 name|snakeyaml
 operator|.
-name|SnakeYAMLMarshalTestHelper
+name|SnakeYAMLTestHelper
 operator|.
 name|createClassTagDataFormat
 import|;
@@ -164,7 +164,7 @@ name|component
 operator|.
 name|snakeyaml
 operator|.
-name|SnakeYAMLMarshalTestHelper
+name|SnakeYAMLTestHelper
 operator|.
 name|createDataFormat
 import|;
@@ -182,7 +182,7 @@ name|component
 operator|.
 name|snakeyaml
 operator|.
-name|SnakeYAMLMarshalTestHelper
+name|SnakeYAMLTestHelper
 operator|.
 name|createPrettyFlowDataFormat
 import|;
@@ -200,7 +200,7 @@ name|component
 operator|.
 name|snakeyaml
 operator|.
-name|SnakeYAMLMarshalTestHelper
+name|SnakeYAMLTestHelper
 operator|.
 name|createTestMap
 import|;
@@ -218,7 +218,7 @@ name|component
 operator|.
 name|snakeyaml
 operator|.
-name|SnakeYAMLMarshalTestHelper
+name|SnakeYAMLTestHelper
 operator|.
 name|createTestPojo
 import|;
@@ -232,10 +232,10 @@ name|Parameterized
 operator|.
 name|class
 argument_list|)
-DECL|class|SnakeYAMLMarshalTest
+DECL|class|SnakeYAMLTest
 specifier|public
 class|class
-name|SnakeYAMLMarshalTest
+name|SnakeYAMLTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -257,9 +257,9 @@ specifier|final
 name|String
 name|expected
 decl_stmt|;
-DECL|method|SnakeYAMLMarshalTest (SnakeYAMLDataFormat format, Object body, String expected)
+DECL|method|SnakeYAMLTest (SnakeYAMLDataFormat format, Object body, String expected)
 specifier|public
-name|SnakeYAMLMarshalTest
+name|SnakeYAMLTest
 parameter_list|(
 name|SnakeYAMLDataFormat
 name|format
@@ -386,7 +386,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SnakeYAMLMarshalTestHelper
+name|SnakeYAMLTestHelper
 operator|.
 name|marshalAndUnmarshal
 argument_list|(
