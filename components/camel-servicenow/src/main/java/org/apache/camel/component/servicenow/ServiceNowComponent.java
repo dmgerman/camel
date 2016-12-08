@@ -333,7 +333,7 @@ name|Object
 argument_list|>
 name|entry
 range|:
-name|requestModels
+name|responseModels
 operator|.
 name|entrySet
 argument_list|()
