@@ -544,7 +544,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"etcd:watch/myKeyRecovery?timeout=%d&fromIndex=%d"
+literal|"etcd:watch/myKeyRecovery?timeout=%s&fromIndex=%s"
 argument_list|,
 literal|1000
 operator|*

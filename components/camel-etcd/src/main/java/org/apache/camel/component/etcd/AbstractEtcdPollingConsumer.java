@@ -90,11 +90,11 @@ specifier|private
 name|EtcdClient
 name|client
 decl_stmt|;
-DECL|method|AbstractEtcdPollingConsumer (AbstractEtcdEndpoint endpoint, Processor processor, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|AbstractEtcdPollingConsumer (AbstractEtcdPollingEndpoint endpoint, Processor processor, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
 specifier|protected
 name|AbstractEtcdPollingConsumer
 parameter_list|(
-name|AbstractEtcdEndpoint
+name|AbstractEtcdPollingEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
