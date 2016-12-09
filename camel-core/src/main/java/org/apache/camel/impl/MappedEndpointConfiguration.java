@@ -780,11 +780,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|Collections
+name|queryParams
 operator|.
 name|sort
 argument_list|(
-name|queryParams
+literal|null
 argument_list|)
 expr_stmt|;
 name|String

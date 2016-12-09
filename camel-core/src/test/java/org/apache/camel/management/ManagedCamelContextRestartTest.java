@@ -511,6 +511,11 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 operator|.
+name|delay
+argument_list|(
+literal|10
+argument_list|)
+operator|.
 name|transform
 argument_list|(
 name|constant

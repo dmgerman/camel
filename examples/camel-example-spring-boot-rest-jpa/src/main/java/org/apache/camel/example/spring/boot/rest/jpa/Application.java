@@ -385,7 +385,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jpa:io.fabric8.quickstarts.camel.Order"
+literal|"jpa:org.apache.camel.example.spring.boot.rest.jpa.Order"
 argument_list|)
 operator|.
 name|log

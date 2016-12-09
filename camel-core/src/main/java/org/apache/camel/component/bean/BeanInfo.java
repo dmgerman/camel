@@ -6606,12 +6606,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// sort the methods by name A..Z
-name|Collections
+name|methods
 operator|.
 name|sort
 argument_list|(
-name|methods
-argument_list|,
 operator|new
 name|Comparator
 argument_list|<

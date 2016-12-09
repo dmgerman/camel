@@ -468,6 +468,11 @@ specifier|private
 name|boolean
 name|enableJacksonTypeConverter
 decl_stmt|;
+DECL|field|allowUnmarshallType
+specifier|private
+name|boolean
+name|allowUnmarshallType
+decl_stmt|;
 comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Object}      */
 DECL|method|JacksonDataFormat ()
 specifier|public
@@ -733,6 +738,15 @@ decl_stmt|;
 name|String
 name|type
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|allowUnmarshallType
+condition|)
+block|{
+name|type
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -748,7 +762,8 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|type
@@ -1301,6 +1316,33 @@ operator|.
 name|enableJacksonTypeConverter
 operator|=
 name|enableJacksonTypeConverter
+expr_stmt|;
+block|}
+DECL|method|isAllowUnmarshallType ()
+specifier|public
+name|boolean
+name|isAllowUnmarshallType
+parameter_list|()
+block|{
+return|return
+name|allowUnmarshallType
+return|;
+block|}
+comment|/**      * If enabled then Jackson is allowed to attempt to use the CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
+DECL|method|setAllowUnmarshallType (boolean allowJacksonUnmarshallType)
+specifier|public
+name|void
+name|setAllowUnmarshallType
+parameter_list|(
+name|boolean
+name|allowJacksonUnmarshallType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowUnmarshallType
+operator|=
+name|allowJacksonUnmarshallType
 expr_stmt|;
 block|}
 DECL|method|getEnableFeatures ()

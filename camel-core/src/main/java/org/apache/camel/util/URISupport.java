@@ -2469,11 +2469,11 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Collections
+name|keys
 operator|.
 name|sort
 argument_list|(
-name|keys
+literal|null
 argument_list|)
 expr_stmt|;
 name|Map

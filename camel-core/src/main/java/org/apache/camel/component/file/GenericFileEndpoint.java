@@ -92,6 +92,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1287,6 +1299,16 @@ specifier|protected
 name|ExceptionHandler
 name|onCompletionExceptionHandler
 decl_stmt|;
+DECL|field|includePattern
+specifier|private
+name|Pattern
+name|includePattern
+decl_stmt|;
+DECL|field|excludePattern
+specifier|private
+name|Pattern
+name|excludePattern
+decl_stmt|;
 DECL|method|GenericFileEndpoint ()
 specifier|public
 name|GenericFileEndpoint
@@ -1992,7 +2014,7 @@ return|return
 name|include
 return|;
 block|}
-comment|/**      * Is used to include files, if filename matches the regex pattern (matching is case in-senstive).      *<p/>      * Notice if you use symbols such as plus sign and others you would need to configure      * this using the RAW() syntax if configuring this as an endpoint uri.      * See more details at<a href="http://camel.apache.org/how-do-i-configure-endpoints.html">configuring endpoint uris</a>      */
+comment|/**      * Is used to include files, if filename matches the regex pattern (matching is case in-sensitive).      *<p/>      * Notice if you use symbols such as plus sign and others you would need to configure      * this using the RAW() syntax if configuring this as an endpoint uri.      * See more details at<a href="http://camel.apache.org/how-do-i-configure-endpoints.html">configuring endpoint uris</a>      */
 DECL|method|setInclude (String include)
 specifier|public
 name|void
@@ -2008,6 +2030,31 @@ name|include
 operator|=
 name|include
 expr_stmt|;
+name|this
+operator|.
+name|includePattern
+operator|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+name|include
+argument_list|,
+name|Pattern
+operator|.
+name|CASE_INSENSITIVE
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getIncludePattern ()
+specifier|public
+name|Pattern
+name|getIncludePattern
+parameter_list|()
+block|{
+return|return
+name|includePattern
+return|;
 block|}
 DECL|method|getExclude ()
 specifier|public
@@ -2035,6 +2082,33 @@ name|exclude
 operator|=
 name|exclude
 expr_stmt|;
+name|this
+operator|.
+name|excludePattern
+operator|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+name|exclude
+argument_list|,
+name|Pattern
+operator|.
+name|CASE_INSENSITIVE
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getExcludePattern ()
+specifier|public
+name|Pattern
+name|getExcludePattern
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|excludePattern
+return|;
 block|}
 DECL|method|getAntInclude ()
 specifier|public

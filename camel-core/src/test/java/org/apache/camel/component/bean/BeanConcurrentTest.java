@@ -245,11 +245,11 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-name|Collections
+name|list
 operator|.
 name|sort
 argument_list|(
-name|list
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// and they should be unique and no lost messages

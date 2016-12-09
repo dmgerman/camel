@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -78,11 +90,11 @@ specifier|private
 name|EtcdClient
 name|client
 decl_stmt|;
-DECL|method|AbstractEtcdProducer (AbstractEtcdEndpoint endpoint, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|AbstractEtcdProducer (Endpoint endpoint, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
 specifier|protected
 name|AbstractEtcdProducer
 parameter_list|(
-name|AbstractEtcdEndpoint
+name|Endpoint
 name|endpoint
 parameter_list|,
 name|EtcdConfiguration

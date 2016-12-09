@@ -375,7 +375,7 @@ argument_list|>
 name|findDataFormatLabels
 parameter_list|()
 function_decl|;
-comment|/**      * Find all the unique label names all the data formats are using.      *      * @return a set of all the labels.      */
+comment|/**      * Find all the unique label names all the languages are using.      *      * @return a set of all the labels.      */
 DECL|method|findLanguageLabels ()
 name|Set
 argument_list|<

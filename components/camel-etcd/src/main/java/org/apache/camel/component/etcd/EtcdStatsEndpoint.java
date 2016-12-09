@@ -70,7 +70,7 @@ specifier|public
 class|class
 name|EtcdStatsEndpoint
 extends|extends
-name|AbstractEtcdEndpoint
+name|AbstractEtcdPollingEndpoint
 block|{
 DECL|method|EtcdStatsEndpoint ( String uri, EtcdComponent component, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
 specifier|public

@@ -187,6 +187,14 @@ specifier|private
 name|String
 name|permissions
 decl_stmt|;
+comment|/**      * If enabled then Jackson is allowed to attempt to use the      * CamelJacksonUnmarshalType header during the unmarshalling. This should      * only be enabled when desired to be used.      */
+DECL|field|allowUnmarshallType
+specifier|private
+name|Boolean
+name|allowUnmarshallType
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getObjectMapper ()
 specifier|public
 name|String
@@ -575,6 +583,32 @@ operator|.
 name|permissions
 operator|=
 name|permissions
+expr_stmt|;
+block|}
+DECL|method|getAllowUnmarshallType ()
+specifier|public
+name|Boolean
+name|getAllowUnmarshallType
+parameter_list|()
+block|{
+return|return
+name|allowUnmarshallType
+return|;
+block|}
+DECL|method|setAllowUnmarshallType (Boolean allowUnmarshallType)
+specifier|public
+name|void
+name|setAllowUnmarshallType
+parameter_list|(
+name|Boolean
+name|allowUnmarshallType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowUnmarshallType
+operator|=
+name|allowUnmarshallType
 expr_stmt|;
 block|}
 block|}

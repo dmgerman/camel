@@ -2538,7 +2538,7 @@ operator|.
 name|getStartPosition
 argument_list|()
 decl_stmt|;
-comment|// if the node is fromF or toF, then replace all %s with {{%s}} as we cannot parse that value
+comment|// if the node is fromF or toF, then replace all %X with {{%X}} as we cannot parse that value
 if|if
 condition|(
 literal|"fromF"
@@ -2565,6 +2565,28 @@ argument_list|(
 literal|"\\%s"
 argument_list|,
 literal|"\\{\\{\\%s\\}\\}"
+argument_list|)
+expr_stmt|;
+name|uri
+operator|=
+name|uri
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\%d"
+argument_list|,
+literal|"\\{\\{\\%d\\}\\}"
+argument_list|)
+expr_stmt|;
+name|uri
+operator|=
+name|uri
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\%b"
+argument_list|,
+literal|"\\{\\{\\%b\\}\\}"
 argument_list|)
 expr_stmt|;
 block|}

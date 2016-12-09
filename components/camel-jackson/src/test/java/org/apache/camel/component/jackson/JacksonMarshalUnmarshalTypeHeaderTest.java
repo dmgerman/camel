@@ -222,6 +222,13 @@ operator|new
 name|JacksonDataFormat
 argument_list|()
 decl_stmt|;
+name|format
+operator|.
+name|setAllowUnmarshallType
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:backPojo"

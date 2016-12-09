@@ -427,6 +427,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|delayer
+argument_list|(
+literal|10
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"log:foo"

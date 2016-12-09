@@ -1259,12 +1259,10 @@ name|trace
 expr_stmt|;
 block|}
 comment|// sort interceptors according to ordered
-name|Collections
+name|interceptors
 operator|.
 name|sort
 argument_list|(
-name|interceptors
-argument_list|,
 operator|new
 name|OrderedComparator
 argument_list|()

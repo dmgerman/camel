@@ -926,12 +926,10 @@ argument_list|(
 name|routes
 argument_list|)
 decl_stmt|;
-name|Collections
+name|routesOrdered
 operator|.
 name|sort
 argument_list|(
-name|routesOrdered
-argument_list|,
 operator|new
 name|Comparator
 argument_list|<

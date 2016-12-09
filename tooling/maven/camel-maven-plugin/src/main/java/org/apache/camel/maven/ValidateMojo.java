@@ -383,7 +383,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parses the source code and validates the Camel routes has valid endpoint uris and simple expressions.  *  * @goal validate  * @requiresDependencyResolution compile+runtime  * @execute phase="process-test-classes"  */
+comment|/**  * Parses the source code and validates the Camel routes has valid endpoint uris and simple expressions.  *  * @goal validate  */
 end_comment
 
 begin_class
@@ -604,7 +604,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// if using the same version as the fabric8-camel-maven-plugin we must still load it
+comment|// if using the same version as the camel-maven-plugin we must still load it
 if|if
 condition|(
 name|catalog
@@ -652,7 +652,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// force load version from the fabric8-camel-maven-plugin
+comment|// force load version from the camel-maven-plugin
 name|getLog
 argument_list|()
 operator|.
@@ -1270,6 +1270,19 @@ range|:
 name|endpoints
 control|)
 block|{
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Validating endpoint: "
+operator|+
+name|detail
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|EndpointValidationResult
 name|result
 init|=
@@ -2035,6 +2048,19 @@ range|:
 name|simpleExpressions
 control|)
 block|{
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Validating simple expression: "
+operator|+
+name|detail
+operator|.
+name|getSimple
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|SimpleValidationResult
 name|result
 init|=
