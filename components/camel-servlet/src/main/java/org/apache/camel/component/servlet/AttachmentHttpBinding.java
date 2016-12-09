@@ -168,6 +168,7 @@ end_comment
 
 begin_class
 DECL|class|AttachmentHttpBinding
+specifier|public
 specifier|final
 class|class
 name|AttachmentHttpBinding
@@ -298,6 +299,7 @@ throw|;
 block|}
 block|}
 DECL|class|PartDataSource
+specifier|public
 specifier|final
 class|class
 name|PartDataSource
