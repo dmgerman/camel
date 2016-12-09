@@ -686,6 +686,24 @@ name|model
 operator|.
 name|util
 operator|.
+name|Formatter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|forge
+operator|.
+name|roaster
+operator|.
+name|model
+operator|.
+name|util
+operator|.
 name|Strings
 import|;
 end_import
@@ -1710,7 +1728,7 @@ block|{
 name|String
 name|json
 init|=
-name|loadDataFormaatJson
+name|loadDataFormatJson
 argument_list|(
 name|jsonFiles
 argument_list|,
@@ -7759,14 +7777,45 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"if (dataformat instanceof CamelContextAware) {\n"
+literal|"if (CamelContextAware.class.isAssignableFrom("
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|shortJavaType
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|".class)) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    ((CamelContextAware) dataformat).setCamelContext(camelContext);\n"
+literal|"    CamelContextAware contextAware = CamelContextAware.class.cast(dataformat);\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    if (contextAware != null) {\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"        contextAware.setCamelContext(camelContext);\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    }\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -7889,14 +7938,45 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"if (language instanceof CamelContextAware) {\n"
+literal|"if (CamelContextAware.class.isAssignableFrom("
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|shortJavaType
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|".class)) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    ((CamelContextAware) language).setCamelContext(camelContext);\n"
+literal|"    CamelContextAware contextAware = CamelContextAware.class.cast(language);\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    if (contextAware != null) {\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"        contextAware.setCamelContext(camelContext);\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"    }\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -8199,10 +8279,12 @@ block|{
 name|String
 name|code
 init|=
-name|javaClass
+name|Formatter
 operator|.
-name|toString
-argument_list|()
+name|format
+argument_list|(
+name|javaClass
+argument_list|)
 decl_stmt|;
 comment|// convert tabs to 4 spaces
 name|code
@@ -8307,11 +8389,11 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|loadDataFormaatJson (Set<File> jsonFiles, String dataFormatName)
+DECL|method|loadDataFormatJson (Set<File> jsonFiles, String dataFormatName)
 specifier|private
 specifier|static
 name|String
-name|loadDataFormaatJson
+name|loadDataFormatJson
 parameter_list|(
 name|Set
 argument_list|<
