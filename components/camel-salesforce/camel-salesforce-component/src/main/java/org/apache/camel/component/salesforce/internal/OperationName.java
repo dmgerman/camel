@@ -277,6 +277,12 @@ name|COMPOSITE_TREE
 argument_list|(
 literal|"composite-tree"
 argument_list|)
+block|,
+DECL|enumConstant|COMPOSITE_BATCH
+name|COMPOSITE_BATCH
+argument_list|(
+literal|"composite-batch"
+argument_list|)
 block|;
 DECL|field|value
 specifier|private

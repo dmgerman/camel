@@ -510,6 +510,9 @@ block|{
 case|case
 name|COMPOSITE_TREE
 case|:
+case|case
+name|COMPOSITE_BATCH
+case|:
 return|return
 literal|true
 return|;

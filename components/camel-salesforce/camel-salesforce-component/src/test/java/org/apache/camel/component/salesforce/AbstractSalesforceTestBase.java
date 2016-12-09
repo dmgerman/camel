@@ -162,9 +162,8 @@ name|getProperty
 argument_list|(
 literal|"apiVersion"
 argument_list|,
-name|SalesforceEndpointConfig
-operator|.
-name|DEFAULT_VERSION
+name|salesforceApiVersionToUse
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -274,6 +273,18 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|salesforceApiVersionToUse ()
+specifier|protected
+name|String
+name|salesforceApiVersionToUse
+parameter_list|()
+block|{
+return|return
+name|SalesforceEndpointConfig
+operator|.
+name|DEFAULT_VERSION
+return|;
 block|}
 block|}
 end_class

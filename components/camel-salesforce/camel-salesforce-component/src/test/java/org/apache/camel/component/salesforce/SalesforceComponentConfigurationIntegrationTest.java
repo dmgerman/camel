@@ -888,6 +888,8 @@ literal|"approval"
 argument_list|,
 literal|"approvals"
 argument_list|,
+literal|"composite-batch"
+argument_list|,
 literal|"composite-tree"
 argument_list|,
 literal|"[PushTopicName]"
