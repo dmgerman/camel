@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -49,6 +59,22 @@ operator|.
 name|dataformat
 operator|.
 name|YAMLLibrary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
+name|YAMLTypeFilterDefinition
 import|;
 end_import
 
@@ -140,6 +166,23 @@ name|Boolean
 name|prettyFlow
 init|=
 literal|false
+decl_stmt|;
+comment|/**      * Allow any class to be un-marshaled      */
+DECL|field|allowAnyType
+specifier|private
+name|Boolean
+name|allowAnyType
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Set the types SnakeYAML is allowed to un-marshall      */
+DECL|field|typeFilter
+specifier|private
+name|List
+argument_list|<
+name|YAMLTypeFilterDefinition
+argument_list|>
+name|typeFilter
 decl_stmt|;
 DECL|method|getLibrary ()
 specifier|public
@@ -347,6 +390,64 @@ operator|.
 name|prettyFlow
 operator|=
 name|prettyFlow
+expr_stmt|;
+block|}
+DECL|method|getAllowAnyType ()
+specifier|public
+name|Boolean
+name|getAllowAnyType
+parameter_list|()
+block|{
+return|return
+name|allowAnyType
+return|;
+block|}
+DECL|method|setAllowAnyType (Boolean allowAnyType)
+specifier|public
+name|void
+name|setAllowAnyType
+parameter_list|(
+name|Boolean
+name|allowAnyType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowAnyType
+operator|=
+name|allowAnyType
+expr_stmt|;
+block|}
+DECL|method|getTypeFilter ()
+specifier|public
+name|List
+argument_list|<
+name|YAMLTypeFilterDefinition
+argument_list|>
+name|getTypeFilter
+parameter_list|()
+block|{
+return|return
+name|typeFilter
+return|;
+block|}
+DECL|method|setTypeFilter (List<YAMLTypeFilterDefinition> typeFilter)
+specifier|public
+name|void
+name|setTypeFilter
+parameter_list|(
+name|List
+argument_list|<
+name|YAMLTypeFilterDefinition
+argument_list|>
+name|typeFilter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|typeFilter
+operator|=
+name|typeFilter
 expr_stmt|;
 block|}
 block|}
