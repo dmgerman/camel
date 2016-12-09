@@ -186,6 +186,8 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
 name|getHeaders
 argument_list|()
 operator|.
