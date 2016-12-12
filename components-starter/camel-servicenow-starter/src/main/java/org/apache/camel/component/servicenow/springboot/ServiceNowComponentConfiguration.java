@@ -640,6 +640,30 @@ specifier|private
 name|ProxyAuthorizationPolicy
 name|proxyAuthorizationPolicy
 decl_stmt|;
+comment|/**          * The proxy host name          */
+DECL|field|proxyHost
+specifier|private
+name|String
+name|proxyHost
+decl_stmt|;
+comment|/**          * The proxy port number          */
+DECL|field|proxyPort
+specifier|private
+name|Integer
+name|proxyPort
+decl_stmt|;
+comment|/**          * Username for proxy authentication          */
+DECL|field|proxyUserName
+specifier|private
+name|String
+name|proxyUserName
+decl_stmt|;
+comment|/**          * Password for proxy authentication          */
+DECL|field|proxyPassword
+specifier|private
+name|String
+name|proxyPassword
+decl_stmt|;
 DECL|field|models
 specifier|private
 name|Map
@@ -1507,6 +1531,110 @@ operator|.
 name|proxyAuthorizationPolicy
 operator|=
 name|proxyAuthorizationPolicy
+expr_stmt|;
+block|}
+DECL|method|getProxyHost ()
+specifier|public
+name|String
+name|getProxyHost
+parameter_list|()
+block|{
+return|return
+name|proxyHost
+return|;
+block|}
+DECL|method|setProxyHost (String proxyHost)
+specifier|public
+name|void
+name|setProxyHost
+parameter_list|(
+name|String
+name|proxyHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyHost
+operator|=
+name|proxyHost
+expr_stmt|;
+block|}
+DECL|method|getProxyPort ()
+specifier|public
+name|Integer
+name|getProxyPort
+parameter_list|()
+block|{
+return|return
+name|proxyPort
+return|;
+block|}
+DECL|method|setProxyPort (Integer proxyPort)
+specifier|public
+name|void
+name|setProxyPort
+parameter_list|(
+name|Integer
+name|proxyPort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyPort
+operator|=
+name|proxyPort
+expr_stmt|;
+block|}
+DECL|method|getProxyUserName ()
+specifier|public
+name|String
+name|getProxyUserName
+parameter_list|()
+block|{
+return|return
+name|proxyUserName
+return|;
+block|}
+DECL|method|setProxyUserName (String proxyUserName)
+specifier|public
+name|void
+name|setProxyUserName
+parameter_list|(
+name|String
+name|proxyUserName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyUserName
+operator|=
+name|proxyUserName
+expr_stmt|;
+block|}
+DECL|method|getProxyPassword ()
+specifier|public
+name|String
+name|getProxyPassword
+parameter_list|()
+block|{
+return|return
+name|proxyPassword
+return|;
+block|}
+DECL|method|setProxyPassword (String proxyPassword)
+specifier|public
+name|void
+name|setProxyPassword
+parameter_list|(
+name|String
+name|proxyPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyPassword
+operator|=
+name|proxyPassword
 expr_stmt|;
 block|}
 DECL|method|getModels ()
