@@ -868,7 +868,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// disableStreamCache not explict configured so we can automatic change it
+comment|// disableStreamCache not explicit configured so we can automatic change it
 name|LOG
 operator|.
 name|info
@@ -895,7 +895,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The options attachmentMultipartBinding=true and disableStreamCache=false cannot work together. Remove disableStreamCache to use AttachmentMultipartBinding"
+literal|"The options attachmentMultipartBinding=true and disableStreamCache=false cannot work together."
+operator|+
+literal|" Remove disableStreamCache to use AttachmentMultipartBinding"
 argument_list|)
 throw|;
 block|}
