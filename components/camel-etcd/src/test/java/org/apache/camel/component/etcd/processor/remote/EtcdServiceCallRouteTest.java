@@ -160,11 +160,26 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"An etcd server is needed for this test "
+argument_list|)
 DECL|class|EtcdServiceCallRouteTest
 specifier|public
 class|class

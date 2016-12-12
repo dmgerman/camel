@@ -28,16 +28,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Comparator
 import|;
 end_import
@@ -123,17 +113,6 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-DECL|field|tags
-specifier|private
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|tags
-decl_stmt|;
 annotation|@
 name|JsonCreator
 DECL|method|EtcdServiceCallServer ( @sonPropertyR) final String name, @JsonProperty(R) final String address, @JsonProperty(R) final Integer port, @JsonProperty(R) final Map<String, String> tags)
@@ -187,6 +166,8 @@ argument_list|(
 name|address
 argument_list|,
 name|port
+argument_list|,
+name|tags
 argument_list|)
 expr_stmt|;
 name|this
@@ -194,25 +175,6 @@ operator|.
 name|name
 operator|=
 name|name
-expr_stmt|;
-name|this
-operator|.
-name|tags
-operator|=
-name|Collections
-operator|.
-name|unmodifiableMap
-argument_list|(
-name|tags
-operator|!=
-literal|null
-condition|?
-name|tags
-else|:
-name|Collections
-operator|.
-name|EMPTY_MAP
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getName ()
@@ -223,21 +185,6 @@ parameter_list|()
 block|{
 return|return
 name|name
-return|;
-block|}
-DECL|method|getTags ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getTags
-parameter_list|()
-block|{
-return|return
-name|tags
 return|;
 block|}
 DECL|method|comparator ()

@@ -16,6 +16,16 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a server that host a service for the Service Call EIP.  *  * @see ServiceCallLoadBalancer  * @see ServiceCallServerListStrategy  */
 end_comment
@@ -36,6 +46,17 @@ comment|/**      * Gets the port number of the server hosting the service      *
 DECL|method|getPort ()
 name|int
 name|getPort
+parameter_list|()
+function_decl|;
+comment|/**      * Gets a key/value metadata associated with the service      */
+DECL|method|getMetadata ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getMetadata
 parameter_list|()
 function_decl|;
 block|}
