@@ -1343,6 +1343,41 @@ operator|=
 name|nettyHttpBinding
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|NettyHttpConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+operator|(
+name|NettyHttpConfiguration
+operator|)
+name|super
+operator|.
+name|getConfiguration
+argument_list|()
+return|;
+block|}
+DECL|method|setConfiguration (NettyHttpConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|NettyHttpConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
