@@ -1121,11 +1121,13 @@ name|getContentAsInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// for APIs that return body on status 400, such as Composite API we need content as well
 name|callback
 operator|.
 name|onResponse
 argument_list|(
-literal|null
+name|getContentAsInputStream
+argument_list|()
 argument_list|,
 operator|new
 name|SalesforceException

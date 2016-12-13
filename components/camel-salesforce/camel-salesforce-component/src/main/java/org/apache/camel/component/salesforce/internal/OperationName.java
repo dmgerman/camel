@@ -270,6 +270,13 @@ name|APPROVALS
 argument_list|(
 literal|"approvals"
 argument_list|)
+block|,
+comment|// Composite API
+DECL|enumConstant|COMPOSITE_TREE
+name|COMPOSITE_TREE
+argument_list|(
+literal|"composite-tree"
+argument_list|)
 block|;
 DECL|field|value
 specifier|private

@@ -284,7 +284,7 @@ specifier|final
 name|String
 name|DEFAULT_VERSION
 init|=
-literal|"33.0"
+literal|"34.0"
 decl_stmt|;
 comment|// general parameter
 DECL|field|API_VERSION
