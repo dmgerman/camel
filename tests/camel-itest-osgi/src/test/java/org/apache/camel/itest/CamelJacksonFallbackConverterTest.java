@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.karaf.converters
+DECL|package|org.apache.camel.itest
 package|package
 name|org
 operator|.
@@ -13,12 +13,18 @@ operator|.
 name|camel
 operator|.
 name|itest
-operator|.
-name|karaf
-operator|.
-name|converters
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
 
 begin_import
 import|import
@@ -70,11 +76,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|itest
+name|test
 operator|.
 name|karaf
 operator|.
-name|BaseKarafTest
+name|AbstractFeatureTest
 import|;
 end_import
 
@@ -86,13 +92,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|itest
+name|test
 operator|.
 name|karaf
 operator|.
-name|bean
+name|CamelKarafTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|Pojo
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -172,18 +190,6 @@ name|PaxExam
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
 begin_class
 annotation|@
 name|RunWith
@@ -197,27 +203,8 @@ specifier|public
 class|class
 name|CamelJacksonFallbackConverterTest
 extends|extends
-name|BaseKarafTest
+name|AbstractFeatureTest
 block|{
-annotation|@
-name|Configuration
-DECL|method|configure ()
-specifier|public
-specifier|static
-name|Option
-index|[]
-name|configure
-parameter_list|()
-block|{
-return|return
-name|BaseKarafTest
-operator|.
-name|configure
-argument_list|(
-literal|"camel-jackson"
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|test ()
@@ -228,8 +215,36 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// install the camel blueprint xml file we use in this test
+name|URL
+name|url
+init|=
+name|ObjectHelper
+operator|.
+name|loadResourceAsURL
+argument_list|(
+literal|"org/apache/camel/itest/CamelJacksonFallbackConverterTest.xml"
+argument_list|,
+name|CamelJacksonFallbackConverterTest
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|installBlueprintAsBundle
+argument_list|(
+literal|"CamelJacksonFallbackConverterTest"
+argument_list|,
+name|url
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// lookup Camel from OSGi
 name|CamelContext
-name|context
+name|camel
 init|=
 name|getOsgiService
 argument_list|(
@@ -238,21 +253,10 @@ argument_list|,
 name|CamelContext
 operator|.
 name|class
-argument_list|,
-literal|"(camel.context.name=myCamel)"
-argument_list|,
-name|SERVICE_TIMEOUT
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Cannot find CamelContext with name myCamel"
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
 comment|// enable Jackson json type converter
-name|context
+name|camel
 operator|.
 name|getProperties
 argument_list|()
@@ -267,7 +271,7 @@ literal|"true"
 argument_list|)
 expr_stmt|;
 comment|// allow Jackson json to convert to pojo types also (by default jackson only converts to String and other simple types)
-name|context
+name|camel
 operator|.
 name|getProperties
 argument_list|()
@@ -281,7 +285,6 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-comment|// test type conversion
 specifier|final
 name|Pojo
 name|pojo
@@ -301,14 +304,14 @@ init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-name|context
+name|camel
 argument_list|)
 decl_stmt|;
 specifier|final
 name|String
 name|string
 init|=
-name|context
+name|camel
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -324,11 +327,20 @@ argument_list|,
 name|pojo
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"POJO -> String: {}"
+argument_list|,
+name|string
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Pojo
 name|copy
 init|=
-name|context
+name|camel
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -344,6 +356,15 @@ argument_list|,
 name|string
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"String -> POJO: {}"
+argument_list|,
+name|copy
+argument_list|)
+expr_stmt|;
 name|Assert
 operator|.
 name|assertEquals
@@ -353,6 +374,26 @@ argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Configuration
+DECL|method|configure ()
+specifier|public
+name|Option
+index|[]
+name|configure
+parameter_list|()
+block|{
+return|return
+name|CamelKarafTestSupport
+operator|.
+name|configure
+argument_list|(
+literal|"camel-test-karaf"
+argument_list|,
+literal|"camel-jackson"
+argument_list|)
+return|;
 block|}
 block|}
 end_class
