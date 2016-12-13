@@ -197,7 +197,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"dns.priority"
+literal|"priority"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -210,7 +210,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"dns.weight"
+literal|"weight"
 argument_list|)
 argument_list|)
 expr_stmt|;
