@@ -2450,7 +2450,7 @@ name|sanitizeUri
 argument_list|(
 name|StringHelper
 operator|.
-name|limitLenght
+name|limitLength
 argument_list|(
 name|history
 operator|.

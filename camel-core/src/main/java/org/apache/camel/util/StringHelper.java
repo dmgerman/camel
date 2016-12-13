@@ -208,12 +208,37 @@ return|return
 name|matches
 return|;
 block|}
-comment|/**      * Limits the length of a string      *       * @param s the string      * @param maxLength the maximum length of the returned string      * @return s if the length of s is less than maxLength or the first maxLength characters of s      */
+comment|/**      * Limits the length of a string      *       * @param s the string      * @param maxLength the maximum length of the returned string      * @return s if the length of s is less than maxLength or the first maxLength characters of s      * @deprecated use {@link #limitLength(String, int)}      */
+annotation|@
+name|Deprecated
 DECL|method|limitLenght (String s, int maxLength)
 specifier|public
 specifier|static
 name|String
 name|limitLenght
+parameter_list|(
+name|String
+name|s
+parameter_list|,
+name|int
+name|maxLength
+parameter_list|)
+block|{
+return|return
+name|limitLength
+argument_list|(
+name|s
+argument_list|,
+name|maxLength
+argument_list|)
+return|;
+block|}
+comment|/**      * Limits the length of a string      *      * @param s the string      * @param maxLength the maximum length of the returned string      * @return s if the length of s is less than maxLength or the first maxLength characters of s      */
+DECL|method|limitLength (String s, int maxLength)
+specifier|public
+specifier|static
+name|String
+name|limitLength
 parameter_list|(
 name|String
 name|s
@@ -256,6 +281,7 @@ name|maxLength
 argument_list|)
 return|;
 block|}
+comment|/**      * Removes all quotes (single and double) from the string      *      * @param s  the string      * @return the string without quotes (single and double)      */
 DECL|method|removeQuotes (String s)
 specifier|public
 specifier|static
@@ -306,6 +332,7 @@ return|return
 name|s
 return|;
 block|}
+comment|/**      * Removes all leading and ending quotes (single and double) from the string      *      * @param s  the string      * @return the string without leading and ending quotes (single and double)      */
 DECL|method|removeLeadingAndEndingQuotes (String s)
 specifier|public
 specifier|static
@@ -409,6 +436,7 @@ return|return
 name|s
 return|;
 block|}
+comment|/**      * Whether the string starts and ends with either single or double quotes.      *      * @param s the string      * @return<tt>true</tt> if the string starts and ends with either single or double quotes.      */
 DECL|method|isQuoted (String s)
 specifier|public
 specifier|static
@@ -1127,6 +1155,7 @@ return|return
 name|value
 return|;
 block|}
+comment|// TODO: add javadoc
 DECL|method|splitOnCharacter (String value, String needle, int count)
 specifier|public
 specifier|static
@@ -1297,6 +1326,7 @@ return|return
 name|text
 return|;
 block|}
+comment|/**      * Capitalize the string (upper case first character)      *      * @param text  the string      * @return the string capitalized (upper case first character)      */
 DECL|method|capitalize (String text)
 specifier|public
 specifier|static
