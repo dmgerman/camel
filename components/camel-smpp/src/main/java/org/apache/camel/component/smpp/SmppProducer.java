@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of @{link Producer} which use the SMPP protocol  */
+comment|/**  * An implementation of @{link Producer} which use the SMPP protocol  *  * @version  */
 end_comment
 
 begin_class
@@ -467,15 +467,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Connecting to: "
-operator|+
+literal|"Connecting to: {}..."
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
 name|getConnectionString
 argument_list|()
-operator|+
-literal|"..."
 argument_list|)
 expr_stmt|;
 name|SMPPSession
@@ -589,8 +587,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Connected to: "
-operator|+
+literal|"Connected to: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -844,15 +842,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Disconnecting from: "
-operator|+
+literal|"Disconnecting from: {}..."
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
 name|getConnectionString
 argument_list|()
-operator|+
-literal|"..."
 argument_list|)
 expr_stmt|;
 name|super
@@ -867,8 +863,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Disconnected from: "
-operator|+
+literal|"Disconnected from: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -978,11 +974,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Schedule reconnect after "
-operator|+
+literal|"Schedule reconnect after {} millis"
+argument_list|,
 name|initialReconnectDelay
-operator|+
-literal|" millis"
 argument_list|)
 expr_stmt|;
 try|try
@@ -1052,7 +1046,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Trying to reconnect to {} - attempt #"
+literal|"Trying to reconnect to {} - attempt #{}"
 argument_list|,
 name|getEndpoint
 argument_list|()
