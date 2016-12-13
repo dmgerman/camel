@@ -53,16 +53,6 @@ name|HazelcastDefaultProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|helper
-specifier|private
-specifier|final
-name|HazelcastComponentHelper
-name|helper
-init|=
-operator|new
-name|HazelcastComponentHelper
-argument_list|()
-decl_stmt|;
 DECL|method|HazelcastDefaultProducer (HazelcastDefaultEndpoint endpoint)
 specifier|public
 name|HazelcastDefaultProducer
@@ -105,7 +95,7 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-name|helper
+name|HazelcastComponentHelper
 operator|.
 name|lookupOperationNumber
 argument_list|(
