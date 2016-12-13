@@ -724,6 +724,24 @@ name|HAZELCAST_INSTANCE_PARAM
 init|=
 literal|"hazelcastInstance"
 decl_stmt|;
+DECL|field|HAZELCAST_CONFIGU_PARAM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HAZELCAST_CONFIGU_PARAM
+init|=
+literal|"hazelcastConfig"
+decl_stmt|;
+DECL|field|HAZELCAST_CONFIGU_URI_PARAM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HAZELCAST_CONFIGU_URI_PARAM
+init|=
+literal|"hazelcastConfigUri"
+decl_stmt|;
 DECL|method|HazelcastConstants ()
 specifier|private
 name|HazelcastConstants
