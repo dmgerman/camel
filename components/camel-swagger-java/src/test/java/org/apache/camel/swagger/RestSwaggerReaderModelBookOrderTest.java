@@ -319,6 +319,23 @@ name|to
 argument_list|(
 literal|"bean:bookService?method=getOrder(${header.id})"
 argument_list|)
+operator|.
+name|get
+argument_list|(
+literal|"/books/{id}/line/{lineNum}"
+argument_list|)
+operator|.
+name|outType
+argument_list|(
+name|LineItem
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"bean:bookService?method=getOrder(${header.id})"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -550,8 +567,16 @@ literal|"\"format\" : \"org.apache.camel.swagger.BookOrder\""
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: we do not yet have the classname of nested types
-comment|// assertTrue(json.contains("\"format\" : \"org.apache.camel.swagger.LineItem\""));
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"format\" : \"org.apache.camel.swagger.LineItem\""
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|stop

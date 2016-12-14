@@ -3469,6 +3469,15 @@ name|getVendorExtensions
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|oldModel
+operator|.
+name|getVendorExtensions
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|oldExt
