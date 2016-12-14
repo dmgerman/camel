@@ -439,17 +439,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
 literal|"Starting Kafka consumer"
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
 expr_stmt|;
 name|executor
 operator|=
@@ -515,11 +515,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -559,7 +554,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdownNow
+name|shutdownGraceful
 argument_list|(
 name|executor
 argument_list|)
@@ -577,6 +572,11 @@ block|}
 name|executor
 operator|=
 literal|null
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
 expr_stmt|;
 block|}
 DECL|class|KafkaFetchRecords
@@ -732,7 +732,7 @@ try|try
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Subscribing {} to topic {}"
 argument_list|,
@@ -802,6 +802,10 @@ block|}
 while|while
 condition|(
 name|isRunAllowed
+argument_list|()
+operator|&&
+operator|!
+name|isStoppingOrStopped
 argument_list|()
 operator|&&
 operator|!
@@ -1008,7 +1012,7 @@ block|}
 block|}
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Unsubscribing {} from topic {}"
 argument_list|,
@@ -1041,6 +1045,17 @@ operator|+
 literal|" from kafka topic"
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Unsubscribing {} from topic {}"
+argument_list|,
+name|threadId
+argument_list|,
+name|topicName
 argument_list|)
 expr_stmt|;
 name|consumer

@@ -403,10 +403,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|kaftMessageIsConsumedByCamel ()
+DECL|method|kafkaMessageIsConsumedByCamel ()
 specifier|public
 name|void
-name|kaftMessageIsConsumedByCamel
+name|kafkaMessageIsConsumedByCamel
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -503,10 +503,10 @@ name|Ignore
 argument_list|(
 literal|"Currently there is a bug in kafka which leads to an uninterruptable thread so a resub take too long (works manually)"
 argument_list|)
-DECL|method|kaftMessageIsConsumedByCamelSeekedToBeginning ()
+DECL|method|kafkaMessageIsConsumedByCamelSeekedToBeginning ()
 specifier|public
 name|void
-name|kaftMessageIsConsumedByCamelSeekedToBeginning
+name|kafkaMessageIsConsumedByCamelSeekedToBeginning
 parameter_list|()
 throws|throws
 name|Exception
