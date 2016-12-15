@@ -693,16 +693,6 @@ operator|.
 name|internalSessionStateListener
 argument_list|)
 expr_stmt|;
-comment|// remove this hack after http://code.google.com/p/jsmpp/issues/detail?id=93 is fixed
-try|try
-block|{
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|session
 operator|.
 name|unbindAndClose
@@ -713,26 +703,6 @@ name|session
 operator|=
 literal|null
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Cannot close session due "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|reconnect (final long initialReconnectDelay)
