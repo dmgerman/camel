@@ -321,6 +321,13 @@ specifier|private
 name|String
 name|disableFeatures
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|allowUnmarshallType
+specifier|private
+name|Boolean
+name|allowUnmarshallType
+decl_stmt|;
 DECL|method|JacksonXMLDataFormat ()
 specifier|public
 name|JacksonXMLDataFormat
@@ -722,6 +729,33 @@ operator|=
 name|disableFeatures
 expr_stmt|;
 block|}
+DECL|method|getAllowUnmarshallType ()
+specifier|public
+name|Boolean
+name|getAllowUnmarshallType
+parameter_list|()
+block|{
+return|return
+name|allowUnmarshallType
+return|;
+block|}
+comment|/**      * If enabled then Jackson is allowed to attempt to use the CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
+DECL|method|setAllowUnmarshallType (Boolean allowUnmarshallType)
+specifier|public
+name|void
+name|setAllowUnmarshallType
+parameter_list|(
+name|Boolean
+name|allowUnmarshallType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowUnmarshallType
+operator|=
+name|allowUnmarshallType
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getDataFormatName ()
@@ -1119,6 +1153,25 @@ argument_list|,
 literal|"disableFeatures"
 argument_list|,
 name|disableFeatures
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|allowUnmarshallType
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"allowUnmarshallType"
+argument_list|,
+name|allowUnmarshallType
 argument_list|)
 expr_stmt|;
 block|}
