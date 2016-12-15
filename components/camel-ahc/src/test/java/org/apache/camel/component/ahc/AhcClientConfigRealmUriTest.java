@@ -70,9 +70,9 @@ argument_list|(
 name|getAhcEndpointUri
 argument_list|()
 operator|+
-literal|"?realm.scheme=DIGEST&realm.principal=someUser"
+literal|"?clientConfig.realm.scheme=DIGEST&clientConfig.realm.principal=someUser"
 operator|+
-literal|"&realm.password=somePass&realm.usePreemptiveAuth=true"
+literal|"&clientConfig.realm.password=somePass&clientConfig.realm.usePreemptiveAuth=true"
 argument_list|,
 literal|null
 argument_list|,
