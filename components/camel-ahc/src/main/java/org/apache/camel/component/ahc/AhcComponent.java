@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -513,6 +523,19 @@ argument_list|,
 name|CLIENT_REALM_CONFIG_PREFIX
 argument_list|)
 decl_stmt|;
+comment|// copy the parameters for the endpoint to have
+name|endpoint
+operator|.
+name|setClientConfigRealmOptions
+argument_list|(
+operator|new
+name|LinkedHashMap
+argument_list|<>
+argument_list|(
+name|realmParams
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Object
 name|principal
 init|=
@@ -618,6 +641,19 @@ argument_list|,
 name|CLIENT_CONFIG_PREFIX
 argument_list|)
 decl_stmt|;
+comment|// copy the parameters for the endpoint to have
+name|endpoint
+operator|.
+name|setClientConfigOptions
+argument_list|(
+operator|new
+name|LinkedHashMap
+argument_list|<>
+argument_list|(
+name|clientParams
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|builder
