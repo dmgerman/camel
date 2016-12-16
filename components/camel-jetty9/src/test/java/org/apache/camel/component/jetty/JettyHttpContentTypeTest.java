@@ -81,7 +81,7 @@ specifier|final
 name|String
 name|CHARSET
 init|=
-literal|"ISO-8859-1"
+literal|"iso-8859-1"
 decl_stmt|;
 annotation|@
 name|Test
