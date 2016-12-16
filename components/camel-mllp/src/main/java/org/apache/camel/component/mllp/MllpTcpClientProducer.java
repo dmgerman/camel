@@ -1458,7 +1458,7 @@ return|return
 name|acknowledgementType
 return|;
 block|}
-comment|/**      * Validate the TCP Connection      *      * @return null if the connection is valid, otherwise the Exception encounted checking the connection      */
+comment|/**      * Validate the TCP Connection      *      * @return null if the connection is valid, otherwise the Exception encountered checking the connection      */
 DECL|method|checkConnection ()
 name|void
 name|checkConnection

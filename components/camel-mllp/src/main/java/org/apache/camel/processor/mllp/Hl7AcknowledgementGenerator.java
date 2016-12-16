@@ -233,8 +233,6 @@ name|Exception
 block|{
 name|Message
 name|message
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

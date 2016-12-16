@@ -23,6 +23,8 @@ comment|/**  * @deprecated - replaced by more specific exceptions.  MllpTimeoutE
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|MllpFrameException
 specifier|public
 class|class

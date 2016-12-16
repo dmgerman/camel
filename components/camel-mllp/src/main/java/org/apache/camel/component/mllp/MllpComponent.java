@@ -98,24 +98,6 @@ name|mllp
 operator|.
 name|MllpEndpoint
 operator|.
-name|END_OF_DATA
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mllp
-operator|.
-name|MllpEndpoint
-operator|.
 name|START_OF_BLOCK
 import|;
 end_import
