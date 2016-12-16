@@ -196,20 +196,6 @@ name|jetty
 operator|.
 name|server
 operator|.
-name|Connector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|server
-operator|.
 name|ForwardedRequestCustomizer
 import|;
 end_import
@@ -343,45 +329,6 @@ argument_list|()
 argument_list|,
 name|httpUri
 argument_list|)
-return|;
-block|}
-DECL|method|getSslSocketConnector (Server server, JettyHttpEndpoint endpoint)
-specifier|protected
-name|Connector
-name|getSslSocketConnector
-parameter_list|(
-name|Server
-name|server
-parameter_list|,
-name|JettyHttpEndpoint
-name|endpoint
-parameter_list|)
-block|{
-name|Connector
-name|answer
-init|=
-literal|null
-decl_stmt|;
-comment|/*         if (sslSocketConnectors != null) {             SslContextFactory con = sslSocketConnectors.get(endpoint.getPort());             if (con != null) {                 SslConnectionFactory sslConnectionFactory = new SslConnectionFactory(con, null);                 @SuppressWarnings("resource")                 ServerConnector sc = new ServerConnector(server, sslConnectionFactory);                 sc.setPort(endpoint.getPort());                 sc.setHost(endpoint.getHttpUri().getHost());                 answer = sc;             }         }         */
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
-name|answer
-operator|=
-name|createConnector
-argument_list|(
-name|server
-argument_list|,
-name|endpoint
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|answer
 return|;
 block|}
 DECL|method|createConnectorJettyInternal (Server server, JettyHttpEndpoint endpoint, SslContextFactory sslcf)
@@ -688,7 +635,6 @@ name|host
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*             if (getSocketConnectorProperties() != null&& !"https".equals(endpoint.getProtocol())) {                 // must copy the map otherwise it will be deleted                 Map<String, Object> properties = new HashMap<String, Object>(getSocketConnectorProperties());                 IntrospectionSupport.setProperties(httpConfig, properties);                 if (properties.size()> 0) {                     throw new IllegalArgumentException("There are " + properties.size()                         + " parameters that couldn't be set on the SocketConnector."                         + " Check the uri if the parameters are spelt correctly and that they are properties of the SelectChannelConnector."                         + " Unknown parameters=[" + properties + "]");                 }             } else*/
 if|if
 condition|(
 name|getSslSocketConnectorProperties
