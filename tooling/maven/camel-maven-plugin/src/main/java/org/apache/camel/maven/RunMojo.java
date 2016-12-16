@@ -535,7 +535,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs a CamelContext using any Spring or Blueprint XML configuration files found in  *<code>META-INF/spring/*.xml</code>, and<code>OSGI-INF/blueprint/*.xml</code>,  * and<code>camel-*.xml</code> and starting up the context.  *  * @goal run  * @requiresDependencyResolution compile+runtime  * @execute phase="test-compile"  */
+comment|/**  * Runs a CamelContext using any Spring or Blueprint XML configuration files found in  *<code>META-INF/spring/*.xml</code>, and<code>OSGI-INF/blueprint/*.xml</code>,  * and<code>camel-*.xml</code> and starting up the context.  *  * @goal run  * @requiresDependencyResolution compile+runtime  * @execute phase="prepare-package"  */
 end_comment
 
 begin_class
@@ -765,6 +765,43 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+name|String
+name|skip
+init|=
+name|System
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|getProperty
+argument_list|(
+literal|"maven.test.skip"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|skip
+operator|==
+literal|null
+operator|||
+literal|"false"
+operator|.
+name|equals
+argument_list|(
+name|skip
+argument_list|)
+condition|)
+block|{
+comment|// lets log a INFO about how to skip tests if you want to so you can run faster
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"You can skip tests from the command line using: mvn camel:run -Dmaven.test.skip=true"
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|usingSpringJavaConfigureMain
 init|=
@@ -772,8 +809,6 @@ literal|false
 decl_stmt|;
 name|boolean
 name|useCdiMain
-init|=
-literal|false
 decl_stmt|;
 if|if
 condition|(
@@ -799,8 +834,6 @@ expr_stmt|;
 block|}
 name|boolean
 name|usingBlueprintMain
-init|=
-literal|false
 decl_stmt|;
 if|if
 condition|(
