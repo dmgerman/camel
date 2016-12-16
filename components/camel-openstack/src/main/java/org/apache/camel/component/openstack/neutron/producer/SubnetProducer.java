@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -212,26 +232,6 @@ name|NeutronPool
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_class
 DECL|class|SubnetProducer
 specifier|public
@@ -259,9 +259,9 @@ name|client
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
 annotation|@
 name|Override
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -771,6 +771,7 @@ operator|.
 name|CIDR
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|cidr
@@ -789,6 +790,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -845,6 +847,7 @@ operator|.
 name|NETWORK_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|networkId
@@ -863,6 +866,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -874,6 +878,7 @@ operator|.
 name|ENABLE_DHCP
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|enableDHCP
@@ -892,6 +897,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -903,6 +909,7 @@ operator|.
 name|GATEWAY
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|gateway
@@ -921,6 +928,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|subnet
 operator|=
 name|builder

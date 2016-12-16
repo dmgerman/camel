@@ -22,6 +22,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -183,26 +203,6 @@ operator|.
 name|builder
 operator|.
 name|ImageBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -852,6 +852,7 @@ name|class
 argument_list|)
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -859,6 +860,7 @@ argument_list|(
 literal|"Image Name must be specified and not empty"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -879,6 +881,7 @@ name|class
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -902,6 +905,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -922,6 +926,7 @@ name|class
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -945,6 +950,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -965,6 +971,7 @@ name|class
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -988,6 +995,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1008,6 +1016,7 @@ name|class
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -1031,6 +1040,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1047,6 +1057,7 @@ name|CHECKSUM
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -1070,6 +1081,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1086,6 +1098,7 @@ name|MIN_DISK
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -1109,6 +1122,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1125,6 +1139,7 @@ name|MIN_RAM
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -1148,6 +1163,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1164,6 +1180,7 @@ name|OWNER
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -1187,6 +1204,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1203,6 +1221,7 @@ name|IS_PUBLIC
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -1226,6 +1245,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1242,6 +1262,7 @@ name|PROPERTIES
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|imageBuilder
 operator|=
 name|getImageBuilder
@@ -1265,6 +1286,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!

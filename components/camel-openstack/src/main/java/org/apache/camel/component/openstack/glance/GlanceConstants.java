@@ -137,6 +137,11 @@ name|UPLOAD
 init|=
 literal|"upload"
 decl_stmt|;
+DECL|method|GlanceConstants ()
+specifier|private
+name|GlanceConstants
+parameter_list|()
+block|{ }
 block|}
 end_class
 

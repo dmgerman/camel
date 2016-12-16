@@ -19,14 +19,12 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|mockito
+name|io
 operator|.
-name|Mockito
-operator|.
-name|when
+name|IOException
 import|;
 end_import
 
@@ -137,12 +135,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|io
+name|mockito
 operator|.
-name|IOException
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 

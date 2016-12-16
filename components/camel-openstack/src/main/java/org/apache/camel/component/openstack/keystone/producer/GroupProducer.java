@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -165,26 +185,6 @@ operator|.
 name|builder
 operator|.
 name|GroupBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -1060,6 +1060,7 @@ operator|.
 name|DOMAIN_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|domainId
@@ -1078,6 +1079,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1089,6 +1091,7 @@ operator|.
 name|DESCRIPTION
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|description
@@ -1107,6 +1110,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|group
 operator|=
 name|builder

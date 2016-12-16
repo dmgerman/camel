@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -210,26 +230,6 @@ name|ServerCreateBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_class
 DECL|class|ServerProducer
 specifier|public
@@ -327,6 +327,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|NovaConstants
 operator|.
@@ -915,6 +916,7 @@ operator|.
 name|IMAGE_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|image
@@ -933,6 +935,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -944,6 +947,7 @@ operator|.
 name|NETWORK
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|networks
@@ -962,6 +966,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -973,6 +978,7 @@ operator|.
 name|FLAVOR_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|flavor
@@ -991,6 +997,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1002,6 +1009,7 @@ operator|.
 name|KEYPAIR_NAME
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|keypairName
@@ -1020,6 +1028,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1031,6 +1040,7 @@ operator|.
 name|ADMIN_PASSWORD
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|addAdminPass
@@ -1049,6 +1059,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|serverCreate
 operator|=
 name|builder

@@ -276,6 +276,11 @@ name|DETACH_INTERFACE
 init|=
 literal|"detachInterface"
 decl_stmt|;
+DECL|method|NeutronConstants ()
+specifier|private
+name|NeutronConstants
+parameter_list|()
+block|{ }
 block|}
 end_class
 

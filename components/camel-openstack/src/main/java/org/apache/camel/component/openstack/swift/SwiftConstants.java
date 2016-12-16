@@ -155,6 +155,11 @@ name|DELETE_METADATA
 init|=
 literal|"deleteMetadata"
 decl_stmt|;
+DECL|method|SwiftConstants ()
+specifier|private
+name|SwiftConstants
+parameter_list|()
+block|{ }
 block|}
 end_class
 

@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -199,26 +219,6 @@ operator|.
 name|builder
 operator|.
 name|VolumeBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -624,7 +624,6 @@ argument_list|(
 name|msg
 argument_list|)
 decl_stmt|;
-empty_stmt|;
 name|ObjectHelper
 operator|.
 name|notEmpty
@@ -871,6 +870,7 @@ operator|.
 name|DESCRIPTION
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|description
@@ -889,6 +889,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -900,6 +901,7 @@ operator|.
 name|SIZE
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|size
@@ -918,6 +920,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -929,6 +932,7 @@ operator|.
 name|VOLUME_TYPE
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|volumeType
@@ -947,6 +951,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -958,6 +963,7 @@ operator|.
 name|IMAGE_REF
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|imageRef
@@ -976,6 +982,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -987,6 +994,7 @@ operator|.
 name|SNAPSHOT_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|snapshot
@@ -1005,6 +1013,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1016,6 +1025,7 @@ operator|.
 name|IS_BOOTABLE
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|bootable
@@ -1034,6 +1044,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|volume
 operator|=
 name|builder

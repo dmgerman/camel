@@ -47,7 +47,6 @@ name|NovaConstants
 extends|extends
 name|OpenstackConstants
 block|{
-comment|/***************************************** 	 * 		constants for options			 * 	 *****************************************/
 DECL|field|NOVA_SUBSYSTEM_FLAVORS
 specifier|public
 specifier|static
@@ -167,7 +166,6 @@ name|NETWORK
 init|=
 literal|"NetworkId"
 decl_stmt|;
-comment|/***************************************** 	 * constants for operations				 * 	 *****************************************/
 comment|//server
 DECL|field|CREATE_SNAPSHOT
 specifier|public
@@ -187,6 +185,11 @@ name|ACTION
 init|=
 literal|"action"
 decl_stmt|;
+DECL|method|NovaConstants ()
+specifier|private
+name|NovaConstants
+parameter_list|()
+block|{ }
 block|}
 end_class
 

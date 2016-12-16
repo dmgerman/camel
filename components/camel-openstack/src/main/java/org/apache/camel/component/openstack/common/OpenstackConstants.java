@@ -120,6 +120,11 @@ name|DELETE
 init|=
 literal|"delete"
 decl_stmt|;
+DECL|method|OpenstackConstants ()
+specifier|protected
+name|OpenstackConstants
+parameter_list|()
+block|{ }
 block|}
 end_class
 

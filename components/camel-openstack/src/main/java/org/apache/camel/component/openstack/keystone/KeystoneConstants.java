@@ -182,6 +182,11 @@ name|REMOVE_USER_FROM_GROUP
 init|=
 literal|"removeUserFromGroup"
 decl_stmt|;
+DECL|method|KeystoneConstants ()
+specifier|private
+name|KeystoneConstants
+parameter_list|()
+block|{ }
 block|}
 end_class
 

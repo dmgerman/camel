@@ -119,7 +119,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Only Identity API v3 is supported"
+literal|"Only Identity API V3 is supported"
 argument_list|)
 throw|;
 block|}

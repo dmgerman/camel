@@ -21,62 +21,22 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Assert
-operator|.
-name|assertEquals
+name|ArrayList
 import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Assert
-operator|.
-name|assertNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|doReturn
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|verify
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|when
+name|List
 import|;
 end_import
 
@@ -181,22 +141,62 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|junit
 operator|.
-name|ArrayList
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|junit
 operator|.
-name|List
+name|Assert
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|doReturn
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|verify
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 

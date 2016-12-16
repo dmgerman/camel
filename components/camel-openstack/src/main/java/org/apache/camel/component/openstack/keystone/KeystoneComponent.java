@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -46,16 +56,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_class
 DECL|class|KeystoneComponent
 specifier|public
@@ -64,9 +64,9 @@ name|KeystoneComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 annotation|@
 name|Override
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint

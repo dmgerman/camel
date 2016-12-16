@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -183,26 +203,6 @@ operator|.
 name|builder
 operator|.
 name|VolumeSnapshotBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -779,6 +779,7 @@ operator|.
 name|DESCRIPTION
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|description
@@ -797,6 +798,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -808,6 +810,7 @@ operator|.
 name|VOLUME_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|volume
@@ -826,6 +829,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -837,6 +841,7 @@ operator|.
 name|FORCE
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|force
@@ -855,6 +860,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|volume
 operator|=
 name|builder

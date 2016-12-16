@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -196,26 +216,6 @@ name|NetworkBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_class
 DECL|class|NetworkProducer
 specifier|public
@@ -243,9 +243,9 @@ name|client
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
 annotation|@
 name|Override
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -679,6 +679,7 @@ operator|.
 name|ADMIN_STATE_UP
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|adminStateUp
@@ -697,6 +698,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -708,6 +710,7 @@ operator|.
 name|NETWORK_TYPE
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|networkType
@@ -726,6 +729,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -737,6 +741,7 @@ operator|.
 name|IS_SHARED
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|isShared
@@ -755,6 +760,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -766,6 +772,7 @@ operator|.
 name|IS_ROUTER_EXTERNAL
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|isRouterExternal
@@ -784,6 +791,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -795,6 +803,7 @@ operator|.
 name|TENANT_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|tenantId
@@ -813,6 +822,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -824,6 +834,7 @@ operator|.
 name|PHYSICAL_NETWORK
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|physicalNetwork
@@ -842,6 +853,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -853,6 +865,7 @@ operator|.
 name|SEGMENT_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|segmentId
@@ -871,6 +884,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|network
 operator|=
 name|builder

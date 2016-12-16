@@ -21,86 +21,42 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Assert
-operator|.
-name|assertEquals
+name|File
 import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Assert
-operator|.
-name|assertNotNull
+name|FileInputStream
 import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Assert
-operator|.
-name|assertNull
+name|InputStream
 import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|mockito
+name|util
 operator|.
-name|Matchers
-operator|.
-name|any
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-operator|.
-name|anyString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|verify
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|when
+name|UUID
 import|;
 end_import
 
@@ -269,42 +225,86 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|io
+name|junit
 operator|.
-name|File
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|io
+name|junit
 operator|.
-name|FileInputStream
+name|Assert
+operator|.
+name|assertNotNull
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|io
+name|junit
 operator|.
-name|InputStream
+name|Assert
+operator|.
+name|assertNull
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|mockito
 operator|.
-name|UUID
+name|Matchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|anyString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|verify
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 

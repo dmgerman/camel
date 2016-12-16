@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -182,26 +202,6 @@ name|FlavorBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_class
 DECL|class|FlavorsProducer
 specifier|public
@@ -229,9 +229,9 @@ name|client
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
 annotation|@
 name|Override
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -671,6 +671,7 @@ operator|.
 name|VCPU
 argument_list|)
 condition|)
+block|{
 name|flavorBuilder
 operator|.
 name|vcpus
@@ -689,6 +690,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -700,6 +702,7 @@ operator|.
 name|RAM
 argument_list|)
 condition|)
+block|{
 name|flavorBuilder
 operator|.
 name|ram
@@ -718,6 +721,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -729,6 +733,7 @@ operator|.
 name|DISK
 argument_list|)
 condition|)
+block|{
 name|flavorBuilder
 operator|.
 name|disk
@@ -747,6 +752,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -758,6 +764,7 @@ operator|.
 name|SWAP
 argument_list|)
 condition|)
+block|{
 name|flavorBuilder
 operator|.
 name|swap
@@ -776,6 +783,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -787,6 +795,7 @@ operator|.
 name|RXTXFACTOR
 argument_list|)
 condition|)
+block|{
 name|flavorBuilder
 operator|.
 name|rxtxFactor
@@ -805,6 +814,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|flavor
 operator|=
 name|flavorBuilder

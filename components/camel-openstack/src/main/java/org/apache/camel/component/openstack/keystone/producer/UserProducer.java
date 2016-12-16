@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -165,26 +185,6 @@ operator|.
 name|builder
 operator|.
 name|UserBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -711,6 +711,7 @@ operator|.
 name|DOMAIN_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|domainId
@@ -729,6 +730,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -740,6 +742,7 @@ operator|.
 name|DESCRIPTION
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|description
@@ -758,6 +761,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -769,6 +773,7 @@ operator|.
 name|PASSWORD
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|password
@@ -787,6 +792,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -798,6 +804,7 @@ operator|.
 name|EMAIL
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|email
@@ -816,6 +823,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|project
 operator|=
 name|builder

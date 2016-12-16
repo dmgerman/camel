@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -179,26 +199,6 @@ operator|.
 name|builder
 operator|.
 name|PortBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -725,6 +725,7 @@ operator|.
 name|TENANT_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|tenantId
@@ -743,6 +744,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -754,6 +756,7 @@ operator|.
 name|NETWORK_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|networkId
@@ -772,6 +775,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -783,6 +787,7 @@ operator|.
 name|DEVICE_ID
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|deviceId
@@ -801,6 +806,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -812,6 +818,7 @@ operator|.
 name|MAC_ADDRESS
 argument_list|)
 condition|)
+block|{
 name|builder
 operator|.
 name|macAddress
@@ -830,6 +837,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|port
 operator|=
 name|builder

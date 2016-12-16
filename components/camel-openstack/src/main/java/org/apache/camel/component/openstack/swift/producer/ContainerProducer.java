@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -205,26 +225,6 @@ operator|.
 name|options
 operator|.
 name|CreateUpdateContainerOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -1097,6 +1097,7 @@ operator|.
 name|CONTAINER_METADATA_PREFIX
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getCreateUpdateOptions
@@ -1120,6 +1121,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1131,6 +1133,7 @@ operator|.
 name|VERSIONS_LOCATION
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getCreateUpdateOptions
@@ -1154,6 +1157,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1165,6 +1169,7 @@ operator|.
 name|CONTAINER_READ
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getCreateUpdateOptions
@@ -1188,6 +1193,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1199,6 +1205,7 @@ operator|.
 name|CONTAINER_WRITE
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getCreateUpdateOptions
@@ -1222,6 +1229,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|options
@@ -1296,6 +1304,7 @@ operator|.
 name|LIMIT
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getListOptions
@@ -1319,6 +1328,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1330,6 +1340,7 @@ operator|.
 name|MARKER
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getListOptions
@@ -1353,6 +1364,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1364,6 +1376,7 @@ operator|.
 name|END_MARKER
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getListOptions
@@ -1387,6 +1400,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1398,6 +1412,7 @@ operator|.
 name|DELIMITER
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getListOptions
@@ -1421,6 +1436,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|headers
@@ -1432,6 +1448,7 @@ operator|.
 name|PATH
 argument_list|)
 condition|)
+block|{
 name|options
 operator|=
 name|getListOptions
@@ -1455,6 +1472,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|options

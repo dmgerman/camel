@@ -188,6 +188,24 @@ extends|extends
 name|AbstractOpenstackEndpoint
 block|{
 annotation|@
+name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"objects, containers"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|subsystem
+name|String
+name|subsystem
+decl_stmt|;
+annotation|@
 name|UriPath
 annotation|@
 name|Metadata
@@ -214,24 +232,6 @@ name|String
 name|domain
 init|=
 literal|"default"
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|enums
-operator|=
-literal|"objects, containers"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|subsystem
-name|String
-name|subsystem
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -294,18 +294,18 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-name|v3
+name|V3
 argument_list|,
 name|enums
 operator|=
-literal|"v2, v3"
+literal|"V2, V3"
 argument_list|)
 DECL|field|apiVersion
 specifier|private
 name|String
 name|apiVersion
 init|=
-name|v3
+name|V3
 decl_stmt|;
 DECL|method|SwiftEndpoint (String uri, SwiftComponent component)
 specifier|public
@@ -393,7 +393,7 @@ return|return
 name|subsystem
 return|;
 block|}
-comment|/** 	 * OpenStack Swift subsystem 	 */
+comment|/**      * OpenStack Swift subsystem      */
 DECL|method|setSubsystem (String subsystem)
 specifier|public
 name|void
@@ -422,7 +422,7 @@ return|return
 name|domain
 return|;
 block|}
-comment|/** 	 * Authentication domain 	 */
+comment|/**      * Authentication domain      */
 DECL|method|setDomain (String domain)
 specifier|public
 name|void
@@ -451,7 +451,7 @@ return|return
 name|project
 return|;
 block|}
-comment|/** 	 * The project ID 	 */
+comment|/**      * The project ID      */
 DECL|method|setProject (String project)
 specifier|public
 name|void
@@ -480,7 +480,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/** 	 * The operation to do 	 */
+comment|/**      * The operation to do      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -509,7 +509,7 @@ return|return
 name|username
 return|;
 block|}
-comment|/** 	 * OpenStack username 	 */
+comment|/**      * OpenStack username      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -538,7 +538,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/** 	 * OpenStack password 	 */
+comment|/**      * OpenStack password      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -567,7 +567,7 @@ return|return
 name|host
 return|;
 block|}
-comment|/** 	 * OpenStack host url 	 */
+comment|/**      * OpenStack host url      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -594,7 +594,7 @@ return|return
 name|config
 return|;
 block|}
-comment|/** 	 *OpenStack configuration 	 */
+comment|/**      *OpenStack configuration      */
 DECL|method|setConfig (Config config)
 specifier|public
 name|void
@@ -621,7 +621,7 @@ return|return
 name|apiVersion
 return|;
 block|}
-comment|/** 	 * OpenStack API version 	 */
+comment|/**      * OpenStack API version      */
 DECL|method|setApiVersion (String apiVersion)
 specifier|public
 name|void
