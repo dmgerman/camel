@@ -476,12 +476,6 @@ specifier|final
 name|String
 name|destinationName
 decl_stmt|;
-DECL|field|processor
-specifier|private
-specifier|final
-name|Processor
-name|processor
-decl_stmt|;
 DECL|field|jmsConsumerExecutors
 specifier|private
 name|ExecutorService
@@ -547,19 +541,6 @@ argument_list|(
 name|sjmsBatchEndpoint
 argument_list|,
 literal|"batchJmsEndpoint"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|processor
-operator|=
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|processor
-argument_list|,
-literal|"processor"
 argument_list|)
 expr_stmt|;
 name|destinationName
@@ -808,32 +789,19 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting "
-operator|+
+literal|"Starting {} consumer(s) for {}:{}"
+argument_list|,
 name|consumerCount
-operator|+
-literal|" consumer(s) for "
-operator|+
+argument_list|,
 name|destinationName
-operator|+
-literal|":"
-operator|+
+argument_list|,
 name|completionSize
 argument_list|)
 expr_stmt|;
-block|}
 name|consumersShutdownLatchRef
 operator|.
 name|set
@@ -928,11 +896,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using CompletionInterval to run every "
-operator|+
+literal|"Using CompletionInterval to run every {} millis."
+argument_list|,
 name|completionInterval
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
 if|if
@@ -1062,7 +1028,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"All consumers have shut down"
+literal|"All consumers have been shutdown"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1098,15 +1064,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Exception caught closing JMS connection"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|// ignore
 block|}
 name|getEndpoint
 argument_list|()
@@ -1117,7 +1075,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownGraceful
 argument_list|(
 name|jmsConsumerExecutors
 argument_list|)
@@ -1140,7 +1098,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdownNow
+name|shutdownGraceful
 argument_list|(
 name|timeoutCheckerExecutorService
 argument_list|)
@@ -1349,6 +1307,69 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+name|closeJmsConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|closeJmsSession
+argument_list|(
+name|session
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|ex
+parameter_list|)
+block|{
+comment|// from consumeBatchesOnLoop
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+literal|"Exception caught consuming from "
+operator|+
+name|destinationName
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// indicate that we have shut down
+name|CountDownLatch
+name|consumersShutdownLatch
+init|=
+name|consumersShutdownLatchRef
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|consumersShutdownLatch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|closeJmsConsumer (MessageConsumer consumer)
+specifier|private
+name|void
+name|closeJmsConsumer
+parameter_list|(
+name|MessageConsumer
+name|consumer
+parameter_list|)
+block|{
 try|try
 block|{
 name|consumer
@@ -1386,7 +1407,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception caught closing consumer: {}"
+literal|"Exception caught closing consumer: {}. This exception is ignored."
 argument_list|,
 name|ex2
 operator|.
@@ -1396,8 +1417,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-finally|finally
+DECL|method|closeJmsSession (Session session)
+specifier|private
+name|void
+name|closeJmsSession
+parameter_list|(
+name|Session
+name|session
+parameter_list|)
 block|{
 try|try
 block|{
@@ -1410,7 +1437,7 @@ block|}
 catch|catch
 parameter_list|(
 name|JMSException
-name|ex1
+name|ex2
 parameter_list|)
 block|{
 comment|// only include stacktrace in debug logging
@@ -1426,9 +1453,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception caught closing session: {}"
+literal|"Exception caught closing session"
 argument_list|,
-name|ex1
+name|ex2
 argument_list|)
 expr_stmt|;
 block|}
@@ -1436,51 +1463,13 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception caught closing session: {}"
+literal|"Exception caught closing session: {}. This exception is ignored."
 argument_list|,
-name|ex1
+name|ex2
 operator|.
 name|getMessage
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|JMSException
-name|ex
-parameter_list|)
-block|{
-comment|// from loop
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Exception caught consuming from "
-operator|+
-name|destinationName
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// indicate that we have shut down
-name|CountDownLatch
-name|consumersShutdownLatch
-init|=
-name|consumersShutdownLatchRef
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
-name|consumersShutdownLatch
-operator|.
-name|countDown
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2268,7 +2257,8 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|processor
+name|getProcessor
+argument_list|()
 operator|.
 name|process
 argument_list|(
