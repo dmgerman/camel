@@ -822,6 +822,11 @@ name|nableIssueSyntax
 parameter_list|()
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|params
 init|=
 operator|new

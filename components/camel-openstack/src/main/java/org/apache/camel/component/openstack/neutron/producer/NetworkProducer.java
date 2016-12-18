@@ -96,6 +96,24 @@ name|component
 operator|.
 name|openstack
 operator|.
+name|common
+operator|.
+name|OpenstackConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|openstack
+operator|.
 name|neutron
 operator|.
 name|NeutronConstants
@@ -271,7 +289,7 @@ name|operation
 condition|)
 block|{
 case|case
-name|NeutronConstants
+name|OpenstackConstants
 operator|.
 name|CREATE
 case|:
@@ -282,7 +300,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|NeutronConstants
+name|OpenstackConstants
 operator|.
 name|GET
 case|:
@@ -293,7 +311,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|NeutronConstants
+name|OpenstackConstants
 operator|.
 name|GET_ALL
 case|:
@@ -304,7 +322,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|NeutronConstants
+name|OpenstackConstants
 operator|.
 name|DELETE
 case|:
@@ -401,7 +419,7 @@ name|msg
 operator|.
 name|getHeader
 argument_list|(
-name|NeutronConstants
+name|OpenstackConstants
 operator|.
 name|ID
 argument_list|,
@@ -526,7 +544,7 @@ name|msg
 operator|.
 name|getHeader
 argument_list|(
-name|NeutronConstants
+name|OpenstackConstants
 operator|.
 name|ID
 argument_list|,
@@ -638,7 +656,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|NeutronConstants
+name|OpenstackConstants
 operator|.
 name|NAME
 argument_list|,
@@ -658,7 +676,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|NeutronConstants
+name|OpenstackConstants
 operator|.
 name|NAME
 argument_list|,
