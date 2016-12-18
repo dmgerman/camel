@@ -452,7 +452,7 @@ name|kp
 operator|.
 name|send
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|any
 argument_list|(
@@ -683,7 +683,7 @@ name|kp
 operator|.
 name|send
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|any
 argument_list|(
@@ -956,7 +956,7 @@ name|kp
 operator|.
 name|send
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|any
 argument_list|(
@@ -965,7 +965,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
-name|Mockito
+name|Matchers
 operator|.
 name|any
 argument_list|(

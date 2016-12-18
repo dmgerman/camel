@@ -118,22 +118,6 @@ name|BundleContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|osgi
-operator|.
-name|service
-operator|.
-name|blueprint
-operator|.
-name|container
-operator|.
-name|BlueprintEvent
-import|;
-end_import
-
 begin_comment
 comment|/**  * A command line tool for booting up a CamelContext using an OSGi Blueprint XML file  */
 end_comment

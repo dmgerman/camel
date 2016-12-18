@@ -371,9 +371,6 @@ decl_stmt|;
 name|DefaultExchangeHolder
 name|oldHolder
 init|=
-operator|(
-name|DefaultExchangeHolder
-operator|)
 name|cache
 operator|.
 name|put
@@ -411,9 +408,6 @@ name|unmarshallExchange
 argument_list|(
 name|camelContext
 argument_list|,
-operator|(
-name|DefaultExchangeHolder
-operator|)
 name|cache
 operator|.
 name|get

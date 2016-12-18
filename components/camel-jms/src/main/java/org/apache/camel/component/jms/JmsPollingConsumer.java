@@ -108,6 +108,22 @@ name|JmsTemplate
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jms
+operator|.
+name|support
+operator|.
+name|destination
+operator|.
+name|JmsDestinationAccessor
+import|;
+end_import
+
 begin_comment
 comment|/**  *  A JMS {@link org.apache.camel.PollingConsumer}.  */
 end_comment
@@ -207,7 +223,7 @@ block|{
 return|return
 name|receive
 argument_list|(
-name|JmsTemplate
+name|JmsDestinationAccessor
 operator|.
 name|RECEIVE_TIMEOUT_NO_WAIT
 argument_list|)
@@ -222,7 +238,7 @@ block|{
 return|return
 name|receive
 argument_list|(
-name|JmsTemplate
+name|JmsDestinationAccessor
 operator|.
 name|RECEIVE_TIMEOUT_INDEFINITE_WAIT
 argument_list|)
