@@ -27,14 +27,14 @@ block|{
 DECL|enumConstant|DocumentList
 name|DocumentList
 block|,
-comment|//List<Document>
+comment|// List<Document>
 DECL|enumConstant|Document
 name|Document
 block|,
-comment|//Document
+comment|// Document
 DECL|enumConstant|MongoIterable
 name|MongoIterable
-comment|//MongoIterable
+comment|// MongoIterable
 block|}
 end_enum
 

@@ -102,6 +102,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|ObjectMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -326,20 +340,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|databind
-operator|.
-name|ObjectMapper
-import|;
-end_import
-
 begin_class
 annotation|@
 name|Converter
@@ -365,7 +365,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// Jackson's ObjectMapper is thread-safe, so no need to create a pool nor synchronize access to it
+comment|// Jackson's ObjectMapper is thread-safe, so no need to create a pool nor
+comment|// synchronize access to it
 DECL|field|OBJECT_MAPPER
 specifier|private
 specifier|static
@@ -381,7 +382,7 @@ DECL|method|MongoDbBasicConverters ()
 specifier|private
 name|MongoDbBasicConverters
 parameter_list|()
-block|{ 	}
+block|{     }
 annotation|@
 name|Converter
 DECL|method|fromMapToDocument (Map<String, Object> map)
@@ -641,7 +642,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**  	 * If the input starts with any number of whitespace characters and then a '{' character, we 	 * assume it is JSON rather than BSON. There are probably no useful BSON blobs that fit this pattern 	 */
+comment|/**      * If the input starts with any number of whitespace characters and then a      * '{' character, we assume it is JSON rather than BSON. There are probably      * no useful BSON blobs that fit this pattern      */
 DECL|method|isBson (byte[] input)
 specifier|private
 specifier|static

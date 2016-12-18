@@ -29,7 +29,19 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|MongoCollection
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|mongodb
@@ -38,9 +50,7 @@ name|client
 operator|.
 name|model
 operator|.
-name|Filters
-operator|.
-name|eq
+name|CreateCollectionOptions
 import|;
 end_import
 
@@ -90,22 +100,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbTailTrackingConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|bson
 operator|.
 name|Document
@@ -133,19 +127,7 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|client
-operator|.
-name|MongoCollection
-import|;
-end_import
-
-begin_import
-import|import
+import|import static
 name|com
 operator|.
 name|mongodb
@@ -154,7 +136,9 @@ name|client
 operator|.
 name|model
 operator|.
-name|CreateCollectionOptions
+name|Filters
+operator|.
+name|eq
 import|;
 end_import
 
@@ -246,7 +230,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|//DocumentBuilder.start().add("capped", true).add("size", 1000000000).add("max", 1000).get()
+comment|// DocumentBuilder.start().add("capped", true).add("size",
+comment|// 1000000000).add("max", 1000).get()
 comment|// create a capped collection with max = 1000
 name|CreateCollectionOptions
 name|collectionOptions
@@ -367,7 +352,8 @@ argument_list|(
 literal|5000
 argument_list|)
 expr_stmt|;
-comment|//DocumentBuilder.start().add("capped", true).add("size", 1000000000).add("max", 1000).get()
+comment|// DocumentBuilder.start().add("capped", true).add("size",
+comment|// 1000000000).add("max", 1000).get()
 comment|// create a capped collection with max = 1000
 name|CreateCollectionOptions
 name|createCollectionOptions
@@ -423,7 +409,8 @@ argument_list|(
 literal|"tailableCursorConsumer1"
 argument_list|)
 expr_stmt|;
-comment|// pump 5 bursts of 1000 records each with 500ms pause between burst and burst
+comment|// pump 5 bursts of 1000 records each with 500ms pause between burst and
+comment|// burst
 name|Thread
 name|t
 init|=
@@ -573,7 +560,8 @@ literal|1000
 argument_list|)
 expr_stmt|;
 comment|// create a capped collection with max = 1000
-comment|//DocumentBuilder.start().add("capped", true).add("size", 1000000000).add("max", 1000).get())
+comment|// DocumentBuilder.start().add("capped", true).add("size",
+comment|// 1000000000).add("max", 1000).get())
 name|db
 operator|.
 name|createCollection
@@ -623,7 +611,8 @@ argument_list|(
 literal|"tailableCursorConsumer1"
 argument_list|)
 expr_stmt|;
-comment|// continuous pump of 100000 records, asserting incrementally to reduce overhead on the mock endpoint
+comment|// continuous pump of 100000 records, asserting incrementally to reduce
+comment|// overhead on the mock endpoint
 name|Thread
 name|t
 init|=
@@ -678,7 +667,8 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// incrementally assert, as the mock endpoint stores all messages and otherwise the test would be sluggish
+comment|// incrementally assert, as the mock endpoint stores all
+comment|// messages and otherwise the test would be sluggish
 if|if
 condition|(
 name|i
@@ -779,7 +769,8 @@ name|drop
 argument_list|()
 expr_stmt|;
 comment|// create a capped collection with max = 1000
-comment|// DocumentBuilder.start().add("capped", true).add("size", 1000000000).add("max", 1000).get()
+comment|// DocumentBuilder.start().add("capped", true).add("size",
+comment|// 1000000000).add("max", 1000).get()
 name|db
 operator|.
 name|createCollection
@@ -951,7 +942,7 @@ name|ServiceStatus
 operator|.
 name|Stopped
 condition|)
-block|{ }
+block|{         }
 name|context
 operator|.
 name|startRoute
@@ -1043,7 +1034,8 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// check that the first message received in this second batch corresponds to increasing=301
+comment|// check that the first message received in this second batch
+comment|// corresponds to increasing=301
 name|Object
 name|firstBody
 init|=
@@ -1089,7 +1081,8 @@ literal|"increasing"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// check that the lastVal is persisted at the right time: check before and after stopping the route
+comment|// check that the lastVal is persisted at the right time: check before
+comment|// and after stopping the route
 name|assertEquals
 argument_list|(
 literal|300
@@ -1143,7 +1136,7 @@ name|ServiceStatus
 operator|.
 name|Stopped
 condition|)
-block|{ }
+block|{         }
 name|assertEquals
 argument_list|(
 literal|600
@@ -1258,7 +1251,8 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// create a capped collection with max = 1000
-comment|//DocumentBuilder.start().add("capped", true).add("size", 1000000000).add("max", 1000).get()
+comment|// DocumentBuilder.start().add("capped", true).add("size",
+comment|// 1000000000).add("max", 1000).get()
 name|db
 operator|.
 name|createCollection
@@ -1676,7 +1670,8 @@ literal|"increasing"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// check that the persisted lastVal after stopping the route is startTimestamp + 600min
+comment|// check that the persisted lastVal after stopping the route is
+comment|// startTimestamp + 600min
 name|context
 operator|.
 name|stopRoute
@@ -1768,7 +1763,8 @@ argument_list|(
 literal|"mock:test"
 argument_list|)
 decl_stmt|;
-comment|// get the custom tracking collection and drop it (tailTrackDb=einstein&tailTrackCollection=curie&tailTrackField=newton)
+comment|// get the custom tracking collection and drop it
+comment|// (tailTrackDb=einstein&tailTrackCollection=curie&tailTrackField=newton)
 name|MongoCollection
 argument_list|<
 name|Document
@@ -1815,7 +1811,8 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// create a capped collection with max = 1000
-comment|//DocumentBuilder.start().add("capped", true).add("size", 1000000000).add("max", 1000).get()
+comment|// DocumentBuilder.start().add("capped", true).add("size",
+comment|// 1000000000).add("max", 1000).get()
 name|db
 operator|.
 name|createCollection
@@ -1962,7 +1959,8 @@ argument_list|(
 literal|"tailableCursorConsumer3"
 argument_list|)
 expr_stmt|;
-comment|// ensure that the persisted lastVal is 300, newton is the name of the trackingField we are using
+comment|// ensure that the persisted lastVal is 300, newton is the name of the
+comment|// trackingField we are using
 name|assertEquals
 argument_list|(
 literal|300
@@ -2079,7 +2077,8 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// check that the first received body contains increasing=301 and not increasing=1, i.e. it's not starting from the top
+comment|// check that the first received body contains increasing=301 and not
+comment|// increasing=1, i.e. it's not starting from the top
 name|Object
 name|firstBody
 init|=
@@ -2127,7 +2126,8 @@ literal|"increasing"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// check that the persisted lastVal after stopping the route is 600, newton is the name of the trackingField we are using
+comment|// check that the persisted lastVal after stopping the route is 600,
+comment|// newton is the name of the trackingField we are using
 name|context
 operator|.
 name|stopRoute
@@ -2220,7 +2220,8 @@ literal|1000
 argument_list|)
 expr_stmt|;
 comment|// create a capped collection with max = 1000
-comment|//DocumentBuilder.start().add("capped", true).add("size", 1000000000).add("max", 1000).get()
+comment|// DocumentBuilder.start().add("capped", true).add("size",
+comment|// 1000000000).add("max", 1000).get()
 name|db
 operator|.
 name|createCollection

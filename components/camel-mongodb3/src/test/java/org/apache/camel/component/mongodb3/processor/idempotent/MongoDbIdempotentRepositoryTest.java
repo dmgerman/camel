@@ -34,17 +34,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|apache
+name|mongodb
 operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|AbstractMongoDbTest
+name|MongoClient
 import|;
 end_import
 
@@ -60,11 +54,7 @@ name|component
 operator|.
 name|mongodb3
 operator|.
-name|processor
-operator|.
-name|idempotent
-operator|.
-name|MongoDbIdempotentRepository
+name|AbstractMongoDbTest
 import|;
 end_import
 
@@ -105,16 +95,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|MongoClient
 import|;
 end_import
 

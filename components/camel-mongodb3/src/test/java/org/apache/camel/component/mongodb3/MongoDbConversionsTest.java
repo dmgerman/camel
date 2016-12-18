@@ -19,40 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|com
-operator|.
-name|mongodb
-operator|.
-name|client
-operator|.
-name|model
-operator|.
-name|Filters
-operator|.
-name|eq
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
-operator|.
-name|MONGO_ID
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -127,6 +93,40 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|model
+operator|.
+name|Filters
+operator|.
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mongodb3
+operator|.
+name|MongoDbConstants
+operator|.
+name|MONGO_ID
 import|;
 end_import
 
@@ -238,7 +238,7 @@ argument_list|,
 literal|"testInsertMap"
 argument_list|)
 expr_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBody
@@ -292,7 +292,7 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBody
@@ -348,7 +348,7 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBody
@@ -358,7 +358,7 @@ argument_list|,
 literal|"{\"fruits\": [\"apple\", \"banana\", \"papaya\"], \"veggie\": \"broccoli\", \"_id\": \"testInsertJsonString\"}"
 argument_list|)
 expr_stmt|;
-comment|//assertTrue(result instanceof WriteResult);
+comment|// assertTrue(result instanceof WriteResult);
 name|Document
 name|b
 init|=
@@ -405,7 +405,7 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBody
@@ -477,7 +477,7 @@ argument_list|,
 literal|"testInsertBsonString"
 argument_list|)
 decl_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBody

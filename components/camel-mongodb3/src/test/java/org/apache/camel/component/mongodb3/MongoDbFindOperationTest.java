@@ -19,40 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|com
-operator|.
-name|mongodb
-operator|.
-name|client
-operator|.
-name|model
-operator|.
-name|Filters
-operator|.
-name|eq
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
-operator|.
-name|MONGO_ID
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -79,6 +45,20 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|model
+operator|.
+name|Projections
 import|;
 end_import
 
@@ -167,7 +147,7 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|com
 operator|.
 name|mongodb
@@ -176,7 +156,27 @@ name|client
 operator|.
 name|model
 operator|.
-name|Projections
+name|Filters
+operator|.
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mongodb3
+operator|.
+name|MongoDbConstants
+operator|.
+name|MONGO_ID
 import|;
 end_import
 
@@ -325,8 +325,9 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|//TODO: decide what to do with total count
-comment|//assertEquals("Result total size header should equal 1000", 1000, resultExchange.getIn().getHeader(MongoDbConstants.RESULT_TOTAL_SIZE));
+comment|// TODO: decide what to do with total count
+comment|// assertEquals("Result total size header should equal 1000", 1000,
+comment|// resultExchange.getIn().getHeader(MongoDbConstants.RESULT_TOTAL_SIZE));
 name|assertEquals
 argument_list|(
 literal|"Result page size header should equal 1000"
@@ -425,7 +426,8 @@ argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
-comment|// Ensure that all returned documents contain all fields, and that they only contain 'Einstein'
+comment|// Ensure that all returned documents contain all fields, and that they
+comment|// only contain 'Einstein'
 for|for
 control|(
 name|Document
@@ -622,7 +624,8 @@ argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
-comment|// Ensure that all returned documents contain all fields, and that they only contain 'Einstein'
+comment|// Ensure that all returned documents contain all fields, and that they
+comment|// only contain 'Einstein'
 for|for
 control|(
 name|Document
@@ -873,7 +876,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|//assertEquals("Result total size header should equal 1000", 1000, resultExchange.getIn().getHeader(MongoDbConstants.RESULT_TOTAL_SIZE));
+comment|// assertEquals("Result total size header should equal 1000", 1000,
+comment|// resultExchange.getIn().getHeader(MongoDbConstants.RESULT_TOTAL_SIZE));
 name|assertEquals
 argument_list|(
 literal|"Result page size header should equal 1000"
@@ -1129,8 +1133,9 @@ name|getReceivedExchanges
 argument_list|()
 control|)
 block|{
-comment|//TODO: decide what to do with the total number of elements
-comment|//assertEquals("Result total size header should equal 1000", 1000, resultExchange.getIn().getHeader(MongoDbConstants.RESULT_TOTAL_SIZE));
+comment|// TODO: decide what to do with the total number of elements
+comment|// assertEquals("Result total size header should equal 1000", 1000,
+comment|// resultExchange.getIn().getHeader(MongoDbConstants.RESULT_TOTAL_SIZE));
 name|assertEquals
 argument_list|(
 literal|"Result page size header should equal 100"

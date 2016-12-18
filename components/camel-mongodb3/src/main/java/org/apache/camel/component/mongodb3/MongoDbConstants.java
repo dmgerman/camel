@@ -214,12 +214,12 @@ name|MONGO_ID
 init|=
 literal|"_id"
 decl_stmt|;
-comment|//default id field
+comment|// default id field
 DECL|method|MongoDbConstants ()
 specifier|private
 name|MongoDbConstants
 parameter_list|()
-block|{ 	}
+block|{     }
 block|}
 end_class
 

@@ -19,20 +19,38 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
+import|import
+name|com
 operator|.
-name|apache
+name|mongodb
 operator|.
-name|camel
+name|MongoClient
+import|;
+end_import
+
+begin_import
+import|import
+name|com
 operator|.
-name|component
+name|mongodb
 operator|.
-name|mongodb3
+name|client
 operator|.
-name|MongoDbConstants
+name|MongoCollection
+import|;
+end_import
+
+begin_import
+import|import
+name|com
 operator|.
-name|MONGO_ID
+name|mongodb
+operator|.
+name|client
+operator|.
+name|model
+operator|.
+name|Updates
 import|;
 end_import
 
@@ -79,38 +97,20 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
+import|import static
+name|org
 operator|.
-name|mongodb
+name|apache
 operator|.
-name|MongoClient
-import|;
-end_import
-
-begin_import
-import|import
-name|com
+name|camel
 operator|.
-name|mongodb
+name|component
 operator|.
-name|client
+name|mongodb3
 operator|.
-name|MongoCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|com
+name|MongoDbConstants
 operator|.
-name|mongodb
-operator|.
-name|client
-operator|.
-name|model
-operator|.
-name|Updates
+name|MONGO_ID
 import|;
 end_import
 
@@ -282,7 +282,8 @@ name|first
 argument_list|()
 expr_stmt|;
 block|}
-comment|// keep only the _id, the rest is useless and causes more overhead during update
+comment|// keep only the _id, the rest is useless and causes more overhead
+comment|// during update
 name|trackingObj
 operator|=
 operator|new

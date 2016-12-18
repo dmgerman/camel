@@ -143,7 +143,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Nothing, all routes are initialized by the Spring DSL context file
+comment|// Nothing, all routes are initialized by the Spring DSL context
+comment|// file
 block|}
 block|}
 return|;

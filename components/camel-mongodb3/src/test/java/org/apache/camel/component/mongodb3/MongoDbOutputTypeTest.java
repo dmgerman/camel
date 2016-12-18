@@ -19,24 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
-operator|.
-name|MONGO_ID
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -68,6 +50,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|MongoIterable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -89,22 +83,6 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
 import|;
 end_import
 
@@ -143,14 +121,20 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
+import|import static
+name|org
 operator|.
-name|mongodb
+name|apache
 operator|.
-name|client
+name|camel
 operator|.
-name|MongoIterable
+name|component
+operator|.
+name|mongodb3
+operator|.
+name|MongoDbConstants
+operator|.
+name|MONGO_ID
 import|;
 end_import
 

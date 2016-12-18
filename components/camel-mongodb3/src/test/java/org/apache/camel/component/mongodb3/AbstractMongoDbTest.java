@@ -30,6 +30,40 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|MongoClient
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|MongoCollection
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|MongoDatabase
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -49,22 +83,6 @@ operator|.
 name|camel
 operator|.
 name|CamelExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|CamelMongoDbException
 import|;
 end_import
 
@@ -178,40 +196,6 @@ name|AnnotationConfigApplicationContext
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|MongoClient
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|client
-operator|.
-name|MongoCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|client
-operator|.
-name|MongoDatabase
-import|;
-end_import
-
 begin_class
 DECL|class|AbstractMongoDbTest
 specifier|public
@@ -306,7 +290,8 @@ argument_list|(
 name|dbName
 argument_list|)
 expr_stmt|;
-comment|// Refresh the test collection - drop it and recreate it. We don't do this for the database because MongoDB would create large
+comment|// Refresh the test collection - drop it and recreate it. We don't do
+comment|// this for the database because MongoDB would create large
 comment|// store files each time
 name|testCollectionName
 operator|=

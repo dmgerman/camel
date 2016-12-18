@@ -19,40 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|com
-operator|.
-name|mongodb
-operator|.
-name|client
-operator|.
-name|model
-operator|.
-name|Filters
-operator|.
-name|gt
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
-operator|.
-name|MONGO_ID
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -61,6 +27,50 @@ operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|CursorType
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|MongoCursorNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|MongoCollection
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|MongoCursor
 import|;
 end_import
 
@@ -107,46 +117,36 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|CursorType
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|MongoCursorNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
+import|import static
 name|com
 operator|.
 name|mongodb
 operator|.
 name|client
 operator|.
-name|MongoCollection
+name|model
+operator|.
+name|Filters
+operator|.
+name|gt
 import|;
 end_import
 
 begin_import
-import|import
-name|com
+import|import static
+name|org
 operator|.
-name|mongodb
+name|apache
 operator|.
-name|client
+name|camel
 operator|.
-name|MongoCursor
+name|component
+operator|.
+name|mongodb3
+operator|.
+name|MongoDbConstants
+operator|.
+name|MONGO_ID
 import|;
 end_import
 
@@ -328,7 +328,7 @@ return|return
 name|cursor
 return|;
 block|}
-comment|/** 	 * Initialise the tailing process, the cursor and if persistent tail 	 * tracking is enabled, recover the cursor from the persisted point. As part 	 * of the initialisation process, the component will validate that the 	 * collection we are targeting is 'capped'. 	 * 	 * @throws Exception 	 */
+comment|/**      * Initialise the tailing process, the cursor and if persistent tail      * tracking is enabled, recover the cursor from the persisted point. As part      * of the initialisation process, the component will validate that the      * collection we are targeting is 'capped'.      *      * @throws Exception      */
 DECL|method|initializeProcess ()
 specifier|public
 name|void
@@ -478,7 +478,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** 	 * The heart of the tailing process. 	 */
+comment|/**      * The heart of the tailing process.      */
 annotation|@
 name|Override
 DECL|method|run ()
@@ -669,7 +669,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * The heart of the tailing process. 	 */
+comment|/**      * The heart of the tailing process.      */
 DECL|method|doRun ()
 specifier|private
 name|void

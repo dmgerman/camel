@@ -19,36 +19,16 @@ package|;
 end_package
 
 begin_import
-import|import static
+import|import
 name|com
 operator|.
 name|mongodb
 operator|.
 name|client
 operator|.
-name|model
+name|result
 operator|.
-name|Filters
-operator|.
-name|eq
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
-operator|.
-name|MONGO_ID
+name|UpdateResult
 import|;
 end_import
 
@@ -94,22 +74,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|bson
 operator|.
 name|Document
@@ -127,16 +91,36 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|com
 operator|.
 name|mongodb
 operator|.
 name|client
 operator|.
-name|result
+name|model
 operator|.
-name|UpdateResult
+name|Filters
+operator|.
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mongodb3
+operator|.
+name|MongoDbConstants
+operator|.
+name|MONGO_ID
 import|;
 end_import
 
@@ -325,8 +309,8 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|//TODO: WriteResult isn't return when inserting
-comment|//assertTrue(result.getOut().getBody() instanceof WriteResult);
+comment|// TODO: WriteResult isn't return when inserting
+comment|// assertTrue(result.getOut().getBody() instanceof WriteResult);
 name|assertEquals
 argument_list|(
 literal|"An input header was not returned"
@@ -434,7 +418,7 @@ name|toJson
 argument_list|()
 block|}
 decl_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBody
@@ -444,7 +428,7 @@ argument_list|,
 name|req
 argument_list|)
 expr_stmt|;
-comment|//assertTrue(result instanceof WriteResult);
+comment|// assertTrue(result instanceof WriteResult);
 name|assertEquals
 argument_list|(
 literal|"Number of records persisted must be 2"
@@ -500,7 +484,8 @@ argument_list|,
 literal|"Darwin"
 argument_list|)
 expr_stmt|;
-comment|// test that as a payload, we get back exactly our input, but enriched with the CamelMongoDbWriteResult header
+comment|// test that as a payload, we get back exactly our input, but enriched
+comment|// with the CamelMongoDbWriteResult header
 name|Exchange
 name|resultExch
 init|=
@@ -763,7 +748,6 @@ argument_list|(
 literal|"mongodb3:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=save&writeResultAsHeader=true"
 argument_list|)
 expr_stmt|;
-comment|//&writeConcern=SAFE");
 name|from
 argument_list|(
 literal|"direct:getDbStats"
@@ -785,7 +769,6 @@ argument_list|(
 literal|"mongodb3:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert"
 argument_list|)
 expr_stmt|;
-comment|//&writeConcern=SAFE");
 block|}
 block|}
 return|;

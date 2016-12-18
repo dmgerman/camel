@@ -19,40 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|com
-operator|.
-name|mongodb
-operator|.
-name|client
-operator|.
-name|model
-operator|.
-name|Filters
-operator|.
-name|eq
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
-operator|.
-name|MONGO_ID
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -86,15 +52,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|apache
+name|mongodb
 operator|.
-name|camel
+name|client
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|MongoCollection
 import|;
 end_import
 
@@ -106,11 +70,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|mongodb3
-operator|.
-name|MongoDbConstants
+name|RouteBuilder
 import|;
 end_import
 
@@ -135,14 +97,36 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|com
 operator|.
 name|mongodb
 operator|.
 name|client
 operator|.
-name|MongoCollection
+name|model
+operator|.
+name|Filters
+operator|.
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mongodb3
+operator|.
+name|MongoDbConstants
+operator|.
+name|MONGO_ID
 import|;
 end_import
 
@@ -259,7 +243,7 @@ argument_list|,
 literal|"otherCollection"
 argument_list|)
 expr_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -300,7 +284,7 @@ name|body
 operator|=
 literal|"{\"_id\": \"testInsertDynamicityDisabledExplicitly\", \"a\" : \"1\"}"
 expr_stmt|;
-comment|//        result =
+comment|// result =
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -458,7 +442,7 @@ argument_list|,
 literal|"otherDB"
 argument_list|)
 expr_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -669,7 +653,7 @@ argument_list|,
 literal|"otherCollection"
 argument_list|)
 expr_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -880,7 +864,7 @@ argument_list|,
 literal|"otherCollection"
 argument_list|)
 expr_stmt|;
-comment|//        Object result =
+comment|// Object result =
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -1021,7 +1005,6 @@ argument_list|(
 literal|"mongodb3:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert"
 argument_list|)
 expr_stmt|;
-comment|//&writeConcern=SAFE");
 name|from
 argument_list|(
 literal|"direct:noDynamicityExplicit"
@@ -1032,7 +1015,6 @@ argument_list|(
 literal|"mongodb3:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert&dynamicity=false"
 argument_list|)
 expr_stmt|;
-comment|//&writeConcern=SAFE");
 name|from
 argument_list|(
 literal|"direct:dynamicityEnabled"
@@ -1043,7 +1025,6 @@ argument_list|(
 literal|"mongodb3:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert&dynamicity=true"
 argument_list|)
 expr_stmt|;
-comment|//&writeConcern=SAFE");
 block|}
 block|}
 return|;
