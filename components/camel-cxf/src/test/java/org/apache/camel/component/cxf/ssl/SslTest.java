@@ -251,7 +251,7 @@ name|void
 name|cleanUp
 parameter_list|()
 block|{
-comment|//System.getProperties().remove("cxf.config.file");
+comment|//System.clearProperty("cxf.config.file");
 block|}
 annotation|@
 name|BeforeClass

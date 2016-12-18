@@ -390,9 +390,6 @@ literal|31
 operator|*
 name|result
 operator|+
-operator|(
-name|int
-operator|)
 name|character
 expr_stmt|;
 name|result

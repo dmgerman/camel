@@ -394,9 +394,6 @@ expr_stmt|;
 name|DefaultWebsocket
 name|defaultWebsocket
 init|=
-operator|(
-name|DefaultWebsocket
-operator|)
 name|webSocket
 decl_stmt|;
 name|defaultWebsocket
@@ -490,9 +487,6 @@ expr_stmt|;
 name|DefaultWebsocket
 name|defaultWebsocket
 init|=
-operator|(
-name|DefaultWebsocket
-operator|)
 name|webSocket
 decl_stmt|;
 name|defaultWebsocket

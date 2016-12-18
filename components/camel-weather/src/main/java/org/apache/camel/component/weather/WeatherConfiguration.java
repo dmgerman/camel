@@ -1275,12 +1275,6 @@ name|getIds
 parameter_list|()
 block|{
 return|return
-operator|(
-name|List
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|ids
 return|;
 block|}

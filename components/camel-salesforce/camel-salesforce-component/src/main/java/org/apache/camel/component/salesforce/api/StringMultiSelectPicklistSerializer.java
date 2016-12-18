@@ -198,9 +198,6 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-operator|(
-name|String
-operator|)
 name|a
 index|[
 name|i
