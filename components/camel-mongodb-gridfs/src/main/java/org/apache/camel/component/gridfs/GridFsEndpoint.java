@@ -237,7 +237,6 @@ name|GridFsEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-empty_stmt|;
 DECL|field|GRIDFS_OPERATION
 specifier|public
 specifier|static

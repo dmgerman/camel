@@ -52,20 +52,6 @@ name|client
 operator|.
 name|config
 operator|.
-name|CommonClientConfigKey
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|netflix
-operator|.
-name|client
-operator|.
-name|config
-operator|.
 name|IClientConfig
 import|;
 end_import
@@ -404,7 +390,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|ServiceHelper
 import|;
 end_import
 
@@ -418,7 +404,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ServiceHelper
+name|StringHelper
 import|;
 end_import
 
@@ -607,7 +593,7 @@ condition|)
 block|{
 name|serviceName
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -620,7 +606,7 @@ name|this
 operator|.
 name|contextPath
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -643,7 +629,7 @@ condition|)
 block|{
 name|serviceName
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -656,7 +642,7 @@ name|this
 operator|.
 name|contextPath
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -693,7 +679,7 @@ name|this
 operator|.
 name|scheme
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -706,7 +692,7 @@ name|this
 operator|.
 name|name
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1186,7 +1172,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -1311,7 +1297,9 @@ block|{
 name|IClientConfigKey
 name|key
 init|=
-name|CommonClientConfigKey
+name|IClientConfigKey
+operator|.
+name|Keys
 operator|.
 name|valueOf
 argument_list|(
