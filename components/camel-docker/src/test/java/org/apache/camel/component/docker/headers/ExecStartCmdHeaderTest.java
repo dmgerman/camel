@@ -310,7 +310,7 @@ name|mockObject
 operator|.
 name|exec
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|anyObject
 argument_list|()

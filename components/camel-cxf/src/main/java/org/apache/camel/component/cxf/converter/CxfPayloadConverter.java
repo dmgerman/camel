@@ -1517,9 +1517,6 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|T
-operator|)
 name|tc
 operator|.
 name|convertTo
@@ -1635,9 +1632,6 @@ expr_stmt|;
 block|}
 block|}
 return|return
-operator|(
-name|T
-operator|)
 name|tc
 operator|.
 name|convertTo

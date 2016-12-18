@@ -186,6 +186,16 @@ name|org
 operator|.
 name|mockito
 operator|.
+name|Matchers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
 name|Mock
 import|;
 end_import
@@ -320,7 +330,7 @@ name|eventsCmd
 operator|.
 name|withSince
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|anyString
 argument_list|()

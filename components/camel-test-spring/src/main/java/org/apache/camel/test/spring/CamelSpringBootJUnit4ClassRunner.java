@@ -37,6 +37,8 @@ comment|/**  * The class {@link CamelSpringBootJUnit4ClassRunner} has been renam
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CamelSpringBootJUnit4ClassRunner
 specifier|public
 class|class

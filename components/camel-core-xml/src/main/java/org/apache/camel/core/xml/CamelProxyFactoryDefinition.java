@@ -185,6 +185,8 @@ name|serviceRef
 return|;
 block|}
 comment|/**      * The camel endpoint reference used to send the message to when calling the service from the interface.      *      * @deprecated use serviceUrl instead with the ref endpoint.      */
+annotation|@
+name|Deprecated
 DECL|method|setServiceRef (String serviceRef)
 specifier|public
 name|void
