@@ -542,7 +542,7 @@ name|mockObject
 operator|.
 name|exec
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|anyObject
 argument_list|()
@@ -566,7 +566,7 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|anyString
 argument_list|()

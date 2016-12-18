@@ -22,24 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|services
-operator|.
-name|calendar
-operator|.
-name|model
-operator|.
-name|Calendar
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache

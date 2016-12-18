@@ -365,7 +365,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|NovaConstants
+name|OpenstackConstants
 operator|.
 name|OPERATION
 argument_list|,
