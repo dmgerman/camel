@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A file based {@link org.apache.camel.spi.ReloadStrategy} which watches a file folder  * for modified files and reload on file changes.  */
+comment|/**  * A file based {@link org.apache.camel.spi.ReloadStrategy} which watches a file folder  * for modified files and reload on file changes.  *<p/>  * This implementation uses the JDK {@link WatchService} to watch for when files are  * created or modified. Mac OS X users should be noted the osx JDK does not support  * native file system changes and therefore the watch service is much slower than on  * linux or windows systems.  */
 end_comment
 
 begin_class
@@ -210,7 +210,6 @@ name|FileWatcherReloadStrategy
 extends|extends
 name|ReloadStrategySupport
 block|{
-comment|// TODO: support multiple folders
 DECL|field|folder
 specifier|private
 name|Path
@@ -288,6 +287,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|folder
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no folder configured
+return|return;
+block|}
 name|log
 operator|.
 name|info
@@ -374,6 +383,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|executorService
+operator|!=
+literal|null
+condition|)
+block|{
 name|getCamelContext
 argument_list|()
 operator|.
@@ -385,6 +401,11 @@ argument_list|(
 name|executorService
 argument_list|)
 expr_stmt|;
+name|executorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Background task which watches for file changes      */
 DECL|class|WatchFileChangesTask

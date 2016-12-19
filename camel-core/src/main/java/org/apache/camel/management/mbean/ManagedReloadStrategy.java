@@ -132,6 +132,23 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|forceReloadCamelContext ()
+specifier|public
+name|void
+name|forceReloadCamelContext
+parameter_list|()
+block|{
+name|reloadStrategy
+operator|.
+name|onReloadCamelContext
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|getStrategy ()
 specifier|public
 name|String

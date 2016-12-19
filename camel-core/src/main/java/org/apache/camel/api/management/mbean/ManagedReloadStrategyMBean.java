@@ -36,6 +36,22 @@ name|ManagedAttribute
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedReloadStrategyMBean
 specifier|public
@@ -44,6 +60,18 @@ name|ManagedReloadStrategyMBean
 extends|extends
 name|ManagedServiceMBean
 block|{
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Force reload of CamelContext"
+argument_list|)
+DECL|method|forceReloadCamelContext ()
+name|void
+name|forceReloadCamelContext
+parameter_list|()
+function_decl|;
 annotation|@
 name|ManagedAttribute
 argument_list|(
