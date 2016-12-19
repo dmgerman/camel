@@ -200,6 +200,10 @@ name|Config
 import|;
 end_import
 
+begin_comment
+comment|/**  * The openstack-neutron component allows messages to be sent to an OpenStack network services.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -210,7 +214,7 @@ literal|"openstack-neutron"
 argument_list|,
 name|title
 operator|=
-literal|"OpenStack-Neutron"
+literal|"OpenStack Neutron"
 argument_list|,
 name|syntax
 operator|=
@@ -218,7 +222,11 @@ literal|"openstack-neutron:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud, virtualization"
+literal|"cloud,paas"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|NeutronEndpoint
 specifier|public

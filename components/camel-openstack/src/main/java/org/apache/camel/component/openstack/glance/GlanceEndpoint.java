@@ -120,6 +120,10 @@ name|Config
 import|;
 end_import
 
+begin_comment
+comment|/**  * The openstack-glance component allows messages to be sent to an OpenStack image services.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -130,7 +134,7 @@ literal|"openstack-glance"
 argument_list|,
 name|title
 operator|=
-literal|"OpenStack-Glance"
+literal|"OpenStack Glance"
 argument_list|,
 name|syntax
 operator|=
@@ -138,7 +142,11 @@ literal|"openstack-glance:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud, virtualization"
+literal|"cloud,paas"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|GlanceEndpoint
 specifier|public

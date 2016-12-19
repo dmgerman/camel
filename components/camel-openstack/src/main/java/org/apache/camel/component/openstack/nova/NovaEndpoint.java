@@ -180,6 +180,10 @@ name|Config
 import|;
 end_import
 
+begin_comment
+comment|/**  * The openstack-nova component allows messages to be sent to an OpenStack compute services.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -190,7 +194,7 @@ literal|"openstack-nova"
 argument_list|,
 name|title
 operator|=
-literal|"OpenStack-Nova"
+literal|"OpenStack Nova"
 argument_list|,
 name|syntax
 operator|=
@@ -198,7 +202,11 @@ literal|"openstack-nova:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud, virtualization"
+literal|"cloud,paas"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|NovaEndpoint
 specifier|public

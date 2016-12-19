@@ -220,6 +220,10 @@ name|Config
 import|;
 end_import
 
+begin_comment
+comment|/**  * The openstack-keystone component allows messages to be sent to an OpenStack identity services.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -230,7 +234,7 @@ literal|"openstack-keystone"
 argument_list|,
 name|title
 operator|=
-literal|"OpenStack-Keystone"
+literal|"OpenStack Keystone"
 argument_list|,
 name|syntax
 operator|=
@@ -238,7 +242,11 @@ literal|"openstack-keystone:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud, virtualization"
+literal|"cloud,paas"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|KeystoneEndpoint
 specifier|public

@@ -160,6 +160,10 @@ name|Config
 import|;
 end_import
 
+begin_comment
+comment|/**  * The openstack-swift component allows messages to be sent to an OpenStack object storage services.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -170,7 +174,7 @@ literal|"openstack-swift"
 argument_list|,
 name|title
 operator|=
-literal|"OpenStack-Swift"
+literal|"OpenStack Swift"
 argument_list|,
 name|syntax
 operator|=
@@ -178,7 +182,11 @@ literal|"openstack-swift:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud, virtualization"
+literal|"cloud,paas"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|SwiftEndpoint
 specifier|public

@@ -160,6 +160,10 @@ name|Config
 import|;
 end_import
 
+begin_comment
+comment|/**  * The openstack-cinder component allows messages to be sent to an OpenStack block storage services.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -170,7 +174,7 @@ literal|"openstack-cinder"
 argument_list|,
 name|title
 operator|=
-literal|"OpenStack-Cinder"
+literal|"OpenStack Cinder"
 argument_list|,
 name|syntax
 operator|=
@@ -178,7 +182,11 @@ literal|"openstack-cinder:host"
 argument_list|,
 name|label
 operator|=
-literal|"cloud, virtualization"
+literal|"cloud,paas"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|CinderEndpoint
 specifier|public
