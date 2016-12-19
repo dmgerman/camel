@@ -129,6 +129,66 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|StandardWatchEventKinds
+operator|.
+name|ENTRY_CREATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|StandardWatchEventKinds
+operator|.
+name|ENTRY_MODIFY
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -170,39 +230,18 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import static
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|StandardWatchEventKinds
-operator|.
-name|ENTRY_CREATE
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|StandardWatchEventKinds
-operator|.
-name|ENTRY_MODIFY
-import|;
-end_import
-
 begin_comment
 comment|/**  * A file based {@link org.apache.camel.spi.ReloadStrategy} which watches a file folder  * for modified files and reload on file changes.  *<p/>  * This implementation uses the JDK {@link WatchService} to watch for when files are  * created or modified. Mac OS X users should be noted the osx JDK does not support  * native file system changes and therefore the watch service is much slower than on  * linux or windows systems.  */
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed FileWatcherReloadStrategy"
+argument_list|)
 DECL|class|FileWatcherReloadStrategy
 specifier|public
 class|class
@@ -219,6 +258,11 @@ DECL|field|executorService
 specifier|private
 name|ExecutorService
 name|executorService
+decl_stmt|;
+DECL|field|task
+specifier|private
+name|WatchFileChangesTask
+name|task
 decl_stmt|;
 DECL|method|FileWatcherReloadStrategy ()
 specifier|public
@@ -254,6 +298,47 @@ name|folder
 operator|=
 name|folder
 expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Folder being watched"
+argument_list|)
+DECL|method|getFolder ()
+specifier|public
+name|String
+name|getFolder
+parameter_list|()
+block|{
+return|return
+name|folder
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether the watcher is running"
+argument_list|)
+DECL|method|isRunning ()
+specifier|public
+name|boolean
+name|isRunning
+parameter_list|()
+block|{
+return|return
+name|task
+operator|!=
+literal|null
+operator|&&
+name|task
+operator|.
+name|isRunning
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
@@ -306,6 +391,44 @@ argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
+comment|// if its mac OSX then warn its slower
+name|String
+name|os
+init|=
+name|ObjectHelper
+operator|.
+name|getSystemProperty
+argument_list|(
+literal|"os.name"
+argument_list|,
+literal|""
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|os
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"mac"
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"On Mac OS X the JDK WatchService is slow and it may take up till 5 seconds to notice file changes"
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|Path
@@ -339,6 +462,16 @@ argument_list|,
 name|ENTRY_MODIFY
 argument_list|)
 expr_stmt|;
+name|task
+operator|=
+operator|new
+name|WatchFileChangesTask
+argument_list|(
+name|watcher
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 name|executorService
 operator|=
 name|getCamelContext
@@ -358,13 +491,7 @@ name|executorService
 operator|.
 name|submit
 argument_list|(
-operator|new
-name|WatchFileChangesTask
-argument_list|(
-name|watcher
-argument_list|,
-name|path
-argument_list|)
+name|task
 argument_list|)
 expr_stmt|;
 block|}
@@ -439,6 +566,12 @@ specifier|final
 name|Path
 name|folder
 decl_stmt|;
+DECL|field|running
+specifier|private
+specifier|volatile
+name|boolean
+name|running
+decl_stmt|;
 DECL|method|WatchFileChangesTask (WatchService watcher, Path folder)
 specifier|public
 name|WatchFileChangesTask
@@ -462,6 +595,16 @@ name|folder
 operator|=
 name|folder
 expr_stmt|;
+block|}
+DECL|method|isRunning ()
+specifier|public
+name|boolean
+name|isRunning
+parameter_list|()
+block|{
+return|return
+name|running
+return|;
 block|}
 DECL|method|run ()
 specifier|public
@@ -488,6 +631,10 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
+name|running
+operator|=
+literal|true
+expr_stmt|;
 name|WatchKey
 name|key
 decl_stmt|;
@@ -634,7 +781,7 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-name|onReloadRoutes
+name|onReloadXml
 argument_list|(
 name|getCamelContext
 argument_list|()
@@ -700,6 +847,10 @@ break|break;
 block|}
 block|}
 block|}
+name|running
+operator|=
+literal|false
+expr_stmt|;
 name|log
 operator|.
 name|info

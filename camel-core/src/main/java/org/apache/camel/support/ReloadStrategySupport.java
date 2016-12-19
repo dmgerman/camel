@@ -82,6 +82,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ModelHelper
@@ -314,10 +346,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onReloadRoutes (CamelContext camelContext, String name, InputStream resource)
+DECL|method|onReloadXml (CamelContext camelContext, String name, InputStream resource)
 specifier|public
 name|void
-name|onReloadRoutes
+name|onReloadXml
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -333,7 +365,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Reloading CamelContext: {} routes from resource: {}"
+literal|"Reloading CamelContext: {} from XML resource: {}"
 argument_list|,
 name|camelContext
 operator|.
@@ -510,7 +542,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Reloaded CamelContext: {} routes from resource: {}"
+literal|"Reloaded CamelContext: {} from XML resource: {}"
 argument_list|,
 name|camelContext
 operator|.
@@ -525,7 +557,12 @@ operator|++
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of reloads succeeded"
+argument_list|)
 DECL|method|getReloadCounter ()
 specifier|public
 name|int
@@ -537,7 +574,12 @@ name|succeeded
 return|;
 block|}
 annotation|@
-name|Override
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of reloads failed"
+argument_list|)
 DECL|method|getFailedCounter ()
 specifier|public
 name|int
@@ -549,7 +591,12 @@ name|failed
 return|;
 block|}
 annotation|@
-name|Override
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset counters"
+argument_list|)
 DECL|method|resetCounters ()
 specifier|public
 name|void

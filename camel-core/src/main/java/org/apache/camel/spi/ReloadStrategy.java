@@ -90,7 +90,6 @@ name|StaticService
 extends|,
 name|CamelContextAware
 block|{
-comment|// TODO: naming of this SPI?
 comment|/**      * A reload is triggered and the {@link CamelContext} is expected to do a re-start      *      * @param camelContext  the running CamelContext      */
 DECL|method|onReloadCamelContext (CamelContext camelContext)
 name|void
@@ -100,10 +99,10 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 function_decl|;
-comment|/**      * A reload is triggered with a resource of some sort has been changed, such as a xml file with Camel routes.      *      * @param camelContext  the running CamelContext      * @param name          name of resource such as a file name (can be null)      * @param resource      the changed resource      */
-DECL|method|onReloadRoutes (CamelContext camelContext, String name, InputStream resource)
+comment|/**      * A reload is triggered when a XML resource is changed which contains Camel routes or rest services      *      * @param camelContext  the running CamelContext      * @param name          name of resource such as a file name (can be null)      * @param resource      the changed resource      */
+DECL|method|onReloadXml (CamelContext camelContext, String name, InputStream resource)
 name|void
-name|onReloadRoutes
+name|onReloadXml
 parameter_list|(
 name|CamelContext
 name|camelContext
