@@ -682,6 +682,12 @@ specifier|private
 name|String
 name|configAdminFileName
 decl_stmt|;
+comment|/**      * To watch the directory for file changes which triggers      * a live reload of the Camel routes on-the-fly.      *      * @parameter property="camel.fileWatcherDirectory"      */
+DECL|field|fileWatcherDirectory
+specifier|private
+name|String
+name|fileWatcherDirectory
+decl_stmt|;
 comment|/**      * The class arguments.      *      * @parameter property="camel.arguments"      */
 DECL|field|arguments
 specifier|private
@@ -898,6 +904,28 @@ operator|.
 name|add
 argument_list|(
 literal|"-t"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|fileWatcherDirectory
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-watch"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|fileWatcherDirectory
 argument_list|)
 expr_stmt|;
 block|}

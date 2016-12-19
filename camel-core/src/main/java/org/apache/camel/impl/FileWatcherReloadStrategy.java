@@ -231,6 +231,20 @@ specifier|public
 name|FileWatcherReloadStrategy
 parameter_list|()
 block|{     }
+DECL|method|FileWatcherReloadStrategy (String directory)
+specifier|public
+name|FileWatcherReloadStrategy
+parameter_list|(
+name|String
+name|directory
+parameter_list|)
+block|{
+name|setFolder
+argument_list|(
+name|directory
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getFolder ()
 specifier|public
 name|Path
