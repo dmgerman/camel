@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ManagementStatisticsLevel
 import|;
 end_import
@@ -65,6 +77,44 @@ DECL|field|name
 specifier|private
 name|String
 name|name
+decl_stmt|;
+comment|/**      * Timeout in seconds to graceful shutdown Camel.      */
+DECL|field|shutdownTimeout
+specifier|private
+name|int
+name|shutdownTimeout
+init|=
+literal|300
+decl_stmt|;
+comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      *<p/>      * By default this is<tt>false</tt>      *<p/>      * Notice the suppress is a<i>best effort</i> as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      */
+DECL|field|shutdownSuppressLoggingOnTimeout
+specifier|private
+name|boolean
+name|shutdownSuppressLoggingOnTimeout
+decl_stmt|;
+comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *<p/>      * You should have good reasons to set this option to<tt>false</tt> as it means that the routes      * keep running and is halted abruptly when CamelContext has been shutdown.      */
+DECL|field|shutdownNowOnTimeout
+specifier|private
+name|boolean
+name|shutdownNowOnTimeout
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Sets whether routes should be shutdown in reverse or the same order as they where started.      */
+DECL|field|shutdownRoutesInReverseOrder
+specifier|private
+name|boolean
+name|shutdownRoutesInReverseOrder
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Sets whether to log information about the inflight Exchanges which are still running      * during a shutdown which didn't complete without the given timeout.      */
+DECL|field|shutdownLogInflightExchangesOnTimeout
+specifier|private
+name|boolean
+name|shutdownLogInflightExchangesOnTimeout
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Enable JMX in your Camel application.      */
 DECL|field|jmxEnabled
@@ -409,6 +459,136 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+block|}
+DECL|method|getShutdownTimeout ()
+specifier|public
+name|int
+name|getShutdownTimeout
+parameter_list|()
+block|{
+return|return
+name|shutdownTimeout
+return|;
+block|}
+DECL|method|setShutdownTimeout (int shutdownTimeout)
+specifier|public
+name|void
+name|setShutdownTimeout
+parameter_list|(
+name|int
+name|shutdownTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownTimeout
+operator|=
+name|shutdownTimeout
+expr_stmt|;
+block|}
+DECL|method|isShutdownSuppressLoggingOnTimeout ()
+specifier|public
+name|boolean
+name|isShutdownSuppressLoggingOnTimeout
+parameter_list|()
+block|{
+return|return
+name|shutdownSuppressLoggingOnTimeout
+return|;
+block|}
+DECL|method|setShutdownSuppressLoggingOnTimeout (boolean shutdownSuppressLoggingOnTimeout)
+specifier|public
+name|void
+name|setShutdownSuppressLoggingOnTimeout
+parameter_list|(
+name|boolean
+name|shutdownSuppressLoggingOnTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownSuppressLoggingOnTimeout
+operator|=
+name|shutdownSuppressLoggingOnTimeout
+expr_stmt|;
+block|}
+DECL|method|isShutdownNowOnTimeout ()
+specifier|public
+name|boolean
+name|isShutdownNowOnTimeout
+parameter_list|()
+block|{
+return|return
+name|shutdownNowOnTimeout
+return|;
+block|}
+DECL|method|setShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
+specifier|public
+name|void
+name|setShutdownNowOnTimeout
+parameter_list|(
+name|boolean
+name|shutdownNowOnTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownNowOnTimeout
+operator|=
+name|shutdownNowOnTimeout
+expr_stmt|;
+block|}
+DECL|method|isShutdownRoutesInReverseOrder ()
+specifier|public
+name|boolean
+name|isShutdownRoutesInReverseOrder
+parameter_list|()
+block|{
+return|return
+name|shutdownRoutesInReverseOrder
+return|;
+block|}
+DECL|method|setShutdownRoutesInReverseOrder (boolean shutdownRoutesInReverseOrder)
+specifier|public
+name|void
+name|setShutdownRoutesInReverseOrder
+parameter_list|(
+name|boolean
+name|shutdownRoutesInReverseOrder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownRoutesInReverseOrder
+operator|=
+name|shutdownRoutesInReverseOrder
+expr_stmt|;
+block|}
+DECL|method|isShutdownLogInflightExchangesOnTimeout ()
+specifier|public
+name|boolean
+name|isShutdownLogInflightExchangesOnTimeout
+parameter_list|()
+block|{
+return|return
+name|shutdownLogInflightExchangesOnTimeout
+return|;
+block|}
+DECL|method|setShutdownLogInflightExchangesOnTimeout (boolean shutdownLogInflightExchangesOnTimeout)
+specifier|public
+name|void
+name|setShutdownLogInflightExchangesOnTimeout
+parameter_list|(
+name|boolean
+name|shutdownLogInflightExchangesOnTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownLogInflightExchangesOnTimeout
+operator|=
+name|shutdownLogInflightExchangesOnTimeout
 expr_stmt|;
 block|}
 DECL|method|isJmxEnabled ()
