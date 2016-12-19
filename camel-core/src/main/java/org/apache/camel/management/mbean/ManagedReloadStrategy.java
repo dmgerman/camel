@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -12,22 +12,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|management
+operator|.
+name|mbean
 package|;
 end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -46,7 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
 import|;
 end_import
 
@@ -58,7 +54,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedReloadStrategyMBean
 import|;
 end_import
 
@@ -70,65 +72,114 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|StaticService
+name|spi
+operator|.
+name|ReloadStrategy
 import|;
 end_import
 
 begin_comment
-comment|/**  * SPI strategy for reloading Camel routes in an existing running {@link org.apache.camel.CamelContext}  */
+comment|/**  * @version   */
 end_comment
 
-begin_interface
-DECL|interface|ReloadStrategy
+begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed ReloadStrategy"
+argument_list|)
+DECL|class|ManagedReloadStrategy
 specifier|public
-interface|interface
-name|ReloadStrategy
+class|class
+name|ManagedReloadStrategy
 extends|extends
-name|Service
-extends|,
-name|StaticService
-extends|,
-name|CamelContextAware
+name|ManagedService
+implements|implements
+name|ManagedReloadStrategyMBean
 block|{
-comment|// TODO: naming of this SPI?
-comment|/**      * A reload is triggered and the {@link CamelContext} is expected to do a re-start      *      * @param camelContext  the running CamelContext      */
-DECL|method|onReloadCamelContext (CamelContext camelContext)
-name|void
-name|onReloadCamelContext
+DECL|field|reloadStrategy
+specifier|private
+specifier|final
+name|ReloadStrategy
+name|reloadStrategy
+decl_stmt|;
+DECL|method|ManagedReloadStrategy (CamelContext context, ReloadStrategy reloadStrategy)
+specifier|public
+name|ManagedReloadStrategy
 parameter_list|(
 name|CamelContext
-name|camelContext
-parameter_list|)
-function_decl|;
-comment|/**      * A reload is triggered with a resource of some sort has been changed, such as a xml file with Camel routes.      *      * @param camelContext  the running CamelContext      * @param name          name of resource such as a file name (can be null)      * @param resource      the changed resource      */
-DECL|method|onReloadRoutes (CamelContext camelContext, String name, InputStream resource)
-name|void
-name|onReloadRoutes
-parameter_list|(
-name|CamelContext
-name|camelContext
+name|context
 parameter_list|,
+name|ReloadStrategy
+name|reloadStrategy
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
+name|reloadStrategy
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|reloadStrategy
+operator|=
+name|reloadStrategy
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getStrategy ()
+specifier|public
 name|String
-name|name
-parameter_list|,
-name|InputStream
-name|resource
-parameter_list|)
-function_decl|;
-comment|/**      * Number of reloads succeeded.      */
+name|getStrategy
+parameter_list|()
+block|{
+return|return
+name|reloadStrategy
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getReloadCounter ()
+specifier|public
 name|int
 name|getReloadCounter
 parameter_list|()
-function_decl|;
-comment|/**      * Number of reloads failed.      */
+block|{
+return|return
+name|reloadStrategy
+operator|.
+name|getReloadCounter
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getFailedCounter ()
+specifier|public
 name|int
 name|getFailedCounter
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|reloadStrategy
+operator|.
+name|getFailedCounter
+argument_list|()
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

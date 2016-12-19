@@ -148,6 +148,16 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|succeeded
+specifier|private
+name|int
+name|succeeded
+decl_stmt|;
+DECL|field|failed
+specifier|private
+name|int
+name|failed
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getCamelContext ()
@@ -224,6 +234,9 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|failed
+operator|++
+expr_stmt|;
 throw|throw
 name|ObjectHelper
 operator|.
@@ -245,6 +258,9 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|succeeded
+operator|++
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -263,6 +279,8 @@ name|InputStream
 name|resource
 parameter_list|)
 block|{
+comment|// load the stream in as DOM and find out if its<routes><route> or<camelContext>
+comment|// and if its<blueprint><beans> etc and then find inside the<camelContext> and grab what we support re-loading
 name|log
 operator|.
 name|debug
@@ -307,6 +325,9 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|failed
+operator|++
+expr_stmt|;
 throw|throw
 name|ObjectHelper
 operator|.
@@ -330,6 +351,33 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+name|succeeded
+operator|++
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getReloadCounter ()
+specifier|public
+name|int
+name|getReloadCounter
+parameter_list|()
+block|{
+return|return
+name|succeeded
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getFailedCounter ()
+specifier|public
+name|int
+name|getFailedCounter
+parameter_list|()
+block|{
+return|return
+name|failed
+return|;
 block|}
 block|}
 end_class
