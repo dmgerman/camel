@@ -248,17 +248,17 @@ name|name
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|uri
 specifier|private
 name|String
 name|uri
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|component
+specifier|private
+name|String
+name|component
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -417,6 +417,25 @@ block|{
 name|setUri
 argument_list|(
 name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the component to use      */
+DECL|method|component (String component)
+specifier|public
+name|ServiceCallDefinition
+name|component
+parameter_list|(
+name|String
+name|component
+parameter_list|)
+block|{
+name|setComponent
+argument_list|(
+name|component
 argument_list|)
 expr_stmt|;
 return|return
@@ -777,6 +796,33 @@ operator|.
 name|uri
 operator|=
 name|uri
+expr_stmt|;
+block|}
+DECL|method|getComponent ()
+specifier|public
+name|String
+name|getComponent
+parameter_list|()
+block|{
+return|return
+name|component
+return|;
+block|}
+comment|/**      * The component to use.      */
+DECL|method|setComponent (String component)
+specifier|public
+name|void
+name|setComponent
+parameter_list|(
+name|String
+name|component
+parameter_list|)
+block|{
+name|this
+operator|.
+name|component
+operator|=
+name|component
 expr_stmt|;
 block|}
 DECL|method|getLoadBalancerRef ()

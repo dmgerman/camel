@@ -284,7 +284,6 @@ name|FIELD
 argument_list|)
 DECL|class|ServiceCallConfigurationDefinition
 specifier|public
-specifier|abstract
 class|class
 name|ServiceCallConfigurationDefinition
 extends|extends

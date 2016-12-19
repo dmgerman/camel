@@ -104,20 +104,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|PropertyDefinition
 import|;
 end_import
@@ -151,20 +137,6 @@ operator|.
 name|remote
 operator|.
 name|ServiceCallDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ProcessorFactory
 import|;
 end_import
 
@@ -279,67 +251,28 @@ name|S
 extends|extends
 name|ServiceCallServer
 parameter_list|>
-implements|implements
-name|ProcessorFactory
+extends|extends
+name|AbstractServiceCallProcessorFactory
 block|{
-annotation|@
-name|Override
-DECL|method|createChildProcessor (RouteContext routeContext, ProcessorDefinition<?> definition, boolean mandatory)
-specifier|public
-name|Processor
-name|createChildProcessor
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|definition
-parameter_list|,
-name|boolean
-name|mandatory
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// not in use
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createProcessor (RouteContext routeContext, ProcessorDefinition<?> definition)
-specifier|public
+DECL|method|createProcessor (RouteContext routeContext, ServiceCallDefinition definition)
+specifier|protected
 name|Processor
 name|createProcessor
 parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|ServiceCallDefinition
 name|definition
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 return|return
-name|definition
-operator|instanceof
-name|ServiceCallDefinition
-condition|?
 name|createProcessor
 argument_list|(
 name|routeContext
 argument_list|,
-operator|(
-name|ServiceCallDefinition
-operator|)
 name|definition
 argument_list|,
 name|createConfiguration
@@ -347,8 +280,6 @@ argument_list|(
 name|routeContext
 argument_list|)
 argument_list|)
-else|:
-literal|null
 return|;
 block|}
 DECL|method|createProcessor (RouteContext routeContext, ServiceCallDefinition definition, C cfg)
@@ -754,10 +685,25 @@ name|configRef
 argument_list|)
 expr_stmt|;
 block|}
-comment|// the component is used to configure what the default scheme to use (eg camel component name)
+comment|// The component is used to configure what the default scheme to use (eg camel component name).
+comment|// The component configured on EIP takes precedence vs configured on configuration.
 name|String
 name|component
 init|=
+name|definition
+operator|.
+name|getComponent
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|component
+operator|==
+literal|null
+condition|)
+block|{
+name|component
+operator|=
 name|config
 operator|!=
 literal|null
@@ -768,7 +714,7 @@ name|getComponent
 argument_list|()
 else|:
 literal|null
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|component
@@ -787,6 +733,7 @@ operator|.
 name|getComponent
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -961,7 +908,10 @@ return|return
 name|processor
 return|;
 block|}
-DECL|method|configureProperties (RouteContext routeContext, ServiceCallConfigurationDefinition config, ServiceCallConfigurationDefinition configRef)
+comment|// *************************************************************************
+comment|// Helpers
+comment|// *************************************************************************
+DECL|method|configureProperties ( RouteContext routeContext, ServiceCallConfigurationDefinition config, ServiceCallConfigurationDefinition configRef)
 specifier|protected
 name|Map
 argument_list|<
@@ -1648,6 +1598,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|// *************************************************************************
+comment|// Defaults
+comment|// *************************************************************************
 DECL|method|createDefaultLoadBalancer (C conf)
 specifier|protected
 name|ServiceCallLoadBalancer
