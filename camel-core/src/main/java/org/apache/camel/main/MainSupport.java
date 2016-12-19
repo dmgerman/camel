@@ -240,6 +240,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|ReloadStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -473,6 +487,11 @@ name|int
 name|durationHitExitCode
 init|=
 name|DEFAULT_EXIT_CODE
+decl_stmt|;
+DECL|field|reloadStrategy
+specifier|protected
+name|ReloadStrategy
+name|reloadStrategy
 decl_stmt|;
 comment|/**      * A class for intercepting the hang up signal and do a graceful shutdown of the Camel.      */
 DECL|class|HangupInterceptor
@@ -1451,6 +1470,32 @@ block|{
 return|return
 name|routeBuilderClasses
 return|;
+block|}
+DECL|method|getReloadStrategy ()
+specifier|public
+name|ReloadStrategy
+name|getReloadStrategy
+parameter_list|()
+block|{
+return|return
+name|reloadStrategy
+return|;
+block|}
+DECL|method|setReloadStrategy (ReloadStrategy reloadStrategy)
+specifier|public
+name|void
+name|setReloadStrategy
+parameter_list|(
+name|ReloadStrategy
+name|reloadStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reloadStrategy
+operator|=
+name|reloadStrategy
+expr_stmt|;
 block|}
 DECL|method|isTrace ()
 specifier|public
