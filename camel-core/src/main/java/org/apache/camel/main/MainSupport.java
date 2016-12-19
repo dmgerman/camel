@@ -1518,6 +1518,7 @@ return|return
 name|fileWatchDirectory
 return|;
 block|}
+comment|/**      * Sets the directory name to watch XML file changes to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
 DECL|method|setFileWatchDirectory (String fileWatchDirectory)
 specifier|public
 name|void
@@ -1554,6 +1555,7 @@ return|return
 name|reloadStrategy
 return|;
 block|}
+comment|/**      * Sets a custom {@link ReloadStrategy} to be used.      *<p/>      * Notice you cannot set this value and the fileWatchDirectory as well.      */
 DECL|method|setReloadStrategy (ReloadStrategy reloadStrategy)
 specifier|public
 name|void
