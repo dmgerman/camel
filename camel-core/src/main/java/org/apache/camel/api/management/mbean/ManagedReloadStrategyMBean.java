@@ -108,6 +108,18 @@ name|int
 name|getFailedCounter
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset counters"
+argument_list|)
+DECL|method|resetCounters ()
+name|void
+name|resetCounters
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

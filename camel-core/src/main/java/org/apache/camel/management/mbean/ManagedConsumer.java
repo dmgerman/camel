@@ -142,19 +142,6 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|init (ManagementStrategy strategy)
-specifier|public
-name|void
-name|init
-parameter_list|(
-name|ManagementStrategy
-name|strategy
-parameter_list|)
-block|{
-comment|// noop
-block|}
 DECL|method|getConsumer ()
 specifier|public
 name|Consumer

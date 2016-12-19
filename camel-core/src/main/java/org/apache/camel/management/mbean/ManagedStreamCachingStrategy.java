@@ -152,17 +152,6 @@ operator|=
 name|streamCachingStrategy
 expr_stmt|;
 block|}
-DECL|method|init (ManagementStrategy strategy)
-specifier|public
-name|void
-name|init
-parameter_list|(
-name|ManagementStrategy
-name|strategy
-parameter_list|)
-block|{
-comment|// do nothing
-block|}
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext

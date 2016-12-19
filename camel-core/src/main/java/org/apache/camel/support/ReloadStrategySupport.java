@@ -548,6 +548,23 @@ return|return
 name|failed
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|resetCounters ()
+specifier|public
+name|void
+name|resetCounters
+parameter_list|()
+block|{
+name|succeeded
+operator|=
+literal|0
+expr_stmt|;
+name|failed
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 end_class
 

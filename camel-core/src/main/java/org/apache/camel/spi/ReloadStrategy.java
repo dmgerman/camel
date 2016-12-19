@@ -127,6 +127,12 @@ name|int
 name|getFailedCounter
 parameter_list|()
 function_decl|;
+comment|/**      * Reset the counters.      */
+DECL|method|resetCounters ()
+name|void
+name|resetCounters
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
