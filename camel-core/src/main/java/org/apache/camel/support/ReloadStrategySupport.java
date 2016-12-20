@@ -625,7 +625,7 @@ argument_list|,
 name|xml
 argument_list|)
 decl_stmt|;
-comment|// find the<routes> root
+comment|// find all<route> which are the routes
 name|NodeList
 name|list
 init|=
@@ -633,34 +633,9 @@ name|dom
 operator|.
 name|getElementsByTagName
 argument_list|(
-literal|"routes"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|list
-operator|==
-literal|null
-operator|||
-name|list
-operator|.
-name|getLength
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-comment|// fallback to<route>
-name|list
-operator|=
-name|dom
-operator|.
-name|getElementsByTagName
-argument_list|(
 literal|"route"
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 comment|// collect which routes are updated
 name|CollectionStringBuffer
 name|csb

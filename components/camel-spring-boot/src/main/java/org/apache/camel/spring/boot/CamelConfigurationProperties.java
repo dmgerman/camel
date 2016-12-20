@@ -164,6 +164,12 @@ name|xmlRests
 init|=
 literal|"classpath:camel-rest/*.xml"
 decl_stmt|;
+comment|/**      * To watch the directory for file changes which triggers      * a live reload of the Camel routes on-the-fly.      *<p/>      * For example configure this to point to the source code where the Camel XML files are located      * such as: src/main/resources/camel/      */
+DECL|field|xmlRoutesReloadDirectory
+specifier|private
+name|String
+name|xmlRoutesReloadDirectory
+decl_stmt|;
 comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *<p/>      * You must use either<tt>file:</tt> or<tt>classpath:</tt> as prefix to load      * from file system or classpath. Then you can specify a pattern to load      * from sub directories and a name pattern such as<tt>file:/var/app/secret/*.properties</tt>      */
 DECL|field|fileConfigurations
 specifier|private
@@ -745,6 +751,32 @@ operator|.
 name|xmlRests
 operator|=
 name|xmlRests
+expr_stmt|;
+block|}
+DECL|method|getXmlRoutesReloadDirectory ()
+specifier|public
+name|String
+name|getXmlRoutesReloadDirectory
+parameter_list|()
+block|{
+return|return
+name|xmlRoutesReloadDirectory
+return|;
+block|}
+DECL|method|setXmlRoutesReloadDirectory (String xmlRoutesReloadDirectory)
+specifier|public
+name|void
+name|setXmlRoutesReloadDirectory
+parameter_list|(
+name|String
+name|xmlRoutesReloadDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlRoutesReloadDirectory
+operator|=
+name|xmlRoutesReloadDirectory
 expr_stmt|;
 block|}
 DECL|method|isMainRunController ()
