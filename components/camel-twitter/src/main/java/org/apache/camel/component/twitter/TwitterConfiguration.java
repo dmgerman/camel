@@ -204,6 +204,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|secret
 operator|=
 literal|true
@@ -216,6 +220,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|secret
 operator|=
 literal|true
@@ -228,6 +236,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|secret
 operator|=
 literal|true
@@ -240,6 +252,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|secret
 operator|=
 literal|true
