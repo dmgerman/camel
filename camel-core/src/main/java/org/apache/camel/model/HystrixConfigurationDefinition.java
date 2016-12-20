@@ -633,6 +633,24 @@ literal|"threadpool"
 argument_list|,
 name|defaultValue
 operator|=
+literal|"10"
+argument_list|)
+DECL|field|maximumSize
+specifier|private
+name|Integer
+name|maximumSize
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|,
+name|defaultValue
+operator|=
 literal|"1"
 argument_list|)
 DECL|field|keepAliveTime
@@ -711,6 +729,24 @@ DECL|field|threadPoolRollingNumberStatisticalWindowBuckets
 specifier|private
 name|Integer
 name|threadPoolRollingNumberStatisticalWindowBuckets
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|allowMaximumSizeToDivergeFromCoreSize
+specifier|private
+name|Boolean
+name|allowMaximumSizeToDivergeFromCoreSize
 decl_stmt|;
 DECL|method|HystrixConfigurationDefinition ()
 specifier|public
@@ -1358,6 +1394,32 @@ operator|=
 name|corePoolSize
 expr_stmt|;
 block|}
+DECL|method|getMaximumSize ()
+specifier|public
+name|Integer
+name|getMaximumSize
+parameter_list|()
+block|{
+return|return
+name|maximumSize
+return|;
+block|}
+DECL|method|setMaximumSize (Integer maximumSize)
+specifier|public
+name|void
+name|setMaximumSize
+parameter_list|(
+name|Integer
+name|maximumSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumSize
+operator|=
+name|maximumSize
+expr_stmt|;
+block|}
 DECL|method|getKeepAliveTime ()
 specifier|public
 name|Integer
@@ -1486,6 +1548,32 @@ operator|.
 name|threadPoolRollingNumberStatisticalWindowBuckets
 operator|=
 name|threadPoolRollingNumberStatisticalWindowBuckets
+expr_stmt|;
+block|}
+DECL|method|getAllowMaximumSizeToDivergeFromCoreSize ()
+specifier|public
+name|Boolean
+name|getAllowMaximumSizeToDivergeFromCoreSize
+parameter_list|()
+block|{
+return|return
+name|allowMaximumSizeToDivergeFromCoreSize
+return|;
+block|}
+DECL|method|setAllowMaximumSizeToDivergeFromCoreSize (Boolean allowMaximumSizeToDivergeFromCoreSize)
+specifier|public
+name|void
+name|setAllowMaximumSizeToDivergeFromCoreSize
+parameter_list|(
+name|Boolean
+name|allowMaximumSizeToDivergeFromCoreSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowMaximumSizeToDivergeFromCoreSize
+operator|=
+name|allowMaximumSizeToDivergeFromCoreSize
 expr_stmt|;
 block|}
 comment|// Fluent API
@@ -2008,6 +2096,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Maximum thread-pool size that gets passed to {@link ThreadPoolExecutor#setMaximumPoolSize(int)}      *      */
+DECL|method|maximumSize (Integer maximumSize)
+specifier|public
+name|HystrixConfigurationDefinition
+name|maximumSize
+parameter_list|(
+name|Integer
+name|maximumSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumSize
+operator|=
+name|maximumSize
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Queue size rejection threshold is an artificial "max" size at which rejections will occur even      * if {@link #maxQueueSize} has not been reached. This is done because the {@link #maxQueueSize}      * of a {@link BlockingQueue} can not be dynamically changed and we want to support dynamically      * changing the queue size that affects rejections.      *<p>      * This is used by HystrixCommand when queuing a thread for execution.      */
 DECL|method|queueSizeRejectionThreshold (Integer queueSizeRejectionThreshold)
 specifier|public
@@ -2063,6 +2171,26 @@ operator|.
 name|threadPoolRollingNumberStatisticalWindowBuckets
 operator|=
 name|threadPoolRollingNumberStatisticalWindowBuckets
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Allows the configuration for maximumSize to take effect. That value can then be equal to, or higher, than coreSize      */
+DECL|method|allowMaximumSizeToDivergeFromCoreSize (Boolean allowMaximumSizeToDivergeFromCoreSize)
+specifier|public
+name|HystrixConfigurationDefinition
+name|allowMaximumSizeToDivergeFromCoreSize
+parameter_list|(
+name|Boolean
+name|allowMaximumSizeToDivergeFromCoreSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowMaximumSizeToDivergeFromCoreSize
+operator|=
+name|allowMaximumSizeToDivergeFromCoreSize
 expr_stmt|;
 return|return
 name|this
