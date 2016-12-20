@@ -203,6 +203,11 @@ name|DIRECT
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|accessToken
 specifier|private
 name|String
@@ -210,6 +215,11 @@ name|accessToken
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|accessTokenSecret
 specifier|private
 name|String
@@ -217,6 +227,11 @@ name|accessTokenSecret
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|consumerKey
 specifier|private
 name|String
@@ -224,6 +239,11 @@ name|consumerKey
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|consumerSecret
 specifier|private
 name|String
