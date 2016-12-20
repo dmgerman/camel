@@ -205,7 +205,7 @@ name|text
 operator|.
 name|contains
 argument_list|(
-literal|"log4j"
+literal|"rootLogger"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -307,7 +307,7 @@ name|text
 operator|.
 name|contains
 argument_list|(
-literal|"log4j"
+literal|"rootLogger"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -387,7 +387,7 @@ name|text
 operator|.
 name|contains
 argument_list|(
-literal|"log4j"
+literal|"rootLogger"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -423,7 +423,7 @@ name|put
 argument_list|(
 literal|"myBean"
 argument_list|,
-literal|"This is a log4j logging configuation file"
+literal|"This is a log4j logging configuration file"
 argument_list|)
 expr_stmt|;
 name|CamelContext
@@ -565,7 +565,7 @@ name|text
 operator|.
 name|contains
 argument_list|(
-literal|"log4j"
+literal|"rootLogger"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -771,7 +771,7 @@ name|text
 operator|.
 name|contains
 argument_list|(
-literal|"log4j"
+literal|"rootLogger"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -849,7 +849,7 @@ name|text
 operator|.
 name|contains
 argument_list|(
-literal|"log4j"
+literal|"rootLogger"
 argument_list|)
 argument_list|)
 expr_stmt|;
