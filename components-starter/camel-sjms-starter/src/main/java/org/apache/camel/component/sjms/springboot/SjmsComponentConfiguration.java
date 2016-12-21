@@ -187,14 +187,6 @@ specifier|private
 name|ConnectionFactory
 name|connectionFactory
 decl_stmt|;
-comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
-annotation|@
-name|NestedConfigurationProperty
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-decl_stmt|;
 comment|/**      * A ConnectionResource is an interface that allows for customization and      * container control of the ConnectionFactory. See Plugable Connection      * Resource Management for further details.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -249,6 +241,14 @@ specifier|private
 name|MessageCreatedStrategy
 name|messageCreatedStrategy
 decl_stmt|;
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
 DECL|method|getConnectionFactory ()
 specifier|public
 name|ConnectionFactory
@@ -273,32 +273,6 @@ operator|.
 name|connectionFactory
 operator|=
 name|connectionFactory
-expr_stmt|;
-block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|headerFilterStrategy
-return|;
-block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
-name|void
-name|setHeaderFilterStrategy
-parameter_list|(
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|headerFilterStrategy
-operator|=
-name|headerFilterStrategy
 expr_stmt|;
 block|}
 DECL|method|getConnectionResource ()
@@ -481,6 +455,32 @@ operator|.
 name|messageCreatedStrategy
 operator|=
 name|messageCreatedStrategy
+expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
 expr_stmt|;
 block|}
 DECL|class|TimedTaskManagerNestedConfiguration

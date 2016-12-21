@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|HeaderFilterStrategyComponent
 import|;
 end_import
 
@@ -100,7 +100,7 @@ specifier|public
 class|class
 name|SjmsBatchComponent
 extends|extends
-name|UriEndpointComponent
+name|HeaderFilterStrategyComponent
 block|{
 annotation|@
 name|Metadata
