@@ -66,6 +66,20 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * For sending notifications to Apple iOS devices  */
 end_comment
@@ -78,6 +92,13 @@ name|ApnsComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|apnsService
 specifier|private
 name|ApnsService
@@ -175,7 +196,7 @@ return|return
 name|apnsService
 return|;
 block|}
-comment|/**      * To use a custom @{link ApnsService}      */
+comment|/**      * The ApnsService to use.      *<p/>      * The {@link org.apache.camel.component.apns.factory.ApnsServiceFactory} can be used to build a {@link ApnsService}      */
 DECL|method|setApnsService (ApnsService apnsService)
 specifier|public
 name|void

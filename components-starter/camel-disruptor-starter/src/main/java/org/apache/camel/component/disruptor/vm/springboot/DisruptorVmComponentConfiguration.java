@@ -58,6 +58,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|disruptor
+operator|.
+name|vm
+operator|.
+name|DisruptorVmComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -108,6 +126,8 @@ DECL|field|defaultConcurrentConsumers
 specifier|private
 name|Integer
 name|defaultConcurrentConsumers
+init|=
+literal|1
 decl_stmt|;
 comment|/**      * To configure the default value for multiple consumers      */
 DECL|field|defaultMultipleConsumers
@@ -120,18 +140,28 @@ DECL|field|defaultProducerType
 specifier|private
 name|DisruptorProducerType
 name|defaultProducerType
+init|=
+name|DisruptorProducerType
+operator|.
+name|Multi
 decl_stmt|;
 comment|/**      * To configure the default value for DisruptorWaitStrategy The default      * value is Blocking.      */
 DECL|field|defaultWaitStrategy
 specifier|private
 name|DisruptorWaitStrategy
 name|defaultWaitStrategy
+init|=
+name|DisruptorWaitStrategy
+operator|.
+name|Blocking
 decl_stmt|;
 comment|/**      * To configure the default value for block when full The default value is      * true.      */
 DECL|field|defaultBlockWhenFull
 specifier|private
 name|Boolean
 name|defaultBlockWhenFull
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * To configure the ring buffer size      */
 annotation|@
@@ -146,6 +176,8 @@ DECL|field|bufferSize
 specifier|private
 name|Integer
 name|bufferSize
+init|=
+literal|1024
 decl_stmt|;
 DECL|method|getDefaultConcurrentConsumers ()
 specifier|public

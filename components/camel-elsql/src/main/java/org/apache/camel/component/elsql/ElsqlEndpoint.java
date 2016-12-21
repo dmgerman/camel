@@ -410,11 +410,6 @@ specifier|private
 name|NamedParameterJdbcTemplate
 name|namedJdbcTemplate
 decl_stmt|;
-DECL|field|dataSource
-specifier|private
-name|DataSource
-name|dataSource
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -438,6 +433,13 @@ name|resourceUri
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|dataSource
+specifier|private
+name|DataSource
+name|dataSource
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|databaseVendor
 specifier|private
 name|ElSqlDatabaseVendor
@@ -445,6 +447,11 @@ name|databaseVendor
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|elSqlConfig
 specifier|private
 name|ElSqlConfig
@@ -940,6 +947,33 @@ operator|.
 name|resourceUri
 operator|=
 name|resourceUri
+expr_stmt|;
+block|}
+DECL|method|getDataSource ()
+specifier|public
+name|DataSource
+name|getDataSource
+parameter_list|()
+block|{
+return|return
+name|dataSource
+return|;
+block|}
+comment|/**      * Sets the DataSource to use to communicate with the database.      */
+DECL|method|setDataSource (DataSource dataSource)
+specifier|public
+name|void
+name|setDataSource
+parameter_list|(
+name|DataSource
+name|dataSource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataSource
+operator|=
+name|dataSource
 expr_stmt|;
 block|}
 block|}

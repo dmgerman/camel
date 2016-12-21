@@ -81,7 +81,7 @@ specifier|public
 class|class
 name|ApnsComponentConfiguration
 block|{
-comment|/**      * To use a custom link ApnsService      */
+comment|/**      * The ApnsService to use. The      * org.apache.camel.component.apns.factory.ApnsServiceFactory can be used to      * build a ApnsService      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|apnsService
