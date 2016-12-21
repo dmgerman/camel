@@ -112,6 +112,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelLogger
@@ -166,6 +180,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|exchangeFormatter
 specifier|private
 name|ExchangeFormatter
@@ -494,7 +515,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets optional {@link Logger} instance from parameters. If non-null, the provided instance will be used as      * {@link Logger} in {@link CamelLogger}      *       * @param parameters      * @return the Logger object from the parameter      */
+comment|/**      * Gets optional {@link Logger} instance from parameters. If non-null, the provided instance will be used as      * {@link Logger} in {@link CamelLogger}      *      * @param parameters the parameters      * @return the Logger object from the parameter      */
 DECL|method|getLogger (Map<String, Object> parameters)
 specifier|protected
 name|Logger

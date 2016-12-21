@@ -127,6 +127,13 @@ name|DirectConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|block
 specifier|private
 name|boolean
@@ -135,6 +142,10 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"30000"

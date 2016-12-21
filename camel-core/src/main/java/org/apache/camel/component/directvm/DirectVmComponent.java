@@ -187,6 +187,13 @@ name|DirectVmConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|block
 specifier|private
 name|boolean
@@ -195,6 +202,10 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"30000"
@@ -214,18 +225,20 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
 DECL|field|propagateProperties
 specifier|private
-name|Boolean
+name|boolean
 name|propagateProperties
 init|=
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 decl_stmt|;
 DECL|method|DirectVmComponent ()
 specifier|public
@@ -342,6 +355,13 @@ operator|.
 name|setTimeout
 argument_list|(
 name|timeout
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setPropagateProperties
+argument_list|(
+name|propagateProperties
 argument_list|)
 expr_stmt|;
 name|answer
@@ -655,7 +675,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-comment|/**      * Sets a {@link HeaderFilterStrategy} that will only be applied on producer endpoints (on both directions: request and response).      *<p>Default value: none.</p>      * @param headerFilterStrategy      */
+comment|/**      * Sets a {@link HeaderFilterStrategy} that will only be applied on producer endpoints (on both directions: request and response).      *<p>Default value: none.</p>      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -682,7 +702,7 @@ return|return
 name|propagateProperties
 return|;
 block|}
-comment|/**      * Whether to propagate or not properties from the producer side to the consumer side, and viceversa.      *<p>Default value: true.</p>      * @param propagateProperties      */
+comment|/**      * Whether to propagate or not properties from the producer side to the consumer side, and vice versa.      *<p>Default value: true.</p>      */
 DECL|method|setPropagateProperties (boolean propagateProperties)
 specifier|public
 name|void

@@ -289,12 +289,14 @@ literal|"advanced"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"false"
+literal|"true"
 argument_list|)
 DECL|field|propagateProperties
 specifier|private
-name|Boolean
+name|boolean
 name|propagateProperties
+init|=
+literal|true
 decl_stmt|;
 DECL|method|DirectVmEndpoint (String endpointUri, DirectVmComponent component)
 specifier|public
@@ -554,31 +556,21 @@ expr_stmt|;
 block|}
 DECL|method|isPropagateProperties ()
 specifier|public
-name|Boolean
+name|boolean
 name|isPropagateProperties
 parameter_list|()
 block|{
 return|return
 name|propagateProperties
-operator|==
-literal|null
-condition|?
-name|getComponent
-argument_list|()
-operator|.
-name|isPropagateProperties
-argument_list|()
-else|:
-name|propagateProperties
 return|;
 block|}
-comment|/**      * Whether to propagate or not properties from the producer side to the consumer side, and viceversa.      *<p>Default value: true.</p>      */
-DECL|method|setPropagateProperties (Boolean propagateProperties)
+comment|/**      * Whether to propagate or not properties from the producer side to the consumer side, and vice versa.      *<p>Default value: true.</p>      */
+DECL|method|setPropagateProperties (boolean propagateProperties)
 specifier|public
 name|void
 name|setPropagateProperties
 parameter_list|(
-name|Boolean
+name|boolean
 name|propagateProperties
 parameter_list|)
 block|{

@@ -105,7 +105,7 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
-comment|/**      * Whether to propagate or not properties from the producer side to the      * consumer side and viceversa. Default value: true.      */
+comment|/**      * Whether to propagate or not properties from the producer side to the      * consumer side and vice versa. Default value: true.      */
 DECL|field|propagateProperties
 specifier|private
 name|Boolean

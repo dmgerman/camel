@@ -359,6 +359,11 @@ decl_stmt|;
 comment|// we want to include the uri options of the DefaultExchangeFormatter
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|exchangeFormatter
 specifier|private
 name|DefaultExchangeFormatter

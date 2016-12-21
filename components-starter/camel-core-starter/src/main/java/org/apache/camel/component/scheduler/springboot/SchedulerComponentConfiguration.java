@@ -58,6 +58,8 @@ DECL|field|concurrentTasks
 specifier|private
 name|Integer
 name|concurrentTasks
+init|=
+literal|1
 decl_stmt|;
 DECL|method|getConcurrentTasks ()
 specifier|public
