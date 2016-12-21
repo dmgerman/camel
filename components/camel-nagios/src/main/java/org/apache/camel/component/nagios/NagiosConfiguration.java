@@ -216,6 +216,15 @@ literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|password
 specifier|private
 name|String
@@ -223,6 +232,11 @@ name|password
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|encryptionMethod
 specifier|private
 name|NagiosEncryptionMethod

@@ -184,6 +184,8 @@ DECL|field|maximumPoolSize
 specifier|private
 name|Integer
 name|maximumPoolSize
+init|=
+literal|16
 decl_stmt|;
 DECL|method|getNettyHttpBinding ()
 specifier|public

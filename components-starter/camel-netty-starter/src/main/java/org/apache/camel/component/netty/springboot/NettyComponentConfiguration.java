@@ -316,6 +316,8 @@ DECL|field|maximumPoolSize
 specifier|private
 name|Integer
 name|maximumPoolSize
+init|=
+literal|16
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
@@ -536,6 +538,8 @@ specifier|private
 name|ClientPipelineFactory
 name|clientPipelineFactory
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|maximumPoolSize
 specifier|private
 name|Integer
@@ -1357,6 +1361,10 @@ operator|=
 name|clientPipelineFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
+annotation|@
+name|DeprecatedConfigurationProperty
 DECL|method|getMaximumPoolSize ()
 specifier|public
 name|Integer
@@ -1367,6 +1375,8 @@ return|return
 name|maximumPoolSize
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setMaximumPoolSize (Integer maximumPoolSize)
 specifier|public
 name|void

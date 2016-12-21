@@ -200,7 +200,7 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"objects, containers"
+literal|"objects,containers"
 argument_list|)
 annotation|@
 name|Metadata
@@ -270,6 +270,10 @@ argument_list|(
 name|required
 operator|=
 literal|"true"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|username
 specifier|private
@@ -284,6 +288,10 @@ argument_list|(
 name|required
 operator|=
 literal|"true"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|password
 specifier|private
@@ -306,7 +314,7 @@ name|V3
 argument_list|,
 name|enums
 operator|=
-literal|"V2, V3"
+literal|"V2,V3"
 argument_list|)
 DECL|field|apiVersion
 specifier|private

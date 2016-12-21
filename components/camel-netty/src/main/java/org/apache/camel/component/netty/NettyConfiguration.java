@@ -2366,6 +2366,8 @@ name|clientPipelineFactory
 return|;
 block|}
 comment|/**      * The core pool size for the ordered thread pool, if its in use.      */
+annotation|@
+name|Deprecated
 DECL|method|getMaximumPoolSize ()
 specifier|public
 name|int
@@ -2376,6 +2378,8 @@ return|return
 name|maximumPoolSize
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setMaximumPoolSize (int maximumPoolSize)
 specifier|public
 name|void

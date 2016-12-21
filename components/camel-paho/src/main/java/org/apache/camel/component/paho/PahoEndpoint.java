@@ -396,11 +396,6 @@ name|DEFAULT_QOS
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|retained
 specifier|private
 name|boolean
@@ -427,11 +422,7 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Base directory used by file persistence."
-argument_list|,
-name|defaultValue
-operator|=
-literal|"Current directory"
+literal|"Base directory used by file persistence. Will by default use current directory."
 argument_list|)
 DECL|field|filePersistenceDirectory
 specifier|private

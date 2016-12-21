@@ -152,11 +152,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|pedantic
 specifier|private
 name|boolean
@@ -164,11 +159,6 @@ name|pedantic
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|verbose
 specifier|private
 name|boolean
@@ -177,9 +167,9 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
+name|label
 operator|=
-literal|"false"
+literal|"security"
 argument_list|)
 DECL|field|ssl
 specifier|private
@@ -242,11 +232,6 @@ name|replySubject
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|noRandomizeServers
 specifier|private
 name|boolean
@@ -358,10 +343,6 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
-argument_list|,
-name|description
-operator|=
-literal|"SSL configuration"
 argument_list|)
 DECL|field|sslContextParameters
 specifier|private
