@@ -825,14 +825,6 @@ specifier|private
 name|QueueBrowseStrategy
 name|queueBrowseStrategy
 decl_stmt|;
-comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
-annotation|@
-name|NestedConfigurationProperty
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-decl_stmt|;
 comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel      * creates new instances of javax.jms.Message objects when Camel is sending      * a JMS message.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -852,6 +844,14 @@ DECL|field|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 specifier|private
 name|Long
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+decl_stmt|;
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
@@ -2679,32 +2679,6 @@ operator|=
 name|queueBrowseStrategy
 expr_stmt|;
 block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|headerFilterStrategy
-return|;
-block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
-name|void
-name|setHeaderFilterStrategy
-parameter_list|(
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|headerFilterStrategy
-operator|=
-name|headerFilterStrategy
-expr_stmt|;
-block|}
 DECL|method|getMessageCreatedStrategy ()
 specifier|public
 name|MessageCreatedStrategy
@@ -2781,6 +2755,32 @@ operator|.
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 operator|=
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
 expr_stmt|;
 block|}
 DECL|class|JmsConfigurationNestedConfiguration
