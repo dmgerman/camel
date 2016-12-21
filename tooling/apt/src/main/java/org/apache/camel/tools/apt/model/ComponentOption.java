@@ -232,7 +232,7 @@ name|secret
 expr_stmt|;
 name|this
 operator|.
-name|label
+name|group
 operator|=
 name|group
 expr_stmt|;

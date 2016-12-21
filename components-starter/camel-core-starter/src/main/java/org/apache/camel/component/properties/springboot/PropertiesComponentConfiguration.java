@@ -180,7 +180,7 @@ specifier|private
 name|Boolean
 name|cache
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * Optional prefix prepended to property names before resolution.      */
 DECL|field|propertyPrefix
@@ -200,7 +200,7 @@ specifier|private
 name|Boolean
 name|fallbackToUnaugmentedProperty
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * If false the component does not attempt to find a default for the key by      * looking after the colon separator.      */
 DECL|field|defaultFallbackEnabled
@@ -208,7 +208,7 @@ specifier|private
 name|Boolean
 name|defaultFallbackEnabled
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * Whether to silently ignore if a location cannot be located such as a      * properties file not found.      */
 DECL|field|ignoreMissingLocation
@@ -223,12 +223,16 @@ DECL|field|prefixToken
 specifier|private
 name|String
 name|prefixToken
+init|=
+literal|"{{"
 decl_stmt|;
 comment|/**      * Sets the value of the suffix token used to identify properties to      * replace. Setting a value of null restores the default token (link link      * DEFAULT_SUFFIX_TOKEN).      */
 DECL|field|suffixToken
 specifier|private
 name|String
 name|suffixToken
+init|=
+literal|"}}"
 decl_stmt|;
 comment|/**      * Sets initial properties which will be used before any locations are      * resolved.      */
 DECL|field|initialProperties
@@ -247,6 +251,8 @@ DECL|field|systemPropertiesMode
 specifier|private
 name|Integer
 name|systemPropertiesMode
+init|=
+literal|2
 decl_stmt|;
 DECL|method|getLocations ()
 specifier|public
