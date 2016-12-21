@@ -121,6 +121,10 @@ decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|description
 operator|=
 literal|"The authorization token for using the bot (ask the BotFather), eg. 654321531:HGF_dTra456323dHuOedsE343211fqr3t-H."

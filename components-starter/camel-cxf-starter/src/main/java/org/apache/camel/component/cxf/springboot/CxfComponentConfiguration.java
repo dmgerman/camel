@@ -89,7 +89,7 @@ specifier|private
 name|Boolean
 name|allowStreaming
 decl_stmt|;
-comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|headerFilterStrategy

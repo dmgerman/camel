@@ -272,12 +272,16 @@ DECL|field|maxTotalConnections
 specifier|private
 name|Integer
 name|maxTotalConnections
+init|=
+literal|200
 decl_stmt|;
 comment|/**      * The maximum number of connections per route.      */
 DECL|field|connectionsPerRoute
 specifier|private
 name|Integer
 name|connectionsPerRoute
+init|=
+literal|20
 decl_stmt|;
 comment|/**      * The time for connection to live the time unit is millisecond the default      * value is always keep alive.      */
 DECL|field|connectionTimeToLive
@@ -293,7 +297,7 @@ specifier|private
 name|CookieStore
 name|cookieStore
 decl_stmt|;
-comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|headerFilterStrategy

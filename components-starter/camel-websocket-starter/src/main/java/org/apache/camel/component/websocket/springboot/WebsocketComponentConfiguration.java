@@ -138,12 +138,16 @@ DECL|field|host
 specifier|private
 name|String
 name|host
+init|=
+literal|"0.0.0.0"
 decl_stmt|;
 comment|/**      * The port number. The default value is 9292      */
 DECL|field|port
 specifier|private
 name|Integer
 name|port
+init|=
+literal|9292
 decl_stmt|;
 comment|/**      * The password for the keystore when using SSL.      */
 DECL|field|sslKeyPassword

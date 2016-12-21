@@ -148,6 +148,8 @@ DECL|field|timeout
 specifier|private
 name|Integer
 name|timeout
+init|=
+literal|60
 decl_stmt|;
 DECL|method|getVertxFactory ()
 specifier|public

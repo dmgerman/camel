@@ -208,6 +208,8 @@ DECL|field|connectionCount
 specifier|private
 name|Integer
 name|connectionCount
+init|=
+literal|1
 decl_stmt|;
 comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be      * compliant with the JMS specification. Camel provides one implementation      * out of the box: default. The default strategy will safely marshal dots      * and hyphens (. and -). Can be used for JMS brokers which do not care      * whether JMS header keys contain illegal characters. You can provide your      * own implementation of the      * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using      * the notation.      */
 annotation|@

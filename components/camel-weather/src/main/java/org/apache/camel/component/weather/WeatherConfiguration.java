@@ -482,6 +482,10 @@ argument_list|(
 name|label
 operator|=
 literal|"proxy"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|proxyAuthUsername
 specifier|private
@@ -494,6 +498,10 @@ argument_list|(
 name|label
 operator|=
 literal|"proxy"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|proxyAuthPassword
 specifier|private

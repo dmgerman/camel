@@ -294,6 +294,8 @@ DECL|field|maximumPoolSize
 specifier|private
 name|Integer
 name|maximumPoolSize
+init|=
+literal|16
 decl_stmt|;
 comment|/**      * To use the NettyConfiguration as configuration when creating endpoints.      */
 DECL|field|configuration

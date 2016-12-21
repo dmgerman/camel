@@ -54,6 +54,20 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Camel component for Telegram.  */
 end_comment
@@ -66,6 +80,13 @@ name|TelegramComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|authorizationToken
 specifier|private
 name|String

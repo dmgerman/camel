@@ -68,6 +68,20 @@ name|HeaderFilterStrategyAware
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for components to support configuring a {@link org.apache.camel.spi.HeaderFilterStrategy}.  */
 end_comment
@@ -83,6 +97,17 @@ name|UriEndpointComponent
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"filter"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message."
+argument_list|)
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy

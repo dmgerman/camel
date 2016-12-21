@@ -362,12 +362,16 @@ DECL|field|continuationTimeout
 specifier|private
 name|Long
 name|continuationTimeout
+init|=
+literal|30000L
 decl_stmt|;
 comment|/**      * Whether or not to use Jetty continuations for the Jetty Server.      */
 DECL|field|useContinuation
 specifier|private
 name|Boolean
 name|useContinuation
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * To configure security using SSLContextParameters      */
 annotation|@
@@ -424,6 +428,8 @@ DECL|field|sendServerVersion
 specifier|private
 name|Boolean
 name|sendServerVersion
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
 DECL|field|allowJavaSerializedObject
@@ -431,7 +437,7 @@ specifier|private
 name|Boolean
 name|allowJavaSerializedObject
 decl_stmt|;
-comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|headerFilterStrategy
