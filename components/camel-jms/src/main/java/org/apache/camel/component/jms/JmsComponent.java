@@ -1163,10 +1163,6 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|,
 name|description
 operator|=
 literal|"Sets the cache level by ID for the underlying JMS resources. See cacheLevelName option for more details."

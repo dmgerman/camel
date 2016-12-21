@@ -945,6 +945,17 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the cache level by ID for the underlying JMS resources. See cacheLevelName option for more details."
+argument_list|)
 DECL|field|cacheLevel
 specifier|private
 name|int

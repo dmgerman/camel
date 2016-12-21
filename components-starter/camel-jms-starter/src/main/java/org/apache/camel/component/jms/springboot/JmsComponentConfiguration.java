@@ -438,8 +438,6 @@ DECL|field|cacheLevel
 specifier|private
 name|Integer
 name|cacheLevel
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * Sets the cache level by name for the underlying JMS resources. Possible      * values are: CACHE_AUTO CACHE_CONNECTION CACHE_CONSUMER CACHE_NONE and      * CACHE_SESSION. The default setting is CACHE_AUTO. See the Spring      * documentation and Transactions Cache Levels for more information.      */
 DECL|field|cacheLevelName
