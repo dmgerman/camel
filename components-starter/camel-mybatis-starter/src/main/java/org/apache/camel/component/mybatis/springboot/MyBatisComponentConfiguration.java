@@ -96,6 +96,8 @@ DECL|field|configurationUri
 specifier|private
 name|String
 name|configurationUri
+init|=
+literal|"SqlMapConfig.xml"
 decl_stmt|;
 DECL|method|getSqlSessionFactory ()
 specifier|public

@@ -280,6 +280,10 @@ argument_list|(
 name|required
 operator|=
 literal|"true"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|userID
 specifier|private
@@ -294,6 +298,10 @@ argument_list|(
 name|required
 operator|=
 literal|"true"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|password
 specifier|private
@@ -406,6 +414,11 @@ name|EQ
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|secured
 specifier|private
 name|boolean

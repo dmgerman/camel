@@ -3306,6 +3306,14 @@ operator|=
 literal|"The key password, which is used to access the certificate's key entry in the keystore "
 operator|+
 literal|"(this is the same password that is supplied to the keystore command's -keypass option)."
+argument_list|,
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|method|setSslKeyPassword (String sslKeyPassword)
 specifier|public
@@ -3340,6 +3348,14 @@ argument_list|(
 name|description
 operator|=
 literal|"The ssl password, which is required to access the keystore file (this is the same password that is supplied to the keystore command's -storepass option)."
+argument_list|,
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|method|setSslPassword (String sslPassword)
 specifier|public
@@ -3364,6 +3380,14 @@ argument_list|(
 name|description
 operator|=
 literal|"Specifies the location of the Java keystore file, which contains the Jetty server's own X.509 certificate in a key entry."
+argument_list|,
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|method|setKeystore (String sslKeystore)
 specifier|public
@@ -3408,6 +3432,10 @@ argument_list|(
 name|description
 operator|=
 literal|"This option is used to set the ErrorHandler that Jetty server uses."
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|method|setErrorHandler (ErrorHandler errorHandler)
 specifier|public
@@ -3967,6 +3995,10 @@ argument_list|(
 name|description
 operator|=
 literal|"A map which contains per port number specific SSL connectors."
+argument_list|,
+name|label
+operator|=
+literal|"security"
 argument_list|)
 DECL|method|setSslSocketConnectors (Map <Integer, Connector> connectors)
 specifier|public
@@ -3994,6 +4026,10 @@ argument_list|(
 name|description
 operator|=
 literal|"A map which contains per port number specific HTTP connectors. Uses the same principle as sslSocketConnectors."
+argument_list|,
+name|label
+operator|=
+literal|"security"
 argument_list|)
 DECL|method|setSocketConnectors (Map<Integer, Connector> socketConnectors)
 specifier|public
@@ -4436,6 +4472,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To set a value for minimum number of threads in HttpClient thread pool. Notice that both a min and max size must be configured."
+argument_list|,
+name|label
+operator|=
+literal|"producer"
 argument_list|)
 DECL|method|setHttpClientMinThreads (Integer httpClientMinThreads)
 specifier|public
@@ -4470,6 +4510,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To set a value for maximum number of threads in HttpClient thread pool. Notice that both a min and max size must be configured."
+argument_list|,
+name|label
+operator|=
+literal|"producer"
 argument_list|)
 DECL|method|setHttpClientMaxThreads (Integer httpClientMaxThreads)
 specifier|public
@@ -4504,6 +4548,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To set a value for minimum number of threads in server thread pool. Notice that both a min and max size must be configured."
+argument_list|,
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|method|setMinThreads (Integer minThreads)
 specifier|public
@@ -4538,6 +4586,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To set a value for maximum number of threads in server thread pool. Notice that both a min and max size must be configured."
+argument_list|,
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|method|setMaxThreads (Integer maxThreads)
 specifier|public
@@ -4572,6 +4624,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To use a custom thread pool for the server. This option should only be used in special circumstances."
+argument_list|,
+name|label
+operator|=
+literal|"consumer,advanced"
 argument_list|)
 DECL|method|setThreadPool (ThreadPool threadPool)
 specifier|public
@@ -4640,6 +4696,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which are used to customize how a response should be written for the producer."
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|method|setJettyHttpBinding (JettyHttpBinding jettyHttpBinding)
 specifier|public
@@ -4666,6 +4726,10 @@ argument_list|(
 name|description
 operator|=
 literal|"Not to be used - use JettyHttpBinding instead."
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|method|setHttpBinding (HttpBinding httpBinding)
 specifier|public
@@ -4693,6 +4757,10 @@ argument_list|(
 name|description
 operator|=
 literal|"Jetty component does not use HttpConfiguration."
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
 specifier|public
@@ -4810,6 +4878,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To use a existing configured org.eclipse.jetty.jmx.MBeanContainer if JMX is enabled that Jetty uses for registering mbeans."
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|method|setMbContainer (MBeanContainer mbContainer)
 specifier|public
@@ -4849,6 +4921,10 @@ argument_list|(
 name|description
 operator|=
 literal|"A map which contains general SSL connector properties."
+argument_list|,
+name|label
+operator|=
+literal|"security"
 argument_list|)
 DECL|method|setSslSocketConnectorProperties (Map<String, Object> sslSocketConnectorProperties)
 specifier|public
@@ -4893,6 +4969,10 @@ argument_list|(
 name|description
 operator|=
 literal|"A map which contains general HTTP connector properties. Uses the same principle as sslSocketConnectorProperties."
+argument_list|,
+name|label
+operator|=
+literal|"security"
 argument_list|)
 DECL|method|setSocketConnectorProperties (Map<String, Object> socketConnectorProperties)
 specifier|public
@@ -5020,6 +5100,14 @@ operator|+
 literal|" If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client."
 operator|+
 literal|" This option is only in use when using Jetty with the Asynchronous Routing Engine."
+argument_list|,
+name|defaultValue
+operator|=
+literal|"30000"
+argument_list|,
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|method|setContinuationTimeout (Long continuationTimeout)
 specifier|public
@@ -5054,6 +5142,14 @@ argument_list|(
 name|description
 operator|=
 literal|"Whether or not to use Jetty continuations for the Jetty Server."
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|method|setUseContinuation (boolean useContinuation)
 specifier|public
@@ -5088,6 +5184,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To configure security using SSLContextParameters"
+argument_list|,
+name|label
+operator|=
+literal|"security"
 argument_list|)
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
@@ -5258,6 +5358,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To use a http proxy to configure the hostname."
+argument_list|,
+name|label
+operator|=
+literal|"proxy"
 argument_list|)
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
@@ -5292,6 +5396,10 @@ argument_list|(
 name|description
 operator|=
 literal|"To use a http proxy to configure the port number."
+argument_list|,
+name|label
+operator|=
+literal|"proxy"
 argument_list|)
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
@@ -5309,24 +5417,6 @@ operator|=
 name|proxyPort
 expr_stmt|;
 block|}
-DECL|method|isSendServerVersion ()
-specifier|public
-name|boolean
-name|isSendServerVersion
-parameter_list|()
-block|{
-return|return
-name|sendServerVersion
-return|;
-block|}
-comment|/**      * To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr.      */
-annotation|@
-name|Metadata
-argument_list|(
-name|description
-operator|=
-literal|"To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr."
-argument_list|)
 DECL|method|isUseXForwardedForHeader ()
 specifier|public
 name|boolean
@@ -5361,6 +5451,16 @@ operator|=
 name|useXForwardedForHeader
 expr_stmt|;
 block|}
+DECL|method|isSendServerVersion ()
+specifier|public
+name|boolean
+name|isSendServerVersion
+parameter_list|()
+block|{
+return|return
+name|sendServerVersion
+return|;
+block|}
 comment|/**      * If the option is true, jetty will send the server header with the jetty version information to the client which sends the request.      * NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected.      */
 annotation|@
 name|Metadata
@@ -5370,6 +5470,14 @@ operator|=
 literal|"If the option is true, jetty server will send the date header to the client which sends the request."
 operator|+
 literal|" NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected."
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|method|setSendServerVersion (boolean sendServerVersion)
 specifier|public

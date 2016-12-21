@@ -1127,6 +1127,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer,security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|sslKeyPassword
 specifier|private
@@ -1153,6 +1157,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer,security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|sslKeystorePassword
 specifier|private
@@ -1179,6 +1187,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer,security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|sslTruststorePassword
 specifier|private

@@ -225,15 +225,6 @@ name|MyBatisEndpoint
 extends|extends
 name|DefaultPollingEndpoint
 block|{
-DECL|field|processingStrategy
-specifier|private
-name|MyBatisProcessingStrategy
-name|processingStrategy
-init|=
-operator|new
-name|DefaultMyBatisProcessingStrategy
-argument_list|()
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -366,6 +357,22 @@ DECL|field|routeEmptyResultSet
 specifier|private
 name|boolean
 name|routeEmptyResultSet
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|processingStrategy
+specifier|private
+name|MyBatisProcessingStrategy
+name|processingStrategy
+init|=
+operator|new
+name|DefaultMyBatisProcessingStrategy
+argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -714,6 +721,7 @@ return|return
 name|processingStrategy
 return|;
 block|}
+comment|/**      * To use a custom MyBatisProcessingStrategy      */
 DECL|method|setProcessingStrategy (MyBatisProcessingStrategy processingStrategy)
 specifier|public
 name|void

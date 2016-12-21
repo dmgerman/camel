@@ -76,6 +76,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -141,6 +155,13 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * Default connection pool used by the component. Note that this pool is      * lazily initialized. This is because in a scenario where the user always      * provides a pool, it would be wasteful for Camel to initialize and keep an      * idle pool.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|connectionPool
 specifier|private
 name|AS400ConnectionPool

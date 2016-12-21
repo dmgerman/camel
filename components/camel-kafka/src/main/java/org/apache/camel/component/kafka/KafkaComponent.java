@@ -78,6 +78,20 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_class
 DECL|class|KafkaComponent
 specifier|public
@@ -86,6 +100,13 @@ name|KafkaComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|workerPool
 specifier|private
 name|ExecutorService

@@ -110,6 +110,8 @@ DECL|field|joinTransaction
 specifier|private
 name|Boolean
 name|joinTransaction
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Whether to use Spring's SharedEntityManager for the consumer/producer.      * Note in most cases joinTransaction should be set to false as this is not      * an EXTENDED EntityManager.      */
 DECL|field|sharedEntityManager

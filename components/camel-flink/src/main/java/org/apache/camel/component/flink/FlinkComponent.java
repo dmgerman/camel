@@ -197,16 +197,6 @@ return|return
 name|ds
 return|;
 block|}
-DECL|method|getDataStream ()
-specifier|public
-name|DataStream
-name|getDataStream
-parameter_list|()
-block|{
-return|return
-name|dataStream
-return|;
-block|}
 comment|/**      * DataSet to compute against.      */
 DECL|method|setDataSet (DataSet ds)
 specifier|public
@@ -223,6 +213,16 @@ name|ds
 operator|=
 name|ds
 expr_stmt|;
+block|}
+DECL|method|getDataStream ()
+specifier|public
+name|DataStream
+name|getDataStream
+parameter_list|()
+block|{
+return|return
+name|dataStream
+return|;
 block|}
 comment|/**      * DataStream to compute against.      */
 DECL|method|setDataStream (DataStream dataStream)
@@ -251,16 +251,6 @@ return|return
 name|dataSetCallback
 return|;
 block|}
-DECL|method|getDataStreamCallback ()
-specifier|public
-name|DataStreamCallback
-name|getDataStreamCallback
-parameter_list|()
-block|{
-return|return
-name|dataStreamCallback
-return|;
-block|}
 comment|/**      * Function performing action against a DataSet.      */
 DECL|method|setDataSetCallback (DataSetCallback dataSetCallback)
 specifier|public
@@ -277,6 +267,16 @@ name|dataSetCallback
 operator|=
 name|dataSetCallback
 expr_stmt|;
+block|}
+DECL|method|getDataStreamCallback ()
+specifier|public
+name|DataStreamCallback
+name|getDataStreamCallback
+parameter_list|()
+block|{
+return|return
+name|dataStreamCallback
+return|;
 block|}
 comment|/**      * Function performing action against a DataStream.      */
 DECL|method|setDataStreamCallback (DataStreamCallback dataStreamCallback)

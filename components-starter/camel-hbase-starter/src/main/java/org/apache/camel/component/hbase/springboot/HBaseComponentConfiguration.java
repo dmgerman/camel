@@ -96,6 +96,8 @@ DECL|field|poolMaxSize
 specifier|private
 name|Integer
 name|poolMaxSize
+init|=
+literal|10
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public

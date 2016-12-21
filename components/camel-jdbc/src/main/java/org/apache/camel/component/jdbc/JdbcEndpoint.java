@@ -282,6 +282,11 @@ name|useGetBytesForBlob
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|prepareStatementStrategy
 specifier|private
 name|JdbcPrepareStatementStrategy
@@ -337,6 +342,11 @@ name|outputClass
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|beanRowMapper
 specifier|private
 name|BeanRowMapper

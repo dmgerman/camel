@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Component providing secure messaging using JSch  */
+comment|/**  * Component providing secure messaging using JSch  */
 end_comment
 
 begin_class

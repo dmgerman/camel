@@ -218,10 +218,6 @@ argument_list|(
 name|required
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"Connection to the influx database, of class InfluxDB.class"
 argument_list|)
 DECL|field|connectionBean
 specifier|private
@@ -230,11 +226,6 @@ name|connectionBean
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"the name of the series where the points will be created, name can be modified dynamically by headers"
-argument_list|)
 DECL|field|databaseName
 specifier|private
 name|String
@@ -246,10 +237,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"default"
-argument_list|,
-name|description
-operator|=
-literal|"defines the retention policy for the points created in influxdb"
 argument_list|)
 DECL|field|retentionPolicy
 specifier|private
@@ -258,7 +245,6 @@ name|retentionPolicy
 init|=
 literal|"default"
 decl_stmt|;
-comment|/**      * @param uri      * @param influxDbComponent      */
 DECL|method|InfluxDbEndpoint (String uri, InfluxDbComponent influxDbComponent, InfluxDB dbConn)
 specifier|public
 name|InfluxDbEndpoint
@@ -301,14 +287,6 @@ name|influxDB
 operator|=
 name|dbConn
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -318,15 +296,6 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -341,7 +310,6 @@ name|retentionPolicy
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 annotation|@
 name|Override
 DECL|method|createProducer ()
@@ -352,22 +320,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Creating influx db producer"
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 operator|new
 name|InfluxDbProducer
@@ -389,22 +341,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Creating influx db consumer"
-argument_list|)
-expr_stmt|;
-block|}
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -422,7 +358,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|getInfluxDB ()
@@ -435,6 +371,7 @@ return|return
 name|influxDB
 return|;
 block|}
+comment|/**      * The Influx DB to use      */
 DECL|method|setInfluxDB (InfluxDB influxDB)
 specifier|public
 name|void
@@ -451,7 +388,6 @@ operator|=
 name|influxDB
 expr_stmt|;
 block|}
-comment|/**      * Getter for databaseName      *       * @return the name of the database where the time series will be stored      */
 DECL|method|getDatabaseName ()
 specifier|public
 name|String
@@ -462,7 +398,7 @@ return|return
 name|databaseName
 return|;
 block|}
-comment|/**      * Setter for databaseName      *       * @param databaseName      */
+comment|/**      * The name of the database where the time series will be stored      */
 DECL|method|setDatabaseName (String databaseName)
 specifier|public
 name|void
@@ -479,7 +415,6 @@ operator|=
 name|databaseName
 expr_stmt|;
 block|}
-comment|/**      * Getter for retentionPolicy      *       * @return the string that defines the retention policy to the data created      *         by the endpoint      */
 DECL|method|getRetentionPolicy ()
 specifier|public
 name|String
@@ -490,7 +425,7 @@ return|return
 name|retentionPolicy
 return|;
 block|}
-comment|/**      * Setter for retentionPolicy      *       * @param retentionPolicy      */
+comment|/**      * The string that defines the retention policy to the data created by the endpoint      */
 DECL|method|setRetentionPolicy (String retentionPolicy)
 specifier|public
 name|void
@@ -507,7 +442,6 @@ operator|=
 name|retentionPolicy
 expr_stmt|;
 block|}
-comment|/**      * Getter for connectionBean      *       * @return the name of the bean for the {@link org.influxdb.InfluxDB}      *         connection      */
 DECL|method|getConnectionBean ()
 specifier|public
 name|String
@@ -518,7 +452,7 @@ return|return
 name|connectionBean
 return|;
 block|}
-comment|/**      * Name of {@link org.influxdb.InfluxDB} to use.      */
+comment|/**      * Connection to the influx database, of class InfluxDB.class      */
 DECL|method|setConnectionBean (String connectionBean)
 specifier|public
 name|void
