@@ -584,6 +584,12 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver"
+operator|+
+literal|" (for example, to lookup the real destination in a JNDI registry)."
 argument_list|)
 DECL|field|destinationResolver
 specifier|private
@@ -764,7 +770,7 @@ literal|"Specifies whether the consumer accept messages while it is stopping."
 operator|+
 literal|" You may consider enabling this option, if you start and stop JMS routes at runtime, while there are still messages"
 operator|+
-literal|" enqued on the queue. If this option is false, and you stop the JMS route, then messages may be rejected,"
+literal|" enqueued on the queue. If this option is false, and you stop the JMS route, then messages may be rejected,"
 operator|+
 literal|" and the JMS broker would have to attempt redeliveries, which yet again may be rejected, and eventually the message"
 operator|+
@@ -828,6 +834,17 @@ name|exposeListenerSession
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Allows you to specify a custom task executor for consuming messages."
+argument_list|)
 DECL|field|taskExecutor
 specifier|private
 name|TaskExecutor
@@ -3726,7 +3743,7 @@ return|return
 name|acceptMessagesWhileStopping
 return|;
 block|}
-comment|/**      * Specifies whether the consumer accept messages while it is stopping.      * You may consider enabling this option, if you start and stop JMS routes at runtime, while there are still messages      * enqued on the queue. If this option is false, and you stop the JMS route, then messages may be rejected,      * and the JMS broker would have to attempt redeliveries, which yet again may be rejected, and eventually the message      * may be moved at a dead letter queue on the JMS broker. To avoid this its recommended to enable this option.      */
+comment|/**      * Specifies whether the consumer accept messages while it is stopping.      * You may consider enabling this option, if you start and stop JMS routes at runtime, while there are still messages      * enqueued on the queue. If this option is false, and you stop the JMS route, then messages may be rejected,      * and the JMS broker would have to attempt redeliveries, which yet again may be rejected, and eventually the message      * may be moved at a dead letter queue on the JMS broker. To avoid this its recommended to enable this option.      */
 DECL|method|setAcceptMessagesWhileStopping (boolean acceptMessagesWhileStopping)
 specifier|public
 name|void
@@ -3743,7 +3760,7 @@ operator|=
 name|acceptMessagesWhileStopping
 expr_stmt|;
 block|}
-comment|/**      * Whether the {@link DefaultMessageListenerContainer} used in the reply managers for request-reply messaging allow       * the {@link DefaultMessageListenerContainer.runningAllowed} flag to quick stop in case {@link JmsConfiguration#isAcceptMessagesWhileStopping()}       * is enabled, and {@link org.apache.camel.CamelContext} is currently being stopped. This quick stop ability is enabled by      * default in the regular JMS consumers but to enable for reply managers you must enable this flag.      */
+comment|/**      * Whether the {@link DefaultMessageListenerContainer} used in the reply managers for request-reply messaging allow       * the {@link DefaultMessageListenerContainer#runningAllowed()} flag to quick stop in case {@link JmsConfiguration#isAcceptMessagesWhileStopping()}      * is enabled, and {@link org.apache.camel.CamelContext} is currently being stopped. This quick stop ability is enabled by      * default in the regular JMS consumers but to enable for reply managers you must enable this flag.      */
 DECL|method|isAllowReplyManagerQuickStop ()
 specifier|public
 name|boolean
