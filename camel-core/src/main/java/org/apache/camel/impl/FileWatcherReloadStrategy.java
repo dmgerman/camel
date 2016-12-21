@@ -556,6 +556,13 @@ name|newWatchService
 argument_list|()
 decl_stmt|;
 comment|// we cannot support deleting files as we don't know which routes that would be
+if|if
+condition|(
+name|modifier
+operator|!=
+literal|null
+condition|)
+block|{
 name|path
 operator|.
 name|register
@@ -579,6 +586,21 @@ operator|,
 name|modifier
 block|)
 empty_stmt|;
+block|}
+else|else
+block|{
+name|path
+operator|.
+name|register
+argument_list|(
+name|watcher
+argument_list|,
+name|ENTRY_CREATE
+argument_list|,
+name|ENTRY_MODIFY
+argument_list|)
+expr_stmt|;
+block|}
 name|task
 operator|=
 operator|new
