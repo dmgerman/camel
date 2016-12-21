@@ -118,6 +118,8 @@ DECL|field|sharedEntityManager
 specifier|private
 name|Boolean
 name|sharedEntityManager
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getEntityManagerFactory ()
 specifier|public

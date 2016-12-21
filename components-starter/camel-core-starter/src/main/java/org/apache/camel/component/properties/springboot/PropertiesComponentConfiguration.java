@@ -179,6 +179,8 @@ DECL|field|cache
 specifier|private
 name|Boolean
 name|cache
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Optional prefix prepended to property names before resolution.      */
 DECL|field|propertyPrefix
@@ -197,18 +199,24 @@ DECL|field|fallbackToUnaugmentedProperty
 specifier|private
 name|Boolean
 name|fallbackToUnaugmentedProperty
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * If false the component does not attempt to find a default for the key by      * looking after the colon separator.      */
 DECL|field|defaultFallbackEnabled
 specifier|private
 name|Boolean
 name|defaultFallbackEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to silently ignore if a location cannot be located such as a      * properties file not found.      */
 DECL|field|ignoreMissingLocation
 specifier|private
 name|Boolean
 name|ignoreMissingLocation
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Sets the value of the prefix token used to identify properties to      * replace. Setting a value of null restores the default token (link link      * DEFAULT_PREFIX_TOKEN).      */
 DECL|field|prefixToken

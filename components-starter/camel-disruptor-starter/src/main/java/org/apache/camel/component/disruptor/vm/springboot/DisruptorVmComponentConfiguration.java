@@ -134,6 +134,8 @@ DECL|field|defaultMultipleConsumers
 specifier|private
 name|Boolean
 name|defaultMultipleConsumers
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To configure the default value for DisruptorProducerType The default      * value is Multi.      */
 DECL|field|defaultProducerType

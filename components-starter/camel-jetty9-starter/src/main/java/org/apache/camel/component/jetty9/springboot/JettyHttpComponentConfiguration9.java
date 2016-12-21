@@ -302,6 +302,8 @@ DECL|field|enableJmx
 specifier|private
 name|Boolean
 name|enableJmx
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding which      * are used to customize how a response should be written for the producer.      */
 annotation|@
@@ -422,6 +424,8 @@ DECL|field|useXForwardedForHeader
 specifier|private
 name|Boolean
 name|useXForwardedForHeader
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * If the option is true jetty server will send the date header to the      * client which sends the request. NOTE please make sure there is no any      * other camel-jetty endpoint is share the same port otherwise this option      * may not work as expected.      */
 DECL|field|sendServerVersion
@@ -436,6 +440,8 @@ DECL|field|allowJavaSerializedObject
 specifier|private
 name|Boolean
 name|allowJavaSerializedObject
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@

@@ -172,6 +172,8 @@ DECL|field|allowJavaSerializedObject
 specifier|private
 name|Boolean
 name|allowJavaSerializedObject
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@

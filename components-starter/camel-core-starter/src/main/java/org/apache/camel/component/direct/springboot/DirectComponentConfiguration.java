@@ -58,6 +58,8 @@ DECL|field|block
 specifier|private
 name|Boolean
 name|block
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The timeout value to use if block is enabled.      */
 DECL|field|timeout

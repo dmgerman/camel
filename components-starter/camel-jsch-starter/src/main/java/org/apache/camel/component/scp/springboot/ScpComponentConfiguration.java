@@ -58,6 +58,8 @@ DECL|field|verboseLogging
 specifier|private
 name|Boolean
 name|verboseLogging
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getVerboseLogging ()
 specifier|public

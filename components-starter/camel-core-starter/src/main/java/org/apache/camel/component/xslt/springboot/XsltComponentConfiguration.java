@@ -154,6 +154,8 @@ DECL|field|saxon
 specifier|private
 name|Boolean
 name|saxon
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getXmlConverter ()
 specifier|public
