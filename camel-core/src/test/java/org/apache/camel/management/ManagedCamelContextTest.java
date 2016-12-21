@@ -2407,9 +2407,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"defaultQueueFactory\": { \"kind\": \"property\", \"type\": \"object\", \"javaType\":"
+literal|"\"defaultQueueFactory\": { \"kind\": \"property\", \"label\": \"advanced\", \"required\": \"false\","
 operator|+
-literal|" \"org.apache.camel.component.seda.BlockingQueueFactory<org.apache.camel.Exchange>\","
+literal|" \"type\": \"object\", \"javaType\": \"org.apache.camel.component.seda.BlockingQueueFactory<org.apache.camel.Exchange>\","
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2419,7 +2419,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"queueSize\": { \"kind\": \"property\", \"type\": \"integer\", \"javaType\": \"int\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"0\""
+literal|"\"queueSize\": { \"kind\": \"property\", \"label\": \"advanced\", \"required\": \"false\","
+operator|+
+literal|" \"type\": \"integer\", \"javaType\": \"int\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"0\""
 argument_list|)
 argument_list|)
 expr_stmt|;
