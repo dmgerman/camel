@@ -152,6 +152,10 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"

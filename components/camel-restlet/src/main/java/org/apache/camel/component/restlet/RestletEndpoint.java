@@ -601,7 +601,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"advanced"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|disableStreamCache
 specifier|private

@@ -250,6 +250,11 @@ name|redisTemplate
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
 DECL|field|listenerContainer
 specifier|private
 name|RedisMessageListenerContainer

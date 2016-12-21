@@ -74,6 +74,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -106,6 +120,13 @@ name|ServiceNowComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|configuration
 specifier|private
 name|ServiceNowConfiguration
@@ -521,6 +542,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * ServiceNow user account name      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -552,6 +584,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * ServiceNow account password      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -583,6 +626,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * OAuth2 ClientID      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|method|setOauthClientId (String oauthClientId)
 specifier|public
 name|void
@@ -614,6 +668,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * OAuth2 ClientSecret      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|method|setOauthClientSecret (String oauthClientSecret)
 specifier|public
 name|void
@@ -645,6 +710,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * OAuth token Url      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|method|setOauthTokenUrl (String oauthTokenUrl)
 specifier|public
 name|void

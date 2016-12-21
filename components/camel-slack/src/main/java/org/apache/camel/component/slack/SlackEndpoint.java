@@ -182,6 +182,11 @@ name|webhookUrl
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|username
 specifier|private
 name|String

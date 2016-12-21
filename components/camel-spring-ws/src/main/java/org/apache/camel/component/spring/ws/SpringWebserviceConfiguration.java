@@ -319,6 +319,18 @@ specifier|private
 name|MessageFilter
 name|messageFilter
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
+decl_stmt|;
 comment|/* Producer configuration */
 annotation|@
 name|UriParam
@@ -503,18 +515,6 @@ DECL|field|endpointDispatcher
 specifier|private
 name|CamelEndpointDispatcher
 name|endpointDispatcher
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|)
-DECL|field|sslContextParameters
-specifier|private
-name|SSLContextParameters
-name|sslContextParameters
 decl_stmt|;
 annotation|@
 name|UriParam

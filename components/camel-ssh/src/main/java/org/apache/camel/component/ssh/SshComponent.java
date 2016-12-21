@@ -70,6 +70,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|sshd
 operator|.
 name|common
@@ -90,6 +104,13 @@ name|SshComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|configuration
 specifier|private
 name|SshConfiguration
@@ -314,6 +335,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Sets the username to use in logging into the remote SSH server.      *      * @param username String representing login username.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -347,6 +379,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Sets the password to use in connecting to remote SSH server.      * Requires keyPairProvider to be set to null.      *      * @param password String representing password for username at remote host.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -413,6 +456,13 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Sets the KeyPairProvider reference to use when connecting using Certificates to the remote SSH Server.      *      * @param keyPairProvider KeyPairProvider reference to use in authenticating. If set to 'null',      *                        then will attempt to connect using username/password settings.      *      * @see KeyPairProvider      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|method|setKeyPairProvider (KeyPairProvider keyPairProvider)
 specifier|public
 name|void
@@ -446,6 +496,13 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Sets the key type to pass to the KeyPairProvider as part of authentication.      * KeyPairProvider.loadKey(...) will be passed this value. Defaults to "ssh-rsa".      *      * @param keyType String defining the type of KeyPair to use for authentication.      *      * @see KeyPairProvider      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|method|setKeyType (String keyType)
 specifier|public
 name|void
@@ -517,6 +574,13 @@ block|}
 comment|/**      * Sets the resource path of the certificate to use for Authentication.      *      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|method|setCertFilename (String certFilename)
 specifier|public
 name|void
@@ -550,6 +614,13 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Sets the resource path of the certificate to use for Authentication.      * Will use {@link ResourceHelperKeyPairProvider} to resolve file based certificate, and depends on keyType setting.      *      * @param certResource String file, classpath, or http url for the certificate      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|method|setCertResource (String certResource)
 specifier|public
 name|void

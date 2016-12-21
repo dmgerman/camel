@@ -105,11 +105,6 @@ name|DEFAULT_JOB_LAUNCHER_REF_NAME
 init|=
 literal|"jobLauncher"
 decl_stmt|;
-DECL|field|jobLauncher
-specifier|private
-name|JobLauncher
-name|jobLauncher
-decl_stmt|;
 DECL|field|defaultResolvedJobLauncher
 specifier|private
 name|JobLauncher
@@ -124,6 +119,11 @@ argument_list|,
 name|JobLauncher
 argument_list|>
 name|allResolvedJobLaunchers
+decl_stmt|;
+DECL|field|jobLauncher
+specifier|private
+name|JobLauncher
+name|jobLauncher
 decl_stmt|;
 DECL|field|jobRegistry
 specifier|private

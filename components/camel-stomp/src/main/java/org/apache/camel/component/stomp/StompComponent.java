@@ -76,7 +76,13 @@ name|StompComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-comment|/**      * To use the shared stomp configuration      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|configuration
 specifier|private
 name|StompConfiguration
@@ -86,13 +92,11 @@ operator|new
 name|StompConfiguration
 argument_list|()
 decl_stmt|;
-comment|/**      * The URI of the Stomp broker to connect to      */
 DECL|field|brokerUrl
 specifier|private
 name|String
 name|brokerUrl
 decl_stmt|;
-comment|/**      * The username      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -109,7 +113,6 @@ specifier|private
 name|String
 name|login
 decl_stmt|;
-comment|/**      * The password      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -126,7 +129,6 @@ specifier|private
 name|String
 name|passcode
 decl_stmt|;
-comment|/**      * The virtual host      */
 DECL|field|host
 specifier|private
 name|String
