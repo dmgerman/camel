@@ -2348,7 +2348,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"consumer.advanced"
+literal|"consumer,advanced"
 argument_list|,
 name|description
 operator|=
