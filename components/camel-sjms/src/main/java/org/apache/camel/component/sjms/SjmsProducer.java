@@ -1536,7 +1536,9 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|createConnectionResource
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 return|return

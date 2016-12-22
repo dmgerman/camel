@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ExceptionListener
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -148,6 +158,11 @@ DECL|field|clientId
 specifier|private
 name|String
 name|clientId
+decl_stmt|;
+DECL|field|exceptionListener
+specifier|private
+name|ExceptionListener
+name|exceptionListener
 decl_stmt|;
 comment|/**      * Default Constructor      */
 DECL|method|ConnectionFactoryResource ()
@@ -484,6 +499,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we want to listen for exceptions
+if|if
+condition|(
+name|exceptionListener
+operator|!=
+literal|null
+condition|)
+block|{
+name|connection
+operator|.
+name|setExceptionListener
+argument_list|(
+name|exceptionListener
+argument_list|)
+expr_stmt|;
+block|}
 name|connection
 operator|.
 name|start
@@ -628,6 +659,32 @@ operator|.
 name|clientId
 operator|=
 name|clientId
+expr_stmt|;
+block|}
+DECL|method|getExceptionListener ()
+specifier|public
+name|ExceptionListener
+name|getExceptionListener
+parameter_list|()
+block|{
+return|return
+name|exceptionListener
+return|;
+block|}
+DECL|method|setExceptionListener (ExceptionListener exceptionListener)
+specifier|public
+name|void
+name|setExceptionListener
+parameter_list|(
+name|ExceptionListener
+name|exceptionListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exceptionListener
+operator|=
+name|exceptionListener
 expr_stmt|;
 block|}
 DECL|method|size ()
