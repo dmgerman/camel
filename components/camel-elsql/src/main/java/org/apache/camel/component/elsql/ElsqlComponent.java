@@ -550,7 +550,7 @@ name|endpoint
 operator|.
 name|setDataSource
 argument_list|(
-name|ds
+name|target
 argument_list|)
 expr_stmt|;
 name|endpoint
