@@ -394,12 +394,13 @@ operator|==
 literal|null
 condition|)
 block|{
+throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Cannot initialize an Ignite Messaging Producer with a null topic."
+literal|"Cannot initialize an Ignite Messaging Consumer with a null topic."
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 comment|// Initialize the Consumer.
 name|IgniteMessaging
