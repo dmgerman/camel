@@ -547,7 +547,9 @@ name|client
 operator|=
 operator|new
 name|DefaultAsyncHttpClient
-argument_list|()
+argument_list|(
+name|config
+argument_list|)
 expr_stmt|;
 block|}
 return|return
