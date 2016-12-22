@@ -60,16 +60,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|MongoClient
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -91,20 +81,6 @@ operator|.
 name|impl
 operator|.
 name|UriEndpointComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CamelContextHelper
 import|;
 end_import
 
@@ -194,12 +170,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|db
-specifier|private
-specifier|volatile
-name|MongoClient
-name|db
-decl_stmt|;
 DECL|method|MongoDbComponent ()
 specifier|public
 name|MongoDbComponent
@@ -213,7 +183,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Should access a singleton of type Mongo      */
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -236,42 +205,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: this only supports one mongodb
-if|if
-condition|(
-name|db
-operator|==
-literal|null
-condition|)
-block|{
-name|db
-operator|=
-name|CamelContextHelper
-operator|.
-name|mandatoryLookup
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|remaining
-argument_list|,
-name|MongoClient
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Resolved the connection with the name {} as {}"
-argument_list|,
-name|remaining
-argument_list|,
-name|db
-argument_list|)
-expr_stmt|;
-block|}
 name|MongoDbEndpoint
 name|endpoint
 init|=
@@ -288,13 +221,6 @@ operator|.
 name|setConnectionBean
 argument_list|(
 name|remaining
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
-name|setMongoConnection
-argument_list|(
-name|db
 argument_list|)
 expr_stmt|;
 name|setProperties
@@ -318,31 +244,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|db
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// properly close the underlying physical connection to MongoDB
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Closing the connection {} on {}"
-argument_list|,
-name|db
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-name|db
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 name|super
 operator|.
 name|doShutdown
