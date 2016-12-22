@@ -558,7 +558,7 @@ argument_list|(
 literal|"route"
 argument_list|)
 decl_stmt|;
-comment|// collect which routes are updated/skpped
+comment|// collect which routes are updated/skipped
 name|List
 argument_list|<
 name|RouteDefinition
@@ -795,6 +795,11 @@ condition|)
 block|{
 try|try
 block|{
+name|boolean
+name|unassignedRouteIds
+init|=
+literal|false
+decl_stmt|;
 name|CollectionStringBuffer
 name|csb
 init|=
@@ -813,6 +818,13 @@ range|:
 name|routes
 control|)
 block|{
+name|unassignedRouteIds
+operator||=
+name|route
+operator|.
+name|hasCustomIdAssigned
+argument_list|()
+expr_stmt|;
 name|String
 name|id
 init|=
@@ -845,6 +857,19 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|unassignedRouteIds
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Routes with no id's detected. Its recommended to assign id's to your routes so Camel can reload the routes correctly."
+argument_list|)
+expr_stmt|;
+block|}
 comment|// update the routes (add will remove and shutdown first)
 name|camelContext
 operator|.

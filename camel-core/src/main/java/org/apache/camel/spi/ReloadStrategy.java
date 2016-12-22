@@ -90,7 +90,7 @@ name|StaticService
 extends|,
 name|CamelContextAware
 block|{
-comment|/**      * A reload is triggered when a XML resource is changed which contains Camel routes or rest services      *      * @param camelContext  the running CamelContext      * @param name          name of resource such as a file name (can be null)      * @param resource      the changed resource      */
+comment|/**      * A reload is triggered when a XML resource is changed which contains Camel routes.      *      * @param camelContext  the running CamelContext      * @param name          name of resource such as a file name (can be null)      * @param resource      the changed resource      */
 DECL|method|onReloadXml (CamelContext camelContext, String name, InputStream resource)
 name|void
 name|onReloadXml
