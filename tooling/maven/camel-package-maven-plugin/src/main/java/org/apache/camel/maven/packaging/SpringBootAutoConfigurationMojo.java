@@ -2603,7 +2603,7 @@ name|isBlank
 argument_list|(
 name|option
 operator|.
-name|getEnumValues
+name|getEnums
 argument_list|()
 argument_list|)
 operator|&&
@@ -2870,7 +2870,7 @@ name|isBlank
 argument_list|(
 name|option
 operator|.
-name|getEnumValues
+name|getEnums
 argument_list|()
 argument_list|)
 condition|)
@@ -8880,7 +8880,7 @@ argument_list|)
 expr_stmt|;
 name|option
 operator|.
-name|setEnumValues
+name|setEnums
 argument_list|(
 name|getSafeValue
 argument_list|(

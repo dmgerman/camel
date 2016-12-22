@@ -61,6 +61,11 @@ specifier|private
 name|String
 name|deprecated
 decl_stmt|;
+DECL|field|secret
+specifier|private
+name|String
+name|secret
+decl_stmt|;
 DECL|field|description
 specifier|private
 name|String
@@ -71,10 +76,10 @@ specifier|private
 name|String
 name|defaultValue
 decl_stmt|;
-DECL|field|enumValues
+DECL|field|enums
 specifier|private
 name|String
-name|enumValues
+name|enums
 decl_stmt|;
 DECL|method|getName ()
 specifier|public
@@ -258,6 +263,32 @@ operator|=
 name|deprecated
 expr_stmt|;
 block|}
+DECL|method|getSecret ()
+specifier|public
+name|String
+name|getSecret
+parameter_list|()
+block|{
+return|return
+name|secret
+return|;
+block|}
+DECL|method|setSecret (String secret)
+specifier|public
+name|void
+name|setSecret
+parameter_list|(
+name|String
+name|secret
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secret
+operator|=
+name|secret
+expr_stmt|;
+block|}
 DECL|method|getDescription ()
 specifier|public
 name|String
@@ -310,30 +341,30 @@ operator|=
 name|defaultValue
 expr_stmt|;
 block|}
-DECL|method|getEnumValues ()
+DECL|method|getEnums ()
 specifier|public
 name|String
-name|getEnumValues
+name|getEnums
 parameter_list|()
 block|{
 return|return
-name|enumValues
+name|enums
 return|;
 block|}
-DECL|method|setEnumValues (String enumValues)
+DECL|method|setEnums (String enums)
 specifier|public
 name|void
-name|setEnumValues
+name|setEnums
 parameter_list|(
 name|String
-name|enumValues
+name|enums
 parameter_list|)
 block|{
 name|this
 operator|.
-name|enumValues
+name|enums
 operator|=
-name|enumValues
+name|enums
 expr_stmt|;
 block|}
 DECL|method|getShortJavaType ()

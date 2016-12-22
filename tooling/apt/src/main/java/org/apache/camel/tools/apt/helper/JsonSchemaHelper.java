@@ -414,6 +414,18 @@ name|typeName
 argument_list|)
 condition|)
 block|{
+name|String
+name|actualType
+init|=
+name|JsonSchemaHelper
+operator|.
+name|getType
+argument_list|(
+name|type
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 name|sb
 operator|.
 name|append
@@ -422,7 +434,7 @@ name|Strings
 operator|.
 name|doubleQuote
 argument_list|(
-literal|"string"
+name|actualType
 argument_list|)
 argument_list|)
 expr_stmt|;

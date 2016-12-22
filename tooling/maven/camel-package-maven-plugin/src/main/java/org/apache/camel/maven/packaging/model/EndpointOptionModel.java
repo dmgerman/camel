@@ -76,6 +76,11 @@ specifier|private
 name|String
 name|deprecated
 decl_stmt|;
+DECL|field|secret
+specifier|private
+name|String
+name|secret
+decl_stmt|;
 DECL|field|defaultValue
 specifier|private
 name|String
@@ -349,6 +354,32 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+block|}
+DECL|method|getSecret ()
+specifier|public
+name|String
+name|getSecret
+parameter_list|()
+block|{
+return|return
+name|secret
+return|;
+block|}
+DECL|method|setSecret (String secret)
+specifier|public
+name|void
+name|setSecret
+parameter_list|(
+name|String
+name|secret
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secret
+operator|=
+name|secret
 expr_stmt|;
 block|}
 DECL|method|getDefaultValue ()
