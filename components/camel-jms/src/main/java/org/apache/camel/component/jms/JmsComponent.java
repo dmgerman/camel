@@ -1099,6 +1099,10 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|,
+name|enums
+operator|=
+literal|"SESSION_TRANSACTED,CLIENT_ACKNOWLEDGE,AUTO_ACKNOWLEDGE,DUPS_OK_ACKNOWLEDGE"
+argument_list|,
 name|description
 operator|=
 literal|"The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE"
@@ -1197,6 +1201,10 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|,
+name|enums
+operator|=
+literal|"CACHE_AUTO,CACHE_CONNECTION,CACHE_CONSUMER,CACHE_NONE,CACHE_SESSION"
+argument_list|,
 name|description
 operator|=
 literal|"Sets the cache level by name for the underlying JMS resources."
@@ -1230,6 +1238,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer,advanced"
+argument_list|,
+name|enums
+operator|=
+literal|"CACHE_AUTO,CACHE_CONNECTION,CACHE_CONSUMER,CACHE_NONE,CACHE_SESSION"
 argument_list|,
 name|description
 operator|=
@@ -1506,6 +1518,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"1,2"
 argument_list|,
 name|description
 operator|=
@@ -2192,6 +2208,10 @@ operator|+
 name|Message
 operator|.
 name|DEFAULT_PRIORITY
+argument_list|,
+name|enums
+operator|=
+literal|"1,2,3,4,5,6,7,8,9"
 argument_list|,
 name|label
 operator|=

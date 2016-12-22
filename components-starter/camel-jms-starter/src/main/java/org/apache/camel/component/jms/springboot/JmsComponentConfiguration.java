@@ -666,7 +666,7 @@ specifier|private
 name|Integer
 name|priority
 init|=
-literal|4
+name|Integer
 decl_stmt|;
 comment|/**      * Specifies whether to inhibit the delivery of messages published by its      * own connection.      */
 DECL|field|pubSubNoLocal

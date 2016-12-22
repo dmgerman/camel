@@ -152,6 +152,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Allows to define enums this options accepts.      *<p/>      * If the type is already an enum, then this option should not be used; instead you can use      * this option when the type is a String that only accept certain values.      *<p/>      * Multiple values is separated by comma.      */
+DECL|method|enums ()
+name|String
+name|enums
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * Whether the option is secret/sensitive information such as a password.      */
 DECL|method|secret ()
 DECL|field|false

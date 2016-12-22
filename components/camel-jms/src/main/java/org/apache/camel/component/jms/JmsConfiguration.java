@@ -2101,6 +2101,10 @@ name|label
 operator|=
 literal|"producer,advanced"
 argument_list|,
+name|enums
+operator|=
+literal|"CACHE_AUTO,CACHE_CONNECTION,CACHE_CONSUMER,CACHE_NONE,CACHE_SESSION"
+argument_list|,
 name|description
 operator|=
 literal|"Sets the cache level by name for the reply consumer when doing request/reply over JMS."

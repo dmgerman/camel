@@ -890,7 +890,7 @@ literal|true
 return|;
 block|}
 DECL|method|processEndpointClass (final RoundEnvironment roundEnv, final TypeElement classElement)
-specifier|protected
+specifier|private
 name|void
 name|processEndpointClass
 parameter_list|(
@@ -994,17 +994,11 @@ index|[]
 name|extendsSchemes
 init|=
 name|extendsScheme
-operator|!=
-literal|null
-condition|?
-name|extendsScheme
 operator|.
 name|split
 argument_list|(
 literal|","
 argument_list|)
-else|:
-literal|null
 decl_stmt|;
 for|for
 control|(
@@ -1036,11 +1030,6 @@ specifier|final
 name|String
 name|extendsAlias
 init|=
-name|extendsSchemes
-operator|!=
-literal|null
-condition|?
-operator|(
 name|i
 operator|<
 name|extendsSchemes
@@ -1056,9 +1045,6 @@ name|extendsSchemes
 index|[
 literal|0
 index|]
-operator|)
-else|:
-literal|null
 decl_stmt|;
 name|String
 name|aTitle
@@ -1627,7 +1613,7 @@ name|excludeProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// only if its a consuemr capable component
+comment|// only if its a consumer capable component
 if|if
 condition|(
 name|uriEndpoint
@@ -4769,13 +4755,11 @@ init|=
 name|metadata
 operator|!=
 literal|null
-condition|?
+operator|&&
 name|metadata
 operator|.
 name|secret
 argument_list|()
-else|:
-literal|false
 decl_stmt|;
 comment|// we do not yet have default values / notes / as no annotation support yet
 comment|// String defaultValueNote = param.defaultValueNote();
@@ -4938,7 +4922,64 @@ argument_list|()
 decl_stmt|;
 name|boolean
 name|isEnum
+decl_stmt|;
+if|if
+condition|(
+name|metadata
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|metadata
+operator|.
+name|enums
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|isEnum
+operator|=
+literal|true
+expr_stmt|;
+name|String
+index|[]
+name|values
 init|=
+name|metadata
+operator|.
+name|enums
+argument_list|()
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|val
+range|:
+name|values
+control|)
+block|{
+name|enums
+operator|.
+name|add
+argument_list|(
+name|val
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|isEnum
+operator|=
 name|fieldTypeElement
 operator|!=
 literal|null
@@ -4951,7 +4992,7 @@ operator|==
 name|ElementKind
 operator|.
 name|ENUM
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|isEnum
@@ -4975,6 +5016,13 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|enumClass
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// find all the enum constants which has the possible enum value that can be used
 name|List
 argument_list|<
@@ -5027,6 +5075,8 @@ argument_list|(
 name|val
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 block|}
@@ -5347,9 +5397,12 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
 name|defaultValue
-operator|==
-literal|null
+argument_list|)
 operator|&&
 name|metadata
 operator|!=
@@ -5585,6 +5638,13 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// find all the enum constants which has the possible enum value that can be used
+if|if
+condition|(
+name|enumClass
+operator|!=
+literal|null
+condition|)
+block|{
 name|List
 argument_list|<
 name|VariableElement
@@ -5636,6 +5696,7 @@ argument_list|(
 name|val
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -6165,6 +6226,13 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|enumClass
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// find all the enum constants which has the possible enum value that can be used
 name|List
 argument_list|<
@@ -6217,6 +6285,7 @@ argument_list|(
 name|val
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -6442,7 +6511,7 @@ literal|false
 return|;
 block|}
 DECL|method|parseAsMap (String data)
-specifier|protected
+specifier|private
 specifier|static
 name|Map
 argument_list|<
