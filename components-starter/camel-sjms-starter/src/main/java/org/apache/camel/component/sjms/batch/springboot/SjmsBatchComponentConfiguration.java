@@ -101,6 +101,22 @@ specifier|private
 name|ConnectionFactory
 name|connectionFactory
 decl_stmt|;
+comment|/**      * Whether to startup the consumer message listener asynchronously when      * starting a route. For example if a JmsConsumer cannot get a connection to      * a remote JMS broker then it may block while retrying and/or failover.      * This will cause Camel to block while starting routes. By setting this      * option to true you will let routes startup while the JmsConsumer connects      * to the JMS broker using a dedicated thread in asynchronous mode. If this      * option is used then beware that if the connection could not be      * established then an exception is logged at WARN level and the consumer      * will not be able to receive messages; You can then restart the route to      * retry.      */
+DECL|field|asyncStartListener
+specifier|private
+name|Boolean
+name|asyncStartListener
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Specifies the interval between recovery attempts i.e. when a connection      * is being refreshed in milliseconds. The default is 5000 ms that is 5      * seconds.      */
+DECL|field|recoveryInterval
+specifier|private
+name|Integer
+name|recoveryInterval
+init|=
+literal|5000
+decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -133,6 +149,58 @@ operator|.
 name|connectionFactory
 operator|=
 name|connectionFactory
+expr_stmt|;
+block|}
+DECL|method|getAsyncStartListener ()
+specifier|public
+name|Boolean
+name|getAsyncStartListener
+parameter_list|()
+block|{
+return|return
+name|asyncStartListener
+return|;
+block|}
+DECL|method|setAsyncStartListener (Boolean asyncStartListener)
+specifier|public
+name|void
+name|setAsyncStartListener
+parameter_list|(
+name|Boolean
+name|asyncStartListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|asyncStartListener
+operator|=
+name|asyncStartListener
+expr_stmt|;
+block|}
+DECL|method|getRecoveryInterval ()
+specifier|public
+name|Integer
+name|getRecoveryInterval
+parameter_list|()
+block|{
+return|return
+name|recoveryInterval
+return|;
+block|}
+DECL|method|setRecoveryInterval (Integer recoveryInterval)
+specifier|public
+name|void
+name|setRecoveryInterval
+parameter_list|(
+name|Integer
+name|recoveryInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|recoveryInterval
+operator|=
+name|recoveryInterval
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
