@@ -676,7 +676,7 @@ literal|"WARN"
 argument_list|,
 name|label
 operator|=
-literal|"advanced"
+literal|"consumer,logging"
 argument_list|,
 name|description
 operator|=
@@ -700,7 +700,7 @@ literal|"true"
 argument_list|,
 name|label
 operator|=
-literal|"advanced"
+literal|"consumer,logging"
 argument_list|,
 name|description
 operator|=

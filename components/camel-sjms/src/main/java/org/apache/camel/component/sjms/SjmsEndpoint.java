@@ -1095,7 +1095,7 @@ literal|"WARN"
 argument_list|,
 name|label
 operator|=
-literal|"advanced"
+literal|"consumer,logging"
 argument_list|)
 DECL|field|errorHandlerLoggingLevel
 specifier|private
@@ -1115,7 +1115,7 @@ literal|"true"
 argument_list|,
 name|label
 operator|=
-literal|"advanced"
+literal|"consumer,logging"
 argument_list|)
 DECL|field|errorHandlerLogStackTrace
 specifier|private
