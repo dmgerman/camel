@@ -232,7 +232,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|remote
+name|cloud
 operator|.
 name|ServiceCallConfigurationDefinition
 import|;
@@ -1394,24 +1394,13 @@ argument_list|>
 name|getRestConfigurations
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the service call configuration by the given name. If no name is given and there is only one configuration      * which matches the type then this configuration is returned.      *      * @param serviceName name of service, or<tt>null</tt> to return the default configuration      * @param type implementation of the configuration such as kubernetes, ribbon etc.      * @return the configuration, or<tt>null</tt> if no configuration has been registered      */
-DECL|method|getServiceCallConfiguration (String serviceName, Class<T> type)
-parameter_list|<
-name|T
-extends|extends
+comment|/**      * Gets the service call configuration by the given name. If no name is given      * the default configuration is returned, see<tt>setServiceCallConfiguration</tt>      *      * @param serviceName name of service, or<tt>null</tt> to return the default configuration      * @return the configuration, or<tt>null</tt> if no configuration has been registered      */
+DECL|method|getServiceCallConfiguration (String serviceName)
 name|ServiceCallConfigurationDefinition
-parameter_list|>
-name|T
 name|getServiceCallConfiguration
 parameter_list|(
 name|String
 name|serviceName
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
 parameter_list|)
 function_decl|;
 comment|/**      * Sets the default service call configuration      *      * @param configuration the configuration      */
@@ -1421,6 +1410,18 @@ name|setServiceCallConfiguration
 parameter_list|(
 name|ServiceCallConfigurationDefinition
 name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the service call configurations      *      * @param configurations the configuration list      */
+DECL|method|setServiceCallConfigurations (List<ServiceCallConfigurationDefinition> configurations)
+name|void
+name|setServiceCallConfigurations
+parameter_list|(
+name|List
+argument_list|<
+name|ServiceCallConfigurationDefinition
+argument_list|>
+name|configurations
 parameter_list|)
 function_decl|;
 comment|/**      * Adds the service call configuration      *      * @param serviceName name of the service      * @param configuration the configuration      */

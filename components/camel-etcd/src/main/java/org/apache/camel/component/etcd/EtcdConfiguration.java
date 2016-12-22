@@ -250,6 +250,18 @@ specifier|final
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|method|EtcdConfiguration ()
+specifier|public
+name|EtcdConfiguration
+parameter_list|()
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+literal|null
+expr_stmt|;
+block|}
 DECL|method|EtcdConfiguration (CamelContext camelContext)
 specifier|public
 name|EtcdConfiguration

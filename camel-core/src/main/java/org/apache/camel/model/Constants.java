@@ -40,6 +40,8 @@ literal|"org.apache.camel:"
 operator|+
 literal|"org.apache.camel.model:"
 operator|+
+literal|"org.apache.camel.model.cloud:"
+operator|+
 literal|"org.apache.camel.model.config:"
 operator|+
 literal|"org.apache.camel.model.dataformat:"
@@ -47,8 +49,6 @@ operator|+
 literal|"org.apache.camel.model.language:"
 operator|+
 literal|"org.apache.camel.model.loadbalancer:"
-operator|+
-literal|"org.apache.camel.model.remote:"
 operator|+
 literal|"org.apache.camel.model.rest:"
 operator|+

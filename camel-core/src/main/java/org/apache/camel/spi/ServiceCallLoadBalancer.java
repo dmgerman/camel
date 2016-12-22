@@ -16,42 +16,36 @@ name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * Allows SPIs to implement custom load balancing strategies for the Service Call EIP.  *  * @see ServiceCallServerListStrategy  */
+comment|/**  * Represents a load balancer for the Service Call EIP.  *  * @see ServiceCallServiceChooser  * @see ServiceCallServiceDiscovery  */
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|ServiceCallLoadBalancer
 specifier|public
 interface|interface
 name|ServiceCallLoadBalancer
+block|{
+DECL|method|process (String serviceName, ServiceCallLoadBalancerRequest<T> request)
 parameter_list|<
 name|T
-extends|extends
-name|ServiceCallServer
 parameter_list|>
-block|{
-comment|/**      * Chooses one of the servers to use using the implemented strategy.      *      * @param servers  list of servers      * @return the chosen server to use.      */
-DECL|method|chooseServer (List<T> servers)
 name|T
-name|chooseServer
+name|process
 parameter_list|(
-name|List
+name|String
+name|serviceName
+parameter_list|,
+name|ServiceCallLoadBalancerRequest
 argument_list|<
 name|T
 argument_list|>
-name|servers
+name|request
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface

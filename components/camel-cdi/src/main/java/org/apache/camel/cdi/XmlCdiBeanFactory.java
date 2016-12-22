@@ -1558,7 +1558,7 @@ if|if
 condition|(
 name|factory
 operator|.
-name|getBeans
+name|getBeansFactory
 argument_list|()
 operator|!=
 literal|null
@@ -1566,7 +1566,7 @@ condition|)
 block|{
 name|factory
 operator|.
-name|getBeans
+name|getBeansFactory
 argument_list|()
 operator|.
 name|stream

@@ -353,6 +353,18 @@ specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
+DECL|method|ConsulConfiguration ()
+specifier|public
+name|ConsulConfiguration
+parameter_list|()
+block|{
+name|this
+operator|.
+name|context
+operator|=
+literal|null
+expr_stmt|;
+block|}
 DECL|method|ConsulConfiguration (CamelContext context)
 specifier|public
 name|ConsulConfiguration
