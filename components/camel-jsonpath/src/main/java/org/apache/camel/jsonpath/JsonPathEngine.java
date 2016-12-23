@@ -1251,6 +1251,16 @@ name|JsonPathAdapter
 operator|)
 name|obj
 expr_stmt|;
+name|adapter
+operator|.
+name|init
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|debug

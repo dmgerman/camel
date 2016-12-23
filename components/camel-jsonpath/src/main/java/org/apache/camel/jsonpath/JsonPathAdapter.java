@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -44,6 +56,15 @@ specifier|public
 interface|interface
 name|JsonPathAdapter
 block|{
+comment|/**      * Initializes the adapter      *      * @param camelContext the CamelContext      */
+DECL|method|init (CamelContext camelContext)
+name|void
+name|init
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+function_decl|;
 comment|/**      * Attempt to read/convert the message body into a {@link Map} type      *      * @param body the message body      * @param exchange the Camel exchange      * @return converted as {@link Map} or<tt>null</tt> if not possible      */
 DECL|method|readValue (Object body, Exchange exchange)
 name|Map
