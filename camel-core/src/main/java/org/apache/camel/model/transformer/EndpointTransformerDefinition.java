@@ -310,7 +310,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * Set the reference of the Endpoint.      * @param ref reference of the Endpoint      */
+comment|/**      * Set the reference of the Endpoint.      *      * @param ref reference of the Endpoint      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -337,7 +337,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Set the URI of the Endpoint.      * @param uri URI of the Endpoint      */
+comment|/**      * Set the URI of the Endpoint.      *      * @param uri URI of the Endpoint      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void

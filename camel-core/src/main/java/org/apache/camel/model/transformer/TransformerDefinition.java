@@ -94,6 +94,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|InputTypeDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|OutputTypeDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -208,7 +236,7 @@ return|return
 name|scheme
 return|;
 block|}
-comment|/**      * Set a scheme name supported by the transformer.      * @param scheme scheme name      */
+comment|/**      * Set a scheme name supported by the transformer.      *      * @param scheme scheme name      */
 DECL|method|setScheme (String scheme)
 specifier|public
 name|void
@@ -235,7 +263,7 @@ return|return
 name|from
 return|;
 block|}
-comment|/**      * Set the 'from' data type .      * @param from 'from' data type      */
+comment|/**      * Set the 'from' data type .      *      * @param from 'from' data type      */
 DECL|method|setFrom (String from)
 specifier|public
 name|void
@@ -252,7 +280,7 @@ operator|=
 name|from
 expr_stmt|;
 block|}
-comment|/**      * Set the 'from' data type using Java class.      * @param clazz 'from' Java class      */
+comment|/**      * Set the 'from' data type using Java class.      *      * @param clazz 'from' Java class      */
 DECL|method|setFrom (Class<?> clazz)
 specifier|public
 name|void
@@ -287,7 +315,7 @@ return|return
 name|to
 return|;
 block|}
-comment|/**      * Set the 'to' data type.      * @param to 'to' data type       */
+comment|/**      * Set the 'to' data type.      *      * @param to 'to' data type       */
 DECL|method|setTo (String to)
 specifier|public
 name|void
@@ -304,7 +332,7 @@ operator|=
 name|to
 expr_stmt|;
 block|}
-comment|/**      * Set the 'to' data type using Java class.      * @param clazz 'to' Java class      */
+comment|/**      * Set the 'to' data type using Java class.      *      * @param clazz 'to' Java class      */
 DECL|method|setTo (Class<?> clazz)
 specifier|public
 name|void

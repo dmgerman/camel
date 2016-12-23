@@ -367,7 +367,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * Set a bean reference of the Transformer      * @param ref the bean reference of the Transformer      */
+comment|/**      * Set a bean reference of the Transformer      *      * @param ref the bean reference of the Transformer      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -394,7 +394,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Set a class name of the Transformer      * @param ref the class name of the Transformer      */
+comment|/**      * Set a class name of the Transformer      *      * @param type the class name of the Transformer      */
 DECL|method|setType (String type)
 specifier|public
 name|void
