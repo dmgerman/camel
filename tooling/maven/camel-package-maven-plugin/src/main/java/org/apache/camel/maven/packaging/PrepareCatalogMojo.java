@@ -1034,6 +1034,13 @@ name|equals
 argument_list|(
 name|name
 argument_list|)
+operator|||
+literal|"transforms"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
 condition|)
 block|{
 continue|continue;

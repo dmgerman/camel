@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To configure transforms.  */
+comment|/**  * To configure transformers.  */
 end_comment
 
 begin_class
@@ -214,7 +214,7 @@ name|TransformerDefinition
 argument_list|>
 name|transforms
 decl_stmt|;
-comment|/**      * A list holding the configured transformations      */
+comment|/**      * The configured transformers      */
 DECL|method|setTransformers (List<TransformerDefinition> transforms)
 specifier|public
 name|void

@@ -74,7 +74,32 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"dataformat,transformation,yaml"
+argument_list|,
+name|title
+operator|=
+literal|"YAML Type Filter"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -119,6 +144,7 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * Value of type such as class name or regular expression      */
 DECL|method|setValue (String value)
 specifier|public
 name|void
@@ -145,6 +171,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Whether to filter by class type or regular expression      */
 DECL|method|setType (YAMLTypeFilterType type)
 specifier|public
 name|void
