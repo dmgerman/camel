@@ -456,6 +456,13 @@ specifier|private
 name|String
 name|mode
 decl_stmt|;
+DECL|field|contentTypeHeader
+specifier|private
+name|boolean
+name|contentTypeHeader
+init|=
+literal|true
+decl_stmt|;
 DECL|method|AbstractXStreamWrapper ()
 specifier|public
 name|AbstractXStreamWrapper
@@ -1674,6 +1681,33 @@ operator|.
 name|mode
 operator|=
 name|mode
+expr_stmt|;
+block|}
+DECL|method|isContentTypeHeader ()
+specifier|public
+name|boolean
+name|isContentTypeHeader
+parameter_list|()
+block|{
+return|return
+name|contentTypeHeader
+return|;
+block|}
+comment|/**      * If enabled then XStream will set the Content-Type header to<tt>application/json</tt> when marshalling to JSon      * and<tt>application/xml</tt> when marshalling to XML.      */
+DECL|method|setContentTypeHeader (boolean contentTypeHeader)
+specifier|public
+name|void
+name|setContentTypeHeader
+parameter_list|(
+name|boolean
+name|contentTypeHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentTypeHeader
+operator|=
+name|contentTypeHeader
 expr_stmt|;
 block|}
 DECL|method|getXstream ()

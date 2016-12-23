@@ -473,6 +473,13 @@ specifier|private
 name|boolean
 name|allowUnmarshallType
 decl_stmt|;
+DECL|field|contentTypeHeader
+specifier|private
+name|boolean
+name|contentTypeHeader
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Object}      */
 DECL|method|JacksonDataFormat ()
 specifier|public
@@ -711,6 +718,52 @@ argument_list|,
 name|graph
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|contentTypeHeader
+condition|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+literal|"application/json"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+literal|"application/json"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
@@ -1343,6 +1396,33 @@ operator|.
 name|allowUnmarshallType
 operator|=
 name|allowJacksonUnmarshallType
+expr_stmt|;
+block|}
+DECL|method|isContentTypeHeader ()
+specifier|public
+name|boolean
+name|isContentTypeHeader
+parameter_list|()
+block|{
+return|return
+name|contentTypeHeader
+return|;
+block|}
+comment|/**      * If enabled then Jackson will set the Content-Type header to<tt>application/json</tt> when marshalling.      */
+DECL|method|setContentTypeHeader (boolean contentTypeHeader)
+specifier|public
+name|void
+name|setContentTypeHeader
+parameter_list|(
+name|boolean
+name|contentTypeHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentTypeHeader
+operator|=
+name|contentTypeHeader
 expr_stmt|;
 block|}
 DECL|method|getEnableFeatures ()

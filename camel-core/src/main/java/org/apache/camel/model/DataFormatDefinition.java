@@ -78,6 +78,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlTransient
 import|;
 end_import
@@ -267,6 +281,13 @@ argument_list|,
 name|Object
 argument_list|>
 name|otherAttributes
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|contentTypeHeader
+specifier|private
+name|Boolean
+name|contentTypeHeader
 decl_stmt|;
 DECL|method|DataFormatDefinition ()
 specifier|public
@@ -485,6 +506,45 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// is enabled by default so assume true if null
+if|if
+condition|(
+name|contentTypeHeader
+operator|==
+literal|null
+operator|||
+name|contentTypeHeader
+condition|)
+block|{
+try|try
+block|{
+name|setProperty
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"contentTypeHeader"
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore as this option is optional and not all data formats support this
+block|}
+block|}
+comment|// configure the rest of the options
 name|configureDataFormat
 argument_list|(
 name|dataFormat
@@ -824,6 +884,33 @@ operator|.
 name|otherAttributes
 operator|=
 name|otherAttributes
+expr_stmt|;
+block|}
+DECL|method|getContentTypeHeader ()
+specifier|public
+name|Boolean
+name|getContentTypeHeader
+parameter_list|()
+block|{
+return|return
+name|contentTypeHeader
+return|;
+block|}
+comment|/**      * Whether the data format should set the<tt>Content-Type</tt> header with the type from the data format if the      * data format is capable of doing so.      *<p/>      * For example<tt>application/xml</tt> for data formats marshalling to XML, or<tt>application/json</tt>      * for data formats marshalling to JSon etc.      */
+DECL|method|setContentTypeHeader (Boolean contentTypeHeader)
+specifier|public
+name|void
+name|setContentTypeHeader
+parameter_list|(
+name|Boolean
+name|contentTypeHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentTypeHeader
+operator|=
+name|contentTypeHeader
 expr_stmt|;
 block|}
 DECL|method|getShortName ()

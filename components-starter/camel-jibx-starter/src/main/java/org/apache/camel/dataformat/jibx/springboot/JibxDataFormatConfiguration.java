@@ -65,6 +65,14 @@ specifier|private
 name|String
 name|bindingName
 decl_stmt|;
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+DECL|field|contentTypeHeader
+specifier|private
+name|Boolean
+name|contentTypeHeader
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getUnmarshallClass ()
 specifier|public
 name|String
@@ -115,6 +123,32 @@ operator|.
 name|bindingName
 operator|=
 name|bindingName
+expr_stmt|;
+block|}
+DECL|method|getContentTypeHeader ()
+specifier|public
+name|Boolean
+name|getContentTypeHeader
+parameter_list|()
+block|{
+return|return
+name|contentTypeHeader
+return|;
+block|}
+DECL|method|setContentTypeHeader (Boolean contentTypeHeader)
+specifier|public
+name|void
+name|setContentTypeHeader
+parameter_list|(
+name|Boolean
+name|contentTypeHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentTypeHeader
+operator|=
+name|contentTypeHeader
 expr_stmt|;
 block|}
 block|}
