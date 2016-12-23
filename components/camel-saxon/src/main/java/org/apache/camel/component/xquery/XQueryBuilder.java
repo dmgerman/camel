@@ -3297,6 +3297,17 @@ range|:
 name|propertyEntries
 control|)
 block|{
+comment|// skip headers with null values
+if|if
+condition|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|dynamicQueryContext
 operator|.
 name|setParameter
@@ -3323,6 +3334,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|matches (Exchange exchange, List<?> results)
@@ -3396,7 +3408,6 @@ operator|new
 name|Configuration
 argument_list|()
 expr_stmt|;
-comment|//configuration.setHostLanguage(Configuration.XQUERY);
 name|configuration
 operator|.
 name|setStripsWhiteSpace
