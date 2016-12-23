@@ -2407,21 +2407,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"defaultQueueFactory\": { \"kind\": \"property\", \"label\": \"advanced\", \"required\": \"false\","
-operator|+
-literal|" \"type\": \"object\", \"javaType\": \"org.apache.camel.component.seda.BlockingQueueFactory<org.apache.camel.Exchange>\","
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"queueSize\": { \"kind\": \"property\", \"label\": \"advanced\", \"required\": \"false\","
-operator|+
-literal|" \"type\": \"integer\", \"javaType\": \"int\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"0\""
+literal|"\"queueSize\": { \"kind\": \"property\", \"group\": \"advanced\", \"label\": \"advanced\""
 argument_list|)
 argument_list|)
 expr_stmt|;
