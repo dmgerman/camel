@@ -358,7 +358,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|9
+literal|10
 argument_list|,
 name|rows
 operator|.
@@ -604,7 +604,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|15
+literal|16
 argument_list|,
 name|rows
 operator|.
