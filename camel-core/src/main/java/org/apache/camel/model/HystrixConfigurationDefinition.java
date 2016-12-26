@@ -524,7 +524,7 @@ literal|"command"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"false"
+literal|"10000"
 argument_list|)
 DECL|field|metricsRollingPercentileWindowInMilliseconds
 specifier|private
