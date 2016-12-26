@@ -363,6 +363,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"THREAD"
+argument_list|,
+name|enums
+operator|=
+literal|"THREAD,SEMAPHORE"
 argument_list|)
 DECL|field|executionIsolationStrategy
 specifier|private
