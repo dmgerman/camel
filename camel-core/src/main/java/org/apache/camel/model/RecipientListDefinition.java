@@ -500,6 +500,13 @@ specifier|private
 name|Boolean
 name|parallelAggregate
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|stopOnAggregateException
+specifier|private
+name|Boolean
+name|stopOnAggregateException
+decl_stmt|;
 DECL|method|RecipientListDefinition ()
 specifier|public
 name|RecipientListDefinition
@@ -658,6 +665,17 @@ operator|&&
 name|getIgnoreInvalidEndpoints
 argument_list|()
 decl_stmt|;
+name|boolean
+name|isStopOnAggregateException
+init|=
+name|getStopOnAggregateException
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getStopOnAggregateException
+argument_list|()
+decl_stmt|;
 name|RecipientList
 name|answer
 decl_stmt|;
@@ -750,6 +768,13 @@ operator|.
 name|setIgnoreInvalidEndpoints
 argument_list|(
 name|isIgnoreInvalidEndpoints
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setStopOnAggregateException
+argument_list|(
+name|isStopOnAggregateException
 argument_list|)
 expr_stmt|;
 if|if
@@ -1373,6 +1398,25 @@ name|parallelAggregate
 parameter_list|()
 block|{
 name|setParallelAggregate
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If enabled, unwind exceptions occurring at aggregation time to the error handler when parallelProcessing is used.      * Currently, aggregation time exceptions do not stop the route processing when parallelProcessing is used.      * Enabling this option allows to work around this behavior.      *      * The default value is<code>false</code> for the sake of backward compatibility.      *      * @return the builder      */
+DECL|method|stopOnAggregateException ()
+specifier|public
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|stopOnAggregateException
+parameter_list|()
+block|{
+name|setStopOnAggregateException
 argument_list|(
 literal|true
 argument_list|)
@@ -2037,6 +2081,32 @@ operator|.
 name|parallelAggregate
 operator|=
 name|parallelAggregate
+expr_stmt|;
+block|}
+DECL|method|getStopOnAggregateException ()
+specifier|public
+name|Boolean
+name|getStopOnAggregateException
+parameter_list|()
+block|{
+return|return
+name|stopOnAggregateException
+return|;
+block|}
+DECL|method|setStopOnAggregateException (Boolean stopOnAggregateException)
+specifier|public
+name|void
+name|setStopOnAggregateException
+parameter_list|(
+name|Boolean
+name|stopOnAggregateException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stopOnAggregateException
+operator|=
+name|stopOnAggregateException
 expr_stmt|;
 block|}
 block|}

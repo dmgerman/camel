@@ -394,6 +394,11 @@ specifier|private
 name|boolean
 name|parallelAggregate
 decl_stmt|;
+DECL|field|stopOnAggregateException
+specifier|private
+name|boolean
+name|stopOnAggregateException
+decl_stmt|;
 DECL|field|stopOnException
 specifier|private
 name|boolean
@@ -846,6 +851,9 @@ argument_list|()
 argument_list|,
 name|isParallelAggregate
 argument_list|()
+argument_list|,
+name|isStopOnAggregateException
+argument_list|()
 argument_list|)
 block|{
 annotation|@
@@ -1280,6 +1288,32 @@ operator|.
 name|parallelAggregate
 operator|=
 name|parallelAggregate
+expr_stmt|;
+block|}
+DECL|method|isStopOnAggregateException ()
+specifier|public
+name|boolean
+name|isStopOnAggregateException
+parameter_list|()
+block|{
+return|return
+name|stopOnAggregateException
+return|;
+block|}
+DECL|method|setStopOnAggregateException (boolean stopOnAggregateException)
+specifier|public
+name|void
+name|setStopOnAggregateException
+parameter_list|(
+name|boolean
+name|stopOnAggregateException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stopOnAggregateException
+operator|=
+name|stopOnAggregateException
 expr_stmt|;
 block|}
 DECL|method|isStopOnException ()

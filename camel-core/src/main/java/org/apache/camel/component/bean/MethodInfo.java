@@ -1159,6 +1159,16 @@ argument_list|)
 expr_stmt|;
 name|recipientList
 operator|.
+name|setStopOnAggregateException
+argument_list|(
+name|recipientListAnnotation
+operator|.
+name|stopOnAggregateException
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|recipientList
+operator|.
 name|setIgnoreInvalidEndpoints
 argument_list|(
 name|recipientListAnnotation

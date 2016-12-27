@@ -370,7 +370,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|14
+literal|15
 argument_list|,
 name|data
 operator|.

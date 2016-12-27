@@ -148,6 +148,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+DECL|method|stopOnAggregateException ()
+DECL|field|false
+name|boolean
+name|stopOnAggregateException
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 DECL|method|streaming ()
 DECL|field|false
 name|boolean

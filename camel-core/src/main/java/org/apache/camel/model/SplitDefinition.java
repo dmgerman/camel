@@ -397,6 +397,13 @@ specifier|private
 name|Boolean
 name|parallelAggregate
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|stopOnAggregateException
+specifier|private
+name|Boolean
+name|stopOnAggregateException
+decl_stmt|;
 DECL|method|SplitDefinition ()
 specifier|public
 name|SplitDefinition
@@ -546,6 +553,17 @@ name|getParallelAggregate
 argument_list|()
 decl_stmt|;
 name|boolean
+name|isStopOnAggregateException
+init|=
+name|getStopOnAggregateException
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getStopOnAggregateException
+argument_list|()
+decl_stmt|;
+name|boolean
 name|shutdownThreadPool
 init|=
 name|ProcessorDefinitionHelper
@@ -678,6 +696,8 @@ argument_list|,
 name|isShareUnitOfWork
 argument_list|,
 name|isParallelAggregate
+argument_list|,
+name|isStopOnAggregateException
 argument_list|)
 decl_stmt|;
 return|return
@@ -982,6 +1002,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If enabled, unwind exceptions occurring at aggregation time to the error handler when parallelProcessing is used.      * Currently, aggregation time exceptions do not stop the route processing when parallelProcessing is used.      * Enabling this option allows to work around this behavior.      *      * The default value is<code>false</code> for the sake of backward compatibility.      *      * @return the builder      */
+DECL|method|stopOnAggregateException ()
+specifier|public
+name|SplitDefinition
+name|stopOnAggregateException
+parameter_list|()
+block|{
+name|setStopOnAggregateException
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * When in streaming mode, then the splitter splits the original message on-demand, and each splitted      * message is processed one by one. This reduces memory usage as the splitter do not split all the messages first,      * but then we do not know the total size, and therefore the {@link org.apache.camel.Exchange#SPLIT_SIZE} is empty.      *<p/>      * In non-streaming mode (default) the splitter will split each message first, to know the total size, and then      * process each message one by one. This requires to keep all the splitted messages in memory and therefore requires      * more memory. The total size is provided in the {@link org.apache.camel.Exchange#SPLIT_SIZE} header.      *<p/>      * The streaming mode also affects the aggregation behavior.      * If enabled then Camel will process replies out-of-order, eg in the order they come back.      * If disabled, Camel will process replies in the same order as the messages was splitted.      *      * @return the builder      */
 DECL|method|streaming ()
 specifier|public
@@ -1251,6 +1287,34 @@ operator|.
 name|parallelAggregate
 operator|=
 name|parallelAggregate
+expr_stmt|;
+block|}
+DECL|method|getStopOnAggregateException ()
+specifier|public
+name|Boolean
+name|getStopOnAggregateException
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|stopOnAggregateException
+return|;
+block|}
+DECL|method|setStopOnAggregateException (Boolean stopOnAggregateException)
+specifier|public
+name|void
+name|setStopOnAggregateException
+parameter_list|(
+name|Boolean
+name|stopOnAggregateException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stopOnAggregateException
+operator|=
+name|stopOnAggregateException
 expr_stmt|;
 block|}
 DECL|method|getStopOnException ()
