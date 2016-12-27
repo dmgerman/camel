@@ -1980,7 +1980,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Duration of statistical rolling window in milliseconds.      * This is passed into HystrixRollingNumber inside HystrixCommandMetrics.      */
+comment|/**      * This property sets the duration of the statistical rolling window, in milliseconds. This is how long metrics are kept for the thread pool.      *      * The window is divided into buckets and ârollsâ by those increments.      */
 DECL|method|metricsRollingStatisticalWindowInMilliseconds (Integer metricsRollingStatisticalWindowInMilliseconds)
 specifier|public
 name|HystrixConfigurationDefinition
@@ -2100,7 +2100,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Maximum thread-pool size that gets passed to {@link ThreadPoolExecutor#setMaximumPoolSize(int)}      *      */
+comment|/**      * Maximum thread-pool size that gets passed to {@link ThreadPoolExecutor#setMaximumPoolSize(int)}.      * This is the maximum amount of concurrency that can be supported without starting to reject HystrixCommands.      * Please note that this setting only takes effect if you also set allowMaximumSizeToDivergeFromCoreSize      */
 DECL|method|maximumSize (Integer maximumSize)
 specifier|public
 name|HystrixConfigurationDefinition
