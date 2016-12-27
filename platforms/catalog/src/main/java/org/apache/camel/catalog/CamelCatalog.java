@@ -339,6 +339,15 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the component documentation as HTML format.      *      * @param name the component name      * @return component documentation in html format.      */
+DECL|method|componentHtmlDoc (String name)
+name|String
+name|componentHtmlDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the data format documentation as Ascii doc format.      *      * @param name the data format name      * @return data format documentation in ascii doc format.      */
 DECL|method|dataFormatAsciiDoc (String name)
 name|String
@@ -348,10 +357,28 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the data format documentation as HTML format.      *      * @param name the data format name      * @return data format documentation in HTML format.      */
+DECL|method|dataFormatHtmlDoc (String name)
+name|String
+name|dataFormatHtmlDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the language documentation as Ascii doc format.      *      * @param name the language name      * @return language documentation in ascii doc format.      */
 DECL|method|languageAsciiDoc (String name)
 name|String
 name|languageAsciiDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the language documentation as HTML format.      *      * @param name the language name      * @return language documentation in HTML format.      */
+DECL|method|languageHtmlDoc (String name)
+name|String
+name|languageHtmlDoc
 parameter_list|(
 name|String
 name|name
