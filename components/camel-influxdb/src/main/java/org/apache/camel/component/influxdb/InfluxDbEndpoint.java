@@ -245,6 +245,18 @@ name|retentionPolicy
 init|=
 literal|"default"
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|batch
+specifier|private
+name|boolean
+name|batch
+decl_stmt|;
 DECL|method|InfluxDbEndpoint (String uri, InfluxDbComponent influxDbComponent, InfluxDB dbConn)
 specifier|public
 name|InfluxDbEndpoint
@@ -467,6 +479,33 @@ operator|.
 name|connectionBean
 operator|=
 name|connectionBean
+expr_stmt|;
+block|}
+DECL|method|isBatch ()
+specifier|public
+name|boolean
+name|isBatch
+parameter_list|()
+block|{
+return|return
+name|batch
+return|;
+block|}
+comment|/**      * Define if this operation is a batch operation or not      */
+DECL|method|setBatch (boolean batch)
+specifier|public
+name|void
+name|setBatch
+parameter_list|(
+name|boolean
+name|batch
+parameter_list|)
+block|{
+name|this
+operator|.
+name|batch
+operator|=
+name|batch
 expr_stmt|;
 block|}
 block|}
