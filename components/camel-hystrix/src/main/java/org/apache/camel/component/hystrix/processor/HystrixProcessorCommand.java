@@ -313,6 +313,15 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROUTE_STOP
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
 name|setException
 argument_list|(
 literal|null
