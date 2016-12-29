@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|netflix
@@ -77,6 +91,20 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
 import|;
 end_import
 
@@ -152,6 +180,26 @@ specifier|final
 name|HystrixProcessorCommandFallbackViaNetwork
 name|fallbackCommand
 decl_stmt|;
+DECL|field|fallbackInUse
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|fallbackInUse
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
+DECL|field|lock
+specifier|private
+specifier|final
+name|Object
+name|lock
+init|=
+operator|new
+name|Object
+argument_list|()
+decl_stmt|;
 DECL|method|HystrixProcessorCommand (Setter setter, Exchange exchange, Processor processor, Processor fallback, HystrixProcessorCommandFallbackViaNetwork fallbackCommand)
 specifier|public
 name|HystrixProcessorCommand
@@ -210,17 +258,42 @@ name|Message
 name|getFallback
 parameter_list|()
 block|{
+comment|// guard by lock as the run command can be running concurrently in case hystrix caused a timeout which
+comment|// can cause the fallback timer to trigger this fallback at the same time the run command may be running
+comment|// after its processor.process method which could cause both threads to mutate the state on the exchange
+synchronized|synchronized
+init|(
+name|lock
+init|)
+block|{
+name|fallbackInUse
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|fallback
-operator|!=
+operator|==
 literal|null
-operator|||
+operator|&&
 name|fallbackCommand
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+comment|// no fallback in use
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"No fallback available."
+argument_list|)
+throw|;
+block|}
 comment|// grab the exception that caused the error (can be failure in run, or from hystrix if short circuited)
 name|Throwable
 name|exception
@@ -416,7 +489,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 return|return
 name|exchange
 operator|.
@@ -455,6 +527,22 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// prepare a copy of exchange so downstream processors don't cause side-effects if they mutate the exchange
+comment|// in case Hystrix timeout processing and continue with the fallback etc
+name|Exchange
+name|copy
+init|=
+name|ExchangeHelper
+operator|.
+name|createCorrelatedCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 comment|// process the processor until its fully done
@@ -463,7 +551,7 @@ name|processor
 operator|.
 name|process
 argument_list|(
-name|exchange
+name|copy
 argument_list|)
 expr_stmt|;
 block|}
@@ -473,7 +561,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|exchange
+name|copy
 operator|.
 name|setException
 argument_list|(
@@ -481,6 +569,74 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// when a hystrix timeout occurs then a hystrix timer thread executes the fallback
+comment|// and therefore we need this thread to not do anymore if fallback is already in process
+if|if
+condition|(
+name|fallbackInUse
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Exiting run command as fallback is already in use processing exchange: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+comment|// remember any hystrix execution exception which for example can be triggered by a hystrix timeout
+name|Throwable
+name|cause
+init|=
+name|getExecutionException
+argument_list|()
+decl_stmt|;
+synchronized|synchronized
+init|(
+name|lock
+init|)
+block|{
+comment|// when a hystrix timeout occurs then a hystrix timer thread executes the fallback
+comment|// and therefore we need this thread to not do anymore if fallback is already in process
+if|if
+condition|(
+name|fallbackInUse
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Exiting run command as fallback is already in use processing exchange: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+comment|// and copy the result
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|exchange
+argument_list|,
+name|copy
+argument_list|)
+expr_stmt|;
 comment|// is fallback enabled
 name|Boolean
 name|fallbackEnabled
@@ -496,15 +652,9 @@ argument_list|()
 decl_stmt|;
 comment|// execution exception must take precedence over exchange exception
 comment|// because hystrix may have caused this command to fail due timeout or something else
-name|Throwable
-name|exception
-init|=
-name|getExecutionException
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|exception
+name|cause
 operator|!=
 literal|null
 condition|)
@@ -520,12 +670,26 @@ literal|"Hystrix execution exception occurred while processing Exchange"
 argument_list|,
 name|exchange
 argument_list|,
-name|exception
+name|cause
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if we failed then throw an exception if fallback is enabled
+comment|// if we have a fallback that can process the exchange in case of an exception
+comment|// then we need to trigger this by throwing an exception so Hystrix will execute the fallback
+comment|// if we don't have a fallback and an exception was thrown then its stored on the exchange
+comment|// and Camel will detect the exception anyway
+if|if
+condition|(
+name|fallback
+operator|!=
+literal|null
+operator|||
+name|fallbackCommand
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|fallbackEnabled
@@ -542,6 +706,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// throwing exception will cause hystrix to execute fallback
 throw|throw
 name|exchange
 operator|.
@@ -549,7 +714,7 @@ name|getException
 argument_list|()
 throw|;
 block|}
-comment|// no fallback then we are done
+block|}
 name|LOG
 operator|.
 name|debug
@@ -577,6 +742,7 @@ operator|.
 name|getIn
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 end_class
