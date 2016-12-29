@@ -160,7 +160,7 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"INDEX,UPDATE,BULK,BULK_INDEX,GET_BY_ID,MULTIGET,DELETE,EXISTS,SEARCH,MULTISEARCH"
+literal|"INDEX,UPDATE,BULK,BULK_INDEX,GET_BY_ID,MULTIGET,DELETE,EXISTS,SEARCH,MULTISEARCH,DELETE_INDEX"
 argument_list|)
 DECL|field|operation
 specifier|private

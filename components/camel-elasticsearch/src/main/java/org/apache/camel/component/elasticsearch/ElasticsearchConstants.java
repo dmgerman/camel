@@ -84,6 +84,12 @@ name|OPERATION_DELETE
 init|=
 literal|"DELETE"
 decl_stmt|;
+DECL|field|OPERATION_DELETE_INDEX
+name|String
+name|OPERATION_DELETE_INDEX
+init|=
+literal|"DELETE_INDEX"
+decl_stmt|;
 DECL|field|OPERATION_SEARCH
 name|String
 name|OPERATION_SEARCH
