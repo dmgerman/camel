@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -198,13 +210,6 @@ name|Message
 name|getFallback
 parameter_list|()
 block|{
-comment|// grab the exception that caused the error (can be failure in run, or from hystrix if short circuited)
-name|Throwable
-name|exception
-init|=
-name|getExecutionException
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|fallback
@@ -216,6 +221,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// grab the exception that caused the error (can be failure in run, or from hystrix if short circuited)
+name|Throwable
+name|exception
+init|=
+name|getExecutionException
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|exception
@@ -482,6 +494,37 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+comment|// execution exception must take precedence over exchange exception
+comment|// because hystrix may have caused this command to fail due timeout or something else
+name|Throwable
+name|exception
+init|=
+name|getExecutionException
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|exception
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Hystrix execution exception occurred while processing Exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|exception
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if we failed then throw an exception if fallback is enabled
 if|if
 condition|(
@@ -506,6 +549,7 @@ name|getException
 argument_list|()
 throw|;
 block|}
+comment|// no fallback then we are done
 name|LOG
 operator|.
 name|debug
@@ -517,7 +561,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// no fallback then we are done
 return|return
 name|exchange
 operator|.
