@@ -377,7 +377,7 @@ literal|"Allows for bridging the consumer to the Camel routing Error Handler, wh
 operator|+
 literal|" the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler."
 operator|+
-literal|" By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN/ERROR level and ignored."
+literal|" By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored."
 argument_list|)
 DECL|field|bridgeErrorHandler
 specifier|private
@@ -401,7 +401,7 @@ literal|"To let the consumer use a custom ExceptionHandler."
 operator|+
 literal|" Notice if the option bridgeErrorHandler is enabled then this options is not in use."
 operator|+
-literal|" By default the consumer will deal with exceptions, that will be logged at WARN/ERROR level and ignored."
+literal|" By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored."
 argument_list|)
 DECL|field|exceptionHandler
 specifier|private
