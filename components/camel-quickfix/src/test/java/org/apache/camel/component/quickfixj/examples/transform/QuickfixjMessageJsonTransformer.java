@@ -566,7 +566,7 @@ name|fieldType
 init|=
 name|dd
 operator|.
-name|getFieldTypeEnum
+name|getFieldType
 argument_list|(
 name|field
 operator|.
