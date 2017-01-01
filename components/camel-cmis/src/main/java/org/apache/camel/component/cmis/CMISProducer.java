@@ -370,6 +370,24 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|CMISEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|CMISEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -1388,7 +1406,10 @@ operator|=
 name|sessionFacadeFactory
 operator|.
 name|create
+argument_list|(
+name|getEndpoint
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|sessionFacade
 operator|.

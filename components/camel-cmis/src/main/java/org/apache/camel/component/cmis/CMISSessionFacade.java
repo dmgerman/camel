@@ -446,13 +446,6 @@ specifier|transient
 name|Session
 name|session
 decl_stmt|;
-annotation|@
-name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"URL to CMIS server"
-argument_list|)
 DECL|field|url
 specifier|private
 specifier|final
@@ -489,6 +482,15 @@ name|readContent
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|username
 specifier|private
 name|String
@@ -496,6 +498,15 @@ name|username
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|password
 specifier|private
 name|String

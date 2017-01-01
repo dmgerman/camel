@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -189,6 +201,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|CMISEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|CMISEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 name|int
@@ -316,7 +346,10 @@ operator|=
 name|sessionFacadeFactory
 operator|.
 name|create
+argument_list|(
+name|getEndpoint
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|sessionFacade
 operator|.

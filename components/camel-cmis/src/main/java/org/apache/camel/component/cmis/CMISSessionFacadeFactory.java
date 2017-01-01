@@ -23,10 +23,13 @@ DECL|interface|CMISSessionFacadeFactory
 interface|interface
 name|CMISSessionFacadeFactory
 block|{
-DECL|method|create ()
+DECL|method|create (CMISEndpoint endpoint)
 name|CMISSessionFacade
 name|create
-parameter_list|()
+parameter_list|(
+name|CMISEndpoint
+name|endpoint
+parameter_list|)
 throws|throws
 name|Exception
 function_decl|;

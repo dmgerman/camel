@@ -196,6 +196,8 @@ name|createConsumerFor
 argument_list|(
 name|getUrl
 argument_list|()
+operator|+
+literal|"?pageSize=50"
 argument_list|)
 decl_stmt|;
 name|treeBasedConsumer
