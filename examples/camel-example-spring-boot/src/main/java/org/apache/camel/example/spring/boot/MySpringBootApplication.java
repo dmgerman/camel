@@ -51,9 +51,15 @@ annotation|@
 name|SpringBootApplication
 DECL|class|MySpringBootApplication
 specifier|public
+specifier|final
 class|class
 name|MySpringBootApplication
 block|{
+DECL|method|MySpringBootApplication ()
+specifier|private
+name|MySpringBootApplication
+parameter_list|()
+block|{     }
 comment|/**      * A main method to start this application.      */
 DECL|method|main (String[] args)
 specifier|public
