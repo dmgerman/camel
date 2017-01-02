@@ -4834,6 +4834,49 @@ operator|)
 name|def
 return|;
 block|}
+comment|/**      * Ends the current block and returns back to the {@link HystrixDefinition hystrix()} DSL.      *      * @return the builder      */
+DECL|method|endHystrix ()
+specifier|public
+name|HystrixDefinition
+name|endHystrix
+parameter_list|()
+block|{
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|def
+init|=
+name|this
+decl_stmt|;
+comment|// are we already a try?
+if|if
+condition|(
+name|def
+operator|instanceof
+name|HystrixDefinition
+condition|)
+block|{
+return|return
+operator|(
+name|HystrixDefinition
+operator|)
+name|def
+return|;
+block|}
+comment|// okay end this and get back to the try
+name|def
+operator|=
+name|end
+argument_list|()
+expr_stmt|;
+return|return
+operator|(
+name|HystrixDefinition
+operator|)
+name|def
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer}      * to avoid duplicate messages      *      * @param messageIdExpression  expression to test of duplicate messages      * @return the builder      */
 DECL|method|idempotentConsumer (Expression messageIdExpression)
 specifier|public
