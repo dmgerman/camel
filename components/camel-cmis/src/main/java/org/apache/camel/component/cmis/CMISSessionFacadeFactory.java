@@ -18,11 +18,17 @@ name|cmis
 package|;
 end_package
 
+begin_comment
+comment|/**  * Factory to create {@link CMISSessionFacade} instances.  */
+end_comment
+
 begin_interface
 DECL|interface|CMISSessionFacadeFactory
+specifier|public
 interface|interface
 name|CMISSessionFacadeFactory
 block|{
+comment|/**      * Creates a new instance of CMISSessionFacade      */
 DECL|method|create (CMISEndpoint endpoint)
 name|CMISSessionFacade
 name|create
