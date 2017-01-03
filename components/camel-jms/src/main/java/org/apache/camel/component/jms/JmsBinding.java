@@ -2840,6 +2840,13 @@ operator|.
 name|marshal
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
+argument_list|,
+name|endpoint
+operator|.
+name|isAllowSerializedHeaders
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Message

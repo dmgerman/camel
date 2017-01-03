@@ -1881,6 +1881,26 @@ literal|"advanced"
 argument_list|,
 name|description
 operator|=
+literal|"Controls whether or not to include serialized headers."
+operator|+
+literal|" Applies only when {@code transferExchange} is {@code true}."
+operator|+
+literal|" This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level."
+argument_list|)
+DECL|field|allowSerializedHeaders
+specifier|private
+name|boolean
+name|allowSerializedHeaders
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
 literal|"If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side,"
 operator|+
 literal|" then the caused Exception will be send back in response as a javax.jms.ObjectMessage."
@@ -6496,6 +6516,33 @@ operator|.
 name|transferExchange
 operator|=
 name|transferExchange
+expr_stmt|;
+block|}
+DECL|method|isAllowSerializedHeaders ()
+specifier|public
+name|boolean
+name|isAllowSerializedHeaders
+parameter_list|()
+block|{
+return|return
+name|allowSerializedHeaders
+return|;
+block|}
+comment|/**      * Controls whether or not to include serialized headers.      * Applies only when {@link #isTransferExchange()} is {@code true}.      * This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.      */
+DECL|method|setAllowSerializedHeaders (boolean allowSerializedHeaders)
+specifier|public
+name|void
+name|setAllowSerializedHeaders
+parameter_list|(
+name|boolean
+name|allowSerializedHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowSerializedHeaders
+operator|=
+name|allowSerializedHeaders
 expr_stmt|;
 block|}
 DECL|method|isTransferException ()

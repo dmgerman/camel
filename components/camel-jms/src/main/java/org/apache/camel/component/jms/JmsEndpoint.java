@@ -4653,6 +4653,42 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|isAllowSerializedHeaders ()
+specifier|public
+name|boolean
+name|isAllowSerializedHeaders
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isAllowSerializedHeaders
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setAllowSerializedHeaders (boolean allowSerializedHeaders)
+specifier|public
+name|void
+name|setAllowSerializedHeaders
+parameter_list|(
+name|boolean
+name|allowSerializedHeaders
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAllowSerializedHeaders
+argument_list|(
+name|allowSerializedHeaders
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isTransferException ()
 specifier|public
 name|boolean
