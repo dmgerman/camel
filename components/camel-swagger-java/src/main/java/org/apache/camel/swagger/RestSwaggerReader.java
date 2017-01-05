@@ -3491,7 +3491,7 @@ name|get
 argument_list|(
 literal|"x-className"
 argument_list|)
-operator|==
+operator|!=
 literal|null
 expr_stmt|;
 block|}
