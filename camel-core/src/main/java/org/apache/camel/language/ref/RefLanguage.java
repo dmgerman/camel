@@ -122,8 +122,22 @@ name|ExpressionToPredicateAdapter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|PredicateToExpressionAdapter
+import|;
+end_import
+
 begin_comment
-comment|/**  * A language for referred expressions.  */
+comment|/**  * A language for referred expressions or predicates.  */
 end_comment
 
 begin_class
@@ -219,6 +233,11 @@ name|exchange
 parameter_list|)
 block|{
 name|Expression
+name|target
+init|=
+literal|null
+decl_stmt|;
+name|Object
 name|lookup
 init|=
 name|exp
@@ -227,20 +246,65 @@ name|evaluate
 argument_list|(
 name|exchange
 argument_list|,
-name|Expression
+name|Object
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// must favor expression over predicate
 if|if
 condition|(
 name|lookup
 operator|!=
 literal|null
+operator|&&
+name|lookup
+operator|instanceof
+name|Expression
+condition|)
+block|{
+name|target
+operator|=
+operator|(
+name|Expression
+operator|)
+name|lookup
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|lookup
+operator|!=
+literal|null
+operator|&&
+name|lookup
+operator|instanceof
+name|Predicate
+condition|)
+block|{
+name|target
+operator|=
+name|PredicateToExpressionAdapter
+operator|.
+name|toExpression
+argument_list|(
+operator|(
+name|Predicate
+operator|)
+name|lookup
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|target
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
-name|lookup
+name|target
 operator|.
 name|evaluate
 argument_list|(
@@ -258,7 +322,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot find expression in registry with ref: "
+literal|"Cannot find expression or predicate in registry with ref: "
 operator|+
 name|expression
 argument_list|)

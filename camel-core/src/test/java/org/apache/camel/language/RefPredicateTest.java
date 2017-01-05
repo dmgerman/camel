@@ -48,9 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|JndiRegistry
+name|Predicate
 import|;
 end_import
 
@@ -62,17 +60,17 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|impl
 operator|.
-name|ExpressionAdapter
+name|JndiRegistry
 import|;
 end_import
 
 begin_class
-DECL|class|RefTest
+DECL|class|RefPredicateTest
 specifier|public
 class|class
-name|RefTest
+name|RefPredicateTest
 extends|extends
 name|LanguageTestSupport
 block|{
@@ -98,10 +96,10 @@ name|jndi
 operator|.
 name|bind
 argument_list|(
-literal|"myExp"
+literal|"myPredicate"
 argument_list|,
 operator|new
-name|MyExpression
+name|MyPredicate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -109,62 +107,48 @@ return|return
 name|jndi
 return|;
 block|}
-DECL|method|testRefExpressions ()
+DECL|method|testExpression ()
 specifier|public
 name|void
-name|testRefExpressions
+name|testExpression
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
-argument_list|(
-literal|"myExp"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testRefExpressionsNotFound ()
-specifier|public
-name|void
-name|testRefExpressionsNotFound
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|assertExpression
-argument_list|(
-literal|"foo"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"Cannot find expression or predicate in registry with ref: foo"
-argument_list|,
-name|e
+name|exchange
 operator|.
-name|getMessage
+name|getIn
 argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
-block|}
+name|assertExpression
+argument_list|(
+literal|"myPredicate"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"myPredicate"
+argument_list|,
+literal|"false"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testPredicates ()
 specifier|public
@@ -174,9 +158,38 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"myExp"
+literal|"myPredicate"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"myPredicate"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -190,27 +203,38 @@ return|return
 literal|"ref"
 return|;
 block|}
-DECL|class|MyExpression
+DECL|class|MyPredicate
 specifier|private
 specifier|static
 class|class
-name|MyExpression
-extends|extends
-name|ExpressionAdapter
+name|MyPredicate
+implements|implements
+name|Predicate
 block|{
 annotation|@
 name|Override
-DECL|method|evaluate (Exchange exchange)
+DECL|method|matches (Exchange exchange)
 specifier|public
-name|Object
-name|evaluate
+name|boolean
+name|matches
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
 return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|.
+name|equals
+argument_list|(
 literal|"Hello World"
+argument_list|)
 return|;
 block|}
 block|}

@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For using a custom expression  */
+comment|/**  * For using a custom expression or predicate  */
 end_comment
 
 begin_class
