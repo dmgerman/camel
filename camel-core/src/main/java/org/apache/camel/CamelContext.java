@@ -800,6 +800,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|TransformerRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TypeConverterRegistry
 import|;
 end_import
@@ -2122,6 +2136,12 @@ parameter_list|,
 name|DataType
 name|to
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link org.apache.camel.spi.TransformerRegistry}      * @return the TransformerRegistry      */
+DECL|method|getTransformerRegistry ()
+name|TransformerRegistry
+name|getTransformerRegistry
+parameter_list|()
 function_decl|;
 comment|/**      * Sets the properties that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global settings on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @param properties properties      */
 DECL|method|setProperties (Map<String, String> properties)

@@ -281,7 +281,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%s[model='%s', from='%s', to='%s']"
+literal|"%s[scheme='%s', from='%s', to='%s']"
 argument_list|,
 name|this
 operator|.
@@ -290,6 +290,8 @@ argument_list|()
 operator|.
 name|getSimpleName
 argument_list|()
+argument_list|,
+name|model
 argument_list|,
 name|from
 argument_list|,

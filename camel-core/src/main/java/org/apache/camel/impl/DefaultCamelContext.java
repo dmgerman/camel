@@ -22751,6 +22751,18 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getTransformerRegistry ()
+specifier|public
+name|TransformerRegistry
+name|getTransformerRegistry
+parameter_list|()
+block|{
+return|return
+name|transformerRegistry
+return|;
+block|}
 DECL|method|getRouteServices ()
 specifier|protected
 name|Map
