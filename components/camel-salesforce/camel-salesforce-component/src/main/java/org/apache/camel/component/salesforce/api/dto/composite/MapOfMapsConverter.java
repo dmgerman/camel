@@ -132,6 +132,15 @@ name|MapOfMapsConverter
 implements|implements
 name|Converter
 block|{
+DECL|field|ATTRIBUTES_PROPERTY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ATTRIBUTES_PROPERTY
+init|=
+literal|"attributes"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|canConvert (final Class type)
@@ -289,14 +298,6 @@ operator|.
 name|getAttributeNames
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|attributeNames
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
 while|while
 condition|(
 name|attributeNames
@@ -332,7 +333,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 name|Object
 name|nested
 init|=
@@ -362,7 +362,8 @@ operator|instanceof
 name|String
 condition|)
 block|{
-name|HashMap
+specifier|final
+name|Map
 argument_list|<
 name|Object
 argument_list|,
@@ -388,7 +389,7 @@ name|newNested
 operator|.
 name|put
 argument_list|(
-literal|"attributes"
+name|ATTRIBUTES_PROPERTY
 argument_list|,
 name|attributes
 argument_list|)
@@ -428,7 +429,7 @@ name|nestedMap
 operator|.
 name|put
 argument_list|(
-literal|"attributes"
+name|ATTRIBUTES_PROPERTY
 argument_list|,
 name|attributes
 argument_list|)

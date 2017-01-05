@@ -302,6 +302,15 @@ name|SObjectBatch
 implements|implements
 name|Serializable
 block|{
+DECL|field|SOBJECT_TYPE_PARAM
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SOBJECT_TYPE_PARAM
+init|=
+literal|"type"
+decl_stmt|;
 DECL|enum|Method
 specifier|public
 enum|enum
@@ -1231,7 +1240,7 @@ name|notEmpty
 argument_list|(
 name|type
 argument_list|,
-literal|"type"
+name|SOBJECT_TYPE_PARAM
 argument_list|)
 operator|+
 literal|"/"
@@ -1272,7 +1281,7 @@ name|notEmpty
 argument_list|(
 name|type
 argument_list|,
-literal|"type"
+name|SOBJECT_TYPE_PARAM
 argument_list|)
 operator|+
 literal|"/"

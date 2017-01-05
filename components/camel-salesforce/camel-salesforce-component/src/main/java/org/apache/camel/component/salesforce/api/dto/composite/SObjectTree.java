@@ -665,7 +665,7 @@ name|errors
 argument_list|)
 condition|)
 block|{
-break|break;
+return|return;
 block|}
 block|}
 block|}
@@ -705,7 +705,7 @@ name|id
 argument_list|)
 condition|)
 block|{
-break|break;
+return|return;
 block|}
 block|}
 block|}
@@ -958,6 +958,9 @@ name|updateBaseObjectId
 argument_list|(
 name|id
 argument_list|,
+operator|(
+name|AbstractSObjectBase
+operator|)
 name|object
 argument_list|)
 return|;
@@ -1005,7 +1008,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|updateBaseObjectId (final String id, final Object object)
+DECL|method|updateBaseObjectId (final String id, final AbstractSObjectBase object)
 name|boolean
 name|updateBaseObjectId
 parameter_list|(
@@ -1014,16 +1017,11 @@ name|String
 name|id
 parameter_list|,
 specifier|final
-name|Object
+name|AbstractSObjectBase
 name|object
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|AbstractSObjectBase
-operator|)
 name|object
-operator|)
 operator|.
 name|setId
 argument_list|(
