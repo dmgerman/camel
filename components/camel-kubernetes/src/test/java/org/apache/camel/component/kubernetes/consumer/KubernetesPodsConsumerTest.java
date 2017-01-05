@@ -424,9 +424,9 @@ argument_list|()
 decl_stmt|;
 name|podSpec
 operator|.
-name|setHost
+name|setHostname
 argument_list|(
-literal|"172.28.128.4"
+literal|"localhost"
 argument_list|)
 expr_stmt|;
 name|Container
