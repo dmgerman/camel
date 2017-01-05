@@ -230,6 +230,30 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Pojo{"
+operator|+
+literal|"id="
+operator|+
+name|id
+operator|+
+literal|", name='"
+operator|+
+name|name
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 
