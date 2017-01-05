@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ported from {@link org.apache.camel.component.http4.BaseHttpTest}.  *  * @version   */
+comment|/**  * Ported from {@link org.apache.camel.component.http4.BaseHttpTest}.  *  */
 end_comment
 
 begin_class

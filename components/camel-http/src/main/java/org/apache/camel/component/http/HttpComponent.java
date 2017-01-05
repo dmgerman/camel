@@ -407,7 +407,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/http.html">HTTP Component</a>  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/http.html">HTTP Component</a>  *  */
 end_comment
 
 begin_class

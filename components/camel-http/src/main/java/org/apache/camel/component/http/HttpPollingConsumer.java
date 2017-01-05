@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A polling HTTP consumer which by default performs a GET  *  * @version   */
+comment|/**  * A polling HTTP consumer which by default performs a GET  *  */
 end_comment
 
 begin_class

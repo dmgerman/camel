@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Authentication policy  *  * @version   */
+comment|/**  * Authentication policy  *  */
 end_comment
 
 begin_enum
