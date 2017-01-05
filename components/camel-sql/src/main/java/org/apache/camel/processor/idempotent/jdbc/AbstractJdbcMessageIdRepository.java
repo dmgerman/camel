@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for JDBC-based idempotent repositories that allows the schema to be changed.  *<p/>  * Subclasses need only implement theses methods:  *<ul>  *<li>{@link #queryForInt(T key)}</li>  *<li>{@link #insert(T key)}</li>  *<li>{@link #delete(T key)}</li>  *</ul>  *<p/>  * These methods should perform the named database operation.  */
+comment|/**  * Base class for JDBC-based idempotent repositories that allows the schema to be changed.  *<p/>  * Subclasses need only implement theses methods:  *<ul>  *<li>{@link #queryForInt(Object key) queryForInt(T key)}</li>  *<li>{@link #insert(Object key) insert(T key)}</li>  *<li>{@link #delete(Object key) delete(T key)}</li>  *</ul>  *<p/>  * These methods should perform the named database operation.  */
 end_comment
 
 begin_class
@@ -384,7 +384,7 @@ name|T
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Operations that deletes all the rows      *      * @param key  the key      * @return int number of rows deleted      */
+comment|/**      * Operations that deletes all the rows      *      * @return int number of rows deleted      */
 DECL|method|delete ()
 specifier|protected
 specifier|abstract
