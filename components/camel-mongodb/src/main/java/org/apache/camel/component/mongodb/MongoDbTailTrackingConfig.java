@@ -25,7 +25,6 @@ class|class
 name|MongoDbTailTrackingConfig
 block|{
 DECL|field|DEFAULT_COLLECTION
-specifier|public
 specifier|static
 specifier|final
 name|String
@@ -34,27 +33,12 @@ init|=
 literal|"camelTailTracking"
 decl_stmt|;
 DECL|field|DEFAULT_FIELD
-specifier|public
 specifier|static
 specifier|final
 name|String
 name|DEFAULT_FIELD
 init|=
 literal|"lastTrackingValue"
-decl_stmt|;
-comment|/**      * See {@link MongoDbEndpoint#setTailTrackIncreasingField(String)}      */
-DECL|field|increasingField
-specifier|public
-specifier|final
-name|String
-name|increasingField
-decl_stmt|;
-comment|/**      * See {@link MongoDbEndpoint#setPersistentTailTracking(boolean)}      */
-DECL|field|persistent
-specifier|public
-specifier|final
-name|boolean
-name|persistent
 decl_stmt|;
 comment|/**      * See {@link MongoDbEndpoint#setTailTrackDb(String)}      */
 DECL|field|db
@@ -70,21 +54,37 @@ specifier|final
 name|String
 name|collection
 decl_stmt|;
+comment|/**      * See {@link MongoDbEndpoint#setTailTrackIncreasingField(String)}      */
+DECL|field|increasingField
+specifier|final
+name|String
+name|increasingField
+decl_stmt|;
+comment|/**      * See {@link MongoDbEndpoint#setPersistentTailTracking(boolean)}      */
+DECL|field|persistent
+specifier|final
+name|boolean
+name|persistent
+decl_stmt|;
 comment|/**      * See {@link MongoDbEndpoint#setTailTrackField(String)}      */
 DECL|field|field
-specifier|public
 specifier|final
 name|String
 name|field
 decl_stmt|;
 comment|/**      * See {@link MongoDbEndpoint#setPersistentId(String)}      */
 DECL|field|persistentId
-specifier|public
 specifier|final
 name|String
 name|persistentId
 decl_stmt|;
-DECL|method|MongoDbTailTrackingConfig (boolean persistentTailTracking, String tailTrackIncreasingField, String tailTrackDb, String tailTrackCollection, String tailTrackField, String persistentId)
+comment|/**      * See {@link MongoDbEndpoint#setTailTrackingStrategy(MongoDBTailTrackingEnum)}      */
+DECL|field|mongoDBTailTrackingStrategy
+specifier|final
+name|MongoDBTailTrackingEnum
+name|mongoDBTailTrackingStrategy
+decl_stmt|;
+DECL|method|MongoDbTailTrackingConfig (boolean persistentTailTracking, String tailTrackIncreasingField, String tailTrackDb, String tailTrackCollection, String tailTrackField, String persistentId, MongoDBTailTrackingEnum mongoDBTailTrackingStrategy)
 specifier|public
 name|MongoDbTailTrackingConfig
 parameter_list|(
@@ -105,6 +105,9 @@ name|tailTrackField
 parameter_list|,
 name|String
 name|persistentId
+parameter_list|,
+name|MongoDBTailTrackingEnum
+name|mongoDBTailTrackingStrategy
 parameter_list|)
 block|{
 name|this
@@ -158,6 +161,20 @@ operator|.
 name|DEFAULT_FIELD
 else|:
 name|tailTrackField
+expr_stmt|;
+name|this
+operator|.
+name|mongoDBTailTrackingStrategy
+operator|=
+name|mongoDBTailTrackingStrategy
+operator|==
+literal|null
+condition|?
+name|MongoDBTailTrackingEnum
+operator|.
+name|LITERAL
+else|:
+name|mongoDBTailTrackingStrategy
 expr_stmt|;
 block|}
 block|}

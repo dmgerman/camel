@@ -654,6 +654,38 @@ specifier|private
 name|MongoDbOutputType
 name|outputType
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"tail"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"LITERAL"
+argument_list|)
+DECL|field|tailTrackingStrategy
+specifier|private
+name|MongoDBTailTrackingEnum
+name|tailTrackingStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"tail"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
+DECL|field|persistRecords
+specifier|private
+name|int
+name|persistRecords
+decl_stmt|;
 DECL|field|mongoDatabase
 specifier|private
 name|MongoDatabase
@@ -1041,6 +1073,28 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"tailTrackIncreasingField option must be set for tailable cursor MongoDB consumer endpoint"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|persistentTailTracking
+operator|&&
+operator|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|persistentId
+argument_list|)
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"persistentId is compulsory for persistent tail tracking"
 argument_list|)
 throw|;
 block|}
@@ -2076,7 +2130,7 @@ return|return
 name|writeConcernRef
 return|;
 block|}
-comment|/**       * Sets a MongoDB {@link ReadPreference} on the Mongo connection. Read preferences set directly on the connection will be      * overridden by this setting.      *<p/>      * The {@link com.mongodb.ReadPreference#valueOf(String)} utility method is used to resolve the passed {@code readPreference}      * value. Some examples for the possible values are {@code nearest}, {@code primary} or {@code secondary} etc.      *       * @param readPreference the name of the read preference to set      */
+comment|/**       * Sets a MongoDB {@link ReadPreference} on the Mongo connection. Read preferences set directly on the connection will be      * overridden by this setting.      *<p/>      * The {@link ReadPreference#valueOf(String)} utility method is used to resolve the passed {@code readPreference}      * value. Some examples for the possible values are {@code nearest}, {@code primary} or {@code secondary} etc.      *       * @param readPreference the name of the read preference to set      */
 DECL|method|setReadPreference (String readPreference)
 specifier|public
 name|void
@@ -2359,6 +2413,8 @@ name|tailTrackField
 argument_list|,
 name|getPersistentId
 argument_list|()
+argument_list|,
+name|tailTrackingStrategy
 argument_list|)
 expr_stmt|;
 block|}
@@ -2496,6 +2552,60 @@ block|{
 return|return
 name|mongoCollection
 return|;
+block|}
+DECL|method|getTailTrackingStrategy ()
+specifier|public
+name|MongoDBTailTrackingEnum
+name|getTailTrackingStrategy
+parameter_list|()
+block|{
+return|return
+name|tailTrackingStrategy
+return|;
+block|}
+comment|/**      * Sets the strategy used to extract the increasing field value and to create the query to position the      * tail cursor.      * @param tailTrackingStrategy The strategy used to extract the increasing field value and to create the query to position the      * tail cursor.      */
+DECL|method|setTailTrackingStrategy (MongoDBTailTrackingEnum tailTrackingStrategy)
+specifier|public
+name|void
+name|setTailTrackingStrategy
+parameter_list|(
+name|MongoDBTailTrackingEnum
+name|tailTrackingStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tailTrackingStrategy
+operator|=
+name|tailTrackingStrategy
+expr_stmt|;
+block|}
+DECL|method|getPersistRecords ()
+specifier|public
+name|int
+name|getPersistRecords
+parameter_list|()
+block|{
+return|return
+name|persistRecords
+return|;
+block|}
+comment|/**      * Sets the number of tailed records after which the tail tracking data is persisted to MongoDB.      * @param persistRecords The number of tailed records after which the tail tracking data is persisted to MongoDB.      */
+DECL|method|setPersistRecords (int persistRecords)
+specifier|public
+name|void
+name|setPersistRecords
+parameter_list|(
+name|int
+name|persistRecords
+parameter_list|)
+block|{
+name|this
+operator|.
+name|persistRecords
+operator|=
+name|persistRecords
+expr_stmt|;
 block|}
 block|}
 end_class
