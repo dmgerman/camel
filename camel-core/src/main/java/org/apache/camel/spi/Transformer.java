@@ -72,6 +72,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|InputTypeDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|OutputTypeDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -79,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<a href="http://camel.apache.org/transformer.html">Transformer</a>  * performs message transformation according to the declared data type.  * There are two Exchange property indicates current message type, {@link Exchange.INPUT_TYPE}  * holds input message type and {@link Exchange.OUTPUT_TYPE} holds output message type. If the  * input type and/or output type declared by {@link InputTypeDefinition}  * and/or {@link OutputTypeDefinition} in the route definition is different from those property  * at runtime, camel internal processor look for a Transformer which transforms from  * the current message type to the expected message type.  *    *  {@see InputTypeDefinition}  *  {@see OutputTypeDefinition}  */
+comment|/**  *<a href="http://camel.apache.org/transformer.html">Transformer</a>  * performs message transformation according to the declared data type.  * There are two Exchange property indicates current message type, {@link Exchange#INPUT_TYPE}  * holds input message type and {@link Exchange#OUTPUT_TYPE} holds output message type. If the  * input type and/or output type declared by {@link InputTypeDefinition}  * and/or {@link OutputTypeDefinition} in the route definition is different from those property  * at runtime, camel internal processor look for a Transformer which transforms from  * the current message type to the expected message type.  *    * @see InputTypeDefinition  * @see OutputTypeDefinition  */
 end_comment
 
 begin_class
@@ -113,7 +141,7 @@ specifier|private
 name|DataType
 name|to
 decl_stmt|;
-comment|/**      * Perform data transformation with specified from/to type.      * @param message message to apply transformation      * @param from 'from' data type      * @param to 'to' data type      */
+comment|/**      * Perform data transformation with specified from/to type.      *      * @param message message to apply transformation      * @param from 'from' data type      * @param to 'to' data type      */
 DECL|method|transform (Message message, DataType from, DataType to)
 specifier|public
 specifier|abstract
@@ -132,7 +160,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Get a data model which is supported by this transformer.      * @return data model      */
+comment|/**      * Get a data model which is supported by this transformer.      */
 DECL|method|getModel ()
 specifier|public
 name|String
@@ -144,7 +172,7 @@ name|model
 return|;
 block|}
 empty_stmt|;
-comment|/**      * Get 'from' data type.      * @return 'from' data type      */
+comment|/**      * Get 'from' data type.      */
 DECL|method|getFrom ()
 specifier|public
 name|DataType
@@ -156,7 +184,7 @@ name|from
 return|;
 block|}
 empty_stmt|;
-comment|/**      * Get 'to' data type.      * @return 'to' data type      */
+comment|/**      * Get 'to' data type.      */
 DECL|method|getTo ()
 specifier|public
 name|DataType
@@ -168,7 +196,7 @@ name|to
 return|;
 block|}
 empty_stmt|;
-comment|/**      * Set data model.      * @param model data model      * @return this Transformer instance      */
+comment|/**      * Set data model.      *      * @param model data model      */
 DECL|method|setModel (String model)
 specifier|public
 name|Transformer
@@ -188,7 +216,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set 'from' data type.      * @param from 'from' data type      * @return this Transformer instance      */
+comment|/**      * Set 'from' data type.      *      * @param from 'from' data type      */
 DECL|method|setFrom (String from)
 specifier|public
 name|Transformer
@@ -212,7 +240,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set 'to' data type.      * @param to 'to' data type      * @return this Transformer instance      */
+comment|/**      * Set 'to' data type.      *      * @param to 'to' data type      */
 DECL|method|setTo (String to)
 specifier|public
 name|Transformer
