@@ -96,22 +96,46 @@ name|void
 name|purge
 parameter_list|()
 function_decl|;
-comment|/**      * Whether the given transformer is stored in the static cache      *      * @param key  the transformer key      * @return<tt>true</tt> if in static cache,<tt>false</tt> if not      */
-DECL|method|isStatic (String key)
+comment|/**      * Whether the given transformer is stored in the static cache      *      * @param scheme the scheme supported by this transformer      * @return<tt>true</tt> if in static cache,<tt>false</tt> if not      */
+DECL|method|isStatic (String scheme)
 name|boolean
 name|isStatic
 parameter_list|(
 name|String
-name|key
+name|scheme
 parameter_list|)
 function_decl|;
-comment|/**      * Whether the given transformer is stored in the dynamic cache      *      * @param key  the transformer key      * @return<tt>true</tt> if in dynamic cache,<tt>false</tt> if not      */
-DECL|method|isDynamic (String key)
+comment|/**      * Whether the given transformer is stored in the static cache      *      * @param from  'from' data type      * @param to 'to' data type      * @return<tt>true</tt> if in static cache,<tt>false</tt> if not      */
+DECL|method|isStatic (DataType from, DataType to)
+name|boolean
+name|isStatic
+parameter_list|(
+name|DataType
+name|from
+parameter_list|,
+name|DataType
+name|to
+parameter_list|)
+function_decl|;
+comment|/**      * Whether the given transformer is stored in the dynamic cache      *      * @param scheme the scheme supported by this transformer      * @return<tt>true</tt> if in dynamic cache,<tt>false</tt> if not      */
+DECL|method|isDynamic (String scheme)
 name|boolean
 name|isDynamic
 parameter_list|(
 name|String
-name|key
+name|scheme
+parameter_list|)
+function_decl|;
+comment|/**      * Whether the given transformer is stored in the dynamic cache      *      * @param from 'from' data type      * @param to 'to' data type      * @return<tt>true</tt> if in dynamic cache,<tt>false</tt> if not      */
+DECL|method|isDynamic (DataType from, DataType to)
+name|boolean
+name|isDynamic
+parameter_list|(
+name|DataType
+name|from
+parameter_list|,
+name|DataType
+name|to
 parameter_list|)
 function_decl|;
 comment|/**      * Cleanup the cache (purging stale entries)      */
