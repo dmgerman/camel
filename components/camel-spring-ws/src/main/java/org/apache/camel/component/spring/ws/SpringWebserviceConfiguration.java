@@ -479,6 +479,18 @@ specifier|private
 name|boolean
 name|allowResponseHeaderOverride
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|allowResponseAttachmentOverride
+specifier|private
+name|boolean
+name|allowResponseAttachmentOverride
+decl_stmt|;
 comment|/* Consumer configuration */
 annotation|@
 name|UriParam
@@ -1387,6 +1399,34 @@ operator|.
 name|allowResponseHeaderOverride
 operator|=
 name|allowResponseHeaderOverride
+expr_stmt|;
+block|}
+comment|/**      * @return boolean - true, will override attachments with spring-ws response message attachments      */
+DECL|method|isAllowResponseAttachmentOverride ()
+specifier|public
+name|boolean
+name|isAllowResponseAttachmentOverride
+parameter_list|()
+block|{
+return|return
+name|allowResponseAttachmentOverride
+return|;
+block|}
+comment|/**      * Option to override soap response attachments in in/out exchange with attachments from the actual service layer.      * If the invoked service appends or rewrites the soap attachments this option when set to true, allows the modified      * soap attachments to be overwritten in in/out message attachments      *       * @param allowResponseAttachmentOverride      *            - true, will override attachments with spring-ws response message attachments      */
+DECL|method|setAllowResponseAttachmentOverride (boolean allowResponseAttachmentOverride)
+specifier|public
+name|void
+name|setAllowResponseAttachmentOverride
+parameter_list|(
+name|boolean
+name|allowResponseAttachmentOverride
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowResponseAttachmentOverride
+operator|=
+name|allowResponseAttachmentOverride
 expr_stmt|;
 block|}
 block|}
