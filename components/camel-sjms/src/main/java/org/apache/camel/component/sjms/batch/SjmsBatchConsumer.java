@@ -509,6 +509,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|connection
 specifier|private
+specifier|volatile
 name|Connection
 name|connection
 decl_stmt|;
@@ -1014,6 +1015,11 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// its success so prepare for exit
+name|connection
+operator|=
+name|localConnection
+expr_stmt|;
 specifier|final
 name|List
 argument_list|<
@@ -1060,17 +1066,12 @@ argument_list|)
 expr_stmt|;
 name|jmsConsumerExecutors
 operator|.
-name|execute
+name|submit
 argument_list|(
 name|loop
 argument_list|)
 expr_stmt|;
 block|}
-comment|// its success so prepare for exit
-name|connection
-operator|=
-name|localConnection
-expr_stmt|;
 if|if
 condition|(
 name|completionInterval
