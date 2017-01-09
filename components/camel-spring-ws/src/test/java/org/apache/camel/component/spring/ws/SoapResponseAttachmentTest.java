@@ -167,10 +167,10 @@ comment|/**      * This tests if attachments, returned by a spring-ws request, a
 annotation|@
 name|Test
 argument_list|()
-DECL|method|consumeStockQuoteWebserviceWithSoapHeader ()
+DECL|method|consumeStockQuoteWebserviceWithSoapResponseAttachment ()
 specifier|public
 name|void
-name|consumeStockQuoteWebserviceWithSoapHeader
+name|consumeStockQuoteWebserviceWithSoapResponseAttachment
 parameter_list|()
 throws|throws
 name|Exception
