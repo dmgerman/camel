@@ -3332,6 +3332,12 @@ specifier|private
 name|Boolean
 name|transferExchange
 decl_stmt|;
+comment|/**          * Controls whether or not to include serialized headers. Applies only          * when {@link #isTransferExchange()} is {@code true} . This requires          * that the objects are serializable. Camel will exclude any          * non-serializable objects and log it at WARN level.          */
+DECL|field|allowSerializedHeaders
+specifier|private
+name|Boolean
+name|allowSerializedHeaders
+decl_stmt|;
 comment|/**          * If enabled and you are using Request Reply messaging (InOut) and an          * Exchange failed on the consumer side, then the caused Exception will          * be send back in response as a javax.jms.ObjectMessage. If the client          * is Camel, the returned Exception is rethrown. This allows you to use          * Camel JMS as a bridge in your routing - for example, using persistent          * queues to enable robust routing. Notice that if you also have          * transferExchange enabled, this option takes precedence. The caught          * exception is required to be serializable. The original Exception on          * the consumer side can be wrapped in an outer exception such as          * org.apache.camel.RuntimeCamelException when returned to the producer.          */
 DECL|field|transferException
 specifier|private
@@ -5212,6 +5218,32 @@ operator|.
 name|transferExchange
 operator|=
 name|transferExchange
+expr_stmt|;
+block|}
+DECL|method|getAllowSerializedHeaders ()
+specifier|public
+name|Boolean
+name|getAllowSerializedHeaders
+parameter_list|()
+block|{
+return|return
+name|allowSerializedHeaders
+return|;
+block|}
+DECL|method|setAllowSerializedHeaders (Boolean allowSerializedHeaders)
+specifier|public
+name|void
+name|setAllowSerializedHeaders
+parameter_list|(
+name|Boolean
+name|allowSerializedHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowSerializedHeaders
+operator|=
+name|allowSerializedHeaders
 expr_stmt|;
 block|}
 DECL|method|getTransferException ()
