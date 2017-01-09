@@ -1373,7 +1373,6 @@ operator|=
 name|messageIdStrategy
 expr_stmt|;
 block|}
-comment|/**      * @return boolean - true, will override header with spring-ws response message header      */
 DECL|method|isAllowResponseHeaderOverride ()
 specifier|public
 name|boolean
@@ -1384,7 +1383,7 @@ return|return
 name|allowResponseHeaderOverride
 return|;
 block|}
-comment|/**      * Option to override soap response header in in/out exchange with header info from the actual service layer.      * If the invoked service appends or rewrites the soap header this option when set to true, allows the modified      * soap header to be overwritten in in/out message headers      *       * @param allowResponseHeaderOverride      *            - true, will override header with spring-ws response message header      */
+comment|/**      * Option to override soap response header in in/out exchange with header info from the actual service layer.      * If the invoked service appends or rewrites the soap header this option when set to true, allows the modified      * soap header to be overwritten in in/out message headers      *       * @param allowResponseHeaderOverride - true, will override header with spring-ws response message header      */
 DECL|method|setAllowResponseHeaderOverride (boolean allowResponseHeaderOverride)
 specifier|public
 name|void
@@ -1401,7 +1400,6 @@ operator|=
 name|allowResponseHeaderOverride
 expr_stmt|;
 block|}
-comment|/**      * @return boolean - true, will override attachments with spring-ws response message attachments      */
 DECL|method|isAllowResponseAttachmentOverride ()
 specifier|public
 name|boolean
@@ -1412,7 +1410,7 @@ return|return
 name|allowResponseAttachmentOverride
 return|;
 block|}
-comment|/**      * Option to override soap response attachments in in/out exchange with attachments from the actual service layer.      * If the invoked service appends or rewrites the soap attachments this option when set to true, allows the modified      * soap attachments to be overwritten in in/out message attachments      *       * @param allowResponseAttachmentOverride      *            - true, will override attachments with spring-ws response message attachments      */
+comment|/**      * Option to override soap response attachments in in/out exchange with attachments from the actual service layer.      * If the invoked service appends or rewrites the soap attachments this option when set to true, allows the modified      * soap attachments to be overwritten in in/out message attachments      *       * @param allowResponseAttachmentOverride - true, will override attachments with spring-ws response message attachments      */
 DECL|method|setAllowResponseAttachmentOverride (boolean allowResponseAttachmentOverride)
 specifier|public
 name|void

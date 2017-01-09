@@ -914,7 +914,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Populates soap message headers and attachments from soap response      * @param inOrOut {@link Message}      * @param soapMessage {@link SoapMessage}      */
+comment|/**      * Populates soap message headers and attachments from soap response      *       * @param inOrOut      *            {@link Message}      * @param soapMessage      *            {@link SoapMessage}      */
 DECL|method|populateHeaderAndAttachmentsFromResponse (Message inOrOut, SoapMessage soapMessage)
 specifier|private
 name|void
