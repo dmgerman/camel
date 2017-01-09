@@ -45,6 +45,11 @@ specifier|private
 name|String
 name|error
 decl_stmt|;
+DECL|field|index
+specifier|private
+name|int
+name|index
+decl_stmt|;
 DECL|method|SimpleValidationResult (String simple)
 specifier|public
 name|SimpleValidationResult
@@ -107,6 +112,32 @@ block|{
 return|return
 name|error
 return|;
+block|}
+DECL|method|getIndex ()
+specifier|public
+name|int
+name|getIndex
+parameter_list|()
+block|{
+return|return
+name|index
+return|;
+block|}
+DECL|method|setIndex (int index)
+specifier|public
+name|void
+name|setIndex
+parameter_list|(
+name|int
+name|index
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -4956,6 +4956,16 @@ literal|"expected symbol functionEnd but was eol at location 5"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|result
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -5043,6 +5053,16 @@ name|startsWith
 argument_list|(
 literal|"expected symbol functionEnd but was eol at location 22"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|22
+argument_list|,
+name|result
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
