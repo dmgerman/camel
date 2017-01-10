@@ -46,20 +46,18 @@ name|SpringBootApplication
 import|;
 end_import
 
+begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
 begin_class
 annotation|@
 name|SpringBootApplication
 DECL|class|MySpringBootApplication
 specifier|public
-specifier|final
 class|class
 name|MySpringBootApplication
 block|{
-DECL|method|MySpringBootApplication ()
-specifier|private
-name|MySpringBootApplication
-parameter_list|()
-block|{     }
 comment|/**      * A main method to start this application.      */
 DECL|method|main (String[] args)
 specifier|public
@@ -86,6 +84,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 

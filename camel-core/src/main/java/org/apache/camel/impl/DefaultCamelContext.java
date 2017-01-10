@@ -8601,13 +8601,27 @@ name|?
 argument_list|>
 name|clazz
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
 name|finder
 operator|.
 name|findClass
 argument_list|(
 name|componentName
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoFactoryAvailableException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, i.e. if a component is an auto-configured spring-boot
+comment|// components
+block|}
 if|if
 condition|(
 name|clazz
@@ -8812,13 +8826,29 @@ name|?
 argument_list|>
 name|clazz
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|clazz
+operator|=
 name|finder
 operator|.
 name|findClass
 argument_list|(
 name|componentName
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoFactoryAvailableException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, i.e. if a component is an auto-configured spring-boot
+comment|// component
+block|}
 if|if
 condition|(
 name|clazz
@@ -9023,13 +9053,27 @@ name|?
 argument_list|>
 name|clazz
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
 name|finder
 operator|.
 name|findClass
 argument_list|(
 name|dataFormatName
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoFactoryAvailableException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, i.e. if a component is an auto-configured spring-boot
+comment|// data-formats
+block|}
 if|if
 condition|(
 name|clazz
@@ -9183,13 +9227,27 @@ name|?
 argument_list|>
 name|clazz
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
 name|finder
 operator|.
 name|findClass
 argument_list|(
 name|languageName
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoFactoryAvailableException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, i.e. if a component is an auto-configured spring-boot
+comment|// languages
+block|}
 if|if
 condition|(
 name|clazz
