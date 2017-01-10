@@ -303,7 +303,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Prepairing influxdb enpoint with uri {}"
+literal|"Preparing influxdb enpoint with uri {}"
 argument_list|,
 name|uri
 argument_list|)
