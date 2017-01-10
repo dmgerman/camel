@@ -256,6 +256,15 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+name|ClassLoader
+name|classLoader
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getApplicationContextClassLoader
+argument_list|()
+decl_stmt|;
 name|solverFactory
 operator|=
 name|SolverFactory
@@ -266,6 +275,8 @@ name|configuration
 operator|.
 name|getConfigFile
 argument_list|()
+argument_list|,
+name|classLoader
 argument_list|)
 expr_stmt|;
 block|}
