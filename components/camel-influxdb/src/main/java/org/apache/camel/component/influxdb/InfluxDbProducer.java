@@ -252,14 +252,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -272,7 +264,6 @@ name|lineProtocol
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|connection
 operator|.
 name|write
@@ -323,14 +314,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -343,7 +326,6 @@ name|lineProtocol
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|connection
 operator|.
 name|write
