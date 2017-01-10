@@ -8605,6 +8605,8 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|clazz
+operator|=
 name|finder
 operator|.
 name|findClass
@@ -9057,6 +9059,8 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|clazz
+operator|=
 name|finder
 operator|.
 name|findClass
@@ -9231,6 +9235,8 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|clazz
+operator|=
 name|finder
 operator|.
 name|findClass
