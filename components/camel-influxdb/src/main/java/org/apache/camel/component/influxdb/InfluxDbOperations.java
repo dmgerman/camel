@@ -18,56 +18,26 @@ name|influxdb
 package|;
 end_package
 
-begin_class
-DECL|class|InfluxDbConstants
+begin_interface
+DECL|interface|InfluxDbOperations
 specifier|public
-specifier|final
-class|class
-name|InfluxDbConstants
+interface|interface
+name|InfluxDbOperations
 block|{
-DECL|field|MEASUREMENT_NAME
-specifier|public
-specifier|static
-specifier|final
+DECL|field|INSERT
 name|String
-name|MEASUREMENT_NAME
+name|INSERT
 init|=
-literal|"camelInfluxDB.MeasurementName"
+literal|"insert"
 decl_stmt|;
-DECL|field|RETENTION_POLICY_HEADER
-specifier|public
-specifier|static
-specifier|final
+DECL|field|QUERY
 name|String
-name|RETENTION_POLICY_HEADER
+name|QUERY
 init|=
-literal|"camelInfluxDB.RetentionPolicy"
+literal|"query"
 decl_stmt|;
-DECL|field|DBNAME_HEADER
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DBNAME_HEADER
-init|=
-literal|"camelInfluxDB.databaseName"
-decl_stmt|;
-DECL|field|INFLUXDB_QUERY
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INFLUXDB_QUERY
-init|=
-literal|"camelInfluxDB.query"
-decl_stmt|;
-DECL|method|InfluxDbConstants ()
-specifier|private
-name|InfluxDbConstants
-parameter_list|()
-block|{      }
 block|}
-end_class
+end_interface
 
 end_unit
 

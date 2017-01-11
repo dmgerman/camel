@@ -271,6 +271,31 @@ specifier|private
 name|boolean
 name|batch
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+name|InfluxDbOperations
+operator|.
+name|INSERT
+argument_list|)
+DECL|field|operation
+specifier|private
+name|String
+name|operation
+init|=
+name|InfluxDbOperations
+operator|.
+name|INSERT
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|query
+specifier|private
+name|String
+name|query
+decl_stmt|;
 DECL|method|InfluxDbEndpoint (String uri, InfluxDbComponent component)
 specifier|public
 name|InfluxDbEndpoint
@@ -533,6 +558,60 @@ operator|.
 name|batch
 operator|=
 name|batch
+expr_stmt|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|String
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
+block|}
+comment|/**      * Define if this operation is an insert or a query      */
+DECL|method|setOperation (String operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
+expr_stmt|;
+block|}
+DECL|method|getQuery ()
+specifier|public
+name|String
+name|getQuery
+parameter_list|()
+block|{
+return|return
+name|query
+return|;
+block|}
+comment|/**      * Define the query in case of operation query      */
+DECL|method|setQuery (String query)
+specifier|public
+name|void
+name|setQuery
+parameter_list|(
+name|String
+name|query
+parameter_list|)
+block|{
+name|this
+operator|.
+name|query
+operator|=
+name|query
 expr_stmt|;
 block|}
 block|}
