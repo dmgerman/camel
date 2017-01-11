@@ -585,7 +585,7 @@ name|closeRequestContentSource
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|onResponseComplete (Result result, byte[] content, String contentType)
+DECL|method|onResponseComplete (Result result, byte[] content)
 specifier|protected
 name|void
 name|onResponseComplete
@@ -596,9 +596,6 @@ parameter_list|,
 name|byte
 index|[]
 name|content
-parameter_list|,
-name|String
-name|contentType
 parameter_list|)
 block|{
 name|LOG
@@ -1274,34 +1271,6 @@ name|Callback
 name|callback
 parameter_list|)
 block|{
-if|if
-condition|(
-name|response
-operator|.
-name|getStatus
-argument_list|()
-operator|!=
-name|SC_OK
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Response received {}: {}"
-argument_list|,
-name|response
-operator|.
-name|getStatus
-argument_list|()
-argument_list|,
-name|response
-operator|.
-name|getReason
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|byte
 index|[]
 name|buffer
@@ -1378,8 +1347,6 @@ name|baos
 operator|.
 name|toByteArray
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
