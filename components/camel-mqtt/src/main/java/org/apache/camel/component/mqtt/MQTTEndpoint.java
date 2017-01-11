@@ -1748,6 +1748,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -1766,6 +1768,8 @@ condition|(
 name|connection
 operator|!=
 literal|null
+operator|&&
+name|connected
 condition|)
 block|{
 specifier|final
@@ -1777,9 +1781,7 @@ name|promise
 init|=
 operator|new
 name|Promise
-argument_list|<
-name|Void
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|connection
@@ -1819,6 +1821,10 @@ name|Void
 name|value
 parameter_list|)
 block|{
+name|connected
+operator|=
+literal|false
+expr_stmt|;
 name|promise
 operator|.
 name|onSuccess
