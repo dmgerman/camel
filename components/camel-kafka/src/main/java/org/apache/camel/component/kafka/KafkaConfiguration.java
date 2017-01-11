@@ -96,6 +96,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|StateRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -647,6 +661,23 @@ name|Boolean
 name|autoCommitEnable
 init|=
 literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|offsetRepository
+specifier|private
+name|StateRepository
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|offsetRepository
 decl_stmt|;
 comment|//Producer configuration properties
 annotation|@
@@ -2985,7 +3016,13 @@ name|isAutoCommitEnable
 parameter_list|()
 block|{
 return|return
+name|offsetRepository
+operator|==
+literal|null
+condition|?
 name|autoCommitEnable
+else|:
+literal|false
 return|;
 block|}
 comment|/**      * If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer.      * This committed offset will be used when the process fails as the position from which the new consumer will begin.      */
@@ -3003,6 +3040,43 @@ operator|.
 name|autoCommitEnable
 operator|=
 name|autoCommitEnable
+expr_stmt|;
+block|}
+DECL|method|getOffsetRepository ()
+specifier|public
+name|StateRepository
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getOffsetRepository
+parameter_list|()
+block|{
+return|return
+name|offsetRepository
+return|;
+block|}
+comment|/**      * The offset repository to use in order to locally store the offset of each partition of the topic.      * Defining one will disable the autocommit.      */
+DECL|method|setOffsetRepository (StateRepository<String, String> offsetRepository)
+specifier|public
+name|void
+name|setOffsetRepository
+parameter_list|(
+name|StateRepository
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|offsetRepository
+parameter_list|)
+block|{
+name|this
+operator|.
+name|offsetRepository
+operator|=
+name|offsetRepository
 expr_stmt|;
 block|}
 DECL|method|getAutoCommitIntervalMs ()
@@ -3770,7 +3844,7 @@ return|return
 name|saslMechanism
 return|;
 block|}
-comment|/**      * The Simple Authentication and Security Layer (SASL) Mechanism used.       * For the valid values see<a href="http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml</a>      */
+comment|/**      * The Simple Authentication and Security Layer (SASL) Mechanism used.      * For the valid values see<a href="http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml">http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml</a>      */
 DECL|method|setSaslMechanism (String saslMechanism)
 specifier|public
 name|void
