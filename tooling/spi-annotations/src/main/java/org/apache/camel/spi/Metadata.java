@@ -112,6 +112,17 @@ specifier|public
 annotation_defn|@interface
 name|Metadata
 block|{
+comment|/**      * The expression mode to use as either expression or predicate.      */
+DECL|enum|ExpressionMode
+enum|enum
+name|ExpressionMode
+block|{
+DECL|enumConstant|expression
+DECL|enumConstant|predicate
+name|expression
+block|,
+name|predicate
+block|;      }
 comment|/**      * To define one or more labels.      *<p/>      * Multiple labels can be defined as a comma separated value.      */
 DECL|method|label ()
 name|String
@@ -168,6 +179,17 @@ name|secret
 parameter_list|()
 default|default
 literal|false
+function_decl|;
+comment|/**      * Used by EIPs to mark whether an expression is used as expression or predicate.      *<p/>      * For example a message transformer uses the {@link ExpressionMode#expression} mode,      * while a content based router uses {@link ExpressionMode#predicate}.      */
+DECL|method|expressionMode ()
+DECL|field|ExpressionMode.expression
+name|ExpressionMode
+name|expressionMode
+parameter_list|()
+default|default
+name|ExpressionMode
+operator|.
+name|expression
 function_decl|;
 block|}
 end_annotation_defn

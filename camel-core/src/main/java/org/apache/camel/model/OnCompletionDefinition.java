@@ -342,6 +342,17 @@ name|name
 operator|=
 literal|"onWhen"
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|field|onWhen
 specifier|private
 name|WhenDefinition
@@ -1049,6 +1060,17 @@ name|this
 return|;
 block|}
 comment|/**      * Sets an additional predicate that should be true before the onCompletion is triggered.      *<p/>      * To be used for fine grained controlling whether a completion callback should be invoked or not      *      * @param predicate predicate that determines true or false      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|onWhen (Predicate predicate)
 specifier|public
 name|OnCompletionDefinition

@@ -730,6 +730,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Policy
 import|;
 end_import
@@ -4998,6 +5012,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-filter.html">Message Filter EIP:</a>      * Creates a predicate expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @return the clause used to create the filter expression      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|filter ()
 specifier|public
 name|ExpressionClause
@@ -5031,6 +5056,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-filter.html">Message Filter EIP:</a>      * Creates a predicate which is applied and only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param predicate  predicate to use      * @return the builder       */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|filter (Predicate predicate)
 specifier|public
 name|FilterDefinition
@@ -5059,6 +5095,17 @@ name|filter
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-filter.html">Message Filter EIP:</a>      * Creates a predicate expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param expression  the predicate expression to use      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|filter (ExpressionDefinition expression)
 specifier|public
 name|FilterDefinition
@@ -5087,6 +5134,17 @@ name|filter
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-filter.html">Message Filter EIP:</a>      * Creates a predicate language expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination      *      * @param language     language for expression      * @param expression   the expression      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|filter (String language, String expression)
 specifier|public
 name|FilterDefinition
@@ -5113,6 +5171,17 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.processor.validation.PredicateValidationException} is thrown.      *      * @param expression  the expression      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|validate (Expression expression)
 specifier|public
 name|ValidateDefinition
@@ -5141,6 +5210,17 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.processor.validation.PredicateValidationException} is thrown.      *      * @param predicate  the predicate      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|validate (Predicate predicate)
 specifier|public
 name|ValidateDefinition
@@ -5169,6 +5249,17 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates a validation expression which only if it is<tt>true</tt> then the      * exchange is forwarded to the destination.      * Otherwise a {@link org.apache.camel.processor.validation.PredicateValidationException} is thrown.      *      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|validate ()
 specifier|public
 name|ExpressionClause
@@ -6814,6 +6905,17 @@ name|loop
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a while loop allowing to process the a message while the predicate matches      * and possibly process them in a different way.      *      * @param predicate the while loop predicate      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|loopDoWhile (Predicate predicate)
 specifier|public
 name|LoopDefinition

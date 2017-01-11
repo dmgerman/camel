@@ -512,6 +512,17 @@ name|name
 operator|=
 literal|"completionPredicate"
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|field|completionPredicate
 specifier|private
 name|ExpressionSubElementDefinition
@@ -3207,6 +3218,17 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the predicate used to determine if the aggregation is completed      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|completionPredicate (Predicate predicate)
 specifier|public
 name|AggregateDefinition
@@ -3233,6 +3255,17 @@ name|this
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|completionPredicate ()
 specifier|public
 name|PredicateClause
@@ -3265,6 +3298,17 @@ name|clause
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|completion ()
 specifier|public
 name|PredicateClause

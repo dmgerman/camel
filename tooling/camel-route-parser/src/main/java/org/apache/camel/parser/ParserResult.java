@@ -47,6 +47,11 @@ specifier|private
 name|String
 name|element
 decl_stmt|;
+DECL|field|predicate
+specifier|private
+name|Boolean
+name|predicate
+decl_stmt|;
 DECL|method|ParserResult (String node, int position, String element)
 specifier|public
 name|ParserResult
@@ -158,6 +163,33 @@ block|{
 return|return
 name|node
 return|;
+block|}
+DECL|method|getPredicate ()
+specifier|public
+name|Boolean
+name|getPredicate
+parameter_list|()
+block|{
+return|return
+name|predicate
+return|;
+block|}
+comment|/**      * Tells if it was an expression which is intended to be used as a predicate (determined from camel-core mode)      */
+DECL|method|setPredicate (Boolean predicate)
+specifier|public
+name|void
+name|setPredicate
+parameter_list|(
+name|Boolean
+name|predicate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|predicate
+operator|=
+name|predicate
+expr_stmt|;
 block|}
 DECL|method|toString ()
 specifier|public

@@ -276,6 +276,17 @@ argument_list|>
 block|{
 annotation|@
 name|XmlElementRef
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|field|whenClauses
 specifier|private
 name|List
@@ -914,6 +925,17 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the predicate for the when node      *      * @param predicate the predicate      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|when (Predicate predicate)
 specifier|public
 name|ChoiceDefinition
@@ -937,6 +959,17 @@ name|this
 return|;
 block|}
 comment|/**      * Creates an expression for the when node      *      * @return expression to be used as builder to configure the when node      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|when ()
 specifier|public
 name|ExpressionClause

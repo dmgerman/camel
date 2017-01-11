@@ -607,6 +607,17 @@ name|this
 return|;
 block|}
 comment|/**      * Sets an additional predicate that should be true before the onCatch is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|onWhen (Predicate predicate)
 specifier|public
 name|TryDefinition
@@ -706,6 +717,17 @@ block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0. Instead of using handled(false) you can re-throw the exception      * from a {@link Processor} or use the {@link ProcessorDefinition#throwException(Exception)}      */
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|handled (Predicate handled)
 specifier|public
 name|TryDefinition
@@ -767,6 +789,17 @@ block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0. Instead of using handled(false) you can re-throw the exception      * from a {@link Processor} or use the {@link ProcessorDefinition#throwException(Exception)}      */
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|handled (Expression handled)
 specifier|public
 name|TryDefinition

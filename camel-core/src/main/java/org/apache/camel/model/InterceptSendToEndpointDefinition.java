@@ -624,6 +624,17 @@ name|match
 return|;
 block|}
 comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
+annotation|@
+name|Metadata
+argument_list|(
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
+argument_list|)
 DECL|method|when (Predicate predicate)
 specifier|public
 name|InterceptSendToEndpointDefinition

@@ -153,6 +153,14 @@ argument_list|(
 name|label
 operator|=
 literal|"eip,transformation"
+argument_list|,
+name|expressionMode
+operator|=
+name|Metadata
+operator|.
+name|ExpressionMode
+operator|.
+name|predicate
 argument_list|)
 annotation|@
 name|XmlRootElement
