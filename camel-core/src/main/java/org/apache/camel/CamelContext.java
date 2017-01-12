@@ -2144,7 +2144,9 @@ name|TransformerRegistry
 name|getTransformerRegistry
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the properties that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global settings on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @param properties properties      */
+comment|/**      * @deprecated use {@link #setGlobalOptions(Map) setGlobalOptions(Map<String,String>) instead}.      */
+annotation|@
+name|Deprecated
 DECL|method|setProperties (Map<String, String> properties)
 name|void
 name|setProperties
@@ -2158,7 +2160,23 @@ argument_list|>
 name|properties
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the properties that can be referenced in the camel context.      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global settings on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return the properties      */
+comment|/**      * Sets global options that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global options on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @param globalOptions global options that can be referenced in the camel context      */
+DECL|method|setGlobalOptions (Map<String, String> globalOptions)
+name|void
+name|setGlobalOptions
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|globalOptions
+parameter_list|)
+function_decl|;
+comment|/**      * @deprecated use {@link #getGlobalOptions()} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|getProperties ()
 name|Map
 argument_list|<
@@ -2169,10 +2187,30 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the property value that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global settings on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return the string value of property      */
+comment|/**      * Gets global options that can be referenced in the camel context.      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global options on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return global options for this context      */
+DECL|method|getGlobalOptions ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getGlobalOptions
+parameter_list|()
+function_decl|;
+comment|/**      * @deprecated use {@link #getGlobalOption(String)} instead.      */
 DECL|method|getProperty (String name)
 name|String
 name|getProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the global option value that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global options on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return the string value of the global option      */
+DECL|method|getGlobalOption (String name)
+name|String
+name|getGlobalOption
 parameter_list|(
 name|String
 name|name

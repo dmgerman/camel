@@ -2767,7 +2767,7 @@ operator|new
 name|DefaultDataFormatResolver
 argument_list|()
 decl_stmt|;
-DECL|field|properties
+DECL|field|globalOptions
 specifier|private
 name|Map
 argument_list|<
@@ -2775,7 +2775,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|properties
+name|globalOptions
 init|=
 operator|new
 name|HashMap
@@ -17211,12 +17211,12 @@ block|{
 comment|// custom properties may use property placeholders so resolve those early on
 if|if
 condition|(
-name|properties
+name|globalOptions
 operator|!=
 literal|null
 operator|&&
 operator|!
-name|properties
+name|globalOptions
 operator|.
 name|isEmpty
 argument_list|()
@@ -17234,7 +17234,7 @@ name|String
 argument_list|>
 name|entry
 range|:
-name|properties
+name|globalOptions
 operator|.
 name|entrySet
 argument_list|()
@@ -21270,6 +21270,8 @@ return|return
 name|dataFormats
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getProperties ()
 specifier|public
 name|Map
@@ -21282,9 +21284,29 @@ name|getProperties
 parameter_list|()
 block|{
 return|return
-name|properties
+name|getGlobalOptions
+argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getGlobalOptions ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getGlobalOptions
+parameter_list|()
+block|{
+return|return
+name|globalOptions
+return|;
+block|}
+annotation|@
+name|Deprecated
 DECL|method|setProperties (Map<String, String> properties)
 specifier|public
 name|void
@@ -21301,9 +21323,33 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|setGlobalOptions
+argument_list|(
 name|properties
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setGlobalOptions (Map<String, String> globalOptions)
+specifier|public
+name|void
+name|setGlobalOptions
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|globalOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|globalOptions
 operator|=
-name|properties
+name|globalOptions
 expr_stmt|;
 block|}
 DECL|method|getDefaultFactoryFinder ()
@@ -22573,6 +22619,8 @@ name|restRegistry
 expr_stmt|;
 block|}
 annotation|@
+name|Deprecated
+annotation|@
 name|Override
 DECL|method|getProperty (String name)
 specifier|public
@@ -22583,10 +22631,28 @@ name|String
 name|name
 parameter_list|)
 block|{
+return|return
+name|getGlobalOption
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getGlobalOption (String name)
+specifier|public
+name|String
+name|getGlobalOption
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
 name|String
 name|value
 init|=
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|get
@@ -22624,7 +22690,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Error getting property: "
+literal|"Error getting global option: "
 operator|+
 name|name
 argument_list|,
