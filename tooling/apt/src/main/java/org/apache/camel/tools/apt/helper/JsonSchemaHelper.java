@@ -188,8 +188,8 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix, String prefix, boolean multiValue)
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix, String prefix, boolean multiValue)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue)
 specifier|public
 specifier|static
 name|String
@@ -242,6 +242,9 @@ argument_list|<
 name|String
 argument_list|>
 name|oneOffTypes
+parameter_list|,
+name|boolean
+name|asPredicate
 parameter_list|,
 name|String
 name|optionalPrefix
@@ -849,6 +852,31 @@ operator|.
 name|doubleQuote
 argument_list|(
 name|text
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|asPredicate
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"asPredicate\": "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+literal|"true"
 argument_list|)
 argument_list|)
 expr_stmt|;

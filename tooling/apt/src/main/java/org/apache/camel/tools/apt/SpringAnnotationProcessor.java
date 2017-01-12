@@ -1256,6 +1256,11 @@ operator|.
 name|getOneOfTypes
 argument_list|()
 argument_list|,
+name|entry
+operator|.
+name|isAsPredicate
+argument_list|()
+argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -2240,6 +2245,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -2347,6 +2354,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -2451,6 +2460,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -3017,6 +3028,11 @@ argument_list|)
 operator|!=
 literal|null
 decl_stmt|;
+name|boolean
+name|asPredicate
+init|=
+literal|false
+decl_stmt|;
 name|EipOption
 name|ep
 init|=
@@ -3044,6 +3060,8 @@ argument_list|,
 name|oneOf
 argument_list|,
 name|oneOfTypes
+argument_list|,
+name|asPredicate
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -3289,6 +3307,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -3802,7 +3822,12 @@ name|String
 argument_list|>
 name|oneOfTypes
 decl_stmt|;
-DECL|method|EipOption (String name, String kind, String type, boolean required, String defaultValue, String documentation, boolean deprecated, boolean enumType, Set<String> enums, boolean oneOf, Set<String> oneOfTypes)
+DECL|field|asPredicate
+specifier|private
+name|boolean
+name|asPredicate
+decl_stmt|;
+DECL|method|EipOption (String name, String kind, String type, boolean required, String defaultValue, String documentation, boolean deprecated, boolean enumType, Set<String> enums, boolean oneOf, Set<String> oneOfTypes, boolean asPredicate)
 specifier|private
 name|EipOption
 parameter_list|(
@@ -3844,6 +3869,9 @@ argument_list|<
 name|String
 argument_list|>
 name|oneOfTypes
+parameter_list|,
+name|boolean
+name|asPredicate
 parameter_list|)
 block|{
 name|this
@@ -3911,6 +3939,12 @@ operator|.
 name|oneOfTypes
 operator|=
 name|oneOfTypes
+expr_stmt|;
+name|this
+operator|.
+name|asPredicate
+operator|=
+name|asPredicate
 expr_stmt|;
 block|}
 DECL|method|getName ()
@@ -4027,6 +4061,16 @@ parameter_list|()
 block|{
 return|return
 name|oneOfTypes
+return|;
+block|}
+DECL|method|isAsPredicate ()
+specifier|public
+name|boolean
+name|isAsPredicate
+parameter_list|()
+block|{
+return|return
+name|asPredicate
 return|;
 block|}
 annotation|@

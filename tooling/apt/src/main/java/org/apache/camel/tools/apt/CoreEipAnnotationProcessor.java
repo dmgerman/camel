@@ -1425,6 +1425,11 @@ operator|.
 name|getOneOfTypes
 argument_list|()
 argument_list|,
+name|entry
+operator|.
+name|isAsPredicate
+argument_list|()
+argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -2443,6 +2448,13 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|enumClass
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// find all the enum constants which has the possible enum value that can be used
 name|List
 argument_list|<
@@ -2498,6 +2510,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 name|boolean
 name|deprecated
 init|=
@@ -2539,6 +2552,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -2749,6 +2764,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -2983,6 +3000,13 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|enumClass
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// find all the enum constants which has the possible enum value that can be used
 name|List
 argument_list|<
@@ -3038,6 +3062,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+name|boolean
+name|asPredicate
+init|=
+literal|false
+decl_stmt|;
 comment|// gather oneOf expression/predicates which uses language
 name|Set
 argument_list|<
@@ -3096,6 +3126,13 @@ argument_list|,
 name|language
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|languages
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 name|superClassName
 init|=
@@ -3167,13 +3204,6 @@ operator|.
 name|name
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|childName
-operator|!=
-literal|null
-condition|)
-block|{
 name|oneOfTypes
 operator|.
 name|add
@@ -3250,6 +3280,8 @@ argument_list|,
 name|isOneOf
 argument_list|,
 name|oneOfTypes
+argument_list|,
+name|asPredicate
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -3461,6 +3493,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -3553,6 +3587,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -3606,6 +3642,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -3659,6 +3697,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -3712,6 +3752,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -3765,6 +3807,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -3818,6 +3862,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -3871,6 +3917,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -3924,6 +3972,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -3977,6 +4027,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -4030,6 +4082,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -4110,6 +4164,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -4186,6 +4242,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -4259,6 +4317,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -4348,13 +4408,6 @@ operator|.
 name|name
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|childName
-operator|!=
-literal|null
-condition|)
-block|{
 name|oneOfTypes
 operator|.
 name|add
@@ -4362,7 +4415,6 @@ argument_list|(
 name|childName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// remove some types which are not intended as an output in eips
@@ -4416,6 +4468,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -4508,6 +4562,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -4561,6 +4617,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -4621,6 +4679,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|eipOptions
@@ -4736,6 +4796,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -4851,6 +4913,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -5049,13 +5113,6 @@ operator|.
 name|name
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|childName
-operator|!=
-literal|null
-condition|)
-block|{
 name|oneOfTypes
 operator|.
 name|add
@@ -5063,7 +5120,6 @@ argument_list|(
 name|childName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// remove some types which are not intended as an output in eips
@@ -5101,6 +5157,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -5369,6 +5427,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -5508,6 +5568,11 @@ name|originalClassType
 argument_list|,
 literal|true
 argument_list|)
+decl_stmt|;
+name|boolean
+name|asPredicate
+init|=
+literal|false
 decl_stmt|;
 comment|// gather oneOf expression/predicates which uses language
 name|Set
@@ -5673,6 +5738,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+name|asPredicate
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -5845,6 +5912,12 @@ argument_list|(
 literal|"when"
 argument_list|)
 expr_stmt|;
+comment|// when is predicate
+name|boolean
+name|asPredicate
+init|=
+literal|true
+decl_stmt|;
 name|EipOption
 name|ep
 init|=
@@ -5872,6 +5945,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|oneOfTypes
+argument_list|,
+name|asPredicate
 argument_list|)
 decl_stmt|;
 name|eipOptions
@@ -6659,7 +6734,12 @@ name|String
 argument_list|>
 name|oneOfTypes
 decl_stmt|;
-DECL|method|EipOption (String name, String kind, String type, boolean required, String defaultValue, String documentation, boolean deprecated, boolean enumType, Set<String> enums, boolean oneOf, Set<String> oneOfTypes)
+DECL|field|asPredicate
+specifier|private
+name|boolean
+name|asPredicate
+decl_stmt|;
+DECL|method|EipOption (String name, String kind, String type, boolean required, String defaultValue, String documentation, boolean deprecated, boolean enumType, Set<String> enums, boolean oneOf, Set<String> oneOfTypes, boolean asPredicate)
 specifier|private
 name|EipOption
 parameter_list|(
@@ -6701,6 +6781,9 @@ argument_list|<
 name|String
 argument_list|>
 name|oneOfTypes
+parameter_list|,
+name|boolean
+name|asPredicate
 parameter_list|)
 block|{
 name|this
@@ -6768,6 +6851,12 @@ operator|.
 name|oneOfTypes
 operator|=
 name|oneOfTypes
+expr_stmt|;
+name|this
+operator|.
+name|asPredicate
+operator|=
+name|asPredicate
 expr_stmt|;
 block|}
 DECL|method|getName ()
@@ -6884,6 +6973,16 @@ parameter_list|()
 block|{
 return|return
 name|oneOfTypes
+return|;
+block|}
+DECL|method|isAsPredicate ()
+specifier|public
+name|boolean
+name|isAsPredicate
+parameter_list|()
+block|{
+return|return
+name|asPredicate
 return|;
 block|}
 annotation|@

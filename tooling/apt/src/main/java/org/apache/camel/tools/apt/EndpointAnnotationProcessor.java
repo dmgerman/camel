@@ -2638,6 +2638,11 @@ name|multiValue
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|asPredicate
+init|=
+literal|false
+decl_stmt|;
 name|buffer
 operator|.
 name|append
@@ -2697,6 +2702,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|asPredicate
 argument_list|,
 name|optionalPrefix
 argument_list|,
@@ -2975,6 +2982,11 @@ name|multiValue
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|asPredicate
+init|=
+literal|false
+decl_stmt|;
 name|buffer
 operator|.
 name|append
@@ -3034,6 +3046,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|asPredicate
 argument_list|,
 name|optionalPrefix
 argument_list|,
@@ -3297,6 +3311,11 @@ operator|.
 name|isMultiValue
 argument_list|()
 decl_stmt|;
+name|boolean
+name|asPredicate
+init|=
+literal|false
+decl_stmt|;
 name|buffer
 operator|.
 name|append
@@ -3356,6 +3375,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|asPredicate
 argument_list|,
 name|optionalPrefix
 argument_list|,
