@@ -145,6 +145,28 @@ return|return
 name|index
 return|;
 block|}
+comment|/**      * Gets a short error message.      */
+DECL|method|getShortMessage ()
+specifier|public
+name|String
+name|getShortMessage
+parameter_list|()
+block|{
+if|if
+condition|(
+name|message
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|"[null]"
+return|;
+block|}
+return|return
+name|message
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getMessage ()

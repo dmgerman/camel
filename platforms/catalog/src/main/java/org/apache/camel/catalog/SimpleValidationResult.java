@@ -45,6 +45,11 @@ specifier|private
 name|String
 name|error
 decl_stmt|;
+DECL|field|shortError
+specifier|private
+name|String
+name|shortError
+decl_stmt|;
 DECL|field|index
 specifier|private
 name|int
@@ -112,6 +117,32 @@ block|{
 return|return
 name|error
 return|;
+block|}
+DECL|method|getShortError ()
+specifier|public
+name|String
+name|getShortError
+parameter_list|()
+block|{
+return|return
+name|shortError
+return|;
+block|}
+DECL|method|setShortError (String shortError)
+specifier|public
+name|void
+name|setShortError
+parameter_list|(
+name|String
+name|shortError
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shortError
+operator|=
+name|shortError
+expr_stmt|;
 block|}
 DECL|method|getIndex ()
 specifier|public
