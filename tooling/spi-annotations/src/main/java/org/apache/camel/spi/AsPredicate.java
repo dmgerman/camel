@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Meta data for EIPs, components, data formats and other Camel concepts  *<p/>  * For example to associate labels to Camel components  */
+comment|/**  * Indicates that the Camel language/expression should be used as predicate.  *<p/>  * For example the EIPs which accepts expression/languages may used them as either expression or predicate.  * This annotation is used to mark situation where they should be used as predicate. As by default they  * are used as expression. And example would be the Filter EIP which uses predicate. And the transform EIP  * uses an expression.  *<br/>  * Being able to distinguish between these two situations can be of importance to tooling.  */
 end_comment
 
 begin_annotation_defn
@@ -105,71 +105,17 @@ block|,
 name|ElementType
 operator|.
 name|FIELD
+block|,
+name|ElementType
+operator|.
+name|PARAMETER
 block|}
 argument_list|)
-DECL|annotation|Metadata
+DECL|annotation|AsPredicate
 specifier|public
 annotation_defn|@interface
-name|Metadata
-block|{
-comment|/**      * To define one or more labels.      *<p/>      * Multiple labels can be defined as a comma separated value.      */
-DECL|method|label ()
-name|String
-name|label
-parameter_list|()
-default|default
-literal|""
-function_decl|;
-comment|/**      * To define a default value.      */
-DECL|method|defaultValue ()
-name|String
-name|defaultValue
-parameter_list|()
-default|default
-literal|""
-function_decl|;
-comment|/**      * To define that this entity is required.      */
-DECL|method|required ()
-name|String
-name|required
-parameter_list|()
-default|default
-literal|""
-function_decl|;
-comment|/**      * An optional human readable title of this entity, to be used instead of a computed title.      */
-DECL|method|title ()
-name|String
-name|title
-parameter_list|()
-default|default
-literal|""
-function_decl|;
-comment|/**      * Returns a description of this entity.      *<p/>      * This is used for documentation and tooling only.      */
-DECL|method|description ()
-name|String
-name|description
-parameter_list|()
-default|default
-literal|""
-function_decl|;
-comment|/**      * Allows to define enums this options accepts.      *<p/>      * If the type is already an enum, then this option should not be used; instead you can use      * this option when the type is a String that only accept certain values.      *<p/>      * Multiple values is separated by comma.      */
-DECL|method|enums ()
-name|String
-name|enums
-parameter_list|()
-default|default
-literal|""
-function_decl|;
-comment|/**      * Whether the option is secret/sensitive information such as a password.      */
-DECL|method|secret ()
-DECL|field|false
-name|boolean
-name|secret
-parameter_list|()
-default|default
-literal|false
-function_decl|;
-block|}
+name|AsPredicate
+block|{ }
 end_annotation_defn
 
 end_unit

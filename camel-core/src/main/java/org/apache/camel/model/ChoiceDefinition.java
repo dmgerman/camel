@@ -192,6 +192,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsPredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -277,16 +291,7 @@ block|{
 annotation|@
 name|XmlElementRef
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|field|whenClauses
 specifier|private
 name|List
@@ -925,22 +930,13 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the predicate for the when node      *      * @param predicate the predicate      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|when (Predicate predicate)
+DECL|method|when (@sPredicate Predicate predicate)
 specifier|public
 name|ChoiceDefinition
 name|when
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|predicate
 parameter_list|)
@@ -960,16 +956,7 @@ return|;
 block|}
 comment|/**      * Creates an expression for the when node      *      * @return expression to be used as builder to configure the when node      */
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|method|when ()
 specifier|public
 name|ExpressionClause

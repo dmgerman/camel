@@ -414,6 +414,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsPredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -513,16 +527,7 @@ operator|=
 literal|"completionPredicate"
 argument_list|)
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|field|completionPredicate
 specifier|private
 name|ExpressionSubElementDefinition
@@ -783,10 +788,12 @@ specifier|public
 name|AggregateDefinition
 parameter_list|()
 block|{     }
-DECL|method|AggregateDefinition (Predicate predicate)
+DECL|method|AggregateDefinition (@sPredicate Predicate predicate)
 specifier|public
 name|AggregateDefinition
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|predicate
 parameter_list|)
@@ -3218,22 +3225,13 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the predicate used to determine if the aggregation is completed      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|completionPredicate (Predicate predicate)
+DECL|method|completionPredicate (@sPredicate Predicate predicate)
 specifier|public
 name|AggregateDefinition
 name|completionPredicate
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|predicate
 parameter_list|)
@@ -3256,16 +3254,7 @@ return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|method|completionPredicate ()
 specifier|public
 name|PredicateClause
@@ -3299,16 +3288,7 @@ return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|method|completion ()
 specifier|public
 name|PredicateClause

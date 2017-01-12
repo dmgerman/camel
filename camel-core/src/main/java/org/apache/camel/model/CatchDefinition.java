@@ -206,6 +206,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsPredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -304,16 +318,7 @@ operator|=
 literal|"onWhen"
 argument_list|)
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|field|onWhen
 specifier|private
 name|WhenDefinition
@@ -327,16 +332,7 @@ operator|=
 literal|"handled"
 argument_list|)
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|field|handled
 specifier|private
 name|ExpressionSubElementDefinition
@@ -827,22 +823,13 @@ name|this
 return|;
 block|}
 comment|/**      * Sets an additional predicate that should be true before the onCatch is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|onWhen (Predicate predicate)
+DECL|method|onWhen (@sPredicate Predicate predicate)
 specifier|public
 name|CatchDefinition
 name|onWhen
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|predicate
 parameter_list|)
@@ -897,22 +884,13 @@ block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  predicate that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0. Instead of using handled(false) you can re-throw the exception      * from a {@link Processor} or use the {@link ProcessorDefinition#throwException(Exception)}      */
 annotation|@
 name|Deprecated
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|handled (Predicate handled)
+DECL|method|handled (@sPredicate Predicate handled)
 specifier|public
 name|CatchDefinition
 name|handled
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|handled
 parameter_list|)
@@ -929,22 +907,13 @@ block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled  expression that determines true or false      * @return the builder      * @deprecated will be removed in Camel 3.0. Instead of using handled(false) you can re-throw the exception      * from a {@link Processor} or use the {@link ProcessorDefinition#throwException(Exception)}      */
 annotation|@
 name|Deprecated
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|handled (Expression handled)
+DECL|method|handled (@sPredicate Expression handled)
 specifier|public
 name|CatchDefinition
 name|handled
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Expression
 name|handled
 parameter_list|)

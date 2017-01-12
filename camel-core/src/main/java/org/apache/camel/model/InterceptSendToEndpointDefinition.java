@@ -168,6 +168,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsPredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointStrategy
 import|;
 end_import
@@ -624,22 +638,13 @@ name|match
 return|;
 block|}
 comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|when (Predicate predicate)
+DECL|method|when (@sPredicate Predicate predicate)
 specifier|public
 name|InterceptSendToEndpointDefinition
 name|when
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|predicate
 parameter_list|)

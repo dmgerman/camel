@@ -152,6 +152,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsPredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|InterceptStrategy
 import|;
 end_import
@@ -482,11 +496,13 @@ literal|null
 return|;
 block|}
 comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate the predicate      * @return the builder      */
-DECL|method|when (Predicate predicate)
+DECL|method|when (@sPredicate Predicate predicate)
 specifier|public
 name|InterceptDefinition
 name|when
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|predicate
 parameter_list|)

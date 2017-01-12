@@ -316,6 +316,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsPredicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ClassResolver
 import|;
 end_import
@@ -460,16 +474,7 @@ operator|=
 literal|"onWhen"
 argument_list|)
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|field|onWhen
 specifier|private
 name|WhenDefinition
@@ -483,16 +488,7 @@ operator|=
 literal|"retryWhile"
 argument_list|)
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|field|retryWhile
 specifier|private
 name|ExpressionSubElementDefinition
@@ -530,16 +526,7 @@ operator|=
 literal|"handled"
 argument_list|)
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|field|handled
 specifier|private
 name|ExpressionSubElementDefinition
@@ -553,16 +540,7 @@ operator|=
 literal|"continued"
 argument_list|)
 annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
+name|AsPredicate
 DECL|field|continued
 specifier|private
 name|ExpressionSubElementDefinition
@@ -1540,22 +1518,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled predicate that determines true or false      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|handled (Predicate handled)
+DECL|method|handled (@sPredicate Predicate handled)
 specifier|public
 name|OnExceptionDefinition
 name|handled
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|handled
 parameter_list|)
@@ -1570,22 +1539,13 @@ name|this
 return|;
 block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *      * @param handled expression that determines true or false      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|handled (Expression handled)
+DECL|method|handled (@sPredicate Expression handled)
 specifier|public
 name|OnExceptionDefinition
 name|handled
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Expression
 name|handled
 parameter_list|)
@@ -1605,17 +1565,6 @@ name|this
 return|;
 block|}
 comment|/**      * Sets whether the exchange should handle and continue routing from the point of failure.      *<p/>      * If this option is enabled then its considered handled as well.      *      * @param continued continued or not      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
 DECL|method|continued (boolean continued)
 specifier|public
 name|OnExceptionDefinition
@@ -1648,22 +1597,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *<p/>      * If this option is enabled then its considered handled as well.      *      * @param continued predicate that determines true or false      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|continued (Predicate continued)
+DECL|method|continued (@sPredicate Predicate continued)
 specifier|public
 name|OnExceptionDefinition
 name|continued
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|continued
 parameter_list|)
@@ -1678,22 +1618,13 @@ name|this
 return|;
 block|}
 comment|/**      * Sets whether the exchange should be marked as handled or not.      *<p/>      * If this option is enabled then its considered handled as well.      *      * @param continued expression that determines true or false      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|continued (Expression continued)
+DECL|method|continued (@sPredicate Expression continued)
 specifier|public
 name|OnExceptionDefinition
 name|continued
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Expression
 name|continued
 parameter_list|)
@@ -1713,22 +1644,13 @@ name|this
 return|;
 block|}
 comment|/**      * Sets an additional predicate that should be true before the onException is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate predicate that determines true or false      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|onWhen (Predicate predicate)
+DECL|method|onWhen (@sPredicate Predicate predicate)
 specifier|public
 name|OnExceptionDefinition
 name|onWhen
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|predicate
 parameter_list|)
@@ -1747,22 +1669,13 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the retry while predicate.      *<p/>      * Will continue retrying until predicate returns<tt>false</tt>.      *      * @param retryWhile predicate that determines when to stop retrying      * @return the builder      */
-annotation|@
-name|Metadata
-argument_list|(
-name|expressionMode
-operator|=
-name|Metadata
-operator|.
-name|ExpressionMode
-operator|.
-name|predicate
-argument_list|)
-DECL|method|retryWhile (Predicate retryWhile)
+DECL|method|retryWhile (@sPredicate Predicate retryWhile)
 specifier|public
 name|OnExceptionDefinition
 name|retryWhile
 parameter_list|(
+annotation|@
+name|AsPredicate
 name|Predicate
 name|retryWhile
 parameter_list|)
