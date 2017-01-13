@@ -413,7 +413,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// now after parsing we need a bit of work to do, to make it easier to turn the tokens
-comment|// into and ast, and then from the ast, to Camel expression(s).
+comment|// into an ast, and then from the ast, to Camel expression(s).
 comment|// hence why there is a number of tasks going on below to accomplish this
 comment|// turn the tokens into the ast model
 name|parseAndCreateAstModel
