@@ -67,6 +67,14 @@ name|allowSimple
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Whether to allow using the easy predicate parser to pre-parse predicates.      */
+DECL|field|allowEasyPredicate
+specifier|private
+name|Boolean
+name|allowEasyPredicate
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and      * line breaks      */
 DECL|field|trim
 specifier|private
@@ -125,6 +133,32 @@ operator|.
 name|allowSimple
 operator|=
 name|allowSimple
+expr_stmt|;
+block|}
+DECL|method|getAllowEasyPredicate ()
+specifier|public
+name|Boolean
+name|getAllowEasyPredicate
+parameter_list|()
+block|{
+return|return
+name|allowEasyPredicate
+return|;
+block|}
+DECL|method|setAllowEasyPredicate (Boolean allowEasyPredicate)
+specifier|public
+name|void
+name|setAllowEasyPredicate
+parameter_list|(
+name|Boolean
+name|allowEasyPredicate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEasyPredicate
+operator|=
+name|allowEasyPredicate
 expr_stmt|;
 block|}
 DECL|method|getTrim ()

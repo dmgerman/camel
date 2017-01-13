@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.jsonpath
+DECL|package|org.apache.camel.jsonpath.easypredicate
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|jsonpath
+operator|.
+name|easypredicate
 package|;
 end_package
 
@@ -67,10 +69,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|JsonPathWithEvenSimpleCBRTest
+DECL|class|EasyJsonPathWithRootSimpleCBRTest
 specifier|public
 class|class
-name|JsonPathWithEvenSimpleCBRTest
+name|EasyJsonPathWithRootSimpleCBRTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -111,7 +113,7 @@ argument_list|()
 operator|.
 name|jsonpath
 argument_list|(
-literal|"store.book.price< ${header.cheap}"
+literal|"price< ${header.cheap}"
 argument_list|)
 operator|.
 name|to
@@ -124,7 +126,7 @@ argument_list|()
 operator|.
 name|jsonpath
 argument_list|(
-literal|"store.book.price< ${header.average}"
+literal|"price< ${header.average}"
 argument_list|)
 operator|.
 name|to
