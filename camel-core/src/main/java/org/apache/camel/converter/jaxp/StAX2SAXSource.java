@@ -702,11 +702,14 @@ block|{
 name|String
 name|nsPrefix
 init|=
+name|nullToEmpty
+argument_list|(
 name|streamReader
 operator|.
 name|getNamespacePrefix
 argument_list|(
 name|i
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
