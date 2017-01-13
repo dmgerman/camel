@@ -9903,6 +9903,22 @@ name|getClassLoader
 argument_list|()
 expr_stmt|;
 block|}
+comment|// if there are {{ }}} property placeholders then we need to resolve them to something else
+comment|// as the simple parse cannot resolve them before parsing as we dont run the actual Camel application
+comment|// with property placeholders setup so we need to dummy this by replace the {{ }} to something else
+comment|// therefore we use an more unlikely character: {{XXX}} to ~^XXX^~
+name|String
+name|resolved
+init|=
+name|simple
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\{\\{(.+)\\}\\}"
+argument_list|,
+literal|"~^$1^~"
+argument_list|)
+decl_stmt|;
 name|SimpleValidationResult
 name|answer
 init|=
@@ -9990,7 +10006,7 @@ name|invoke
 argument_list|(
 name|instance
 argument_list|,
-name|simple
+name|resolved
 argument_list|)
 expr_stmt|;
 block|}
@@ -10014,7 +10030,7 @@ name|invoke
 argument_list|(
 name|instance
 argument_list|,
-name|simple
+name|resolved
 argument_list|)
 expr_stmt|;
 block|}
@@ -10051,14 +10067,31 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|answer
-operator|.
-name|setError
-argument_list|(
+comment|// reverse ~^XXX^~ back to {{XXX}}
+name|String
+name|errMsg
+init|=
 name|cause
 operator|.
 name|getMessage
 argument_list|()
+decl_stmt|;
+name|errMsg
+operator|=
+name|errMsg
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\~\\^(.+)\\^\\~"
+argument_list|,
+literal|"{{$1}}"
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setError
+argument_list|(
+name|errMsg
 argument_list|)
 expr_stmt|;
 comment|// is it simple parser exception then we can grab the index where the problem is
