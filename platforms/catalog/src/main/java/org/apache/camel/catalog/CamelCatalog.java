@@ -502,7 +502,9 @@ name|boolean
 name|producerOnly
 parameter_list|)
 function_decl|;
-comment|/**      * Parses and validates the simple expression.      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param simple  the simple expression      * @return validation result      */
+comment|/**      * Parses and validates the simple expression.      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param simple  the simple expression      * @return validation result      * @deprecated use {@link #validateSimpleExpression(ClassLoader, String)}      */
+annotation|@
+name|Deprecated
 DECL|method|validateSimpleExpression (String simple)
 name|SimpleValidationResult
 name|validateSimpleExpression
@@ -511,7 +513,7 @@ name|String
 name|simple
 parameter_list|)
 function_decl|;
-comment|/**      * Parses and validates the simple expression.      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param classLoader a custom classloader to use for loading the simple language from the classpath      * @param simple  the simple expression      * @return validation result      */
+comment|/**      * Parses and validates the simple expression.      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param classLoader a custom classloader to use for loading the language from the classpath, or<tt>null</tt> for using default classloader      * @param simple  the simple expression      * @return validation result      */
 DECL|method|validateSimpleExpression (ClassLoader classLoader, String simple)
 name|SimpleValidationResult
 name|validateSimpleExpression
@@ -523,7 +525,9 @@ name|String
 name|simple
 parameter_list|)
 function_decl|;
-comment|/**      * Parses and validates the simple predicate      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param simple  the simple predicate      * @return validation result      */
+comment|/**      * Parses and validates the simple predicate      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param simple  the simple predicate      * @return validation result      * @deprecated use {@link #validateSimplePredicate(ClassLoader, String)}      */
+annotation|@
+name|Deprecated
 DECL|method|validateSimplePredicate (String simple)
 name|SimpleValidationResult
 name|validateSimplePredicate
@@ -532,7 +536,7 @@ name|String
 name|simple
 parameter_list|)
 function_decl|;
-comment|/**      * Parses and validates the simple predicate      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param classLoader a custom classloader to use for loading the simple language from the classpath      * @param simple  the simple predicate      * @return validation result      */
+comment|/**      * Parses and validates the simple predicate      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param classLoader a custom classloader to use for loading the language from the classpath, or<tt>null</tt> for using default classloader      * @param simple  the simple predicate      * @return validation result      */
 DECL|method|validateSimplePredicate (ClassLoader classLoader, String simple)
 name|SimpleValidationResult
 name|validateSimplePredicate
@@ -542,6 +546,36 @@ name|classLoader
 parameter_list|,
 name|String
 name|simple
+parameter_list|)
+function_decl|;
+comment|/**      * Parses and validates the language as a predicate      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> and the language dependencies on the classpath      *      * @param classLoader a custom classloader to use for loading the language from the classpath, or<tt>null</tt> for using default classloader      * @param language the name of the language      * @param text  the predicate text      * @return validation result      */
+DECL|method|validateLanguagePredicate (ClassLoader classLoader, String language, String text)
+name|LanguageValidationResult
+name|validateLanguagePredicate
+parameter_list|(
+name|ClassLoader
+name|classLoader
+parameter_list|,
+name|String
+name|language
+parameter_list|,
+name|String
+name|text
+parameter_list|)
+function_decl|;
+comment|/**      * Parses and validates the language as an expression      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> and the language dependencies on the classpath      *      * @param classLoader a custom classloader to use for loading the language from the classpath, or<tt>null</tt> for using default classloader      * @param language the name of the language      * @param text  the expression text      * @return validation result      */
+DECL|method|validateLanguageExpression (ClassLoader classLoader, String language, String text)
+name|LanguageValidationResult
+name|validateLanguageExpression
+parameter_list|(
+name|ClassLoader
+name|classLoader
+parameter_list|,
+name|String
+name|language
+parameter_list|,
+name|String
+name|text
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the component name from the given endpoint uri      *      * @param uri  the endpoint uri      * @return the component name (aka scheme), or<tt>null</tt> if not possible to determine      */
