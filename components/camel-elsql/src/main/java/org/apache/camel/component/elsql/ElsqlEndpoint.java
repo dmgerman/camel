@@ -170,6 +170,22 @@ name|component
 operator|.
 name|sql
 operator|.
+name|DefaultSqlPrepareStatementStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sql
+operator|.
 name|SqlPrepareStatementStrategy
 import|;
 end_import
@@ -407,6 +423,7 @@ name|elSql
 decl_stmt|;
 DECL|field|namedJdbcTemplate
 specifier|private
+specifier|final
 name|NamedParameterJdbcTemplate
 name|namedJdbcTemplate
 decl_stmt|;
@@ -421,6 +438,7 @@ literal|"true"
 argument_list|)
 DECL|field|elsqlName
 specifier|private
+specifier|final
 name|String
 name|elsqlName
 decl_stmt|;
@@ -457,25 +475,31 @@ specifier|private
 name|ElSqlConfig
 name|elSqlConfig
 decl_stmt|;
-DECL|method|ElsqlEndpoint (String uri, Component component, NamedParameterJdbcTemplate namedJdbcTemplate, DataSource dataSource, String elsqlName, String resourceUri)
+DECL|method|ElsqlEndpoint (final String uri, final Component component, final NamedParameterJdbcTemplate namedJdbcTemplate, final DataSource dataSource, final String elsqlName, final String resourceUri)
 specifier|public
 name|ElsqlEndpoint
 parameter_list|(
+specifier|final
 name|String
 name|uri
 parameter_list|,
+specifier|final
 name|Component
 name|component
 parameter_list|,
+specifier|final
 name|NamedParameterJdbcTemplate
 name|namedJdbcTemplate
 parameter_list|,
+specifier|final
 name|DataSource
 name|dataSource
 parameter_list|,
+specifier|final
 name|String
 name|elsqlName
 parameter_list|,
+specifier|final
 name|String
 name|resourceUri
 parameter_list|)
@@ -516,17 +540,19 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createConsumer (Processor processor)
+DECL|method|createConsumer (final Processor processor)
 specifier|public
 name|Consumer
 name|createConsumer
 parameter_list|(
+specifier|final
 name|Processor
 name|processor
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|SqlProcessingStrategy
 name|proStrategy
 init|=
@@ -536,6 +562,7 @@ argument_list|(
 name|elSql
 argument_list|)
 decl_stmt|;
+specifier|final
 name|SqlPrepareStatementStrategy
 name|preStategy
 init|=
@@ -579,6 +606,7 @@ argument_list|,
 name|sql
 argument_list|)
 expr_stmt|;
+specifier|final
 name|ElsqlConsumer
 name|consumer
 init|=
@@ -683,6 +711,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|SqlPrepareStatementStrategy
+name|prepareStrategy
+init|=
+name|getPrepareStatementStrategy
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getPrepareStatementStrategy
+argument_list|()
+else|:
+operator|new
+name|DefaultSqlPrepareStatementStrategy
+argument_list|(
+name|getSeparator
+argument_list|()
+argument_list|)
+decl_stmt|;
+specifier|final
 name|ElsqlProducer
 name|result
 init|=
@@ -698,6 +746,11 @@ argument_list|,
 name|namedJdbcTemplate
 argument_list|,
 name|dataSource
+argument_list|,
+name|prepareStrategy
+argument_list|,
+name|isBatch
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -769,6 +822,7 @@ expr_stmt|;
 block|}
 comment|// there can be multiple resources
 comment|// so we have all this lovely code to turn that into an URL[]
+specifier|final
 name|List
 argument_list|<
 name|URL
@@ -782,6 +836,7 @@ name|URL
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Iterable
 name|it
 init|=
@@ -794,12 +849,14 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|Object
 name|path
 range|:
 name|it
 control|)
 block|{
+specifier|final
 name|URL
 name|url
 init|=
@@ -827,6 +884,7 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|URL
 index|[]
 name|urls
@@ -879,11 +937,12 @@ name|databaseVendor
 return|;
 block|}
 comment|/**      * To use a vendor specific {@link com.opengamma.elsql.ElSqlConfig}      */
-DECL|method|setDatabaseVendor (ElSqlDatabaseVendor databaseVendor)
+DECL|method|setDatabaseVendor (final ElSqlDatabaseVendor databaseVendor)
 specifier|public
 name|void
 name|setDatabaseVendor
 parameter_list|(
+specifier|final
 name|ElSqlDatabaseVendor
 name|databaseVendor
 parameter_list|)
@@ -906,11 +965,12 @@ name|elSqlConfig
 return|;
 block|}
 comment|/**      * To use a specific configured ElSqlConfig. It may be better to use the<tt>databaseVendor</tt> option instead.      */
-DECL|method|setElSqlConfig (ElSqlConfig elSqlConfig)
+DECL|method|setElSqlConfig (final ElSqlConfig elSqlConfig)
 specifier|public
 name|void
 name|setElSqlConfig
 parameter_list|(
+specifier|final
 name|ElSqlConfig
 name|elSqlConfig
 parameter_list|)
@@ -933,11 +993,12 @@ name|resourceUri
 return|;
 block|}
 comment|/**      * The resource file which contains the elsql SQL statements to use. You can specify multiple resources separated by comma.      * The resources are loaded on the classpath by default, you can prefix with<tt>file:</tt> to load from file system.      * Notice you can set this option on the component and then you do not have to configure this on the endpoint.      */
-DECL|method|setResourceUri (String resourceUri)
+DECL|method|setResourceUri (final String resourceUri)
 specifier|public
 name|void
 name|setResourceUri
 parameter_list|(
+specifier|final
 name|String
 name|resourceUri
 parameter_list|)
@@ -960,11 +1021,12 @@ name|dataSource
 return|;
 block|}
 comment|/**      * Sets the DataSource to use to communicate with the database.      */
-DECL|method|setDataSource (DataSource dataSource)
+DECL|method|setDataSource (final DataSource dataSource)
 specifier|public
 name|void
 name|setDataSource
 parameter_list|(
+specifier|final
 name|DataSource
 name|dataSource
 parameter_list|)
