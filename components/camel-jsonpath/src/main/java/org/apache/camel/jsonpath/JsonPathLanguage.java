@@ -223,6 +223,13 @@ argument_list|)
 decl_stmt|;
 name|answer
 operator|.
+name|setPredicate
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
 name|setResultType
 argument_list|(
 name|resultType
@@ -275,6 +282,13 @@ argument_list|(
 name|expression
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setPredicate
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setResultType
