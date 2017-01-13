@@ -468,7 +468,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-comment|//Fix for running camel-kafka in OSGI see KAFKA-3218
+comment|// Kafka uses reflection for loading authentication settings, use its classloader
 name|Thread
 operator|.
 name|currentThread
@@ -476,7 +476,22 @@ argument_list|()
 operator|.
 name|setContextClassLoader
 argument_list|(
-literal|null
+name|org
+operator|.
+name|apache
+operator|.
+name|kafka
+operator|.
+name|clients
+operator|.
+name|producer
+operator|.
+name|KafkaProducer
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|kafkaProducer
