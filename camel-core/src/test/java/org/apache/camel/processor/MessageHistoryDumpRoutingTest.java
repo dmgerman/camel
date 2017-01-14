@@ -171,7 +171,7 @@ expr_stmt|;
 comment|// to test that the message history exchange gets clipped
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

@@ -278,7 +278,7 @@ argument_list|()
 decl_stmt|;
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

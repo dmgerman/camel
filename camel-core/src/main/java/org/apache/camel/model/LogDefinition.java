@@ -603,7 +603,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|Exchange
 operator|.

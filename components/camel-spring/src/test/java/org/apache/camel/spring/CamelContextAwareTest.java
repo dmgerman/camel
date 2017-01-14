@@ -130,7 +130,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 decl_stmt|;
 name|assertNotNull

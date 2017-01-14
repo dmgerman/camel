@@ -1104,7 +1104,7 @@ name|bufferSize
 init|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|BUFFER_SIZE
 argument_list|)
@@ -1114,7 +1114,7 @@ name|hold
 init|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|THRESHOLD
 argument_list|)
@@ -1124,7 +1124,7 @@ name|chiper
 init|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|CIPHER_TRANSFORMATION
 argument_list|)
@@ -1134,7 +1134,7 @@ name|dir
 init|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|TEMP_DIR
 argument_list|)

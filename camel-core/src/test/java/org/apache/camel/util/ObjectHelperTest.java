@@ -4649,7 +4649,7 @@ name|properties
 init|=
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 decl_stmt|;
 name|properties

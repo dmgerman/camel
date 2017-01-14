@@ -94,7 +94,7 @@ name|assertNotNull
 argument_list|(
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -104,7 +104,7 @@ literal|2
 argument_list|,
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|size
@@ -117,7 +117,7 @@ literal|"123"
 argument_list|,
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|get
@@ -132,7 +132,7 @@ literal|"cheese"
 argument_list|,
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|get

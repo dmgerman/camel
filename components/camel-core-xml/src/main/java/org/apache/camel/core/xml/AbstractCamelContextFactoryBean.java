@@ -1496,7 +1496,7 @@ block|{
 name|getContext
 argument_list|()
 operator|.
-name|setProperties
+name|setGlobalOptions
 argument_list|(
 name|getProperties
 argument_list|()

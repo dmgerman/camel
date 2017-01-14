@@ -1521,7 +1521,7 @@ name|camelContext
 argument_list|,
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|Exchange
 operator|.

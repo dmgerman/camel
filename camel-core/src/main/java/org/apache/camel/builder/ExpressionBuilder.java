@@ -2632,7 +2632,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 return|;
 block|}
@@ -2698,7 +2698,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|text
 argument_list|)
@@ -10119,7 +10119,7 @@ name|camelContext
 argument_list|,
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|Exchange
 operator|.

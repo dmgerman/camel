@@ -157,7 +157,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -252,7 +252,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|remove
@@ -345,7 +345,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -440,7 +440,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -538,7 +538,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|remove
@@ -634,7 +634,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

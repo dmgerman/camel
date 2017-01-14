@@ -3379,7 +3379,7 @@ name|camelProperties
 init|=
 name|camelContext
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 decl_stmt|;
 if|if

@@ -685,7 +685,7 @@ name|Exception
 block|{
 name|camelContext
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

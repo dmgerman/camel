@@ -1046,7 +1046,7 @@ name|s
 init|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|Exchange
 operator|.
@@ -1160,7 +1160,7 @@ name|s
 init|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|Exchange
 operator|.

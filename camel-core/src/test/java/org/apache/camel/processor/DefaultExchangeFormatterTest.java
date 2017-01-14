@@ -296,7 +296,7 @@ parameter_list|()
 block|{
 name|camelContext
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -340,7 +340,7 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|remove
@@ -362,7 +362,7 @@ parameter_list|()
 block|{
 name|camelContext
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -423,7 +423,7 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|remove

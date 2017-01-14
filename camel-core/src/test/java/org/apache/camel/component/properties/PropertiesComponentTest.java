@@ -2894,7 +2894,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -2906,7 +2906,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -2927,7 +2927,7 @@ literal|"Hello Camel"
 argument_list|,
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|get
@@ -2942,7 +2942,7 @@ literal|"cool.name"
 argument_list|,
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|get

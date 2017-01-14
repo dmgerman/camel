@@ -3245,7 +3245,7 @@ decl_stmt|;
 comment|// shows how to set the OutputOptions from camelContext
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -3263,7 +3263,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

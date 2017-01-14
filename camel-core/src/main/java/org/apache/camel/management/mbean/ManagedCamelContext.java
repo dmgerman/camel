@@ -982,7 +982,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|isEmpty
@@ -996,7 +996,7 @@ block|}
 return|return
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 return|;
 block|}
@@ -1014,7 +1014,7 @@ block|{
 return|return
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|name
 argument_list|)
@@ -1036,7 +1036,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
