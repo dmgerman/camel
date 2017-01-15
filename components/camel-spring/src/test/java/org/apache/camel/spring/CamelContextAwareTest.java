@@ -123,7 +123,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|properties
+name|globalOptions
 init|=
 name|bean1
 operator|.
@@ -137,14 +137,14 @@ name|assertNotNull
 argument_list|(
 literal|"the properties should not been null"
 argument_list|,
-name|properties
+name|globalOptions
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"No properties injected"
 argument_list|,
-name|properties
+name|globalOptions
 operator|.
 name|size
 argument_list|()
@@ -156,7 +156,7 @@ name|assertEquals
 argument_list|(
 literal|"Should get the value of org.apache.camel.test"
 argument_list|,
-name|properties
+name|globalOptions
 operator|.
 name|get
 argument_list|(

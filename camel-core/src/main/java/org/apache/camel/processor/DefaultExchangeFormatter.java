@@ -2016,7 +2016,7 @@ literal|null
 condition|)
 block|{
 name|String
-name|property
+name|globalOption
 init|=
 name|message
 operator|.
@@ -2035,7 +2035,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|property
+name|globalOption
 operator|!=
 literal|null
 condition|)
@@ -2059,7 +2059,7 @@ name|Integer
 operator|.
 name|class
 argument_list|,
-name|property
+name|globalOption
 argument_list|)
 expr_stmt|;
 block|}
