@@ -70,16 +70,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -343,10 +333,7 @@ name|XmlTransient
 DECL|field|parent
 specifier|private
 specifier|final
-name|Optional
-argument_list|<
 name|ServiceCallDefinition
-argument_list|>
 name|parent
 decl_stmt|;
 annotation|@
@@ -407,12 +394,7 @@ name|this
 operator|.
 name|parent
 operator|=
-name|Optional
-operator|.
-name|ofNullable
-argument_list|(
 name|parent
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -423,20 +405,32 @@ expr_stmt|;
 block|}
 DECL|method|end ()
 specifier|public
-name|ProcessorDefinition
+name|ServiceCallDefinition
 name|end
 parameter_list|()
 block|{
-comment|// end parent as well so we do not have to use 2x end
+return|return
+name|this
+operator|.
+name|parent
+return|;
+block|}
+DECL|method|endParent ()
+specifier|public
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|endParent
+parameter_list|()
+block|{
 return|return
 name|this
 operator|.
 name|parent
 operator|.
-name|orElseGet
-argument_list|(
-literal|null
-argument_list|)
+name|end
+argument_list|()
 return|;
 block|}
 comment|// *************************************************************************
@@ -883,6 +877,28 @@ return|return
 name|answer
 return|;
 block|}
+comment|// *************************************************************************
+comment|// Utilities
+comment|// *************************************************************************
+DECL|method|postProcessFactoryParameters (CamelContext camelContext, Map<String, Object> parameters)
+specifier|protected
+name|void
+name|postProcessFactoryParameters
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{     }
 block|}
 end_class
 

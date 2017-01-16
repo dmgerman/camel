@@ -143,6 +143,27 @@ name|delegate
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|delegate
+argument_list|,
+literal|60
+operator|*
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|CachingServiceDiscovery (ServiceDiscovery delegate, long timeout)
+specifier|public
+name|CachingServiceDiscovery
+parameter_list|(
+name|ServiceDiscovery
+name|delegate
+parameter_list|,
+name|long
+name|timeout
+parameter_list|)
+block|{
+name|this
 operator|.
 name|delegate
 operator|=
@@ -174,11 +195,20 @@ name|this
 operator|.
 name|timeout
 operator|=
-literal|60
-operator|*
-literal|1000
+name|timeout
 expr_stmt|;
-comment|// 1 min;
+block|}
+DECL|method|getDelegate ()
+specifier|public
+name|ServiceDiscovery
+name|getDelegate
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|delegate
+return|;
 block|}
 DECL|method|setTimeout (long timeout)
 specifier|public
