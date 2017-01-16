@@ -301,7 +301,7 @@ specifier|protected
 name|File
 name|languagesOutDir
 decl_stmt|;
-comment|/**      * The directory where all spring-boot starters are      *      * @parameter default-value="${project.build.directory}/../../../components-starter"      */
+comment|/**      * The directory where all spring-boot starters are      *      * @parameter default-value="${project.build.directory}/../../../platforms/spring-boot/components-starter"      */
 DECL|field|componentsStarterDir
 specifier|protected
 name|File

@@ -182,10 +182,10 @@ name|camelProjectRoot
 argument_list|(
 name|baseDir
 argument_list|,
-literal|"components-starter"
+literal|"platforms"
 argument_list|)
 argument_list|,
-literal|"components-starter"
+literal|"platforms/spring-boot/components-starter"
 argument_list|)
 decl_stmt|;
 return|return
