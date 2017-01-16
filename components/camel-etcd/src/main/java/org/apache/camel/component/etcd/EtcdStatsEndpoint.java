@@ -155,15 +155,6 @@ argument_list|(
 name|this
 argument_list|,
 name|processor
-argument_list|,
-name|getConfiguration
-argument_list|()
-argument_list|,
-name|getNamespace
-argument_list|()
-argument_list|,
-name|getPath
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|configureConsumer

@@ -50,7 +50,7 @@ name|EtcdStatsConsumer
 extends|extends
 name|AbstractEtcdPollingConsumer
 block|{
-DECL|method|EtcdStatsConsumer (EtcdStatsEndpoint endpoint, Processor processor, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|EtcdStatsConsumer (EtcdStatsEndpoint endpoint, Processor processor)
 specifier|public
 name|EtcdStatsConsumer
 parameter_list|(
@@ -59,15 +59,6 @@ name|endpoint
 parameter_list|,
 name|Processor
 name|processor
-parameter_list|,
-name|EtcdConfiguration
-name|configuration
-parameter_list|,
-name|EtcdNamespace
-name|namespace
-parameter_list|,
-name|String
-name|path
 parameter_list|)
 block|{
 name|super
@@ -75,12 +66,6 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|processor
-argument_list|,
-name|configuration
-argument_list|,
-name|namespace
-argument_list|,
-name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -155,6 +140,8 @@ name|EtcdConstants
 operator|.
 name|ETCD_NAMESPACE
 argument_list|,
+name|endpoint
+operator|.
 name|getNamespace
 argument_list|()
 argument_list|)
@@ -170,6 +157,8 @@ name|EtcdConstants
 operator|.
 name|ETCD_PATH
 argument_list|,
+name|endpoint
+operator|.
 name|getPath
 argument_list|()
 argument_list|)

@@ -135,6 +135,8 @@ class|class
 name|AbstractEtcdPollingEndpoint
 extends|extends
 name|DefaultPollingEndpoint
+implements|implements
+name|EtcdEndpoint
 block|{
 annotation|@
 name|UriPath
@@ -246,6 +248,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConfiguration ()
 specifier|public
 name|EtcdConfiguration
@@ -258,6 +262,8 @@ operator|.
 name|configuration
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespace ()
 specifier|public
 name|EtcdNamespace
@@ -270,6 +276,8 @@ operator|.
 name|namespace
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPath ()
 specifier|public
 name|String
@@ -282,6 +290,8 @@ operator|.
 name|path
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createClient ()
 specifier|public
 name|EtcdClient

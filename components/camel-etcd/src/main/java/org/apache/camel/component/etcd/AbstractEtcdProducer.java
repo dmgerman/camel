@@ -185,7 +185,7 @@ name|client
 operator|=
 operator|(
 operator|(
-name|AbstractEtcdEndpoint
+name|EtcdEndpoint
 operator|)
 name|getEndpoint
 argument_list|()
