@@ -6079,6 +6079,19 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|consumerOnly
+condition|)
+block|{
+comment|// lenient properties is not support in consumer only mode
+name|lenientProperties
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// only enable lenient properties if we should not ignore
 name|lenientProperties
 operator|=
@@ -6090,6 +6103,7 @@ argument_list|(
 name|rows
 argument_list|)
 expr_stmt|;
+block|}
 name|rows
 operator|=
 name|JSonSchemaHelper
@@ -6436,14 +6450,10 @@ block|{
 comment|// unknown option
 comment|// only add as error if the component is not lenient properties, or not stub component
 comment|// and the name is not a property placeholder for one or more values
-comment|// as if we are lenient then the option is a dynamic extra option which we cannot validate
 if|if
 condition|(
 operator|!
 name|namePlaceholder
-operator|&&
-operator|!
-name|lenientProperties
 operator|&&
 operator|!
 literal|"stub"
@@ -6454,6 +6464,23 @@ name|scheme
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|lenientProperties
+condition|)
+block|{
+comment|// as if we are lenient then the option is a dynamic extra option which we cannot validate
+name|result
+operator|.
+name|addLenient
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// its unknown
 name|result
 operator|.
 name|addUnknown
@@ -6500,6 +6527,7 @@ argument_list|,
 name|suggestions
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
