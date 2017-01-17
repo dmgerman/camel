@@ -112,7 +112,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ThrottingExceptionHalfOpenHandler
+name|ThrottlingExceptionHalfOpenHandler
 import|;
 end_import
 
@@ -171,10 +171,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ThrottingExceptionRoutePolicyHalfOpenHandlerTest
+DECL|class|ThrottlingExceptionRoutePolicyHalfOpenHandlerSedaTest
 specifier|public
 class|class
-name|ThrottingExceptionRoutePolicyHalfOpenHandlerTest
+name|ThrottlingExceptionRoutePolicyHalfOpenHandlerSedaTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -188,7 +188,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|ThrottingExceptionRoutePolicyHalfOpenHandlerTest
+name|ThrottlingExceptionRoutePolicyHalfOpenHandlerSedaTest
 operator|.
 name|class
 argument_list|)
@@ -198,7 +198,7 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"direct:start"
+literal|"seda:foo?concurrentConsumers=20"
 decl_stmt|;
 DECL|field|result
 specifier|private
@@ -329,7 +329,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|ThrottleException
+name|ThrottlingException
 argument_list|(
 name|msg
 argument_list|)
@@ -360,8 +360,9 @@ literal|3000
 argument_list|)
 expr_stmt|;
 comment|// send more messages
-comment|// but never should get there
+comment|// but should get there (yet)
 comment|// due to open circuit
+comment|// SEDA will queue it up
 name|log
 operator|.
 name|debug
@@ -386,7 +387,7 @@ name|result
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|bodies
@@ -399,6 +400,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|"Message Three"
+block|,
 literal|"Message Four"
 block|}
 argument_list|)
@@ -534,7 +537,7 @@ specifier|public
 class|class
 name|AlwaysCloseHandler
 implements|implements
-name|ThrottingExceptionHalfOpenHandler
+name|ThrottlingExceptionHalfOpenHandler
 block|{
 annotation|@
 name|Override

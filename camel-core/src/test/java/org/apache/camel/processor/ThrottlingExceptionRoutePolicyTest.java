@@ -112,7 +112,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ThrottingExceptionHalfOpenHandler
+name|ThrottlingExceptionHalfOpenHandler
 import|;
 end_import
 
@@ -396,7 +396,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|ThrottleException
+name|ThrottlingException
 argument_list|(
 name|msg
 argument_list|)
@@ -561,7 +561,7 @@ specifier|public
 class|class
 name|NeverCloseHandler
 implements|implements
-name|ThrottingExceptionHalfOpenHandler
+name|ThrottlingExceptionHalfOpenHandler
 block|{
 annotation|@
 name|Override

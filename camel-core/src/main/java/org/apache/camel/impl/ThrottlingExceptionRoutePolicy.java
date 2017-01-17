@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * modeled after the {@link CircuitBreakerLoadBalancer} and {@link ThrottlingInflightRoutePolicy}  * this {@link RoutePolicy} will stop consuming from an endpoint based on the type of exceptions that are  * thrown and the threshold setting.   *   * the scenario: if a route cannot process data from an endpoint due to problems with resources used by the route  * (ie database down) then it will stop consuming new messages from the endpoint by stopping the consumer.   * The implementation is comparable to the Circuit Breaker pattern. After a set amount of time, it will move   * to a half open state and attempt to determine if the consumer can be started.  * There are two ways to determine if a route can be closed after being opened  * (1) start the consumer and check the failure threshold  * (2) call the {@link ThrottlingExceptionHalfOpenHandler}   * The second option allows a custom check to be performed without having to take on the possibiliy of   * multiple messages from the endpoint. The idea is that a handler could run a simple test (ie select 1 from dual)  * to determine if the processes that cause the route to be open are now available    */
+comment|/**  * Modeled after the {@link CircuitBreakerLoadBalancer} and {@link ThrottlingInflightRoutePolicy}  * this {@link RoutePolicy} will stop consuming from an endpoint based on the type of exceptions that are  * thrown and the threshold setting.   *   * the scenario: if a route cannot process data from an endpoint due to problems with resources used by the route  * (ie database down) then it will stop consuming new messages from the endpoint by stopping the consumer.   * The implementation is comparable to the Circuit Breaker pattern. After a set amount of time, it will move   * to a half open state and attempt to determine if the consumer can be started.  * There are two ways to determine if a route can be closed after being opened  * (1) start the consumer and check the failure threshold  * (2) call the {@link ThrottlingExceptionHalfOpenHandler}   * The second option allows a custom check to be performed without having to take on the possibiliy of   * multiple messages from the endpoint. The idea is that a handler could run a simple test (ie select 1 from dual)  * to determine if the processes that cause the route to be open are now available    */
 end_comment
 
 begin_class
@@ -214,11 +214,12 @@ name|RoutePolicySupport
 implements|implements
 name|CamelContextAware
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
+specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
@@ -304,7 +305,7 @@ comment|// can be used instead of resuming route
 comment|// to check on resources
 DECL|field|halfOpenHandler
 specifier|private
-name|ThrottingExceptionHalfOpenHandler
+name|ThrottlingExceptionHalfOpenHandler
 name|halfOpenHandler
 decl_stmt|;
 comment|// stateful information
@@ -432,7 +433,7 @@ name|Route
 name|route
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -522,7 +523,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -585,7 +586,7 @@ block|}
 block|}
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
@@ -614,7 +615,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -666,7 +667,7 @@ condition|(
 name|failureLimitReached
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -696,7 +697,7 @@ condition|(
 name|failureLimitReached
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -711,7 +712,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -753,7 +754,7 @@ operator|<=
 name|elapsedTimeSinceOpened
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -775,7 +776,7 @@ name|isReadyToBeClosed
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -790,7 +791,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -806,7 +807,7 @@ block|}
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -1100,13 +1101,13 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|log
+name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -1278,7 +1279,7 @@ block|}
 block|}
 DECL|method|getHalfOpenHandler ()
 specifier|public
-name|ThrottingExceptionHalfOpenHandler
+name|ThrottlingExceptionHalfOpenHandler
 name|getHalfOpenHandler
 parameter_list|()
 block|{
@@ -1286,12 +1287,12 @@ return|return
 name|halfOpenHandler
 return|;
 block|}
-DECL|method|setHalfOpenHandler (ThrottingExceptionHalfOpenHandler halfOpenHandler)
+DECL|method|setHalfOpenHandler (ThrottlingExceptionHalfOpenHandler halfOpenHandler)
 specifier|public
 name|void
 name|setHalfOpenHandler
 parameter_list|(
-name|ThrottingExceptionHalfOpenHandler
+name|ThrottlingExceptionHalfOpenHandler
 name|halfOpenHandler
 parameter_list|)
 block|{

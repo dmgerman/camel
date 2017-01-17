@@ -17,10 +17,10 @@ package|;
 end_package
 
 begin_class
-DECL|class|ThrottleException
+DECL|class|ThrottlingException
 specifier|public
 class|class
-name|ThrottleException
+name|ThrottlingException
 extends|extends
 name|RuntimeException
 block|{
@@ -33,18 +33,18 @@ name|serialVersionUID
 init|=
 literal|1993185881371058773L
 decl_stmt|;
-DECL|method|ThrottleException ()
+DECL|method|ThrottlingException ()
 specifier|public
-name|ThrottleException
+name|ThrottlingException
 parameter_list|()
 block|{
 name|super
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|ThrottleException (String message)
+DECL|method|ThrottlingException (String message)
 specifier|public
-name|ThrottleException
+name|ThrottlingException
 parameter_list|(
 name|String
 name|message
@@ -56,9 +56,9 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ThrottleException (String message, Throwable cause)
+DECL|method|ThrottlingException (String message, Throwable cause)
 specifier|public
-name|ThrottleException
+name|ThrottlingException
 parameter_list|(
 name|String
 name|message
@@ -75,9 +75,9 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ThrottleException (Throwable cause)
+DECL|method|ThrottlingException (Throwable cause)
 specifier|public
-name|ThrottleException
+name|ThrottlingException
 parameter_list|(
 name|Throwable
 name|cause

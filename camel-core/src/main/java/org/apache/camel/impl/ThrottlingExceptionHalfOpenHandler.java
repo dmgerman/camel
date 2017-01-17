@@ -17,16 +17,16 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * used by the {@link ThrottlingExceptionRoutePolicy} to allow custom code  * to handle the half open circuit state and how to determine if a route  * should be closed  *  */
+comment|/**  * Used by the {@link ThrottlingExceptionRoutePolicy} to allow custom code  * to handle the half open circuit state and how to determine if a route  * should be closed  *  */
 end_comment
 
 begin_interface
-DECL|interface|ThrottingExceptionHalfOpenHandler
+DECL|interface|ThrottlingExceptionHalfOpenHandler
 specifier|public
 interface|interface
-name|ThrottingExceptionHalfOpenHandler
+name|ThrottlingExceptionHalfOpenHandler
 block|{
-comment|/**      * check the state of the Camel route      * @return true to close the route and false to leave open      */
+comment|/**      * Check the state of the Camel route      * @return true to close the route and false to leave open      */
 DECL|method|isReadyToBeClosed ()
 name|boolean
 name|isReadyToBeClosed
