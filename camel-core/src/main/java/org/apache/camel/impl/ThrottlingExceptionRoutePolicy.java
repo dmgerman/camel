@@ -1129,7 +1129,7 @@ name|get
 argument_list|()
 decl_stmt|;
 name|String
-name|state
+name|routeState
 init|=
 name|stateAsString
 argument_list|(
@@ -1151,9 +1151,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"State %s, failures %d, last failure %d ms ago"
+literal|"*** State %s, failures %d, last failure %d ms ago"
 argument_list|,
-name|state
+name|routeState
 argument_list|,
 name|failures
 operator|.
@@ -1176,9 +1176,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"State %s, failures %d"
+literal|"*** State %s, failures %d"
 argument_list|,
-name|state
+name|routeState
 argument_list|,
 name|failures
 operator|.
@@ -1299,6 +1299,117 @@ name|halfOpenHandler
 operator|=
 name|halfOpenHandler
 expr_stmt|;
+block|}
+DECL|method|getFailureThreshold ()
+specifier|public
+name|int
+name|getFailureThreshold
+parameter_list|()
+block|{
+return|return
+name|failureThreshold
+return|;
+block|}
+DECL|method|setFailureThreshold (int failureThreshold)
+specifier|public
+name|void
+name|setFailureThreshold
+parameter_list|(
+name|int
+name|failureThreshold
+parameter_list|)
+block|{
+name|this
+operator|.
+name|failureThreshold
+operator|=
+name|failureThreshold
+expr_stmt|;
+block|}
+DECL|method|getFailureWindow ()
+specifier|public
+name|long
+name|getFailureWindow
+parameter_list|()
+block|{
+return|return
+name|failureWindow
+return|;
+block|}
+DECL|method|setFailureWindow (long failureWindow)
+specifier|public
+name|void
+name|setFailureWindow
+parameter_list|(
+name|long
+name|failureWindow
+parameter_list|)
+block|{
+name|this
+operator|.
+name|failureWindow
+operator|=
+name|failureWindow
+expr_stmt|;
+block|}
+DECL|method|getHalfOpenAfter ()
+specifier|public
+name|long
+name|getHalfOpenAfter
+parameter_list|()
+block|{
+return|return
+name|halfOpenAfter
+return|;
+block|}
+DECL|method|setHalfOpenAfter (long halfOpenAfter)
+specifier|public
+name|void
+name|setHalfOpenAfter
+parameter_list|(
+name|long
+name|halfOpenAfter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|halfOpenAfter
+operator|=
+name|halfOpenAfter
+expr_stmt|;
+block|}
+DECL|method|getFailures ()
+specifier|public
+name|int
+name|getFailures
+parameter_list|()
+block|{
+return|return
+name|failures
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+DECL|method|getLastFailure ()
+specifier|public
+name|long
+name|getLastFailure
+parameter_list|()
+block|{
+return|return
+name|lastFailure
+return|;
+block|}
+DECL|method|getOpenedAt ()
+specifier|public
+name|long
+name|getOpenedAt
+parameter_list|()
+block|{
+return|return
+name|openedAt
+return|;
 block|}
 block|}
 end_class
