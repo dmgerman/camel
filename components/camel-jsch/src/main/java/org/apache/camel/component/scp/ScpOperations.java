@@ -1713,8 +1713,6 @@ expr_stmt|;
 name|readAck
 argument_list|(
 name|is
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|writeFile
@@ -1775,8 +1773,6 @@ expr_stmt|;
 name|readAck
 argument_list|(
 name|is
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1905,8 +1901,6 @@ expr_stmt|;
 name|readAck
 argument_list|(
 name|is
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// now send the stream
@@ -1952,8 +1946,6 @@ expr_stmt|;
 name|readAck
 argument_list|(
 name|is
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1993,16 +1985,13 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|readAck (InputStream is, boolean failOnEof)
+DECL|method|readAck (InputStream is)
 specifier|private
 name|int
 name|readAck
 parameter_list|(
 name|InputStream
 name|is
-parameter_list|,
-name|boolean
-name|failOnEof
 parameter_list|)
 throws|throws
 name|IOException
@@ -2024,53 +2013,17 @@ name|answer
 condition|)
 block|{
 case|case
-operator|-
-literal|1
+literal|0
 case|:
-if|if
-condition|(
-name|failOnEof
-condition|)
-block|{
-name|message
-operator|=
-literal|"[scp] Unexpected end of stream"
-expr_stmt|;
-throw|throw
-operator|new
-name|EOFException
-argument_list|(
-name|message
-argument_list|)
-throw|;
-block|}
 break|break;
-case|case
-literal|1
-case|:
+default|default:
 name|message
 operator|=
-literal|"[scp] WARN "
+literal|"[scp] Return Code ["
 operator|+
-name|readLine
-argument_list|(
-name|is
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|warn
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|2
-case|:
-name|message
-operator|=
-literal|"[scp] NACK "
+name|answer
+operator|+
+literal|"]"
 operator|+
 name|readLine
 argument_list|(
@@ -2084,9 +2037,6 @@ argument_list|(
 name|message
 argument_list|)
 throw|;
-default|default:
-comment|// case 0:
-break|break;
 block|}
 return|return
 name|answer
