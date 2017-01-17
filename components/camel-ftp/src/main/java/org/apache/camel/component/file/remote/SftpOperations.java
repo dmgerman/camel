@@ -2546,6 +2546,32 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+DECL|method|reconnectIfNecessary ()
+specifier|private
+name|void
+name|reconnectIfNecessary
+parameter_list|()
+block|{
+if|if
+condition|(
+operator|!
+name|isConnected
+argument_list|()
+condition|)
+block|{
+name|connect
+argument_list|(
+operator|(
+name|RemoteFileConfiguration
+operator|)
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|deleteFile (String name)
 specifier|public
 specifier|synchronized
@@ -2569,6 +2595,9 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|reconnectIfNecessary
+argument_list|()
+expr_stmt|;
 name|channel
 operator|.
 name|rm
@@ -2586,6 +2615,17 @@ name|SftpException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot delete file: "
+operator|+
+name|name
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|GenericFileOperationFailedException
@@ -2627,6 +2667,9 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|reconnectIfNecessary
+argument_list|()
+expr_stmt|;
 name|channel
 operator|.
 name|rename
@@ -2646,6 +2689,21 @@ name|SftpException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot rename file from: "
+operator|+
+name|from
+operator|+
+literal|" to: "
+operator|+
+name|to
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|GenericFileOperationFailedException
