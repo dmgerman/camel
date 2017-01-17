@@ -210,9 +210,6 @@ operator|.
 name|ribbonLoadBalancer
 argument_list|()
 operator|.
-name|end
-argument_list|()
-operator|.
 name|staticServiceDiscovery
 argument_list|()
 operator|.
@@ -226,10 +223,7 @@ argument_list|(
 literal|"localhost:9091"
 argument_list|)
 operator|.
-name|end
-argument_list|()
-operator|.
-name|end
+name|endParent
 argument_list|()
 operator|.
 name|to

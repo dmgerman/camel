@@ -59,7 +59,15 @@ operator|.
 name|asList
 argument_list|(
 operator|new
+name|CachingServiceCallServiceDiscoveryConfiguration
+argument_list|()
+argument_list|,
+operator|new
 name|ConsulServiceCallServiceDiscoveryConfiguration
+argument_list|()
+argument_list|,
+operator|new
+name|DnsServiceCallServiceDiscoveryConfiguration
 argument_list|()
 argument_list|,
 operator|new
@@ -71,7 +79,7 @@ name|KubernetesServiceCallServiceDiscoveryConfiguration
 argument_list|()
 argument_list|,
 operator|new
-name|DnsServiceCallServiceDiscoveryConfiguration
+name|MultiServiceCallServiceDiscoveryConfiguration
 argument_list|()
 argument_list|)
 decl_stmt|;
