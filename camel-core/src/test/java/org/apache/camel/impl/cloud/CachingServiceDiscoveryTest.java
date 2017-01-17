@@ -352,7 +352,7 @@ name|caching
 operator|.
 name|getUpdatedListOfServices
 argument_list|(
-literal|"noname"
+literal|"no-name"
 argument_list|)
 operator|.
 name|size
@@ -377,7 +377,7 @@ name|caching
 operator|.
 name|getUpdatedListOfServices
 argument_list|(
-literal|"noname"
+literal|"no-name"
 argument_list|)
 operator|.
 name|size
