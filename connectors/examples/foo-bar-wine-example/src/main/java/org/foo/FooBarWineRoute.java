@@ -55,7 +55,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"wine:wine?amount=2"
+literal|"wine:Wine?amount=3"
 argument_list|)
 operator|.
 name|log
