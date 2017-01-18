@@ -26,6 +26,10 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_comment
+comment|/**  * Camel route that uses the foo, bar and wine connectors  */
+end_comment
+
 begin_class
 DECL|class|FooBarWineRoute
 specifier|public

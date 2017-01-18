@@ -26,12 +26,22 @@ name|Main
 import|;
 end_import
 
+begin_comment
+comment|/**  * Main class to run this example  */
+end_comment
+
 begin_class
 DECL|class|FooBarWineMain
 specifier|public
+specifier|final
 class|class
 name|FooBarWineMain
 block|{
+DECL|method|FooBarWineMain ()
+specifier|private
+name|FooBarWineMain
+parameter_list|()
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
