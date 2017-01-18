@@ -91,10 +91,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ManagedRoutePolicyTest
+DECL|class|ManagedThrottlingInflightRoutePolicyTest
 specifier|public
 class|class
-name|ManagedRoutePolicyTest
+name|ManagedThrottlingInflightRoutePolicyTest
 extends|extends
 name|ManagementTestSupport
 block|{

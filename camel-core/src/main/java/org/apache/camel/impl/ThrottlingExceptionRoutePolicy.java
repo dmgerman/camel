@@ -1151,7 +1151,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"*** State %s, failures %d, last failure %d ms ago"
+literal|"State %s, failures %d, last failure %d ms ago"
 argument_list|,
 name|routeState
 argument_list|,
@@ -1176,7 +1176,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"*** State %s, failures %d"
+literal|"State %s, failures %d"
 argument_list|,
 name|routeState
 argument_list|,

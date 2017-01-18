@@ -154,7 +154,7 @@ annotation|@
 name|Override
 DECL|method|getHalfOpenAfter ()
 specifier|public
-name|long
+name|Long
 name|getHalfOpenAfter
 parameter_list|()
 block|{
@@ -168,12 +168,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setHalfOpenAfter (long milliseconds)
+DECL|method|setHalfOpenAfter (Long milliseconds)
 specifier|public
 name|void
 name|setHalfOpenAfter
 parameter_list|(
-name|long
+name|Long
 name|milliseconds
 parameter_list|)
 block|{
@@ -190,7 +190,7 @@ annotation|@
 name|Override
 DECL|method|getFailureWindow ()
 specifier|public
-name|long
+name|Long
 name|getFailureWindow
 parameter_list|()
 block|{
@@ -204,12 +204,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setFailureWindow (long milliseconds)
+DECL|method|setFailureWindow (Long milliseconds)
 specifier|public
 name|void
 name|setFailureWindow
 parameter_list|(
-name|long
+name|Long
 name|milliseconds
 parameter_list|)
 block|{
@@ -226,7 +226,7 @@ annotation|@
 name|Override
 DECL|method|getFailureThreshold ()
 specifier|public
-name|int
+name|Integer
 name|getFailureThreshold
 parameter_list|()
 block|{
@@ -240,12 +240,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setFailureThreshold (int numberOfFailures)
+DECL|method|setFailureThreshold (Integer numberOfFailures)
 specifier|public
 name|void
 name|setFailureThreshold
 parameter_list|(
-name|int
+name|Integer
 name|numberOfFailures
 parameter_list|)
 block|{
@@ -276,10 +276,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|hasHalfOpenHandler ()
+DECL|method|getHalfOpenHandlerName ()
 specifier|public
 name|String
-name|hasHalfOpenHandler
+name|getHalfOpenHandlerName
 parameter_list|()
 block|{
 name|ThrottlingExceptionHalfOpenHandler
@@ -317,10 +317,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|currentFailures ()
+DECL|method|getCurrentFailures ()
 specifier|public
-name|int
-name|currentFailures
+name|Integer
+name|getCurrentFailures
 parameter_list|()
 block|{
 return|return
@@ -335,9 +335,26 @@ annotation|@
 name|Override
 DECL|method|getLastFailure ()
 specifier|public
-name|long
+name|Long
 name|getLastFailure
 parameter_list|()
+block|{
+if|if
+condition|(
+name|getPolicy
+argument_list|()
+operator|.
+name|getLastFailure
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|0L
+return|;
+block|}
+else|else
 block|{
 return|return
 name|System
@@ -352,13 +369,31 @@ name|getLastFailure
 argument_list|()
 return|;
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|getOpenAt ()
 specifier|public
-name|long
+name|Long
 name|getOpenAt
 parameter_list|()
+block|{
+if|if
+condition|(
+name|getPolicy
+argument_list|()
+operator|.
+name|getOpenedAt
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|0L
+return|;
+block|}
+else|else
 block|{
 return|return
 name|System
@@ -372,6 +407,7 @@ operator|.
 name|getOpenedAt
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 end_class

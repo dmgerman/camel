@@ -36,6 +36,22 @@ name|ManagedAttribute
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedThrottlingExceptionRoutePolicyMBean
 specifier|public
@@ -49,10 +65,10 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"how long to wait before moving open circuit to half open"
+literal|"How long to wait before moving open circuit to half open"
 argument_list|)
 DECL|method|getHalfOpenAfter ()
-name|long
+name|Long
 name|getHalfOpenAfter
 parameter_list|()
 function_decl|;
@@ -61,13 +77,13 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"how long to wait before moving open circuit to half open"
+literal|"How long to wait before moving open circuit to half open"
 argument_list|)
-DECL|method|setHalfOpenAfter (long milliseconds)
+DECL|method|setHalfOpenAfter (Long milliseconds)
 name|void
 name|setHalfOpenAfter
 parameter_list|(
-name|long
+name|Long
 name|milliseconds
 parameter_list|)
 function_decl|;
@@ -76,10 +92,10 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"the range of time that failures should occur within"
+literal|"The range of time that failures should occur within"
 argument_list|)
 DECL|method|getFailureWindow ()
-name|long
+name|Long
 name|getFailureWindow
 parameter_list|()
 function_decl|;
@@ -88,13 +104,13 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"the range of time that failures should occur within"
+literal|"The range of time that failures should occur within"
 argument_list|)
-DECL|method|setFailureWindow (long milliseconds)
+DECL|method|setFailureWindow (Long milliseconds)
 name|void
 name|setFailureWindow
 parameter_list|(
-name|long
+name|Long
 name|milliseconds
 parameter_list|)
 function_decl|;
@@ -103,10 +119,10 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"number of failures before opening circuit"
+literal|"Number of failures before opening circuit"
 argument_list|)
 DECL|method|getFailureThreshold ()
-name|int
+name|Integer
 name|getFailureThreshold
 parameter_list|()
 function_decl|;
@@ -115,22 +131,22 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"number of failures before opening circuit"
+literal|"Number of failures before opening circuit"
 argument_list|)
-DECL|method|setFailureThreshold (int numberOfFailures)
+DECL|method|setFailureThreshold (Integer numberOfFailures)
 name|void
 name|setFailureThreshold
 parameter_list|(
-name|int
+name|Integer
 name|numberOfFailures
 parameter_list|)
 function_decl|;
 annotation|@
-name|ManagedAttribute
+name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"State"
+literal|"The current state of the circuit"
 argument_list|)
 DECL|method|currentState ()
 name|String
@@ -144,9 +160,9 @@ name|description
 operator|=
 literal|"The half open handler registered (if any)"
 argument_list|)
-DECL|method|hasHalfOpenHandler ()
+DECL|method|getHalfOpenHandlerName ()
 name|String
-name|hasHalfOpenHandler
+name|getHalfOpenHandlerName
 parameter_list|()
 function_decl|;
 annotation|@
@@ -154,11 +170,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"the number of failures caught"
+literal|"The number of failures caught"
 argument_list|)
-DECL|method|currentFailures ()
-name|int
-name|currentFailures
+DECL|method|getCurrentFailures ()
+name|Integer
+name|getCurrentFailures
 parameter_list|()
 function_decl|;
 annotation|@
@@ -166,10 +182,10 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"number of ms since the last failure was recorded"
+literal|"Number of ms since the last failure was recorded"
 argument_list|)
 DECL|method|getLastFailure ()
-name|long
+name|Long
 name|getLastFailure
 parameter_list|()
 function_decl|;
@@ -178,10 +194,10 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"number ms since the circuit was opened"
+literal|"Number ms since the circuit was opened"
 argument_list|)
 DECL|method|getOpenAt ()
-name|long
+name|Long
 name|getOpenAt
 parameter_list|()
 function_decl|;
