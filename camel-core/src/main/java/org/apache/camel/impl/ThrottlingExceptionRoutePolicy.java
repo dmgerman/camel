@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Modeled after the {@link CircuitBreakerLoadBalancer} and {@link ThrottlingInflightRoutePolicy}  * this {@link RoutePolicy} will stop consuming from an endpoint based on the type of exceptions that are  * thrown and the threshold setting.   *   * the scenario: if a route cannot process data from an endpoint due to problems with resources used by the route  * (ie database down) then it will stop consuming new messages from the endpoint by stopping the consumer.   * The implementation is comparable to the Circuit Breaker pattern. After a set amount of time, it will move   * to a half open state and attempt to determine if the consumer can be started.  * There are two ways to determine if a route can be closed after being opened  * (1) start the consumer and check the failure threshold  * (2) call the {@link ThrottlingExceptionHalfOpenHandler}   * The second option allows a custom check to be performed without having to take on the possibiliy of   * multiple messages from the endpoint. The idea is that a handler could run a simple test (ie select 1 from dual)  * to determine if the processes that cause the route to be open are now available    */
+comment|/**  * Modeled after the {@link CircuitBreakerLoadBalancer} and {@link ThrottlingInflightRoutePolicy}  * this {@link RoutePolicy} will stop consuming from an endpoint based on the type of exceptions that are  * thrown and the threshold setting.   *   * the scenario: if a route cannot process data from an endpoint due to problems with resources used by the route  * (ie database down) then it will stop consuming new messages from the endpoint by stopping the consumer.   * The implementation is comparable to the Circuit Breaker pattern. After a set amount of time, it will move   * to a half open state and attempt to determine if the consumer can be started.  * There are two ways to determine if a route can be closed after being opened  * (1) start the consumer and check the failure threshold  * (2) call the {@link ThrottlingExceptionHalfOpenHandler}   * The second option allows a custom check to be performed without having to take on the possibility of  * multiple messages from the endpoint. The idea is that a handler could run a simple test (ie select 1 from dual)  * to determine if the processes that cause the route to be open are now available    */
 end_comment
 
 begin_class
@@ -309,13 +309,9 @@ name|ThrottlingExceptionHalfOpenHandler
 name|halfOpenHandler
 decl_stmt|;
 comment|// stateful information
-DECL|field|halfOpenTimer
-specifier|private
-name|Timer
-name|halfOpenTimer
-decl_stmt|;
 DECL|field|failures
 specifier|private
+specifier|final
 name|AtomicInteger
 name|failures
 init|=
@@ -325,6 +321,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|state
 specifier|private
+specifier|final
 name|AtomicInteger
 name|state
 init|=
@@ -334,13 +331,21 @@ argument_list|(
 name|STATE_CLOSED
 argument_list|)
 decl_stmt|;
+DECL|field|halfOpenTimer
+specifier|private
+specifier|volatile
+name|Timer
+name|halfOpenTimer
+decl_stmt|;
 DECL|field|lastFailure
 specifier|private
+specifier|volatile
 name|long
 name|lastFailure
 decl_stmt|;
 DECL|field|openedAt
 specifier|private
+specifier|volatile
 name|long
 name|openedAt
 decl_stmt|;
@@ -437,7 +442,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"initializing ThrottlingExceptionRoutePolicy route policy..."
+literal|"Initializing ThrottlingExceptionRoutePolicy route policy..."
 argument_list|)
 expr_stmt|;
 name|logState
@@ -487,7 +492,7 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * uses similar approach as {@link CircuitBreakerLoadBalancer}      * if the exchange has an exception that we are watching       * then we count that as a failure otherwise we ignore it      * @param exchange      * @return      */
+comment|/**      * uses similar approach as {@link CircuitBreakerLoadBalancer}      * if the exchange has an exception that we are watching       * then we count that as a failure otherwise we ignore it      */
 DECL|method|hasFailed (Exchange exchange)
 specifier|private
 name|boolean
@@ -523,13 +528,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"exception occured on route: checking to see if I handle that"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|throttledExceptions
@@ -671,7 +669,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"opening circuit..."
+literal|"Opening circuit..."
 argument_list|)
 expr_stmt|;
 name|openCircuit
@@ -701,7 +699,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"opening circuit..."
+literal|"Opening circuit..."
 argument_list|)
 expr_stmt|;
 name|openCircuit
@@ -716,7 +714,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"closing circuit..."
+literal|"Closing circuit..."
 argument_list|)
 expr_stmt|;
 name|closeCircuit
@@ -758,7 +756,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"checking an open circuit..."
+literal|"Checking an open circuit..."
 argument_list|)
 expr_stmt|;
 if|if
@@ -780,7 +778,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"closing circuit..."
+literal|"Closing circuit..."
 argument_list|)
 expr_stmt|;
 name|closeCircuit
@@ -795,7 +793,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"opening circuit..."
+literal|"Opening circuit..."
 argument_list|)
 expr_stmt|;
 name|openCircuit
@@ -811,7 +809,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"half opening circuit..."
+literal|"Half opening circuit..."
 argument_list|)
 expr_stmt|;
 name|halfOpenCircuit
@@ -1063,7 +1061,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * reset the route       */
 DECL|method|reset ()
 specifier|private
 name|void
@@ -1154,7 +1151,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"*** State %s, failures %d, last failure %d ms ago"
+literal|"State %s, failures %d, last failure %d ms ago"
 argument_list|,
 name|state
 argument_list|,
@@ -1179,7 +1176,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"*** State %s, failures %d"
+literal|"State %s, failures %d"
 argument_list|,
 name|state
 argument_list|,
