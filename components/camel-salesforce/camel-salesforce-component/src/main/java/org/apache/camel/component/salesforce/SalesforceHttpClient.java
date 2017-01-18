@@ -325,6 +325,12 @@ specifier|final
 name|Method
 name|addSecuirtyHandlerMethod
 decl_stmt|;
+DECL|field|getProtocolHandlersMethod
+specifier|private
+specifier|final
+name|Method
+name|getProtocolHandlersMethod
+decl_stmt|;
 DECL|method|SalesforceHttpClient ()
 specifier|public
 name|SalesforceHttpClient
@@ -455,6 +461,17 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+name|getProtocolHandlersMethod
+operator|=
+name|HttpClient
+operator|.
+name|class
+operator|.
+name|getMethod
+argument_list|(
+literal|"getProtocolHandlers"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -570,8 +587,12 @@ specifier|final
 name|Object
 name|protocolHandlers
 init|=
-name|getProtocolHandlers
-argument_list|()
+name|getProtocolHandlersMethod
+operator|.
+name|invoke
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 name|addSecuirtyHandlerMethod
 operator|.
