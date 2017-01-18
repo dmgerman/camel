@@ -57,12 +57,12 @@ block|{
 name|transformer
 argument_list|()
 operator|.
-name|from
+name|fromType
 argument_list|(
 literal|"xml:MyRequest"
 argument_list|)
 operator|.
-name|to
+name|toType
 argument_list|(
 literal|"xml:MyResponse"
 argument_list|)

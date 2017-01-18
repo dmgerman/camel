@@ -396,9 +396,7 @@ name|transformerBuilders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TransformerBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|routeCollection
@@ -631,7 +629,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Create a new Transformer.      *       * @return the builder      */
+comment|/**      * Create a new {@code TransformerBuilder}.      *       * @return the builder      */
 DECL|method|transformer ()
 specifier|public
 name|TransformerBuilder

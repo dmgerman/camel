@@ -40,6 +40,15 @@ specifier|public
 class|class
 name|DataType
 block|{
+DECL|field|JAVA_TYPE_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JAVA_TYPE_PREFIX
+init|=
+literal|"java"
+decl_stmt|;
 DECL|field|model
 specifier|private
 name|String
@@ -103,7 +112,7 @@ name|model
 operator|.
 name|equals
 argument_list|(
-literal|"java"
+name|JAVA_TYPE_PREFIX
 argument_list|)
 expr_stmt|;
 if|if
@@ -138,7 +147,7 @@ parameter_list|)
 block|{
 name|model
 operator|=
-literal|"java"
+name|JAVA_TYPE_PREFIX
 expr_stmt|;
 name|isJavaType
 operator|=
