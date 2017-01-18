@@ -91,9 +91,15 @@ end_import
 begin_class
 DECL|class|GitHelper
 specifier|public
+specifier|final
 class|class
 name|GitHelper
 block|{
+DECL|method|GitHelper ()
+specifier|private
+name|GitHelper
+parameter_list|()
+block|{     }
 DECL|method|findGitFolder ()
 specifier|public
 specifier|static

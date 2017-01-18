@@ -71,9 +71,15 @@ end_import
 begin_class
 DECL|class|FileHelper
 specifier|public
+specifier|final
 class|class
 name|FileHelper
 block|{
+DECL|method|FileHelper ()
+specifier|private
+name|FileHelper
+parameter_list|()
+block|{     }
 comment|/**      * Loads the entire stream into memory as a String and returns it.      *<p/>      *<b>Notice:</b> This implementation appends a<tt>\n</tt> as line      * terminator at the of the text.      *<p/>      * Warning, don't use for crazy big streams :)      */
 DECL|method|loadText (InputStream in)
 specifier|public
