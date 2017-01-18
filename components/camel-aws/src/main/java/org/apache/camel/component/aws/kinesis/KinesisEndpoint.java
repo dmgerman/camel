@@ -291,6 +291,10 @@ argument_list|,
 name|description
 operator|=
 literal|"Defines where in the Kinesis stream to start getting records"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"TRIM_HORIZON"
 argument_list|)
 DECL|field|iteratorType
 specifier|private
@@ -328,7 +332,7 @@ literal|"consumer"
 argument_list|,
 name|description
 operator|=
-literal|"The sequence number to start polling from"
+literal|"The sequence number to start polling from. Required if iteratorType is set to AFTER_SEQUENCE_NUMBER or AT_SEQUENCE_NUMBER"
 argument_list|)
 DECL|field|sequenceNumber
 specifier|private
