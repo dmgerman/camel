@@ -3089,6 +3089,23 @@ name|aggregationStrategy
 argument_list|()
 return|;
 block|}
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+DECL|method|strategy (AggregationStrategy aggregationStrategy)
+specifier|public
+name|AggregateDefinition
+name|strategy
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+return|return
+name|aggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
+return|;
+block|}
 comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
@@ -3301,6 +3318,25 @@ block|{
 return|return
 name|completionPredicate
 argument_list|()
+return|;
+block|}
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+DECL|method|completion (@sPredicate Predicate predicate)
+specifier|public
+name|AggregateDefinition
+name|completion
+parameter_list|(
+annotation|@
+name|AsPredicate
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+return|return
+name|completionPredicate
+argument_list|(
+name|predicate
+argument_list|)
 return|;
 block|}
 comment|/**      * Indicates to complete all current aggregated exchanges when the context is stopped      */

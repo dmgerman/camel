@@ -150,6 +150,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|AggregationStrategyClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ProcessClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|MulticastProcessor
@@ -523,6 +551,38 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+DECL|method|aggregationStrategy ()
+specifier|public
+name|AggregationStrategyClause
+argument_list|<
+name|MulticastDefinition
+argument_list|>
+name|aggregationStrategy
+parameter_list|()
+block|{
+name|AggregationStrategyClause
+argument_list|<
+name|MulticastDefinition
+argument_list|>
+name|clause
+init|=
+operator|new
+name|AggregationStrategyClause
+argument_list|<>
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|setAggregationStrategy
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
+return|;
+block|}
 comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy.      * If an exception is thrown from the aggregate method in the AggregationStrategy, then by default, that exception      * is not handled by the error handler. The error handler can be enabled to react if enabling the shareUnitOfWork option.      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
@@ -731,6 +791,38 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+DECL|method|onPrepare ()
+specifier|public
+name|ProcessClause
+argument_list|<
+name|MulticastDefinition
+argument_list|>
+name|onPrepare
+parameter_list|()
+block|{
+name|ProcessClause
+argument_list|<
+name|MulticastDefinition
+argument_list|>
+name|clause
+init|=
+operator|new
+name|ProcessClause
+argument_list|<>
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|setOnPrepare
+argument_list|(
+name|clause
+argument_list|)
+expr_stmt|;
+return|return
+name|clause
 return|;
 block|}
 comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */

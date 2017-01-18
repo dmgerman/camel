@@ -36,6 +36,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|activation
@@ -111,6 +123,21 @@ name|Object
 name|defaultValue
 parameter_list|)
 function_decl|;
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      */
+DECL|method|getHeader (String name, Supplier<Object> defaultValueSupplier)
+name|Object
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Supplier
+argument_list|<
+name|Object
+argument_list|>
+name|defaultValueSupplier
+parameter_list|)
+function_decl|;
 comment|/**      * Returns a header associated with this message by name and specifying the      * type required      *      * @param name the name of the header      * @param type the type of the header      * @return the value of the given header or<tt>null</tt> if there is no header for      *         the given name      * @throws TypeConversionException is thrown if error during type conversion      */
 DECL|method|getHeader (String name, Class<T> type)
 parameter_list|<
@@ -142,6 +169,30 @@ name|name
 parameter_list|,
 name|Object
 name|defaultValue
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      */
+DECL|method|getHeader (String name, Supplier<Object> defaultValueSupplier, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Supplier
+argument_list|<
+name|Object
+argument_list|>
+name|defaultValueSupplier
 parameter_list|,
 name|Class
 argument_list|<

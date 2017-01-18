@@ -710,12 +710,6 @@ name|String
 argument_list|>
 name|idempotentRepository
 init|=
-operator|(
-name|IdempotentRepository
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|resolveMessageIdRepository
 argument_list|(
 name|routeContext
@@ -810,11 +804,19 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Strategy method to resolve the {@link org.apache.camel.spi.IdempotentRepository} to use      *      * @param routeContext route context      * @return the repository      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|resolveMessageIdRepository (RouteContext routeContext)
 specifier|protected
+parameter_list|<
+name|T
+parameter_list|>
 name|IdempotentRepository
 argument_list|<
-name|?
+name|T
 argument_list|>
 name|resolveMessageIdRepository
 parameter_list|(
@@ -844,6 +846,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+operator|(
+name|IdempotentRepository
+argument_list|<
+name|T
+argument_list|>
+operator|)
 name|idempotentRepository
 return|;
 block|}
