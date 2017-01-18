@@ -138,6 +138,15 @@ name|DEFAULT_VALUE_ATTRIBUTE_NAME
 init|=
 literal|"defaultValue"
 decl_stmt|;
+DECL|field|DEPRECATED_ATTRIBUTE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEPRECATED_ATTRIBUTE_NAME
+init|=
+literal|"deprecated"
+decl_stmt|;
 DECL|field|MODEL_ATTRIBUTE_NAME
 specifier|public
 specifier|static

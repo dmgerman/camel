@@ -507,6 +507,11 @@ name|defaultValueText
 init|=
 literal|null
 decl_stmt|;
+name|String
+name|deprecatedText
+init|=
+literal|null
+decl_stmt|;
 name|List
 argument_list|<
 name|Map
@@ -588,6 +593,17 @@ operator|.
 name|DEFAULT_VALUE_ATTRIBUTE_NAME
 argument_list|)
 expr_stmt|;
+name|deprecatedText
+operator|=
+name|row
+operator|.
+name|get
+argument_list|(
+name|Constants
+operator|.
+name|DEPRECATED_ATTRIBUTE_NAME
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// special as this option is only in camel-blueprint
@@ -610,6 +626,23 @@ expr_stmt|;
 name|defaultValueText
 operator|=
 literal|"true"
+expr_stmt|;
+block|}
+if|if
+condition|(
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|deprecatedText
+argument_list|)
+condition|)
+block|{
+name|descriptionText
+operator|=
+literal|"Deprecated: "
+operator|+
+name|descriptionText
 expr_stmt|;
 block|}
 if|if
