@@ -456,7 +456,39 @@ name|catalog
 operator|.
 name|JSonSchemaHelper
 operator|.
+name|isComponentConsumerOnly
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|JSonSchemaHelper
+operator|.
 name|isComponentLenientProperties
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|JSonSchemaHelper
+operator|.
+name|isComponentProducerOnly
 import|;
 end_import
 
@@ -6091,12 +6123,40 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// is the component capable of both consumer and producer?
+name|boolean
+name|canConsumeAndProduce
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|isComponentConsumerOnly
+argument_list|(
+name|rows
+argument_list|)
+operator|&&
+operator|!
+name|isComponentProducerOnly
+argument_list|(
+name|rows
+argument_list|)
+condition|)
+block|{
+name|canConsumeAndProduce
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|canConsumeAndProduce
+operator|&&
 name|consumerOnly
 condition|)
 block|{
-comment|// lenient properties is not support in consumer only mode
+comment|// lenient properties is not support in consumer only mode if the component can do both of them
 name|lenientProperties
 operator|=
 literal|false
