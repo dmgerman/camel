@@ -285,7 +285,7 @@ name|from
 argument_list|(
 name|PRODUCER_URI
 operator|+
-literal|"?listOnJoin=true&onReply=true"
+literal|"?namesOnJoin=true&onReply=true"
 argument_list|)
 operator|.
 name|choice
