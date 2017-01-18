@@ -2023,7 +2023,7 @@ literal|"[scp] Return Code ["
 operator|+
 name|answer
 operator|+
-literal|"]"
+literal|"] "
 operator|+
 name|readLine
 argument_list|(
