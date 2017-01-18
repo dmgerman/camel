@@ -1175,6 +1175,8 @@ init|=
 block|{
 comment|/* Non-standard -> */
 literal|"camel-grape"
+block|,
+literal|"camel-connector"
 block|}
 decl_stmt|;
 comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
