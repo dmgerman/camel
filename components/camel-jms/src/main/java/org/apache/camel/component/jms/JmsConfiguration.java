@@ -2274,6 +2274,26 @@ specifier|private
 name|MessageCreatedStrategy
 name|messageCreatedStrategy
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"When using InOut exchange pattern use this JMS property instead of JMSCorrelationID"
+operator|+
+literal|" JMS property to correlate messages. If set messages will be correlated solely on the"
+operator|+
+literal|" value of this property JMSCorrelationID property will be ignored and not set by Camel."
+argument_list|)
+DECL|field|correlationProperty
+specifier|private
+name|String
+name|correlationProperty
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -7003,6 +7023,34 @@ name|selector
 operator|=
 name|selector
 expr_stmt|;
+block|}
+comment|/**      * Use this JMS property to correlate messages in InOut exchange pattern (request-reply)      * instead of JMSCorrelationID property. This allows you to exchange messages with       * systems that do not correlate messages using JMSCorrelationID JMS property. If used      * JMSCorrelationID will not be used or set by Camel. The value of here named property      * will be generated if not supplied in the header of the message under the same name.      */
+DECL|method|setCorrelationProperty (final String correlationProperty)
+specifier|public
+name|void
+name|setCorrelationProperty
+parameter_list|(
+specifier|final
+name|String
+name|correlationProperty
+parameter_list|)
+block|{
+name|this
+operator|.
+name|correlationProperty
+operator|=
+name|correlationProperty
+expr_stmt|;
+block|}
+DECL|method|getCorrelationProperty ()
+specifier|public
+name|String
+name|getCorrelationProperty
+parameter_list|()
+block|{
+return|return
+name|correlationProperty
+return|;
 block|}
 block|}
 end_class

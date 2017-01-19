@@ -176,6 +176,15 @@ name|ExecutorService
 name|executorService
 parameter_list|)
 function_decl|;
+comment|/**      * Sets the JMS message property used for message correlation. If set message correlation will be performed on the      * value of this JMS property, JMSCorrelationID will be ignored.      */
+DECL|method|setCorrelationProperty (String correlationProperty)
+name|void
+name|setCorrelationProperty
+parameter_list|(
+name|String
+name|correlationProperty
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the reply to queue being used      */
 DECL|method|getReplyTo ()
 name|Destination

@@ -395,6 +395,11 @@ specifier|protected
 name|CorrelationTimeoutMap
 name|correlation
 decl_stmt|;
+DECL|field|correlationProperty
+specifier|protected
+name|String
+name|correlationProperty
+decl_stmt|;
 DECL|method|ReplyManagerSupport (CamelContext camelContext)
 specifier|public
 name|ReplyManagerSupport
@@ -487,6 +492,25 @@ name|replyToLatch
 operator|.
 name|countDown
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setCorrelationProperty (final String correlationProperty)
+specifier|public
+name|void
+name|setCorrelationProperty
+parameter_list|(
+specifier|final
+name|String
+name|correlationProperty
+parameter_list|)
+block|{
+name|this
+operator|.
+name|correlationProperty
+operator|=
+name|correlationProperty
 expr_stmt|;
 block|}
 DECL|method|getReplyTo ()
@@ -705,6 +729,13 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|correlationProperty
+operator|==
+literal|null
+condition|)
+block|{
 name|correlationID
 operator|=
 name|message
@@ -712,6 +743,19 @@ operator|.
 name|getJMSCorrelationID
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|correlationID
+operator|=
+name|message
+operator|.
+name|getStringProperty
+argument_list|(
+name|correlationProperty
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
