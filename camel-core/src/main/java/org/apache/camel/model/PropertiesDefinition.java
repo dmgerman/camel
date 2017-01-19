@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A series of key value pair  */
+comment|/**  * A series of key value pair  *  * @deprecated Use {@link GlobalOptionsDefinition} instead.  */
 end_comment
 
 begin_class
@@ -142,6 +142,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|PropertiesDefinition
 specifier|public
 class|class

@@ -80,6 +80,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -87,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A key value pair  *  * @deprecated Use {@link GlobalOptionDefinition} instead.  */
+comment|/**  * Models a string key/value pair for configuring some global options on  * {@link CamelContext} such as {@link Exchange#LOG_DEBUG_BODY_MAX_CHARS}.  */
 end_comment
 
 begin_class
@@ -103,7 +127,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"property"
+literal|"globalOption"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -112,12 +136,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-annotation|@
-name|Deprecated
-DECL|class|PropertyDefinition
+DECL|class|GlobalOptionDefinition
 specifier|public
 class|class
-name|PropertyDefinition
+name|GlobalOptionDefinition
 block|{
 annotation|@
 name|XmlAttribute
@@ -141,12 +163,11 @@ DECL|field|value
 name|String
 name|value
 decl_stmt|;
-DECL|method|PropertyDefinition ()
+DECL|method|GlobalOptionDefinition ()
 specifier|public
-name|PropertyDefinition
+name|GlobalOptionDefinition
 parameter_list|()
 block|{     }
-comment|/**      * Property key      */
 DECL|method|setKey (String key)
 specifier|public
 name|void
@@ -173,7 +194,6 @@ return|return
 name|key
 return|;
 block|}
-comment|/**      * Property value      */
 DECL|method|setValue (String value)
 specifier|public
 name|void
