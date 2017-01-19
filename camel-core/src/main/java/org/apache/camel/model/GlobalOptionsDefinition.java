@@ -110,30 +110,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Metadata
@@ -141,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Models a series of string key/value pairs for configuring some global options  * on {@link CamelContext} such as {@link Exchange#LOG_DEBUG_BODY_MAX_CHARS}.  */
+comment|/**  * Models a series of string key/value pairs for configuring some global options  * on a Camel context such as max debug log length.  */
 end_comment
 
 begin_class
