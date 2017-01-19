@@ -50,12 +50,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"foo:wine?period=3000"
+literal|"foo:wine?period=2000"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"wine:Wine?amount=3"
+literal|"wine:Wine?amount=2"
 argument_list|)
 operator|.
 name|log
