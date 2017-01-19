@@ -151,6 +151,12 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"createAndRunInstances, startInstances, stopInstances, terminateInstances, describeInstances, "
+operator|+
+literal|"describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances, createTags, deleteTags"
 argument_list|)
 annotation|@
 name|Metadata
