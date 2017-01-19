@@ -944,6 +944,12 @@ name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 init|=
 literal|100L
 decl_stmt|;
+comment|/**      * Use this JMS property to correlate messages in InOut exchange pattern      * (request-reply) instead of JMSCorrelationID property. This allows you to      * exchange messages with systems that do not correlate messages using      * JMSCorrelationID JMS property. If used JMSCorrelationID will not be used      * or set by Camel. The value of here named property will be generated if      * not supplied in the header of the message under the same name.      */
+DECL|field|correlationProperty
+specifier|private
+name|String
+name|correlationProperty
+decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -2854,6 +2860,32 @@ operator|.
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 operator|=
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+expr_stmt|;
+block|}
+DECL|method|getCorrelationProperty ()
+specifier|public
+name|String
+name|getCorrelationProperty
+parameter_list|()
+block|{
+return|return
+name|correlationProperty
+return|;
+block|}
+DECL|method|setCorrelationProperty (String correlationProperty)
+specifier|public
+name|void
+name|setCorrelationProperty
+parameter_list|(
+name|String
+name|correlationProperty
+parameter_list|)
+block|{
+name|this
+operator|.
+name|correlationProperty
+operator|=
+name|correlationProperty
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
