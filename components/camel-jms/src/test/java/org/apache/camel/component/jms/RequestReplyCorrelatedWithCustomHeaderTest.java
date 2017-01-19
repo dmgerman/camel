@@ -229,7 +229,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"activemq:queue:request?correlationProperty=CustomCorrelation"
+literal|"activemq:queue:request"
 argument_list|,
 literal|"Bobby"
 argument_list|,
@@ -267,7 +267,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"activemq:queue:request?correlationProperty=CustomCorrelation"
+literal|"activemq:queue:request"
 argument_list|,
 literal|"Bobby"
 argument_list|,
@@ -323,6 +323,16 @@ argument_list|(
 name|connectionFactory
 argument_list|)
 decl_stmt|;
+name|activeMq
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCorrelationProperty
+argument_list|(
+literal|"CustomCorrelation"
+argument_list|)
+expr_stmt|;
 name|camelContext
 operator|.
 name|addComponent

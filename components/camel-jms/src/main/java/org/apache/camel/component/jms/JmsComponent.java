@@ -3513,6 +3513,45 @@ name|sleepingTime
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Use this JMS property to correlate messages in InOut exchange pattern (request-reply)      * instead of JMSCorrelationID property. This allows you to exchange messages with       * systems that do not correlate messages using JMSCorrelationID JMS property. If used      * JMSCorrelationID will not be used or set by Camel. The value of here named property      * will be generated if not supplied in the header of the message under the same name.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Use this JMS property to correlate messages in InOut exchange pattern (request-reply)"
+operator|+
+literal|" instead of JMSCorrelationID property. This allows you to exchange messages with"
+operator|+
+literal|" systems that do not correlate messages using JMSCorrelationID JMS property. If used"
+operator|+
+literal|" JMSCorrelationID will not be used or set by Camel. The value of here named property"
+operator|+
+literal|" will be generated if not supplied in the header of the message under the same name."
+argument_list|)
+DECL|method|setCorrelationProperty (final String correlationProperty)
+specifier|public
+name|void
+name|setCorrelationProperty
+parameter_list|(
+specifier|final
+name|String
+name|correlationProperty
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCorrelationProperty
+argument_list|(
+name|correlationProperty
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@
