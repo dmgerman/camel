@@ -251,7 +251,7 @@ name|equals
 argument_list|(
 name|def
 operator|.
-name|getTo
+name|getToType
 argument_list|()
 argument_list|)
 return|;
@@ -273,7 +273,7 @@ name|equals
 argument_list|(
 name|def
 operator|.
-name|getFrom
+name|getFromType
 argument_list|()
 argument_list|)
 return|;
@@ -288,7 +288,7 @@ name|equals
 argument_list|(
 name|def
 operator|.
-name|getFrom
+name|getFromType
 argument_list|()
 argument_list|)
 operator|&&
@@ -301,7 +301,7 @@ name|equals
 argument_list|(
 name|def
 operator|.
-name|getTo
+name|getToType
 argument_list|()
 argument_list|)
 return|;

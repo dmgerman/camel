@@ -289,13 +289,13 @@ argument_list|)
 operator|.
 name|setFrom
 argument_list|(
-name|getFrom
+name|getFromType
 argument_list|()
 argument_list|)
 operator|.
 name|setTo
 argument_list|(
-name|getTo
+name|getToType
 argument_list|()
 argument_list|)
 return|;

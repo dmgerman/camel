@@ -124,6 +124,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|DataType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -183,17 +197,17 @@ name|scheme
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|from
+DECL|field|fromType
 specifier|private
 name|String
-name|from
+name|fromType
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|to
+DECL|field|toType
 specifier|private
 name|String
-name|to
+name|toType
 decl_stmt|;
 DECL|method|createTransformer (CamelContext context)
 specifier|public
@@ -236,7 +250,7 @@ return|return
 name|scheme
 return|;
 block|}
-comment|/**      * Set a scheme name supported by the transformer.      *      * @param scheme scheme name      */
+comment|/**      * Set a scheme name supported by the transformer.      * If you specify 'csv', the transformer will be picked up for all of 'csv' from/to      * Java transformation. Note that the scheme matching is performed only when      * no exactly matched transformer exists.      *      * @param scheme scheme name      */
 DECL|method|setScheme (String scheme)
 specifier|public
 name|void
@@ -253,21 +267,21 @@ operator|=
 name|scheme
 expr_stmt|;
 block|}
-DECL|method|getFrom ()
+DECL|method|getFromType ()
 specifier|public
 name|String
-name|getFrom
+name|getFromType
 parameter_list|()
 block|{
 return|return
-name|from
+name|fromType
 return|;
 block|}
-comment|/**      * Set the 'from' data type .      *      * @param from 'from' data type      */
-DECL|method|setFrom (String from)
+comment|/**      * Set the 'from' data type name.      * If you specify 'xml:XYZ', the transformer will be picked up if source type is      * 'xml:XYZ'. If you specify just 'xml', the transformer matches with all of      * 'xml' source type like 'xml:ABC' or 'xml:DEF'.      *       * @param from 'from' data type name      */
+DECL|method|setFromType (String from)
 specifier|public
 name|void
-name|setFrom
+name|setFromType
 parameter_list|(
 name|String
 name|from
@@ -275,16 +289,16 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|from
+name|fromType
 operator|=
 name|from
 expr_stmt|;
 block|}
 comment|/**      * Set the 'from' data type using Java class.      *      * @param clazz 'from' Java class      */
-DECL|method|setFrom (Class<?> clazz)
+DECL|method|setFromType (Class<?> clazz)
 specifier|public
 name|void
-name|setFrom
+name|setFromType
 parameter_list|(
 name|Class
 argument_list|<
@@ -295,31 +309,33 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|from
+name|fromType
 operator|=
-literal|"java:"
-operator|+
+operator|new
+name|DataType
+argument_list|(
 name|clazz
+argument_list|)
 operator|.
-name|getName
+name|toString
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getTo ()
+DECL|method|getToType ()
 specifier|public
 name|String
-name|getTo
+name|getToType
 parameter_list|()
 block|{
 return|return
-name|to
+name|toType
 return|;
 block|}
-comment|/**      * Set the 'to' data type.      *      * @param to 'to' data type       */
-DECL|method|setTo (String to)
+comment|/**      * Set the 'to' data type name.      * If you specify 'json:XYZ', the transformer will be picked up if destination type is      * 'json:XYZ'. If you specify just 'json', the transformer matches with all of      * 'json' destination type like 'json:ABC' or 'json:DEF'.      *      * @param to 'to' data type name      */
+DECL|method|setToType (String to)
 specifier|public
 name|void
-name|setTo
+name|setToType
 parameter_list|(
 name|String
 name|to
@@ -327,16 +343,16 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|to
+name|toType
 operator|=
 name|to
 expr_stmt|;
 block|}
 comment|/**      * Set the 'to' data type using Java class.      *      * @param clazz 'to' Java class      */
-DECL|method|setTo (Class<?> clazz)
+DECL|method|setToType (Class<?> clazz)
 specifier|public
 name|void
-name|setTo
+name|setToType
 parameter_list|(
 name|Class
 argument_list|<
@@ -347,13 +363,15 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|to
+name|toType
 operator|=
-literal|"java:"
-operator|+
+operator|new
+name|DataType
+argument_list|(
 name|clazz
+argument_list|)
 operator|.
-name|getName
+name|toString
 argument_list|()
 expr_stmt|;
 block|}

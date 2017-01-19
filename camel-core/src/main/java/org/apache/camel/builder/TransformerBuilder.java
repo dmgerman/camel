@@ -584,14 +584,14 @@ else|else
 block|{
 name|transformer
 operator|.
-name|setFrom
+name|setFromType
 argument_list|(
 name|from
 argument_list|)
 expr_stmt|;
 name|transformer
 operator|.
-name|setTo
+name|setToType
 argument_list|(
 name|to
 argument_list|)

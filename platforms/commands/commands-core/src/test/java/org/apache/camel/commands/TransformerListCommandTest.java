@@ -553,14 +553,14 @@ argument_list|()
 decl_stmt|;
 name|etd
 operator|.
-name|setFrom
+name|setFromType
 argument_list|(
 literal|"xml:foo"
 argument_list|)
 expr_stmt|;
 name|etd
 operator|.
-name|setTo
+name|setToType
 argument_list|(
 literal|"json:bar"
 argument_list|)
@@ -608,7 +608,7 @@ argument_list|()
 decl_stmt|;
 name|dftd
 operator|.
-name|setFrom
+name|setFromType
 argument_list|(
 name|this
 operator|.
@@ -618,7 +618,7 @@ argument_list|)
 expr_stmt|;
 name|dftd
 operator|.
-name|setTo
+name|setToType
 argument_list|(
 literal|"xml:test"
 argument_list|)
