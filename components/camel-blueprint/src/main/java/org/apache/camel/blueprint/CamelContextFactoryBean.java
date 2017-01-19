@@ -414,6 +414,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|GlobalOptionsDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|HystrixConfigurationDefinition
 import|;
 end_import
@@ -965,6 +979,8 @@ name|LoggingLevel
 name|typeConverterExistsLoggingLevel
 decl_stmt|;
 annotation|@
+name|Deprecated
+annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -975,6 +991,18 @@ DECL|field|properties
 specifier|private
 name|PropertiesDefinition
 name|properties
+decl_stmt|;
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"globalOptions"
+argument_list|)
+DECL|field|globalOptions
+specifier|private
+name|GlobalOptionsDefinition
+name|globalOptions
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -3064,6 +3092,8 @@ operator|=
 name|errorHandlerRef
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getProperties ()
 specifier|public
 name|PropertiesDefinition
@@ -3074,6 +3104,20 @@ return|return
 name|properties
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getGlobalOptions ()
+specifier|public
+name|GlobalOptionsDefinition
+name|getGlobalOptions
+parameter_list|()
+block|{
+return|return
+name|globalOptions
+return|;
+block|}
+annotation|@
+name|Deprecated
 DECL|method|setProperties (PropertiesDefinition properties)
 specifier|public
 name|void
@@ -3088,6 +3132,22 @@ operator|.
 name|properties
 operator|=
 name|properties
+expr_stmt|;
+block|}
+DECL|method|setGlobalOptions (GlobalOptionsDefinition globalOptions)
+specifier|public
+name|void
+name|setGlobalOptions
+parameter_list|(
+name|GlobalOptionsDefinition
+name|globalOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|globalOptions
+operator|=
+name|globalOptions
 expr_stmt|;
 block|}
 DECL|method|getPackages ()

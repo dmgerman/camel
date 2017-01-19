@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -443,6 +453,20 @@ operator|.
 name|model
 operator|.
 name|FromDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|GlobalOptionsDefinition
 import|;
 end_import
 
@@ -1485,6 +1509,19 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// then set custom properties
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|mergedOptions
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|getProperties
@@ -1493,10 +1530,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|getContext
-argument_list|()
+name|mergedOptions
 operator|.
-name|setGlobalOptions
+name|putAll
 argument_list|(
 name|getProperties
 argument_list|()
@@ -1506,6 +1542,34 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|getGlobalOptions
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|mergedOptions
+operator|.
+name|putAll
+argument_list|(
+name|getGlobalOptions
+argument_list|()
+operator|.
+name|asMap
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|getContext
+argument_list|()
+operator|.
+name|setGlobalOptions
+argument_list|(
+name|mergedOptions
+argument_list|)
+expr_stmt|;
 comment|// and enable lazy loading of type converters if applicable
 name|initLazyLoadTypeConverters
 argument_list|()
@@ -4843,11 +4907,20 @@ argument_list|>
 name|getInterceptSendToEndpoints
 parameter_list|()
 function_decl|;
+annotation|@
+name|Deprecated
 DECL|method|getProperties ()
 specifier|public
 specifier|abstract
 name|PropertiesDefinition
 name|getProperties
+parameter_list|()
+function_decl|;
+DECL|method|getGlobalOptions ()
+specifier|public
+specifier|abstract
+name|GlobalOptionsDefinition
+name|getGlobalOptions
 parameter_list|()
 function_decl|;
 DECL|method|getPackages ()
