@@ -50,7 +50,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"foo:wine?period=2000"
+literal|"foo:ThirstyBear?period=2000"
 argument_list|)
 operator|.
 name|to
@@ -60,22 +60,22 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Wine ordered ${body}"
+literal|"ThirstyBear ordered ${body}"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"foo:bar?period=5000"
+literal|"foo:Moes?period=5000"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"bar:GinTonic?amount=5"
+literal|"bar:Beer?amount=5&celebrity=true"
 argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Bar ordered ${body}"
+literal|"Moes ordered ${body}"
 argument_list|)
 expr_stmt|;
 block|}

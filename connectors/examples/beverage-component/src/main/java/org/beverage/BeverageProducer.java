@@ -70,13 +70,19 @@ specifier|final
 name|int
 name|amount
 decl_stmt|;
+DECL|field|celebrity
+specifier|private
+specifier|final
+name|boolean
+name|celebrity
+decl_stmt|;
 DECL|field|total
 specifier|private
 specifier|transient
 name|int
 name|total
 decl_stmt|;
-DECL|method|BeverageProducer (Endpoint endpoint, Beverages drink, int amount)
+DECL|method|BeverageProducer (Endpoint endpoint, Beverages drink, int amount, boolean celebrity)
 specifier|public
 name|BeverageProducer
 parameter_list|(
@@ -88,6 +94,9 @@ name|drink
 parameter_list|,
 name|int
 name|amount
+parameter_list|,
+name|boolean
+name|celebrity
 parameter_list|)
 block|{
 name|super
@@ -106,6 +115,12 @@ operator|.
 name|amount
 operator|=
 name|amount
+expr_stmt|;
+name|this
+operator|.
+name|celebrity
+operator|=
+name|celebrity
 expr_stmt|;
 block|}
 annotation|@
@@ -132,7 +147,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Total "
+literal|"total "
 operator|+
 name|total
 operator|+
@@ -147,6 +162,14 @@ name|toLowerCase
 argument_list|()
 operator|+
 literal|" ordered"
+operator|+
+operator|(
+name|celebrity
+condition|?
+literal|" from famous person"
+else|:
+literal|""
+operator|)
 argument_list|)
 expr_stmt|;
 block|}

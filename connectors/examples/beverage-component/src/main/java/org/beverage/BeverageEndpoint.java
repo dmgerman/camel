@@ -189,6 +189,13 @@ name|amount
 init|=
 literal|1
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|celebrity
+specifier|private
+name|boolean
+name|celebrity
+decl_stmt|;
 DECL|method|BeverageEndpoint (String endpointUri, Component component)
 specifier|public
 name|BeverageEndpoint
@@ -227,6 +234,8 @@ argument_list|,
 name|drink
 argument_list|,
 name|amount
+argument_list|,
+name|celebrity
 argument_list|)
 return|;
 block|}
@@ -313,6 +322,33 @@ operator|.
 name|amount
 operator|=
 name|amount
+expr_stmt|;
+block|}
+DECL|method|isCelebrity ()
+specifier|public
+name|boolean
+name|isCelebrity
+parameter_list|()
+block|{
+return|return
+name|celebrity
+return|;
+block|}
+comment|/**      * Is this a famous person ordering      */
+DECL|method|setCelebrity (boolean celebrity)
+specifier|public
+name|void
+name|setCelebrity
+parameter_list|(
+name|boolean
+name|celebrity
+parameter_list|)
+block|{
+name|this
+operator|.
+name|celebrity
+operator|=
+name|celebrity
 expr_stmt|;
 block|}
 block|}
