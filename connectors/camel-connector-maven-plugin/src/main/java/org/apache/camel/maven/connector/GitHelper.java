@@ -88,6 +88,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Utility methods for git.  */
+end_comment
+
 begin_class
 DECL|class|GitHelper
 specifier|public
@@ -100,6 +104,7 @@ specifier|private
 name|GitHelper
 parameter_list|()
 block|{     }
+comment|/**      * Finds the folder where<tt>.git</tt> is located in the project      */
 DECL|method|findGitFolder ()
 specifier|public
 specifier|static

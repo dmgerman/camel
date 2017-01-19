@@ -103,6 +103,10 @@ name|Pattern
 import|;
 end_import
 
+begin_comment
+comment|/**  * Basic JSon parser to read the Camel component JSon schema files.  */
+end_comment
+
 begin_class
 DECL|class|JSonSchemaHelper
 DECL|class|JSonSchemaHelper
