@@ -298,6 +298,33 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Test
+DECL|method|createEndpointWithoutSecretKeyAndAccessKeyConfiguration ()
+specifier|public
+name|void
+name|createEndpointWithoutSecretKeyAndAccessKeyConfiguration
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CwComponent
+name|component
+init|=
+operator|new
+name|CwComponent
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
+name|component
+operator|.
+name|createEndpoint
+argument_list|(
+literal|"aws-cw://camel.apache.org/test?amazonCwClient=#amazonCwClient&accessKey=xxx"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|createRegistry ()
 specifier|protected
