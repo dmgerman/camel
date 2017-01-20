@@ -661,7 +661,7 @@ literal|"State closed, failures 1, last failure"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// the route has no failures
+comment|// the route has 1 failure
 name|val
 operator|=
 name|proxy
@@ -679,7 +679,7 @@ name|intValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the route has no failures
+comment|// the route has 1 failure X mills ago
 name|lastFail
 operator|=
 name|proxy
@@ -801,6 +801,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// need to sleep a little to cause last failure to be slow
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
