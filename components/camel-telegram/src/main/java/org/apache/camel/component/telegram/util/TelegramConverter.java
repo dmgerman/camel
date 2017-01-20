@@ -810,16 +810,6 @@ operator|.
 name|TELEGRAM_MEDIA_TITLE_CAPTION
 argument_list|)
 decl_stmt|;
-name|String
-name|fileName
-init|=
-literal|"file."
-operator|+
-name|type
-operator|.
-name|getFileExtension
-argument_list|()
-decl_stmt|;
 name|document
 operator|.
 name|setCaption
@@ -831,7 +821,7 @@ name|document
 operator|.
 name|setFilenameWithExtension
 argument_list|(
-name|fileName
+literal|"file"
 argument_list|)
 expr_stmt|;
 name|document
