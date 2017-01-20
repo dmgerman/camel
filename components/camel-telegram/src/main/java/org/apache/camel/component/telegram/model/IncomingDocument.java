@@ -265,7 +265,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"IncomingAudio{"
+literal|"IncomingDocument{"
 argument_list|)
 decl_stmt|;
 name|sb

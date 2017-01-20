@@ -148,7 +148,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"OutgoingVideoMessage{"
+literal|"OutgoingDocumentMessage{"
 argument_list|)
 decl_stmt|;
 name|sb
