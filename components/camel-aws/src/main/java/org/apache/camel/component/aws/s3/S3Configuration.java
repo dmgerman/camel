@@ -311,6 +311,24 @@ specifier|private
 name|S3Operations
 name|operation
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|autocloseBody
+specifier|private
+name|boolean
+name|autocloseBody
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|long
@@ -850,6 +868,33 @@ operator|.
 name|operation
 operator|=
 name|operation
+expr_stmt|;
+block|}
+DECL|method|isAutocloseBody ()
+specifier|public
+name|boolean
+name|isAutocloseBody
+parameter_list|()
+block|{
+return|return
+name|autocloseBody
+return|;
+block|}
+comment|/**      * If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion      */
+DECL|method|setAutocloseBody (boolean autocloseBody)
+specifier|public
+name|void
+name|setAutocloseBody
+parameter_list|(
+name|boolean
+name|autocloseBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autocloseBody
+operator|=
+name|autocloseBody
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
