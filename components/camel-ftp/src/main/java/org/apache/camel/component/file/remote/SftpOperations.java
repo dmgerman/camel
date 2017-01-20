@@ -1726,7 +1726,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using knownhosts uri: {}"
+literal|"Using known hosts uri: {}"
 argument_list|,
 name|sftpConfig
 operator|.
@@ -1798,7 +1798,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using knownhosts information from byte array"
+literal|"Using known hosts information from byte array"
 argument_list|)
 expr_stmt|;
 name|jsch
@@ -1857,22 +1857,33 @@ name|knownHostsFile
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|knownHostsFile
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using known hosts information from file: {}"
+argument_list|,
+name|knownHostsFile
+argument_list|)
+expr_stmt|;
 name|jsch
 operator|.
 name|setKnownHosts
 argument_list|(
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
-name|knownHostsFile
-argument_list|)
-condition|?
-literal|null
-else|:
 name|knownHostsFile
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Session
 name|session
