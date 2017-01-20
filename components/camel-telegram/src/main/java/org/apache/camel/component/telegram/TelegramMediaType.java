@@ -33,6 +33,7 @@ DECL|enumConstant|PHOTO_PNG
 DECL|enumConstant|PHOTO_JPG
 DECL|enumConstant|AUDIO
 DECL|enumConstant|VIDEO
+DECL|enumConstant|DOCUMENT
 name|TEXT
 argument_list|(
 literal|"txt"
@@ -56,6 +57,11 @@ block|,
 name|VIDEO
 argument_list|(
 literal|"mp4"
+argument_list|)
+block|,
+name|DOCUMENT
+argument_list|(
+literal|"-"
 argument_list|)
 block|;
 DECL|field|fileExtension

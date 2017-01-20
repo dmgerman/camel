@@ -180,6 +180,11 @@ specifier|private
 name|IncomingAudio
 name|audio
 decl_stmt|;
+DECL|field|document
+specifier|private
+name|IncomingDocument
+name|document
+decl_stmt|;
 DECL|method|IncomingMessage ()
 specifier|public
 name|IncomingMessage
@@ -399,6 +404,32 @@ operator|=
 name|audio
 expr_stmt|;
 block|}
+DECL|method|getDocument ()
+specifier|public
+name|IncomingDocument
+name|getDocument
+parameter_list|()
+block|{
+return|return
+name|document
+return|;
+block|}
+DECL|method|setDocument (IncomingDocument document)
+specifier|public
+name|void
+name|setDocument
+parameter_list|(
+name|IncomingDocument
+name|document
+parameter_list|)
+block|{
+name|this
+operator|.
+name|document
+operator|=
+name|document
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -516,6 +547,18 @@ operator|.
 name|append
 argument_list|(
 name|audio
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", document="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|document
 argument_list|)
 expr_stmt|;
 name|sb
