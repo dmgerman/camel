@@ -89,7 +89,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Total 2 of wine ordered"
+literal|"total 2 of wine ordered"
 argument_list|)
 expr_stmt|;
 name|template
