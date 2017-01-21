@@ -135,14 +135,14 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"the properties should not been null"
+literal|"The global options reference should not be null"
 argument_list|,
 name|globalOptions
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"No properties injected"
+literal|"No global options injected"
 argument_list|,
 name|globalOptions
 operator|.
