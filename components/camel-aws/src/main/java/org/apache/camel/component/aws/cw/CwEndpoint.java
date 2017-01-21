@@ -533,7 +533,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|(
 name|configuration
 operator|.
 name|getAccessKey
@@ -547,7 +546,6 @@ name|getSecretKey
 argument_list|()
 operator|!=
 literal|null
-operator|)
 condition|)
 block|{
 name|AWSCredentials
