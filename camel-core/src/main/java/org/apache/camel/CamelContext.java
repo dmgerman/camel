@@ -2199,21 +2199,21 @@ name|getGlobalOptions
 parameter_list|()
 function_decl|;
 comment|/**      * @deprecated use {@link #getGlobalOption(String)} instead.      */
-DECL|method|getProperty (String name)
+DECL|method|getProperty (String key)
 name|String
 name|getProperty
 parameter_list|(
 name|String
-name|name
+name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the global option value that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global options on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return the string value of the global option      */
-DECL|method|getGlobalOption (String name)
+DECL|method|getGlobalOption (String key)
 name|String
 name|getGlobalOption
 parameter_list|(
 name|String
-name|name
+name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the default FactoryFinder which will be used for the loading the factory class from META-INF      *      * @return the default factory finder      */

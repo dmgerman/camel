@@ -22622,31 +22622,31 @@ annotation|@
 name|Deprecated
 annotation|@
 name|Override
-DECL|method|getProperty (String name)
+DECL|method|getProperty (String key)
 specifier|public
 name|String
 name|getProperty
 parameter_list|(
 name|String
-name|name
+name|key
 parameter_list|)
 block|{
 return|return
 name|getGlobalOption
 argument_list|(
-name|name
+name|key
 argument_list|)
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getGlobalOption (String name)
+DECL|method|getGlobalOption (String key)
 specifier|public
 name|String
 name|getGlobalOption
 parameter_list|(
 name|String
-name|name
+name|key
 parameter_list|)
 block|{
 name|String
@@ -22657,7 +22657,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|name
+name|key
 argument_list|)
 decl_stmt|;
 if|if
@@ -22692,7 +22692,7 @@ name|RuntimeCamelException
 argument_list|(
 literal|"Error getting global option: "
 operator|+
-name|name
+name|key
 argument_list|,
 name|e
 argument_list|)

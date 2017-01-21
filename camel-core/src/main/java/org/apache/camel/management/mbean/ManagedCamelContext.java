@@ -967,6 +967,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getProperties ()
 specifier|public
 name|Map
@@ -976,6 +978,24 @@ argument_list|,
 name|String
 argument_list|>
 name|getProperties
+parameter_list|()
+block|{
+return|return
+name|getGlobalOptions
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getGlobalOptions ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getGlobalOptions
 parameter_list|()
 block|{
 if|if
@@ -1000,13 +1020,35 @@ name|getGlobalOptions
 argument_list|()
 return|;
 block|}
-DECL|method|getProperty (String name)
+annotation|@
+name|Deprecated
+DECL|method|getProperty (String key)
 specifier|public
 name|String
 name|getProperty
 parameter_list|(
 name|String
-name|name
+name|key
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|getGlobalOption
+argument_list|(
+name|key
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getGlobalOption (String key)
+specifier|public
+name|String
+name|getGlobalOption
+parameter_list|(
+name|String
+name|key
 parameter_list|)
 throws|throws
 name|Exception
@@ -1016,17 +1058,43 @@ name|context
 operator|.
 name|getGlobalOption
 argument_list|(
-name|name
+name|key
 argument_list|)
 return|;
 block|}
-DECL|method|setProperty (String name, String value)
+annotation|@
+name|Deprecated
+DECL|method|setProperty (String key, String value)
 specifier|public
 name|void
 name|setProperty
 parameter_list|(
 name|String
-name|name
+name|key
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|setGlobalOption
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setGlobalOption (String key, String value)
+specifier|public
+name|void
+name|setGlobalOption
+parameter_list|(
+name|String
+name|key
 parameter_list|,
 name|String
 name|value
@@ -1041,7 +1109,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|name
+name|key
 argument_list|,
 name|value
 argument_list|)

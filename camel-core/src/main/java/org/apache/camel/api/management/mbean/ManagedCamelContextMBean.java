@@ -209,6 +209,8 @@ name|getManagementStatisticsLevel
 parameter_list|()
 function_decl|;
 annotation|@
+name|Deprecated
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
@@ -223,6 +225,23 @@ argument_list|,
 name|String
 argument_list|>
 name|getProperties
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel Global Options"
+argument_list|)
+DECL|method|getGlobalOptions ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getGlobalOptions
 parameter_list|()
 function_decl|;
 annotation|@
@@ -261,38 +280,79 @@ name|String
 name|getApplicationContextClassName
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the value of a CamelContext property name      *      * @param name the name of the property      * @return String the value of the property      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|Deprecated
 annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Get the value of a Camel property"
+literal|"Gets the value of a Camel global option"
 argument_list|)
-DECL|method|getProperty (String name)
+DECL|method|getProperty (String key)
 name|String
 name|getProperty
 parameter_list|(
 name|String
-name|name
+name|key
 parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Sets the value of a CamelContext property name      *      * @param name the name of the property      * @param value the new value of the property      * @throws Exception is thrown if error occurred      */
+comment|/**      * Gets the value of a CamelContext global option      *      * @param key the global option key      * @return the global option value      * @throws Exception when an error occurred      */
 annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Set the value of a Camel property"
+literal|"Gets the value of a Camel global option"
 argument_list|)
-DECL|method|setProperty (String name, String value)
+DECL|method|getGlobalOption (String key)
+name|String
+name|getGlobalOption
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|Deprecated
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Sets the value of a Camel global option"
+argument_list|)
+DECL|method|setProperty (String key, String value)
 name|void
 name|setProperty
 parameter_list|(
 name|String
-name|name
+name|key
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Sets the value of a CamelContext property name      *      * @param key the global option key      * @param value the global option value      * @throws Exception when an error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Sets the value of a Camel global option"
+argument_list|)
+DECL|method|setGlobalOption (String key, String value)
+name|void
+name|setGlobalOption
+parameter_list|(
+name|String
+name|key
 parameter_list|,
 name|String
 name|value
