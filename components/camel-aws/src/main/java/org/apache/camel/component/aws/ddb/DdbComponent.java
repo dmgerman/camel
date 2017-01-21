@@ -183,29 +183,13 @@ name|getAmazonDDBClient
 argument_list|()
 operator|==
 literal|null
-operator|&&
-operator|(
-name|configuration
-operator|.
-name|getAccessKey
-argument_list|()
-operator|==
-literal|null
-operator|||
-name|configuration
-operator|.
-name|getSecretKey
-argument_list|()
-operator|==
-literal|null
-operator|)
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"amazonDDBClient or accessKey and secretKey must be specified"
+literal|"amazonDDBClient must be specified"
 argument_list|)
 throw|;
 block|}
