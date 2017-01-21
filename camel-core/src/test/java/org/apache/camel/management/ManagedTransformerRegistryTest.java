@@ -855,7 +855,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return;
+comment|// empty
 block|}
 block|}
 block|}
