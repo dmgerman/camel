@@ -385,6 +385,13 @@ name|updates
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|since
+specifier|private
+name|String
+name|since
+decl_stmt|;
 DECL|method|CouchDbEndpoint ()
 specifier|public
 name|CouchDbEndpoint
@@ -1043,6 +1050,33 @@ operator|.
 name|updates
 operator|=
 name|updates
+expr_stmt|;
+block|}
+DECL|method|getSince ()
+specifier|public
+name|String
+name|getSince
+parameter_list|()
+block|{
+return|return
+name|since
+return|;
+block|}
+comment|/**      * Start tracking changes immediately after the given update sequence.      * The default, null, will start monitoring from the latest sequence.      */
+DECL|method|setSince (String since)
+specifier|public
+name|void
+name|setSince
+parameter_list|(
+name|String
+name|since
+parameter_list|)
+block|{
+name|this
+operator|.
+name|since
+operator|=
+name|since
 expr_stmt|;
 block|}
 block|}

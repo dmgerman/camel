@@ -186,6 +186,21 @@ name|void
 name|initChanges
 parameter_list|()
 block|{
+name|String
+name|since
+init|=
+name|endpoint
+operator|.
+name|getSince
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|since
+operator|==
+literal|null
+condition|)
+block|{
 name|CouchDbInfo
 name|dbInfo
 init|=
@@ -197,14 +212,13 @@ operator|.
 name|info
 argument_list|()
 decl_stmt|;
-name|String
 name|since
-init|=
+operator|=
 name|dbInfo
 operator|.
 name|getUpdateSeq
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// get latest update seq
 name|LOG
 operator|.
@@ -215,6 +229,7 @@ argument_list|,
 name|since
 argument_list|)
 expr_stmt|;
+block|}
 name|changes
 operator|=
 name|couchClient
