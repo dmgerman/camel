@@ -1181,13 +1181,15 @@ name|compactPath
 argument_list|(
 name|path
 argument_list|,
+literal|""
+operator|+
 name|File
 operator|.
 name|separatorChar
 argument_list|)
 return|;
 block|}
-comment|/**      * Compacts a path by stacking it and reducing<tt>..</tt>,      * and uses the given separator.      */
+comment|/**      * Compacts a path by stacking it and reducing<tt>..</tt>,      * and uses the given separator.      *      */
 DECL|method|compactPath (String path, char separator)
 specifier|public
 specifier|static
@@ -1198,6 +1200,31 @@ name|String
 name|path
 parameter_list|,
 name|char
+name|separator
+parameter_list|)
+block|{
+return|return
+name|compactPath
+argument_list|(
+name|path
+argument_list|,
+literal|""
+operator|+
+name|separator
+argument_list|)
+return|;
+block|}
+comment|/**      * Compacts a path by stacking it and reducing<tt>..</tt>,      * and uses the given separator.      */
+DECL|method|compactPath (String path, String separator)
+specifier|public
+specifier|static
+name|String
+name|compactPath
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|String
 name|separator
 parameter_list|)
 block|{

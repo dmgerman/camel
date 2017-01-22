@@ -1923,6 +1923,19 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
+comment|// stack path in case the temporary file uses .. paths
+name|answer
+operator|=
+name|FileUtil
+operator|.
+name|compactPath
+argument_list|(
+name|answer
+argument_list|,
+name|getFileSeparator
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
