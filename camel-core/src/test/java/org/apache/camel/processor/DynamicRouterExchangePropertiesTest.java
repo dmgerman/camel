@@ -66,7 +66,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Properties
+name|ExchangeProperties
 import|;
 end_import
 
@@ -379,7 +379,7 @@ return|;
 block|}
 comment|// START SNIPPET: e2
 comment|/**      * Use this method to compute dynamic where we should route next.      *      * @param body the message body      * @param properties the exchange properties where we can store state between invocations      * @return endpoints to go, or<tt>null</tt> to indicate the end      */
-DECL|method|slip (String body, @Properties Map<String, Object> properties)
+DECL|method|slip (String body, @ExchangeProperties Map<String, Object> properties)
 specifier|public
 name|String
 name|slip
@@ -388,7 +388,7 @@ name|String
 name|body
 parameter_list|,
 annotation|@
-name|Properties
+name|ExchangeProperties
 name|Map
 argument_list|<
 name|String

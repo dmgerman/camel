@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a parameter as being an injection point of the properties of an {@link Exchange}  *  * @deprecated use {@link ExchangeProperties} instead  * @see Exchange#getProperties()    * @version   */
+comment|/**  * Marks a parameter as being an injection point of the exchange properties of an {@link Exchange}  *  * @see Exchange#getProperties()    * @version   */
 end_comment
 
 begin_annotation_defn
@@ -97,12 +97,10 @@ operator|.
 name|PARAMETER
 block|}
 argument_list|)
-annotation|@
-name|Deprecated
-DECL|annotation|Properties
+DECL|annotation|ExchangeProperties
 specifier|public
 annotation_defn|@interface
-name|Properties
+name|ExchangeProperties
 block|{ }
 end_annotation_defn
 

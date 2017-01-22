@@ -1206,7 +1206,9 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * An expression of the exchange properties      */
+comment|/**      * An expression of the exchange properties      *      * @deprecated use {@link #exchangeProperties()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|properties ()
 specifier|public
 name|T
@@ -1214,9 +1216,21 @@ name|properties
 parameter_list|()
 block|{
 return|return
+name|exchangeProperties
+argument_list|()
+return|;
+block|}
+comment|/**      * An expression of the exchange properties      */
+DECL|method|exchangeProperties ()
+specifier|public
+name|T
+name|exchangeProperties
+parameter_list|()
+block|{
+return|return
 name|delegate
 operator|.
-name|properties
+name|exchangeProperties
 argument_list|()
 return|;
 block|}

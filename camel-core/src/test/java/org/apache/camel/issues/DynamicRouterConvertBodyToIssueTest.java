@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|ExchangeProperties
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Properties
+name|Processor
 import|;
 end_import
 
@@ -347,7 +347,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|slip (String body, @Properties Map<String, Object> properties)
+DECL|method|slip (String body, @ExchangeProperties Map<String, Object> properties)
 specifier|public
 name|String
 name|slip
@@ -356,7 +356,7 @@ name|String
 name|body
 parameter_list|,
 annotation|@
-name|Properties
+name|ExchangeProperties
 name|Map
 argument_list|<
 name|String

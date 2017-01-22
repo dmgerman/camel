@@ -562,7 +562,7 @@ name|oldProperties
 init|=
 name|ExpressionBuilder
 operator|.
-name|propertiesExpression
+name|exchangePropertiesExpression
 argument_list|()
 decl_stmt|;
 name|ParameterInfo
@@ -721,7 +721,7 @@ name|newProperties
 init|=
 name|ExpressionBuilder
 operator|.
-name|propertiesExpression
+name|exchangePropertiesExpression
 argument_list|()
 decl_stmt|;
 name|ParameterInfo

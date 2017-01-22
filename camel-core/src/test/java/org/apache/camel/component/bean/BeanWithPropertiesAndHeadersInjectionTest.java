@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangeProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Headers
 import|;
 end_import
@@ -95,18 +107,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Properties
 import|;
 end_import
 
@@ -488,13 +488,13 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|myMethod (@roperties Map<?, ?> foo, @Headers Map<?, ?> bar)
+DECL|method|myMethod (@xchangeProperties Map<?, ?> foo, @Headers Map<?, ?> bar)
 specifier|public
 name|void
 name|myMethod
 parameter_list|(
 annotation|@
-name|Properties
+name|ExchangeProperties
 name|Map
 argument_list|<
 name|?

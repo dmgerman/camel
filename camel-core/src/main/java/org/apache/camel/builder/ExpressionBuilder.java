@@ -2563,12 +2563,27 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression for the properties of exchange      *      * @return an expression object which will return the properties      */
+comment|/**      * Returns an expression for the properties of exchange      *      * @return an expression object which will return the properties      * @deprecated use {@link #exchangeExceptionExpression()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|propertiesExpression ()
 specifier|public
 specifier|static
 name|Expression
 name|propertiesExpression
+parameter_list|()
+block|{
+return|return
+name|exchangeExceptionExpression
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns an expression for the exchange properties of exchange      *      * @return an expression object which will return the exchange properties      */
+DECL|method|exchangePropertiesExpression ()
+specifier|public
+specifier|static
+name|Expression
+name|exchangePropertiesExpression
 parameter_list|()
 block|{
 return|return
@@ -2599,7 +2614,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"properties"
+literal|"exchangeProperties"
 return|;
 block|}
 block|}
