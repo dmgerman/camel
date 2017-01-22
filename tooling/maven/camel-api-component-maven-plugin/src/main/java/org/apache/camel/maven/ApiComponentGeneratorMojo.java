@@ -613,6 +613,12 @@ name|generatedTestDir
 operator|=
 name|generatedTestDir
 expr_stmt|;
+name|mojo
+operator|.
+name|addCompileSourceRoots
+operator|=
+name|addCompileSourceRoots
+expr_stmt|;
 comment|// set AbstractAPIMethodBaseMojo properties
 name|mojo
 operator|.

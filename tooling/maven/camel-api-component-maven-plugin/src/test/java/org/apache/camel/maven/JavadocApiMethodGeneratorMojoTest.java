@@ -145,6 +145,33 @@ specifier|final
 name|JavadocApiMethodGeneratorMojo
 name|mojo
 init|=
+name|createGeneratorMojo
+argument_list|()
+decl_stmt|;
+name|mojo
+operator|.
+name|execute
+argument_list|()
+expr_stmt|;
+comment|// check target file was generated
+name|assertExists
+argument_list|(
+name|outFile
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createGeneratorMojo ()
+specifier|protected
+name|JavadocApiMethodGeneratorMojo
+name|createGeneratorMojo
+parameter_list|()
+block|{
+specifier|final
+name|JavadocApiMethodGeneratorMojo
+name|mojo
+init|=
 operator|new
 name|JavadocApiMethodGeneratorMojo
 argument_list|()
@@ -239,17 +266,9 @@ name|excludeMethods
 operator|=
 literal|"clone|Current|internal|icache"
 expr_stmt|;
+return|return
 name|mojo
-operator|.
-name|execute
-argument_list|()
-expr_stmt|;
-comment|// check target file was generated
-name|assertExists
-argument_list|(
-name|outFile
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class

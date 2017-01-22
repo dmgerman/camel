@@ -285,6 +285,9 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+name|setCompileSourceRoots
+argument_list|()
+expr_stmt|;
 comment|// load proxy class and get enumeration file to generate
 specifier|final
 name|Class
