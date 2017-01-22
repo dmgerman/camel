@@ -144,6 +144,7 @@ specifier|public
 name|GlobalOptionDefinition
 parameter_list|()
 block|{     }
+comment|/**      * Global option key      */
 DECL|method|setKey (String key)
 specifier|public
 name|void
@@ -170,6 +171,7 @@ return|return
 name|key
 return|;
 block|}
+comment|/**      * Global option value      */
 DECL|method|setValue (String value)
 specifier|public
 name|void

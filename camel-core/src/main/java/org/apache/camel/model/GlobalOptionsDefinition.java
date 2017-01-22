@@ -169,6 +169,7 @@ specifier|public
 name|GlobalOptionsDefinition
 parameter_list|()
 block|{     }
+comment|/**      * A series of global options as key value pairs      */
 DECL|method|setGlobalOptions (List<GlobalOptionDefinition> globalOptions)
 specifier|public
 name|void
