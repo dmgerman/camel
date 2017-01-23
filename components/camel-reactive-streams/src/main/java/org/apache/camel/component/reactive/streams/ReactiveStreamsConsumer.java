@@ -381,15 +381,14 @@ operator|!=
 literal|null
 block|)
 block|{
-name|LOG
+name|getExceptionHandler
+argument_list|()
 operator|.
-name|warn
+name|handleException
 argument_list|(
-literal|"Error processing the exchange "
-operator|+
+literal|"Error processing exchange"
+argument_list|,
 name|exchange
-operator|+
-literal|" from reactive-streams"
 argument_list|,
 name|exchange
 operator|.

@@ -464,16 +464,22 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// Notify processing once if multiple subscribers are present
+comment|// When multiple subscribers have an active subscription,
+comment|// we aknowledge the exchange once it has been delivered to every
+comment|// subscriber (or their subscription is cancelled)
 name|AtomicInteger
 name|counter
 init|=
 operator|new
 name|AtomicInteger
 argument_list|(
-literal|0
+name|subs
+operator|.
+name|size
+argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// Use just the first exception in the callback when multiple exceptions are thrown
 name|AtomicReference
 argument_list|<
 name|Throwable
@@ -505,14 +511,6 @@ name|error
 parameter_list|)
 lambda|->
 block|{
-name|int
-name|status
-init|=
-name|counter
-operator|.
-name|incrementAndGet
-argument_list|()
-decl_stmt|;
 name|thrown
 operator|.
 name|compareAndSet
@@ -524,12 +522,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|status
-operator|==
-name|subs
+name|counter
 operator|.
-name|size
+name|decrementAndGet
 argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 name|originalCallback

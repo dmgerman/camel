@@ -130,7 +130,7 @@ literal|"Reactive Streams"
 argument_list|,
 name|syntax
 operator|=
-literal|"reactive-streams:/stream"
+literal|"reactive-streams:stream"
 argument_list|,
 name|consumerClass
 operator|=
