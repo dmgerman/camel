@@ -362,10 +362,7 @@ condition|(
 name|cachedBoxClient
 operator|==
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|configuration
 operator|!=
 literal|null
@@ -380,17 +377,6 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Unable to connect, Box component configuration is missing"
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 annotation|@
