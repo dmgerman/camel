@@ -156,6 +156,9 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|doPostSetup
+argument_list|()
+expr_stmt|;
 name|context2
 operator|=
 operator|new
@@ -200,6 +203,16 @@ name|routeBuilder
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|doPostSetup ()
+specifier|protected
+name|void
+name|doPostSetup
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override
