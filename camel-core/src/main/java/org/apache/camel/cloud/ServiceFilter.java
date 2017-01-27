@@ -39,21 +39,16 @@ interface|interface
 name|ServiceFilter
 block|{
 comment|/**      * Chooses one of the service to use      *      * @param services  list of services      * @return the chosen service to use.      */
-DECL|method|apply (List<T> services)
-parameter_list|<
-name|T
-extends|extends
-name|ServiceDefinition
-parameter_list|>
+DECL|method|apply (List<ServiceDefinition> services)
 name|List
 argument_list|<
-name|T
+name|ServiceDefinition
 argument_list|>
 name|apply
 parameter_list|(
 name|List
 argument_list|<
-name|T
+name|ServiceDefinition
 argument_list|>
 name|services
 parameter_list|)

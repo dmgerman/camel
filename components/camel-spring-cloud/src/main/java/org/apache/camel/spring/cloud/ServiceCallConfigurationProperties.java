@@ -302,6 +302,21 @@ name|enabled
 init|=
 literal|true
 decl_stmt|;
+DECL|field|blacklist
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|blacklist
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -327,6 +342,21 @@ name|enabled
 operator|=
 name|enabled
 expr_stmt|;
+block|}
+DECL|method|getBlacklist ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getBlacklist
+parameter_list|()
+block|{
+return|return
+name|blacklist
+return|;
 block|}
 block|}
 DECL|class|ServiceChooser

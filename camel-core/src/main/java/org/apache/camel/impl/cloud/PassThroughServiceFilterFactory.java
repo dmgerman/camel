@@ -20,25 +20,13 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|cloud
-operator|.
-name|ServiceDefinition
+name|CamelContext
 import|;
 end_import
 
@@ -53,36 +41,56 @@ operator|.
 name|cloud
 operator|.
 name|ServiceFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceFilterFactory
 import|;
 end_import
 
 begin_class
-DECL|class|DefaultServiceFilter
+DECL|class|PassThroughServiceFilterFactory
 specifier|public
 class|class
-name|DefaultServiceFilter
+name|PassThroughServiceFilterFactory
 implements|implements
-name|ServiceFilter
+name|ServiceFilterFactory
 block|{
+DECL|method|PassThroughServiceFilterFactory ()
+specifier|public
+name|PassThroughServiceFilterFactory
+parameter_list|()
+block|{     }
+comment|// *************************************************************************
+comment|// Factory
+comment|// *************************************************************************
 annotation|@
 name|Override
-DECL|method|apply (List<ServiceDefinition> services)
+DECL|method|newInstance (CamelContext camelContext)
 specifier|public
-name|List
-argument_list|<
-name|ServiceDefinition
-argument_list|>
-name|apply
+name|ServiceFilter
+name|newInstance
 parameter_list|(
-name|List
-argument_list|<
-name|ServiceDefinition
-argument_list|>
-name|services
+name|CamelContext
+name|camelContext
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 return|return
-name|services
+operator|new
+name|PassThroughServiceFilter
+argument_list|()
 return|;
 block|}
 block|}

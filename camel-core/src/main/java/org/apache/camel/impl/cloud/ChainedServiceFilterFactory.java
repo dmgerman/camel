@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|ServiceDiscovery
+name|ServiceFilter
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|ServiceDiscoveryFactory
+name|ServiceFilterFactory
 import|;
 end_import
 
@@ -83,59 +83,59 @@ import|;
 end_import
 
 begin_class
-DECL|class|MultiServiceDiscoveryFactory
+DECL|class|ChainedServiceFilterFactory
 specifier|public
 class|class
-name|MultiServiceDiscoveryFactory
+name|ChainedServiceFilterFactory
 implements|implements
-name|ServiceDiscoveryFactory
+name|ServiceFilterFactory
 block|{
-DECL|field|serviceDiscoveryList
+DECL|field|serviceFilterList
 specifier|private
 name|List
 argument_list|<
-name|ServiceDiscovery
+name|ServiceFilter
 argument_list|>
-name|serviceDiscoveryList
+name|serviceFilterList
 decl_stmt|;
-DECL|method|MultiServiceDiscoveryFactory ()
+DECL|method|ChainedServiceFilterFactory ()
 specifier|public
-name|MultiServiceDiscoveryFactory
+name|ChainedServiceFilterFactory
 parameter_list|()
 block|{     }
 comment|// *************************************************************************
 comment|// Properties
 comment|// *************************************************************************
-DECL|method|getServiceDiscoveryList ()
+DECL|method|getServiceFilterList ()
 specifier|public
 name|List
 argument_list|<
-name|ServiceDiscovery
+name|ServiceFilter
 argument_list|>
-name|getServiceDiscoveryList
+name|getServiceFilterList
 parameter_list|()
 block|{
 return|return
-name|serviceDiscoveryList
+name|serviceFilterList
 return|;
 block|}
-DECL|method|setServiceDiscoveryList (List<ServiceDiscovery> serviceDiscoveryList)
+DECL|method|setServiceFilterList (List<ServiceFilter> serviceFilterList)
 specifier|public
 name|void
-name|setServiceDiscoveryList
+name|setServiceFilterList
 parameter_list|(
 name|List
 argument_list|<
-name|ServiceDiscovery
+name|ServiceFilter
 argument_list|>
-name|serviceDiscoveryList
+name|serviceFilterList
 parameter_list|)
 block|{
 name|this
 operator|.
-name|serviceDiscoveryList
+name|serviceFilterList
 operator|=
-name|serviceDiscoveryList
+name|serviceFilterList
 expr_stmt|;
 block|}
 comment|// *************************************************************************
@@ -145,7 +145,7 @@ annotation|@
 name|Override
 DECL|method|newInstance (CamelContext camelContext)
 specifier|public
-name|ServiceDiscovery
+name|ServiceFilter
 name|newInstance
 parameter_list|(
 name|CamelContext
@@ -158,16 +158,16 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|serviceDiscoveryList
+name|serviceFilterList
 argument_list|,
-literal|"ServiceDiscovery list"
+literal|"ServiceFilter list"
 argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|MultiServiceDiscovery
+name|ChainedServiceFilter
 argument_list|(
-name|serviceDiscoveryList
+name|serviceFilterList
 argument_list|)
 return|;
 block|}

@@ -321,7 +321,7 @@ literal|"multiServiceDiscovery"
 argument_list|,
 name|type
 operator|=
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 operator|.
 name|class
 argument_list|)
@@ -635,15 +635,15 @@ return|;
 block|}
 DECL|method|multiServiceDiscovery ()
 specifier|public
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 name|multiServiceDiscovery
 parameter_list|()
 block|{
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 name|conf
 init|=
 operator|new
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|setServiceDiscoveryConfiguration

@@ -52,7 +52,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 import|;
 end_import
 
@@ -93,19 +93,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|MultiServiceDiscoveryTest
+DECL|class|ChainedServiceDiscoveryTest
 specifier|public
 class|class
-name|MultiServiceDiscoveryTest
+name|ChainedServiceDiscoveryTest
 extends|extends
 name|ContextTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testCachingServiceDiscovery ()
+DECL|method|testMultiServiceDiscovery ()
 specifier|public
 name|void
-name|testCachingServiceDiscovery
+name|testMultiServiceDiscovery
 parameter_list|()
 throws|throws
 name|Exception
@@ -184,10 +184,10 @@ literal|1114
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MultiServiceDiscovery
+name|ChainedServiceDiscovery
 name|discovery
 init|=
-name|MultiServiceDiscovery
+name|ChainedServiceDiscovery
 operator|.
 name|wrap
 argument_list|(
@@ -233,10 +233,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCachingServiceDiscoveryConfiguration ()
+DECL|method|testMultiServiceDiscoveryConfiguration ()
 specifier|public
 name|void
-name|testCachingServiceDiscoveryConfiguration
+name|testMultiServiceDiscoveryConfiguration
 parameter_list|()
 throws|throws
 name|Exception
@@ -283,11 +283,11 @@ literal|"discovery2@localhost:1114"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 name|multiConf
 init|=
 operator|new
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|multiConf
@@ -304,11 +304,11 @@ name|staticConf2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MultiServiceDiscovery
+name|ChainedServiceDiscovery
 name|discovery
 init|=
 operator|(
-name|MultiServiceDiscovery
+name|ChainedServiceDiscovery
 operator|)
 name|multiConf
 operator|.
@@ -369,19 +369,19 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCachingServiceDiscoveryConfigurationDsl ()
+DECL|method|testMultiServiceDiscoveryConfigurationDsl ()
 specifier|public
 name|void
-name|testCachingServiceDiscoveryConfigurationDsl
+name|testMultiServiceDiscoveryConfigurationDsl
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 name|multiConf
 init|=
 operator|new
-name|MultiServiceCallServiceDiscoveryConfiguration
+name|ChainedServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|multiConf
@@ -418,11 +418,11 @@ literal|"discovery2@localhost:1114"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MultiServiceDiscovery
+name|ChainedServiceDiscovery
 name|discovery
 init|=
 operator|(
-name|MultiServiceDiscovery
+name|ChainedServiceDiscovery
 operator|)
 name|multiConf
 operator|.
