@@ -27,6 +27,8 @@ comment|/**  * A callback used to signal when a item coming from a Camel route h
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|DispatchCallback
 specifier|public
 interface|interface

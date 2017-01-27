@@ -233,9 +233,6 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|)
-operator|.
-name|getService
-argument_list|()
 expr_stmt|;
 block|}
 block|}

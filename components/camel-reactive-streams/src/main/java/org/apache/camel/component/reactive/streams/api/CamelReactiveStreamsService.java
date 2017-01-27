@@ -178,7 +178,7 @@ name|type
 parameter_list|)
 function_decl|;
 comment|/*      * Methods for producers.      */
-comment|/**      * Sends the exchange to all active subscriptions on the given stream.      * The callback is used to signal that the exchange has been delivered to the subscribers.      *      * @param name the stream name      * @param exchange the exchange to be forwarded to the external subscribers      * @param callback the callback that signals the delivery of the exchange      */
+comment|/**      * Used by Camel to send the exchange to all active subscriptions on the given stream.      * The callback is used to signal that the exchange has been delivered to the subscribers.      *      * @param name the stream name      * @param exchange the exchange to be forwarded to the external subscribers      * @param callback the callback that signals the delivery of the exchange      */
 DECL|method|process (String name, Exchange exchange, DispatchCallback<Exchange> callback)
 name|void
 name|process
@@ -197,7 +197,7 @@ name|callback
 parameter_list|)
 function_decl|;
 comment|/*      * Methods for consumers.      */
-comment|/**      * Associate the subscriber of the stream with the given name to a specific Camel consumer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param consumer the consumer of the route      * @throws IllegalStateException if another consumer is already associated with the given stream name      */
+comment|/**      * Used by Camel to associate the subscriber of the stream with the given name to a specific Camel consumer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param consumer the consumer of the route      * @throws IllegalStateException if another consumer is already associated with the given stream name      */
 DECL|method|attachConsumer (String name, ReactiveStreamsConsumer consumer)
 name|void
 name|attachConsumer
@@ -209,7 +209,7 @@ name|ReactiveStreamsConsumer
 name|consumer
 parameter_list|)
 function_decl|;
-comment|/**      * Deassociate the existing consumer from the given stream.      *      * @param name the stream name      */
+comment|/**      * Used by Camel to detach the existing consumer from the given stream.      *      * @param name the stream name      */
 DECL|method|detachConsumer (String name)
 name|void
 name|detachConsumer
@@ -217,6 +217,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the name of this service implementation if present.      * The name of any named implementation must match their lookup key in the registry.      * @return the name of the service implementation or null (for the default implementation)      */
+DECL|method|getName ()
+name|String
+name|getName
+parameter_list|()
 function_decl|;
 block|}
 end_interface
