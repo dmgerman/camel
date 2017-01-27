@@ -765,18 +765,6 @@ operator|.
 name|context
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getName ()
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 end_class
 

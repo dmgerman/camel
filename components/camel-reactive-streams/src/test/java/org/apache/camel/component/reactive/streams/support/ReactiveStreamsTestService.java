@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.reactive.streams.api
+DECL|package|org.apache.camel.component.reactive.streams.support
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|reactive
 operator|.
 name|streams
 operator|.
-name|api
+name|support
 package|;
 end_package
 
@@ -30,7 +30,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
+name|CamelContext
 import|;
 end_import
 
@@ -54,7 +54,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
+name|ReactiveStreamsConsumer
 import|;
 end_import
 
@@ -72,7 +78,29 @@ name|reactive
 operator|.
 name|streams
 operator|.
-name|ReactiveStreamsConsumer
+name|api
+operator|.
+name|CamelReactiveStreamsService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
+name|api
+operator|.
+name|DispatchCallback
 import|;
 end_import
 
@@ -97,22 +125,89 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The interface to which any implementation of the reactive-streams engine should comply.  */
+comment|/**  * Test (dummy) service for reactive streams.  */
 end_comment
 
-begin_interface
-DECL|interface|CamelReactiveStreamsService
+begin_class
+DECL|class|ReactiveStreamsTestService
 specifier|public
-interface|interface
+class|class
+name|ReactiveStreamsTestService
+implements|implements
 name|CamelReactiveStreamsService
-extends|extends
-name|CamelContextAware
-extends|,
-name|Service
 block|{
-comment|/*      * Main API methods.      */
-comment|/**      * Returns the publisher associated to the given stream name.      * A publisher can be used to push Camel exchanges to reactive-streams subscribers.      *      * @param name the stream name      * @return the stream publisher      */
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
+DECL|method|ReactiveStreamsTestService ()
+specifier|public
+name|ReactiveStreamsTestService
+parameter_list|()
+block|{     }
+DECL|method|ReactiveStreamsTestService (String name)
+specifier|public
+name|ReactiveStreamsTestService
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{      }
+annotation|@
+name|Override
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{      }
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{      }
+annotation|@
+name|Override
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getPublisher (String name)
+specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
@@ -122,9 +217,15 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-function_decl|;
-comment|/**      * Returns the publisher associated to the given stream name.      * A publisher can be used to push Camel exchange to external reactive-streams subscribers.      *      * The publisher converts automatically exchanges to the given type.      *      * @param name the stream name      * @param type the type of the emitted items      * @param<T> the type of items emitted by the publisher      * @return the publisher associated to the stream      */
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getPublisher (String name, Class<T> type)
+specifier|public
 parameter_list|<
 name|T
 parameter_list|>
@@ -143,9 +244,15 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
-function_decl|;
-comment|/**      * Returns the subscriber associated to the given stream name.      * A subscriber can be used to push items coming from external reactive-streams publishers to Camel routes.      *      * @param name the stream name      * @return the subscriber associated with the stream      */
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getSubscriber (String name)
+specifier|public
 name|Subscriber
 argument_list|<
 name|Exchange
@@ -155,9 +262,15 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-function_decl|;
-comment|/**      * Returns the subscriber associated to the given stream name.      * A subscriber can be used to push items coming from external reactive-streams publishers to Camel routes.      *      * The subscriber converts automatically items of the given type to exchanges before pushing them.      *      * @param name the stream name      * @param type the publisher converts automatically exchanges to the given type.      * @param<T> the type of items accepted by the subscriber      * @return the subscriber associated with the stream      */
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getSubscriber (String name, Class<T> type)
+specifier|public
 parameter_list|<
 name|T
 parameter_list|>
@@ -176,10 +289,15 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
-function_decl|;
-comment|/*      * Methods for producers.      */
-comment|/**      * Used by Camel to send the exchange to all active subscriptions on the given stream.      * The callback is used to signal that the exchange has been delivered to the subscribers.      *      * @param name the stream name      * @param exchange the exchange to be forwarded to the external subscribers      * @param callback the callback that signals the delivery of the exchange      */
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|process (String name, Exchange exchange, DispatchCallback<Exchange> callback)
+specifier|public
 name|void
 name|process
 parameter_list|(
@@ -195,10 +313,11 @@ name|Exchange
 argument_list|>
 name|callback
 parameter_list|)
-function_decl|;
-comment|/*      * Methods for consumers.      */
-comment|/**      * Used by Camel to associate the subscriber of the stream with the given name to a specific Camel consumer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param consumer the consumer of the route      * @throws IllegalStateException if another consumer is already associated with the given stream name      */
+block|{      }
+annotation|@
+name|Override
 DECL|method|attachConsumer (String name, ReactiveStreamsConsumer consumer)
+specifier|public
 name|void
 name|attachConsumer
 parameter_list|(
@@ -208,18 +327,46 @@ parameter_list|,
 name|ReactiveStreamsConsumer
 name|consumer
 parameter_list|)
-function_decl|;
-comment|/**      * Used by Camel to detach the existing consumer from the given stream.      *      * @param name the stream name      */
+block|{      }
+annotation|@
+name|Override
 DECL|method|detachConsumer (String name)
+specifier|public
 name|void
 name|detachConsumer
 parameter_list|(
 name|String
 name|name
 parameter_list|)
-function_decl|;
+block|{      }
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
 block|}
-end_interface
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 
