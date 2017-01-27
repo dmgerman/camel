@@ -599,7 +599,7 @@ operator|=
 name|region
 expr_stmt|;
 block|}
-comment|/**      * *Camel 2.17*: If it is true, the exchange body will be set to a stream to the contents of the file.      * If false, the headers will be set with the S3 object metadata, but the body will be null.      */
+comment|/**      * If it is true, the exchange body will be set to a stream to the contents of the file.      * If false, the headers will be set with the S3 object metadata, but the body will be null.       * This option is strongly related to autocloseBody option. In case of setting includeBody to true and autocloseBody to false, it       * will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.      */
 DECL|method|setIncludeBody (boolean includeBody)
 specifier|public
 name|void
@@ -880,7 +880,7 @@ return|return
 name|autocloseBody
 return|;
 block|}
-comment|/**      * If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion      */
+comment|/**      * If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion      * This option is strongly related to includeBody option. In case of setting includeBody to true and autocloseBody to false, it       * will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.      */
 DECL|method|setAutocloseBody (boolean autocloseBody)
 specifier|public
 name|void
