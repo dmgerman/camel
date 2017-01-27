@@ -152,7 +152,7 @@ name|telegram
 operator|.
 name|model
 operator|.
-name|OutgoingMessage
+name|OutgoingDocumentMessage
 import|;
 end_import
 
@@ -170,7 +170,7 @@ name|telegram
 operator|.
 name|model
 operator|.
-name|OutgoingDocumentMessage
+name|OutgoingMessage
 import|;
 end_import
 

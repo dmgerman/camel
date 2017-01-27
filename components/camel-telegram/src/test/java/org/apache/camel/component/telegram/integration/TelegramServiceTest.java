@@ -972,7 +972,7 @@ name|msg
 operator|.
 name|setFilenameWithExtension
 argument_list|(
-literal|"file.png"
+literal|"file.txt"
 argument_list|)
 expr_stmt|;
 name|service

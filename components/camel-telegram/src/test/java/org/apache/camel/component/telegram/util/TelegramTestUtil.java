@@ -237,7 +237,7 @@ name|class
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/attachments/sample.png"
+literal|"/attachments/sample.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;
