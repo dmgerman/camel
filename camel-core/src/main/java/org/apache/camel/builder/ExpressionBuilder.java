@@ -711,7 +711,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a>.  *  * @version   */
+comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a>.  *  * @version  */
 end_comment
 
 begin_class
@@ -10308,13 +10308,66 @@ argument_list|(
 name|ognl
 argument_list|)
 decl_stmt|;
-comment|// remove any OGNL operators so we got the pure key name
 name|String
 name|key
 init|=
-name|OgnlHelper
+name|methods
 operator|.
-name|removeOperators
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|String
+name|keySuffix
+init|=
+literal|""
+decl_stmt|;
+comment|// if ognl starts with a key inside brackets (eg: [foo.bar])
+comment|// remove starting and ending brackets from key
+if|if
+condition|(
+name|key
+operator|.
+name|startsWith
+argument_list|(
+literal|"["
+argument_list|)
+operator|&&
+name|key
+operator|.
+name|endsWith
+argument_list|(
+literal|"]"
+argument_list|)
+condition|)
+block|{
+name|key
+operator|=
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+name|key
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|,
+name|key
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|keySuffix
+operator|=
+name|StringHelper
+operator|.
+name|after
 argument_list|(
 name|methods
 operator|.
@@ -10322,8 +10375,21 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+name|key
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+comment|// remove any OGNL operators so we got the pure key name
+name|key
+operator|=
+name|OgnlHelper
+operator|.
+name|removeOperators
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
 name|property
 operator|=
 name|keyedEntityRetrievalStrategy
@@ -10357,6 +10423,8 @@ argument_list|(
 name|ognl
 argument_list|,
 name|key
+operator|+
+name|keySuffix
 argument_list|)
 decl_stmt|;
 return|return
@@ -10405,7 +10473,6 @@ parameter_list|)
 function_decl|;
 block|}
 block|}
-empty_stmt|;
 block|}
 end_class
 

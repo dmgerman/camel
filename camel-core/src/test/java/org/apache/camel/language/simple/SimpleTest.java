@@ -295,7 +295,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -4058,6 +4058,196 @@ argument_list|(
 literal|"${in.headers[foo]}"
 argument_list|,
 literal|"abc"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOnglOnHeadersWithBracket ()
+specifier|public
+name|void
+name|testOnglOnHeadersWithBracket
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertOnglOnHeadersWithSquareBrackets
+argument_list|(
+literal|"order"
+argument_list|)
+expr_stmt|;
+name|assertOnglOnHeadersWithSquareBrackets
+argument_list|(
+literal|"purchase.order"
+argument_list|)
+expr_stmt|;
+name|assertOnglOnHeadersWithSquareBrackets
+argument_list|(
+literal|"foo.bar.qux"
+argument_list|)
+expr_stmt|;
+name|assertOnglOnHeadersWithSquareBrackets
+argument_list|(
+literal|"purchase order"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertOnglOnHeadersWithSquareBrackets (String key)
+specifier|private
+name|void
+name|assertOnglOnHeadersWithSquareBrackets
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|key
+argument_list|,
+operator|new
+name|OrderLine
+argument_list|(
+literal|123
+argument_list|,
+literal|"Camel in Action"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"headers["
+operator|+
+name|key
+operator|+
+literal|"].name"
+argument_list|,
+literal|"Camel in Action"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headers["
+operator|+
+name|key
+operator|+
+literal|"].name}"
+argument_list|,
+literal|"Camel in Action"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.headers["
+operator|+
+name|key
+operator|+
+literal|"].name}"
+argument_list|,
+literal|"Camel in Action"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.headers['"
+operator|+
+name|key
+operator|+
+literal|"'].name}"
+argument_list|,
+literal|"Camel in Action"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOnglOnExchangePropertiesWithBracket ()
+specifier|public
+name|void
+name|testOnglOnExchangePropertiesWithBracket
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertOnglOnExchangePropertiesWithBracket
+argument_list|(
+literal|"order"
+argument_list|)
+expr_stmt|;
+name|assertOnglOnExchangePropertiesWithBracket
+argument_list|(
+literal|"purchase.order"
+argument_list|)
+expr_stmt|;
+name|assertOnglOnExchangePropertiesWithBracket
+argument_list|(
+literal|"foo.bar.qux"
+argument_list|)
+expr_stmt|;
+name|assertOnglOnExchangePropertiesWithBracket
+argument_list|(
+literal|"purchase order"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertOnglOnExchangePropertiesWithBracket (String key)
+specifier|public
+name|void
+name|assertOnglOnExchangePropertiesWithBracket
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|key
+argument_list|,
+operator|new
+name|OrderLine
+argument_list|(
+literal|123
+argument_list|,
+literal|"Camel in Action"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"exchangeProperty["
+operator|+
+name|key
+operator|+
+literal|"].name"
+argument_list|,
+literal|"Camel in Action"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty["
+operator|+
+name|key
+operator|+
+literal|"].name}"
+argument_list|,
+literal|"Camel in Action"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty['"
+operator|+
+name|key
+operator|+
+literal|"'].name}"
+argument_list|,
+literal|"Camel in Action"
 argument_list|)
 expr_stmt|;
 block|}
