@@ -22,7 +22,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -114,6 +134,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|core
 operator|.
 name|xml
@@ -161,6 +193,20 @@ operator|.
 name|spi
 operator|.
 name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -298,6 +344,20 @@ name|CamelBeanPostProcessor
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|prototypeBeans
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|prototypeBeans
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<>
+argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -564,6 +624,8 @@ name|e
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|isSingleton
@@ -611,6 +673,87 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|startService
+parameter_list|(
+name|Service
+name|service
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|,
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|isSingleton
+argument_list|(
+name|bean
+argument_list|,
+name|beanName
+argument_list|)
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|addService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// only start service and do not add it to CamelContext
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|prototypeBeans
+operator|.
+name|add
+argument_list|(
+name|beanName
+argument_list|)
+condition|)
+block|{
+comment|// do not spam the log with WARN so do this only once per bean name
+name|CamelBeanPostProcessor
+operator|.
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"The bean with id ["
+operator|+
+name|beanName
+operator|+
+literal|"] is prototype scoped and cannot stop the injected service when bean is destroyed: "
+operator|+
+name|service
+operator|+
+literal|". You may want to stop the service manually from the bean."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 expr_stmt|;
 block|}
@@ -625,6 +768,8 @@ specifier|public
 name|CamelBeanPostProcessor
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|postProcessBeforeInitialization (Object bean, String beanName)
 specifier|public
 name|Object
@@ -686,6 +831,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|postProcessAfterInitialization (Object bean, String beanName)
 specifier|public
 name|Object
@@ -749,6 +896,8 @@ block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void
