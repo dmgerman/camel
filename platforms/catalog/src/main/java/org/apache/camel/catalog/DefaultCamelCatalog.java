@@ -7883,7 +7883,7 @@ literal|"jms"
 operator|.
 name|equals
 argument_list|(
-literal|"scheme"
+name|scheme
 argument_list|)
 condition|)
 block|{
