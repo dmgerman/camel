@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|xml
@@ -172,6 +184,26 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
+literal|"Tika Parse Output Encoding"
+argument_list|)
+DECL|field|tikaParseOutputEncoding
+specifier|private
+name|String
+name|tikaParseOutputEncoding
+init|=
+name|Charset
+operator|.
+name|defaultCharset
+argument_list|()
+operator|.
+name|name
+argument_list|()
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
 literal|"Tika Config"
 argument_list|)
 DECL|field|tikaConfig
@@ -254,7 +286,7 @@ return|return
 name|tikaParseOutputFormat
 return|;
 block|}
-comment|/**      *       * Tika Output Format. Supported output formats are xml, html, text, textMain      *       */
+comment|/**      *       * Tika Output Format. Supported output formats.       *<ul>      *<li>xml: Returns Parsed Content as XML.</li>      *<li>html: Returns Parsed Content as HTML.</li>      *<li>text: Returns Parsed Content as Text.</li>      *<li>textMain: Uses the<a href="http://code.google.com/p/boilerpipe/">boilerpipe</a> library to automatically extract the main content from a web page.</li>      *</ul>      *       */
 DECL|method|setTikaParseOutputFormat (TikaParseOutputFormat tikaParseOutputFormat)
 specifier|public
 name|void
@@ -269,6 +301,33 @@ operator|.
 name|tikaParseOutputFormat
 operator|=
 name|tikaParseOutputFormat
+expr_stmt|;
+block|}
+DECL|method|getTikaParseOutputEncoding ()
+specifier|public
+name|String
+name|getTikaParseOutputEncoding
+parameter_list|()
+block|{
+return|return
+name|tikaParseOutputEncoding
+return|;
+block|}
+comment|/**      * Tika Parse Output Encoding - Used to specify the character encoding of the parsed output.        * Defaults to Charset.defaultCharset() .      *       */
+DECL|method|setTikaParseOutputEncoding (String tikaParseOutputEncoding)
+specifier|public
+name|void
+name|setTikaParseOutputEncoding
+parameter_list|(
+name|String
+name|tikaParseOutputEncoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tikaParseOutputEncoding
+operator|=
+name|tikaParseOutputEncoding
 expr_stmt|;
 block|}
 DECL|method|getTikaConfig ()
@@ -308,7 +367,7 @@ return|return
 name|tikaConfigUri
 return|;
 block|}
-comment|/**      *       * Tika Config Uri      *       */
+comment|/**      *       * Tika Config Uri: The URI of  tika-config.xml      *       */
 DECL|method|setTikaConfigUri (String tikaConfigUri)
 specifier|public
 name|void
