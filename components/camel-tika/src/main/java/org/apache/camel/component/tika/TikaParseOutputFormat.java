@@ -18,6 +18,10 @@ name|tika
 package|;
 end_package
 
+begin_comment
+comment|/**  *   *  Tika Output Format. Supported output formats.   *<ul>  *<li>xml: Returns Parsed Content as XML.</li>  *<li>html: Returns Parsed Content as HTML.</li>  *<li>text: Returns Parsed Content as Text.</li>  *<li>textMain: Uses the<a href="http://code.google.com/p/boilerpipe/">boilerpipe</a> library to automatically extract the main content from a web page.</li>  *</ul>  *  */
+end_comment
+
 begin_enum
 DECL|enum|TikaParseOutputFormat
 specifier|public
