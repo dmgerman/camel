@@ -188,6 +188,8 @@ name|getDeadLetterRoutingKey
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -257,6 +259,11 @@ argument_list|()
 argument_list|,
 name|resolvedQueueArguments
 argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getBindingArgs
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -293,6 +300,16 @@ expr_stmt|;
 name|populateQueueArgumentsFromConfigurer
 argument_list|(
 name|queueArgs
+argument_list|)
+expr_stmt|;
+name|queueArgs
+operator|.
+name|putAll
+argument_list|(
+name|endpoint
+operator|.
+name|getQueueArgs
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -407,6 +424,16 @@ name|exchangeArgs
 argument_list|)
 expr_stmt|;
 block|}
+name|exchangeArgs
+operator|.
+name|putAll
+argument_list|(
+name|endpoint
+operator|.
+name|getExchangeArgs
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|exchangeArgs
 return|;
@@ -548,7 +575,7 @@ name|exchangeArgs
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|declareAndBindQueue (final Channel channel, final String queue, final String exchange, final String routingKey, final Map<String, Object> arguments)
+DECL|method|declareAndBindQueue (final Channel channel, final String queue, final String exchange, final String routingKey, final Map<String, Object> queueArgs, final Map<String, Object> bindingArgs)
 specifier|private
 name|void
 name|declareAndBindQueue
@@ -576,7 +603,16 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|arguments
+name|queueArgs
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|bindingArgs
 parameter_list|)
 throws|throws
 name|IOException
@@ -602,7 +638,7 @@ operator|.
 name|isAutoDelete
 argument_list|()
 argument_list|,
-name|arguments
+name|queueArgs
 argument_list|)
 expr_stmt|;
 if|if
@@ -623,6 +659,8 @@ name|emptyIfNull
 argument_list|(
 name|routingKey
 argument_list|)
+argument_list|,
+name|bindingArgs
 argument_list|)
 expr_stmt|;
 block|}

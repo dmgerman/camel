@@ -28,7 +28,13 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * @deprecated The endpoint uri properties  *<ul>  *<li>{@link RabbitMQEndpoint#setExchangeArgs(Map)}</li>  *<li>{@link RabbitMQEndpoint#setQueueArgs(Map)}</li>  *<li>{@link RabbitMQEndpoint#setBindingArgs(Map)}</li>  *</ul>  *  * are favoured over their configurer counterparts.  */
+end_comment
+
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|ArgsConfigurer
 specifier|public
 interface|interface
