@@ -199,6 +199,18 @@ specifier|private
 name|String
 name|serviceName
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|backpressureStrategy
+specifier|private
+name|ReactiveStreamsBackpressureStrategy
+name|backpressureStrategy
+decl_stmt|;
 DECL|method|ReactiveStreamsEndpoint (String endpointUri, ReactiveStreamsComponent component)
 specifier|public
 name|ReactiveStreamsEndpoint
@@ -379,6 +391,33 @@ operator|.
 name|serviceName
 operator|=
 name|serviceName
+expr_stmt|;
+block|}
+DECL|method|getBackpressureStrategy ()
+specifier|public
+name|ReactiveStreamsBackpressureStrategy
+name|getBackpressureStrategy
+parameter_list|()
+block|{
+return|return
+name|backpressureStrategy
+return|;
+block|}
+comment|/**      * The backpressure strategy to use when pushing events to a slow subscriber.      */
+DECL|method|setBackpressureStrategy (ReactiveStreamsBackpressureStrategy backpressureStrategy)
+specifier|public
+name|void
+name|setBackpressureStrategy
+parameter_list|(
+name|ReactiveStreamsBackpressureStrategy
+name|backpressureStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backpressureStrategy
+operator|=
+name|backpressureStrategy
 expr_stmt|;
 block|}
 block|}

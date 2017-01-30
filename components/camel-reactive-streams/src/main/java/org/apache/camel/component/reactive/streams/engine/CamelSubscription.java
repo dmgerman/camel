@@ -1111,6 +1111,32 @@ name|checkAndFlush
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|setBackpressureStrategy (ReactiveStreamsBackpressureStrategy backpressureStrategy)
+specifier|public
+name|void
+name|setBackpressureStrategy
+parameter_list|(
+name|ReactiveStreamsBackpressureStrategy
+name|backpressureStrategy
+parameter_list|)
+block|{
+name|mutex
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|backpressureStrategy
+operator|=
+name|backpressureStrategy
+expr_stmt|;
+name|mutex
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

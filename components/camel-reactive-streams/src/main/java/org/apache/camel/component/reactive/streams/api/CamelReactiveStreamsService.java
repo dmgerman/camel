@@ -80,6 +80,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
+name|ReactiveStreamsProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|reactivestreams
 operator|.
 name|Publisher
@@ -177,7 +195,28 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/*      * Methods for producers.      */
+comment|/*      * Methods for Camel producers.      */
+comment|/**      * Used by Camel to associate the publisher of the stream with the given name to a specific Camel producer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param producer the producer of the route      * @throws IllegalStateException if another producer is already associated with the given stream name      */
+DECL|method|attachCamelProducer (String name, ReactiveStreamsProducer producer)
+name|void
+name|attachCamelProducer
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|ReactiveStreamsProducer
+name|producer
+parameter_list|)
+function_decl|;
+comment|/**      * Used by Camel to detach the existing producer from the given stream.      *      * @param name the stream name      */
+DECL|method|detachCamelProducer (String name)
+name|void
+name|detachCamelProducer
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Used by Camel to send the exchange to all active subscriptions on the given stream.      * The callback is used to signal that the exchange has been delivered to the subscribers.      *      * @param name the stream name      * @param exchange the exchange to be forwarded to the external subscribers      * @param callback the callback that signals the delivery of the exchange      */
 DECL|method|process (String name, Exchange exchange, DispatchCallback<Exchange> callback)
 name|void
@@ -196,11 +235,11 @@ argument_list|>
 name|callback
 parameter_list|)
 function_decl|;
-comment|/*      * Methods for consumers.      */
+comment|/*      * Methods for Camel consumers.      */
 comment|/**      * Used by Camel to associate the subscriber of the stream with the given name to a specific Camel consumer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param consumer the consumer of the route      * @throws IllegalStateException if another consumer is already associated with the given stream name      */
-DECL|method|attachConsumer (String name, ReactiveStreamsConsumer consumer)
+DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
 name|void
-name|attachConsumer
+name|attachCamelConsumer
 parameter_list|(
 name|String
 name|name
@@ -210,9 +249,9 @@ name|consumer
 parameter_list|)
 function_decl|;
 comment|/**      * Used by Camel to detach the existing consumer from the given stream.      *      * @param name the stream name      */
-DECL|method|detachConsumer (String name)
+DECL|method|detachCamelConsumer (String name)
 name|void
-name|detachConsumer
+name|detachCamelConsumer
 parameter_list|(
 name|String
 name|name

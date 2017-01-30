@@ -258,7 +258,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"A consumer is already attached on stream '"
+literal|"A consumer is already attached to the stream '"
 operator|+
 name|name
 operator|+

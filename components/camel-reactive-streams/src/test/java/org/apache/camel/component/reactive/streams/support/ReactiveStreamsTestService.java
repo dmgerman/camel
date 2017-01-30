@@ -78,6 +78,24 @@ name|reactive
 operator|.
 name|streams
 operator|.
+name|ReactiveStreamsProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
 name|api
 operator|.
 name|CamelReactiveStreamsService
@@ -316,10 +334,10 @@ parameter_list|)
 block|{      }
 annotation|@
 name|Override
-DECL|method|attachConsumer (String name, ReactiveStreamsConsumer consumer)
+DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
 specifier|public
 name|void
-name|attachConsumer
+name|attachCamelConsumer
 parameter_list|(
 name|String
 name|name
@@ -330,10 +348,35 @@ parameter_list|)
 block|{      }
 annotation|@
 name|Override
-DECL|method|detachConsumer (String name)
+DECL|method|detachCamelConsumer (String name)
 specifier|public
 name|void
-name|detachConsumer
+name|detachCamelConsumer
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{      }
+annotation|@
+name|Override
+DECL|method|attachCamelProducer (String name, ReactiveStreamsProducer producer)
+specifier|public
+name|void
+name|attachCamelProducer
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|ReactiveStreamsProducer
+name|producer
+parameter_list|)
+block|{      }
+annotation|@
+name|Override
+DECL|method|detachCamelProducer (String name)
+specifier|public
+name|void
+name|detachCamelProducer
 parameter_list|(
 name|String
 name|name
