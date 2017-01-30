@@ -25,7 +25,6 @@ interface|interface
 name|MyMultiArgumentServiceInterface
 block|{
 DECL|method|doSomething (String arg1, String arg2, Long arg3)
-specifier|public
 name|void
 name|doSomething
 parameter_list|(
