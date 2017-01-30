@@ -514,7 +514,6 @@ name|producer
 return|;
 block|}
 DECL|method|loadSwaggerModel (CamelContext camelContext, String apiDoc)
-specifier|private
 name|Swagger
 name|loadSwaggerModel
 parameter_list|(
