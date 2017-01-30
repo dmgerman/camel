@@ -92,6 +92,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|net
+operator|.
+name|ssl
+operator|.
+name|HostnameVerifier
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -492,7 +504,7 @@ name|conn
 operator|.
 name|ssl
 operator|.
-name|BrowserCompatHostnameVerifier
+name|DefaultHostnameVerifier
 import|;
 end_import
 
@@ -509,38 +521,6 @@ operator|.
 name|ssl
 operator|.
 name|SSLConnectionSocketFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|conn
-operator|.
-name|ssl
-operator|.
-name|SSLContexts
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|conn
-operator|.
-name|ssl
-operator|.
-name|X509HostnameVerifier
 import|;
 end_import
 
@@ -587,6 +567,20 @@ operator|.
 name|protocol
 operator|.
 name|HttpContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|ssl
+operator|.
+name|SSLContexts
 import|;
 end_import
 
@@ -697,11 +691,11 @@ literal|"security"
 argument_list|)
 DECL|field|x509HostnameVerifier
 specifier|protected
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|x509HostnameVerifier
 init|=
 operator|new
-name|BrowserCompatHostnameVerifier
+name|DefaultHostnameVerifier
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -1835,7 +1829,7 @@ name|clientConnectionManager
 return|;
 block|}
 specifier|final
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|resolvedHostnameVerifier
 init|=
 name|resolveAndRemoveReferenceParameter
@@ -1844,13 +1838,13 @@ name|parameters
 argument_list|,
 literal|"x509HostnameVerifier"
 argument_list|,
-name|X509HostnameVerifier
+name|HostnameVerifier
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 specifier|final
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|hostnameVerifier
 init|=
 name|Optional
@@ -2032,7 +2026,7 @@ return|return
 name|clientBuilder
 return|;
 block|}
-DECL|method|createConnectionRegistry (X509HostnameVerifier x509HostnameVerifier, SSLContextParameters sslContextParams)
+DECL|method|createConnectionRegistry (HostnameVerifier x509HostnameVerifier, SSLContextParameters sslContextParams)
 specifier|protected
 name|Registry
 argument_list|<
@@ -2040,7 +2034,7 @@ name|ConnectionSocketFactory
 argument_list|>
 name|createConnectionRegistry
 parameter_list|(
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|x509HostnameVerifier
 parameter_list|,
 name|SSLContextParameters
@@ -2704,7 +2698,7 @@ expr_stmt|;
 block|}
 DECL|method|getX509HostnameVerifier ()
 specifier|public
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|getX509HostnameVerifier
 parameter_list|()
 block|{
@@ -2712,13 +2706,13 @@ return|return
 name|x509HostnameVerifier
 return|;
 block|}
-comment|/**      * To use a custom X509HostnameVerifier such as org.apache.http.conn.ssl.StrictHostnameVerifier      * or org.apache.http.conn.ssl.AllowAllHostnameVerifier.      */
-DECL|method|setX509HostnameVerifier (X509HostnameVerifier x509HostnameVerifier)
+comment|/**      * To use a custom X509HostnameVerifier such as {@link DefaultHostnameVerifier}      * or {@link org.apache.http.conn.ssl.NoopHostnameVerifier}.      */
+DECL|method|setX509HostnameVerifier (HostnameVerifier x509HostnameVerifier)
 specifier|public
 name|void
 name|setX509HostnameVerifier
 parameter_list|(
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|x509HostnameVerifier
 parameter_list|)
 block|{
