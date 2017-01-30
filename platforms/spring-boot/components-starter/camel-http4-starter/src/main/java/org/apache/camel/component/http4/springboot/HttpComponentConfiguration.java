@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|net
+operator|.
+name|ssl
+operator|.
+name|HostnameVerifier
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -123,22 +135,6 @@ operator|.
 name|conn
 operator|.
 name|HttpClientConnectionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|conn
-operator|.
-name|ssl
-operator|.
-name|X509HostnameVerifier
 import|;
 end_import
 
@@ -261,12 +257,10 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|/**      * To use a custom X509HostnameVerifier such as      * org.apache.http.conn.ssl.StrictHostnameVerifier or      * org.apache.http.conn.ssl.AllowAllHostnameVerifier.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or      * org.apache.http.conn.ssl.NoopHostnameVerifier.      */
 DECL|field|x509HostnameVerifier
 specifier|private
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|x509HostnameVerifier
 decl_stmt|;
 comment|/**      * The maximum number of connections.      */
@@ -491,7 +485,7 @@ expr_stmt|;
 block|}
 DECL|method|getX509HostnameVerifier ()
 specifier|public
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|getX509HostnameVerifier
 parameter_list|()
 block|{
@@ -499,12 +493,12 @@ return|return
 name|x509HostnameVerifier
 return|;
 block|}
-DECL|method|setX509HostnameVerifier ( X509HostnameVerifier x509HostnameVerifier)
+DECL|method|setX509HostnameVerifier (HostnameVerifier x509HostnameVerifier)
 specifier|public
 name|void
 name|setX509HostnameVerifier
 parameter_list|(
-name|X509HostnameVerifier
+name|HostnameVerifier
 name|x509HostnameVerifier
 parameter_list|)
 block|{
