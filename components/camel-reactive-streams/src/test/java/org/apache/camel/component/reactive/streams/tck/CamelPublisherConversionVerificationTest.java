@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.reactive.streams
+DECL|package|org.apache.camel.component.reactive.streams.tck
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|reactive
 operator|.
 name|streams
+operator|.
+name|tck
 package|;
 end_package
 

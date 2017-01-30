@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.reactive.streams
+DECL|package|org.apache.camel.component.reactive.streams.tck
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|reactive
 operator|.
 name|streams
+operator|.
+name|tck
 package|;
 end_package
 
@@ -29,6 +31,18 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -86,7 +100,7 @@ name|org
 operator|.
 name|reactivestreams
 operator|.
-name|Subscriber
+name|Publisher
 import|;
 end_import
 
@@ -98,7 +112,7 @@ name|reactivestreams
 operator|.
 name|tck
 operator|.
-name|SubscriberBlackboxVerification
+name|PublisherVerification
 import|;
 end_import
 
@@ -115,24 +129,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelSubscriberConversionVerificationTest
+DECL|class|CamelPublisherVerificationTest
 specifier|public
 class|class
-name|CamelSubscriberConversionVerificationTest
+name|CamelPublisherVerificationTest
 extends|extends
-name|SubscriberBlackboxVerification
+name|PublisherVerification
 argument_list|<
-name|Integer
+name|Exchange
 argument_list|>
 block|{
-DECL|field|context
-specifier|private
-name|CamelContext
-name|context
-decl_stmt|;
-DECL|method|CamelSubscriberConversionVerificationTest ()
+DECL|method|CamelPublisherVerificationTest ()
 specifier|public
-name|CamelSubscriberConversionVerificationTest
+name|CamelPublisherVerificationTest
 parameter_list|()
 block|{
 name|super
@@ -147,23 +156,25 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createSubscriber ()
+DECL|method|createPublisher (long l)
 specifier|public
-name|Subscriber
+name|Publisher
 argument_list|<
-name|Integer
+name|Exchange
 argument_list|>
-name|createSubscriber
-parameter_list|()
+name|createPublisher
+parameter_list|(
+name|long
+name|l
+parameter_list|)
 block|{
-name|this
-operator|.
+name|CamelContext
 name|context
-operator|=
+init|=
 operator|new
 name|DefaultCamelContext
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|RouteBuilder
 name|builder
 init|=
@@ -182,22 +193,24 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"reactive-streams:sub?maxInflightExchanges=20"
+literal|"timer:tick?delay=500&period=50&repeatCount="
+operator|+
+name|l
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:INFO"
+literal|"reactive-streams:prod"
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 decl_stmt|;
-name|Subscriber
+name|Publisher
 argument_list|<
-name|Integer
+name|Exchange
 argument_list|>
-name|sub
+name|pub
 init|=
 name|CamelReactiveStreams
 operator|.
@@ -206,13 +219,9 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|getPublisher
 argument_list|(
-literal|"sub"
-argument_list|,
-name|Integer
-operator|.
-name|class
+literal|"prod"
 argument_list|)
 decl_stmt|;
 try|try
@@ -245,22 +254,37 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|sub
+name|pub
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createElement (int element)
+DECL|method|maxElementsFromPublisher ()
 specifier|public
-name|Integer
-name|createElement
-parameter_list|(
-name|int
-name|element
-parameter_list|)
+name|long
+name|maxElementsFromPublisher
+parameter_list|()
+block|{
+comment|// It's an active publisher
+return|return
+name|publisherUnableToSignalOnComplete
+argument_list|()
+return|;
+comment|// == Long.MAX_VALUE == unbounded
+block|}
+annotation|@
+name|Override
+DECL|method|createFailedPublisher ()
+specifier|public
+name|Publisher
+argument_list|<
+name|Exchange
+argument_list|>
+name|createFailedPublisher
+parameter_list|()
 block|{
 return|return
-name|element
+literal|null
 return|;
 block|}
 block|}

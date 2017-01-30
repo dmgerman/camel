@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.reactive.streams
+DECL|package|org.apache.camel.component.reactive.streams.tck
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|reactive
 operator|.
 name|streams
+operator|.
+name|tck
 package|;
 end_package
 
@@ -29,18 +31,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -96,20 +86,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|reactivestreams
 operator|.
 name|Subscriber
@@ -141,14 +117,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelSubscriberVerificationTest
+DECL|class|CamelSubscriberConversionVerificationTest
 specifier|public
 class|class
-name|CamelSubscriberVerificationTest
+name|CamelSubscriberConversionVerificationTest
 extends|extends
 name|SubscriberBlackboxVerification
 argument_list|<
-name|Exchange
+name|Integer
 argument_list|>
 block|{
 DECL|field|context
@@ -156,9 +132,9 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|method|CamelSubscriberVerificationTest ()
+DECL|method|CamelSubscriberConversionVerificationTest ()
 specifier|public
-name|CamelSubscriberVerificationTest
+name|CamelSubscriberConversionVerificationTest
 parameter_list|()
 block|{
 name|super
@@ -177,7 +153,7 @@ DECL|method|createSubscriber ()
 specifier|public
 name|Subscriber
 argument_list|<
-name|Exchange
+name|Integer
 argument_list|>
 name|createSubscriber
 parameter_list|()
@@ -221,7 +197,7 @@ block|}
 decl_stmt|;
 name|Subscriber
 argument_list|<
-name|Exchange
+name|Integer
 argument_list|>
 name|sub
 init|=
@@ -235,6 +211,10 @@ operator|.
 name|getSubscriber
 argument_list|(
 literal|"sub"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 try|try
@@ -274,34 +254,15 @@ annotation|@
 name|Override
 DECL|method|createElement (int element)
 specifier|public
-name|Exchange
+name|Integer
 name|createElement
 parameter_list|(
 name|int
 name|element
 parameter_list|)
 block|{
-name|Exchange
-name|exchange
-init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|context
-argument_list|)
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|element
-argument_list|)
-expr_stmt|;
 return|return
-name|exchange
+name|element
 return|;
 block|}
 block|}
