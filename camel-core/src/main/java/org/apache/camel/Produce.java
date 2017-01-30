@@ -138,6 +138,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+DECL|method|binding ()
+DECL|field|true
+name|boolean
+name|binding
+parameter_list|()
+default|default
+literal|true
+function_decl|;
 block|}
 end_annotation_defn
 

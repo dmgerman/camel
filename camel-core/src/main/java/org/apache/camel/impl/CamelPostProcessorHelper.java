@@ -192,6 +192,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Produce
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Producer
 import|;
 end_import
@@ -413,7 +425,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for Camel based injector or post processing hooks which can be reused by  * both the<a href="http://camel.apache.org/spring.html">Spring</a>,  *<a href="http://camel.apache.org/guice.html">Guice</a> and  *<a href="http://camel.apache.org/blueprint.html">Blueprint</a> support.  *  * @version   */
+comment|/**  * A helper class for Camel based injector or post processing hooks which can be  * reused by both the<a href="http://camel.apache.org/spring.html">Spring</a>,  *<a href="http://camel.apache.org/guice.html">Guice</a> and  *<a href="http://camel.apache.org/blueprint.html">Blueprint</a> support.  *  * @version  */
 end_comment
 
 begin_class
@@ -991,7 +1003,7 @@ name|mandatory
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the injection endpoint from a bean property.      * @param bean the bean      * @param propertyName the property name on the bean      */
+comment|/**      * Gets the injection endpoint from a bean property.      *      * @param bean the bean      * @param propertyName the property name on the bean      */
 DECL|method|doGetEndpointInjection (Object bean, String propertyName, String injectionPointName)
 specifier|private
 name|Endpoint
@@ -1189,7 +1201,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates the object to be injected for an {@link org.apache.camel.EndpointInject} or {@link org.apache.camel.Produce} injection point      */
+comment|/**      * Creates the object to be injected for an      * {@link org.apache.camel.EndpointInject} or      * {@link org.apache.camel.Produce} injection point      */
 DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointRef, String endpointProperty, String injectionPointName, Object bean, String beanName)
 specifier|public
 name|Object
@@ -1218,6 +1230,61 @@ name|bean
 parameter_list|,
 name|String
 name|beanName
+parameter_list|)
+block|{
+return|return
+name|getInjectionValue
+argument_list|(
+name|type
+argument_list|,
+name|endpointUri
+argument_list|,
+name|endpointRef
+argument_list|,
+name|endpointProperty
+argument_list|,
+name|injectionPointName
+argument_list|,
+name|bean
+argument_list|,
+name|beanName
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates the object to be injected for an      * {@link org.apache.camel.EndpointInject} or      * {@link org.apache.camel.Produce} injection point      */
+DECL|method|getInjectionValue (Class<?> type, String endpointUri, String endpointRef, String endpointProperty, String injectionPointName, Object bean, String beanName, boolean binding)
+specifier|public
+name|Object
+name|getInjectionValue
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|endpointRef
+parameter_list|,
+name|String
+name|endpointProperty
+parameter_list|,
+name|String
+name|injectionPointName
+parameter_list|,
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|beanName
+parameter_list|,
+name|boolean
+name|binding
 parameter_list|)
 block|{
 if|if
@@ -1408,6 +1475,8 @@ operator|.
 name|createProxy
 argument_list|(
 name|endpoint
+argument_list|,
+name|binding
 argument_list|,
 name|type
 argument_list|)
@@ -1773,7 +1842,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Factory method to create a {@link org.apache.camel.ProducerTemplate} to be injected into a POJO      */
+comment|/**      * Factory method to create a {@link org.apache.camel.ProducerTemplate} to      * be injected into a POJO      */
 DECL|method|createInjectionProducerTemplate (String endpointUri, String endpointRef, String endpointProperty, String injectionPointName, Object bean)
 specifier|protected
 name|ProducerTemplate
@@ -1875,7 +1944,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Factory method to create a {@link org.apache.camel.FluentProducerTemplate} to be injected into a POJO      */
+comment|/**      * Factory method to create a      * {@link org.apache.camel.FluentProducerTemplate} to be injected into a      * POJO      */
 DECL|method|createInjectionFluentProducerTemplate (String endpointUri, String endpointRef, String endpointProperty, String injectionPointName, Object bean)
 specifier|protected
 name|FluentProducerTemplate
@@ -1982,7 +2051,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Factory method to create a {@link org.apache.camel.ConsumerTemplate} to be injected into a POJO      */
+comment|/**      * Factory method to create a {@link org.apache.camel.ConsumerTemplate} to      * be injected into a POJO      */
 DECL|method|createInjectionConsumerTemplate (String endpointUri, String endpointRef, String endpointProperty, String injectionPointName)
 specifier|protected
 name|ConsumerTemplate
@@ -2045,7 +2114,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Factory method to create a started {@link org.apache.camel.PollingConsumer} to be injected into a POJO      */
+comment|/**      * Factory method to create a started      * {@link org.apache.camel.PollingConsumer} to be injected into a POJO      */
 DECL|method|createInjectionPollingConsumer (Endpoint endpoint, Object bean, String beanName)
 specifier|protected
 name|PollingConsumer
@@ -2105,7 +2174,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * A Factory method to create a started {@link org.apache.camel.Producer} to be injected into a POJO      */
+comment|/**      * A Factory method to create a started {@link org.apache.camel.Producer} to      * be injected into a POJO      */
 DECL|method|createInjectionProducer (Endpoint endpoint, Object bean, String beanName)
 specifier|protected
 name|Producer
@@ -2187,7 +2256,7 @@ name|e
 argument_list|)
 return|;
 block|}
-comment|/**      * Implementations can override this method to determine if the bean is singleton.      *      * @param bean the bean      * @return<tt>true</tt> if its singleton scoped, for prototype scoped<tt>false</tt> is returned.      */
+comment|/**      * Implementations can override this method to determine if the bean is      * singleton.      *      * @param bean the bean      * @return<tt>true</tt> if its singleton scoped, for prototype scoped      *<tt>false</tt> is returned.      */
 DECL|method|isSingleton (Object bean, String beanName)
 specifier|protected
 name|boolean
