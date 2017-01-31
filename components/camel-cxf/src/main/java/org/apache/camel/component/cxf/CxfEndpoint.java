@@ -4325,14 +4325,16 @@ block|{
 comment|// create the client without service class
 name|checkName
 argument_list|(
-name|portName
+name|getPortName
+argument_list|()
 argument_list|,
 literal|"endpoint/port name"
 argument_list|)
 expr_stmt|;
 name|checkName
 argument_list|(
-name|serviceName
+name|getServiceName
+argument_list|()
 argument_list|,
 literal|"service name"
 argument_list|)
