@@ -29,18 +29,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Consume
-import|;
-end_import
-
-begin_import
 import|import static
 name|junit
 operator|.
@@ -60,7 +48,7 @@ name|framework
 operator|.
 name|TestCase
 operator|.
-name|assertTrue
+name|assertNotNull
 import|;
 end_import
 
@@ -72,7 +60,19 @@ name|framework
 operator|.
 name|TestCase
 operator|.
-name|assertNotNull
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Consume
 import|;
 end_import
 
