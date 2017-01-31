@@ -376,6 +376,7 @@ name|anyMatch
 argument_list|(
 name|s
 lambda|->
+operator|!
 name|s
 operator|.
 name|getHealth
@@ -383,8 +384,6 @@ argument_list|()
 operator|.
 name|isHealthy
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
