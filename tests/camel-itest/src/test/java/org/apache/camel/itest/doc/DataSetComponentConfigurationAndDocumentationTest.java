@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.seda
+DECL|package|org.apache.camel.itest.doc
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
 operator|.
-name|seda
+name|doc
 package|;
 end_package
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|EndpointConfiguration
 import|;
 end_import
 
@@ -62,7 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
+name|component
+operator|.
+name|dataset
+operator|.
+name|DataSetComponent
 import|;
 end_import
 
@@ -84,6 +88,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -91,12 +111,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|SedaComponentConfigurationAndDocumentationTest
+DECL|class|DataSetComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|SedaComponentConfigurationAndDocumentationTest
+name|DataSetComponentConfigurationAndDocumentationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -120,16 +140,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SedaComponent
+name|DataSetComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"seda"
+literal|"dataset"
 argument_list|,
-name|SedaComponent
+name|DataSetComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +161,90 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"seda:foo?blockWhenFull=true"
+literal|"dataset:foo?minRate=3&produceDelay=33&consumeDelay=333&preloadSize=3333&initialDelay=33333&disableDataSetIndex=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Unexpected endpoint configuration value for minRate"
+argument_list|,
+literal|"3"
+argument_list|,
+name|conf
+operator|.
+name|getParameter
+argument_list|(
+literal|"minRate"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Unexpected endpoint configuration value for produceDelay"
+argument_list|,
+literal|"33"
+argument_list|,
+name|conf
+operator|.
+name|getParameter
+argument_list|(
+literal|"produceDelay"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Unexpected endpoint configuration value for consumeDelay"
+argument_list|,
+literal|"333"
+argument_list|,
+name|conf
+operator|.
+name|getParameter
+argument_list|(
+literal|"consumeDelay"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Unexpected endpoint configuration value for preloadSize"
+argument_list|,
+literal|"3333"
+argument_list|,
+name|conf
+operator|.
+name|getParameter
+argument_list|(
+literal|"preloadSize"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Unexpected endpoint configuration value for initialDelay"
+argument_list|,
+literal|"33333"
+argument_list|,
+name|conf
+operator|.
+name|getParameter
+argument_list|(
+literal|"initialDelay"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Unexpected endpoint configuration value for disableDataSetIndex"
+argument_list|,
 literal|"true"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"blockWhenFull"
+literal|"disableDataSetIndex"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +275,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"concurrentConsumers\": { \"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\""
+literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\", \"type\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +285,17 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\""
+literal|"\"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\", \"type\": \"integer\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +324,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"seda"
+literal|"dataset"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

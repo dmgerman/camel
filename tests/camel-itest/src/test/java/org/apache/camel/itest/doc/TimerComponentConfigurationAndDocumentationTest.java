@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.language
+DECL|package|org.apache.camel.itest.doc
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
 operator|.
-name|language
+name|doc
 package|;
 end_package
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|EndpointConfiguration
 import|;
 end_import
 
@@ -62,7 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
+name|component
+operator|.
+name|timer
+operator|.
+name|TimerComponent
 import|;
 end_import
 
@@ -84,6 +88,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -91,12 +111,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|LanguageComponentConfigurationAndDocumentationTest
+DECL|class|TimerComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|LanguageComponentConfigurationAndDocumentationTest
+name|TimerComponentConfigurationAndDocumentationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -120,16 +140,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LanguageComponent
+name|TimerComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"language"
+literal|"timer"
 argument_list|,
-name|LanguageComponent
+name|TimerComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +161,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"language:simple:foo?transform=false"
+literal|"timer:foo?period=2000"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"false"
+literal|"2000"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"transform"
+literal|"period"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"languageName\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
+literal|"\"timerName\": { \"kind\": \"path\", \"group\": \"consumer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +213,17 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"script\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
+literal|"\"delay\": { \"kind\": \"parameter\", \"group\": \"consumer\", \"type\": \"integer\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"timer\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +252,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"language"
+literal|"timer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

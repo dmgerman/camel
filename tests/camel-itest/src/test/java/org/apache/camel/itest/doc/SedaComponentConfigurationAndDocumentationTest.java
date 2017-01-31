@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean
+DECL|package|org.apache.camel.itest.doc
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
 operator|.
-name|bean
+name|doc
 package|;
 end_package
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|EndpointConfiguration
 import|;
 end_import
 
@@ -62,7 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
+name|component
+operator|.
+name|seda
+operator|.
+name|SedaComponent
 import|;
 end_import
 
@@ -84,6 +88,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -91,12 +111,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|BeanComponentConfigurationAndDocumentationTest
+DECL|class|SedaComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|BeanComponentConfigurationAndDocumentationTest
+name|SedaComponentConfigurationAndDocumentationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -120,16 +140,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|BeanComponent
+name|SedaComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"bean"
+literal|"seda"
 argument_list|,
-name|BeanComponent
+name|SedaComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +161,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"bean:foo?method=bar"
+literal|"seda:foo?blockWhenFull=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"bar"
+literal|"true"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"method"
+literal|"blockWhenFull"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"method\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
+literal|"\"concurrentConsumers\": { \"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cache\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
+literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +242,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"bean"
+literal|"seda"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

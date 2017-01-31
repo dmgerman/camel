@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.dataset
+DECL|package|org.apache.camel.itest.doc
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
 operator|.
-name|dataset
+name|doc
 package|;
 end_package
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|EndpointConfiguration
 import|;
 end_import
 
@@ -62,7 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
+name|component
+operator|.
+name|direct
+operator|.
+name|DirectComponent
 import|;
 end_import
 
@@ -84,6 +88,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -91,12 +111,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|DataSetComponentConfigurationAndDocumentationTest
+DECL|class|DirectComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|DataSetComponentConfigurationAndDocumentationTest
+name|DirectComponentConfigurationAndDocumentationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -120,16 +140,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DataSetComponent
+name|DirectComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"dataset"
+literal|"direct"
 argument_list|,
-name|DataSetComponent
+name|DirectComponent
 operator|.
 name|class
 argument_list|)
@@ -141,90 +161,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"dataset:foo?minRate=3&produceDelay=33&consumeDelay=333&preloadSize=3333&initialDelay=33333&disableDataSetIndex=true"
+literal|"direct:foo?block=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Unexpected endpoint configuration value for minRate"
-argument_list|,
-literal|"3"
-argument_list|,
-name|conf
-operator|.
-name|getParameter
-argument_list|(
-literal|"minRate"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Unexpected endpoint configuration value for produceDelay"
-argument_list|,
-literal|"33"
-argument_list|,
-name|conf
-operator|.
-name|getParameter
-argument_list|(
-literal|"produceDelay"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Unexpected endpoint configuration value for consumeDelay"
-argument_list|,
-literal|"333"
-argument_list|,
-name|conf
-operator|.
-name|getParameter
-argument_list|(
-literal|"consumeDelay"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Unexpected endpoint configuration value for preloadSize"
-argument_list|,
-literal|"3333"
-argument_list|,
-name|conf
-operator|.
-name|getParameter
-argument_list|(
-literal|"preloadSize"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Unexpected endpoint configuration value for initialDelay"
-argument_list|,
-literal|"33333"
-argument_list|,
-name|conf
-operator|.
-name|getParameter
-argument_list|(
-literal|"initialDelay"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Unexpected endpoint configuration value for disableDataSetIndex"
-argument_list|,
 literal|"true"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"disableDataSetIndex"
+literal|"block"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -255,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\", \"type\""
+literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -265,17 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\", \"type\": \"integer\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer"
+literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -304,7 +242,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"dataset"
+literal|"direct"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -312,6 +250,41 @@ argument_list|(
 literal|"Should have found some auto-generated HTML"
 argument_list|,
 name|html
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testComponentJsonSchema ()
+specifier|public
+name|void
+name|testComponentJsonSchema
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CamelContext
+name|context
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
+name|String
+name|json
+init|=
+name|context
+operator|.
+name|getComponentParameterJsonSchema
+argument_list|(
+literal|"direct"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should have found some auto-generated JSON"
+argument_list|,
+name|json
 argument_list|)
 expr_stmt|;
 block|}

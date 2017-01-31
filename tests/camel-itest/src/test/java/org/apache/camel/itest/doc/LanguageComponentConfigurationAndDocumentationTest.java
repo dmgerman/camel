@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.direct
+DECL|package|org.apache.camel.itest.doc
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
 operator|.
-name|direct
+name|doc
 package|;
 end_package
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|EndpointConfiguration
 import|;
 end_import
 
@@ -62,7 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
+name|component
+operator|.
+name|language
+operator|.
+name|LanguageComponent
 import|;
 end_import
 
@@ -84,6 +88,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -91,12 +111,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|DirectComponentConfigurationAndDocumentationTest
+DECL|class|LanguageComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|DirectComponentConfigurationAndDocumentationTest
+name|LanguageComponentConfigurationAndDocumentationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -120,16 +140,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DirectComponent
+name|LanguageComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"direct"
+literal|"language"
 argument_list|,
-name|DirectComponent
+name|LanguageComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +161,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"direct:foo?block=true"
+literal|"language:simple:foo?transform=false"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"true"
+literal|"false"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"block"
+literal|"transform"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\", \"type\": \"string\""
+literal|"\"languageName\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\""
+literal|"\"script\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +242,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"direct"
+literal|"language"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -230,41 +250,6 @@ argument_list|(
 literal|"Should have found some auto-generated HTML"
 argument_list|,
 name|html
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testComponentJsonSchema ()
-specifier|public
-name|void
-name|testComponentJsonSchema
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|CamelContext
-name|context
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
-decl_stmt|;
-name|String
-name|json
-init|=
-name|context
-operator|.
-name|getComponentParameterJsonSchema
-argument_list|(
-literal|"direct"
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Should have found some auto-generated JSON"
-argument_list|,
-name|json
 argument_list|)
 expr_stmt|;
 block|}

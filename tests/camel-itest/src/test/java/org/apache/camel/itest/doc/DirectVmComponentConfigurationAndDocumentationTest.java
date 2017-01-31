@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.browse
+DECL|package|org.apache.camel.itest.doc
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
 operator|.
-name|browse
+name|doc
 package|;
 end_package
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|EndpointConfiguration
 import|;
 end_import
 
@@ -62,7 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
+name|component
+operator|.
+name|directvm
+operator|.
+name|DirectVmComponent
 import|;
 end_import
 
@@ -84,6 +88,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -91,12 +111,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|BrowseComponentConfigurationAndDocumentationTest
+DECL|class|DirectVmComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|BrowseComponentConfigurationAndDocumentationTest
+name|DirectVmComponentConfigurationAndDocumentationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -120,16 +140,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|BrowseComponent
+name|DirectVmComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"browse"
+literal|"direct-vm"
 argument_list|,
-name|BrowseComponent
+name|DirectVmComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +161,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"browse:seda:foo?synchronous=true"
+literal|"direct-vm:foo?block=false"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"true"
+literal|"false"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"synchronous"
+literal|"block"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"synchronous\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
+literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +242,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"browse"
+literal|"direct-vm"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

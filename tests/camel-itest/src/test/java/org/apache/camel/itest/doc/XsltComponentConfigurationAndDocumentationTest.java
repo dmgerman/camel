@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.mock
+DECL|package|org.apache.camel.itest.doc
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
 operator|.
-name|mock
+name|doc
 package|;
 end_package
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|EndpointConfiguration
 import|;
 end_import
 
@@ -62,7 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
+name|component
+operator|.
+name|xslt
+operator|.
+name|XsltComponent
 import|;
 end_import
 
@@ -84,6 +88,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -91,12 +111,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|MockComponentConfigurationAndDocumentationTest
+DECL|class|XsltComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|MockComponentConfigurationAndDocumentationTest
+name|XsltComponentConfigurationAndDocumentationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -120,16 +140,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockComponent
+name|XsltComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"mock"
+literal|"xslt"
 argument_list|,
-name|MockComponent
+name|XsltComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +161,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"mock:foo?retainFirst=10"
+literal|"xslt:foo?deleteOutputFile=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"10"
+literal|"true"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"retainFirst"
+literal|"deleteOutputFile"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
+literal|"\"resourceUri\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"expectedCount\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\""
+literal|"\"allowStAX\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -203,47 +223,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testEndpointExplain ()
-specifier|public
-name|void
-name|testEndpointExplain
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|json
-init|=
-name|context
-operator|.
-name|explainEndpointJson
-argument_list|(
-literal|"mock:foo?retainFirst=10"
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\","
-operator|+
-literal|" \"javaType\": \"int\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"10\""
+literal|"\"transformerFactoryClass\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -272,7 +252,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"mock"
+literal|"xslt"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

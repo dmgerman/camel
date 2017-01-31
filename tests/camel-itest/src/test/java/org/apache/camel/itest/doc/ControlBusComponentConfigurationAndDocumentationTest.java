@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.directvm
+DECL|package|org.apache.camel.itest.doc
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
 operator|.
-name|directvm
+name|doc
 package|;
 end_package
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|EndpointConfiguration
 import|;
 end_import
 
@@ -62,7 +62,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
+name|component
+operator|.
+name|controlbus
+operator|.
+name|ControlBusComponent
 import|;
 end_import
 
@@ -84,6 +88,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -91,12 +111,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|DirectVmComponentConfigurationAndDocumentationTest
+DECL|class|ControlBusComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|DirectVmComponentConfigurationAndDocumentationTest
+name|ControlBusComponentConfigurationAndDocumentationTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Override
@@ -120,16 +140,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DirectVmComponent
+name|ControlBusComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"direct-vm"
+literal|"controlbus"
 argument_list|,
-name|DirectVmComponent
+name|ControlBusComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +161,30 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"direct-vm:foo?block=false"
+literal|"controlbus:route?routeId=bar&action=stop"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"false"
+literal|"bar"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"block"
+literal|"routeId"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"stop"
+argument_list|,
+name|conf
+operator|.
+name|getParameter
+argument_list|(
+literal|"action"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +215,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\", \"type\": \"string\""
+literal|"\"action\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +225,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\""
+literal|"\"async\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +254,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"direct-vm"
+literal|"controlbus"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
