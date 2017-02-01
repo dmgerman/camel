@@ -2067,7 +2067,7 @@ name|warning
 argument_list|(
 name|processingEnv
 argument_list|,
-literal|"Could not convert output directory resource URI to a file "
+literal|"Cannot convert output directory resource URI to a file "
 operator|+
 name|e
 argument_list|)
@@ -2352,6 +2352,15 @@ decl_stmt|;
 name|FileObject
 name|resource
 decl_stmt|;
+name|String
+name|relativeName
+init|=
+name|packageName
+operator|+
+literal|"/"
+operator|+
+name|fileName
+decl_stmt|;
 try|try
 block|{
 name|resource
@@ -2366,11 +2375,7 @@ name|CLASS_OUTPUT
 argument_list|,
 literal|""
 argument_list|,
-name|packageName
-operator|+
-literal|"/"
-operator|+
-name|fileName
+name|relativeName
 argument_list|)
 expr_stmt|;
 block|}
@@ -2381,7 +2386,11 @@ name|e
 parameter_list|)
 block|{
 return|return
-literal|"Crap"
+literal|"Cannot load classpath resource: "
+operator|+
+name|relativeName
+operator|+
+literal|" due: "
 operator|+
 name|e
 operator|.
