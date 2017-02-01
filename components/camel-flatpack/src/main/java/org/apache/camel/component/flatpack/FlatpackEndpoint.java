@@ -358,7 +358,7 @@ name|UriEndpoint
 argument_list|(
 name|firstVersion
 operator|=
-literal|"1.5.0"
+literal|"1.4.0"
 argument_list|,
 name|scheme
 operator|=

@@ -190,7 +190,7 @@ name|Metadata
 argument_list|(
 name|firstVersion
 operator|=
-literal|"1.4.0"
+literal|"1.3.0"
 argument_list|,
 name|label
 operator|=
