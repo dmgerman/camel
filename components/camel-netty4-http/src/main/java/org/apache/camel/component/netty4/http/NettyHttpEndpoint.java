@@ -304,6 +304,10 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.14.0"
+argument_list|,
 name|scheme
 operator|=
 literal|"netty4-http"
