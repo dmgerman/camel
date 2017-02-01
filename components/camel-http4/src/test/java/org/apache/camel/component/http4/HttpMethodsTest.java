@@ -612,7 +612,7 @@ name|assertEquals
 argument_list|(
 name|HttpStatus
 operator|.
-name|SC_NOT_IMPLEMENTED
+name|SC_OK
 argument_list|,
 name|headers
 operator|.
@@ -626,7 +626,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Not Implemented"
+literal|"OK"
 argument_list|,
 name|headers
 operator|.
@@ -640,7 +640,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"26"
+literal|"12"
 argument_list|,
 name|headers
 operator|.
@@ -664,7 +664,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"PATCH method not supported"
+literal|"camel rocks!"
 argument_list|,
 name|out
 operator|.

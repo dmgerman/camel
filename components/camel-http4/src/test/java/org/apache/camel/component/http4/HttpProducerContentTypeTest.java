@@ -219,7 +219,7 @@ specifier|final
 name|String
 name|CONTENT_TYPE
 init|=
-literal|"multipart/form-data;boundary=---------------------------j2radvtrk"
+literal|"multipart/form-data boundary=---------------------------j2radvtrk"
 decl_stmt|;
 DECL|field|localServer
 specifier|private
