@@ -188,6 +188,10 @@ begin_class
 annotation|@
 name|Metadata
 argument_list|(
+name|firstVersion
+operator|=
+literal|"1.4.0"
+argument_list|,
 name|label
 operator|=
 literal|"dataformat,transformation,csv"

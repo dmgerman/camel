@@ -300,6 +300,10 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.15.0"
+argument_list|,
 name|scheme
 operator|=
 literal|"chunk"

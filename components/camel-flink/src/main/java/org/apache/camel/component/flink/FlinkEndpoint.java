@@ -166,6 +166,10 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.18.0"
+argument_list|,
 name|scheme
 operator|=
 literal|"flink"
