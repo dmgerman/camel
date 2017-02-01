@@ -104,6 +104,14 @@ specifier|public
 annotation_defn|@interface
 name|UriEndpoint
 block|{
+comment|/**      * The first version this endpoint was added to Apache Camel.      */
+DECL|method|firstVersion ()
+name|String
+name|firstVersion
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * Represents the URI scheme name of this endpoint.      *<p/>      * Multiple scheme names can be defined as a comma separated value.      * For example to associate<tt>http</tt> and<tt>https</tt> to the same endpoint implementation.      *<p/>      * The order of the scheme names here should be the same order as in {@link #extendsScheme()} so their are paired.      */
 DECL|method|scheme ()
 name|String

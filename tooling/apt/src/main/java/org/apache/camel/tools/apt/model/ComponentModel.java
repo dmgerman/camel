@@ -62,6 +62,11 @@ specifier|private
 name|String
 name|description
 decl_stmt|;
+DECL|field|firstVersion
+specifier|private
+name|String
+name|firstVersion
+decl_stmt|;
 DECL|field|groupId
 specifier|private
 name|String
@@ -286,6 +291,32 @@ operator|.
 name|description
 operator|=
 name|description
+expr_stmt|;
+block|}
+DECL|method|getFirstVersion ()
+specifier|public
+name|String
+name|getFirstVersion
+parameter_list|()
+block|{
+return|return
+name|firstVersion
+return|;
+block|}
+DECL|method|setFirstVersion (String firstVersion)
+specifier|public
+name|void
+name|setFirstVersion
+parameter_list|(
+name|String
+name|firstVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|firstVersion
+operator|=
+name|firstVersion
 expr_stmt|;
 block|}
 DECL|method|getGroupId ()
