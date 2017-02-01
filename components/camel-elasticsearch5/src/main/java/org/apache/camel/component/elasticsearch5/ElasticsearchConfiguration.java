@@ -130,14 +130,9 @@ name|clusterName
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|enums
-operator|=
-literal|"INDEX, UPDATE, BULK, BULK_INDEX, GET_BY_ID, MULTIGET, DELETE, EXISTS, SEARCH, MULTISEARCH, DELETE_INDEX"
-argument_list|)
 DECL|field|operation
 specifier|private
-name|String
+name|ElasticsearchOperation
 name|operation
 decl_stmt|;
 annotation|@
@@ -156,6 +151,15 @@ name|indexType
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|ElasticsearchConstants
+operator|.
+name|DEFAULT_FOR_WAIT_ACTIVE_SHARDS
+argument_list|)
 DECL|field|waitForActiveShards
 specifier|private
 name|int
@@ -181,6 +185,15 @@ name|transportAddresses
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|ElasticsearchConstants
+operator|.
+name|DEFAULT_PORT
+argument_list|)
 DECL|field|port
 specifier|private
 name|int
@@ -234,7 +247,7 @@ block|}
 comment|/**      * What operation to perform      */
 DECL|method|getOperation ()
 specifier|public
-name|String
+name|ElasticsearchOperation
 name|getOperation
 parameter_list|()
 block|{
@@ -242,12 +255,12 @@ return|return
 name|operation
 return|;
 block|}
-DECL|method|setOperation (String operation)
+DECL|method|setOperation (ElasticsearchOperation operation)
 specifier|public
 name|void
 name|setOperation
 parameter_list|(
-name|String
+name|ElasticsearchOperation
 name|operation
 parameter_list|)
 block|{

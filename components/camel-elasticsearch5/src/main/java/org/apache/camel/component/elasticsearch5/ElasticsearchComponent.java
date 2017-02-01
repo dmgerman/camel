@@ -170,18 +170,6 @@ name|ElasticsearchComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-annotation|@
-name|Metadata
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|client
-specifier|private
-name|TransportClient
-name|client
-decl_stmt|;
 DECL|method|ElasticsearchComponent ()
 specifier|public
 name|ElasticsearchComponent
@@ -282,8 +270,6 @@ argument_list|,
 name|this
 argument_list|,
 name|config
-argument_list|,
-name|client
 argument_list|)
 decl_stmt|;
 return|return
@@ -455,33 +441,6 @@ block|}
 return|return
 name|addressesTrAd
 return|;
-block|}
-DECL|method|getClient ()
-specifier|public
-name|TransportClient
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|client
-return|;
-block|}
-comment|/**      * To use an existing configured Elasticsearch client, instead of creating a client per endpoint.      */
-DECL|method|setClient (TransportClient client)
-specifier|public
-name|void
-name|setClient
-parameter_list|(
-name|TransportClient
-name|client
-parameter_list|)
-block|{
-name|this
-operator|.
-name|client
-operator|=
-name|client
-expr_stmt|;
 block|}
 block|}
 end_class

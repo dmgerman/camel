@@ -456,50 +456,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|CamelContext
-name|context
-init|=
-name|super
-operator|.
-name|createCamelContext
-argument_list|()
-decl_stmt|;
-comment|// reuse existing client
-name|ElasticsearchComponent
-name|es
-init|=
-name|context
-operator|.
-name|getComponent
-argument_list|(
-literal|"elasticsearch5"
-argument_list|,
-name|ElasticsearchComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|es
-operator|.
-name|setClient
-argument_list|(
-name|client
-argument_list|)
-expr_stmt|;
-return|return
-name|context
-return|;
-block|}
 comment|/**      * As we don't delete the {@code target/data} folder for<b>each</b> test      * below (otherwise they would run much slower), we need to make sure      * there's no side effect of the same used data through creating unique      * indexes.      */
 DECL|method|createIndexedData (String... additionalPrefixes)
 name|Map
