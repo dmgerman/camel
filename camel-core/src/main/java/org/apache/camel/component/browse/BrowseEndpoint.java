@@ -233,13 +233,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The browse component is used for viewsing the messages received on endpoints that supports {@link BrowsableEndpoint}.  *  * This can be useful for testing, visualisation tools or debugging. he exchanges sent to the endpoint are all available to be browsed.  */
+comment|/**  * The browse component is used for viewing the messages received on endpoints that supports {@link BrowsableEndpoint}.  *  * This can be useful for testing, visualisation tools or debugging. he exchanges sent to the endpoint are all available to be browsed.  */
 end_comment
 
 begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"1.3.0"
+argument_list|,
 name|scheme
 operator|=
 literal|"browse"
