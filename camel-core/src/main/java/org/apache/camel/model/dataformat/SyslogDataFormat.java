@@ -96,6 +96,10 @@ begin_class
 annotation|@
 name|Metadata
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.6.0"
+argument_list|,
 name|label
 operator|=
 literal|"dataformat,transformation"

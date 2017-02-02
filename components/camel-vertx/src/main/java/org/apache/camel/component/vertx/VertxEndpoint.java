@@ -182,6 +182,10 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.12.0"
+argument_list|,
 name|scheme
 operator|=
 literal|"vertx"
@@ -202,7 +206,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"eventbus"
+literal|"eventbus,reactive"
 argument_list|)
 DECL|class|VertxEndpoint
 specifier|public

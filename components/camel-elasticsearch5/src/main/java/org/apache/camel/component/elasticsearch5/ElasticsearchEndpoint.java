@@ -117,13 +117,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The elasticsearch component is used for interfacing with ElasticSearch server.  */
+comment|/**  * The elasticsearch component is used for interfacing with ElasticSearch server using 5.x API.  */
 end_comment
 
 begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.19.0"
+argument_list|,
 name|scheme
 operator|=
 literal|"elasticsearch5"
