@@ -222,7 +222,7 @@ literal|"ironmq:queueName"
 argument_list|,
 name|title
 operator|=
-literal|"ironmq"
+literal|"IronMQ"
 argument_list|,
 name|consumerClass
 operator|=
