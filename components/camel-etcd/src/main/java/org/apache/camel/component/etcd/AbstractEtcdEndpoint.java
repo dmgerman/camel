@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The camel etcd component allows you to work with<a href="https://coreos.com/etcd">Etcd</a>, a distributed, A distributed, reliable key-value store.  */
+comment|/**  * The camel etcd component allows you to work with<a href="https://coreos.com/etcd">Etcd</a>, a distributed reliable key-value store.  */
 end_comment
 
 begin_class
@@ -171,7 +171,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"The path the enpoint refers to"
+literal|"The path the endpoint refers to"
 argument_list|)
 annotation|@
 name|Metadata
