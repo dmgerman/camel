@@ -2024,6 +2024,19 @@ name|contains
 argument_list|(
 literal|"Available as of"
 argument_list|)
+operator|||
+name|lines
+index|[
+literal|2
+index|]
+operator|.
+name|trim
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Available in"
+argument_list|)
 decl_stmt|;
 name|boolean
 name|empty2
