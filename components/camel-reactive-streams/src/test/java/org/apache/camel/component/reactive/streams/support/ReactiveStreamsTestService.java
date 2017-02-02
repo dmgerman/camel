@@ -382,6 +382,57 @@ name|String
 name|name
 parameter_list|)
 block|{      }
+annotation|@
+name|Override
+DECL|method|request (String name, Object data)
+specifier|public
+name|Publisher
+argument_list|<
+name|Exchange
+argument_list|>
+name|request
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|data
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|request (String name, Object data, Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|Publisher
+argument_list|<
+name|T
+argument_list|>
+name|request
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|data
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 DECL|method|getName ()
 specifier|public
 name|String

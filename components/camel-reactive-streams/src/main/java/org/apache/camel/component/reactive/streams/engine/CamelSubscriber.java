@@ -277,6 +277,17 @@ name|refill
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getConsumer ()
+specifier|public
+specifier|synchronized
+name|ReactiveStreamsConsumer
+name|getConsumer
+parameter_list|()
+block|{
+return|return
+name|consumer
+return|;
+block|}
 DECL|method|detachConsumer ()
 specifier|public
 name|void
@@ -366,6 +377,13 @@ operator|!
 name|allowed
 condition|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"There is another active subscription: cancelled"
+argument_list|)
+expr_stmt|;
 name|subscription
 operator|.
 name|cancel

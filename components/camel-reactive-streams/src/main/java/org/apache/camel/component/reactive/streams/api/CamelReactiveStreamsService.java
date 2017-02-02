@@ -195,6 +195,45 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Pushes the given data into the specified Camel stream and returns a Publisher (mono) holding      * the resulting exchange or an error.      *      * @param name the stream name      * @param data the data to push      * @return an publisher with the resulting exchange      */
+DECL|method|request (String name, Object data)
+name|Publisher
+argument_list|<
+name|Exchange
+argument_list|>
+name|request
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|data
+parameter_list|)
+function_decl|;
+comment|/**      * Pushes the given data into the specified Camel stream and returns a Publisher (mono) holding      * the exchange output or an error.      *      * @param name the stream name      * @param data the data to push      * @param type  the type to which the output should be converted      * @param<T> the generic type of the resulting Publisher      * @return an publisher with the resulting data      */
+DECL|method|request (String name, Object data, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Publisher
+argument_list|<
+name|T
+argument_list|>
+name|request
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|data
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/*      * Methods for Camel producers.      */
 comment|/**      * Used by Camel to associate the publisher of the stream with the given name to a specific Camel producer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param producer the producer of the route      * @throws IllegalStateException if another producer is already associated with the given stream name      */
 DECL|method|attachCamelProducer (String name, ReactiveStreamsProducer producer)
