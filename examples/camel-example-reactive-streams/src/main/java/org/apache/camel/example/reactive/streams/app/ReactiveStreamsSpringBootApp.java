@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example.reactive.streams
+DECL|package|org.apache.camel.example.reactive.streams.app
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|reactive
 operator|.
 name|streams
+operator|.
+name|app
 package|;
 end_package
 
@@ -24,25 +26,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|boot
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|SpringApplication
 import|;
 end_import
 
@@ -52,75 +40,55 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|stereotype
+name|boot
 operator|.
-name|Component
+name|autoconfigure
+operator|.
+name|SpringBootApplication
 import|;
 end_import
 
+begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
 begin_class
 annotation|@
-name|Component
-DECL|class|SampleCamelRoutes
+name|SpringBootApplication
+DECL|class|ReactiveStreamsSpringBootApp
 specifier|public
 class|class
-name|SampleCamelRoutes
-extends|extends
-name|RouteBuilder
+name|ReactiveStreamsSpringBootApp
 block|{
-annotation|@
-name|Override
-DECL|method|configure ()
+DECL|method|main (String[] args)
 specifier|public
+specifier|static
 name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
+name|main
+parameter_list|(
+name|String
+index|[]
+name|args
+parameter_list|)
 block|{
-comment|// Generating numbers every 3 seconds and forwarding to the stream "numbers"
-name|from
+name|SpringApplication
+operator|.
+name|run
 argument_list|(
-literal|"timer:clock?period=3000"
-argument_list|)
+name|ReactiveStreamsSpringBootApp
 operator|.
-name|setBody
-argument_list|()
-operator|.
-name|header
-argument_list|(
-name|Exchange
-operator|.
-name|TIMER_COUNTER
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"reactive-streams:numbers"
-argument_list|)
-expr_stmt|;
-comment|// Generating strings every 2.9 seconds and forwarding to the stream "strings"
-name|from
-argument_list|(
-literal|"timer:clock2?period=2900&delay=1000"
-argument_list|)
-operator|.
-name|setBody
-argument_list|()
-operator|.
-name|simple
-argument_list|(
-literal|"Hello World ${header.CamelTimerCounter}!"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"reactive-streams:strings"
+name|class
+argument_list|,
+name|args
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 

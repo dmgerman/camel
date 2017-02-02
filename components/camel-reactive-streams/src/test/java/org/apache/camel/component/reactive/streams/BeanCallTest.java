@@ -100,7 +100,7 @@ name|streams
 operator|.
 name|util
 operator|.
-name|UnwrappingStreamProcessor
+name|UnwrapStreamProcessor
 import|;
 end_import
 
@@ -209,16 +209,16 @@ operator|.
 name|process
 argument_list|(
 operator|new
-name|UnwrappingStreamProcessor
+name|UnwrapStreamProcessor
 argument_list|()
 argument_list|)
+comment|// Can be removed?
 operator|.
 name|split
 argument_list|()
 operator|.
 name|body
 argument_list|()
-comment|// Can be removed?
 operator|.
 name|to
 argument_list|(
@@ -369,16 +369,16 @@ operator|.
 name|process
 argument_list|(
 operator|new
-name|UnwrappingStreamProcessor
+name|UnwrapStreamProcessor
 argument_list|()
 argument_list|)
+comment|// Can be removed?
 operator|.
 name|split
 argument_list|()
 operator|.
 name|body
 argument_list|()
-comment|// Can be removed?
 operator|.
 name|to
 argument_list|(
@@ -529,16 +529,16 @@ operator|.
 name|process
 argument_list|(
 operator|new
-name|UnwrappingStreamProcessor
+name|UnwrapStreamProcessor
 argument_list|()
 argument_list|)
+comment|// Can be removed?
 operator|.
 name|split
 argument_list|()
 operator|.
 name|body
 argument_list|()
-comment|// Can be removed?
 operator|.
 name|to
 argument_list|(

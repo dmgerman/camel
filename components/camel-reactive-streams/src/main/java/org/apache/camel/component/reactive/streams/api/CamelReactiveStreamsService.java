@@ -24,6 +24,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -195,7 +207,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Pushes the given data into the specified Camel stream and returns a Publisher (mono) holding      * the resulting exchange or an error.      *      * @param name the stream name      * @param data the data to push      * @return an publisher with the resulting exchange      */
+comment|/**      * Pushes the given data into the specified Camel stream and returns a Publisher (mono) holding      * the resulting exchange or an error.      *      * @param name the stream name      * @param data the data to push      * @return a publisher with the resulting exchange      */
 DECL|method|request (String name, Object data)
 name|Publisher
 argument_list|<
@@ -210,7 +222,26 @@ name|Object
 name|data
 parameter_list|)
 function_decl|;
-comment|/**      * Pushes the given data into the specified Camel stream and returns a Publisher (mono) holding      * the exchange output or an error.      *      * @param name the stream name      * @param data the data to push      * @param type  the type to which the output should be converted      * @param<T> the generic type of the resulting Publisher      * @return an publisher with the resulting data      */
+comment|/**      * Returns a function that pushes data into the specified Camel stream and      * returns a Publisher (mono) holding the resulting exchange or an error.      *      * This is a curryied version of {@link CamelReactiveStreamsService#request(String, Object)}.      *      * @param name the stream name      * @return a function that returns a publisher with the resulting exchange      */
+DECL|method|request (String name)
+name|Function
+argument_list|<
+name|?
+argument_list|,
+name|?
+extends|extends
+name|Publisher
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|>
+name|request
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Pushes the given data into the specified Camel stream and returns a Publisher (mono) holding      * the exchange output or an error.      *      * @param name the stream name      * @param data the data to push      * @param type  the type to which the output should be converted      * @param<T> the generic type of the resulting Publisher      * @return a publisher with the resulting data      */
 DECL|method|request (String name, Object data, Class<T> type)
 parameter_list|<
 name|T
@@ -226,6 +257,32 @@ name|name
 parameter_list|,
 name|Object
 name|data
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a function that pushes data into the specified Camel stream and      * returns a Publisher (mono) holding the exchange output or an error.      *      * This is a curryied version of {@link CamelReactiveStreamsService#request(String, Object, Class)}.      *      * @param name the stream name      * @param type  the type to which the output should be converted      * @param<T> the generic type of the resulting Publisher      * @return a function that returns a publisher with the resulting data      */
+DECL|method|request (String name, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Function
+argument_list|<
+name|Object
+argument_list|,
+name|Publisher
+argument_list|<
+name|T
+argument_list|>
+argument_list|>
+name|request
+parameter_list|(
+name|String
+name|name
 parameter_list|,
 name|Class
 argument_list|<
