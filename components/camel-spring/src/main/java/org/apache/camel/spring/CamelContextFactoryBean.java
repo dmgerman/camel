@@ -3064,6 +3064,7 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
+comment|/**      * Configuration of CamelContext properties such as limit of debug logging      * and other general options.      */
 DECL|method|setGlobalOptions (GlobalOptionsDefinition globalOptions)
 specifier|public
 name|void
@@ -3986,6 +3987,7 @@ return|return
 name|beans
 return|;
 block|}
+comment|/**      * Miscellaneous configurations      */
 DECL|method|setBeans (List<?> beans)
 specifier|public
 name|void
