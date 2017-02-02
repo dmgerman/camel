@@ -138,7 +138,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"pdf,printing"
+literal|"document,transformation,printing"
 argument_list|)
 DECL|class|PdfEndpoint
 specifier|public

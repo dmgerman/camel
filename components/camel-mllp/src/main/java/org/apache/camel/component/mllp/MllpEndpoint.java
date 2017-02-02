@@ -200,7 +200,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"mllp"
+literal|"hl7"
 argument_list|)
 DECL|class|MllpEndpoint
 specifier|public

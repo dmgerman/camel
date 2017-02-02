@@ -99,13 +99,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The camel etcd component allows you to work with<a href="https://coreos.com/etcd">Etcd</a>, a distributed, A distributed, reliable key-value store.  */
+comment|/**  * The camel etcd component allows you to work with<a href="https://coreos.com/etcd">Etcd</a>, a distributed reliable key-value store.  */
 end_comment
 
 begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.18.0"
+argument_list|,
 name|scheme
 operator|=
 literal|"etcd"
@@ -126,7 +130,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"etcd"
+literal|"clustering,database"
 argument_list|)
 DECL|class|AbstractEtcdPollingEndpoint
 specifier|public
@@ -167,7 +171,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"The path the enpoint refers to"
+literal|"The path the endpoint refers to"
 argument_list|)
 annotation|@
 name|Metadata

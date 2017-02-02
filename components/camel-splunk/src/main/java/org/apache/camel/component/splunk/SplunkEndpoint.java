@@ -202,7 +202,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"monitoring"
+literal|"log,monitoring"
 argument_list|)
 DECL|class|SplunkEndpoint
 specifier|public

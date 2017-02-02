@@ -144,7 +144,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"streams"
+literal|"reactive,streams"
 argument_list|)
 DECL|class|ReactiveStreamsEndpoint
 specifier|public

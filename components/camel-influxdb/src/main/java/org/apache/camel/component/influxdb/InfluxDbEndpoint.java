@@ -194,7 +194,7 @@ literal|"influxdb:connectionBean"
 argument_list|,
 name|label
 operator|=
-literal|"database,ticks"
+literal|"database"
 argument_list|,
 name|producerOnly
 operator|=

@@ -134,7 +134,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"transformation"
+literal|"document,transformation"
 argument_list|)
 DECL|class|TikaEndpoint
 specifier|public
