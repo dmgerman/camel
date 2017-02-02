@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/data-format.html">data format</a>  * using Java Serialiation.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/data-format.html">data format</a>  * using Java Serialization.  *  * @version   */
 end_comment
 
 begin_class

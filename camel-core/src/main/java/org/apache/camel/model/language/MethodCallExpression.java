@@ -298,6 +298,10 @@ begin_class
 annotation|@
 name|Metadata
 argument_list|(
+name|firstVersion
+operator|=
+literal|"1.3.0"
+argument_list|,
 name|label
 operator|=
 literal|"language,core,java"
