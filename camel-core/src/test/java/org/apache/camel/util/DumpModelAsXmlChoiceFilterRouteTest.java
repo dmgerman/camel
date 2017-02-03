@@ -131,7 +131,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<simple>${body} contains Camel</simple>"
+literal|"<simple>${body} contains 'Camel'</simple>"
 argument_list|)
 argument_list|)
 expr_stmt|;
