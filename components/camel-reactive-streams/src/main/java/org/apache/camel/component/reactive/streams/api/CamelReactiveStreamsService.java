@@ -485,9 +485,9 @@ name|name
 parameter_list|)
 function_decl|;
 comment|/**      * Used by Camel to send the exchange to all active subscriptions on the given stream.      * The callback is used to signal that the exchange has been delivered to the subscribers.      *      * @param name the stream name      * @param exchange the exchange to be forwarded to the external subscribers      * @param callback the callback that signals the delivery of the exchange      */
-DECL|method|process (String name, Exchange exchange, DispatchCallback<Exchange> callback)
+DECL|method|sendCamelExchange (String name, Exchange exchange, DispatchCallback<Exchange> callback)
 name|void
-name|process
+name|sendCamelExchange
 parameter_list|(
 name|String
 name|name

@@ -170,7 +170,7 @@ parameter_list|)
 block|{
 name|service
 operator|.
-name|process
+name|sendCamelExchange
 argument_list|(
 name|name
 argument_list|,

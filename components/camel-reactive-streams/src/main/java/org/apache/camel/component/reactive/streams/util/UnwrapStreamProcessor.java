@@ -418,7 +418,7 @@ else|else
 block|{
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|setBody

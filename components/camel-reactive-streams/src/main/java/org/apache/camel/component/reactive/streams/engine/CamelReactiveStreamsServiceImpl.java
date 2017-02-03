@@ -724,10 +724,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (String name, Exchange exchange, DispatchCallback<Exchange> callback)
+DECL|method|sendCamelExchange (String name, Exchange exchange, DispatchCallback<Exchange> callback)
 specifier|public
 name|void
-name|process
+name|sendCamelExchange
 parameter_list|(
 name|String
 name|name
