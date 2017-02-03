@@ -168,8 +168,26 @@ name|prepareLanguage
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
+name|PackageOtherMojo
+operator|.
+name|prepareOthers
+import|;
+end_import
+
 begin_comment
-comment|/**  * Prepares a Camel component analyzing if the maven module contains Camel  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *</ul>  * And for each of those generates extra descriptors and schema files for easier auto-discovery in Camel and tooling.  *  * @goal prepare-components  */
+comment|/**  * Prepares a Camel component analyzing if the maven module contains Camel  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *<li>others</li>  *</ul>  * And for each of those generates extra descriptors and schema files for easier auto-discovery in Camel and tooling.  *  * @goal prepare-components  */
 end_comment
 
 begin_class
@@ -204,7 +222,13 @@ specifier|protected
 name|File
 name|languageOutDir
 decl_stmt|;
-comment|/**      * The output directory for generated languages file      *      * @parameter default-value="${project.build.directory}/classes"      */
+comment|/**      * The output directory for generated others file      *      * @parameter default-value="${project.build.directory}/generated/camel/others"      */
+DECL|field|otherOutDir
+specifier|protected
+name|File
+name|otherOutDir
+decl_stmt|;
+comment|/**      * The output directory for generated schema file      *      * @parameter default-value="${project.build.directory}/classes"      */
 DECL|field|schemaOutDir
 specifier|protected
 name|File
@@ -275,6 +299,20 @@ argument_list|,
 name|languageOutDir
 argument_list|,
 name|schemaOutDir
+argument_list|,
+name|buildContext
+argument_list|)
+expr_stmt|;
+name|prepareOthers
+argument_list|(
+name|getLog
+argument_list|()
+argument_list|,
+name|project
+argument_list|,
+name|projectHelper
+argument_list|,
+name|otherOutDir
 argument_list|,
 name|buildContext
 argument_list|)
