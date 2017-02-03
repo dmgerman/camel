@@ -75,6 +75,12 @@ name|String
 name|getLanguageJSonSchemaDirectory
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the directory where the other (miscellaneous) json files are stored in the catalog JAR file      */
+DECL|method|getOtherJSonSchemaDirectory ()
+name|String
+name|getOtherJSonSchemaDirectory
+parameter_list|()
+function_decl|;
 comment|/**      * Find all the component names from the Camel catalog supported by the provider      */
 DECL|method|findComponentNames ()
 name|List
@@ -100,6 +106,15 @@ argument_list|<
 name|String
 argument_list|>
 name|findLanguageNames
+parameter_list|()
+function_decl|;
+comment|/**      * Find all the other (miscellaneous) names from the Camel catalog supported by the provider      */
+DECL|method|findOtherNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findOtherNames
 parameter_list|()
 function_decl|;
 block|}

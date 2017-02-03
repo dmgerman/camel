@@ -246,6 +246,15 @@ argument_list|>
 name|findModelNames
 parameter_list|()
 function_decl|;
+comment|/**      * Find all the other (miscellaneous) names from the Camel catalog      */
+DECL|method|findOtherNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findOtherNames
+parameter_list|()
+function_decl|;
 comment|/**      * Find all the component names from the Camel catalog that matches the label      */
 DECL|method|findComponentNames (String filter)
 name|List
@@ -294,6 +303,18 @@ name|String
 name|filter
 parameter_list|)
 function_decl|;
+comment|/**      * Find all the other (miscellaneous) names from the Camel catalog that matches the label      */
+DECL|method|findOtherNames (String filter)
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findOtherNames
+parameter_list|(
+name|String
+name|filter
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the component information as JSon format.      *      * @param name the component name      * @return component details in JSon      */
 DECL|method|componentJSonSchema (String name)
 name|String
@@ -316,6 +337,15 @@ comment|/**      * Returns the language information as JSon format.      *      
 DECL|method|languageJSonSchema (String name)
 name|String
 name|languageJSonSchema
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the other (miscellaneous) information as JSon format.      *      * @param name the other (miscellaneous) name      * @return other (miscellaneous) details in JSon      */
+DECL|method|otherJSonSchema (String name)
+name|String
+name|otherJSonSchema
 parameter_list|(
 name|String
 name|name
@@ -384,6 +414,24 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the other (miscellaneous) documentation as Ascii doc format.      *      * @param name the other (miscellaneous) name      * @return other (miscellaneous) documentation in ascii doc format.      */
+DECL|method|otherAsciiDoc (String name)
+name|String
+name|otherAsciiDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the other (miscellaneous) documentation as HTML format.      *      * @param name the other (miscellaneous) name      * @return other (miscellaneous) documentation in HTML format.      */
+DECL|method|otherHtmlDoc (String name)
+name|String
+name|otherHtmlDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Find all the unique label names all the components are using.      *      * @return a set of all the labels.      */
 DECL|method|findComponentLabels ()
 name|Set
@@ -418,6 +466,15 @@ argument_list|<
 name|String
 argument_list|>
 name|findModelLabels
+parameter_list|()
+function_decl|;
+comment|/**      * Find all the unique label names all the other (miscellaneous) are using.      *      * @return a set of all the labels.      */
+DECL|method|findOtherLabels ()
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|findOtherLabels
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the Apache Camel Maven Archetype catalog in XML format.      *      * @return the catalog in XML      */
@@ -703,6 +760,12 @@ comment|/**      * Lists all the models (EIPs) summary details in JSon      */
 DECL|method|listModelsAsJson ()
 name|String
 name|listModelsAsJson
+parameter_list|()
+function_decl|;
+comment|/**      * Lists all the others (miscellaneous) summary details in JSon      */
+DECL|method|listOthersAsJson ()
+name|String
+name|listOthersAsJson
 parameter_list|()
 function_decl|;
 comment|/**      * Reports a summary what the catalog contains in JSon      */
