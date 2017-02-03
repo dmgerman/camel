@@ -628,18 +628,19 @@ name|long
 name|l
 parameter_list|)
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 if|if
 condition|(
 name|terminated
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"The subscription is terminated"
-argument_list|)
-throw|;
+comment|// just ignore the request
+return|return;
+block|}
 block|}
 if|if
 condition|(
@@ -683,6 +684,9 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+name|flushCycle
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|flush ()
 specifier|public
