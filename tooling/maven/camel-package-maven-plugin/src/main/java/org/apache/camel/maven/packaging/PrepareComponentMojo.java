@@ -314,6 +314,8 @@ name|projectHelper
 argument_list|,
 name|otherOutDir
 argument_list|,
+name|schemaOutDir
+argument_list|,
 name|buildContext
 argument_list|)
 expr_stmt|;
