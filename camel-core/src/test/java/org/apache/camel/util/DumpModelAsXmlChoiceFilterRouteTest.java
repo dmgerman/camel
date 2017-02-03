@@ -270,7 +270,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"${body} contains Camel"
+literal|"${body} contains 'Camel'"
 argument_list|)
 operator|.
 name|to
