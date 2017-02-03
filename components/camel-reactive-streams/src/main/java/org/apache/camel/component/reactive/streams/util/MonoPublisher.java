@@ -152,14 +152,13 @@ condition|(
 name|terminated
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"The subscription is terminated"
-argument_list|)
-throw|;
+comment|// subscription is terminated, ignore
+return|return;
 block|}
+name|terminated
+operator|=
+literal|true
+expr_stmt|;
 if|if
 condition|(
 name|l
@@ -194,10 +193,6 @@ name|onComplete
 argument_list|()
 expr_stmt|;
 block|}
-name|terminated
-operator|=
-literal|true
-expr_stmt|;
 block|}
 annotation|@
 name|Override
