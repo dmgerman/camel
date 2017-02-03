@@ -358,6 +358,7 @@ name|XMLReader
 block|{
 DECL|field|xmlReader
 specifier|private
+specifier|final
 name|XMLReader
 name|xmlReader
 decl_stmt|;
@@ -425,6 +426,11 @@ specifier|final
 name|ErrorHandler
 name|initErrorHandler
 decl_stmt|;
+DECL|field|readerInvalid
+specifier|private
+name|boolean
+name|readerInvalid
+decl_stmt|;
 DECL|method|OneTimeXMLReader (XMLReader xmlReader)
 specifier|private
 name|OneTimeXMLReader
@@ -481,6 +487,8 @@ specifier|private
 name|void
 name|release
 parameter_list|()
+block|{
+try|try
 block|{
 comment|// reset XMLReader to its initial state
 for|for
@@ -619,31 +627,13 @@ name|xmlReader
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|xmlReader
-operator|=
-literal|null
-expr_stmt|;
 block|}
-DECL|method|checkValid ()
-specifier|private
-name|void
-name|checkValid
-parameter_list|()
+finally|finally
 block|{
-if|if
-condition|(
-name|xmlReader
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"OneTimeXMLReader.parse() can only be used once!"
-argument_list|)
-throw|;
+name|readerInvalid
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -661,9 +651,6 @@ name|SAXNotRecognizedException
 throws|,
 name|SAXNotSupportedException
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
 return|return
 name|xmlReader
 operator|.
@@ -691,9 +678,12 @@ name|SAXNotRecognizedException
 throws|,
 name|SAXNotSupportedException
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
+if|if
+condition|(
+operator|!
+name|readerInvalid
+condition|)
+block|{
 if|if
 condition|(
 operator|!
@@ -735,6 +725,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|getProperty (String name)
@@ -750,9 +741,6 @@ name|SAXNotRecognizedException
 throws|,
 name|SAXNotSupportedException
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
 return|return
 name|xmlReader
 operator|.
@@ -780,9 +768,12 @@ name|SAXNotRecognizedException
 throws|,
 name|SAXNotSupportedException
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
+if|if
+condition|(
+operator|!
+name|readerInvalid
+condition|)
+block|{
 if|if
 condition|(
 operator|!
@@ -819,6 +810,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|getContentHandler ()
@@ -827,9 +819,6 @@ name|ContentHandler
 name|getContentHandler
 parameter_list|()
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
 return|return
 name|xmlReader
 operator|.
@@ -848,9 +837,12 @@ name|ContentHandler
 name|handler
 parameter_list|)
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
+if|if
+condition|(
+operator|!
+name|readerInvalid
+condition|)
+block|{
 name|xmlReader
 operator|.
 name|setContentHandler
@@ -858,6 +850,7 @@ argument_list|(
 name|handler
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -867,9 +860,6 @@ name|DTDHandler
 name|getDTDHandler
 parameter_list|()
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
 return|return
 name|xmlReader
 operator|.
@@ -888,9 +878,12 @@ name|DTDHandler
 name|handler
 parameter_list|)
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
+if|if
+condition|(
+operator|!
+name|readerInvalid
+condition|)
+block|{
 name|xmlReader
 operator|.
 name|setDTDHandler
@@ -898,6 +891,7 @@ argument_list|(
 name|handler
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -907,9 +901,6 @@ name|EntityResolver
 name|getEntityResolver
 parameter_list|()
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
 return|return
 name|xmlReader
 operator|.
@@ -928,9 +919,12 @@ name|EntityResolver
 name|resolver
 parameter_list|)
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
+if|if
+condition|(
+operator|!
+name|readerInvalid
+condition|)
+block|{
 name|xmlReader
 operator|.
 name|setEntityResolver
@@ -938,6 +932,7 @@ argument_list|(
 name|resolver
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -947,9 +942,6 @@ name|ErrorHandler
 name|getErrorHandler
 parameter_list|()
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
 return|return
 name|xmlReader
 operator|.
@@ -968,9 +960,12 @@ name|ErrorHandler
 name|handler
 parameter_list|)
 block|{
-name|checkValid
-argument_list|()
-expr_stmt|;
+if|if
+condition|(
+operator|!
+name|readerInvalid
+condition|)
+block|{
 name|xmlReader
 operator|.
 name|setErrorHandler
@@ -979,10 +974,12 @@ name|handler
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|parse (InputSource input)
 specifier|public
+specifier|synchronized
 name|void
 name|parse
 parameter_list|(
@@ -1018,6 +1015,7 @@ annotation|@
 name|Override
 DECL|method|parse (String systemId)
 specifier|public
+specifier|synchronized
 name|void
 name|parse
 parameter_list|(
@@ -1047,6 +1045,26 @@ block|{
 name|release
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+DECL|method|checkValid ()
+specifier|private
+name|void
+name|checkValid
+parameter_list|()
+block|{
+if|if
+condition|(
+name|readerInvalid
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"OneTimeXMLReader can only be used once!"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
