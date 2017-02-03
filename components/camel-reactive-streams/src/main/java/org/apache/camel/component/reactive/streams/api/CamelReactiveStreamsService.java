@@ -291,6 +291,177 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/*      * Direct client API methods      */
+comment|/**      * Creates a new stream from the endpoint URI (used as Camel Consumer) and returns      * the associated {@code Publisher}.      *      * If a stream has already been created, the existing {@link Publisher} is returned.      *      * @param uri the consumer uri      * @return the publisher associated to the uri      */
+DECL|method|publishURI (String uri)
+name|Publisher
+argument_list|<
+name|Exchange
+argument_list|>
+name|publishURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new stream of the given type from the endpoint URI (used as Camel Consumer) and returns      * the associated {@code Publisher}.      *      * If a stream has already been created, the existing {@link Publisher} is returned.      *      * @param uri the consumer uri      * @param type the type of items emitted by the publisher      * @param<T> the type to which Camel should convert exchanges to      * @return the publisher associated to the uri      */
+DECL|method|publishURI (String uri, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Publisher
+argument_list|<
+name|T
+argument_list|>
+name|publishURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new route that uses the endpoint URI as producer, pushes the given data to the route      * and returns a {@code Publisher} that will eventually return the resulting exchange or an error.      *      * @param uri the producer uri      * @param data the data to push      * @return a publisher with the resulting exchange      */
+DECL|method|requestURI (String uri, Object data)
+name|Publisher
+argument_list|<
+name|Exchange
+argument_list|>
+name|requestURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Object
+name|data
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new route that uses the endpoint URI as producer, and returns a      * function that pushes the data into the route and returns the      * {@code Publisher} that holds the resulting exchange or the error.      *      *      * This is a curryied version of {@link CamelReactiveStreamsService#requestURI(String, Object)}.      *      * @param uri the producer uri      * @return a function that returns a publisher with the resulting exchange      */
+DECL|method|requestURI (String uri)
+name|Function
+argument_list|<
+name|?
+argument_list|,
+name|?
+extends|extends
+name|Publisher
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|>
+name|requestURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new route that uses the endpoint URI as producer, pushes the given data to the route      * and returns a {@code Publisher} that will eventually return the exchange output or an error.      *      * @param uri the producer uri      * @param data the data to push      * @param type  the type to which the output should be converted      * @param<T> the generic type of the resulting Publisher      * @return a publisher with the resulting data      */
+DECL|method|requestURI (String uri, Object data, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Publisher
+argument_list|<
+name|T
+argument_list|>
+name|requestURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Object
+name|data
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new route that uses the endpoint URI as producer, and returns a      * function that pushes the data into the route and returns the      * {@code Publisher} that holds the exchange output or an error.      *      * This is a curryied version of {@link CamelReactiveStreamsService#requestURI(String, Object, Class)}.      *      * @param uri the producer uri      * @param type  the type to which the output should be converted      * @param<T> the generic type of the resulting Publisher      * @return a function that returns a publisher with the resulting data      */
+DECL|method|requestURI (String uri, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Function
+argument_list|<
+name|Object
+argument_list|,
+name|Publisher
+argument_list|<
+name|T
+argument_list|>
+argument_list|>
+name|requestURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Adds a processing step at the specified endpoint uri (usually a "direct:name") that delegates      * to the given reactive processor.      *      * The processor receives a {@link Publisher} of exchanges and returns an object.      * If the output of the processor is a {@link Publisher}, it will be unwrapped before      * delivering the result to the source route.      *      * @param uri the uri where the processor should be attached      * @param processor the reactive processor      */
+DECL|method|processFromURI (String uri, Function<? super Publisher<Exchange>, ?> processor)
+name|void
+name|processFromURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Function
+argument_list|<
+name|?
+super|super
+name|Publisher
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|,
+name|?
+argument_list|>
+name|processor
+parameter_list|)
+function_decl|;
+comment|/**      * Adds a processing step at the specified endpoint uri (usually a "direct:name") that delegates      * to the given reactive processor.      *      * The processor receives a {@link Publisher} of items of the given type and returns an object.      * If the output of the processor is a {@link Publisher}, it will be unwrapped before      * delivering the result to the source route.      *      * @param uri the uri where the processor should be attached      * @param type  the type to which the body of the exchange should be converted      * @param<T> the generic type of the Publisher that should be processed      * @param processor the reactive processor      */
+DECL|method|processFromURI (String uri, Class<T> type, Function<? super Publisher<T>, ?> processor)
+parameter_list|<
+name|T
+parameter_list|>
+name|void
+name|processFromURI
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Function
+argument_list|<
+name|?
+super|super
+name|Publisher
+argument_list|<
+name|T
+argument_list|>
+argument_list|,
+name|?
+argument_list|>
+name|processor
+parameter_list|)
+function_decl|;
 comment|/*      * Methods for Camel producers.      */
 comment|/**      * Used by Camel to associate the publisher of the stream with the given name to a specific Camel producer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param producer the producer of the route      * @throws IllegalStateException if another producer is already associated with the given stream name      */
 DECL|method|attachCamelProducer (String name, ReactiveStreamsProducer producer)
