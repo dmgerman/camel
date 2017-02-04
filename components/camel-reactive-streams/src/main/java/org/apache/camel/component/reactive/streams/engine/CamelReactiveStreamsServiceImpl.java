@@ -1364,10 +1364,8 @@ DECL|method|requestURI (String uri)
 specifier|public
 name|Function
 argument_list|<
-name|?
+name|Object
 argument_list|,
-name|?
-extends|extends
 name|Publisher
 argument_list|<
 name|Exchange

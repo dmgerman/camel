@@ -344,10 +344,8 @@ comment|/**      * Creates a new route that uses the endpoint URI as producer, a
 DECL|method|requestURI (String uri)
 name|Function
 argument_list|<
-name|?
+name|Object
 argument_list|,
-name|?
-extends|extends
 name|Publisher
 argument_list|<
 name|Exchange
