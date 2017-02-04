@@ -6626,18 +6626,18 @@ operator|instanceof
 name|HandlerWrapper
 condition|)
 block|{
-comment|// avoid setting the security handler more than once
+comment|// avoid setting a handler more than once
 if|if
 condition|(
 operator|!
-name|handler
-operator|.
-name|equals
+name|isHandlerInChain
 argument_list|(
 name|server
 operator|.
 name|getHandler
 argument_list|()
+argument_list|,
+name|handler
 argument_list|)
 condition|)
 block|{
@@ -6700,6 +6700,67 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+block|}
+DECL|method|isHandlerInChain (Handler current, Handler handler)
+specifier|protected
+name|boolean
+name|isHandlerInChain
+parameter_list|(
+name|Handler
+name|current
+parameter_list|,
+name|Handler
+name|handler
+parameter_list|)
+block|{
+if|if
+condition|(
+name|handler
+operator|.
+name|equals
+argument_list|(
+name|current
+argument_list|)
+condition|)
+block|{
+comment|//Found a match in the chain
+return|return
+literal|true
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|current
+operator|instanceof
+name|HandlerWrapper
+condition|)
+block|{
+comment|//Inspect the next handler in the chain
+return|return
+name|isHandlerInChain
+argument_list|(
+operator|(
+operator|(
+name|HandlerWrapper
+operator|)
+name|current
+operator|)
+operator|.
+name|getHandler
+argument_list|()
+argument_list|,
+name|handler
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+comment|//End of chain
+return|return
+literal|false
+return|;
 block|}
 block|}
 DECL|method|createServer ()
