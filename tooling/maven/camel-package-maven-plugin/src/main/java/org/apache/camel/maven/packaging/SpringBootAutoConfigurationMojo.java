@@ -8668,7 +8668,9 @@ name|component
 init|=
 operator|new
 name|ComponentModel
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|component
 operator|.

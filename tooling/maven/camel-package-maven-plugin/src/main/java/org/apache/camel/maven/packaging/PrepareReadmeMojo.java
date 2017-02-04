@@ -355,7 +355,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the readme.md files content up to date with the components, data formats, languages, and others.  *  * @goal prepare-readme  */
+comment|/**  * Prepares the readme.md files content up to date with all the artifacts that Apache Camel ships.  *  * @goal prepare-readme  */
 end_comment
 
 begin_class
@@ -718,13 +718,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|executeComponentsReadme (boolean core)
+DECL|method|executeComponentsReadme (boolean coreOnly)
 specifier|protected
 name|void
 name|executeComponentsReadme
 parameter_list|(
 name|boolean
-name|core
+name|coreOnly
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -823,6 +823,8 @@ init|=
 name|generateComponentModel
 argument_list|(
 name|json
+argument_list|,
+name|coreOnly
 argument_list|)
 decl_stmt|;
 comment|// filter out alternative schemas which reuses documentation
@@ -927,8 +929,11 @@ control|)
 block|{
 if|if
 condition|(
-name|core
-operator|&&
+name|coreOnly
+condition|)
+block|{
+if|if
+condition|(
 literal|"camel-core"
 operator|.
 name|equals
@@ -940,6 +945,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// only include core components
 name|components
 operator|.
 name|add
@@ -948,24 +954,10 @@ name|model
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|core
-operator|&&
-operator|!
-literal|"camel-core"
-operator|.
-name|equals
-argument_list|(
-name|model
-operator|.
-name|getArtifactId
-argument_list|()
-argument_list|)
-condition|)
+block|}
+else|else
 block|{
+comment|// we want to include everything in the big file (also from camel-core)
 name|components
 operator|.
 name|add
@@ -981,7 +973,7 @@ name|file
 decl_stmt|;
 if|if
 condition|(
-name|core
+name|coreOnly
 condition|)
 block|{
 name|file
@@ -3884,13 +3876,16 @@ return|return
 name|eip
 return|;
 block|}
-DECL|method|generateComponentModel (String json)
+DECL|method|generateComponentModel (String json, boolean coreOnly)
 specifier|private
 name|ComponentModel
 name|generateComponentModel
 parameter_list|(
 name|String
 name|json
+parameter_list|,
+name|boolean
+name|coreOnly
 parameter_list|)
 block|{
 name|List
@@ -3920,7 +3915,9 @@ name|component
 init|=
 operator|new
 name|ComponentModel
-argument_list|()
+argument_list|(
+name|coreOnly
+argument_list|)
 decl_stmt|;
 name|component
 operator|.

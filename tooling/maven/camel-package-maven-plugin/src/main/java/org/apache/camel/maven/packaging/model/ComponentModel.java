@@ -46,6 +46,12 @@ specifier|public
 class|class
 name|ComponentModel
 block|{
+DECL|field|coreOnly
+specifier|private
+specifier|final
+name|boolean
+name|coreOnly
+decl_stmt|;
 DECL|field|kind
 specifier|private
 name|String
@@ -158,6 +164,21 @@ name|EndpointOptionModel
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|ComponentModel (boolean coreOnly)
+specifier|public
+name|ComponentModel
+parameter_list|(
+name|boolean
+name|coreOnly
+parameter_list|)
+block|{
+name|this
+operator|.
+name|coreOnly
+operator|=
+name|coreOnly
+expr_stmt|;
+block|}
 DECL|method|getKind ()
 specifier|public
 name|String
@@ -737,7 +758,11 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|coreOnly
+condition|?
 literal|"src/main/docs"
+else|:
+literal|"../camel-core/src/main/docs"
 return|;
 block|}
 else|else
