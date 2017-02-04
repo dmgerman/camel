@@ -1556,7 +1556,7 @@ argument_list|,
 literal|"target/classes"
 argument_list|)
 decl_stmt|;
-comment|// special for camel-salesforce which is in a sub dir
+comment|// special for these as they are in sub dir
 if|if
 condition|(
 literal|"camel-salesforce"
@@ -1603,6 +1603,31 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"camel-linkedin-component/target/classes"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"camel-olingo2"
+operator|.
+name|equals
+argument_list|(
+name|dir
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|target
+operator|=
+operator|new
+name|File
+argument_list|(
+name|dir
+argument_list|,
+literal|"camel-olingo2-component/target/classes"
 argument_list|)
 expr_stmt|;
 block|}
