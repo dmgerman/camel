@@ -248,7 +248,7 @@ literal|"gridfs"
 argument_list|,
 name|title
 operator|=
-literal|"MongoDBGridFS"
+literal|"MongoDB GridFS"
 argument_list|,
 name|syntax
 operator|=
