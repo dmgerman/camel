@@ -2340,6 +2340,12 @@ specifier|private
 name|String
 name|clientSecret
 decl_stmt|;
+comment|/**          * Salesforce connected application Consumer token          */
+DECL|field|refreshToken
+specifier|private
+name|String
+name|refreshToken
+decl_stmt|;
 comment|/**          * Salesforce account user name          */
 DECL|field|userName
 specifier|private
@@ -2434,6 +2440,32 @@ operator|.
 name|clientSecret
 operator|=
 name|clientSecret
+expr_stmt|;
+block|}
+DECL|method|getRefreshToken ()
+specifier|public
+name|String
+name|getRefreshToken
+parameter_list|()
+block|{
+return|return
+name|refreshToken
+return|;
+block|}
+DECL|method|setRefreshToken (String refreshToken)
+specifier|public
+name|void
+name|setRefreshToken
+parameter_list|(
+name|String
+name|refreshToken
+parameter_list|)
+block|{
+name|this
+operator|.
+name|refreshToken
+operator|=
+name|refreshToken
 expr_stmt|;
 block|}
 DECL|method|getUserName ()
