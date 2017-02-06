@@ -26,7 +26,21 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Component
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Component
 DECL|class|MentionAddContractRoute
 specifier|public
 class|class
@@ -46,14 +60,16 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"twitter-mention"
+literal|"foo:blah?period=2000"
 argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"I was mentioned by ${body}"
+literal|"Foo triggered"
 argument_list|)
 expr_stmt|;
+comment|//        from("twitter-mention?count=10")
+comment|//            .log("I was mentioned by ${body}");
 block|}
 block|}
 end_class
