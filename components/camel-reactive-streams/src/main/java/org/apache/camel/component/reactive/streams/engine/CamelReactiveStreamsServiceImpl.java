@@ -528,13 +528,13 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|getPublisher (String name)
+DECL|method|fromStream (String name)
 specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
 argument_list|>
-name|getPublisher
+name|fromStream
 parameter_list|(
 name|String
 name|name
@@ -557,7 +557,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|getPublisher (String name, Class<T> cls)
+DECL|method|fromStream (String name, Class<T> cls)
 specifier|public
 parameter_list|<
 name|T
@@ -566,7 +566,7 @@ name|Publisher
 argument_list|<
 name|T
 argument_list|>
-name|getPublisher
+name|fromStream
 parameter_list|(
 name|String
 name|name
@@ -597,7 +597,7 @@ argument_list|<
 name|T
 argument_list|>
 operator|)
-name|getPublisher
+name|fromStream
 argument_list|(
 name|name
 argument_list|)
@@ -610,7 +610,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|(
-name|getPublisher
+name|fromStream
 argument_list|(
 name|name
 argument_list|)
@@ -621,10 +621,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getSubscriber (String name)
+DECL|method|streamSubscriber (String name)
 specifier|public
 name|CamelSubscriber
-name|getSubscriber
+name|streamSubscriber
 parameter_list|(
 name|String
 name|name
@@ -659,7 +659,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|getSubscriber (String name, Class<T> type)
+DECL|method|streamSubscriber (String name, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -668,7 +668,7 @@ name|Subscriber
 argument_list|<
 name|T
 argument_list|>
-name|getSubscriber
+name|streamSubscriber
 parameter_list|(
 name|String
 name|name
@@ -699,7 +699,7 @@ argument_list|<
 name|T
 argument_list|>
 operator|)
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 name|name
 argument_list|)
@@ -712,7 +712,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|(
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 name|name
 argument_list|)
@@ -770,13 +770,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|request (String name, Object data)
+DECL|method|toStream (String name, Object data)
 specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
 argument_list|>
-name|request
+name|toStream
 parameter_list|(
 name|String
 name|name
@@ -804,7 +804,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|request (String name)
+DECL|method|toStream (String name)
 specifier|public
 name|Function
 argument_list|<
@@ -817,7 +817,7 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|>
-name|request
+name|toStream
 parameter_list|(
 name|String
 name|name
@@ -826,7 +826,7 @@ block|{
 return|return
 name|data
 lambda|->
-name|request
+name|toStream
 argument_list|(
 name|name
 argument_list|,
@@ -836,7 +836,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|request (String name, Object data, Class<T> type)
+DECL|method|toStream (String name, Object data, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -845,7 +845,7 @@ name|Publisher
 argument_list|<
 name|T
 argument_list|>
-name|request
+name|toStream
 parameter_list|(
 name|String
 name|name
@@ -865,7 +865,7 @@ operator|new
 name|ConvertingPublisher
 argument_list|<>
 argument_list|(
-name|request
+name|toStream
 argument_list|(
 name|name
 argument_list|,
@@ -894,7 +894,7 @@ block|{
 name|ReactiveStreamsConsumer
 name|consumer
 init|=
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 name|name
 argument_list|)
@@ -1022,7 +1022,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|request (String name, Class<T> type)
+DECL|method|toStream (String name, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -1036,7 +1036,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|>
-name|request
+name|toStream
 parameter_list|(
 name|String
 name|name
@@ -1051,7 +1051,7 @@ block|{
 return|return
 name|data
 lambda|->
-name|request
+name|toStream
 argument_list|(
 name|name
 argument_list|,
@@ -1104,13 +1104,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|publishURI (String uri)
+DECL|method|from (String uri)
 specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
 argument_list|>
-name|publishURI
+name|from
 parameter_list|(
 name|String
 name|uri
@@ -1197,7 +1197,7 @@ block|}
 argument_list|)
 expr_stmt|;
 return|return
-name|getPublisher
+name|fromStream
 argument_list|(
 name|publishedUriToStream
 operator|.
@@ -1210,7 +1210,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|publishURI (String uri, Class<T> type)
+DECL|method|from (String uri, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -1219,7 +1219,7 @@ name|Publisher
 argument_list|<
 name|T
 argument_list|>
-name|publishURI
+name|from
 parameter_list|(
 name|String
 name|uri
@@ -1238,7 +1238,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|(
-name|publishURI
+name|from
 argument_list|(
 name|uri
 argument_list|)
@@ -1249,13 +1249,138 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|requestURI (String uri, Object data)
+DECL|method|subscriber (String uri)
+specifier|public
+name|Subscriber
+argument_list|<
+name|Exchange
+argument_list|>
+name|subscriber
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+try|try
+block|{
+name|String
+name|uuid
+init|=
+name|context
+operator|.
+name|getUuidGenerator
+argument_list|()
+operator|.
+name|generateUuid
+argument_list|()
+decl_stmt|;
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|from
+argument_list|(
+literal|"reactive-streams:"
+operator|+
+name|uuid
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+operator|.
+name|addRoutesToCamelContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+return|return
+name|streamSubscriber
+argument_list|(
+name|uuid
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Unable to create source reactive stream towards direct URI: "
+operator|+
+name|uri
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|subscriber (String uri, Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|Subscriber
+argument_list|<
+name|T
+argument_list|>
+name|subscriber
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ConvertingSubscriber
+argument_list|<
+name|T
+argument_list|>
+argument_list|(
+name|subscriber
+argument_list|(
+name|uri
+argument_list|)
+argument_list|,
+name|context
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|to (String uri, Object data)
 specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
 argument_list|>
-name|requestURI
+name|to
 parameter_list|(
 name|String
 name|uri
@@ -1345,7 +1470,7 @@ block|}
 argument_list|)
 expr_stmt|;
 return|return
-name|request
+name|toStream
 argument_list|(
 name|requestedUriToStream
 operator|.
@@ -1360,7 +1485,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|requestURI (String uri)
+DECL|method|to (String uri)
 specifier|public
 name|Function
 argument_list|<
@@ -1371,7 +1496,7 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|>
-name|requestURI
+name|to
 parameter_list|(
 name|String
 name|uri
@@ -1380,7 +1505,7 @@ block|{
 return|return
 name|data
 lambda|->
-name|requestURI
+name|to
 argument_list|(
 name|uri
 argument_list|,
@@ -1390,7 +1515,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|requestURI (String uri, Object data, Class<T> type)
+DECL|method|to (String uri, Object data, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -1399,7 +1524,7 @@ name|Publisher
 argument_list|<
 name|T
 argument_list|>
-name|requestURI
+name|to
 parameter_list|(
 name|String
 name|uri
@@ -1421,7 +1546,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|(
-name|requestURI
+name|to
 argument_list|(
 name|uri
 argument_list|,
@@ -1434,7 +1559,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|requestURI (String uri, Class<T> type)
+DECL|method|to (String uri, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -1448,7 +1573,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|>
-name|requestURI
+name|to
 parameter_list|(
 name|String
 name|uri
@@ -1463,7 +1588,7 @@ block|{
 return|return
 name|data
 lambda|->
-name|requestURI
+name|to
 argument_list|(
 name|uri
 argument_list|,
@@ -1475,10 +1600,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|processFromURI (String uri, Function<? super Publisher<Exchange>, ?> processor)
+DECL|method|process (String uri, Function<? super Publisher<Exchange>, ?> processor)
 specifier|public
 name|void
-name|processFromURI
+name|process
 parameter_list|(
 name|String
 name|uri
@@ -1595,13 +1720,13 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|processFromURI (String uri, Class<T> type, Function<? super Publisher<T>, ?> processor)
+DECL|method|process (String uri, Class<T> type, Function<? super Publisher<T>, ?> processor)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|void
-name|processFromURI
+name|process
 parameter_list|(
 name|String
 name|uri
@@ -1626,7 +1751,7 @@ argument_list|>
 name|processor
 parameter_list|)
 block|{
-name|processFromURI
+name|process
 argument_list|(
 name|uri
 argument_list|,
@@ -1664,7 +1789,7 @@ name|ReactiveStreamsConsumer
 name|consumer
 parameter_list|)
 block|{
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 name|name
 argument_list|)
@@ -1686,7 +1811,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 name|name
 argument_list|)

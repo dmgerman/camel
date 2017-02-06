@@ -194,7 +194,7 @@ name|string
 init|=
 name|camel
 operator|.
-name|request
+name|toStream
 argument_list|(
 literal|"data"
 argument_list|,
@@ -280,7 +280,7 @@ name|fromPublisher
 argument_list|(
 name|camel
 operator|.
-name|request
+name|toStream
 argument_list|(
 literal|"plusOne"
 argument_list|,
@@ -351,7 +351,7 @@ name|e
 lambda|->
 name|camel
 operator|.
-name|request
+name|toStream
 argument_list|(
 literal|"plusOne"
 argument_list|,

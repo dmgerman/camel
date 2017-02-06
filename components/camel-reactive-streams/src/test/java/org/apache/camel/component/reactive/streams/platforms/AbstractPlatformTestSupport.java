@@ -301,7 +301,7 @@ name|changeSign
 argument_list|(
 name|camel
 operator|.
-name|getPublisher
+name|fromStream
 argument_list|(
 literal|"integers"
 argument_list|,
@@ -485,7 +485,7 @@ name|elements
 argument_list|,
 name|camel
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"integers"
 argument_list|,

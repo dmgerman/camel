@@ -185,7 +185,7 @@ block|{
 comment|// Rest endpoint to retrieve all orders: http://localhost:8080/camel/orders
 name|camel
 operator|.
-name|processFromURI
+name|process
 argument_list|(
 literal|"rest:get:orders"
 argument_list|,
@@ -212,7 +212,7 @@ comment|// Try: http://localhost:8080/camel/orders/1
 comment|// Or: http://localhost:8080/camel/orders/xxx
 name|camel
 operator|.
-name|processFromURI
+name|process
 argument_list|(
 literal|"rest:get:orders/{orderId}"
 argument_list|,

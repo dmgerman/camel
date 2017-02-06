@@ -236,13 +236,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getPublisher (String name)
+DECL|method|fromStream (String name)
 specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
 argument_list|>
-name|getPublisher
+name|fromStream
 parameter_list|(
 name|String
 name|name
@@ -254,7 +254,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getPublisher (String name, Class<T> type)
+DECL|method|fromStream (String name, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -263,7 +263,7 @@ name|Publisher
 argument_list|<
 name|T
 argument_list|>
-name|getPublisher
+name|fromStream
 parameter_list|(
 name|String
 name|name
@@ -281,13 +281,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getSubscriber (String name)
+DECL|method|streamSubscriber (String name)
 specifier|public
 name|Subscriber
 argument_list|<
 name|Exchange
 argument_list|>
-name|getSubscriber
+name|streamSubscriber
 parameter_list|(
 name|String
 name|name
@@ -299,7 +299,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getSubscriber (String name, Class<T> type)
+DECL|method|streamSubscriber (String name, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -308,7 +308,7 @@ name|Subscriber
 argument_list|<
 name|T
 argument_list|>
-name|getSubscriber
+name|streamSubscriber
 parameter_list|(
 name|String
 name|name
@@ -396,13 +396,13 @@ parameter_list|)
 block|{      }
 annotation|@
 name|Override
-DECL|method|request (String name, Object data)
+DECL|method|toStream (String name, Object data)
 specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
 argument_list|>
-name|request
+name|toStream
 parameter_list|(
 name|String
 name|name
@@ -417,7 +417,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|request (String name, Object data, Class<T> type)
+DECL|method|toStream (String name, Object data, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -426,7 +426,7 @@ name|Publisher
 argument_list|<
 name|T
 argument_list|>
-name|request
+name|toStream
 parameter_list|(
 name|String
 name|name
@@ -447,7 +447,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|request (String name)
+DECL|method|toStream (String name)
 specifier|public
 name|Function
 argument_list|<
@@ -460,7 +460,7 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|>
-name|request
+name|toStream
 parameter_list|(
 name|String
 name|name
@@ -472,7 +472,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|request (String name, Class<T> type)
+DECL|method|toStream (String name, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -486,7 +486,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|>
-name|request
+name|toStream
 parameter_list|(
 name|String
 name|name
@@ -504,13 +504,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|publishURI (String uri)
+DECL|method|from (String uri)
 specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
 argument_list|>
-name|publishURI
+name|from
 parameter_list|(
 name|String
 name|uri
@@ -522,7 +522,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|publishURI (String uri, Class<T> type)
+DECL|method|from (String uri, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -531,7 +531,7 @@ name|Publisher
 argument_list|<
 name|T
 argument_list|>
-name|publishURI
+name|from
 parameter_list|(
 name|String
 name|uri
@@ -549,13 +549,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|requestURI (String uri, Object data)
+DECL|method|to (String uri, Object data)
 specifier|public
 name|Publisher
 argument_list|<
 name|Exchange
 argument_list|>
-name|requestURI
+name|to
 parameter_list|(
 name|String
 name|uri
@@ -570,7 +570,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|requestURI (String uri)
+DECL|method|to (String uri)
 specifier|public
 name|Function
 argument_list|<
@@ -581,7 +581,7 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|>
-name|requestURI
+name|to
 parameter_list|(
 name|String
 name|uri
@@ -593,7 +593,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|requestURI (String uri, Object data, Class<T> type)
+DECL|method|to (String uri, Object data, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -602,7 +602,7 @@ name|Publisher
 argument_list|<
 name|T
 argument_list|>
-name|requestURI
+name|to
 parameter_list|(
 name|String
 name|uri
@@ -623,7 +623,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|requestURI (String uri, Class<T> type)
+DECL|method|to (String uri, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -637,7 +637,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|>
-name|requestURI
+name|to
 parameter_list|(
 name|String
 name|uri
@@ -655,10 +655,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|processFromURI (String uri, Function<? super Publisher<Exchange>, ?> processor)
+DECL|method|process (String uri, Function<? super Publisher<Exchange>, ?> processor)
 specifier|public
 name|void
-name|processFromURI
+name|process
 parameter_list|(
 name|String
 name|uri
@@ -679,13 +679,13 @@ parameter_list|)
 block|{      }
 annotation|@
 name|Override
-DECL|method|processFromURI (String uri, Class<T> type, Function<? super Publisher<T>, ?> processor)
+DECL|method|process (String uri, Class<T> type, Function<? super Publisher<T>, ?> processor)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|void
-name|processFromURI
+name|process
 parameter_list|(
 name|String
 name|uri
@@ -710,6 +710,51 @@ argument_list|>
 name|processor
 parameter_list|)
 block|{      }
+annotation|@
+name|Override
+DECL|method|subscriber (String uri)
+specifier|public
+name|Subscriber
+argument_list|<
+name|Exchange
+argument_list|>
+name|subscriber
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|subscriber (String uri, Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|Subscriber
+argument_list|<
+name|T
+argument_list|>
+name|subscriber
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 DECL|method|getName ()
 specifier|public
 name|String

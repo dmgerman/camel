@@ -219,7 +219,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getPublisher
+name|fromStream
 argument_list|(
 literal|"prod"
 argument_list|)

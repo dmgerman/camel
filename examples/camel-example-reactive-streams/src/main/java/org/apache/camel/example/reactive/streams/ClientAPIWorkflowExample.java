@@ -192,7 +192,7 @@ name|from
 argument_list|(
 name|camel
 operator|.
-name|publishURI
+name|from
 argument_list|(
 literal|"file:input"
 argument_list|,
@@ -206,7 +206,7 @@ name|flatMap
 argument_list|(
 name|camel
 operator|.
-name|requestURI
+name|to
 argument_list|(
 literal|"direct:unmarshal"
 argument_list|,
@@ -232,7 +232,7 @@ name|flatMap
 argument_list|(
 name|camel
 operator|.
-name|requestURI
+name|to
 argument_list|(
 literal|"direct:send"
 argument_list|,

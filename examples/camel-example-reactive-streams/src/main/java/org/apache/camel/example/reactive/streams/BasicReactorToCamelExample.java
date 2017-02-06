@@ -204,7 +204,7 @@ name|elements
 init|=
 name|camel
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"elements"
 argument_list|,

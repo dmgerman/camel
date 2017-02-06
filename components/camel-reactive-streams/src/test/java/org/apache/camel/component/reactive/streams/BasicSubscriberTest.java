@@ -346,7 +346,7 @@ name|context
 argument_list|()
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"sub"
 argument_list|,
@@ -369,7 +369,7 @@ name|context
 argument_list|()
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"sub2"
 argument_list|,
@@ -392,7 +392,7 @@ name|context
 argument_list|()
 argument_list|)
 operator|.
-name|getPublisher
+name|fromStream
 argument_list|(
 literal|"pub"
 argument_list|,

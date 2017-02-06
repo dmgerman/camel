@@ -330,12 +330,6 @@ operator|new
 name|UnwrapStreamProcessor
 argument_list|()
 argument_list|)
-operator|.
-name|split
-argument_list|()
-operator|.
-name|body
-argument_list|()
 comment|// Unwrap the Publisher
 operator|.
 name|log

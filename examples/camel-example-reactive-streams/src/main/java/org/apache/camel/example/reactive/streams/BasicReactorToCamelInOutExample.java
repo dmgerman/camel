@@ -247,7 +247,7 @@ name|flatMap
 argument_list|(
 name|camel
 operator|.
-name|request
+name|toStream
 argument_list|(
 literal|"sqrt"
 argument_list|,

@@ -190,7 +190,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"numbers"
 argument_list|,
@@ -315,7 +315,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"numbers"
 argument_list|,
@@ -419,7 +419,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"numbers"
 argument_list|,
@@ -557,7 +557,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"numbers"
 argument_list|,
@@ -726,7 +726,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"numbers"
 argument_list|,

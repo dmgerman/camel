@@ -228,7 +228,7 @@ name|context
 argument_list|()
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"singleConsumer"
 argument_list|,
@@ -422,7 +422,7 @@ name|context
 argument_list|()
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"multipleConsumers"
 argument_list|,

@@ -242,7 +242,7 @@ name|numbers
 init|=
 name|camel
 operator|.
-name|getPublisher
+name|fromStream
 argument_list|(
 literal|"numbers"
 argument_list|,
@@ -259,7 +259,7 @@ name|strings
 init|=
 name|camel
 operator|.
-name|getPublisher
+name|fromStream
 argument_list|(
 literal|"strings"
 argument_list|,

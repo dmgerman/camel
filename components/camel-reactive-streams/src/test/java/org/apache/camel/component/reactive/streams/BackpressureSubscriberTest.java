@@ -193,7 +193,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"slowNumbers"
 argument_list|,
@@ -288,7 +288,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"slowerNumbers"
 argument_list|,
@@ -376,7 +376,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|getSubscriber
+name|streamSubscriber
 argument_list|(
 literal|"parallelSlowNumbers"
 argument_list|,
