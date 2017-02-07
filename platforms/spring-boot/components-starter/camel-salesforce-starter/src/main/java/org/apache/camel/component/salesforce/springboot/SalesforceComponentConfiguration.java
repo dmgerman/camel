@@ -2340,7 +2340,7 @@ specifier|private
 name|String
 name|clientSecret
 decl_stmt|;
-comment|/**          * Salesforce connected application OAuth refresh token          */
+comment|/**          * Salesforce connected application Consumer token          */
 DECL|field|refreshToken
 specifier|private
 name|String
