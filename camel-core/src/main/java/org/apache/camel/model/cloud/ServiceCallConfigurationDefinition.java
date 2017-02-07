@@ -560,6 +560,20 @@ name|RibbonServiceCallLoadBalancerConfiguration
 operator|.
 name|class
 argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"defaultLoadBalancer"
+argument_list|,
+name|type
+operator|=
+name|DefaultServiceCallLoadBalancerConfiguration
+operator|.
+name|class
+argument_list|)
 block|}
 argument_list|)
 DECL|field|loadBalancerConfiguration
@@ -1850,6 +1864,28 @@ block|}
 comment|// *****************************
 comment|// Shortcuts - LoadBalancer
 comment|// *****************************
+DECL|method|defaultLoadBalancer ()
+specifier|public
+name|ServiceCallConfigurationDefinition
+name|defaultLoadBalancer
+parameter_list|()
+block|{
+name|DefaultServiceCallLoadBalancerConfiguration
+name|conf
+init|=
+operator|new
+name|DefaultServiceCallLoadBalancerConfiguration
+argument_list|()
+decl_stmt|;
+name|setLoadBalancerConfiguration
+argument_list|(
+name|conf
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|ribbonLoadBalancer ()
 specifier|public
 name|ServiceCallConfigurationDefinition

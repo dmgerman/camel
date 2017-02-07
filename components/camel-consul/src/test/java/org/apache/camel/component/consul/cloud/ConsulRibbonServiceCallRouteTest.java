@@ -438,13 +438,7 @@ argument_list|(
 name|SERVICE_NAME
 argument_list|)
 operator|.
-name|ribbonLoadBalancer
-argument_list|()
-operator|.
-name|consulServiceDiscovery
-argument_list|()
-operator|.
-name|endParent
+name|end
 argument_list|()
 operator|.
 name|to
