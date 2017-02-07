@@ -637,6 +637,42 @@ block|{
 comment|// expected
 block|}
 block|}
+DECL|method|testGetEndpointNoScheme ()
+specifier|public
+name|void
+name|testGetEndpointNoScheme
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|DefaultCamelContext
+name|ctx
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
+name|ctx
+operator|.
+name|disableJMX
+argument_list|()
+expr_stmt|;
+name|Endpoint
+name|endpoint
+init|=
+name|ctx
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"log"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testGetEndPointByTypeUnknown ()
 specifier|public
 name|void
@@ -962,10 +998,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testGetEndpointNoScheme ()
+DECL|method|testGetEndpointUnknownComponentNoScheme ()
 specifier|public
 name|void
-name|testGetEndpointNoScheme
+name|testGetEndpointUnknownComponentNoScheme
 parameter_list|()
 throws|throws
 name|Exception
@@ -990,7 +1026,7 @@ name|getMandatoryEndpoint
 argument_list|(
 name|ctx
 argument_list|,
-literal|"log.foo"
+literal|"unknownname"
 argument_list|)
 expr_stmt|;
 name|fail

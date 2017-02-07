@@ -401,7 +401,20 @@ argument_list|)
 decl_stmt|;
 name|String
 name|path
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|u
+operator|.
+name|getScheme
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// if there is a scheme then there is also a path
+name|path
+operator|=
 name|URISupport
 operator|.
 name|extractRemainderPath
@@ -411,7 +424,16 @@ argument_list|,
 name|useRawUri
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// this uri has no context-path as the leading text is the component name (scheme)
+name|path
+operator|=
+literal|null
+expr_stmt|;
+block|}
 name|Map
 argument_list|<
 name|String
