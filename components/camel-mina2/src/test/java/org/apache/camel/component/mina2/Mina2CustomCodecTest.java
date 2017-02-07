@@ -670,7 +670,6 @@ name|boolean
 name|failing
 decl_stmt|;
 DECL|method|MyCodec (boolean failing)
-specifier|public
 name|MyCodec
 parameter_list|(
 name|boolean
@@ -685,7 +684,6 @@ name|failing
 expr_stmt|;
 block|}
 DECL|method|MyCodec ()
-specifier|public
 name|MyCodec
 parameter_list|()
 block|{
