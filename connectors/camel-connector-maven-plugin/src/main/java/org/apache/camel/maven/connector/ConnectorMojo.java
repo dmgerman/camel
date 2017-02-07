@@ -2206,6 +2206,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// use baseVersion so we can support SNAPSHOT versions that are based on a base version
 if|if
 condition|(
 name|groupId
@@ -2234,7 +2235,7 @@ name|equals
 argument_list|(
 name|artifact
 operator|.
-name|getVersion
+name|getBaseVersion
 argument_list|()
 argument_list|)
 condition|)
