@@ -308,6 +308,19 @@ specifier|private
 name|File
 name|classesDirectory
 decl_stmt|;
+comment|/**      * Whether to generate JSon schema files to the sources directory (<tt>src/main/resources</tt>) which allows the files to be stored together with the source code.      * If this options is<tt>false</tt> the JSon schema files are generated into<tt>target/classes</tt> and only included in the built JAR.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|generateToSources
+specifier|private
+name|boolean
+name|generateToSources
+decl_stmt|;
 comment|/**      * Whether to include the git url for the git repository of the source code for the Camel connector      */
 annotation|@
 name|Parameter
@@ -368,6 +381,18 @@ parameter_list|()
 throws|throws
 name|MojoExecutionException
 block|{
+comment|// project root folder
+name|File
+name|root
+init|=
+name|classesDirectory
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|getParentFile
+argument_list|()
+decl_stmt|;
 name|String
 name|gitUrl
 init|=
@@ -539,17 +564,6 @@ name|dto
 argument_list|)
 expr_stmt|;
 comment|// update source file also
-name|File
-name|root
-init|=
-name|classesDirectory
-operator|.
-name|getParentFile
-argument_list|()
-operator|.
-name|getParentFile
-argument_list|()
-decl_stmt|;
 name|file
 operator|=
 operator|new
@@ -940,6 +954,44 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|generateToSources
+condition|)
+block|{
+comment|// copy the file into the sources as well
+name|File
+name|from
+init|=
+operator|new
+name|File
+argument_list|(
+name|classesDirectory
+argument_list|,
+literal|"camel-connector-schema.json"
+argument_list|)
+decl_stmt|;
+name|File
+name|to
+init|=
+operator|new
+name|File
+argument_list|(
+name|root
+argument_list|,
+literal|"src/main/resources/camel-connector-schema.json"
+argument_list|)
+decl_stmt|;
+name|FileHelper
+operator|.
+name|copyFile
+argument_list|(
+name|from
+argument_list|,
+name|to
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// build json schema for component that only has the selectable options
 block|}
