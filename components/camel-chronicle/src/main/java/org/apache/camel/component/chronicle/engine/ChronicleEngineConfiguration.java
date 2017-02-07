@@ -157,6 +157,13 @@ name|persistent
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|clusterName
+specifier|private
+name|String
+name|clusterName
+decl_stmt|;
 comment|// ****************************
 comment|// CLIENT OPTIONS
 comment|// ****************************
@@ -403,6 +410,33 @@ operator|.
 name|persistent
 operator|=
 name|persistent
+expr_stmt|;
+block|}
+DECL|method|getClusterName ()
+specifier|public
+name|String
+name|getClusterName
+parameter_list|()
+block|{
+return|return
+name|clusterName
+return|;
+block|}
+comment|/**      * Cluster name for queue      */
+DECL|method|setClusterName (String clusterName)
+specifier|public
+name|void
+name|setClusterName
+parameter_list|(
+name|String
+name|clusterName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clusterName
+operator|=
+name|clusterName
 expr_stmt|;
 block|}
 block|}

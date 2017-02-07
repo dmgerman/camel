@@ -430,6 +430,14 @@ argument_list|,
 name|Object
 operator|.
 name|class
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
