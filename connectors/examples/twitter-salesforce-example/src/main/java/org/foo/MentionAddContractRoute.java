@@ -60,16 +60,14 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"foo:blah?period=2000"
+literal|"twitter-mention"
 argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Foo triggered"
+literal|"I was mentioned by ${body}"
 argument_list|)
 expr_stmt|;
-comment|//        from("twitter-mention?count=10")
-comment|//            .log("I was mentioned by ${body}");
 block|}
 block|}
 end_class

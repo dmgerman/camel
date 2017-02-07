@@ -1047,7 +1047,7 @@ name|line
 operator|.
 name|startsWith
 argument_list|(
-literal|"\"componentValues\":"
+literal|"\"componentValues\""
 argument_list|)
 condition|)
 block|{
@@ -1229,7 +1229,7 @@ name|line
 operator|.
 name|startsWith
 argument_list|(
-literal|"\"endpointValues\":"
+literal|"\"endpointValues\""
 argument_list|)
 condition|)
 block|{
