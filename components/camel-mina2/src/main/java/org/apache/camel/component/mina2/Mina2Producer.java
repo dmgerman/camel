@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|InetSocketAddress
@@ -3054,6 +3064,12 @@ condition|(
 name|ioSession
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|closedByMina
+argument_list|(
+name|cause
+argument_list|)
 condition|)
 block|{
 name|CloseFuture
@@ -3076,6 +3092,21 @@ name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|closedByMina (Throwable cause)
+specifier|private
+name|boolean
+name|closedByMina
+parameter_list|(
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+return|return
+name|cause
+operator|instanceof
+name|IOException
+return|;
 block|}
 DECL|method|getCause ()
 specifier|public
