@@ -2342,7 +2342,7 @@ return|return
 name|config
 return|;
 block|}
-comment|/**      * To use the shared SalesforceLoginConfig as configuration      */
+comment|/**      * To use the shared SalesforceEndpointConfig as endpoint configuration      */
 DECL|method|setConfig (SalesforceEndpointConfig config)
 specifier|public
 name|void

@@ -301,7 +301,7 @@ specifier|private
 name|SalesforceLoginConfigNestedConfiguration
 name|loginConfig
 decl_stmt|;
-comment|/**      * To use the shared SalesforceLoginConfig as configuration      */
+comment|/**      * To use the shared SalesforceEndpointConfig as endpoint configuration      */
 DECL|field|config
 specifier|private
 name|SalesforceEndpointConfigNestedConfiguration
