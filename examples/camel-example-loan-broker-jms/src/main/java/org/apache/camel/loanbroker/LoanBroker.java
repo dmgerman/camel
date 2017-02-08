@@ -45,7 +45,7 @@ DECL|method|LoanBroker ()
 specifier|private
 name|LoanBroker
 parameter_list|()
-block|{ 	}
+block|{     }
 comment|// START SNIPPET: starting
 DECL|method|main (String... args)
 specifier|public
@@ -89,7 +89,6 @@ operator|.
 name|run
 argument_list|()
 expr_stmt|;
-comment|//TODO Do we need to add timer to stop after 5 mins as in the previous example.
 block|}
 comment|// END SNIPPET: starting
 block|}

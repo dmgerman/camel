@@ -44,6 +44,10 @@ name|SpringBootApplication
 import|;
 end_import
 
+begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
 begin_class
 annotation|@
 name|SpringBootApplication
@@ -78,6 +82,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 
