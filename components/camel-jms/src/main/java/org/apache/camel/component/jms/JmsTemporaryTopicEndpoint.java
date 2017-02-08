@@ -128,7 +128,7 @@ argument_list|)
 expr_stmt|;
 name|setDestinationType
 argument_list|(
-literal|"temp:topic"
+literal|"temp-topic"
 argument_list|)
 expr_stmt|;
 block|}
@@ -144,7 +144,7 @@ name|JMSException
 block|{
 name|super
 argument_list|(
-literal|"jms:temp:topic:"
+literal|"jms:temp-topic:"
 operator|+
 name|jmsDestination
 operator|.
@@ -162,7 +162,7 @@ name|jmsDestination
 expr_stmt|;
 name|setDestinationType
 argument_list|(
-literal|"temp:topic"
+literal|"temp-topic"
 argument_list|)
 expr_stmt|;
 name|setDestination

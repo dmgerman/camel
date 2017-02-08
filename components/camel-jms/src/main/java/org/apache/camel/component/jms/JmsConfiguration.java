@@ -451,7 +451,7 @@ specifier|final
 name|String
 name|TEMP_QUEUE_PREFIX
 init|=
-literal|"temp:queue:"
+literal|"temp-queue:"
 decl_stmt|;
 DECL|field|TEMP_TOPIC_PREFIX
 specifier|public
@@ -460,7 +460,7 @@ specifier|final
 name|String
 name|TEMP_TOPIC_PREFIX
 init|=
-literal|"temp:topic:"
+literal|"temp-topic:"
 decl_stmt|;
 DECL|field|LOG
 specifier|private

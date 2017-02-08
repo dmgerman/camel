@@ -681,7 +681,7 @@ literal|"queue"
 argument_list|,
 name|enums
 operator|=
-literal|"queue,topic,temp:queue,temp:topic"
+literal|"queue,topic,temp-queue,temp-topic"
 argument_list|,
 name|description
 operator|=

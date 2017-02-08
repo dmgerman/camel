@@ -149,7 +149,7 @@ specifier|protected
 name|String
 name|endpointUri
 init|=
-literal|"activemq:temp:queue:cheese"
+literal|"activemq:temp-queue:cheese"
 decl_stmt|;
 annotation|@
 name|Test
