@@ -99,7 +99,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"bots"
+literal|"telegram:bots"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -125,7 +125,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"bots/CUSTOM"
+literal|"telegram:bots/CUSTOM"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -151,7 +151,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"bots/ANOTHER?chatId=123"
+literal|"telegram:bots/ANOTHER?chatId=123"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -210,7 +210,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"bots"
+literal|"telegram:bots"
 argument_list|)
 expr_stmt|;
 block|}
@@ -256,7 +256,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"bots/ "
+literal|"telegram:bots/ "
 argument_list|)
 expr_stmt|;
 block|}
@@ -302,7 +302,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"bots/token/s"
+literal|"telegram:bots/token/s"
 argument_list|)
 expr_stmt|;
 block|}

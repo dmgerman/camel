@@ -68,6 +68,20 @@ name|Metadata
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Camel component for Telegram.  */
 end_comment
@@ -143,6 +157,16 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|remaining
+argument_list|)
+condition|)
+block|{
 name|configuration
 operator|.
 name|updatePathConfig
@@ -155,6 +179,7 @@ name|getAuthorizationToken
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|TelegramConfiguration
