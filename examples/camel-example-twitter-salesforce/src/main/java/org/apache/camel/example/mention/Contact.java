@@ -38,6 +38,26 @@ name|api
 operator|.
 name|dto
 operator|.
+name|AbstractDescribedSObjectBase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|dto
+operator|.
 name|AbstractSObjectBase
 import|;
 end_import
@@ -69,6 +89,10 @@ operator|.
 name|JsonProperty
 import|;
 end_import
+
+begin_comment
+comment|/**  * Contact Data Transfer Object (DTO) needed for Salesforce component.  *<p>  * This is a trivial, hand coded, example of DTO for Contact SObject,  * for production use you would most likely want to generate these  * using {@code camel-salesforce-maven-plugin} as it adds all fields  * and generates {@link AbstractDescribedSObjectBase} based classes,  * which are needed for some of the operations (like composite API).  */
+end_comment
 
 begin_class
 DECL|class|Contact
