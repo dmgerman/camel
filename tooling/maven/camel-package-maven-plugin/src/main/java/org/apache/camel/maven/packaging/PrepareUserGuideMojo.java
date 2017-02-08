@@ -928,7 +928,7 @@ name|other
 operator|.
 name|append
 argument_list|(
-literal|"* Other Components\n"
+literal|"* Miscellaneous Components\n"
 argument_list|)
 expr_stmt|;
 for|for
