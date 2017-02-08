@@ -1328,13 +1328,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|executeDataFormatsReadme (boolean core)
+DECL|method|executeDataFormatsReadme (boolean coreOnly)
 specifier|protected
 name|void
 name|executeDataFormatsReadme
 parameter_list|(
 name|boolean
-name|core
+name|coreOnly
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -1499,8 +1499,11 @@ control|)
 block|{
 if|if
 condition|(
-name|core
-operator|&&
+name|coreOnly
+condition|)
+block|{
+if|if
+condition|(
 literal|"camel-core"
 operator|.
 name|equals
@@ -1512,6 +1515,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// only include core components
 name|dataFormats
 operator|.
 name|add
@@ -1520,24 +1524,10 @@ name|model
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|core
-operator|&&
-operator|!
-literal|"camel-core"
-operator|.
-name|equals
-argument_list|(
-name|model
-operator|.
-name|getArtifactId
-argument_list|()
-argument_list|)
-condition|)
+block|}
+else|else
 block|{
+comment|// we want to include everything in the big file (also from camel-core)
 name|dataFormats
 operator|.
 name|add
@@ -1553,7 +1543,7 @@ name|file
 decl_stmt|;
 if|if
 condition|(
-name|core
+name|coreOnly
 condition|)
 block|{
 name|file
@@ -1676,13 +1666,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|executeLanguagesReadme (boolean core)
+DECL|method|executeLanguagesReadme (boolean coreOnly)
 specifier|protected
 name|void
 name|executeLanguagesReadme
 parameter_list|(
 name|boolean
-name|core
+name|coreOnly
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -1825,8 +1815,11 @@ control|)
 block|{
 if|if
 condition|(
-name|core
-operator|&&
+name|coreOnly
+condition|)
+block|{
+if|if
+condition|(
 literal|"camel-core"
 operator|.
 name|equals
@@ -1838,6 +1831,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// only include core components
 name|languages
 operator|.
 name|add
@@ -1846,24 +1840,10 @@ name|model
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|core
-operator|&&
-operator|!
-literal|"camel-core"
-operator|.
-name|equals
-argument_list|(
-name|model
-operator|.
-name|getArtifactId
-argument_list|()
-argument_list|)
-condition|)
+block|}
+else|else
 block|{
+comment|// we want to include everything in the big file (also from camel-core)
 name|languages
 operator|.
 name|add
@@ -1879,7 +1859,7 @@ name|file
 decl_stmt|;
 if|if
 condition|(
-name|core
+name|coreOnly
 condition|)
 block|{
 name|file
