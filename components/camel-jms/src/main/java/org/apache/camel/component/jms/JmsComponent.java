@@ -3698,6 +3698,16 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|remaining
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 name|remaining
 operator|.
 name|startsWith
@@ -3850,6 +3860,7 @@ argument_list|,
 literal|'/'
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|final
 name|String
