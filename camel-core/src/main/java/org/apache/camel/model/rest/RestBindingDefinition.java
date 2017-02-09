@@ -152,11 +152,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|model
 operator|.
-name|rest
-operator|.
-name|RestConsumerBindingProcessor
+name|OptionalIdentifiedDefinition
 import|;
 end_import
 
@@ -168,9 +166,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|processor
 operator|.
-name|NoOutputDefinition
+name|RestBindingAdvice
 import|;
 end_import
 
@@ -289,7 +287,7 @@ specifier|public
 class|class
 name|RestBindingDefinition
 extends|extends
-name|NoOutputDefinition
+name|OptionalIdentifiedDefinition
 argument_list|<
 name|RestBindingDefinition
 argument_list|>
@@ -386,12 +384,10 @@ return|return
 literal|"RestBinding"
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|createProcessor (RouteContext routeContext)
+DECL|method|createRestBindingAdvice (RouteContext routeContext)
 specifier|public
-name|Processor
-name|createProcessor
+name|RestBindingAdvice
+name|createRestBindingAdvice
 parameter_list|(
 name|RouteContext
 name|routeContext
@@ -517,7 +513,7 @@ block|{
 comment|// binding mode is off, so create a off mode binding processor
 return|return
 operator|new
-name|RestConsumerBindingProcessor
+name|RestBindingAdvice
 argument_list|(
 name|context
 argument_list|,
@@ -1226,7 +1222,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|RestConsumerBindingProcessor
+name|RestBindingAdvice
 argument_list|(
 name|context
 argument_list|,
@@ -1745,6 +1741,18 @@ name|enableCORS
 operator|=
 name|enableCORS
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|""
+return|;
 block|}
 block|}
 end_class

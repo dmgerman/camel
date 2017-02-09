@@ -355,15 +355,6 @@ argument_list|>
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Sets a {@link Contract} which declares input/output message type on the route.      * @param contract {@link Contract} for this route      */
-DECL|method|setContract (Contract contract)
-name|void
-name|setContract
-parameter_list|(
-name|Contract
-name|contract
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 

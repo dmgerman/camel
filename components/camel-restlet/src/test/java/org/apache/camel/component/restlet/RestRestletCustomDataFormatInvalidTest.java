@@ -297,10 +297,8 @@ name|FailedToCreateRouteException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"JsonDataFormat name: bla must not be an existing bean instance from the registry"
-argument_list|,
 name|e
 operator|.
 name|getCause
@@ -308,6 +306,11 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"JsonDataFormat name: bla must not be an existing bean instance from the registry"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

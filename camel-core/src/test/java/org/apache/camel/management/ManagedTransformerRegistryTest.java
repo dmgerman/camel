@@ -744,14 +744,14 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"null:null"
+literal|null
 argument_list|,
 name|from
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"null:null"
+literal|null
 argument_list|,
 name|to
 argument_list|)

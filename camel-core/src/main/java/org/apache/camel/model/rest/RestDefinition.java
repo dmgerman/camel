@@ -3312,13 +3312,8 @@ block|}
 block|}
 name|route
 operator|.
-name|getOutputs
-argument_list|()
-operator|.
-name|add
+name|setRestBindingDefinition
 argument_list|(
-literal|0
-argument_list|,
 name|binding
 argument_list|)
 expr_stmt|;
