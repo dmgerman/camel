@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.gridfs
+DECL|package|org.apache.camel.component.mongodb.gridfs
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|component
+operator|.
+name|mongodb
 operator|.
 name|gridfs
 package|;
@@ -141,7 +143,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=create&bucket="
+literal|"mongodb-gridfs:myDb?database={{mongodb.testDb}}&operation=create&bucket="
 operator|+
 name|getBucket
 argument_list|()
@@ -154,7 +156,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=create&bucket="
+literal|"mongodb-gridfs:myDb?database={{mongodb.testDb}}&operation=create&bucket="
 operator|+
 name|getBucket
 argument_list|()
@@ -169,7 +171,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=create&bucket="
+literal|"mongodb-gridfs:myDb?database={{mongodb.testDb}}&operation=create&bucket="
 operator|+
 name|getBucket
 argument_list|()
@@ -179,7 +181,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&bucket="
+literal|"mongodb-gridfs:myDb?database={{mongodb.testDb}}&bucket="
 operator|+
 name|getBucket
 argument_list|()
@@ -199,7 +201,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&bucket="
+literal|"mongodb-gridfs:myDb?database={{mongodb.testDb}}&bucket="
 operator|+
 name|getBucket
 argument_list|()
@@ -221,7 +223,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&bucket="
+literal|"mongodb-gridfs:myDb?database={{mongodb.testDb}}&bucket="
 operator|+
 name|getBucket
 argument_list|()

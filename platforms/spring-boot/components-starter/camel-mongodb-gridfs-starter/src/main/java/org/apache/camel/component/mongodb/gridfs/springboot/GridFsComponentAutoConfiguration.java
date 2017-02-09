@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.gridfs.springboot
+DECL|package|org.apache.camel.component.mongodb.gridfs.springboot
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|component
+operator|.
+name|mongodb
 operator|.
 name|gridfs
 operator|.
@@ -41,6 +43,8 @@ operator|.
 name|camel
 operator|.
 name|component
+operator|.
+name|mongodb
 operator|.
 name|gridfs
 operator|.
@@ -298,7 +302,7 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"gridfs-component"
+literal|"mongodb-gridfs-component"
 argument_list|)
 annotation|@
 name|ConditionalOnClass
@@ -386,7 +390,7 @@ name|ConditionMessage
 operator|.
 name|forCondition
 argument_list|(
-literal|"camel.component.gridfs"
+literal|"camel.component.mongodb-gridfs"
 argument_list|)
 decl_stmt|;
 if|if
@@ -395,7 +399,7 @@ name|isEnabled
 argument_list|(
 name|conditionContext
 argument_list|,
-literal|"camel.component.gridfs."
+literal|"camel.component.mongodb-gridfs."
 argument_list|,
 name|groupEnabled
 argument_list|)

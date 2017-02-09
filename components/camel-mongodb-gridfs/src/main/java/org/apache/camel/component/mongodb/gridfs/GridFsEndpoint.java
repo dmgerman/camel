@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.gridfs
+DECL|package|org.apache.camel.component.mongodb.gridfs
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|component
+operator|.
+name|mongodb
 operator|.
 name|gridfs
 package|;
@@ -244,7 +246,7 @@ literal|"2.18.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"gridfs"
+literal|"mongodb-gridfs"
 argument_list|,
 name|title
 operator|=
@@ -252,7 +254,7 @@ literal|"MongoDB GridFS"
 argument_list|,
 name|syntax
 operator|=
-literal|"gridfs:connectionBean"
+literal|"mongodb-gridfs:connectionBean"
 argument_list|,
 name|label
 operator|=
