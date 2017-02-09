@@ -449,6 +449,14 @@ specifier|private
 name|String
 name|clientId
 decl_stmt|;
+comment|//interceptor.classes
+annotation|@
+name|UriParam
+DECL|field|interceptorClasses
+specifier|private
+name|String
+name|interceptorClasses
+decl_stmt|;
 comment|//key.deserializer
 annotation|@
 name|UriParam
@@ -1772,6 +1780,18 @@ name|getRetries
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
+name|ProducerConfig
+operator|.
+name|INTERCEPTOR_CLASSES_CONFIG
+argument_list|,
+name|getInterceptorClasses
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// SSL
 name|applySslConfiguration
 argument_list|(
@@ -2363,6 +2383,18 @@ operator|.
 name|MAX_POLL_RECORDS_CONFIG
 argument_list|,
 name|getMaxPollRecords
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
+name|ConsumerConfig
+operator|.
+name|INTERCEPTOR_CLASSES_CONFIG
+argument_list|,
+name|getInterceptorClasses
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5351,6 +5383,33 @@ operator|.
 name|recordMetadata
 operator|=
 name|recordMetadata
+expr_stmt|;
+block|}
+DECL|method|getInterceptorClasses ()
+specifier|public
+name|String
+name|getInterceptorClasses
+parameter_list|()
+block|{
+return|return
+name|interceptorClasses
+return|;
+block|}
+comment|/**      * Sets interceptors for producer or consumers.      * Producer interceptors have to be classes implementing {@link org.apache.kafka.clients.producer.ProducerInterceptor}      * Consumer interceptors have to be classes implementing {@link org.apache.kafka.clients.consumer.ConsumerInterceptor}      * @return      */
+DECL|method|setInterceptorClasses (String interceptorClasses)
+specifier|public
+name|void
+name|setInterceptorClasses
+parameter_list|(
+name|String
+name|interceptorClasses
+parameter_list|)
+block|{
+name|this
+operator|.
+name|interceptorClasses
+operator|=
+name|interceptorClasses
 expr_stmt|;
 block|}
 block|}
