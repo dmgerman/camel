@@ -4,11 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.foo
+DECL|package|org.foo.salesforce.contact
 package|package
 name|org
 operator|.
 name|foo
+operator|.
+name|salesforce
+operator|.
+name|contact
 package|;
 end_package
 
@@ -20,62 +24,41 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|connector
+operator|.
+name|DefaultConnectorComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|stereotype
-operator|.
-name|Component
-import|;
-end_import
+begin_comment
+comment|/**  * Camel salesforce-upsert-contact connector  */
+end_comment
 
 begin_class
-annotation|@
-name|Component
-DECL|class|MentionAddContractRoute
+DECL|class|SalesforceUpsertContactComponent
 specifier|public
 class|class
-name|MentionAddContractRoute
+name|SalesforceUpsertContactComponent
 extends|extends
-name|RouteBuilder
+name|DefaultConnectorComponent
 block|{
-annotation|@
-name|Override
-DECL|method|configure ()
+DECL|method|SalesforceUpsertContactComponent ()
 specifier|public
-name|void
-name|configure
+name|SalesforceUpsertContactComponent
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|from
+name|super
 argument_list|(
-literal|"twitter-mention"
-argument_list|)
+literal|"salesforce-upsert-contact"
+argument_list|,
+name|SalesforceUpsertContactComponent
 operator|.
-name|log
-argument_list|(
-literal|"I was mentioned by ${body}"
-argument_list|)
+name|class
 operator|.
-name|process
-argument_list|(
-literal|"tweetToContactMapper"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"salesforce-upsert-contact?sObjectIdName=TwitterScreenName__c"
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
