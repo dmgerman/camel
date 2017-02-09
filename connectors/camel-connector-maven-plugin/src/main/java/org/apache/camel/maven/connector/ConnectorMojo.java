@@ -184,7 +184,7 @@ name|apache
 operator|.
 name|maven
 operator|.
-name|plugin
+name|plugins
 operator|.
 name|jar
 operator|.
