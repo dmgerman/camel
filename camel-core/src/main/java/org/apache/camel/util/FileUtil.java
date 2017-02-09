@@ -2233,6 +2233,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Copies the file      *      * @param from  the source file      * @param to    the destination file      * @throws IOException If an I/O error occurs during copy operation      */
 DECL|method|copyFile (File from, File to)
 specifier|public
 specifier|static
@@ -2371,6 +2372,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Deletes the file.      *<p/>      * This implementation will attempt to delete the file up till three times with one second delay, which      * can mitigate problems on deleting files on some platforms such as Windows.      *      * @param file  the file to delete      */
 DECL|method|deleteFile (File file)
 specifier|public
 specifier|static
