@@ -3637,7 +3637,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"jms:temp:queue:cheese?jmsMessageType=Bytes"
+literal|"jms:temp-queue:cheese?jmsMessageType=Bytes"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -3654,7 +3654,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"jms:temp:queue:cheese?jmsMessageType=Bytes"
+literal|"jms:temp-queue:cheese?jmsMessageType=Bytes"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3671,7 +3671,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"jms:temp:queue:cheese?jmsMessageType=Bytes"
+literal|"jms:temp-queue:cheese?jmsMessageType=Bytes"
 argument_list|,
 literal|false
 argument_list|,
@@ -3694,7 +3694,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"jms:temp:queue:cheese?jmsMessageType=Bytes"
+literal|"jms:temp-queue:cheese?jmsMessageType=Bytes"
 argument_list|,
 literal|false
 argument_list|,
