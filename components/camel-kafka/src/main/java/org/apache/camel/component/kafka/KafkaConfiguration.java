@@ -452,6 +452,11 @@ decl_stmt|;
 comment|//interceptor.classes
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common,monitoring"
+argument_list|)
 DECL|field|interceptorClasses
 specifier|private
 name|String
@@ -5395,7 +5400,7 @@ return|return
 name|interceptorClasses
 return|;
 block|}
-comment|/**      * Sets interceptors for producer or consumers.      * Producer interceptors have to be classes implementing {@link org.apache.kafka.clients.producer.ProducerInterceptor}      * Consumer interceptors have to be classes implementing {@link org.apache.kafka.clients.consumer.ConsumerInterceptor}      * @return      */
+comment|/**      * Sets interceptors for producer or consumers.      * Producer interceptors have to be classes implementing {@link org.apache.kafka.clients.producer.ProducerInterceptor}      * Consumer interceptors have to be classes implementing {@link org.apache.kafka.clients.consumer.ConsumerInterceptor}      * Note that if you use Producer interceptor on a consumer it will throw a class cast exception in runtime      */
 DECL|method|setInterceptorClasses (String interceptorClasses)
 specifier|public
 name|void
