@@ -40,6 +40,24 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
+name|StringHelper
+operator|.
+name|cutLastZeroDigit
+import|;
+end_import
+
 begin_class
 DECL|class|LanguageModel
 specifier|public
@@ -578,6 +596,19 @@ operator|+
 literal|"/src/main/docs"
 return|;
 block|}
+block|}
+DECL|method|getFirstVersionShort ()
+specifier|public
+name|String
+name|getFirstVersionShort
+parameter_list|()
+block|{
+return|return
+name|cutLastZeroDigit
+argument_list|(
+name|firstVersion
+argument_list|)
+return|;
 block|}
 block|}
 end_class
