@@ -363,6 +363,10 @@ argument_list|,
 name|label
 operator|=
 literal|"messaging"
+argument_list|,
+name|lenientProperties
+operator|=
+literal|true
 argument_list|)
 DECL|class|RabbitMQEndpoint
 specifier|public
@@ -1155,6 +1159,31 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|()
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"arg."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
+DECL|field|args
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|args
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -3014,6 +3043,43 @@ return|return
 name|bindingArgs
 return|;
 block|}
+comment|/**      * Specify arguments for configuring the different RabbitMQ concepts, a different prefix is      * required for each:      *<ul>      *<li>Queue: arg.queue.</li>      *<li>Exchange: arg.exchange.</li>      *<li>Binding: arg.binding.</li>      *</ul>      * For example to declare a queue with message ttl argument:      *      * http://localhost:5672/exchange/queue?args=arg.queue.x-message-ttl=60000      *      */
+DECL|method|setArgs (Map<String, Object> args)
+specifier|public
+name|void
+name|setArgs
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|args
+parameter_list|)
+block|{
+name|this
+operator|.
+name|args
+operator|=
+name|args
+expr_stmt|;
+block|}
+DECL|method|getArgs ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getArgs
+parameter_list|()
+block|{
+return|return
+name|args
+return|;
+block|}
 DECL|method|getQueueArgsConfigurer ()
 specifier|public
 name|ArgsConfigurer
@@ -3291,6 +3357,17 @@ name|exclusive
 operator|=
 name|exclusive
 expr_stmt|;
+block|}
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+comment|// true to allow dynamic URI options to be configured
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class
