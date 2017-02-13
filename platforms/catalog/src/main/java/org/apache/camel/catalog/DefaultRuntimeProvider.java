@@ -205,6 +205,30 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getProviderGroupId ()
+specifier|public
+name|String
+name|getProviderGroupId
+parameter_list|()
+block|{
+return|return
+literal|"org.apache.camel"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getProviderArtifactId ()
+specifier|public
+name|String
+name|getProviderArtifactId
+parameter_list|()
+block|{
+return|return
+literal|"camel-catalog"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getComponentJSonSchemaDirectory ()
 specifier|public
 name|String

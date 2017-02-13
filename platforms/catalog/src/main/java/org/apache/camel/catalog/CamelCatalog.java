@@ -210,6 +210,27 @@ name|String
 name|getLoadedVersion
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the current loaded runtime provider version used by the catalog.      */
+DECL|method|getRuntimeProviderLoadedVersion ()
+name|String
+name|getRuntimeProviderLoadedVersion
+parameter_list|()
+function_decl|;
+comment|/**      * Attempt to load the runtime provider version to be used by the catalog.      *<p/>      * Loading the runtime provider JAR of the given version of choice may require internet access      * to download the JAR from Maven central. You can pre download the JAR and install in a local      * Maven repository to avoid internet access for offline environments.      *      * @param groupId  the runtime provider Maven groupId      * @param artifactId  the runtime provider Maven artifactId      * @param version  the runtime provider Maven version      * @return<tt>true</tt> if the version was loaded,<tt>false</tt> if not.      */
+DECL|method|loadRuntimeProviderVersion (String groupId, String artifactId, String version)
+name|boolean
+name|loadRuntimeProviderVersion
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+function_decl|;
 comment|/**      * Find all the component names from the Camel catalog      */
 DECL|method|findComponentNames ()
 name|List

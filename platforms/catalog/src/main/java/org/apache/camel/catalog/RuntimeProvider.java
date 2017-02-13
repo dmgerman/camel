@@ -57,6 +57,18 @@ name|String
 name|getProviderName
 parameter_list|()
 function_decl|;
+comment|/**      * Maven group id of the runtime provider JAR dependency.      */
+DECL|method|getProviderGroupId ()
+name|String
+name|getProviderGroupId
+parameter_list|()
+function_decl|;
+comment|/**      * Maven artifact id of the runtime provider JAR dependency.      */
+DECL|method|getProviderArtifactId ()
+name|String
+name|getProviderArtifactId
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the directory where the component json files are stored in the catalog JAR file      */
 DECL|method|getComponentJSonSchemaDirectory ()
 name|String

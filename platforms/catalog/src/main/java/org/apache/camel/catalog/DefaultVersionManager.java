@@ -93,6 +93,41 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getRuntimeProviderLoadedVersion ()
+specifier|public
+name|String
+name|getRuntimeProviderLoadedVersion
+parameter_list|()
+block|{
+comment|// not supported
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|loadRuntimeProviderVersion (String groupId, String artifactId, String version)
+specifier|public
+name|boolean
+name|loadRuntimeProviderVersion
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+block|{
+comment|// not supported
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getResourceAsStream (String name)
 specifier|public
 name|InputStream
