@@ -100,6 +100,20 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TestSupport
+operator|.
+name|getJavaMajorVersion
+import|;
+end_import
+
 begin_class
 DECL|class|KeyStoreParametersTest
 specifier|public
@@ -490,6 +504,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|getJavaMajorVersion
+argument_list|()
+operator|==
+literal|9
+condition|)
+block|{
+comment|//checkout http://openjdk.java.net/jeps/229
+return|return;
+block|}
 name|KeyStoreParameters
 name|ksp
 init|=

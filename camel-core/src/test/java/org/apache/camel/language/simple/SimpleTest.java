@@ -294,6 +294,20 @@ name|Language
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TestSupport
+operator|.
+name|getJavaMajorVersion
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -306,6 +320,24 @@ name|SimpleTest
 extends|extends
 name|LanguageTestSupport
 block|{
+DECL|field|JAVA8_INDEX_OUT_OF_BOUNDS_ERROR_MSG
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|JAVA8_INDEX_OUT_OF_BOUNDS_ERROR_MSG
+init|=
+literal|"Index: 2, Size: 2"
+decl_stmt|;
+DECL|field|INDEX_OUT_OF_BOUNDS_ERROR_MSG
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|INDEX_OUT_OF_BOUNDS_ERROR_MSG
+init|=
+literal|"Index 2 out-of-bounds for length 2"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createRegistry ()
@@ -2361,9 +2393,17 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|getJavaMajorVersion
+argument_list|()
+operator|<=
+literal|8
+condition|)
+block|{
 name|assertEquals
 argument_list|(
-literal|"Index: 2, Size: 2"
+name|JAVA8_INDEX_OUT_OF_BOUNDS_ERROR_MSG
 argument_list|,
 name|cause
 operator|.
@@ -2371,6 +2411,20 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertEquals
+argument_list|(
+name|INDEX_OUT_OF_BOUNDS_ERROR_MSG
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertExpression
 argument_list|(
@@ -2486,9 +2540,17 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|getJavaMajorVersion
+argument_list|()
+operator|<=
+literal|8
+condition|)
+block|{
 name|assertEquals
 argument_list|(
-literal|"Index: 2, Size: 2"
+name|JAVA8_INDEX_OUT_OF_BOUNDS_ERROR_MSG
 argument_list|,
 name|cause
 operator|.
@@ -2496,6 +2558,20 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertEquals
+argument_list|(
+name|INDEX_OUT_OF_BOUNDS_ERROR_MSG
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertExpression
 argument_list|(
@@ -4860,9 +4936,17 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|getJavaMajorVersion
+argument_list|()
+operator|<=
+literal|8
+condition|)
+block|{
 name|assertEquals
 argument_list|(
-literal|"Index: 2, Size: 2"
+name|JAVA8_INDEX_OUT_OF_BOUNDS_ERROR_MSG
 argument_list|,
 name|cause
 operator|.
@@ -4870,6 +4954,20 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertEquals
+argument_list|(
+name|INDEX_OUT_OF_BOUNDS_ERROR_MSG
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertExpression
 argument_list|(
@@ -4988,9 +5086,17 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|getJavaMajorVersion
+argument_list|()
+operator|<=
+literal|8
+condition|)
+block|{
 name|assertEquals
 argument_list|(
-literal|"Index: 2, Size: 2"
+name|JAVA8_INDEX_OUT_OF_BOUNDS_ERROR_MSG
 argument_list|,
 name|cause
 operator|.
@@ -4998,6 +5104,20 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertEquals
+argument_list|(
+name|INDEX_OUT_OF_BOUNDS_ERROR_MSG
+argument_list|,
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|assertExpression
 argument_list|(

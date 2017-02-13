@@ -355,19 +355,19 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|isJavaVersion
-argument_list|(
-literal|"1.8"
-argument_list|)
+name|getJavaMajorVersion
+argument_list|()
+operator|<=
+literal|7
 condition|)
 block|{
 name|result
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<c:child some_attr='a' anotherAttr='a' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"></c:child>"
+literal|"<c:child some_attr='a' anotherAttr='a' xmlns:g=\"urn:g\" xmlns:d=\"urn:d\" xmlns:c=\"urn:c\"></c:child>"
 argument_list|,
-literal|"<c:child some_attr='b' anotherAttr='b' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"/>"
+literal|"<c:child some_attr='b' anotherAttr='b' xmlns:g=\"urn:g\" xmlns:d=\"urn:d\" xmlns:c=\"urn:c\"/>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -377,9 +377,9 @@ name|result
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<c:child some_attr='a' anotherAttr='a' xmlns:g=\"urn:g\" xmlns:d=\"urn:d\" xmlns:c=\"urn:c\"></c:child>"
+literal|"<c:child some_attr='a' anotherAttr='a' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"></c:child>"
 argument_list|,
-literal|"<c:child some_attr='b' anotherAttr='b' xmlns:g=\"urn:g\" xmlns:d=\"urn:d\" xmlns:c=\"urn:c\"/>"
+literal|"<c:child some_attr='b' anotherAttr='b' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"/>"
 argument_list|)
 expr_stmt|;
 block|}
