@@ -363,10 +363,6 @@ argument_list|,
 name|label
 operator|=
 literal|"messaging"
-argument_list|,
-name|lenientProperties
-operator|=
-literal|true
 argument_list|)
 DECL|class|RabbitMQEndpoint
 specifier|public
@@ -3357,17 +3353,6 @@ name|exclusive
 operator|=
 name|exclusive
 expr_stmt|;
-block|}
-DECL|method|isLenientProperties ()
-specifier|public
-name|boolean
-name|isLenientProperties
-parameter_list|()
-block|{
-comment|// true to allow dynamic URI options to be configured
-return|return
-literal|true
-return|;
 block|}
 block|}
 end_class
