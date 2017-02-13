@@ -92,6 +92,10 @@ name|User
 import|;
 end_import
 
+begin_comment
+comment|/**  * To transform a tweet {@link Status} object into a salesforce {@link Contact} object.  */
+end_comment
+
 begin_class
 annotation|@
 name|Component
