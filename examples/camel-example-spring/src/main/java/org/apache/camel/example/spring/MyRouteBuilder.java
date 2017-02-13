@@ -106,7 +106,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/test?noop=true"
+literal|"file://target/test"
 argument_list|)
 expr_stmt|;
 comment|// set up a listener on the file component
