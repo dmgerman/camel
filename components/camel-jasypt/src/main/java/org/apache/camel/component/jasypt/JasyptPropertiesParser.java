@@ -475,6 +475,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|password
+argument_list|)
+operator|&&
 name|password
 operator|.
 name|startsWith
