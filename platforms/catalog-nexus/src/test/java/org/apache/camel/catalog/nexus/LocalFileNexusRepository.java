@@ -99,9 +99,9 @@ name|NexusArtifactDto
 name|dto
 parameter_list|)
 block|{
-comment|// load from file instead
+comment|// load from local file instead
 return|return
-literal|"file:target/"
+literal|"file:target/localrepo/"
 operator|+
 name|dto
 operator|.
