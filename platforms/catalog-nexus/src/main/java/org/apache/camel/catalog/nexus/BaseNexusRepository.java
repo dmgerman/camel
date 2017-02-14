@@ -54,6 +54,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|MalformedURLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URL
 import|;
 end_import
@@ -312,14 +322,20 @@ specifier|private
 name|CamelCatalog
 name|camelCatalog
 decl_stmt|;
+DECL|field|initialDelay
+specifier|private
+name|int
+name|initialDelay
+init|=
+literal|10
+decl_stmt|;
 DECL|field|delay
 specifier|private
-name|Long
+name|int
 name|delay
 init|=
-literal|60L
+literal|60
 decl_stmt|;
-comment|// use 60 second delay between index runs
 DECL|field|nexusUrl
 specifier|private
 name|String
@@ -400,9 +416,36 @@ operator|=
 name|nexusUrl
 expr_stmt|;
 block|}
+DECL|method|getInitialDelay ()
+specifier|public
+name|int
+name|getInitialDelay
+parameter_list|()
+block|{
+return|return
+name|initialDelay
+return|;
+block|}
+comment|/**      * Delay in seconds before the initial (first) scan.      */
+DECL|method|setInitialDelay (int initialDelay)
+specifier|public
+name|void
+name|setInitialDelay
+parameter_list|(
+name|int
+name|initialDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initialDelay
+operator|=
+name|initialDelay
+expr_stmt|;
+block|}
 DECL|method|getDelay ()
 specifier|public
-name|Long
+name|int
 name|getDelay
 parameter_list|()
 block|{
@@ -411,12 +454,12 @@ name|delay
 return|;
 block|}
 comment|/**      * Delay in seconds between scanning.      */
-DECL|method|setDelay (Long delay)
+DECL|method|setDelay (int delay)
 specifier|public
 name|void
 name|setDelay
 parameter_list|(
-name|Long
+name|int
 name|delay
 parameter_list|)
 block|{
@@ -478,6 +521,28 @@ throw|;
 block|}
 if|if
 condition|(
+name|nexusUrl
+operator|==
+literal|null
+operator|||
+name|nexusUrl
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Nexus service not found. Indexing Nexus is not enabled!"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+operator|!
 name|started
 operator|.
 name|compareAndSet
@@ -501,35 +566,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Starting NexusRepository"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|nexusUrl
-operator|==
-literal|null
-operator|||
-name|nexusUrl
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Nexus service not found. Indexing Nexus is not enabled!"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Indexing Nexus every {} seconds interval"
+literal|"Starting NexusRepository to scan every {} seconds"
 argument_list|,
 name|delay
 argument_list|)
@@ -638,7 +675,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|,
-literal|10
+name|initialDelay
 argument_list|,
 name|delay
 argument_list|,
@@ -705,16 +742,14 @@ argument_list|>
 name|newArtifacts
 parameter_list|)
 function_decl|;
-comment|/**      * Runs the task to index nexus for new artifacts      */
-DECL|method|indexNexus ()
+DECL|method|createNexusUrl ()
 specifier|protected
-name|void
-name|indexNexus
+name|URL
+name|createNexusUrl
 parameter_list|()
 throws|throws
-name|Exception
+name|MalformedURLException
 block|{
-comment|// must have q parameter so use component to find all component
 name|String
 name|query
 init|=
@@ -725,15 +760,24 @@ operator|+
 name|getClassifier
 argument_list|()
 decl_stmt|;
-name|URL
-name|url
-init|=
+return|return
 operator|new
 name|URL
 argument_list|(
 name|query
 argument_list|)
-decl_stmt|;
+return|;
+block|}
+comment|/**      * Runs the task to index nexus for new artifacts      */
+DECL|method|indexNexus ()
+specifier|protected
+name|void
+name|indexNexus
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// must have q parameter so use component to find all component
 name|DocumentBuilderFactory
 name|factory
 init|=
@@ -769,6 +813,12 @@ init|=
 name|factory
 operator|.
 name|newDocumentBuilder
+argument_list|()
+decl_stmt|;
+name|URL
+name|url
+init|=
+name|createNexusUrl
 argument_list|()
 decl_stmt|;
 name|InputStream
@@ -807,7 +857,6 @@ operator|.
 name|newXPath
 argument_list|()
 decl_stmt|;
-comment|// TODO: we dont have classifier for components
 name|NodeList
 name|list
 init|=
@@ -818,12 +867,7 @@ name|exp
 operator|.
 name|evaluate
 argument_list|(
-literal|"//classifier[text() = '"
-operator|+
-name|getClassifier
-argument_list|()
-operator|+
-literal|"']"
+literal|"//data/artifact"
 argument_list|,
 name|dom
 argument_list|,
@@ -871,20 +915,12 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|Node
-name|parent
-init|=
-name|node
-operator|.
-name|getParentNode
-argument_list|()
-decl_stmt|;
 name|String
 name|g
 init|=
 name|getNodeText
 argument_list|(
-name|parent
+name|node
 operator|.
 name|getChildNodes
 argument_list|()
@@ -897,7 +933,7 @@ name|a
 init|=
 name|getNodeText
 argument_list|(
-name|parent
+name|node
 operator|.
 name|getChildNodes
 argument_list|()
@@ -910,7 +946,7 @@ name|v
 init|=
 name|getNodeText
 argument_list|(
-name|parent
+name|node
 operator|.
 name|getChildNodes
 argument_list|()
@@ -923,7 +959,7 @@ name|l
 init|=
 name|getNodeText
 argument_list|(
-name|parent
+name|node
 operator|.
 name|getChildNodes
 argument_list|()
