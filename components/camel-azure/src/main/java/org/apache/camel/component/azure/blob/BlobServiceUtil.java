@@ -379,8 +379,6 @@ init|=
 name|createBlockBlobClient
 argument_list|(
 name|cfg
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|doGetBlob
@@ -414,8 +412,6 @@ init|=
 name|createAppendBlobClient
 argument_list|(
 name|cfg
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|doGetBlob
@@ -449,8 +445,6 @@ init|=
 name|createPageBlobClient
 argument_list|(
 name|cfg
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|doGetBlob
@@ -753,8 +747,6 @@ init|=
 name|getAccountCredentials
 argument_list|(
 name|cfg
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 return|return
@@ -767,7 +759,7 @@ name|creds
 argument_list|)
 return|;
 block|}
-DECL|method|createBlockBlobClient (BlobServiceConfiguration cfg, boolean isWrite)
+DECL|method|createBlockBlobClient (BlobServiceConfiguration cfg)
 specifier|public
 specifier|static
 name|CloudBlockBlob
@@ -775,9 +767,6 @@ name|createBlockBlobClient
 parameter_list|(
 name|BlobServiceConfiguration
 name|cfg
-parameter_list|,
-name|boolean
-name|isWrite
 parameter_list|)
 throws|throws
 name|Exception
@@ -791,12 +780,6 @@ operator|)
 name|getConfiguredClient
 argument_list|(
 name|cfg
-argument_list|,
-name|BlobType
-operator|.
-name|blockblob
-argument_list|,
-name|isWrite
 argument_list|)
 decl_stmt|;
 if|if
@@ -820,8 +803,6 @@ init|=
 name|getAccountCredentials
 argument_list|(
 name|cfg
-argument_list|,
-name|isWrite
 argument_list|)
 decl_stmt|;
 name|client
@@ -839,7 +820,7 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|createAppendBlobClient (BlobServiceConfiguration cfg, boolean isWrite)
+DECL|method|createAppendBlobClient (BlobServiceConfiguration cfg)
 specifier|public
 specifier|static
 name|CloudAppendBlob
@@ -847,9 +828,6 @@ name|createAppendBlobClient
 parameter_list|(
 name|BlobServiceConfiguration
 name|cfg
-parameter_list|,
-name|boolean
-name|isWrite
 parameter_list|)
 throws|throws
 name|Exception
@@ -863,12 +841,6 @@ operator|)
 name|getConfiguredClient
 argument_list|(
 name|cfg
-argument_list|,
-name|BlobType
-operator|.
-name|appendblob
-argument_list|,
-name|isWrite
 argument_list|)
 decl_stmt|;
 if|if
@@ -892,8 +864,6 @@ init|=
 name|getAccountCredentials
 argument_list|(
 name|cfg
-argument_list|,
-name|isWrite
 argument_list|)
 decl_stmt|;
 name|client
@@ -911,7 +881,7 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|createPageBlobClient (BlobServiceConfiguration cfg, boolean isWrite)
+DECL|method|createPageBlobClient (BlobServiceConfiguration cfg)
 specifier|public
 specifier|static
 name|CloudPageBlob
@@ -919,9 +889,6 @@ name|createPageBlobClient
 parameter_list|(
 name|BlobServiceConfiguration
 name|cfg
-parameter_list|,
-name|boolean
-name|isWrite
 parameter_list|)
 throws|throws
 name|Exception
@@ -935,12 +902,6 @@ operator|)
 name|getConfiguredClient
 argument_list|(
 name|cfg
-argument_list|,
-name|BlobType
-operator|.
-name|pageblob
-argument_list|,
-name|isWrite
 argument_list|)
 decl_stmt|;
 if|if
@@ -964,8 +925,6 @@ init|=
 name|getAccountCredentials
 argument_list|(
 name|cfg
-argument_list|,
-name|isWrite
 argument_list|)
 decl_stmt|;
 name|client
@@ -983,7 +942,7 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|getConfiguredClient (BlobServiceConfiguration cfg, BlobType blobType, boolean isWrite)
+DECL|method|getConfiguredClient (BlobServiceConfiguration cfg)
 specifier|public
 specifier|static
 name|CloudBlob
@@ -991,12 +950,6 @@ name|getConfiguredClient
 parameter_list|(
 name|BlobServiceConfiguration
 name|cfg
-parameter_list|,
-name|BlobType
-name|blobType
-parameter_list|,
-name|boolean
-name|isWrite
 parameter_list|)
 block|{
 name|CloudBlob
@@ -1024,7 +977,10 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|blobType
+name|cfg
+operator|.
+name|getBlobType
+argument_list|()
 operator|==
 name|BlobType
 operator|.
@@ -1041,7 +997,10 @@ block|}
 elseif|else
 if|if
 condition|(
-name|blobType
+name|cfg
+operator|.
+name|getBlobType
+argument_list|()
 operator|==
 name|BlobType
 operator|.
@@ -1058,7 +1017,10 @@ block|}
 elseif|else
 if|if
 condition|(
-name|blobType
+name|cfg
+operator|.
+name|getBlobType
+argument_list|()
 operator|==
 name|BlobType
 operator|.
@@ -1086,7 +1048,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid Blob Client Type"
+literal|"Invalid Client Type"
 argument_list|)
 throw|;
 block|}
@@ -1111,38 +1073,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid Client Uri"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|client
-operator|.
-name|getServiceClient
-argument_list|()
-operator|.
-name|getCredentials
-argument_list|()
-operator|==
-literal|null
-operator|&&
-operator|(
-name|isWrite
-operator|||
-operator|!
-name|cfg
-operator|.
-name|isPublicForRead
-argument_list|()
-operator|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Storage credentials must be specified"
+literal|"Invalid Client URI"
 argument_list|)
 throw|;
 block|}
@@ -1151,7 +1082,7 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|getAccountCredentials (BlobServiceConfiguration cfg, boolean isWrite)
+DECL|method|getAccountCredentials (BlobServiceConfiguration cfg)
 specifier|public
 specifier|static
 name|StorageCredentials
@@ -1159,39 +1090,8 @@ name|getAccountCredentials
 parameter_list|(
 name|BlobServiceConfiguration
 name|cfg
-parameter_list|,
-name|boolean
-name|isWrite
 parameter_list|)
 block|{
-if|if
-condition|(
-name|cfg
-operator|.
-name|getCredentials
-argument_list|()
-operator|==
-literal|null
-operator|&&
-operator|(
-name|isWrite
-operator|||
-operator|!
-name|cfg
-operator|.
-name|isPublicForRead
-argument_list|()
-operator|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Storage credentials must be specified"
-argument_list|)
-throw|;
-block|}
 return|return
 name|cfg
 operator|.

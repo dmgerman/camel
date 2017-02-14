@@ -786,8 +786,6 @@ name|createBlockBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|configureCloudBlobForWrite
@@ -963,8 +961,6 @@ name|createBlockBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|configureCloudBlobForWrite
@@ -1215,8 +1211,6 @@ name|createBlockBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|BlobServiceRequestOptions
@@ -1366,8 +1360,6 @@ name|createBlockBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|BlobServiceRequestOptions
@@ -1485,8 +1477,6 @@ name|createBlockBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|doDeleteBlock
@@ -1517,8 +1507,6 @@ name|createAppendBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|BlobServiceRequestOptions
@@ -1678,8 +1666,6 @@ name|createAppendBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|configureCloudBlobForWrite
@@ -1822,8 +1808,6 @@ name|createAppendBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|doDeleteBlock
@@ -1854,8 +1838,6 @@ name|createPageBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|BlobServiceRequestOptions
@@ -2040,8 +2022,6 @@ name|createPageBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|configureCloudBlobForWrite
@@ -2174,8 +2154,6 @@ name|createPageBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|BlobServiceRequestOptions
@@ -2254,8 +2232,6 @@ name|createPageBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|BlobServiceRequestOptions
@@ -2538,8 +2514,6 @@ name|createPageBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|BlobServiceUtil
@@ -2636,8 +2610,6 @@ name|createPageBlobClient
 argument_list|(
 name|getConfiguration
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|doDeleteBlock
