@@ -768,6 +768,23 @@ name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates the url to download the artifact.      *      * @param dto  the artifact      * @return the url to download      */
+DECL|method|createArtifactURL (NexusArtifactDto dto)
+specifier|protected
+name|String
+name|createArtifactURL
+parameter_list|(
+name|NexusArtifactDto
+name|dto
+parameter_list|)
+block|{
+return|return
+name|dto
+operator|.
+name|getArtifactLink
+argument_list|()
+return|;
+block|}
 comment|/**      * Runs the task to index nexus for new artifacts      */
 DECL|method|indexNexus ()
 specifier|protected

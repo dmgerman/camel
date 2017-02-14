@@ -88,6 +88,36 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|createArtifactURL (NexusArtifactDto dto)
+specifier|protected
+name|String
+name|createArtifactURL
+parameter_list|(
+name|NexusArtifactDto
+name|dto
+parameter_list|)
+block|{
+comment|// load from file instead
+return|return
+literal|"file:target/"
+operator|+
+name|dto
+operator|.
+name|getArtifactId
+argument_list|()
+operator|+
+literal|"-"
+operator|+
+name|dto
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|".jar"
+return|;
+block|}
 block|}
 end_class
 

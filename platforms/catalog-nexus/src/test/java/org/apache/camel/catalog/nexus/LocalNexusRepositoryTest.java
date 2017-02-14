@@ -62,6 +62,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -131,6 +141,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Work in progress"
+argument_list|)
 DECL|method|testLocalNexus ()
 specifier|public
 name|void
@@ -155,7 +170,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// TODO: wait 5 sec
+comment|// TODO: create custom component we can use for testing here
+comment|// and only wait as long until a new component is added
 name|Thread
 operator|.
 name|sleep
