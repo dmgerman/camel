@@ -186,7 +186,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"cloud, blob"
+literal|"cloud,database,nosql"
 argument_list|)
 DECL|class|BlobServiceEndpoint
 specifier|public
@@ -392,22 +392,6 @@ block|{
 return|return
 literal|true
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|public
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public

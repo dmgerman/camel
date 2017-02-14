@@ -1211,7 +1211,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
+comment|// noop
 block|}
 block|}
 argument_list|)
