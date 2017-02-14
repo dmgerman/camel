@@ -156,6 +156,28 @@ control|)
 block|{
 try|try
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Processing new artifact: {}:{}:{}"
+argument_list|,
+name|dto
+operator|.
+name|getGroupId
+argument_list|()
+argument_list|,
+name|dto
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|,
+name|dto
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|url
 init|=
@@ -183,7 +205,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
