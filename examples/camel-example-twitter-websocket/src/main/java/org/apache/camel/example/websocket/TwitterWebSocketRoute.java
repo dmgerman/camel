@@ -385,7 +385,7 @@ expr_stmt|;
 comment|// poll twitter search for new tweets
 name|fromF
 argument_list|(
-literal|"twitter://search?type=polling&delay=%s&keywords=%s"
+literal|"twitter://search?delay=%s&keywords=%s"
 argument_list|,
 name|delay
 argument_list|,

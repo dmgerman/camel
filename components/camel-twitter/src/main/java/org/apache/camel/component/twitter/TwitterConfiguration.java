@@ -186,7 +186,7 @@ literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"direct"
+literal|"polling"
 argument_list|,
 name|enums
 operator|=
@@ -199,7 +199,7 @@ name|type
 init|=
 name|EndpointType
 operator|.
-name|DIRECT
+name|POLLING
 decl_stmt|;
 annotation|@
 name|UriParam
