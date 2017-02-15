@@ -910,12 +910,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Login user {} at Salesforce loginUrl: {}"
-argument_list|,
-name|config
-operator|.
-name|getUserName
-argument_list|()
+literal|"Login at Salesforce loginUrl: {}"
 argument_list|,
 name|loginUrl
 argument_list|)
@@ -1103,7 +1098,7 @@ name|MILLISECONDS
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses login response, allows SalesforceSecurityHandler to parse a login request for a failed authentication conversation.      * @param loginResponse      * @param responseContent      * @throws SalesforceException      */
+comment|/**      * Parses login response, allows SalesforceSecurityHandler to parse a login request for a failed authentication conversation.      */
 DECL|method|parseLoginResponse (ContentResponse loginResponse, String responseContent)
 specifier|public
 specifier|synchronized
