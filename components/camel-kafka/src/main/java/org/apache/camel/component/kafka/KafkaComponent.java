@@ -285,7 +285,7 @@ return|return
 name|brokers
 return|;
 block|}
-comment|/**      * This is for bootstrapping and the producer will only use it for getting metadata (topics, partitions and replicas).      * The socket connections for sending the actual data will be established based on the broker information returned in the metadata.      * The format is host1:port1,host2:port2, and the list can be a subset of brokers or a VIP pointing to a subset of brokers.      *<p/>      * This option is known as<tt>metadata.broker.list</tt> in the Kafka documentation.      */
+comment|/**      * URL of the Kafka brokers to use.      * The format is host1:port1,host2:port2, and the list can be a subset of brokers or a VIP pointing to a subset of brokers.      *<p/>      * This option is known as<tt>metadata.broker.list</tt> in the Kafka documentation.      */
 DECL|method|setBrokers (String brokers)
 specifier|public
 name|void
