@@ -65,12 +65,44 @@ specifier|public
 class|class
 name|KafkaComponentConfiguration
 block|{
+comment|/**      * This is for bootstrapping and the producer will only use it for getting      * metadata (topics partitions and replicas). The socket connections for      * sending the actual data will be established based on the broker      * information returned in the metadata. The format is      * host1:port1host2:port2 and the list can be a subset of brokers or a VIP      * pointing to a subset of brokers. This option is known as      * metadata.broker.list in the Kafka documentation.      */
+DECL|field|brokers
+specifier|private
+name|String
+name|brokers
+decl_stmt|;
 comment|/**      * To use a shared custom worker pool for continue routing Exchange after      * kafka server has acknowledge the message that was sent to it from      * KafkaProducer using asynchronous non-blocking processing. If using this      * option then you must handle the lifecycle of the thread pool to shut the      * pool down when no longer needed.      */
 DECL|field|workerPool
 specifier|private
 name|ExecutorService
 name|workerPool
 decl_stmt|;
+DECL|method|getBrokers ()
+specifier|public
+name|String
+name|getBrokers
+parameter_list|()
+block|{
+return|return
+name|brokers
+return|;
+block|}
+DECL|method|setBrokers (String brokers)
+specifier|public
+name|void
+name|setBrokers
+parameter_list|(
+name|String
+name|brokers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|brokers
+operator|=
+name|brokers
+expr_stmt|;
+block|}
 DECL|method|getWorkerPool ()
 specifier|public
 name|ExecutorService

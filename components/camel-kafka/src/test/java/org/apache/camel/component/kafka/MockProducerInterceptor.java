@@ -163,7 +163,9 @@ parameter_list|,
 name|Exception
 name|e
 parameter_list|)
-block|{      }
+block|{
+comment|// noop
+block|}
 annotation|@
 name|Override
 DECL|method|close ()
@@ -171,7 +173,9 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{      }
+block|{
+comment|// noop
+block|}
 annotation|@
 name|Override
 DECL|method|configure (Map<String, ?> map)
@@ -187,7 +191,9 @@ name|?
 argument_list|>
 name|map
 parameter_list|)
-block|{      }
+block|{
+comment|// noop
+block|}
 block|}
 end_class
 

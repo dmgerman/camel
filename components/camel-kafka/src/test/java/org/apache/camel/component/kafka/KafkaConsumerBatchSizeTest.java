@@ -166,11 +166,11 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"kafka:localhost:{{kafkaPort}}?topic="
+literal|"kafka:"
 operator|+
 name|TOPIC
 operator|+
-literal|"&groupId=group1"
+literal|"?groupId=group1"
 operator|+
 literal|"&autoOffsetReset=earliest"
 operator|+

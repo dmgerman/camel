@@ -525,14 +525,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"kafka:localhost:{{kafkaPort}}?topic="
+literal|"kafka:"
 operator|+
 name|TOPIC
 operator|+
-comment|//
-literal|"&groupId=A"
+literal|"?groupId=A"
 operator|+
-comment|//
 literal|"&autoOffsetReset=earliest"
 operator|+
 comment|// Ask to start from the beginning if we have unknown offset

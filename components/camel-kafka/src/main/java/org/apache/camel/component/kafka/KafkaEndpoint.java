@@ -346,7 +346,7 @@ literal|"Kafka"
 argument_list|,
 name|syntax
 operator|=
-literal|"kafka:brokers"
+literal|"kafka:topic"
 argument_list|,
 name|consumerClass
 operator|=
