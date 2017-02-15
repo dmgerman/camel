@@ -156,10 +156,10 @@ name|ref
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|type
+DECL|field|className
 specifier|private
 name|String
-name|type
+name|className
 decl_stmt|;
 annotation|@
 name|Override
@@ -180,7 +180,7 @@ name|ref
 operator|==
 literal|null
 operator|&&
-name|type
+name|className
 operator|==
 literal|null
 condition|)
@@ -189,7 +189,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"'ref' or 'type' must be specified for customTransformer"
+literal|"'ref' or 'className' must be specified for customTransformer"
 argument_list|)
 throw|;
 block|}
@@ -291,7 +291,7 @@ argument_list|()
 operator|.
 name|resolveMandatoryClass
 argument_list|(
-name|type
+name|className
 argument_list|,
 name|Transformer
 operator|.
@@ -311,7 +311,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Cannot find transformer class: "
 operator|+
-name|type
+name|className
 argument_list|)
 throw|;
 block|}
@@ -367,7 +367,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * Set a bean reference of the Transformer      *      * @param ref the bean reference of the Transformer      */
+comment|/**      * Set a bean reference of the {@link Transformer}      *      * @param ref the bean reference of the Transformer      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -384,31 +384,31 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-DECL|method|getType ()
+DECL|method|getClassName ()
 specifier|public
 name|String
-name|getType
+name|getClassName
 parameter_list|()
 block|{
 return|return
-name|type
+name|className
 return|;
 block|}
-comment|/**      * Set a class name of the Transformer      *      * @param type the class name of the Transformer      */
-DECL|method|setType (String type)
+comment|/**      * Set a class name of the {@link Transformer}      *      * @param className the class name of the Transformer      */
+DECL|method|setClassName (String className)
 specifier|public
 name|void
-name|setType
+name|setClassName
 parameter_list|(
 name|String
-name|type
+name|className
 parameter_list|)
 block|{
 name|this
 operator|.
-name|type
+name|className
 operator|=
-name|type
+name|className
 expr_stmt|;
 block|}
 block|}

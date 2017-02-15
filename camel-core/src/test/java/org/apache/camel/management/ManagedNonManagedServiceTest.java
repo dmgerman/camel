@@ -203,7 +203,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|10
+literal|11
 argument_list|,
 name|set
 operator|.
@@ -303,7 +303,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|9
+literal|10
 argument_list|,
 name|set
 operator|.

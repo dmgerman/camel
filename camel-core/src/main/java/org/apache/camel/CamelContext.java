@@ -294,6 +294,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|validator
+operator|.
+name|ValidatorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|AsyncProcessorAwaitManager
@@ -843,6 +859,34 @@ operator|.
 name|spi
 operator|.
 name|UuidGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Validator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ValidatorRegistry
 import|;
 end_import
 
@@ -2135,7 +2179,7 @@ name|String
 name|model
 parameter_list|)
 function_decl|;
-comment|/**      * Resolve a transformer given from/to data type.      *      * @param from from data type      * @param to to data type      * @return the resolved data format, or<tt>null</tt> if not found      */
+comment|/**      * Resolve a transformer given from/to data type.      *      * @param from from data type      * @param to to data type      * @return the resolved transformer, or<tt>null</tt> if not found      */
 DECL|method|resolveTransformer (DataType from, DataType to)
 name|Transformer
 name|resolveTransformer
@@ -2151,6 +2195,42 @@ comment|/**      * Gets the {@link org.apache.camel.spi.TransformerRegistry}    
 DECL|method|getTransformerRegistry ()
 name|TransformerRegistry
 name|getTransformerRegistry
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the validators that can be referenced in the routes.      *      * @param validators the validators      */
+DECL|method|setValidators (List<ValidatorDefinition> validators)
+name|void
+name|setValidators
+parameter_list|(
+name|List
+argument_list|<
+name|ValidatorDefinition
+argument_list|>
+name|validators
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the validators that can be referenced in the routes.      *      * @return the validators available      */
+DECL|method|getValidators ()
+name|List
+argument_list|<
+name|ValidatorDefinition
+argument_list|>
+name|getValidators
+parameter_list|()
+function_decl|;
+comment|/**      * Resolve a validator given from/to data type.      *      * @param from the data type      * @return the resolved validator, or<tt>null</tt> if not found      */
+DECL|method|resolveValidator (DataType type)
+name|Validator
+name|resolveValidator
+parameter_list|(
+name|DataType
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link org.apache.camel.spi.ValidatorRegistry}      * @return the ValidatorRegistry      */
+DECL|method|getValidatorRegistry ()
+name|ValidatorRegistry
+name|getValidatorRegistry
 parameter_list|()
 function_decl|;
 comment|/**      * @deprecated use {@link #setGlobalOptions(Map) setGlobalOptions(Map<String,String>) instead}.      */

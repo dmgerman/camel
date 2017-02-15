@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Key used in Transformer registry in {@link DefaultCamelContext},  * to ensure a consistent lookup.  */
+comment|/**  * Key used in {@link org.apache.camel.spi.TransformerRegistry} in {@link DefaultCamelContext},  * to ensure a consistent lookup.  */
 end_comment
 
 begin_class
@@ -134,13 +134,7 @@ argument_list|(
 name|scheme
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|scheme
-operator|=
-name|scheme
-expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -148,6 +142,12 @@ name|scheme
 argument_list|,
 literal|"scheme"
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|scheme
+operator|=
+name|scheme
 expr_stmt|;
 block|}
 DECL|method|TransformerKey (DataType from, DataType to)
@@ -205,105 +205,34 @@ operator|+
 name|to
 return|;
 block|}
-comment|/**      * Test if specified TransformerDefinition matches with data type represented by this key.      * @param def TransformerDefinition      * @return true if it matches, otherwise false      */
-DECL|method|match (TransformerDefinition def)
+DECL|method|getScheme ()
 specifier|public
-name|boolean
-name|match
-parameter_list|(
-name|TransformerDefinition
-name|def
-parameter_list|)
-block|{
-if|if
-condition|(
-name|scheme
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|scheme
-operator|.
-name|equals
-argument_list|(
-name|def
-operator|.
+name|String
 name|getScheme
-argument_list|()
-argument_list|)
-return|;
-block|}
-if|if
-condition|(
-name|from
-operator|==
-literal|null
-condition|)
+parameter_list|()
 block|{
 return|return
-name|to
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|def
-operator|.
-name|getToType
-argument_list|()
-argument_list|)
+name|scheme
 return|;
 block|}
-if|if
-condition|(
-name|to
-operator|==
-literal|null
-condition|)
+DECL|method|getFrom ()
+specifier|public
+name|DataType
+name|getFrom
+parameter_list|()
 block|{
 return|return
 name|from
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|def
-operator|.
-name|getFromType
-argument_list|()
-argument_list|)
 return|;
 block|}
+DECL|method|getTo ()
+specifier|public
+name|DataType
+name|getTo
+parameter_list|()
+block|{
 return|return
-name|from
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|def
-operator|.
-name|getFromType
-argument_list|()
-argument_list|)
-operator|&&
 name|to
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|def
-operator|.
-name|getToType
-argument_list|()
-argument_list|)
 return|;
 block|}
 annotation|@

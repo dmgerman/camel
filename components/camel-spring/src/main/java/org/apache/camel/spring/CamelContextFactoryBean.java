@@ -672,6 +672,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|validator
+operator|.
+name|ValidatorsDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -1611,6 +1627,18 @@ DECL|field|transformers
 specifier|private
 name|TransformersDefinition
 name|transformers
+decl_stmt|;
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"validators"
+argument_list|)
+DECL|field|validators
+specifier|private
+name|ValidatorsDefinition
+name|validators
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -3925,6 +3953,33 @@ parameter_list|()
 block|{
 return|return
 name|transformers
+return|;
+block|}
+comment|/**      * Configuration of validators.      */
+DECL|method|setValidators (ValidatorsDefinition validators)
+specifier|public
+name|void
+name|setValidators
+parameter_list|(
+name|ValidatorsDefinition
+name|validators
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validators
+operator|=
+name|validators
+expr_stmt|;
+block|}
+DECL|method|getValidators ()
+specifier|public
+name|ValidatorsDefinition
+name|getValidators
+parameter_list|()
+block|{
+return|return
+name|validators
 return|;
 block|}
 comment|/**      * Configuration of redelivery settings.      */

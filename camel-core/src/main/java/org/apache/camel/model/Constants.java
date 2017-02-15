@@ -52,7 +52,9 @@ literal|"org.apache.camel.model.loadbalancer:"
 operator|+
 literal|"org.apache.camel.model.rest:"
 operator|+
-literal|"org.apache.camel.model.transformer"
+literal|"org.apache.camel.model.transformer:"
+operator|+
+literal|"org.apache.camel.model.validator"
 decl_stmt|;
 DECL|field|PLACEHOLDER_QNAME
 specifier|public

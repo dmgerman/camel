@@ -124,15 +124,33 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|true
+literal|"true"
 argument_list|)
 DECL|field|urn
 specifier|private
 name|String
 name|urn
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|validate
+specifier|private
+name|Boolean
+name|validate
+init|=
+literal|false
 decl_stmt|;
 DECL|method|OutputTypeDefinition ()
 specifier|public
@@ -190,6 +208,36 @@ name|clazz
 operator|.
 name|getName
 argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Get if validation is required for this output type.      * @return true if validate      */
+DECL|method|isValidate ()
+specifier|public
+name|boolean
+name|isValidate
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|validate
+return|;
+block|}
+comment|/**      * Set if validation is required for this output type.      * @param validate true if validate      */
+DECL|method|setValidate (boolean validate)
+specifier|public
+name|void
+name|setValidate
+parameter_list|(
+name|boolean
+name|validate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validate
+operator|=
+name|validate
 expr_stmt|;
 block|}
 annotation|@

@@ -36,6 +36,16 @@ specifier|private
 name|DataType
 name|outputType
 decl_stmt|;
+DECL|field|validateInput
+specifier|private
+name|boolean
+name|validateInput
+decl_stmt|;
+DECL|field|validateOutput
+specifier|private
+name|boolean
+name|validateOutput
+decl_stmt|;
 DECL|field|contractString
 specifier|private
 name|String
@@ -173,6 +183,62 @@ operator|.
 name|contractString
 operator|=
 literal|null
+expr_stmt|;
+block|}
+comment|/**      *       * @return      */
+DECL|method|isValidateInput ()
+specifier|public
+name|boolean
+name|isValidateInput
+parameter_list|()
+block|{
+return|return
+name|validateInput
+return|;
+block|}
+comment|/**      *       * @param validate      */
+DECL|method|setValidateInput (boolean validate)
+specifier|public
+name|void
+name|setValidateInput
+parameter_list|(
+name|boolean
+name|validate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validateInput
+operator|=
+name|validate
+expr_stmt|;
+block|}
+comment|/**      *       * @return      */
+DECL|method|isValidateOutput ()
+specifier|public
+name|boolean
+name|isValidateOutput
+parameter_list|()
+block|{
+return|return
+name|validateOutput
+return|;
+block|}
+comment|/**      *       * @param validate      */
+DECL|method|setValidateOutput (boolean validate)
+specifier|public
+name|void
+name|setValidateOutput
+parameter_list|(
+name|boolean
+name|validate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validateOutput
+operator|=
+name|validate
 expr_stmt|;
 block|}
 annotation|@

@@ -206,16 +206,16 @@ name|class
 argument_list|)
 block|}
 argument_list|)
-DECL|field|transforms
+DECL|field|transformers
 specifier|private
 name|List
 argument_list|<
 name|TransformerDefinition
 argument_list|>
-name|transforms
+name|transformers
 decl_stmt|;
 comment|/**      * The configured transformers      */
-DECL|method|setTransformers (List<TransformerDefinition> transforms)
+DECL|method|setTransformers (List<TransformerDefinition> transformers)
 specifier|public
 name|void
 name|setTransformers
@@ -224,27 +224,27 @@ name|List
 argument_list|<
 name|TransformerDefinition
 argument_list|>
-name|transforms
+name|transformers
 parameter_list|)
 block|{
 name|this
 operator|.
-name|transforms
+name|transformers
 operator|=
-name|transforms
+name|transformers
 expr_stmt|;
 block|}
-DECL|method|getTransforms ()
+DECL|method|getTransformers ()
 specifier|public
 name|List
 argument_list|<
 name|TransformerDefinition
 argument_list|>
-name|getTransforms
+name|getTransformers
 parameter_list|()
 block|{
 return|return
-name|transforms
+name|transformers
 return|;
 block|}
 block|}

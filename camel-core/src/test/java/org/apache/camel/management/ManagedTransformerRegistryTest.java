@@ -190,10 +190,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|ManagedTransformerRegistryTest
 specifier|public
@@ -258,50 +254,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// resolve transformers explicitly as the route doesn't actually use them
-name|context
-operator|.
-name|resolveTransformer
-argument_list|(
-operator|new
-name|DataType
-argument_list|(
-literal|"xml:foo"
-argument_list|)
-argument_list|,
-operator|new
-name|DataType
-argument_list|(
-literal|"json:bar"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|resolveTransformer
-argument_list|(
-operator|new
-name|DataType
-argument_list|(
-name|ManagedTransformerRegistryTest
-operator|.
-name|class
-argument_list|)
-argument_list|,
-operator|new
-name|DataType
-argument_list|(
-literal|"xml:test"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|resolveTransformer
-argument_list|(
-literal|"custom"
-argument_list|)
 expr_stmt|;
 comment|// get the stats for the route
 name|MBeanServer

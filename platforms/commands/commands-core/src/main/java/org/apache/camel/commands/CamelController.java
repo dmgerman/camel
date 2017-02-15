@@ -678,6 +678,25 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Return the validators      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with validator information      * @throws java.lang.Exception can be thrown      */
+DECL|method|getValidators (String camelContextName)
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|getValidators
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 

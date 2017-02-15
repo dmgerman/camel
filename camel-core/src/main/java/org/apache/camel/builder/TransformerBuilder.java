@@ -515,7 +515,7 @@ argument_list|()
 decl_stmt|;
 name|ctd
 operator|.
-name|setType
+name|setClassName
 argument_list|(
 name|clazz
 operator|.

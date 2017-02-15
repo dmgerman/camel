@@ -249,7 +249,7 @@ specifier|final
 name|TransformerRegistry
 name|transformerRegistry
 decl_stmt|;
-DECL|method|ManagedTransformerRegistry (CamelContext context, TransformerRegistry endpointRegistry)
+DECL|method|ManagedTransformerRegistry (CamelContext context, TransformerRegistry transformerRegistry)
 specifier|public
 name|ManagedTransformerRegistry
 parameter_list|(
@@ -257,21 +257,21 @@ name|CamelContext
 name|context
 parameter_list|,
 name|TransformerRegistry
-name|endpointRegistry
+name|transformerRegistry
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|context
 argument_list|,
-name|endpointRegistry
+name|transformerRegistry
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|transformerRegistry
 operator|=
-name|endpointRegistry
+name|transformerRegistry
 expr_stmt|;
 block|}
 DECL|method|init (ManagementStrategy strategy)
