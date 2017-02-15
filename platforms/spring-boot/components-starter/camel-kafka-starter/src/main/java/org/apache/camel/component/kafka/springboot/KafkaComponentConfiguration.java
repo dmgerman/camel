@@ -65,7 +65,7 @@ specifier|public
 class|class
 name|KafkaComponentConfiguration
 block|{
-comment|/**      * URL of the Kafka brokers to use. The format is host1:port1host2:port2 and      * the list can be a subset of brokers or a VIP pointing to a subset of      * brokers. This option is known as metadata.broker.list in the Kafka      * documentation.      */
+comment|/**      * URL of the Kafka brokers to use. The format is host1:port1host2:port2 and      * the list can be a subset of brokers or a VIP pointing to a subset of      * brokers. This option is known as bootstrap.servers in the Kafka      * documentation.      */
 DECL|field|brokers
 specifier|private
 name|String

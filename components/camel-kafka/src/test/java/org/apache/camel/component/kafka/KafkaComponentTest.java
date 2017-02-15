@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -151,6 +139,18 @@ operator|.
 name|mockito
 operator|.
 name|Mockito
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -292,11 +292,24 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"broker1:12345,broker2:12566"
+literal|null
 argument_list|,
 name|endpoint
 operator|.
 name|getConfiguration
+argument_list|()
+operator|.
+name|getBrokers
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"broker1:12345,broker2:12566"
+argument_list|,
+name|endpoint
+operator|.
+name|getComponent
 argument_list|()
 operator|.
 name|getBrokers

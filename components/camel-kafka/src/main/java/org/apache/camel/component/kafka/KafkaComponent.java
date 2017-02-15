@@ -237,23 +237,14 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|setBrokers
-argument_list|(
-name|getBrokers
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
 name|setWorkerPool
 argument_list|(
 name|getWorkerPool
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// brokers can be configured on either component or endpoint level
+comment|// and the consumer and produce is aware of this and act accordingly
 name|setProperties
 argument_list|(
 name|endpoint
@@ -285,7 +276,7 @@ return|return
 name|brokers
 return|;
 block|}
-comment|/**      * URL of the Kafka brokers to use.      * The format is host1:port1,host2:port2, and the list can be a subset of brokers or a VIP pointing to a subset of brokers.      *<p/>      * This option is known as<tt>metadata.broker.list</tt> in the Kafka documentation.      */
+comment|/**      * URL of the Kafka brokers to use.      * The format is host1:port1,host2:port2, and the list can be a subset of brokers or a VIP pointing to a subset of brokers.      *<p/>      * This option is known as<tt>bootstrap.servers</tt> in the Kafka documentation.      */
 DECL|method|setBrokers (String brokers)
 specifier|public
 name|void

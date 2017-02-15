@@ -532,11 +532,11 @@ operator|+
 literal|"?groupId=A"
 operator|+
 literal|"&autoOffsetReset=earliest"
-operator|+
 comment|// Ask to start from the beginning if we have unknown offset
-literal|"&consumersCount=2"
 operator|+
+literal|"&consumersCount=2"
 comment|// We have 2 partitions, we want 1 consumer per partition
+operator|+
 literal|"&offsetRepository=#offset"
 argument_list|)
 comment|// Keep the offset in our repository

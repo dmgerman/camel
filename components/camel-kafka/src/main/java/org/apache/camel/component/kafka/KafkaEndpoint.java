@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -429,6 +441,24 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|KafkaComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|KafkaComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public
