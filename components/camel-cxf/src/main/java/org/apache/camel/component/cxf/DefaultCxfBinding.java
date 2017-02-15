@@ -78,6 +78,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|Principal
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1899,11 +1909,19 @@ condition|(
 name|securityContext
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+name|Principal
+name|user
+init|=
 name|securityContext
 operator|.
 name|getUserPrincipal
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|user
 operator|!=
 literal|null
 condition|)
@@ -1922,10 +1940,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-name|securityContext
-operator|.
-name|getUserPrincipal
-argument_list|()
+name|user
 argument_list|)
 expr_stmt|;
 name|camelExchange
@@ -1945,6 +1960,7 @@ argument_list|,
 name|subject
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Propagating properties from CXF Exchange to Camel Exchange has an
 comment|// side effect of copying reply side stuff when the producer is retried.
