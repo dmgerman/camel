@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -66,15 +66,13 @@ name|StringPartitioner
 implements|implements
 name|Partitioner
 block|{
-comment|/**      *       */
 DECL|method|StringPartitioner ()
 specifier|public
 name|StringPartitioner
 parameter_list|()
 block|{
-comment|// TODO Auto-generated constructor stub
+comment|// noop
 block|}
-comment|/*      * (non-Javadoc)      *       * @see org.apache.kafka.common.Configurable#configure(java.util.Map)      */
 annotation|@
 name|Override
 DECL|method|configure (Map<String, ?> configs)
@@ -91,7 +89,6 @@ argument_list|>
 name|configs
 parameter_list|)
 block|{     }
-comment|/*      * (non-Javadoc)      *       * @see      * org.apache.kafka.clients.producer.Partitioner#partition(java.lang.String,      * java.lang.Object, byte[], java.lang.Object, byte[],      * org.apache.kafka.common.Cluster)      */
 annotation|@
 name|Override
 DECL|method|partition (String topic, Object key, byte[] keyBytes, Object value, byte[] valueBytes, Cluster cluster)
@@ -164,7 +161,6 @@ return|return
 name|partId
 return|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see org.apache.kafka.clients.producer.Partitioner#close()      */
 annotation|@
 name|Override
 DECL|method|close ()

@@ -268,7 +268,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"kafka:{{kafka.host}}:{{kafka.port}}?topic={{producer.topic}}"
+literal|"kafka:{{producer.topic}}?brokers={{kafka.host}}:{{kafka.port}}"
 argument_list|)
 operator|.
 name|log
@@ -276,14 +276,6 @@ argument_list|(
 literal|"${headers}"
 argument_list|)
 expr_stmt|;
-comment|// Topic
-comment|// and
-comment|// offset
-comment|// of
-comment|// the
-comment|// record
-comment|// is
-comment|// returned.
 comment|// Topic can be set in header as well.
 name|from
 argument_list|(
@@ -297,7 +289,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"kafka:{{kafka.host}}:{{kafka.port}}"
+literal|"kafka:dummy?brokers={{kafka.host}}:{{kafka.port}}"
 argument_list|)
 operator|.
 name|log
@@ -305,8 +297,6 @@ argument_list|(
 literal|"${headers}"
 argument_list|)
 expr_stmt|;
-comment|// Topic and offset of the record is
-comment|// returned.
 comment|// Use custom partitioner based on the key.
 name|from
 argument_list|(
@@ -320,7 +310,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"kafka:{{kafka.host}}:{{kafka.port}}?topic={{producer.topic}}&partitioner={{producer.partitioner}}"
+literal|"kafka:{{producer.topic}}?brokers={{kafka.host}}:{{kafka.port}}&partitioner={{producer.partitioner}}"
 argument_list|)
 operator|.
 name|log
@@ -328,8 +318,6 @@ argument_list|(
 literal|"${headers}"
 argument_list|)
 expr_stmt|;
-comment|// Use custom partitioner based on
-comment|// the key.
 comment|// Takes input from the command line.
 name|from
 argument_list|(
@@ -506,8 +494,7 @@ argument_list|,
 literal|"AB"
 argument_list|)
 expr_stmt|;
-comment|// This should go to partition
-comment|// 0
+comment|// This should go to partition 0
 name|producerTemplate
 operator|.
 name|sendBodyAndHeaders
@@ -536,8 +523,7 @@ argument_list|,
 literal|"ABC"
 argument_list|)
 expr_stmt|;
-comment|// This should go to partition
-comment|// 1
+comment|// This should go to partition 1
 name|producerTemplate
 operator|.
 name|sendBodyAndHeaders
