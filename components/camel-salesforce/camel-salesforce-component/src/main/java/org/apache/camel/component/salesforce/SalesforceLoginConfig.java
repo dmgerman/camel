@@ -388,6 +388,56 @@ operator|=
 name|lazyLogin
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SalesforceLoginConfig["
+operator|+
+literal|"loginUrl='"
+operator|+
+name|loginUrl
+operator|+
+literal|'\''
+operator|+
+literal|", clientId='"
+operator|+
+name|clientId
+operator|+
+literal|'\''
+operator|+
+literal|", clientSecret='********'"
+operator|+
+literal|", refreshToken='"
+operator|+
+name|refreshToken
+operator|+
+literal|'\''
+operator|+
+literal|", userName='"
+operator|+
+name|userName
+operator|+
+literal|'\''
+operator|+
+literal|", password=********'"
+operator|+
+name|password
+operator|+
+literal|'\''
+operator|+
+literal|", lazyLogin="
+operator|+
+name|lazyLogin
+operator|+
+literal|']'
+return|;
+block|}
 block|}
 end_class
 
