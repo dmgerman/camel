@@ -580,6 +580,11 @@ name|JSON
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Name"
+argument_list|)
 DECL|field|sObjectName
 specifier|private
 name|String
@@ -587,6 +592,11 @@ name|sObjectName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Id"
+argument_list|)
 DECL|field|sObjectId
 specifier|private
 name|String
@@ -594,6 +604,11 @@ name|sObjectId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Fields"
+argument_list|)
 DECL|field|sObjectFields
 specifier|private
 name|String
@@ -601,6 +616,11 @@ name|sObjectFields
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Id Name"
+argument_list|)
 DECL|field|sObjectIdName
 specifier|private
 name|String
@@ -608,6 +628,11 @@ name|sObjectIdName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Id Value"
+argument_list|)
 DECL|field|sObjectIdValue
 specifier|private
 name|String
@@ -615,6 +640,11 @@ name|sObjectIdValue
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Blob Field Name"
+argument_list|)
 DECL|field|sObjectBlobFieldName
 specifier|private
 name|String
@@ -622,6 +652,11 @@ name|sObjectBlobFieldName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Class"
+argument_list|)
 DECL|field|sObjectClass
 specifier|private
 name|String
@@ -629,6 +664,11 @@ name|sObjectClass
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Query"
+argument_list|)
 DECL|field|sObjectQuery
 specifier|private
 name|String
@@ -636,6 +676,11 @@ name|sObjectQuery
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"SObject Search"
+argument_list|)
 DECL|field|sObjectSearch
 specifier|private
 name|String

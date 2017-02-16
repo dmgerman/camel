@@ -2735,6 +2735,16 @@ literal|"name"
 argument_list|)
 decl_stmt|;
 name|String
+name|displayName
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"displayName"
+argument_list|)
+decl_stmt|;
+name|String
 name|kind
 init|=
 name|row
@@ -3125,6 +3135,8 @@ operator|.
 name|toJson
 argument_list|(
 name|name
+argument_list|,
+name|displayName
 argument_list|,
 name|kind
 argument_list|,
