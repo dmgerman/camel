@@ -2740,13 +2740,13 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
-name|type
+name|javaType
 init|=
 name|row
 operator|.
 name|get
 argument_list|(
-literal|"type"
+literal|"javaType"
 argument_list|)
 decl_stmt|;
 name|String
@@ -2968,7 +2968,7 @@ name|kind
 argument_list|,
 name|required
 argument_list|,
-name|type
+name|javaType
 argument_list|,
 name|defaultValue
 argument_list|,
