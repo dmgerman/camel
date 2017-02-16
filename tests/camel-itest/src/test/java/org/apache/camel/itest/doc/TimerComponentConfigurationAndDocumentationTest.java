@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timerName\": { \"kind\": \"path\", \"group\": \"consumer\", \"required\": true"
+literal|"\"timerName\": { \"kind\": \"path\", \"displayName\": \"Timer Name\", \"group\": \"consumer\", \"required\": true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"delay\": { \"kind\": \"parameter\", \"group\": \"consumer\", \"type\": \"integer\""
+literal|"\"delay\": { \"kind\": \"parameter\", \"displayName\": \"Delay\", \"group\": \"consumer\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timer\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\""
+literal|"\"timer\": { \"kind\": \"parameter\", \"displayName\": \"Timer\", \"group\": \"advanced\", \"label\": \"advanced\""
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": true, \"type\": \"string\""
+literal|"\"name\": { \"kind\": \"path\", \"displayName\": \"Name\", \"group\": \"common\", \"required\": true, \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\""
+literal|"\"timeout\": { \"kind\": \"parameter\", \"displayName\": \"Timeout\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;

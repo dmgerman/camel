@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"concurrentConsumers\": { \"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\""
+literal|"\"concurrentConsumers\": { \"kind\": \"parameter\", \"displayName\": \"Concurrent Consumers\", \"group\": \"consumer\", \"label\": \"consumer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\""
+literal|"\"timeout\": { \"kind\": \"parameter\", \"displayName\": \"Timeout\", \"group\": \"producer\", \"label\": \"producer\""
 argument_list|)
 argument_list|)
 expr_stmt|;

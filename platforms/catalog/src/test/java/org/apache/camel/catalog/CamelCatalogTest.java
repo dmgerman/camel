@@ -6854,6 +6854,18 @@ literal|"javaType"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Exchange Formatter"
+argument_list|,
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"displayName"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// properties
 name|rows
 operator|=
@@ -6925,6 +6937,18 @@ argument_list|,
 name|enums
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Level"
+argument_list|,
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"displayName"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|row
 operator|=
 name|JSonSchemaHelper
@@ -6962,6 +6986,18 @@ operator|.
 name|get
 argument_list|(
 literal|"description"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Amount"
+argument_list|,
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"displayName"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7005,6 +7041,18 @@ literal|"defaultValue"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Max Chars"
+argument_list|,
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"displayName"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|row
 operator|=
 name|JSonSchemaHelper
@@ -7042,6 +7090,18 @@ operator|.
 name|get
 argument_list|(
 literal|"defaultValue"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Repeat Count"
+argument_list|,
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"displayName"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7085,6 +7145,18 @@ literal|"defaultValue"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Font Size"
+argument_list|,
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"displayName"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|row
 operator|=
 name|JSonSchemaHelper
@@ -7122,6 +7194,18 @@ operator|.
 name|get
 argument_list|(
 literal|"defaultValue"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Kerberos Renew Jitter"
+argument_list|,
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"displayName"
 argument_list|)
 argument_list|)
 expr_stmt|;

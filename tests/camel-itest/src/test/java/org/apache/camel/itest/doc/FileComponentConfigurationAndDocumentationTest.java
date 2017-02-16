@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"directoryName\": { \"kind\": \"path\", \"group\": \"common\", \"required\": true"
+literal|"\"directoryName\": { \"kind\": \"path\", \"displayName\": \"Directory Name\", \"group\": \"common\", \"required\": true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"autoCreate\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
+literal|"\"autoCreate\": { \"kind\": \"parameter\", \"displayName\": \"Auto Create\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"readLockMinAge\": { \"kind\": \"parameter\", \"group\": \"lock\", \"label\": \"consumer,lock\""
+literal|"\"readLockMinAge\": { \"kind\": \"parameter\", \"displayName\": \"Read Lock Min Age\", \"group\": \"lock\", \"label\": \"consumer,lock\""
 argument_list|)
 argument_list|)
 expr_stmt|;

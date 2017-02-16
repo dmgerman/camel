@@ -249,7 +249,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": true, \"type\""
+literal|"\"name\": { \"kind\": \"path\", \"displayName\": \"Name\", \"group\": \"common\", \"required\": true, \"type\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -259,17 +259,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\", \"type\": \"integer\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer"
+literal|"\"retainFirst\": { \"kind\": \"parameter\", \"displayName\": \"Retain First\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -31,6 +31,11 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
+DECL|field|displayName
+specifier|private
+name|String
+name|displayName
+decl_stmt|;
 DECL|field|title
 specifier|private
 name|String
@@ -90,6 +95,32 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+block|}
+DECL|method|getDisplayName ()
+specifier|public
+name|String
+name|getDisplayName
+parameter_list|()
+block|{
+return|return
+name|displayName
+return|;
+block|}
+DECL|method|setDisplayName (String displayName)
+specifier|public
+name|void
+name|setDisplayName
+parameter_list|(
+name|String
+name|displayName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|displayName
+operator|=
+name|displayName
 expr_stmt|;
 block|}
 DECL|method|getTitle ()

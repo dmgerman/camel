@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"loggerName\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": true"
+literal|"\"loggerName\": { \"kind\": \"path\", \"displayName\": \"Logger Name\", \"group\": \"producer\", \"required\": true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"level\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
+literal|"\"level\": { \"kind\": \"parameter\", \"displayName\": \"Level\", \"group\": \"producer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"showBody\": { \"kind\": \"parameter\", \"group\": \"formatting\", \"label\": \"formatting\""
+literal|"\"showBody\": { \"kind\": \"parameter\", \"displayName\": \"Show Body\", \"group\": \"formatting\", \"label\": \"formatting\""
 argument_list|)
 argument_list|)
 expr_stmt|;

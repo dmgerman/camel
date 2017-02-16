@@ -723,6 +723,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|displayName
+operator|=
+literal|"Allow StAX"
 argument_list|)
 DECL|field|allowStAX
 specifier|private

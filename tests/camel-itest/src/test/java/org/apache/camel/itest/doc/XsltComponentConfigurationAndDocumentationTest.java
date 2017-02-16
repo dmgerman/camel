@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"resourceUri\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": true"
+literal|"\"resourceUri\": { \"kind\": \"path\", \"displayName\": \"Resource Uri\", \"group\": \"producer\", \"required\": true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"allowStAX\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"boolean\""
+literal|"\"allowStAX\": { \"kind\": \"parameter\", \"displayName\": \"Allow StAX\", \"group\": \"producer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"transformerFactoryClass\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\""
+literal|"\"transformerFactoryClass\": { \"kind\": \"parameter\", \"displayName\": \"Transformer Factory Class\", \"group\": \"advanced\", \"label\": \"advanced\""
 argument_list|)
 argument_list|)
 expr_stmt|;

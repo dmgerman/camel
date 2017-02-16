@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"method\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
+literal|"\"method\": { \"kind\": \"parameter\", \"displayName\": \"Method\", \"group\": \"producer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cache\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
+literal|"\"cache\": { \"kind\": \"parameter\", \"displayName\": \"Cache\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
