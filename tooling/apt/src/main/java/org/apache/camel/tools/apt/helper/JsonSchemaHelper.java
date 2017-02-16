@@ -157,6 +157,7 @@ name|VALID_CHARS
 init|=
 literal|".-='/\\!&():;"
 decl_stmt|;
+comment|// 0 = text, 1 = enum, 2 = boolean, 3 = integer
 DECL|field|PATTERN
 DECL|field|PATTERN
 specifier|private
@@ -169,7 +170,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\"(.+?)\"|\\[(.+)\\]"
+literal|"\"(.+?)\"|\\[(.+)\\]|(true|false)|(\\d+)"
 argument_list|)
 decl_stmt|;
 DECL|field|QUOT
@@ -377,6 +378,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// boolean type
 name|sb
 operator|.
 name|append
@@ -388,15 +390,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|Strings
-operator|.
-name|doubleQuote
-argument_list|(
 name|required
 operator|.
 name|toString
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -737,23 +734,12 @@ condition|(
 name|multiValue
 condition|)
 block|{
+comment|// boolean value
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|", \"multiValue\": "
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-name|Strings
-operator|.
-name|doubleQuote
-argument_list|(
-literal|"true"
-argument_list|)
+literal|", \"multiValue\": true"
 argument_list|)
 expr_stmt|;
 block|}
@@ -771,19 +757,15 @@ argument_list|(
 literal|", \"deprecated\": "
 argument_list|)
 expr_stmt|;
+comment|// boolean value
 name|sb
 operator|.
 name|append
-argument_list|(
-name|Strings
-operator|.
-name|doubleQuote
 argument_list|(
 name|deprecated
 operator|.
 name|toString
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -801,19 +783,15 @@ argument_list|(
 literal|", \"secret\": "
 argument_list|)
 expr_stmt|;
+comment|// boolean value
 name|sb
 operator|.
 name|append
-argument_list|(
-name|Strings
-operator|.
-name|doubleQuote
 argument_list|(
 name|secret
 operator|.
 name|toString
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -843,6 +821,42 @@ argument_list|(
 name|defaultValue
 argument_list|)
 decl_stmt|;
+comment|// the type can either be boolean, integer, number or text based
+if|if
+condition|(
+literal|"boolean"
+operator|.
+name|equals
+argument_list|(
+name|typeName
+argument_list|)
+operator|||
+literal|"integer"
+operator|.
+name|equals
+argument_list|(
+name|typeName
+argument_list|)
+operator|||
+literal|"number"
+operator|.
+name|equals
+argument_list|(
+name|typeName
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|text
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// text should be quoted
 name|sb
 operator|.
 name|append
@@ -855,6 +869,7 @@ name|text
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// for expressions we want to know if it must be used as predicate or not
 name|boolean
@@ -890,12 +905,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|Strings
-operator|.
-name|doubleQuote
-argument_list|(
 literal|"true"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -905,12 +915,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|Strings
-operator|.
-name|doubleQuote
-argument_list|(
 literal|"false"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2056,50 +2061,11 @@ decl_stmt|;
 if|if
 condition|(
 name|value
-operator|==
-literal|null
-condition|)
-block|{
-name|value
-operator|=
-name|matcher
-operator|.
-name|group
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-comment|// its an enum so strip out " and trim spaces after comma
-name|value
-operator|=
-name|value
-operator|.
-name|replaceAll
-argument_list|(
-literal|"\""
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-name|value
-operator|=
-name|value
-operator|.
-name|replaceAll
-argument_list|(
-literal|", "
-argument_list|,
-literal|","
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|value
 operator|!=
 literal|null
 condition|)
 block|{
+comment|// its text based
 name|value
 operator|=
 name|value
@@ -2127,6 +2093,105 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// not text then its maybe an enum?
+name|value
+operator|=
+name|matcher
+operator|.
+name|group
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// its an enum so strip out " and trim spaces after comma
+name|value
+operator|=
+name|value
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\""
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|value
+operator|=
+name|value
+operator|.
+name|replaceAll
+argument_list|(
+literal|", "
+argument_list|,
+literal|","
+argument_list|)
+expr_stmt|;
+name|value
+operator|=
+name|value
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// not text then its maybe a boolean?
+name|value
+operator|=
+name|matcher
+operator|.
+name|group
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// not text then its maybe a integer?
+name|value
+operator|=
+name|matcher
+operator|.
+name|group
+argument_list|(
+literal|4
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
 name|row
 operator|.
 name|put
@@ -2136,6 +2201,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 comment|// reset
 name|key
 operator|=

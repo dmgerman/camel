@@ -1071,51 +1071,21 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-literal|"\n    \"deprecated\": \""
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"false"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"\","
+literal|"\n    \"deprecated\": false,"
 argument_list|)
 expr_stmt|;
 name|buffer
 operator|.
 name|append
 argument_list|(
-literal|"\n    \"input\": \""
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"false"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"\","
+literal|"\n    \"input\": false,"
 argument_list|)
 expr_stmt|;
 name|buffer
 operator|.
 name|append
 argument_list|(
-literal|"\n    \"output\": \""
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"false"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"\""
+literal|"\n    \"output\": false"
 argument_list|)
 expr_stmt|;
 name|buffer
