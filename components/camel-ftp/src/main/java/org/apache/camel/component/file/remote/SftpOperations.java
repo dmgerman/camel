@@ -2628,7 +2628,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Cannot delete file: "
 operator|+
@@ -2702,7 +2702,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Cannot rename file from: "
 operator|+
