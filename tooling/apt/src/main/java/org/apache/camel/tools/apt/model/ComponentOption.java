@@ -80,6 +80,11 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
+DECL|field|displayName
+specifier|private
+name|String
+name|displayName
+decl_stmt|;
 DECL|field|type
 specifier|private
 name|String
@@ -138,12 +143,15 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|ComponentOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, boolean secret, String group, String label, boolean enumType, Set<String> enums)
+DECL|method|ComponentOption (String name, String displayName, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, boolean secret, String group, String label, boolean enumType, Set<String> enums)
 specifier|public
 name|ComponentOption
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|String
+name|displayName
 parameter_list|,
 name|String
 name|type
@@ -187,6 +195,12 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+name|this
+operator|.
+name|displayName
+operator|=
+name|displayName
 expr_stmt|;
 name|this
 operator|.
@@ -263,6 +277,16 @@ parameter_list|()
 block|{
 return|return
 name|name
+return|;
+block|}
+DECL|method|getDisplayName ()
+specifier|public
+name|String
+name|getDisplayName
+parameter_list|()
+block|{
+return|return
+name|displayName
 return|;
 block|}
 DECL|method|getType ()

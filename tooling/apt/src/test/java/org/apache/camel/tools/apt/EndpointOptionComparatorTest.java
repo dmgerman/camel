@@ -204,6 +204,8 @@ name|EndpointOption
 argument_list|(
 literal|"first"
 argument_list|,
+literal|"First"
+argument_list|,
 literal|"string"
 argument_list|,
 literal|"true"
@@ -240,6 +242,8 @@ operator|new
 name|EndpointOption
 argument_list|(
 literal|"synchronous"
+argument_list|,
+literal|"Synchronous"
 argument_list|,
 literal|"string"
 argument_list|,
@@ -278,6 +282,8 @@ name|EndpointOption
 argument_list|(
 literal|"second"
 argument_list|,
+literal|"Second"
+argument_list|,
 literal|"string"
 argument_list|,
 literal|"true"
@@ -314,6 +320,8 @@ operator|new
 name|EndpointOption
 argument_list|(
 literal|"country"
+argument_list|,
+literal|"Country"
 argument_list|,
 literal|"string"
 argument_list|,

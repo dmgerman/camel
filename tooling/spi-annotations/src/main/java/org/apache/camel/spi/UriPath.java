@@ -112,6 +112,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * A human display name of the parameter.      *<p/>      * This is used for documentation and tooling only.      */
+DECL|method|displayName ()
+name|String
+name|displayName
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * The default value of the parameter.      *<p/>      * Note that this attribute is only for documentation purpose. The default value in use at runtime is the value the Java field was assigned.      */
 DECL|method|defaultValue ()
 name|String

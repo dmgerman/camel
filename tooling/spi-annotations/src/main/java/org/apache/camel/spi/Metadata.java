@@ -112,6 +112,14 @@ specifier|public
 annotation_defn|@interface
 name|Metadata
 block|{
+comment|/**      * A human display name of the parameter.      *<p/>      * This is used for documentation and tooling only.      */
+DECL|method|displayName ()
+name|String
+name|displayName
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * To define one or more labels.      *<p/>      * Multiple labels can be defined as a comma separated value.      */
 DECL|method|label ()
 name|String

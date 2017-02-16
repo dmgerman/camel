@@ -189,8 +189,8 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue)
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue)
+DECL|method|toJson (String name, String displayName, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue)
+DECL|method|toJson (String name, String displayName, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue)
 specifier|public
 specifier|static
 name|String
@@ -198,6 +198,9 @@ name|toJson
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|String
+name|displayName
 parameter_list|,
 name|String
 name|kind
@@ -307,6 +310,38 @@ name|kind
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we want display name early so its easier to spot
+if|if
+condition|(
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|displayName
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"displayName\": "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+name|label
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we want group early so its easier to spot
 if|if
 condition|(

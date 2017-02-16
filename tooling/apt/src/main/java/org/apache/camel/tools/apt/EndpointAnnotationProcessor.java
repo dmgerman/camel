@@ -2029,6 +2029,11 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
+name|entry
+operator|.
+name|getDisplayName
+argument_list|()
+argument_list|,
 literal|"property"
 argument_list|,
 name|required
@@ -2373,6 +2378,11 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
+name|entry
+operator|.
+name|getDisplayName
+argument_list|()
+argument_list|,
 literal|"path"
 argument_list|,
 name|required
@@ -2700,6 +2710,11 @@ argument_list|(
 name|entry
 operator|.
 name|getName
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getDisplayName
 argument_list|()
 argument_list|,
 literal|"parameter"
@@ -3654,6 +3669,20 @@ operator|.
 name|secret
 argument_list|()
 decl_stmt|;
+name|String
+name|displayName
+init|=
+name|metadata
+operator|!=
+literal|null
+condition|?
+name|metadata
+operator|.
+name|displayName
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 comment|// we do not yet have default values / notes / as no annotation support yet
 comment|// String defaultValueNote = param.defaultValueNote();
 name|String
@@ -4000,6 +4029,8 @@ operator|new
 name|ComponentOption
 argument_list|(
 name|name
+argument_list|,
+name|displayName
 argument_list|,
 name|fieldTypeName
 argument_list|,
@@ -4362,6 +4393,20 @@ name|label
 argument_list|()
 expr_stmt|;
 block|}
+name|String
+name|displayName
+init|=
+name|metadata
+operator|!=
+literal|null
+condition|?
+name|metadata
+operator|.
+name|displayName
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 name|TypeMirror
 name|fieldType
 init|=
@@ -4656,6 +4701,8 @@ name|EndpointPath
 argument_list|(
 name|name
 argument_list|,
+name|displayName
+argument_list|,
 name|fieldTypeName
 argument_list|,
 name|required
@@ -4857,6 +4904,20 @@ name|label
 argument_list|()
 expr_stmt|;
 block|}
+name|String
+name|displayName
+init|=
+name|metadata
+operator|!=
+literal|null
+condition|?
+name|metadata
+operator|.
+name|displayName
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 comment|// if the field type is a nested parameter then iterate through its fields
 name|TypeMirror
 name|fieldType
@@ -5247,6 +5308,8 @@ operator|new
 name|EndpointOption
 argument_list|(
 name|name
+argument_list|,
+name|displayName
 argument_list|,
 name|fieldTypeName
 argument_list|,
