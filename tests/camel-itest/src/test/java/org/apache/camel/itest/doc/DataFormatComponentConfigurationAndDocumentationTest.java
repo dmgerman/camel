@@ -237,9 +237,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+literal|"\"name\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": true, \"type\": \"string\", \"javaType\": \"java.lang.String\","
 operator|+
-literal|" \"deprecated\": \"false\", \"secret\": \"false\", \"description\": \"Name of data format\" }"
+literal|" \"deprecated\": false, \"secret\": false, \"description\": \"Name of data format\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -249,7 +249,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"operation\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\", \"type\": \"string\""
+literal|"\"operation\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": true, \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -313,9 +313,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"textQualifier\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"string\""
+literal|"\"textQualifier\": { \"kind\": \"attribute\", \"required\": false, \"type\": \"string\""
 operator|+
-literal|", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"\\\"\""
+literal|", \"javaType\": \"java.lang.String\", \"deprecated\": false, \"secret\": false, \"defaultValue\": \"\\\"\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -559,9 +559,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"escapeChar\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+literal|"\"escapeChar\": { \"kind\": \"attribute\", \"required\": false, \"type\": \"string\", \"javaType\": \"java.lang.String\","
 operator|+
-literal|" \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"\\\\\", \"description\": \"The escape character.\""
+literal|" \"deprecated\": false, \"secret\": false, \"defaultValue\": \"\\\\\", \"description\": \"The escape character.\""
 argument_list|)
 argument_list|)
 expr_stmt|;

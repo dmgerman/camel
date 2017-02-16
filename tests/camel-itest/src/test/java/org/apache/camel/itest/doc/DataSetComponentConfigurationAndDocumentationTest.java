@@ -249,7 +249,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\", \"type\""
+literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": true, \"type\""
 argument_list|)
 argument_list|)
 expr_stmt|;

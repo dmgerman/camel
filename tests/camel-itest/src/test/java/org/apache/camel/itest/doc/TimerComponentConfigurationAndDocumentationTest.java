@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timerName\": { \"kind\": \"path\", \"group\": \"consumer\", \"required\": \"true\""
+literal|"\"timerName\": { \"kind\": \"path\", \"group\": \"consumer\", \"required\": true"
 argument_list|)
 argument_list|)
 expr_stmt|;

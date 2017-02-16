@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"resourceUri\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
+literal|"\"resourceUri\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": true"
 argument_list|)
 argument_list|)
 expr_stmt|;

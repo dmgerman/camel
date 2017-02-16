@@ -177,7 +177,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"directoryName\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\""
+literal|"\"directoryName\": { \"kind\": \"path\", \"group\": \"common\", \"required\": true"
 argument_list|)
 argument_list|)
 expr_stmt|;
