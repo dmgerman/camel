@@ -1606,7 +1606,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-comment|// remove all HTML tags
+comment|// remove all XML tags
 name|line
 operator|=
 name|line

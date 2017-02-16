@@ -2668,7 +2668,9 @@ name|LoadPropertiesException
 throws|,
 name|IOException
 function_decl|;
-comment|/**      * Returns the HTML documentation for the given Camel component      *      * @return the HTML or<tt>null</tt> if the component is<b>not</b> built with HTML document included.      */
+comment|/**      * Returns the HTML documentation for the given Camel component      *      * @return the HTML or<tt>null</tt> if the component is<b>not</b> built with HTML document included.      * @deprecated use camel-catalog instead      */
+annotation|@
+name|Deprecated
 DECL|method|getComponentDocumentation (String componentName)
 name|String
 name|getComponentDocumentation

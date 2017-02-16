@@ -197,6 +197,7 @@ extends|extends
 name|AbstractProcessor
 block|{
 DECL|field|coreProcessor
+specifier|private
 name|CoreEipAnnotationProcessor
 name|coreProcessor
 init|=
@@ -205,6 +206,7 @@ name|CoreEipAnnotationProcessor
 argument_list|()
 decl_stmt|;
 DECL|field|springProcessor
+specifier|private
 name|SpringAnnotationProcessor
 name|springProcessor
 init|=

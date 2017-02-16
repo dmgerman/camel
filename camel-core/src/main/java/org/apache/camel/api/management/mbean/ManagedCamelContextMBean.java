@@ -1284,7 +1284,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Returns the HTML documentation for the given camel component      *      * @param componentName  the component name      */
+comment|/**      * Returns the HTML documentation for the given camel component      *      * @param componentName  the component name      * @deprecated use camel-catalog instead      */
 annotation|@
 name|ManagedOperation
 argument_list|(
@@ -1292,6 +1292,8 @@ name|description
 operator|=
 literal|"Returns the HTML documentation for the given camel component"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|getComponentDocumentation (String componentName)
 name|String
 name|getComponentDocumentation

@@ -3812,12 +3812,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|context
-operator|.
-name|getComponentDocumentation
-argument_list|(
-name|componentName
-argument_list|)
+literal|null
 return|;
 block|}
 DECL|method|createRouteStaticEndpointJson ()
