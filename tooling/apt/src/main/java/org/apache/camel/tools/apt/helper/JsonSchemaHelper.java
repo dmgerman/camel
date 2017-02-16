@@ -310,10 +310,9 @@ name|kind
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// we want display name early so its easier to spot
+comment|// compute a display name if we don't have anything
 if|if
 condition|(
-operator|!
 name|Strings
 operator|.
 name|isNullOrEmpty
@@ -322,6 +321,17 @@ name|displayName
 argument_list|)
 condition|)
 block|{
+name|displayName
+operator|=
+name|Strings
+operator|.
+name|asTitle
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+comment|// we want display name early so its easier to spot
 name|sb
 operator|.
 name|append
@@ -337,11 +347,10 @@ name|Strings
 operator|.
 name|doubleQuote
 argument_list|(
-name|label
+name|displayName
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 comment|// we want group early so its easier to spot
 if|if
 condition|(
