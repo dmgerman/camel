@@ -338,11 +338,6 @@ name|hostname
 decl_stmt|;
 annotation|@
 name|UriPath
-argument_list|(
-name|defaultValue
-operator|=
-literal|"6667,6668,6669"
-argument_list|)
 DECL|field|port
 specifier|private
 name|int
@@ -1466,7 +1461,7 @@ return|return
 name|port
 return|;
 block|}
-comment|/**      * Port number for the IRC chat server      */
+comment|/**      * Port number for the IRC chat server. If no port is configured then a default port of either 6667, 6668 or 6669 is used.      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
