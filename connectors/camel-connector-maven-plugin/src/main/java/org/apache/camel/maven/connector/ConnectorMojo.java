@@ -1978,6 +1978,16 @@ literal|"lenientProperties"
 argument_list|)
 decl_stmt|;
 name|String
+name|deprecated
+init|=
+name|getOption
+argument_list|(
+name|rows
+argument_list|,
+literal|"deprecated"
+argument_list|)
+decl_stmt|;
+name|String
 name|javaType
 init|=
 name|extractJavaType
@@ -2144,13 +2154,25 @@ literal|"\",\n"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|deprecated
+operator|!=
+literal|null
+condition|)
+block|{
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    \"deprecated\": \"false\",\n"
+literal|"    \"deprecated\": "
+operator|+
+name|deprecated
+operator|+
+literal|",\n"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|async
@@ -2162,11 +2184,11 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    \"async\": \""
+literal|"    \"async\": "
 operator|+
 name|async
 operator|+
-literal|"\",\n"
+literal|",\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2181,11 +2203,11 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    \"producerOnly\": \""
+literal|"    \"producerOnly\": "
 operator|+
 name|producerOnly
 operator|+
-literal|"\",\n"
+literal|",\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2201,11 +2223,11 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    \"consumerOnly\": \""
+literal|"    \"consumerOnly\": "
 operator|+
 name|consumerOnly
 operator|+
-literal|"\",\n"
+literal|",\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2220,11 +2242,11 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    \"lenientProperties\": \""
+literal|"    \"lenientProperties\": "
 operator|+
 name|lenientProperties
 operator|+
-literal|"\",\n"
+literal|",\n"
 argument_list|)
 expr_stmt|;
 block|}
