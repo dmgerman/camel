@@ -113,7 +113,7 @@ specifier|final
 class|class
 name|JsonSchemaHelper
 block|{
-comment|// 0 = text, 1 = enum, 2 = boolean, 3 = integer
+comment|// 0 = text, 1 = enum, 2 = boolean, 3 = integer or number
 DECL|field|PATTERN
 DECL|field|PATTERN
 specifier|private
@@ -126,7 +126,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\"(.+?)\"|\\[(.+)\\]|(true|false)|(\\d+)"
+literal|"\"(.+?)\"|\\[(.+)\\]|(true|false)|(\\d+\\.?\\d+)"
 argument_list|)
 decl_stmt|;
 DECL|field|QUOT
