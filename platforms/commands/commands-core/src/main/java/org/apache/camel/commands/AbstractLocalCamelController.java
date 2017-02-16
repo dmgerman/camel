@@ -393,7 +393,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract {@link org.apache.camel.commands.LocalCamelController} that implementators should extend when implemeting  * a controller that runs locally in the same JVM as Camel.  */
+comment|/**  * Abstract {@link org.apache.camel.commands.LocalCamelController} that implementators should extend when implementing  * a controller that runs locally in the same JVM as Camel.  */
 end_comment
 
 begin_class
