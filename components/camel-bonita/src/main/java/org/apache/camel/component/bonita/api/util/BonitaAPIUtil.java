@@ -575,6 +575,8 @@ parameter_list|,
 name|FileInput
 name|file
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|WebTarget
 name|resource
@@ -606,8 +608,6 @@ name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|File
 name|tempFile
 init|=
@@ -673,7 +673,6 @@ argument_list|(
 name|filePart
 argument_list|)
 decl_stmt|;
-comment|// resource.request().header("ContentType", "application/json");
 return|return
 name|resource
 operator|.
@@ -704,22 +703,6 @@ name|class
 argument_list|)
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-literal|null
-return|;
-block|}
 DECL|method|prepareInputs (ProcessDefinitionResponse processDefinition, Map<String, Serializable> inputs)
 specifier|public
 name|Map
@@ -741,6 +724,8 @@ name|Serializable
 argument_list|>
 name|inputs
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 for|for
 control|(

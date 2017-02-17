@@ -153,6 +153,8 @@ specifier|public
 name|void
 name|testStartCaseEmptyProcessDefinitionId
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|BonitaAPI
 name|bonitaApi
@@ -205,6 +207,8 @@ specifier|public
 name|void
 name|testStartCaseNUllContractInput
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|BonitaAPI
 name|bonitaApi

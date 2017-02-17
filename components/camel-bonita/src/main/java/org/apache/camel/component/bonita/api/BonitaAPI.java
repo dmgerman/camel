@@ -382,6 +382,8 @@ name|Serializable
 argument_list|>
 name|rawInputs
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(

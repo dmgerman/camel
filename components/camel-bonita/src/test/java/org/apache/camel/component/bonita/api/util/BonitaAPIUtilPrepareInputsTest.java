@@ -339,6 +339,8 @@ specifier|public
 name|void
 name|testPrepareInputsEmpty
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Map
 argument_list|<
@@ -395,6 +397,8 @@ specifier|public
 name|void
 name|testPrepareInputsNoFiles
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Map
 argument_list|<
@@ -460,6 +464,8 @@ specifier|public
 name|void
 name|testPrepareInputsOneFile
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Map
 argument_list|<
@@ -597,6 +603,8 @@ specifier|public
 name|void
 name|testPrepareInputsFileType
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Map
 argument_list|<
@@ -729,6 +737,8 @@ specifier|public
 name|void
 name|testPrepareInputsTempFilePath
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Map
 argument_list|<
