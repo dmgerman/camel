@@ -67,7 +67,7 @@ argument_list|()
 decl_stmt|;
 name|ottracer
 operator|.
-name|setCamelContext
+name|init
 argument_list|(
 name|getContext
 argument_list|()
