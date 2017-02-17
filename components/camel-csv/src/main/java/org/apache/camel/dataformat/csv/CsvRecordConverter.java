@@ -38,6 +38,7 @@ end_comment
 
 begin_interface
 DECL|interface|CsvRecordConverter
+specifier|public
 interface|interface
 name|CsvRecordConverter
 parameter_list|<
