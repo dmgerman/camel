@@ -87,7 +87,7 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|CamelHeadersExtractAdapter (final Map<String,Object> map)
+DECL|method|CamelHeadersExtractAdapter (final Map<String, Object> map)
 specifier|public
 name|CamelHeadersExtractAdapter
 parameter_list|(

@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|mock
+operator|.
+name|MockTracer
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -93,18 +105,6 @@ operator|.
 name|support
 operator|.
 name|ClassPathXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|opentracing
-operator|.
-name|mock
-operator|.
-name|MockTracer
 import|;
 end_import
 

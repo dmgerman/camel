@@ -50,6 +50,28 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|Span
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|tag
+operator|.
+name|Tags
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -86,30 +108,8 @@ name|SpanDecorator
 import|;
 end_import
 
-begin_import
-import|import
-name|io
-operator|.
-name|opentracing
-operator|.
-name|Span
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|opentracing
-operator|.
-name|tag
-operator|.
-name|Tags
-import|;
-end_import
-
 begin_comment
-comment|/**  * An abstract base implementation of the {@link SpanDecorator} interface.  *  */
+comment|/**  * An abstract base implementation of the {@link SpanDecorator} interface.  */
 end_comment
 
 begin_class

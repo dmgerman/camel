@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|Span
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -56,18 +66,8 @@ name|AbstractSpanDecorator
 import|;
 end_import
 
-begin_import
-import|import
-name|io
-operator|.
-name|opentracing
-operator|.
-name|Span
-import|;
-end_import
-
 begin_comment
-comment|/**  * This interface represents a decorator specific to the component/endpoint  * being instrumented.  *  */
+comment|/**  * This interface represents a decorator specific to the component/endpoint  * being instrumented.  */
 end_comment
 
 begin_interface
@@ -78,13 +78,31 @@ name|SpanDecorator
 block|{
 comment|/* Prefix for camel component tag */
 DECL|field|CAMEL_COMPONENT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|CAMEL_COMPONENT
 init|=
 literal|"camel-"
+decl_stmt|;
+DECL|field|DEFAULT
+name|SpanDecorator
+name|DEFAULT
+init|=
+operator|new
+name|AbstractSpanDecorator
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getComponent
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 decl_stmt|;
 comment|/**      * The camel component associated with the decorator.      *      * @return The camel component name      */
 DECL|method|getComponent ()
@@ -134,27 +152,6 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
-DECL|field|DEFAULT
-name|SpanDecorator
-name|DEFAULT
-init|=
-operator|new
-name|AbstractSpanDecorator
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getComponent
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-block|}
-decl_stmt|;
 block|}
 end_interface
 

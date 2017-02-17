@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|tag
+operator|.
+name|Tags
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -49,18 +61,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|opentracing
-operator|.
-name|tag
-operator|.
-name|Tags
 import|;
 end_import
 
