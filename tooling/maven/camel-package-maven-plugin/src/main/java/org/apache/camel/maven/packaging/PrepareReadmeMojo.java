@@ -2003,7 +2003,7 @@ name|template
 init|=
 name|loadText
 argument_list|(
-name|ReadmeComponentMojo
+name|UpdateReadmeMojo
 operator|.
 name|class
 operator|.
@@ -2097,7 +2097,7 @@ name|template
 init|=
 name|loadText
 argument_list|(
-name|ReadmeComponentMojo
+name|UpdateReadmeMojo
 operator|.
 name|class
 operator|.
@@ -2191,7 +2191,7 @@ name|template
 init|=
 name|loadText
 argument_list|(
-name|ReadmeComponentMojo
+name|UpdateReadmeMojo
 operator|.
 name|class
 operator|.
@@ -2285,7 +2285,7 @@ name|template
 init|=
 name|loadText
 argument_list|(
-name|ReadmeComponentMojo
+name|UpdateReadmeMojo
 operator|.
 name|class
 operator|.
@@ -2379,7 +2379,7 @@ name|template
 init|=
 name|loadText
 argument_list|(
-name|ReadmeComponentMojo
+name|UpdateReadmeMojo
 operator|.
 name|class
 operator|.
