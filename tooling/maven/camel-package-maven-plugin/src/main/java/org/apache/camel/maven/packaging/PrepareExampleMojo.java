@@ -365,6 +365,23 @@ argument_list|(
 literal|"."
 argument_list|)
 decl_stmt|;
+comment|// only run in examples directory where the main readme.adoc file is located
+if|if
+condition|(
+operator|!
+name|dir
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"examples"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|File
 index|[]
 name|files
