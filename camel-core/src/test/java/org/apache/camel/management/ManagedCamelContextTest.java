@@ -2302,7 +2302,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"correlationExpression\": { \"kind\": \"expression\", \"required\": \"true\", \"type\": \"object\""
+literal|"\"correlationExpression\": { \"kind\": \"expression\", \"displayName\": \"Correlation Expression\", \"required\": true, \"type\": \"object\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2312,7 +2312,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"discardOnCompletionTimeout\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"boolean\""
+literal|"\"discardOnCompletionTimeout\": { \"kind\": \"attribute\", \"displayName\": \"Discard On Completion Timeout\", \"required\": false, \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
