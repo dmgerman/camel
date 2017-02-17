@@ -76,6 +76,18 @@ name|LoopDoWhileTest
 block|{
 annotation|@
 name|Override
+DECL|method|testLoopDoWhileFunctional ()
+specifier|public
+name|void
+name|testLoopDoWhileFunctional
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// not applicable in XML
+block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
