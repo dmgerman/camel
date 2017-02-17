@@ -475,6 +475,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|//from("azure-blob://camelazure/container1/blobBlock?credentials=#creds")
+comment|//    .to("file://" + System.getProperty("java.io.tmpdir"));
 block|}
 block|}
 return|;
