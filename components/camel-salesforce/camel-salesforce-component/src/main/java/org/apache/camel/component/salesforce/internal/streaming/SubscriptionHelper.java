@@ -551,6 +551,11 @@ name|DISCONNECT_INTERVAL
 init|=
 literal|5000
 decl_stmt|;
+DECL|field|client
+specifier|final
+name|BayeuxClient
+name|client
+decl_stmt|;
 DECL|field|component
 specifier|private
 specifier|final
@@ -562,12 +567,6 @@ specifier|private
 specifier|final
 name|SalesforceSession
 name|session
-decl_stmt|;
-DECL|field|client
-specifier|private
-specifier|final
-name|BayeuxClient
-name|client
 decl_stmt|;
 DECL|field|timeout
 specifier|private
@@ -711,6 +710,8 @@ name|client
 operator|=
 name|createClient
 argument_list|(
+name|component
+argument_list|,
 name|topicName
 argument_list|)
 expr_stmt|;
@@ -1834,18 +1835,25 @@ argument_list|(
 literal|"Could not disconnect client connected to: {} after: {} msec."
 argument_list|,
 name|getEndpointUrl
-argument_list|()
+argument_list|(
+name|component
+argument_list|)
 argument_list|,
 name|timeout
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createClient (String topicName)
-specifier|private
+DECL|method|createClient (final SalesforceComponent component, final String topicName)
+specifier|static
 name|BayeuxClient
 name|createClient
 parameter_list|(
+specifier|final
+name|SalesforceComponent
+name|component
+parameter_list|,
+specifier|final
 name|String
 name|topicName
 parameter_list|)
@@ -1896,6 +1904,15 @@ name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
+name|SalesforceSession
+name|session
+init|=
+name|component
+operator|.
+name|getSession
+argument_list|()
+decl_stmt|;
 comment|// check login access token
 if|if
 condition|(
@@ -1975,7 +1992,9 @@ operator|new
 name|BayeuxClient
 argument_list|(
 name|getEndpointUrl
-argument_list|()
+argument_list|(
+name|component
+argument_list|)
 argument_list|,
 name|transport
 argument_list|)
@@ -2020,9 +2039,16 @@ name|replayId
 operator|=
 name|replayIdMap
 operator|.
+name|getOrDefault
+argument_list|(
+name|topicName
+argument_list|,
+name|replayIdMap
+operator|.
 name|get
 argument_list|(
 name|channelName
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2455,7 +2481,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getChannelName (String topicName)
-specifier|private
+specifier|static
 name|String
 name|getChannelName
 parameter_list|(
@@ -2850,11 +2876,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getEndpointUrl ()
-specifier|public
+DECL|method|getEndpointUrl (final SalesforceComponent component)
+specifier|static
 name|String
 name|getEndpointUrl
-parameter_list|()
+parameter_list|(
+specifier|final
+name|SalesforceComponent
+name|component
+parameter_list|)
 block|{
 comment|// In version 36.0 replay is only enabled on a separate endpoint
 if|if
