@@ -18,10 +18,6 @@ name|bean
 package|;
 end_package
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|MyOtherFooBean
 specifier|public
@@ -62,6 +58,32 @@ name|i
 operator|.
 name|intValue
 argument_list|()
+return|;
+block|}
+DECL|method|toString (Object input)
+specifier|public
+name|String
+name|toString
+parameter_list|(
+name|Object
+name|input
+parameter_list|)
+block|{
+return|return
+literal|"toString(Object) was called"
+return|;
+block|}
+DECL|method|toString (String input)
+specifier|public
+name|String
+name|toString
+parameter_list|(
+name|String
+name|input
+parameter_list|)
+block|{
+return|return
+literal|"toString(String) was called"
 return|;
 block|}
 block|}

@@ -2492,13 +2492,11 @@ argument_list|,
 name|method
 argument_list|)
 decl_stmt|;
-comment|// methods already registered should be preferred to use instead of super classes of existing methods
-comment|// we want to us the method from the sub class over super classes, so if we have already registered
-comment|// the method then use it (we are traversing upwards: sub (child) -> super (farther) )
+comment|// Foster the use of a potentially already registered most specific override
 name|MethodInfo
 name|existingMethodInfo
 init|=
-name|overridesExistingMethod
+name|findMostSpecificOverride
 argument_list|(
 name|methodInfo
 argument_list|)
@@ -5152,20 +5150,20 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Does the given method info override an existing method registered before (from a subclass)      *      * @param methodInfo  the method to test      * @return the already registered method to use, null if not overriding any      */
-DECL|method|overridesExistingMethod (MethodInfo methodInfo)
+comment|/**      * Gets the most specific override of a given method, if any. Indeed,      * overrides may have already been found while inspecting sub classes. Or      * the given method could override an interface extra method.      *      * @param proposedMethodInfo the method for which a more specific override is      *            searched      * @return The already registered most specific override if any, otherwise      *<code>null</code>      */
+DECL|method|findMostSpecificOverride (MethodInfo proposedMethodInfo)
 specifier|private
 name|MethodInfo
-name|overridesExistingMethod
+name|findMostSpecificOverride
 parameter_list|(
 name|MethodInfo
-name|methodInfo
+name|proposedMethodInfo
 parameter_list|)
 block|{
 for|for
 control|(
 name|MethodInfo
-name|info
+name|alreadyRegisteredMethodInfo
 range|:
 name|methodMap
 operator|.
@@ -5174,41 +5172,56 @@ argument_list|()
 control|)
 block|{
 name|Method
-name|source
+name|alreadyRegisteredMethod
 init|=
-name|info
+name|alreadyRegisteredMethodInfo
 operator|.
 name|getMethod
 argument_list|()
 decl_stmt|;
 name|Method
-name|target
+name|proposedMethod
 init|=
-name|methodInfo
+name|proposedMethodInfo
 operator|.
 name|getMethod
 argument_list|()
 decl_stmt|;
-name|boolean
-name|override
-init|=
+if|if
+condition|(
 name|ObjectHelper
 operator|.
 name|isOverridingMethod
 argument_list|(
-name|source
+name|proposedMethod
 argument_list|,
-name|target
+name|alreadyRegisteredMethod
+argument_list|,
+literal|false
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|override
 condition|)
 block|{
-comment|// same name, same parameters, then its overrides an existing class
 return|return
-name|info
+name|alreadyRegisteredMethodInfo
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isOverridingMethod
+argument_list|(
+name|alreadyRegisteredMethod
+argument_list|,
+name|proposedMethod
+argument_list|,
+literal|false
+argument_list|)
+condition|)
+block|{
+return|return
+name|proposedMethodInfo
 return|;
 block|}
 block|}
