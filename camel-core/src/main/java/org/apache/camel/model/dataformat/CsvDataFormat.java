@@ -30,18 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Stream
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -917,23 +905,12 @@ name|quoteMode
 argument_list|)
 expr_stmt|;
 block|}
-name|Stream
-operator|.
-name|of
-argument_list|(
-literal|"trim"
-argument_list|,
-literal|"ignoreHeaderCase"
-argument_list|,
-literal|"trailingDelimiter"
-argument_list|)
-operator|.
-name|forEach
-argument_list|(
-name|item
-lambda|->
-block|{
-try|try
+if|if
+condition|(
+name|trim
+operator|!=
+literal|null
+condition|)
 block|{
 name|setProperty
 argument_list|(
@@ -941,42 +918,50 @@ name|camelContext
 argument_list|,
 name|dataFormat
 argument_list|,
-name|item
+literal|"trim"
 argument_list|,
-name|CsvDataFormat
-operator|.
-name|class
-operator|.
-name|getDeclaredField
-argument_list|(
-name|item
-argument_list|)
-operator|.
-name|get
-argument_list|(
-name|this
-argument_list|)
+name|trim
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
+if|if
+condition|(
+name|ignoreHeaderCase
+operator|!=
+literal|null
+condition|)
 block|{
-comment|// Not expected to happen
-throw|throw
-operator|new
-name|AssertionError
+name|setProperty
 argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"ignoreHeaderCase"
+argument_list|,
+name|ignoreHeaderCase
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|trailingDelimiter
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"trailingDelimiter"
+argument_list|,
+name|trailingDelimiter
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Unmarshall options
 if|if
 condition|(
@@ -1725,7 +1710,7 @@ operator|=
 name|recordConverterRef
 expr_stmt|;
 block|}
-comment|/**      * Sets whether or not to trim leading and trailing blanks.      *<p>      * If {@code null} then the default value of the format used.      *</p>      *       * @param trim whether or not to trim leading and trailing blanks.      *<code>null</code> value allowed.      */
+comment|/**      * Sets whether or not to trim leading and trailing blanks.      */
 DECL|method|setTrim (Boolean trim)
 specifier|public
 name|void
@@ -1752,7 +1737,7 @@ return|return
 name|trim
 return|;
 block|}
-comment|/**      * Sets whether or not to ignore case when accessing header names.      *<p>      * If {@code null} then the default value of the format used.      *</p>      *       * @param ignoreHeaderCase whether or not to ignore case when accessing header names.      *<code>null</code> value allowed.      */
+comment|/**      * Sets whether or not to ignore case when accessing header names.      */
 DECL|method|setIgnoreHeaderCase (Boolean ignoreHeaderCase)
 specifier|public
 name|void
@@ -1779,7 +1764,7 @@ return|return
 name|ignoreHeaderCase
 return|;
 block|}
-comment|/**      * Sets whether or not to add a trailing delimiter.      *<p>      * If {@code null} then the default value of the format used.      *</p>      *       * @param trailingDelimiter whether or not to add a trailing delimiter.      */
+comment|/**      * Sets whether or not to add a trailing delimiter.      */
 DECL|method|setTrailingDelimiter (Boolean trailingDelimiter)
 specifier|public
 name|void

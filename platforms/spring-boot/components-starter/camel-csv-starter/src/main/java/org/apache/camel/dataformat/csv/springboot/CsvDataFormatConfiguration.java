@@ -204,6 +204,30 @@ specifier|private
 name|String
 name|quoteMode
 decl_stmt|;
+comment|/**      * Sets whether or not to ignore case when accessing header names.      */
+DECL|field|ignoreHeaderCase
+specifier|private
+name|Boolean
+name|ignoreHeaderCase
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Sets whether or not to trim leading and trailing blanks.      */
+DECL|field|trim
+specifier|private
+name|Boolean
+name|trim
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Sets whether or not to add a trailing delimiter.      */
+DECL|field|trailingDelimiter
+specifier|private
+name|Boolean
+name|trailingDelimiter
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines      * on the fly or if all the lines must be read at one.      */
 DECL|field|lazyLoad
 specifier|private
@@ -758,6 +782,84 @@ operator|.
 name|quoteMode
 operator|=
 name|quoteMode
+expr_stmt|;
+block|}
+DECL|method|getIgnoreHeaderCase ()
+specifier|public
+name|Boolean
+name|getIgnoreHeaderCase
+parameter_list|()
+block|{
+return|return
+name|ignoreHeaderCase
+return|;
+block|}
+DECL|method|setIgnoreHeaderCase (Boolean ignoreHeaderCase)
+specifier|public
+name|void
+name|setIgnoreHeaderCase
+parameter_list|(
+name|Boolean
+name|ignoreHeaderCase
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreHeaderCase
+operator|=
+name|ignoreHeaderCase
+expr_stmt|;
+block|}
+DECL|method|getTrim ()
+specifier|public
+name|Boolean
+name|getTrim
+parameter_list|()
+block|{
+return|return
+name|trim
+return|;
+block|}
+DECL|method|setTrim (Boolean trim)
+specifier|public
+name|void
+name|setTrim
+parameter_list|(
+name|Boolean
+name|trim
+parameter_list|)
+block|{
+name|this
+operator|.
+name|trim
+operator|=
+name|trim
+expr_stmt|;
+block|}
+DECL|method|getTrailingDelimiter ()
+specifier|public
+name|Boolean
+name|getTrailingDelimiter
+parameter_list|()
+block|{
+return|return
+name|trailingDelimiter
+return|;
+block|}
+DECL|method|setTrailingDelimiter (Boolean trailingDelimiter)
+specifier|public
+name|void
+name|setTrailingDelimiter
+parameter_list|(
+name|Boolean
+name|trailingDelimiter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|trailingDelimiter
+operator|=
+name|trailingDelimiter
 expr_stmt|;
 block|}
 DECL|method|getLazyLoad ()
