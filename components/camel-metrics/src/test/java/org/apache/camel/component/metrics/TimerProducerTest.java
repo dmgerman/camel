@@ -1394,6 +1394,9 @@ name|getHeader
 argument_list|(
 name|HEADER_TIMER_ACTION
 argument_list|,
+operator|(
+name|Object
+operator|)
 literal|null
 argument_list|,
 name|MetricsTimerAction
@@ -1417,6 +1420,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Object
+name|action
+init|=
+literal|null
+decl_stmt|;
 name|when
 argument_list|(
 name|endpoint
@@ -1438,7 +1446,7 @@ name|getHeader
 argument_list|(
 name|HEADER_TIMER_ACTION
 argument_list|,
-literal|null
+name|action
 argument_list|,
 name|MetricsTimerAction
 operator|.
@@ -1512,7 +1520,7 @@ name|getHeader
 argument_list|(
 name|HEADER_TIMER_ACTION
 argument_list|,
-literal|null
+name|action
 argument_list|,
 name|MetricsTimerAction
 operator|.
