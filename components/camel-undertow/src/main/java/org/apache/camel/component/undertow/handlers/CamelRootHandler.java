@@ -56,6 +56,18 @@ name|PathTemplate
 import|;
 end_import
 
+begin_import
+import|import
+name|io
+operator|.
+name|undertow
+operator|.
+name|util
+operator|.
+name|URLUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * Custom root handler to enable hot swapping individual handlers assigned for each path template and/or HTTP method.  */
 end_comment
@@ -132,9 +144,14 @@ block|{
 name|String
 name|basePath
 init|=
+name|URLUtils
+operator|.
+name|normalizeSlashes
+argument_list|(
 name|getBasePath
 argument_list|(
 name|path
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|HttpHandler
