@@ -75,7 +75,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|3
+literal|2
 argument_list|,
 name|beanInfo
 operator|.
@@ -91,15 +91,6 @@ DECL|class|Bean
 class|class
 name|Bean
 block|{
-DECL|method|doSomething (RequestA request)
-specifier|public
-name|void
-name|doSomething
-parameter_list|(
-name|RequestA
-name|request
-parameter_list|)
-block|{         }
 DECL|method|doSomething (RequestB request)
 specifier|public
 name|void
@@ -119,10 +110,6 @@ name|request
 parameter_list|)
 block|{         }
 block|}
-DECL|class|RequestA
-class|class
-name|RequestA
-block|{     }
 DECL|class|RequestB
 class|class
 name|RequestB
