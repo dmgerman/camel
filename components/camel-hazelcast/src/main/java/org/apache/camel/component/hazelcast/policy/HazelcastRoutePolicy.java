@@ -435,9 +435,9 @@ name|this
 operator|.
 name|tryLockTimeout
 operator|=
-name|Long
-operator|.
-name|MAX_VALUE
+literal|10
+operator|*
+literal|1000
 expr_stmt|;
 name|this
 operator|.
