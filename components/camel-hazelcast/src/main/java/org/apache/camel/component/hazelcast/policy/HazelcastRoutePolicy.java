@@ -146,7 +146,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NonManagedService
+name|Route
 import|;
 end_import
 
@@ -158,7 +158,27 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
 import|;
 end_import
 
@@ -227,6 +247,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Route policy using Hazelcast as clustered lock"
+argument_list|)
 DECL|class|HazelcastRoutePolicy
 specifier|public
 class|class
@@ -235,8 +262,6 @@ extends|extends
 name|RoutePolicySupport
 implements|implements
 name|CamelContextAware
-implements|,
-name|NonManagedService
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -274,6 +299,11 @@ argument_list|<
 name|Route
 argument_list|>
 name|suspendedRoutes
+decl_stmt|;
+DECL|field|route
+specifier|private
+name|Route
+name|route
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -494,6 +524,31 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onInit (Route route)
+specifier|public
+name|void
+name|onInit
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+name|super
+operator|.
+name|onInit
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|route
+operator|=
+name|route
 expr_stmt|;
 block|}
 annotation|@
@@ -968,6 +1023,102 @@ block|}
 comment|// *************************************************************************
 comment|// Getter/Setters
 comment|// *************************************************************************
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The route id"
+argument_list|)
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|route
+operator|.
+name|getId
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The consumer endpoint"
+argument_list|,
+name|mask
+operator|=
+literal|true
+argument_list|)
+DECL|method|getEndpointUrl ()
+specifier|public
+name|String
+name|getEndpointUrl
+parameter_list|()
+block|{
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+operator|&&
+name|route
+operator|.
+name|getConsumer
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|route
+operator|.
+name|getConsumer
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|route
+operator|.
+name|getConsumer
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The lock map name"
+argument_list|)
 DECL|method|getLockMapName ()
 specifier|public
 name|String
@@ -994,6 +1145,13 @@ operator|=
 name|lockMapName
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to stop consumer when starting up and failed to become master"
+argument_list|)
 DECL|method|isShouldStopConsumer ()
 specifier|public
 name|boolean
@@ -1020,6 +1178,13 @@ operator|=
 name|shouldStopConsumer
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The lock key"
+argument_list|)
 DECL|method|getLockKey ()
 specifier|public
 name|String
@@ -1046,6 +1211,13 @@ operator|=
 name|lockKey
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The lock value"
+argument_list|)
 DECL|method|getLockValue ()
 specifier|public
 name|String
@@ -1072,6 +1244,13 @@ operator|=
 name|lockValue
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timeout used by slaves to try to obtain the lock to become new master"
+argument_list|)
 DECL|method|getTryLockTimeout ()
 specifier|public
 name|long
@@ -1123,6 +1302,13 @@ operator|=
 name|tryLockTimeoutUnit
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timeout unit"
+argument_list|)
 DECL|method|getTryLockTimeoutUnit ()
 specifier|public
 name|TimeUnit
@@ -1149,6 +1335,13 @@ operator|=
 name|tryLockTimeoutUnit
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Is this route the master or a slave"
+argument_list|)
 DECL|method|isLeader ()
 specifier|public
 name|boolean
