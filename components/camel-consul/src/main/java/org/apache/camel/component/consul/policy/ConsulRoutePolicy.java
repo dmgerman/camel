@@ -246,7 +246,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NonManagedService
+name|Route
 import|;
 end_import
 
@@ -258,7 +258,27 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
 import|;
 end_import
 
@@ -311,6 +331,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Route policy using Consul as clustered lock"
+argument_list|)
 DECL|class|ConsulRoutePolicy
 specifier|public
 class|class
@@ -318,8 +345,6 @@ name|ConsulRoutePolicy
 extends|extends
 name|RoutePolicySupport
 implements|implements
-name|NonManagedService
-implements|,
 name|CamelContextAware
 block|{
 DECL|field|LOGGER
@@ -385,6 +410,11 @@ argument_list|<
 name|BigInteger
 argument_list|>
 name|index
+decl_stmt|;
+DECL|field|route
+specifier|private
+name|Route
+name|route
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -589,6 +619,31 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onInit (Route route)
+specifier|public
+name|void
+name|onInit
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+name|super
+operator|.
+name|onInit
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|route
+operator|=
+name|route
 expr_stmt|;
 block|}
 annotation|@
@@ -1111,6 +1166,95 @@ block|}
 comment|// *************************************************************************
 comment|// Getter/Setters
 comment|// *************************************************************************
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The route id"
+argument_list|)
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|route
+operator|.
+name|getId
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The consumer endpoint"
+argument_list|,
+name|mask
+operator|=
+literal|true
+argument_list|)
+DECL|method|getEndpointUrl ()
+specifier|public
+name|String
+name|getEndpointUrl
+parameter_list|()
+block|{
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+operator|&&
+name|route
+operator|.
+name|getConsumer
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|route
+operator|.
+name|getConsumer
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|route
+operator|.
+name|getConsumer
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
 DECL|method|getConsul ()
 specifier|public
 name|Consul
@@ -1121,6 +1265,13 @@ return|return
 name|consul
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The consul service name"
+argument_list|)
 DECL|method|getServiceName ()
 specifier|public
 name|String
@@ -1160,6 +1311,13 @@ name|serviceName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The time to live"
+argument_list|)
 DECL|method|getTtl ()
 specifier|public
 name|int
@@ -1192,6 +1350,13 @@ else|:
 literal|10
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The lock delay"
+argument_list|)
 DECL|method|getLockDelay ()
 specifier|public
 name|int
@@ -1224,6 +1389,13 @@ else|:
 literal|10
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to stop consumer when starting up and failed to become master"
+argument_list|)
 DECL|method|isShouldStopConsumer ()
 specifier|public
 name|boolean
@@ -1249,6 +1421,26 @@ name|shouldStopConsumer
 operator|=
 name|shouldStopConsumer
 expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Is this route the master or a slave"
+argument_list|)
+DECL|method|isLeader ()
+specifier|public
+name|boolean
+name|isLeader
+parameter_list|()
+block|{
+return|return
+name|leader
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
 comment|// *************************************************************************
 comment|// Watch
