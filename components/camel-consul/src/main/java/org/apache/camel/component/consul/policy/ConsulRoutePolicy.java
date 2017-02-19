@@ -1316,7 +1316,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"The time to live"
+literal|"The time to live (seconds)"
 argument_list|)
 DECL|method|getTtl ()
 specifier|public
@@ -1355,7 +1355,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"The lock delay"
+literal|"The lock delay (seconds)"
 argument_list|)
 DECL|method|getLockDelay ()
 specifier|public
