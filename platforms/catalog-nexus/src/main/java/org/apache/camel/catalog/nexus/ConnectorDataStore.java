@@ -58,6 +58,12 @@ name|boolean
 name|latestVersionOnly
 parameter_list|)
 function_decl|;
+comment|/**      * Number of connectors in the data store.      */
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

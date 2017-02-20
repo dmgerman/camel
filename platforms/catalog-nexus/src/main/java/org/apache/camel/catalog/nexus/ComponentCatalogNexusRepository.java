@@ -120,6 +120,11 @@ name|ComponentCatalogNexusRepository
 extends|extends
 name|BaseNexusRepository
 block|{
+DECL|field|camelCatalog
+specifier|private
+name|CamelCatalog
+name|camelCatalog
+decl_stmt|;
 DECL|method|ComponentCatalogNexusRepository ()
 specifier|public
 name|ComponentCatalogNexusRepository
@@ -129,6 +134,61 @@ name|super
 argument_list|(
 literal|"component"
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getCamelCatalog ()
+specifier|public
+name|CamelCatalog
+name|getCamelCatalog
+parameter_list|()
+block|{
+return|return
+name|camelCatalog
+return|;
+block|}
+DECL|method|setCamelCatalog (CamelCatalog camelCatalog)
+specifier|public
+name|void
+name|setCamelCatalog
+parameter_list|(
+name|CamelCatalog
+name|camelCatalog
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelCatalog
+operator|=
+name|camelCatalog
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+block|{
+if|if
+condition|(
+name|camelCatalog
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"CamelCatalog must be configured"
+argument_list|)
+throw|;
+block|}
+name|super
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

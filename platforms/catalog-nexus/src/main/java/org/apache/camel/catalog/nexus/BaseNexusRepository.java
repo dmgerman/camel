@@ -317,11 +317,6 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|field|camelCatalog
-specifier|private
-name|CamelCatalog
-name|camelCatalog
-decl_stmt|;
 DECL|field|initialDelay
 specifier|private
 name|int
@@ -361,32 +356,6 @@ operator|.
 name|classifier
 operator|=
 name|classifier
-expr_stmt|;
-block|}
-DECL|method|getCamelCatalog ()
-specifier|public
-name|CamelCatalog
-name|getCamelCatalog
-parameter_list|()
-block|{
-return|return
-name|camelCatalog
-return|;
-block|}
-DECL|method|setCamelCatalog (CamelCatalog camelCatalog)
-specifier|public
-name|void
-name|setCamelCatalog
-parameter_list|(
-name|CamelCatalog
-name|camelCatalog
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelCatalog
-operator|=
-name|camelCatalog
 expr_stmt|;
 block|}
 DECL|method|getNexusUrl ()
@@ -504,21 +473,6 @@ name|void
 name|start
 parameter_list|()
 block|{
-if|if
-condition|(
-name|camelCatalog
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"CamelCatalog must be configured"
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
 name|nexusUrl

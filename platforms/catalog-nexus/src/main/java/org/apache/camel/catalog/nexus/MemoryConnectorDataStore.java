@@ -114,6 +114,21 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|connectors
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
