@@ -2701,12 +2701,6 @@ operator|.
 name|resumeReads
 argument_list|()
 expr_stmt|;
-return|return
-name|out
-operator|.
-name|toByteArray
-argument_list|()
-return|;
 block|}
 else|else
 block|{
