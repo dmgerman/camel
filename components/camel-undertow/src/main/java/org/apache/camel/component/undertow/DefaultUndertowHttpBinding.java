@@ -2498,7 +2498,6 @@ name|body
 return|;
 block|}
 DECL|method|readFromChannel (StreamSourceChannel source)
-specifier|private
 name|byte
 index|[]
 name|readFromChannel
