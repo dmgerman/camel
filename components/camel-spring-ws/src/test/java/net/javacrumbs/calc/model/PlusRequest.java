@@ -149,7 +149,7 @@ specifier|protected
 name|int
 name|b
 decl_stmt|;
-comment|/**    * Gets the value of the a property.    *     */
+comment|/**      * Gets the value of the a property.      *       */
 DECL|method|getA ()
 specifier|public
 name|int
@@ -160,7 +160,7 @@ return|return
 name|a
 return|;
 block|}
-comment|/**    * Sets the value of the a property.    *     */
+comment|/**      * Sets the value of the a property.      *       */
 DECL|method|setA (int value)
 specifier|public
 name|void
@@ -177,7 +177,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**    * Gets the value of the b property.    *     */
+comment|/**      * Gets the value of the b property.      *       */
 DECL|method|getB ()
 specifier|public
 name|int
@@ -188,7 +188,7 @@ return|return
 name|b
 return|;
 block|}
-comment|/**    * Sets the value of the b property.    *     */
+comment|/**      * Sets the value of the b property.      *       */
 DECL|method|setB (int value)
 specifier|public
 name|void

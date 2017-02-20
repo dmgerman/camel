@@ -70,12 +70,12 @@ specifier|public
 class|class
 name|ObjectFactory
 block|{
-comment|/**    * Create a new ObjectFactory that can be used to create new instances of     * schema derived classes for package: net.javacrumbs.calc.model    *     */
+comment|/**      * Create a new ObjectFactory that can be used to create new instances of       * schema derived classes for package: net.javacrumbs.calc.model      *       */
 DECL|method|ObjectFactory ()
 specifier|public
 name|ObjectFactory
 parameter_list|()
-block|{   }
+block|{     }
 DECL|method|createPlusResponse ()
 specifier|public
 name|PlusResponse

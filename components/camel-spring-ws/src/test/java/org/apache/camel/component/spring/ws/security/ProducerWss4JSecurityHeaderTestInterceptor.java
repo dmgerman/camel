@@ -101,8 +101,6 @@ specifier|public
 specifier|static
 name|boolean
 name|isX509DataPresent
-init|=
-literal|false
 decl_stmt|;
 DECL|method|validateMessage (SoapMessage soapMessage, MessageContext messageContext)
 specifier|protected
