@@ -601,6 +601,31 @@ name|copy
 argument_list|()
 expr_stmt|;
 block|}
+comment|// must preserve exchange on the original in message
+if|if
+condition|(
+name|this
+operator|.
+name|originalInMessage
+operator|instanceof
+name|MessageSupport
+condition|)
+block|{
+operator|(
+operator|(
+name|MessageSupport
+operator|)
+name|this
+operator|.
+name|originalInMessage
+operator|)
+operator|.
+name|setExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// mark the creation time when this Exchange was created
 if|if
