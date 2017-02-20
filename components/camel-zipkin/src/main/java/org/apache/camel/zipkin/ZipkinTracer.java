@@ -780,6 +780,12 @@ name|RouteDefinition
 name|route
 parameter_list|)
 block|{
+comment|// ensure this zipkin tracer gets initialized when Camel starts
+name|init
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|ZipkinRoutePolicy
@@ -788,7 +794,7 @@ name|routeId
 argument_list|)
 return|;
 block|}
-comment|/**      * Registers this {@link ZipkinTracer} on the {@link CamelContext}.      */
+comment|/**      * Registers this {@link ZipkinTracer} on the {@link CamelContext} if not already registered.      */
 DECL|method|init (CamelContext camelContext)
 specifier|public
 name|void

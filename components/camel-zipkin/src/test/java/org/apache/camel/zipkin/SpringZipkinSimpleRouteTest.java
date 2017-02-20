@@ -166,7 +166,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:dude"
+literal|"direct:start"
 argument_list|,
 literal|"Hello World"
 argument_list|)
