@@ -122,7 +122,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientMixedOperation
+name|MixedOperation
 import|;
 end_import
 
@@ -138,7 +138,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientPodResource
+name|PodResource
 import|;
 end_import
 
@@ -573,7 +573,7 @@ literal|"Get pods by labels require specify a labels set"
 argument_list|)
 throw|;
 block|}
-name|ClientMixedOperation
+name|MixedOperation
 argument_list|<
 name|Pod
 argument_list|,
@@ -581,7 +581,7 @@ name|PodList
 argument_list|,
 name|DoneablePod
 argument_list|,
-name|ClientPodResource
+name|PodResource
 argument_list|<
 name|Pod
 argument_list|,
@@ -589,9 +589,7 @@ name|DoneablePod
 argument_list|>
 argument_list|>
 name|pods
-decl_stmt|;
-name|pods
-operator|=
+init|=
 name|getEndpoint
 argument_list|()
 operator|.
@@ -600,7 +598,7 @@ argument_list|()
 operator|.
 name|pods
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|Map

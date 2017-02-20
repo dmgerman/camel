@@ -120,7 +120,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientMixedOperation
+name|MixedOperation
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientRollableScallableResource
+name|RollableScallableResource
 import|;
 end_import
 
@@ -463,7 +463,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|ClientMixedOperation
+name|MixedOperation
 argument_list|<
 name|ReplicationController
 argument_list|,
@@ -471,7 +471,7 @@ name|ReplicationControllerList
 argument_list|,
 name|DoneableReplicationController
 argument_list|,
-name|ClientRollableScallableResource
+name|RollableScallableResource
 argument_list|<
 name|ReplicationController
 argument_list|,

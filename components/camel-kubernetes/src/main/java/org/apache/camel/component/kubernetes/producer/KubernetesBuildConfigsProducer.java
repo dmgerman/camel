@@ -42,7 +42,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientMixedOperation
+name|MixedOperation
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientBuildConfigResource
+name|BuildConfigResource
 import|;
 end_import
 
@@ -563,7 +563,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 argument_list|<
 name|BuildConfig
 argument_list|,
@@ -571,7 +571,7 @@ name|BuildConfigList
 argument_list|,
 name|DoneableBuildConfig
 argument_list|,
-name|ClientBuildConfigResource
+name|BuildConfigResource
 argument_list|<
 name|BuildConfig
 argument_list|,
@@ -651,7 +651,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ClientMixedOperation
+name|MixedOperation
 argument_list|<
 name|BuildConfig
 argument_list|,
@@ -659,7 +659,7 @@ name|BuildConfigList
 argument_list|,
 name|DoneableBuildConfig
 argument_list|,
-name|ClientBuildConfigResource
+name|BuildConfigResource
 argument_list|<
 name|BuildConfig
 argument_list|,

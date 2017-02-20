@@ -122,7 +122,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientMixedOperation
+name|MixedOperation
 import|;
 end_import
 
@@ -138,7 +138,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientResource
+name|Resource
 import|;
 end_import
 
@@ -584,7 +584,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 argument_list|<
 name|ResourceQuota
 argument_list|,
@@ -592,7 +592,7 @@ name|ResourceQuotaList
 argument_list|,
 name|DoneableResourceQuota
 argument_list|,
-name|ClientResource
+name|Resource
 argument_list|<
 name|ResourceQuota
 argument_list|,
@@ -661,7 +661,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ClientMixedOperation
+name|MixedOperation
 argument_list|<
 name|ResourceQuota
 argument_list|,
@@ -669,7 +669,7 @@ name|ResourceQuotaList
 argument_list|,
 name|DoneableResourceQuota
 argument_list|,
-name|ClientResource
+name|Resource
 argument_list|<
 name|ResourceQuota
 argument_list|,

@@ -116,7 +116,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 import|;
 end_import
 
@@ -132,7 +132,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientResource
+name|Resource
 import|;
 end_import
 
@@ -532,7 +532,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 argument_list|<
 name|ConfigMap
 argument_list|,
@@ -540,7 +540,7 @@ name|ConfigMapList
 argument_list|,
 name|DoneableConfigMap
 argument_list|,
-name|ClientResource
+name|Resource
 argument_list|<
 name|ConfigMap
 argument_list|,

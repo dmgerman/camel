@@ -122,7 +122,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientMixedOperation
+name|MixedOperation
 import|;
 end_import
 
@@ -138,7 +138,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientRollableScallableResource
+name|RollableScallableResource
 import|;
 end_import
 
@@ -671,7 +671,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 argument_list|<
 name|ReplicationController
 argument_list|,
@@ -679,7 +679,7 @@ name|ReplicationControllerList
 argument_list|,
 name|DoneableReplicationController
 argument_list|,
-name|ClientRollableScallableResource
+name|RollableScallableResource
 argument_list|<
 name|ReplicationController
 argument_list|,
@@ -748,7 +748,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ClientMixedOperation
+name|MixedOperation
 argument_list|<
 name|ReplicationController
 argument_list|,
@@ -756,7 +756,7 @@ name|ReplicationControllerList
 argument_list|,
 name|DoneableReplicationController
 argument_list|,
-name|ClientRollableScallableResource
+name|RollableScallableResource
 argument_list|<
 name|ReplicationController
 argument_list|,

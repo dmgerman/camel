@@ -122,7 +122,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientMixedOperation
+name|MixedOperation
 import|;
 end_import
 
@@ -138,7 +138,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientResource
+name|Resource
 import|;
 end_import
 
@@ -584,7 +584,7 @@ name|namespaceName
 argument_list|)
 condition|)
 block|{
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 argument_list|<
 name|PersistentVolumeClaim
 argument_list|,
@@ -592,7 +592,7 @@ name|PersistentVolumeClaimList
 argument_list|,
 name|DoneablePersistentVolumeClaim
 argument_list|,
-name|ClientResource
+name|Resource
 argument_list|<
 name|PersistentVolumeClaim
 argument_list|,
@@ -659,7 +659,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ClientMixedOperation
+name|MixedOperation
 argument_list|<
 name|PersistentVolumeClaim
 argument_list|,
@@ -667,7 +667,7 @@ name|PersistentVolumeClaimList
 argument_list|,
 name|DoneablePersistentVolumeClaim
 argument_list|,
-name|ClientResource
+name|Resource
 argument_list|<
 name|PersistentVolumeClaim
 argument_list|,

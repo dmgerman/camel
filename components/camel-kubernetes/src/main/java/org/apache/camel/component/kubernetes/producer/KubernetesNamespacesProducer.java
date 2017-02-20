@@ -106,7 +106,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 import|;
 end_import
 
@@ -122,7 +122,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientResource
+name|Resource
 import|;
 end_import
 
@@ -540,7 +540,7 @@ literal|"Get a specific namespace by labels require specify a labels set"
 argument_list|)
 throw|;
 block|}
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 argument_list|<
 name|Namespace
 argument_list|,
@@ -548,7 +548,7 @@ name|NamespaceList
 argument_list|,
 name|DoneableNamespace
 argument_list|,
-name|ClientResource
+name|Resource
 argument_list|<
 name|Namespace
 argument_list|,

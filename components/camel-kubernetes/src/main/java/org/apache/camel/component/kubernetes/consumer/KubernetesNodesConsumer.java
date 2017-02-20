@@ -120,7 +120,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|ClientResource
+name|Resource
 import|;
 end_import
 
@@ -463,7 +463,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|ClientNonNamespaceOperation
+name|NonNamespaceOperation
 argument_list|<
 name|Node
 argument_list|,
@@ -471,7 +471,7 @@ name|NodeList
 argument_list|,
 name|DoneableNode
 argument_list|,
-name|ClientResource
+name|Resource
 argument_list|<
 name|Node
 argument_list|,
