@@ -115,12 +115,26 @@ name|KubernetesServiceDiscoveryFactory
 parameter_list|()
 block|{
 name|this
-operator|.
-name|configuration
-operator|=
+argument_list|(
 operator|new
 name|KubernetesConfiguration
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|KubernetesServiceDiscoveryFactory (KubernetesConfiguration configuration)
+specifier|public
+name|KubernetesServiceDiscoveryFactory
+parameter_list|(
+name|KubernetesConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 comment|// *************************************************************************

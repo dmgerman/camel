@@ -131,12 +131,26 @@ name|EtcdServiceDiscoveryFactory
 parameter_list|()
 block|{
 name|this
-operator|.
-name|configuration
-operator|=
+argument_list|(
 operator|new
 name|EtcdConfiguration
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|EtcdServiceDiscoveryFactory (EtcdConfiguration configuration)
+specifier|public
+name|EtcdServiceDiscoveryFactory
+parameter_list|(
+name|EtcdConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 comment|// *************************************************************************

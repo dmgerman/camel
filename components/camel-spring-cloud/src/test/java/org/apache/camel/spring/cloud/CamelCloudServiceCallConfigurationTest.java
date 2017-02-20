@@ -264,7 +264,7 @@ name|CamelCloudAutoConfiguration
 operator|.
 name|class
 block|,
-name|ServiceCallServiceChooserAutoConfiguration
+name|CamelCloudServiceChooserAutoConfiguration
 operator|.
 name|class
 block|}
@@ -272,15 +272,15 @@ argument_list|,
 name|properties
 operator|=
 block|{
-literal|"camel.cloud.servicecall.enabled=false"
+literal|"camel.cloud.enabled=false"
 block|,
-literal|"camel.cloud.servicecall.service-discovery.enabled=false"
+literal|"camel.cloud.service-discovery.enabled=false"
 block|,
-literal|"camel.cloud.servicecall.service-filter.enabled=false"
+literal|"camel.cloud.service-filter.enabled=false"
 block|,
-literal|"camel.cloud.servicecall.service-chooser.enabled=true"
+literal|"camel.cloud.service-chooser.enabled=true"
 block|,
-literal|"camel.cloud.servicecall.load-balancer.enabled=false"
+literal|"camel.cloud.load-balancer.enabled=false"
 block|,
 literal|"debug=false"
 block|}
@@ -321,7 +321,7 @@ name|env
 operator|.
 name|getProperty
 argument_list|(
-literal|"camel.cloud.servicecall.enabled"
+literal|"camel.cloud.enabled"
 argument_list|,
 name|Boolean
 operator|.
@@ -335,7 +335,7 @@ name|env
 operator|.
 name|getProperty
 argument_list|(
-literal|"camel.cloud.servicecall.service-discovery.enabled"
+literal|"camel.cloud.service-discovery.enabled"
 argument_list|,
 name|Boolean
 operator|.
@@ -349,7 +349,7 @@ name|env
 operator|.
 name|getProperty
 argument_list|(
-literal|"camel.cloud.servicecall.service-filter.enabled"
+literal|"camel.cloud.service-filter.enabled"
 argument_list|,
 name|Boolean
 operator|.
@@ -363,7 +363,7 @@ name|env
 operator|.
 name|getProperty
 argument_list|(
-literal|"camel.cloud.servicecall.service-chooser.enabled"
+literal|"camel.cloud.service-chooser.enabled"
 argument_list|,
 name|Boolean
 operator|.
@@ -377,7 +377,7 @@ name|env
 operator|.
 name|getProperty
 argument_list|(
-literal|"camel.cloud.servicecall.load-balancer.enabled"
+literal|"camel.cloud.load-balancer.enabled"
 argument_list|,
 name|Boolean
 operator|.
@@ -415,7 +415,7 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|ctx
 operator|.

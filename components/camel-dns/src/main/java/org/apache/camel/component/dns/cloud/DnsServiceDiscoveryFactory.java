@@ -104,6 +104,21 @@ name|DnsConfiguration
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|DnsServiceDiscoveryFactory (DnsConfiguration configuration)
+specifier|public
+name|DnsServiceDiscoveryFactory
+parameter_list|(
+name|DnsConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
 comment|// *************************************************************************
 comment|// Properties
 comment|// *************************************************************************
