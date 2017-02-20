@@ -109,10 +109,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|OpenTracingSimpleRouteTest
+DECL|class|SpringOpenTracingSimpleRouteTest
 specifier|public
 class|class
-name|OpenTracingSimpleRouteTest
+name|SpringOpenTracingSimpleRouteTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
@@ -134,12 +134,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 DECL|method|testRoute ()
 specifier|public
 name|void

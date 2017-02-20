@@ -560,6 +560,12 @@ name|RouteDefinition
 name|route
 parameter_list|)
 block|{
+comment|// ensure this opentracing tracer gets initialized when Camel starts
+name|init
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|OpenTracingRoutePolicy
@@ -568,7 +574,7 @@ name|routeId
 argument_list|)
 return|;
 block|}
-comment|/**      * Registers this {@link OpenTracingTracer} on the {@link CamelContext}.      */
+comment|/**      * Registers this {@link OpenTracingTracer} on the {@link CamelContext} if not already registered.      */
 DECL|method|init (CamelContext camelContext)
 specifier|public
 name|void
