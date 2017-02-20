@@ -63,12 +63,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|LocalFileNexusRepository
+DECL|class|LocalFileComponentCatalogNexusRepository
 specifier|public
 class|class
-name|LocalFileNexusRepository
+name|LocalFileComponentCatalogNexusRepository
 extends|extends
-name|ComponentNexusRepository
+name|ComponentCatalogNexusRepository
 block|{
 DECL|field|onAddComponent
 specifier|private

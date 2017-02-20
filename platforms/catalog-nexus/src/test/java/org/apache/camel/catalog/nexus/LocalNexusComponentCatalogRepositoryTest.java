@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|LocalNexusRepositoryTest
+DECL|class|LocalNexusComponentCatalogRepositoryTest
 specifier|public
 class|class
-name|LocalNexusRepositoryTest
+name|LocalNexusComponentCatalogRepositoryTest
 extends|extends
 name|TestCase
 block|{
@@ -129,11 +129,11 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|LocalFileNexusRepository
+name|LocalFileComponentCatalogNexusRepository
 name|repo
 init|=
 operator|new
-name|LocalFileNexusRepository
+name|LocalFileComponentCatalogNexusRepository
 argument_list|()
 decl_stmt|;
 name|repo

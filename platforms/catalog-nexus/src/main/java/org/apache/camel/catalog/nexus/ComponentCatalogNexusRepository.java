@@ -113,16 +113,16 @@ comment|/**  * Nexus repository that can scan for custom Camel components and ad
 end_comment
 
 begin_class
-DECL|class|ComponentNexusRepository
+DECL|class|ComponentCatalogNexusRepository
 specifier|public
 class|class
-name|ComponentNexusRepository
+name|ComponentCatalogNexusRepository
 extends|extends
 name|BaseNexusRepository
 block|{
-DECL|method|ComponentNexusRepository ()
+DECL|method|ComponentCatalogNexusRepository ()
 specifier|public
-name|ComponentNexusRepository
+name|ComponentCatalogNexusRepository
 parameter_list|()
 block|{
 name|super
