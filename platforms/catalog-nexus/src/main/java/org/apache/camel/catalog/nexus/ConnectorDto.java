@@ -46,6 +46,16 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
+DECL|field|description
+specifier|private
+name|String
+name|description
+decl_stmt|;
+DECL|field|labels
+specifier|private
+name|String
+name|labels
+decl_stmt|;
 DECL|field|connectorJson
 specifier|private
 name|String
@@ -56,7 +66,7 @@ specifier|private
 name|String
 name|connectorSchemaJson
 decl_stmt|;
-DECL|method|ConnectorDto (NexusArtifactDto nexusArtifactDto, String name, String connectorJson, String connectorSchemaJson)
+DECL|method|ConnectorDto (NexusArtifactDto nexusArtifactDto, String name, String description, String labels, String connectorJson, String connectorSchemaJson)
 specifier|public
 name|ConnectorDto
 parameter_list|(
@@ -65,6 +75,12 @@ name|nexusArtifactDto
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|String
+name|description
+parameter_list|,
+name|String
+name|labels
 parameter_list|,
 name|String
 name|connectorJson
@@ -84,6 +100,18 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+name|this
+operator|.
+name|description
+operator|=
+name|description
+expr_stmt|;
+name|this
+operator|.
+name|labels
+operator|=
+name|labels
 expr_stmt|;
 name|this
 operator|.
@@ -118,6 +146,26 @@ return|return
 name|name
 return|;
 block|}
+DECL|method|getDescription ()
+specifier|public
+name|String
+name|getDescription
+parameter_list|()
+block|{
+return|return
+name|description
+return|;
+block|}
+DECL|method|getLabels ()
+specifier|public
+name|String
+name|getLabels
+parameter_list|()
+block|{
+return|return
+name|labels
+return|;
+block|}
 DECL|method|getConnectorJson ()
 specifier|public
 name|String
@@ -136,6 +184,33 @@ parameter_list|()
 block|{
 return|return
 name|connectorSchemaJson
+return|;
+block|}
+DECL|method|getMavenGav ()
+specifier|public
+name|String
+name|getMavenGav
+parameter_list|()
+block|{
+return|return
+name|nexusArtifactDto
+operator|.
+name|getGroupId
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|nexusArtifactDto
+operator|.
+name|getArtifactId
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|nexusArtifactDto
+operator|.
+name|getVersion
+argument_list|()
 return|;
 block|}
 annotation|@

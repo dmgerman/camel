@@ -34,6 +34,12 @@ specifier|public
 interface|interface
 name|ConnectorDataStore
 block|{
+comment|/**      * Number of connectors in the data store.      */
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+function_decl|;
 comment|/**      * Adds a connector to the data store.      */
 DECL|method|addConnector (ConnectorDto connector)
 name|void
@@ -44,12 +50,12 @@ name|connector
 parameter_list|)
 function_decl|;
 comment|/**      * Search for connectors in the data store.      *      * @param filter            the filter connectors based on their names, description or labels.      * @param latestVersionOnly to only include the latest version of a given Maven<tt>groupId:artifactId</tt>      * @return the found connectors, or an empty list if none found      */
-DECL|method|searchArtifacts (String filter, boolean latestVersionOnly)
+DECL|method|searchConnectors (String filter, boolean latestVersionOnly)
 name|List
 argument_list|<
 name|ConnectorDto
 argument_list|>
-name|searchArtifacts
+name|searchConnectors
 parameter_list|(
 name|String
 name|filter
@@ -57,12 +63,6 @@ parameter_list|,
 name|boolean
 name|latestVersionOnly
 parameter_list|)
-function_decl|;
-comment|/**      * Number of connectors in the data store.      */
-DECL|method|size ()
-name|int
-name|size
-parameter_list|()
 function_decl|;
 block|}
 end_interface
