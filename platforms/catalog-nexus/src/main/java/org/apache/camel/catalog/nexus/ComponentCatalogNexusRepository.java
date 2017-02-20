@@ -348,7 +348,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds any discovered third party Camel components from the artifact.      */
-DECL|method|addCustomCamelComponentsFromArtifact (NexusArtifactDto dto, URL jarUrl )
+DECL|method|addCustomCamelComponentsFromArtifact (NexusArtifactDto dto, URL jarUrl)
 specifier|private
 name|void
 name|addCustomCamelComponentsFromArtifact
@@ -375,7 +375,6 @@ block|{
 name|jarUrl
 block|}
 argument_list|)
-init|;
 init|)
 block|{
 comment|// is there any custom Camel components in this library?
