@@ -70,6 +70,15 @@ name|OFFSET
 init|=
 literal|"kafka.OFFSET"
 decl_stmt|;
+DECL|field|LAST_RECORD_BEFORE_COMMIT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|LAST_RECORD_BEFORE_COMMIT
+init|=
+literal|"kafka.LAST_RECORD_BEFORE_COMMIT"
+decl_stmt|;
 DECL|field|KAFKA_DEFAULT_ENCODER
 specifier|public
 specifier|static
