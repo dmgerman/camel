@@ -164,6 +164,18 @@ name|assertThat
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_class
 DECL|class|DefaultUndertowHttpBindingTest
 specifier|public
@@ -193,6 +205,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|""
+block|,
 literal|"chunk"
 block|,         }
 decl_stmt|;
@@ -225,17 +239,11 @@ name|source
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|assertThat
+name|checkResult
 argument_list|(
 name|result
 argument_list|,
-name|is
-argument_list|(
 name|delayedPayloads
-index|[
-literal|0
-index|]
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -262,6 +270,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|""
+block|,
 literal|"first "
 block|,
 literal|"second"
@@ -296,6 +306,27 @@ name|source
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|checkResult
+argument_list|(
+name|result
+argument_list|,
+name|delayedPayloads
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|checkResult (String result, String[] delayedPayloads)
+specifier|private
+name|void
+name|checkResult
+parameter_list|(
+name|String
+name|result
+parameter_list|,
+name|String
+index|[]
+name|delayedPayloads
+parameter_list|)
+block|{
 name|assertThat
 argument_list|(
 name|result
@@ -343,6 +374,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|""
+block|,
 literal|"first "
 block|,
 literal|""
@@ -379,27 +412,11 @@ name|source
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|assertThat
+name|checkResult
 argument_list|(
 name|result
 argument_list|,
-name|is
-argument_list|(
-name|Stream
-operator|.
-name|of
-argument_list|(
 name|delayedPayloads
-argument_list|)
-operator|.
-name|collect
-argument_list|(
-name|Collectors
-operator|.
-name|joining
-argument_list|()
-argument_list|)
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -435,6 +452,12 @@ name|chunk
 init|=
 literal|0
 decl_stmt|;
+name|boolean
+name|mustWait
+init|=
+literal|false
+decl_stmt|;
+comment|// make sure that the caller is not spinning on read==0
 annotation|@
 name|Override
 specifier|public
@@ -447,17 +470,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// can only read payloads in the reader thread
 if|if
 condition|(
-name|sourceThread
-operator|!=
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
+name|mustWait
 condition|)
 block|{
+name|fail
+argument_list|(
+literal|"must wait before reading"
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|chunk
@@ -489,6 +512,20 @@ expr_stmt|;
 name|chunk
 operator|++
 expr_stmt|;
+if|if
+condition|(
+name|delayedPayload
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|mustWait
+operator|=
+literal|true
+expr_stmt|;
+block|}
 return|return
 name|delayedPayload
 operator|.
@@ -498,10 +535,6 @@ block|}
 return|return
 operator|-
 literal|1
-return|;
-block|}
-return|return
-literal|0
 return|;
 block|}
 annotation|@
@@ -528,6 +561,25 @@ name|resumeReads
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|awaitReadable
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|mustWait
+operator|=
+literal|false
+expr_stmt|;
+name|super
+operator|.
+name|awaitReadable
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 return|;
