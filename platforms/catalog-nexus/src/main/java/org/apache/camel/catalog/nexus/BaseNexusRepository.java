@@ -254,6 +254,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * A base class for scanning and index Maven Nexus repositories for artifacts which can be added to catalogs.  */
+end_comment
+
 begin_class
 DECL|class|BaseNexusRepository
 specifier|public

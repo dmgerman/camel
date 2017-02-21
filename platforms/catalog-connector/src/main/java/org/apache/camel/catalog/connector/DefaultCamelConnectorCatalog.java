@@ -211,25 +211,30 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|findConnector ()
+DECL|method|findConnector (boolean latestVersionOnly)
 specifier|public
 name|List
 argument_list|<
 name|ConnectorDto
 argument_list|>
 name|findConnector
-parameter_list|()
+parameter_list|(
+name|boolean
+name|latestVersionOnly
+parameter_list|)
 block|{
 return|return
-name|dataStore
-operator|.
 name|findConnector
-argument_list|()
+argument_list|(
+literal|null
+argument_list|,
+name|latestVersionOnly
+argument_list|)
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|findConnector (String filter)
+DECL|method|findConnector (String filter, boolean latestVersionOnly)
 specifier|public
 name|List
 argument_list|<
@@ -239,6 +244,9 @@ name|findConnector
 parameter_list|(
 name|String
 name|filter
+parameter_list|,
+name|boolean
+name|latestVersionOnly
 parameter_list|)
 block|{
 return|return
@@ -247,6 +255,8 @@ operator|.
 name|findConnector
 argument_list|(
 name|filter
+argument_list|,
+name|latestVersionOnly
 argument_list|)
 return|;
 block|}

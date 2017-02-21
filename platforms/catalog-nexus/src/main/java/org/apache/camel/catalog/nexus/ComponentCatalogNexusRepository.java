@@ -146,6 +146,7 @@ return|return
 name|camelCatalog
 return|;
 block|}
+comment|/**      * Sets the {@link CamelCatalog} to be used.      */
 DECL|method|setCamelCatalog (CamelCatalog camelCatalog)
 specifier|public
 name|void
@@ -313,6 +314,17 @@ name|String
 name|json
 parameter_list|)
 block|{
+name|camelCatalog
+operator|.
+name|addComponent
+argument_list|(
+name|scheme
+argument_list|,
+name|javaType
+argument_list|,
+name|json
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|info
@@ -333,17 +345,6 @@ name|dto
 operator|.
 name|getVersion
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|camelCatalog
-operator|.
-name|addComponent
-argument_list|(
-name|scheme
-argument_list|,
-name|javaType
-argument_list|,
-name|json
 argument_list|)
 expr_stmt|;
 block|}

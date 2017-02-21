@@ -64,37 +64,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -146,7 +116,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|CatalogHelper
+name|CollectionStringBuffer
 import|;
 end_import
 
@@ -160,7 +130,9 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|CollectionStringBuffer
+name|connector
+operator|.
+name|CamelConnectorCatalog
 import|;
 end_import
 
@@ -181,25 +153,25 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Nexus repository that can scan for custom Camel connectors and add to the {@link ConnectorDataStore}.  */
+comment|/**  * Nexus repository that can scan for custom Camel connectors and add to the {@link CamelConnectorCatalog}.  */
 end_comment
 
 begin_class
-DECL|class|ConnectorDataStoreNexusRepository
+DECL|class|ConnectorCatalogNexusRepository
 specifier|public
 class|class
-name|ConnectorDataStoreNexusRepository
+name|ConnectorCatalogNexusRepository
 extends|extends
 name|BaseNexusRepository
 block|{
-DECL|field|connectorDataStore
+DECL|field|camelConnectorCatalog
 specifier|private
-name|ConnectorDataStore
-name|connectorDataStore
+name|CamelConnectorCatalog
+name|camelConnectorCatalog
 decl_stmt|;
-DECL|method|ConnectorDataStoreNexusRepository ()
+DECL|method|ConnectorCatalogNexusRepository ()
 specifier|public
-name|ConnectorDataStoreNexusRepository
+name|ConnectorCatalogNexusRepository
 parameter_list|()
 block|{
 name|super
@@ -208,30 +180,31 @@ literal|"connector"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getConnectorDataStore ()
+DECL|method|getCamelConnectorCatalog ()
 specifier|public
-name|ConnectorDataStore
-name|getConnectorDataStore
+name|CamelConnectorCatalog
+name|getCamelConnectorCatalog
 parameter_list|()
 block|{
 return|return
-name|connectorDataStore
+name|camelConnectorCatalog
 return|;
 block|}
-DECL|method|setConnectorDataStore (ConnectorDataStore connectorDataStore)
+comment|/**      * Sets the {@link CamelConnectorCatalog} to be used.      */
+DECL|method|setCamelConnectorCatalog (CamelConnectorCatalog camelConnectorCatalog)
 specifier|public
 name|void
-name|setConnectorDataStore
+name|setCamelConnectorCatalog
 parameter_list|(
-name|ConnectorDataStore
-name|connectorDataStore
+name|CamelConnectorCatalog
+name|camelConnectorCatalog
 parameter_list|)
 block|{
 name|this
 operator|.
-name|connectorDataStore
+name|camelConnectorCatalog
 operator|=
-name|connectorDataStore
+name|camelConnectorCatalog
 expr_stmt|;
 block|}
 annotation|@
@@ -244,7 +217,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|connectorDataStore
+name|camelConnectorCatalog
 operator|==
 literal|null
 condition|)
@@ -253,7 +226,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"ConnectorDataStore must be configured"
+literal|"CamelConnectorCatalog must be configured"
 argument_list|)
 throw|;
 block|}
@@ -388,20 +361,39 @@ name|String
 name|connectorSchemaJson
 parameter_list|)
 block|{
-if|if
-condition|(
-name|connectorDataStore
-operator|!=
-literal|null
-condition|)
-block|{
-name|ConnectorDto
-name|connector
+name|String
+name|groupId
 init|=
-operator|new
-name|ConnectorDto
-argument_list|(
 name|dto
+operator|.
+name|getGroupId
+argument_list|()
+decl_stmt|;
+name|String
+name|artifactId
+init|=
+name|dto
+operator|.
+name|getArtifactId
+argument_list|()
+decl_stmt|;
+name|String
+name|version
+init|=
+name|dto
+operator|.
+name|getVersion
+argument_list|()
+decl_stmt|;
+name|camelConnectorCatalog
+operator|.
+name|addConnector
+argument_list|(
+name|groupId
+argument_list|,
+name|artifactId
+argument_list|,
+name|version
 argument_list|,
 name|name
 argument_list|,
@@ -413,7 +405,7 @@ name|connectorJson
 argument_list|,
 name|connectorSchemaJson
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|log
 operator|.
 name|info
@@ -436,14 +428,6 @@ name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connectorDataStore
-operator|.
-name|addConnector
-argument_list|(
-name|connector
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Adds any discovered third party Camel connectors from the artifact.      */
 DECL|method|addCustomCamelConnectorFromArtifact (NexusArtifactDto dto, URL jarUrl)

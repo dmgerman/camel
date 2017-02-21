@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|LocalFileConnectorNexusRepository
 extends|extends
-name|ConnectorDataStoreNexusRepository
+name|ConnectorCatalogNexusRepository
 block|{
 DECL|field|onAddConnector
 specifier|private

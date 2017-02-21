@@ -77,6 +77,24 @@ specifier|private
 name|String
 name|version
 decl_stmt|;
+DECL|method|getMavenGav ()
+specifier|public
+name|String
+name|getMavenGav
+parameter_list|()
+block|{
+return|return
+name|groupId
+operator|+
+literal|":"
+operator|+
+name|artifactId
+operator|+
+literal|":"
+operator|+
+name|version
+return|;
+block|}
 DECL|method|getName ()
 specifier|public
 name|String

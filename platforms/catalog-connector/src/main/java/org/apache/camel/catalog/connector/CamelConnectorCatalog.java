@@ -104,17 +104,20 @@ name|String
 name|version
 parameter_list|)
 function_decl|;
-comment|/**      * Finds all the connectors from the catalog      */
-DECL|method|findConnector ()
+comment|/**      * Finds all the connectors from the catalog      *      * @param latestVersionOnly  whether to include only latest version of the connectors      */
+DECL|method|findConnector (boolean latestVersionOnly)
 name|List
 argument_list|<
 name|ConnectorDto
 argument_list|>
 name|findConnector
-parameter_list|()
+parameter_list|(
+name|boolean
+name|latestVersionOnly
+parameter_list|)
 function_decl|;
-comment|/**      * Find all the connectors that matches the name, label or description from the catalog      */
-DECL|method|findConnector (String filter)
+comment|/**      * Find all the connectors that matches the maven coordinate, name, label or description from the catalog      *      * @param filter             filter text      * @param latestVersionOnly  whether to include only latest version of the connectors      */
+DECL|method|findConnector (String filter, boolean latestVersionOnly)
 name|List
 argument_list|<
 name|ConnectorDto
@@ -123,6 +126,9 @@ name|findConnector
 parameter_list|(
 name|String
 name|filter
+parameter_list|,
+name|boolean
+name|latestVersionOnly
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the<tt>camel-connector</tt> json file for the given connector with the Maven coordinate      *      * @param groupId     maven group id      * @param artifactId  maven artifact id      * @param version     maven version      */

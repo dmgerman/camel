@@ -28,12 +28,17 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Data store for connector details to be used by the {@link CamelConnectorCatalog}.  */
+end_comment
+
 begin_interface
 DECL|interface|ConnectorDataStore
 specifier|public
 interface|interface
 name|ConnectorDataStore
 block|{
+comment|/**      * Adds or updates the connector to the catalog      *      * @param dto                   the connector dto      * @param connectorJson         the<tt>camel-connector</tt> json file      * @param connectorSchemaJson   the<tt>camel-connector-schema</tt> json file      */
 DECL|method|addConnector (ConnectorDto dto, String connectorJson, String connectorSchemaJson)
 name|void
 name|addConnector
@@ -48,6 +53,7 @@ name|String
 name|connectorSchemaJson
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the connector from the catalog      *      * @param dto  the connector dto      */
 DECL|method|removeConnector (ConnectorDto dto)
 name|void
 name|removeConnector
@@ -56,15 +62,8 @@ name|ConnectorDto
 name|dto
 parameter_list|)
 function_decl|;
-DECL|method|findConnector ()
-name|List
-argument_list|<
-name|ConnectorDto
-argument_list|>
-name|findConnector
-parameter_list|()
-function_decl|;
-DECL|method|findConnector (String filter)
+comment|/**      * Find all the connectors that matches the maven coordinate, name, label or description from the catalog      *      * @param filter             filter text      * @param latestVersionOnly  whether to include only latest version of the connectors      */
+DECL|method|findConnector (String filter, boolean latestVersionOnly)
 name|List
 argument_list|<
 name|ConnectorDto
@@ -73,8 +72,12 @@ name|findConnector
 parameter_list|(
 name|String
 name|filter
+parameter_list|,
+name|boolean
+name|latestVersionOnly
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the<tt>camel-connector</tt> json file for the given connector with the Maven coordinate      *      * @param dto  the connector dto      */
 DECL|method|connectorJSon (ConnectorDto dto)
 name|String
 name|connectorJSon
@@ -83,6 +86,7 @@ name|ConnectorDto
 name|dto
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the<tt>camel-connector-schema</tt> json file for the given connector with the Maven coordinate      *      * @param dto  the connector dto      */
 DECL|method|connectorSchemaJSon (ConnectorDto dto)
 name|String
 name|connectorSchemaJSon
