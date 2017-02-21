@@ -253,13 +253,6 @@ name|dataLength
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|publicForRead
-specifier|private
-name|boolean
-name|publicForRead
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -269,6 +262,13 @@ DECL|field|blobPrefix
 specifier|private
 name|String
 name|blobPrefix
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|publicForRead
+specifier|private
+name|boolean
+name|publicForRead
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -298,7 +298,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Required blob service operation hint to the producer       */
+comment|/**      * Blob service operation hint to the producer       */
 DECL|method|setOperation (BlobServiceOperations operation)
 specifier|public
 name|void
@@ -649,33 +649,6 @@ operator|=
 name|dataLength
 expr_stmt|;
 block|}
-DECL|method|isPublicForRead ()
-specifier|public
-name|boolean
-name|isPublicForRead
-parameter_list|()
-block|{
-return|return
-name|publicForRead
-return|;
-block|}
-comment|/**      * Blobs can be public for reading their content, if this property is enabled      * then the credentials do not have to be set      */
-DECL|method|setPublicForRead (boolean publicForRead)
-specifier|public
-name|void
-name|setPublicForRead
-parameter_list|(
-name|boolean
-name|publicForRead
-parameter_list|)
-block|{
-name|this
-operator|.
-name|publicForRead
-operator|=
-name|publicForRead
-expr_stmt|;
-block|}
 DECL|method|getBlobPrefix ()
 specifier|public
 name|String
@@ -701,6 +674,33 @@ operator|.
 name|blobPrefix
 operator|=
 name|blobPrefix
+expr_stmt|;
+block|}
+DECL|method|isPublicForRead ()
+specifier|public
+name|boolean
+name|isPublicForRead
+parameter_list|()
+block|{
+return|return
+name|publicForRead
+return|;
+block|}
+comment|/**      * Storage resources can be public for reading their content, if this property is enabled      * then the credentials do not have to be set      */
+DECL|method|setPublicForRead (boolean publicForRead)
+specifier|public
+name|void
+name|setPublicForRead
+parameter_list|(
+name|boolean
+name|publicForRead
+parameter_list|)
+block|{
+name|this
+operator|.
+name|publicForRead
+operator|=
+name|publicForRead
 expr_stmt|;
 block|}
 DECL|method|isUseFlatListing ()

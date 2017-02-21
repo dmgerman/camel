@@ -227,7 +227,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"At least account and container names must be specified."
+literal|"At least the account and container names must be specified."
 argument_list|)
 throw|;
 block|}
