@@ -24,6 +24,28 @@ name|generated
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sql
+operator|.
+name|stored
+operator|.
+name|template
+operator|.
+name|ast
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/** Token Manager. */
 end_comment
@@ -723,7 +745,7 @@ block|}
 if|if
 condition|(
 operator|(
-literal|0x3ff000000000000L
+literal|0x3ff200000000000L
 operator|&
 name|l
 operator|)
@@ -896,7 +918,7 @@ case|:
 if|if
 condition|(
 operator|(
-literal|0x3ff000000000000L
+literal|0x3ff200000000000L
 operator|&
 name|l
 operator|)
