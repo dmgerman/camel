@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Main to start the Camel Catalog REST Api application which runs standalone using an embedded CXF/Jetty server  * with embedded Swagger Doc and Swagger UI.  */
+comment|/**  * Main to start the Camel Catalog and Connector Catalog REST Api application  * which runs standalone using an embedded CXF/Jetty server with embedded Swagger Doc and Swagger UI.  */
 end_comment
 
 begin_class
@@ -159,6 +159,11 @@ DECL|field|catalog
 specifier|private
 name|CamelCatalogRest
 name|catalog
+decl_stmt|;
+DECL|field|connectorCatalog
+specifier|private
+name|CamelConnectorCatalogRest
+name|connectorCatalog
 decl_stmt|;
 DECL|field|port
 specifier|private
@@ -210,6 +215,12 @@ operator|new
 name|CamelCatalogRest
 argument_list|()
 expr_stmt|;
+name|connectorCatalog
+operator|=
+operator|new
+name|CamelConnectorCatalogRest
+argument_list|()
+expr_stmt|;
 comment|// setup Apache CXF REST server
 name|JAXRSServerFactoryBean
 name|sf
@@ -223,6 +234,10 @@ operator|.
 name|setResourceClasses
 argument_list|(
 name|CamelCatalogRest
+operator|.
+name|class
+argument_list|,
+name|CamelConnectorCatalogRest
 operator|.
 name|class
 argument_list|)
@@ -239,6 +254,21 @@ operator|new
 name|SingletonResourceProvider
 argument_list|(
 name|catalog
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|sf
+operator|.
+name|setResourceProvider
+argument_list|(
+name|CamelConnectorCatalogRest
+operator|.
+name|class
+argument_list|,
+operator|new
+name|SingletonResourceProvider
+argument_list|(
+name|connectorCatalog
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -281,14 +311,14 @@ name|swagger
 operator|.
 name|setTitle
 argument_list|(
-literal|"Camel Catalog REST Api"
+literal|"Camel Catalog and Connector Catalog REST Api"
 argument_list|)
 expr_stmt|;
 name|swagger
 operator|.
 name|setDescription
 argument_list|(
-literal|"REST Api for the Camel Catalog"
+literal|"REST Api for the Camel Catalog and Connector Catalog"
 argument_list|)
 expr_stmt|;
 name|swagger
@@ -380,6 +410,43 @@ argument_list|(
 literal|"\tRest API version: http://localhost:{}/camel-catalog/catalogVersion"
 argument_list|,
 name|port
+argument_list|)
+expr_stmt|;
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"CamelConnectorCatalog REST Api started"
+argument_list|)
+expr_stmt|;
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"\tRest API base path: http://localhost:{}/camel-connector-catalog"
+argument_list|,
+name|port
+argument_list|)
+expr_stmt|;
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|""
 argument_list|)
 expr_stmt|;
 name|LOGGER

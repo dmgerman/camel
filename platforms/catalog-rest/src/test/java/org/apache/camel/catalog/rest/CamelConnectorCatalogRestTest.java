@@ -144,23 +144,11 @@ name|given
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|hasItems
-import|;
-end_import
-
 begin_class
-DECL|class|CamelCatalogRestTest
+DECL|class|CamelConnectorCatalogRestTest
 specifier|public
 class|class
-name|CamelCatalogRestTest
+name|CamelConnectorCatalogRestTest
 block|{
 DECL|field|server
 specifier|private
@@ -169,7 +157,7 @@ name|server
 decl_stmt|;
 DECL|field|catalog
 specifier|private
-name|CamelCatalogRest
+name|CamelConnectorCatalogRest
 name|catalog
 decl_stmt|;
 DECL|field|port
@@ -188,7 +176,7 @@ block|{
 name|catalog
 operator|=
 operator|new
-name|CamelCatalogRest
+name|CamelConnectorCatalogRest
 argument_list|()
 expr_stmt|;
 name|port
@@ -212,7 +200,7 @@ name|sf
 operator|.
 name|setResourceClasses
 argument_list|(
-name|CamelCatalogRest
+name|CamelConnectorCatalogRest
 operator|.
 name|class
 argument_list|)
@@ -221,7 +209,7 @@ name|sf
 operator|.
 name|setResourceProvider
 argument_list|(
-name|CamelCatalogRest
+name|CamelConnectorCatalogRest
 operator|.
 name|class
 argument_list|,
@@ -289,10 +277,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testFindComponentLabels ()
+DECL|method|testEmptyFindConnectors ()
 specifier|public
 name|void
-name|testFindComponentLabels
+name|testEmptyFindConnectors
 parameter_list|()
 throws|throws
 name|Exception
@@ -317,7 +305,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"/camel-catalog/findComponentLabels"
+literal|"/camel-connector-catalog/findConnector?latestVersionOnly=false"
 argument_list|)
 operator|.
 name|then
@@ -325,27 +313,49 @@ argument_list|()
 operator|.
 name|body
 argument_list|(
-literal|"$"
-argument_list|,
-name|hasItems
+name|Matchers
+operator|.
+name|hasToString
 argument_list|(
-literal|"bigdata"
-argument_list|,
-literal|"messaging"
+literal|"[]"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testComponentJSonSchema ()
+DECL|method|testFindConnectors ()
 specifier|public
 name|void
-name|testComponentJSonSchema
+name|testFindConnectors
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|catalog
+operator|.
+name|getCatalog
+argument_list|()
+operator|.
+name|addConnector
+argument_list|(
+literal|"org.apache.camel"
+argument_list|,
+literal|"myfoo-connector"
+argument_list|,
+literal|"2.19.0"
+argument_list|,
+literal|"MyFoo"
+argument_list|,
+literal|"Something cool"
+argument_list|,
+literal|"foo,timer"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|given
 argument_list|()
 operator|.
@@ -366,7 +376,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"/camel-catalog/componentJSonSchema/quartz2"
+literal|"/camel-connector-catalog/findConnector?latestVersionOnly=false"
 argument_list|)
 operator|.
 name|then
@@ -374,13 +384,11 @@ argument_list|()
 operator|.
 name|body
 argument_list|(
-literal|"component.description"
-argument_list|,
 name|Matchers
 operator|.
-name|is
+name|containsString
 argument_list|(
-literal|"Provides a scheduled delivery of messages using the Quartz 2.x scheduler."
+literal|"MyFoo"
 argument_list|)
 argument_list|)
 expr_stmt|;
