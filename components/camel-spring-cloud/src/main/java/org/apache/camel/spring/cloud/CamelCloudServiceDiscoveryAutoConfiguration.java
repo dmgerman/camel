@@ -197,7 +197,7 @@ name|Conditional
 argument_list|(
 name|CamelCloudServiceDiscoveryAutoConfiguration
 operator|.
-name|ServiceDiscoveryCondition
+name|Condition
 operator|.
 name|class
 argument_list|)
@@ -373,17 +373,17 @@ block|}
 comment|// *******************************
 comment|// Condition
 comment|// *******************************
-DECL|class|ServiceDiscoveryCondition
+DECL|class|Condition
 specifier|public
 specifier|static
 class|class
-name|ServiceDiscoveryCondition
+name|Condition
 extends|extends
 name|GroupCondition
 block|{
-DECL|method|ServiceDiscoveryCondition ()
+DECL|method|Condition ()
 specifier|public
-name|ServiceDiscoveryCondition
+name|Condition
 parameter_list|()
 block|{
 name|super

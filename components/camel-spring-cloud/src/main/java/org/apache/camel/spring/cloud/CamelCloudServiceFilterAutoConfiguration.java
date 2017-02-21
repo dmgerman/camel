@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -46,41 +56,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cloud
-operator|.
-name|ServiceFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|cloud
 operator|.
 name|BlacklistServiceFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|cloud
-operator|.
-name|ChainedServiceFilter
 import|;
 end_import
 
@@ -233,7 +213,7 @@ name|Conditional
 argument_list|(
 name|CamelCloudServiceFilterAutoConfiguration
 operator|.
-name|ServiceFilterCondition
+name|Condition
 operator|.
 name|class
 argument_list|)
@@ -253,7 +233,7 @@ literal|"service-filter"
 argument_list|)
 DECL|method|serviceFilter (CamelCloudConfigurationProperties properties)
 specifier|public
-name|ServiceFilter
+name|CamelCloudServiceFilter
 name|serviceFilter
 parameter_list|(
 name|CamelCloudConfigurationProperties
@@ -382,9 +362,12 @@ block|}
 block|}
 block|}
 return|return
-name|ChainedServiceFilter
+operator|new
+name|CamelCloudServiceFilter
+argument_list|(
+name|Arrays
 operator|.
-name|wrap
+name|asList
 argument_list|(
 operator|new
 name|HealthyServiceFilter
@@ -392,22 +375,23 @@ argument_list|()
 argument_list|,
 name|blacklist
 argument_list|)
+argument_list|)
 return|;
 block|}
 comment|// *******************************
 comment|// Condition
 comment|// *******************************
-DECL|class|ServiceFilterCondition
+DECL|class|Condition
 specifier|public
 specifier|static
 class|class
-name|ServiceFilterCondition
+name|Condition
 extends|extends
 name|GroupCondition
 block|{
-DECL|method|ServiceFilterCondition ()
+DECL|method|Condition ()
 specifier|public
-name|ServiceFilterCondition
+name|Condition
 parameter_list|()
 block|{
 name|super
