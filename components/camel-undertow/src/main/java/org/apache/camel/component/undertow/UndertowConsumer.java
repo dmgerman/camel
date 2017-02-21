@@ -44,6 +44,16 @@ name|io
 operator|.
 name|undertow
 operator|.
+name|Handlers
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|undertow
+operator|.
 name|server
 operator|.
 name|HttpHandler
@@ -400,8 +410,13 @@ name|HttpHandler
 name|getHttpHandler
 parameter_list|()
 block|{
-comment|// wrap with EagerFormParsingHandler to enable undertow form parsers
+comment|// allow for HTTP 1.1 continue
 return|return
+name|Handlers
+operator|.
+name|httpContinueRead
+argument_list|(
+comment|// wrap with EagerFormParsingHandler to enable undertow form parsers
 operator|new
 name|EagerFormParsingHandler
 argument_list|()
@@ -409,6 +424,7 @@ operator|.
 name|setNext
 argument_list|(
 name|this
+argument_list|)
 argument_list|)
 return|;
 block|}
