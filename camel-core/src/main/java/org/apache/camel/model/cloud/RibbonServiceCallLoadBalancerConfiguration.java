@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -82,6 +92,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -119,6 +141,27 @@ name|ServiceCallLoadBalancerConfiguration
 block|{
 annotation|@
 name|XmlAttribute
+DECL|field|namespace
+specifier|private
+name|String
+name|namespace
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|username
+specifier|private
+name|String
+name|username
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|clientName
 specifier|private
 name|String
@@ -154,6 +197,87 @@ block|}
 comment|// *************************************************************************
 comment|// Properties
 comment|// *************************************************************************
+DECL|method|getNamespace ()
+specifier|public
+name|String
+name|getNamespace
+parameter_list|()
+block|{
+return|return
+name|namespace
+return|;
+block|}
+comment|/**      * The namespace      */
+DECL|method|setNamespace (String namespace)
+specifier|public
+name|void
+name|setNamespace
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|namespace
+operator|=
+name|namespace
+expr_stmt|;
+block|}
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|username
+return|;
+block|}
+comment|/**      * The username      */
+DECL|method|setUsername (String username)
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|this
+operator|.
+name|username
+operator|=
+name|username
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+comment|/**      * The password      */
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
+expr_stmt|;
+block|}
 DECL|method|getClientName ()
 specifier|public
 name|String
@@ -184,6 +308,63 @@ block|}
 comment|// *************************************************************************
 comment|// Fluent API
 comment|// *************************************************************************
+comment|/**      * Sets the namespace      */
+DECL|method|namespace (String namespace)
+specifier|public
+name|RibbonServiceCallLoadBalancerConfiguration
+name|namespace
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+block|{
+name|setNamespace
+argument_list|(
+name|namespace
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the username      */
+DECL|method|username (String username)
+specifier|public
+name|RibbonServiceCallLoadBalancerConfiguration
+name|username
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|setUsername
+argument_list|(
+name|username
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the password      */
+DECL|method|password (String password)
+specifier|public
+name|RibbonServiceCallLoadBalancerConfiguration
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|setPassword
+argument_list|(
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the Ribbon client name      */
 DECL|method|clientName (String clientName)
 specifier|public
@@ -202,6 +383,71 @@ expr_stmt|;
 return|return
 name|this
 return|;
+block|}
+comment|// *************************************************************************
+comment|// Helpers
+comment|// *************************************************************************
+annotation|@
+name|Override
+DECL|method|postProcessFactoryParameters (CamelContext camelContext, Map<String, Object> parameters)
+specifier|protected
+name|void
+name|postProcessFactoryParameters
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+init|=
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+operator|)
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"properties"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|properties
+operator|!=
+literal|null
+condition|)
+block|{
+name|parameters
+operator|.
+name|put
+argument_list|(
+literal|"clientConfig"
+argument_list|,
+name|properties
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

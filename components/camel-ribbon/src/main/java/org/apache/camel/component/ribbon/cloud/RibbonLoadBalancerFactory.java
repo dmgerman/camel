@@ -106,17 +106,121 @@ name|RibbonLoadBalancerFactory
 parameter_list|()
 block|{
 name|this
-operator|.
-name|configuration
-operator|=
+argument_list|(
 operator|new
 name|RibbonConfiguration
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|RibbonLoadBalancerFactory (RibbonConfiguration configuration)
+specifier|public
+name|RibbonLoadBalancerFactory
+parameter_list|(
+name|RibbonConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 comment|// *************************************************************************
 comment|// Properties
 comment|// *************************************************************************
+DECL|method|getNamespace ()
+specifier|public
+name|String
+name|getNamespace
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getNamespace
+argument_list|()
+return|;
+block|}
+DECL|method|setNamespace (String namespace)
+specifier|public
+name|void
+name|setNamespace
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setNamespace
+argument_list|(
+name|namespace
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getUsername
+argument_list|()
+return|;
+block|}
+DECL|method|setUsername (String username)
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setUsername
+argument_list|(
+name|username
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getPassword
+argument_list|()
+return|;
+block|}
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setPassword
+argument_list|(
+name|password
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getClientName ()
 specifier|public
 name|String
@@ -147,7 +251,7 @@ name|clientName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getProperies ()
+DECL|method|getClientConfig ()
 specifier|public
 name|Map
 argument_list|<
@@ -155,7 +259,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|getProperies
+name|getClientConfig
 parameter_list|()
 block|{
 return|return
@@ -165,10 +269,10 @@ name|getClientConfig
 argument_list|()
 return|;
 block|}
-DECL|method|setProperties (Map<String, String> clientConfig)
+DECL|method|setClientConfig (Map<String, String> clientConfig)
 specifier|public
 name|void
-name|setProperties
+name|setClientConfig
 parameter_list|(
 name|Map
 argument_list|<
