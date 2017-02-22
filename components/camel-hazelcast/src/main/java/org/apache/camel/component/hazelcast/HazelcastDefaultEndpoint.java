@@ -252,13 +252,17 @@ name|hazelcastInstanceName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"put,delete,get,update,query,getAll,clear,evict,evictAll,putIfAbsent,addAll,removeAll,retainAll,valueCount,containsKey,containsValue,keySet,removevalue,increment"
+operator|+
+literal|",decrement,setvalue,destroy,compareAndSet,getAndAdd,add,offer,peek,poll,remainingCapacity,drainTo,publish,capacity,readonceHead,readonceTail"
+argument_list|)
 DECL|field|defaultOperation
 specifier|private
-name|int
+name|String
 name|defaultOperation
-init|=
-operator|-
-literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -471,12 +475,12 @@ name|hazelcastInstanceName
 expr_stmt|;
 block|}
 comment|/**      * To specify a default operation to use, if no operation header has been provided.      */
-DECL|method|setDefaultOperation (int defaultOperation)
+DECL|method|setDefaultOperation (String defaultOperation)
 specifier|public
 name|void
 name|setDefaultOperation
 parameter_list|(
-name|int
+name|String
 name|defaultOperation
 parameter_list|)
 block|{
@@ -489,7 +493,7 @@ expr_stmt|;
 block|}
 DECL|method|getDefaultOperation ()
 specifier|public
-name|int
+name|String
 name|getDefaultOperation
 parameter_list|()
 block|{
