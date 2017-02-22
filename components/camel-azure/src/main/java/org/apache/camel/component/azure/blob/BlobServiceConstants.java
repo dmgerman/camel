@@ -44,6 +44,12 @@ name|SERVICE_URI_SEGMENT
 init|=
 literal|".blob.core.windows.net"
 decl_stmt|;
+DECL|field|BLOB_SERVICE_REQUEST_OPTIONS
+name|String
+name|BLOB_SERVICE_REQUEST_OPTIONS
+init|=
+literal|"BlobServiceRequestOptions"
+decl_stmt|;
 DECL|field|ACCESS_CONDITION
 name|String
 name|ACCESS_CONDITION

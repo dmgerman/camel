@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.azure.blob
+DECL|package|org.apache.camel.component.azure.queue
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|azure
 operator|.
-name|blob
+name|queue
 package|;
 end_package
 
@@ -30,23 +30,9 @@ name|azure
 operator|.
 name|storage
 operator|.
-name|AccessCondition
-import|;
-end_import
-
-begin_import
-import|import
-name|com
+name|queue
 operator|.
-name|microsoft
-operator|.
-name|azure
-operator|.
-name|storage
-operator|.
-name|blob
-operator|.
-name|BlobRequestOptions
+name|QueueRequestOptions
 import|;
 end_import
 
@@ -69,52 +55,21 @@ import|;
 end_import
 
 begin_class
-DECL|class|BlobServiceRequestOptions
+DECL|class|QueueServiceRequestOptions
 specifier|public
 class|class
-name|BlobServiceRequestOptions
+name|QueueServiceRequestOptions
 extends|extends
 name|AbstractServiceRequestOptions
 block|{
-DECL|field|accessCond
-specifier|private
-name|AccessCondition
-name|accessCond
-decl_stmt|;
 DECL|field|requestOpts
 specifier|private
-name|BlobRequestOptions
+name|QueueRequestOptions
 name|requestOpts
 decl_stmt|;
-DECL|method|getAccessCond ()
-specifier|public
-name|AccessCondition
-name|getAccessCond
-parameter_list|()
-block|{
-return|return
-name|accessCond
-return|;
-block|}
-DECL|method|setAccessCond (AccessCondition accessCond)
-specifier|public
-name|void
-name|setAccessCond
-parameter_list|(
-name|AccessCondition
-name|accessCond
-parameter_list|)
-block|{
-name|this
-operator|.
-name|accessCond
-operator|=
-name|accessCond
-expr_stmt|;
-block|}
 DECL|method|getRequestOpts ()
 specifier|public
-name|BlobRequestOptions
+name|QueueRequestOptions
 name|getRequestOpts
 parameter_list|()
 block|{
@@ -122,12 +77,12 @@ return|return
 name|requestOpts
 return|;
 block|}
-DECL|method|setRequestOpts (BlobRequestOptions requestOpts)
+DECL|method|setRequestOpts (QueueRequestOptions requestOpts)
 specifier|public
 name|void
 name|setRequestOpts
 parameter_list|(
-name|BlobRequestOptions
+name|QueueRequestOptions
 name|requestOpts
 parameter_list|)
 block|{

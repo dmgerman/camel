@@ -1356,8 +1356,12 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getBody
+name|getHeader
 argument_list|(
+name|BlobServiceConstants
+operator|.
+name|BLOB_SERVICE_REQUEST_OPTIONS
+argument_list|,
 name|BlobServiceRequestOptions
 operator|.
 name|class

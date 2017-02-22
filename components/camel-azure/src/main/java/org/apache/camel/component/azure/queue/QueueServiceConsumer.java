@@ -176,7 +176,14 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|getMessage
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Retrieving a message"
+argument_list|)
+expr_stmt|;
+name|retrieveMessage
 argument_list|(
 name|exchange
 argument_list|)
@@ -223,10 +230,10 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|getMessage (Exchange exchange)
+DECL|method|retrieveMessage (Exchange exchange)
 specifier|private
 name|void
-name|getMessage
+name|retrieveMessage
 parameter_list|(
 name|Exchange
 name|exchange
@@ -234,26 +241,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+comment|//TODO: Support the batch processing if needed, given that it is possible
+comment|// to retrieve more than 1 message in one go, similarly to camel-aws/s3 consumer.
+name|QueueServiceUtil
 operator|.
-name|trace
+name|retrieveMessage
 argument_list|(
-literal|"Getting the message from the queue [{}] from exchange [{}]..."
+name|exchange
 argument_list|,
 name|getConfiguration
 argument_list|()
-operator|.
-name|getQueueName
-argument_list|()
-argument_list|,
-name|exchange
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
 block|}
 DECL|method|getConfiguration ()
 specifier|protected
