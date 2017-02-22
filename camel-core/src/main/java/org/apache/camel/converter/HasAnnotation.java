@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to indicate that the actual type of a parameter on a converter method must have the given annotation class  * to be applicable. e.g. this annotation could be used on a JAXB converter which only applies to objects with a  * JAXB annotation on them  *  * @version   */
+comment|/**  * Used to indicate that the actual type of a parameter on a converter method must have the given annotation class  * to be applicable. e.g. this annotation could be used on a JAXB converter which only applies to objects with a  * JAXB annotation on them  *  * @version  * @deprecated not in use, will be removed in next Camel release.  */
 end_comment
 
 begin_annotation_defn
@@ -99,6 +99,8 @@ operator|.
 name|PARAMETER
 block|}
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|HasAnnotation
 specifier|public
 annotation_defn|@interface
