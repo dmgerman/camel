@@ -60,6 +60,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -2194,7 +2204,20 @@ name|getInitialReplayIdMap
 parameter_list|()
 block|{
 return|return
+name|Optional
+operator|.
+name|ofNullable
+argument_list|(
 name|initialReplayIdMap
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * Replay IDs to start from per channel name.      */
