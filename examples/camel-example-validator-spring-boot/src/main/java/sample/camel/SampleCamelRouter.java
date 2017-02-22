@@ -80,11 +80,9 @@ argument_list|(
 literal|"timer:hello?period={{timer.period}}"
 argument_list|)
 operator|.
-name|outputType
+name|outputTypeWithValidate
 argument_list|(
 literal|"greeting"
-argument_list|,
-literal|true
 argument_list|)
 operator|.
 name|transform

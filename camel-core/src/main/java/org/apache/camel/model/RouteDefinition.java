@@ -2100,44 +2100,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare an input type.      * @param urn input type URN      * @param validate if it's true, content validation is performed for this input type      * @return the builder      */
-DECL|method|inputType (String urn, boolean validate)
-specifier|public
-name|RouteDefinition
-name|inputType
-parameter_list|(
-name|String
-name|urn
-parameter_list|,
-name|boolean
-name|validate
-parameter_list|)
-block|{
-name|inputType
-operator|=
-operator|new
-name|InputTypeDefinition
-argument_list|()
-expr_stmt|;
-name|inputType
-operator|.
-name|setUrn
-argument_list|(
-name|urn
-argument_list|)
-expr_stmt|;
-name|inputType
-operator|.
-name|setValidate
-argument_list|(
-name|validate
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Declare an input type.      * @param urn input type URN      * @return the builder      */
+comment|/**      * Declare an input type.      *       * @see {@link org.apache.camel.spi.Transformer}      * @param urn input type URN      * @return the builder      */
 DECL|method|inputType (String urn)
 specifier|public
 name|RouteDefinition
@@ -2147,26 +2110,72 @@ name|String
 name|urn
 parameter_list|)
 block|{
-return|return
 name|inputType
+operator|=
+operator|new
+name|InputTypeDefinition
+argument_list|()
+expr_stmt|;
+name|inputType
+operator|.
+name|setUrn
 argument_list|(
 name|urn
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|inputType
+operator|.
+name|setValidate
+argument_list|(
 literal|false
 argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
-comment|/**      * Declare an input type with Java class.      * @param clazz Class object of the input type      * @param validate if it's true, content validation is performed for this input type      * @return the builder      */
-DECL|method|inputType (Class clazz, boolean validate)
+comment|/**      * Declare an input type with validation enabled.      *       * @see {@link org.apache.camel.spi.Transformer}, {@link org.apache.camel.spi.Validator}      * @param urn input type URN      * @return the builder      */
+DECL|method|inputTypeWithValidate (String urn)
+specifier|public
+name|RouteDefinition
+name|inputTypeWithValidate
+parameter_list|(
+name|String
+name|urn
+parameter_list|)
+block|{
+name|inputType
+operator|=
+operator|new
+name|InputTypeDefinition
+argument_list|()
+expr_stmt|;
+name|inputType
+operator|.
+name|setUrn
+argument_list|(
+name|urn
+argument_list|)
+expr_stmt|;
+name|inputType
+operator|.
+name|setValidate
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Declare an input type with Java class.      *       * @see {@link org.apache.camel.spi.Transformer}      * @param clazz Class object of the input type      * @return the builder      */
+DECL|method|inputType (Class clazz)
 specifier|public
 name|RouteDefinition
 name|inputType
 parameter_list|(
 name|Class
 name|clazz
-parameter_list|,
-name|boolean
-name|validate
 parameter_list|)
 block|{
 name|inputType
@@ -2186,43 +2195,55 @@ name|inputType
 operator|.
 name|setValidate
 argument_list|(
-name|validate
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare an input type with Java class.      * @param clazz Class object of the input type      * @return the builder      */
-DECL|method|inputType (Class clazz)
+comment|/**      * Declare an input type with Java class with validation enabled.      *       * @see {@link org.apache.camel.spi.Transformer}, {@link org.apache.camel.spi.Validator}      * @param clazz Class object of the input type      * @return the builder      */
+DECL|method|inputTypeWithValidate (Class clazz)
 specifier|public
 name|RouteDefinition
-name|inputType
+name|inputTypeWithValidate
 parameter_list|(
 name|Class
 name|clazz
 parameter_list|)
 block|{
-return|return
 name|inputType
+operator|=
+operator|new
+name|InputTypeDefinition
+argument_list|()
+expr_stmt|;
+name|inputType
+operator|.
+name|setJavaClass
 argument_list|(
 name|clazz
-argument_list|,
-literal|false
 argument_list|)
+expr_stmt|;
+name|inputType
+operator|.
+name|setValidate
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
-comment|/**      * Declare an output type.      * @param urn output type URN      * @param validate if it's true, content validation is performed for this output type      * @return the builder      */
-DECL|method|outputType (String urn, boolean validate)
+comment|/**      * Declare an output type.      *       * @see {@link org.apache.camel.spi.Transformer}      * @param urn output type URN      * @return the builder      */
+DECL|method|outputType (String urn)
 specifier|public
 name|RouteDefinition
 name|outputType
 parameter_list|(
 name|String
 name|urn
-parameter_list|,
-name|boolean
-name|validate
 parameter_list|)
 block|{
 name|outputType
@@ -2242,43 +2263,55 @@ name|outputType
 operator|.
 name|setValidate
 argument_list|(
-name|validate
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare an output type.      * @param urn output type URN      * @return the builder      */
-DECL|method|outputType (String urn)
+comment|/**      * Declare an output type with validation enabled.      *       * @see {@link org.apache.camel.spi.Transformer}, {@link org.apache.camel.spi.Validator}      * @param urn output type URN      * @return the builder      */
+DECL|method|outputTypeWithValidate (String urn)
 specifier|public
 name|RouteDefinition
-name|outputType
+name|outputTypeWithValidate
 parameter_list|(
 name|String
 name|urn
 parameter_list|)
 block|{
-return|return
 name|outputType
+operator|=
+operator|new
+name|OutputTypeDefinition
+argument_list|()
+expr_stmt|;
+name|outputType
+operator|.
+name|setUrn
 argument_list|(
 name|urn
-argument_list|,
-literal|false
 argument_list|)
+expr_stmt|;
+name|outputType
+operator|.
+name|setValidate
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
-comment|/**      * Declare an output type with Java class.      * @param clazz Class object of the output type      * @param validate if it's true, content validation is performed for this output type      * @return the builder      */
-DECL|method|outputType (Class clazz, boolean validate)
+comment|/**      * Declare an output type with Java class.      *       * @see {@link org.apache.camel.spi.Transformer}      * @param clazz Class object of the output type      * @return the builder      */
+DECL|method|outputType (Class clazz)
 specifier|public
 name|RouteDefinition
 name|outputType
 parameter_list|(
 name|Class
 name|clazz
-parameter_list|,
-name|boolean
-name|validate
 parameter_list|)
 block|{
 name|outputType
@@ -2298,30 +2331,45 @@ name|outputType
 operator|.
 name|setValidate
 argument_list|(
-name|validate
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare an output type with Java class.      * @param clazz Class object of the output type      * @return the builder      */
-DECL|method|outputType (Class clazz)
+comment|/**      * Declare an output type with Java class with validation enabled.      *       * @see {@link org.apache.camel.spi.Transformer}, {@link org.apache.camel.spi.Validator}      * @param clazz Class object of the output type      * @return the builder      */
+DECL|method|outputTypeWithValidate (Class clazz)
 specifier|public
 name|RouteDefinition
-name|outputType
+name|outputTypeWithValidate
 parameter_list|(
 name|Class
 name|clazz
 parameter_list|)
 block|{
-return|return
 name|outputType
+operator|=
+operator|new
+name|OutputTypeDefinition
+argument_list|()
+expr_stmt|;
+name|outputType
+operator|.
+name|setJavaClass
 argument_list|(
 name|clazz
-argument_list|,
-literal|false
 argument_list|)
+expr_stmt|;
+name|outputType
+operator|.
+name|setValidate
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|// Properties
