@@ -4410,6 +4410,12 @@ block|}
 name|int
 name|selectors
 init|=
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|1
+argument_list|,
 name|Runtime
 operator|.
 name|getRuntime
@@ -4419,6 +4425,7 @@ name|availableProcessors
 argument_list|()
 operator|/
 literal|2
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
