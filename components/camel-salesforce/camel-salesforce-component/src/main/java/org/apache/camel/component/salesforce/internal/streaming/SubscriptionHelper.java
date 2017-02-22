@@ -2390,7 +2390,7 @@ decl_stmt|;
 specifier|final
 name|Optional
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|replayId
 init|=
@@ -2436,7 +2436,7 @@ DECL|method|determineReplayIdFor (final SalesforceEndpoint endpoint, final Strin
 specifier|static
 name|Optional
 argument_list|<
-name|Integer
+name|Long
 argument_list|>
 name|determineReplayIdFor
 parameter_list|(
@@ -2481,7 +2481,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|endpointInitialReplayIdMap
 init|=
@@ -2491,7 +2491,7 @@ name|getInitialReplayIdMap
 argument_list|()
 decl_stmt|;
 specifier|final
-name|Integer
+name|Long
 name|endpointReplayId
 init|=
 name|endpointInitialReplayIdMap
@@ -2509,7 +2509,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Integer
+name|Long
 name|endpointDefaultReplayId
 init|=
 name|endpointConfiguration
@@ -2531,7 +2531,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|componentInitialReplayIdMap
 init|=
@@ -2541,7 +2541,7 @@ name|getInitialReplayIdMap
 argument_list|()
 decl_stmt|;
 specifier|final
-name|Integer
+name|Long
 name|componentReplayId
 init|=
 name|componentInitialReplayIdMap
@@ -2559,7 +2559,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Integer
+name|Long
 name|componentDefaultReplayId
 init|=
 name|componentConfiguration

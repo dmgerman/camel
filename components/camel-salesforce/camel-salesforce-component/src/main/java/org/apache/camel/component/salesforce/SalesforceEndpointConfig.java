@@ -835,7 +835,7 @@ annotation|@
 name|UriParam
 DECL|field|defaultReplayId
 specifier|private
-name|Integer
+name|Long
 name|defaultReplayId
 decl_stmt|;
 annotation|@
@@ -846,7 +846,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|initialReplayIdMap
 decl_stmt|;
@@ -2167,7 +2167,7 @@ return|;
 block|}
 DECL|method|getDefaultReplayId ()
 specifier|public
-name|Integer
+name|Long
 name|getDefaultReplayId
 parameter_list|()
 block|{
@@ -2176,12 +2176,12 @@ name|defaultReplayId
 return|;
 block|}
 comment|/**      * Default replayId setting if no value is found in {@link #initialReplayIdMap}      *       * @param defaultReplayId      */
-DECL|method|setDefaultReplayId (Integer defaultReplayId)
+DECL|method|setDefaultReplayId (Long defaultReplayId)
 specifier|public
 name|void
 name|setDefaultReplayId
 parameter_list|(
-name|Integer
+name|Long
 name|defaultReplayId
 parameter_list|)
 block|{
@@ -2198,7 +2198,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|getInitialReplayIdMap
 parameter_list|()
@@ -2221,7 +2221,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Replay IDs to start from per channel name.      */
-DECL|method|setInitialReplayIdMap (Map<String, Integer> initialReplayIdMap)
+DECL|method|setInitialReplayIdMap (Map<String, Long> initialReplayIdMap)
 specifier|public
 name|void
 name|setInitialReplayIdMap
@@ -2230,7 +2230,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|initialReplayIdMap
 parameter_list|)

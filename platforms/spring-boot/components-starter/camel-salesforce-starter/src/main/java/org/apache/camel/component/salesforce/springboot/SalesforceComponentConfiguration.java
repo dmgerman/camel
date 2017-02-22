@@ -1573,7 +1573,7 @@ decl_stmt|;
 comment|/**          * Default replayId setting if no value is found in          * {@link #initialReplayIdMap}          *           * @param defaultReplayId          */
 DECL|field|defaultReplayId
 specifier|private
-name|Integer
+name|Long
 name|defaultReplayId
 decl_stmt|;
 comment|/**          * Replay IDs to start from per channel name.          */
@@ -2516,7 +2516,7 @@ expr_stmt|;
 block|}
 DECL|method|getDefaultReplayId ()
 specifier|public
-name|Integer
+name|Long
 name|getDefaultReplayId
 parameter_list|()
 block|{
@@ -2524,12 +2524,12 @@ return|return
 name|defaultReplayId
 return|;
 block|}
-DECL|method|setDefaultReplayId (Integer defaultReplayId)
+DECL|method|setDefaultReplayId (Long defaultReplayId)
 specifier|public
 name|void
 name|setDefaultReplayId
 parameter_list|(
-name|Integer
+name|Long
 name|defaultReplayId
 parameter_list|)
 block|{

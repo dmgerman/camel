@@ -199,7 +199,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Integer
+name|Long
 argument_list|>
 name|initialReplayIdMap
 init|=
@@ -214,7 +214,7 @@ name|put
 argument_list|(
 literal|"my-topic-1"
 argument_list|,
-literal|10
+literal|10L
 argument_list|)
 expr_stmt|;
 name|initialReplayIdMap
@@ -223,7 +223,7 @@ name|put
 argument_list|(
 literal|"/topic/my-topic-1"
 argument_list|,
-literal|20
+literal|20L
 argument_list|)
 expr_stmt|;
 name|initialReplayIdMap
@@ -232,7 +232,7 @@ name|put
 argument_list|(
 literal|"/topic/my-topic-2"
 argument_list|,
-literal|30
+literal|30L
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -247,7 +247,7 @@ name|config
 operator|.
 name|setDefaultReplayId
 argument_list|(
-literal|14
+literal|14L
 argument_list|)
 expr_stmt|;
 name|config
@@ -328,7 +328,7 @@ name|Optional
 operator|.
 name|of
 argument_list|(
-literal|10
+literal|10L
 argument_list|)
 argument_list|,
 name|determineReplayIdFor
@@ -347,7 +347,7 @@ name|Optional
 operator|.
 name|of
 argument_list|(
-literal|30
+literal|30L
 argument_list|)
 argument_list|,
 name|determineReplayIdFor
@@ -366,7 +366,7 @@ name|Optional
 operator|.
 name|of
 argument_list|(
-literal|14
+literal|14L
 argument_list|)
 argument_list|,
 name|determineReplayIdFor
@@ -398,7 +398,7 @@ name|componentConfig
 operator|.
 name|setDefaultReplayId
 argument_list|(
-literal|1
+literal|1L
 argument_list|)
 expr_stmt|;
 name|componentConfig
@@ -411,7 +411,7 @@ name|singletonMap
 argument_list|(
 literal|"my-topic-1"
 argument_list|,
-literal|2
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -425,7 +425,7 @@ name|singletonMap
 argument_list|(
 literal|"my-topic-2"
 argument_list|,
-literal|3
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -441,7 +441,7 @@ name|endpointConfig
 operator|.
 name|setDefaultReplayId
 argument_list|(
-literal|4
+literal|4L
 argument_list|)
 expr_stmt|;
 name|endpointConfig
@@ -454,7 +454,7 @@ name|singletonMap
 argument_list|(
 literal|"my-topic-1"
 argument_list|,
-literal|5
+literal|5L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -527,7 +527,7 @@ name|Optional
 operator|.
 name|of
 argument_list|(
-literal|5
+literal|5L
 argument_list|)
 argument_list|,
 name|determineReplayIdFor
@@ -546,7 +546,7 @@ name|Optional
 operator|.
 name|of
 argument_list|(
-literal|3
+literal|3L
 argument_list|)
 argument_list|,
 name|determineReplayIdFor
@@ -565,7 +565,7 @@ name|Optional
 operator|.
 name|of
 argument_list|(
-literal|4
+literal|4L
 argument_list|)
 argument_list|,
 name|determineReplayIdFor
@@ -591,7 +591,7 @@ name|Optional
 operator|.
 name|of
 argument_list|(
-literal|1
+literal|1L
 argument_list|)
 argument_list|,
 name|determineReplayIdFor
