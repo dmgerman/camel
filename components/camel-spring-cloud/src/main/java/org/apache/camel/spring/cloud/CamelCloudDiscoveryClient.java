@@ -154,7 +154,7 @@ name|serviceDiscovery
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|CamelCloudDiscoveryClient (String description, ServiceInstance localServiceDiscovery,ServiceDiscovery serviceDiscovery)
+DECL|method|CamelCloudDiscoveryClient (String description, ServiceInstance localServiceDiscovery, ServiceDiscovery serviceDiscovery)
 specifier|public
 name|CamelCloudDiscoveryClient
 parameter_list|(

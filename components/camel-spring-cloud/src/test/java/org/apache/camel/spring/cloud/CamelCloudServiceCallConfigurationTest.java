@@ -250,6 +250,7 @@ name|class
 argument_list|)
 annotation|@
 name|SpringBootApplication
+argument_list|()
 annotation|@
 name|SpringBootTest
 argument_list|(

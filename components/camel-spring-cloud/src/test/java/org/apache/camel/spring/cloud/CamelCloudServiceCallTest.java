@@ -180,7 +180,7 @@ name|CamelCloudAutoConfiguration
 operator|.
 name|class
 block|,
-name|CamelCloudServiceCallConfiguration
+name|CamelCloudServiceCallRoutesAutoConfiguration
 operator|.
 name|class
 block|}
