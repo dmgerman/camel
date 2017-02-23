@@ -772,6 +772,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|picked
+argument_list|,
+name|collectionType
 argument_list|)
 expr_stmt|;
 block|}
@@ -872,7 +874,7 @@ name|picked
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|injectAsCollection (Exchange oldExchange, E picked)
+DECL|method|injectAsCollection (Exchange oldExchange, E picked, Class<? extends Collection> collectionType)
 specifier|private
 name|void
 name|injectAsCollection
@@ -882,6 +884,14 @@ name|oldExchange
 parameter_list|,
 name|E
 name|picked
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Collection
+argument_list|>
+name|collectionType
 parameter_list|)
 block|{
 name|Collection
@@ -895,6 +905,8 @@ operator|.
 name|getValueAsCollection
 argument_list|(
 name|oldExchange
+argument_list|,
+name|collectionType
 argument_list|)
 decl_stmt|;
 name|col
@@ -1195,7 +1207,7 @@ name|E
 name|obj
 parameter_list|)
 function_decl|;
-DECL|method|getValueAsCollection (Exchange exchange)
+DECL|method|getValueAsCollection (Exchange exchange, Class<? extends Collection> type)
 specifier|public
 specifier|abstract
 name|Collection
@@ -1206,6 +1218,14 @@ name|getValueAsCollection
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Collection
+argument_list|>
+name|type
 parameter_list|)
 function_decl|;
 DECL|method|setValueAsCollection (Exchange exchange, Collection<E> obj)
@@ -1334,7 +1354,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|getValueAsCollection (Exchange exchange)
+DECL|method|getValueAsCollection (Exchange exchange, Class<? extends Collection> type)
 specifier|public
 name|Collection
 argument_list|<
@@ -1344,7 +1364,50 @@ name|getValueAsCollection
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Collection
+argument_list|>
+name|type
 parameter_list|)
+block|{
+name|Object
+name|value
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|propertyName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// empty so create a new collection to host this
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getInjector
+argument_list|()
+operator|.
+name|newInstance
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+else|else
 block|{
 return|return
 name|exchange
@@ -1353,11 +1416,10 @@ name|getProperty
 argument_list|(
 name|propertyName
 argument_list|,
-name|Collection
-operator|.
-name|class
+name|type
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1505,7 +1567,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|getValueAsCollection (Exchange exchange)
+DECL|method|getValueAsCollection (Exchange exchange, Class<? extends Collection> type)
 specifier|public
 name|Collection
 argument_list|<
@@ -1515,7 +1577,53 @@ name|getValueAsCollection
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Collection
+argument_list|>
+name|type
 parameter_list|)
+block|{
+name|Object
+name|value
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// empty so create a new collection to host this
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getInjector
+argument_list|()
+operator|.
+name|newInstance
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+else|else
 block|{
 return|return
 name|exchange
@@ -1527,11 +1635,10 @@ name|getHeader
 argument_list|(
 name|headerName
 argument_list|,
-name|Collection
-operator|.
-name|class
+name|type
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1664,7 +1771,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|getValueAsCollection (Exchange exchange)
+DECL|method|getValueAsCollection (Exchange exchange, Class<? extends Collection> type)
 specifier|public
 name|Collection
 argument_list|<
@@ -1674,7 +1781,51 @@ name|getValueAsCollection
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Collection
+argument_list|>
+name|type
 parameter_list|)
+block|{
+name|Object
+name|value
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+comment|// empty so create a new collection to host this
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getInjector
+argument_list|()
+operator|.
+name|newInstance
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+else|else
 block|{
 return|return
 name|exchange
@@ -1684,11 +1835,10 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|Collection
-operator|.
-name|class
+name|type
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
