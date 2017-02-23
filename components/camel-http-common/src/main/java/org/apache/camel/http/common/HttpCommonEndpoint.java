@@ -679,6 +679,22 @@ specifier|private
 name|CookieHandler
 name|cookieHandler
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Configure the http Method to use as URI param. In case this is set, it can't be overriden by the HttpMethod header."
+argument_list|)
+DECL|field|httpMethod
+specifier|private
+name|String
+name|httpMethod
+decl_stmt|;
 DECL|method|HttpCommonEndpoint ()
 specifier|public
 name|HttpCommonEndpoint
@@ -1758,6 +1774,33 @@ operator|.
 name|cookieHandler
 operator|=
 name|cookieHandler
+expr_stmt|;
+block|}
+DECL|method|getHttpMethod ()
+specifier|public
+name|String
+name|getHttpMethod
+parameter_list|()
+block|{
+return|return
+name|httpMethod
+return|;
+block|}
+comment|/**      * Configure the Http method to use      */
+DECL|method|setHttpMethod (String httpMethod)
+specifier|public
+name|void
+name|setHttpMethod
+parameter_list|(
+name|String
+name|httpMethod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpMethod
+operator|=
+name|httpMethod
 expr_stmt|;
 block|}
 block|}
