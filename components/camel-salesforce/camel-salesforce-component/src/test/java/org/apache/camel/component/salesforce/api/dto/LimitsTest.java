@@ -230,6 +230,18 @@ name|junit
 operator|.
 name|Assert
 operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
 name|assertThat
 import|;
 end_import
@@ -345,17 +357,48 @@ name|Limits
 operator|)
 name|read
 decl_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Should have some usage present"
-argument_list|,
+specifier|final
+name|Usage
+name|dailyApiRequests
+init|=
 name|limits
 operator|.
 name|getDailyApiRequests
 argument_list|()
+decl_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Should have some usage present"
+argument_list|,
+name|dailyApiRequests
 operator|.
 name|isUnknown
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Per application usage should be present"
+argument_list|,
+name|dailyApiRequests
+operator|.
+name|getPerApplicationUsage
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"'Camel Salesman' application usage should be present"
+argument_list|,
+name|dailyApiRequests
+operator|.
+name|forApplication
+argument_list|(
+literal|"Camel Salesman"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -48,7 +48,47 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -61,6 +101,20 @@ operator|.
 name|stream
 operator|.
 name|Collectors
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
+name|JsonAnySetter
 import|;
 end_import
 
@@ -413,6 +467,22 @@ specifier|final
 name|int
 name|remaining
 decl_stmt|;
+DECL|field|perApplication
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Usage
+argument_list|>
+name|perApplication
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
 annotation|@
 name|JsonCreator
 DECL|method|Usage (@sonPropertyR) final int max, @JsonProperty(R) final int remaining)
@@ -450,6 +520,51 @@ operator|=
 name|remaining
 expr_stmt|;
 block|}
+comment|/** Returns {@link Usage} for application */
+DECL|method|forApplication (final String application)
+specifier|public
+name|Optional
+argument_list|<
+name|Usage
+argument_list|>
+name|forApplication
+parameter_list|(
+specifier|final
+name|String
+name|application
+parameter_list|)
+block|{
+return|return
+name|Optional
+operator|.
+name|ofNullable
+argument_list|(
+name|perApplication
+operator|.
+name|get
+argument_list|(
+name|application
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/** Further per application usage. */
+DECL|method|getApplications ()
+specifier|public
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getApplications
+parameter_list|()
+block|{
+return|return
+name|perApplication
+operator|.
+name|keySet
+argument_list|()
+return|;
+block|}
 comment|/** Maximum allowed by the limit */
 DECL|method|getMax ()
 specifier|public
@@ -459,6 +574,27 @@ parameter_list|()
 block|{
 return|return
 name|max
+return|;
+block|}
+comment|/** Returns usages per application */
+DECL|method|getPerApplicationUsage ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Usage
+argument_list|>
+name|getPerApplicationUsage
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|perApplication
+argument_list|)
 return|;
 block|}
 comment|/** Remaining invocations allowed */
@@ -519,7 +655,36 @@ operator|+
 literal|", Remaining: "
 operator|+
 name|remaining
+operator|+
+literal|", per application: "
+operator|+
+name|perApplication
 return|;
+block|}
+annotation|@
+name|JsonAnySetter
+DECL|method|addApplicationUsage (final String application, final Usage usage)
+name|void
+name|addApplicationUsage
+parameter_list|(
+specifier|final
+name|String
+name|application
+parameter_list|,
+specifier|final
+name|Usage
+name|usage
+parameter_list|)
+block|{
+name|perApplication
+operator|.
+name|put
+argument_list|(
+name|application
+argument_list|,
+name|usage
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|field|serialVersionUID
