@@ -177,14 +177,14 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|method|addTopicReplayId (final String topicName, final long replayId)
+DECL|method|addChannelReplayId (final String channelName, final long replayId)
 specifier|public
 name|void
-name|addTopicReplayId
+name|addChannelReplayId
 parameter_list|(
 specifier|final
 name|String
-name|topicName
+name|channelName
 parameter_list|,
 specifier|final
 name|long
@@ -195,7 +195,7 @@ name|dataMap
 operator|.
 name|put
 argument_list|(
-name|topicName
+name|channelName
 argument_list|,
 name|replayId
 argument_list|)
