@@ -916,10 +916,10 @@ return|return
 name|oauthTokenUrl
 return|;
 block|}
-DECL|method|hasOautTokenUrl ()
+DECL|method|hasOauthTokenUrl ()
 specifier|public
 name|boolean
-name|hasOautTokenUrl
+name|hasOauthTokenUrl
 parameter_list|()
 block|{
 return|return

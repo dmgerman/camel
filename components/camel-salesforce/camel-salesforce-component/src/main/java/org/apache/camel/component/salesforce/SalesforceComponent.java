@@ -168,7 +168,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ComponentVerifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|VerifiableComponent
 import|;
 end_import
 
@@ -563,6 +587,17 @@ comment|/**  * Represents the component that manages {@link SalesforceEndpoint}.
 end_comment
 
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"verifiers"
+argument_list|,
+name|enums
+operator|=
+literal|"PARAMETERS,CONNECTIVITY"
+argument_list|)
 DECL|class|SalesforceComponent
 specifier|public
 class|class
@@ -571,6 +606,8 @@ extends|extends
 name|UriEndpointComponent
 implements|implements
 name|EndpointCompleter
+implements|,
+name|VerifiableComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -589,7 +626,6 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|CONNECTION_TIMEOUT
-specifier|private
 specifier|static
 specifier|final
 name|int
@@ -598,7 +634,6 @@ init|=
 literal|60000
 decl_stmt|;
 DECL|field|SOBJECT_NAME_PATTERN
-specifier|private
 specifier|static
 specifier|final
 name|Pattern
@@ -612,7 +647,6 @@ literal|"^.*[\\?&]sObjectName=([^&,]+).*$"
 argument_list|)
 decl_stmt|;
 DECL|field|APEX_CALL_PREFIX
-specifier|private
 specifier|static
 specifier|final
 name|String
@@ -3240,6 +3274,22 @@ parameter_list|()
 block|{
 return|return
 name|classMap
+return|;
+block|}
+comment|/**      * TODO: document      */
+DECL|method|getVerifier ()
+specifier|public
+name|ComponentVerifier
+name|getVerifier
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SalesforceComponentVerifier
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

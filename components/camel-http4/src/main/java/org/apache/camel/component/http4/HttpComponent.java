@@ -122,6 +122,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ComponentVerifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -135,6 +147,18 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|VerifiableComponent
 import|;
 end_import
 
@@ -609,6 +633,17 @@ comment|/**  * Defines the<a href="http://camel.apache.org/http4.html">HTTP4  * 
 end_comment
 
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"verifiers"
+argument_list|,
+name|enums
+operator|=
+literal|"PARAMETERS,CONNECTIVITY"
+argument_list|)
 DECL|class|HttpComponent
 specifier|public
 class|class
@@ -617,6 +652,8 @@ extends|extends
 name|HttpCommonComponent
 implements|implements
 name|RestProducerFactory
+implements|,
+name|VerifiableComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -2930,6 +2967,21 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * TODO: document      */
+DECL|method|getVerifier ()
+specifier|public
+name|ComponentVerifier
+name|getVerifier
+parameter_list|()
+block|{
+return|return
+operator|new
+name|HttpComponentVerifier
+argument_list|(
+name|this
+argument_list|)
+return|;
 block|}
 block|}
 end_class

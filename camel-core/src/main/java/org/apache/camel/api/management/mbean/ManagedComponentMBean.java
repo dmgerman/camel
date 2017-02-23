@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -29,6 +39,18 @@ operator|.
 name|openmbean
 operator|.
 name|TabularData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ComponentVerifier
 import|;
 end_import
 
@@ -143,6 +165,31 @@ name|explain
 parameter_list|(
 name|boolean
 name|allOptions
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Verify options against a given scope"
+argument_list|)
+DECL|method|verify (String scope, Map<String, String> options)
+name|ComponentVerifier
+operator|.
+name|Result
+name|verify
+parameter_list|(
+name|String
+name|scope
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|options
 parameter_list|)
 function_decl|;
 block|}

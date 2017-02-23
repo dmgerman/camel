@@ -155,10 +155,14 @@ name|String
 name|host
 parameter_list|)
 block|{
+name|this
+operator|.
 name|username
 operator|=
 name|user
 expr_stmt|;
+name|this
+operator|.
 name|password
 operator|=
 name|pwd

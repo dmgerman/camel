@@ -87,6 +87,11 @@ specifier|private
 name|String
 name|label
 decl_stmt|;
+DECL|field|verifiers
+specifier|private
+name|String
+name|verifiers
+decl_stmt|;
 DECL|field|consumerOnly
 specifier|private
 name|boolean
@@ -421,6 +426,32 @@ operator|.
 name|label
 operator|=
 name|label
+expr_stmt|;
+block|}
+DECL|method|getVerifiers ()
+specifier|public
+name|String
+name|getVerifiers
+parameter_list|()
+block|{
+return|return
+name|verifiers
+return|;
+block|}
+DECL|method|setVerifiers (String verifiers)
+specifier|public
+name|void
+name|setVerifiers
+parameter_list|(
+name|String
+name|verifiers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|verifiers
+operator|=
+name|verifiers
 expr_stmt|;
 block|}
 DECL|method|isConsumerOnly ()

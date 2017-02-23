@@ -751,6 +751,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConfiguration (String uri)
 specifier|public
 name|EndpointConfiguration
@@ -787,6 +789,8 @@ return|return
 name|config
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|useRawUri ()
 specifier|public
 name|boolean
