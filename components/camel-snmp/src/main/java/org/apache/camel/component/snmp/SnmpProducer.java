@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A snmp producer  *   *  */
+comment|/**  * A snmp producer  */
 end_comment
 
 begin_class
