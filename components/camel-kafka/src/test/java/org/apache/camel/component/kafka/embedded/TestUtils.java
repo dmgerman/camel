@@ -70,6 +70,32 @@ name|Random
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|RandomStringUtils
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|io
+operator|.
+name|File
+operator|.
+name|separator
+import|;
+end_import
+
 begin_class
 DECL|class|TestUtils
 specifier|final
@@ -87,19 +113,33 @@ operator|new
 name|Random
 argument_list|()
 decl_stmt|;
+DECL|field|TMPDIR
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TMPDIR
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+decl_stmt|;
 DECL|method|TestUtils ()
 specifier|private
 name|TestUtils
 parameter_list|()
 block|{     }
-DECL|method|constructTempDir (String dirPrefix)
+DECL|method|constructTempDir (String suffix)
 specifier|public
 specifier|static
 name|File
 name|constructTempDir
 parameter_list|(
 name|String
-name|dirPrefix
+name|suffix
 parameter_list|)
 block|{
 name|File
@@ -108,21 +148,11 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.io.tmpdir"
-argument_list|)
-argument_list|,
-name|dirPrefix
+name|TMPDIR
 operator|+
-name|RANDOM
-operator|.
-name|nextInt
-argument_list|(
-literal|10000000
-argument_list|)
+name|separator
+operator|+
+name|suffix
 argument_list|)
 decl_stmt|;
 if|if
@@ -154,6 +184,29 @@ argument_list|()
 expr_stmt|;
 return|return
 name|file
+return|;
+block|}
+DECL|method|perTest (String directory)
+specifier|public
+specifier|static
+name|String
+name|perTest
+parameter_list|(
+name|String
+name|directory
+parameter_list|)
+block|{
+return|return
+name|RandomStringUtils
+operator|.
+name|randomAlphanumeric
+argument_list|(
+literal|8
+argument_list|)
+operator|+
+literal|"-"
+operator|+
+name|directory
 return|;
 block|}
 DECL|method|getAvailablePort ()
