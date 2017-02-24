@@ -295,6 +295,22 @@ specifier|final
 name|SalesforceEndpointConfig
 name|config
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"The replayId value to use when subscribing"
+argument_list|)
+DECL|field|replayId
+specifier|private
+name|Long
+name|replayId
+decl_stmt|;
 DECL|method|SalesforceEndpoint (String uri, SalesforceComponent salesforceComponent, SalesforceEndpointConfig config, OperationName operationName, String topicName)
 specifier|public
 name|SalesforceEndpoint
@@ -530,6 +546,33 @@ parameter_list|()
 block|{
 return|return
 name|topicName
+return|;
+block|}
+DECL|method|setReplayId (final Long replayId)
+specifier|public
+name|void
+name|setReplayId
+parameter_list|(
+specifier|final
+name|Long
+name|replayId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replayId
+operator|=
+name|replayId
+expr_stmt|;
+block|}
+DECL|method|getReplayId ()
+specifier|public
+name|Long
+name|getReplayId
+parameter_list|()
+block|{
+return|return
+name|replayId
 return|;
 block|}
 annotation|@

@@ -2476,6 +2476,15 @@ name|topicName
 argument_list|)
 decl_stmt|;
 specifier|final
+name|Long
+name|replayId
+init|=
+name|endpoint
+operator|.
+name|getReplayId
+argument_list|()
+decl_stmt|;
+specifier|final
 name|SalesforceComponent
 name|component
 init|=
@@ -2591,6 +2600,8 @@ name|Stream
 operator|.
 name|of
 argument_list|(
+name|replayId
+argument_list|,
 name|endpointReplayId
 argument_list|,
 name|componentReplayId
