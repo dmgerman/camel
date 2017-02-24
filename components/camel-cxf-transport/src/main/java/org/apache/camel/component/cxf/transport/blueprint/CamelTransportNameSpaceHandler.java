@@ -96,7 +96,7 @@ name|aries
 operator|.
 name|blueprint
 operator|.
-name|NamespaceHandler
+name|ParserContext
 import|;
 end_import
 
@@ -106,11 +106,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|aries
+name|cxf
 operator|.
-name|blueprint
+name|helpers
 operator|.
-name|ParserContext
+name|BaseNamespaceHandler
 import|;
 end_import
 
@@ -171,8 +171,8 @@ DECL|class|CamelTransportNameSpaceHandler
 specifier|public
 class|class
 name|CamelTransportNameSpaceHandler
-implements|implements
-name|NamespaceHandler
+extends|extends
+name|BaseNamespaceHandler
 block|{
 DECL|field|LOG
 specifier|private
@@ -250,6 +250,16 @@ name|String
 name|s
 parameter_list|)
 block|{
+if|if
+condition|(
+literal|"http://cxf.apache.org/transports/camel/blueprint"
+operator|.
+name|equals
+argument_list|(
+name|s
+argument_list|)
+condition|)
+block|{
 return|return
 name|getClass
 argument_list|()
@@ -260,6 +270,15 @@ operator|.
 name|getResource
 argument_list|(
 literal|"schema/blueprint/camel.xsd"
+argument_list|)
+return|;
+block|}
+return|return
+name|super
+operator|.
+name|findCoreSchemaLocation
+argument_list|(
+name|s
 argument_list|)
 return|;
 block|}

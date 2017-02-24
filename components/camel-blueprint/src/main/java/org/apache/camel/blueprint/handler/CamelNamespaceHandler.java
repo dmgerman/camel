@@ -1698,6 +1698,16 @@ name|String
 name|namespace
 parameter_list|)
 block|{
+if|if
+condition|(
+name|BLUEPRINT_NS
+operator|.
+name|equals
+argument_list|(
+name|namespace
+argument_list|)
+condition|)
+block|{
 return|return
 name|getClass
 argument_list|()
@@ -1709,6 +1719,10 @@ name|getResource
 argument_list|(
 literal|"camel-blueprint.xsd"
 argument_list|)
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 annotation|@
