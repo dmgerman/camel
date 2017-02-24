@@ -709,6 +709,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|this
+operator|.
+name|type
+operator|==
+name|SnmpActionType
+operator|.
+name|TRAP
+condition|)
+block|{
+return|return
+operator|new
+name|SnmpTrapProducer
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 operator|new
 name|SnmpProducer
@@ -716,6 +737,7 @@ argument_list|(
 name|this
 argument_list|)
 return|;
+block|}
 block|}
 DECL|method|isSingleton ()
 specifier|public
