@@ -2444,38 +2444,31 @@ name|getRawQuery
 argument_list|()
 expr_stmt|;
 block|}
-comment|// compute what method to use either GET or POST
 name|HttpMethods
 name|answer
 decl_stmt|;
 if|if
 condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
 name|endpoint
 operator|.
 name|getHttpMethod
 argument_list|()
-argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
+comment|// endpoint configured take precedence
 name|answer
 operator|=
-name|HttpMethods
-operator|.
-name|valueOf
-argument_list|(
 name|endpoint
 operator|.
 name|getHttpMethod
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
+comment|// compute what method to use either GET or POST (header take precedence)
 name|HttpMethods
 name|m
 init|=

@@ -292,17 +292,15 @@ name|answer
 decl_stmt|;
 if|if
 condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
 name|endpoint
 operator|.
 name|getHttpMethod
 argument_list|()
-argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
+comment|// endpoint configured take precedence
 name|answer
 operator|=
 name|HttpMethods
@@ -313,11 +311,15 @@ name|endpoint
 operator|.
 name|getHttpMethod
 argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
+comment|// compute what method to use either GET or POST (header take precedence)
 name|HttpMethods
 name|m
 init|=

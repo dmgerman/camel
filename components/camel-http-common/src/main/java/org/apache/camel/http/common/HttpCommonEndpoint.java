@@ -181,6 +181,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
 name|description
 operator|=
 literal|"To use a custom HeaderFilterStrategy to filter header to and from Camel message."
@@ -196,6 +200,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"common,advanced"
+argument_list|,
 name|description
 operator|=
 literal|"To use a custom HttpBinding to control the mapping between Camel message and HttpClient."
@@ -365,7 +373,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,security"
 argument_list|,
 name|enums
 operator|=
@@ -424,7 +432,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|description
 operator|=
@@ -439,7 +447,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|description
 operator|=
@@ -522,7 +530,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|description
 operator|=
@@ -608,7 +616,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -638,6 +646,8 @@ literal|"Refers to a custom org.apache.camel.component.http.UrlRewrite which all
 operator|+
 literal|" See more details at http://camel.apache.org/urlrewrite.html"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|field|urlRewrite
 specifier|private
 name|UrlRewrite
@@ -668,7 +678,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|description
 operator|=
@@ -688,11 +698,11 @@ literal|"producer"
 argument_list|,
 name|description
 operator|=
-literal|"Configure the http Method to use as URI param. In case this is set, it can't be overriden by the HttpMethod header."
+literal|"Configure the HTTP method to use. The HttpMethod header cannot override this option if set."
 argument_list|)
 DECL|field|httpMethod
 specifier|private
-name|String
+name|HttpMethods
 name|httpMethod
 decl_stmt|;
 DECL|method|HttpCommonEndpoint ()
@@ -1479,6 +1489,8 @@ operator|=
 name|httpMethodRestrict
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getUrlRewrite ()
 specifier|public
 name|UrlRewrite
@@ -1490,6 +1502,8 @@ name|urlRewrite
 return|;
 block|}
 comment|/**      * Refers to a custom org.apache.camel.component.http.UrlRewrite which allows you to rewrite urls when you bridge/proxy endpoints.      * See more details at http://camel.apache.org/urlrewrite.html      */
+annotation|@
+name|Deprecated
 DECL|method|setUrlRewrite (UrlRewrite urlRewrite)
 specifier|public
 name|void
@@ -1732,7 +1746,7 @@ return|return
 name|async
 return|;
 block|}
-comment|/**      * If this option is true, the consumer will work in async mode      * @param async      */
+comment|/**      * If this option is true, the consumer will work in async mode      */
 DECL|method|setAsync (boolean async)
 specifier|public
 name|void
@@ -1778,7 +1792,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpMethod ()
 specifier|public
-name|String
+name|HttpMethods
 name|getHttpMethod
 parameter_list|()
 block|{
@@ -1786,13 +1800,13 @@ return|return
 name|httpMethod
 return|;
 block|}
-comment|/**      * Configure the Http method to use      */
-DECL|method|setHttpMethod (String httpMethod)
+comment|/**      * Configure the HTTP method to use. The HttpMethod header cannot override this option if set.      */
+DECL|method|setHttpMethod (HttpMethods httpMethod)
 specifier|public
 name|void
 name|setHttpMethod
 parameter_list|(
-name|String
+name|HttpMethods
 name|httpMethod
 parameter_list|)
 block|{
