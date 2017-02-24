@@ -66,9 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Synchronization
+name|SynchronizationAdapter
 import|;
 end_import
 
@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SessionTransactionSynchronization is called at the completion of each {@link org.apache.camel.Exhcnage}.  */
+comment|/**  * SessionTransactionSynchronization is called at the completion of each {@link org.apache.camel.Exchange}.  *<p/>  * The commit or rollback on the {@link Session} must be performed from the same thread that consumed the message.  */
 end_comment
 
 begin_class
@@ -101,24 +101,28 @@ DECL|class|SessionTransactionSynchronization
 specifier|public
 class|class
 name|SessionTransactionSynchronization
-implements|implements
-name|Synchronization
+extends|extends
+name|SynchronizationAdapter
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
+specifier|static
+specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|getClass
-argument_list|()
+name|SessionTransactionSynchronization
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|session
 specifier|private
+specifier|final
 name|Session
 name|session
 decl_stmt|;
@@ -171,7 +175,6 @@ name|commitStrategy
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @param exchange      * @see org.apache.camel.spi.Synchronization#onFailure(org.apache.camel.Exchange)      */
 annotation|@
 name|Override
 DECL|method|onFailure (Exchange exchange)
@@ -195,11 +198,11 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing failure of Exchange id:{}"
+literal|"Processing failure of Exchange id: {}"
 argument_list|,
 name|exchange
 operator|.
@@ -233,7 +236,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -247,7 +250,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @param exchange      * @see org.apache.camel.spi.Synchronization#onComplete(org.apache.camel.Exchange      *)      */
 annotation|@
 name|Override
 DECL|method|onComplete (Exchange exchange)
@@ -271,11 +273,11 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing completion of Exchange id:{}"
+literal|"Processing completion of Exchange id: {}"
 argument_list|,
 name|exchange
 operator|.
@@ -309,7 +311,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -329,6 +331,19 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|allowHandover ()
+specifier|public
+name|boolean
+name|allowHandover
+parameter_list|()
+block|{
+comment|// must not handover as we should be synchronous
+return|return
+literal|false
+return|;
 block|}
 block|}
 end_class
