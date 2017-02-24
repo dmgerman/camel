@@ -924,8 +924,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using SoTimeout="
-operator|+
+literal|"Using SoTimeout={}"
+argument_list|,
 name|ftpEndpoint
 operator|.
 name|getSoTimeout
@@ -999,18 +999,13 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Attempting to login user: {} using password: {} and account: {}"
+literal|"Attempting to login user: {} using password: ******** and account: {}"
 argument_list|,
 operator|new
 name|Object
 index|[]
 block|{
 name|username
-block|,
-name|configuration
-operator|.
-name|getPassword
-argument_list|()
 block|,
 name|account
 block|}
@@ -1039,14 +1034,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Attempting to login user: {} using password: {}"
+literal|"Attempting to login user: {} using password: ********"
 argument_list|,
 name|username
-argument_list|,
-name|configuration
-operator|.
-name|getPassword
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|login
