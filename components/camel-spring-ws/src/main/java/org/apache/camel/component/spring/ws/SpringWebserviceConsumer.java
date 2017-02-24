@@ -366,16 +366,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|Message
-name|responseMessage
-init|=
-literal|null
-decl_stmt|;
-name|Source
-name|responseBody
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -395,8 +385,9 @@ throw|;
 block|}
 else|else
 block|{
+name|Message
 name|responseMessage
-operator|=
+init|=
 name|exchange
 operator|.
 name|hasOut
@@ -419,8 +410,7 @@ name|Message
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|responseMessage
@@ -428,8 +418,9 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|Source
 name|responseBody
-operator|=
+init|=
 name|responseMessage
 operator|.
 name|getBody
@@ -438,7 +429,7 @@ name|Source
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|WebServiceMessage
 name|response
 init|=
@@ -479,6 +470,7 @@ name|getPayloadResult
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|populateExchangeFromMessageContext (MessageContext messageContext, Exchange exchange)
