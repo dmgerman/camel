@@ -170,7 +170,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"the cache name"
+literal|"The name of the cache"
 argument_list|)
 annotation|@
 name|Metadata
@@ -195,7 +195,7 @@ name|cacheConfiguration
 decl_stmt|;
 DECL|field|cacheManager
 specifier|private
-specifier|final
+specifier|volatile
 name|JCacheManager
 argument_list|<
 name|Object
@@ -239,17 +239,6 @@ operator|.
 name|cacheConfiguration
 operator|=
 name|configuration
-expr_stmt|;
-name|this
-operator|.
-name|cacheManager
-operator|=
-name|JCacheHelper
-operator|.
-name|createManager
-argument_list|(
-name|configuration
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -309,6 +298,26 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|cacheManager
+operator|=
+name|JCacheHelper
+operator|.
+name|createManager
+argument_list|(
+name|cacheConfiguration
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -317,11 +326,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|cacheManager
+operator|!=
+literal|null
+condition|)
+block|{
 name|cacheManager
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|getManager ()
 name|JCacheManager
