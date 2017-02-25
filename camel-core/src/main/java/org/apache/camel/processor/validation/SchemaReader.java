@@ -735,6 +735,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|camelContext
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|Boolean
 operator|.
