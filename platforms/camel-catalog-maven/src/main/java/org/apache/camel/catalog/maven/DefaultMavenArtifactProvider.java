@@ -445,6 +445,25 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+comment|// no need to download transitive dependencies as we only need to check the component or connector itself
+name|param
+operator|.
+name|put
+argument_list|(
+literal|"validate"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|param
+operator|.
+name|put
+argument_list|(
+literal|"transitive"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|debug
