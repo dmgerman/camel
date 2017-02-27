@@ -180,7 +180,7 @@ literal|"Azure Storage Queue Service"
 argument_list|,
 name|syntax
 operator|=
-literal|"azure-blob:queueOrMessageUri"
+literal|"azure-blob:containerAndQueueUri"
 argument_list|,
 name|consumerClass
 operator|=
@@ -220,7 +220,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"Queue or Message compact Uri"
+literal|"Container Queue compact Uri"
 argument_list|)
 annotation|@
 name|Metadata
@@ -229,10 +229,10 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|queueOrMessageUri
+DECL|field|containerAndQueueUri
 specifier|private
 name|String
-name|queueOrMessageUri
+name|containerAndQueueUri
 decl_stmt|;
 comment|// to support component docs
 annotation|@
