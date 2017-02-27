@@ -2668,7 +2668,7 @@ return|return
 name|charset
 return|;
 block|}
-comment|/**      * This option is used to specify the encoding of the file.      * You can use this on the consumer, to specify the encodings of the files, which allow Camel to know the charset      * it should load the file content in case the file content is being accessed.      * Likewise when writing a file, you can use this option to specify which charset to write the file as well.      */
+comment|/**      * This option is used to specify the encoding of the file.      * You can use this on the consumer, to specify the encodings of the files, which allow Camel to know the charset      * it should load the file content in case the file content is being accessed.      * Likewise when writing a file, you can use this option to specify which charset to write the file as well.      * Do mind that when writing the file Camel may have to read the message content into memory to be able to      * convert the data into the configured charset, so do not use this if you have big messages.      */
 DECL|method|setCharset (String charset)
 specifier|public
 name|void
