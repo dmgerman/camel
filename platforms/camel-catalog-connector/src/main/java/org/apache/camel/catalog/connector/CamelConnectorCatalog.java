@@ -59,6 +59,21 @@ name|ConnectorDataStore
 name|dataStore
 parameter_list|)
 function_decl|;
+comment|/**      * Is the connector already registered in the catalog      *      * @param groupId               maven group id      * @param artifactId            maven artifact id      * @param version               maven version      * @return whether the catalog has the connector or not      */
+DECL|method|hasConnector (String groupId, String artifactId, String version)
+name|boolean
+name|hasConnector
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+function_decl|;
 comment|/**      * Adds or updates the connector to the catalog      *      * @param groupId               maven group id      * @param artifactId            maven artifact id      * @param version               maven version      * @param name                  name of connector      * @param description           description of connector      * @param labels                labels (separated by comma) of connector      * @param connectorJson         the<tt>camel-connector</tt> json file      * @param connectorSchemaJson   the<tt>camel-connector-schema</tt> json file      */
 DECL|method|addConnector (String groupId, String artifactId, String version, String name, String description, String labels, String connectorJson, String connectorSchemaJson)
 name|void

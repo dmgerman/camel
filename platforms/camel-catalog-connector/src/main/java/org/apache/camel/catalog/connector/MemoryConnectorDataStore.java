@@ -153,6 +153,34 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|hasConnector (ConnectorDto dto)
+specifier|public
+name|boolean
+name|hasConnector
+parameter_list|(
+name|ConnectorDto
+name|dto
+parameter_list|)
+block|{
+return|return
+name|store
+operator|.
+name|contains
+argument_list|(
+operator|new
+name|ConnectorDetails
+argument_list|(
+name|dto
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|removeConnector (ConnectorDto dto)
 specifier|public
 name|void

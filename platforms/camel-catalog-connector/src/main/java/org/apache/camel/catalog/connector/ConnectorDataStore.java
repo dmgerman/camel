@@ -53,6 +53,15 @@ name|String
 name|connectorSchemaJson
 parameter_list|)
 function_decl|;
+comment|/**      * Is the connector already registered in the catalog      *      * @param dto  the connector dto      */
+DECL|method|hasConnector (ConnectorDto dto)
+name|boolean
+name|hasConnector
+parameter_list|(
+name|ConnectorDto
+name|dto
+parameter_list|)
+function_decl|;
 comment|/**      * Removes the connector from the catalog      *      * @param dto  the connector dto      */
 DECL|method|removeConnector (ConnectorDto dto)
 name|void
