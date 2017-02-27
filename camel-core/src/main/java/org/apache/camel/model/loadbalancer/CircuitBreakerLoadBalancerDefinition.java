@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Circuit break load balancer  *<p/>  * The Circuit Breaker load balancer is a stateful pattern that monitors all calls for certain exceptions.  * Initially the Circuit Breaker is in closed state and passes all messages.  * If there are failures and the threshold is reached, it moves to open state and rejects all calls until halfOpenAfter  * timeout is reached. After this timeout is reached, if there is a new call, it will pass and if the result is  * success the Circuit Breaker will move to closed state, or to open state if there was an error.  */
+comment|/**  * Circuit break load balancer  *<p/>  * The Circuit Breaker load balancer is a stateful pattern that monitors all calls for certain exceptions.  * Initially the Circuit Breaker is in closed state and passes all messages.  * If there are failures and the threshold is reached, it moves to open state and rejects all calls until halfOpenAfter  * timeout is reached. After this timeout is reached, if there is a new call, it will pass and if the result is  * success the Circuit Breaker will move to closed state, or to open state if there was an error.  *  * @deprecated use Hystrix EIP instead which is the popular Netflix implementation of circuit breaker  */
 end_comment
 
 begin_class
@@ -236,6 +236,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|CircuitBreakerLoadBalancerDefinition
 specifier|public
 class|class

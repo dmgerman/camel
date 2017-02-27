@@ -1105,7 +1105,9 @@ literal|","
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses circuitBreaker load balancer      *      * @param threshold         number of errors before failure.      * @param halfOpenAfter     time interval in milliseconds for half open state.      * @param exceptions        exception classes which we want to break if one of them was thrown      * @return the builder      */
+comment|/**      * Uses circuitBreaker load balancer      *      * @param threshold         number of errors before failure.      * @param halfOpenAfter     time interval in milliseconds for half open state.      * @param exceptions        exception classes which we want to break if one of them was thrown      * @return the builder      * @deprecated use Hystrix EIP instead which is the popular Netflix implementation of circuit breaker      */
+annotation|@
+name|Deprecated
 DECL|method|circuitBreaker (int threshold, long halfOpenAfter, Class<?>... exceptions)
 specifier|public
 name|LoadBalanceDefinition
