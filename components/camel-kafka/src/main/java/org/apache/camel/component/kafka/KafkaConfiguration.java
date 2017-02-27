@@ -744,11 +744,15 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|enums
+operator|=
+literal|"beginning,end"
 argument_list|)
-DECL|field|seekToBeginning
+DECL|field|seekTo
 specifier|private
-name|boolean
-name|seekToBeginning
+name|String
+name|seekTo
 decl_stmt|;
 comment|//Consumer configuration properties
 annotation|@
@@ -5253,31 +5257,31 @@ operator|=
 name|valueDeserializer
 expr_stmt|;
 block|}
-DECL|method|isSeekToBeginning ()
+DECL|method|getSeekTo ()
 specifier|public
-name|boolean
-name|isSeekToBeginning
+name|String
+name|getSeekTo
 parameter_list|()
 block|{
 return|return
-name|seekToBeginning
+name|seekTo
 return|;
 block|}
-comment|/**      * If the option is true, then KafkaConsumer will read from beginning on startup.      */
-DECL|method|setSeekToBeginning (boolean seekToBeginning)
+comment|/**      * Set if KafkaConsumer will read from beginning or end on startup:      * beginning : read from beginning      * end : read from end      *       * This is replacing the earlier property seekToBeginning      */
+DECL|method|setSeekTo (String seekTo)
 specifier|public
 name|void
-name|setSeekToBeginning
+name|setSeekTo
 parameter_list|(
-name|boolean
-name|seekToBeginning
+name|String
+name|seekTo
 parameter_list|)
 block|{
 name|this
 operator|.
-name|seekToBeginning
+name|seekTo
 operator|=
-name|seekToBeginning
+name|seekTo
 expr_stmt|;
 block|}
 DECL|method|getWorkerPool ()
