@@ -1430,18 +1430,21 @@ argument_list|)
 annotation|@
 name|Produces
 argument_list|(
-literal|"text/plain"
+literal|"application/json"
 argument_list|)
 annotation|@
 name|ApiOperation
 argument_list|(
 name|value
 operator|=
-literal|"Downloads the Maven artifact and scan for custom Camel components which will be added to the catalog"
+literal|"Downloads the Maven artifact and scan for custom Camel components which will be added to the catalog and returns the names of the found components"
 argument_list|)
 DECL|method|addComponentFromMavenArtifact (@piParamR) @athParamR) String groupId, @ApiParam(R) @PathParam(R) String artifactId, @ApiParam(R) @PathParam(R) String version)
 specifier|public
-name|boolean
+name|Set
+argument_list|<
+name|String
+argument_list|>
 name|addComponentFromMavenArtifact
 parameter_list|(
 annotation|@

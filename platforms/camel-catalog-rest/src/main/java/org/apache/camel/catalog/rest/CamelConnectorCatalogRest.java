@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|ws
@@ -620,18 +630,21 @@ argument_list|)
 annotation|@
 name|Produces
 argument_list|(
-literal|"text/plain"
+literal|"application/json"
 argument_list|)
 annotation|@
 name|ApiOperation
 argument_list|(
 name|value
 operator|=
-literal|"Downloads the Maven artifact and scan for custom Camel connectors which will be added to the catalog"
+literal|"Downloads the Maven artifact and scan for custom Camel connectors which will be added to the catalog and returns the names of the found connectors"
 argument_list|)
 DECL|method|addConnectorFromMavenArtifact (@piParamR) @athParamR) String groupId, @ApiParam(R) @PathParam(R) String artifactId, @ApiParam(R) @PathParam(R) String version)
 specifier|public
-name|boolean
+name|Set
+argument_list|<
+name|String
+argument_list|>
 name|addConnectorFromMavenArtifact
 parameter_list|(
 annotation|@
