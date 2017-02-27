@@ -736,9 +736,9 @@ block|}
 if|if
 condition|(
 name|camelContext
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 operator|!
 name|Boolean
 operator|.
