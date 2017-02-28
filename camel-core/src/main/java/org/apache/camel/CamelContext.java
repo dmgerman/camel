@@ -2218,7 +2218,7 @@ argument_list|>
 name|getValidators
 parameter_list|()
 function_decl|;
-comment|/**      * Resolve a validator given from/to data type.      *      * @param from the data type      * @return the resolved validator, or<tt>null</tt> if not found      */
+comment|/**      * Resolve a validator given from/to data type.      *      * @param type the data type      * @return the resolved validator, or<tt>null</tt> if not found      */
 DECL|method|resolveValidator (DataType type)
 name|Validator
 name|resolveValidator
