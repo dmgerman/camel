@@ -15,10 +15,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Marker interface to indicate this service can be pooled using a {@link org.apache.camel.spi.ServicePool}.  *  * @version   */
+comment|/**  * Marker interface to indicate this service can be pooled using a {@link org.apache.camel.spi.ServicePool}.  *  * @deprecated favor not using non-singleton services  * @version   */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|ServicePoolAware
 specifier|public
 interface|interface
