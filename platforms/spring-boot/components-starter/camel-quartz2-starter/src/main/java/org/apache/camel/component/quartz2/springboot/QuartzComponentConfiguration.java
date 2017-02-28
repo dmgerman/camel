@@ -149,6 +149,14 @@ name|prefixInstanceName
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Whether to interrupt jobs on shutdown which forces the scheduler to      * shutdown quicker and attempt to interrupt any running jobs. If this is      * enabled then any running jobs can fail due to being interrupted.      */
+DECL|field|interruptJobsOnShutdown
+specifier|private
+name|Boolean
+name|interruptJobsOnShutdown
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * To use the custom SchedulerFactory which is used to create the Scheduler.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -345,6 +353,32 @@ operator|.
 name|prefixInstanceName
 operator|=
 name|prefixInstanceName
+expr_stmt|;
+block|}
+DECL|method|getInterruptJobsOnShutdown ()
+specifier|public
+name|Boolean
+name|getInterruptJobsOnShutdown
+parameter_list|()
+block|{
+return|return
+name|interruptJobsOnShutdown
+return|;
+block|}
+DECL|method|setInterruptJobsOnShutdown (Boolean interruptJobsOnShutdown)
+specifier|public
+name|void
+name|setInterruptJobsOnShutdown
+parameter_list|(
+name|Boolean
+name|interruptJobsOnShutdown
+parameter_list|)
+block|{
+name|this
+operator|.
+name|interruptJobsOnShutdown
+operator|=
+name|interruptJobsOnShutdown
 expr_stmt|;
 block|}
 DECL|method|getSchedulerFactory ()
