@@ -290,8 +290,11 @@ name|int
 name|PORT
 init|=
 name|findAvailableTcpPort
-argument_list|()
+argument_list|(
+literal|18500
+argument_list|)
 decl_stmt|;
+comment|// 1024 is too low on CI servers to find free ports
 static|static
 block|{
 try|try
