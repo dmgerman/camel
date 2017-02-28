@@ -200,7 +200,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Create the topic with 2 partitions + send 10 messages (5 in each partitions)
-name|embeddedKafkaCluster
+name|kafkaBroker
 operator|.
 name|createTopic
 argument_list|(

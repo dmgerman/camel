@@ -110,22 +110,6 @@ name|clients
 operator|.
 name|producer
 operator|.
-name|ProducerConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|kafka
-operator|.
-name|clients
-operator|.
-name|producer
-operator|.
 name|ProducerRecord
 import|;
 end_import
@@ -240,7 +224,7 @@ name|props
 argument_list|)
 expr_stmt|;
 comment|// Create the topic with 2 partitions + send 10 messages (5 in each partitions)
-name|embeddedKafkaCluster
+name|kafkaBroker
 operator|.
 name|createTopic
 argument_list|(
