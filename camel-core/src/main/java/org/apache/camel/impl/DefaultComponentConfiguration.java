@@ -123,6 +123,8 @@ comment|/**  * Default implementation for components which do not inherit from {
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultComponentConfiguration
 specifier|public
 class|class

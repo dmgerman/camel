@@ -43,6 +43,8 @@ comment|/**  * A helper interface used by the {@link org.apache.camel.ComponentC
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|EndpointCompleter
 specifier|public
 interface|interface

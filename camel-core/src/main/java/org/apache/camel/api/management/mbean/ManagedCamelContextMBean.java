@@ -1109,6 +1109,8 @@ name|description
 operator|=
 literal|"Returns the JSON schema representation of the endpoint parameters for the given component name"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|componentParameterJsonSchema (String componentName)
 name|String
 name|componentParameterJsonSchema
@@ -1260,6 +1262,8 @@ name|description
 operator|=
 literal|"Returns the list of available endpoint paths for the given component name, endpoint properties and completion text"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|completeEndpointPath (String componentName, Map<String, Object> endpointParameters, String completionText)
 name|List
 argument_list|<

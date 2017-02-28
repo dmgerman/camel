@@ -161,10 +161,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A component implementation for endpoints which are annotated with UriEndpoint to describe  * their configurable parameters via annotations  */
+comment|/**  * A component implementation for endpoints which are annotated with UriEndpoint to describe  * their configurable parameters via annotations  *  * @deprecated use {@link DefaultComponent}  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|UriEndpointComponent
 specifier|public
 specifier|abstract

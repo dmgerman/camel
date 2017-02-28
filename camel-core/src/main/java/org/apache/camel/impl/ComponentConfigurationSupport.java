@@ -203,6 +203,8 @@ comment|/**  * Useful base class for implementations of {@link ComponentConfigur
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ComponentConfigurationSupport
 specifier|public
 specifier|abstract

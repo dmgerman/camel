@@ -135,6 +135,8 @@ comment|/**  * Implements {@link org.apache.camel.EndpointConfiguration} for End
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|UriComponentConfiguration
 specifier|public
 class|class

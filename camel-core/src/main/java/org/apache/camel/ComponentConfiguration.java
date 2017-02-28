@@ -73,6 +73,8 @@ comment|/**  * Represents a set of configuration values for an endpoint URI whic
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|ComponentConfiguration
 specifier|public
 interface|interface
