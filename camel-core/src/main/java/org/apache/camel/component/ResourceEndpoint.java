@@ -290,7 +290,17 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"Path to the resource, or a reference to lookup a bean in the Registry to use as the resource"
+literal|"Path to the resource."
+operator|+
+literal|" You can prefix with: classpath, file, http, ref, or bean."
+operator|+
+literal|" classpath, file and http loads the resource using these protocols (classpath is default)."
+operator|+
+literal|" ref will lookup the resource in the registry."
+operator|+
+literal|" bean will call a method on a bean to be used as the resource."
+operator|+
+literal|" For bean you can specify the method name after dot, eg bean:myBean.myMethod."
 argument_list|)
 annotation|@
 name|Metadata
@@ -627,7 +637,7 @@ return|return
 name|resourceUri
 return|;
 block|}
-comment|/**      * Path to the resource, or a reference to lookup a bean in the Registry to use as the resource      *      * @param resourceUri  the resource path      */
+comment|/**      * Path to the resource.      *<p/>      * You can prefix with: classpath, file, http, ref, or bean.      * classpath, file and http loads the resource using these protocols (classpath is default).      * ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource.      * For bean you can specify the method name after dot, eg bean:myBean.myMethod      *      * @param resourceUri  the resource path      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void
