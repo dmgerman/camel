@@ -33,6 +33,8 @@ comment|/**  * An implementation of {@link ParameterConfiguration} which comes f
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|AnnotatedParameterConfiguration
 specifier|public
 class|class

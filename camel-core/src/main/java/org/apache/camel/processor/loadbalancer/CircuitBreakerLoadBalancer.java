@@ -153,6 +153,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CircuitBreakerLoadBalancer
 specifier|public
 class|class

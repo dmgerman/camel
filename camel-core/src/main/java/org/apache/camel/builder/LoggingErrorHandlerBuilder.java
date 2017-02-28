@@ -117,10 +117,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link Logger} as an error handler, will log at<tt>ERROR</tt> level by default.  *  * @version   */
+comment|/**  * Uses the {@link Logger} as an error handler, will log at<tt>ERROR</tt> level by default.  *  * @version  * @deprecated use dead letter channel with a log endpoint  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|LoggingErrorHandlerBuilder
 specifier|public
 class|class

@@ -171,6 +171,8 @@ comment|/**  * Some helper methods for working with {@link EndpointConfiguration
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ConfigurationHelper
 specifier|public
 specifier|final

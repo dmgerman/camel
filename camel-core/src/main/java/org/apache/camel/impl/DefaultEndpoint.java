@@ -826,6 +826,8 @@ name|endpointConfiguration
 return|;
 block|}
 comment|/**      * Sets a custom {@link EndpointConfiguration}      *      * @param endpointConfiguration a custom endpoint configuration to be used.      */
+annotation|@
+name|Deprecated
 DECL|method|setEndpointConfiguration (EndpointConfiguration endpointConfiguration)
 specifier|public
 name|void
@@ -1362,6 +1364,8 @@ literal|null
 return|;
 block|}
 comment|/**      * A factory method to lazily create the endpoint configuration if none is specified      */
+annotation|@
+name|Deprecated
 DECL|method|createEndpointConfiguration (String uri)
 specifier|protected
 name|EndpointConfiguration

@@ -31,6 +31,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|// TODO: Document me
 DECL|method|apply (ServiceDefinition serviceDefinition)
 name|T
 name|apply

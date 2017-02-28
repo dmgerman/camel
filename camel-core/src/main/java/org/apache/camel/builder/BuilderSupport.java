@@ -1247,7 +1247,9 @@ name|NoErrorHandlerBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
+comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      * @deprecated use dead letter channel with a log endpoint      */
+annotation|@
+name|Deprecated
 DECL|method|loggingErrorHandler ()
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -1260,7 +1262,9 @@ name|LoggingErrorHandlerBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
+comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      * @deprecated use dead letter channel with a log endpoint      */
+annotation|@
+name|Deprecated
 DECL|method|loggingErrorHandler (String log)
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -1282,7 +1286,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
+comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      * @deprecated use dead letter channel with a log endpoint      */
+annotation|@
+name|Deprecated
 DECL|method|loggingErrorHandler (Logger log)
 specifier|public
 name|LoggingErrorHandlerBuilder
@@ -1300,7 +1306,9 @@ name|log
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      */
+comment|/**      * Creates an<a href="http://camel.apache.org/error-handler.html">error handler</a>      * which just logs errors      *      * @return the builder      * @deprecated use dead letter channel with a log endpoint      */
+annotation|@
+name|Deprecated
 DECL|method|loggingErrorHandler (Logger log, LoggingLevel level)
 specifier|public
 name|LoggingErrorHandlerBuilder

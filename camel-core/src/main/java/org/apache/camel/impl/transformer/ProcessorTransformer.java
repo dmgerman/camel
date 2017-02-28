@@ -118,6 +118,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -466,7 +480,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set Processor.      * @param processor Processor      * @return this ProcessorTransformer instance      */
+comment|/**      * Set processor to use      *      * @param processor Processor      * @return this ProcessorTransformer instance      */
 DECL|method|setProcessor (Processor processor)
 specifier|public
 name|ProcessorTransformer
@@ -542,6 +556,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|processor
+argument_list|,
+literal|"processor"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 name|ServiceHelper
 operator|.
 name|startService

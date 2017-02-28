@@ -60,6 +60,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|validator
+operator|.
+name|ProcessorValidator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|language
@@ -234,7 +250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the data type using Java class.      *      * @param clazz Java class represents data type      */
+comment|/**      * Set the data type using Java class.      *      * @param type Java class represents data type      */
 DECL|method|type (Class<?> type)
 specifier|public
 name|ValidatorBuilder

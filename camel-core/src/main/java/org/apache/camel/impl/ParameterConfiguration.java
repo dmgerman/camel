@@ -91,6 +91,8 @@ comment|/**  * Represents the configuration of a URI query parameter value to al
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ParameterConfiguration
 specifier|public
 class|class

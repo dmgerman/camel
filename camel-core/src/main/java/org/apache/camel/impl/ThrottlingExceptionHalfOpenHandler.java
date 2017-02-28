@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Used by the {@link ThrottlingExceptionRoutePolicy} to allow custom code  * to handle the half open circuit state and how to determine if a route  * should be closed  *  */
+comment|/**  * Used by the {@link ThrottlingExceptionRoutePolicy} to allow custom code  * to handle the half open circuit state and how to determine if a route  * should be closed  */
 end_comment
 
 begin_interface

@@ -57,6 +57,8 @@ comment|/**  * A shared {@link org.apache.camel.impl.DefaultPollingConsumerServi
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SharedPollingConsumerServicePool
 specifier|public
 class|class

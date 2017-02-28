@@ -133,6 +133,8 @@ comment|/**  * Fallback implementation of {@link EndpointConfiguration} used by 
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|MappedEndpointConfiguration
 specifier|public
 specifier|final

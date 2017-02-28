@@ -21,6 +21,8 @@ comment|/**  * A service pool is like a connection pool but can pool any kind of
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|ServicePool
 specifier|public
 interface|interface

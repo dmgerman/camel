@@ -128,6 +128,7 @@ argument_list|>
 block|{
 DECL|field|cache
 specifier|private
+specifier|final
 name|ConcurrentMap
 argument_list|<
 name|String
@@ -209,13 +210,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cache
-operator|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<>
-argument_list|()
-expr_stmt|;
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -231,10 +226,6 @@ name|cache
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|cache
-operator|=
-literal|null
 expr_stmt|;
 block|}
 block|}

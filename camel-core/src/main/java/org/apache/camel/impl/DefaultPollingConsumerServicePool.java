@@ -41,10 +41,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A service pool for {@link PollingConsumer}.  *<p/>  * For instance camel-jms leverages this to allow a pool of pollingConsumers so we  * can support concurrent pollingConsumer in a thread safe manner.  *   */
+comment|/**  * A service pool for {@link PollingConsumer}.  *<p/>  * For instance camel-jms leverages this to allow a pool of pollingConsumers so we  * can support concurrent pollingConsumer in a thread safe manner.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultPollingConsumerServicePool
 specifier|public
 class|class

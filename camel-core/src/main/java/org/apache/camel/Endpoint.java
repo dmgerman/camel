@@ -45,6 +45,8 @@ name|getEndpointUri
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the object representation of the endpoint configuration      *      * @return the endpoint configuration      */
+annotation|@
+name|Deprecated
 DECL|method|getEndpointConfiguration ()
 name|EndpointConfiguration
 name|getEndpointConfiguration

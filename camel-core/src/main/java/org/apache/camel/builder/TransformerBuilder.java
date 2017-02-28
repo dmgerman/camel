@@ -274,7 +274,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the 'to' data type using Java class.      *      * @param clazz 'to' Java class      */
+comment|/**      * Set the 'to' data type using Java class.      *      * @param to 'to' Java class      */
 DECL|method|toType (Class<?> to)
 specifier|public
 name|TransformerBuilder

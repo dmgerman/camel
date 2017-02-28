@@ -151,6 +151,8 @@ comment|/**  * Default implementation to inherit for a basic service pool.  *  *
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultServicePool
 specifier|public
 specifier|abstract

@@ -105,6 +105,8 @@ comment|/**  * Default implementation of {@link EndpointConfiguration}.  *  * @v
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultEndpointConfiguration
 specifier|public
 specifier|abstract

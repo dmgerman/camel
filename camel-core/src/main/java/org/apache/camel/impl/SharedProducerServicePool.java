@@ -57,6 +57,8 @@ comment|/**  * A shared {@link org.apache.camel.impl.DefaultProducerServicePool}
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SharedProducerServicePool
 specifier|public
 class|class

@@ -171,6 +171,8 @@ comment|/**  * Implements {@link EndpointConfiguration} for Endpoint implementat
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|UriEndpointConfiguration
 specifier|public
 class|class

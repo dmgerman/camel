@@ -45,6 +45,8 @@ comment|/**  * A service pool for {@link Producer}.  *<p/>  * For instance camel
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultProducerServicePool
 specifier|public
 class|class
