@@ -102,6 +102,7 @@ specifier|public
 annotation_defn|@interface
 name|ExchangeProperty
 block|{
+comment|/**      * Name of the property      */
 DECL|method|value ()
 name|String
 name|value

@@ -110,6 +110,7 @@ specifier|public
 annotation_defn|@interface
 name|Consume
 block|{
+comment|/**      * The uri to consume from      */
 DECL|method|uri ()
 name|String
 name|uri
@@ -117,6 +118,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Reference to endpoint to consume from      */
 DECL|method|ref ()
 name|String
 name|ref
@@ -124,6 +126,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Use the field or getter on the bean to provide the uri to consume from      */
 DECL|method|property ()
 name|String
 name|property
@@ -131,6 +134,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Id of {@link CamelContext} to use      */
 DECL|method|context ()
 name|String
 name|context

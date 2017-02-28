@@ -100,6 +100,7 @@ name|OutIn
 block|,
 name|OutOptionalIn
 block|;
+comment|// TODO: We should deprecate and only support InOnly, InOut, and InOptionalOut
 DECL|field|MAP
 specifier|protected
 specifier|static

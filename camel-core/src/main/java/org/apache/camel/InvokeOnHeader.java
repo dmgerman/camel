@@ -105,6 +105,7 @@ specifier|public
 annotation_defn|@interface
 name|InvokeOnHeader
 block|{
+comment|/**      * Name of header      */
 DECL|method|value ()
 name|String
 name|value

@@ -114,11 +114,13 @@ specifier|public
 annotation_defn|@interface
 name|PropertyInject
 block|{
+comment|/**      * Name of the property      */
 DECL|method|value ()
 name|String
 name|value
 parameter_list|()
 function_decl|;
+comment|/**      * Default value to use if the property does not exists or has no value      */
 DECL|method|defaultValue ()
 name|String
 name|defaultValue
@@ -126,6 +128,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Id of {@link CamelContext} to use      */
 DECL|method|context ()
 name|String
 name|context

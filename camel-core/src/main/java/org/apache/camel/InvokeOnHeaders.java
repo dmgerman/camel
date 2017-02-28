@@ -86,6 +86,7 @@ specifier|public
 annotation_defn|@interface
 name|InvokeOnHeaders
 block|{
+comment|/**      * Name of headers      */
 DECL|method|value ()
 name|InvokeOnHeader
 index|[]

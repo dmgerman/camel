@@ -110,6 +110,7 @@ specifier|public
 annotation_defn|@interface
 name|EndpointInject
 block|{
+comment|/**      * The uri of the endpoint      */
 DECL|method|uri ()
 name|String
 name|uri
@@ -117,6 +118,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Reference to endpoint      */
 DECL|method|ref ()
 name|String
 name|ref
@@ -124,6 +126,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Use the field or getter on the bean to provide the uri of the endpoint      */
 DECL|method|property ()
 name|String
 name|property
@@ -131,6 +134,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Id of {@link CamelContext} to use      */
 DECL|method|context ()
 name|String
 name|context

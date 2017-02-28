@@ -97,6 +97,8 @@ operator|.
 name|FIELD
 block|}
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|URIField
 specifier|public
 annotation_defn|@interface

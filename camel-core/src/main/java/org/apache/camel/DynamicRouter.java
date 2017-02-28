@@ -110,6 +110,7 @@ specifier|public
 annotation_defn|@interface
 name|DynamicRouter
 block|{
+comment|/**      * Id of {@link CamelContext} to use      */
 DECL|method|context ()
 name|String
 name|context
@@ -117,6 +118,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Sets the uri delimiter to use      */
 DECL|method|delimiter ()
 name|String
 name|delimiter
@@ -124,6 +126,7 @@ parameter_list|()
 default|default
 literal|","
 function_decl|;
+comment|/**      * Whether to ignore the invalidate endpoint exception when try to create a producer with that endpoint      */
 DECL|method|ignoreInvalidEndpoints ()
 DECL|field|false
 name|boolean

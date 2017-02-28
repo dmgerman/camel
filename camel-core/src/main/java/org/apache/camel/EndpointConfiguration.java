@@ -29,6 +29,8 @@ comment|/**  * Holds an {@link Endpoint} configuration as a pojo that can be man
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|EndpointConfiguration
 specifier|public
 interface|interface

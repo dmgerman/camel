@@ -110,6 +110,7 @@ specifier|public
 annotation_defn|@interface
 name|Produce
 block|{
+comment|/**      * The uri to produce to      */
 DECL|method|uri ()
 name|String
 name|uri
@@ -117,6 +118,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Reference to endpoint to produce to      */
 DECL|method|ref ()
 name|String
 name|ref
@@ -124,6 +126,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Use the field or getter on the bean to provide the uri to produce to      */
 DECL|method|property ()
 name|String
 name|property
@@ -131,6 +134,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Id of {@link CamelContext} to use      */
 DECL|method|context ()
 name|String
 name|context
@@ -138,6 +142,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Whether to use bean parameter binding      */
 DECL|method|binding ()
 DECL|field|true
 name|boolean

@@ -102,6 +102,7 @@ specifier|public
 annotation_defn|@interface
 name|Header
 block|{
+comment|/**      * Name of header      */
 DECL|method|value ()
 name|String
 name|value
