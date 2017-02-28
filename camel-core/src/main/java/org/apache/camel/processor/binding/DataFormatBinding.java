@@ -119,6 +119,8 @@ comment|/**  * Represents a {@link org.apache.camel.spi.Binding} which Marshals 
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DataFormatBinding
 specifier|public
 class|class

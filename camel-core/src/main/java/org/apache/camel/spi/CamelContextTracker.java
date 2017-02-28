@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A camel context creation tracker.  */
+comment|/**  * A {@link CamelContext} creation tracker.  */
 end_comment
 
 begin_class

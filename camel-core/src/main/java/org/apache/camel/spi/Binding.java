@@ -33,6 +33,8 @@ comment|/**  * Represents a<a href="http://camel.apache.org/binding.html">Bindin
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|Binding
 specifier|public
 interface|interface

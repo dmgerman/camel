@@ -178,6 +178,7 @@ specifier|public
 interface|interface
 name|ManagementNamingStrategy
 block|{
+comment|// TODO: Should be renamed to ManagementObjectNameStrategy
 DECL|method|getObjectNameForCamelContext (String managementName, String name)
 name|ObjectName
 name|getObjectNameForCamelContext

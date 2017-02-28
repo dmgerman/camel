@@ -16,6 +16,30 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Contract which represents the input type and/or output type of the {@link Endpoint} or {@link Processor}.  */
 end_comment
@@ -61,7 +85,7 @@ return|return
 name|inputType
 return|;
 block|}
-comment|/**      * Set the input data type.      * @param inputType input data type      */
+comment|/**      * Set the input data type.      *      * @param inputType input data type      */
 DECL|method|setInputType (String inputType)
 specifier|public
 name|void
@@ -88,7 +112,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Set the input data type with Java class.      * @param clazz Java class which represents input data type      */
+comment|/**      * Set the input data type with Java class.      *      * @param clazz Java class which represents input data type      */
 DECL|method|setInputType (Class<?> clazz)
 specifier|public
 name|void
@@ -128,7 +152,7 @@ return|return
 name|outputType
 return|;
 block|}
-comment|/**     * Set the output data type.     * @param outputType output data type     */
+comment|/**     * Set the output data type.     *     * @param outputType output data type     */
 DECL|method|setOutputType (String outputType)
 specifier|public
 name|void
@@ -155,7 +179,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Set the output data type with Java class.      * @param clazz Java class which represents output data type      */
+comment|/**      * Set the output data type with Java class.      *      * @param clazz Java class which represents output data type      */
 DECL|method|setOutputType (Class<?> clazz)
 specifier|public
 name|void
@@ -185,7 +209,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      *       * @return      */
 DECL|method|isValidateInput ()
 specifier|public
 name|boolean
@@ -196,7 +219,7 @@ return|return
 name|validateInput
 return|;
 block|}
-comment|/**      *       * @param validate      */
+comment|/**      * Whether to validate the input      */
 DECL|method|setValidateInput (boolean validate)
 specifier|public
 name|void
@@ -213,7 +236,6 @@ operator|=
 name|validate
 expr_stmt|;
 block|}
-comment|/**      *       * @return      */
 DECL|method|isValidateOutput ()
 specifier|public
 name|boolean
@@ -224,7 +246,7 @@ return|return
 name|validateOutput
 return|;
 block|}
-comment|/**      *       * @param validate      */
+comment|/**      * Whether to validate the output      */
 DECL|method|setValidateOutput (boolean validate)
 specifier|public
 name|void

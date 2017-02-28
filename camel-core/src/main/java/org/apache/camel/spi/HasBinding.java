@@ -21,6 +21,8 @@ comment|/**  * Allows objects such as Endpoints to expose that they have a  *<a 
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|HasBinding
 specifier|public
 interface|interface
