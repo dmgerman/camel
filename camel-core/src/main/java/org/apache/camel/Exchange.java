@@ -881,18 +881,6 @@ name|XSLT_WARNING
 init|=
 literal|"CamelXsltWarning"
 decl_stmt|;
-DECL|field|INPUT_TYPE
-name|String
-name|INPUT_TYPE
-init|=
-literal|"CamelInputType"
-decl_stmt|;
-DECL|field|OUTPUT_TYPE
-name|String
-name|OUTPUT_TYPE
-init|=
-literal|"CamelOutputType"
-decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern

@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<a href="http://camel.apache.org/transformer.html">Transformer</a>  * performs message transformation according to the declared data type.  * There are two Exchange property indicates current message type, {@link Exchange#INPUT_TYPE}  * holds input message type and {@link Exchange#OUTPUT_TYPE} holds output message type. If the  * input type and/or output type declared by {@link InputTypeDefinition}  * and/or {@link OutputTypeDefinition} in the route definition is different from those property  * at runtime, camel internal processor look for a Transformer which transforms from  * the current message type to the expected message type.  *    * @see InputTypeDefinition  * @see OutputTypeDefinition  */
+comment|/**  *<a href="http://camel.apache.org/transformer.html">Transformer</a>  * performs message transformation according to the declared data type.  * {@link ContractAdvice} looks for a required Transformer and apply if  * input/output type declared on a route is different from current message type.  *    * @see {@link ContractAdvice}  * {@link DataType} {@link InputTypeDefinition} {@link OutputTypeDefinition}  */
 end_comment
 
 begin_class
