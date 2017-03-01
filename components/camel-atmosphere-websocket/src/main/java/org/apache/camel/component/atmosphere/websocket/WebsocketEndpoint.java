@@ -188,7 +188,9 @@ literal|"websocket"
 argument_list|,
 name|excludeProperties
 operator|=
-literal|"httpUri,contextPath"
+literal|"httpUri,contextPath,authMethod,authMethodPriority,authUsername,authPassword,authDomain,authHost"
+operator|+
+literal|"proxyAuthScheme,proxyAuthMethod,proxyAuthUsername,proxyAuthPassword,proxyAuthHost,proxyAuthPort,proxyAuthDomain"
 argument_list|)
 DECL|class|WebsocketEndpoint
 specifier|public
