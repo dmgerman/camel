@@ -123,34 +123,13 @@ name|camelContext
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|getInitialListOfServices (String name)
+DECL|method|getServices (String name)
 specifier|public
 name|List
 argument_list|<
 name|ServiceDefinition
 argument_list|>
-name|getInitialListOfServices
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|getUpdatedListOfServices
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getUpdatedListOfServices (String name)
-specifier|public
-name|List
-argument_list|<
-name|ServiceDefinition
-argument_list|>
-name|getUpdatedListOfServices
+name|getServices
 parameter_list|(
 name|String
 name|name

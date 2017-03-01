@@ -168,7 +168,7 @@ literal|1
 argument_list|,
 name|caching
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"noname"
 argument_list|)
@@ -200,7 +200,7 @@ literal|1
 argument_list|,
 name|caching
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"noname"
 argument_list|)
@@ -225,7 +225,7 @@ literal|2
 argument_list|,
 name|caching
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"noname"
 argument_list|)
@@ -326,7 +326,7 @@ literal|1
 argument_list|,
 name|caching
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"no-name"
 argument_list|)
@@ -350,7 +350,7 @@ literal|1
 argument_list|,
 name|caching
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"no-name"
 argument_list|)
@@ -375,7 +375,7 @@ literal|2
 argument_list|,
 name|caching
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"no-name"
 argument_list|)

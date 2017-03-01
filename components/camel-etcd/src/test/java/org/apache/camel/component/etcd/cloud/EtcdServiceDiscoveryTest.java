@@ -397,7 +397,7 @@ name|type1
 init|=
 name|strategy
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"serviceType-1"
 argument_list|)
@@ -463,7 +463,7 @@ name|type2
 init|=
 name|strategy
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"serviceType-2"
 argument_list|)
@@ -564,7 +564,7 @@ literal|1
 argument_list|,
 name|strategy
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"serviceType-3"
 argument_list|)
@@ -607,7 +607,7 @@ literal|3
 argument_list|,
 name|strategy
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"serviceType-3"
 argument_list|)

@@ -249,7 +249,7 @@ block|{
 return|return
 name|serviceDiscovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 name|serviceId
 argument_list|)

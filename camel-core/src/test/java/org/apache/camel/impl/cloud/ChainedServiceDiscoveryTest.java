@@ -204,7 +204,7 @@ literal|3
 argument_list|,
 name|discovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"discovery1"
 argument_list|)
@@ -221,7 +221,7 @@ literal|1
 argument_list|,
 name|discovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"discovery2"
 argument_list|)
@@ -340,7 +340,7 @@ literal|3
 argument_list|,
 name|discovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"discovery1"
 argument_list|)
@@ -357,7 +357,7 @@ literal|1
 argument_list|,
 name|discovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"discovery2"
 argument_list|)
@@ -454,7 +454,7 @@ literal|3
 argument_list|,
 name|discovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"discovery1"
 argument_list|)
@@ -471,7 +471,7 @@ literal|1
 argument_list|,
 name|discovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"discovery2"
 argument_list|)

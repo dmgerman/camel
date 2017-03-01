@@ -86,13 +86,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getUpdatedListOfServices (String name)
+DECL|method|getServices (String name)
 specifier|public
 name|List
 argument_list|<
 name|ServiceDefinition
 argument_list|>
-name|getUpdatedListOfServices
+name|getServices
 parameter_list|(
 name|String
 name|name

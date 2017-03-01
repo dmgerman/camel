@@ -148,7 +148,7 @@ name|services
 init|=
 name|discovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"_xmpp-server"
 argument_list|)

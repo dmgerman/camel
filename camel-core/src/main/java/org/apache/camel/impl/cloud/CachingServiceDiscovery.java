@@ -271,7 +271,7 @@ name|build
 argument_list|(
 name|delegate
 operator|::
-name|getUpdatedListOfServices
+name|getServices
 argument_list|)
 expr_stmt|;
 block|}
@@ -351,13 +351,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getInitialListOfServices (String name)
+DECL|method|getServices (String name)
 specifier|public
 name|List
 argument_list|<
 name|ServiceDefinition
 argument_list|>
-name|getInitialListOfServices
+name|getServices
 parameter_list|(
 name|String
 name|name
@@ -366,30 +366,7 @@ block|{
 return|return
 name|delegate
 operator|.
-name|getInitialListOfServices
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getUpdatedListOfServices (String name)
-specifier|public
-name|List
-argument_list|<
-name|ServiceDefinition
-argument_list|>
-name|getUpdatedListOfServices
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|cache
-operator|.
-name|get
+name|getServices
 argument_list|(
 name|name
 argument_list|)

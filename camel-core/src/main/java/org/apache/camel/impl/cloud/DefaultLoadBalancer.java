@@ -582,7 +582,7 @@ name|services
 init|=
 name|serviceDiscovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 name|serviceName
 argument_list|)

@@ -36,25 +36,13 @@ specifier|public
 interface|interface
 name|ServiceDiscovery
 block|{
-comment|/**      * Gets the initial list of services.      *<p/>      * This method may return<tt>null</tt> or an empty list.      *      * @param name the service name      */
-DECL|method|getInitialListOfServices (String name)
+comment|/**      * Gets the list of services.      *<p/>      * This method may return an empty list.      *      * @param name the service name      */
+DECL|method|getServices (String name)
 name|List
 argument_list|<
 name|ServiceDefinition
 argument_list|>
-name|getInitialListOfServices
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the updated list of services.      *<p/>      * This method can either be called on-demand prior to a service call, or have      * a background job that is scheduled to update the list, or a watcher      * that triggers when the list of services changes.      *      * @param name the service name      */
-DECL|method|getUpdatedListOfServices (String name)
-name|List
-argument_list|<
-name|ServiceDefinition
-argument_list|>
-name|getUpdatedListOfServices
+name|getServices
 parameter_list|(
 name|String
 name|name

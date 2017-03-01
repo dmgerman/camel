@@ -417,7 +417,7 @@ name|services
 init|=
 name|discovery
 operator|.
-name|getUpdatedListOfServices
+name|getServices
 argument_list|(
 literal|"my-service"
 argument_list|)
