@@ -413,7 +413,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer of messages from the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  *   */
+comment|/**  * A Consumer of messages from the Amazon Web Service Simple Queue Service  *<a href="http://aws.amazon.com/sqs/">AWS SQS</a>  */
 end_comment
 
 begin_class
@@ -1668,11 +1668,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
+comment|// start scheduler first
 if|if
 condition|(
 name|getConfiguration
@@ -1707,6 +1703,11 @@ literal|"SqsTimeoutExtender"
 argument_list|)
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1718,11 +1719,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doShutdown
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|scheduledExecutor
@@ -1749,6 +1745,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|class|TimeoutExtender
 specifier|private
