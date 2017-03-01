@@ -19,10 +19,10 @@ package|;
 end_package
 
 begin_class
-DECL|class|HttpSpanDecorator
+DECL|class|NettyHttpSpanDecorator
 specifier|public
 class|class
-name|HttpSpanDecorator
+name|NettyHttpSpanDecorator
 extends|extends
 name|AbstractHttpSpanDecorator
 block|{
@@ -35,7 +35,7 @@ name|getComponent
 parameter_list|()
 block|{
 return|return
-literal|"http"
+literal|"netty-http"
 return|;
 block|}
 block|}

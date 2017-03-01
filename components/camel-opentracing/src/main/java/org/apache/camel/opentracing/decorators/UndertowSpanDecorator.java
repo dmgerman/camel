@@ -19,10 +19,10 @@ package|;
 end_package
 
 begin_class
-DECL|class|HttpSpanDecorator
+DECL|class|UndertowSpanDecorator
 specifier|public
 class|class
-name|HttpSpanDecorator
+name|UndertowSpanDecorator
 extends|extends
 name|AbstractHttpSpanDecorator
 block|{
@@ -35,7 +35,7 @@ name|getComponent
 parameter_list|()
 block|{
 return|return
-literal|"http"
+literal|"undertow"
 return|;
 block|}
 block|}

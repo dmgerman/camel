@@ -1024,7 +1024,7 @@ argument_list|)
 expr_stmt|;
 name|spanManager
 operator|.
-name|manage
+name|activate
 argument_list|(
 name|span
 argument_list|)
@@ -1143,7 +1143,7 @@ argument_list|()
 expr_stmt|;
 name|managedSpan
 operator|.
-name|release
+name|deactivate
 argument_list|()
 expr_stmt|;
 block|}
@@ -1301,7 +1301,7 @@ argument_list|)
 expr_stmt|;
 name|spanManager
 operator|.
-name|manage
+name|activate
 argument_list|(
 name|span
 argument_list|)
@@ -1408,7 +1408,7 @@ argument_list|()
 expr_stmt|;
 name|managedSpan
 operator|.
-name|release
+name|deactivate
 argument_list|()
 expr_stmt|;
 block|}

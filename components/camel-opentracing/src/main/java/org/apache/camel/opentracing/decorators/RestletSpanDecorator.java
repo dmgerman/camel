@@ -19,10 +19,10 @@ package|;
 end_package
 
 begin_class
-DECL|class|HttpSpanDecorator
+DECL|class|RestletSpanDecorator
 specifier|public
 class|class
-name|HttpSpanDecorator
+name|RestletSpanDecorator
 extends|extends
 name|AbstractHttpSpanDecorator
 block|{
@@ -35,7 +35,7 @@ name|getComponent
 parameter_list|()
 block|{
 return|return
-literal|"http"
+literal|"restlet"
 return|;
 block|}
 block|}
