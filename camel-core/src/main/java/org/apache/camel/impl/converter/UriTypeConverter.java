@@ -81,9 +81,17 @@ end_comment
 begin_class
 DECL|class|UriTypeConverter
 specifier|public
+specifier|final
 class|class
 name|UriTypeConverter
 block|{
+DECL|method|UriTypeConverter ()
+specifier|private
+name|UriTypeConverter
+parameter_list|()
+block|{
+comment|// utility class
+block|}
 annotation|@
 name|Converter
 DECL|method|toCharSequence (final URI value)
