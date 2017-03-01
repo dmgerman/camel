@@ -86,28 +86,19 @@ name|UriTypeConverter
 block|{
 annotation|@
 name|Converter
-DECL|method|toCharSequence (final Object value)
+DECL|method|toCharSequence (final URI value)
 specifier|public
 specifier|static
 name|CharSequence
 name|toCharSequence
 parameter_list|(
 specifier|final
-name|Object
+name|URI
 name|value
 parameter_list|)
 block|{
-specifier|final
-name|URI
-name|uri
-init|=
-name|toUri
-argument_list|(
-name|value
-argument_list|)
-decl_stmt|;
 return|return
-name|uri
+name|value
 operator|.
 name|toString
 argument_list|()
@@ -115,31 +106,17 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toUri (final Object value)
+DECL|method|toUri (final CharSequence value)
 specifier|public
 specifier|static
 name|URI
 name|toUri
 parameter_list|(
 specifier|final
-name|Object
+name|CharSequence
 name|value
 parameter_list|)
 block|{
-if|if
-condition|(
-name|value
-operator|instanceof
-name|URI
-condition|)
-block|{
-return|return
-operator|(
-name|URI
-operator|)
-name|value
-return|;
-block|}
 specifier|final
 name|String
 name|stringValue

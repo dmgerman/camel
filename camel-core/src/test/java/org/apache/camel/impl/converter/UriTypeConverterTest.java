@@ -106,29 +106,6 @@ name|TypeConversionException
 operator|.
 name|class
 argument_list|)
-DECL|method|shouldComplainOnInvalidStringUrisConvertingToStrings ()
-specifier|public
-name|void
-name|shouldComplainOnInvalidStringUrisConvertingToStrings
-parameter_list|()
-block|{
-name|UriTypeConverter
-operator|.
-name|toCharSequence
-argument_list|(
-name|INVALID
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|TypeConversionException
-operator|.
-name|class
-argument_list|)
 DECL|method|shouldComplainOnInvalidStringUrisConvertingToUri ()
 specifier|public
 name|void
