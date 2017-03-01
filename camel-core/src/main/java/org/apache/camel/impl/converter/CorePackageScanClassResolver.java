@@ -591,6 +591,15 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|converters
+operator|.
+name|add
+argument_list|(
+name|UriTypeConverter
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
