@@ -44,7 +44,7 @@ specifier|public
 interface|interface
 name|HttpClientConfigurer
 block|{
-comment|/**      * Configure the HttpClient such as setting the authentication or proxying details      *      * @param client the client      */
+comment|/**      * Configure the HttpClient such as setting the authentication or proxying details      *      * @param clientBuilder the client      */
 DECL|method|configureHttpClient (HttpClientBuilder clientBuilder)
 name|void
 name|configureHttpClient

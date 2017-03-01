@@ -28,6 +28,20 @@ name|Serializable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_class
 DECL|class|HttpConfiguration
 specifier|public
@@ -45,71 +59,328 @@ name|serialVersionUID
 init|=
 literal|1L
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,security"
+argument_list|,
+name|description
+operator|=
+literal|"Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM."
+argument_list|)
 DECL|field|authMethod
 specifier|private
 name|String
 name|authMethod
 decl_stmt|;
-DECL|field|authUsername
-specifier|private
-name|String
-name|authUsername
-decl_stmt|;
-DECL|field|authPassword
-specifier|private
-name|String
-name|authPassword
-decl_stmt|;
-DECL|field|authDomain
-specifier|private
-name|String
-name|authDomain
-decl_stmt|;
-DECL|field|authHost
-specifier|private
-name|String
-name|authHost
-decl_stmt|;
-DECL|field|proxyAuthMethod
-specifier|private
-name|String
-name|proxyAuthMethod
-decl_stmt|;
-DECL|field|proxyAuthUsername
-specifier|private
-name|String
-name|proxyAuthUsername
-decl_stmt|;
-DECL|field|proxyAuthPassword
-specifier|private
-name|String
-name|proxyAuthPassword
-decl_stmt|;
-DECL|field|proxyAuthDomain
-specifier|private
-name|String
-name|proxyAuthDomain
-decl_stmt|;
-DECL|field|proxyAuthHost
-specifier|private
-name|String
-name|proxyAuthHost
-decl_stmt|;
-DECL|field|proxyHost
-specifier|private
-name|String
-name|proxyHost
-decl_stmt|;
-DECL|field|proxyPort
-specifier|private
-name|int
-name|proxyPort
-decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,security"
+argument_list|,
+name|enums
+operator|=
+literal|"Basic,Digest,NTLM"
+argument_list|,
+name|description
+operator|=
+literal|"Which authentication method to prioritize to use, either as Basic, Digest or NTLM."
+argument_list|)
 DECL|field|authMethodPriority
 specifier|private
 name|String
 name|authMethodPriority
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Authentication username"
+argument_list|)
+DECL|field|authUsername
+specifier|private
+name|String
+name|authUsername
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Authentication password"
+argument_list|)
+DECL|field|authPassword
+specifier|private
+name|String
+name|authPassword
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,security"
+argument_list|,
+name|description
+operator|=
+literal|"Authentication domain to use with NTML"
+argument_list|)
+DECL|field|authDomain
+specifier|private
+name|String
+name|authDomain
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,security"
+argument_list|,
+name|description
+operator|=
+literal|"Authentication host to use with NTML"
+argument_list|)
+DECL|field|authHost
+specifier|private
+name|String
+name|authHost
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|description
+operator|=
+literal|"Proxy hostname to use"
+argument_list|)
+DECL|field|proxyHost
+specifier|private
+name|String
+name|proxyHost
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|description
+operator|=
+literal|"Proxy port to use"
+argument_list|)
+DECL|field|proxyPort
+specifier|private
+name|int
+name|proxyPort
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|enums
+operator|=
+literal|"http,https"
+argument_list|,
+name|description
+operator|=
+literal|"Authentication scheme to use"
+argument_list|)
+DECL|field|proxyAuthScheme
+specifier|private
+name|String
+name|proxyAuthScheme
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|enums
+operator|=
+literal|"Basic,Digest,NTLM"
+argument_list|,
+name|description
+operator|=
+literal|"Proxy authentication method to use"
+argument_list|)
+DECL|field|proxyAuthMethod
+specifier|private
+name|String
+name|proxyAuthMethod
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Proxy authentication username"
+argument_list|)
+DECL|field|proxyAuthUsername
+specifier|private
+name|String
+name|proxyAuthUsername
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Proxy authentication password"
+argument_list|)
+DECL|field|proxyAuthPassword
+specifier|private
+name|String
+name|proxyAuthPassword
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|description
+operator|=
+literal|"Proxy authentication host"
+argument_list|)
+DECL|field|proxyAuthHost
+specifier|private
+name|String
+name|proxyAuthHost
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|description
+operator|=
+literal|"Proxy authentication port"
+argument_list|)
+DECL|field|proxyAuthPort
+specifier|private
+name|int
+name|proxyAuthPort
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|description
+operator|=
+literal|"Proxy authentication domain to use with NTML"
+argument_list|)
+DECL|field|proxyAuthDomain
+specifier|private
+name|String
+name|proxyAuthDomain
+decl_stmt|;
+DECL|method|getAuthMethod ()
+specifier|public
+name|String
+name|getAuthMethod
+parameter_list|()
+block|{
+return|return
+name|authMethod
+return|;
+block|}
+comment|/**      * Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.      */
+DECL|method|setAuthMethod (String authMethod)
+specifier|public
+name|void
+name|setAuthMethod
+parameter_list|(
+name|String
+name|authMethod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|authMethod
+operator|=
+name|authMethod
+expr_stmt|;
+block|}
+DECL|method|getAuthMethodPriority ()
+specifier|public
+name|String
+name|getAuthMethodPriority
+parameter_list|()
+block|{
+return|return
+name|authMethodPriority
+return|;
+block|}
+comment|/**      * Which authentication method to prioritize to use, either as Basic, Digest or NTLM.      */
+DECL|method|setAuthMethodPriority (String authMethodPriority)
+specifier|public
+name|void
+name|setAuthMethodPriority
+parameter_list|(
+name|String
+name|authMethodPriority
+parameter_list|)
+block|{
+name|this
+operator|.
+name|authMethodPriority
+operator|=
+name|authMethodPriority
+expr_stmt|;
+block|}
 DECL|method|getAuthUsername ()
 specifier|public
 name|String
@@ -120,6 +391,7 @@ return|return
 name|authUsername
 return|;
 block|}
+comment|/**      * Authentication username      */
 DECL|method|setAuthUsername (String authUsername)
 specifier|public
 name|void
@@ -146,6 +418,7 @@ return|return
 name|authPassword
 return|;
 block|}
+comment|/**      * Authentication password      */
 DECL|method|setAuthPassword (String authPassword)
 specifier|public
 name|void
@@ -172,6 +445,7 @@ return|return
 name|authDomain
 return|;
 block|}
+comment|/**      * Authentication domain to use with NTML      */
 DECL|method|setAuthDomain (String authDomain)
 specifier|public
 name|void
@@ -198,6 +472,7 @@ return|return
 name|authHost
 return|;
 block|}
+comment|/**      * Authentication host to use with NTML      */
 DECL|method|setAuthHost (String authHost)
 specifier|public
 name|void
@@ -214,6 +489,60 @@ operator|=
 name|authHost
 expr_stmt|;
 block|}
+DECL|method|getProxyAuthScheme ()
+specifier|public
+name|String
+name|getProxyAuthScheme
+parameter_list|()
+block|{
+return|return
+name|proxyAuthScheme
+return|;
+block|}
+comment|/**      * Proxy authentication scheme to use      */
+DECL|method|setProxyAuthScheme (String proxyAuthScheme)
+specifier|public
+name|void
+name|setProxyAuthScheme
+parameter_list|(
+name|String
+name|proxyAuthScheme
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyAuthScheme
+operator|=
+name|proxyAuthScheme
+expr_stmt|;
+block|}
+DECL|method|getProxyAuthMethod ()
+specifier|public
+name|String
+name|getProxyAuthMethod
+parameter_list|()
+block|{
+return|return
+name|proxyAuthMethod
+return|;
+block|}
+comment|/**      * Proxy authentication method to use      */
+DECL|method|setProxyAuthMethod (String proxyAuthMethod)
+specifier|public
+name|void
+name|setProxyAuthMethod
+parameter_list|(
+name|String
+name|proxyAuthMethod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyAuthMethod
+operator|=
+name|proxyAuthMethod
+expr_stmt|;
+block|}
 DECL|method|getProxyAuthUsername ()
 specifier|public
 name|String
@@ -224,6 +553,7 @@ return|return
 name|proxyAuthUsername
 return|;
 block|}
+comment|/**      * Proxy authentication username      */
 DECL|method|setProxyAuthUsername (String proxyAuthUsername)
 specifier|public
 name|void
@@ -250,6 +580,7 @@ return|return
 name|proxyAuthPassword
 return|;
 block|}
+comment|/**      * Proxy authentication password      */
 DECL|method|setProxyAuthPassword (String proxyAuthPassword)
 specifier|public
 name|void
@@ -276,6 +607,7 @@ return|return
 name|proxyAuthDomain
 return|;
 block|}
+comment|/**      * Proxy authentication domain to use with NTML      */
 DECL|method|setProxyAuthDomain (String proxyAuthDomain)
 specifier|public
 name|void
@@ -302,6 +634,7 @@ return|return
 name|proxyAuthHost
 return|;
 block|}
+comment|/**      * Proxy authentication host      */
 DECL|method|setProxyAuthHost (String proxyAuthHost)
 specifier|public
 name|void
@@ -318,56 +651,31 @@ operator|=
 name|proxyAuthHost
 expr_stmt|;
 block|}
-DECL|method|getAuthMethod ()
+DECL|method|getProxyAuthPort ()
 specifier|public
-name|String
-name|getAuthMethod
+name|int
+name|getProxyAuthPort
 parameter_list|()
 block|{
 return|return
-name|authMethod
+name|proxyAuthPort
 return|;
 block|}
-DECL|method|setAuthMethod (String authMethod)
+comment|/**      * Proxy authentication port      */
+DECL|method|setProxyAuthPort (int proxyAuthPort)
 specifier|public
 name|void
-name|setAuthMethod
+name|setProxyAuthPort
 parameter_list|(
-name|String
-name|authMethod
+name|int
+name|proxyAuthPort
 parameter_list|)
 block|{
 name|this
 operator|.
-name|authMethod
+name|proxyAuthPort
 operator|=
-name|authMethod
-expr_stmt|;
-block|}
-DECL|method|getProxyAuthMethod ()
-specifier|public
-name|String
-name|getProxyAuthMethod
-parameter_list|()
-block|{
-return|return
-name|proxyAuthMethod
-return|;
-block|}
-DECL|method|setProxyAuthMethod (String proxyAuthMethod)
-specifier|public
-name|void
-name|setProxyAuthMethod
-parameter_list|(
-name|String
-name|proxyAuthMethod
-parameter_list|)
-block|{
-name|this
-operator|.
-name|proxyAuthMethod
-operator|=
-name|proxyAuthMethod
+name|proxyAuthPort
 expr_stmt|;
 block|}
 DECL|method|getProxyHost ()
@@ -380,6 +688,7 @@ return|return
 name|proxyHost
 return|;
 block|}
+comment|/**      * Proxy hostname to use      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -406,6 +715,7 @@ return|return
 name|proxyPort
 return|;
 block|}
+comment|/**      * Proxy port to use      */
 DECL|method|setProxyPort (int proxyPort)
 specifier|public
 name|void
@@ -420,32 +730,6 @@ operator|.
 name|proxyPort
 operator|=
 name|proxyPort
-expr_stmt|;
-block|}
-DECL|method|getAuthMethodPriority ()
-specifier|public
-name|String
-name|getAuthMethodPriority
-parameter_list|()
-block|{
-return|return
-name|authMethodPriority
-return|;
-block|}
-DECL|method|setAuthMethodPriority (String authMethodPriority)
-specifier|public
-name|void
-name|setAuthMethodPriority
-parameter_list|(
-name|String
-name|authMethodPriority
-parameter_list|)
-block|{
-name|this
-operator|.
-name|authMethodPriority
-operator|=
-name|authMethodPriority
 expr_stmt|;
 block|}
 block|}

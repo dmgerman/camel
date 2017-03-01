@@ -888,7 +888,7 @@ block|{
 name|String
 name|authUsername
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -902,7 +902,7 @@ decl_stmt|;
 name|String
 name|authPassword
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -927,7 +927,7 @@ block|{
 name|String
 name|authDomain
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -941,7 +941,7 @@ decl_stmt|;
 name|String
 name|authHost
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1002,7 +1002,7 @@ block|{
 name|String
 name|proxyAuthScheme
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1033,7 +1033,7 @@ block|}
 name|String
 name|proxyAuthHost
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1047,7 +1047,7 @@ decl_stmt|;
 name|Integer
 name|proxyAuthPort
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1072,7 +1072,7 @@ block|{
 name|String
 name|proxyAuthUsername
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1086,7 +1086,7 @@ decl_stmt|;
 name|String
 name|proxyAuthPassword
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1100,7 +1100,7 @@ decl_stmt|;
 name|String
 name|proxyAuthDomain
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1114,7 +1114,7 @@ decl_stmt|;
 name|String
 name|proxyAuthNtHost
 init|=
-name|getAndRemoveParameter
+name|getParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1588,6 +1588,48 @@ argument_list|,
 name|configurer
 argument_list|)
 decl_stmt|;
+comment|// configure the endpoint with the common configuration from the component
+if|if
+condition|(
+name|getHttpConfiguration
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|IntrospectionSupport
+operator|.
+name|getProperties
+argument_list|(
+name|getHttpConfiguration
+argument_list|()
+argument_list|,
+name|properties
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|properties
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|urlRewrite
@@ -2564,7 +2606,7 @@ return|return
 name|clientConnectionManager
 return|;
 block|}
-comment|/**      * To use a custom HttpClientConnectionManager to manage connections      */
+comment|/**      * To use a custom and shared HttpClientConnectionManager to manage connections.      * If this has been configured then this is always used for all endpoints created by this component.      */
 DECL|method|setClientConnectionManager (HttpClientConnectionManager clientConnectionManager)
 specifier|public
 name|void

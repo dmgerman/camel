@@ -209,7 +209,7 @@ specifier|private
 name|HttpClientConfigurer
 name|httpClientConfigurer
 decl_stmt|;
-comment|/**      * To use a custom HttpClientConnectionManager to manage connections      */
+comment|/**      * To use a custom and shared HttpClientConnectionManager to manage      * connections. If this has been configured then this is always used for all      * endpoints created by this component.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|clientConnectionManager

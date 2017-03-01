@@ -185,6 +185,12 @@ argument_list|,
 name|lenientProperties
 operator|=
 literal|true
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"authMethod,authMethodPriority,authUsername,authPassword,authDomain,authHost"
+operator|+
+literal|"proxyAuthScheme,proxyAuthMethod,proxyAuthUsername,proxyAuthPassword,proxyAuthHost,proxyAuthPort,proxyAuthDomain"
 argument_list|)
 DECL|class|JettyHttpEndpoint9
 specifier|public
