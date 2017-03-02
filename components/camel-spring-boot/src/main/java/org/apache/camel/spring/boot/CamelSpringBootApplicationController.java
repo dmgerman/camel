@@ -52,6 +52,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -170,6 +184,16 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+DECL|field|completed
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|completed
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
 DECL|method|CamelSpringBootApplicationController (final ApplicationContext applicationContext, final CamelContext camelContext)
 specifier|public
 name|CamelSpringBootApplicationController
@@ -258,6 +282,13 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+name|completed
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// should use the latch on this instance
 name|CamelSpringBootApplicationController
 operator|.
@@ -272,6 +303,28 @@ block|}
 block|}
 block|}
 expr_stmt|;
+block|}
+DECL|method|getLatch ()
+specifier|public
+name|CountDownLatch
+name|getLatch
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|latch
+return|;
+block|}
+DECL|method|getCompleted ()
+specifier|public
+name|AtomicBoolean
+name|getCompleted
+parameter_list|()
+block|{
+return|return
+name|completed
+return|;
 block|}
 comment|/**      * Runs the application and blocks the main thread and shutdown Camel graceful when the JVM is stopping.      */
 DECL|method|run ()

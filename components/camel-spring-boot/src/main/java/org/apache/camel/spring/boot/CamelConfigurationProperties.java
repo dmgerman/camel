@@ -182,6 +182,18 @@ specifier|private
 name|boolean
 name|mainRunController
 decl_stmt|;
+comment|/**      * If main run controller is enabled then this option can specific for how long time in seconds      * to keep running the JVM before automatic terminating the JVM. You can use this to run Spring Boot      * for a short while.      */
+DECL|field|mainRunControllerMaxDurationSeconds
+specifier|private
+name|int
+name|mainRunControllerMaxDurationSeconds
+decl_stmt|;
+comment|/**      * If main run controller is enabled then this option can specific how many messages to process by Camel      * before automatic terminating the JVM. You can use this to run Spring Boot for a short while.      */
+DECL|field|mainRunControllerMaxDurationMessages
+specifier|private
+name|int
+name|mainRunControllerMaxDurationMessages
+decl_stmt|;
 comment|/**      * Whether to include non-singleton beans (prototypes) when scanning for RouteBuilder instances.      * By default only singleton beans is included in the context scan.      */
 DECL|field|includeNonSingletons
 specifier|private
@@ -803,6 +815,58 @@ operator|.
 name|mainRunController
 operator|=
 name|mainRunController
+expr_stmt|;
+block|}
+DECL|method|getMainRunControllerMaxDurationSeconds ()
+specifier|public
+name|int
+name|getMainRunControllerMaxDurationSeconds
+parameter_list|()
+block|{
+return|return
+name|mainRunControllerMaxDurationSeconds
+return|;
+block|}
+DECL|method|setMainRunControllerMaxDurationSeconds (int mainRunControllerMaxDurationSeconds)
+specifier|public
+name|void
+name|setMainRunControllerMaxDurationSeconds
+parameter_list|(
+name|int
+name|mainRunControllerMaxDurationSeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mainRunControllerMaxDurationSeconds
+operator|=
+name|mainRunControllerMaxDurationSeconds
+expr_stmt|;
+block|}
+DECL|method|getMainRunControllerMaxDurationMessages ()
+specifier|public
+name|int
+name|getMainRunControllerMaxDurationMessages
+parameter_list|()
+block|{
+return|return
+name|mainRunControllerMaxDurationMessages
+return|;
+block|}
+DECL|method|setMainRunControllerMaxDurationMessages (int mainRunControllerMaxDurationMessages)
+specifier|public
+name|void
+name|setMainRunControllerMaxDurationMessages
+parameter_list|(
+name|int
+name|mainRunControllerMaxDurationMessages
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mainRunControllerMaxDurationMessages
+operator|=
+name|mainRunControllerMaxDurationMessages
 expr_stmt|;
 block|}
 DECL|method|getLogDebugMaxChars ()
