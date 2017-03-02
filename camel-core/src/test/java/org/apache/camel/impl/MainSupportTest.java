@@ -149,7 +149,7 @@ index|[]
 block|{
 literal|"-d"
 block|,
-literal|"1s"
+literal|"1"
 block|}
 argument_list|)
 expr_stmt|;
@@ -179,7 +179,7 @@ index|[]
 block|{
 literal|"-d"
 block|,
-literal|"1s"
+literal|"1"
 block|,
 literal|"-dm"
 block|,

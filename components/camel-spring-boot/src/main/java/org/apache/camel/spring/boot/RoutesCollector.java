@@ -703,6 +703,23 @@ name|getDurationMaxMessages
 argument_list|()
 operator|>
 literal|0
+operator|||
+name|configurationProperties
+operator|.
+name|getDurationMaxIdleSeconds
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|configurationProperties
+operator|.
+name|getDurationMaxMessages
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|LOG
@@ -717,6 +734,30 @@ name|getDurationMaxMessages
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|configurationProperties
+operator|.
+name|getDurationMaxIdleSeconds
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"CamelSpringBoot will terminate after being idle for more {} seconds"
+argument_list|,
+name|configurationProperties
+operator|.
+name|getDurationMaxIdleSeconds
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// register lifecycle so we can trigger to shutdown the JVM when maximum number of messages has been processed
 name|EventNotifier
 name|notifier
@@ -729,6 +770,11 @@ argument_list|,
 name|configurationProperties
 operator|.
 name|getDurationMaxMessages
+argument_list|()
+argument_list|,
+name|configurationProperties
+operator|.
+name|getDurationMaxIdleSeconds
 argument_list|()
 argument_list|,
 name|controller
@@ -880,8 +926,61 @@ name|getDurationMaxMessages
 argument_list|()
 operator|>
 literal|0
+operator|||
+name|configurationProperties
+operator|.
+name|getDurationMaxIdleSeconds
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|configurationProperties
+operator|.
+name|getDurationMaxMessages
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"CamelSpringBoot will terminate after processing {} messages"
+argument_list|,
+name|configurationProperties
+operator|.
+name|getDurationMaxMessages
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|configurationProperties
+operator|.
+name|getDurationMaxIdleSeconds
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"CamelSpringBoot will terminate after being idle for more {} seconds"
+argument_list|,
+name|configurationProperties
+operator|.
+name|getDurationMaxIdleSeconds
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// needed by MainDurationEventNotifier to signal when we have processed the max messages
 specifier|final
 name|AtomicBoolean
@@ -915,6 +1014,11 @@ operator|.
 name|getDurationMaxMessages
 argument_list|()
 argument_list|,
+name|configurationProperties
+operator|.
+name|getDurationMaxIdleSeconds
+argument_list|()
+argument_list|,
 name|completed
 argument_list|,
 name|latch
@@ -940,28 +1044,11 @@ argument_list|(
 name|notifier
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"CamelSpringBoot will terminate after processing {} messages"
-argument_list|,
-name|configurationProperties
-operator|.
-name|getDurationMaxMessages
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|terminateApplicationContext
 argument_list|(
 name|cac
 argument_list|,
 name|camelContext
-argument_list|,
-name|configurationProperties
-operator|.
-name|getDurationMaxMessages
-argument_list|()
 argument_list|,
 name|latch
 argument_list|)
@@ -1373,7 +1460,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"CamelSpringBoot max seconds triggering shutdown of the JVM."
+literal|"CamelSpringBoot triggering shutdown of the JVM."
 argument_list|)
 expr_stmt|;
 try|try
@@ -1473,7 +1560,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"CamelSpringBoot max seconds triggering shutdown of the JVM."
+literal|"CamelSpringBoot triggering shutdown of the JVM."
 argument_list|)
 expr_stmt|;
 comment|// we need to run a daemon thread to stop ourselves so this thread pool can be stopped nice also
@@ -1504,7 +1591,7 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|terminateApplicationContext (final ConfigurableApplicationContext applicationContext, final CamelContext camelContext, int messages, final CountDownLatch latch)
+DECL|method|terminateApplicationContext (final ConfigurableApplicationContext applicationContext, final CamelContext camelContext, final CountDownLatch latch)
 specifier|private
 name|void
 name|terminateApplicationContext
@@ -1516,9 +1603,6 @@ parameter_list|,
 specifier|final
 name|CamelContext
 name|camelContext
-parameter_list|,
-name|int
-name|messages
 parameter_list|,
 specifier|final
 name|CountDownLatch
@@ -1557,11 +1641,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"CamelSpringBoot max messages "
-operator|+
-name|messages
-operator|+
-literal|" triggering shutdown of the JVM."
+literal|"CamelSpringBoot triggering shutdown of the JVM."
 argument_list|)
 expr_stmt|;
 comment|// we need to run a daemon thread to stop ourselves so this thread pool can be stopped nice also

@@ -176,6 +176,12 @@ specifier|private
 name|int
 name|durationMaxSeconds
 decl_stmt|;
+comment|/**      * To specify for how long time in seconds Camel can be idle before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
+DECL|field|durationMaxIdleSeconds
+specifier|private
+name|int
+name|durationMaxIdleSeconds
+decl_stmt|;
 comment|/**      * To specify how many messages to process by Camel before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
 DECL|field|durationMaxMessages
 specifier|private
@@ -829,6 +835,32 @@ operator|.
 name|durationMaxSeconds
 operator|=
 name|durationMaxSeconds
+expr_stmt|;
+block|}
+DECL|method|getDurationMaxIdleSeconds ()
+specifier|public
+name|int
+name|getDurationMaxIdleSeconds
+parameter_list|()
+block|{
+return|return
+name|durationMaxIdleSeconds
+return|;
+block|}
+DECL|method|setDurationMaxIdleSeconds (int durationMaxIdleSeconds)
+specifier|public
+name|void
+name|setDurationMaxIdleSeconds
+parameter_list|(
+name|int
+name|durationMaxIdleSeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|durationMaxIdleSeconds
+operator|=
+name|durationMaxIdleSeconds
 expr_stmt|;
 block|}
 DECL|method|getDurationMaxMessages ()

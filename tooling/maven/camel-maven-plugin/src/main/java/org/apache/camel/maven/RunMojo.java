@@ -557,11 +557,17 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="camel.duration"      *            default-value="-1"      *      */
+comment|/**      * Sets the time duration (seconds) that the application will run for before terminating.      * A value<= 0 will run forever.      *      * @parameter property="camel.duration"      *            default-value="-1"      *      */
 DECL|field|duration
 specifier|protected
 name|String
 name|duration
+decl_stmt|;
+comment|/**      * Sets the idle time duration (seconds) duration that the application can be idle before terminating.      * A value<= 0 will run forever.      *      * @parameter property="camel.durationIdle"      *            default-value="-1"      *      */
+DECL|field|durationIdle
+specifier|protected
+name|String
+name|durationIdle
 decl_stmt|;
 comment|/**      * Sets the duration of maximum number of messages that the application will process before terminating.      *      * @parameter property="camel.duration.maxMessages"      *            default-value="-1"      *      */
 DECL|field|durationMaxMessages
@@ -1055,6 +1061,32 @@ operator|.
 name|add
 argument_list|(
 name|duration
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|durationIdle
+operator|.
+name|equals
+argument_list|(
+literal|"-1"
+argument_list|)
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-di"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|durationIdle
 argument_list|)
 expr_stmt|;
 block|}
