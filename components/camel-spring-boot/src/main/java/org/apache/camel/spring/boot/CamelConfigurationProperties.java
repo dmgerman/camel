@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ManagementStatisticsLevel
 import|;
 end_import
@@ -182,17 +170,17 @@ specifier|private
 name|boolean
 name|mainRunController
 decl_stmt|;
-comment|/**      * If main run controller is enabled then this option can specific for how long time in seconds      * to keep running the JVM before automatic terminating the JVM. You can use this to run Spring Boot      * for a short while.      */
-DECL|field|mainRunControllerMaxDurationSeconds
+comment|/**      * To specify for how long time in seconds to keep running the JVM before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
+DECL|field|durationMaxSeconds
 specifier|private
 name|int
-name|mainRunControllerMaxDurationSeconds
+name|durationMaxSeconds
 decl_stmt|;
-comment|/**      * If main run controller is enabled then this option can specific how many messages to process by Camel      * before automatic terminating the JVM. You can use this to run Spring Boot for a short while.      */
-DECL|field|mainRunControllerMaxDurationMessages
+comment|/**      * To specify how many messages to process by Camel before automatic terminating the JVM.      * You can use this to run Spring Boot for a short while.      */
+DECL|field|durationMaxMessages
 specifier|private
 name|int
-name|mainRunControllerMaxDurationMessages
+name|durationMaxMessages
 decl_stmt|;
 comment|/**      * Whether to include non-singleton beans (prototypes) when scanning for RouteBuilder instances.      * By default only singleton beans is included in the context scan.      */
 DECL|field|includeNonSingletons
@@ -817,56 +805,56 @@ operator|=
 name|mainRunController
 expr_stmt|;
 block|}
-DECL|method|getMainRunControllerMaxDurationSeconds ()
+DECL|method|getDurationMaxSeconds ()
 specifier|public
 name|int
-name|getMainRunControllerMaxDurationSeconds
+name|getDurationMaxSeconds
 parameter_list|()
 block|{
 return|return
-name|mainRunControllerMaxDurationSeconds
+name|durationMaxSeconds
 return|;
 block|}
-DECL|method|setMainRunControllerMaxDurationSeconds (int mainRunControllerMaxDurationSeconds)
+DECL|method|setDurationMaxSeconds (int durationMaxSeconds)
 specifier|public
 name|void
-name|setMainRunControllerMaxDurationSeconds
+name|setDurationMaxSeconds
 parameter_list|(
 name|int
-name|mainRunControllerMaxDurationSeconds
+name|durationMaxSeconds
 parameter_list|)
 block|{
 name|this
 operator|.
-name|mainRunControllerMaxDurationSeconds
+name|durationMaxSeconds
 operator|=
-name|mainRunControllerMaxDurationSeconds
+name|durationMaxSeconds
 expr_stmt|;
 block|}
-DECL|method|getMainRunControllerMaxDurationMessages ()
+DECL|method|getDurationMaxMessages ()
 specifier|public
 name|int
-name|getMainRunControllerMaxDurationMessages
+name|getDurationMaxMessages
 parameter_list|()
 block|{
 return|return
-name|mainRunControllerMaxDurationMessages
+name|durationMaxMessages
 return|;
 block|}
-DECL|method|setMainRunControllerMaxDurationMessages (int mainRunControllerMaxDurationMessages)
+DECL|method|setDurationMaxMessages (int durationMaxMessages)
 specifier|public
 name|void
-name|setMainRunControllerMaxDurationMessages
+name|setDurationMaxMessages
 parameter_list|(
 name|int
-name|mainRunControllerMaxDurationMessages
+name|durationMaxMessages
 parameter_list|)
 block|{
 name|this
 operator|.
-name|mainRunControllerMaxDurationMessages
+name|durationMaxMessages
 operator|=
-name|mainRunControllerMaxDurationMessages
+name|durationMaxMessages
 expr_stmt|;
 block|}
 DECL|method|getLogDebugMaxChars ()

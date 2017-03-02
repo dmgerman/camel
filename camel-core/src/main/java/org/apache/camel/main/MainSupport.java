@@ -2375,6 +2375,8 @@ argument_list|,
 name|completed
 argument_list|,
 name|latch
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// register our event notifier

@@ -182,13 +182,19 @@ specifier|final
 name|CountDownLatch
 name|latch
 decl_stmt|;
+DECL|field|stopCamelContext
+specifier|private
+specifier|final
+name|boolean
+name|stopCamelContext
+decl_stmt|;
 DECL|field|doneMessages
 specifier|private
 specifier|volatile
 name|int
 name|doneMessages
 decl_stmt|;
-DECL|method|MainDurationEventNotifier (CamelContext camelContext, int maxMessages, AtomicBoolean completed, CountDownLatch latch)
+DECL|method|MainDurationEventNotifier (CamelContext camelContext, int maxMessages, AtomicBoolean completed, CountDownLatch latch, boolean stopCamelContext)
 specifier|public
 name|MainDurationEventNotifier
 parameter_list|(
@@ -203,6 +209,9 @@ name|completed
 parameter_list|,
 name|CountDownLatch
 name|latch
+parameter_list|,
+name|boolean
+name|stopCamelContext
 parameter_list|)
 block|{
 name|this
@@ -228,6 +237,12 @@ operator|.
 name|latch
 operator|=
 name|latch
+expr_stmt|;
+name|this
+operator|.
+name|stopCamelContext
+operator|=
+name|stopCamelContext
 expr_stmt|;
 block|}
 annotation|@
@@ -277,11 +292,17 @@ literal|"Duration max messages triggering shutdown of the JVM."
 argument_list|)
 expr_stmt|;
 comment|// shutting down CamelContext
+if|if
+condition|(
+name|stopCamelContext
+condition|)
+block|{
 name|camelContext
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
 comment|// trigger stopping the Main
 name|latch
 operator|.
