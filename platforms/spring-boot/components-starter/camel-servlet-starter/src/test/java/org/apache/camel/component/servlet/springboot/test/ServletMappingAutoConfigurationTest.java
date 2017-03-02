@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.servlet.springboot
+DECL|package|org.apache.camel.component.servlet.springboot.test
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|servlet
 operator|.
 name|springboot
+operator|.
+name|test
 package|;
 end_package
 
@@ -79,16 +81,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -243,15 +235,9 @@ name|ContextConfiguration
 argument_list|(
 name|classes
 operator|=
-block|{
-name|ServletMappingAutoConfiguration
+name|ServletMappingAutoConfigurationTest
 operator|.
 name|class
-block|,
-name|CamelAutoConfiguration
-operator|.
-name|class
-block|}
 argument_list|)
 annotation|@
 name|SpringBootTest

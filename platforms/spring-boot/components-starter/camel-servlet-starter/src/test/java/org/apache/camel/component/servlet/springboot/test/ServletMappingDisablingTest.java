@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.servlet.springboot
+DECL|package|org.apache.camel.component.servlet.springboot.test
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|servlet
 operator|.
 name|springboot
+operator|.
+name|test
 package|;
 end_package
 
