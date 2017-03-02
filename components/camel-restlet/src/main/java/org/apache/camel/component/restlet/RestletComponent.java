@@ -4556,7 +4556,7 @@ expr_stmt|;
 block|}
 name|url
 operator|+=
-literal|"?restletMethods="
+literal|"?restletMethod="
 operator|+
 name|restletMethod
 expr_stmt|;
