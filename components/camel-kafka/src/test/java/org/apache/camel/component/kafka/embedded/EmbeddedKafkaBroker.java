@@ -349,6 +349,17 @@ name|baseProperties
 operator|=
 name|baseProperties
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Starting broker[{}] on port {}"
+argument_list|,
+name|brokerId
+argument_list|,
+name|port
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|brokerList
@@ -385,13 +396,6 @@ name|int
 name|partitionCount
 parameter_list|)
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"createTopic"
-argument_list|)
-expr_stmt|;
 name|AdminUtils
 operator|.
 name|createTopic
@@ -423,13 +427,6 @@ name|void
 name|before
 parameter_list|()
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"before"
-argument_list|)
-expr_stmt|;
 name|logDir
 operator|=
 name|constructTempDir
