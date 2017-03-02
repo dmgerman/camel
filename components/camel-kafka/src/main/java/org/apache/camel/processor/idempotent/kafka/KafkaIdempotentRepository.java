@@ -1246,11 +1246,6 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-synchronized|synchronized
-init|(
-name|cache
-init|)
-block|{
 name|boolean
 name|containsKey
 init|=
@@ -1275,7 +1270,6 @@ block|}
 return|return
 name|containsKey
 return|;
-block|}
 block|}
 annotation|@
 name|Override
