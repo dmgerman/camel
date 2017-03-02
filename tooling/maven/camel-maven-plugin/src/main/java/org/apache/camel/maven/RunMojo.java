@@ -563,6 +563,12 @@ specifier|protected
 name|String
 name|duration
 decl_stmt|;
+comment|/**      * Sets the duration of maximum number of messages that the application will process before terminating.      *      * @parameter property="camel.duration.maxMessages"      *            default-value="-1"      *      */
+DECL|field|durationMaxMessages
+specifier|protected
+name|String
+name|durationMaxMessages
+decl_stmt|;
 comment|/**      * Whether to log the classpath when starting      *      * @parameter property="camel.logClasspath"      *            default-value="false"      */
 DECL|field|logClasspath
 specifier|protected
@@ -726,7 +732,7 @@ specifier|private
 name|ExecutableDependency
 name|executableDependency
 decl_stmt|;
-comment|/**      * Wether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      *      * @parameter property="camel.cleanupDaemonThreads" default-value="true"      */
+comment|/**      * Whether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      *      * @parameter property="camel.cleanupDaemonThreads" default-value="true"      */
 DECL|field|cleanupDaemonThreads
 specifier|private
 name|boolean
@@ -1026,6 +1032,17 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|duration
+operator|.
+name|equals
+argument_list|(
+literal|"-1"
+argument_list|)
+condition|)
+block|{
 name|args
 operator|.
 name|add
@@ -1040,6 +1057,33 @@ argument_list|(
 name|duration
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|durationMaxMessages
+operator|.
+name|equals
+argument_list|(
+literal|"-1"
+argument_list|)
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-dm"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|durationMaxMessages
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|arguments
