@@ -364,9 +364,9 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|delegate
+name|cache
 operator|.
-name|getServices
+name|get
 argument_list|(
 name|name
 argument_list|)
