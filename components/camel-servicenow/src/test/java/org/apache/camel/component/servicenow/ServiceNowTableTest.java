@@ -152,8 +152,7 @@ literal|"direct:servicenow"
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -329,8 +328,7 @@ literal|"direct:servicenow-defaults"
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -497,8 +495,7 @@ literal|"direct:servicenow"
 argument_list|,
 name|incident
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -649,8 +646,7 @@ literal|"direct:servicenow"
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -837,8 +833,7 @@ literal|"direct:servicenow"
 argument_list|,
 name|incident
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -985,8 +980,7 @@ literal|"direct:servicenow"
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -1184,8 +1178,7 @@ literal|"direct:servicenow"
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -1332,8 +1325,7 @@ literal|"direct:servicenow"
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -1408,8 +1400,7 @@ literal|"direct:servicenow"
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -1516,13 +1507,7 @@ name|to
 argument_list|(
 literal|"servicenow:{{env:SERVICENOW_INSTANCE}}"
 operator|+
-literal|"?userName={{env:SERVICENOW_USERNAME}}"
-operator|+
-literal|"&password={{env:SERVICENOW_PASSWORD}}"
-comment|//+ "&oauthClientId={{env:SERVICENOW_OAUTH2_CLIENT_ID}}"
-comment|//+ "&oauthClientSecret={{env:SERVICENOW_OAUTH2_CLIENT_SECRET}}"
-operator|+
-literal|"&model.incident=org.apache.camel.component.servicenow.model.Incident"
+literal|"?model.incident=org.apache.camel.component.servicenow.model.Incident"
 argument_list|)
 operator|.
 name|to
@@ -1544,13 +1529,7 @@ name|to
 argument_list|(
 literal|"servicenow:{{env:SERVICENOW_INSTANCE}}"
 operator|+
-literal|"?userName={{env:SERVICENOW_USERNAME}}"
-operator|+
-literal|"&password={{env:SERVICENOW_PASSWORD}}"
-comment|//+ "&oauthClientId={{env:SERVICENOW_OAUTH2_CLIENT_ID}}"
-comment|//+ "&oauthClientSecret={{env:SERVICENOW_OAUTH2_CLIENT_SECRET}}"
-operator|+
-literal|"&model.incident=org.apache.camel.component.servicenow.model.Incident"
+literal|"?model.incident=org.apache.camel.component.servicenow.model.Incident"
 operator|+
 literal|"&resource=table"
 operator|+

@@ -208,8 +208,7 @@ literal|"direct:servicenow"
 argument_list|,
 name|incident
 argument_list|,
-operator|new
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
@@ -434,10 +433,6 @@ operator|.
 name|to
 argument_list|(
 literal|"servicenow:{{env:SERVICENOW_INSTANCE}}"
-operator|+
-literal|"?userName={{env:SERVICENOW_USERNAME}}"
-operator|+
-literal|"&password={{env:SERVICENOW_PASSWORD}}"
 argument_list|)
 operator|.
 name|to

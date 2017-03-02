@@ -154,10 +154,9 @@ literal|"direct:servicenow"
 argument_list|,
 literal|null
 argument_list|,
-operator|new
 name|ServiceNowTestSupport
 operator|.
-name|KVBuilder
+name|kvBuilder
 argument_list|()
 operator|.
 name|put
