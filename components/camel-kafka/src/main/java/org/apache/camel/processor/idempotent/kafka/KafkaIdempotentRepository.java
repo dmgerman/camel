@@ -244,6 +244,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|LRUCache
 import|;
 end_import
@@ -856,15 +870,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Context: {}"
-argument_list|,
-name|camelContext
-argument_list|)
-expr_stmt|;
 comment|// each consumer instance must have control over its own offset, so assign a groupID at random
 name|String
 name|groupId
@@ -1071,13 +1076,11 @@ name|executorService
 operator|=
 name|executorServiceManager
 operator|.
-name|newFixedThreadPool
+name|newSingleThreadExecutor
 argument_list|(
 name|this
 argument_list|,
 literal|"KafkaIdempotentRepository"
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|executorService
@@ -1139,10 +1142,17 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Interrupted: {}"
+argument_list|,
 name|e
 operator|.
-name|printStackTrace
+name|getMessage
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1223,27 +1233,38 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|executorService
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
 operator|.
 name|shutdown
-argument_list|()
+argument_list|(
+name|executorService
+argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
 name|consumer
+argument_list|,
+literal|"consumer"
+argument_list|,
+name|log
+argument_list|)
+expr_stmt|;
+name|IOHelper
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
+argument_list|(
 name|producer
-operator|.
-name|close
-argument_list|()
+argument_list|,
+literal|"producer"
+argument_list|,
+name|log
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -1277,6 +1298,17 @@ return|;
 block|}
 else|else
 block|{
+comment|// update the local cache and broadcast the addition on the topic, which will be reflected
+comment|// at a later point in any peers
+name|cache
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
 name|broadcastAction
 argument_list|(
 name|key
@@ -1427,6 +1459,17 @@ name|String
 name|key
 parameter_list|)
 block|{
+comment|// update the local cache and broadcast the addition on the topic, which will be reflected
+comment|// at a later point in any peers
+name|cache
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
 name|broadcastAction
 argument_list|(
 name|key
@@ -1510,7 +1553,7 @@ block|{
 return|return
 name|topicPoller
 operator|.
-name|getRunning
+name|isRunning
 argument_list|()
 return|;
 block|}
@@ -1528,7 +1571,7 @@ specifier|final
 name|int
 name|POLL_DURATION_MS
 init|=
-literal|10
+literal|100
 decl_stmt|;
 DECL|field|log
 specifier|private
@@ -1889,7 +1932,7 @@ block|{
 comment|// this should never happen
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"No idea how to {} a record. Shutting down."
 argument_list|,
@@ -1947,9 +1990,9 @@ name|running
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getRunning ()
+DECL|method|isRunning ()
 name|boolean
-name|getRunning
+name|isRunning
 parameter_list|()
 block|{
 return|return
