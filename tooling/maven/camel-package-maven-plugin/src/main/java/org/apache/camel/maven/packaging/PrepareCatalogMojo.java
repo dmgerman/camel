@@ -518,7 +518,7 @@ specifier|protected
 name|File
 name|springDir
 decl_stmt|;
-comment|/**      * The archetypes directory where all the Apache Camel Maven archetypes are      *      * @parameter default-value="${project.build.directory}/../../../tooling/archetypes"      */
+comment|/**      * The archetypes directory where all the Apache Camel Maven archetypes are      *      * @parameter default-value="${project.build.directory}/../../../archetypes"      */
 DECL|field|archetypesDir
 specifier|protected
 name|File
