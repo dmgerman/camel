@@ -137,7 +137,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|GroovyTest
+name|GroovyExpressionTest
 operator|.
 name|class
 argument_list|)
