@@ -1002,15 +1002,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ServiceHelper
-operator|.
-name|startServices
-argument_list|(
-name|processor
-argument_list|,
-name|idempotentRepository
-argument_list|)
-expr_stmt|;
+comment|// must add before start so it will have CamelContext injected first
 if|if
 condition|(
 operator|!
@@ -1030,6 +1022,15 @@ name|idempotentRepository
 argument_list|)
 expr_stmt|;
 block|}
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|processor
+argument_list|,
+name|idempotentRepository
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|doStop ()
 specifier|protected
