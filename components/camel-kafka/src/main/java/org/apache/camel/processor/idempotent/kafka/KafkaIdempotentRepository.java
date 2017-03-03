@@ -202,20 +202,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExecutorServiceManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|IdempotentRepository
 import|;
 end_import
@@ -487,7 +473,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Kafka topic-based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *  * Uses a local cache of previously seen Message IDs. Mutations that come in via the ({@link #add(String)}), or  * {@link #remove(String)} method will update the local cache and broadcast the change in state on a Kafka topic to  * other instances. The cache is back-filled from the topic by a Kafka consumer.  *  * The topic used must be unique per logical repository (i.e. two routes de-duplicate using different repositories,  * and different topics).  *  * This class makes no assumptions about the number of partitions (it is designed to consume from all at the  * same time), or replication factor of the topic.  *  * Each repository instance that uses the topic (e.g. typically on different machines running in parallel) controls its own  * consumer group, so in a cluster of 10 camel processes using the same topic each will control its own offset.  *  * On startup, the instance subscribes to the topic and rewinds the offset to the beginning, rebuilding the cache to the  * latest state. The cache will not be considered warmed up until one poll of {@link #pollDurationMs} in length  * returns 0 records. Startup will not be completed until either the cache has warmed up, or 30 seconds go by; if the  * latter happens the idempotent repository may be in an inconsistent state until its consumer catches up to the end  * of the topic.  *  * To use, this repository must be placed in the Camel registry, either manually or by registration as a bean in  * Spring/Blueprint, as it is CamelContext aware.  */
+comment|/**  * A Kafka topic-based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *  * Uses a local cache of previously seen Message IDs. Mutations that come in via the ({@link #add(String)}), or  * {@link #remove(String)} method will update the local cache and broadcast the change in state on a Kafka topic to  * other instances. The cache is back-filled from the topic by a Kafka consumer.  *  * The topic used must be unique per logical repository (i.e. two routes de-duplicate using different repositories,  * and different topics).  *  * This class makes no assumptions about the number of partitions (it is designed to consume from all at the  * same time), or replication factor of the topic.  *  * Each repository instance that uses the topic (e.g. typically on different machines running in parallel) controls its own  * consumer group, so in a cluster of 10 Camel processes using the same topic each will control its own offset.  *  * On startup, the instance subscribes to the topic and rewinds the offset to the beginning, rebuilding the cache to the  * latest state. The cache will not be considered warmed up until one poll of {@link #pollDurationMs} in length  * returns 0 records. Startup will not be completed until either the cache has warmed up, or 30 seconds go by; if the  * latter happens the idempotent repository may be in an inconsistent state until its consumer catches up to the end  * of the topic.  *  * To use, this repository must be placed in the Camel registry, either manually or by registration as a bean in  * Spring/Blueprint, as it is CamelContext aware.  */
 end_comment
 
 begin_class
@@ -971,6 +957,38 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|camelContext
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -979,6 +997,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
 name|StringHelper
 operator|.
 name|notEmpty
@@ -1267,36 +1294,13 @@ argument_list|,
 name|pollDurationMs
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-comment|// doStart() has already been called at this point
-name|this
-operator|.
-name|camelContext
+comment|// warm up the cache
+name|executorService
 operator|=
-name|camelContext
-expr_stmt|;
-name|ExecutorServiceManager
-name|executorServiceManager
-init|=
 name|camelContext
 operator|.
 name|getExecutorServiceManager
 argument_list|()
-decl_stmt|;
-name|executorService
-operator|=
-name|executorServiceManager
 operator|.
 name|newSingleThreadExecutor
 argument_list|(
@@ -1316,7 +1320,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Warming up cache"
+literal|"Warming up cache from topic {}"
+argument_list|,
+name|topic
 argument_list|)
 expr_stmt|;
 try|try
@@ -1366,9 +1372,9 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Interrupted: {}"
+literal|"Interrupted while warming up cache. This exception is ignored."
 argument_list|,
 name|e
 operator|.
@@ -1377,20 +1383,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|camelContext
-return|;
 block|}
 annotation|@
 name|Override
@@ -1431,7 +1423,21 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Expired waiting on topicPoller to shut down"
+literal|"Cache from topic {} shutdown successfully"
+argument_list|,
+name|topic
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Timeout waiting for cache to shutdown from topic {}. Proceeding anyway."
+argument_list|,
+name|topic
 argument_list|)
 expr_stmt|;
 block|}
@@ -1444,9 +1450,9 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|warn
 argument_list|(
-literal|"Interrupted waiting on latch: {}"
+literal|"Interrupted waiting on shutting down cache due {}. This exception is ignored."
 argument_list|,
 name|e
 operator|.
@@ -1827,6 +1833,7 @@ name|pollDurationMs
 decl_stmt|;
 DECL|field|shutdownLatch
 specifier|private
+specifier|final
 name|CountDownLatch
 name|shutdownLatch
 init|=
@@ -1838,6 +1845,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|running
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|running
 init|=
@@ -2228,6 +2236,22 @@ name|running
 operator|.
 name|get
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"TopicPoller["
+operator|+
+name|topic
+operator|+
+literal|"]"
 return|;
 block|}
 block|}
