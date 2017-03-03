@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author jkorab  */
+comment|/**  * Test for eager idempotentRepository usage.  */
 end_comment
 
 begin_class

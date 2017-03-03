@@ -199,14 +199,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author jkorab  */
+comment|/**  * Test for non-eager idempotentRepository usage.  */
 end_comment
 
 begin_class
-DECL|class|KafkaIdempotentRepositoryLazyTest
+DECL|class|KafkaIdempotentRepositoryNonEagerTest
 specifier|public
 class|class
-name|KafkaIdempotentRepositoryLazyTest
+name|KafkaIdempotentRepositoryNonEagerTest
 extends|extends
 name|CamelTestSupport
 block|{
