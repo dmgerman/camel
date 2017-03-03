@@ -275,13 +275,13 @@ name|boolean
 name|hasHeaders
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the body of the message as a POJO      *<p/>      * The body can be<tt>null</tt> if no body is set      *      * @return the body, can be<tt>null</tt>      */
+comment|/**      * Returns the body of the message as a POJO      *<p/>      * The body can be<tt>null</tt> if no body is set.      *<p/>      * Notice if the message body is stream based then calling this method multiple times may lead to the stream not being able to be re-read again.      * You can enable stream caching and call the {@link StreamCache#reset()} method to reset the stream to be able to re-read again (if possible).      * See more details about<a href="http://camel.apache.org/stream-caching.html">stream caching</a>.      *      * @return the body, can be<tt>null</tt>      */
 DECL|method|getBody ()
 name|Object
 name|getBody
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the body of the message as a POJO      *      * @return the body, is never<tt>null</tt>      * @throws InvalidPayloadException Is thrown if the body being<tt>null</tt> or wrong class type      */
+comment|/**      * Returns the body of the message as a POJO      *<p/>      * Notice if the message body is stream based then calling this method multiple times may lead to the stream not being able to be re-read again.      * See more details about<a href="http://camel.apache.org/stream-caching.html">stream caching</a>.      *      * @return the body, is never<tt>null</tt>      * @throws InvalidPayloadException Is thrown if the body being<tt>null</tt> or wrong class type      */
 DECL|method|getMandatoryBody ()
 name|Object
 name|getMandatoryBody
@@ -289,7 +289,7 @@ parameter_list|()
 throws|throws
 name|InvalidPayloadException
 function_decl|;
-comment|/**      * Returns the body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type, or<tt>null</tt> if no body exists      * @throws TypeConversionException is thrown if error during type conversion      */
+comment|/**      * Returns the body as the specified type      *<p/>      * Notice if the message body is stream based then calling this method multiple times may lead to the stream not being able to be re-read again.      * You can enable stream caching and call the {@link StreamCache#reset()} method to reset the stream to be able to re-read again (if possible).      * See more details about<a href="http://camel.apache.org/stream-caching.html">stream caching</a>.      *      * @param type the type that the body      * @return the body of the message as the specified type, or<tt>null</tt> if no body exists      * @throws TypeConversionException is thrown if error during type conversion      */
 DECL|method|getBody (Class<T> type)
 parameter_list|<
 name|T
@@ -304,7 +304,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the mandatory body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type, is never<tt>null</tt>.      * @throws InvalidPayloadException Is thrown if the body being<tt>null</tt> or wrong class type      */
+comment|/**      * Returns the mandatory body as the specified type      *<p/>      * Notice if the message body is stream based then calling this method multiple times may lead to the stream not being able to be re-read again.      * You can enable stream caching and call the {@link StreamCache#reset()} method to reset the stream to be able to re-read again (if possible).      * See more details about<a href="http://camel.apache.org/stream-caching.html">stream caching</a>.      *      * @param type the type that the body      * @return the body of the message as the specified type, is never<tt>null</tt>.      * @throws InvalidPayloadException Is thrown if the body being<tt>null</tt> or wrong class type      */
 DECL|method|getMandatoryBody (Class<T> type)
 parameter_list|<
 name|T
