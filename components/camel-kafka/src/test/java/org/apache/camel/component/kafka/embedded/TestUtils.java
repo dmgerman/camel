@@ -62,16 +62,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -84,35 +74,12 @@ name|RandomStringUtils
 import|;
 end_import
 
-begin_import
-import|import static
-name|java
-operator|.
-name|io
-operator|.
-name|File
-operator|.
-name|separator
-import|;
-end_import
-
 begin_class
 DECL|class|TestUtils
 specifier|final
 class|class
 name|TestUtils
 block|{
-DECL|field|RANDOM
-specifier|private
-specifier|static
-specifier|final
-name|Random
-name|RANDOM
-init|=
-operator|new
-name|Random
-argument_list|()
-decl_stmt|;
 DECL|field|TMPDIR
 specifier|private
 specifier|static
@@ -150,6 +117,8 @@ name|File
 argument_list|(
 name|TMPDIR
 operator|+
+name|File
+operator|.
 name|separator
 operator|+
 name|suffix
