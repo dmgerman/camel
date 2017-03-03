@@ -623,7 +623,7 @@ name|KafkaConstants
 operator|.
 name|PARTITION_KEY
 argument_list|,
-literal|"4"
+literal|4
 argument_list|)
 expr_stmt|;
 name|producer
@@ -761,7 +761,7 @@ name|KafkaConstants
 operator|.
 name|PARTITION_KEY
 argument_list|,
-literal|"4"
+literal|4
 argument_list|)
 expr_stmt|;
 name|producer
@@ -833,7 +833,7 @@ name|KafkaConstants
 operator|.
 name|PARTITION_KEY
 argument_list|,
-literal|"4"
+literal|4
 argument_list|)
 expr_stmt|;
 name|producer
@@ -1028,7 +1028,7 @@ name|KafkaConstants
 operator|.
 name|PARTITION_KEY
 argument_list|,
-literal|"4"
+literal|4
 argument_list|)
 expr_stmt|;
 name|producer
@@ -1282,7 +1282,7 @@ name|KafkaConstants
 operator|.
 name|PARTITION_KEY
 argument_list|,
-literal|"4"
+literal|4
 argument_list|)
 expr_stmt|;
 name|in
@@ -1316,7 +1316,7 @@ argument_list|)
 expr_stmt|;
 name|verifySendMessage
 argument_list|(
-literal|"4"
+literal|4
 argument_list|,
 literal|"anotherTopic"
 argument_list|,
@@ -1510,7 +1510,7 @@ name|KafkaConstants
 operator|.
 name|PARTITION_KEY
 argument_list|,
-literal|"4"
+literal|4
 argument_list|)
 expr_stmt|;
 name|in
@@ -1533,7 +1533,7 @@ argument_list|)
 expr_stmt|;
 name|verifySendMessage
 argument_list|(
-literal|"4"
+literal|4
 argument_list|,
 literal|"someTopic"
 argument_list|,
@@ -1710,7 +1710,7 @@ name|KafkaConstants
 operator|.
 name|PARTITION_KEY
 argument_list|,
-literal|"4"
+literal|4
 argument_list|)
 expr_stmt|;
 name|producer
@@ -1722,7 +1722,7 @@ argument_list|)
 expr_stmt|;
 name|verifySendMessage
 argument_list|(
-literal|"4"
+literal|4
 argument_list|,
 literal|"someTopic"
 argument_list|,
@@ -1809,12 +1809,12 @@ block|,
 literal|"rawtypes"
 block|}
 argument_list|)
-DECL|method|verifySendMessage (String partitionKey, String topic, String messageKey)
+DECL|method|verifySendMessage (Integer partitionKey, String topic, String messageKey)
 specifier|protected
 name|void
 name|verifySendMessage
 parameter_list|(
-name|String
+name|Integer
 name|partitionKey
 parameter_list|,
 name|String
@@ -1859,11 +1859,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|new
-name|Integer
-argument_list|(
 name|partitionKey
-argument_list|)
 argument_list|,
 name|captor
 operator|.

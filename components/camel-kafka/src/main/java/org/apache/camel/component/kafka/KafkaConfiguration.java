@@ -918,6 +918,30 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|)
+DECL|field|key
+specifier|private
+name|String
+name|key
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|partitionKey
+specifier|private
+name|Integer
+name|partitionKey
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
 argument_list|,
 name|enums
 operator|=
@@ -4607,6 +4631,60 @@ operator|.
 name|bufferMemorySize
 operator|=
 name|bufferMemorySize
+expr_stmt|;
+block|}
+DECL|method|getKey ()
+specifier|public
+name|String
+name|getKey
+parameter_list|()
+block|{
+return|return
+name|key
+return|;
+block|}
+comment|/**      * The record key (or null if no key is specified).      * If this option has been configured then it take precedence over header {@link KafkaConstants#KEY}      */
+DECL|method|setKey (String key)
+specifier|public
+name|void
+name|setKey
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|this
+operator|.
+name|key
+operator|=
+name|key
+expr_stmt|;
+block|}
+DECL|method|getPartitionKey ()
+specifier|public
+name|Integer
+name|getPartitionKey
+parameter_list|()
+block|{
+return|return
+name|partitionKey
+return|;
+block|}
+comment|/**      * The partition to which the record will be sent (or null if no partition was specified).      * If this option has been configured then it take precedence over header {@link KafkaConstants#PARTITION_KEY}      */
+DECL|method|setPartitionKey (Integer partitionKey)
+specifier|public
+name|void
+name|setPartitionKey
+parameter_list|(
+name|Integer
+name|partitionKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|partitionKey
+operator|=
+name|partitionKey
 expr_stmt|;
 block|}
 DECL|method|getRequestRequiredAcks ()
