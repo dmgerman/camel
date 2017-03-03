@@ -732,6 +732,8 @@ block|,
 literal|"camel-spark-rest"
 block|,
 comment|/* others (not managed) -> */
+literal|"camel-groovy-dsl"
+block|,
 literal|"camel-zipkin"
 block|}
 decl_stmt|;
