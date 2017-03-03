@@ -416,6 +416,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsEndpointUri
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Contract
 import|;
 end_import
@@ -487,6 +501,34 @@ operator|.
 name|spi
 operator|.
 name|RoutePolicyFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Transformer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Validator
 import|;
 end_import
 
@@ -730,10 +772,12 @@ specifier|public
 name|RouteDefinition
 parameter_list|()
 block|{     }
-DECL|method|RouteDefinition (String uri)
+DECL|method|RouteDefinition (@sEndpointUri String uri)
 specifier|public
 name|RouteDefinition
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -759,11 +803,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This route is created from the REST DSL.      */
-DECL|method|fromRest (String uri)
+DECL|method|fromRest (@sEndpointUri String uri)
 specifier|public
 name|void
 name|fromRest
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -1477,11 +1523,13 @@ block|}
 comment|// Fluent API
 comment|// -----------------------------------------------------------------------
 comment|/**      * Creates an input to the route      *      * @param uri the from uri      * @return the builder      */
-DECL|method|from (String uri)
+DECL|method|from (@sEndpointUri String uri)
 specifier|public
 name|RouteDefinition
 name|from
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -1529,11 +1577,13 @@ name|this
 return|;
 block|}
 comment|/**      * Creates inputs to the route      *      * @param uris the from uris      * @return the builder      */
-DECL|method|from (String... uris)
+DECL|method|from (@sEndpointUri String... uris)
 specifier|public
 name|RouteDefinition
 name|from
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 modifier|...
 name|uris

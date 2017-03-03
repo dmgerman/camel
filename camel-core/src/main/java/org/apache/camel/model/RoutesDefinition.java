@@ -140,6 +140,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsEndpointUri
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -599,11 +613,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
-DECL|method|from (String uri)
+DECL|method|from (@sEndpointUri String uri)
 specifier|public
 name|RouteDefinition
 name|from
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -659,11 +675,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new route from the given URI inputs      *      * @param uris  the from uri      * @return the builder      */
-DECL|method|from (String... uris)
+DECL|method|from (@sEndpointUri String... uris)
 specifier|public
 name|RouteDefinition
 name|from
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 modifier|...
 name|uris
@@ -829,11 +847,13 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates and adds an interceptor that is triggered when an exchange is received      * as input to the route defined with the given endpoint (eg from the<tt>from</tt>)      *      * @param uri uri of the endpoint      * @return the interceptor builder to configure      */
-DECL|method|interceptFrom (final String uri)
+DECL|method|interceptFrom (@sEndpointUri final String uri)
 specifier|public
 name|InterceptFromDefinition
 name|interceptFrom
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 specifier|final
 name|String
 name|uri
@@ -861,11 +881,13 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * send to the given endpoint      *      * @param uri uri of the endpoint      * @return  the builder      */
-DECL|method|interceptSendToEndpoint (final String uri)
+DECL|method|interceptSendToEndpoint (@sEndpointUri final String uri)
 specifier|public
 name|InterceptSendToEndpointDefinition
 name|interceptSendToEndpoint
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 specifier|final
 name|String
 name|uri

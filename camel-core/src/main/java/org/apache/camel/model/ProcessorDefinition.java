@@ -672,6 +672,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsEndpointUri
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|AsPredicate
 import|;
 end_import
@@ -2962,11 +2976,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|to (String uri)
+DECL|method|to (@sEndpointUri String uri)
 specifier|public
 name|Type
 name|to
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -2993,11 +3009,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|toD (String uri)
+DECL|method|toD (@sEndpointUri String uri)
 specifier|public
 name|Type
 name|toD
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -3034,11 +3052,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|toD (String uri, boolean ignoreInvalidEndpoint)
+DECL|method|toD (@sEndpointUri String uri, boolean ignoreInvalidEndpoint)
 specifier|public
 name|Type
 name|toD
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -3085,11 +3105,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|toF (String uri, Object... args)
+DECL|method|toF (@sEndpointUri String uri, Object... args)
 specifier|public
 name|Type
 name|toF
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -3191,7 +3213,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|serviceCall (String name, String uri)
+DECL|method|serviceCall (String name, @AsEndpointUri String uri)
 specifier|public
 name|Type
 name|serviceCall
@@ -3199,6 +3221,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -3273,7 +3297,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|to (ExchangePattern pattern, String uri)
+DECL|method|to (ExchangePattern pattern, @AsEndpointUri String uri)
 specifier|public
 name|Type
 name|to
@@ -3281,6 +3305,8 @@ parameter_list|(
 name|ExchangePattern
 name|pattern
 parameter_list|,
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -3345,11 +3371,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|to (String... uris)
+DECL|method|to (@sEndpointUri String... uris)
 specifier|public
 name|Type
 name|to
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 modifier|...
 name|uris
@@ -3470,7 +3498,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|to (ExchangePattern pattern, String... uris)
+DECL|method|to (ExchangePattern pattern, @AsEndpointUri String... uris)
 specifier|public
 name|Type
 name|to
@@ -3478,6 +3506,8 @@ parameter_list|(
 name|ExchangePattern
 name|pattern
 parameter_list|,
+annotation|@
+name|AsEndpointUri
 name|String
 modifier|...
 name|uris
@@ -3654,11 +3684,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
-DECL|method|inOnly (String uri)
+DECL|method|inOnly (@sEndpointUri String uri)
 specifier|public
 name|Type
 name|inOnly
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -3696,11 +3728,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uris  list of endpoints to send to      * @return the builder      */
-DECL|method|inOnly (String... uris)
+DECL|method|inOnly (@sEndpointUri String... uris)
 specifier|public
 name|Type
 name|inOnly
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 modifier|...
 name|uris
@@ -3718,11 +3752,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/event-message.html">Event Message</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOnly exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param endpoints  list of endpoints to send to      * @return the builder      */
-DECL|method|inOnly (Endpoint... endpoints)
+DECL|method|inOnly (@sEndpointUri Endpoint... endpoints)
 specifier|public
 name|Type
 name|inOnly
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|Endpoint
 modifier|...
 name|endpoints
@@ -3782,11 +3818,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the message to the given endpoint using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uri The endpoint uri which is used for sending the exchange      * @return the builder      */
-DECL|method|inOut (String uri)
+DECL|method|inOut (@sEndpointUri String uri)
 specifier|public
 name|Type
 name|inOut
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -3824,11 +3862,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Sends the message to the given endpoints using an      *<a href="http://camel.apache.org/request-reply.html">Request Reply</a> or      *<a href="http://camel.apache.org/exchange-pattern.html">InOut exchange pattern</a>      *<p/>      * Notice the existing MEP is restored after the message has been sent to the given endpoint.      *      * @param uris  list of endpoints to send to      * @return the builder      */
-DECL|method|inOut (String... uris)
+DECL|method|inOut (@sEndpointUri String... uris)
 specifier|public
 name|Type
 name|inOut
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 modifier|...
 name|uris
@@ -4292,11 +4332,13 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/pipes-nd-filters.html">Pipes and Filters EIP:</a>      * Creates a {@link Pipeline} of the list of endpoints so that the message      * will get processed by each endpoint in turn and for request/response the      * output of one endpoint will be the input of the next endpoint      *      * @param uris  list of endpoints      * @return the builder      */
-DECL|method|pipeline (String... uris)
+DECL|method|pipeline (@sEndpointUri String... uris)
 specifier|public
 name|Type
 name|pipeline
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 modifier|...
 name|uris
@@ -5734,7 +5776,7 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients.      *<p/>      * Will use comma as default delimiter.      *      * @param recipients expression to decide the destinations      * @return the builder      */
-DECL|method|recipientList (Expression recipients)
+DECL|method|recipientList (@sEndpointUri Expression recipients)
 specifier|public
 name|RecipientListDefinition
 argument_list|<
@@ -5742,6 +5784,8 @@ name|Type
 argument_list|>
 name|recipientList
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|Expression
 name|recipients
 parameter_list|)
@@ -5771,7 +5815,7 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param recipients expression to decide the destinations      * @param delimiter  a custom delimiter to use      * @return the builder      */
-DECL|method|recipientList (Expression recipients, String delimiter)
+DECL|method|recipientList (@sEndpointUri Expression recipients, String delimiter)
 specifier|public
 name|RecipientListDefinition
 argument_list|<
@@ -5779,6 +5823,8 @@ name|Type
 argument_list|>
 name|recipientList
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|Expression
 name|recipients
 parameter_list|,
@@ -5818,6 +5864,8 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param delimiter  a custom delimiter to use      * @return the builder      */
+annotation|@
+name|AsEndpointUri
 DECL|method|recipientList (String delimiter)
 specifier|public
 name|ExpressionClause
@@ -5868,6 +5916,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @return the expression clause to configure the expression to decide the destinations      */
+annotation|@
+name|AsEndpointUri
 DECL|method|recipientList ()
 specifier|public
 name|ExpressionClause
@@ -6094,7 +6144,7 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param expression  to decide the destinations      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the builder      */
-DECL|method|routingSlip (Expression expression, String uriDelimiter)
+DECL|method|routingSlip (@sEndpointUri Expression expression, String uriDelimiter)
 specifier|public
 name|RoutingSlipDefinition
 argument_list|<
@@ -6102,6 +6152,8 @@ name|Type
 argument_list|>
 name|routingSlip
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|Expression
 name|expression
 parameter_list|,
@@ -6136,7 +6188,7 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipDefinition#DEFAULT_DELIMITER}      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param expression  to decide the destinations      * @return the builder      */
-DECL|method|routingSlip (Expression expression)
+DECL|method|routingSlip (@sEndpointUri Expression expression)
 specifier|public
 name|RoutingSlipDefinition
 argument_list|<
@@ -6144,6 +6196,8 @@ name|Type
 argument_list|>
 name|routingSlip
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|Expression
 name|expression
 parameter_list|)
@@ -6213,7 +6267,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router EIP:</a>      * Creates a dynamic router allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      *<br/><b>Important:</b> The expression will be invoked repeatedly until it returns<tt>null</tt>, so be sure it does that,      * otherwise it will be invoked endlessly.      *      * @param expression  to decide the destinations, which will be invoked repeatedly      *                    until it evaluates<tt>null</tt> to indicate no more destinations.      * @return the builder      */
-DECL|method|dynamicRouter (Expression expression)
+DECL|method|dynamicRouter (@sEndpointUri Expression expression)
 specifier|public
 name|DynamicRouterDefinition
 argument_list|<
@@ -6221,6 +6275,8 @@ name|Type
 argument_list|>
 name|dynamicRouter
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|Expression
 name|expression
 parameter_list|)
@@ -6250,6 +6306,8 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router EIP:</a>      * Creates a dynamic router allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      *<br/><b>Important:</b> The expression will be invoked repeatedly until it returns<tt>null</tt>, so be sure it does that,      * otherwise it will be invoked endlessly.      *      * @return the expression clause to configure the expression to decide the destinations,      * which will be invoked repeatedly until it evaluates<tt>null</tt> to indicate no more destinations.      */
+annotation|@
+name|AsEndpointUri
 DECL|method|dynamicRouter ()
 specifier|public
 name|ExpressionClause
@@ -7270,7 +7328,7 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @return the builder      */
-DECL|method|wireTap (String uri)
+DECL|method|wireTap (@sEndpointUri String uri)
 specifier|public
 name|WireTapDefinition
 argument_list|<
@@ -7278,6 +7336,8 @@ name|Type
 argument_list|>
 name|wireTap
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|)
@@ -7308,7 +7368,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param      executorService a custom {@link ExecutorService} to use as thread pool      *             for sending tapped exchanges      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
-DECL|method|wireTap (String uri, ExecutorService executorService)
+DECL|method|wireTap (@sEndpointUri String uri, ExecutorService executorService)
 specifier|public
 name|WireTapDefinition
 argument_list|<
@@ -7316,6 +7376,8 @@ name|Type
 argument_list|>
 name|wireTap
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -7356,7 +7418,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param      executorServiceRef reference to lookup a custom {@link ExecutorService}      *             to use as thread pool for sending tapped exchanges      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
-DECL|method|wireTap (String uri, String executorServiceRef)
+DECL|method|wireTap (@sEndpointUri String uri, String executorServiceRef)
 specifier|public
 name|WireTapDefinition
 argument_list|<
@@ -7364,6 +7426,8 @@ name|Type
 argument_list|>
 name|wireTap
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -7404,7 +7468,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given expression      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param body expression that creates the body to send      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
-DECL|method|wireTap (String uri, Expression body)
+DECL|method|wireTap (@sEndpointUri String uri, Expression body)
 specifier|public
 name|WireTapDefinition
 argument_list|<
@@ -7412,6 +7476,8 @@ name|Type
 argument_list|>
 name|wireTap
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -7433,7 +7499,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
-DECL|method|wireTap (String uri, boolean copy)
+DECL|method|wireTap (@sEndpointUri String uri, boolean copy)
 specifier|public
 name|WireTapDefinition
 argument_list|<
@@ -7441,6 +7507,8 @@ name|Type
 argument_list|>
 name|wireTap
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -7481,7 +7549,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @param body expression that creates the body to send      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
-DECL|method|wireTap (String uri, boolean copy, Expression body)
+DECL|method|wireTap (@sEndpointUri String uri, boolean copy, Expression body)
 specifier|public
 name|WireTapDefinition
 argument_list|<
@@ -7489,6 +7557,8 @@ name|Type
 argument_list|>
 name|wireTap
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -7543,7 +7613,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given processor      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param processor  processor preparing the new exchange to send      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
-DECL|method|wireTap (String uri, Processor processor)
+DECL|method|wireTap (@sEndpointUri String uri, Processor processor)
 specifier|public
 name|WireTapDefinition
 argument_list|<
@@ -7551,6 +7621,8 @@ name|Type
 argument_list|>
 name|wireTap
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -7572,7 +7644,7 @@ block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @param processor  processor preparing the new exchange to send      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
 annotation|@
 name|Deprecated
-DECL|method|wireTap (String uri, boolean copy, Processor processor)
+DECL|method|wireTap (@sEndpointUri String uri, boolean copy, Processor processor)
 specifier|public
 name|WireTapDefinition
 argument_list|<
@@ -7580,6 +7652,8 @@ name|Type
 argument_list|>
 name|wireTap
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|uri
 parameter_list|,
@@ -10018,11 +10092,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *<p/>      * The difference between this and {@link #pollEnrich(String)} is that this uses a producer      * to obatin the additional data, where as pollEnrich uses a polling consumer.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
-DECL|method|enrich (String resourceUri)
+DECL|method|enrich (@sEndpointUri String resourceUri)
 specifier|public
 name|Type
 name|enrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|)
@@ -10037,11 +10113,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *       * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
-DECL|method|enrich (String resourceUri, AggregationStrategy aggregationStrategy)
+DECL|method|enrich (@sEndpointUri String resourceUri, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Type
 name|enrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10061,7 +10139,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
-DECL|method|enrichWith (String resourceUri)
+DECL|method|enrichWith (@sEndpointUri String resourceUri)
 specifier|public
 name|EnrichClause
 argument_list|<
@@ -10072,6 +10150,8 @@ argument_list|>
 argument_list|>
 name|enrichWith
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|)
@@ -10104,7 +10184,7 @@ name|clause
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
-DECL|method|enrichWith (String resourceUri, boolean aggregateOnException)
+DECL|method|enrichWith (@sEndpointUri String resourceUri, boolean aggregateOnException)
 specifier|public
 name|EnrichClause
 argument_list|<
@@ -10115,6 +10195,8 @@ argument_list|>
 argument_list|>
 name|enrichWith
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10154,7 +10236,7 @@ name|clause
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
-DECL|method|enrichWith (String resourceUri, boolean aggregateOnException, boolean shareUnitOfWork)
+DECL|method|enrichWith (@sEndpointUri String resourceUri, boolean aggregateOnException, boolean shareUnitOfWork)
 specifier|public
 name|EnrichClause
 argument_list|<
@@ -10165,6 +10247,8 @@ argument_list|>
 argument_list|>
 name|enrichWith
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10207,11 +10291,13 @@ name|clause
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @param aggregateOnException   whether to call {@link org.apache.camel.processor.aggregate.AggregationStrategy#aggregate(org.apache.camel.Exchange, org.apache.camel.Exchange)} if      *                               an exception was thrown.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
-DECL|method|enrich (String resourceUri, AggregationStrategy aggregationStrategy, boolean aggregateOnException)
+DECL|method|enrich (@sEndpointUri String resourceUri, AggregationStrategy aggregationStrategy, boolean aggregateOnException)
 specifier|public
 name|Type
 name|enrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10241,11 +10327,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|enrich (String resourceUri, AggregationStrategy aggregationStrategy, boolean aggregateOnException, boolean shareUnitOfWork)
+DECL|method|enrich (@sEndpointUri String resourceUri, AggregationStrategy aggregationStrategy, boolean aggregateOnException, boolean shareUnitOfWork)
 specifier|public
 name|Type
 name|enrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10447,6 +10535,8 @@ name|this
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>.      *<p/>      * The difference between this and {@link #pollEnrich(String)} is that this uses a producer      * to obtain the additional data, where as pollEnrich uses a polling consumer.      *      * @return a expression builder clause to set the expression to use for computing the endpoint to use      * @see org.apache.camel.processor.PollEnricher      */
+annotation|@
+name|AsEndpointUri
 DECL|method|enrich ()
 specifier|public
 name|ExpressionClause
@@ -10478,11 +10568,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * This method will<tt>block</tt> until data is available, use the method with timeout if you do not      * want to risk waiting a long time before data is available from the resourceUri.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-DECL|method|pollEnrich (String resourceUri)
+DECL|method|pollEnrich (@sEndpointUri String resourceUri)
 specifier|public
 name|Type
 name|pollEnrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|)
@@ -10497,11 +10589,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * This method will<b>block</b> until data is available, use the method with timeout if you do not      * want to risk waiting a long time before data is available from the resourceUri.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-DECL|method|pollEnrich (String resourceUri, AggregationStrategy aggregationStrategy)
+DECL|method|pollEnrich (@sEndpointUri String resourceUri, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Type
 name|pollEnrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10522,11 +10616,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param timeout               timeout in millis to wait at most for data to be available.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-DECL|method|pollEnrich (String resourceUri, long timeout, AggregationStrategy aggregationStrategy)
+DECL|method|pollEnrich (@sEndpointUri String resourceUri, long timeout, AggregationStrategy aggregationStrategy)
 specifier|public
 name|Type
 name|pollEnrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10551,11 +10647,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri            URI of resource endpoint for obtaining additional data.      * @param timeout                timeout in millis to wait at most for data to be available.      * @param aggregationStrategyRef Reference of aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-DECL|method|pollEnrich (String resourceUri, long timeout, String aggregationStrategyRef)
+DECL|method|pollEnrich (@sEndpointUri String resourceUri, long timeout, String aggregationStrategyRef)
 specifier|public
 name|Type
 name|pollEnrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10580,7 +10678,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
-DECL|method|pollEnrichWith (String resourceUri)
+DECL|method|pollEnrichWith (@sEndpointUri String resourceUri)
 specifier|public
 name|EnrichClause
 argument_list|<
@@ -10591,6 +10689,8 @@ argument_list|>
 argument_list|>
 name|pollEnrichWith
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|)
@@ -10628,7 +10728,7 @@ name|clause
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
-DECL|method|pollEnrichWith (String resourceUri, long timeout)
+DECL|method|pollEnrichWith (@sEndpointUri String resourceUri, long timeout)
 specifier|public
 name|EnrichClause
 argument_list|<
@@ -10639,6 +10739,8 @@ argument_list|>
 argument_list|>
 name|pollEnrichWith
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10678,7 +10780,7 @@ name|clause
 return|;
 block|}
 comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
-DECL|method|pollEnrichWith (String resourceUri, long timeout, boolean aggregateOnException)
+DECL|method|pollEnrichWith (@sEndpointUri String resourceUri, long timeout, boolean aggregateOnException)
 specifier|public
 name|EnrichClause
 argument_list|<
@@ -10689,6 +10791,8 @@ argument_list|>
 argument_list|>
 name|pollEnrichWith
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10736,11 +10840,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|pollEnrich (String resourceUri, long timeout, AggregationStrategy aggregationStrategy, boolean aggregateOnException)
+DECL|method|pollEnrich (@sEndpointUri String resourceUri, long timeout, AggregationStrategy aggregationStrategy, boolean aggregateOnException)
 specifier|public
 name|Type
 name|pollEnrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10811,11 +10917,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|pollEnrich (String resourceUri, long timeout, String aggregationStrategyRef, boolean aggregateOnException)
+DECL|method|pollEnrich (@sEndpointUri String resourceUri, long timeout, String aggregationStrategyRef, boolean aggregateOnException)
 specifier|public
 name|Type
 name|pollEnrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -10881,11 +10989,13 @@ name|this
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param timeout               timeout in millis to wait at most for data to be available.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
-DECL|method|pollEnrich (String resourceUri, long timeout)
+DECL|method|pollEnrich (@sEndpointUri String resourceUri, long timeout)
 specifier|public
 name|Type
 name|pollEnrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|resourceUri
 parameter_list|,
@@ -11061,11 +11171,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|pollEnrich (Expression expression, long timeout, String aggregationStrategyRef, boolean aggregateOnException)
+DECL|method|pollEnrich (@sEndpointUri Expression expression, long timeout, String aggregationStrategyRef, boolean aggregateOnException)
 specifier|public
 name|Type
 name|pollEnrich
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|Expression
 name|expression
 parameter_list|,
@@ -11131,6 +11243,8 @@ name|this
 return|;
 block|}
 comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * The timeout controls which operation to use on {@link org.apache.camel.PollingConsumer}.      * If timeout is negative, we use<tt>receive</tt>. If timeout is 0 then we use<tt>receiveNoWait</tt>      * otherwise we use<tt>receive(timeout)</tt>.      *      * @return a expression builder clause to set the expression to use for computing the endpoint to poll from      * @see org.apache.camel.processor.PollEnricher      */
+annotation|@
+name|AsEndpointUri
 DECL|method|pollEnrich ()
 specifier|public
 name|ExpressionClause

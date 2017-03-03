@@ -128,6 +128,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsEndpointUri
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -478,14 +492,18 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses a AOP around.      *      * @param beforeUri the uri of the before endpoint      * @param afterUri  the uri of the after endpoint      * @return the builder      */
-DECL|method|around (String beforeUri, String afterUri)
+DECL|method|around (@sEndpointUri String beforeUri, @AsEndpointUri String afterUri)
 specifier|public
 name|AOPDefinition
 name|around
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|beforeUri
 parameter_list|,
+annotation|@
+name|AsEndpointUri
 name|String
 name|afterUri
 parameter_list|)
@@ -513,14 +531,18 @@ name|this
 return|;
 block|}
 comment|/**      * Uses a AOP around with after being invoked in a finally block      *      * @param beforeUri the uri of the before endpoint      * @param afterUri  the uri of the after endpoint      * @return the builder      */
-DECL|method|aroundFinally (String beforeUri, String afterUri)
+DECL|method|aroundFinally (@sEndpointUri String beforeUri, @AsEndpointUri String afterUri)
 specifier|public
 name|AOPDefinition
 name|aroundFinally
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|beforeUri
 parameter_list|,
+annotation|@
+name|AsEndpointUri
 name|String
 name|afterUri
 parameter_list|)
@@ -548,11 +570,13 @@ name|this
 return|;
 block|}
 comment|/**      * Uses a AOP before.      *      * @param beforeUri the uri of the before endpoint      * @return the builder      */
-DECL|method|before (String beforeUri)
+DECL|method|before (@sEndpointUri String beforeUri)
 specifier|public
 name|AOPDefinition
 name|before
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|beforeUri
 parameter_list|)
@@ -580,11 +604,13 @@ name|this
 return|;
 block|}
 comment|/**      * Uses a AOP after.      *      * @param afterUri  the uri of the after endpoint      * @return the builder      */
-DECL|method|after (String afterUri)
+DECL|method|after (@sEndpointUri String afterUri)
 specifier|public
 name|AOPDefinition
 name|after
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|afterUri
 parameter_list|)
@@ -612,11 +638,13 @@ name|this
 return|;
 block|}
 comment|/**      * Uses a AOP after with after being invoked in a finally block.      *      * @param afterUri  the uri of the after endpoint      * @return the builder      */
-DECL|method|afterFinally (String afterUri)
+DECL|method|afterFinally (@sEndpointUri String afterUri)
 specifier|public
 name|AOPDefinition
 name|afterFinally
 parameter_list|(
+annotation|@
+name|AsEndpointUri
 name|String
 name|afterUri
 parameter_list|)
