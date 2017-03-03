@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Box2 producer.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *   */
+comment|/**  * The Box2 producer.  *   *   *   */
 end_comment
 
 begin_class

@@ -219,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2 Files Manager  *   *<p>  * Provides operations to manage Box files.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2 Files Manager  *   *<p>  * Provides operations to manage Box files.  *   *   *  */
 end_comment
 
 begin_class

@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2 Tasks Manager  *   *<p>  * Provides operations to manage Box tasks.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2 Tasks Manager  *   *<p>  * Provides operations to manage Box tasks.  *   *   *  */
 end_comment
 
 begin_class

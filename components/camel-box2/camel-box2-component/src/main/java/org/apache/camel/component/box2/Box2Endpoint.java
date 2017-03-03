@@ -423,7 +423,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Box2 endpoint.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *   */
+comment|/**  * Represents a Box2 endpoint.  *   *   *   */
 end_comment
 
 begin_class

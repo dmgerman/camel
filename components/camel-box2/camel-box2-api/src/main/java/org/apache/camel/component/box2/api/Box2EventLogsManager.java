@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2 Event Logs Manager  *   *<p>  * Provides operations to read Box enterprise (admin) event logs.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2 Event Logs Manager  *   *<p>  * Provides operations to read Box enterprise (admin) event logs.  *   *   *  */
 end_comment
 
 begin_class

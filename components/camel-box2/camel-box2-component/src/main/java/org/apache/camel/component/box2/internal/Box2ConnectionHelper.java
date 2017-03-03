@@ -523,7 +523,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2ConnectionHelper  *   *<p>  * Utility class for creating Box API Connections  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2ConnectionHelper  *   *<p>  * Utility class for creating Box API Connections  *   *   *  */
 end_comment
 
 begin_class

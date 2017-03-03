@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link Box2Endpoint}.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *   */
+comment|/**  * Represents the component that manages {@link Box2Endpoint}.  *   *   *   */
 end_comment
 
 begin_comment

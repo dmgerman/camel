@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component configuration for Box2 component.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *   */
+comment|/**  * Component configuration for Box2 component.  *   *   *   */
 end_comment
 
 begin_class

@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2 Groups Manager  *   *<p>  * Provides operations to manage Box groups.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2 Groups Manager  *   *<p>  * Provides operations to manage Box groups.  *   *   *  */
 end_comment
 
 begin_class

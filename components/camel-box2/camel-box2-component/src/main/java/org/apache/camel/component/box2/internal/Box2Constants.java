@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants for Box2 component.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *   */
+comment|/**  * Constants for Box2 component.  *   *   *   */
 end_comment
 
 begin_interface

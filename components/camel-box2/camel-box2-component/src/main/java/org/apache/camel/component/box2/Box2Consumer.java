@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Box2 consumer.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *   */
+comment|/**  * The Box2 consumer.  *   *   *   */
 end_comment
 
 begin_class

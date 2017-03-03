@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2 Users Manager  *   *<p>  * Provides operations to manage Box users.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2 Users Manager  *   *<p>  * Provides operations to manage Box users.  *   *   *  */
 end_comment
 
 begin_class

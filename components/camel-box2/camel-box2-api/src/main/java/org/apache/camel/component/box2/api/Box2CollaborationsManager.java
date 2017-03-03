@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2 Collaborations Manager  *   *<p>  * Provides operations to manage Box collaborations.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2 Collaborations Manager  *   *<p>  * Provides operations to manage Box collaborations.  *   *   *  */
 end_comment
 
 begin_class

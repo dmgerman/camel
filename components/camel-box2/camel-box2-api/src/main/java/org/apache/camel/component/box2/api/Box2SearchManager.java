@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2 Search Manager  *   *<p>  * Provides operations to manage Box searches.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2 Search Manager  *   *<p>  * Provides operations to manage Box searches.  *   *   *  */
 end_comment
 
 begin_class

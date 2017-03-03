@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box2 Events Manager  *   *<p>  * Provides operations to manage Box events.  *   * @author<a href="mailto:punkhornsw@gmail.com">William Collins</a>  *  */
+comment|/**  * Box2 Events Manager  *   *<p>  * Provides operations to manage Box events.  *   *   *  */
 end_comment
 
 begin_class
