@@ -1909,6 +1909,19 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|isResolvePropertyPlaceholders ()
+specifier|public
+name|boolean
+name|isResolvePropertyPlaceholders
+parameter_list|()
+block|{
+comment|// its chicken and egg, we cannot resolve placeholders on ourselves
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

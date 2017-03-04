@@ -151,6 +151,14 @@ name|timeout
 init|=
 literal|60
 decl_stmt|;
+comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
+DECL|field|resolvePropertyPlaceholders
+specifier|private
+name|Boolean
+name|resolvePropertyPlaceholders
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getVertxFactory ()
 specifier|public
 name|VertxFactory
@@ -305,6 +313,32 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|getResolvePropertyPlaceholders ()
+specifier|public
+name|Boolean
+name|getResolvePropertyPlaceholders
+parameter_list|()
+block|{
+return|return
+name|resolvePropertyPlaceholders
+return|;
+block|}
+DECL|method|setResolvePropertyPlaceholders ( Boolean resolvePropertyPlaceholders)
+specifier|public
+name|void
+name|setResolvePropertyPlaceholders
+parameter_list|(
+name|Boolean
+name|resolvePropertyPlaceholders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resolvePropertyPlaceholders
+operator|=
+name|resolvePropertyPlaceholders
 expr_stmt|;
 block|}
 block|}
