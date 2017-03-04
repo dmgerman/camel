@@ -130,6 +130,42 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collector
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
+import|;
+end_import
+
+begin_import
+import|import
 name|edu
 operator|.
 name|emory
@@ -315,6 +351,48 @@ operator|.
 name|templates
 operator|.
 name|TemplateRuntime
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|counting
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|groupingBy
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|toSet
 import|;
 end_import
 
@@ -967,6 +1045,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// how many different artifacts
+name|int
+name|count
+init|=
+name|components
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|ComponentModel
+operator|::
+name|getArtifactId
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|toSet
+argument_list|()
+argument_list|)
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 comment|// update the big readme file in the core/components dir
 name|File
 name|file
@@ -1015,6 +1118,8 @@ init|=
 name|templateComponents
 argument_list|(
 name|components
+argument_list|,
+name|count
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1220,6 +1325,31 @@ name|OtherComparator
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// how many different artifacts
+name|int
+name|count
+init|=
+name|others
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|OtherModel
+operator|::
+name|getArtifactId
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|toSet
+argument_list|()
+argument_list|)
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 comment|// update the big readme file in the components dir
 name|File
 name|file
@@ -1247,6 +1377,8 @@ init|=
 name|templateOthers
 argument_list|(
 name|others
+argument_list|,
+name|count
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1477,6 +1609,31 @@ name|DataFormatComparator
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// how many different artifacts
+name|int
+name|count
+init|=
+name|models
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|DataFormatModel
+operator|::
+name|getArtifactId
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|toSet
+argument_list|()
+argument_list|)
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 comment|// filter out camel-core
 name|List
 argument_list|<
@@ -1585,6 +1742,8 @@ init|=
 name|templateDataFormats
 argument_list|(
 name|dataFormats
+argument_list|,
+name|count
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1853,6 +2012,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// how many different artifacts
+name|int
+name|count
+init|=
+name|languages
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|LanguageModel
+operator|::
+name|getArtifactId
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|toSet
+argument_list|()
+argument_list|)
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 comment|// update the big readme file in the core/components dir
 name|File
 name|file
@@ -1901,6 +2085,8 @@ init|=
 name|templateLanguages
 argument_list|(
 name|languages
+argument_list|,
+name|count
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -2076,7 +2262,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateComponents (List<ComponentModel> models)
+DECL|method|templateComponents (List<ComponentModel> models, int artifacts)
 specifier|private
 name|String
 name|templateComponents
@@ -2086,6 +2272,9 @@ argument_list|<
 name|ComponentModel
 argument_list|>
 name|models
+parameter_list|,
+name|int
+name|artifacts
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2132,6 +2321,15 @@ argument_list|,
 name|models
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfArtifacts"
+argument_list|,
+name|artifacts
+argument_list|)
+expr_stmt|;
 name|String
 name|out
 init|=
@@ -2170,7 +2368,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateOthers (List<OtherModel> models)
+DECL|method|templateOthers (List<OtherModel> models, int artifacts)
 specifier|private
 name|String
 name|templateOthers
@@ -2180,6 +2378,9 @@ argument_list|<
 name|OtherModel
 argument_list|>
 name|models
+parameter_list|,
+name|int
+name|artifacts
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2226,6 +2427,15 @@ argument_list|,
 name|models
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfArtifacts"
+argument_list|,
+name|artifacts
+argument_list|)
+expr_stmt|;
 name|String
 name|out
 init|=
@@ -2264,7 +2474,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateDataFormats (List<DataFormatModel> models)
+DECL|method|templateDataFormats (List<DataFormatModel> models, int artifacts)
 specifier|private
 name|String
 name|templateDataFormats
@@ -2274,6 +2484,9 @@ argument_list|<
 name|DataFormatModel
 argument_list|>
 name|models
+parameter_list|,
+name|int
+name|artifacts
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2320,6 +2533,15 @@ argument_list|,
 name|models
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfArtifacts"
+argument_list|,
+name|artifacts
+argument_list|)
+expr_stmt|;
 name|String
 name|out
 init|=
@@ -2358,7 +2580,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateLanguages (List<LanguageModel> models)
+DECL|method|templateLanguages (List<LanguageModel> models, int artifacts)
 specifier|private
 name|String
 name|templateLanguages
@@ -2368,6 +2590,9 @@ argument_list|<
 name|LanguageModel
 argument_list|>
 name|models
+parameter_list|,
+name|int
+name|artifacts
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2412,6 +2637,15 @@ argument_list|(
 literal|"languages"
 argument_list|,
 name|models
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfArtifacts"
+argument_list|,
+name|artifacts
 argument_list|)
 expr_stmt|;
 name|String
