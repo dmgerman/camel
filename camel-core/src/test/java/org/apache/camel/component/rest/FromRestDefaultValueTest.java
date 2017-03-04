@@ -136,6 +136,21 @@ argument_list|,
 literal|"customer"
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"seda:get-say-bye"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|resetMocks
+argument_list|()
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:bye"
@@ -146,15 +161,6 @@ argument_list|(
 literal|"kind"
 argument_list|,
 literal|"admin"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:get-say-bye"
-argument_list|,
-literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|template
