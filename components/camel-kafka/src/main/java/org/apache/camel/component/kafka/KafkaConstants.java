@@ -79,6 +79,8 @@ name|LAST_RECORD_BEFORE_COMMIT
 init|=
 literal|"kafka.LAST_RECORD_BEFORE_COMMIT"
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|KAFKA_DEFAULT_ENCODER
 specifier|public
 specifier|static
@@ -88,6 +90,8 @@ name|KAFKA_DEFAULT_ENCODER
 init|=
 literal|"kafka.serializer.DefaultEncoder"
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|KAFKA_STRING_ENCODER
 specifier|public
 specifier|static
