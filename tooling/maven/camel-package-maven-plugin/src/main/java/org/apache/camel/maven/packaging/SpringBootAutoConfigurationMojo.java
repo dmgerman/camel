@@ -1520,17 +1520,33 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// resolvePropertyPlaceholders is an option which only make sense to use if the component has other options
 name|boolean
 name|hasOptions
 init|=
-operator|!
 name|model
 operator|.
 name|getComponentOptions
 argument_list|()
 operator|.
-name|isEmpty
+name|stream
 argument_list|()
+operator|.
+name|anyMatch
+argument_list|(
+name|o
+lambda|->
+operator|!
+name|o
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"resolvePropertyPlaceholders"
+argument_list|)
+argument_list|)
 decl_stmt|;
 comment|// use springboot as sub package name so the code is not in normal
 comment|// package so the Spring Boot JARs can be optional at runtime
