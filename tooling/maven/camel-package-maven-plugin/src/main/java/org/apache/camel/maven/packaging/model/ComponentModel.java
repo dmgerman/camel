@@ -166,6 +166,22 @@ name|ComponentOptionModel
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|endpointPathOptions
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|EndpointOptionModel
+argument_list|>
+name|endpointPathOptions
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|EndpointOptionModel
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|field|endpointOptions
 specifier|private
 specifier|final
@@ -656,6 +672,19 @@ return|return
 name|endpointOptions
 return|;
 block|}
+DECL|method|getEndpointPathOptions ()
+specifier|public
+name|List
+argument_list|<
+name|EndpointOptionModel
+argument_list|>
+name|getEndpointPathOptions
+parameter_list|()
+block|{
+return|return
+name|endpointPathOptions
+return|;
+block|}
 DECL|method|addEndpointOption (EndpointOptionModel option)
 specifier|public
 name|void
@@ -666,6 +695,23 @@ name|option
 parameter_list|)
 block|{
 name|endpointOptions
+operator|.
+name|add
+argument_list|(
+name|option
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|addEndpointPathOption (EndpointOptionModel option)
+specifier|public
+name|void
+name|addEndpointPathOption
+parameter_list|(
+name|EndpointOptionModel
+name|option
+parameter_list|)
+block|{
+name|endpointPathOptions
 operator|.
 name|add
 argument_list|(
