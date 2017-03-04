@@ -19,24 +19,36 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|mock
+operator|.
+name|MockSpan
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|mock
+operator|.
+name|MockTracer
 import|;
 end_import
 
@@ -87,26 +99,26 @@ import|;
 end_import
 
 begin_import
-import|import
-name|io
+import|import static
+name|org
 operator|.
-name|opentracing
+name|junit
 operator|.
-name|mock
+name|Assert
 operator|.
-name|MockSpan
+name|assertEquals
 import|;
 end_import
 
 begin_import
-import|import
-name|io
+import|import static
+name|org
 operator|.
-name|opentracing
+name|junit
 operator|.
-name|mock
+name|Assert
 operator|.
-name|MockTracer
+name|assertTrue
 import|;
 end_import
 

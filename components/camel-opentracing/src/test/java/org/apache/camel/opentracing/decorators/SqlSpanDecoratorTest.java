@@ -19,14 +19,26 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
+import|import
+name|io
 operator|.
-name|junit
+name|opentracing
 operator|.
-name|Assert
+name|mock
 operator|.
-name|*
+name|MockSpan
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|mock
+operator|.
+name|MockTracer
 import|;
 end_import
 
@@ -101,26 +113,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|io
+import|import static
+name|org
 operator|.
-name|opentracing
+name|junit
 operator|.
-name|mock
+name|Assert
 operator|.
-name|MockSpan
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|opentracing
-operator|.
-name|mock
-operator|.
-name|MockTracer
+name|assertEquals
 import|;
 end_import
 
