@@ -4335,6 +4335,14 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// the endpoint must be started before creating the consumer
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 comment|// configure consumer properties
 name|Consumer
 name|consumer
