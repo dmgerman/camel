@@ -20,22 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang3
-operator|.
-name|builder
-operator|.
-name|ToStringBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|swagger
@@ -55,6 +39,22 @@ operator|.
 name|annotations
 operator|.
 name|ApiModelProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang3
+operator|.
+name|builder
+operator|.
+name|ToStringBuilder
 import|;
 end_import
 

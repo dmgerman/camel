@@ -19,42 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|rest
-operator|.
-name|RestParamType
-operator|.
-name|body
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|rest
-operator|.
-name|RestParamType
-operator|.
-name|path
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -93,6 +57,42 @@ operator|.
 name|stereotype
 operator|.
 name|Component
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestParamType
+operator|.
+name|body
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestParamType
+operator|.
+name|path
 import|;
 end_import
 

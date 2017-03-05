@@ -40,7 +40,6 @@ name|UserService
 block|{
 comment|/**      * Find a user by the given ID      *      * @param id      *            the ID of the user      * @return the user, or<code>null</code> if user not found.      */
 DECL|method|findUser (Integer id)
-specifier|public
 name|User
 name|findUser
 parameter_list|(
@@ -50,7 +49,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Find all users      *      * @return a collection of all users      */
 DECL|method|findUsers ()
-specifier|public
 name|Collection
 argument_list|<
 name|User
@@ -60,7 +58,6 @@ parameter_list|()
 function_decl|;
 comment|/**      * Update the given user      *      * @param user      *            the user      */
 DECL|method|updateUser (User user)
-specifier|public
 name|void
 name|updateUser
 parameter_list|(
