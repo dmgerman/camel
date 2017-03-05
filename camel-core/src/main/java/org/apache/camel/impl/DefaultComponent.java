@@ -339,7 +339,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"common"
+literal|"advanced"
 argument_list|,
 name|defaultValue
 operator|=
