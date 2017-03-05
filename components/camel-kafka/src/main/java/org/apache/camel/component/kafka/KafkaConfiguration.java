@@ -791,6 +791,28 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"sync"
+argument_list|,
+name|enums
+operator|=
+literal|"sync,async,none"
+argument_list|)
+DECL|field|autoCommitOnStop
+specifier|private
+name|String
+name|autoCommitOnStop
+init|=
+literal|"sync"
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|offsetRepository
 specifier|private
@@ -3761,6 +3783,33 @@ operator|.
 name|autoOffsetReset
 operator|=
 name|autoOffsetReset
+expr_stmt|;
+block|}
+DECL|method|getAutoCommitOnStop ()
+specifier|public
+name|String
+name|getAutoCommitOnStop
+parameter_list|()
+block|{
+return|return
+name|autoCommitOnStop
+return|;
+block|}
+comment|/**      * Whether to perform an explicit auto commit when the consumer stops to ensure the broker      * has a commit from the last consumed message. This requires the option autoCommitEnable is turned on.      */
+DECL|method|setAutoCommitOnStop (String autoCommitOnStop)
+specifier|public
+name|void
+name|setAutoCommitOnStop
+parameter_list|(
+name|String
+name|autoCommitOnStop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCommitOnStop
+operator|=
+name|autoCommitOnStop
 expr_stmt|;
 block|}
 DECL|method|getBrokers ()
