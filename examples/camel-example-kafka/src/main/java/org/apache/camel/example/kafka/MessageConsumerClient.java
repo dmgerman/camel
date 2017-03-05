@@ -200,7 +200,7 @@ literal|"&maxPollRecords={{consumer.maxPollRecords}}"
 operator|+
 literal|"&consumersCount={{consumer.consumersCount}}"
 operator|+
-literal|"&seekToBeginning={{consumer.seekToBeginning}}"
+literal|"&seekTo={{consumer.seekTo}}"
 operator|+
 literal|"&groupId={{consumer.group}}"
 argument_list|)
