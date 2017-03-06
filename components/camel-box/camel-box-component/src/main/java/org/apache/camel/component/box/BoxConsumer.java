@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Box consumer.  *   *   *   */
+comment|/**  * The Box consumer.  */
 end_comment
 
 begin_class

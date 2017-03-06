@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component configuration for Box component.  *   *   *   */
+comment|/**  * Component configuration for Box component.  */
 end_comment
 
 begin_class

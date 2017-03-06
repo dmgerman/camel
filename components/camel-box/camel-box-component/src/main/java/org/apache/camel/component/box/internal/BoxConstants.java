@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants for Box component.  *   *   *   */
+comment|/**  * Constants for Box component.  */
 end_comment
 
 begin_interface

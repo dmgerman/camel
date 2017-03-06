@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Singleton {@link ApiMethodPropertiesHelper} for Box component.  *   *   *   */
+comment|/**  * Singleton {@link ApiMethodPropertiesHelper} for Box component.  */
 end_comment
 
 begin_class

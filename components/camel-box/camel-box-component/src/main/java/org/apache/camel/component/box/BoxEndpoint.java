@@ -90,24 +90,6 @@ name|box
 operator|.
 name|api
 operator|.
-name|BoxFilesManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|box
-operator|.
-name|api
-operator|.
 name|BoxCollaborationsManager
 import|;
 end_import
@@ -163,6 +145,24 @@ operator|.
 name|api
 operator|.
 name|BoxEventsManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|box
+operator|.
+name|api
+operator|.
+name|BoxFilesManager
 import|;
 end_import
 
@@ -423,7 +423,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Box endpoint.  *   *   *   */
+comment|/**  * For uploading downloading and managing files folders groups collaborations etc on box DOT com.  */
 end_comment
 
 begin_class
@@ -474,15 +474,6 @@ argument_list|>
 block|{
 annotation|@
 name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"configuration"
-argument_list|,
-name|description
-operator|=
-literal|"Box 2 Configuration"
-argument_list|)
 DECL|field|configuration
 specifier|private
 name|BoxConfiguration
@@ -554,7 +545,6 @@ operator|=
 name|endpointConfiguration
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see org.apache.camel.impl.DefaultEndpoint#getComponent()      */
 annotation|@
 name|Override
 DECL|method|getComponent ()
@@ -573,7 +563,7 @@ name|getComponent
 argument_list|()
 return|;
 block|}
-comment|/**      * The BoxAPIConnection of endpoint.      *       * @return the BoxAPIConnection of endpoint.      */
+comment|/**      * The BoxAPIConnection of endpoint.      */
 DECL|method|getBoxConnection ()
 specifier|public
 name|BoxAPIConnection
@@ -584,7 +574,6 @@ return|return
 name|boxConnection
 return|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see org.apache.camel.Endpoint#createProducer()      */
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -601,7 +590,6 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see org.apache.camel.Endpoint#createConsumer(org.apache.camel.Processor)      */
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -651,7 +639,6 @@ return|return
 name|consumer
 return|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see      * org.apache.camel.util.component.AbstractApiEndpoint#getPropertiesHelper()      */
 annotation|@
 name|Override
 DECL|method|getPropertiesHelper ()
@@ -670,7 +657,6 @@ name|getHelper
 argument_list|()
 return|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see      * org.apache.camel.util.component.AbstractApiEndpoint#getThreadProfileName(      * )      */
 DECL|method|getThreadProfileName ()
 specifier|protected
 name|String
@@ -683,7 +669,6 @@ operator|.
 name|THREAD_PROFILE_NAME
 return|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see org.apache.camel.util.component.AbstractApiEndpoint#      * afterConfigureProperties()      */
 annotation|@
 name|Override
 DECL|method|afterConfigureProperties ()
@@ -697,7 +682,6 @@ name|createBoxConnection
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see org.apache.camel.util.component.AbstractApiEndpoint#getApiProxy(org.      * apache.camel.util.component.ApiMethod, java.util.Map)      */
 annotation|@
 name|Override
 DECL|method|getApiProxy (ApiMethod method, Map<String, Object> args)

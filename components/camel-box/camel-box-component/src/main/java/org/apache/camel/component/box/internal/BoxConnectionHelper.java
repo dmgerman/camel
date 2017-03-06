@@ -523,7 +523,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BoxConnectionHelper  *   *<p>  * Utility class for creating Box API Connections  *   *   *  */
+comment|/**  * BoxConnectionHelper  *   *<p>  * Utility class for creating Box API Connections  */
 end_comment
 
 begin_class

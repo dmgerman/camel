@@ -68,24 +68,6 @@ name|box
 operator|.
 name|internal
 operator|.
-name|BoxConnectionHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|box
-operator|.
-name|internal
-operator|.
 name|BoxApiCollection
 import|;
 end_import
@@ -105,6 +87,24 @@ operator|.
 name|internal
 operator|.
 name|BoxApiName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|box
+operator|.
+name|internal
+operator|.
+name|BoxConnectionHelper
 import|;
 end_import
 
@@ -137,18 +137,6 @@ operator|.
 name|AbstractApiComponent
 import|;
 end_import
-
-begin_comment
-comment|/**  * Represents the component that manages {@link BoxEndpoint}.  *   *   *   */
-end_comment
-
-begin_comment
-comment|// @UriEndpoint(scheme = "box", consumerClass = BoxConsumer.class,
-end_comment
-
-begin_comment
-comment|// consumerPrefix = "consumer", syntax = "", title = "Box Component")
-end_comment
 
 begin_class
 DECL|class|BoxComponent

@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box Collaborations Manager  *   *<p>  * Provides operations to manage Box collaborations.  *   *   *  */
+comment|/**  * Box Collaborations Manager  *<p>  * Provides operations to manage Box collaborations.  *  */
 end_comment
 
 begin_class
@@ -722,7 +722,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Delete collaboration.      *       * @param collaborationId      *            - the id of comment to change.      * @param message      *            - the new message for the comment.      * @return The comment with changed message.      */
+comment|/**      * Delete collaboration.      *       * @param collaborationId      *            - the id of comment to change.      * @return The comment with changed message.      */
 DECL|method|deleteCollaboration (String collaborationId)
 specifier|public
 name|void

@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Box producer.  *   *   *   */
+comment|/**  * The Box producer.  */
 end_comment
 
 begin_class
