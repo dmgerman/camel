@@ -363,6 +363,24 @@ specifier|private
 name|boolean
 name|socket
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"com.github.dockerjava.jaxrs.JerseyDockerCmdExecFactory"
+argument_list|)
+DECL|field|cmdExecFactory
+specifier|private
+name|String
+name|cmdExecFactory
+init|=
+literal|"com.github.dockerjava.jaxrs.JerseyDockerCmdExecFactory"
+decl_stmt|;
 DECL|field|parameters
 specifier|private
 name|Map
@@ -849,6 +867,33 @@ operator|.
 name|socket
 operator|=
 name|socket
+expr_stmt|;
+block|}
+DECL|method|getCmdExecFactory ()
+specifier|public
+name|String
+name|getCmdExecFactory
+parameter_list|()
+block|{
+return|return
+name|cmdExecFactory
+return|;
+block|}
+comment|/**      * The fully qualified class name of the DockerCmdExecFactory implementation to use      */
+DECL|method|setCmdExecFactory (String cmdExecFactory)
+specifier|public
+name|void
+name|setCmdExecFactory
+parameter_list|(
+name|String
+name|cmdExecFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cmdExecFactory
+operator|=
+name|cmdExecFactory
 expr_stmt|;
 block|}
 DECL|method|copy ()

@@ -278,6 +278,14 @@ specifier|private
 name|Boolean
 name|socket
 decl_stmt|;
+comment|/**          * The fully qualified class name of the DockerCmdExecFactory          * implementation to use          */
+DECL|field|cmdExecFactory
+specifier|private
+name|String
+name|cmdExecFactory
+init|=
+literal|"com.github.dockerjava.jaxrs.JerseyDockerCmdExecFactory"
+decl_stmt|;
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -718,6 +726,32 @@ operator|.
 name|socket
 operator|=
 name|socket
+expr_stmt|;
+block|}
+DECL|method|getCmdExecFactory ()
+specifier|public
+name|String
+name|getCmdExecFactory
+parameter_list|()
+block|{
+return|return
+name|cmdExecFactory
+return|;
+block|}
+DECL|method|setCmdExecFactory (String cmdExecFactory)
+specifier|public
+name|void
+name|setCmdExecFactory
+parameter_list|(
+name|String
+name|cmdExecFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cmdExecFactory
+operator|=
+name|cmdExecFactory
 expr_stmt|;
 block|}
 block|}

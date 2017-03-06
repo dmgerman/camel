@@ -85,6 +85,16 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**      * Endpoint configuration defaults      */
+DECL|field|DEFAULT_CMD_EXEC_FACTORY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_CMD_EXEC_FACTORY
+init|=
+literal|"com.github.dockerjava.jaxrs.JerseyDockerCmdExecFactory"
+decl_stmt|;
 comment|/**      * Connectivity *      */
 DECL|field|DOCKER_CLIENT_PROFILE
 specifier|public
@@ -194,6 +204,15 @@ name|String
 name|DOCKER_SOCKET_ENABLED
 init|=
 literal|"CamelDockerSocketEnabled"
+decl_stmt|;
+DECL|field|DOCKER_CMD_EXEC_FACTORY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOCKER_CMD_EXEC_FACTORY
+init|=
+literal|"CamelDockerCmdExecFactory"
 decl_stmt|;
 comment|/**      * List Images *      */
 DECL|field|DOCKER_FILTER
@@ -1059,6 +1078,17 @@ operator|.
 name|put
 argument_list|(
 name|DOCKER_USERNAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|DOCKER_DEFAULT_PARAMETERS
+operator|.
+name|put
+argument_list|(
+name|DOCKER_CMD_EXEC_FACTORY
 argument_list|,
 name|String
 operator|.

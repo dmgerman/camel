@@ -34,6 +34,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|netty
+operator|.
+name|NettyDockerCmdExecFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -72,37 +86,24 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * Integration test listing images on Docker Platform  */
-end_comment
-
 begin_class
-DECL|class|DockerProducerTestIT
+DECL|class|DockerNettyCmdExecFactoryTestIT
 specifier|public
 class|class
-name|DockerProducerTestIT
+name|DockerNettyCmdExecFactoryTestIT
 extends|extends
 name|DockerITTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testDocker ()
+DECL|method|testNettyCmdExecFactoryConfig ()
 specifier|public
 name|void
-name|testDocker
+name|testNettyCmdExecFactoryConfig
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:in"
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -116,6 +117,15 @@ operator|.
 name|expectedMinimumMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:in"
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -155,7 +165,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"docker://imagelist"
+literal|"docker://version?cmdExecFactory="
+operator|+
+name|NettyDockerCmdExecFactory
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|.
 name|log

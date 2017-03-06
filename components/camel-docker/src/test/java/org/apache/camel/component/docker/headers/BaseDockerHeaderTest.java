@@ -494,6 +494,18 @@ return|return
 literal|false
 return|;
 block|}
+DECL|method|getCmdExecFactory ()
+specifier|public
+name|String
+name|getCmdExecFactory
+parameter_list|()
+block|{
+return|return
+name|DockerConstants
+operator|.
+name|DEFAULT_CMD_EXEC_FACTORY
+return|;
+block|}
 DECL|method|getMockObject ()
 specifier|public
 name|T
@@ -640,6 +652,18 @@ name|isSocket
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|parameters
+operator|.
+name|put
+argument_list|(
+name|DockerConstants
+operator|.
+name|DOCKER_CMD_EXEC_FACTORY
+argument_list|,
+name|getCmdExecFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|parameters
 return|;
@@ -726,6 +750,14 @@ operator|.
 name|setSocket
 argument_list|(
 name|isSocket
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|clientProfile
+operator|.
+name|setCmdExecFactory
+argument_list|(
+name|getCmdExecFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
