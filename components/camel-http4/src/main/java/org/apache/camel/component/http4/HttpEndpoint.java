@@ -587,6 +587,18 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|)
+DECL|field|deleteWithBody
+specifier|private
+name|boolean
+name|deleteWithBody
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"advanced"
 argument_list|,
 name|defaultValue
@@ -1384,6 +1396,33 @@ operator|.
 name|clearExpiredCookies
 operator|=
 name|clearExpiredCookies
+expr_stmt|;
+block|}
+DECL|method|isDeleteWithBody ()
+specifier|public
+name|boolean
+name|isDeleteWithBody
+parameter_list|()
+block|{
+return|return
+name|deleteWithBody
+return|;
+block|}
+comment|/**      * Whether the HTTP DELETE should include the message body or not.      *<p/>      * By default HTTP DELETE do not include any HTTP message. However in some rare cases users may need to be able to include the      * message body.      */
+DECL|method|setDeleteWithBody (boolean deleteWithBody)
+specifier|public
+name|void
+name|setDeleteWithBody
+parameter_list|(
+name|boolean
+name|deleteWithBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deleteWithBody
+operator|=
+name|deleteWithBody
 expr_stmt|;
 block|}
 DECL|method|getCookieStore ()
