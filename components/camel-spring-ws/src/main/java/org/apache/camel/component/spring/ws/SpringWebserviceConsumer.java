@@ -555,7 +555,7 @@ name|getRequest
 argument_list|()
 decl_stmt|;
 name|SOAPMessage
-name|soapMesssageRequest
+name|soapMessageRequest
 init|=
 literal|null
 decl_stmt|;
@@ -566,7 +566,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|soapMesssageRequest
+name|soapMessageRequest
 operator|=
 name|saajSoap
 operator|.
@@ -575,7 +575,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|soapMesssageRequest
+name|soapMessageRequest
 operator|!=
 literal|null
 condition|)
@@ -583,7 +583,7 @@ block|{
 name|MimeHeaders
 name|mimeHeaders
 init|=
-name|soapMesssageRequest
+name|soapMessageRequest
 operator|.
 name|getMimeHeaders
 argument_list|()
