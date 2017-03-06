@@ -743,6 +743,33 @@ name|ExampleComparator
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// how many deprecated
+name|long
+name|deprecated
+init|=
+name|models
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|m
+lambda|->
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|m
+operator|.
+name|getDeprecated
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
 comment|// update the big readme file in the examples dir
 name|File
 name|file
@@ -770,6 +797,8 @@ init|=
 name|templateExamples
 argument_list|(
 name|models
+argument_list|,
+name|deprecated
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -851,7 +880,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateExamples (List<ExampleModel> models)
+DECL|method|templateExamples (List<ExampleModel> models, long deprecated)
 specifier|private
 name|String
 name|templateExamples
@@ -861,6 +890,9 @@ argument_list|<
 name|ExampleModel
 argument_list|>
 name|models
+parameter_list|,
+name|long
+name|deprecated
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -905,6 +937,15 @@ argument_list|(
 literal|"examples"
 argument_list|,
 name|models
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfDeprecated"
+argument_list|,
+name|deprecated
 argument_list|)
 expr_stmt|;
 name|String

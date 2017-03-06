@@ -624,6 +624,25 @@ name|EipComparator
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// how many deprecated
+name|long
+name|deprecated
+init|=
+name|models
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|EipModel
+operator|::
+name|isDeprecated
+argument_list|)
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
 comment|// update the big readme file in the core dir
 name|File
 name|file
@@ -651,6 +670,8 @@ init|=
 name|templateEips
 argument_list|(
 name|models
+argument_list|,
+name|deprecated
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1006,6 +1027,33 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// how many deprecated
+name|long
+name|deprecated
+init|=
+name|components
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|c
+lambda|->
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|c
+operator|.
+name|getDeprecated
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
 comment|// update the big readme file in the core/components dir
 name|File
 name|file
@@ -1056,6 +1104,8 @@ argument_list|(
 name|components
 argument_list|,
 name|count
+argument_list|,
+name|deprecated
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1286,6 +1336,33 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// how many deprecated
+name|long
+name|deprecated
+init|=
+name|others
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|o
+lambda|->
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|o
+operator|.
+name|getDeprecated
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
 comment|// update the big readme file in the components dir
 name|File
 name|file
@@ -1315,6 +1392,8 @@ argument_list|(
 name|others
 argument_list|,
 name|count
+argument_list|,
+name|deprecated
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1570,6 +1649,33 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// how many deprecated
+name|long
+name|deprecated
+init|=
+name|models
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|m
+lambda|->
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|m
+operator|.
+name|getDeprecated
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
 comment|// filter out camel-core
 name|List
 argument_list|<
@@ -1680,6 +1786,8 @@ argument_list|(
 name|dataFormats
 argument_list|,
 name|count
+argument_list|,
+name|deprecated
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1973,6 +2081,33 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// how many deprecated
+name|long
+name|deprecated
+init|=
+name|languages
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|l
+lambda|->
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|l
+operator|.
+name|getDeprecated
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
 comment|// update the big readme file in the core/components dir
 name|File
 name|file
@@ -2023,6 +2158,8 @@ argument_list|(
 name|languages
 argument_list|,
 name|count
+argument_list|,
+name|deprecated
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -2104,7 +2241,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateEips (List<EipModel> models)
+DECL|method|templateEips (List<EipModel> models, long deprecated)
 specifier|private
 name|String
 name|templateEips
@@ -2114,6 +2251,9 @@ argument_list|<
 name|EipModel
 argument_list|>
 name|models
+parameter_list|,
+name|long
+name|deprecated
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2160,6 +2300,15 @@ argument_list|,
 name|models
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfDeprecated"
+argument_list|,
+name|deprecated
+argument_list|)
+expr_stmt|;
 name|String
 name|out
 init|=
@@ -2198,7 +2347,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateComponents (List<ComponentModel> models, int artifacts)
+DECL|method|templateComponents (List<ComponentModel> models, int artifacts, long deprecated)
 specifier|private
 name|String
 name|templateComponents
@@ -2211,6 +2360,9 @@ name|models
 parameter_list|,
 name|int
 name|artifacts
+parameter_list|,
+name|long
+name|deprecated
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2266,6 +2418,15 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfDeprecated"
+argument_list|,
+name|deprecated
+argument_list|)
+expr_stmt|;
 name|String
 name|out
 init|=
@@ -2304,7 +2465,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateOthers (List<OtherModel> models, int artifacts)
+DECL|method|templateOthers (List<OtherModel> models, int artifacts, long deprecated)
 specifier|private
 name|String
 name|templateOthers
@@ -2317,6 +2478,9 @@ name|models
 parameter_list|,
 name|int
 name|artifacts
+parameter_list|,
+name|long
+name|deprecated
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2372,6 +2536,15 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfDeprecated"
+argument_list|,
+name|deprecated
+argument_list|)
+expr_stmt|;
 name|String
 name|out
 init|=
@@ -2410,7 +2583,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateDataFormats (List<DataFormatModel> models, int artifacts)
+DECL|method|templateDataFormats (List<DataFormatModel> models, int artifacts, long deprecated)
 specifier|private
 name|String
 name|templateDataFormats
@@ -2423,6 +2596,9 @@ name|models
 parameter_list|,
 name|int
 name|artifacts
+parameter_list|,
+name|long
+name|deprecated
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2478,6 +2654,15 @@ argument_list|,
 name|artifacts
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfDeprecated"
+argument_list|,
+name|deprecated
+argument_list|)
+expr_stmt|;
 name|String
 name|out
 init|=
@@ -2516,7 +2701,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateLanguages (List<LanguageModel> models, int artifacts)
+DECL|method|templateLanguages (List<LanguageModel> models, int artifacts, long deprecated)
 specifier|private
 name|String
 name|templateLanguages
@@ -2529,6 +2714,9 @@ name|models
 parameter_list|,
 name|int
 name|artifacts
+parameter_list|,
+name|long
+name|deprecated
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2582,6 +2770,15 @@ argument_list|(
 literal|"numberOfArtifacts"
 argument_list|,
 name|artifacts
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"numberOfDeprecated"
+argument_list|,
+name|deprecated
 argument_list|)
 expr_stmt|;
 name|String
