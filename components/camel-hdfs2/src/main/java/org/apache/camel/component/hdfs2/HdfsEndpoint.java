@@ -223,6 +223,13 @@ name|endpointUri
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|setInitialDelay
+argument_list|(
+name|HdfsConsumer
+operator|.
+name|DEFAULT_CONSUMER_INITIAL_DELAY
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

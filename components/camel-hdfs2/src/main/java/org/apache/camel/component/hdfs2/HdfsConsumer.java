@@ -247,6 +247,17 @@ specifier|volatile
 name|HdfsInputStream
 name|istream
 decl_stmt|;
+DECL|field|DEFAULT_CONSUMER_INITIAL_DELAY
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|DEFAULT_CONSUMER_INITIAL_DELAY
+init|=
+literal|10
+operator|*
+literal|1000L
+decl_stmt|;
 DECL|method|HdfsConsumer (HdfsEndpoint endpoint, Processor processor, HdfsConfiguration config)
 specifier|public
 name|HdfsConsumer
