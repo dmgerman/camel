@@ -1706,7 +1706,12 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Tests whether the value is<b>not</b><tt>null</tt> or an empty string.      *      * @param value  the value, if its a String it will be tested for text length as well      * @return true if<b>not</b> empty      */
+comment|/**      * Tests whether the value is<b>not</b><tt>null</tt>, an empty string or an empty collection.      *      * @param value  the value, if its a String it will be tested for text length as well      * @return true if<b>not</b> empty      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|isNotEmpty (Object value)
 specifier|public
 specifier|static
@@ -1756,6 +1761,30 @@ operator|>
 literal|0
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Collection
+condition|)
+block|{
+return|return
+operator|!
+operator|(
+operator|(
+name|Collection
+argument_list|<
+name|?
+argument_list|>
+operator|)
+name|value
+operator|)
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 else|else
 block|{
 return|return
@@ -1763,7 +1792,7 @@ literal|true
 return|;
 block|}
 block|}
-comment|/**      * Tests whether the value is<b>not</b><tt>null</tt> or an empty string.      *      * @param value  the value, if its a String it will be tested for text length as well      * @param consumer  the consumer, the operation to be executed against value if not empty      */
+comment|/**      * Tests whether the value is<b>not</b><tt>null</tt>, an empty string or an empty collection.      *      * @param value  the value, if its a String it will be tested for text length as well      * @param consumer  the consumer, the operation to be executed against value if not empty      */
 DECL|method|ifNotEmpty (T value, Consumer<T> consumer)
 specifier|public
 specifier|static
