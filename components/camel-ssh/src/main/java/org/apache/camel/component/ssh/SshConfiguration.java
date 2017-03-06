@@ -383,6 +383,21 @@ name|pw
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|getHost
+argument_list|()
+operator|==
+literal|null
+operator|&&
+name|uri
+operator|.
+name|getHost
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|setHost
 argument_list|(
 name|uri
@@ -391,6 +406,7 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// URI.getPort returns -1 if port not defined, else use default port
 name|int
 name|uriPort
@@ -402,6 +418,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|getPort
+argument_list|()
+operator|==
+name|DEFAULT_SSH_PORT
+operator|&&
 name|uriPort
 operator|!=
 operator|-
