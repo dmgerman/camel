@@ -241,6 +241,40 @@ specifier|private
 name|MessageCreatedStrategy
 name|messageCreatedStrategy
 decl_stmt|;
+comment|/**      * When using the default      * org.apache.camel.component.sjms.jms.ConnectionFactoryResource then should      * each javax.jms.Connection be tested (calling start) before returned from      * the pool.      */
+DECL|field|connectionTestOnBorrow
+specifier|private
+name|Boolean
+name|connectionTestOnBorrow
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * The username to use when creating javax.jms.Connection when using the      * default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.      */
+DECL|field|connectionUsername
+specifier|private
+name|String
+name|connectionUsername
+decl_stmt|;
+comment|/**      * The password to use when creating javax.jms.Connection when using the      * default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.      */
+DECL|field|connectionPassword
+specifier|private
+name|String
+name|connectionPassword
+decl_stmt|;
+comment|/**      * The client ID to use when creating javax.jms.Connection when using the      * default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.      */
+DECL|field|connectionClientId
+specifier|private
+name|String
+name|connectionClientId
+decl_stmt|;
+comment|/**      * The max wait time in millis to block and wait on free connection when the      * pool is exhausted when using the default      * org.apache.camel.component.sjms.jms.ConnectionFactoryResource.      */
+DECL|field|connectionMaxWait
+specifier|private
+name|Long
+name|connectionMaxWait
+init|=
+literal|5000L
+decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -463,6 +497,136 @@ operator|.
 name|messageCreatedStrategy
 operator|=
 name|messageCreatedStrategy
+expr_stmt|;
+block|}
+DECL|method|getConnectionTestOnBorrow ()
+specifier|public
+name|Boolean
+name|getConnectionTestOnBorrow
+parameter_list|()
+block|{
+return|return
+name|connectionTestOnBorrow
+return|;
+block|}
+DECL|method|setConnectionTestOnBorrow (Boolean connectionTestOnBorrow)
+specifier|public
+name|void
+name|setConnectionTestOnBorrow
+parameter_list|(
+name|Boolean
+name|connectionTestOnBorrow
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionTestOnBorrow
+operator|=
+name|connectionTestOnBorrow
+expr_stmt|;
+block|}
+DECL|method|getConnectionUsername ()
+specifier|public
+name|String
+name|getConnectionUsername
+parameter_list|()
+block|{
+return|return
+name|connectionUsername
+return|;
+block|}
+DECL|method|setConnectionUsername (String connectionUsername)
+specifier|public
+name|void
+name|setConnectionUsername
+parameter_list|(
+name|String
+name|connectionUsername
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionUsername
+operator|=
+name|connectionUsername
+expr_stmt|;
+block|}
+DECL|method|getConnectionPassword ()
+specifier|public
+name|String
+name|getConnectionPassword
+parameter_list|()
+block|{
+return|return
+name|connectionPassword
+return|;
+block|}
+DECL|method|setConnectionPassword (String connectionPassword)
+specifier|public
+name|void
+name|setConnectionPassword
+parameter_list|(
+name|String
+name|connectionPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionPassword
+operator|=
+name|connectionPassword
+expr_stmt|;
+block|}
+DECL|method|getConnectionClientId ()
+specifier|public
+name|String
+name|getConnectionClientId
+parameter_list|()
+block|{
+return|return
+name|connectionClientId
+return|;
+block|}
+DECL|method|setConnectionClientId (String connectionClientId)
+specifier|public
+name|void
+name|setConnectionClientId
+parameter_list|(
+name|String
+name|connectionClientId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionClientId
+operator|=
+name|connectionClientId
+expr_stmt|;
+block|}
+DECL|method|getConnectionMaxWait ()
+specifier|public
+name|Long
+name|getConnectionMaxWait
+parameter_list|()
+block|{
+return|return
+name|connectionMaxWait
+return|;
+block|}
+DECL|method|setConnectionMaxWait (Long connectionMaxWait)
+specifier|public
+name|void
+name|setConnectionMaxWait
+parameter_list|(
+name|Long
+name|connectionMaxWait
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionMaxWait
+operator|=
+name|connectionMaxWait
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
