@@ -212,7 +212,19 @@ specifier|private
 name|String
 name|host
 init|=
-literal|"DEFAULT_DESTINATION"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ganglia
+operator|.
+name|GangliaConfiguration
+operator|.
+name|DEFAULT_DESTINATION
 decl_stmt|;
 comment|/**          * Port for Ganglia server          */
 DECL|field|port

@@ -564,7 +564,17 @@ specifier|private
 name|String
 name|keyType
 init|=
-literal|"KeyPairProvider.SSH_RSA"
+name|org
+operator|.
+name|apache
+operator|.
+name|sshd
+operator|.
+name|common
+operator|.
+name|KeyPairProvider
+operator|.
+name|SSH_RSA
 decl_stmt|;
 comment|/**          * Sets the timeout in milliseconds to wait in establishing the remote          * SSH server connection. Defaults to 30000 milliseconds.          *           * @param timeout          *            long milliseconds to wait.          */
 DECL|field|timeout

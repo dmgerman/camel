@@ -1418,7 +1418,21 @@ specifier|private
 name|String
 name|outputNodeSearchType
 init|=
-literal|"DefaultXmlSignature2Message.OUTPUT_NODE_SEARCH_TYPE_DEFAULT"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|xmlsecurity
+operator|.
+name|api
+operator|.
+name|DefaultXmlSignature2Message
+operator|.
+name|OUTPUT_NODE_SEARCH_TYPE_DEFAULT
 decl_stmt|;
 comment|/**          * Indicator whether the XML signature elements (elements with local          * name "Signature" and namesapce          * ""http://www.w3.org/2000/09/xmldsig#"") shall be removed from the          * document set to the output message. Normally, this is only necessary,          * if the XML signature is enveloped. The default value is          * {@link Boolean#FALSE} . This parameter is forwarded to          * {@link XmlSignature2Message} .          *<p>          * This indicator has no effect if the output node search is of type          * {@link DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT}          * .F          */
 DECL|field|removeSignatureElements

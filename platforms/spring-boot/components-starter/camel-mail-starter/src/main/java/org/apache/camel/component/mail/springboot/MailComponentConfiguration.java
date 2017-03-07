@@ -346,7 +346,19 @@ specifier|private
 name|String
 name|from
 init|=
-literal|"MailConstants.MAIL_DEFAULT_FROM"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mail
+operator|.
+name|MailConstants
+operator|.
+name|MAIL_DEFAULT_FROM
 decl_stmt|;
 comment|/**          * Deletes the messages after they have been processed. This is done by          * setting the DELETED flag on the mail message. If false, the SEEN flag          * is set instead. As of Camel 2.10 you can override this configuration          * option by setting a header with the key delete to determine if the          * mail should be deleted or not.          */
 DECL|field|delete
@@ -366,7 +378,19 @@ specifier|private
 name|String
 name|folderName
 init|=
-literal|"MailConstants.MAIL_DEFAULT_FOLDER"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mail
+operator|.
+name|MailConstants
+operator|.
+name|MAIL_DEFAULT_FOLDER
 decl_stmt|;
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          */
 DECL|field|ignoreUriScheme
@@ -442,7 +466,19 @@ specifier|private
 name|String
 name|alternativeBodyHeader
 init|=
-literal|"MailConstants.MAIL_ALTERNATIVE_BODY"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mail
+operator|.
+name|MailConstants
+operator|.
+name|MAIL_ALTERNATIVE_BODY
 decl_stmt|;
 comment|/**          * Whether to use disposition inline or attachment.          */
 DECL|field|useInlineAttachments

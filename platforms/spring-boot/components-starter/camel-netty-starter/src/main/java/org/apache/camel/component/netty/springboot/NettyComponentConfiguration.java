@@ -861,7 +861,19 @@ specifier|private
 name|String
 name|enabledProtocols
 init|=
-literal|"DEFAULT_ENABLED_PROTOCOLS"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|netty
+operator|.
+name|NettyConfiguration
+operator|.
+name|DEFAULT_ENABLED_PROTOCOLS
 decl_stmt|;
 DECL|method|getRequestTimeout ()
 specifier|public
