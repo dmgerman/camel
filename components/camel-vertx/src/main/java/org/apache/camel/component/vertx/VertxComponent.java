@@ -82,7 +82,7 @@ name|vertx
 operator|.
 name|core
 operator|.
-name|AsyncResultHandler
+name|Handler
 import|;
 end_import
 
@@ -737,9 +737,12 @@ argument_list|(
 name|vertxOptions
 argument_list|,
 operator|new
-name|AsyncResultHandler
+name|Handler
+argument_list|<
+name|AsyncResult
 argument_list|<
 name|Vertx
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
