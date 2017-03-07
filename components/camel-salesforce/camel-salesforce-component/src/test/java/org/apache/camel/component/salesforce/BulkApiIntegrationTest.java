@@ -232,7 +232,28 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|experimental
+operator|.
+name|categories
+operator|.
+name|Category
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Category
+argument_list|(
+name|Standalone
+operator|.
+name|class
+argument_list|)
 DECL|class|BulkApiIntegrationTest
 specifier|public
 class|class
@@ -250,6 +271,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|SalesforceComponent
 name|sf
 init|=
@@ -265,6 +287,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|final
 name|String
 name|accessToken
 init|=
@@ -276,6 +299,7 @@ operator|.
 name|getAccessToken
 argument_list|()
 decl_stmt|;
+specifier|final
 name|SslContextFactory
 name|sslContextFactory
 init|=
@@ -297,6 +321,7 @@ name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|final
 name|HttpClient
 name|httpClient
 init|=
@@ -318,6 +343,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+specifier|final
 name|String
 name|uri
 init|=
@@ -333,6 +359,7 @@ literal|"/services/oauth2/revoke?token="
 operator|+
 name|accessToken
 decl_stmt|;
+specifier|final
 name|Request
 name|logoutGet
 init|=
@@ -359,6 +386,7 @@ operator|.
 name|MINUTES
 argument_list|)
 decl_stmt|;
+specifier|final
 name|ContentResponse
 name|response
 init|=
@@ -379,6 +407,7 @@ name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
 name|JobInfo
 name|jobInfo
 init|=

@@ -52,6 +52,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|googlecode
+operator|.
+name|junittoolbox
+operator|.
+name|ParallelParameterized
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -209,18 +221,6 @@ operator|.
 name|runners
 operator|.
 name|Parameterized
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|runners
-operator|.
-name|Parameterized
 operator|.
 name|Parameters
 import|;
@@ -230,7 +230,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|Parameterized
+name|ParallelParameterized
 operator|.
 name|class
 argument_list|)
@@ -267,34 +267,6 @@ name|format
 operator|=
 name|format
 expr_stmt|;
-block|}
-annotation|@
-name|Parameters
-argument_list|(
-name|name
-operator|=
-literal|"format = {0}"
-argument_list|)
-DECL|method|formats ()
-specifier|public
-specifier|static
-name|Iterable
-argument_list|<
-name|String
-argument_list|>
-name|formats
-parameter_list|()
-block|{
-return|return
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-literal|"JSON"
-argument_list|,
-literal|"XML"
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Test
@@ -596,6 +568,34 @@ throws|throws
 name|Exception
 block|{             }
 block|}
+return|;
+block|}
+annotation|@
+name|Parameters
+argument_list|(
+name|name
+operator|=
+literal|"format = {0}"
+argument_list|)
+DECL|method|formats ()
+specifier|public
+specifier|static
+name|Iterable
+argument_list|<
+name|String
+argument_list|>
+name|formats
+parameter_list|()
+block|{
+return|return
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"JSON"
+argument_list|,
+literal|"XML"
+argument_list|)
 return|;
 block|}
 block|}

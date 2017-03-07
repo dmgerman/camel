@@ -89,19 +89,6 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Override
-DECL|method|isCreateCamelContextPerClass ()
-specifier|public
-name|boolean
-name|isCreateCamelContextPerClass
-parameter_list|()
-block|{
-comment|// only create the context once for this class
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

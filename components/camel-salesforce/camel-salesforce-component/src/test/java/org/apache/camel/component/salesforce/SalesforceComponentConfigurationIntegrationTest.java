@@ -294,7 +294,7 @@ name|dto
 operator|.
 name|generated
 operator|.
-name|Tasks__c
+name|Task
 import|;
 end_import
 
@@ -620,7 +620,9 @@ name|configuration
 operator|.
 name|setBaseUri
 argument_list|(
-literal|"getSObject"
+name|componentName
+operator|+
+literal|":getSObject"
 argument_list|)
 expr_stmt|;
 name|SalesforceEndpoint
@@ -961,7 +963,7 @@ literal|"Asset"
 argument_list|,
 literal|"Contact"
 argument_list|,
-literal|"Tasks__c"
+literal|"Task"
 argument_list|,
 literal|"Line_Item__c"
 argument_list|,
@@ -1046,7 +1048,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|Tasks__c
+name|Task
 operator|.
 name|class
 operator|.
