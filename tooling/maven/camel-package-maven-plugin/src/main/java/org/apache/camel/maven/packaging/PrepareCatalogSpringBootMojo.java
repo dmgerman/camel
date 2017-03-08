@@ -2057,6 +2057,16 @@ name|getName
 argument_list|()
 argument_list|)
 operator|||
+literal|"camel-box"
+operator|.
+name|equals
+argument_list|(
+name|dir
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|||
 literal|"camel-http-common"
 operator|.
 name|equals
