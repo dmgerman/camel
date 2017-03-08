@@ -50,16 +50,6 @@ name|org
 operator|.
 name|jgroups
 operator|.
-name|Channel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jgroups
-operator|.
 name|JChannel
 import|;
 end_import
