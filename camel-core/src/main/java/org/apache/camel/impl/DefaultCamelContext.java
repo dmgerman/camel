@@ -838,6 +838,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|catalog
+operator|.
+name|DefaultRuntimeCamelCatalog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|RuntimeCamelCatalog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|properties
@@ -3197,6 +3225,20 @@ DECL|field|reloadStrategy
 specifier|private
 name|ReloadStrategy
 name|reloadStrategy
+decl_stmt|;
+DECL|field|runtimeCamelCatalog
+specifier|private
+specifier|final
+name|RuntimeCamelCatalog
+name|runtimeCamelCatalog
+init|=
+operator|new
+name|DefaultRuntimeCamelCatalog
+argument_list|(
+name|this
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
 DECL|method|DefaultCamelContext ()
@@ -22981,6 +23023,18 @@ parameter_list|()
 block|{
 return|return
 name|validatorRegistry
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getRuntimeCamelCatalog ()
+specifier|public
+name|RuntimeCamelCatalog
+name|getRuntimeCamelCatalog
+parameter_list|()
+block|{
+return|return
+name|runtimeCamelCatalog
 return|;
 block|}
 DECL|method|getRouteServices ()

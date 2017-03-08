@@ -174,6 +174,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|catalog
+operator|.
+name|RuntimeCamelCatalog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -2984,6 +2998,12 @@ parameter_list|(
 name|ReloadStrategy
 name|reloadStrategy
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the associated {@link RuntimeCamelCatalog} for this CamelContext.      */
+DECL|method|getRuntimeCamelCatalog ()
+name|RuntimeCamelCatalog
+name|getRuntimeCamelCatalog
+parameter_list|()
 function_decl|;
 block|}
 end_interface
