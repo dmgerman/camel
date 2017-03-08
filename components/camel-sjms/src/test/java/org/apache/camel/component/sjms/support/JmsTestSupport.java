@@ -214,7 +214,7 @@ name|sjms
 operator|.
 name|jms
 operator|.
-name|JmsObjectFactory
+name|Jms11ObjectFactory
 import|;
 end_import
 
@@ -761,7 +761,9 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|JmsObjectFactory
+operator|new
+name|Jms11ObjectFactory
+argument_list|()
 operator|.
 name|createMessageConsumer
 argument_list|(
@@ -783,6 +785,10 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -801,7 +807,9 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|JmsObjectFactory
+operator|new
+name|Jms11ObjectFactory
+argument_list|()
 operator|.
 name|createMessageConsumer
 argument_list|(
@@ -823,6 +831,10 @@ argument_list|,
 literal|true
 argument_list|,
 literal|null
+argument_list|,
+literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}

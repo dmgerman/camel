@@ -288,6 +288,24 @@ name|sjms
 operator|.
 name|jms
 operator|.
+name|Jms11ObjectFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|jms
+operator|.
 name|JmsBinding
 import|;
 end_import
@@ -307,6 +325,24 @@ operator|.
 name|jms
 operator|.
 name|JmsKeyFormatStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|jms
+operator|.
+name|JmsObjectFactory
 import|;
 end_import
 
@@ -635,6 +671,11 @@ name|destinationType
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"DestinationName is a JMS queue or topic name. By default, the destinationName is interpreted as a queue name."
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -657,6 +698,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether synchronous processing should be strictly used or Camel is allowed to use asynchronous processing (if supported)."
 argument_list|)
 DECL|field|synchronous
 specifier|private
@@ -671,6 +716,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom HeaderFilterStrategy to filter header to and from Camel message."
 argument_list|)
 DECL|field|headerFilterStrategy
 specifier|private
@@ -683,6 +732,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to include all JMSXxxx properties when mapping from JMS to Camel Message. Setting this to true will include properties such as JMSXAppID, and JMSXUserID etc. Note: If you are using a custom headerFilterStrategy then this option does not apply."
 argument_list|)
 DECL|field|includeAllJMSXProperties
 specifier|private
@@ -695,6 +748,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,transaction"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies whether to use transacted mode"
 argument_list|)
 DECL|field|transacted
 specifier|private
@@ -711,6 +768,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies whether to share JMS session with other SJMS endpoints. Turn this off if your route is accessing to multiple JMS providers. If you need transaction against multiple JMS providers, use jms component to leverage XA transaction."
 argument_list|)
 DECL|field|sharedJMSSession
 specifier|private
@@ -725,6 +786,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the reply to destination name used for InOut producer endpoints."
 argument_list|)
 DECL|field|namedReplyTo
 specifier|private
@@ -741,6 +806,10 @@ argument_list|,
 name|enums
 operator|=
 literal|"SESSION_TRANSACTED,CLIENT_ACKNOWLEDGE,AUTO_ACKNOWLEDGE,DUPS_OK_ACKNOWLEDGE"
+argument_list|,
+name|description
+operator|=
+literal|"The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE"
 argument_list|)
 DECL|field|acknowledgementMode
 specifier|private
@@ -770,6 +839,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the number of producers used for this endpoint."
 argument_list|)
 DECL|field|producerCount
 specifier|private
@@ -788,6 +861,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the number of consumer listeners used for this endpoint."
 argument_list|)
 DECL|field|consumerCount
 specifier|private
@@ -806,6 +883,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
+argument_list|,
+name|description
+operator|=
+literal|"Flag used to adjust the Time To Live value of produced messages."
 argument_list|)
 DECL|field|ttl
 specifier|private
@@ -825,6 +906,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Flag used to enable/disable message persistence."
 argument_list|)
 DECL|field|persistent
 specifier|private
@@ -839,6 +924,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the durable subscription Id required for durable topics."
 argument_list|)
 DECL|field|durableSubscriptionId
 specifier|private
@@ -855,6 +944,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"5000"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the amount of time we should wait before timing out a InOut response."
 argument_list|)
 DECL|field|responseTimeOut
 specifier|private
@@ -869,6 +962,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the JMS Message selector syntax."
 argument_list|)
 DECL|field|messageSelector
 specifier|private
@@ -885,6 +982,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
+argument_list|,
+name|description
+operator|=
+literal|"If transacted sets the number of messages to process before committing a transaction."
 argument_list|)
 DECL|field|transactionBatchCount
 specifier|private
@@ -904,6 +1005,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"5000"
+argument_list|,
+name|description
+operator|=
+literal|"Sets timeout (in millis) for batch transactions, the value should be 1000 or higher."
 argument_list|)
 DECL|field|transactionBatchTimeout
 specifier|private
@@ -918,6 +1023,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to startup the consumer message listener asynchronously, when starting a route. For example if a JmsConsumer cannot get a connection to a remote JMS broker, then it may block while retrying and/or failover. This will cause Camel to block while starting routes. By setting this option to true, you will let routes startup, while the JmsConsumer connects to the JMS broker using a dedicated thread in asynchronous mode. If this option is used, then beware that if the connection could not be established, then an exception is logged at WARN level, and the consumer will not be able to receive messages; You can then restart the route to retry."
 argument_list|)
 DECL|field|asyncStartListener
 specifier|private
@@ -930,6 +1039,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to stop the consumer message listener asynchronously, when stopping a route."
 argument_list|)
 DECL|field|asyncStopListener
 specifier|private
@@ -946,6 +1059,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to prefill the producer connection pool on startup, or create connections lazy when needed."
 argument_list|)
 DECL|field|prefillPool
 specifier|private
@@ -964,6 +1081,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to allow sending messages with no body. If this option is false and the message body is null, then an JMSException is thrown."
 argument_list|)
 DECL|field|allowNullBody
 specifier|private
@@ -982,6 +1103,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies whether Camel should auto map the received JMS message to a suited payload type, such as javax.jms.TextMessage to a String etc. See section about how mapping works below for more details."
 argument_list|)
 DECL|field|mapJmsMessage
 specifier|private
@@ -996,6 +1121,10 @@ argument_list|(
 name|label
 operator|=
 literal|"transaction"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the commit strategy."
 argument_list|)
 DECL|field|transactionCommitStrategy
 specifier|private
@@ -1008,6 +1137,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom DestinationCreationStrategy."
 argument_list|)
 DECL|field|destinationCreationStrategy
 specifier|private
@@ -1024,6 +1157,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of<tt>javax.jms.Message</tt> objects when Camel is sending a JMS message."
 argument_list|)
 DECL|field|messageCreatedStrategy
 specifier|private
@@ -1036,6 +1173,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation."
 argument_list|)
 DECL|field|jmsKeyFormatStrategy
 specifier|private
@@ -1048,6 +1189,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Initializes the connectionResource for the endpoint, which takes precedence over the component's connectionResource, if any"
 argument_list|)
 DECL|field|connectionResource
 specifier|private
@@ -1060,6 +1205,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Initializes the connectionFactory for the endpoint, which takes precedence over the component's connectionFactory, if any"
 argument_list|)
 DECL|field|connectionFactory
 specifier|private
@@ -1072,6 +1221,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"The maximum number of connections available to this endpoint"
 argument_list|)
 DECL|field|connectionCount
 specifier|private
@@ -1084,6 +1237,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions."
 argument_list|)
 DECL|field|exceptionListener
 specifier|private
@@ -1100,6 +1257,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer,logging"
+argument_list|,
+name|description
+operator|=
+literal|"Allows to configure the default errorHandler logging level for logging uncaught exceptions."
 argument_list|)
 DECL|field|errorHandlerLoggingLevel
 specifier|private
@@ -1120,6 +1281,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer,logging"
+argument_list|,
+name|description
+operator|=
+literal|"Allows to control whether stacktraces should be logged or not, by the default errorHandler."
 argument_list|)
 DECL|field|errorHandlerLogStackTrace
 specifier|private
@@ -1133,6 +1298,15 @@ specifier|private
 specifier|volatile
 name|boolean
 name|closeConnectionResource
+decl_stmt|;
+DECL|field|jmsObjectFactory
+specifier|private
+name|JmsObjectFactory
+name|jmsObjectFactory
+init|=
+operator|new
+name|Jms11ObjectFactory
+argument_list|()
 decl_stmt|;
 DECL|method|SjmsEndpoint ()
 specifier|public
@@ -2766,6 +2940,33 @@ operator|.
 name|errorHandlerLogStackTrace
 operator|=
 name|errorHandlerLogStackTrace
+expr_stmt|;
+block|}
+DECL|method|getJmsObjectFactory ()
+specifier|public
+name|JmsObjectFactory
+name|getJmsObjectFactory
+parameter_list|()
+block|{
+return|return
+name|jmsObjectFactory
+return|;
+block|}
+comment|/**      * To use a custom Jms Object factory      */
+DECL|method|setJmsObjectFactory (JmsObjectFactory jmsObjectFactory)
+specifier|public
+name|void
+name|setJmsObjectFactory
+parameter_list|(
+name|JmsObjectFactory
+name|jmsObjectFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jmsObjectFactory
+operator|=
+name|jmsObjectFactory
 expr_stmt|;
 block|}
 block|}

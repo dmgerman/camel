@@ -245,6 +245,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource."
 argument_list|)
 DECL|field|connectionFactory
 specifier|private
@@ -257,6 +261,12 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"A ConnectionResource is an interface that allows for customization and container control of the ConnectionFactory."
+operator|+
+literal|" * See Plugable Connection Resource Management for further details."
 argument_list|)
 DECL|field|connectionResource
 specifier|private
@@ -269,6 +279,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides one implementation out of the box: default. The default strategy will safely marshal dots and hyphens (. and -). Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation."
 argument_list|)
 DECL|field|jmsKeyFormatStrategy
 specifier|private
@@ -285,6 +299,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"1"
+argument_list|,
+name|description
+operator|=
+literal|"The maximum number of connections available to endpoints started under this component"
 argument_list|)
 DECL|field|connectionCount
 specifier|private
@@ -299,6 +317,10 @@ argument_list|(
 name|label
 operator|=
 literal|"transaction"
+argument_list|,
+name|description
+operator|=
+literal|"To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch."
 argument_list|)
 DECL|field|transactionCommitStrategy
 specifier|private
@@ -311,6 +333,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom TimedTaskManager"
 argument_list|)
 DECL|field|timedTaskManager
 specifier|private
@@ -323,6 +349,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom DestinationCreationStrategy."
 argument_list|)
 DECL|field|destinationCreationStrategy
 specifier|private
@@ -335,6 +365,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of<tt>javax.jms.Message</tt> objects when Camel is sending a JMS message."
 argument_list|)
 DECL|field|messageCreatedStrategy
 specifier|private
@@ -351,6 +385,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"When using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource} then should each {@link javax.jms.Connection} be tested (calling start) before returned from the pool."
 argument_list|)
 DECL|field|connectionTestOnBorrow
 specifier|private
@@ -369,6 +407,10 @@ argument_list|,
 name|secret
 operator|=
 literal|true
+argument_list|,
+name|description
+operator|=
+literal|"The username to use when creating {@link javax.jms.Connection} when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
 argument_list|)
 DECL|field|connectionUsername
 specifier|private
@@ -385,6 +427,10 @@ argument_list|,
 name|secret
 operator|=
 literal|true
+argument_list|,
+name|description
+operator|=
+literal|"The password to use when creating {@link javax.jms.Connection} when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
 argument_list|)
 DECL|field|connectionPassword
 specifier|private
@@ -397,6 +443,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"The client ID to use when creating {@link javax.jms.Connection} when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
 argument_list|)
 DECL|field|connectionClientId
 specifier|private
@@ -413,6 +463,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"5000"
+argument_list|,
+name|description
+operator|=
+literal|"The max wait time in millis to block and wait on free connection when the pool is exhausted when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
 argument_list|)
 DECL|field|connectionMaxWait
 specifier|private
@@ -431,6 +485,25 @@ argument_list|(
 name|SjmsEndpoint
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SjmsComponent (Class<? extends Endpoint> endpointClass)
+specifier|protected
+name|SjmsComponent
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointClass
 argument_list|)
 expr_stmt|;
 block|}
@@ -466,12 +539,9 @@ expr_stmt|;
 name|SjmsEndpoint
 name|endpoint
 init|=
-operator|new
-name|SjmsEndpoint
+name|createSjmsEndpoint
 argument_list|(
 name|uri
-argument_list|,
-name|this
 argument_list|,
 name|remaining
 argument_list|)
@@ -563,6 +633,30 @@ expr_stmt|;
 block|}
 return|return
 name|endpoint
+return|;
+block|}
+DECL|method|createSjmsEndpoint (String uri, String remaining)
+specifier|protected
+name|SjmsEndpoint
+name|createSjmsEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|)
+block|{
+return|return
+operator|new
+name|SjmsEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
+name|remaining
+argument_list|)
 return|;
 block|}
 comment|/**      * Helper method used to verify that when there is a namedReplyTo value we      * are using the InOut MEP. If namedReplyTo is defined and the MEP is InOnly      * the endpoint won't be expecting a reply so throw an error to alert the      * user.      *      * @param parameters {@link Endpoint} parameters      * @throws Exception throws a {@link CamelException} when MEP equals InOnly      *                   and namedReplyTo is defined.      */
