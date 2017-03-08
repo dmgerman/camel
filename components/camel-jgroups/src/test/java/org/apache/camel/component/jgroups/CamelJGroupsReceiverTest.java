@@ -191,20 +191,30 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// When
-name|receiver
-operator|.
-name|receive
-argument_list|(
+name|Message
+name|message
+init|=
 operator|new
 name|Message
 argument_list|(
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|"someMessage"
 argument_list|)
+decl_stmt|;
+name|message
+operator|.
+name|setSrc
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// When
+name|receiver
+operator|.
+name|receive
+argument_list|(
+name|message
 argument_list|)
 expr_stmt|;
 block|}

@@ -125,7 +125,7 @@ specifier|final
 name|String
 name|SAMPLE_CHANNEL_PROPERTY
 init|=
-literal|"discard_incompatible_packets=true"
+literal|"enable_diagnostics=true"
 decl_stmt|;
 DECL|field|SAMPLE_CHANNEL_PROPERTIES
 specifier|static
@@ -152,11 +152,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"jgroups:%s?channelProperties=%s"
+literal|"jgroups:%s"
 argument_list|,
 name|CLUSTER_NAME
-argument_list|,
-name|SAMPLE_CHANNEL_PROPERTIES
 argument_list|)
 decl_stmt|;
 comment|// Fixtures
@@ -334,19 +332,29 @@ name|MESSAGE
 argument_list|)
 expr_stmt|;
 comment|// When
-name|clientChannel
-operator|.
-name|send
-argument_list|(
+name|Message
+name|message
+init|=
 operator|new
 name|Message
 argument_list|(
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|MESSAGE
 argument_list|)
+decl_stmt|;
+name|message
+operator|.
+name|setSrc
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|clientChannel
+operator|.
+name|send
+argument_list|(
+name|message
 argument_list|)
 expr_stmt|;
 comment|// Then

@@ -26,7 +26,7 @@ name|org
 operator|.
 name|jgroups
 operator|.
-name|Channel
+name|JChannel
 import|;
 end_import
 
@@ -84,7 +84,7 @@ annotation|@
 name|NestedConfigurationProperty
 DECL|field|channel
 specifier|private
-name|Channel
+name|JChannel
 name|channel
 decl_stmt|;
 comment|/**      * Specifies configuration properties of the JChannel used by the endpoint.      */
@@ -111,7 +111,7 @@ literal|true
 decl_stmt|;
 DECL|method|getChannel ()
 specifier|public
-name|Channel
+name|JChannel
 name|getChannel
 parameter_list|()
 block|{
@@ -119,12 +119,12 @@ return|return
 name|channel
 return|;
 block|}
-DECL|method|setChannel (Channel channel)
+DECL|method|setChannel (JChannel channel)
 specifier|public
 name|void
 name|setChannel
 parameter_list|(
-name|Channel
+name|JChannel
 name|channel
 parameter_list|)
 block|{

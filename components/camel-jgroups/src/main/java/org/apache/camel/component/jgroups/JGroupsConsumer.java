@@ -54,6 +54,16 @@ name|Channel
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jgroups
+operator|.
+name|JChannel
+import|;
+end_import
+
 begin_comment
 comment|/**  * Consumes messages from the JGroups channels ({@code org.jgroups.Channel}). Received messages  * ({@code org.jgroups.Message}) are routed to Camel as the body of {@link org.apache.camel.Exchange}.  */
 end_comment
@@ -69,7 +79,7 @@ block|{
 DECL|field|channel
 specifier|private
 specifier|final
-name|Channel
+name|JChannel
 name|channel
 decl_stmt|;
 DECL|field|clusterName
@@ -90,7 +100,7 @@ specifier|final
 name|JGroupsEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|JGroupsConsumer (JGroupsEndpoint endpoint, Processor processor, Channel channel, String clusterName)
+DECL|method|JGroupsConsumer (JGroupsEndpoint endpoint, Processor processor, JChannel channel, String clusterName)
 specifier|public
 name|JGroupsConsumer
 parameter_list|(
@@ -100,7 +110,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|Channel
+name|JChannel
 name|channel
 parameter_list|,
 name|String

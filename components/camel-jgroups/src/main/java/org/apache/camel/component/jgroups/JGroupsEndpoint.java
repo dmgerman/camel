@@ -168,16 +168,6 @@ name|org
 operator|.
 name|jgroups
 operator|.
-name|Channel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jgroups
-operator|.
 name|JChannel
 import|;
 end_import
@@ -328,12 +318,12 @@ argument_list|)
 decl_stmt|;
 DECL|field|channel
 specifier|private
-name|Channel
+name|JChannel
 name|channel
 decl_stmt|;
 DECL|field|resolvedChannel
 specifier|private
-name|Channel
+name|JChannel
 name|resolvedChannel
 decl_stmt|;
 annotation|@
@@ -369,7 +359,7 @@ specifier|private
 name|boolean
 name|enableViewMessages
 decl_stmt|;
-DECL|method|JGroupsEndpoint (String endpointUri, Component component, Channel channel, String clusterName, String channelProperties, boolean enableViewMessages)
+DECL|method|JGroupsEndpoint (String endpointUri, Component component, JChannel channel, String clusterName, String channelProperties, boolean enableViewMessages)
 specifier|public
 name|JGroupsEndpoint
 parameter_list|(
@@ -379,7 +369,7 @@ parameter_list|,
 name|Component
 name|component
 parameter_list|,
-name|Channel
+name|JChannel
 name|channel
 parameter_list|,
 name|String
@@ -677,7 +667,7 @@ expr_stmt|;
 block|}
 DECL|method|resolveChannel ()
 specifier|private
-name|Channel
+name|JChannel
 name|resolveChannel
 parameter_list|()
 throws|throws
@@ -789,7 +779,7 @@ block|}
 block|}
 DECL|method|getChannel ()
 specifier|public
-name|Channel
+name|JChannel
 name|getChannel
 parameter_list|()
 block|{
@@ -798,12 +788,12 @@ name|channel
 return|;
 block|}
 comment|/**      * The channel to use      */
-DECL|method|setChannel (Channel channel)
+DECL|method|setChannel (JChannel channel)
 specifier|public
 name|void
 name|setChannel
 parameter_list|(
-name|Channel
+name|JChannel
 name|channel
 parameter_list|)
 block|{
@@ -869,7 +859,7 @@ name|channelProperties
 expr_stmt|;
 block|}
 DECL|method|getResolvedChannel ()
-name|Channel
+name|JChannel
 name|getResolvedChannel
 parameter_list|()
 block|{

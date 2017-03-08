@@ -78,6 +78,16 @@ name|Channel
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jgroups
+operator|.
+name|JChannel
+import|;
+end_import
+
 begin_comment
 comment|/**  * Component providing support for messages multicasted from- or to JGroups channels ({@code org.jgroups.Channel}).  */
 end_comment
@@ -92,7 +102,7 @@ name|UriEndpointComponent
 block|{
 DECL|field|channel
 specifier|private
-name|Channel
+name|JChannel
 name|channel
 decl_stmt|;
 DECL|field|channelProperties
@@ -169,7 +179,7 @@ return|;
 block|}
 DECL|method|getChannel ()
 specifier|public
-name|Channel
+name|JChannel
 name|getChannel
 parameter_list|()
 block|{
@@ -178,12 +188,12 @@ name|channel
 return|;
 block|}
 comment|/**      * Channel to use      */
-DECL|method|setChannel (Channel channel)
+DECL|method|setChannel (JChannel channel)
 specifier|public
 name|void
 name|setChannel
 parameter_list|(
-name|Channel
+name|JChannel
 name|channel
 parameter_list|)
 block|{
