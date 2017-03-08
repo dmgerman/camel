@@ -31,6 +31,8 @@ comment|/**  * Shows documentation of a data format from Catalog  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogDataFormatDocCommand
 specifier|public
 class|class

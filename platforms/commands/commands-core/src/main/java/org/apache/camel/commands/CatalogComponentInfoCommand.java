@@ -83,6 +83,8 @@ comment|/**  * Shows properties of a component from Catalog  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogComponentInfoCommand
 specifier|public
 class|class

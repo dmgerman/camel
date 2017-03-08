@@ -61,6 +61,8 @@ comment|/**  * From the Camel catalog lists all the components.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogComponentListCommand
 specifier|public
 class|class

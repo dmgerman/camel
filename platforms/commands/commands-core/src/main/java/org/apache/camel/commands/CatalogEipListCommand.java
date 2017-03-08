@@ -61,6 +61,8 @@ comment|/**  * From the Camel catalog lists all the EIPs.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogEipListCommand
 specifier|public
 class|class

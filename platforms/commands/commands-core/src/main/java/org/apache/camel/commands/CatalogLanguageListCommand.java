@@ -61,6 +61,8 @@ comment|/**  * From the Camel catalog lists all the languages.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogLanguageListCommand
 specifier|public
 class|class

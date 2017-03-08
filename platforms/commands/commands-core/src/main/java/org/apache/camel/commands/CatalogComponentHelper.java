@@ -81,6 +81,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogComponentHelper
 specifier|public
 specifier|final

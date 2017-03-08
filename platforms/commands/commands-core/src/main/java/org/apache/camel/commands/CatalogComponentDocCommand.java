@@ -31,6 +31,8 @@ comment|/**  * Shows documentation of a component from Catalog  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogComponentDocCommand
 specifier|public
 class|class

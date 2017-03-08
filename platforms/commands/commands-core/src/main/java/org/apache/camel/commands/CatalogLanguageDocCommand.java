@@ -31,6 +31,8 @@ comment|/**  * Shows documentation of a language from Catalog  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogLanguageDocCommand
 specifier|public
 class|class

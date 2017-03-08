@@ -471,6 +471,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all EIPs from the Camel EIP catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with model information      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|listEipsCatalog (String filter)
 name|List
 argument_list|<
@@ -490,6 +492,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all the labels from the Camel EIP catalog      *      * @return a map which key is the label, and the set is the models names that has the given label      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|listEipsLabelCatalog ()
 name|Map
 argument_list|<
@@ -506,6 +510,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Collects information about a Camel component from catalog      *      * @param name the component name      * @return a map of key/value pairs with component information      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|componentInfo (String name)
 name|Map
 argument_list|<
@@ -522,6 +528,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all components from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with component information      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|listComponentsCatalog (String filter)
 name|List
 argument_list|<
@@ -541,6 +549,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all the labels from the Camel components catalog      *      * @return a map which key is the label, and the set is the component names that has the given label      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|listComponentsLabelCatalog ()
 name|Map
 argument_list|<
@@ -557,6 +567,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all data formats from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with data format information      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|listDataFormatsCatalog (String filter)
 name|List
 argument_list|<
@@ -576,6 +588,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all the labels from the Camel data formats catalog      *      * @return a map which key is the label, and the set is the data format names that has the given label      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|listDataFormatsLabelCatalog ()
 name|Map
 argument_list|<
@@ -592,6 +606,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all languages from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with language information      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|listLanguagesCatalog (String filter)
 name|List
 argument_list|<
@@ -611,6 +627,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all the labels from the Camel languages catalog      *      * @return a map which key is the label, and the set is the language names that has the given label      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|listLanguagesLabelCatalog ()
 name|Map
 argument_list|<
@@ -627,6 +645,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Gets the component ascii documentation from the Camel catalog.      *      * @param name the name of the component      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|catalogComponentAsciiDoc (String name)
 name|String
 name|catalogComponentAsciiDoc
@@ -638,6 +658,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Gets the data format ascii documentation from the Camel catalog.      *      * @param name the name of the data format      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|catalogDataFormatAsciiDoc (String name)
 name|String
 name|catalogDataFormatAsciiDoc
@@ -649,6 +671,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Gets the language ascii documentation from the Camel catalog.      *      * @param name the name of the language      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|catalogLanguageAsciiDoc (String name)
 name|String
 name|catalogLanguageAsciiDoc

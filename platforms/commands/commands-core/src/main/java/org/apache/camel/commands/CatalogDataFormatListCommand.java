@@ -61,6 +61,8 @@ comment|/**  * From the Camel catalog lists all the data formats.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CatalogDataFormatListCommand
 specifier|public
 class|class
