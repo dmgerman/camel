@@ -206,7 +206,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"Engine addresses. Multiple addresses can be separated by comman."
+literal|"Engine addresses. Multiple addresses can be separated by comma."
 argument_list|)
 annotation|@
 name|Metadata
