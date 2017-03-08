@@ -52,6 +52,11 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
+DECL|field|scheme
+specifier|private
+name|String
+name|scheme
+decl_stmt|;
 DECL|field|description
 specifier|private
 name|String
@@ -119,6 +124,32 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+block|}
+DECL|method|getScheme ()
+specifier|public
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+name|scheme
+return|;
+block|}
+DECL|method|setScheme (String scheme)
+specifier|public
+name|void
+name|setScheme
+parameter_list|(
+name|String
+name|scheme
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scheme
+operator|=
+name|scheme
 expr_stmt|;
 block|}
 DECL|method|getDescription ()
@@ -401,6 +432,12 @@ operator|+
 literal|"name='"
 operator|+
 name|name
+operator|+
+literal|'\''
+operator|+
+literal|", scheme='"
+operator|+
+name|scheme
 operator|+
 literal|'\''
 operator|+

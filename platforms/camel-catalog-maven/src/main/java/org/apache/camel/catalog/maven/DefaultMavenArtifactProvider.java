@@ -813,6 +813,19 @@ name|textValue
 argument_list|()
 decl_stmt|;
 name|String
+name|scheme
+init|=
+name|tree
+operator|.
+name|get
+argument_list|(
+literal|"scheme"
+argument_list|)
+operator|.
+name|textValue
+argument_list|()
+decl_stmt|;
+name|String
 name|description
 init|=
 name|tree
@@ -877,6 +890,17 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Adding connector: {} with scheme: {}"
+argument_list|,
+name|name
+argument_list|,
+name|scheme
+argument_list|)
+expr_stmt|;
 name|camelConnectorCatalog
 operator|.
 name|addConnector
@@ -888,6 +912,8 @@ argument_list|,
 name|version
 argument_list|,
 name|name
+argument_list|,
+name|scheme
 argument_list|,
 name|description
 argument_list|,

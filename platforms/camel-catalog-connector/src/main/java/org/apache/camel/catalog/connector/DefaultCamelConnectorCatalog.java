@@ -119,7 +119,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addConnector (String groupId, String artifactId, String version, String name, String description, String labels, String connectorJson, String connectorSchemaJson)
+DECL|method|addConnector (String groupId, String artifactId, String version, String name, String scheme, String description, String labels, String connectorJson, String connectorSchemaJson)
 specifier|public
 name|void
 name|addConnector
@@ -135,6 +135,9 @@ name|version
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|String
+name|scheme
 parameter_list|,
 name|String
 name|description
@@ -182,6 +185,13 @@ operator|.
 name|setName
 argument_list|(
 name|name
+argument_list|)
+expr_stmt|;
+name|dto
+operator|.
+name|setScheme
+argument_list|(
+name|scheme
 argument_list|)
 expr_stmt|;
 name|dto

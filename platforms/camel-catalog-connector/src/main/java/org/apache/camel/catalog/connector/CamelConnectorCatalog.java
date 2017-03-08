@@ -74,8 +74,8 @@ name|String
 name|version
 parameter_list|)
 function_decl|;
-comment|/**      * Adds or updates the connector to the catalog      *      * @param groupId               maven group id      * @param artifactId            maven artifact id      * @param version               maven version      * @param name                  name of connector      * @param description           description of connector      * @param labels                labels (separated by comma) of connector      * @param connectorJson         the<tt>camel-connector</tt> json file      * @param connectorSchemaJson   the<tt>camel-connector-schema</tt> json file      */
-DECL|method|addConnector (String groupId, String artifactId, String version, String name, String description, String labels, String connectorJson, String connectorSchemaJson)
+comment|/**      * Adds or updates the connector to the catalog      *      * @param groupId               maven group id      * @param artifactId            maven artifact id      * @param version               maven version      * @param name                  name of connector      * @param scheme                scheme of connector      * @param description           description of connector      * @param labels                labels (separated by comma) of connector      * @param connectorJson         the<tt>camel-connector</tt> json file      * @param connectorSchemaJson   the<tt>camel-connector-schema</tt> json file      */
+DECL|method|addConnector (String groupId, String artifactId, String version, String name, String scheme, String description, String labels, String connectorJson, String connectorSchemaJson)
 name|void
 name|addConnector
 parameter_list|(
@@ -90,6 +90,9 @@ name|version
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|String
+name|scheme
 parameter_list|,
 name|String
 name|description
