@@ -158,6 +158,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The aws-kinesis-firehose component is used for producing Amazon's Kinesis Firehose streams.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -181,12 +185,6 @@ argument_list|,
 name|producerOnly
 operator|=
 literal|true
-argument_list|,
-name|consumerClass
-operator|=
-name|KinesisConsumer
-operator|.
-name|class
 argument_list|,
 name|label
 operator|=
