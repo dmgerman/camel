@@ -259,6 +259,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+literal|"http"
+argument_list|,
 name|component
 operator|.
 name|getCamelContext
@@ -310,19 +312,14 @@ operator|.
 name|PARAMETERS
 argument_list|)
 decl_stmt|;
-comment|// The httpUri is mandatory
+comment|// Validate using the catalog
+name|super
+operator|.
+name|verifyParametersAgainstCatalog
+argument_list|(
 name|builder
-operator|.
-name|error
-argument_list|(
-name|ResultErrorHelper
-operator|.
-name|requiresOption
-argument_list|(
-literal|"httpUri"
 argument_list|,
 name|parameters
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

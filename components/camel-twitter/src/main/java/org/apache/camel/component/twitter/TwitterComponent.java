@@ -633,8 +633,7 @@ return|return
 operator|new
 name|TwitterComponentVerifier
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|)
 return|;
 block|}

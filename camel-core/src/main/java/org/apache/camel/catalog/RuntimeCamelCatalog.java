@@ -137,6 +137,23 @@ name|String
 name|pattern
 parameter_list|)
 function_decl|;
+comment|/**      * Validates the properties for the given scheme against component and endpoint      *      * @param scheme  the endpoint scheme      * @param properties  the endpoint properties      * @return validation result      */
+DECL|method|validateProperties (String scheme, Map<String, String> properties)
+name|EndpointValidationResult
+name|validateProperties
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|properties
+parameter_list|)
+function_decl|;
 comment|/**      * Parses and validates the endpoint uri and constructs a key/value properties of each option.      *      * @param uri  the endpoint uri      * @return validation result      */
 DECL|method|validateEndpointProperties (String uri)
 name|EndpointValidationResult

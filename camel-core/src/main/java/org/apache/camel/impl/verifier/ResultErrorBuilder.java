@@ -720,6 +720,41 @@ name|optionName
 argument_list|)
 return|;
 block|}
+DECL|method|withUnknownOption (String optionName)
+specifier|public
+specifier|static
+name|ResultErrorBuilder
+name|withUnknownOption
+parameter_list|(
+name|String
+name|optionName
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ResultErrorBuilder
+argument_list|()
+operator|.
+name|code
+argument_list|(
+name|ComponentVerifier
+operator|.
+name|CODE_UNKNOWN_OPTION
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"Unknown option "
+operator|+
+name|optionName
+argument_list|)
+operator|.
+name|parameter
+argument_list|(
+name|optionName
+argument_list|)
+return|;
+block|}
 DECL|method|withIllegalOption (String optionName)
 specifier|public
 specifier|static

@@ -1706,7 +1706,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Tests whether the value is<b>not</b><tt>null</tt>, an empty string or an empty collection.      *      * @param value  the value, if its a String it will be tested for text length as well      * @return true if<b>not</b> empty      */
+comment|/**      * Tests whether the value is<b>not</b><tt>null</tt>, an empty string or an empty collection/map.      *      * @param value  the value, if its a String it will be tested for text length as well      * @return true if<b>not</b> empty      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1775,6 +1775,32 @@ operator|(
 operator|(
 name|Collection
 argument_list|<
+name|?
+argument_list|>
+operator|)
+name|value
+operator|)
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Map
+condition|)
+block|{
+return|return
+operator|!
+operator|(
+operator|(
+name|Map
+argument_list|<
+name|?
+argument_list|,
 name|?
 argument_list|>
 operator|)

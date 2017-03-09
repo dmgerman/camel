@@ -66,18 +66,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ComponentVerifier
 import|;
 end_import
@@ -348,16 +336,21 @@ name|SalesforceComponentVerifier
 extends|extends
 name|DefaultComponentVerifier
 block|{
-DECL|method|SalesforceComponentVerifier (CamelContext camelContext)
+DECL|method|SalesforceComponentVerifier (SalesforceComponent component)
 name|SalesforceComponentVerifier
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|SalesforceComponent
+name|component
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|camelContext
+literal|"salesforce"
+argument_list|,
+name|component
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -368,8 +361,6 @@ annotation|@
 name|Override
 DECL|method|verifyParameters (Map<String, Object> parameters)
 specifier|protected
-name|ComponentVerifier
-operator|.
 name|Result
 name|verifyParameters
 parameter_list|(
@@ -382,21 +373,21 @@ argument_list|>
 name|parameters
 parameter_list|)
 block|{
-return|return
+comment|// Validate mandatory component options, needed to be done here as these
+comment|// options are not properly marked as mandatory in the catalog.
+name|ResultBuilder
+name|builder
+init|=
 name|ResultBuilder
 operator|.
 name|withStatusAndScope
 argument_list|(
-name|ComponentVerifier
-operator|.
 name|Result
 operator|.
 name|Status
 operator|.
 name|OK
 argument_list|,
-name|ComponentVerifier
-operator|.
 name|Scope
 operator|.
 name|PARAMETERS
@@ -449,6 +440,19 @@ argument_list|,
 name|parameters
 argument_list|)
 argument_list|)
+decl_stmt|;
+comment|// Validate using the catalog
+name|super
+operator|.
+name|verifyParametersAgainstCatalog
+argument_list|(
+name|builder
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|builder
 operator|.
 name|build
 argument_list|()
