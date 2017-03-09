@@ -179,6 +179,13 @@ operator|new
 name|DefaultMavenArtifactProvider
 argument_list|()
 decl_stmt|;
+name|provider
+operator|.
+name|setCacheDirectory
+argument_list|(
+literal|"target/cache"
+argument_list|)
+expr_stmt|;
 name|int
 name|before
 init|=
@@ -276,6 +283,13 @@ operator|new
 name|DefaultMavenArtifactProvider
 argument_list|()
 decl_stmt|;
+name|provider
+operator|.
+name|setCacheDirectory
+argument_list|(
+literal|"target/cache"
+argument_list|)
+expr_stmt|;
 name|int
 name|before
 init|=

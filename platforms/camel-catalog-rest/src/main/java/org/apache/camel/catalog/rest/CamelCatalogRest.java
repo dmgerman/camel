@@ -1369,6 +1369,47 @@ name|POST
 annotation|@
 name|Path
 argument_list|(
+literal|"/mavenCacheDirectory/{name}"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Configures the Maven cache directory to use when downloading artifacts"
+argument_list|)
+DECL|method|mavenCacheDirectory (@piParamR) @athParamR) String name)
+specifier|public
+name|void
+name|mavenCacheDirectory
+parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+literal|"The name of the cache directory"
+argument_list|)
+annotation|@
+name|PathParam
+argument_list|(
+literal|"name"
+argument_list|)
+name|String
+name|name
+parameter_list|)
+block|{
+name|maven
+operator|.
+name|setCacheDirectory
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|POST
+annotation|@
+name|Path
+argument_list|(
 literal|"/addMavenRepository/{name}/{url}"
 argument_list|)
 annotation|@
