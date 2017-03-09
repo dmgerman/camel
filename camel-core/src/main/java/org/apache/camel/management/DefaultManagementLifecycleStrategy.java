@@ -1202,6 +1202,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|TransformerRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TypeConverterRegistry
 import|;
 end_import
@@ -1217,6 +1231,20 @@ operator|.
 name|spi
 operator|.
 name|UnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ValidatorRegistry
 import|;
 end_import
 
@@ -3338,7 +3366,7 @@ if|if
 condition|(
 name|service
 operator|instanceof
-name|DefaultTransformerRegistry
+name|TransformerRegistry
 condition|)
 block|{
 name|answer
@@ -3349,7 +3377,7 @@ argument_list|(
 name|context
 argument_list|,
 operator|(
-name|DefaultTransformerRegistry
+name|TransformerRegistry
 operator|)
 name|service
 argument_list|)
@@ -3360,7 +3388,7 @@ if|if
 condition|(
 name|service
 operator|instanceof
-name|DefaultValidatorRegistry
+name|ValidatorRegistry
 condition|)
 block|{
 name|answer
@@ -3371,7 +3399,7 @@ argument_list|(
 name|context
 argument_list|,
 operator|(
-name|DefaultValidatorRegistry
+name|ValidatorRegistry
 operator|)
 name|service
 argument_list|)

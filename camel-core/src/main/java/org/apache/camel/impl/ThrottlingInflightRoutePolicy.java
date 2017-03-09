@@ -142,18 +142,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NonManagedService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Route
 import|;
 end_import
@@ -267,8 +255,6 @@ extends|extends
 name|RoutePolicySupport
 implements|implements
 name|CamelContextAware
-implements|,
-name|NonManagedService
 block|{
 DECL|enum|ThrottlingScope
 specifier|public
