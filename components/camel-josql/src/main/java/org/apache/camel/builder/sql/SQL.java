@@ -130,6 +130,8 @@ name|language
 operator|=
 literal|"sql"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|SQL
 specifier|public
 annotation_defn|@interface

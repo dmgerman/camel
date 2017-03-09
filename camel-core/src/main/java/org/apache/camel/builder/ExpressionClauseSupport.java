@@ -1067,6 +1067,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates the<a href="http://camel.apache.org/el.html">EL      * Language from JSP and JSF</a> using the<a      * href="http://camel.apache.org/juel.html">JUEL library</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+annotation|@
+name|Deprecated
 DECL|method|el (String text)
 specifier|public
 name|T
@@ -1384,6 +1386,8 @@ name|result
 return|;
 block|}
 comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+annotation|@
+name|Deprecated
 DECL|method|jxpath (String text)
 specifier|public
 name|T
@@ -1403,6 +1407,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *      * @param text the expression to be evaluated      * @param lenient to configure whether lenient is in use or not      * @return the builder to continue processing the DSL      */
+annotation|@
+name|Deprecated
 DECL|method|jxpath (String text, boolean lenient)
 specifier|public
 name|T
@@ -1481,6 +1487,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates a<a href="http://camel.apache.org/php.html">PHP      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+annotation|@
+name|Deprecated
 DECL|method|php (String text)
 specifier|public
 name|T
@@ -1502,6 +1510,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates a<a href="http://camel.apache.org/python.html">Python      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+annotation|@
+name|Deprecated
 DECL|method|python (String text)
 specifier|public
 name|T
@@ -1544,6 +1554,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates a<a href="http://camel.apache.org/ruby.html">Ruby      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+annotation|@
+name|Deprecated
 DECL|method|ruby (String text)
 specifier|public
 name|T
@@ -1586,6 +1598,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/sql.html">SQL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+annotation|@
+name|Deprecated
 DECL|method|sql (String text)
 specifier|public
 name|T

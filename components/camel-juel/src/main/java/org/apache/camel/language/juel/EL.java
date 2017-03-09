@@ -130,6 +130,8 @@ name|language
 operator|=
 literal|"el"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|EL
 specifier|public
 annotation_defn|@interface

@@ -130,6 +130,8 @@ name|language
 operator|=
 literal|"jxpath"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|JXPath
 specifier|public
 annotation_defn|@interface

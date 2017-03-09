@@ -130,6 +130,8 @@ name|language
 operator|=
 literal|"jruby"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|Ruby
 specifier|public
 annotation_defn|@interface

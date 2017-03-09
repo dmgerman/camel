@@ -130,6 +130,8 @@ name|language
 operator|=
 literal|"php"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|PHP
 specifier|public
 annotation_defn|@interface
