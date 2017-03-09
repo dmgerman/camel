@@ -2226,7 +2226,7 @@ operator|=
 name|unseen
 expr_stmt|;
 block|}
-comment|/**      * Sets the<tt>To</tt> email address. Separate multiple email addresses with comma.      */
+comment|/**      * Sets the To email address. Separate multiple email addresses with comma.      */
 DECL|method|setTo (String address)
 specifier|public
 name|void
@@ -2266,7 +2266,7 @@ return|return
 name|to
 return|;
 block|}
-comment|/**      * Sets the<tt>CC</tt> email address. Separate multiple email addresses with comma.      */
+comment|/**      * Sets the CC email address. Separate multiple email addresses with comma.      */
 DECL|method|setCc (String address)
 specifier|public
 name|void
@@ -2306,7 +2306,7 @@ return|return
 name|cc
 return|;
 block|}
-comment|/**      * Sets the<tt>BCC</tt> email address. Separate multiple email addresses with comma.      */
+comment|/**      * Sets the BCC email address. Separate multiple email addresses with comma.      */
 DECL|method|setBcc (String address)
 specifier|public
 name|void

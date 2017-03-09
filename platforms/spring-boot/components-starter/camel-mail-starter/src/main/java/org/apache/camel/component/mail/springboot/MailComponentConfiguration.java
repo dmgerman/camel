@@ -404,19 +404,19 @@ specifier|private
 name|Boolean
 name|unseen
 decl_stmt|;
-comment|/**          * Sets the<tt>To</tt> email address. Separate multiple email addresses          * with comma.          */
+comment|/**          * Sets the To email address. Separate multiple email addresses with          * comma.          */
 DECL|field|to
 specifier|private
 name|String
 name|to
 decl_stmt|;
-comment|/**          * Sets the<tt>CC</tt> email address. Separate multiple email addresses          * with comma.          */
+comment|/**          * Sets the CC email address. Separate multiple email addresses with          * comma.          */
 DECL|field|cc
 specifier|private
 name|String
 name|cc
 decl_stmt|;
-comment|/**          * Sets the<tt>BCC</tt> email address. Separate multiple email          * addresses with comma.          */
+comment|/**          * Sets the BCC email address. Separate multiple email addresses with          * comma.          */
 DECL|field|bcc
 specifier|private
 name|String
