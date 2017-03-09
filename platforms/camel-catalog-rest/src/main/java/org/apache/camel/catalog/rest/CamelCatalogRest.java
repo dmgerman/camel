@@ -34,7 +34,29 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|Consumes
 import|;
 end_import
 
@@ -95,6 +117,20 @@ operator|.
 name|rs
 operator|.
 name|Produces
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|ObjectMapper
 import|;
 end_import
 
@@ -658,7 +694,7 @@ name|value
 operator|=
 literal|"Returns the component information as JSon format"
 argument_list|)
-DECL|method|componentJSonSchema (@piParamR) @athParamR) String name)
+DECL|method|componentJSonSchema (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|String
 name|componentJSonSchema
@@ -666,7 +702,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the component"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -705,7 +747,7 @@ name|value
 operator|=
 literal|"Returns the data format information as JSon format"
 argument_list|)
-DECL|method|dataFormatJSonSchema (@piParamR) @athParamR) String name)
+DECL|method|dataFormatJSonSchema (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|String
 name|dataFormatJSonSchema
@@ -713,7 +755,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the data format"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -752,7 +800,7 @@ name|value
 operator|=
 literal|"Returns the language information as JSon format"
 argument_list|)
-DECL|method|languageJSonSchema (@piParamR) @athParamR) String name)
+DECL|method|languageJSonSchema (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|String
 name|languageJSonSchema
@@ -760,7 +808,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the language"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -799,7 +853,7 @@ name|value
 operator|=
 literal|"Returns the model (EIP) information as JSon format"
 argument_list|)
-DECL|method|modelJSonSchema (@piParamR) @athParamR) String name)
+DECL|method|modelJSonSchema (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|String
 name|modelJSonSchema
@@ -807,7 +861,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the model (EIP)"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -846,7 +906,7 @@ name|value
 operator|=
 literal|"Returns the component documentation as Ascii doc format"
 argument_list|)
-DECL|method|componentAsciiDoc (@piParamR) @athParamR) String name)
+DECL|method|componentAsciiDoc (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|String
 name|componentAsciiDoc
@@ -854,7 +914,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the component"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -893,7 +959,7 @@ name|value
 operator|=
 literal|"Returns the data format documentation as Ascii doc format"
 argument_list|)
-DECL|method|dataFormatAsciiDoc (@piParamR) @athParamR) String name)
+DECL|method|dataFormatAsciiDoc (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|String
 name|dataFormatAsciiDoc
@@ -901,7 +967,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the data format"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -940,7 +1012,7 @@ name|value
 operator|=
 literal|"Returns the language documentation as Ascii doc format"
 argument_list|)
-DECL|method|languageAsciiDoc (@piParamR) @athParamR) String name)
+DECL|method|languageAsciiDoc (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|String
 name|languageAsciiDoc
@@ -948,7 +1020,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the language"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -1369,6 +1447,116 @@ name|POST
 annotation|@
 name|Path
 argument_list|(
+literal|"/asEndpointUri/{scheme}"
+argument_list|)
+annotation|@
+name|Consumes
+argument_list|(
+literal|"application/json"
+argument_list|)
+annotation|@
+name|Produces
+argument_list|(
+literal|"text/plain"
+argument_list|)
+annotation|@
+name|ApiOperation
+argument_list|(
+name|value
+operator|=
+literal|"Creates an endpoint uri in Java style from the information in the json schema"
+argument_list|)
+DECL|method|asEndpointUri (@piParamvalue = R, readOnly = true) @athParamR) String scheme, @ApiParam(value = R, required = true) String json)
+specifier|public
+name|String
+name|asEndpointUri
+parameter_list|(
+annotation|@
+name|ApiParam
+argument_list|(
+name|value
+operator|=
+literal|"The component scheme"
+argument_list|,
+name|readOnly
+operator|=
+literal|true
+argument_list|)
+annotation|@
+name|PathParam
+argument_list|(
+literal|"scheme"
+argument_list|)
+name|String
+name|scheme
+parameter_list|,
+annotation|@
+name|ApiParam
+argument_list|(
+name|value
+operator|=
+literal|"The options as a JSon map with key/value pairs"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
+name|String
+name|json
+parameter_list|)
+block|{
+try|try
+block|{
+name|ObjectMapper
+name|mapper
+init|=
+operator|new
+name|ObjectMapper
+argument_list|()
+decl_stmt|;
+name|Map
+name|map
+init|=
+name|mapper
+operator|.
+name|readValue
+argument_list|(
+name|json
+argument_list|,
+name|Map
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+return|return
+name|catalog
+operator|.
+name|asEndpointUri
+argument_list|(
+name|scheme
+argument_list|,
+name|map
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
+annotation|@
+name|POST
+annotation|@
+name|Path
+argument_list|(
 literal|"/mavenCacheDirectory/{name}"
 argument_list|)
 annotation|@
@@ -1378,7 +1566,7 @@ name|value
 operator|=
 literal|"Configures the Maven cache directory to use when downloading artifacts"
 argument_list|)
-DECL|method|mavenCacheDirectory (@piParamR) @athParamR) String name)
+DECL|method|mavenCacheDirectory (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|void
 name|mavenCacheDirectory
@@ -1386,7 +1574,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the cache directory"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -1419,7 +1613,7 @@ name|value
 operator|=
 literal|"Adds a third party Maven repository to use for downloading Maven artifacts"
 argument_list|)
-DECL|method|addMavenRepository (@piParamR) @athParamR) String name, @ApiParam(R) @PathParam(R) String url)
+DECL|method|addMavenRepository (@piParamvalue = R, required = true) @athParamR) String name, @ApiParam(value = R, required = true) @PathParam(R) String url)
 specifier|public
 name|void
 name|addMavenRepository
@@ -1427,7 +1621,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the Maven repository"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -1440,7 +1640,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The URL of the Maven repository"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -1480,7 +1686,7 @@ name|value
 operator|=
 literal|"Downloads the Maven artifact and scan for custom Camel components which will be added to the catalog and returns the names of the found components"
 argument_list|)
-DECL|method|addComponentFromMavenArtifact (@piParamR) @athParamR) String groupId, @ApiParam(R) @PathParam(R) String artifactId, @ApiParam(R) @PathParam(R) String version)
+DECL|method|addComponentFromMavenArtifact (@piParamvalue = R, required = true) @athParamR) String groupId, @ApiParam(value = R, required = true) @PathParam(R) String artifactId, @ApiParam(value = R, required = true) @PathParam(R) String version)
 specifier|public
 name|Set
 argument_list|<
@@ -1491,7 +1697,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The Maven groupId"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -1504,7 +1716,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The Maven artifactId"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -1517,7 +1735,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The Maven version"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam

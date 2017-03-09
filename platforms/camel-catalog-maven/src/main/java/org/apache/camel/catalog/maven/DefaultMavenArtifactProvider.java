@@ -258,7 +258,7 @@ name|maven
 operator|.
 name|ConnectorArtifactHelper
 operator|.
-name|loadConnectorJSonSchema
+name|loadJSonSchemas
 import|;
 end_import
 
@@ -799,7 +799,7 @@ name|String
 index|[]
 name|json
 init|=
-name|loadConnectorJSonSchema
+name|loadJSonSchemas
 argument_list|(
 name|classLoader
 argument_list|)
@@ -869,6 +869,19 @@ operator|.
 name|get
 argument_list|(
 literal|"scheme"
+argument_list|)
+operator|.
+name|textValue
+argument_list|()
+decl_stmt|;
+name|String
+name|javaType
+init|=
+name|tree
+operator|.
+name|get
+argument_list|(
+literal|"javaType"
 argument_list|)
 operator|.
 name|textValue
@@ -964,6 +977,8 @@ name|name
 argument_list|,
 name|scheme
 argument_list|,
+name|javaType
+argument_list|,
 name|description
 argument_list|,
 name|csb
@@ -979,6 +994,11 @@ argument_list|,
 name|json
 index|[
 literal|1
+index|]
+argument_list|,
+name|json
+index|[
+literal|2
 index|]
 argument_list|)
 expr_stmt|;

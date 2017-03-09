@@ -22,9 +22,29 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -74,8 +94,8 @@ name|String
 name|version
 parameter_list|)
 function_decl|;
-comment|/**      * Adds or updates the connector to the catalog      *      * @param groupId               maven group id      * @param artifactId            maven artifact id      * @param version               maven version      * @param name                  name of connector      * @param scheme                scheme of connector      * @param description           description of connector      * @param labels                labels (separated by comma) of connector      * @param connectorJson         the<tt>camel-connector</tt> json file      * @param connectorSchemaJson   the<tt>camel-connector-schema</tt> json file      */
-DECL|method|addConnector (String groupId, String artifactId, String version, String name, String scheme, String description, String labels, String connectorJson, String connectorSchemaJson)
+comment|/**      * Adds or updates the connector to the catalog      *      * @param groupId               maven group id      * @param artifactId            maven artifact id      * @param version               maven version      * @param name                  name of connector      * @param scheme                scheme of connector      * @param javaType              fully qualified class name of the connector      * @param description           description of connector      * @param labels                labels (separated by comma) of connector      * @param connectorJson         the<tt>camel-connector</tt> json file      * @param connectorSchemaJson   the<tt>camel-connector-schema</tt> json file      * @param componentSchemaJson   the<tt>camel-component-schema</tt> json file      */
+DECL|method|addConnector (String groupId, String artifactId, String version, String name, String scheme, String javaType, String description, String labels, String connectorJson, String connectorSchemaJson, String componentSchemaJson)
 name|void
 name|addConnector
 parameter_list|(
@@ -95,6 +115,9 @@ name|String
 name|scheme
 parameter_list|,
 name|String
+name|javaType
+parameter_list|,
+name|String
 name|description
 parameter_list|,
 name|String
@@ -105,6 +128,9 @@ name|connectorJson
 parameter_list|,
 name|String
 name|connectorSchemaJson
+parameter_list|,
+name|String
+name|componentSchemaJson
 parameter_list|)
 function_decl|;
 comment|/**      * Removes the connector from the catalog      *      * @param groupId               maven group id      * @param artifactId            maven artifact id      * @param version               maven version      */
@@ -178,6 +204,99 @@ parameter_list|,
 name|String
 name|version
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the<tt>camel-component-schema</tt> json file for the given connector with the Maven coordinate      *      * @param groupId     maven group id      * @param artifactId  maven artifact id      * @param version     maven version      */
+DECL|method|componentSchemaJSon (String groupId, String artifactId, String version)
+name|String
+name|componentSchemaJSon
+parameter_list|(
+name|String
+name|groupId
+parameter_list|,
+name|String
+name|artifactId
+parameter_list|,
+name|String
+name|version
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an endpoint uri in Java style from the information in the json schema      *      * @param scheme the endpoint schema      * @param json the json schema with the endpoint properties      * @param encode whether to URL encode the returned uri or not      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
+DECL|method|asEndpointUri (String scheme, String json, boolean encode)
+name|String
+name|asEndpointUri
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|String
+name|json
+parameter_list|,
+name|boolean
+name|encode
+parameter_list|)
+throws|throws
+name|URISyntaxException
+function_decl|;
+comment|/**      * Creates an endpoint uri in XML style (eg escape& as&ampl;) from the information in the json schema      *      * @param scheme the endpoint schema      * @param json the json schema with the endpoint properties      * @param encode whether to URL encode the returned uri or not      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
+DECL|method|asEndpointUriXml (String scheme, String json, boolean encode)
+name|String
+name|asEndpointUriXml
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|String
+name|json
+parameter_list|,
+name|boolean
+name|encode
+parameter_list|)
+throws|throws
+name|URISyntaxException
+function_decl|;
+comment|/**      * Creates an endpoint uri in Java style from the information from the properties      *      * @param scheme the endpoint schema      * @param properties the properties as key value pairs      * @param encode whether to URL encode the returned uri or not      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
+DECL|method|asEndpointUri (String scheme, Map<String, String> properties, boolean encode)
+name|String
+name|asEndpointUri
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|properties
+parameter_list|,
+name|boolean
+name|encode
+parameter_list|)
+throws|throws
+name|URISyntaxException
+function_decl|;
+comment|/**      * Creates an endpoint uri in XML style (eg escape& as&ampl;) from the information from the properties      *      * @param scheme the endpoint schema      * @param properties the properties as key value pairs      * @param encode whether to URL encode the returned uri or not      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
+DECL|method|asEndpointUriXml (String scheme, Map<String, String> properties, boolean encode)
+name|String
+name|asEndpointUriXml
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|properties
+parameter_list|,
+name|boolean
+name|encode
+parameter_list|)
+throws|throws
+name|URISyntaxException
 function_decl|;
 block|}
 end_interface

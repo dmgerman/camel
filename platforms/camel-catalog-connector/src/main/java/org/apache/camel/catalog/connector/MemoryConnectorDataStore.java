@@ -107,7 +107,7 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|addConnector (ConnectorDto dto, String connectorJson, String connectorSchemaJson)
+DECL|method|addConnector (ConnectorDto dto, String connectorJson, String connectorSchemaJson, String componentSchemaJson)
 specifier|public
 name|void
 name|addConnector
@@ -120,6 +120,9 @@ name|connectorJson
 parameter_list|,
 name|String
 name|connectorSchemaJson
+parameter_list|,
+name|String
+name|componentSchemaJson
 parameter_list|)
 block|{
 name|ConnectorDetails
@@ -133,6 +136,8 @@ argument_list|,
 name|connectorJson
 argument_list|,
 name|connectorSchemaJson
+argument_list|,
+name|componentSchemaJson
 argument_list|)
 decl_stmt|;
 comment|// remove in case we are updating the connector
@@ -175,6 +180,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 return|;
@@ -198,6 +205,8 @@ operator|new
 name|ConnectorDetails
 argument_list|(
 name|dto
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -731,6 +740,50 @@ name|getConnectorSchemaJson
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|componentSchemaJSon (ConnectorDto dto)
+specifier|public
+name|String
+name|componentSchemaJSon
+parameter_list|(
+name|ConnectorDto
+name|dto
+parameter_list|)
+block|{
+return|return
+name|store
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|d
+lambda|->
+name|d
+operator|.
+name|getDto
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|dto
+argument_list|)
+argument_list|)
+operator|.
+name|findFirst
+argument_list|()
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
+operator|.
+name|getComponentSchemaJson
+argument_list|()
+return|;
+block|}
 comment|/**      * Entry holding the connector details      */
 DECL|class|ConnectorDetails
 specifier|private
@@ -754,7 +807,12 @@ specifier|private
 name|String
 name|connectorSchemaJson
 decl_stmt|;
-DECL|method|ConnectorDetails (ConnectorDto dto, String connectorJson, String connectorSchemaJson)
+DECL|field|componentSchemaJson
+specifier|private
+name|String
+name|componentSchemaJson
+decl_stmt|;
+DECL|method|ConnectorDetails (ConnectorDto dto, String connectorJson, String connectorSchemaJson, String componentSchemaJson)
 name|ConnectorDetails
 parameter_list|(
 name|ConnectorDto
@@ -765,6 +823,9 @@ name|connectorJson
 parameter_list|,
 name|String
 name|connectorSchemaJson
+parameter_list|,
+name|String
+name|componentSchemaJson
 parameter_list|)
 block|{
 name|this
@@ -784,6 +845,12 @@ operator|.
 name|connectorSchemaJson
 operator|=
 name|connectorSchemaJson
+expr_stmt|;
+name|this
+operator|.
+name|componentSchemaJson
+operator|=
+name|componentSchemaJson
 expr_stmt|;
 block|}
 DECL|method|getDto ()
@@ -811,6 +878,15 @@ parameter_list|()
 block|{
 return|return
 name|connectorSchemaJson
+return|;
+block|}
+DECL|method|getComponentSchemaJson ()
+name|String
+name|getComponentSchemaJson
+parameter_list|()
+block|{
+return|return
+name|componentSchemaJson
 return|;
 block|}
 annotation|@

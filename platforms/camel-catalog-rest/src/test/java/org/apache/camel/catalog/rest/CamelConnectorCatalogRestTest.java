@@ -349,9 +349,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

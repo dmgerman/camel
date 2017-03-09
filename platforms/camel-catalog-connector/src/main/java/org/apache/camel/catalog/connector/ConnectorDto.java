@@ -67,6 +67,11 @@ specifier|private
 name|String
 name|labels
 decl_stmt|;
+DECL|field|javaType
+specifier|private
+name|String
+name|javaType
+decl_stmt|;
 DECL|field|groupId
 specifier|private
 name|String
@@ -202,6 +207,32 @@ operator|.
 name|labels
 operator|=
 name|labels
+expr_stmt|;
+block|}
+DECL|method|getJavaType ()
+specifier|public
+name|String
+name|getJavaType
+parameter_list|()
+block|{
+return|return
+name|javaType
+return|;
+block|}
+DECL|method|setJavaType (String javaType)
+specifier|public
+name|void
+name|setJavaType
+parameter_list|(
+name|String
+name|javaType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|javaType
+operator|=
+name|javaType
 expr_stmt|;
 block|}
 DECL|method|getGroupId ()

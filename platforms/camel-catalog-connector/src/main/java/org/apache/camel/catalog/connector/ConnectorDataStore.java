@@ -38,8 +38,8 @@ specifier|public
 interface|interface
 name|ConnectorDataStore
 block|{
-comment|/**      * Adds or updates the connector to the catalog      *      * @param dto                   the connector dto      * @param connectorJson         the<tt>camel-connector</tt> json file      * @param connectorSchemaJson   the<tt>camel-connector-schema</tt> json file      */
-DECL|method|addConnector (ConnectorDto dto, String connectorJson, String connectorSchemaJson)
+comment|/**      * Adds or updates the connector to the catalog      *      * @param dto                   the connector dto      * @param connectorJson         the<tt>camel-connector</tt> json file      * @param connectorSchemaJson   the<tt>camel-connector-schema</tt> json file      * @param componentSchemaJson   the<tt>camel-component-schema</tt> json file      */
+DECL|method|addConnector (ConnectorDto dto, String connectorJson, String connectorSchemaJson, String componentSchemaJson)
 name|void
 name|addConnector
 parameter_list|(
@@ -51,6 +51,9 @@ name|connectorJson
 parameter_list|,
 name|String
 name|connectorSchemaJson
+parameter_list|,
+name|String
+name|componentSchemaJson
 parameter_list|)
 function_decl|;
 comment|/**      * Is the connector already registered in the catalog      *      * @param dto  the connector dto      */
@@ -99,6 +102,15 @@ comment|/**      * Returns the<tt>camel-connector-schema</tt> json file for the 
 DECL|method|connectorSchemaJSon (ConnectorDto dto)
 name|String
 name|connectorSchemaJSon
+parameter_list|(
+name|ConnectorDto
+name|dto
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the<tt>camel-component-schema</tt> json file for the given connector with the Maven coordinate      *      * @param dto  the connector dto      */
+DECL|method|componentSchemaJSon (ConnectorDto dto)
+name|String
+name|componentSchemaJSon
 parameter_list|(
 name|ConnectorDto
 name|dto

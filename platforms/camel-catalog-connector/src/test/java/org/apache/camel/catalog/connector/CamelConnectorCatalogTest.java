@@ -116,9 +116,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -201,9 +205,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -271,6 +279,8 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
@@ -278,6 +288,8 @@ argument_list|,
 literal|"foo"
 argument_list|,
 literal|"bar"
+argument_list|,
+literal|"baz"
 argument_list|)
 expr_stmt|;
 name|String
@@ -333,6 +345,8 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
@@ -340,6 +354,8 @@ argument_list|,
 literal|"foo"
 argument_list|,
 literal|"bar"
+argument_list|,
+literal|"baz"
 argument_list|)
 expr_stmt|;
 name|String
@@ -359,6 +375,72 @@ decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"bar"
+argument_list|,
+name|json
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testComponentSchemaJson ()
+specifier|public
+name|void
+name|testComponentSchemaJson
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CamelConnectorCatalog
+name|catalog
+init|=
+operator|new
+name|DefaultCamelConnectorCatalog
+argument_list|()
+decl_stmt|;
+name|catalog
+operator|.
+name|addConnector
+argument_list|(
+literal|"org.apache.camel"
+argument_list|,
+literal|"myfoo-connector"
+argument_list|,
+literal|"2.19.0"
+argument_list|,
+literal|"MyFoo"
+argument_list|,
+literal|"my-foo"
+argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
+literal|"Something cool"
+argument_list|,
+literal|"foo,timer"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"bar"
+argument_list|,
+literal|"baz"
+argument_list|)
+expr_stmt|;
+name|String
+name|json
+init|=
+name|catalog
+operator|.
+name|componentSchemaJSon
+argument_list|(
+literal|"org.apache.camel"
+argument_list|,
+literal|"myfoo-connector"
+argument_list|,
+literal|"2.19.0"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"baz"
 argument_list|,
 name|json
 argument_list|)
@@ -410,9 +492,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -507,9 +593,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -597,9 +687,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -620,9 +714,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something more cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -754,9 +852,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -777,9 +879,13 @@ literal|"MyFoo"
 argument_list|,
 literal|"my-foo"
 argument_list|,
+literal|"org.myfoo.connector.MyFooComponent"
+argument_list|,
 literal|"Something more cool"
 argument_list|,
 literal|"foo,timer"
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

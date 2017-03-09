@@ -316,7 +316,7 @@ name|value
 operator|=
 literal|"Find all the connectors from the catalog"
 argument_list|)
-DECL|method|findConnector (@piParamR) @ueryParamR) boolean latestVersionOnly)
+DECL|method|findConnector (@piParamvalue = R, defaultValue = R) @ueryParamR) Boolean latestVersionOnly)
 specifier|public
 name|List
 argument_list|<
@@ -327,23 +327,40 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"Whether to include latest version only"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
 argument_list|)
 annotation|@
 name|QueryParam
 argument_list|(
 literal|"latestVersionOnly"
 argument_list|)
-name|boolean
+name|Boolean
 name|latestVersionOnly
 parameter_list|)
 block|{
+name|boolean
+name|latest
+init|=
+name|latestVersionOnly
+operator|!=
+literal|null
+condition|?
+name|latestVersionOnly
+else|:
+literal|true
+decl_stmt|;
 return|return
 name|catalog
 operator|.
 name|findConnector
 argument_list|(
-name|latestVersionOnly
+name|latest
 argument_list|)
 return|;
 block|}
@@ -366,7 +383,7 @@ name|value
 operator|=
 literal|"Find all the connectors from the catalog"
 argument_list|)
-DECL|method|findConnector (@piParamR) @athParamR) String filter, @ApiParam(R) @QueryParam(R) boolean latestVersionOnly)
+DECL|method|findConnector (@piParamR) @athParamR) String filter, @ApiParam(value = R, defaultValue = R) @QueryParam(R) Boolean latestVersionOnly)
 specifier|public
 name|List
 argument_list|<
@@ -390,23 +407,40 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"Whether to include latest version only"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
 argument_list|)
 annotation|@
 name|QueryParam
 argument_list|(
 literal|"latestVersionOnly"
 argument_list|)
-name|boolean
+name|Boolean
 name|latestVersionOnly
 parameter_list|)
 block|{
+name|boolean
+name|latest
+init|=
+name|latestVersionOnly
+operator|!=
+literal|null
+condition|?
+name|latestVersionOnly
+else|:
+literal|true
+decl_stmt|;
 return|return
 name|catalog
 operator|.
 name|findConnector
 argument_list|(
-name|latestVersionOnly
+name|latest
 argument_list|)
 return|;
 block|}
@@ -429,7 +463,7 @@ name|value
 operator|=
 literal|"Returns the camel-connector json file for the given connector with the Maven coordinate"
 argument_list|)
-DECL|method|connectorJSon (@piParamR) @athParamR) String groupId, @ApiParam(R) @PathParam(R) String artifactId, @ApiParam(R) @PathParam(R) String version)
+DECL|method|connectorJSon (@piParamvalue = R, required = true) @athParamR) String groupId, @ApiParam(value = R, required = true) @PathParam(R) String artifactId, @ApiParam(value = R, required = true) @PathParam(R) String version)
 specifier|public
 name|String
 name|connectorJSon
@@ -437,7 +471,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"Maven groupdId of the connector"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -450,7 +490,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"Maven artifactId of the connector"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -463,7 +509,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"Maven version of the connector"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -506,7 +558,7 @@ name|value
 operator|=
 literal|"Returns the camel-connector-schema json file for the given connector with the Maven coordinate"
 argument_list|)
-DECL|method|connectorSchemaJSon (@piParamR) @athParamR) String groupId, @ApiParam(R) @PathParam(R) String artifactId, @ApiParam(R) @PathParam(R) String version)
+DECL|method|connectorSchemaJSon (@piParamvalue = R, required = true) @athParamR) String groupId, @ApiParam(value = R, required = true) @PathParam(R) String artifactId, @ApiParam(value = R, required = true) @PathParam(R) String version)
 specifier|public
 name|String
 name|connectorSchemaJSon
@@ -514,7 +566,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"Maven groupdId of the connector"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -527,7 +585,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"Maven artifactId of the connector"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -540,7 +604,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"Maven version of the connector"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -578,7 +648,7 @@ name|value
 operator|=
 literal|"Configures the Maven cache directory to use when downloading artifacts"
 argument_list|)
-DECL|method|mavenCacheDirectory (@piParamR) @athParamR) String name)
+DECL|method|mavenCacheDirectory (@piParamvalue = R, required = true) @athParamR) String name)
 specifier|public
 name|void
 name|mavenCacheDirectory
@@ -586,7 +656,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the cache directory"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -619,7 +695,7 @@ name|value
 operator|=
 literal|"Adds a third party Maven repository to use for downloading Maven artifacts"
 argument_list|)
-DECL|method|addMavenRepository (@piParamR) @athParamR) String name, @ApiParam(R) @PathParam(R) String url)
+DECL|method|addMavenRepository (@piParamvalue = R, required = true) @athParamR) String name, @ApiParam(value = R, required = true) @PathParam(R) String url)
 specifier|public
 name|void
 name|addMavenRepository
@@ -627,7 +703,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The name of the Maven repository"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -640,7 +722,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The URL of the Maven repository"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -680,7 +768,7 @@ name|value
 operator|=
 literal|"Downloads the Maven artifact and scan for custom Camel connectors which will be added to the catalog and returns the names of the found connectors"
 argument_list|)
-DECL|method|addConnectorFromMavenArtifact (@piParamR) @athParamR) String groupId, @ApiParam(R) @PathParam(R) String artifactId, @ApiParam(R) @PathParam(R) String version)
+DECL|method|addConnectorFromMavenArtifact (@piParamvalue = R, required = true) @athParamR) String groupId, @ApiParam(value = R, required = true) @PathParam(R) String artifactId, @ApiParam(value = R, required = true) @PathParam(R) String version)
 specifier|public
 name|Set
 argument_list|<
@@ -691,7 +779,13 @@ parameter_list|(
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The Maven groupId"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -704,7 +798,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The Maven artifactId"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam
@@ -717,7 +817,13 @@ parameter_list|,
 annotation|@
 name|ApiParam
 argument_list|(
+name|value
+operator|=
 literal|"The Maven version"
+argument_list|,
+name|required
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|PathParam

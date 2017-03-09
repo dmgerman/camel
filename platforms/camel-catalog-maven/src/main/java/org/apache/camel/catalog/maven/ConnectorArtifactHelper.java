@@ -92,12 +92,12 @@ specifier|private
 name|ConnectorArtifactHelper
 parameter_list|()
 block|{     }
-DECL|method|loadConnectorJSonSchema (ClassLoader classLoader)
+DECL|method|loadJSonSchemas (ClassLoader classLoader)
 specifier|public
 specifier|static
 name|String
 index|[]
-name|loadConnectorJSonSchema
+name|loadJSonSchemas
 parameter_list|(
 name|ClassLoader
 name|classLoader
@@ -110,7 +110,7 @@ init|=
 operator|new
 name|String
 index|[
-literal|2
+literal|3
 index|]
 decl_stmt|;
 name|String
@@ -195,6 +195,61 @@ block|{
 name|answer
 index|[
 literal|1
+index|]
+operator|=
+name|loadText
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error loading "
+operator|+
+name|path
+operator|+
+literal|" file"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|path
+operator|=
+literal|"camel-component-schema.json"
+expr_stmt|;
+try|try
+block|{
+name|InputStream
+name|is
+init|=
+name|classLoader
+operator|.
+name|getResourceAsStream
+argument_list|(
+name|path
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|is
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+index|[
+literal|2
 index|]
 operator|=
 name|loadText

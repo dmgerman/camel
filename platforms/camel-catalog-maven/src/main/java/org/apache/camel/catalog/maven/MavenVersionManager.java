@@ -144,6 +144,28 @@ specifier|private
 name|String
 name|runtimeProviderVersion
 decl_stmt|;
+DECL|field|cacheDirectory
+specifier|private
+name|String
+name|cacheDirectory
+decl_stmt|;
+comment|/**      * Configures the directory for the download cache.      *<p/>      * The default folder is<tt>USER_HOME/.groovy/grape</tt>      *      * @param directory the directory.      */
+DECL|method|setCacheDirectory (String directory)
+specifier|public
+name|void
+name|setCacheDirectory
+parameter_list|(
+name|String
+name|directory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheDirectory
+operator|=
+name|directory
+expr_stmt|;
+block|}
 comment|/**      * To add a 3rd party Maven repository.      *      * @param name the repository name      * @param url  the repository url      */
 DECL|method|addMavenRepository (String name, String url)
 specifier|public
@@ -221,6 +243,23 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|cacheDirectory
+operator|!=
+literal|null
+condition|)
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"grape.root"
+argument_list|,
+name|cacheDirectory
+argument_list|)
+expr_stmt|;
+block|}
 name|Grape
 operator|.
 name|setEnableAutoDownload
