@@ -17892,6 +17892,15 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|addService
+argument_list|(
+name|runtimeCamelCatalog
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|reloadStrategy

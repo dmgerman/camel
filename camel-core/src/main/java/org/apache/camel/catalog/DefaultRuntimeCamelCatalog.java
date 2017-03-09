@@ -135,6 +135,34 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|cache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|modelJSonSchema (String name)
 specifier|public
 name|String

@@ -36,6 +36,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Runtime based CamelCatalog which are included in camel-core that can provided limit CamelCatalog capabilities  */
 end_comment
@@ -45,6 +57,8 @@ DECL|interface|RuntimeCamelCatalog
 specifier|public
 interface|interface
 name|RuntimeCamelCatalog
+extends|extends
+name|StaticService
 block|{
 comment|/**      * Returns the component information as JSon format.      *      * @param name the component name      * @return component details in JSon      */
 DECL|method|componentJSonSchema (String name)
@@ -246,40 +260,6 @@ parameter_list|(
 name|String
 name|uri
 parameter_list|)
-function_decl|;
-comment|/**      * Creates an endpoint uri in Java style from the information in the json schema      *      * @param scheme the endpoint schema      * @param json the json schema with the endpoint properties      * @param encode whether to URL encode the returned uri or not      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
-DECL|method|asEndpointUri (String scheme, String json, boolean encode)
-name|String
-name|asEndpointUri
-parameter_list|(
-name|String
-name|scheme
-parameter_list|,
-name|String
-name|json
-parameter_list|,
-name|boolean
-name|encode
-parameter_list|)
-throws|throws
-name|URISyntaxException
-function_decl|;
-comment|/**      * Creates an endpoint uri in XML style (eg escape& as&ampl;) from the information in the json schema      *      * @param scheme the endpoint schema      * @param json the json schema with the endpoint properties      * @param encode whether to URL encode the returned uri or not      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
-DECL|method|asEndpointUriXml (String scheme, String json, boolean encode)
-name|String
-name|asEndpointUriXml
-parameter_list|(
-name|String
-name|scheme
-parameter_list|,
-name|String
-name|json
-parameter_list|,
-name|boolean
-name|encode
-parameter_list|)
-throws|throws
-name|URISyntaxException
 function_decl|;
 comment|/**      * Creates an endpoint uri in Java style from the information from the properties      *      * @param scheme the endpoint schema      * @param properties the properties as key value pairs      * @param encode whether to URL encode the returned uri or not      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
 DECL|method|asEndpointUri (String scheme, Map<String, String> properties, boolean encode)
