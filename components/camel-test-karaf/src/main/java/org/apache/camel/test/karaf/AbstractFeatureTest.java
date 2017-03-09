@@ -1257,6 +1257,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// passing null as second argument ties the configuration to correct bundle.
 name|Configuration
 name|config
 init|=
@@ -1265,6 +1266,8 @@ operator|.
 name|getConfiguration
 argument_list|(
 name|pid
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
