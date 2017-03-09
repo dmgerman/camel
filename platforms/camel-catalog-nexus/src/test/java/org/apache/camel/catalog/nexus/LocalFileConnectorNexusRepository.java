@@ -151,7 +151,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addConnector (NexusArtifactDto dto, String name, String description, String labels, String connectorJson, String connectorSchemaJson)
+DECL|method|addConnector (NexusArtifactDto dto, String name, String scheme, String description, String labels, String connectorJson, String connectorSchemaJson)
 specifier|protected
 name|void
 name|addConnector
@@ -161,6 +161,9 @@ name|dto
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|String
+name|scheme
 parameter_list|,
 name|String
 name|description
@@ -182,6 +185,8 @@ argument_list|(
 name|dto
 argument_list|,
 name|name
+argument_list|,
+name|scheme
 argument_list|,
 name|description
 argument_list|,

@@ -347,6 +347,8 @@ literal|"2.19.0"
 argument_list|,
 literal|"MyFoo"
 argument_list|,
+literal|"my-foo"
+argument_list|,
 literal|"Something cool"
 argument_list|,
 literal|"foo,timer"
