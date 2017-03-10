@@ -556,7 +556,7 @@ return|return
 name|responseMsgs
 return|;
 block|}
-comment|/**      * Sets swagger operation response messages      */
+comment|/**      * Sets swagger operation response messages.      */
 DECL|method|setResponseMsgs (List<RestOperationResponseMsgDefinition> params)
 specifier|public
 name|void
@@ -586,7 +586,7 @@ return|return
 name|method
 return|;
 block|}
-comment|/**      * The HTTP verb such as GET or POST      */
+comment|/**      * @param method the HTTP verb name such as {@code get, post, put, patch, delete, head}.      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -613,7 +613,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Uri template of this REST service such as /{id}.      */
+comment|/**      * @param uri the query path for this REST service, such as {@code /&#123;id&#125;}.      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -640,7 +640,7 @@ return|return
 name|consumes
 return|;
 block|}
-comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json.      * This option will override what may be configured on a parent level      */
+comment|/**      * @param consumes the HTTP Content Type of the input data, such as {@code application/xml} or {@code application/json}.      *                 This option will override what may be configured on a parent level.      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -667,7 +667,7 @@ return|return
 name|produces
 return|;
 block|}
-comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      * This option will override what may be configured on a parent level      */
+comment|/**      * @param produces the HTTP Content Type of the output data, such as {@code application/xml} or {@code application/json}.      *                 This option will override what may be configured on a parent level.      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -694,7 +694,7 @@ return|return
 name|bindingMode
 return|;
 block|}
-comment|/**      * Sets the binding mode to use.      * This option will override what may be configured on a parent level      *<p/>      * The default value is auto      */
+comment|/**      * @param bindingMode the binding mode to use. The default value is {@code RestBindingMode.auto}.      *                    This option will override what may be configured on a parent level.      *      * @see RestBindingMode      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -721,7 +721,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
-comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      * This option will override what may be configured on a parent level      */
+comment|/**      * @param skipBindingOnErrorCode set to {@code true} to ignore the specified binding mode on output if there      *                               is a custom HTTP error code header. This allows to build custom error messages      *                               that do not bind to json / xml etc, as success messages otherwise will do.      *                               This option will override what may be configured on a parent level.      *      * @see VerbDefinition#setBindingMode(RestBindingMode)      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -748,7 +748,7 @@ return|return
 name|enableCORS
 return|;
 block|}
-comment|/**      * Whether to enable CORS headers in the HTTP response.      * This option will override what may be configured on a parent level      *<p/>      * The default value is false.      */
+comment|/**      * @param enableCORS set to {@code true} to enable CORS headers in the HTTP response. The default value is {@code false}.      *                   This option will override what may be configured on a parent level.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void
@@ -775,7 +775,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      * This option will override what may be configured on a parent level      */
+comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      * This option will override what may be configured on a parent level.      *      * @param type the canonical name of the class of the input data. Append a {@code []} to the end      *             of the canonical name if you want the input to be an array of {@code type}.      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -802,7 +802,7 @@ return|return
 name|outType
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      * This option will override what may be configured on a parent level      */
+comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      * This option will override what may be configured on a parent level.      *      * @param outType the canonical name of the class of the output data. Append a {@code []} to the end      *                of the canonical name if you want the output to be an array of {@code outType}.      */
 DECL|method|setOutType (String outType)
 specifier|public
 name|void
@@ -829,7 +829,7 @@ return|return
 name|routeId
 return|;
 block|}
-comment|/**      * The route id this rest-dsl is using (read-only)      */
+comment|/**      * @param routeId the route id this rest-dsl is using (read-only).      */
 DECL|method|setRouteId (String routeId)
 specifier|public
 name|void
@@ -856,7 +856,7 @@ return|return
 name|apiDocs
 return|;
 block|}
-comment|/**      * Whether to include or exclude the VerbDefinition in API documentation.      *<p/>      * The default value is true.      */
+comment|/**      * @param apiDocs set to {@code true} to include or exclude the VerbDefinition in API documentation.      *                The default value is true.      */
 DECL|method|setApiDocs (Boolean apiDocs)
 specifier|public
 name|void
@@ -1332,7 +1332,7 @@ name|asVerb
 parameter_list|()
 block|{
 comment|// we do not want the jaxb model to repeat itself, by outputting<get method="get">
-comment|// so we defer the verb from the instance type
+comment|// so we infer the verb from the instance type
 if|if
 condition|(
 name|this
