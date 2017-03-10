@@ -108,6 +108,20 @@ name|SpanDecorator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * An abstract base implementation of the {@link SpanDecorator} interface.  */
 end_comment
@@ -294,10 +308,15 @@ name|setTag
 argument_list|(
 literal|"camel.uri"
 argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
