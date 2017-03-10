@@ -70,6 +70,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -333,7 +343,10 @@ name|XmlTransient
 DECL|field|parent
 specifier|private
 specifier|final
+name|Optional
+argument_list|<
 name|ServiceCallDefinition
+argument_list|>
 name|parent
 decl_stmt|;
 annotation|@
@@ -394,7 +407,12 @@ name|this
 operator|.
 name|parent
 operator|=
+name|Optional
+operator|.
+name|ofNullable
+argument_list|(
 name|parent
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -413,6 +431,17 @@ return|return
 name|this
 operator|.
 name|parent
+operator|.
+name|orElseThrow
+argument_list|(
+parameter_list|()
+lambda|->
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Parent definition is not set"
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|endParent ()
@@ -429,8 +458,23 @@ name|this
 operator|.
 name|parent
 operator|.
+name|map
+argument_list|(
+name|ServiceCallDefinition
+operator|::
 name|end
-argument_list|()
+argument_list|)
+operator|.
+name|orElseThrow
+argument_list|(
+parameter_list|()
+lambda|->
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Parent definition is not set"
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|// *************************************************************************

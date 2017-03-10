@@ -441,7 +441,10 @@ operator|.
 name|defaultLoadBalancer
 argument_list|()
 operator|.
-name|end
+name|consulServiceDiscovery
+argument_list|()
+operator|.
+name|endParent
 argument_list|()
 operator|.
 name|to

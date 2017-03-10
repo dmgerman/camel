@@ -1706,6 +1706,24 @@ return|return
 name|conf
 return|;
 block|}
+DECL|method|multiServiceDiscovery (ChainedServiceCallServiceDiscoveryConfiguration conf)
+specifier|public
+name|ServiceCallConfigurationDefinition
+name|multiServiceDiscovery
+parameter_list|(
+name|ChainedServiceCallServiceDiscoveryConfiguration
+name|conf
+parameter_list|)
+block|{
+name|setServiceDiscoveryConfiguration
+argument_list|(
+name|conf
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|staticServiceDiscovery ()
 specifier|public
 name|StaticServiceCallServiceDiscoveryConfiguration
@@ -1726,6 +1744,24 @@ argument_list|)
 expr_stmt|;
 return|return
 name|conf
+return|;
+block|}
+DECL|method|staticServiceDiscovery (StaticServiceCallServiceDiscoveryConfiguration conf)
+specifier|public
+name|ServiceCallConfigurationDefinition
+name|staticServiceDiscovery
+parameter_list|(
+name|StaticServiceCallServiceDiscoveryConfiguration
+name|conf
+parameter_list|)
+block|{
+name|setServiceDiscoveryConfiguration
+argument_list|(
+name|conf
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|// *****************************

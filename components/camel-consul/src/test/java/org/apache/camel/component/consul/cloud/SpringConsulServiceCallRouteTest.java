@@ -187,7 +187,7 @@ argument_list|()
 operator|.
 name|id
 argument_list|(
-literal|"service-1"
+literal|"service-1-1"
 argument_list|)
 operator|.
 name|name
@@ -202,7 +202,7 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-literal|9091
+literal|9011
 argument_list|)
 operator|.
 name|build
@@ -215,7 +215,7 @@ argument_list|()
 operator|.
 name|id
 argument_list|(
-literal|"service-2"
+literal|"service-1-2"
 argument_list|)
 operator|.
 name|name
@@ -230,7 +230,7 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-literal|9092
+literal|9012
 argument_list|)
 operator|.
 name|build
@@ -243,7 +243,35 @@ argument_list|()
 operator|.
 name|id
 argument_list|(
-literal|"service-3"
+literal|"service-1-3"
+argument_list|)
+operator|.
+name|name
+argument_list|(
+literal|"http-service-1"
+argument_list|)
+operator|.
+name|address
+argument_list|(
+literal|"127.0.0.1"
+argument_list|)
+operator|.
+name|port
+argument_list|(
+literal|9013
+argument_list|)
+operator|.
+name|build
+argument_list|()
+argument_list|,
+name|ImmutableRegistration
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|id
+argument_list|(
+literal|"service-2-1"
 argument_list|)
 operator|.
 name|name
@@ -258,7 +286,7 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-literal|9093
+literal|9021
 argument_list|)
 operator|.
 name|build
@@ -271,7 +299,7 @@ argument_list|()
 operator|.
 name|id
 argument_list|(
-literal|"service-4"
+literal|"service-2-2"
 argument_list|)
 operator|.
 name|name
@@ -286,7 +314,35 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-literal|9094
+literal|9022
+argument_list|)
+operator|.
+name|build
+argument_list|()
+argument_list|,
+name|ImmutableRegistration
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|id
+argument_list|(
+literal|"service-2-3"
+argument_list|)
+operator|.
+name|name
+argument_list|(
+literal|"http-service-2"
+argument_list|)
+operator|.
+name|address
+argument_list|(
+literal|"127.0.0.1"
+argument_list|)
+operator|.
+name|port
+argument_list|(
+literal|9023
 argument_list|)
 operator|.
 name|build
@@ -373,9 +429,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceivedInAnyOrder
 argument_list|(
-literal|"service-1 9091"
+literal|"service-1 9012"
 argument_list|,
-literal|"service-1 9092"
+literal|"service-1 9013"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -395,9 +451,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceivedInAnyOrder
 argument_list|(
-literal|"service-2 9093"
+literal|"service-2 9021"
 argument_list|,
-literal|"service-2 9094"
+literal|"service-2 9023"
 argument_list|)
 expr_stmt|;
 name|template

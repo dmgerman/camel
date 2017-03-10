@@ -511,6 +511,29 @@ name|expression
 expr_stmt|;
 block|}
 comment|// *************************************
+comment|// Properties
+comment|// *************************************
+DECL|method|getLoadBalancer ()
+specifier|public
+name|LoadBalancer
+name|getLoadBalancer
+parameter_list|()
+block|{
+return|return
+name|loadBalancer
+return|;
+block|}
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+comment|// *************************************
 comment|// Lifecycle
 comment|// *************************************
 annotation|@

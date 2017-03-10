@@ -5280,6 +5280,13 @@ argument_list|>
 name|getHystrixConfigurations
 parameter_list|()
 function_decl|;
+DECL|method|getDefaultServiceCallConfiguration ()
+specifier|public
+specifier|abstract
+name|ServiceCallConfigurationDefinition
+name|getDefaultServiceCallConfiguration
+parameter_list|()
+function_decl|;
 DECL|method|getServiceCallConfigurations ()
 specifier|public
 specifier|abstract
@@ -5813,6 +5820,23 @@ name|asRestConfiguration
 argument_list|(
 name|ctx
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getDefaultServiceCallConfiguration
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ctx
+operator|.
+name|setServiceCallConfiguration
+argument_list|(
+name|getDefaultServiceCallConfiguration
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
