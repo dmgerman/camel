@@ -152,6 +152,18 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
+comment|/**      * This method returns the 'span.kind' value for use when the component      * is initiating a communication.      *      * @return The kind      */
+DECL|method|getInitiatorSpanKind ()
+name|String
+name|getInitiatorSpanKind
+parameter_list|()
+function_decl|;
+comment|/**      * This method returns the 'span.kind' value for use when the component      * is receiving a communication.      *      * @return The kind      */
+DECL|method|getReceiverSpanKind ()
+name|String
+name|getReceiverSpanKind
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

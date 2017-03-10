@@ -973,9 +973,10 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|Tags
+name|sd
 operator|.
-name|SPAN_KIND_CLIENT
+name|getInitiatorSpanKind
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Temporary workaround to avoid adding 'null' span as a parent
@@ -1315,9 +1316,10 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|Tags
+name|sd
 operator|.
-name|SPAN_KIND_SERVER
+name|getReceiverSpanKind
+argument_list|()
 argument_list|)
 operator|.
 name|start
