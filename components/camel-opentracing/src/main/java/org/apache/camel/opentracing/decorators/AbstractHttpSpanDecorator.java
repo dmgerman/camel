@@ -106,6 +106,28 @@ name|endpoint
 parameter_list|)
 block|{
 comment|// Based on HTTP component documentation:
+return|return
+name|getHttpMethod
+argument_list|(
+name|exchange
+argument_list|,
+name|endpoint
+argument_list|)
+return|;
+block|}
+DECL|method|getHttpMethod (Exchange exchange, Endpoint endpoint)
+specifier|public
+specifier|static
+name|String
+name|getHttpMethod
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
 comment|// 1. Use method provided in header.
 name|Object
 name|method
@@ -262,6 +284,25 @@ name|httpUrl
 argument_list|)
 expr_stmt|;
 block|}
+name|span
+operator|.
+name|setTag
+argument_list|(
+name|Tags
+operator|.
+name|HTTP_METHOD
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|getHttpMethod
+argument_list|(
+name|exchange
+argument_list|,
+name|endpoint
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getHttpURL (Exchange exchange, Endpoint endpoint)
 specifier|protected

@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|tag
+operator|.
+name|Tags
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -113,7 +125,12 @@ name|span
 operator|.
 name|setTag
 argument_list|(
-literal|"db.type"
+name|Tags
+operator|.
+name|DB_TYPE
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"sql"
 argument_list|)
@@ -142,7 +159,12 @@ name|span
 operator|.
 name|setTag
 argument_list|(
-literal|"db.statement"
+name|Tags
+operator|.
+name|DB_STATEMENT
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|(
 name|String

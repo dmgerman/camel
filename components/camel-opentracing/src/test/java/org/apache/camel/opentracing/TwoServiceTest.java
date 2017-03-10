@@ -94,6 +94,11 @@ argument_list|(
 literal|"direct://ServiceB"
 argument_list|)
 operator|.
+name|setOperation
+argument_list|(
+literal|"ServiceB"
+argument_list|)
+operator|.
 name|setKind
 argument_list|(
 name|Tags
@@ -118,6 +123,11 @@ operator|.
 name|setUri
 argument_list|(
 literal|"direct://ServiceB"
+argument_list|)
+operator|.
+name|setOperation
+argument_list|(
+literal|"ServiceB"
 argument_list|)
 operator|.
 name|setKind
@@ -146,6 +156,11 @@ argument_list|(
 literal|"direct://ServiceA"
 argument_list|)
 operator|.
+name|setOperation
+argument_list|(
+literal|"ServiceA"
+argument_list|)
+operator|.
 name|setKind
 argument_list|(
 name|Tags
@@ -170,6 +185,11 @@ operator|.
 name|setUri
 argument_list|(
 literal|"direct://ServiceA"
+argument_list|)
+operator|.
+name|setOperation
+argument_list|(
+literal|"ServiceA"
 argument_list|)
 operator|.
 name|setKind

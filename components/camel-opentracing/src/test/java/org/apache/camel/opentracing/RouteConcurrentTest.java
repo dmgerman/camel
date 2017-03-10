@@ -120,6 +120,11 @@ argument_list|(
 literal|"seda://foo"
 argument_list|)
 operator|.
+name|setOperation
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
 name|setKind
 argument_list|(
 name|Tags
@@ -139,6 +144,11 @@ operator|.
 name|setUri
 argument_list|(
 literal|"seda://bar"
+argument_list|)
+operator|.
+name|setOperation
+argument_list|(
+literal|"bar"
 argument_list|)
 operator|.
 name|setKind
@@ -167,6 +177,11 @@ argument_list|(
 literal|"seda://foo?concurrentConsumers=5"
 argument_list|)
 operator|.
+name|setOperation
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
 name|setKind
 argument_list|(
 name|Tags
@@ -191,6 +206,11 @@ operator|.
 name|setUri
 argument_list|(
 literal|"seda://bar?concurrentConsumers=5"
+argument_list|)
+operator|.
+name|setOperation
+argument_list|(
+literal|"bar"
 argument_list|)
 operator|.
 name|setKind

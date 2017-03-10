@@ -32,6 +32,11 @@ specifier|private
 name|String
 name|uri
 decl_stmt|;
+DECL|field|operation
+specifier|private
+name|String
+name|operation
+decl_stmt|;
 DECL|field|kind
 specifier|private
 name|String
@@ -98,6 +103,35 @@ operator|.
 name|uri
 operator|=
 name|uri
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|String
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
+block|}
+DECL|method|setOperation (String operation)
+specifier|public
+name|SpanTestData
+name|setOperation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
 expr_stmt|;
 return|return
 name|this

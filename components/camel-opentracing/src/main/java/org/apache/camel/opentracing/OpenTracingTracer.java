@@ -524,6 +524,41 @@ name|forEach
 argument_list|(
 name|d
 lambda|->
+block|{
+name|SpanDecorator
+name|existing
+init|=
+name|decorators
+operator|.
+name|get
+argument_list|(
+name|d
+operator|.
+name|getComponent
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// Add span decorator if no existing decorator for the component,
+comment|// or if derived from the existing decorator's class, allowing
+comment|// custom decorators to be added if they extend the standard
+comment|// decorators
+if|if
+condition|(
+name|existing
+operator|==
+literal|null
+operator|||
+name|existing
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isInstance
+argument_list|(
+name|d
+argument_list|)
+condition|)
+block|{
 name|decorators
 operator|.
 name|put
@@ -535,6 +570,9 @@ argument_list|()
 argument_list|,
 name|d
 argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
