@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|lang
 operator|.
 name|reflect
@@ -7058,9 +7068,7 @@ name|components
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -7071,9 +7079,7 @@ name|languages
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -7084,9 +7090,7 @@ name|dataformats
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// regular camel routes
@@ -8187,9 +8191,9 @@ comment|// if the uri is a placeholder then skip it
 if|if
 condition|(
 name|uri
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|uri
 operator|.
 name|startsWith
@@ -8202,13 +8206,19 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// validate uri here up-front so a meaningful error can be logged for blueprint
+comment|// it will also speed up tests in case of failure
 if|if
 condition|(
+operator|!
+name|validateUri
+argument_list|(
 name|uri
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
+return|return;
+block|}
 name|String
 name|splitURI
 index|[]
@@ -8249,7 +8259,6 @@ argument_list|(
 name|scheme
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|findSchedulerUriComponent (String uri, Set<String> components)
@@ -8390,9 +8399,64 @@ name|URISyntaxException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+comment|// ignore as uri should be already validated at findUriComponent method
 block|}
 block|}
+block|}
+DECL|method|validateUri (String uri)
+specifier|private
+specifier|static
+name|boolean
+name|validateUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+try|try
+block|{
+comment|// the same validation as done in DefaultCamelContext#normalizeEndpointUri(String)
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|URISyntaxException
+decl||
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Endpoint URI '"
+operator|+
+name|uri
+operator|+
+literal|"' is not valid due to: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
+return|;
 block|}
 block|}
 block|}
