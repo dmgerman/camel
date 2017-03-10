@@ -446,6 +446,11 @@ specifier|private
 name|boolean
 name|autospanLine
 decl_stmt|;
+DECL|field|allowEmptyStream
+specifier|private
+name|boolean
+name|allowEmptyStream
+decl_stmt|;
 DECL|method|BindyCsvFactory (Class<?> type)
 specifier|public
 name|BindyCsvFactory
@@ -2960,6 +2965,23 @@ argument_list|,
 name|autospanLine
 argument_list|)
 expr_stmt|;
+comment|// Get skipFirstLine parameter
+name|allowEmptyStream
+operator|=
+name|record
+operator|.
+name|allowEmptyStream
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Allo empty stream parameter of the CSV: {}"
+operator|+
+name|allowEmptyStream
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3242,6 +3264,16 @@ parameter_list|()
 block|{
 return|return
 name|maxpos
+return|;
+block|}
+DECL|method|isAllowEmptyStream ()
+specifier|public
+name|boolean
+name|isAllowEmptyStream
+parameter_list|()
+block|{
+return|return
+name|allowEmptyStream
 return|;
 block|}
 block|}

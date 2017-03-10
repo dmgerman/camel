@@ -150,6 +150,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * The allowEmptyStream parameter will allow to prcoess       * the unavaiable stream for CSV file.      */
+DECL|method|allowEmptyStream ()
+DECL|field|false
+name|boolean
+name|allowEmptyStream
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 
