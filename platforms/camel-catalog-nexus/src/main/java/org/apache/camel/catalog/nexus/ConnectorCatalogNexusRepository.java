@@ -336,8 +336,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Adds the connector to the data store      *      * @param dto                 the artifact      * @param name                the name of connector      * @param scheme              the connector scheme      * @param description         the description of connector      * @param labels              the labels of connector      * @param connectorJson       camel-connector JSon      * @param connectorSchemaJson camel-connector-schema JSon      */
-DECL|method|addConnector (NexusArtifactDto dto, String name, String scheme, String description, String labels, String connectorJson, String connectorSchemaJson)
+comment|/**      * Adds the connector to the data store      *      * @param dto                 the artifact      * @param name                the name of connector      * @param scheme              the connector scheme      * @param javaType            the connector java type      * @param description         the description of connector      * @param labels              the labels of connector      * @param connectorJson       camel-connector JSon      * @param connectorSchemaJson camel-connector-schema JSon      * @param componentSchemaJson camel-component-schema JSon      */
+DECL|method|addConnector (NexusArtifactDto dto, String name, String scheme, String javaType, String description, String labels, String connectorJson, String connectorSchemaJson, String componentSchemaJson)
 specifier|protected
 name|void
 name|addConnector
@@ -352,6 +352,9 @@ name|String
 name|scheme
 parameter_list|,
 name|String
+name|javaType
+parameter_list|,
+name|String
 name|description
 parameter_list|,
 name|String
@@ -362,6 +365,9 @@ name|connectorJson
 parameter_list|,
 name|String
 name|connectorSchemaJson
+parameter_list|,
+name|String
+name|componentSchemaJson
 parameter_list|)
 block|{
 name|String
@@ -402,6 +408,8 @@ name|name
 argument_list|,
 name|scheme
 argument_list|,
+name|javaType
+argument_list|,
 name|description
 argument_list|,
 name|labels
@@ -409,6 +417,8 @@ argument_list|,
 name|connectorJson
 argument_list|,
 name|connectorSchemaJson
+argument_list|,
+name|componentSchemaJson
 argument_list|)
 expr_stmt|;
 name|log
@@ -528,6 +538,19 @@ name|textValue
 argument_list|()
 decl_stmt|;
 name|String
+name|javaType
+init|=
+name|tree
+operator|.
+name|get
+argument_list|(
+literal|"javaType"
+argument_list|)
+operator|.
+name|textValue
+argument_list|()
+decl_stmt|;
+name|String
 name|description
 init|=
 name|tree
@@ -600,6 +623,8 @@ name|name
 argument_list|,
 name|scheme
 argument_list|,
+name|javaType
+argument_list|,
 name|description
 argument_list|,
 name|csb
@@ -615,6 +640,11 @@ argument_list|,
 name|json
 index|[
 literal|1
+index|]
+argument_list|,
+name|json
+index|[
+literal|2
 index|]
 argument_list|)
 expr_stmt|;
@@ -637,13 +667,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|loadConnectorJSonSchema (URLClassLoader classLoader)
+DECL|method|loadConnectorJSonSchema (ClassLoader classLoader)
 specifier|private
 name|String
 index|[]
 name|loadConnectorJSonSchema
 parameter_list|(
-name|URLClassLoader
+name|ClassLoader
 name|classLoader
 parameter_list|)
 block|{
@@ -654,7 +684,7 @@ init|=
 operator|new
 name|String
 index|[
-literal|2
+literal|3
 index|]
 decl_stmt|;
 name|String
@@ -739,6 +769,61 @@ block|{
 name|answer
 index|[
 literal|1
+index|]
+operator|=
+name|loadText
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error loading "
+operator|+
+name|path
+operator|+
+literal|" file"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|path
+operator|=
+literal|"camel-component-schema.json"
+expr_stmt|;
+try|try
+block|{
+name|InputStream
+name|is
+init|=
+name|classLoader
+operator|.
+name|getResourceAsStream
+argument_list|(
+name|path
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|is
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+index|[
+literal|2
 index|]
 operator|=
 name|loadText

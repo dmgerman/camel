@@ -151,7 +151,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addConnector (NexusArtifactDto dto, String name, String scheme, String description, String labels, String connectorJson, String connectorSchemaJson)
+DECL|method|addConnector (NexusArtifactDto dto, String name, String scheme, String javaType, String description, String labels, String connectorJson, String connectorSchemaJson, String componentSchemaJson)
 specifier|protected
 name|void
 name|addConnector
@@ -166,6 +166,9 @@ name|String
 name|scheme
 parameter_list|,
 name|String
+name|javaType
+parameter_list|,
+name|String
 name|description
 parameter_list|,
 name|String
@@ -176,6 +179,9 @@ name|connectorJson
 parameter_list|,
 name|String
 name|connectorSchemaJson
+parameter_list|,
+name|String
+name|componentSchemaJson
 parameter_list|)
 block|{
 name|super
@@ -188,6 +194,8 @@ name|name
 argument_list|,
 name|scheme
 argument_list|,
+name|javaType
+argument_list|,
 name|description
 argument_list|,
 name|labels
@@ -195,6 +203,8 @@ argument_list|,
 name|connectorJson
 argument_list|,
 name|connectorSchemaJson
+argument_list|,
+name|componentSchemaJson
 argument_list|)
 expr_stmt|;
 if|if
