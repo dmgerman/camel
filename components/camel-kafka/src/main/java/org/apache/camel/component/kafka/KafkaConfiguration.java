@@ -3428,7 +3428,7 @@ return|return
 name|groupId
 return|;
 block|}
-comment|/**      * A string that uniquely identifies the group of consumer processes to which this consumer belongs.      * By setting the same group id multiple processes indicate that they are all part of the same consumer group.      */
+comment|/**      * A string that uniquely identifies the group of consumer processes to which this consumer belongs.      * By setting the same group id multiple processes indicate that they are all part of the same consumer group.      *      * This option is required for consumers.      */
 DECL|method|setGroupId (String groupId)
 specifier|public
 name|void
@@ -3482,7 +3482,7 @@ return|return
 name|topic
 return|;
 block|}
-comment|/**      * Name of the topic to use.      */
+comment|/**      * Name of the topic to use.      *      * On the consumer you can use comma to separate multiple topics.      * A producer can only send a message to a single topic.      */
 DECL|method|setTopic (String topic)
 specifier|public
 name|void
