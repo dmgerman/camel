@@ -182,7 +182,7 @@ name|main
 operator|.
 name|setDuration
 argument_list|(
-literal|1000
+literal|1
 argument_list|)
 expr_stmt|;
 name|main
