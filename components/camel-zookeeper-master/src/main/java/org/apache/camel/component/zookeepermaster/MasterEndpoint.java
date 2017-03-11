@@ -86,6 +86,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -140,6 +172,13 @@ end_comment
 
 begin_class
 annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed ZooKeeper Master Endpoint"
+argument_list|)
+annotation|@
 name|UriEndpoint
 argument_list|(
 name|firstVersion
@@ -152,7 +191,7 @@ literal|"zookeeper-master"
 argument_list|,
 name|syntax
 operator|=
-literal|"zookeeper-master:name:endpoint"
+literal|"zookeeper-master:groupName:consumerEndpointUri"
 argument_list|,
 name|consumerClass
 operator|=
@@ -191,19 +230,15 @@ specifier|final
 name|MasterComponent
 name|component
 decl_stmt|;
-DECL|field|childEndpoint
+DECL|field|consumerEndpoint
 specifier|private
 specifier|final
 name|Endpoint
-name|childEndpoint
+name|consumerEndpoint
 decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
-name|name
-operator|=
-literal|"name"
-argument_list|,
 name|description
 operator|=
 literal|"The name of the cluster group to use"
@@ -215,22 +250,18 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|singletonId
+DECL|field|groupName
 specifier|private
 specifier|final
 name|String
-name|singletonId
+name|groupName
 decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
-name|name
-operator|=
-literal|"endpoint"
-argument_list|,
 name|description
 operator|=
-literal|"The Camel endpoint to use in master/slave mode"
+literal|"The consumer endpoint to use in master/slave mode"
 argument_list|)
 annotation|@
 name|Metadata
@@ -239,13 +270,13 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|child
+DECL|field|consumerEndpointUri
 specifier|private
 specifier|final
 name|String
-name|child
+name|consumerEndpointUri
 decl_stmt|;
-DECL|method|MasterEndpoint (String uri, MasterComponent component, String singletonId, String child)
+DECL|method|MasterEndpoint (String uri, MasterComponent component, String groupName, String consumerEndpointUri)
 specifier|public
 name|MasterEndpoint
 parameter_list|(
@@ -256,10 +287,10 @@ name|MasterComponent
 name|component
 parameter_list|,
 name|String
-name|singletonId
+name|groupName
 parameter_list|,
 name|String
-name|child
+name|consumerEndpointUri
 parameter_list|)
 block|{
 name|super
@@ -277,37 +308,86 @@ name|component
 expr_stmt|;
 name|this
 operator|.
-name|singletonId
+name|groupName
 operator|=
-name|singletonId
+name|groupName
 expr_stmt|;
 name|this
 operator|.
-name|child
+name|consumerEndpointUri
 operator|=
-name|child
+name|consumerEndpointUri
 expr_stmt|;
 name|this
 operator|.
-name|childEndpoint
+name|consumerEndpoint
 operator|=
 name|getCamelContext
 argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-name|child
+name|consumerEndpointUri
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getSingletonId ()
+DECL|method|getEndpoint ()
 specifier|public
-name|String
-name|getSingletonId
+name|Endpoint
+name|getEndpoint
 parameter_list|()
 block|{
 return|return
-name|singletonId
+name|consumerEndpoint
+return|;
+block|}
+DECL|method|getConsumerEndpoint ()
+specifier|public
+name|Endpoint
+name|getConsumerEndpoint
+parameter_list|()
+block|{
+return|return
+name|getEndpoint
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The consumer endpoint url to use in master/slave mode"
+argument_list|,
+name|mask
+operator|=
+literal|true
+argument_list|)
+DECL|method|getConsumerEndpointUri ()
+specifier|public
+name|String
+name|getConsumerEndpointUri
+parameter_list|()
+block|{
+return|return
+name|consumerEndpointUri
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The name of the cluster group to use"
+argument_list|)
+DECL|method|getGroupName ()
+specifier|public
+name|String
+name|getGroupName
+parameter_list|()
+block|{
+return|return
+name|groupName
 return|;
 block|}
 annotation|@
@@ -372,8 +452,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|// Properties
-comment|//-------------------------------------------------------------------------
 DECL|method|getComponent ()
 specifier|public
 name|MasterComponent
@@ -382,38 +460,6 @@ parameter_list|()
 block|{
 return|return
 name|component
-return|;
-block|}
-DECL|method|getChild ()
-specifier|public
-name|String
-name|getChild
-parameter_list|()
-block|{
-return|return
-name|child
-return|;
-block|}
-comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-DECL|method|getChildEndpoint ()
-name|Endpoint
-name|getChildEndpoint
-parameter_list|()
-block|{
-return|return
-name|childEndpoint
-return|;
-block|}
-DECL|method|getEndpoint ()
-specifier|public
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-block|{
-return|return
-name|getChildEndpoint
-argument_list|()
 return|;
 block|}
 block|}

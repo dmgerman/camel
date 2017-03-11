@@ -211,11 +211,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|ZKComponentSupport
+DECL|class|ZookeeperComponentSupport
 specifier|public
 specifier|abstract
 class|class
-name|ZKComponentSupport
+name|ZookeeperComponentSupport
 extends|extends
 name|DefaultComponent
 implements|implements
@@ -238,7 +238,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|ZKComponentSupport
+name|ZookeeperComponentSupport
 operator|.
 name|class
 argument_list|)
@@ -533,6 +533,7 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+comment|// attempt to lookup curator framework from registry using the name curator
 if|if
 condition|(
 name|curator
@@ -545,18 +546,19 @@ block|{
 name|CuratorFramework
 name|aCurator
 init|=
-operator|(
-name|CuratorFramework
-operator|)
 name|getCamelContext
 argument_list|()
 operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByName
+name|lookupByNameAndType
 argument_list|(
 literal|"curator"
+argument_list|,
+name|CuratorFramework
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -566,26 +568,18 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|setCurator
-argument_list|(
-name|aCurator
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|curator
-operator|!=
-literal|null
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Zookeeper client found in camel registry. "
-operator|+
-name|curator
+literal|"CuratorFramework found in CamelRegistry: {}"
+argument_list|,
+name|aCurator
+argument_list|)
+expr_stmt|;
+name|setCurator
+argument_list|(
+name|aCurator
 argument_list|)
 expr_stmt|;
 block|}
@@ -749,10 +743,10 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"CuratorFramework not found in Camel registry, creating new with connection "
-operator|+
+literal|"Creating new CuratorFramework with connection: {}"
+argument_list|,
 name|connectString
 argument_list|)
 expr_stmt|;
@@ -827,8 +821,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting curator "
-operator|+
+literal|"Starting CuratorFramework {}"
+argument_list|,
 name|curator
 argument_list|)
 expr_stmt|;
@@ -890,10 +884,10 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Curator Connection new state: "
-operator|+
+literal|"CuratorFramework state changed: {}"
+argument_list|,
 name|newState
 argument_list|)
 expr_stmt|;

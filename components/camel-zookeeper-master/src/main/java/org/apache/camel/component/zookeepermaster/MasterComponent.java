@@ -92,8 +92,17 @@ specifier|public
 class|class
 name|MasterComponent
 extends|extends
-name|ZKComponentSupport
+name|ZookeeperComponentSupport
 block|{
+DECL|field|containerIdFactory
+specifier|private
+name|ContainerIdFactory
+name|containerIdFactory
+init|=
+operator|new
+name|DefaultContainerIdFactory
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
@@ -108,6 +117,33 @@ name|zkRoot
 init|=
 literal|"/camel/zookeepermaster/clusters/master"
 decl_stmt|;
+DECL|method|getContainerIdFactory ()
+specifier|public
+name|ContainerIdFactory
+name|getContainerIdFactory
+parameter_list|()
+block|{
+return|return
+name|containerIdFactory
+return|;
+block|}
+comment|/**      * To use a custom ContainerIdFactory for creating container ids.      */
+DECL|method|setContainerIdFactory (ContainerIdFactory containerIdFactory)
+specifier|public
+name|void
+name|setContainerIdFactory
+parameter_list|(
+name|ContainerIdFactory
+name|containerIdFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|containerIdFactory
+operator|=
+name|containerIdFactory
+expr_stmt|;
+block|}
 DECL|method|getZkRoot ()
 specifier|public
 name|String

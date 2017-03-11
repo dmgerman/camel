@@ -26,6 +26,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|zookeepermaster
+operator|.
+name|ContainerIdFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|curator
 operator|.
 name|framework
@@ -83,6 +99,14 @@ specifier|public
 class|class
 name|MasterComponentConfiguration
 block|{
+comment|/**      * To use a custom ContainerIdFactory for creating container ids.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|containerIdFactory
+specifier|private
+name|ContainerIdFactory
+name|containerIdFactory
+decl_stmt|;
 comment|/**      * The root path to use in zookeeper where information is stored which nodes      * are master/slave etc. Will by default use:      * /camel/zookeepermaster/clusters/master      */
 DECL|field|zkRoot
 specifier|private
@@ -129,6 +153,32 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getContainerIdFactory ()
+specifier|public
+name|ContainerIdFactory
+name|getContainerIdFactory
+parameter_list|()
+block|{
+return|return
+name|containerIdFactory
+return|;
+block|}
+DECL|method|setContainerIdFactory (ContainerIdFactory containerIdFactory)
+specifier|public
+name|void
+name|setContainerIdFactory
+parameter_list|(
+name|ContainerIdFactory
+name|containerIdFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|containerIdFactory
+operator|=
+name|containerIdFactory
+expr_stmt|;
+block|}
 DECL|method|getZkRoot ()
 specifier|public
 name|String

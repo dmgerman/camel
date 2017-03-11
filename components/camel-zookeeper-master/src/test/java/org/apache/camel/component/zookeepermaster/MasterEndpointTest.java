@@ -416,7 +416,7 @@ literal|"seda:bar"
 argument_list|,
 name|endpoint
 operator|.
-name|getChild
+name|getConsumerEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
