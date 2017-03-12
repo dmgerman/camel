@@ -292,7 +292,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|null
+literal|"broker1:12345,broker2:12566"
 argument_list|,
 name|endpoint
 operator|.
