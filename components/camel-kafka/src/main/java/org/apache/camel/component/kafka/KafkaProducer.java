@@ -1012,6 +1012,8 @@ name|value
 argument_list|)
 return|;
 block|}
+else|else
+block|{
 return|return
 operator|new
 name|ProducerRecord
@@ -1021,6 +1023,7 @@ argument_list|,
 name|value
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1103,13 +1106,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"No message key or partition key set"
-argument_list|)
-expr_stmt|;
 name|record
 operator|=
 operator|new
