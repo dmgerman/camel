@@ -630,8 +630,8 @@ argument_list|)
 decl_stmt|;
 name|state
 operator|.
-name|consumer
-operator|=
+name|setConsumer
+argument_list|(
 name|endpoint
 operator|.
 name|getConsumerEndpoint
@@ -639,6 +639,7 @@ argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
+argument_list|)
 expr_stmt|;
 return|return
 name|state
@@ -821,9 +822,10 @@ argument_list|()
 expr_stmt|;
 name|thisNodeState
 operator|.
-name|started
-operator|=
+name|setStarted
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 name|groupListener
 operator|.

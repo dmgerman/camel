@@ -136,6 +136,58 @@ name|container
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getConsumer ()
+specifier|public
+name|String
+name|getConsumer
+parameter_list|()
+block|{
+return|return
+name|consumer
+return|;
+block|}
+DECL|method|setConsumer (String consumer)
+specifier|public
+name|void
+name|setConsumer
+parameter_list|(
+name|String
+name|consumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumer
+operator|=
+name|consumer
+expr_stmt|;
+block|}
+DECL|method|isStarted ()
+specifier|public
+name|boolean
+name|isStarted
+parameter_list|()
+block|{
+return|return
+name|started
+return|;
+block|}
+DECL|method|setStarted (boolean started)
+specifier|public
+name|void
+name|setStarted
+parameter_list|(
+name|boolean
+name|started
+parameter_list|)
+block|{
+name|this
+operator|.
+name|started
+operator|=
+name|started
+expr_stmt|;
+block|}
 block|}
 end_class
 
