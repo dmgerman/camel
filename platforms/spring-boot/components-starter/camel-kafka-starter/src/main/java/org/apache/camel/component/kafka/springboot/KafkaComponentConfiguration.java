@@ -342,6 +342,11 @@ specifier|private
 name|Integer
 name|fetchMinBytes
 decl_stmt|;
+DECL|field|fetchMaxBytes
+specifier|private
+name|Integer
+name|fetchMaxBytes
+decl_stmt|;
 comment|/**          * The maximum amount of time the server will block before answering the          * fetch request if there isn't sufficient data to immediately satisfy          * fetch.min.bytes          */
 DECL|field|fetchWaitMaxMs
 specifier|private
@@ -1184,6 +1189,32 @@ operator|.
 name|fetchMinBytes
 operator|=
 name|fetchMinBytes
+expr_stmt|;
+block|}
+DECL|method|getFetchMaxBytes ()
+specifier|public
+name|Integer
+name|getFetchMaxBytes
+parameter_list|()
+block|{
+return|return
+name|fetchMaxBytes
+return|;
+block|}
+DECL|method|setFetchMaxBytes (Integer fetchMaxBytes)
+specifier|public
+name|void
+name|setFetchMaxBytes
+parameter_list|(
+name|Integer
+name|fetchMaxBytes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fetchMaxBytes
+operator|=
+name|fetchMaxBytes
 expr_stmt|;
 block|}
 DECL|method|getFetchWaitMaxMs ()
