@@ -904,7 +904,7 @@ block|{}
 argument_list|)
 return|;
 block|}
-DECL|method|installBlueprintAsBundle (String name, URL url, boolean start, Consumer<TinyBundle> consumer)
+DECL|method|installBlueprintAsBundle (String name, URL url, boolean start, Consumer<Object> consumer)
 specifier|protected
 name|Bundle
 name|installBlueprintAsBundle
@@ -920,13 +920,14 @@ name|start
 parameter_list|,
 name|Consumer
 argument_list|<
-name|TinyBundle
+name|Object
 argument_list|>
 name|consumer
 parameter_list|)
 throws|throws
 name|BundleException
 block|{
+comment|// TODO Type Consumer<TinyBundle> cannot be used for this method signature to avoid bundle dependency to pax tinybundles
 name|TinyBundle
 name|bundle
 init|=
@@ -1054,7 +1055,7 @@ block|{}
 argument_list|)
 return|;
 block|}
-DECL|method|installSpringAsBundle (String name, URL url, boolean start, Consumer<TinyBundle> consumer)
+DECL|method|installSpringAsBundle (String name, URL url, boolean start, Consumer<Object> consumer)
 specifier|protected
 name|Bundle
 name|installSpringAsBundle
@@ -1070,13 +1071,14 @@ name|start
 parameter_list|,
 name|Consumer
 argument_list|<
-name|TinyBundle
+name|Object
 argument_list|>
 name|consumer
 parameter_list|)
 throws|throws
 name|BundleException
 block|{
+comment|// TODO Type Consumer<TinyBundle> cannot be used for this method signature to avoid bundle dependency to pax tinybundles
 name|TinyBundle
 name|bundle
 init|=

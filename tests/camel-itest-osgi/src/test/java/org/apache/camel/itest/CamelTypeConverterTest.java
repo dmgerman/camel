@@ -248,6 +248,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|tinybundles
+operator|.
+name|core
+operator|.
+name|TinyBundle
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -311,7 +327,12 @@ name|bundle
 lambda|->
 block|{
 comment|// install converter
+operator|(
+operator|(
+name|TinyBundle
+operator|)
 name|bundle
+operator|)
 operator|.
 name|add
 argument_list|(
