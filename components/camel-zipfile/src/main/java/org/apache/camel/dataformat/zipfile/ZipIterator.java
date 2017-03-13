@@ -657,8 +657,6 @@ name|entry
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"."
 argument_list|)
 decl_stmt|;
 return|return
