@@ -144,25 +144,6 @@ specifier|public
 class|class
 name|GoogleCalendarConfiguration
 block|{
-DECL|field|DEFAULT_SCOPES
-specifier|private
-specifier|static
-specifier|final
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|DEFAULT_SCOPES
-init|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|CalendarScopes
-operator|.
-name|CALENDAR
-argument_list|)
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -207,13 +188,12 @@ name|CALENDAR
 argument_list|)
 DECL|field|scopes
 specifier|private
-name|List
-argument_list|<
 name|String
-argument_list|>
 name|scopes
 init|=
-name|DEFAULT_SCOPES
+name|CalendarScopes
+operator|.
+name|CALENDAR
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -489,10 +469,7 @@ expr_stmt|;
 block|}
 DECL|method|getScopes ()
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
 name|getScopes
 parameter_list|()
 block|{
@@ -500,16 +477,13 @@ return|return
 name|scopes
 return|;
 block|}
-comment|/**      * Specifies the level of permissions you want a calendar application to have to a user account. See https://developers.google.com/google-apps/calendar/auth for more info.      */
-DECL|method|setScopes (List<String> scopes)
+comment|/**      * Specifies the level of permissions you want a calendar application to have to a user account.      * You can separate multiple scopes by comma.      * See https://developers.google.com/google-apps/calendar/auth for more info.      */
+DECL|method|setScopes (String scopes)
 specifier|public
 name|void
 name|setScopes
 parameter_list|(
-name|List
-argument_list|<
 name|String
-argument_list|>
 name|scopes
 parameter_list|)
 block|{
