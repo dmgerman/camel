@@ -3099,6 +3099,16 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+operator|.
+name|orElseGet
+argument_list|(
+comment|// Default, that's s little ugly but a load balancer may live without
+comment|// (i.e. the Ribbon one) so let's delegate the null check to the actual
+comment|// impl.
+parameter_list|()
+lambda|->
+literal|null
+argument_list|)
 return|;
 block|}
 comment|// ******************************************
@@ -3381,7 +3391,10 @@ name|ServiceFilter
 operator|.
 name|class
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|orElseGet
+argument_list|(
 comment|// Default
 parameter_list|()
 lambda|->
@@ -3627,7 +3640,10 @@ name|ServiceChooser
 operator|.
 name|class
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|orElseGet
+argument_list|(
 comment|// Default
 parameter_list|()
 lambda|->
@@ -3836,7 +3852,10 @@ name|LoadBalancer
 operator|.
 name|class
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|orElseGet
+argument_list|(
 comment|// Default
 parameter_list|()
 lambda|->
@@ -4033,7 +4052,10 @@ name|Expression
 operator|.
 name|class
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|orElseGet
+argument_list|(
 comment|// Default
 parameter_list|()
 lambda|->

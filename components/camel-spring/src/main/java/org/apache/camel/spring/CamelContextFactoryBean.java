@@ -1489,6 +1489,18 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
+literal|"defaultHystrixConfiguration"
+argument_list|)
+DECL|field|defaultHystrixConfiguration
+specifier|private
+name|HystrixConfigurationDefinition
+name|defaultHystrixConfiguration
+decl_stmt|;
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
 literal|"hystrixConfiguration"
 argument_list|,
 name|type
@@ -4167,6 +4179,34 @@ block|{
 return|return
 name|hystrixConfigurations
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDefaultHystrixConfiguration ()
+specifier|public
+name|HystrixConfigurationDefinition
+name|getDefaultHystrixConfiguration
+parameter_list|()
+block|{
+return|return
+name|defaultHystrixConfiguration
+return|;
+block|}
+DECL|method|setDefaultHystrixConfiguration (HystrixConfigurationDefinition defaultHystrixConfiguration)
+specifier|public
+name|void
+name|setDefaultHystrixConfiguration
+parameter_list|(
+name|HystrixConfigurationDefinition
+name|defaultHystrixConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultHystrixConfiguration
+operator|=
+name|defaultHystrixConfiguration
+expr_stmt|;
 block|}
 comment|/**      * hystrix configurations      */
 DECL|method|setHystrixConfigurations (List<HystrixConfigurationDefinition> hystrixConfigurations)

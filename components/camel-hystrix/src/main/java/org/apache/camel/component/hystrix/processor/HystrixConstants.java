@@ -26,6 +26,12 @@ specifier|public
 interface|interface
 name|HystrixConstants
 block|{
+DECL|field|DEFAULT_HYSTRIX_CONFIGURATION_ID
+name|String
+name|DEFAULT_HYSTRIX_CONFIGURATION_ID
+init|=
+literal|"hystrix-configuration"
+decl_stmt|;
 comment|// Hystrix EIP response properties
 DECL|field|HYSTRIX_RESPONSE_SUCCESSFUL_EXECUTION
 name|String

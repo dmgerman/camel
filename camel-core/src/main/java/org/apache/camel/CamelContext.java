@@ -204,6 +204,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|HystrixConfigurationDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ProcessorDefinition
 import|;
 end_import
@@ -1491,6 +1505,48 @@ name|String
 name|serviceName
 parameter_list|,
 name|ServiceCallConfigurationDefinition
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the Hystrix configuration by the given name. If no name is given      * the default configuration is returned, see<tt>setHystrixConfiguration</tt>      *      * @param id id of the configuration, or<tt>null</tt> to return the default configuration      * @return the configuration, or<tt>null</tt> if no configuration has been registered      */
+DECL|method|getHystrixConfiguration (String id)
+name|HystrixConfigurationDefinition
+name|getHystrixConfiguration
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the default Hystrix configuration      *      * @param configuration the configuration      */
+DECL|method|setHystrixConfiguration (HystrixConfigurationDefinition configuration)
+name|void
+name|setHystrixConfiguration
+parameter_list|(
+name|HystrixConfigurationDefinition
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the Hystrix configurations      *      * @param configurations the configuration list      */
+DECL|method|setHystrixConfigurations (List<HystrixConfigurationDefinition> configurations)
+name|void
+name|setHystrixConfigurations
+parameter_list|(
+name|List
+argument_list|<
+name|HystrixConfigurationDefinition
+argument_list|>
+name|configurations
+parameter_list|)
+function_decl|;
+comment|/**      * Adds the Hystrix configuration      *      * @param id name of the configuration      * @param configuration the configuration      */
+DECL|method|addHystrixConfiguration (String id, HystrixConfigurationDefinition configuration)
+name|void
+name|addHystrixConfiguration
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|HystrixConfigurationDefinition
 name|configuration
 parameter_list|)
 function_decl|;
