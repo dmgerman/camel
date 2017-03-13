@@ -234,7 +234,7 @@ argument_list|()
 decl_stmt|;
 comment|// get header parameters
 name|Object
-name|draintToCollection
+name|drainToCollection
 init|=
 literal|null
 decl_stmt|;
@@ -250,7 +250,7 @@ name|DRAIN_TO_COLLECTION
 argument_list|)
 condition|)
 block|{
-name|draintToCollection
+name|drainToCollection
 operator|=
 name|headers
 operator|.
@@ -377,16 +377,6 @@ name|HazelcastConstants
 operator|.
 name|DRAIN_TO_OPERATION
 case|:
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|draintToCollection
-argument_list|)
-condition|)
-block|{
 name|this
 operator|.
 name|drainTo
@@ -394,22 +384,11 @@ argument_list|(
 operator|(
 name|Collection
 operator|)
-name|draintToCollection
+name|drainToCollection
 argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Drain to collection header must be specified"
-argument_list|)
-throw|;
-block|}
 break|break;
 default|default:
 throw|throw
