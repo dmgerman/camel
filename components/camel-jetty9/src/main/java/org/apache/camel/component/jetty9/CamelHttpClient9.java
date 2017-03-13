@@ -77,6 +77,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CamelHttpClient9
 specifier|public
 class|class

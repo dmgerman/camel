@@ -361,6 +361,8 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|JettyHttpProducer
 specifier|public
 class|class
