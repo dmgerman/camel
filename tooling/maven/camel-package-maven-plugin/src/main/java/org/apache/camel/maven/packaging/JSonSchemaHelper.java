@@ -104,7 +104,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\"(.+?)\"|\\[(.+)\\]|(true|false)|(\\d+\\.?\\d*)"
+literal|"\"(.+?)\"|\\[(.+)\\]|(true|false)|(-?\\d+\\.?\\d*)"
 argument_list|)
 decl_stmt|;
 DECL|field|QUOT

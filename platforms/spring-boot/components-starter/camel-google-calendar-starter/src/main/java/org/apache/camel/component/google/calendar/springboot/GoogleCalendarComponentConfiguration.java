@@ -24,16 +24,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -296,11 +286,25 @@ specifier|private
 name|String
 name|applicationName
 decl_stmt|;
-comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. See          * https://developers.google.com/google-apps/calendar/auth for more          * info.          */
+comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. You can separate multiple scopes by comma.          * See https://developers.google.com/google-apps/calendar/auth for more          * info.          */
 DECL|field|scopes
 specifier|private
-name|List
+name|String
 name|scopes
+init|=
+name|com
+operator|.
+name|google
+operator|.
+name|api
+operator|.
+name|services
+operator|.
+name|calendar
+operator|.
+name|CalendarScopes
+operator|.
+name|CALENDAR
 decl_stmt|;
 comment|/**          * The name of the p12 file which has the private key to use with the          * Google Service Account.          */
 DECL|field|p12FileName
@@ -524,7 +528,7 @@ expr_stmt|;
 block|}
 DECL|method|getScopes ()
 specifier|public
-name|List
+name|String
 name|getScopes
 parameter_list|()
 block|{
@@ -532,12 +536,12 @@ return|return
 name|scopes
 return|;
 block|}
-DECL|method|setScopes (List scopes)
+DECL|method|setScopes (String scopes)
 specifier|public
 name|void
 name|setScopes
 parameter_list|(
-name|List
+name|String
 name|scopes
 parameter_list|)
 block|{

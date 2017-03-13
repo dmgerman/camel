@@ -563,6 +563,7 @@ specifier|private
 name|Integer
 name|maxMessagesPerTask
 init|=
+operator|-
 literal|1
 decl_stmt|;
 comment|/**      * To use a custom Spring      * org.springframework.jms.support.converter.MessageConverter so you can be      * in control how to map to/from a javax.jms.Message.      */
@@ -669,6 +670,7 @@ specifier|private
 name|Long
 name|timeToLive
 init|=
+operator|-
 literal|1L
 decl_stmt|;
 comment|/**      * Specifies whether to use transacted mode      */
@@ -707,6 +709,7 @@ specifier|private
 name|Integer
 name|transactionTimeout
 init|=
+operator|-
 literal|1
 decl_stmt|;
 comment|/**      * Specifies whether to test the connection on startup. This ensures that      * when Camel starts that all the JMS consumers have a valid connection to      * the JMS broker. If a connection cannot be granted then Camel throws an      * exception on startup. This ensures that Camel is not started with failed      * connections. The JMS producers is tested as well.      */

@@ -57,6 +57,7 @@ specifier|private
 name|Integer
 name|compressionLevel
 init|=
+operator|-
 literal|1
 decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
