@@ -403,42 +403,56 @@ DECL|field|compression
 specifier|private
 name|Boolean
 name|compression
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Option to disable throwing the HttpOperationFailedException in case          * of failed responses from the remote server. This allows you to get          * all responses regardless of the HTTP status code.          */
 DECL|field|throwExceptionOnFailure
 specifier|private
 name|Boolean
 name|throwExceptionOnFailure
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized.          *<p/>          * This is by default turned off. If you enable this then be aware that          * Java will deserialize the incoming data from the request to Java and          * that can be a potential security risk.          */
 DECL|field|transferException
 specifier|private
 name|Boolean
 name|transferException
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If this option is enabled, then during binding from Netty to Camel          * Message then the header values will be URL decoded (eg %20 will be a          * space character. Notice this option is used by the default          * org.apache.camel.component.netty.http.NettyHttpBinding and therefore          * if you implement a custom          * org.apache.camel.component.netty.http.NettyHttpBinding then you would          * need to decode the headers accordingly to this option.          */
 DECL|field|urlDecodeHeaders
 specifier|private
 name|Boolean
 name|urlDecodeHeaders
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If this option is enabled, then during binding from Netty to Camel          * Message then the headers will be mapped as well (eg added as header          * to the Camel Message as well). You can turn off this option to          * disable this. The headers can still be accessed from the          * org.apache.camel.component.netty.http.NettyHttpMessage message with          * the method getHttpRequest() that returns the Netty HTTP request          * org.jboss.netty.handler.codec.http.HttpRequest instance.          */
 DECL|field|mapHeaders
 specifier|private
 name|Boolean
 name|mapHeaders
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Whether or not Camel should try to find a target consumer by matching          * the URI prefix if no exact match is found.          */
 DECL|field|matchOnUriPrefix
 specifier|private
 name|Boolean
 name|matchOnUriPrefix
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If the option is true, the producer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * throwExceptionOnFailure to be false to let the producer send all the          * fault response back. The consumer working in the bridge mode will          * skip the gzip compression and WWW URL form encoding (by adding the          * Exchange.SKIP_GZIP_ENCODING and Exchange.SKIP_WWW_FORM_URLENCODED          * headers to the consumed exchange).          */
 DECL|field|bridgeEndpoint
 specifier|private
 name|Boolean
 name|bridgeEndpoint
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Resource path          */
 DECL|field|path
@@ -451,24 +465,32 @@ DECL|field|disableStreamCache
 specifier|private
 name|Boolean
 name|disableStreamCache
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Whether to send back HTTP status code 503 when the consumer has been          * suspended. If the option is false then the Netty Acceptor is unbound          * when the consumer is suspended, so clients cannot connect anymore.          */
 DECL|field|send503whenSuspended
 specifier|private
 name|Boolean
 name|send503whenSuspended
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Value in bytes the max content length per chunked frame received on          * the Netty HTTP server.          */
 DECL|field|chunkedMaxContentLength
 specifier|private
 name|Integer
 name|chunkedMaxContentLength
+init|=
+literal|1048576
 decl_stmt|;
 comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a {@link TooLongFrameException} will be          * raised.          */
 DECL|field|maxHeaderSize
 specifier|private
 name|Integer
 name|maxHeaderSize
+init|=
+literal|8192
 decl_stmt|;
 DECL|field|allowDefaultCodec
 specifier|private
@@ -488,6 +510,8 @@ DECL|field|useRelativePath
 specifier|private
 name|Boolean
 name|useRelativePath
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getProtocol ()
 specifier|public

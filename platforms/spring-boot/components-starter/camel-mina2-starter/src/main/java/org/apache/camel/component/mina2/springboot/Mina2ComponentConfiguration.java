@@ -271,12 +271,16 @@ DECL|field|sync
 specifier|private
 name|Boolean
 name|sync
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Only used for TCP. If no codec is specified, you can use this flag to          * indicate a text line based codec; if not specified or the value is          * false, then Object Serialization is assumed over TCP.          */
 DECL|field|textline
 specifier|private
 name|Boolean
 name|textline
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Only used for TCP and if textline=true. Sets the text line delimiter          * to use. If none provided, Camel will use DEFAULT. This delimiter is          * used to mark the end of text.          */
 DECL|field|textlineDelimiter
@@ -301,36 +305,49 @@ DECL|field|timeout
 specifier|private
 name|Long
 name|timeout
+init|=
+literal|30000L
 decl_stmt|;
 comment|/**          * Sessions can be lazily created to avoid exceptions, if the remote          * server is not up and running when the Camel producer is started.          */
 DECL|field|lazySessionCreation
 specifier|private
 name|Boolean
 name|lazySessionCreation
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          */
 DECL|field|transferExchange
 specifier|private
 name|Boolean
 name|transferExchange
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * To set the textline protocol encoder max line length. By default the          * default value of Mina itself is used which are Integer.MAX_VALUE.          */
 DECL|field|encoderMaxLineLength
 specifier|private
 name|Integer
 name|encoderMaxLineLength
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|/**          * To set the textline protocol decoder max line length. By default the          * default value of Mina itself is used which are 1024.          */
 DECL|field|decoderMaxLineLength
 specifier|private
 name|Integer
 name|decoderMaxLineLength
+init|=
+literal|1024
 decl_stmt|;
 comment|/**          * You can enable the Apache MINA logging filter. Apache MINA uses slf4j          * logging at INFO level to log all input and output.          */
 DECL|field|minaLogger
 specifier|private
 name|Boolean
 name|minaLogger
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * You can set a list of Mina IoFilters to use.          */
 DECL|field|filters
@@ -343,18 +360,24 @@ DECL|field|allowDefaultCodec
 specifier|private
 name|Boolean
 name|allowDefaultCodec
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Whether or not to disconnect(close) from Mina session right after          * use. Can be used for both consumer and producer.          */
 DECL|field|disconnect
 specifier|private
 name|Boolean
 name|disconnect
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If sync is enabled then this option dictates MinaConsumer if it          * should disconnect where there is no reply to send back.          */
 DECL|field|disconnectOnNoReply
 specifier|private
 name|Boolean
 name|disconnectOnNoReply
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * If sync is enabled this option dictates MinaConsumer which logging          * level to use when logging a there is no reply to send back.          */
 DECL|field|noReplyLogLevel
@@ -379,30 +402,40 @@ DECL|field|autoStartTls
 specifier|private
 name|Boolean
 name|autoStartTls
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Number of worker threads in the worker pool for TCP and UDP          */
 DECL|field|maximumPoolSize
 specifier|private
 name|Integer
 name|maximumPoolSize
+init|=
+literal|16
 decl_stmt|;
 comment|/**          * Whether to use ordered thread pool, to ensure events are processed          * orderly on the same channel.          */
 DECL|field|orderedThreadPoolExecutor
 specifier|private
 name|Boolean
 name|orderedThreadPoolExecutor
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Whether to create the InetAddress once and reuse. Setting this to          * false allows to pickup DNS changes in the network.          */
 DECL|field|cachedAddress
 specifier|private
 name|Boolean
 name|cachedAddress
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * If the clientMode is true, mina consumer will connect the address as          * a TCP client.          */
 DECL|field|clientMode
 specifier|private
 name|Boolean
 name|clientMode
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getProtocol ()
 specifier|public

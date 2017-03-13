@@ -185,6 +185,8 @@ DECL|field|port
 specifier|private
 name|Integer
 name|port
+init|=
+literal|2375
 decl_stmt|;
 comment|/**          * User name to authenticate with          */
 DECL|field|username
@@ -223,6 +225,8 @@ DECL|field|secure
 specifier|private
 name|Boolean
 name|secure
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Location containing the SSL certificate chain          */
 DECL|field|certPath
@@ -235,24 +239,32 @@ DECL|field|maxTotalConnections
 specifier|private
 name|Integer
 name|maxTotalConnections
+init|=
+literal|100
 decl_stmt|;
 comment|/**          * Maximum route connections          */
 DECL|field|maxPerRouteConnections
 specifier|private
 name|Integer
 name|maxPerRouteConnections
+init|=
+literal|100
 decl_stmt|;
 comment|/**          * Whether to use logging filter          */
 DECL|field|loggingFilter
 specifier|private
 name|Boolean
 name|loggingFilter
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Whether to follow redirect filter          */
 DECL|field|followRedirectFilter
 specifier|private
 name|Boolean
 name|followRedirectFilter
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Additional configuration parameters as key/value pairs          */
 DECL|field|parameters
@@ -271,12 +283,16 @@ DECL|field|tlsVerify
 specifier|private
 name|Boolean
 name|tlsVerify
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Socket connection mode          */
 DECL|field|socket
 specifier|private
 name|Boolean
 name|socket
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * The fully qualified class name of the DockerCmdExecFactory          * implementation to use          */
 DECL|field|cmdExecFactory

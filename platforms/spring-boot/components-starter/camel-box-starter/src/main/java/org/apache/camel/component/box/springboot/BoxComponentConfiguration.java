@@ -266,19 +266,7 @@ specifier|private
 name|String
 name|authenticationType
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|box
-operator|.
-name|BoxConfiguration
-operator|.
-name|APP_USER_AUTHENTICATION
+literal|"APP_USER_AUTHENTICATION"
 decl_stmt|;
 comment|/**          * Box application client ID          *           * @param clientIdthe          *            clientId to set          */
 DECL|field|clientId

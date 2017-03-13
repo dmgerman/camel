@@ -212,25 +212,15 @@ specifier|private
 name|String
 name|host
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|ganglia
-operator|.
-name|GangliaConfiguration
-operator|.
-name|DEFAULT_DESTINATION
+literal|"239.2.11.71"
 decl_stmt|;
 comment|/**          * Port for Ganglia server          */
 DECL|field|port
 specifier|private
 name|Integer
 name|port
+init|=
+literal|8649
 decl_stmt|;
 comment|/**          * Send the UDP metric packets using MULTICAST or UNICAST          */
 DECL|field|mode
@@ -247,12 +237,16 @@ DECL|field|ttl
 specifier|private
 name|Integer
 name|ttl
+init|=
+literal|5
 decl_stmt|;
 comment|/**          * Use the wire format of Ganglia 3.1.0 and later versions. Set this to          * false to use Ganglia 3.0.x or earlier.          */
 DECL|field|wireFormat31x
 specifier|private
 name|Boolean
 name|wireFormat31x
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Spoofing information IP:hostname          */
 DECL|field|spoofHostname
@@ -313,12 +307,16 @@ DECL|field|tmax
 specifier|private
 name|Integer
 name|tmax
+init|=
+literal|60
 decl_stmt|;
 comment|/**          * Minumum time in seconds before Ganglia will purge the metric value if          * it expires. Set to 0 and the value will remain in Ganglia          * indefinitely until a gmond agent restart.          */
 DECL|field|dmax
 specifier|private
 name|Integer
 name|dmax
+init|=
+literal|0
 decl_stmt|;
 DECL|method|getHost ()
 specifier|public

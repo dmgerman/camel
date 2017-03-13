@@ -199,30 +199,40 @@ DECL|field|debugEnabled
 specifier|private
 name|Boolean
 name|debugEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Use Facebook GZIP encoding          */
 DECL|field|gzipEnabled
 specifier|private
 name|Boolean
 name|gzipEnabled
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Http connection timeout in milliseconds          */
 DECL|field|httpConnectionTimeout
 specifier|private
 name|Integer
 name|httpConnectionTimeout
+init|=
+literal|20000
 decl_stmt|;
 comment|/**          * HTTP maximum connections per route          */
 DECL|field|httpDefaultMaxPerRoute
 specifier|private
 name|Integer
 name|httpDefaultMaxPerRoute
+init|=
+literal|2
 decl_stmt|;
 comment|/**          * HTTP maximum total connections          */
 DECL|field|httpMaxTotalConnections
 specifier|private
 name|Integer
 name|httpMaxTotalConnections
+init|=
+literal|20
 decl_stmt|;
 comment|/**          * HTTP proxy server host name          */
 DECL|field|httpProxyHost
@@ -253,36 +263,48 @@ DECL|field|httpReadTimeout
 specifier|private
 name|Integer
 name|httpReadTimeout
+init|=
+literal|120000
 decl_stmt|;
 comment|/**          * Number of HTTP retries          */
 DECL|field|httpRetryCount
 specifier|private
 name|Integer
 name|httpRetryCount
+init|=
+literal|0
 decl_stmt|;
 comment|/**          * HTTP retry interval in seconds          */
 DECL|field|httpRetryIntervalSeconds
 specifier|private
 name|Integer
 name|httpRetryIntervalSeconds
+init|=
+literal|5
 decl_stmt|;
 comment|/**          * HTTP streaming read timeout in milliseconds          */
 DECL|field|httpStreamingReadTimeout
 specifier|private
 name|Integer
 name|httpStreamingReadTimeout
+init|=
+literal|40000
 decl_stmt|;
 comment|/**          * If set to true, raw JSON forms will be stored in DataObjectFactory          */
 DECL|field|jsonStoreEnabled
 specifier|private
 name|Boolean
 name|jsonStoreEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If set to true, Facebook4J mbean will be registerd          */
 DECL|field|mbeanEnabled
 specifier|private
 name|Boolean
 name|mbeanEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Default OAuth permissions. Comma separated permission names. See          * https://developers.facebook.com/docs/reference/login/#permissions for          * the detail          */
 DECL|field|oAuthPermissions
@@ -295,6 +317,8 @@ DECL|field|prettyDebugEnabled
 specifier|private
 name|Boolean
 name|prettyDebugEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * API base URL          */
 DECL|field|restBaseURL
@@ -309,6 +333,8 @@ DECL|field|useSSL
 specifier|private
 name|Boolean
 name|useSSL
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Video API base URL          */
 DECL|field|videoBaseURL

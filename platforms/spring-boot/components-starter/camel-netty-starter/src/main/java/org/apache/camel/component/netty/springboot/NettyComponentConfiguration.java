@@ -443,18 +443,24 @@ DECL|field|sync
 specifier|private
 name|Boolean
 name|sync
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Only used for TCP. If no codec is specified, you can use this flag to          * indicate a text line based codec; if not specified or the value is          * false, then Object Serialization is assumed over TCP.          */
 DECL|field|textline
 specifier|private
 name|Boolean
 name|textline
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The max line length to use for the textline codec.          */
 DECL|field|decoderMaxLineLength
 specifier|private
 name|Integer
 name|decoderMaxLineLength
+init|=
+literal|1024
 decl_stmt|;
 comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          */
 DECL|field|delimiter
@@ -471,6 +477,8 @@ DECL|field|autoAppendDelimiter
 specifier|private
 name|Boolean
 name|autoAppendDelimiter
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * The encoding (a charset name) to use for the textline codec. If not          * provided, Camel will use the JVM default Charset.          */
 DECL|field|encoding
@@ -511,24 +519,32 @@ DECL|field|disconnect
 specifier|private
 name|Boolean
 name|disconnect
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Channels can be lazily created to avoid exceptions, if the remote          * server is not up and running when the Camel producer is started.          */
 DECL|field|lazyChannelCreation
 specifier|private
 name|Boolean
 name|lazyChannelCreation
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Only used for TCP. You can transfer the exchange over the wire          * instead of just the body. The following fields are transferred: In          * body, Out body, fault body, In headers, Out headers, fault headers,          * exchange properties, exchange exception. This requires that the          * objects are serializable. Camel will exclude any non-serializable          * objects and log it at WARN level.          */
 DECL|field|transferExchange
 specifier|private
 name|Boolean
 name|transferExchange
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If sync is enabled then this option dictates NettyConsumer if it          * should disconnect where there is no reply to send back.          */
 DECL|field|disconnectOnNoReply
 specifier|private
 name|Boolean
 name|disconnectOnNoReply
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * If sync is enabled this option dictates NettyConsumer which logging          * level to use when logging a there is no reply to send back.          */
 DECL|field|noReplyLogLevel
@@ -565,6 +581,8 @@ DECL|field|allowDefaultCodec
 specifier|private
 name|Boolean
 name|allowDefaultCodec
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * To use a custom ClientPipelineFactory          */
 DECL|field|clientPipelineFactory
@@ -584,12 +602,17 @@ DECL|field|orderedThreadPoolExecutor
 specifier|private
 name|Boolean
 name|orderedThreadPoolExecutor
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Sets the cap on the number of objects that can be allocated by the          * pool (checked out to clients, or idle awaiting checkout) at a given          * time. Use a negative value for no limit.          */
 DECL|field|producerPoolMaxActive
 specifier|private
 name|Integer
 name|producerPoolMaxActive
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|/**          * Sets the minimum number of instances allowed in the producer pool          * before the evictor thread (if active) spawns new objects.          */
 DECL|field|producerPoolMinIdle
@@ -602,48 +625,64 @@ DECL|field|producerPoolMaxIdle
 specifier|private
 name|Integer
 name|producerPoolMaxIdle
+init|=
+literal|100
 decl_stmt|;
 comment|/**          * Sets the minimum amount of time (value in millis) an object may sit          * idle in the pool before it is eligible for eviction by the idle          * object evictor.          */
 DECL|field|producerPoolMinEvictableIdle
 specifier|private
 name|Long
 name|producerPoolMinEvictableIdle
+init|=
+literal|300000L
 decl_stmt|;
 comment|/**          * Whether producer pool is enabled or not. Important: Do not turn this          * off, as the pooling is needed for handling concurrency and reliable          * request/reply.          */
 DECL|field|producerPoolEnabled
 specifier|private
 name|Boolean
 name|producerPoolEnabled
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * This option supports connection less udp sending which is a real fire          * and forget. A connected udp send receive the PortUnreachableException          * if no one is listen on the receiving port.          */
 DECL|field|udpConnectionlessSending
 specifier|private
 name|Boolean
 name|udpConnectionlessSending
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If the clientMode is true, netty consumer will connect the address as          * a TCP client.          */
 DECL|field|clientMode
 specifier|private
 name|Boolean
 name|clientMode
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If the useChannelBuffer is true, netty producer will turn the message          * body into {@link ChannelBuffer} before sending it out.          */
 DECL|field|useChannelBuffer
 specifier|private
 name|Boolean
 name|useChannelBuffer
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The maximum total size of the queued events per channel when using          * orderedThreadPoolExecutor. Specify 0 to disable.          */
 DECL|field|maxChannelMemorySize
 specifier|private
 name|Long
 name|maxChannelMemorySize
+init|=
+literal|10485760L
 decl_stmt|;
 comment|/**          * The maximum total size of the queued events for this pool when using          * orderedThreadPoolExecutor. Specify 0 to disable.          */
 DECL|field|maxTotalMemorySize
 specifier|private
 name|Long
 name|maxTotalMemorySize
+init|=
+literal|209715200L
 decl_stmt|;
 comment|/**          * The protocol to use which can be tcp or udp.          */
 DECL|field|protocol
@@ -668,18 +707,24 @@ DECL|field|broadcast
 specifier|private
 name|Boolean
 name|broadcast
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The TCP/UDP buffer sizes to be used during outbound communication.          * Size is bytes.          */
 DECL|field|sendBufferSize
 specifier|private
 name|Long
 name|sendBufferSize
+init|=
+literal|65536L
 decl_stmt|;
 comment|/**          * The TCP/UDP buffer sizes to be used during inbound communication.          * Size is bytes.          */
 DECL|field|receiveBufferSize
 specifier|private
 name|Long
 name|receiveBufferSize
+init|=
+literal|65536L
 decl_stmt|;
 comment|/**          * Configures the buffer size predictor. See details at Jetty          * documentation and this mail thread.          */
 DECL|field|receiveBufferSizePredictor
@@ -698,30 +743,40 @@ DECL|field|bossCount
 specifier|private
 name|Integer
 name|bossCount
+init|=
+literal|1
 decl_stmt|;
 comment|/**          * Setting to ensure socket is not closed due to inactivity          */
 DECL|field|keepAlive
 specifier|private
 name|Boolean
 name|keepAlive
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Setting to improve TCP protocol performance          */
 DECL|field|tcpNoDelay
 specifier|private
 name|Boolean
 name|tcpNoDelay
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Setting to facilitate socket multiplexing          */
 DECL|field|reuseAddress
 specifier|private
 name|Boolean
 name|reuseAddress
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Time to wait for a socket connection to be available. Value is in          * millis.          */
 DECL|field|connectTimeout
 specifier|private
 name|Long
 name|connectTimeout
+init|=
+literal|10000L
 decl_stmt|;
 comment|/**          * Allows to configure a backlog for netty consumer (server). Note the          * backlog is just a best effort depending on the OS. Setting this          * option to a value such as 200, 500 or 1000, tells the TCP stack how          * long the "accept" queue can be If this option is not configured, then          * the backlog depends on OS setting.          */
 DECL|field|backlog
@@ -734,12 +789,16 @@ DECL|field|ssl
 specifier|private
 name|Boolean
 name|ssl
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * When enabled and in SSL mode, then the Netty consumer will enrich the          * Camel Message with headers having information about the client          * certificate such as subject name, issuer name, serial number, and the          * valid date range.          */
 DECL|field|sslClientCertHeaders
 specifier|private
 name|Boolean
 name|sslClientCertHeaders
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Reference to a class that could be used to return an SSL Handler          */
 annotation|@
@@ -762,6 +821,8 @@ DECL|field|needClientAuth
 specifier|private
 name|Boolean
 name|needClientAuth
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Client side certificate keystore to be used for encryption          */
 annotation|@
@@ -861,19 +922,7 @@ specifier|private
 name|String
 name|enabledProtocols
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty
-operator|.
-name|NettyConfiguration
-operator|.
-name|DEFAULT_ENABLED_PROTOCOLS
+literal|"TLSv1,TLSv1.1,TLSv1.2"
 decl_stmt|;
 DECL|method|getRequestTimeout ()
 specifier|public

@@ -346,31 +346,23 @@ specifier|private
 name|String
 name|from
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mail
-operator|.
-name|MailConstants
-operator|.
-name|MAIL_DEFAULT_FROM
+literal|"camel@localhost"
 decl_stmt|;
 comment|/**          * Deletes the messages after they have been processed. This is done by          * setting the DELETED flag on the mail message. If false, the SEEN flag          * is set instead. As of Camel 2.10 you can override this configuration          * option by setting a header with the key delete to determine if the          * mail should be deleted or not.          */
 DECL|field|delete
 specifier|private
 name|Boolean
 name|delete
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Specifies whether Camel should map the received mail message to Camel          * body/headers. If set to true, the body of the mail message is mapped          * to the body of the Camel IN message and the mail headers are mapped          * to IN headers. If this option is set to false then the IN message          * contains a raw javax.mail.Message. You can retrieve this raw message          * by calling exchange.getIn().getBody(javax.mail.Message.class).          */
 DECL|field|mapMailMessage
 specifier|private
 name|Boolean
 name|mapMailMessage
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * The folder to poll.          */
 DECL|field|folderName
@@ -378,31 +370,23 @@ specifier|private
 name|String
 name|folderName
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mail
-operator|.
-name|MailConstants
-operator|.
-name|MAIL_DEFAULT_FOLDER
+literal|"INBOX"
 decl_stmt|;
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          */
 DECL|field|ignoreUriScheme
 specifier|private
 name|Boolean
 name|ignoreUriScheme
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Whether to limit by unseen mails only.          */
 DECL|field|unseen
 specifier|private
 name|Boolean
 name|unseen
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Sets the To email address. Separate multiple email addresses with          * comma.          */
 DECL|field|to
@@ -433,24 +417,33 @@ DECL|field|fetchSize
 specifier|private
 name|Integer
 name|fetchSize
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|/**          * Enable debug mode on the underlying mail framework. The SUN Mail          * framework logs the debug messages to System.out by default.          */
 DECL|field|debugMode
 specifier|private
 name|Boolean
 name|debugMode
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The connection timeout in milliseconds.          */
 DECL|field|connectionTimeout
 specifier|private
-name|Long
+name|Integer
 name|connectionTimeout
+init|=
+literal|30000
 decl_stmt|;
 comment|/**          * To use a dummy security setting for trusting all certificates. Should          * only be used for development mode, and not production.          */
 DECL|field|dummyTrustManager
 specifier|private
 name|Boolean
 name|dummyTrustManager
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The mail message content type. Use text/html for HTML mails.          */
 DECL|field|contentType
@@ -466,43 +459,39 @@ specifier|private
 name|String
 name|alternativeBodyHeader
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mail
-operator|.
-name|MailConstants
-operator|.
-name|MAIL_ALTERNATIVE_BODY
+literal|"CamelMailAlternativeBody"
 decl_stmt|;
 comment|/**          * Whether to use disposition inline or attachment.          */
 DECL|field|useInlineAttachments
 specifier|private
 name|Boolean
 name|useInlineAttachments
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Option to let Camel ignore unsupported charset in the local JVM when          * sending mails. If the charset is unsupported then charset=XXX (where          * XXX represents the unsupported charset) is removed from the          * content-type and it relies on the platform default instead.          */
 DECL|field|ignoreUnsupportedCharset
 specifier|private
 name|Boolean
 name|ignoreUnsupportedCharset
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Whether the consumer should disconnect after polling. If enabled this          * forces Camel to connect on each poll.          */
 DECL|field|disconnect
 specifier|private
 name|Boolean
 name|disconnect
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Whether the consumer should close the folder after polling. Setting          * this option to false and having disconnect=false as well, then the          * consumer keep the folder open between polls.          */
 DECL|field|closeFolder
 specifier|private
 name|Boolean
 name|closeFolder
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * To configure security using SSLContextParameters.          */
 annotation|@
@@ -523,18 +512,24 @@ DECL|field|peek
 specifier|private
 name|Boolean
 name|peek
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to skip the message and move on to retrieve the next          * mail message.          *<p/>          * The default behavior would be the consumer throws an exception and no          * mails from the batch would be able to be routed by Camel.          */
 DECL|field|skipFailedMessage
 specifier|private
 name|Boolean
 name|skipFailedMessage
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to handle the caused exception by the consumer's error          * handler. By enable the bridge error handler on the consumer, then the          * Camel routing error handler can handle the exception instead.          *<p/>          * The default behavior would be the consumer throws an exception and no          * mails from the batch would be able to be routed by Camel.          */
 DECL|field|handleFailedMessage
 specifier|private
 name|Boolean
 name|handleFailedMessage
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * To use a custom AttachmentsContentTransferEncodingResolver to resolve          * what content-type-encoding to use for attachments.          */
 DECL|field|attachmentsContentTransferEncodingResolver
@@ -1116,7 +1111,7 @@ expr_stmt|;
 block|}
 DECL|method|getConnectionTimeout ()
 specifier|public
-name|Long
+name|Integer
 name|getConnectionTimeout
 parameter_list|()
 block|{
@@ -1124,12 +1119,12 @@ return|return
 name|connectionTimeout
 return|;
 block|}
-DECL|method|setConnectionTimeout (Long connectionTimeout)
+DECL|method|setConnectionTimeout (Integer connectionTimeout)
 specifier|public
 name|void
 name|setConnectionTimeout
 parameter_list|(
-name|Long
+name|Integer
 name|connectionTimeout
 parameter_list|)
 block|{

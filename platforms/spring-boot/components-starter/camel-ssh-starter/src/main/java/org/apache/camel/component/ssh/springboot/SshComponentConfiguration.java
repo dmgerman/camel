@@ -539,6 +539,8 @@ DECL|field|port
 specifier|private
 name|Integer
 name|port
+init|=
+literal|22
 decl_stmt|;
 comment|/**          * Sets the password to use in connecting to remote SSH server. Requires          * keyPairProvider to be set to null.          *           * @param password          *            String representing password for username at remote host.          */
 DECL|field|password
@@ -564,23 +566,15 @@ specifier|private
 name|String
 name|keyType
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|sshd
-operator|.
-name|common
-operator|.
-name|KeyPairProvider
-operator|.
-name|SSH_RSA
+literal|"ssh-rsa"
 decl_stmt|;
 comment|/**          * Sets the timeout in milliseconds to wait in establishing the remote          * SSH server connection. Defaults to 30000 milliseconds.          *           * @param timeout          *            long milliseconds to wait.          */
 DECL|field|timeout
 specifier|private
 name|Long
 name|timeout
+init|=
+literal|30000L
 decl_stmt|;
 comment|/**          * @deprecated As of version 2.11, replaced by          *             {@link #setCertResource(String)}          */
 annotation|@

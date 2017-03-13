@@ -593,6 +593,8 @@ DECL|field|perPage
 specifier|private
 name|Integer
 name|perPage
+init|=
+literal|10
 decl_stmt|;
 comment|/**          * Specify the value to use when sorting results. By default, queries          * sort records by value.          */
 DECL|field|sortBy

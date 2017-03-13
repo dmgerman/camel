@@ -292,19 +292,7 @@ specifier|private
 name|String
 name|scopes
 init|=
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|services
-operator|.
-name|calendar
-operator|.
-name|CalendarScopes
-operator|.
-name|CALENDAR
+literal|"https://www.googleapis.com/auth/calendar"
 decl_stmt|;
 comment|/**          * The name of the p12 file which has the private key to use with the          * Google Service Account.          */
 DECL|field|p12FileName

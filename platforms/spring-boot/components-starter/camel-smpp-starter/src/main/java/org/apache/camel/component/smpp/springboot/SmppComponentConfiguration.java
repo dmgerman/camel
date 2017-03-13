@@ -213,6 +213,8 @@ DECL|field|port
 specifier|private
 name|Integer
 name|port
+init|=
+literal|2775
 decl_stmt|;
 comment|/**          * The system id (username) for connecting to SMSC server.          */
 DECL|field|systemId
@@ -252,12 +254,16 @@ DECL|field|enquireLinkTimer
 specifier|private
 name|Integer
 name|enquireLinkTimer
+init|=
+literal|5000
 decl_stmt|;
 comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          */
 DECL|field|transactionTimer
 specifier|private
 name|Integer
 name|transactionTimer
+init|=
+literal|10000
 decl_stmt|;
 comment|/**          * This parameter is used to categorize the type of ESME (External Short          * Message Entity) that is binding to the SMSC (max. 13 characters).          */
 DECL|field|systemType
@@ -356,29 +362,39 @@ DECL|field|usingSSL
 specifier|private
 name|Boolean
 name|usingSSL
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          */
 DECL|field|initialReconnectDelay
 specifier|private
 name|Long
 name|initialReconnectDelay
+init|=
+literal|5000L
 decl_stmt|;
 comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          */
 DECL|field|reconnectDelay
 specifier|private
 name|Long
 name|reconnectDelay
+init|=
+literal|5000L
 decl_stmt|;
 DECL|field|maxReconnect
 specifier|private
 name|Integer
 name|maxReconnect
+init|=
+literal|2147483647
 decl_stmt|;
 comment|/**          * Sessions can be lazily created to avoid exceptions, if the SMSC is          * not available when the Camel producer is started. Camel will check          * the in message headers 'CamelSmppSystemId' and 'CamelSmppPassword' of          * the first exchange. If they are present, Camel will use these data to          * connect to the SMSC.          */
 DECL|field|lazySessionCreation
 specifier|private
 name|Boolean
 name|lazySessionCreation
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the hostname or ip address of your HTTP proxy.          */
 DECL|field|httpProxyHost
@@ -391,6 +407,8 @@ DECL|field|httpProxyPort
 specifier|private
 name|Integer
 name|httpProxyPort
+init|=
+literal|3128
 decl_stmt|;
 comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the username required for your HTTP proxy.          */
 DECL|field|httpProxyUsername

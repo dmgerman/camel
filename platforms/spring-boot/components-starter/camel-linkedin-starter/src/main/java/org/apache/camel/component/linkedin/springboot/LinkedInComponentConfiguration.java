@@ -276,6 +276,8 @@ DECL|field|lazyAuth
 specifier|private
 name|Boolean
 name|lazyAuth
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getApiName ()
 specifier|public

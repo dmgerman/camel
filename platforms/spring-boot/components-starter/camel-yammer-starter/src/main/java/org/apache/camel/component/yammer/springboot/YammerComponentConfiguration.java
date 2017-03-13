@@ -291,6 +291,8 @@ DECL|field|delay
 specifier|private
 name|Long
 name|delay
+init|=
+literal|5000L
 decl_stmt|;
 comment|/**          * The access token          */
 DECL|field|accessToken
@@ -315,6 +317,8 @@ DECL|field|useJson
 specifier|private
 name|Boolean
 name|useJson
+init|=
+literal|false
 decl_stmt|;
 DECL|field|requestor
 specifier|private
@@ -326,18 +330,27 @@ DECL|field|limit
 specifier|private
 name|Integer
 name|limit
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|/**          * Returns messages older than the message ID specified as a numeric          * string. This is useful for paginating messages. For example, if          * you're currently viewing 20 messages and the oldest is number 2912,          * you could append "?olderThan=2912â³ to your request to get the 20          * messages prior to those you're seeing.          */
 DECL|field|olderThan
 specifier|private
 name|Integer
 name|olderThan
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|/**          * Returns messages newer than the message ID specified as a numeric          * string. This should be used when polling for new messages. If you're          * looking at messages, and the most recent message returned is 3516,          * you can make a request with the parameter "?newerThan=3516â³ to ensure          * that you do not get duplicate copies of messages already on your          * page.          */
 DECL|field|newerThan
 specifier|private
 name|Integer
 name|newerThan
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|/**          * threaded=true will only return the first message in each thread. This          * parameter is intended for apps which display message threads          * collapsed. threaded=extended will return the thread starter messages          * in order of most recently active as well as the two most recent          * messages, as they are viewed in the default view on the Yammer web          * interface.          */
 DECL|field|threaded

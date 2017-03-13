@@ -363,6 +363,8 @@ DECL|field|bufferSize
 specifier|private
 name|Integer
 name|bufferSize
+init|=
+literal|2048
 decl_stmt|;
 comment|/**          * Set the id of the security provider that provides the configured          * {@link Signature} algorithm.          *           * @param provider          *            the id of the security provider          */
 DECL|field|provider
@@ -381,6 +383,8 @@ DECL|field|clearHeaders
 specifier|private
 name|Boolean
 name|clearHeaders
+init|=
+literal|true
 decl_stmt|;
 DECL|field|cryptoOperation
 specifier|private

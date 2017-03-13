@@ -183,12 +183,16 @@ DECL|field|timeout
 specifier|private
 name|Integer
 name|timeout
+init|=
+literal|5000
 decl_stmt|;
 comment|/**          * Whether the children of the node should be listed          */
 DECL|field|listChildren
 specifier|private
 name|Boolean
 name|listChildren
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The node in the ZooKeeper server (aka znode)          */
 DECL|field|path
@@ -201,6 +205,8 @@ DECL|field|repeat
 specifier|private
 name|Boolean
 name|repeat
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Not in use          *           * @deprecated The usage of this option has no effect at all.          */
 annotation|@
@@ -209,18 +215,24 @@ DECL|field|awaitExistence
 specifier|private
 name|Boolean
 name|awaitExistence
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * The time interval to backoff for after an error before retrying.          */
 DECL|field|backoff
 specifier|private
 name|Long
 name|backoff
+init|=
+literal|5000L
 decl_stmt|;
 comment|/**          * Should the endpoint create the node if it does not currently exist.          */
 DECL|field|create
 specifier|private
 name|Boolean
 name|create
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The create mode that should be used for the newly created node          */
 DECL|field|createMode
@@ -235,6 +247,8 @@ DECL|field|sendEmptyMessageOnDelete
 specifier|private
 name|Boolean
 name|sendEmptyMessageOnDelete
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getServers ()
 specifier|public

@@ -216,12 +216,16 @@ DECL|field|connectionTimeout
 specifier|private
 name|Integer
 name|connectionTimeout
+init|=
+literal|5000
 decl_stmt|;
 comment|/**          * Sending timeout in millis.          */
 DECL|field|timeout
 specifier|private
 name|Integer
 name|timeout
+init|=
+literal|5000
 decl_stmt|;
 comment|/**          * Password to be authenticated when sending checks to Nagios.          */
 DECL|field|password

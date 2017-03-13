@@ -158,12 +158,16 @@ DECL|field|waitTimeMs
 specifier|private
 name|Integer
 name|waitTimeMs
+init|=
+literal|100
 decl_stmt|;
 comment|/**          * The number of concurrent consumers          */
 DECL|field|concurrentConsumers
 specifier|private
 name|Integer
 name|concurrentConsumers
+init|=
+literal|1
 decl_stmt|;
 DECL|method|getAddresses ()
 specifier|public

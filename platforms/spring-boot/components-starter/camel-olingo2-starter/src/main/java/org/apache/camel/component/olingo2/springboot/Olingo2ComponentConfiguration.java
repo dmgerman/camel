@@ -289,12 +289,16 @@ DECL|field|connectTimeout
 specifier|private
 name|Integer
 name|connectTimeout
+init|=
+literal|30000
 decl_stmt|;
 comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds)          */
 DECL|field|socketTimeout
 specifier|private
 name|Integer
 name|socketTimeout
+init|=
+literal|30000
 decl_stmt|;
 comment|/**          * HTTP proxy server configuration          */
 annotation|@

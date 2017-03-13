@@ -396,6 +396,8 @@ DECL|field|addKeyInfoReference
 specifier|private
 name|Boolean
 name|addKeyInfoReference
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Namespace prefix for the XML signature namespace          * "http://www.w3.org/2000/09/xmldsig#". Default value is "ds". If          *<code>null</code> or an empty value is set then no prefix is used for          * the XML signature namespace.          *<p>          * See best practice          * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-          * without-namespaces          *           * @param prefixForXmlSignatureNamespaceprefix          */
 DECL|field|prefixForXmlSignatureNamespace
@@ -446,6 +448,8 @@ DECL|field|plainText
 specifier|private
 name|Boolean
 name|plainText
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Encoding of the plain text. Only relevant if the message body is          * plain text (see parameter {@link #plainText} . Default value is          * "UTF-8".          */
 DECL|field|plainTextEncoding
@@ -516,18 +520,24 @@ DECL|field|disallowDoctypeDecl
 specifier|private
 name|Boolean
 name|disallowDoctypeDecl
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is<code>false</code>. Can be          * overwritten by the header          * {@link XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION} .          */
 DECL|field|omitXmlDeclaration
 specifier|private
 name|Boolean
 name|omitXmlDeclaration
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Determines if the XML signature specific headers be cleared after          * signing and verification. Defaults to true.          */
 DECL|field|clearHeaders
 specifier|private
 name|Boolean
 name|clearHeaders
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Classpath to the XML Schema. Must be specified in the detached XML          * Signature case for determining the ID attributes, might be set in the          * enveloped and enveloping case. If set, then the XML document is          * validated with the specified XML schema. The schema resource URI can          * be overwritten by the header          * {@link XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI} .          */
 DECL|field|schemaResourceUri
@@ -1418,33 +1428,23 @@ specifier|private
 name|String
 name|outputNodeSearchType
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|xmlsecurity
-operator|.
-name|api
-operator|.
-name|DefaultXmlSignature2Message
-operator|.
-name|OUTPUT_NODE_SEARCH_TYPE_DEFAULT
+literal|"Default"
 decl_stmt|;
 comment|/**          * Indicator whether the XML signature elements (elements with local          * name "Signature" and namesapce          * ""http://www.w3.org/2000/09/xmldsig#"") shall be removed from the          * document set to the output message. Normally, this is only necessary,          * if the XML signature is enveloped. The default value is          * {@link Boolean#FALSE} . This parameter is forwarded to          * {@link XmlSignature2Message} .          *<p>          * This indicator has no effect if the output node search is of type          * {@link DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT}          * .F          */
 DECL|field|removeSignatureElements
 specifier|private
 name|Boolean
 name|removeSignatureElements
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Enables secure validation. If true then secure validation is enabled.          */
 DECL|field|secureValidation
 specifier|private
 name|Boolean
 name|secureValidation
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Name of handler to          *           * @param validationFailedHandlerName          */
 DECL|field|validationFailedHandlerName
@@ -1475,18 +1475,24 @@ DECL|field|disallowDoctypeDecl
 specifier|private
 name|Boolean
 name|disallowDoctypeDecl
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is<code>false</code>. Can be          * overwritten by the header          * {@link XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION} .          */
 DECL|field|omitXmlDeclaration
 specifier|private
 name|Boolean
 name|omitXmlDeclaration
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Determines if the XML signature specific headers be cleared after          * signing and verification. Defaults to true.          */
 DECL|field|clearHeaders
 specifier|private
 name|Boolean
 name|clearHeaders
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Classpath to the XML Schema. Must be specified in the detached XML          * Signature case for determining the ID attributes, might be set in the          * enveloped and enveloping case. If set, then the XML document is          * validated with the specified XML schema. The schema resource URI can          * be overwritten by the header          * {@link XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI} .          */
 DECL|field|schemaResourceUri

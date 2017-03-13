@@ -317,6 +317,8 @@ DECL|field|maxElementsInMemory
 specifier|private
 name|Integer
 name|maxElementsInMemory
+init|=
+literal|1000
 decl_stmt|;
 comment|/**          * Which eviction strategy to use when maximum number of elements in          * memory is reached. The strategy defines which elements to be removed.          *<ul>          *<li>LRU - Lest Recently Used</li>          *<li>LFU - Lest Frequently Used</li>          *<li>FIFO - First In First Out</li>          *</ul>          */
 annotation|@
@@ -331,6 +333,8 @@ DECL|field|overflowToDisk
 specifier|private
 name|Boolean
 name|overflowToDisk
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * This parameter is ignored. CacheManager sets it using setter          * injection.          */
 annotation|@
@@ -345,24 +349,32 @@ DECL|field|eternal
 specifier|private
 name|Boolean
 name|eternal
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The maximum time between creation time and when an element expires.          * Is used only if the element is not eternal          */
 DECL|field|timeToLiveSeconds
 specifier|private
 name|Long
 name|timeToLiveSeconds
+init|=
+literal|300L
 decl_stmt|;
 comment|/**          * The maximum amount of time between accesses before an element expires          */
 DECL|field|timeToIdleSeconds
 specifier|private
 name|Long
 name|timeToIdleSeconds
+init|=
+literal|300L
 decl_stmt|;
 comment|/**          * Whether the disk store persists between restarts of the application.          */
 DECL|field|diskPersistent
 specifier|private
 name|Boolean
 name|diskPersistent
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The number of seconds between runs of the disk expiry thread.          */
 DECL|field|diskExpiryThreadIntervalSeconds
@@ -391,6 +403,8 @@ DECL|field|objectCache
 specifier|private
 name|Boolean
 name|objectCache
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getCacheName ()
 specifier|public

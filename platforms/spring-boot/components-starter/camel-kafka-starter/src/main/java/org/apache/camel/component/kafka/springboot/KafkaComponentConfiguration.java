@@ -280,19 +280,7 @@ specifier|private
 name|String
 name|partitioner
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|kafka
-operator|.
-name|KafkaConstants
-operator|.
-name|KAFKA_DEFAULT_PARTITIONER
+literal|"org.apache.kafka.clients.producer.internals.DefaultPartitioner"
 decl_stmt|;
 comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          */
 DECL|field|topic
@@ -305,12 +293,16 @@ DECL|field|consumerStreams
 specifier|private
 name|Integer
 name|consumerStreams
+init|=
+literal|10
 decl_stmt|;
 comment|/**          * The number of consumers that connect to kafka server          */
 DECL|field|consumersCount
 specifier|private
 name|Integer
 name|consumersCount
+init|=
+literal|1
 decl_stmt|;
 comment|/**          * The client id is a user-specified string sent in each request to help          * trace calls. It should logically identify the application making the          * request.          */
 DECL|field|clientId
@@ -323,6 +315,8 @@ DECL|field|autoCommitEnable
 specifier|private
 name|Boolean
 name|autoCommitEnable
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * The offset repository to use in order to locally store the offset of          * each partition of the topic. Defining one will disable the          * autocommit.          */
 DECL|field|offsetRepository
@@ -335,23 +329,31 @@ DECL|field|autoCommitIntervalMs
 specifier|private
 name|Integer
 name|autoCommitIntervalMs
+init|=
+literal|5000
 decl_stmt|;
 comment|/**          * The minimum amount of data the server should return for a fetch          * request. If insufficient data is available the request will wait for          * that much data to accumulate before answering the request.          */
 DECL|field|fetchMinBytes
 specifier|private
 name|Integer
 name|fetchMinBytes
+init|=
+literal|1
 decl_stmt|;
 DECL|field|fetchMaxBytes
 specifier|private
 name|Integer
 name|fetchMaxBytes
+init|=
+literal|52428800
 decl_stmt|;
 comment|/**          * The maximum amount of time the server will block before answering the          * fetch request if there isn't sufficient data to immediately satisfy          * fetch.min.bytes          */
 DECL|field|fetchWaitMaxMs
 specifier|private
 name|Integer
 name|fetchWaitMaxMs
+init|=
+literal|500
 decl_stmt|;
 comment|/**          * What to do when there is no initial offset in ZooKeeper or if an          * offset is out of range: smallest : automatically reset the offset to          * the smallest offset largest : automatically reset the offset to the          * largest offset fail: throw exception to the consumer          */
 DECL|field|autoOffsetReset
@@ -388,24 +390,32 @@ DECL|field|retryBackoffMs
 specifier|private
 name|Integer
 name|retryBackoffMs
+init|=
+literal|100
 decl_stmt|;
 comment|/**          * Socket write buffer size          */
 DECL|field|sendBufferBytes
 specifier|private
 name|Integer
 name|sendBufferBytes
+init|=
+literal|131072
 decl_stmt|;
 comment|/**          * The amount of time the broker will wait trying to meet the          * request.required.acks requirement before sending back an error to the          * client.          */
 DECL|field|requestTimeoutMs
 specifier|private
 name|Integer
 name|requestTimeoutMs
+init|=
+literal|305000
 decl_stmt|;
 comment|/**          * The maximum number of unsent messages that can be queued up the          * producer when using async mode before either the producer must be          * blocked or data must be dropped.          */
 DECL|field|queueBufferingMaxMessages
 specifier|private
 name|Integer
 name|queueBufferingMaxMessages
+init|=
+literal|10000
 decl_stmt|;
 comment|/**          * The serializer class for messages.          */
 DECL|field|serializerClass
@@ -413,19 +423,7 @@ specifier|private
 name|String
 name|serializerClass
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|kafka
-operator|.
-name|KafkaConstants
-operator|.
-name|KAFKA_DEFAULT_SERIALIZER
+literal|"org.apache.kafka.common.serialization.StringSerializer"
 decl_stmt|;
 comment|/**          * The serializer class for keys (defaults to the same as for messages          * if nothing is given).          */
 DECL|field|keySerializerClass
@@ -433,19 +431,7 @@ specifier|private
 name|String
 name|keySerializerClass
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|kafka
-operator|.
-name|KafkaConstants
-operator|.
-name|KAFKA_DEFAULT_SERIALIZER
+literal|"org.apache.kafka.common.serialization.StringSerializer"
 decl_stmt|;
 comment|/**          * Kerberos kinit command path. Default is /usr/bin/kinit          */
 DECL|field|kerberosInitCmd
@@ -453,25 +439,15 @@ specifier|private
 name|String
 name|kerberosInitCmd
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|kafka
-operator|.
-name|common
-operator|.
-name|config
-operator|.
-name|SaslConfigs
-operator|.
-name|DEFAULT_KERBEROS_KINIT_CMD
+literal|"/usr/bin/kinit"
 decl_stmt|;
 comment|/**          * Login thread sleep time between refresh attempts.          */
 DECL|field|kerberosBeforeReloginMinTime
 specifier|private
 name|Integer
 name|kerberosBeforeReloginMinTime
+init|=
+literal|60000
 decl_stmt|;
 comment|/**          * Percentage of random jitter added to the renewal time.          */
 DECL|field|kerberosRenewJitter
@@ -527,19 +503,7 @@ specifier|private
 name|String
 name|sslEnabledProtocols
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|kafka
-operator|.
-name|common
-operator|.
-name|config
-operator|.
-name|SslConfigs
-operator|.
-name|DEFAULT_SSL_ENABLED_PROTOCOLS
+literal|"TLSv1.2,TLSv1.1,TLSv1"
 decl_stmt|;
 comment|/**          * The file format of the key store file. This is optional for client.          * Default value is JKS          */
 DECL|field|sslKeystoreType
@@ -547,19 +511,7 @@ specifier|private
 name|String
 name|sslKeystoreType
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|kafka
-operator|.
-name|common
-operator|.
-name|config
-operator|.
-name|SslConfigs
-operator|.
-name|DEFAULT_SSL_KEYSTORE_TYPE
+literal|"JKS"
 decl_stmt|;
 comment|/**          * The SSL protocol used to generate the SSLContext. Default setting is          * TLS, which is fine for most cases. Allowed values in recent JVMs are          * TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in          * older JVMs, but their usage is discouraged due to known security          * vulnerabilities.          */
 DECL|field|sslProtocol
@@ -567,19 +519,7 @@ specifier|private
 name|String
 name|sslProtocol
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|kafka
-operator|.
-name|common
-operator|.
-name|config
-operator|.
-name|SslConfigs
-operator|.
-name|DEFAULT_SSL_PROTOCOL
+literal|"TLS"
 decl_stmt|;
 comment|/**          * The name of the security provider used for SSL connections. Default          * value is the default security provider of the JVM.          */
 DECL|field|sslProvider
@@ -593,19 +533,7 @@ specifier|private
 name|String
 name|sslTruststoreType
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|kafka
-operator|.
-name|common
-operator|.
-name|config
-operator|.
-name|SslConfigs
-operator|.
-name|DEFAULT_SSL_TRUSTSTORE_TYPE
+literal|"JKS"
 decl_stmt|;
 comment|/**          * The Kerberos principal name that Kafka runs as. This can be defined          * either in Kafka's JAAS config or in Kafka's config.          */
 DECL|field|saslKerberosServiceName
@@ -619,19 +547,7 @@ specifier|private
 name|String
 name|saslMechanism
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|kafka
-operator|.
-name|common
-operator|.
-name|config
-operator|.
-name|SaslConfigs
-operator|.
-name|DEFAULT_SASL_MECHANISM
+literal|"GSSAPI"
 decl_stmt|;
 comment|/**          * Protocol used to communicate with brokers. Currently only PLAINTEXT          * and SSL are supported.          */
 DECL|field|securityProtocol
@@ -639,17 +555,7 @@ specifier|private
 name|String
 name|securityProtocol
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|kafka
-operator|.
-name|clients
-operator|.
-name|CommonClientConfigs
-operator|.
-name|DEFAULT_SECURITY_PROTOCOL
+literal|"PLAINTEXT"
 decl_stmt|;
 comment|/**          * SSL configuration using a Camel {@link SSLContextParameters} object.          * If configured it's applied before the other SSL endpoint parameters.          */
 annotation|@
@@ -694,6 +600,8 @@ DECL|field|bufferMemorySize
 specifier|private
 name|Integer
 name|bufferMemorySize
+init|=
+literal|33554432
 decl_stmt|;
 comment|/**          * The record key (or null if no key is specified). If this option has          * been configured then it take precedence over header          * {@link KafkaConstants#KEY}          */
 DECL|field|key
@@ -720,54 +628,72 @@ DECL|field|retries
 specifier|private
 name|Integer
 name|retries
+init|=
+literal|0
 decl_stmt|;
 comment|/**          * The producer will attempt to batch records together into fewer          * requests whenever multiple records are being sent to the same          * partition. This helps performance on both the client and the server.          * This configuration controls the default batch size in bytes. No          * attempt will be made to batch records larger than this size.Requests          * sent to brokers will contain multiple batches, one for each partition          * with data available to be sent.A small batch size will make batching          * less common and may reduce throughput (a batch size of zero will          * disable batching entirely). A very large batch size may use memory a          * bit more wastefully as we will always allocate a buffer of the          * specified batch size in anticipation of additional records.          */
 DECL|field|producerBatchSize
 specifier|private
 name|Integer
 name|producerBatchSize
+init|=
+literal|16384
 decl_stmt|;
 comment|/**          * Close idle connections after the number of milliseconds specified by          * this config.          */
 DECL|field|connectionMaxIdleMs
 specifier|private
 name|Integer
 name|connectionMaxIdleMs
+init|=
+literal|540000
 decl_stmt|;
 comment|/**          * The producer groups together any records that arrive in between          * request transmissions into a single batched request. Normally this          * occurs only under load when records arrive faster than they can be          * sent out. However in some circumstances the client may want to reduce          * the number of requests even under moderate load. This setting          * accomplishes this by adding a small amount of artificial delayâthat          * is, rather than immediately sending out a record the producer will          * wait for up to the given delay to allow other records to be sent so          * that the sends can be batched together. This can be thought of as          * analogous to Nagle's algorithm in TCP. This setting gives the upper          * bound on the delay for batching: once we get batch.size worth of          * records for a partition it will be sent immediately regardless of          * this setting, however if we have fewer than this many bytes          * accumulated for this partition we will 'linger' for the specified          * time waiting for more records to show up. This setting defaults to 0          * (i.e. no delay). Setting linger.ms=5, for example, would have the          * effect of reducing the number of requests sent but would add up to          * 5ms of latency to records sent in the absense of load.          */
 DECL|field|lingerMs
 specifier|private
 name|Integer
 name|lingerMs
+init|=
+literal|0
 decl_stmt|;
 comment|/**          * The configuration controls how long sending to kafka will block.          * These methods can be blocked for multiple reasons. For e.g: buffer          * full, metadata unavailable.This configuration imposes maximum limit          * on the total time spent in fetching metadata, serialization of key          * and value, partitioning and allocation of buffer memory when doing a          * send(). In case of partitionsFor(), this configuration imposes a          * maximum time threshold on waiting for metadata          */
 DECL|field|maxBlockMs
 specifier|private
 name|Integer
 name|maxBlockMs
+init|=
+literal|60000
 decl_stmt|;
 comment|/**          * The maximum size of a request. This is also effectively a cap on the          * maximum record size. Note that the server has its own cap on record          * size which may be different from this. This setting will limit the          * number of record batches the producer will send in a single request          * to avoid sending huge requests.          */
 DECL|field|maxRequestSize
 specifier|private
 name|Integer
 name|maxRequestSize
+init|=
+literal|1048576
 decl_stmt|;
 comment|/**          * The size of the TCP receive buffer (SO_RCVBUF) to use when reading          * data.          */
 DECL|field|receiveBufferBytes
 specifier|private
 name|Integer
 name|receiveBufferBytes
+init|=
+literal|65536
 decl_stmt|;
 comment|/**          * The maximum number of unacknowledged requests the client will send on          * a single connection before blocking. Note that if this setting is set          * to be greater than 1 and there are failed sends, there is a risk of          * message re-ordering due to retries (i.e., if retries are enabled).          */
 DECL|field|maxInFlightRequest
 specifier|private
 name|Integer
 name|maxInFlightRequest
+init|=
+literal|5
 decl_stmt|;
 comment|/**          * The period of time in milliseconds after which we force a refresh of          * metadata even if we haven't seen any partition leadership changes to          * proactively discover any new brokers or partitions.          */
 DECL|field|metadataMaxAgeMs
 specifier|private
 name|Integer
 name|metadataMaxAgeMs
+init|=
+literal|300000
 decl_stmt|;
 comment|/**          * A list of classes to use as metrics reporters. Implementing the          * MetricReporter interface allows plugging in classes that will be          * notified of new metric creation. The JmxReporter is always included          * to register JMX statistics.          */
 DECL|field|metricReporters
@@ -780,48 +706,64 @@ DECL|field|noOfMetricsSample
 specifier|private
 name|Integer
 name|noOfMetricsSample
+init|=
+literal|2
 decl_stmt|;
 comment|/**          * The number of samples maintained to compute metrics.          */
 DECL|field|metricsSampleWindowMs
 specifier|private
 name|Integer
 name|metricsSampleWindowMs
+init|=
+literal|30000
 decl_stmt|;
 comment|/**          * The amount of time to wait before attempting to reconnect to a given          * host. This avoids repeatedly connecting to a host in a tight loop.          * This backoff applies to all requests sent by the consumer to the          * broker.          */
 DECL|field|reconnectBackoffMs
 specifier|private
 name|Integer
 name|reconnectBackoffMs
+init|=
+literal|50
 decl_stmt|;
 comment|/**          * The expected time between heartbeats to the consumer coordinator when          * using Kafka's group management facilities. Heartbeats are used to          * ensure that the consumer's session stays active and to facilitate          * rebalancing when new consumers join or leave the group. The value          * must be set lower than session.timeout.ms, but typically should be          * set no higher than 1/3 of that value. It can be adjusted even lower          * to control the expected time for normal rebalances.          */
 DECL|field|heartbeatIntervalMs
 specifier|private
 name|Integer
 name|heartbeatIntervalMs
+init|=
+literal|3000
 decl_stmt|;
 comment|/**          * The maximum amount of data per-partition the server will return. The          * maximum total memory used for a request will be #partitions *          * max.partition.fetch.bytes. This size must be at least as large as the          * maximum message size the server allows or else it is possible for the          * producer to send messages larger than the consumer can fetch. If that          * happens, the consumer can get stuck trying to fetch a large message          * on a certain partition.          */
 DECL|field|maxPartitionFetchBytes
 specifier|private
 name|Integer
 name|maxPartitionFetchBytes
+init|=
+literal|1048576
 decl_stmt|;
 comment|/**          * The timeout used to detect failures when using Kafka's group          * management facilities.          */
 DECL|field|sessionTimeoutMs
 specifier|private
 name|Integer
 name|sessionTimeoutMs
+init|=
+literal|10000
 decl_stmt|;
 comment|/**          * The maximum number of records returned in a single call to poll()          */
 DECL|field|maxPollRecords
 specifier|private
 name|Integer
 name|maxPollRecords
+init|=
+literal|500
 decl_stmt|;
 comment|/**          * The timeout used when polling the KafkaConsumer.          */
 DECL|field|pollTimeoutMs
 specifier|private
 name|Long
 name|pollTimeoutMs
+init|=
+literal|5000L
 decl_stmt|;
 comment|/**          * The class name of the partition assignment strategy that the client          * will use to distribute partition ownership amongst consumer instances          * when group management is used          */
 DECL|field|partitionAssignor
@@ -829,31 +771,23 @@ specifier|private
 name|String
 name|partitionAssignor
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|kafka
-operator|.
-name|KafkaConstants
-operator|.
-name|PARTITIONER_RANGE_ASSIGNOR
+literal|"org.apache.kafka.clients.consumer.RangeAssignor"
 decl_stmt|;
 comment|/**          * The configuration controls the maximum amount of time the client will          * wait for the response of a request. If the response is not received          * before the timeout elapses the client will resend the request if          * necessary or fail the request if retries are exhausted.          */
 DECL|field|consumerRequestTimeoutMs
 specifier|private
 name|Integer
 name|consumerRequestTimeoutMs
+init|=
+literal|40000
 decl_stmt|;
 comment|/**          * Automatically check the CRC32 of the records consumed. This ensures          * no on-the-wire or on-disk corruption to the messages occurred. This          * check adds some overhead, so it may be disabled in cases seeking          * extreme performance.          */
 DECL|field|checkCrcs
 specifier|private
 name|Boolean
 name|checkCrcs
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Deserializer class for key that implements the Deserializer          * interface.          */
 DECL|field|keyDeserializer
@@ -861,19 +795,7 @@ specifier|private
 name|String
 name|keyDeserializer
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|kafka
-operator|.
-name|KafkaConstants
-operator|.
-name|KAFKA_DEFAULT_DESERIALIZER
+literal|"org.apache.kafka.common.serialization.StringDeserializer"
 decl_stmt|;
 comment|/**          * Deserializer class for value that implements the Deserializer          * interface.          */
 DECL|field|valueDeserializer
@@ -881,19 +803,7 @@ specifier|private
 name|String
 name|valueDeserializer
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|kafka
-operator|.
-name|KafkaConstants
-operator|.
-name|KAFKA_DEFAULT_DESERIALIZER
+literal|"org.apache.kafka.common.serialization.StringDeserializer"
 decl_stmt|;
 comment|/**          * Set if KafkaConsumer will read from beginning or end on startup:          * beginning : read from beginning end : read from end This is replacing          * the earlier property seekToBeginning          */
 DECL|field|seekTo
@@ -912,18 +822,24 @@ DECL|field|workerPoolCoreSize
 specifier|private
 name|Integer
 name|workerPoolCoreSize
+init|=
+literal|10
 decl_stmt|;
 comment|/**          * Maximum number of threads for the worker pool for continue routing          * {@link Exchange} after kafka server has acknowledge the message that          * was sent to it from {@link KafkaProducer} using asynchronous          * non-blocking processing.          */
 DECL|field|workerPoolMaxSize
 specifier|private
 name|Integer
 name|workerPoolMaxSize
+init|=
+literal|20
 decl_stmt|;
 comment|/**          * Whether the producer should store the {@link RecordMetadata} results          * from sending to Kafka. The results are stored in a {@link List}          * containing the {@link RecordMetadata} metadata's. The list is stored          * on a header with the key {@link KafkaConstants#KAFKA_RECORDMETA}          */
 DECL|field|recordMetadata
 specifier|private
 name|Boolean
 name|recordMetadata
+init|=
+literal|true
 decl_stmt|;
 comment|/**          * Sets interceptors for producer or consumers. Producer interceptors          * have to be classes implementing          * {@link org.apache.kafka.clients.producer.ProducerInterceptor}          * Consumer interceptors have to be classes implementing          * {@link org.apache.kafka.clients.consumer.ConsumerInterceptor} Note          * that if you use Producer interceptor on a consumer it will throw a          * class cast exception in runtime          */
 DECL|field|interceptorClasses
