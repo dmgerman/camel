@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The sjms2 component (simple jms) allows messages to be sent to (or consumed from) a JMS Queue or Topic.  *  * This component uses plain JMS API where as the jms component uses Spring JMS.  */
+comment|/**  * The sjms2 component (simple jms) allows messages to be sent to (or consumed from) a JMS Queue or Topic.  *  * This component uses plain JMS 2.x API where as the jms component uses Spring JMS.  */
 end_comment
 
 begin_class
@@ -185,10 +185,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|durable
 specifier|private
@@ -201,10 +197,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|shared
 specifier|private
