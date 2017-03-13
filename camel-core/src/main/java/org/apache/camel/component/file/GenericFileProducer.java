@@ -1267,9 +1267,39 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if filename indicates the current directory and the directory is created
+comment|// but no need to store a file under the directory like touch<dir>
+comment|// this is added due to considering to handle empty directories in zipfile
 name|boolean
 name|success
 init|=
+operator|!
+name|fileName
+operator|.
+name|substring
+argument_list|(
+name|fileName
+operator|.
+name|lastIndexOf
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+operator|+
+literal|1
+argument_list|,
+name|fileName
+operator|.
+name|length
+argument_list|()
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"."
+argument_list|)
+condition|?
 name|operations
 operator|.
 name|storeFile
@@ -1278,6 +1308,8 @@ name|fileName
 argument_list|,
 name|exchange
 argument_list|)
+else|:
+literal|true
 decl_stmt|;
 if|if
 condition|(
