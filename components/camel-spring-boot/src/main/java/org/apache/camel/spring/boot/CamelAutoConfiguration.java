@@ -1719,8 +1719,13 @@ parameter_list|,
 name|CamelConfigurationProperties
 name|config
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-return|return
+specifier|final
+name|ProducerTemplate
+name|producerTemplate
+init|=
 name|camelContext
 operator|.
 name|createProducerTemplate
@@ -1730,6 +1735,16 @@ operator|.
 name|getProducerTemplateCacheSize
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|camelContext
+operator|.
+name|addService
+argument_list|(
+name|producerTemplate
+argument_list|)
+expr_stmt|;
+return|return
+name|producerTemplate
 return|;
 block|}
 comment|/**      * Default consumer template for the bootstrapped Camel context.      */
@@ -1762,8 +1777,13 @@ parameter_list|,
 name|CamelConfigurationProperties
 name|config
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-return|return
+specifier|final
+name|ConsumerTemplate
+name|consumerTemplate
+init|=
 name|camelContext
 operator|.
 name|createConsumerTemplate
@@ -1773,6 +1793,16 @@ operator|.
 name|getConsumerTemplateCacheSize
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|camelContext
+operator|.
+name|addService
+argument_list|(
+name|consumerTemplate
+argument_list|)
+expr_stmt|;
+return|return
+name|consumerTemplate
 return|;
 block|}
 comment|// SpringCamelContext integration
