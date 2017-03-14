@@ -396,6 +396,16 @@ argument_list|,
 name|this
 argument_list|,
 name|delegate
+argument_list|,
+name|model
+operator|.
+name|getInputDataType
+argument_list|()
+argument_list|,
+name|model
+operator|.
+name|getOutputDataType
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -749,6 +759,43 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// lets enforce that every connector must have an input and output data type
+if|if
+condition|(
+name|model
+operator|.
+name|getInputDataType
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Camel connector must have inputDataType defined in camel-connector.json file"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|model
+operator|.
+name|getOutputDataType
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Camel connector must have outputDataType defined in camel-connector.json file"
+argument_list|)
+throw|;
+block|}
 comment|// it may be a custom component so we need to register this in the camel catalog also
 name|String
 name|scheme
