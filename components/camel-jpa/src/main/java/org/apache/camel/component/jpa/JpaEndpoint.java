@@ -483,10 +483,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
@@ -550,10 +546,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|optionalPrefix
 operator|=
 literal|"consumer."
@@ -566,10 +558,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|optionalPrefix
 operator|=
 literal|"consumer."
@@ -582,10 +570,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|optionalPrefix
 operator|=
 literal|"consumer."
@@ -622,10 +606,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|optionalPrefix
 operator|=
 literal|"consumer."
@@ -647,10 +627,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|optionalPrefix
 operator|=
 literal|"consumer."
@@ -786,6 +762,18 @@ DECL|field|remove
 specifier|private
 name|boolean
 name|remove
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|useExecuteUpdate
+specifier|private
+name|Boolean
+name|useExecuteUpdate
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -957,7 +945,9 @@ block|{
 name|validate
 argument_list|()
 expr_stmt|;
-return|return
+name|JpaProducer
+name|producer
+init|=
 operator|new
 name|JpaProducer
 argument_list|(
@@ -966,6 +956,57 @@ argument_list|,
 name|getProducerExpression
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|producer
+operator|.
+name|setQuery
+argument_list|(
+name|getQuery
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|producer
+operator|.
+name|setNamedQuery
+argument_list|(
+name|getNamedQuery
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|producer
+operator|.
+name|setNativeQuery
+argument_list|(
+name|getNativeQuery
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|producer
+operator|.
+name|setParameters
+argument_list|(
+name|getParameters
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|producer
+operator|.
+name|setResultClass
+argument_list|(
+name|getResultClass
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|producer
+operator|.
+name|setUseExecuteUpdate
+argument_list|(
+name|isUseExecuteUpdate
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|producer
 return|;
 block|}
 DECL|method|createConsumer (Processor processor)
@@ -1772,7 +1813,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * To use a custom query when consuming data.      */
+comment|/**      * To use a custom query.      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
@@ -1799,7 +1840,7 @@ return|return
 name|namedQuery
 return|;
 block|}
-comment|/**      * To use a named query when consuming data.      */
+comment|/**      * To use a named query.      */
 DECL|method|setNamedQuery (String namedQuery)
 specifier|public
 name|void
@@ -1826,7 +1867,7 @@ return|return
 name|nativeQuery
 return|;
 block|}
-comment|/**      * To use a custom native query when consuming data. You may want to use the option consumer.resultClass also when using native queries.      */
+comment|/**      * To use a custom native query. You may want to use the option resultClass also when using native queries.      */
 DECL|method|setNativeQuery (String nativeQuery)
 specifier|public
 name|void
@@ -1885,7 +1926,7 @@ return|return
 name|parameters
 return|;
 block|}
-comment|/**      * This key/value mapping is used for building the query parameters.      * It's is expected to be of the generic type java.util.Map<String, Object> where the keys are the named parameters      * of a given JPA query and the values are their corresponding effective values you want to select for.      */
+comment|/**      *<p>This key/value mapping is used for building the query parameters.      * It is expected to be of the generic type java.util.Map<String, Object> where the keys are the named parameters      * of a given JPA query and the values are their corresponding effective values you want to select for.</p>      *<p>When it's used for producer, Simple expression can be used as a parameter value. It allows you to      * retrieve parameter values from the message body, header and etc.</p>      */
 DECL|method|setParameters (Map<String, Object> parameters)
 specifier|public
 name|void
@@ -2058,6 +2099,33 @@ operator|.
 name|preDeleteHandler
 operator|=
 name|preDeleteHandler
+expr_stmt|;
+block|}
+DECL|method|isUseExecuteUpdate ()
+specifier|public
+name|Boolean
+name|isUseExecuteUpdate
+parameter_list|()
+block|{
+return|return
+name|useExecuteUpdate
+return|;
+block|}
+comment|/**      * To configure whether to use executeUpdate() when producer executes a query.      * When you use INSERT, UPDATE or DELETE statement as a named query, you need to specify      * this option to 'true'.      */
+DECL|method|setUseExecuteUpdate (Boolean useExecuteUpdate)
+specifier|public
+name|void
+name|setUseExecuteUpdate
+parameter_list|(
+name|Boolean
+name|useExecuteUpdate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useExecuteUpdate
+operator|=
+name|useExecuteUpdate
 expr_stmt|;
 block|}
 comment|// Implementation methods
