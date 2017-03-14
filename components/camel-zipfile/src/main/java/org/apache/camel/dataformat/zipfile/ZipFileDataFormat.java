@@ -219,10 +219,10 @@ specifier|private
 name|boolean
 name|usingIterator
 decl_stmt|;
-DECL|field|supportIteratorForEmptyDirectory
+DECL|field|allowEmptyDirectory
 specifier|private
 name|boolean
-name|supportIteratorForEmptyDirectory
+name|allowEmptyDirectory
 decl_stmt|;
 annotation|@
 name|Override
@@ -441,9 +441,9 @@ argument_list|)
 decl_stmt|;
 name|zipIterator
 operator|.
-name|setSupportIteratorForEmptyDirectory
+name|setAllowEmptyDirectory
 argument_list|(
-name|supportIteratorForEmptyDirectory
+name|allowEmptyDirectory
 argument_list|)
 expr_stmt|;
 return|return
@@ -582,30 +582,30 @@ operator|=
 name|usingIterator
 expr_stmt|;
 block|}
-DECL|method|isSupportIteratorForEmptyDirectory ()
+DECL|method|isAllowEmptyDirectory ()
 specifier|public
 name|boolean
-name|isSupportIteratorForEmptyDirectory
+name|isAllowEmptyDirectory
 parameter_list|()
 block|{
 return|return
-name|supportIteratorForEmptyDirectory
+name|allowEmptyDirectory
 return|;
 block|}
-DECL|method|setSupportIteratorForEmptyDirectory (boolean supportIteratorForEmptyDirectory)
+DECL|method|setAllowEmptyDirectory (boolean allowEmptyDirectory)
 specifier|public
 name|void
-name|setSupportIteratorForEmptyDirectory
+name|setAllowEmptyDirectory
 parameter_list|(
 name|boolean
-name|supportIteratorForEmptyDirectory
+name|allowEmptyDirectory
 parameter_list|)
 block|{
 name|this
 operator|.
-name|supportIteratorForEmptyDirectory
+name|allowEmptyDirectory
 operator|=
-name|supportIteratorForEmptyDirectory
+name|allowEmptyDirectory
 expr_stmt|;
 block|}
 annotation|@

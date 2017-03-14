@@ -177,6 +177,13 @@ specifier|private
 name|Boolean
 name|usingIterator
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|allowEmptyDirectory
+specifier|private
+name|Boolean
+name|allowEmptyDirectory
+decl_stmt|;
 DECL|method|ZipFileDataFormat ()
 specifier|public
 name|ZipFileDataFormat
@@ -221,6 +228,25 @@ name|usingIterator
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|allowEmptyDirectory
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"allowEmptyDirectory"
+argument_list|,
+name|allowEmptyDirectory
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getUsingIterator ()
 specifier|public
@@ -230,6 +256,16 @@ parameter_list|()
 block|{
 return|return
 name|usingIterator
+return|;
+block|}
+DECL|method|getAllowEmptyDirectory ()
+specifier|public
+name|Boolean
+name|getAllowEmptyDirectory
+parameter_list|()
+block|{
+return|return
+name|allowEmptyDirectory
 return|;
 block|}
 comment|/**      * If the zip file has more then one entry, the setting this option to true, allows to work with the splitter EIP,      * to split the data using an iterator in a streaming mode.      */
@@ -247,6 +283,23 @@ operator|.
 name|usingIterator
 operator|=
 name|usingIterator
+expr_stmt|;
+block|}
+comment|/**      * If the zip file has more then one entry, setting this option to true, allows to get the iterator      * even if the directory is empty      */
+DECL|method|setAllowEmptyDirectory (Boolean allowEmptyDirectory)
+specifier|public
+name|void
+name|setAllowEmptyDirectory
+parameter_list|(
+name|Boolean
+name|allowEmptyDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmptyDirectory
+operator|=
+name|allowEmptyDirectory
 expr_stmt|;
 block|}
 block|}
