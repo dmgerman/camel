@@ -733,15 +733,6 @@ name|HAZELCAST_CONFIGU_PARAM
 init|=
 literal|"hazelcastConfig"
 decl_stmt|;
-DECL|field|HAZELCAST_CLIENT_CONFIGU_PARAM
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HAZELCAST_CLIENT_CONFIGU_PARAM
-init|=
-literal|"hazelcastClientConfig"
-decl_stmt|;
 DECL|field|HAZELCAST_CONFIGU_URI_PARAM
 specifier|public
 specifier|static
@@ -750,15 +741,6 @@ name|String
 name|HAZELCAST_CONFIGU_URI_PARAM
 init|=
 literal|"hazelcastConfigUri"
-decl_stmt|;
-DECL|field|HAZELCAST_CLIENT_CONFIGU_URI_PARAM
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HAZELCAST_CLIENT_CONFIGU_URI_PARAM
-init|=
-literal|"hazelcastClientConfigUri"
 decl_stmt|;
 comment|// Hazelcast mode
 DECL|field|HAZELCAST_NODE_MODE
