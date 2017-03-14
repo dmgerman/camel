@@ -407,7 +407,6 @@ argument_list|>
 name|defaultEndpointOptions
 decl_stmt|;
 DECL|method|ConnectorModel (String componentName, String className)
-specifier|public
 name|ConnectorModel
 parameter_list|(
 name|String
