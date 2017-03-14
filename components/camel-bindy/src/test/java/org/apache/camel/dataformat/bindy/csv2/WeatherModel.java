@@ -111,6 +111,10 @@ argument_list|(
 name|pos
 operator|=
 literal|3
+argument_list|,
+name|defaultValue
+operator|=
+literal|"North Pole"
 argument_list|)
 DECL|field|place
 specifier|private
