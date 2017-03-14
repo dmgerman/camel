@@ -132,11 +132,26 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Test manually as CI server cannot run this test"
+argument_list|)
 DECL|class|PublishSubscribeTest
 specifier|public
 class|class
