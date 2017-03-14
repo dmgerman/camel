@@ -752,7 +752,15 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//deleteDirectory(new File("hello_out"));
+name|deleteDirectory
+argument_list|(
+operator|new
+name|File
+argument_list|(
+literal|"hello_out"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -816,7 +824,15 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//deleteDirectory(new File("hello_out"));
+name|deleteDirectory
+argument_list|(
+operator|new
+name|File
+argument_list|(
+literal|"hello_out"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1393,6 +1409,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|InputStream
 name|in
 init|=
@@ -1401,8 +1419,7 @@ name|FileInputStream
 argument_list|(
 name|file
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|copy
 argument_list|(
@@ -1410,14 +1427,6 @@ name|in
 argument_list|,
 name|out
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|in
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1436,6 +1445,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|OutputStream
 name|out
 init|=
@@ -1444,8 +1455,7 @@ name|FileOutputStream
 argument_list|(
 name|file
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|copy
 argument_list|(
@@ -1453,14 +1463,6 @@ name|in
 argument_list|,
 name|out
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|out
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}
