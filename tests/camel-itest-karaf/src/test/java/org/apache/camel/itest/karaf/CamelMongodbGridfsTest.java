@@ -78,9 +78,13 @@ specifier|final
 name|String
 name|COMPONENT
 init|=
-literal|"gridfs"
+name|extractName
+argument_list|(
+name|CamelMongodbGridfsTest
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
-comment|//extractName(CamelMongodbGridfsTest.class);
 annotation|@
 name|Test
 DECL|method|test ()
@@ -93,9 +97,7 @@ name|Exception
 block|{
 name|testComponent
 argument_list|(
-literal|"mongodb-gridfs"
-argument_list|,
-literal|"gridfs"
+name|COMPONENT
 argument_list|)
 expr_stmt|;
 block|}
