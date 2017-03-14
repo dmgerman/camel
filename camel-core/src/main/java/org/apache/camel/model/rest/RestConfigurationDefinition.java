@@ -1898,6 +1898,30 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Shortcut for setting the {@code Access-Control-Allow-Credentials} header.      */
+DECL|method|corsAllowCredentials (boolean corsAllowCredentials)
+specifier|public
+name|RestConfigurationDefinition
+name|corsAllowCredentials
+parameter_list|(
+name|boolean
+name|corsAllowCredentials
+parameter_list|)
+block|{
+return|return
+name|corsHeaderProperty
+argument_list|(
+literal|"Access-Control-Allow-Credentials"
+argument_list|,
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|corsAllowCredentials
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|// Implementation
 comment|//-------------------------------------------------------------------------
 comment|/**      * Creates a {@link org.apache.camel.spi.RestConfiguration} instance based on the definition      *      * @param context     the camel context      * @return the configuration      * @throws Exception is thrown if error creating the configuration      */
