@@ -89,6 +89,14 @@ specifier|private
 name|HazelcastInstance
 name|hazelcastInstance
 decl_stmt|;
+comment|/**      * The hazelcast mode reference which kind of instance should be used. If      * you don't specify the mode then the node mode will be the default.      */
+DECL|field|hazelcastMode
+specifier|private
+name|String
+name|hazelcastMode
+init|=
+literal|"node"
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -121,6 +129,32 @@ operator|.
 name|hazelcastInstance
 operator|=
 name|hazelcastInstance
+expr_stmt|;
+block|}
+DECL|method|getHazelcastMode ()
+specifier|public
+name|String
+name|getHazelcastMode
+parameter_list|()
+block|{
+return|return
+name|hazelcastMode
+return|;
+block|}
+DECL|method|setHazelcastMode (String hazelcastMode)
+specifier|public
+name|void
+name|setHazelcastMode
+parameter_list|(
+name|String
+name|hazelcastMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hazelcastMode
+operator|=
+name|hazelcastMode
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
