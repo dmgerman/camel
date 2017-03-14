@@ -719,7 +719,7 @@ argument_list|)
 expr_stmt|;
 name|zip
 operator|.
-name|setSupportEmptyDirectory
+name|setSupportIteratorForEmptyDirectory
 argument_list|(
 literal|true
 argument_list|)
@@ -790,7 +790,7 @@ argument_list|)
 expr_stmt|;
 name|zip
 operator|.
-name|setSupportEmptyDirectory
+name|setSupportIteratorForEmptyDirectory
 argument_list|(
 literal|false
 argument_list|)
