@@ -315,7 +315,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\"inputDataType\"\\s?:\\s?\"(\\*|[\\w|.:]+)\".*"
+literal|"\"inputDataType\"\\s?:\\s?\"(\\*|[\\w|.:*]+)\".*"
 argument_list|)
 decl_stmt|;
 DECL|field|OUTPUT_DATA_TYPE_PATTERN
@@ -329,7 +329,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\"outputDataType\"\\s?:\\s?\"([\\w|.:]+)\".*"
+literal|"\"outputDataType\"\\s?:\\s?\"([\\w|.:*]+)\".*"
 argument_list|)
 decl_stmt|;
 DECL|field|componentName
