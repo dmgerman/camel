@@ -396,7 +396,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -439,6 +439,20 @@ operator|.
 name|util
 operator|.
 name|ResourceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
 import|;
 end_import
 
@@ -534,29 +548,13 @@ name|HAZELCAST_INSTANCE_PARAM
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|removeStartingCharacters
-import|;
-end_import
-
 begin_class
 DECL|class|HazelcastComponent
 specifier|public
 class|class
 name|HazelcastComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -625,11 +623,7 @@ name|HazelcastComponent
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|HazelcastDefaultEndpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -653,10 +647,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|HazelcastDefaultEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|this
@@ -793,6 +783,8 @@ block|{
 comment|// remaining is the cache name
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -849,6 +841,8 @@ block|{
 comment|// remaining is the cache name
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -905,6 +899,8 @@ block|{
 comment|// remaining is the name of the atomic value
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -961,6 +957,8 @@ block|{
 comment|// remaining is anything (name it foo ;)
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -1015,6 +1013,8 @@ block|{
 comment|// remaining is anything (name it foo ;)
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -1071,6 +1071,8 @@ block|{
 comment|// remaining is anything (name it foo ;)
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -1127,6 +1129,8 @@ block|{
 comment|// remaining is anything (name it foo ;)
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -1212,6 +1216,8 @@ block|{
 comment|// remaining is anything (name it foo ;)
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -1268,6 +1274,8 @@ block|{
 comment|// remaining is anything (name it foo ;)
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -1324,6 +1332,8 @@ block|{
 comment|// remaining is anything (name it foo ;)
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
@@ -1380,6 +1390,8 @@ block|{
 comment|// remaining is anything (name it foo ;)
 name|remaining
 operator|=
+name|StringHelper
+operator|.
 name|removeStartingCharacters
 argument_list|(
 name|remaining
