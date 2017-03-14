@@ -24,6 +24,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -63,6 +73,11 @@ argument_list|(
 name|PaxExam
 operator|.
 name|class
+argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"CAMEL-10363 camel-spring-redis - Cannot install in Karaf"
 argument_list|)
 DECL|class|CamelSpringRedisTest
 specifier|public
