@@ -977,6 +977,8 @@ name|addAsResource
 argument_list|(
 literal|"spring-logback.xml"
 argument_list|,
+name|CLASSES_FOLDER
+operator|+
 literal|"/spring-logback.xml"
 argument_list|)
 expr_stmt|;
@@ -1013,6 +1015,8 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
+name|CLASSES_FOLDER
+operator|+
 literal|"/"
 operator|+
 name|res

@@ -170,6 +170,13 @@ argument_list|(
 literal|".*(\\.integration\\..*|XXXTest$|BaseCacheTest$)"
 argument_list|)
 operator|.
+name|resource
+argument_list|(
+literal|"components/cache-ehcache.xml"
+argument_list|,
+literal|"ehcache.xml"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
