@@ -586,6 +586,9 @@ init|=
 operator|new
 name|SalesforceSession
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|httpClient
 argument_list|,
 name|httpClient
