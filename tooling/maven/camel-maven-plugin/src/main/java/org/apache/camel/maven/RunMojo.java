@@ -3882,7 +3882,7 @@ return|;
 block|}
 comment|/**      * Examine the plugin dependencies to find the executable artifact.      *      * @return an artifact which refers to the actual executable tool (not a POM)      * @throws MojoExecutionException      */
 DECL|method|findExecutableArtifact ()
-specifier|private
+specifier|protected
 name|Artifact
 name|findExecutableArtifact
 parameter_list|()
