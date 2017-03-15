@@ -435,7 +435,7 @@ name|sendServerVersion
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
+comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object. This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
 DECL|field|allowJavaSerializedObject
 specifier|private
 name|Boolean
