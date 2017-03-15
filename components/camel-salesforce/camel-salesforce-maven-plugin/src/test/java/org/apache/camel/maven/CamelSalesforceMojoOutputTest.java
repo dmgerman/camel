@@ -50,6 +50,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -527,6 +539,10 @@ operator|.
 name|readFileToString
 argument_list|(
 name|generatedFile
+argument_list|,
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 decl_stmt|;
 name|String
@@ -546,13 +562,17 @@ literal|"/generated/"
 operator|+
 name|source
 argument_list|)
+argument_list|,
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 decl_stmt|;
 name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"Geberated source file in "
+literal|"Generated source file in "
 operator|+
 name|source
 operator|+
@@ -575,6 +595,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|InputStream
 name|inputStream
 init|=
@@ -588,7 +610,8 @@ literal|"/"
 operator|+
 name|name
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|ObjectMapper
 name|mapper
 init|=
@@ -609,6 +632,7 @@ operator|.
 name|class
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 end_class
