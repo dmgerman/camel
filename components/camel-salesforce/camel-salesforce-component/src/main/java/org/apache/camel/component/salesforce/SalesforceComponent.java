@@ -642,6 +642,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|CONNECTION_TIMEOUT
+specifier|private
 specifier|static
 specifier|final
 name|int
@@ -650,6 +651,7 @@ init|=
 literal|60000
 decl_stmt|;
 DECL|field|SOBJECT_NAME_PATTERN
+specifier|private
 specifier|static
 specifier|final
 name|Pattern
@@ -663,6 +665,7 @@ literal|"^.*[\\?&]sObjectName=([^&,]+).*$"
 argument_list|)
 decl_stmt|;
 DECL|field|APEX_CALL_PREFIX
+specifier|private
 specifier|static
 specifier|final
 name|String
