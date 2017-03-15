@@ -1092,12 +1092,6 @@ name|SpringBootAutoConfigurationMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The output directory for generated component schema file      *      * @parameter default-value="${project.build.directory}/classes"      */
-DECL|field|classesDir
-specifier|protected
-name|File
-name|classesDir
-decl_stmt|;
 comment|/**      * Useful to move configuration towards starters.      * Warning: the spring.factories files sometimes are used also on the main artifacts.      * Make sure it is not the case before enabling this property.      */
 DECL|field|DELETE_FILES_ON_MAIN_ARTIFACTS
 specifier|private
@@ -1287,6 +1281,12 @@ literal|"camel-grape"
 block|,
 literal|"camel-connector"
 block|}
+decl_stmt|;
+comment|/**      * The output directory for generated component schema file      *      * @parameter default-value="${project.build.directory}/classes"      */
+DECL|field|classesDir
+specifier|protected
+name|File
+name|classesDir
 decl_stmt|;
 comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
