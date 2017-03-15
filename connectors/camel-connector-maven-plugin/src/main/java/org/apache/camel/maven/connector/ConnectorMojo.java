@@ -1524,13 +1524,6 @@ argument_list|(
 literal|"endpointOverrides"
 argument_list|)
 decl_stmt|;
-name|ObjectMapper
-name|mapper
-init|=
-operator|new
-name|ObjectMapper
-argument_list|()
-decl_stmt|;
 name|StringBuilder
 name|sb
 init|=
