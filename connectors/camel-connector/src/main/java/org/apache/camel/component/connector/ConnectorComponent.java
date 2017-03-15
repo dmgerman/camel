@@ -139,6 +139,31 @@ name|String
 name|getCamelConnectorJSon
 parameter_list|()
 function_decl|;
+comment|/**      * A set of additional component options to use for the base component when creating connector endpoints.      */
+DECL|method|getComponentOptions ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getComponentOptions
+parameter_list|()
+function_decl|;
+comment|/**      * A set of additional component options to use for the base component when creating connector endpoints.      */
+DECL|method|setComponentOptions (Map<String, Object> baseComponentOptions)
+name|void
+name|setComponentOptions
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|baseComponentOptions
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

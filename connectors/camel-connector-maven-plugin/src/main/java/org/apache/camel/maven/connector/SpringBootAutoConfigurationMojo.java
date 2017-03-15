@@ -533,6 +533,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Lazy
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -872,6 +886,12 @@ argument_list|)
 operator|+
 literal|".springboot"
 decl_stmt|;
+comment|// we only create spring boot auto configuration if there is options to configure
+if|if
+condition|(
+name|hasOptions
+condition|)
+block|{
 name|getLog
 argument_list|()
 operator|.
@@ -885,11 +905,6 @@ name|getScheme
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|hasOptions
-condition|)
-block|{
 name|createConnectorConfigurationSource
 argument_list|(
 name|pkg
@@ -901,7 +916,6 @@ argument_list|,
 name|connectorScheme
 argument_list|)
 expr_stmt|;
-block|}
 name|createConnectorAutoConfigurationSource
 argument_list|(
 name|pkg
@@ -921,16 +935,6 @@ name|javaType
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|getLog
-argument_list|()
-operator|.
-name|warn
-argument_list|(
-literal|"Cannot generate Spring Boot AutoConfiguration as camel-component-schema.json file missing"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|createConnectorSpringFactorySource (String packageName, String javaType)
@@ -1992,6 +1996,23 @@ literal|"configuration"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// must be named -component because camel-spring-boot uses that to lookup components
+name|String
+name|beanName
+init|=
+name|connectorScheme
+operator|+
+literal|"-component"
+decl_stmt|;
+name|method
+operator|.
+name|addAnnotation
+argument_list|(
+name|Lazy
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|method
 operator|.
 name|addAnnotation
@@ -2005,16 +2026,7 @@ name|setStringValue
 argument_list|(
 literal|"name"
 argument_list|,
-name|connectorScheme
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|US
-argument_list|)
-operator|+
-literal|"-connector"
+name|beanName
 argument_list|)
 expr_stmt|;
 name|method
@@ -2371,6 +2383,13 @@ operator|.
 name|append
 argument_list|(
 literal|"IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), connector, parameters);\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"connector.setComponentOptions(parameters);\n"
 argument_list|)
 expr_stmt|;
 block|}
