@@ -735,8 +735,6 @@ comment|/* others (not managed) -> */
 literal|"camel-groovy-dsl"
 block|,
 literal|"camel-scala"
-block|,
-literal|"camel-zipkin"
 block|}
 decl_stmt|;
 DECL|field|IGNORE_TEST_MODULES
