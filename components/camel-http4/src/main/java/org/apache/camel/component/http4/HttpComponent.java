@@ -218,22 +218,6 @@ name|http
 operator|.
 name|common
 operator|.
-name|HttpConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|http
-operator|.
-name|common
-operator|.
 name|HttpHelper
 import|;
 end_import
@@ -677,6 +661,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use the custom HttpClientConfigurer to perform configuration of the HttpClient that will be used."
 argument_list|)
 DECL|field|httpClientConfigurer
 specifier|protected
@@ -689,6 +677,12 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom and shared HttpClientConnectionManager to manage connections."
+operator|+
+literal|" If this has been configured then this is always used for all endpoints created by this component."
 argument_list|)
 DECL|field|clientConnectionManager
 specifier|protected
@@ -701,6 +695,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom org.apache.http.protocol.HttpContext when executing requests."
 argument_list|)
 DECL|field|httpContext
 specifier|protected
@@ -713,6 +711,14 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|description
+operator|=
+literal|"To configure security using SSLContextParameters."
+operator|+
+literal|" Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent."
+operator|+
+literal|" If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need."
 argument_list|)
 DECL|field|sslContextParameters
 specifier|protected
@@ -725,6 +731,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier."
 argument_list|)
 DECL|field|x509HostnameVerifier
 specifier|protected
@@ -741,6 +751,16 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom org.apache.http.client.CookieStore."
+operator|+
+literal|" By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store."
+operator|+
+literal|" Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie"
+operator|+
+literal|" shouldn't be stored as we are just bridging (eg acting as a proxy)."
 argument_list|)
 DECL|field|cookieStore
 specifier|protected
@@ -758,6 +778,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"200"
+argument_list|,
+name|description
+operator|=
+literal|"The maximum number of connections."
 argument_list|)
 DECL|field|maxTotalConnections
 specifier|protected
@@ -776,6 +800,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"20"
+argument_list|,
+name|description
+operator|=
+literal|"The maximum number of connections per route."
 argument_list|)
 DECL|field|connectionsPerRoute
 specifier|protected
@@ -791,6 +819,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"The time for connection to live, the time unit is millisecond, the default value is always keep alive."
 argument_list|)
 DECL|field|connectionTimeToLive
 specifier|protected
@@ -2657,67 +2689,6 @@ operator|.
 name|clientConnectionManager
 operator|=
 name|clientConnectionManager
-expr_stmt|;
-block|}
-comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
-DECL|method|setHttpBinding (HttpBinding httpBinding)
-specifier|public
-name|void
-name|setHttpBinding
-parameter_list|(
-name|HttpBinding
-name|httpBinding
-parameter_list|)
-block|{
-comment|// need to override and call super for component docs
-name|super
-operator|.
-name|setHttpBinding
-argument_list|(
-name|httpBinding
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * To use the shared HttpConfiguration as base configuration.      */
-annotation|@
-name|Override
-DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
-specifier|public
-name|void
-name|setHttpConfiguration
-parameter_list|(
-name|HttpConfiguration
-name|httpConfiguration
-parameter_list|)
-block|{
-comment|// need to override and call super for component docs
-name|super
-operator|.
-name|setHttpConfiguration
-argument_list|(
-name|httpConfiguration
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      */
-annotation|@
-name|Override
-DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
-specifier|public
-name|void
-name|setAllowJavaSerializedObject
-parameter_list|(
-name|boolean
-name|allowJavaSerializedObject
-parameter_list|)
-block|{
-comment|// need to override and call super for component docs
-name|super
-operator|.
-name|setAllowJavaSerializedObject
-argument_list|(
-name|allowJavaSerializedObject
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getHttpContext ()

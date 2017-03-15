@@ -85,6 +85,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom HttpBinding to control the mapping between Camel message and HttpClient."
 argument_list|)
 DECL|field|httpBinding
 specifier|protected
@@ -97,6 +101,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use the shared HttpConfiguration as base configuration."
 argument_list|)
 DECL|field|httpConfiguration
 specifier|protected
@@ -109,6 +117,14 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object."
+operator|+
+literal|" This is by default turned off. "
+operator|+
+literal|" If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk."
 argument_list|)
 DECL|field|allowJavaSerializedObject
 specifier|protected

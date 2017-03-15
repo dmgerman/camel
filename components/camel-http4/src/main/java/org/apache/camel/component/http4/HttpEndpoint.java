@@ -441,6 +441,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom HttpContext instance"
 argument_list|)
 DECL|field|httpContext
 specifier|private
@@ -453,6 +457,12 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Register a custom configuration strategy for new HttpClient instances"
+operator|+
+literal|" created by producers or consumers such as to configure authentication mechanisms etc."
 argument_list|)
 DECL|field|httpClientConfigurer
 specifier|private
@@ -473,6 +483,10 @@ argument_list|,
 name|multiValue
 operator|=
 literal|true
+argument_list|,
+name|description
+operator|=
+literal|"To configure the HttpClient using the key/values from the Map."
 argument_list|)
 DECL|field|httpClientOptions
 specifier|private
@@ -490,6 +504,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom HttpClientConnectionManager to manage connections"
 argument_list|)
 DECL|field|clientConnectionManager
 specifier|private
@@ -502,6 +520,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Provide access to the http client request parameters used on new RequestConfig instances used by producers or consumers of this endpoint."
 argument_list|)
 DECL|field|clientBuilder
 specifier|private
@@ -514,6 +536,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Sets a custom HttpClient to be used by the producer"
 argument_list|)
 DECL|field|httpClient
 specifier|private
@@ -530,6 +556,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"To use System Properties as fallback for configuration"
 argument_list|)
 DECL|field|useSystemProperties
 specifier|private
@@ -542,6 +572,16 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom CookieStore."
+operator|+
+literal|" By default the BasicCookieStore is used which is an in-memory only cookie store."
+operator|+
+literal|" Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy)."
+operator|+
+literal|" If a cookieHandler is set then the cookie store is also forced to be a noop cookie store as cookie handling is then performed by the cookieHandler."
 argument_list|)
 DECL|field|cookieStore
 specifier|private
@@ -558,22 +598,16 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
-argument_list|)
-DECL|field|authenticationPreemptive
-specifier|private
-name|boolean
-name|authenticationPreemptive
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
 argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to clear expired cookies before sending the HTTP request."
+operator|+
+literal|" This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired."
 argument_list|)
 DECL|field|clearExpiredCookies
 specifier|private
@@ -588,6 +622,28 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"If this option is true, camel-http4 sends preemptive basic authentication to the server."
+argument_list|)
+DECL|field|authenticationPreemptive
+specifier|private
+name|boolean
+name|authenticationPreemptive
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Whether the HTTP DELETE should include the message body or not."
+operator|+
+literal|" By default HTTP DELETE do not include any HTTP message. However in some rare cases users may need to be able to include the message body."
 argument_list|)
 DECL|field|deleteWithBody
 specifier|private
@@ -604,6 +660,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"200"
+argument_list|,
+name|description
+operator|=
+literal|"The maximum number of connections."
 argument_list|)
 DECL|field|maxTotalConnections
 specifier|private
@@ -620,6 +680,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"20"
+argument_list|,
+name|description
+operator|=
+literal|"The maximum number of connections per route."
 argument_list|)
 DECL|field|connectionsPerRoute
 specifier|private
@@ -632,6 +696,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier"
 argument_list|)
 DECL|field|x509HostnameVerifier
 specifier|private
@@ -863,7 +931,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Gets the HttpClient to be used by {@link org.apache.camel.component.http4.HttpProducer}      */
 DECL|method|getHttpClient ()
 specifier|public
 specifier|synchronized
@@ -888,6 +955,7 @@ return|return
 name|httpClient
 return|;
 block|}
+comment|/**      * Sets a custom HttpClient to be used by the producer      */
 DECL|method|setHttpClient (HttpClient httpClient)
 specifier|public
 name|void
@@ -1262,7 +1330,6 @@ block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-comment|/**      * Provide access to the http client request parameters used on new {@link RequestConfig} instances      * used by producers or consumers of this endpoint.      */
 DECL|method|getClientBuilder ()
 specifier|public
 name|HttpClientBuilder
@@ -1300,16 +1367,6 @@ return|return
 name|httpClientConfigurer
 return|;
 block|}
-DECL|method|getHttpContext ()
-specifier|public
-name|HttpContext
-name|getHttpContext
-parameter_list|()
-block|{
-return|return
-name|httpContext
-return|;
-block|}
 comment|/**      * Register a custom configuration strategy for new {@link HttpClient} instances      * created by producers or consumers such as to configure authentication mechanisms etc      */
 DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
 specifier|public
@@ -1326,6 +1383,16 @@ name|httpClientConfigurer
 operator|=
 name|httpClientConfigurer
 expr_stmt|;
+block|}
+DECL|method|getHttpContext ()
+specifier|public
+name|HttpContext
+name|getHttpContext
+parameter_list|()
+block|{
+return|return
+name|httpContext
+return|;
 block|}
 comment|/**      * To use a custom HttpContext instance      */
 DECL|method|setHttpContext (HttpContext httpContext)
@@ -1435,7 +1502,7 @@ return|return
 name|cookieStore
 return|;
 block|}
-comment|/**      * To use a custom org.apache.http.client.CookieStore.      * By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store.      * Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie      * shouldn't be stored as we are just bridging (eg acting as a proxy).      * If a cookieHandler is set then the cookie store is also forced to be a noop cookie store as cookie handling is      * then performed by the cookieHandler.      */
+comment|/**      * To use a custom CookieStore.      * By default the BasicCookieStore is used which is an in-memory only cookie store.      * Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie      * shouldn't be stored as we are just bridging (eg acting as a proxy).      * If a cookieHandler is set then the cookie store is also forced to be a noop cookie store as cookie handling is      * then performed by the cookieHandler.      */
 DECL|method|setCookieStore (CookieStore cookieStore)
 specifier|public
 name|void

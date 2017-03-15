@@ -217,30 +217,6 @@ specifier|private
 name|HttpClientConnectionManager
 name|clientConnectionManager
 decl_stmt|;
-comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient.      */
-annotation|@
-name|NestedConfigurationProperty
-DECL|field|httpBinding
-specifier|private
-name|HttpBinding
-name|httpBinding
-decl_stmt|;
-comment|/**      * To use the shared HttpConfiguration as base configuration.      */
-annotation|@
-name|NestedConfigurationProperty
-DECL|field|httpConfiguration
-specifier|private
-name|HttpConfiguration
-name|httpConfiguration
-decl_stmt|;
-comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
-DECL|field|allowJavaSerializedObject
-specifier|private
-name|Boolean
-name|allowJavaSerializedObject
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * To use a custom org.apache.http.protocol.HttpContext when executing      * requests.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -292,6 +268,30 @@ DECL|field|cookieStore
 specifier|private
 name|CookieStore
 name|cookieStore
+decl_stmt|;
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|httpBinding
+specifier|private
+name|HttpBinding
+name|httpBinding
+decl_stmt|;
+comment|/**      * To use the shared HttpConfiguration as base configuration.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|httpConfiguration
+specifier|private
+name|HttpConfiguration
+name|httpConfiguration
+decl_stmt|;
+comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object. This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
+DECL|field|allowJavaSerializedObject
+specifier|private
+name|Boolean
+name|allowJavaSerializedObject
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
@@ -359,84 +359,6 @@ operator|.
 name|clientConnectionManager
 operator|=
 name|clientConnectionManager
-expr_stmt|;
-block|}
-DECL|method|getHttpBinding ()
-specifier|public
-name|HttpBinding
-name|getHttpBinding
-parameter_list|()
-block|{
-return|return
-name|httpBinding
-return|;
-block|}
-DECL|method|setHttpBinding (HttpBinding httpBinding)
-specifier|public
-name|void
-name|setHttpBinding
-parameter_list|(
-name|HttpBinding
-name|httpBinding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpBinding
-operator|=
-name|httpBinding
-expr_stmt|;
-block|}
-DECL|method|getHttpConfiguration ()
-specifier|public
-name|HttpConfiguration
-name|getHttpConfiguration
-parameter_list|()
-block|{
-return|return
-name|httpConfiguration
-return|;
-block|}
-DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
-specifier|public
-name|void
-name|setHttpConfiguration
-parameter_list|(
-name|HttpConfiguration
-name|httpConfiguration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpConfiguration
-operator|=
-name|httpConfiguration
-expr_stmt|;
-block|}
-DECL|method|getAllowJavaSerializedObject ()
-specifier|public
-name|Boolean
-name|getAllowJavaSerializedObject
-parameter_list|()
-block|{
-return|return
-name|allowJavaSerializedObject
-return|;
-block|}
-DECL|method|setAllowJavaSerializedObject (Boolean allowJavaSerializedObject)
-specifier|public
-name|void
-name|setAllowJavaSerializedObject
-parameter_list|(
-name|Boolean
-name|allowJavaSerializedObject
-parameter_list|)
-block|{
-name|this
-operator|.
-name|allowJavaSerializedObject
-operator|=
-name|allowJavaSerializedObject
 expr_stmt|;
 block|}
 DECL|method|getHttpContext ()
@@ -619,6 +541,84 @@ operator|.
 name|cookieStore
 operator|=
 name|cookieStore
+expr_stmt|;
+block|}
+DECL|method|getHttpBinding ()
+specifier|public
+name|HttpBinding
+name|getHttpBinding
+parameter_list|()
+block|{
+return|return
+name|httpBinding
+return|;
+block|}
+DECL|method|setHttpBinding (HttpBinding httpBinding)
+specifier|public
+name|void
+name|setHttpBinding
+parameter_list|(
+name|HttpBinding
+name|httpBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpBinding
+operator|=
+name|httpBinding
+expr_stmt|;
+block|}
+DECL|method|getHttpConfiguration ()
+specifier|public
+name|HttpConfiguration
+name|getHttpConfiguration
+parameter_list|()
+block|{
+return|return
+name|httpConfiguration
+return|;
+block|}
+DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
+specifier|public
+name|void
+name|setHttpConfiguration
+parameter_list|(
+name|HttpConfiguration
+name|httpConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpConfiguration
+operator|=
+name|httpConfiguration
+expr_stmt|;
+block|}
+DECL|method|getAllowJavaSerializedObject ()
+specifier|public
+name|Boolean
+name|getAllowJavaSerializedObject
+parameter_list|()
+block|{
+return|return
+name|allowJavaSerializedObject
+return|;
+block|}
+DECL|method|setAllowJavaSerializedObject (Boolean allowJavaSerializedObject)
+specifier|public
+name|void
+name|setAllowJavaSerializedObject
+parameter_list|(
+name|Boolean
+name|allowJavaSerializedObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowJavaSerializedObject
+operator|=
+name|allowJavaSerializedObject
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
