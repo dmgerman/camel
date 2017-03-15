@@ -2214,6 +2214,13 @@ name|ignore
 operator|.
 name|add
 argument_list|(
+literal|"org.opensaml"
+argument_list|)
+expr_stmt|;
+name|ignore
+operator|.
+name|add
+argument_list|(
 literal|"org.ow2.asm"
 argument_list|)
 expr_stmt|;
