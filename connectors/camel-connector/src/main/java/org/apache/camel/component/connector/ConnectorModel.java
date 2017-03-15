@@ -259,7 +259,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\"name\"\\s?:\\s?\"([\\w|.]+)\".*"
+literal|"\"name\"\\s?:\\s?\"([\\w|.-]+)\".*"
 argument_list|)
 decl_stmt|;
 DECL|field|JAVA_TYPE_PATTERN
@@ -301,7 +301,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\"baseScheme\"\\s?:\\s?\"([\\w|.]+)\".*"
+literal|"\"baseScheme\"\\s?:\\s?\"([\\w|.-]+)\".*"
 argument_list|)
 decl_stmt|;
 DECL|field|INPUT_DATA_TYPE_PATTERN
