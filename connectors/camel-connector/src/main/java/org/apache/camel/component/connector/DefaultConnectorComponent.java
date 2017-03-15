@@ -84,16 +84,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -517,9 +507,6 @@ operator|instanceof
 name|Component
 condition|)
 block|{
-name|Component
-name|old
-init|=
 name|getCamelContext
 argument_list|()
 operator|.
@@ -527,7 +514,7 @@ name|removeComponent
 argument_list|(
 name|scheme
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// ensure component is started and stopped when Camel shutdown
 name|getCamelContext
 argument_list|()
