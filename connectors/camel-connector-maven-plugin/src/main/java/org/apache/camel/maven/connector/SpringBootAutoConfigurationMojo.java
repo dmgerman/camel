@@ -1384,7 +1384,7 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO: only include the component options so we can configure them
+comment|// TODO: only include the component options the connector has defined
 if|if
 condition|(
 literal|"true"
