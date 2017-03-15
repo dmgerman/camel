@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.maven.connector
+DECL|package|org.apache.camel.maven.connector.util
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|maven
 operator|.
 name|connector
+operator|.
+name|util
 package|;
 end_package
 

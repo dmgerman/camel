@@ -154,6 +154,24 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|connector
+operator|.
+name|util
+operator|.
+name|JSonSchemaHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|io
@@ -526,6 +544,8 @@ name|maven
 operator|.
 name|connector
 operator|.
+name|util
+operator|.
 name|FileHelper
 operator|.
 name|loadText
@@ -544,9 +564,31 @@ name|maven
 operator|.
 name|connector
 operator|.
+name|util
+operator|.
 name|StringHelper
 operator|.
 name|getSafeValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|connector
+operator|.
+name|util
+operator|.
+name|StringHelper
+operator|.
+name|getShortJavaType
 import|;
 end_import
 
@@ -598,22 +640,6 @@ DECL|field|classesDirectory
 specifier|private
 name|File
 name|classesDirectory
-decl_stmt|;
-annotation|@
-name|Parameter
-argument_list|(
-name|defaultValue
-operator|=
-literal|"${basedir}"
-argument_list|,
-name|required
-operator|=
-literal|true
-argument_list|)
-DECL|field|baseDir
-specifier|private
-name|File
-name|baseDir
 decl_stmt|;
 annotation|@
 name|Parameter
@@ -880,8 +906,6 @@ name|createConnectorAutoConfigurationSource
 argument_list|(
 name|pkg
 argument_list|,
-name|model
-argument_list|,
 name|hasOptions
 argument_list|,
 name|javaType
@@ -893,7 +917,7 @@ name|createConnectorSpringFactorySource
 argument_list|(
 name|pkg
 argument_list|,
-name|model
+name|javaType
 argument_list|)
 expr_stmt|;
 block|}
@@ -909,7 +933,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createConnectorSpringFactorySource (String packageName, ComponentModel model)
+DECL|method|createConnectorSpringFactorySource (String packageName, String javaType)
 specifier|private
 name|void
 name|createConnectorSpringFactorySource
@@ -917,8 +941,8 @@ parameter_list|(
 name|String
 name|packageName
 parameter_list|,
-name|ComponentModel
-name|model
+name|String
+name|javaType
 parameter_list|)
 throws|throws
 name|MojoFailureException
@@ -926,10 +950,7 @@ block|{
 name|int
 name|pos
 init|=
-name|model
-operator|.
-name|getJavaType
-argument_list|()
+name|javaType
 operator|.
 name|lastIndexOf
 argument_list|(
@@ -939,10 +960,7 @@ decl_stmt|;
 name|String
 name|name
 init|=
-name|model
-operator|.
-name|getJavaType
-argument_list|()
+name|javaType
 operator|.
 name|substring
 argument_list|(
@@ -1016,6 +1034,18 @@ argument_list|(
 name|lineToAdd
 argument_list|)
 expr_stmt|;
+comment|// project root folder
+name|File
+name|root
+init|=
+name|classesDirectory
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|getParentFile
+argument_list|()
+decl_stmt|;
 name|String
 name|fileName
 init|=
@@ -1027,7 +1057,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|baseDir
+name|root
 argument_list|,
 name|fileName
 argument_list|)
@@ -1288,6 +1318,8 @@ decl_stmt|;
 comment|// make sure prefix is in lower case
 name|prefix
 operator|=
+literal|"camel.connector."
+operator|+
 name|connectorScheme
 operator|.
 name|toLowerCase
@@ -1661,16 +1693,13 @@ name|fileName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createConnectorAutoConfigurationSource (String packageName, ComponentModel model, boolean hasOptions, String javaType, String connectorScheme)
+DECL|method|createConnectorAutoConfigurationSource (String packageName, boolean hasOptions, String javaType, String connectorScheme)
 specifier|private
 name|void
 name|createConnectorAutoConfigurationSource
 parameter_list|(
 name|String
 name|packageName
-parameter_list|,
-name|ComponentModel
-name|model
 parameter_list|,
 name|boolean
 name|hasOptions
@@ -1867,10 +1896,7 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
-name|model
-operator|.
-name|getJavaType
-argument_list|()
+name|javaType
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -1882,14 +1908,19 @@ argument_list|)
 expr_stmt|;
 comment|// add method for auto configure
 name|String
+name|shortJavaType
+init|=
+name|getShortJavaType
+argument_list|(
+name|javaType
+argument_list|)
+decl_stmt|;
+name|String
 name|body
 init|=
 name|createComponentBody
 argument_list|(
-name|model
-operator|.
-name|getShortJavaType
-argument_list|()
+name|shortJavaType
 argument_list|,
 name|hasOptions
 argument_list|)
@@ -1899,10 +1930,7 @@ name|methodName
 init|=
 literal|"configure"
 operator|+
-name|model
-operator|.
-name|getShortJavaType
-argument_list|()
+name|shortJavaType
 decl_stmt|;
 name|MethodSource
 argument_list|<
@@ -1930,10 +1958,7 @@ argument_list|)
 operator|.
 name|setReturnType
 argument_list|(
-name|model
-operator|.
-name|getShortJavaType
-argument_list|()
+name|shortJavaType
 argument_list|)
 operator|.
 name|addThrows
@@ -2021,10 +2046,7 @@ name|setLiteralValue
 argument_list|(
 literal|"value"
 argument_list|,
-name|model
-operator|.
-name|getShortJavaType
-argument_list|()
+name|javaType
 operator|+
 literal|".class"
 argument_list|)
@@ -2074,13 +2096,25 @@ parameter_list|)
 throws|throws
 name|MojoFailureException
 block|{
+comment|// project root folder
+name|File
+name|root
+init|=
+name|classesDirectory
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|getParentFile
+argument_list|()
+decl_stmt|;
 name|File
 name|target
 init|=
 operator|new
 name|File
 argument_list|(
-literal|"."
+name|root
 argument_list|,
 literal|"src/main/java/"
 operator|+
