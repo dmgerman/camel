@@ -62,12 +62,12 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link EhcacheEndpoint}.  */
+comment|/**  * Represents the component that manages {@link DefaultComponent}.  */
 end_comment
 
 begin_class
@@ -76,21 +76,13 @@ specifier|public
 class|class
 name|EhcacheComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|EhcacheComponent ()
 specifier|public
 name|EhcacheComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|EhcacheEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|EhcacheComponent (CamelContext context)
 specifier|public
 name|EhcacheComponent
@@ -102,10 +94,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|EhcacheEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
