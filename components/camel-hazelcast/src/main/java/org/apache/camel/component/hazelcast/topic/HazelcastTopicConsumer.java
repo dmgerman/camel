@@ -114,7 +114,7 @@ name|HazelcastTopicConsumer
 extends|extends
 name|HazelcastDefaultConsumer
 block|{
-DECL|method|HazelcastTopicConsumer (HazelcastInstance hazelcastInstance, Endpoint endpoint, Processor processor, String cacheName)
+DECL|method|HazelcastTopicConsumer (HazelcastInstance hazelcastInstance, Endpoint endpoint, Processor processor, String cacheName, boolean reliable)
 specifier|public
 name|HazelcastTopicConsumer
 parameter_list|(
@@ -129,6 +129,9 @@ name|processor
 parameter_list|,
 name|String
 name|cacheName
+parameter_list|,
+name|boolean
+name|reliable
 parameter_list|)
 block|{
 name|super
@@ -147,14 +150,35 @@ argument_list|<
 name|Object
 argument_list|>
 name|topic
-init|=
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|reliable
+condition|)
+block|{
+name|topic
+operator|=
 name|hazelcastInstance
 operator|.
 name|getTopic
 argument_list|(
 name|cacheName
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|topic
+operator|=
+name|hazelcastInstance
+operator|.
+name|getReliableTopic
+argument_list|(
+name|cacheName
+argument_list|)
+expr_stmt|;
+block|}
 name|topic
 operator|.
 name|addMessageListener

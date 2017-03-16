@@ -104,6 +104,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|topic
+operator|.
+name|HazelcastTopicConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -272,6 +290,13 @@ name|HazelcastSedaConfiguration
 name|hazelcastSedaConfiguration
 decl_stmt|;
 comment|// to include component schema docs
+annotation|@
+name|UriParam
+DECL|field|hazelcastTopicConfiguration
+specifier|private
+name|HazelcastTopicConfiguration
+name|hazelcastTopicConfiguration
+decl_stmt|;
 DECL|method|HazelcastDefaultEndpoint (HazelcastInstance hazelcastInstance, String endpointUri, Component component)
 specifier|public
 name|HazelcastDefaultEndpoint

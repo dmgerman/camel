@@ -140,7 +140,7 @@ name|Object
 argument_list|>
 name|topic
 decl_stmt|;
-DECL|method|HazelcastTopicProducer (HazelcastInstance hazelcastInstance, HazelcastDefaultEndpoint endpoint, String topicName)
+DECL|method|HazelcastTopicProducer (HazelcastInstance hazelcastInstance, HazelcastDefaultEndpoint endpoint, String topicName, boolean reliable)
 specifier|public
 name|HazelcastTopicProducer
 parameter_list|(
@@ -152,6 +152,9 @@ name|endpoint
 parameter_list|,
 name|String
 name|topicName
+parameter_list|,
+name|boolean
+name|reliable
 parameter_list|)
 block|{
 name|super
@@ -159,6 +162,12 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|reliable
+condition|)
+block|{
 name|this
 operator|.
 name|topic
@@ -170,6 +179,21 @@ argument_list|(
 name|topicName
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|this
+operator|.
+name|topic
+operator|=
+name|hazelcastInstance
+operator|.
+name|getReliableTopic
+argument_list|(
+name|topicName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public

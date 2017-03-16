@@ -108,10 +108,6 @@ name|HazelcastDefaultEndpoint
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|HazelcastTopicEndpoint
 specifier|public
@@ -122,7 +118,13 @@ name|HazelcastDefaultEndpoint
 implements|implements
 name|MultipleConsumersSupport
 block|{
-DECL|method|HazelcastTopicEndpoint (HazelcastInstance hazelcastInstance, String endpointUri, Component component, String cacheName)
+DECL|field|configuration
+specifier|private
+specifier|final
+name|HazelcastTopicConfiguration
+name|configuration
+decl_stmt|;
+DECL|method|HazelcastTopicEndpoint (HazelcastInstance hazelcastInstance, String endpointUri, Component component, String cacheName, final HazelcastTopicConfiguration configuration)
 specifier|public
 name|HazelcastTopicEndpoint
 parameter_list|(
@@ -137,6 +139,10 @@ name|component
 parameter_list|,
 name|String
 name|cacheName
+parameter_list|,
+specifier|final
+name|HazelcastTopicConfiguration
+name|configuration
 parameter_list|)
 block|{
 name|super
@@ -149,6 +155,12 @@ name|component
 argument_list|,
 name|cacheName
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 annotation|@
@@ -177,6 +189,11 @@ argument_list|,
 name|processor
 argument_list|,
 name|cacheName
+argument_list|,
+name|configuration
+operator|.
+name|isReliable
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|configureConsumer
@@ -207,6 +224,11 @@ argument_list|,
 name|this
 argument_list|,
 name|cacheName
+argument_list|,
+name|configuration
+operator|.
+name|isReliable
+argument_list|()
 argument_list|)
 return|;
 block|}
