@@ -702,6 +702,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|executeConnector ()
 specifier|private
 name|void
@@ -717,6 +722,14 @@ literal|null
 decl_stmt|;
 name|String
 name|connectorScheme
+init|=
+literal|null
+decl_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|componentOptions
 init|=
 literal|null
 decl_stmt|;
@@ -782,6 +795,18 @@ operator|.
 name|get
 argument_list|(
 literal|"scheme"
+argument_list|)
+expr_stmt|;
+name|componentOptions
+operator|=
+operator|(
+name|List
+operator|)
+name|dto
+operator|.
+name|get
+argument_list|(
+literal|"componentOptions"
 argument_list|)
 expr_stmt|;
 block|}
@@ -914,6 +939,8 @@ argument_list|,
 name|javaType
 argument_list|,
 name|connectorScheme
+argument_list|,
+name|componentOptions
 argument_list|)
 expr_stmt|;
 name|createConnectorAutoConfigurationSource
@@ -1167,7 +1194,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createConnectorConfigurationSource (String packageName, ComponentModel model, String javaType, String connectorScheme)
+DECL|method|createConnectorConfigurationSource (String packageName, ComponentModel model, String javaType, String connectorScheme, List<String> componentOptions)
 specifier|private
 name|void
 name|createConnectorConfigurationSource
@@ -1183,6 +1210,12 @@ name|javaType
 parameter_list|,
 name|String
 name|connectorScheme
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|componentOptions
 parameter_list|)
 throws|throws
 name|MojoFailureException
@@ -1358,6 +1391,47 @@ name|getComponentOptions
 argument_list|()
 control|)
 block|{
+comment|// only include the options that has been explicit configured in the camel-connector.json file
+name|boolean
+name|accepted
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|componentOptions
+operator|!=
+literal|null
+condition|)
+block|{
+name|accepted
+operator|=
+name|componentOptions
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|anyMatch
+argument_list|(
+name|o
+lambda|->
+name|o
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|accepted
+condition|)
+block|{
 name|String
 name|type
 init|=
@@ -1384,7 +1458,6 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO: only include the component options the connector has defined
 if|if
 condition|(
 literal|"true"
@@ -1663,6 +1736,7 @@ name|getJavaType
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
