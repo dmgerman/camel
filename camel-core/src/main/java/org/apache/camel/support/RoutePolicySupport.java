@@ -488,6 +488,7 @@ name|timeUnit
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @see #stopRouteAsync(Route)      */
 DECL|method|stopRoute (Route route)
 specifier|public
 name|void
@@ -516,6 +517,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @see #stopRouteAsync(Route)      */
 DECL|method|stopRoute (Route route, long timeout, TimeUnit timeUnit)
 specifier|public
 name|void
@@ -552,6 +554,87 @@ name|timeout
 argument_list|,
 name|timeUnit
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Allows to stop a route asynchronously using a separate background thread which can allow any current in-flight exchange      * to complete while the route is being shutdown.      * You may attempt to stop a route from processing an exchange which would be in-flight and therefore attempting to stop      * the route will defer due there is an inflight exchange in-progress. By stopping the route independently using a separate      * thread ensures the exchange can continue process and complete and the route can be stopped.      */
+DECL|method|stopRouteAsync (final Route route)
+specifier|public
+name|void
+name|stopRouteAsync
+parameter_list|(
+specifier|final
+name|Route
+name|route
+parameter_list|)
+block|{
+name|String
+name|threadId
+init|=
+name|route
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|resolveThreadName
+argument_list|(
+literal|"StopRouteAsync"
+argument_list|)
+decl_stmt|;
+name|Runnable
+name|task
+init|=
+parameter_list|()
+lambda|->
+block|{
+try|try
+block|{
+name|route
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|stopRoute
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|handleException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+decl_stmt|;
+operator|new
+name|Thread
+argument_list|(
+name|task
+argument_list|,
+name|threadId
+argument_list|)
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Handles the given exception using the {@link #getExceptionHandler()}      *      * @param t the exception to handle      */
