@@ -1015,15 +1015,6 @@ name|CamelSalesforceMojo
 extends|extends
 name|AbstractMojo
 block|{
-DECL|field|UTF_8
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|UTF_8
-init|=
-literal|"UTF-8"
-decl_stmt|;
 comment|// default connect and call timeout
 DECL|field|DEFAULT_TIMEOUT
 specifier|protected
@@ -1033,6 +1024,15 @@ name|int
 name|DEFAULT_TIMEOUT
 init|=
 literal|60000
+decl_stmt|;
+DECL|field|UTF_8
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|UTF_8
+init|=
+literal|"UTF-8"
 decl_stmt|;
 DECL|field|JAVA_EXT
 specifier|private
