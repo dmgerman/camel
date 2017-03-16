@@ -453,6 +453,10 @@ block|}
 if|if
 condition|(
 name|routingKey
+operator|!=
+literal|null
+operator|&&
+name|routingKey
 operator|.
 name|startsWith
 argument_list|(
