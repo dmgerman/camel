@@ -234,29 +234,25 @@ name|springframework
 operator|.
 name|test
 operator|.
+name|annotation
+operator|.
+name|DirtiesContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
 name|context
 operator|.
 name|junit4
 operator|.
 name|SpringRunner
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|boot
-operator|.
-name|TestConfig
-operator|.
-name|ROUTE_ID
 import|;
 end_import
 
@@ -286,6 +282,8 @@ end_import
 
 begin_class
 annotation|@
+name|DirtiesContext
+annotation|@
 name|RunWith
 argument_list|(
 name|SpringRunner
@@ -300,6 +298,8 @@ argument_list|(
 name|classes
 operator|=
 block|{
+name|CamelAutoConfigurationTest
+operator|.
 name|TestConfig
 operator|.
 name|class
@@ -406,6 +406,8 @@ name|camelContext
 operator|.
 name|getRoute
 argument_list|(
+name|TestConfig
+operator|.
 name|ROUTE_ID
 argument_list|)
 decl_stmt|;
@@ -694,13 +696,11 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-end_class
-
-begin_class
 annotation|@
 name|Configuration
 DECL|class|TestConfig
+specifier|public
+specifier|static
 class|class
 name|TestConfig
 block|{
@@ -713,7 +713,7 @@ name|ROUTE_ID
 init|=
 literal|"testRoute"
 decl_stmt|;
-comment|// Test beans
+comment|// Test bean
 annotation|@
 name|Bean
 DECL|method|routeBuilder ()
@@ -769,6 +769,7 @@ operator|.
 name|class
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 end_class

@@ -170,6 +170,20 @@ name|springframework
 operator|.
 name|test
 operator|.
+name|annotation
+operator|.
+name|DirtiesContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
 name|context
 operator|.
 name|junit4
@@ -179,6 +193,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|DirtiesContext
 annotation|@
 name|RunWith
 argument_list|(

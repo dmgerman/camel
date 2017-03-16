@@ -117,6 +117,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|annotation
+operator|.
+name|DirtiesContext
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -141,6 +155,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|DirtiesContext
 DECL|class|CamelSpringBootTemplateShutdownTest
 specifier|public
 class|class
