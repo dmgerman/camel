@@ -220,9 +220,11 @@ parameter_list|,
 name|ProtocolDecoderOutput
 name|out
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 comment|// Get the state of the current message and
-comment|// Skip what we have already scanned
+comment|// Skip what we have already scanned before
 name|DecoderState
 name|state
 init|=
@@ -241,6 +243,28 @@ name|current
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Received data, checking from position {} to {}"
+argument_list|,
+name|in
+operator|.
+name|position
+argument_list|()
+argument_list|,
+name|in
+operator|.
+name|limit
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|boolean
+name|messageDecoded
+init|=
+literal|false
+decl_stmt|;
 while|while
 condition|(
 name|in
@@ -249,6 +273,14 @@ name|hasRemaining
 argument_list|()
 condition|)
 block|{
+name|int
+name|previousPosition
+init|=
+name|in
+operator|.
+name|position
+argument_list|()
+decl_stmt|;
 name|byte
 name|current
 init|=
@@ -257,33 +289,16 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-comment|// If it is the start byte and mark the position
+comment|// Check if we are at the end of an HL7 message
 if|if
 condition|(
 name|current
 operator|==
 name|config
 operator|.
-name|getStartByte
+name|getEndByte2
 argument_list|()
-condition|)
-block|{
-name|state
-operator|.
-name|markStart
-argument_list|(
-name|in
-operator|.
-name|position
-argument_list|()
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-comment|// If it is the end bytes, extract the payload and return
-if|if
-condition|(
+operator|&&
 name|state
 operator|.
 name|previous
@@ -293,18 +308,19 @@ name|config
 operator|.
 name|getEndByte1
 argument_list|()
-operator|&&
-name|current
-operator|==
-name|config
+condition|)
+block|{
+if|if
+condition|(
+name|state
 operator|.
-name|getEndByte2
+name|isStarted
 argument_list|()
 condition|)
 block|{
-comment|// Remember the current position and limit.
+comment|// Save the current buffer pointers and reset them to surround the identifier message
 name|int
-name|position
+name|currentPosition
 init|=
 name|in
 operator|.
@@ -312,7 +328,7 @@ name|position
 argument_list|()
 decl_stmt|;
 name|int
-name|limit
+name|currentLimit
 init|=
 name|in
 operator|.
@@ -325,18 +341,18 @@ name|debug
 argument_list|(
 literal|"Message ends at position {} with length {}"
 argument_list|,
-name|position
+name|previousPosition
 argument_list|,
-name|position
+name|previousPosition
 operator|-
 name|state
 operator|.
 name|start
 argument_list|()
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|in
 operator|.
 name|position
@@ -351,12 +367,29 @@ name|in
 operator|.
 name|limit
 argument_list|(
-name|position
+name|currentPosition
 argument_list|)
 expr_stmt|;
-comment|// The bytes between in.position() and in.limit()
-comment|// now contain a full MLLP message including the
-comment|// start and end bytes.
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Set start to position {} and limit to {}"
+argument_list|,
+name|in
+operator|.
+name|position
+argument_list|()
+argument_list|,
+name|in
+operator|.
+name|limit
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Now create string or byte[] from this part of the buffer and restore the buffer pointers
+try|try
+block|{
 name|out
 operator|.
 name|write
@@ -388,38 +421,36 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CharacterCodingException
-name|cce
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Exception while finalizing the message"
-argument_list|,
-name|cce
-argument_list|)
-throw|;
+name|messageDecoded
+operator|=
+literal|true
+expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// Reset position, limit, and state
-name|in
+name|LOG
 operator|.
-name|limit
+name|debug
 argument_list|(
-name|limit
+literal|"Resetting to position {} and limit to {}"
+argument_list|,
+name|currentPosition
+argument_list|,
+name|currentLimit
 argument_list|)
 expr_stmt|;
 name|in
 operator|.
 name|position
 argument_list|(
-name|position
+name|currentPosition
+argument_list|)
+expr_stmt|;
+name|in
+operator|.
+name|limit
+argument_list|(
+name|currentLimit
 argument_list|)
 expr_stmt|;
 name|state
@@ -428,10 +459,43 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-return|return
-literal|true
-return|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Ignoring message end at position {} until start byte has been seen."
+argument_list|,
+name|previousPosition
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// Check if we are at the start of an HL7 message
+if|if
+condition|(
+name|current
+operator|==
+name|config
+operator|.
+name|getStartByte
+argument_list|()
+condition|)
+block|{
+name|state
+operator|.
+name|markStart
+argument_list|(
+name|previousPosition
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// Remember previous byte in state object because the buffer could
 comment|// be theoretically exhausted right between the two end bytes
 name|state
@@ -442,9 +506,21 @@ name|current
 argument_list|)
 expr_stmt|;
 block|}
+name|messageDecoded
+operator|=
+literal|false
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|messageDecoded
+condition|)
+block|{
 comment|// Could not find a complete message in the buffer.
-comment|// Reset to the initial position and return false so that this method
-comment|// is called again with more data.
+comment|// Reset to the initial position (just as nothing had been read yet)
+comment|// and return false so that this method is called again with more data.
 name|LOG
 operator|.
 name|debug
@@ -474,24 +550,44 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 return|return
-literal|false
+name|messageDecoded
 return|;
 block|}
 comment|// Make a defensive byte copy (the buffer will be reused)
 comment|// and omit the start and the two end bytes of the MLLP message
 comment|// returning a byte array
-DECL|method|parseMessageToByteArray (IoBuffer slice)
+DECL|method|parseMessageToByteArray (IoBuffer buf)
 specifier|private
 name|Object
 name|parseMessageToByteArray
 parameter_list|(
 name|IoBuffer
-name|slice
+name|buf
 parameter_list|)
 throws|throws
 name|CharacterCodingException
 block|{
+name|int
+name|len
+init|=
+name|buf
+operator|.
+name|limit
+argument_list|()
+operator|-
+literal|3
+decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Making byte array of length {}"
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
 name|byte
 index|[]
 name|dst
@@ -499,15 +595,10 @@ init|=
 operator|new
 name|byte
 index|[
-name|slice
-operator|.
-name|limit
-argument_list|()
-operator|-
-literal|3
+name|len
 index|]
 decl_stmt|;
-name|slice
+name|buf
 operator|.
 name|skip
 argument_list|(
@@ -515,7 +606,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// skip start byte
-name|slice
+name|buf
 operator|.
 name|get
 argument_list|(
@@ -523,11 +614,17 @@ name|dst
 argument_list|,
 literal|0
 argument_list|,
-name|dst
-operator|.
-name|length
+name|len
 argument_list|)
 expr_stmt|;
+name|buf
+operator|.
+name|skip
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+comment|// skip end bytes
 comment|// Only do this if conversion is enabled
 if|if
 condition|(
@@ -537,6 +634,13 @@ name|isConvertLFtoCR
 argument_list|()
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Replacing LF by CR"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -587,13 +691,13 @@ block|}
 comment|// Make a defensive byte copy (the buffer will be reused)
 comment|// and omit the start and the two end bytes of the MLLP message
 comment|// returning a String
-DECL|method|parseMessageToString (IoBuffer slice, CharsetDecoder decoder)
+DECL|method|parseMessageToString (IoBuffer buf, CharsetDecoder decoder)
 specifier|private
 name|Object
 name|parseMessageToString
 parameter_list|(
 name|IoBuffer
-name|slice
+name|buf
 parameter_list|,
 name|CharsetDecoder
 name|decoder
@@ -601,7 +705,31 @@ parameter_list|)
 throws|throws
 name|CharacterCodingException
 block|{
-name|slice
+name|int
+name|len
+init|=
+name|buf
+operator|.
+name|limit
+argument_list|()
+operator|-
+literal|3
+decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Making string of length {} using charset {}"
+argument_list|,
+name|len
+argument_list|,
+name|decoder
+operator|.
+name|charset
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|buf
 operator|.
 name|skip
 argument_list|(
@@ -612,20 +740,23 @@ comment|// skip start byte
 name|String
 name|message
 init|=
-name|slice
+name|buf
 operator|.
 name|getString
 argument_list|(
-name|slice
-operator|.
-name|limit
-argument_list|()
-operator|-
-literal|3
+name|len
 argument_list|,
 name|decoder
 argument_list|)
 decl_stmt|;
+name|buf
+operator|.
+name|skip
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+comment|// skip end bytes
 comment|// Only do this if conversion is enabled
 if|if
 condition|(
@@ -635,6 +766,13 @@ name|isConvertLFtoCR
 argument_list|()
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Replacing LF by CR"
+argument_list|)
+expr_stmt|;
 name|message
 operator|=
 name|message
@@ -722,6 +860,22 @@ argument_list|()
 operator|.
 name|newDecoder
 argument_list|()
+operator|.
+name|onMalformedInput
+argument_list|(
+name|config
+operator|.
+name|getMalformedInputErrorAction
+argument_list|()
+argument_list|)
+operator|.
+name|onUnmappableCharacter
+argument_list|(
+name|config
+operator|.
+name|getUnmappableCharacterErrorAction
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|session
 operator|.
@@ -804,6 +958,9 @@ DECL|field|startPos
 specifier|private
 name|int
 name|startPos
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|field|currentPos
 specifier|private
@@ -815,11 +972,6 @@ specifier|private
 name|byte
 name|previousByte
 decl_stmt|;
-DECL|field|started
-specifier|private
-name|boolean
-name|started
-decl_stmt|;
 DECL|method|reset ()
 name|void
 name|reset
@@ -827,15 +979,12 @@ parameter_list|()
 block|{
 name|startPos
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 name|currentPos
 operator|=
 literal|0
-expr_stmt|;
-name|started
-operator|=
-literal|false
 expr_stmt|;
 name|previousByte
 operator|=
@@ -852,7 +1001,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|started
+name|isStarted
+argument_list|()
 condition|)
 block|{
 name|LOG
@@ -879,10 +1029,6 @@ literal|"Message starts at position {}"
 argument_list|,
 name|startPos
 argument_list|)
-expr_stmt|;
-name|started
-operator|=
-literal|true
 expr_stmt|;
 block|}
 block|}
@@ -940,6 +1086,18 @@ parameter_list|()
 block|{
 return|return
 name|previousByte
+return|;
+block|}
+DECL|method|isStarted ()
+specifier|public
+name|boolean
+name|isStarted
+parameter_list|()
+block|{
+return|return
+name|startPos
+operator|>=
+literal|0
 return|;
 block|}
 block|}
