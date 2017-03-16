@@ -224,6 +224,24 @@ name|RABBITMQ_DEAD_LETTER_ROUTING_KEY
 init|=
 literal|"x-dead-letter-routing-key"
 decl_stmt|;
+DECL|field|RABBITMQ_DIRECT_REPLY_EXCHANGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RABBITMQ_DIRECT_REPLY_EXCHANGE
+init|=
+literal|""
+decl_stmt|;
+DECL|field|RABBITMQ_DIRECT_REPLY_ROUTING_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RABBITMQ_DIRECT_REPLY_ROUTING_KEY
+init|=
+literal|"amq.rabbitmq.reply-to"
+decl_stmt|;
 DECL|method|RabbitMQConstants ()
 specifier|private
 name|RabbitMQConstants

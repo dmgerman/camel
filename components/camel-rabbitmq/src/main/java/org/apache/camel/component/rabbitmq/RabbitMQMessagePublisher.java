@@ -460,7 +460,9 @@ name|routingKey
 operator|.
 name|startsWith
 argument_list|(
-literal|"amq.rabbitmq.reply-to"
+name|RabbitMQConstants
+operator|.
+name|RABBITMQ_DIRECT_REPLY_ROUTING_KEY
 argument_list|)
 condition|)
 block|{
@@ -472,7 +474,9 @@ name|RabbitMQConstants
 operator|.
 name|EXCHANGE_NAME
 argument_list|,
-literal|""
+name|RabbitMQConstants
+operator|.
+name|RABBITMQ_DIRECT_REPLY_EXCHANGE
 argument_list|)
 expr_stmt|;
 comment|// use default exchange for reply-to messages
