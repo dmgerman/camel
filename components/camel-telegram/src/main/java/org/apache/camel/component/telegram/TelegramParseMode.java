@@ -19,59 +19,58 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Useful constants for the Telegram component.  */
+comment|/**  * A collection of supported parse modes for text messages.  */
 end_comment
 
-begin_class
-DECL|class|TelegramConstants
+begin_enum
+DECL|enum|TelegramParseMode
 specifier|public
-specifier|final
-class|class
-name|TelegramConstants
+enum|enum
+name|TelegramParseMode
 block|{
-DECL|field|TELEGRAM_CHAT_ID
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TELEGRAM_CHAT_ID
-init|=
-literal|"CamelTelegramChatId"
-decl_stmt|;
-DECL|field|TELEGRAM_MEDIA_TYPE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TELEGRAM_MEDIA_TYPE
-init|=
-literal|"CamelTelegramMediaType"
-decl_stmt|;
-DECL|field|TELEGRAM_MEDIA_TITLE_CAPTION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TELEGRAM_MEDIA_TITLE_CAPTION
-init|=
-literal|"CamelTelegramMediaTitleCaption"
-decl_stmt|;
-DECL|field|TELEGRAM_PARSE_MODE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TELEGRAM_PARSE_MODE
-init|=
-literal|"CamelTelegramParseMode"
-decl_stmt|;
-DECL|method|TelegramConstants ()
+DECL|enumConstant|HTML
+DECL|enumConstant|MARKDOWN
+name|HTML
+argument_list|(
+literal|"HTML"
+argument_list|)
+block|,
+name|MARKDOWN
+argument_list|(
+literal|"Markdown"
+argument_list|)
+block|;
+DECL|field|code
 specifier|private
-name|TelegramConstants
-parameter_list|()
-block|{     }
+name|String
+name|code
+decl_stmt|;
+DECL|method|TelegramParseMode (String code)
+name|TelegramParseMode
+parameter_list|(
+name|String
+name|code
+parameter_list|)
+block|{
+name|this
+operator|.
+name|code
+operator|=
+name|code
+expr_stmt|;
 block|}
-end_class
+DECL|method|getCode ()
+specifier|public
+name|String
+name|getCode
+parameter_list|()
+block|{
+return|return
+name|code
+return|;
+block|}
+block|}
+end_enum
 
 end_unit
 
