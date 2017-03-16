@@ -75,8 +75,6 @@ DECL|field|reliable
 specifier|private
 name|boolean
 name|reliable
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Define if the endpoint will use a reliable Topic struct or not.      */
 DECL|method|isReliable ()
