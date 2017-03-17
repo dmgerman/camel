@@ -151,6 +151,7 @@ end_import
 begin_class
 DECL|class|AsteriskConnection
 specifier|public
+specifier|final
 class|class
 name|AsteriskConnection
 block|{
@@ -172,16 +173,19 @@ argument_list|)
 decl_stmt|;
 DECL|field|host
 specifier|private
+specifier|final
 name|String
 name|host
 decl_stmt|;
 DECL|field|username
 specifier|private
+specifier|final
 name|String
 name|username
 decl_stmt|;
 DECL|field|password
 specifier|private
+specifier|final
 name|String
 name|password
 decl_stmt|;
@@ -222,14 +226,9 @@ name|password
 operator|=
 name|password
 expr_stmt|;
-name|this
-operator|.
-name|connect
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|connect ()
-specifier|private
+specifier|public
 name|void
 name|connect
 parameter_list|()
@@ -297,6 +296,10 @@ name|TimeoutException
 throws|,
 name|CamelAsteriskException
 block|{
+comment|// Lazy connect if not done before
+name|connect
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|managerConnection
@@ -428,6 +431,52 @@ operator|.
 name|debug
 argument_list|(
 literal|"asterisk added listener {}"
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|CamelAsteriskException
+argument_list|(
+literal|"Add listener operation, managerConnection is empty!"
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|removeListener (ManagerEventListener listener)
+specifier|public
+name|void
+name|removeListener
+parameter_list|(
+name|ManagerEventListener
+name|listener
+parameter_list|)
+throws|throws
+name|CamelAsteriskException
+block|{
+if|if
+condition|(
+name|managerConnection
+operator|!=
+literal|null
+condition|)
+block|{
+name|managerConnection
+operator|.
+name|removeEventListener
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"asterisk removed listener {}"
 argument_list|,
 name|listener
 argument_list|)

@@ -135,7 +135,7 @@ specifier|private
 name|String
 name|action
 init|=
-name|AsteriskActionEnum
+name|AsteriskAction
 operator|.
 name|EXTENSION_STATE
 operator|.

@@ -48,15 +48,6 @@ init|=
 operator|-
 literal|8873987361491963823L
 decl_stmt|;
-DECL|method|CamelAsteriskException ()
-specifier|public
-name|CamelAsteriskException
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|CamelAsteriskException (String message)
 specifier|public
 name|CamelAsteriskException

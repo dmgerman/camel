@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -76,21 +76,13 @@ specifier|public
 class|class
 name|AsteriskComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|AsteriskComponent ()
 specifier|public
 name|AsteriskComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|AsteriskEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AsteriskComponent (CamelContext context)
 specifier|public
 name|AsteriskComponent
@@ -102,10 +94,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|AsteriskEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

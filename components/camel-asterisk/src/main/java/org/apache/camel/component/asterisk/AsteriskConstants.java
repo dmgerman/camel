@@ -52,6 +52,15 @@ name|CONTEXT
 init|=
 literal|"CamelAsteriskContext"
 decl_stmt|;
+DECL|field|ACTION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ACTION
+init|=
+literal|"CamelAsteriskAction"
+decl_stmt|;
 DECL|method|AsteriskConstants ()
 specifier|private
 name|AsteriskConstants
