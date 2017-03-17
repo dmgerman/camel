@@ -3642,6 +3642,13 @@ name|equals
 argument_list|(
 name|methodName
 argument_list|)
+operator|||
+literal|"setApplicationContext"
+operator|.
+name|equals
+argument_list|(
+name|methodName
+argument_list|)
 condition|)
 block|{
 continue|continue;
