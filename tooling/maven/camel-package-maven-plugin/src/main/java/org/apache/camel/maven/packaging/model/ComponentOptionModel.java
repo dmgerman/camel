@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Calendar
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -470,6 +480,23 @@ name|String
 name|getShortJavaType
 parameter_list|()
 block|{
+comment|// TODO: use watermark in the others
+return|return
+name|getShortJavaType
+argument_list|(
+literal|40
+argument_list|)
+return|;
+block|}
+DECL|method|getShortJavaType (int watermark)
+specifier|public
+name|String
+name|getShortJavaType
+parameter_list|(
+name|int
+name|watermark
+parameter_list|)
+block|{
 if|if
 condition|(
 name|javaType
@@ -514,10 +541,15 @@ return|return
 literal|"List"
 return|;
 block|}
+name|String
+name|text
+init|=
+name|javaType
+decl_stmt|;
 name|int
 name|pos
 init|=
-name|javaType
+name|text
 operator|.
 name|lastIndexOf
 argument_list|(
@@ -532,8 +564,9 @@ operator|-
 literal|1
 condition|)
 block|{
-return|return
-name|javaType
+name|text
+operator|=
+name|text
 operator|.
 name|substring
 argument_list|(
@@ -541,14 +574,34 @@ name|pos
 operator|+
 literal|1
 argument_list|)
-return|;
+expr_stmt|;
 block|}
-else|else
+comment|// if its some kind of java object then lets wrap it as its long
+if|if
+condition|(
+literal|"object"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
 block|{
-return|return
-name|javaType
-return|;
+name|text
+operator|=
+name|wrapCamelCaseWords
+argument_list|(
+name|text
+argument_list|,
+name|watermark
+argument_list|,
+literal|" "
+argument_list|)
+expr_stmt|;
 block|}
+return|return
+name|text
+return|;
 block|}
 DECL|method|getShortGroup ()
 specifier|public
@@ -595,6 +648,18 @@ name|int
 name|watermark
 parameter_list|)
 block|{
+if|if
+condition|(
+name|defaultValue
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
 name|String
 name|text
 init|=
@@ -656,14 +721,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|wrapCamelCaseWords
-argument_list|(
 name|text
-argument_list|,
-name|watermark
-argument_list|,
-literal|" "
-argument_list|)
 return|;
 block|}
 DECL|method|getShortName (int watermark)
