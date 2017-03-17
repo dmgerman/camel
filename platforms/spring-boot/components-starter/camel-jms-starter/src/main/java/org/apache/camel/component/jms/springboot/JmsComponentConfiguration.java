@@ -280,18 +280,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|context
-operator|.
-name|ApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|core
 operator|.
 name|task
@@ -905,12 +893,6 @@ DECL|field|jmsKeyFormatStrategy
 specifier|private
 name|JmsKeyFormatStrategy
 name|jmsKeyFormatStrategy
-decl_stmt|;
-comment|/**      * Sets the Spring ApplicationContext to use      */
-DECL|field|applicationContext
-specifier|private
-name|ApplicationContext
-name|applicationContext
 decl_stmt|;
 comment|/**      * To use a custom QueueBrowseStrategy when browsing queues      */
 annotation|@
@@ -2738,32 +2720,6 @@ operator|.
 name|jmsKeyFormatStrategy
 operator|=
 name|jmsKeyFormatStrategy
-expr_stmt|;
-block|}
-DECL|method|getApplicationContext ()
-specifier|public
-name|ApplicationContext
-name|getApplicationContext
-parameter_list|()
-block|{
-return|return
-name|applicationContext
-return|;
-block|}
-DECL|method|setApplicationContext (ApplicationContext applicationContext)
-specifier|public
-name|void
-name|setApplicationContext
-parameter_list|(
-name|ApplicationContext
-name|applicationContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|applicationContext
-operator|=
-name|applicationContext
 expr_stmt|;
 block|}
 DECL|method|getQueueBrowseStrategy ()
