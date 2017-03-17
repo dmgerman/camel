@@ -101,6 +101,12 @@ specifier|private
 name|String
 name|enumValues
 decl_stmt|;
+comment|// special for documentation rendering
+DECL|field|newGroup
+specifier|private
+name|boolean
+name|newGroup
+decl_stmt|;
 DECL|method|getName ()
 specifier|public
 name|String
@@ -489,6 +495,32 @@ operator|.
 name|enumValues
 operator|=
 name|enumValues
+expr_stmt|;
+block|}
+DECL|method|isNewGroup ()
+specifier|public
+name|boolean
+name|isNewGroup
+parameter_list|()
+block|{
+return|return
+name|newGroup
+return|;
+block|}
+DECL|method|setNewGroup (boolean newGroup)
+specifier|public
+name|void
+name|setNewGroup
+parameter_list|(
+name|boolean
+name|newGroup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|newGroup
+operator|=
+name|newGroup
 expr_stmt|;
 block|}
 DECL|method|getShortJavaType ()
