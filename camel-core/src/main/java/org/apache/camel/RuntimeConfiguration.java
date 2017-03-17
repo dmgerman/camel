@@ -69,6 +69,21 @@ name|Boolean
 name|isMessageHistory
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether security mask for Log EIP is enabled or not (default is disabled).      *       * @param logEipMask<tt>true</tt> if mask is enabled      */
+DECL|method|setLogEipMask (Boolean logEipMask)
+name|void
+name|setLogEipMask
+parameter_list|(
+name|Boolean
+name|logEipMask
+parameter_list|)
+function_decl|;
+comment|/**      * Gets whether security mask for Log EIP is enabled or not.      *       * @return<tt>true</tt> if mask is enabled      */
+DECL|method|isLogEipMask ()
+name|Boolean
+name|isLogEipMask
+parameter_list|()
+function_decl|;
 comment|/**      * Sets whether to log exhausted message body with message history.      *      * @param logExhaustedMessageBody whether message body should be logged      */
 DECL|method|setLogExhaustedMessageBody (Boolean logExhaustedMessageBody)
 name|void

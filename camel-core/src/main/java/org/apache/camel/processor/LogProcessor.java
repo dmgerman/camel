@@ -98,6 +98,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|StringFormatter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -167,7 +181,13 @@ specifier|final
 name|CamelLogger
 name|logger
 decl_stmt|;
-DECL|method|LogProcessor (Expression expression, CamelLogger logger)
+DECL|field|formatter
+specifier|private
+specifier|final
+name|StringFormatter
+name|formatter
+decl_stmt|;
+DECL|method|LogProcessor (Expression expression, CamelLogger logger, StringFormatter formatter)
 specifier|public
 name|LogProcessor
 parameter_list|(
@@ -176,6 +196,9 @@ name|expression
 parameter_list|,
 name|CamelLogger
 name|logger
+parameter_list|,
+name|StringFormatter
+name|formatter
 parameter_list|)
 block|{
 name|this
@@ -189,6 +212,12 @@ operator|.
 name|logger
 operator|=
 name|logger
+expr_stmt|;
+name|this
+operator|.
+name|formatter
+operator|=
+name|formatter
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -250,6 +279,23 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|formatter
+operator|!=
+literal|null
+condition|)
+block|{
+name|msg
+operator|=
+name|formatter
+operator|.
+name|format
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|doLog
@@ -372,6 +418,16 @@ parameter_list|()
 block|{
 return|return
 name|logger
+return|;
+block|}
+DECL|method|getLogFormatter ()
+specifier|public
+name|StringFormatter
+name|getLogFormatter
+parameter_list|()
+block|{
+return|return
+name|formatter
 return|;
 block|}
 annotation|@

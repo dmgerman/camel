@@ -2750,6 +2750,15 @@ name|Boolean
 operator|.
 name|TRUE
 decl_stmt|;
+DECL|field|logEipMask
+specifier|private
+name|Boolean
+name|logEipMask
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 DECL|field|logExhaustedMessageBody
 specifier|private
 name|Boolean
@@ -15842,6 +15851,36 @@ name|messageHistory
 operator|=
 name|messageHistory
 expr_stmt|;
+block|}
+DECL|method|setLogEipMask (Boolean useLogEipMask)
+specifier|public
+name|void
+name|setLogEipMask
+parameter_list|(
+name|Boolean
+name|useLogEipMask
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logEipMask
+operator|=
+name|useLogEipMask
+expr_stmt|;
+block|}
+DECL|method|isLogEipMask ()
+specifier|public
+name|Boolean
+name|isLogEipMask
+parameter_list|()
+block|{
+return|return
+name|logEipMask
+operator|!=
+literal|null
+operator|&&
+name|logEipMask
+return|;
 block|}
 DECL|method|isLogExhaustedMessageBody ()
 specifier|public

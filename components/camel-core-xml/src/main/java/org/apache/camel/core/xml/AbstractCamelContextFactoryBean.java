@@ -5016,6 +5016,13 @@ name|String
 name|getMessageHistory
 parameter_list|()
 function_decl|;
+DECL|method|getLogEipMask ()
+specifier|public
+specifier|abstract
+name|String
+name|getLogEipMask
+parameter_list|()
+function_decl|;
 DECL|method|getLogExhaustedMessageBody ()
 specifier|public
 specifier|abstract
@@ -5388,6 +5395,31 @@ name|getContext
 argument_list|()
 argument_list|,
 name|getMessageHistory
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getLogEipMask
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ctx
+operator|.
+name|setLogEipMask
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|getLogEipMask
 argument_list|()
 argument_list|)
 argument_list|)
