@@ -307,6 +307,11 @@ specifier|volatile
 name|Message
 name|parent
 decl_stmt|;
+DECL|field|allowEmptyDirectory
+specifier|private
+name|boolean
+name|allowEmptyDirectory
+decl_stmt|;
 DECL|method|TarIterator (Message inputMessage, InputStream inputStream)
 specifier|public
 name|TarIterator
@@ -760,6 +765,18 @@ return|return
 name|entry
 return|;
 block|}
+else|else
+block|{
+if|if
+condition|(
+name|allowEmptyDirectory
+condition|)
+block|{
+return|return
+name|entry
+return|;
+block|}
+block|}
 block|}
 return|return
 literal|null
@@ -799,6 +816,32 @@ expr_stmt|;
 name|tarInputStream
 operator|=
 literal|null
+expr_stmt|;
+block|}
+DECL|method|isAllowEmptyDirectory ()
+specifier|public
+name|boolean
+name|isAllowEmptyDirectory
+parameter_list|()
+block|{
+return|return
+name|allowEmptyDirectory
+return|;
+block|}
+DECL|method|setAllowEmptyDirectory (boolean allowEmptyDirectory)
+specifier|public
+name|void
+name|setAllowEmptyDirectory
+parameter_list|(
+name|boolean
+name|allowEmptyDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmptyDirectory
+operator|=
+name|allowEmptyDirectory
 expr_stmt|;
 block|}
 block|}

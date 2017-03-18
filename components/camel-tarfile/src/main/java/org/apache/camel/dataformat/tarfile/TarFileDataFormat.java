@@ -277,6 +277,11 @@ specifier|private
 name|boolean
 name|usingIterator
 decl_stmt|;
+DECL|field|allowEmptyDirectory
+specifier|private
+name|boolean
+name|allowEmptyDirectory
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getDataFormatName ()
@@ -548,7 +553,9 @@ condition|(
 name|usingIterator
 condition|)
 block|{
-return|return
+name|TarIterator
+name|tarIterator
+init|=
 operator|new
 name|TarIterator
 argument_list|(
@@ -559,6 +566,16 @@ argument_list|()
 argument_list|,
 name|stream
 argument_list|)
+decl_stmt|;
+name|tarIterator
+operator|.
+name|setAllowEmptyDirectory
+argument_list|(
+name|allowEmptyDirectory
+argument_list|)
+expr_stmt|;
+return|return
+name|tarIterator
 return|;
 block|}
 else|else
@@ -712,6 +729,32 @@ operator|.
 name|usingIterator
 operator|=
 name|usingIterator
+expr_stmt|;
+block|}
+DECL|method|isAllowEmptyDirectory ()
+specifier|public
+name|boolean
+name|isAllowEmptyDirectory
+parameter_list|()
+block|{
+return|return
+name|allowEmptyDirectory
+return|;
+block|}
+DECL|method|setAllowEmptyDirectory (boolean allowEmptyDirectory)
+specifier|public
+name|void
+name|setAllowEmptyDirectory
+parameter_list|(
+name|boolean
+name|allowEmptyDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmptyDirectory
+operator|=
+name|allowEmptyDirectory
 expr_stmt|;
 block|}
 annotation|@
