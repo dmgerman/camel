@@ -3368,6 +3368,14 @@ operator|+
 literal|"/target/itest-spring-boot-pom.xml"
 argument_list|)
 decl_stmt|;
+name|pomFile
+operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
 try|try
 init|(
 name|FileWriter
