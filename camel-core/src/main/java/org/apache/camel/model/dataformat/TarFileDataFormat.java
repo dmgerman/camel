@@ -176,6 +176,13 @@ specifier|private
 name|Boolean
 name|usingIterator
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|allowEmptyDirectory
+specifier|private
+name|Boolean
+name|allowEmptyDirectory
+decl_stmt|;
 DECL|method|TarFileDataFormat ()
 specifier|public
 name|TarFileDataFormat
@@ -231,6 +238,16 @@ return|return
 name|usingIterator
 return|;
 block|}
+DECL|method|getAllowEmptyDirectory ()
+specifier|public
+name|Boolean
+name|getAllowEmptyDirectory
+parameter_list|()
+block|{
+return|return
+name|allowEmptyDirectory
+return|;
+block|}
 comment|/**      * If the tar file has more then one entry, the setting this option to true, allows to work with the splitter EIP,      * to split the data using an iterator in a streaming mode.      */
 DECL|method|setUsingIterator (Boolean usingIterator)
 specifier|public
@@ -246,6 +263,23 @@ operator|.
 name|usingIterator
 operator|=
 name|usingIterator
+expr_stmt|;
+block|}
+comment|/**      * If the tar file has more then one entry, setting this option to true, allows to get the iterator      * even if the directory is empty      */
+DECL|method|setAllowEmptyDirectory (Boolean allowEmptyDirectory)
+specifier|public
+name|void
+name|setAllowEmptyDirectory
+parameter_list|(
+name|Boolean
+name|allowEmptyDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmptyDirectory
+operator|=
+name|allowEmptyDirectory
 expr_stmt|;
 block|}
 block|}
