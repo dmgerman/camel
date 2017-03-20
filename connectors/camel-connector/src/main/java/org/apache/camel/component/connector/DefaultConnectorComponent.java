@@ -650,6 +650,7 @@ operator|.
 name|getBaseScheme
 argument_list|()
 decl_stmt|;
+comment|// only get or create component but do NOT start it as component
 specifier|final
 name|Component
 name|component
@@ -660,6 +661,10 @@ operator|.
 name|getComponent
 argument_list|(
 name|scheme
+argument_list|,
+literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if

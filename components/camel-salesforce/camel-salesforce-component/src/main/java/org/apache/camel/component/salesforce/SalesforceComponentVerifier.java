@@ -416,31 +416,11 @@ argument_list|,
 name|parameters
 argument_list|)
 argument_list|)
-operator|.
-name|error
-argument_list|(
-name|ResultErrorHelper
-operator|.
-name|requiresOption
-argument_list|(
-literal|"userName"
-argument_list|,
-name|parameters
-argument_list|)
-argument_list|)
-operator|.
-name|error
-argument_list|(
-name|ResultErrorHelper
-operator|.
-name|requiresOption
-argument_list|(
-literal|"password"
-argument_list|,
-name|parameters
-argument_list|)
-argument_list|)
 decl_stmt|;
+comment|// TODO: either refreshToken or userName and password
+comment|//.error(ResultErrorHelper.requiresOption("refreshToken", parameters))
+comment|//.error(ResultErrorHelper.requiresOption("userName", parameters))
+comment|//.error(ResultErrorHelper.requiresOption("password", parameters));
 comment|// Validate using the catalog
 name|super
 operator|.

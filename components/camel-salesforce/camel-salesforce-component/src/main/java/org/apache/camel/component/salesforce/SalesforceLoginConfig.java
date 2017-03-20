@@ -645,13 +645,14 @@ name|hasRefreshToken
 init|=
 name|ObjectHelper
 operator|.
-name|isEmpty
+name|isNotEmpty
 argument_list|(
 name|refreshToken
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|hasRefreshToken
 operator|&&
 name|keystore
