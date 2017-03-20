@@ -229,8 +229,6 @@ operator|new
 name|GroupConfig
 argument_list|(
 literal|"someGroup"
-argument_list|,
-literal|"someSecret"
 argument_list|)
 argument_list|)
 expr_stmt|;
