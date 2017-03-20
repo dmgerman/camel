@@ -583,6 +583,33 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|errors (List<ComponentVerifier.Error> errors)
+specifier|public
+name|ResultBuilder
+name|errors
+parameter_list|(
+name|List
+argument_list|<
+name|ComponentVerifier
+operator|.
+name|Error
+argument_list|>
+name|errors
+parameter_list|)
+block|{
+name|errors
+operator|.
+name|forEach
+argument_list|(
+name|this
+operator|::
+name|error
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// **********************************
 comment|// Build
 comment|// **********************************

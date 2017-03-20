@@ -94,6 +94,24 @@ name|component
 operator|.
 name|salesforce
 operator|.
+name|SalesforceLoginConfig
+operator|.
+name|Type
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
 name|api
 operator|.
 name|SalesforceException
@@ -171,6 +189,22 @@ operator|.
 name|verifier
 operator|.
 name|DefaultComponentVerifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|verifier
+operator|.
+name|OptionsGroup
 import|;
 end_import
 
@@ -375,6 +409,14 @@ parameter_list|)
 block|{
 comment|// Validate mandatory component options, needed to be done here as these
 comment|// options are not properly marked as mandatory in the catalog.
+comment|//
+comment|// Validation rules are borrowed from SalesforceLoginConfig's validate
+comment|// method, which support 3 workflow:
+comment|//
+comment|// - OAuth Username/Password Flow
+comment|// - OAuth Refresh Token Flow:
+comment|// - OAuth JWT Flow
+comment|//
 name|ResultBuilder
 name|builder
 init|=
@@ -393,34 +435,72 @@ operator|.
 name|PARAMETERS
 argument_list|)
 operator|.
-name|error
+name|errors
 argument_list|(
 name|ResultErrorHelper
 operator|.
-name|requiresOption
+name|requiresAny
+argument_list|(
+name|parameters
+argument_list|,
+name|OptionsGroup
+operator|.
+name|withName
+argument_list|(
+name|Type
+operator|.
+name|USERNAME_PASSWORD
+argument_list|)
+operator|.
+name|options
 argument_list|(
 literal|"clientId"
 argument_list|,
-name|parameters
-argument_list|)
-argument_list|)
-operator|.
-name|error
-argument_list|(
-name|ResultErrorHelper
-operator|.
-name|requiresOption
-argument_list|(
 literal|"clientSecret"
 argument_list|,
-name|parameters
+literal|"userName"
+argument_list|,
+literal|"password"
+argument_list|)
+argument_list|,
+name|OptionsGroup
+operator|.
+name|withName
+argument_list|(
+name|Type
+operator|.
+name|REFRESH_TOKEN
+argument_list|)
+operator|.
+name|options
+argument_list|(
+literal|"clientId"
+argument_list|,
+literal|"clientSecret"
+argument_list|,
+literal|"refreshToken"
+argument_list|)
+argument_list|,
+name|OptionsGroup
+operator|.
+name|withName
+argument_list|(
+name|Type
+operator|.
+name|JWT
+argument_list|)
+operator|.
+name|options
+argument_list|(
+literal|"clientId"
+argument_list|,
+literal|"userName"
+argument_list|,
+literal|"keystore"
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// TODO: either refreshToken or userName and password
-comment|//.error(ResultErrorHelper.requiresOption("refreshToken", parameters))
-comment|//.error(ResultErrorHelper.requiresOption("userName", parameters))
-comment|//.error(ResultErrorHelper.requiresOption("password", parameters));
 comment|// Validate using the catalog
 name|super
 operator|.
