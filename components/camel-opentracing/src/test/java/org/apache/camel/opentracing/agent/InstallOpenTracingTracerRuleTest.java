@@ -204,10 +204,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author gbrown  */
-end_comment
-
 begin_class
 DECL|class|InstallOpenTracingTracerRuleTest
 specifier|public
