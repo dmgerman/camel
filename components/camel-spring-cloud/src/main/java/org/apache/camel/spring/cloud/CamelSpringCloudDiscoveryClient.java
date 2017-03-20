@@ -109,10 +109,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelCloudDiscoveryClient
+DECL|class|CamelSpringCloudDiscoveryClient
 specifier|public
 class|class
-name|CamelCloudDiscoveryClient
+name|CamelSpringCloudDiscoveryClient
 implements|implements
 name|DiscoveryClient
 block|{
@@ -133,9 +133,9 @@ specifier|private
 name|ServiceInstance
 name|localInstance
 decl_stmt|;
-DECL|method|CamelCloudDiscoveryClient (String description, ServiceDiscovery serviceDiscovery)
+DECL|method|CamelSpringCloudDiscoveryClient (String description, ServiceDiscovery serviceDiscovery)
 specifier|public
-name|CamelCloudDiscoveryClient
+name|CamelSpringCloudDiscoveryClient
 parameter_list|(
 name|String
 name|description
@@ -154,9 +154,9 @@ name|serviceDiscovery
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|CamelCloudDiscoveryClient (String description, ServiceInstance localServiceDiscovery, ServiceDiscovery serviceDiscovery)
+DECL|method|CamelSpringCloudDiscoveryClient (String description, ServiceInstance localServiceDiscovery, ServiceDiscovery serviceDiscovery)
 specifier|public
-name|CamelCloudDiscoveryClient
+name|CamelSpringCloudDiscoveryClient
 parameter_list|(
 name|String
 name|description
@@ -211,25 +211,6 @@ return|return
 name|this
 operator|.
 name|localInstance
-return|;
-block|}
-DECL|method|setLocalServiceInstance (ServiceInstance instance)
-specifier|public
-name|CamelCloudDiscoveryClient
-name|setLocalServiceInstance
-parameter_list|(
-name|ServiceInstance
-name|instance
-parameter_list|)
-block|{
-name|this
-operator|.
-name|localInstance
-operator|=
-name|instance
-expr_stmt|;
-return|return
-name|this
 return|;
 block|}
 annotation|@

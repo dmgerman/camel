@@ -179,10 +179,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelCloudLoadBalancer
+DECL|class|CamelSpringCloudLoadBalancer
 specifier|public
 class|class
-name|CamelCloudLoadBalancer
+name|CamelSpringCloudLoadBalancer
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -201,7 +201,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CamelCloudLoadBalancer
+name|CamelSpringCloudLoadBalancer
 operator|.
 name|class
 argument_list|)
@@ -217,9 +217,9 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|method|CamelCloudLoadBalancer (LoadBalancerClient loadBalancerClient)
+DECL|method|CamelSpringCloudLoadBalancer (LoadBalancerClient loadBalancerClient)
 specifier|public
-name|CamelCloudLoadBalancer
+name|CamelSpringCloudLoadBalancer
 parameter_list|(
 name|LoadBalancerClient
 name|loadBalancerClient

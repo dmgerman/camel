@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.cloud
+DECL|package|org.apache.camel.spring.boot.cloud
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|spring
+operator|.
+name|boot
 operator|.
 name|cloud
 package|;
@@ -30,21 +32,9 @@ name|spring
 operator|.
 name|boot
 operator|.
-name|CamelAutoConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|util
 operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|autoconfigure
-operator|.
-name|AutoConfigureAfter
+name|GroupCondition
 import|;
 end_import
 
@@ -72,11 +62,25 @@ name|springframework
 operator|.
 name|boot
 operator|.
-name|autoconfigure
+name|context
 operator|.
-name|condition
+name|properties
 operator|.
-name|ConditionalOnProperty
+name|EnableConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Conditional
 import|;
 end_import
 
@@ -100,33 +104,57 @@ name|Configuration
 annotation|@
 name|ConditionalOnBean
 argument_list|(
-name|CamelAutoConfiguration
+name|CamelCloudAutoConfiguration
 operator|.
 name|class
 argument_list|)
 annotation|@
-name|AutoConfigureAfter
+name|EnableConfigurationProperties
 argument_list|(
-name|CamelAutoConfiguration
+name|CamelCloudConfigurationProperties
 operator|.
 name|class
 argument_list|)
 annotation|@
-name|ConditionalOnProperty
+name|Conditional
 argument_list|(
-name|value
-operator|=
-literal|"camel.cloud.enabled"
-argument_list|,
-name|matchIfMissing
-operator|=
-literal|true
+name|CamelCloudServiceChooserAutoConfiguration
+operator|.
+name|ServiceChooserCondition
+operator|.
+name|class
 argument_list|)
-DECL|class|CamelCloudAutoConfiguration
+DECL|class|CamelCloudServiceChooserAutoConfiguration
 specifier|public
 class|class
-name|CamelCloudAutoConfiguration
-block|{ }
+name|CamelCloudServiceChooserAutoConfiguration
+block|{
+comment|// *******************************
+comment|// Condition
+comment|// *******************************
+DECL|class|ServiceChooserCondition
+specifier|public
+specifier|static
+class|class
+name|ServiceChooserCondition
+extends|extends
+name|GroupCondition
+block|{
+DECL|method|ServiceChooserCondition ()
+specifier|public
+name|ServiceChooserCondition
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"camel.cloud"
+argument_list|,
+literal|"camel.cloud.service-chooser"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 end_class
 
 end_unit
