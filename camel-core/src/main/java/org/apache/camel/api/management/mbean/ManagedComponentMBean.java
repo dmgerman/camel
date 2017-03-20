@@ -168,6 +168,18 @@ name|allOptions
 parameter_list|)
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether this component support verification (parameters or connectivity)"
+argument_list|)
+DECL|method|isVerifySupported ()
+name|boolean
+name|isVerifySupported
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

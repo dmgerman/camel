@@ -945,6 +945,20 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|isVerifySupported ()
+specifier|public
+name|boolean
+name|isVerifySupported
+parameter_list|()
+block|{
+return|return
+name|component
+operator|instanceof
+name|VerifiableComponent
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|verify (String scope, Map<String, String> options)
 specifier|public
 name|ComponentVerifier
