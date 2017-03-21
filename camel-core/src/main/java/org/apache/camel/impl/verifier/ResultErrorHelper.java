@@ -149,6 +149,7 @@ block|{     }
 comment|// **********************************
 comment|// Helpers
 comment|// **********************************
+comment|/**      *      * @param parameterName the required option      * @param parameters the      * @return      */
 DECL|method|requiresOption (String parameterName, Map<String, Object> parameters)
 specifier|public
 specifier|static

@@ -54,13 +54,16 @@ name|Set
 import|;
 end_import
 
+begin_comment
+comment|/**  * Defines the interface used to validate component/endpoint parameters.  */
+end_comment
+
 begin_interface
 DECL|interface|ComponentVerifier
 specifier|public
 interface|interface
 name|ComponentVerifier
 block|{
-comment|// Todo: should be an enum ?
 DECL|field|CODE_EXCEPTION
 name|String
 name|CODE_EXCEPTION
@@ -213,16 +216,19 @@ name|Error
 extends|extends
 name|Serializable
 block|{
+comment|/**          * @return the error code          */
 DECL|method|getCode ()
 name|String
 name|getCode
 parameter_list|()
 function_decl|;
+comment|/**          * @return the error description (if available)          */
 DECL|method|getDescription ()
 name|String
 name|getDescription
 parameter_list|()
 function_decl|;
+comment|/**          * @return the parameters in error          */
 DECL|method|getParameters ()
 name|Set
 argument_list|<
@@ -231,6 +237,7 @@ argument_list|>
 name|getParameters
 parameter_list|()
 function_decl|;
+comment|/**          * @return a number of key/value pair with additional information related to the validation.          */
 DECL|method|getAttributes ()
 name|Map
 argument_list|<
@@ -242,7 +249,7 @@ name|getAttributes
 parameter_list|()
 function_decl|;
 block|}
-comment|/**      * Represent a Result      */
+comment|/**      * Represent a validation Result.      */
 DECL|interface|Result
 interface|interface
 name|Result
@@ -262,16 +269,19 @@ block|,
 DECL|enumConstant|UNSUPPORTED
 name|UNSUPPORTED
 block|}
+comment|/**          * @return the scope against which the parameters have been validated.          */
 DECL|method|getScope ()
 name|Scope
 name|getScope
 parameter_list|()
 function_decl|;
+comment|/**          * @return the status          */
 DECL|method|getStatus ()
 name|Status
 name|getStatus
 parameter_list|()
 function_decl|;
+comment|/**          * @return a list of errors          */
 DECL|method|getErrors ()
 name|List
 argument_list|<
@@ -281,7 +291,7 @@ name|getErrors
 parameter_list|()
 function_decl|;
 block|}
-comment|/**      * TODO: document      * @param parameters      * @param scope      * @return      */
+comment|/**      * Validate the given parameters against the provided scope.      *      *<p>      * The supported scopes are:      *<ul>      *<li>PARAMETERS: to validate that all the mandatory options are provided and syntactically correct.      *<li>CONNECTIVITY: to validate that the given options (i.e. credentials, addresses) are correct.      *</ul>      *      * @param scope the scope of the validation      * @param parameters the parameters to validate      * @return the validation result      */
 DECL|method|verify (Scope scope, Map<String, Object> parameters)
 name|Result
 name|verify
