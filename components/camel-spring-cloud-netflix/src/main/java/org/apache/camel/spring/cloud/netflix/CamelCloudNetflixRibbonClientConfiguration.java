@@ -56,6 +56,8 @@ name|camel
 operator|.
 name|spring
 operator|.
+name|boot
+operator|.
 name|cloud
 operator|.
 name|CamelCloudServiceDiscovery
@@ -71,6 +73,8 @@ operator|.
 name|camel
 operator|.
 name|spring
+operator|.
+name|boot
 operator|.
 name|cloud
 operator|.

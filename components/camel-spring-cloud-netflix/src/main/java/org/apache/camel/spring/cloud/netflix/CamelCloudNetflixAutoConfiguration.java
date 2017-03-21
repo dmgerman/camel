@@ -48,9 +48,9 @@ name|spring
 operator|.
 name|boot
 operator|.
-name|util
+name|cloud
 operator|.
-name|GroupCondition
+name|CamelCloudAutoConfiguration
 import|;
 end_import
 
@@ -64,9 +64,11 @@ name|camel
 operator|.
 name|spring
 operator|.
-name|cloud
+name|boot
 operator|.
-name|CamelCloudAutoConfiguration
+name|util
+operator|.
+name|GroupCondition
 import|;
 end_import
 
