@@ -305,11 +305,11 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"https://localhost:"
+literal|"undertow:https://localhost:"
 operator|+
 name|port
 operator|+
-literal|"/spring"
+literal|"/spring?sslContextParameters=#sslClient"
 argument_list|,
 literal|"Hello World"
 argument_list|,
