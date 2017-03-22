@@ -1544,6 +1544,15 @@ parameter_list|()
 block|{
 try|try
 block|{
+comment|// this loop is intended to keep the consumer up and running as long as it's supposed to be, but allow it to bail if signaled
+while|while
+condition|(
+name|running
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
 comment|// a batch corresponds to a single session that will be committed or rolled back by a background thread
 specifier|final
 name|Session
@@ -1605,6 +1614,39 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|javax
+operator|.
+name|jms
+operator|.
+name|IllegalStateException
+name|ex
+parameter_list|)
+block|{
+comment|// from consumeBatchesOnLoop
+comment|// this will log the exception and the parent loop will create a new session
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+literal|"Exception caught consuming from "
+operator|+
+name|destinationName
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+comment|//rest a minute to avoid destroying the logs
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
+block|}
 finally|finally
 block|{
 name|closeJmsSession
@@ -1614,6 +1656,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|Throwable
@@ -1621,6 +1664,7 @@ name|ex
 parameter_list|)
 block|{
 comment|// from consumeBatchesOnLoop
+comment|// catch anything besides the IllegalStateException and exit the application
 name|getExceptionHandler
 argument_list|()
 operator|.
