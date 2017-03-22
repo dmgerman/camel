@@ -61,6 +61,14 @@ name|usingIterator
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * If the tar file has more then one entry setting this option to true      * allows to get the iterator even if the directory is empty      */
+DECL|field|allowEmptyDirectory
+specifier|private
+name|Boolean
+name|allowEmptyDirectory
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -93,6 +101,32 @@ operator|.
 name|usingIterator
 operator|=
 name|usingIterator
+expr_stmt|;
+block|}
+DECL|method|getAllowEmptyDirectory ()
+specifier|public
+name|Boolean
+name|getAllowEmptyDirectory
+parameter_list|()
+block|{
+return|return
+name|allowEmptyDirectory
+return|;
+block|}
+DECL|method|setAllowEmptyDirectory (Boolean allowEmptyDirectory)
+specifier|public
+name|void
+name|setAllowEmptyDirectory
+parameter_list|(
+name|Boolean
+name|allowEmptyDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmptyDirectory
+operator|=
+name|allowEmptyDirectory
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()
