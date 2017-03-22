@@ -344,6 +344,7 @@ argument_list|>
 block|{
 comment|/**      * {@link ClientCallback} that handles failures automatically by propagating      * the exception to Camel {@link Exchange} and notifies Camel that the      * exchange finished by calling {@link AsyncCallback#done(boolean)}.      */
 DECL|class|ErrorHandlingClientCallback
+specifier|final
 class|class
 name|ErrorHandlingClientCallback
 parameter_list|<
