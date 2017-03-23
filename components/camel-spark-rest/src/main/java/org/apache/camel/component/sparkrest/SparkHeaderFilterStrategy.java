@@ -59,6 +59,14 @@ name|void
 name|initialize
 parameter_list|()
 block|{
+name|getInFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"content-type"
+argument_list|)
+expr_stmt|;
 name|getOutFilter
 argument_list|()
 operator|.
