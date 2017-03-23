@@ -793,9 +793,15 @@ argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
+comment|// As tryConvertTo is used to convert the body, we should do null check
+comment|// or the call bodyAsByte.remaining() may throw an NPE
 if|if
 condition|(
 name|body
+operator|!=
+literal|null
+operator|&&
+name|bodyAsByte
 operator|!=
 literal|null
 condition|)
