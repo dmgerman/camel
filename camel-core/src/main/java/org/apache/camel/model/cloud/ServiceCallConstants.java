@@ -25,6 +25,15 @@ specifier|final
 class|class
 name|ServiceCallConstants
 block|{
+DECL|field|DEFAULT_COMPONENT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_COMPONENT
+init|=
+literal|"http"
+decl_stmt|;
 DECL|field|DEFAULT_SERVICE_CALL_CONFIG_ID
 specifier|public
 specifier|static

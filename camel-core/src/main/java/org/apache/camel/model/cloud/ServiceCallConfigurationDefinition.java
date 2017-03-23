@@ -271,7 +271,9 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"http"
+name|ServiceCallConstants
+operator|.
+name|DEFAULT_COMPONENT
 argument_list|)
 DECL|field|component
 specifier|private

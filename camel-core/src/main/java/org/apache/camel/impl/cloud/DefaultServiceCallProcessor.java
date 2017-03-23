@@ -513,6 +513,56 @@ block|}
 comment|// *************************************
 comment|// Properties
 comment|// *************************************
+DECL|method|getExchangePattern ()
+specifier|public
+name|ExchangePattern
+name|getExchangePattern
+parameter_list|()
+block|{
+return|return
+name|exchangePattern
+return|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|getScheme ()
+specifier|public
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+name|scheme
+return|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|getContextPath ()
+specifier|public
+name|String
+name|getContextPath
+parameter_list|()
+block|{
+return|return
+name|contextPath
+return|;
+block|}
 DECL|method|getLoadBalancer ()
 specifier|public
 name|LoadBalancer
