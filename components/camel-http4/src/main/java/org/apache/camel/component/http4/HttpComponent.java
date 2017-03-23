@@ -626,7 +626,7 @@ literal|"verifiers"
 argument_list|,
 name|enums
 operator|=
-literal|"PARAMETERS,CONNECTIVITY"
+literal|"parameters,connectivity"
 argument_list|)
 DECL|class|HttpComponent
 specifier|public
