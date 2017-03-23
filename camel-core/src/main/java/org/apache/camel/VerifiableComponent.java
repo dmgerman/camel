@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * TODO: document  */
+comment|/**  * An interface to represent an object which support validation  */
 end_comment
 
 begin_interface
@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|VerifiableComponent
 block|{
-comment|/**      * TODO: document      *      * @return a Component Verifier      */
+comment|/**      * Get the {@link ComponentVerifier}      *      * @return the Component Verifier      */
 DECL|method|getVerifier ()
 name|ComponentVerifier
 name|getVerifier
