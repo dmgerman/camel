@@ -796,6 +796,12 @@ argument_list|()
 operator|.
 name|getRecoveryInterval
 argument_list|()
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getKeepAliveDelay
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -846,12 +852,17 @@ specifier|private
 name|int
 name|recoveryInterval
 decl_stmt|;
+DECL|field|keepAliveDelay
+specifier|private
+name|int
+name|keepAliveDelay
+decl_stmt|;
 DECL|field|attempt
 specifier|private
 name|long
 name|attempt
 decl_stmt|;
-DECL|method|StartConsumerTask (boolean recoveryEnabled, int recoveryInterval)
+DECL|method|StartConsumerTask (boolean recoveryEnabled, int recoveryInterval, int keepAliveDelay)
 specifier|public
 name|StartConsumerTask
 parameter_list|(
@@ -860,6 +871,9 @@ name|recoveryEnabled
 parameter_list|,
 name|int
 name|recoveryInterval
+parameter_list|,
+name|int
+name|keepAliveDelay
 parameter_list|)
 block|{
 name|this
@@ -873,6 +887,12 @@ operator|.
 name|recoveryInterval
 operator|=
 name|recoveryInterval
+expr_stmt|;
+name|this
+operator|.
+name|keepAliveDelay
+operator|=
+name|keepAliveDelay
 expr_stmt|;
 block|}
 annotation|@
@@ -1054,6 +1074,13 @@ operator|new
 name|BatchConsumptionLoop
 argument_list|()
 decl_stmt|;
+name|loop
+operator|.
+name|setKeepAliveDelay
+argument_list|(
+name|keepAliveDelay
+argument_list|)
+expr_stmt|;
 name|triggers
 operator|.
 name|add
@@ -1524,6 +1551,11 @@ argument_list|(
 name|completionTimeoutTrigger
 argument_list|)
 decl_stmt|;
+DECL|field|keepAliveDelay
+specifier|private
+name|int
+name|keepAliveDelay
+decl_stmt|;
 DECL|method|getCompletionTimeoutTrigger ()
 specifier|public
 name|AtomicBoolean
@@ -1533,6 +1565,20 @@ block|{
 return|return
 name|completionTimeoutTrigger
 return|;
+block|}
+DECL|method|setKeepAliveDelay (int i)
+specifier|public
+name|void
+name|setKeepAliveDelay
+parameter_list|(
+name|int
+name|i
+parameter_list|)
+block|{
+name|keepAliveDelay
+operator|=
+name|i
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1550,6 +1596,9 @@ condition|(
 name|running
 operator|.
 name|get
+argument_list|()
+operator|||
+name|isStarting
 argument_list|()
 condition|)
 block|{
@@ -1625,6 +1674,17 @@ name|ex
 parameter_list|)
 block|{
 comment|// from consumeBatchesOnLoop
+comment|// if keepAliveDelay was not specified just rethrow to break the loop. This preserves original default behavior
+if|if
+condition|(
+name|keepAliveDelay
+operator|==
+operator|-
+literal|1
+condition|)
+throw|throw
+name|ex
+throw|;
 comment|// this will log the exception and the parent loop will create a new session
 name|getExceptionHandler
 argument_list|()
@@ -1638,12 +1698,12 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
-comment|//rest a minute to avoid destroying the logs
+comment|//sleep to avoid log spamming
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+name|keepAliveDelay
 argument_list|)
 expr_stmt|;
 block|}

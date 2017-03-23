@@ -682,6 +682,25 @@ name|recoveryInterval
 init|=
 literal|5000
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
+DECL|field|keepAliveDelay
+specifier|private
+name|int
+name|keepAliveDelay
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|SjmsBatchEndpoint ()
 specifier|public
 name|SjmsBatchEndpoint
@@ -1471,6 +1490,16 @@ DECL|method|getRecoveryInterval ()
 specifier|public
 name|int
 name|getRecoveryInterval
+parameter_list|()
+block|{
+return|return
+name|recoveryInterval
+return|;
+block|}
+DECL|method|getKeepAliveDelay ()
+specifier|public
+name|int
+name|getKeepAliveDelay
 parameter_list|()
 block|{
 return|return
