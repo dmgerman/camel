@@ -174,7 +174,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|invoke (MBeanServer server, ObjectName name, String operationName,Object params[], String signature[])
+DECL|method|invoke (MBeanServer server, ObjectName name, String operationName, Object params[], String signature[])
 specifier|protected
 parameter_list|<
 name|T
