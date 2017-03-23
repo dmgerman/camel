@@ -1674,13 +1674,12 @@ name|ex
 parameter_list|)
 block|{
 comment|// from consumeBatchesOnLoop
-comment|// if keepAliveDelay was not specified just rethrow to break the loop. This preserves original default behavior
+comment|// if keepAliveDelay was not specified (defaults to -1) just rethrow to break the loop. This preserves original default behavior
 if|if
 condition|(
 name|keepAliveDelay
-operator|==
-operator|-
-literal|1
+operator|<
+literal|0
 condition|)
 throw|throw
 name|ex
@@ -1699,6 +1698,12 @@ name|ex
 argument_list|)
 expr_stmt|;
 comment|//sleep to avoid log spamming
+if|if
+condition|(
+name|keepAliveDelay
+operator|>
+literal|0
+condition|)
 name|Thread
 operator|.
 name|sleep

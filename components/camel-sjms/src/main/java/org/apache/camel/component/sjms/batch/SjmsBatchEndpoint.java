@@ -1496,6 +1496,23 @@ return|return
 name|recoveryInterval
 return|;
 block|}
+comment|/**      * The delay in millis between attempts to re-establish a valid session.      * If this is a positive value the SjmsBatchConsumer will attempt to create a new session if it sees an IllegalStateException      * during message consumption. This delay value allows you to pause between attempts to prevent spamming the logs.      * If this is a negative value (default is -1) then the SjmsBatchConsumer will behave as it always has before - that is      * it will bail out and the route will shut down if it sees an IllegalStateException.      */
+DECL|method|setKeepAliveDelay (int keepAliveDelay)
+specifier|public
+name|void
+name|setKeepAliveDelay
+parameter_list|(
+name|int
+name|keepAliveDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keepAliveDelay
+operator|=
+name|keepAliveDelay
+expr_stmt|;
+block|}
 DECL|method|getKeepAliveDelay ()
 specifier|public
 name|int
@@ -1503,7 +1520,7 @@ name|getKeepAliveDelay
 parameter_list|()
 block|{
 return|return
-name|recoveryInterval
+name|keepAliveDelay
 return|;
 block|}
 comment|/**      * Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds.      * The default is 5000 ms, that is, 5 seconds.      */
