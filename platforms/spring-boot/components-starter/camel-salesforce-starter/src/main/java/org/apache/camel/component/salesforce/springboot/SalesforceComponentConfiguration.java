@@ -327,19 +327,19 @@ specifier|public
 class|class
 name|SalesforceComponentConfiguration
 block|{
-comment|/**      * Explicit authentication type to be used one of USERNAME_PASSWORD      * REFRESH_TOKEN or JWT.      */
+comment|/**      * Explicit authentication method to be used one of USERNAME_PASSWORD      * REFRESH_TOKEN or JWT. Salesforce component can auto-determine the      * authentication method to use from the properties set set this property to      * eliminate any ambiguity.      */
 DECL|field|authenticationType
 specifier|private
 name|AuthenticationType
 name|authenticationType
 decl_stmt|;
-comment|/**      * To use the shared SalesforceLoginConfig as login configuration      */
+comment|/**      * All authentication configuration in one nested bean all properties set      * there can be set directly on the component as well      */
 DECL|field|loginConfig
 specifier|private
 name|SalesforceLoginConfigNestedConfiguration
 name|loginConfig
 decl_stmt|;
-comment|/**      * Salesforce login URL defaults to https://login.salesforce.com      */
+comment|/**      * URL of the Salesforce instance by default set to      * https://login.salesforce.com      */
 DECL|field|loginUrl
 specifier|private
 name|String
@@ -347,19 +347,19 @@ name|loginUrl
 init|=
 literal|"https://login.salesforce.com"
 decl_stmt|;
-comment|/**      * Salesforce connected application Consumer Key      */
+comment|/**      * OAuth Consumer Key of the connected app configured in the Salesforce      * instance setup. Typically a connected app needs to be configured but one      * can be provided by installing a package.      */
 DECL|field|clientId
 specifier|private
 name|String
 name|clientId
 decl_stmt|;
-comment|/**      * Salesforce connected application Consumer Secret      */
+comment|/**      * OAuth Consumer Secret of the connected app configured in the Salesforce      * instance setup.      */
 DECL|field|clientSecret
 specifier|private
 name|String
 name|clientSecret
 decl_stmt|;
-comment|/**      * KeyStoreParameters to use in OAuth 2.0 JWT Bearer Token Flow.      */
+comment|/**      * KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain      * only one entry with private key and certificate. Salesforce does not      * verify the certificate chain so this can easily be a selfsigned      * certificate. Make sure that you upload the certificate to the      * corresponding connected app.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|keystore
@@ -367,25 +367,25 @@ specifier|private
 name|KeyStoreParameters
 name|keystore
 decl_stmt|;
-comment|/**      * Salesforce connected application Consumer token      */
+comment|/**      * Refresh token already obtained in the refresh token OAuth flow. One needs      * to setup a web application and configure a callback URL to receive the      * refresh token or configure using the builtin callback at      * https://login.salesforce.com/services/oauth2/success or      * https://test.salesforce.com/services/oauth2/success and then retrive the      * refresh_token from the URL at the end of the flow. Note that in      * development organizations Salesforce allows hosting the callback web      * application at localhost.      */
 DECL|field|refreshToken
 specifier|private
 name|String
 name|refreshToken
 decl_stmt|;
-comment|/**      * Salesforce account user name      */
+comment|/**      * Username used in OAuth flow to gain access to access token. It's easy to      * get started with password OAuth flow but in general one should avoid it      * as it is deemed less secure than other flows.      */
 DECL|field|userName
 specifier|private
 name|String
 name|userName
 decl_stmt|;
-comment|/**      * Salesforce account password      */
+comment|/**      * Password used in OAuth flow to gain access to access token. It's easy to      * get started with password OAuth flow but in general one should avoid it      * as it is deemed less secure than other flows. Make sure that you append      * security token to the end of the password if using one.      */
 DECL|field|password
 specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**      * Flag to enable/disable lazy OAuth default is false. When enabled OAuth      * token retrieval or generation is not done until the first API call      */
+comment|/**      * If set to true prevents the component from authenticating to Salesforce      * with the start of the component. You would generaly set this to the      * (default) false and authenticate early and be immediately aware of any      * authentication issues.      */
 DECL|field|lazyLogin
 specifier|private
 name|Boolean
@@ -393,13 +393,13 @@ name|lazyLogin
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use the shared SalesforceEndpointConfig as endpoint configuration      */
+comment|/**      * Global endpoint configuration - use to set values that are common to all      * endpoints      */
 DECL|field|config
 specifier|private
 name|SalesforceEndpointConfigNestedConfiguration
 name|config
 decl_stmt|;
-comment|/**      * Used for configuring HTTP client properties as key/value pairs      */
+comment|/**      * Used to set any properties that can be configured on the underlying HTTP      * client. Have a look at properties of SalesforceHttpClient and the Jetty      * HttpClient for all available options.      */
 DECL|field|httpClientProperties
 specifier|private
 name|Map
@@ -410,7 +410,7 @@ name|Object
 argument_list|>
 name|httpClientProperties
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters      */
+comment|/**      * SSL parameters to use see SSLContextParameters class for all available      * options.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|sslContextParameters
@@ -418,31 +418,31 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|/**      * To configure HTTP proxy host      */
+comment|/**      * Hostname of the HTTP proxy server to use.      */
 DECL|field|httpProxyHost
 specifier|private
 name|String
 name|httpProxyHost
 decl_stmt|;
-comment|/**      * To configure HTTP proxy port      */
+comment|/**      * Port number of the HTTP proxy server to use.      */
 DECL|field|httpProxyPort
 specifier|private
 name|Integer
 name|httpProxyPort
 decl_stmt|;
-comment|/**      * To configure HTTP proxy username      */
+comment|/**      * Username to use to authenticate against the HTTP proxy server.      */
 DECL|field|httpProxyUsername
 specifier|private
 name|String
 name|httpProxyUsername
 decl_stmt|;
-comment|/**      * To configure HTTP proxy password      */
+comment|/**      * Password to use to authenticate against the HTTP proxy server.      */
 DECL|field|httpProxyPassword
 specifier|private
 name|String
 name|httpProxyPassword
 decl_stmt|;
-comment|/**      * Enable for Socks4 proxy false by default      */
+comment|/**      * If set to true the configures the HTTP proxy to use as a SOCKS4 proxy.      */
 DECL|field|isHttpProxySocks4
 specifier|private
 name|Boolean
@@ -450,15 +450,15 @@ name|isHttpProxySocks4
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Enable for TLS connections true by default      */
+comment|/**      * If set to false disables the use of TLS when accessing the HTTP proxy.      */
 DECL|field|isHttpProxySecure
 specifier|private
 name|Boolean
 name|isHttpProxySecure
 init|=
-literal|false
+literal|true
 decl_stmt|;
-comment|/**      * HTTP proxy included addresses      */
+comment|/**      * A list of addresses for which HTTP proxy server should be used.      */
 DECL|field|httpProxyIncludedAddresses
 specifier|private
 name|Set
@@ -467,7 +467,7 @@ name|String
 argument_list|>
 name|httpProxyIncludedAddresses
 decl_stmt|;
-comment|/**      * HTTP proxy excluded addresses      */
+comment|/**      * A list of addresses for which HTTP proxy server should not be used.      */
 DECL|field|httpProxyExcludedAddresses
 specifier|private
 name|Set
@@ -476,19 +476,19 @@ name|String
 argument_list|>
 name|httpProxyExcludedAddresses
 decl_stmt|;
-comment|/**      * HTTP proxy authentication URI      */
+comment|/**      * Used in authentication against the HTTP proxy server needs to match the      * URI of the proxy server in order for the httpProxyUsername and      * httpProxyPassword to be used for authentication.      */
 DECL|field|httpProxyAuthUri
 specifier|private
 name|String
 name|httpProxyAuthUri
 decl_stmt|;
-comment|/**      * HTTP proxy authentication realm      */
+comment|/**      * Realm of the proxy server used in preemptive Basic/Digest authentication      * methods against the HTTP proxy server.      */
 DECL|field|httpProxyRealm
 specifier|private
 name|String
 name|httpProxyRealm
 decl_stmt|;
-comment|/**      * Use HTTP proxy Digest authentication false by default      */
+comment|/**      * If set to true Digest authentication will be used when authenticating to      * the HTTP proxyotherwise Basic authorization method will be used      */
 DECL|field|httpProxyUseDigestAuth
 specifier|private
 name|Boolean
@@ -496,7 +496,7 @@ name|httpProxyUseDigestAuth
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Package names to scan for DTO classes (multiple packages can be separated      * by comma).      */
+comment|/**      * In what packages are the generated DTO classes. Typically the classes      * would be generated using camel-salesforce-maven-plugin. Set it if using      * the generated DTOs to gain the benefit of using short SObject names in      * parameters/header values.      */
 DECL|field|packages
 specifier|private
 name|String

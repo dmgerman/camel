@@ -680,9 +680,15 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"All authentication configuration in one nested bean, all properties set there can be set"
+operator|+
+literal|" directly on the component as well"
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|)
 DECL|field|loginConfig
 specifier|private
@@ -693,13 +699,23 @@ comment|// allow fine grained login as well
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"URL of the Salesforce instance, by default set to "
+operator|+
+name|DEFAULT_LOGIN_URL
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|,
 name|defaultValue
 operator|=
 name|DEFAULT_LOGIN_URL
+argument_list|,
+name|required
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|loginUrl
 specifier|private
@@ -709,13 +725,23 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"OAuth Consumer Key of the connected app configured in the Salesforce instance setup."
+operator|+
+literal|" Typically a connected app needs to be configured but one can be provided by installing a package."
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|,
 name|secret
 operator|=
 literal|true
+argument_list|,
+name|required
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|clientId
 specifier|private
@@ -725,9 +751,13 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"OAuth Consumer Secret of the connected app configured in the Salesforce instance setup."
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|,
 name|secret
 operator|=
@@ -741,9 +771,23 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Refresh token already obtained in the refresh token OAuth flow. One needs to setup a web"
+operator|+
+literal|" application and configure a callback URL to receive the refresh token, or configure using the builtin"
+operator|+
+literal|" callback at https://login.salesforce.com/services/oauth2/success or "
+operator|+
+literal|" https://test.salesforce.com/services/oauth2/success and then retrive the refresh_token from the URL at the"
+operator|+
+literal|" end of the flow. Note that in development organizations Salesforce allows hosting the callback web "
+operator|+
+literal|" application at localhost."
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|,
 name|secret
 operator|=
@@ -757,9 +801,15 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Username used in OAuth flow to gain access to access token. It's easy to get started with"
+operator|+
+literal|" password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows."
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|,
 name|secret
 operator|=
@@ -773,9 +823,17 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Password used in OAuth flow to gain access to access token. It's easy to get started with"
+operator|+
+literal|" password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows."
+operator|+
+literal|" Make sure that you append security token to the end of the password if using one."
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|,
 name|secret
 operator|=
@@ -789,9 +847,17 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain only one entry"
+operator|+
+literal|" with private key and certificate. Salesforce does not verify the certificate chain, so this can easily be"
+operator|+
+literal|" a selfsigned certificate. Make sure that you upload the certificate to the corresponding connected app."
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|,
 name|secret
 operator|=
@@ -807,11 +873,15 @@ name|Metadata
 argument_list|(
 name|description
 operator|=
-literal|"Explicit authentication type to be used, one of USERNAME_PASSWORD, REFRESH_TOKEN or JWT."
+literal|"Explicit authentication method to be used, one of USERNAME_PASSWORD, REFRESH_TOKEN or JWT."
+operator|+
+literal|" Salesforce component can auto-determine the authentication method to use from the properties set, set this "
+operator|+
+literal|" property to eliminate any ambiguity."
 argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|,
 name|secret
 operator|=
@@ -829,9 +899,21 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"If set to true prevents the component from authenticating to Salesforce with the start of"
+operator|+
+literal|" the component. You would generaly set this to the (default) false and authenticate early and be immediately"
+operator|+
+literal|" aware of any authentication issues."
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|)
 DECL|field|lazyLogin
 specifier|private
@@ -841,22 +923,31 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Global endpoint configuration - use to set values that are common to all endpoints"
+argument_list|,
 name|label
 operator|=
-literal|"advanced"
+literal|"common,advanced"
 argument_list|)
 DECL|field|config
 specifier|private
 name|SalesforceEndpointConfig
 name|config
 decl_stmt|;
-comment|// HTTP client parameters, map of property-name to value
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Used to set any properties that can be configured on the underlying HTTP client. Have a"
+operator|+
+literal|" look at properties of SalesforceHttpClient and the Jetty HttpClient for all available options."
+argument_list|,
 name|label
 operator|=
-literal|"advanced"
+literal|"common,advanced"
 argument_list|)
 DECL|field|httpClientProperties
 specifier|private
@@ -868,13 +959,16 @@ name|Object
 argument_list|>
 name|httpClientProperties
 decl_stmt|;
-comment|// SSL parameters
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"SSL parameters to use, see SSLContextParameters class for all available options."
+argument_list|,
 name|label
 operator|=
-literal|"security"
+literal|"common,security"
 argument_list|)
 DECL|field|sslContextParameters
 specifier|private
@@ -885,9 +979,13 @@ comment|// Proxy host and port
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Hostname of the HTTP proxy server to use."
+argument_list|,
 name|label
 operator|=
-literal|"proxy"
+literal|"common,proxy"
 argument_list|)
 DECL|field|httpProxyHost
 specifier|private
@@ -897,9 +995,13 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Port number of the HTTP proxy server to use."
+argument_list|,
 name|label
 operator|=
-literal|"proxy"
+literal|"common,proxy"
 argument_list|)
 DECL|field|httpProxyPort
 specifier|private
@@ -909,9 +1011,17 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"If set to true the configures the HTTP proxy to use as a SOCKS4 proxy."
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
 name|label
 operator|=
-literal|"proxy"
+literal|"common,proxy"
 argument_list|)
 DECL|field|isHttpProxySocks4
 specifier|private
@@ -921,9 +1031,17 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"If set to false disables the use of TLS when accessing the HTTP proxy."
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
 name|label
 operator|=
-literal|"proxy,security"
+literal|"common,proxy,security"
 argument_list|)
 DECL|field|isHttpProxySecure
 specifier|private
@@ -935,9 +1053,13 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"A list of addresses for which HTTP proxy server should be used."
+argument_list|,
 name|label
 operator|=
-literal|"proxy"
+literal|"common,proxy"
 argument_list|)
 DECL|field|httpProxyIncludedAddresses
 specifier|private
@@ -950,9 +1072,13 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"A list of addresses for which HTTP proxy server should not be used."
+argument_list|,
 name|label
 operator|=
-literal|"proxy"
+literal|"common,proxy"
 argument_list|)
 DECL|field|httpProxyExcludedAddresses
 specifier|private
@@ -966,9 +1092,13 @@ comment|// Proxy basic authentication
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Username to use to authenticate against the HTTP proxy server."
+argument_list|,
 name|label
 operator|=
-literal|"proxy,security"
+literal|"common,proxy,security"
 argument_list|,
 name|secret
 operator|=
@@ -982,9 +1112,13 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Password to use to authenticate against the HTTP proxy server."
+argument_list|,
 name|label
 operator|=
-literal|"proxy,security"
+literal|"common,proxy,security"
 argument_list|,
 name|secret
 operator|=
@@ -998,9 +1132,15 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Used in authentication against the HTTP proxy server, needs to match the URI of the proxy"
+operator|+
+literal|" server in order for the httpProxyUsername and httpProxyPassword to be used for authentication."
+argument_list|,
 name|label
 operator|=
-literal|"proxy,security"
+literal|"common,proxy,security"
 argument_list|)
 DECL|field|httpProxyAuthUri
 specifier|private
@@ -1010,9 +1150,15 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Realm of the proxy server, used in preemptive Basic/Digest authentication methods against"
+operator|+
+literal|" the HTTP proxy server."
+argument_list|,
 name|label
 operator|=
-literal|"proxy,security"
+literal|"common,proxy,security"
 argument_list|)
 DECL|field|httpProxyRealm
 specifier|private
@@ -1022,16 +1168,40 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"If set to true Digest authentication will be used when authenticating to the HTTP proxy,"
+operator|+
+literal|"otherwise Basic authorization method will be used"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
 name|label
 operator|=
-literal|"proxy,security"
+literal|"common,proxy,security"
 argument_list|)
 DECL|field|httpProxyUseDigestAuth
 specifier|private
 name|boolean
 name|httpProxyUseDigestAuth
 decl_stmt|;
-comment|// DTO packages to scan
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"In what packages are the generated DTO classes. Typically the classes would be generated"
+operator|+
+literal|" using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short "
+operator|+
+literal|" SObject names in parameters/header values."
+argument_list|,
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|packages
 specifier|private
 name|String
@@ -1476,105 +1646,75 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|password
-argument_list|)
-condition|)
-block|{
 name|loginConfig
 operator|=
 operator|new
 name|SalesforceLoginConfig
-argument_list|(
-name|loginUrl
-argument_list|,
-name|clientId
-argument_list|,
-name|clientSecret
-argument_list|,
-name|userName
-argument_list|,
-name|password
-argument_list|,
-name|lazyLogin
-argument_list|)
+argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|refreshToken
-argument_list|)
-condition|)
-block|{
 name|loginConfig
-operator|=
-operator|new
-name|SalesforceLoginConfig
+operator|.
+name|setClientId
 argument_list|(
-name|loginUrl
-argument_list|,
 name|clientId
-argument_list|,
-name|clientSecret
-argument_list|,
-name|refreshToken
-argument_list|,
-name|lazyLogin
 argument_list|)
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|ObjectHelper
+name|loginConfig
 operator|.
-name|isNotEmpty
+name|setClientSecret
+argument_list|(
+name|clientSecret
+argument_list|)
+expr_stmt|;
+name|loginConfig
+operator|.
+name|setKeystore
 argument_list|(
 name|keystore
 argument_list|)
-condition|)
-block|{
+expr_stmt|;
 name|loginConfig
-operator|=
-operator|new
-name|SalesforceLoginConfig
+operator|.
+name|setLazyLogin
 argument_list|(
-name|loginUrl
-argument_list|,
-name|clientId
-argument_list|,
-name|userName
-argument_list|,
-name|keystore
-argument_list|,
 name|lazyLogin
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|loginConfig
+operator|.
+name|setLoginUrl
 argument_list|(
-literal|"Cannot define a login configuration, the component configuration"
-operator|+
-literal|" does not contain `password`, `refreshToken` or `keystore` parameters. Specifying one of those"
-operator|+
-literal|" determines the type of authentication performed."
+name|loginUrl
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
+name|loginConfig
+operator|.
+name|setPassword
+argument_list|(
+name|password
+argument_list|)
+expr_stmt|;
+name|loginConfig
+operator|.
+name|setRefreshToken
+argument_list|(
+name|refreshToken
+argument_list|)
+expr_stmt|;
+name|loginConfig
+operator|.
+name|setType
+argument_list|(
+name|authenticationType
+argument_list|)
+expr_stmt|;
+name|loginConfig
+operator|.
+name|setUserName
+argument_list|(
+name|userName
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -2674,7 +2814,6 @@ return|return
 name|loginConfig
 return|;
 block|}
-comment|/**      * To use the shared SalesforceLoginConfig as login configuration      */
 DECL|method|setLoginConfig (SalesforceLoginConfig loginConfig)
 specifier|public
 name|void
@@ -2691,7 +2830,6 @@ operator|=
 name|loginConfig
 expr_stmt|;
 block|}
-comment|/**      * Salesforce login URL, defaults to https://login.salesforce.com      */
 DECL|method|setLoginUrl (String loginUrl)
 specifier|public
 name|void
@@ -2718,7 +2856,6 @@ return|return
 name|clientId
 return|;
 block|}
-comment|/**      * Salesforce connected application Consumer Key      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -2745,7 +2882,6 @@ return|return
 name|clientSecret
 return|;
 block|}
-comment|/**      * Salesforce connected application Consumer Secret      */
 DECL|method|setClientSecret (String clientSecret)
 specifier|public
 name|void
@@ -2762,7 +2898,6 @@ operator|=
 name|clientSecret
 expr_stmt|;
 block|}
-comment|/**      * {@link KeyStoreParameters} to use in OAuth 2.0 JWT Bearer Token Flow.      */
 DECL|method|setKeystore (final KeyStoreParameters keystore)
 specifier|public
 name|void
@@ -2800,7 +2935,6 @@ return|return
 name|refreshToken
 return|;
 block|}
-comment|/**      * Salesforce connected application Consumer token      */
 DECL|method|setRefreshToken (String refreshToken)
 specifier|public
 name|void
@@ -2827,7 +2961,6 @@ return|return
 name|userName
 return|;
 block|}
-comment|/**      * Salesforce account user name      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -2854,7 +2987,6 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * Salesforce account password      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -2881,7 +3013,6 @@ return|return
 name|lazyLogin
 return|;
 block|}
-comment|/**      * Flag to enable/disable lazy OAuth, default is false. When enabled, OAuth token retrieval or generation is not done until the first API call      */
 DECL|method|setLazyLogin (boolean lazyLogin)
 specifier|public
 name|void
@@ -2908,7 +3039,6 @@ return|return
 name|config
 return|;
 block|}
-comment|/**      * To use the shared SalesforceEndpointConfig as endpoint configuration      */
 DECL|method|setConfig (SalesforceEndpointConfig config)
 specifier|public
 name|void
@@ -2940,7 +3070,6 @@ return|return
 name|httpClientProperties
 return|;
 block|}
-comment|/**      * Used for configuring HTTP client properties as key/value pairs      */
 DECL|method|setHttpClientProperties (Map<String, Object> httpClientProperties)
 specifier|public
 name|void
@@ -2972,7 +3101,6 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -2999,7 +3127,6 @@ return|return
 name|httpProxyHost
 return|;
 block|}
-comment|/**      * To configure HTTP proxy host      */
 DECL|method|setHttpProxyHost (String httpProxyHost)
 specifier|public
 name|void
@@ -3026,7 +3153,6 @@ return|return
 name|httpProxyPort
 return|;
 block|}
-comment|/**      * To configure HTTP proxy port      */
 DECL|method|setHttpProxyPort (Integer httpProxyPort)
 specifier|public
 name|void
@@ -3053,7 +3179,6 @@ return|return
 name|httpProxyUsername
 return|;
 block|}
-comment|/**      * To configure HTTP proxy username      */
 DECL|method|setHttpProxyUsername (String httpProxyUsername)
 specifier|public
 name|void
@@ -3080,7 +3205,6 @@ return|return
 name|httpProxyPassword
 return|;
 block|}
-comment|/**      * To configure HTTP proxy password      */
 DECL|method|setHttpProxyPassword (String httpProxyPassword)
 specifier|public
 name|void
@@ -3107,7 +3231,6 @@ return|return
 name|isHttpProxySocks4
 return|;
 block|}
-comment|/**      * Enable for Socks4 proxy, false by default      */
 DECL|method|setIsHttpProxySocks4 (boolean isHttpProxySocks4)
 specifier|public
 name|void
@@ -3134,7 +3257,6 @@ return|return
 name|isHttpProxySecure
 return|;
 block|}
-comment|/**      * Enable for TLS connections, true by default      */
 DECL|method|setIsHttpProxySecure (boolean isHttpProxySecure)
 specifier|public
 name|void
@@ -3164,7 +3286,6 @@ return|return
 name|httpProxyIncludedAddresses
 return|;
 block|}
-comment|/**      * HTTP proxy included addresses      */
 DECL|method|setHttpProxyIncludedAddresses (Set<String> httpProxyIncludedAddresses)
 specifier|public
 name|void
@@ -3197,7 +3318,6 @@ return|return
 name|httpProxyExcludedAddresses
 return|;
 block|}
-comment|/**      * HTTP proxy excluded addresses      */
 DECL|method|setHttpProxyExcludedAddresses (Set<String> httpProxyExcludedAddresses)
 specifier|public
 name|void
@@ -3227,7 +3347,6 @@ return|return
 name|httpProxyAuthUri
 return|;
 block|}
-comment|/**      * HTTP proxy authentication URI      */
 DECL|method|setHttpProxyAuthUri (String httpProxyAuthUri)
 specifier|public
 name|void
@@ -3254,7 +3373,6 @@ return|return
 name|httpProxyRealm
 return|;
 block|}
-comment|/**      * HTTP proxy authentication realm      */
 DECL|method|setHttpProxyRealm (String httpProxyRealm)
 specifier|public
 name|void
@@ -3281,7 +3399,6 @@ return|return
 name|httpProxyUseDigestAuth
 return|;
 block|}
-comment|/**      * Use HTTP proxy Digest authentication, false by default      */
 DECL|method|setHttpProxyUseDigestAuth (boolean httpProxyUseDigestAuth)
 specifier|public
 name|void
@@ -3309,7 +3426,6 @@ return|return
 name|packages
 return|;
 block|}
-comment|/**      * Package names to scan for DTO classes (multiple packages can be separated by comma).      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -3327,7 +3443,6 @@ operator|=
 name|packages
 expr_stmt|;
 block|}
-comment|/**      * Package names to scan for DTO classes (multiple packages can be separated by comma).      */
 DECL|method|setPackages (String packages)
 specifier|public
 name|void
@@ -3385,7 +3500,6 @@ return|return
 name|classMap
 return|;
 block|}
-comment|/**      * TODO: document      */
 DECL|method|getVerifier ()
 specifier|public
 name|ComponentVerifier
