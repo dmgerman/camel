@@ -165,6 +165,14 @@ specifier|private
 name|Olingo4ConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
+comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
+DECL|field|resolvePropertyPlaceholders
+specifier|private
+name|Boolean
+name|resolvePropertyPlaceholders
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
 name|Olingo4ConfigurationNestedConfiguration
@@ -189,6 +197,32 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getResolvePropertyPlaceholders ()
+specifier|public
+name|Boolean
+name|getResolvePropertyPlaceholders
+parameter_list|()
+block|{
+return|return
+name|resolvePropertyPlaceholders
+return|;
+block|}
+DECL|method|setResolvePropertyPlaceholders ( Boolean resolvePropertyPlaceholders)
+specifier|public
+name|void
+name|setResolvePropertyPlaceholders
+parameter_list|(
+name|Boolean
+name|resolvePropertyPlaceholders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resolvePropertyPlaceholders
+operator|=
+name|resolvePropertyPlaceholders
 expr_stmt|;
 block|}
 DECL|class|Olingo4ConfigurationNestedConfiguration
@@ -255,12 +289,16 @@ DECL|field|connectTimeout
 specifier|private
 name|Integer
 name|connectTimeout
+init|=
+literal|30000
 decl_stmt|;
 comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds)          */
 DECL|field|socketTimeout
 specifier|private
 name|Integer
 name|socketTimeout
+init|=
+literal|30000
 decl_stmt|;
 comment|/**          * HTTP proxy server configuration          */
 annotation|@
