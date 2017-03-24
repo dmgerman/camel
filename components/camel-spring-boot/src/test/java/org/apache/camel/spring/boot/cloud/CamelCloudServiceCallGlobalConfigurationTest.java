@@ -220,7 +220,7 @@ name|CamelAutoConfiguration
 operator|.
 name|class
 block|,
-name|CamelCloudServiceCallTest
+name|CamelCloudServiceCallGlobalConfigurationTest
 operator|.
 name|TestConfiguration
 operator|.
@@ -230,21 +230,37 @@ argument_list|,
 name|properties
 operator|=
 block|{
+literal|"service.name=custom-svc-list"
+block|,
 literal|"camel.cloud.load-balancer.enabled=false"
 block|,
-literal|"camel.cloud.service-discovery.services[custom-svc-list]=localhost:9090,localhost:9091,localhost:9092"
+literal|"camel.cloud.service-call.uri=netty4-http:http://${service.name}"
 block|,
-literal|"camel.cloud.service-filter.blacklist[custom-svc-list]=localhost:9091"
+literal|"camel.cloud.service-call.service-discovery=sd"
+block|,
+literal|"camel.cloud.service-call.service-filter=sf"
+block|,
+comment|// this should not be taken into account
+literal|"camel.cloud.service-discovery.services[custom-svc-list]=localhost:8090,localhost:8091,localhost:8092"
+block|,
+comment|// this should be used
+literal|"camel.cloud.service-discovery.configurations[sd].services[custom-svc-list]=localhost:9090,localhost:9091,localhost:9092"
+block|,
+comment|// this should not be taken into account
+literal|"camel.cloud.service-filter.blacklist[custom-svc-list]=localhost:9090"
+block|,
+comment|// this should be used
+literal|"camel.cloud.service-filter.configurations[sf].blacklist[custom-svc-list]=localhost:9091"
 block|,
 literal|"ribbon.enabled=false"
 block|,
-literal|"debug=false"
+literal|"debug=true"
 block|}
 argument_list|)
-DECL|class|CamelCloudServiceCallTest
+DECL|class|CamelCloudServiceCallGlobalConfigurationTest
 specifier|public
 class|class
-name|CamelCloudServiceCallTest
+name|CamelCloudServiceCallGlobalConfigurationTest
 block|{
 annotation|@
 name|Autowired
@@ -343,16 +359,8 @@ literal|"direct:start"
 argument_list|)
 operator|.
 name|serviceCall
-argument_list|()
-operator|.
-name|name
 argument_list|(
-literal|"custom-svc-list/hello"
-argument_list|)
-operator|.
-name|uri
-argument_list|(
-literal|"netty4-http:http://custom-svc-list"
+literal|"{{service.name}}/hello"
 argument_list|)
 expr_stmt|;
 name|from

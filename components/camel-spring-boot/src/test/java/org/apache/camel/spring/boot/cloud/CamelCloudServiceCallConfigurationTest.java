@@ -302,10 +302,10 @@ name|ctx
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|doTest ()
+DECL|method|testConfiguration ()
 specifier|public
 name|void
-name|doTest
+name|testConfiguration
 parameter_list|()
 throws|throws
 name|Exception

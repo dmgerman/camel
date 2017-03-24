@@ -54,6 +54,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|cloud
+operator|.
+name|ServiceCallConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -85,6 +113,15 @@ name|boolean
 name|enabled
 init|=
 literal|true
+decl_stmt|;
+DECL|field|serviceCall
+specifier|private
+name|ServiceCall
+name|serviceCall
+init|=
+operator|new
+name|ServiceCall
+argument_list|()
 decl_stmt|;
 DECL|field|loadBalancer
 specifier|private
@@ -148,6 +185,16 @@ operator|=
 name|enabled
 expr_stmt|;
 block|}
+DECL|method|getServiceCall ()
+specifier|public
+name|ServiceCall
+name|getServiceCall
+parameter_list|()
+block|{
+return|return
+name|serviceCall
+return|;
+block|}
 DECL|method|getLoadBalancer ()
 specifier|public
 name|LoadBalancer
@@ -189,7 +236,244 @@ name|serviceChooser
 return|;
 block|}
 comment|// *****************************************
-comment|// Nested configurations
+comment|// Service Call
+comment|// *****************************************
+DECL|class|ServiceCall
+specifier|public
+class|class
+name|ServiceCall
+block|{
+comment|/**          * The uri of the endpoint to send to.          * The uri can be dynamic computed using the {@link org.apache.camel.language.simple.SimpleLanguage} expression.          */
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+decl_stmt|;
+comment|/**          * The component to use.          */
+DECL|field|component
+specifier|private
+name|String
+name|component
+init|=
+name|ServiceCallConstants
+operator|.
+name|DEFAULT_COMPONENT
+decl_stmt|;
+comment|/**          * A reference to the {@link org.apache.camel.cloud.ServiceDiscovery} to use.          */
+DECL|field|serviceDiscovery
+specifier|private
+name|String
+name|serviceDiscovery
+decl_stmt|;
+comment|/**          * A reference to the {@link org.apache.camel.cloud.ServiceFilter} to use.          */
+DECL|field|serviceFilter
+specifier|private
+name|String
+name|serviceFilter
+decl_stmt|;
+comment|/**          * A reference to the {@link org.apache.camel.cloud.ServiceChooser} to use.          */
+DECL|field|serviceChooser
+specifier|private
+name|String
+name|serviceChooser
+decl_stmt|;
+comment|/**          * A reference to the {@link org.apache.camel.cloud.LoadBalancer} to use.          */
+DECL|field|loadBalancer
+specifier|private
+name|String
+name|loadBalancer
+decl_stmt|;
+comment|/**          * Set a custom {@link Expression} using the {@link org.apache.camel.language.simple.SimpleLanguage}          */
+DECL|field|expression
+specifier|private
+name|String
+name|expression
+decl_stmt|;
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
+DECL|method|getComponent ()
+specifier|public
+name|String
+name|getComponent
+parameter_list|()
+block|{
+return|return
+name|component
+return|;
+block|}
+DECL|method|setComponent (String component)
+specifier|public
+name|void
+name|setComponent
+parameter_list|(
+name|String
+name|component
+parameter_list|)
+block|{
+name|this
+operator|.
+name|component
+operator|=
+name|component
+expr_stmt|;
+block|}
+DECL|method|getServiceDiscovery ()
+specifier|public
+name|String
+name|getServiceDiscovery
+parameter_list|()
+block|{
+return|return
+name|serviceDiscovery
+return|;
+block|}
+DECL|method|setServiceDiscovery (String serviceDiscovery)
+specifier|public
+name|void
+name|setServiceDiscovery
+parameter_list|(
+name|String
+name|serviceDiscovery
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceDiscovery
+operator|=
+name|serviceDiscovery
+expr_stmt|;
+block|}
+DECL|method|getServiceFilter ()
+specifier|public
+name|String
+name|getServiceFilter
+parameter_list|()
+block|{
+return|return
+name|serviceFilter
+return|;
+block|}
+DECL|method|setServiceFilter (String serviceFilter)
+specifier|public
+name|void
+name|setServiceFilter
+parameter_list|(
+name|String
+name|serviceFilter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceFilter
+operator|=
+name|serviceFilter
+expr_stmt|;
+block|}
+DECL|method|getServiceChooser ()
+specifier|public
+name|String
+name|getServiceChooser
+parameter_list|()
+block|{
+return|return
+name|serviceChooser
+return|;
+block|}
+DECL|method|setServiceChooser (String serviceChooser)
+specifier|public
+name|void
+name|setServiceChooser
+parameter_list|(
+name|String
+name|serviceChooser
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceChooser
+operator|=
+name|serviceChooser
+expr_stmt|;
+block|}
+DECL|method|getLoadBalancer ()
+specifier|public
+name|String
+name|getLoadBalancer
+parameter_list|()
+block|{
+return|return
+name|loadBalancer
+return|;
+block|}
+DECL|method|setLoadBalancer (String loadBalancer)
+specifier|public
+name|void
+name|setLoadBalancer
+parameter_list|(
+name|String
+name|loadBalancer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadBalancer
+operator|=
+name|loadBalancer
+expr_stmt|;
+block|}
+DECL|method|getExpression ()
+specifier|public
+name|String
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+DECL|method|setExpression (String expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
+block|}
+comment|// *****************************************
+comment|// Load Balancer
 comment|// *****************************************
 DECL|class|LoadBalancer
 specifier|public
@@ -231,19 +515,15 @@ name|enabled
 expr_stmt|;
 block|}
 block|}
-DECL|class|ServiceDiscovery
+comment|// *****************************************
+comment|// Service Discovery
+comment|// *****************************************
+DECL|class|ServiceDiscoveryConfiguration
 specifier|public
 specifier|static
 class|class
-name|ServiceDiscovery
+name|ServiceDiscoveryConfiguration
 block|{
-DECL|field|enabled
-specifier|private
-name|boolean
-name|enabled
-init|=
-literal|true
-decl_stmt|;
 DECL|field|services
 specifier|private
 name|Map
@@ -267,32 +547,6 @@ specifier|private
 name|String
 name|cacheTimeout
 decl_stmt|;
-DECL|method|isEnabled ()
-specifier|public
-name|boolean
-name|isEnabled
-parameter_list|()
-block|{
-return|return
-name|enabled
-return|;
-block|}
-DECL|method|setEnabled (boolean enabled)
-specifier|public
-name|void
-name|setEnabled
-parameter_list|(
-name|boolean
-name|enabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|enabled
-operator|=
-name|enabled
-expr_stmt|;
-block|}
 DECL|method|getServices ()
 specifier|public
 name|Map
@@ -338,11 +592,13 @@ name|cacheTimeout
 expr_stmt|;
 block|}
 block|}
-DECL|class|ServiceFilter
+DECL|class|ServiceDiscovery
 specifier|public
 specifier|static
 class|class
-name|ServiceFilter
+name|ServiceDiscovery
+extends|extends
+name|ServiceDiscoveryConfiguration
 block|{
 DECL|field|enabled
 specifier|private
@@ -351,18 +607,15 @@ name|enabled
 init|=
 literal|true
 decl_stmt|;
-DECL|field|blacklist
+DECL|field|configurations
 specifier|private
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|List
-argument_list|<
-name|String
+name|ServiceDiscoveryConfiguration
 argument_list|>
-argument_list|>
-name|blacklist
+name|configurations
 init|=
 operator|new
 name|HashMap
@@ -395,6 +648,49 @@ operator|=
 name|enabled
 expr_stmt|;
 block|}
+DECL|method|getConfigurations ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ServiceDiscoveryConfiguration
+argument_list|>
+name|getConfigurations
+parameter_list|()
+block|{
+return|return
+name|configurations
+return|;
+block|}
+block|}
+comment|// *****************************************
+comment|// Service Filter
+comment|// *****************************************
+DECL|class|ServiceFilterConfiguration
+specifier|public
+specifier|static
+class|class
+name|ServiceFilterConfiguration
+block|{
+DECL|field|blacklist
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|blacklist
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
 DECL|method|getBlacklist ()
 specifier|public
 name|Map
@@ -414,6 +710,81 @@ name|blacklist
 return|;
 block|}
 block|}
+DECL|class|ServiceFilter
+specifier|public
+specifier|static
+class|class
+name|ServiceFilter
+extends|extends
+name|ServiceFilterConfiguration
+block|{
+DECL|field|enabled
+specifier|private
+name|boolean
+name|enabled
+init|=
+literal|true
+decl_stmt|;
+DECL|field|configurations
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ServiceFilterConfiguration
+argument_list|>
+name|configurations
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+DECL|method|isEnabled ()
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
+block|}
+DECL|method|setEnabled (boolean enabled)
+specifier|public
+name|void
+name|setEnabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enabled
+operator|=
+name|enabled
+expr_stmt|;
+block|}
+DECL|method|getConfigurations ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ServiceFilterConfiguration
+argument_list|>
+name|getConfigurations
+parameter_list|()
+block|{
+return|return
+name|configurations
+return|;
+block|}
+block|}
+comment|// *****************************************
+comment|// Service Chooser
+comment|// *****************************************
 DECL|class|ServiceChooser
 specifier|public
 specifier|static

@@ -218,6 +218,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|SimpleExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -965,6 +981,26 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
+comment|/**      * Set a custom {@link Expression} using the {@link org.apache.camel.language.simple.SimpleLanguage}      */
+DECL|method|setSimpleExpression (String expression)
+specifier|public
+name|void
+name|setSimpleExpression
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|setExpression
+argument_list|(
+operator|new
+name|SimpleExpression
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getServiceDiscoveryConfiguration ()
 specifier|public
 name|ServiceCallServiceDiscoveryConfiguration
@@ -1317,6 +1353,29 @@ block|{
 name|setExpression
 argument_list|(
 name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set a custom {@link Expression} using the {@link org.apache.camel.language.simple.SimpleLanguage}      */
+DECL|method|simpleExpression (String expression)
+specifier|public
+name|ServiceCallConfigurationDefinition
+name|simpleExpression
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|setExpression
+argument_list|(
+operator|new
+name|SimpleExpression
+argument_list|(
+name|expression
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
