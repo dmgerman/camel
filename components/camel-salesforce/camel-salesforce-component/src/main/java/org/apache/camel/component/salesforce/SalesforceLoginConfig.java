@@ -845,6 +845,16 @@ literal|"keystore (JWT authentication)"
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown authentication type: "
+operator|+
+name|type
+argument_list|)
+throw|;
 block|}
 block|}
 annotation|@

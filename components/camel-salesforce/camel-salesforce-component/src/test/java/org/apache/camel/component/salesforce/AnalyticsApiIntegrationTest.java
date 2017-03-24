@@ -559,6 +559,7 @@ decl_stmt|;
 DECL|field|TEST_REPORT_NAME
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|TEST_REPORT_NAME
 init|=
