@@ -435,6 +435,18 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|hostOptions
+specifier|private
+name|UndertowHostOptions
+name|hostOptions
+decl_stmt|;
 DECL|method|UndertowComponent ()
 specifier|public
 name|UndertowComponent
@@ -1821,6 +1833,8 @@ operator|new
 name|DefaultUndertowHost
 argument_list|(
 name|key
+argument_list|,
+name|hostOptions
 argument_list|)
 return|;
 block|}
@@ -1876,6 +1890,33 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getHostOptions ()
+specifier|public
+name|UndertowHostOptions
+name|getHostOptions
+parameter_list|()
+block|{
+return|return
+name|hostOptions
+return|;
+block|}
+comment|/**      * To configure common options, such as thread pools      */
+DECL|method|setHostOptions (UndertowHostOptions hostOptions)
+specifier|public
+name|void
+name|setHostOptions
+parameter_list|(
+name|UndertowHostOptions
+name|hostOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hostOptions
+operator|=
+name|hostOptions
 expr_stmt|;
 block|}
 block|}
