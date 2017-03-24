@@ -236,6 +236,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Rule
 import|;
 end_import
@@ -335,6 +345,9 @@ name|ListAggregationStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// the only thing special about this MockConnectionFactor is it allows us to call returnBadSessionNTimes(int)
+comment|// which will cause the MockSession to throw an IllegalStateException<int> times before returning a valid one.
+comment|// This gives us the ability to test bad sessions
 name|ConnectionFactory
 name|connectionFactory
 init|=

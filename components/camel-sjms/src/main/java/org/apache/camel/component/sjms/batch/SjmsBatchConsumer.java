@@ -1590,17 +1590,10 @@ parameter_list|()
 block|{
 try|try
 block|{
-comment|// this loop is intended to keep the consumer up and running as long as it's supposed to be, but allow it to bail if signaled
-while|while
-condition|(
-name|running
-operator|.
-name|get
-argument_list|()
-operator|||
-name|isStarting
-argument_list|()
-condition|)
+comment|// This loop is intended to keep the consumer up and running as long as it's supposed to be, but allow it to bail if signaled.
+comment|// I'm using a do/while loop because the first time through we want to attempt it regardless of any other conditions... we
+comment|// only want to try AGAIN if the keepAlive is set.
+do|do
 block|{
 comment|// a batch corresponds to a single session that will be committed or rolled back by a background thread
 specifier|final
@@ -1721,6 +1714,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+do|while
+condition|(
+name|running
+operator|.
+name|get
+argument_list|()
+operator|||
+name|isStarting
+argument_list|()
+condition|)
+do|;
 block|}
 catch|catch
 parameter_list|(
