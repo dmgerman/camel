@@ -76,6 +76,22 @@ name|component
 operator|.
 name|salesforce
 operator|.
+name|AuthenticationType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
 name|SalesforceHttpClient
 import|;
 end_import
@@ -311,6 +327,12 @@ specifier|public
 class|class
 name|SalesforceComponentConfiguration
 block|{
+comment|/**      * Explicit authentication type to be used one of USERNAME_PASSWORD      * REFRESH_TOKEN or JWT.      */
+DECL|field|authenticationType
+specifier|private
+name|AuthenticationType
+name|authenticationType
+decl_stmt|;
 comment|/**      * To use the shared SalesforceLoginConfig as login configuration      */
 DECL|field|loginConfig
 specifier|private
@@ -489,6 +511,32 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getAuthenticationType ()
+specifier|public
+name|AuthenticationType
+name|getAuthenticationType
+parameter_list|()
+block|{
+return|return
+name|authenticationType
+return|;
+block|}
+DECL|method|setAuthenticationType (AuthenticationType authenticationType)
+specifier|public
+name|void
+name|setAuthenticationType
+parameter_list|(
+name|AuthenticationType
+name|authenticationType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|authenticationType
+operator|=
+name|authenticationType
+expr_stmt|;
+block|}
 DECL|method|getLoginConfig ()
 specifier|public
 name|SalesforceLoginConfigNestedConfiguration
@@ -1222,6 +1270,11 @@ specifier|private
 name|String
 name|refreshToken
 decl_stmt|;
+DECL|field|type
+specifier|private
+name|AuthenticationType
+name|type
+decl_stmt|;
 comment|/**          * Salesforce account user name          */
 DECL|field|userName
 specifier|private
@@ -1368,6 +1421,32 @@ operator|.
 name|refreshToken
 operator|=
 name|refreshToken
+expr_stmt|;
+block|}
+DECL|method|getType ()
+specifier|public
+name|AuthenticationType
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+DECL|method|setType (AuthenticationType type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|AuthenticationType
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
 expr_stmt|;
 block|}
 DECL|method|getUserName ()

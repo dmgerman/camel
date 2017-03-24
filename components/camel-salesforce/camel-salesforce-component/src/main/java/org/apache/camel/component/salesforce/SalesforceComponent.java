@@ -805,6 +805,30 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|description
+operator|=
+literal|"Explicit authentication type to be used, one of USERNAME_PASSWORD, REFRESH_TOKEN or JWT."
+argument_list|,
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|false
+argument_list|,
+name|enums
+operator|=
+literal|"USERNAME_PASSWORD,REFRESH_TOKEN,JWT"
+argument_list|)
+DECL|field|authenticationType
+specifier|private
+name|AuthenticationType
+name|authenticationType
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
 name|label
 operator|=
 literal|"security"
@@ -2613,6 +2637,32 @@ block|}
 return|return
 name|result
 return|;
+block|}
+DECL|method|getAuthenticationType ()
+specifier|public
+name|AuthenticationType
+name|getAuthenticationType
+parameter_list|()
+block|{
+return|return
+name|authenticationType
+return|;
+block|}
+DECL|method|setAuthenticationType (AuthenticationType authenticationType)
+specifier|public
+name|void
+name|setAuthenticationType
+parameter_list|(
+name|AuthenticationType
+name|authenticationType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|authenticationType
+operator|=
+name|authenticationType
+expr_stmt|;
 block|}
 DECL|method|getLoginConfig ()
 specifier|public
