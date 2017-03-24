@@ -1509,6 +1509,28 @@ else|:
 literal|false
 return|;
 block|}
+DECL|method|isLogEipMask ()
+specifier|public
+name|boolean
+name|isLogEipMask
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|isLogEipMask
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|context
+operator|.
+name|isLogEipMask
+argument_list|()
+else|:
+literal|false
+return|;
+block|}
 DECL|method|isUseMDCLogging ()
 specifier|public
 name|boolean

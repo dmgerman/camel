@@ -535,6 +535,25 @@ name|out
 operator|.
 name|println
 argument_list|(
+name|stringEscape
+operator|.
+name|unescapeJava
+argument_list|(
+literal|"\tLog EIP Mask: "
+operator|+
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"logEipMask"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;

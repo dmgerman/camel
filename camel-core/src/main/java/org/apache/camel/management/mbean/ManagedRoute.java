@@ -944,6 +944,22 @@ name|isMessageHistory
 argument_list|()
 return|;
 block|}
+DECL|method|getLogEipMask ()
+specifier|public
+name|Boolean
+name|getLogEipMask
+parameter_list|()
+block|{
+return|return
+name|route
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|isLogEipMask
+argument_list|()
+return|;
+block|}
 DECL|method|getRoutePolicyList ()
 specifier|public
 name|String

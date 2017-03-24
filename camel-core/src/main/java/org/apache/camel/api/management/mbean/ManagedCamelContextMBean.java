@@ -584,6 +584,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Whether security mask for Log EIP is enabled"
+argument_list|)
+DECL|method|isLogEipMask ()
+name|boolean
+name|isLogEipMask
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Whether MDC logging is supported"
 argument_list|)
 DECL|method|isUseMDCLogging ()
