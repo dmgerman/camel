@@ -216,7 +216,11 @@ name|SSLContextParameters
 argument_list|()
 operator|.
 name|createSSLContext
+argument_list|(
+operator|new
+name|DefaultCamelContext
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final

@@ -146,22 +146,6 @@ specifier|public
 class|class
 name|LoginTokenTest
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SessionIntegrationTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testLoginTokenWithUnknownFields ()

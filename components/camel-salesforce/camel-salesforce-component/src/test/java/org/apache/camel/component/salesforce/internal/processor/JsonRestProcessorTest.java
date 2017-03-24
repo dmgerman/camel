@@ -411,7 +411,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|TestObject
-specifier|private
 specifier|static
 class|class
 name|TestObject

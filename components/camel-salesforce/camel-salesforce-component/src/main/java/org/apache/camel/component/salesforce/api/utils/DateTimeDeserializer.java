@@ -98,6 +98,20 @@ name|JsonDeserializer
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|JsonMappingException
+import|;
+end_import
+
 begin_class
 DECL|class|DateTimeDeserializer
 specifier|public
@@ -167,12 +181,15 @@ argument_list|)
 return|;
 block|}
 throw|throw
-name|deserializationContext
+name|JsonMappingException
 operator|.
-name|mappingException
+name|from
 argument_list|(
-name|getClass
-argument_list|()
+name|deserializationContext
+argument_list|,
+literal|"Expected String value, got: "
+operator|+
+name|currentToken
 argument_list|)
 throw|;
 block|}

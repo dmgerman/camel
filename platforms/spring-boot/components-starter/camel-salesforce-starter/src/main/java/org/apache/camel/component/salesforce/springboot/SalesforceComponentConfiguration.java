@@ -1359,8 +1359,6 @@ DECL|field|updateTopic
 specifier|private
 name|Boolean
 name|updateTopic
-init|=
-literal|false
 decl_stmt|;
 comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE          */
 DECL|field|notifyForFields
