@@ -28,11 +28,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|digitalocean
-operator|.
-name|DigitalOceanConfiguration
+name|Exchange
 import|;
 end_import
 
@@ -48,9 +44,7 @@ name|component
 operator|.
 name|digitalocean
 operator|.
-name|constants
-operator|.
-name|DigitalOceanHeaders
+name|DigitalOceanConfiguration
 import|;
 end_import
 
@@ -84,7 +78,7 @@ name|digitalocean
 operator|.
 name|constants
 operator|.
-name|DigitalOceanOperations
+name|DigitalOceanHeaders
 import|;
 end_import
 
@@ -96,7 +90,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|component
+operator|.
+name|digitalocean
+operator|.
+name|constants
+operator|.
+name|DigitalOceanOperations
 import|;
 end_import
 
@@ -177,15 +177,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-name|DigitalOceanEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|configuration
 specifier|protected
 name|DigitalOceanConfiguration
 name|configuration
+decl_stmt|;
+DECL|field|endpoint
+specifier|private
+name|DigitalOceanEndpoint
+name|endpoint
 decl_stmt|;
 DECL|method|DigitalOceanProducer (DigitalOceanEndpoint endpoint, DigitalOceanConfiguration configuration)
 specifier|public

@@ -30,7 +30,47 @@ name|digitalocean
 operator|.
 name|pojo
 operator|.
-name|*
+name|Delete
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Tag
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Tags
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -62,24 +102,6 @@ name|component
 operator|.
 name|digitalocean
 operator|.
-name|constants
-operator|.
-name|DigitalOceanHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|digitalocean
-operator|.
 name|DigitalOceanEndpoint
 import|;
 end_import
@@ -92,25 +114,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|digitalocean
 operator|.
 name|constants
 operator|.
-name|DigitalOceanOperations
+name|DigitalOceanHeaders
 import|;
 end_import
 
@@ -272,6 +282,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -283,6 +294,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Tag
 name|tag
 init|=
@@ -356,6 +368,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -367,6 +380,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Tag
 name|tag
 init|=
@@ -509,6 +523,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -520,6 +535,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Delete
 name|delete
 init|=
@@ -593,6 +609,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -604,6 +621,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|String
 name|newName
 init|=
@@ -632,6 +650,7 @@ argument_list|(
 name|newName
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -643,6 +662,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Tag
 name|tag
 init|=

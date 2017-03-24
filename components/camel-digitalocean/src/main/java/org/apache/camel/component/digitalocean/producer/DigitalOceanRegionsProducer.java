@@ -30,7 +30,19 @@ name|digitalocean
 operator|.
 name|pojo
 operator|.
-name|*
+name|Regions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -63,18 +75,6 @@ operator|.
 name|digitalocean
 operator|.
 name|DigitalOceanEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 

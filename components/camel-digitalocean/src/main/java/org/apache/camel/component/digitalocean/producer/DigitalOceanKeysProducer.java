@@ -30,7 +30,47 @@ name|digitalocean
 operator|.
 name|pojo
 operator|.
-name|*
+name|Delete
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Key
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Keys
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -62,9 +102,7 @@ name|component
 operator|.
 name|digitalocean
 operator|.
-name|constants
-operator|.
-name|DigitalOceanHeaders
+name|DigitalOceanEndpoint
 import|;
 end_import
 
@@ -80,19 +118,9 @@ name|component
 operator|.
 name|digitalocean
 operator|.
-name|DigitalOceanEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|constants
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
+name|DigitalOceanHeaders
 import|;
 end_import
 
@@ -276,6 +304,7 @@ argument_list|(
 name|keyId
 argument_list|)
 condition|)
+block|{
 name|key
 operator|=
 name|getEndpoint
@@ -289,6 +318,7 @@ argument_list|(
 name|keyId
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -299,6 +329,7 @@ argument_list|(
 name|fingerprint
 argument_list|)
 condition|)
+block|{
 name|key
 operator|=
 name|getEndpoint
@@ -312,7 +343,9 @@ argument_list|(
 name|fingerprint
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -330,6 +363,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -470,6 +504,7 @@ argument_list|(
 name|keyId
 argument_list|)
 condition|)
+block|{
 name|delete
 operator|=
 name|getEndpoint
@@ -483,6 +518,7 @@ argument_list|(
 name|keyId
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -493,6 +529,7 @@ argument_list|(
 name|fingerprint
 argument_list|)
 condition|)
+block|{
 name|delete
 operator|=
 name|getEndpoint
@@ -506,7 +543,9 @@ argument_list|(
 name|fingerprint
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -524,6 +563,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -590,6 +630,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -601,7 +642,9 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 else|else
+block|{
 name|key
 operator|.
 name|setName
@@ -609,6 +652,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|publicKey
 init|=
@@ -637,6 +681,7 @@ argument_list|(
 name|publicKey
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -648,7 +693,9 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 else|else
+block|{
 name|key
 operator|.
 name|setPublicKey
@@ -656,6 +703,7 @@ argument_list|(
 name|publicKey
 argument_list|)
 expr_stmt|;
+block|}
 name|key
 operator|=
 name|getEndpoint
@@ -769,6 +817,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -780,6 +829,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -789,6 +839,7 @@ argument_list|(
 name|keyId
 argument_list|)
 condition|)
+block|{
 name|key
 operator|=
 name|getEndpoint
@@ -804,6 +855,7 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -814,6 +866,7 @@ argument_list|(
 name|fingerprint
 argument_list|)
 condition|)
+block|{
 name|key
 operator|=
 name|getEndpoint
@@ -829,7 +882,9 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -847,6 +902,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|LOG
 operator|.
 name|trace

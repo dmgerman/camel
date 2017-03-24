@@ -30,7 +30,75 @@ name|digitalocean
 operator|.
 name|pojo
 operator|.
-name|*
+name|Action
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Actions
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Delete
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|FloatingIP
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|FloatingIPs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -62,24 +130,6 @@ name|component
 operator|.
 name|digitalocean
 operator|.
-name|constants
-operator|.
-name|DigitalOceanHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|digitalocean
-operator|.
 name|DigitalOceanEndpoint
 import|;
 end_import
@@ -92,25 +142,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|digitalocean
 operator|.
 name|constants
 operator|.
-name|DigitalOceanOperations
+name|DigitalOceanHeaders
 import|;
 end_import
 
@@ -312,6 +350,7 @@ argument_list|(
 name|dropletId
 argument_list|)
 condition|)
+block|{
 name|ip
 operator|=
 name|getEndpoint
@@ -325,6 +364,7 @@ argument_list|(
 name|dropletId
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -335,6 +375,7 @@ argument_list|(
 name|region
 argument_list|)
 condition|)
+block|{
 name|ip
 operator|=
 name|getEndpoint
@@ -348,7 +389,9 @@ argument_list|(
 name|region
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -366,6 +409,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -494,6 +538,7 @@ argument_list|(
 name|ipAddress
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -505,6 +550,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|FloatingIP
 name|ip
 init|=
@@ -578,6 +624,7 @@ argument_list|(
 name|ipAddress
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -589,6 +636,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Delete
 name|delete
 init|=
@@ -662,6 +710,7 @@ argument_list|(
 name|dropletId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -673,6 +722,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|String
 name|ipAddress
 init|=
@@ -701,6 +751,7 @@ argument_list|(
 name|ipAddress
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -712,6 +763,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Action
 name|action
 init|=
@@ -787,6 +839,7 @@ argument_list|(
 name|ipAddress
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -798,6 +851,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Action
 name|action
 init|=
@@ -871,6 +925,7 @@ argument_list|(
 name|ipAddress
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -882,6 +937,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Actions
 name|actions
 init|=

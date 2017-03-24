@@ -44,7 +44,75 @@ name|digitalocean
 operator|.
 name|pojo
 operator|.
-name|*
+name|Action
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Actions
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Delete
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Image
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Images
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -61,24 +129,6 @@ operator|.
 name|digitalocean
 operator|.
 name|DigitalOceanConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|digitalocean
-operator|.
-name|constants
-operator|.
-name|DigitalOceanHeaders
 import|;
 end_import
 
@@ -112,19 +162,7 @@ name|digitalocean
 operator|.
 name|constants
 operator|.
-name|DigitalOceanImageTypes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
+name|DigitalOceanHeaders
 import|;
 end_import
 
@@ -142,7 +180,7 @@ name|digitalocean
 operator|.
 name|constants
 operator|.
-name|DigitalOceanOperations
+name|DigitalOceanImageTypes
 import|;
 end_import
 
@@ -403,6 +441,7 @@ argument_list|(
 name|type
 argument_list|)
 condition|)
+block|{
 name|images
 operator|=
 name|getEndpoint
@@ -434,7 +473,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|images
 operator|=
 name|getEndpoint
@@ -456,6 +497,7 @@ name|getPerPage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -553,6 +595,7 @@ argument_list|(
 name|imageId
 argument_list|)
 condition|)
+block|{
 name|image
 operator|=
 name|getEndpoint
@@ -566,6 +609,7 @@ argument_list|(
 name|imageId
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -576,6 +620,7 @@ argument_list|(
 name|slug
 argument_list|)
 condition|)
+block|{
 name|image
 operator|=
 name|getEndpoint
@@ -589,7 +634,9 @@ argument_list|(
 name|slug
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -607,6 +654,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -666,6 +714,7 @@ argument_list|(
 name|imageId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -677,6 +726,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Actions
 name|actions
 init|=
@@ -778,6 +828,7 @@ argument_list|(
 name|imageId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -789,6 +840,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|String
 name|name
 init|=
@@ -817,6 +869,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -828,6 +881,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Image
 name|image
 init|=
@@ -923,6 +977,7 @@ argument_list|(
 name|imageId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -934,6 +989,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Delete
 name|delete
 init|=
@@ -1009,6 +1065,7 @@ argument_list|(
 name|imageId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1020,6 +1077,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|String
 name|region
 init|=
@@ -1048,6 +1106,7 @@ argument_list|(
 name|region
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1059,6 +1118,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Action
 name|action
 init|=
@@ -1138,6 +1198,7 @@ argument_list|(
 name|imageId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1149,6 +1210,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Action
 name|action
 init|=

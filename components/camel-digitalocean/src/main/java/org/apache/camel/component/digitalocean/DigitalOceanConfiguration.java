@@ -46,7 +46,7 @@ name|digitalocean
 operator|.
 name|constants
 operator|.
-name|DigitalOceanResources
+name|DigitalOceanOperations
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|digitalocean
 operator|.
 name|constants
 operator|.
-name|DigitalOceanOperations
+name|DigitalOceanResources
 import|;
 end_import
 

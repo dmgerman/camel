@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|myjeeva
@@ -30,57 +40,91 @@ name|digitalocean
 operator|.
 name|pojo
 operator|.
-name|*
+name|Action
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
+name|myjeeva
 operator|.
 name|digitalocean
 operator|.
-name|DigitalOceanConfiguration
+name|pojo
+operator|.
+name|Actions
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
+name|myjeeva
 operator|.
 name|digitalocean
 operator|.
-name|constants
+name|pojo
 operator|.
-name|DigitalOceanHeaders
+name|Delete
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
+name|myjeeva
 operator|.
 name|digitalocean
 operator|.
-name|DigitalOceanEndpoint
+name|pojo
+operator|.
+name|Region
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Snapshots
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Volume
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|myjeeva
+operator|.
+name|digitalocean
+operator|.
+name|pojo
+operator|.
+name|Volumes
 import|;
 end_import
 
@@ -116,19 +160,59 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
 operator|.
-name|ObjectHelper
+name|digitalocean
+operator|.
+name|DigitalOceanConfiguration
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|digitalocean
+operator|.
+name|DigitalOceanEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|digitalocean
+operator|.
+name|constants
+operator|.
+name|DigitalOceanHeaders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
-name|List
+name|ObjectHelper
 import|;
 end_import
 
@@ -312,6 +396,7 @@ argument_list|(
 name|region
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -323,6 +408,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Volumes
 name|volumes
 init|=
@@ -410,6 +496,7 @@ name|VOLUME_SIZE_GIGABYTES
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|volume
 operator|.
 name|setSize
@@ -428,7 +515,9 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -440,6 +529,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -459,6 +549,7 @@ name|NAME
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|volume
 operator|.
 name|setName
@@ -477,7 +568,9 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -489,6 +582,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -508,6 +602,7 @@ name|REGION
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|volume
 operator|.
 name|setRegion
@@ -530,7 +625,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -542,6 +639,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -561,6 +659,7 @@ name|DESCRIPTION
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|volume
 operator|.
 name|setDescription
@@ -579,7 +678,9 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -591,6 +692,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|volume
 operator|=
 name|getEndpoint
@@ -723,6 +825,7 @@ argument_list|(
 name|region
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -746,6 +849,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|List
 argument_list|<
 name|Volume
@@ -777,6 +881,7 @@ argument_list|()
 operator|>
 literal|0
 condition|)
+block|{
 name|volume
 operator|=
 name|volumes
@@ -787,7 +892,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
+block|{
 name|volume
 operator|=
 name|getEndpoint
@@ -801,6 +908,7 @@ argument_list|(
 name|volumeId
 argument_list|)
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -860,6 +968,7 @@ argument_list|(
 name|volumeId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -871,6 +980,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Snapshots
 name|snapshots
 init|=
@@ -1020,6 +1130,7 @@ argument_list|(
 name|region
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1043,6 +1154,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|delete
 operator|=
 name|getEndpoint
@@ -1060,6 +1172,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|delete
 operator|=
 name|getEndpoint
@@ -1073,6 +1186,7 @@ argument_list|(
 name|volumeId
 argument_list|)
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -1189,6 +1303,7 @@ argument_list|(
 name|dropletId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1200,6 +1315,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1209,6 +1325,7 @@ argument_list|(
 name|region
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1220,6 +1337,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Action
 name|action
 decl_stmt|;
@@ -1307,6 +1425,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1324,6 +1443,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|exchange
 operator|.
 name|getOut
@@ -1431,6 +1551,7 @@ argument_list|(
 name|dropletId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1442,6 +1563,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
@@ -1451,6 +1573,7 @@ argument_list|(
 name|region
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1462,6 +1585,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Action
 name|action
 decl_stmt|;
@@ -1549,6 +1673,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1566,6 +1691,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|exchange
 operator|.
 name|getOut
@@ -1616,6 +1742,7 @@ argument_list|(
 name|volumeId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1627,6 +1754,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|String
 name|region
 init|=
@@ -1655,6 +1783,7 @@ argument_list|(
 name|region
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1666,6 +1795,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Double
 name|size
 init|=
@@ -1694,6 +1824,7 @@ argument_list|(
 name|size
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1705,6 +1836,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Action
 name|action
 init|=
@@ -1774,6 +1906,7 @@ argument_list|(
 name|volumeId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1785,6 +1918,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Actions
 name|actions
 init|=

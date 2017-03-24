@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|digitalocean
@@ -127,18 +139,6 @@ operator|.
 name|constants
 operator|.
 name|DigitalOceanSnapshotTypes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -285,6 +285,7 @@ argument_list|(
 name|type
 argument_list|)
 condition|)
+block|{
 if|if
 condition|(
 name|type
@@ -293,6 +294,7 @@ name|DigitalOceanSnapshotTypes
 operator|.
 name|droplet
 condition|)
+block|{
 name|snapshots
 operator|=
 name|getEndpoint
@@ -314,7 +316,9 @@ name|getPerPage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|snapshots
 operator|=
 name|getEndpoint
@@ -336,7 +340,10 @@ name|getPerPage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 else|else
+block|{
 name|snapshots
 operator|=
 name|getEndpoint
@@ -358,6 +365,7 @@ name|getPerPage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -433,6 +441,7 @@ argument_list|(
 name|snapshotId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -444,6 +453,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Snapshot
 name|snapshot
 init|=
@@ -517,6 +527,7 @@ argument_list|(
 name|snapshotId
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -528,6 +539,7 @@ operator|+
 literal|" must be specified"
 argument_list|)
 throw|;
+block|}
 name|Delete
 name|delete
 init|=
