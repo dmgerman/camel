@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -128,7 +148,39 @@ class|class
 name|ServiceDiscoveryConfiguration
 extends|extends
 name|DnsConfiguration
-block|{     }
+block|{
+DECL|field|configurations
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DnsConfiguration
+argument_list|>
+name|configurations
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+DECL|method|getConfigurations ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DnsConfiguration
+argument_list|>
+name|getConfigurations
+parameter_list|()
+block|{
+return|return
+name|configurations
+return|;
+block|}
+block|}
 block|}
 end_class
 

@@ -418,7 +418,7 @@ argument_list|()
 argument_list|,
 name|definition
 operator|::
-name|setSi
+name|setSimpleExpression
 argument_list|)
 expr_stmt|;
 return|return
