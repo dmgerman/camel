@@ -179,8 +179,6 @@ argument_list|)
 condition|)
 block|{
 case|case
-name|DigitalOceanOperations
-operator|.
 name|list
 case|:
 name|getTags
@@ -190,8 +188,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|create
 case|:
 name|createTag
@@ -201,8 +197,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|get
 case|:
 name|getTag
@@ -212,8 +206,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|delete
 case|:
 name|deleteTag
@@ -223,8 +215,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|update
 case|:
 name|updateTag

@@ -211,8 +211,6 @@ argument_list|)
 condition|)
 block|{
 case|case
-name|DigitalOceanOperations
-operator|.
 name|list
 case|:
 name|getImages
@@ -222,8 +220,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|ownList
 case|:
 name|getUserImages
@@ -233,8 +229,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|listActions
 case|:
 name|getImageActions
@@ -244,8 +238,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|get
 case|:
 name|getImage
@@ -255,8 +247,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|update
 case|:
 name|updateImage
@@ -266,8 +256,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|delete
 case|:
 name|deleteImage
@@ -277,8 +265,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|transfer
 case|:
 name|transferImage
@@ -288,8 +274,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|convert
 case|:
 name|convertImageToSnapshot

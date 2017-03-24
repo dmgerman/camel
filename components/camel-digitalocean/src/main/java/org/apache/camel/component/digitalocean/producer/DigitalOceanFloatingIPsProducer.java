@@ -179,8 +179,6 @@ argument_list|)
 condition|)
 block|{
 case|case
-name|DigitalOceanOperations
-operator|.
 name|list
 case|:
 name|getFloatingIPs
@@ -190,8 +188,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|create
 case|:
 name|createFloatingIp
@@ -201,8 +197,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|get
 case|:
 name|getFloatingIP
@@ -212,8 +206,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|delete
 case|:
 name|deleteFloatingIP
@@ -223,8 +215,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|assign
 case|:
 name|assignFloatingIPToDroplet
@@ -234,8 +224,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|unassign
 case|:
 name|unassignFloatingIP
@@ -245,8 +233,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DigitalOceanOperations
-operator|.
 name|listActions
 case|:
 name|getFloatingIPActions
