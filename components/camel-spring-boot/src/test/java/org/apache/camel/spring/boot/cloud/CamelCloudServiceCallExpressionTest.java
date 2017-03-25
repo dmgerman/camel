@@ -234,7 +234,7 @@ literal|"service.name=custom-svc-list"
 block|,
 literal|"camel.cloud.load-balancer.enabled=false"
 block|,
-literal|"camel.cloud.service-call.component=netty4-http"
+literal|"camel.cloud.service-call.component=jetty"
 block|,
 literal|"camel.cloud.service-call.expression=${header.CamelServiceCallScheme}:http://${header.CamelServiceCallServiceHost}:${header.CamelServiceCallServicePort}/hello"
 block|,
@@ -355,7 +355,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty4-http:http://localhost:9090/hello"
+literal|"jetty:http://localhost:9090/hello"
 argument_list|)
 operator|.
 name|transform
@@ -368,7 +368,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty4-http:http://localhost:9091/hello"
+literal|"jetty:http://localhost:9091/hello"
 argument_list|)
 operator|.
 name|transform
@@ -381,7 +381,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty4-http:http://localhost:9092/hello"
+literal|"jetty:http://localhost:9092/hello"
 argument_list|)
 operator|.
 name|transform
