@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Camel reactive-streams endpoint.  */
+comment|/**  * Reactive Camel using reactive streams  */
 end_comment
 
 begin_class

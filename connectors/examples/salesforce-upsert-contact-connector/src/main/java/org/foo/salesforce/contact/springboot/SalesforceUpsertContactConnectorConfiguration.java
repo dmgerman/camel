@@ -51,7 +51,7 @@ specifier|public
 class|class
 name|SalesforceUpsertContactConnectorConfiguration
 block|{
-comment|/**      * Salesforce login URL defaults to https://login.salesforce.com      */
+comment|/**      * URL of the Salesforce instance by default set to      * https://login.salesforce.com      */
 DECL|field|loginUrl
 specifier|private
 name|String
@@ -59,19 +59,19 @@ name|loginUrl
 init|=
 literal|"https://login.salesforce.com"
 decl_stmt|;
-comment|/**      * Salesforce connected application Consumer Key      */
+comment|/**      * OAuth Consumer Key of the connected app configured in the Salesforce      * instance setup. Typically a connected app needs to be configured but one      * can be provided by installing a package.      */
 DECL|field|clientId
 specifier|private
 name|String
 name|clientId
 decl_stmt|;
-comment|/**      * Salesforce connected application Consumer Secret      */
+comment|/**      * OAuth Consumer Secret of the connected app configured in the Salesforce      * instance setup.      */
 DECL|field|clientSecret
 specifier|private
 name|String
 name|clientSecret
 decl_stmt|;
-comment|/**      * Salesforce connected application Consumer token      */
+comment|/**      * Refresh token already obtained in the refresh token OAuth flow. One needs      * to setup a web application and configure a callback URL to receive the      * refresh token or configure using the builtin callback at      * https://login.salesforce.com/services/oauth2/success or      * https://test.salesforce.com/services/oauth2/success and then retrive the      * refresh_token from the URL at the end of the flow. Note that in      * development organizations Salesforce allows hosting the callback web      * application at localhost.      */
 DECL|field|refreshToken
 specifier|private
 name|String

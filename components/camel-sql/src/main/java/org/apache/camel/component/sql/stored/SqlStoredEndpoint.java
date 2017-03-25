@@ -178,7 +178,7 @@ literal|"sql-stored"
 argument_list|,
 name|title
 operator|=
-literal|"SQL StoredProcedure"
+literal|"SQL Stored Procedure"
 argument_list|,
 name|syntax
 operator|=
