@@ -85,6 +85,15 @@ name|amazonSQSClient
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|accessKey
 specifier|private
 name|String
@@ -92,10 +101,33 @@ name|accessKey
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|secretKey
 specifier|private
 name|String
 name|secretKey
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"amazonaws.com"
+argument_list|)
+DECL|field|amazonAWSHost
+specifier|private
+name|String
+name|amazonAWSHost
+init|=
+literal|"amazonaws.com"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -106,6 +138,11 @@ name|amazonSQSEndpoint
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|queueOwnerAWSAccountId
 specifier|private
 name|String
@@ -370,6 +407,33 @@ block|{
 return|return
 name|amazonSQSEndpoint
 return|;
+block|}
+DECL|method|getAmazonAWSHost ()
+specifier|public
+name|String
+name|getAmazonAWSHost
+parameter_list|()
+block|{
+return|return
+name|amazonAWSHost
+return|;
+block|}
+comment|/**      * The hostname of the Amazon AWS cloud.      */
+DECL|method|setAmazonAWSHost (String amazonAWSHost)
+specifier|public
+name|void
+name|setAmazonAWSHost
+parameter_list|(
+name|String
+name|amazonAWSHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|amazonAWSHost
+operator|=
+name|amazonAWSHost
+expr_stmt|;
 block|}
 DECL|method|getQueueName ()
 specifier|public
@@ -1006,6 +1070,10 @@ return|return
 literal|"SqsConfiguration[queueName="
 operator|+
 name|queueName
+operator|+
+literal|", amazonAWSHost="
+operator|+
+name|amazonAWSHost
 operator|+
 literal|", amazonSQSClient="
 operator|+
