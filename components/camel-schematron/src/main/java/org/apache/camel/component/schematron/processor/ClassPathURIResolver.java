@@ -26,16 +26,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -172,9 +162,7 @@ name|rulesDir
 operator|.
 name|concat
 argument_list|(
-name|File
-operator|.
-name|separator
+literal|"/"
 argument_list|)
 operator|.
 name|concat
