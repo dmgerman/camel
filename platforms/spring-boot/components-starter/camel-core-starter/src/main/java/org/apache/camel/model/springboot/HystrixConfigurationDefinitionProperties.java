@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.hystrix.springboot
+DECL|package|org.apache.camel.model.springboot
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|hystrix
+name|model
 operator|.
 name|springboot
 package|;
@@ -44,20 +42,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|HystrixConfigurationCommon
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -70,10 +54,6 @@ name|ConfigurationProperties
 import|;
 end_import
 
-begin_comment
-comment|/**  * Hystrix component.  */
-end_comment
-
 begin_class
 annotation|@
 name|ConfigurationProperties
@@ -82,20 +62,29 @@ name|prefix
 operator|=
 literal|"camel.hystrix"
 argument_list|)
-DECL|class|HystrixConfiguration
+DECL|class|HystrixConfigurationDefinitionProperties
 specifier|public
 class|class
-name|HystrixConfiguration
+name|HystrixConfigurationDefinitionProperties
 extends|extends
-name|HystrixConfigurationCommon
+name|HystrixConfigurationDefinitionCommon
 block|{
+comment|/**      * Enable camel-hystrix      */
+DECL|field|enabled
+specifier|private
+name|boolean
+name|enabled
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Define additional configuration definitions      */
 DECL|field|configurations
 specifier|private
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|HystrixConfigurationCommon
+name|HystrixConfigurationDefinitionCommon
 argument_list|>
 name|configurations
 init|=
@@ -110,7 +99,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|HystrixConfigurationCommon
+name|HystrixConfigurationDefinitionCommon
 argument_list|>
 name|getConfigurations
 parameter_list|()
@@ -118,6 +107,32 @@ block|{
 return|return
 name|configurations
 return|;
+block|}
+DECL|method|isEnabled ()
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
+block|}
+DECL|method|setEnabled (boolean enabled)
+specifier|public
+name|void
+name|setEnabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enabled
+operator|=
+name|enabled
+expr_stmt|;
 block|}
 block|}
 end_class
