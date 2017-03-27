@@ -295,7 +295,6 @@ operator|=
 name|resource
 expr_stmt|;
 block|}
-comment|/**      * The operation to perform to the given resource.      */
 DECL|method|getOperation ()
 specifier|public
 name|DigitalOceanOperations
@@ -306,6 +305,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * The operation to perform to the given resource.      */
 DECL|method|setOperation (DigitalOceanOperations operation)
 specifier|public
 name|void
@@ -349,7 +349,6 @@ operator|=
 name|oAuthToken
 expr_stmt|;
 block|}
-comment|/**      * Use for pagination. Set the number of item per request. The maximum number of results per page is 200.      */
 DECL|method|getPerPage ()
 specifier|public
 name|Integer
@@ -360,6 +359,7 @@ return|return
 name|perPage
 return|;
 block|}
+comment|/**      * Use for pagination. Set the number of item per request. The maximum number of results per page is 200.      */
 DECL|method|setPerPage (Integer perPage)
 specifier|public
 name|void
@@ -376,7 +376,6 @@ operator|=
 name|perPage
 expr_stmt|;
 block|}
-comment|/**      * Use for paginsation. Force the page number.      */
 DECL|method|getPage ()
 specifier|public
 name|Integer
@@ -387,6 +386,7 @@ return|return
 name|page
 return|;
 block|}
+comment|/**      * Use for pagination. Force the page number.      */
 DECL|method|setPage (Integer page)
 specifier|public
 name|void
@@ -403,7 +403,6 @@ operator|=
 name|page
 expr_stmt|;
 block|}
-comment|/**      * Set a proxy host if needed      */
 DECL|method|getHttpProxyHost ()
 specifier|public
 name|String
@@ -414,6 +413,7 @@ return|return
 name|httpProxyHost
 return|;
 block|}
+comment|/**      * Set a proxy host if needed      */
 DECL|method|setHttpProxyHost (String httpProxyHost)
 specifier|public
 name|void
@@ -430,7 +430,6 @@ operator|=
 name|httpProxyHost
 expr_stmt|;
 block|}
-comment|/**      * Set a proxy user if needed      */
 DECL|method|getHttpProxyUser ()
 specifier|public
 name|String
@@ -441,6 +440,7 @@ return|return
 name|httpProxyUser
 return|;
 block|}
+comment|/**      * Set a proxy host if needed      */
 DECL|method|setHttpProxyUser (String httpProxyUser)
 specifier|public
 name|void
@@ -457,7 +457,6 @@ operator|=
 name|httpProxyUser
 expr_stmt|;
 block|}
-comment|/**      * Set a proxy password if needed      */
 DECL|method|getHttpProxyPassword ()
 specifier|public
 name|String
@@ -468,6 +467,7 @@ return|return
 name|httpProxyPassword
 return|;
 block|}
+comment|/**      * Set a proxy password if needed      */
 DECL|method|setHttpProxyPassword (String httpProxyPassword)
 specifier|public
 name|void
@@ -484,7 +484,6 @@ operator|=
 name|httpProxyPassword
 expr_stmt|;
 block|}
-comment|/**      * Set a proxy port if needed      */
 DECL|method|getHttpProxyPort ()
 specifier|public
 name|Integer
@@ -495,6 +494,7 @@ return|return
 name|httpProxyPort
 return|;
 block|}
+comment|/**      * Set a proxy port if needed      */
 DECL|method|setHttpProxyPort (Integer httpProxyPort)
 specifier|public
 name|void
@@ -511,7 +511,6 @@ operator|=
 name|httpProxyPort
 expr_stmt|;
 block|}
-comment|/**      * To use a existing configured DigitalOceanClient as client      */
 DECL|method|getDigitalOceanClient ()
 specifier|public
 name|DigitalOceanClient
@@ -522,6 +521,7 @@ return|return
 name|digitalOceanClient
 return|;
 block|}
+comment|/**      * To use a existing configured DigitalOceanClient as client      */
 DECL|method|setDigitalOceanClient (DigitalOceanClient digitalOceanClient)
 specifier|public
 name|void
