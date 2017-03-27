@@ -92,6 +92,22 @@ name|component
 operator|.
 name|salesforce
 operator|.
+name|NotFoundBehaviour
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
 name|SalesforceHttpClient
 import|;
 end_import
@@ -1512,6 +1528,12 @@ specifier|private
 name|Boolean
 name|approvalSkipEntryCriteria
 decl_stmt|;
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL {@link NotFoundBehaviour#NULL} or          * should a exception be signaled on the exchange          * {@link NotFoundBehaviour#EXCEPTION} - the default.          */
+DECL|field|notFoundBehaviour
+specifier|private
+name|NotFoundBehaviour
+name|notFoundBehaviour
+decl_stmt|;
 DECL|method|getFormat ()
 specifier|public
 name|PayloadFormat
@@ -2654,6 +2676,32 @@ operator|.
 name|approvalSkipEntryCriteria
 operator|=
 name|approvalSkipEntryCriteria
+expr_stmt|;
+block|}
+DECL|method|getNotFoundBehaviour ()
+specifier|public
+name|NotFoundBehaviour
+name|getNotFoundBehaviour
+parameter_list|()
+block|{
+return|return
+name|notFoundBehaviour
+return|;
+block|}
+DECL|method|setNotFoundBehaviour (NotFoundBehaviour notFoundBehaviour)
+specifier|public
+name|void
+name|setNotFoundBehaviour
+parameter_list|(
+name|NotFoundBehaviour
+name|notFoundBehaviour
+parameter_list|)
+block|{
+name|this
+operator|.
+name|notFoundBehaviour
+operator|=
+name|notFoundBehaviour
 expr_stmt|;
 block|}
 block|}

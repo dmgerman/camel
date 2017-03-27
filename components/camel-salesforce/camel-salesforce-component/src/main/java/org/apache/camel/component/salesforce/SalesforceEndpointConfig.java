@@ -566,6 +566,15 @@ name|DEFAULT_MAX_BACKOFF
 init|=
 literal|30000L
 decl_stmt|;
+DECL|field|NOT_FOUND_BEHAVIOUR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NOT_FOUND_BEHAVIOUR
+init|=
+literal|"notFoundBehaviour"
+decl_stmt|;
 comment|// general properties
 annotation|@
 name|UriParam
@@ -898,6 +907,17 @@ DECL|field|limit
 specifier|private
 name|Integer
 name|limit
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|notFoundBehaviour
+specifier|private
+name|NotFoundBehaviour
+name|notFoundBehaviour
+init|=
+name|NotFoundBehaviour
+operator|.
+name|EXCEPTION
 decl_stmt|;
 DECL|method|copy ()
 specifier|public
@@ -2172,6 +2192,15 @@ argument_list|,
 name|initialReplayIdMap
 argument_list|)
 expr_stmt|;
+name|valueMap
+operator|.
+name|put
+argument_list|(
+name|NOT_FOUND_BEHAVIOUR
+argument_list|,
+name|notFoundBehaviour
+argument_list|)
+expr_stmt|;
 return|return
 name|Collections
 operator|.
@@ -2721,6 +2750,34 @@ name|setSkipEntryCriteria
 argument_list|(
 name|skipEntryCriteria
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getNotFoundBehaviour ()
+specifier|public
+name|NotFoundBehaviour
+name|getNotFoundBehaviour
+parameter_list|()
+block|{
+return|return
+name|notFoundBehaviour
+return|;
+block|}
+comment|/**      * Sets the behaviour of 404 not found status received from Salesforce API.      * Should the body be set to NULL {@link NotFoundBehaviour#NULL} or should a      * exception be signaled on the exchange {@link NotFoundBehaviour#EXCEPTION}      * - the default.      */
+DECL|method|setNotFoundBehaviour (final NotFoundBehaviour notFoundBehaviour)
+specifier|public
+name|void
+name|setNotFoundBehaviour
+parameter_list|(
+specifier|final
+name|NotFoundBehaviour
+name|notFoundBehaviour
+parameter_list|)
+block|{
+name|this
+operator|.
+name|notFoundBehaviour
+operator|=
+name|notFoundBehaviour
 expr_stmt|;
 block|}
 block|}
