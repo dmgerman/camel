@@ -2117,6 +2117,16 @@ name|getName
 argument_list|()
 argument_list|)
 operator|||
+literal|"camel-olingo4"
+operator|.
+name|equals
+argument_list|(
+name|dir
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|||
 literal|"camel-salesforce"
 operator|.
 name|equals
