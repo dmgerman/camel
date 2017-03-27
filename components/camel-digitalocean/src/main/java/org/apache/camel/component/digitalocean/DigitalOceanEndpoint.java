@@ -417,7 +417,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the DigitalOcean endpoint.  */
+comment|/**  * The DigitalOcean component allows you to manage Droplets and resources within the DigitalOcean cloud.  */
 end_comment
 
 begin_class
@@ -434,7 +434,7 @@ literal|"DigitalOcean"
 argument_list|,
 name|syntax
 operator|=
-literal|"digitalocean:label"
+literal|"digitalocean:operation"
 argument_list|,
 name|producerOnly
 operator|=
