@@ -594,33 +594,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
-DECL|method|doCreateRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|doCreateRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{             }
-block|}
-return|;
-block|}
-annotation|@
 name|Parameters
 argument_list|(
 name|name

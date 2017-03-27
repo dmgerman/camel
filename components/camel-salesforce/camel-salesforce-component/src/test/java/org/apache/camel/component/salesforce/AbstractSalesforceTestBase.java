@@ -108,13 +108,29 @@ return|;
 block|}
 DECL|method|doCreateRouteBuilder ()
 specifier|protected
-specifier|abstract
 name|RouteBuilder
 name|doCreateRouteBuilder
 parameter_list|()
 throws|throws
 name|Exception
-function_decl|;
+block|{
+return|return
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{             }
+block|}
+return|;
+block|}
 DECL|method|createComponent ()
 specifier|protected
 name|void
