@@ -319,11 +319,11 @@ name|timeout
 init|=
 name|DEFAULT_TIMEOUT
 decl_stmt|;
-DECL|field|addSecuirtyHandlerMethod
+DECL|field|addProtocolHandlerMethod
 specifier|private
 specifier|final
 name|Method
-name|addSecuirtyHandlerMethod
+name|addProtocolHandlerMethod
 decl_stmt|;
 DECL|field|getProtocolHandlersMethod
 specifier|private
@@ -429,7 +429,7 @@ condition|(
 name|isJetty92
 condition|)
 block|{
-name|addSecuirtyHandlerMethod
+name|addProtocolHandlerMethod
 operator|=
 name|List
 operator|.
@@ -447,7 +447,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|addSecuirtyHandlerMethod
+name|addProtocolHandlerMethod
 operator|=
 name|getProtocolHandlersType
 operator|.
@@ -594,7 +594,7 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|addSecuirtyHandlerMethod
+name|addProtocolHandlerMethod
 operator|.
 name|invoke
 argument_list|(
