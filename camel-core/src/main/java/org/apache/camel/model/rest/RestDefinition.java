@@ -3800,6 +3800,13 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// each {} is a parameter (url templating)
+if|if
+condition|(
+name|allPath
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 index|[]
 name|arr
@@ -3996,6 +4003,7 @@ operator|.
 name|endParam
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
