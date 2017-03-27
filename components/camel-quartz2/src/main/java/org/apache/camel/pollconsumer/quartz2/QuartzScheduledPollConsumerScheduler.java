@@ -796,9 +796,29 @@ name|generateUuid
 argument_list|()
 expr_stmt|;
 block|}
+name|Trigger
+name|existingTrigger
+init|=
+literal|null
+decl_stmt|;
 name|TriggerKey
 name|triggerKey
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|triggerId
+operator|!=
+literal|null
+operator|&&
+name|triggerGroup
+operator|!=
+literal|null
+condition|)
+block|{
+name|triggerKey
+operator|=
 operator|new
 name|TriggerKey
 argument_list|(
@@ -806,17 +826,17 @@ name|triggerId
 argument_list|,
 name|triggerGroup
 argument_list|)
-decl_stmt|;
-name|Trigger
+expr_stmt|;
 name|existingTrigger
-init|=
+operator|=
 name|quartzScheduler
 operator|.
 name|getTrigger
 argument_list|(
 name|triggerKey
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// Is an trigger already exist for this triggerId ?
 if|if
 condition|(
@@ -1189,11 +1209,11 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|" is already used by route"
+literal|" is already used by route: "
 operator|+
 name|routeIdFromTrigger
 operator|+
-literal|". Can't re-use it for route "
+literal|". Cannot re-use it for another route: "
 operator|+
 name|routeId
 argument_list|)
