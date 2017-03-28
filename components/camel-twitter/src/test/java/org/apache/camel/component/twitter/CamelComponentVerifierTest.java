@@ -301,7 +301,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"401"
+name|ComponentVerifier
+operator|.
+name|CODE_AUTHENTICATION
 argument_list|,
 name|result
 operator|.
@@ -477,7 +479,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"401"
+name|ComponentVerifier
+operator|.
+name|CODE_AUTHENTICATION
 argument_list|,
 name|result
 operator|.

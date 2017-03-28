@@ -78,6 +78,12 @@ specifier|public
 interface|interface
 name|ComponentVerifier
 block|{
+DECL|field|CODE_AUTHENTICATION
+name|String
+name|CODE_AUTHENTICATION
+init|=
+literal|"authentication"
+decl_stmt|;
 DECL|field|CODE_EXCEPTION
 name|String
 name|CODE_EXCEPTION
