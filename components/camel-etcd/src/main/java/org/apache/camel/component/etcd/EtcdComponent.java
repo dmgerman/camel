@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -62,7 +72,21 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
 import|;
 end_import
 
@@ -76,7 +100,23 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -90,19 +130,31 @@ specifier|public
 class|class
 name|EtcdComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|configuration
+specifier|private
+name|EtcdConfiguration
+name|configuration
+init|=
+operator|new
+name|EtcdConfiguration
+argument_list|()
+decl_stmt|;
 DECL|method|EtcdComponent ()
 specifier|public
 name|EtcdComponent
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|AbstractEtcdEndpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|EtcdComponent (CamelContext context)
@@ -116,11 +168,161 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|AbstractEtcdEndpoint
-operator|.
-name|class
 argument_list|)
+expr_stmt|;
+block|}
+comment|// ************************************
+comment|// Options
+comment|// ************************************
+DECL|method|getUris ()
+specifier|public
+name|String
+name|getUris
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getUris
+argument_list|()
+return|;
+block|}
+comment|/**      * To set the URIs the client connects.      * @param uris      */
+DECL|method|setUris (String uris)
+specifier|public
+name|void
+name|setUris
+parameter_list|(
+name|String
+name|uris
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setUris
+argument_list|(
+name|uris
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getSslContextParameters
+argument_list|()
+return|;
+block|}
+comment|/**      * To configure security using SSLContextParameters.      * @param sslContextParameters      */
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setSslContextParameters
+argument_list|(
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getUserName ()
+specifier|public
+name|String
+name|getUserName
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getUserName
+argument_list|()
+return|;
+block|}
+comment|/**      * The user name to use for basic authentication.      * @param userName      */
+DECL|method|setUserName (String userName)
+specifier|public
+name|void
+name|setUserName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setUserName
+argument_list|(
+name|userName
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getPassword
+argument_list|()
+return|;
+block|}
+comment|/**      * The password to use for basic authentication.      * @param password      */
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setPassword
+argument_list|(
+name|password
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|EtcdConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
+comment|/**      * Sets the common configuration shared among endpoints      */
+DECL|method|setConfiguration (EtcdConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|EtcdConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 annotation|@
@@ -150,7 +352,7 @@ block|{
 name|String
 name|ns
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -162,7 +364,7 @@ decl_stmt|;
 name|String
 name|path
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -218,13 +420,6 @@ name|configuration
 init|=
 name|loadConfiguration
 argument_list|(
-operator|new
-name|EtcdConfiguration
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|)
-argument_list|,
 name|parameters
 argument_list|)
 decl_stmt|;
@@ -335,17 +530,11 @@ name|remaining
 argument_list|)
 throw|;
 block|}
-DECL|method|loadConfiguration (T configuration, Map<String, Object> parameters)
+DECL|method|loadConfiguration (Map<String, Object> parameters)
 specifier|protected
-parameter_list|<
-name|T
-parameter_list|>
-name|T
+name|EtcdConfiguration
 name|loadConfiguration
 parameter_list|(
-name|T
-name|configuration
-parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -357,6 +546,36 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|EtcdConfiguration
+name|configuration
+init|=
+name|Optional
+operator|.
+name|ofNullable
+argument_list|(
+name|this
+operator|.
+name|configuration
+argument_list|)
+operator|.
+name|orElseGet
+argument_list|(
+name|EtcdConfiguration
+operator|::
+operator|new
+argument_list|)
+operator|.
+name|copy
+argument_list|()
+decl_stmt|;
+name|configuration
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|configuration
