@@ -565,10 +565,10 @@ name|name
 operator|=
 literal|"onExceptionOccurredRef"
 argument_list|)
-DECL|field|onExceptionbOccurredRef
+DECL|field|onExceptionOccurredRef
 specifier|private
 name|String
-name|onExceptionbOccurredRef
+name|onExceptionOccurredRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -2650,7 +2650,7 @@ name|String
 name|ref
 parameter_list|)
 block|{
-name|setOnExceptionbOccurredRef
+name|setOnExceptionOccurredRef
 argument_list|(
 name|ref
 argument_list|)
@@ -3158,30 +3158,30 @@ operator|=
 name|onExceptionOccurred
 expr_stmt|;
 block|}
-DECL|method|getOnExceptionbOccurredRef ()
+DECL|method|getOnExceptionOccurredRef ()
 specifier|public
 name|String
-name|getOnExceptionbOccurredRef
+name|getOnExceptionOccurredRef
 parameter_list|()
 block|{
 return|return
-name|onExceptionbOccurredRef
+name|onExceptionOccurredRef
 return|;
 block|}
-DECL|method|setOnExceptionbOccurredRef (String onExceptionbOccurredRef)
+DECL|method|setOnExceptionOccurredRef (String onExceptionOccurredRef)
 specifier|public
 name|void
-name|setOnExceptionbOccurredRef
+name|setOnExceptionOccurredRef
 parameter_list|(
 name|String
-name|onExceptionbOccurredRef
+name|onExceptionOccurredRef
 parameter_list|)
 block|{
 name|this
 operator|.
-name|onExceptionbOccurredRef
+name|onExceptionOccurredRef
 operator|=
-name|onExceptionbOccurredRef
+name|onExceptionOccurredRef
 expr_stmt|;
 block|}
 DECL|method|getUseOriginalMessagePolicy ()
@@ -3539,7 +3539,7 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|onExceptionbOccurredRef
+name|onExceptionOccurredRef
 argument_list|)
 condition|)
 block|{
@@ -3556,7 +3556,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|onExceptionbOccurredRef
+name|onExceptionOccurredRef
 argument_list|,
 name|Processor
 operator|.
