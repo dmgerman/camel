@@ -80,6 +80,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|UriParam
@@ -137,6 +161,10 @@ DECL|class|ConsulConfiguration
 specifier|public
 class|class
 name|ConsulConfiguration
+implements|implements
+name|CamelContextAware
+implements|,
+name|Cloneable
 block|{
 annotation|@
 name|UriParam
@@ -147,10 +175,15 @@ name|url
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|dc
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|datacenter
 specifier|private
 name|String
-name|dc
+name|datacenter
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -349,7 +382,6 @@ name|recursive
 decl_stmt|;
 DECL|field|context
 specifier|private
-specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
@@ -380,15 +412,33 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|getContext ()
+annotation|@
+name|Override
+DECL|method|setCamelContext (CamelContext context)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|context
+operator|=
+name|context
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
-name|getContext
+name|getCamelContext
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|context
 return|;
 block|}
@@ -419,6 +469,9 @@ operator|=
 name|url
 expr_stmt|;
 block|}
+comment|/**      * @deprecated replaced by {@link #getDatacenter()} ()}      */
+annotation|@
+name|Deprecated
 DECL|method|getDc ()
 specifier|public
 name|String
@@ -426,10 +479,12 @@ name|getDc
 parameter_list|()
 block|{
 return|return
-name|dc
+name|datacenter
 return|;
 block|}
-comment|/**      * The data center      */
+comment|/**      * The data center      *      * @deprecated replaced by {@link #setDatacenter(String)} ()}      */
+annotation|@
+name|Deprecated
 DECL|method|setDc (String dc)
 specifier|public
 name|void
@@ -441,9 +496,36 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|dc
+name|datacenter
 operator|=
 name|dc
+expr_stmt|;
+block|}
+DECL|method|getDatacenter ()
+specifier|public
+name|String
+name|getDatacenter
+parameter_list|()
+block|{
+return|return
+name|datacenter
+return|;
+block|}
+comment|/**      * The data center      */
+DECL|method|setDatacenter (String datacenter)
+specifier|public
+name|void
+name|setDatacenter
+parameter_list|(
+name|String
+name|datacenter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|datacenter
+operator|=
+name|datacenter
 expr_stmt|;
 block|}
 DECL|method|getTags ()
@@ -1080,6 +1162,39 @@ operator|.
 name|build
 argument_list|()
 return|;
+block|}
+DECL|method|copy ()
+specifier|public
+name|ConsulConfiguration
+name|copy
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+operator|(
+name|ConsulConfiguration
+operator|)
+name|super
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

@@ -266,10 +266,6 @@ name|Suppliers
 import|;
 end_import
 
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-
 begin_class
 DECL|class|ConsulServiceDiscovery
 specifier|public
@@ -316,17 +312,9 @@ name|configuration
 operator|::
 name|createConsulClient
 argument_list|,
-name|e
-lambda|->
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
+name|this
+operator|::
+name|rethrowAsRuntimeCamelException
 argument_list|)
 expr_stmt|;
 name|ImmutableCatalogOptions
@@ -345,7 +333,7 @@ name|ifNotEmpty
 argument_list|(
 name|configuration
 operator|.
-name|getDc
+name|getDatacenter
 argument_list|()
 argument_list|,
 name|builder
@@ -476,6 +464,23 @@ block|}
 comment|// *************************
 comment|// Helpers
 comment|// *************************
+DECL|method|rethrowAsRuntimeCamelException (Exception e)
+specifier|private
+name|void
+name|rethrowAsRuntimeCamelException
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 DECL|method|isHealthy (ServiceHealth serviceHealth)
 specifier|private
 name|boolean

@@ -69,7 +69,7 @@ name|HystrixConfigurationDefinitionProperties
 extends|extends
 name|HystrixConfigurationDefinitionCommon
 block|{
-comment|/**      * Enable camel-hystrix      */
+comment|/**      * Enable the component      */
 DECL|field|enabled
 specifier|private
 name|boolean

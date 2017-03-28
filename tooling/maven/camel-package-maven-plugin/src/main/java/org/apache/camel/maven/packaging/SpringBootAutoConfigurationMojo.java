@@ -1493,18 +1493,19 @@ literal|".json"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// Hystrix
-specifier|final
 name|String
 name|json
-init|=
+decl_stmt|;
+comment|// Hystrix
+name|json
+operator|=
 name|loadModelJson
 argument_list|(
 name|files
 argument_list|,
 literal|"hystrixConfiguration"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|json
@@ -1556,11 +1557,79 @@ argument_list|(
 name|pkg
 argument_list|,
 name|model
+argument_list|,
+literal|"camel.hystrix"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Consul
+name|json
+operator|=
+name|loadModelJson
+argument_list|(
+name|files
+argument_list|,
+literal|"consulServiceDiscovery"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|json
+operator|!=
+literal|null
+condition|)
+block|{
+name|OtherModel
+name|model
+init|=
+name|generateOtherModel
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|int
+name|pos
+init|=
+name|model
+operator|.
+name|getJavaType
+argument_list|()
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|"."
+argument_list|)
+decl_stmt|;
+name|String
+name|pkg
+init|=
+name|model
+operator|.
+name|getJavaType
+argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|pos
+argument_list|)
+operator|+
+literal|".springboot"
+decl_stmt|;
+comment|// Generate properties, auto-configuration happens in camel-consul-starter
+name|createHystrixConfigurationSource
+argument_list|(
+name|pkg
+argument_list|,
+name|model
+argument_list|,
+literal|"camel.cloud.consul.service-discovery"
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createHystrixConfigurationSource (String packageName, OtherModel model)
+DECL|method|createHystrixConfigurationSource (String packageName, OtherModel model, String propertiesPrefix)
 specifier|private
 name|void
 name|createHystrixConfigurationSource
@@ -1570,6 +1639,9 @@ name|packageName
 parameter_list|,
 name|OtherModel
 name|model
+parameter_list|,
+name|String
+name|propertiesPrefix
 parameter_list|)
 throws|throws
 name|MojoFailureException
@@ -1734,9 +1806,16 @@ name|equalsIgnoreCase
 argument_list|(
 name|name
 argument_list|)
+operator|||
+literal|"camelContext"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|name
+argument_list|)
 condition|)
 block|{
-comment|// Skip it as it should not be set via spring boot
+comment|// Skip them as they should not be set via spring boot
 continue|continue;
 block|}
 comment|// generate inner class for non-primitive options
@@ -2021,7 +2100,7 @@ name|setStringValue
 argument_list|(
 literal|"prefix"
 argument_list|,
-literal|"camel.hystrix"
+name|propertiesPrefix
 argument_list|)
 expr_stmt|;
 name|configClass
@@ -2079,7 +2158,7 @@ argument_list|()
 operator|.
 name|setFullText
 argument_list|(
-literal|"Enable camel-hystrix"
+literal|"Enable the component"
 argument_list|)
 expr_stmt|;
 name|configClass

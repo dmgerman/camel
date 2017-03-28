@@ -156,10 +156,10 @@ name|url
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|dc
+DECL|field|datacenter
 specifier|private
 name|String
-name|dc
+name|datacenter
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -304,6 +304,9 @@ operator|=
 name|url
 expr_stmt|;
 block|}
+comment|/**      * @deprecated replaced by {@link #getDatacenter()} ()}      */
+annotation|@
+name|Deprecated
 DECL|method|getDc ()
 specifier|public
 name|String
@@ -311,10 +314,12 @@ name|getDc
 parameter_list|()
 block|{
 return|return
-name|dc
+name|datacenter
 return|;
 block|}
-comment|/**      * The data center      */
+comment|/**      * The data center      *      * @deprecated replaced by {@link #setDatacenter(String)} ()}      */
+annotation|@
+name|Deprecated
 DECL|method|setDc (String dc)
 specifier|public
 name|void
@@ -326,9 +331,36 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|dc
+name|datacenter
 operator|=
 name|dc
+expr_stmt|;
+block|}
+DECL|method|getDatacenter ()
+specifier|public
+name|String
+name|getDatacenter
+parameter_list|()
+block|{
+return|return
+name|datacenter
+return|;
+block|}
+comment|/**      * The data center      */
+DECL|method|setDatacenter (String datacenter)
+specifier|public
+name|void
+name|setDatacenter
+parameter_list|(
+name|String
+name|datacenter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|datacenter
+operator|=
+name|datacenter
 expr_stmt|;
 block|}
 DECL|method|getAclToken ()

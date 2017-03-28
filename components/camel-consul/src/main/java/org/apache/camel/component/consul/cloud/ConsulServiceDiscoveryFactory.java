@@ -167,6 +167,9 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated, @deprecated replaced by {@link #getDatacenter()} ()}      * @return      */
+annotation|@
+name|Deprecated
 DECL|method|getDc ()
 specifier|public
 name|String
@@ -176,10 +179,13 @@ block|{
 return|return
 name|configuration
 operator|.
-name|getDc
+name|getDatacenter
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated, @deprecated replaced by {@link #setDatacenter(String)}} ()}      */
+annotation|@
+name|Deprecated
 DECL|method|setDc (String dc)
 specifier|public
 name|void
@@ -196,6 +202,36 @@ argument_list|(
 name|dc
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setDatacenter (String dc)
+specifier|public
+name|void
+name|setDatacenter
+parameter_list|(
+name|String
+name|dc
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setDatacenter
+argument_list|(
+name|dc
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getDatacenter ()
+specifier|public
+name|String
+name|getDatacenter
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getDatacenter
+argument_list|()
+return|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
