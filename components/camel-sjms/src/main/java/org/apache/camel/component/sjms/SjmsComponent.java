@@ -282,7 +282,13 @@ literal|"advanced"
 argument_list|,
 name|description
 operator|=
-literal|"Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides one implementation out of the box: default. The default strategy will safely marshal dots and hyphens (. and -). Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation."
+literal|"Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification."
+operator|+
+literal|" Camel provides one implementation out of the box: default. The default strategy will safely marshal dots and hyphens (. and -)."
+operator|+
+literal|" Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation"
+operator|+
+literal|" of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation."
 argument_list|)
 DECL|field|jmsKeyFormatStrategy
 specifier|private
@@ -368,7 +374,9 @@ literal|"advanced"
 argument_list|,
 name|description
 operator|=
-literal|"To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of<tt>javax.jms.Message</tt> objects when Camel is sending a JMS message."
+literal|"To use the given MessageCreatedStrategy which are invoked when Camel creates new instances"
+operator|+
+literal|" of<tt>javax.jms.Message</tt> objects when Camel is sending a JMS message."
 argument_list|)
 DECL|field|messageCreatedStrategy
 specifier|private
@@ -388,7 +396,9 @@ literal|"true"
 argument_list|,
 name|description
 operator|=
-literal|"When using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource} then should each {@link javax.jms.Connection} be tested (calling start) before returned from the pool."
+literal|"When using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}"
+operator|+
+literal|" then should each {@link javax.jms.Connection} be tested (calling start) before returned from the pool."
 argument_list|)
 DECL|field|connectionTestOnBorrow
 specifier|private
@@ -410,7 +420,9 @@ literal|true
 argument_list|,
 name|description
 operator|=
-literal|"The username to use when creating {@link javax.jms.Connection} when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
+literal|"The username to use when creating {@link javax.jms.Connection} when using the"
+operator|+
+literal|" default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
 argument_list|)
 DECL|field|connectionUsername
 specifier|private
@@ -430,7 +442,9 @@ literal|true
 argument_list|,
 name|description
 operator|=
-literal|"The password to use when creating {@link javax.jms.Connection} when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
+literal|"The password to use when creating {@link javax.jms.Connection} when using the"
+operator|+
+literal|" default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
 argument_list|)
 DECL|field|connectionPassword
 specifier|private
@@ -446,7 +460,9 @@ literal|"advanced"
 argument_list|,
 name|description
 operator|=
-literal|"The client ID to use when creating {@link javax.jms.Connection} when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
+literal|"The client ID to use when creating {@link javax.jms.Connection} when using the"
+operator|+
+literal|" default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
 argument_list|)
 DECL|field|connectionClientId
 specifier|private
@@ -466,7 +482,9 @@ literal|"5000"
 argument_list|,
 name|description
 operator|=
-literal|"The max wait time in millis to block and wait on free connection when the pool is exhausted when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
+literal|"The max wait time in millis to block and wait on free connection when the pool"
+operator|+
+literal|" is exhausted when using the default {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource}."
 argument_list|)
 DECL|field|connectionMaxWait
 specifier|private

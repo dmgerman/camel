@@ -196,10 +196,6 @@ name|SessionId
 import|;
 end_import
 
-begin_comment
-comment|/**  * Created by bryan.love on 3/22/17.  */
-end_comment
-
 begin_class
 DECL|class|MockSession
 specifier|public
