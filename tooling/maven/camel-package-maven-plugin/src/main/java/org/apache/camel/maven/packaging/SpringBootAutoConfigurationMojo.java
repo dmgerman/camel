@@ -2016,6 +2016,21 @@ block|{
 comment|// Skip them as they should not be set via spring boot
 continue|continue;
 block|}
+if|if
+condition|(
+literal|"java.util.List<org.apache.camel.model.PropertyDefinition>"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+name|type
+operator|=
+literal|"java.util.Map<java.lang.String, java.lang.String>"
+expr_stmt|;
+block|}
 comment|// generate inner class for non-primitive options
 name|PropertySource
 argument_list|<
@@ -2086,10 +2101,7 @@ literal|"java.lang.String"
 operator|.
 name|equals
 argument_list|(
-name|option
-operator|.
-name|getJavaType
-argument_list|()
+name|type
 argument_list|)
 condition|)
 block|{
@@ -2114,20 +2126,14 @@ literal|"long"
 operator|.
 name|equals
 argument_list|(
-name|option
-operator|.
-name|getJavaType
-argument_list|()
+name|type
 argument_list|)
 operator|||
 literal|"java.lang.Long"
 operator|.
 name|equals
 argument_list|(
-name|option
-operator|.
-name|getJavaType
-argument_list|()
+name|type
 argument_list|)
 condition|)
 block|{

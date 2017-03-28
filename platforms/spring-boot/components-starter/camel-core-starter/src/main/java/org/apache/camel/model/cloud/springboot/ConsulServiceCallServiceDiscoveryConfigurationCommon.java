@@ -26,21 +26,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|PropertyDefinition
+name|Map
 import|;
 end_import
 
@@ -113,9 +99,11 @@ decl_stmt|;
 comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
 DECL|field|properties
 specifier|private
-name|List
+name|Map
 argument_list|<
-name|PropertyDefinition
+name|String
+argument_list|,
+name|String
 argument_list|>
 name|properties
 decl_stmt|;
@@ -355,9 +343,11 @@ expr_stmt|;
 block|}
 DECL|method|getProperties ()
 specifier|public
-name|List
+name|Map
 argument_list|<
-name|PropertyDefinition
+name|String
+argument_list|,
+name|String
 argument_list|>
 name|getProperties
 parameter_list|()
@@ -366,14 +356,16 @@ return|return
 name|properties
 return|;
 block|}
-DECL|method|setProperties (List<PropertyDefinition> properties)
+DECL|method|setProperties (Map<String, String> properties)
 specifier|public
 name|void
 name|setProperties
 parameter_list|(
-name|List
+name|Map
 argument_list|<
-name|PropertyDefinition
+name|String
+argument_list|,
+name|String
 argument_list|>
 name|properties
 parameter_list|)
