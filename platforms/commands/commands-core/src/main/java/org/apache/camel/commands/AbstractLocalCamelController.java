@@ -673,11 +673,11 @@ name|answer
 operator|.
 name|put
 argument_list|(
-literal|"logEipMask"
+literal|"logMask"
 argument_list|,
 name|context
 operator|.
-name|isLogEipMask
+name|isLogMask
 argument_list|()
 argument_list|)
 expr_stmt|;

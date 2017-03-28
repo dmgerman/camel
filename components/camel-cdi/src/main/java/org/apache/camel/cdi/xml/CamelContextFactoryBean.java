@@ -751,6 +751,13 @@ name|messageHistory
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|logMask
+specifier|private
+name|String
+name|logMask
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|logExhaustedMessageBody
 specifier|private
 name|String
@@ -2545,6 +2552,32 @@ operator|.
 name|messageHistory
 operator|=
 name|messageHistory
+expr_stmt|;
+block|}
+DECL|method|getLogMask ()
+specifier|public
+name|String
+name|getLogMask
+parameter_list|()
+block|{
+return|return
+name|logMask
+return|;
+block|}
+DECL|method|setLogMask (String logMask)
+specifier|public
+name|void
+name|setLogMask
+parameter_list|(
+name|String
+name|logMask
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logMask
+operator|=
+name|logMask
 expr_stmt|;
 block|}
 annotation|@

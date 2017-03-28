@@ -1206,6 +1206,16 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
+name|setLogMask
+argument_list|(
+name|config
+operator|.
+name|isLogMask
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|camelContext
+operator|.
 name|setLogExhaustedMessageBody
 argument_list|(
 name|config

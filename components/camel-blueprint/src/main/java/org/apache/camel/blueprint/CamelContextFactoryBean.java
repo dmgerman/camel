@@ -857,10 +857,10 @@ name|messageHistory
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|logEipMask
+DECL|field|logMask
 specifier|private
 name|String
-name|logEipMask
+name|logMask
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -3035,30 +3035,30 @@ operator|=
 name|messageHistory
 expr_stmt|;
 block|}
-DECL|method|getLogEipMask ()
+DECL|method|getLogMask ()
 specifier|public
 name|String
-name|getLogEipMask
+name|getLogMask
 parameter_list|()
 block|{
 return|return
-name|logEipMask
+name|logMask
 return|;
 block|}
-DECL|method|setLogEipMask (String logEipMask)
+DECL|method|setLogMask (String logMask)
 specifier|public
 name|void
-name|setLogEipMask
+name|setLogMask
 parameter_list|(
 name|String
-name|logEipMask
+name|logMask
 parameter_list|)
 block|{
 name|this
 operator|.
-name|logEipMask
+name|logMask
 operator|=
-name|logEipMask
+name|logMask
 expr_stmt|;
 block|}
 DECL|method|getLogExhaustedMessageBody ()

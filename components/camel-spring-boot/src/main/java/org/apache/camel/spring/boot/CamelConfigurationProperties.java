@@ -284,6 +284,14 @@ name|messageHistory
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Sets whether log mask is enabled or not.      *      * Default is false.      */
+DECL|field|logMask
+specifier|private
+name|boolean
+name|logMask
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Sets whether to log exhausted message body with message history.      *      * Default is false.      */
 DECL|field|logExhaustedMessageBody
 specifier|private
@@ -1255,6 +1263,32 @@ operator|.
 name|messageHistory
 operator|=
 name|messageHistory
+expr_stmt|;
+block|}
+DECL|method|isLogMask ()
+specifier|public
+name|boolean
+name|isLogMask
+parameter_list|()
+block|{
+return|return
+name|logMask
+return|;
+block|}
+DECL|method|setLogMask (boolean logMask)
+specifier|public
+name|void
+name|setLogMask
+parameter_list|(
+name|boolean
+name|logMask
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logMask
+operator|=
+name|logMask
 expr_stmt|;
 block|}
 DECL|method|isLogExhaustedMessageBody ()

@@ -680,10 +680,10 @@ specifier|private
 name|String
 name|messageHistory
 decl_stmt|;
-DECL|field|logEipMask
+DECL|field|logMask
 specifier|private
 name|String
-name|logEipMask
+name|logMask
 decl_stmt|;
 DECL|field|handleFault
 specifier|private
@@ -1863,14 +1863,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable security mask in Log EIP for this route.      *      * @return the builder      */
-DECL|method|logEipMask ()
+comment|/**      * Enable security mask for Logging on this route.      *      * @return the builder      */
+DECL|method|logMask ()
 specifier|public
 name|RouteDefinition
-name|logEipMask
+name|logMask
 parameter_list|()
 block|{
-name|setLogEipMask
+name|setLogMask
 argument_list|(
 literal|"true"
 argument_list|)
@@ -1879,19 +1879,19 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether security mask in Log EIP is enabled for this route.      *      * @param logEipMask whether to enable security mask in Log EIP (true or false), the value can be a property placeholder      * @return the builder      */
-DECL|method|logEipMask (String logEipMask)
+comment|/**      * Sets whether security mask for logging is enabled on this route.      *      * @param logMask whether to enable security mask for Logging (true or false), the value can be a property placeholder      * @return the builder      */
+DECL|method|logMask (String logMask)
 specifier|public
 name|RouteDefinition
-name|logEipMask
+name|logMask
 parameter_list|(
 name|String
-name|logEipMask
+name|logMask
 parameter_list|)
 block|{
-name|setLogEipMask
+name|setLogMask
 argument_list|(
-name|logEipMask
+name|logMask
 argument_list|)
 expr_stmt|;
 return|return
@@ -2702,18 +2702,18 @@ operator|=
 name|messageHistory
 expr_stmt|;
 block|}
-comment|/**      * Whether security mask for Log EIP is enabled on this route.      */
-DECL|method|getLogEipMask ()
+comment|/**      * Whether security mask for Logging is enabled on this route.      */
+DECL|method|getLogMask ()
 specifier|public
 name|String
-name|getLogEipMask
+name|getLogMask
 parameter_list|()
 block|{
 return|return
-name|logEipMask
+name|logMask
 return|;
 block|}
-comment|/**      * Whether security mask for Log EIP is enabled on this route.      */
+comment|/**      * Whether security mask for Logging is enabled on this route.      */
 annotation|@
 name|XmlAttribute
 annotation|@
@@ -2723,20 +2723,20 @@ name|defaultValue
 operator|=
 literal|"false"
 argument_list|)
-DECL|method|setLogEipMask (String logEipMask)
+DECL|method|setLogMask (String logMask)
 specifier|public
 name|void
-name|setLogEipMask
+name|setLogMask
 parameter_list|(
 name|String
-name|logEipMask
+name|logMask
 parameter_list|)
 block|{
 name|this
 operator|.
-name|logEipMask
+name|logMask
 operator|=
-name|logEipMask
+name|logMask
 expr_stmt|;
 block|}
 comment|/**      * Whether handle fault is enabled on this route.      */
@@ -3539,13 +3539,13 @@ block|}
 comment|// configure Log EIP mask
 if|if
 condition|(
-name|logEipMask
+name|logMask
 operator|!=
 literal|null
 condition|)
 block|{
 name|Boolean
-name|isLogEipMask
+name|isLogMask
 init|=
 name|CamelContextHelper
 operator|.
@@ -3553,34 +3553,34 @@ name|parseBoolean
 argument_list|(
 name|camelContext
 argument_list|,
-name|getLogEipMask
+name|getLogMask
 argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|isLogEipMask
+name|isLogMask
 operator|!=
 literal|null
 condition|)
 block|{
 name|routeContext
 operator|.
-name|setLogEipMask
+name|setLogMask
 argument_list|(
-name|isLogEipMask
+name|isLogMask
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|isLogEipMask
+name|isLogMask
 condition|)
 block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Security mask for Log EIP is enabled on route: {}"
+literal|"Security mask for Logging is enabled on route: {}"
 argument_list|,
 name|getId
 argument_list|()

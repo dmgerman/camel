@@ -539,13 +539,13 @@ name|stringEscape
 operator|.
 name|unescapeJava
 argument_list|(
-literal|"\tLog EIP Mask: "
+literal|"\tLog Mask: "
 operator|+
 name|row
 operator|.
 name|get
 argument_list|(
-literal|"logEipMask"
+literal|"logMask"
 argument_list|)
 argument_list|)
 argument_list|)

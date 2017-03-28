@@ -29,14 +29,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A plugin used to format a log String, for example to mask security information  * like password or passphrase.  */
+comment|/**  * A plugin used to mask a log String, for example security information  * like password or passphrase.  */
 end_comment
 
 begin_interface
-DECL|interface|StringFormatter
+DECL|interface|MaskingFormatter
 specifier|public
 interface|interface
-name|StringFormatter
+name|MaskingFormatter
 block|{
 comment|/**      * Format a given string.      *      * @param source the source string      * @return formatted string      */
 DECL|method|format (String source)

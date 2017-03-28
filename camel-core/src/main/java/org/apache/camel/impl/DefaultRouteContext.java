@@ -477,10 +477,10 @@ specifier|private
 name|Boolean
 name|messageHistory
 decl_stmt|;
-DECL|field|logEipMask
+DECL|field|logMask
 specifier|private
 name|Boolean
-name|logEipMask
+name|logMask
 decl_stmt|;
 DECL|field|logExhaustedMessageBody
 specifier|private
@@ -1763,37 +1763,37 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|setLogEipMask (Boolean logEipMask)
+DECL|method|setLogMask (Boolean logMask)
 specifier|public
 name|void
-name|setLogEipMask
+name|setLogMask
 parameter_list|(
 name|Boolean
-name|logEipMask
+name|logMask
 parameter_list|)
 block|{
 name|this
 operator|.
-name|logEipMask
+name|logMask
 operator|=
-name|logEipMask
+name|logMask
 expr_stmt|;
 block|}
-DECL|method|isLogEipMask ()
+DECL|method|isLogMask ()
 specifier|public
 name|Boolean
-name|isLogEipMask
+name|isLogMask
 parameter_list|()
 block|{
 if|if
 condition|(
-name|logEipMask
+name|logMask
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|logEipMask
+name|logMask
 return|;
 block|}
 else|else
@@ -1803,7 +1803,7 @@ return|return
 name|getCamelContext
 argument_list|()
 operator|.
-name|isLogEipMask
+name|isLogMask
 argument_list|()
 return|;
 block|}

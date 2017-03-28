@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|StringFormatter
+name|MaskingFormatter
 import|;
 end_import
 
@@ -233,16 +233,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link StringFormatter} that searches the specified keywards in the source  * and replace its value with mask string. By default passphrase, password and secretKey  * are used as keywards to replace its value.  */
+comment|/**  * The {@link MaskingFormatter} that searches the specified keywards in the source  * and replace its value with mask string. By default passphrase, password and secretKey  * are used as keywards to replace its value.  */
 end_comment
 
 begin_class
-DECL|class|MaskingStringFormatter
+DECL|class|DefaultMaskingFormatter
 specifier|public
 class|class
-name|MaskingStringFormatter
+name|DefaultMaskingFormatter
 implements|implements
-name|StringFormatter
+name|MaskingFormatter
 block|{
 DECL|field|DEFAULT_KEYWORDS
 specifier|private
@@ -317,9 +317,9 @@ specifier|private
 name|Pattern
 name|jsonMaskPattern
 decl_stmt|;
-DECL|method|MaskingStringFormatter ()
+DECL|method|DefaultMaskingFormatter ()
 specifier|public
-name|MaskingStringFormatter
+name|DefaultMaskingFormatter
 parameter_list|()
 block|{
 name|this
@@ -334,9 +334,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MaskingStringFormatter (boolean maskKeyValue, boolean maskXml, boolean maskJson)
+DECL|method|DefaultMaskingFormatter (boolean maskKeyValue, boolean maskXml, boolean maskJson)
 specifier|public
-name|MaskingStringFormatter
+name|DefaultMaskingFormatter
 parameter_list|(
 name|boolean
 name|maskKeyValue
@@ -360,9 +360,9 @@ name|maskJson
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MaskingStringFormatter (Set<String> keywords, boolean maskKeyValue, boolean maskXmlElement, boolean maskJson)
+DECL|method|DefaultMaskingFormatter (Set<String> keywords, boolean maskKeyValue, boolean maskXmlElement, boolean maskJson)
 specifier|public
-name|MaskingStringFormatter
+name|DefaultMaskingFormatter
 parameter_list|(
 name|Set
 argument_list|<

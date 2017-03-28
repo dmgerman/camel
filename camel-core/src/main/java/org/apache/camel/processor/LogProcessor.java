@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|StringFormatter
+name|MaskingFormatter
 import|;
 end_import
 
@@ -184,10 +184,10 @@ decl_stmt|;
 DECL|field|formatter
 specifier|private
 specifier|final
-name|StringFormatter
+name|MaskingFormatter
 name|formatter
 decl_stmt|;
-DECL|method|LogProcessor (Expression expression, CamelLogger logger, StringFormatter formatter)
+DECL|method|LogProcessor (Expression expression, CamelLogger logger, MaskingFormatter formatter)
 specifier|public
 name|LogProcessor
 parameter_list|(
@@ -197,7 +197,7 @@ parameter_list|,
 name|CamelLogger
 name|logger
 parameter_list|,
-name|StringFormatter
+name|MaskingFormatter
 name|formatter
 parameter_list|)
 block|{
@@ -422,7 +422,7 @@ return|;
 block|}
 DECL|method|getLogFormatter ()
 specifier|public
-name|StringFormatter
+name|MaskingFormatter
 name|getLogFormatter
 parameter_list|()
 block|{

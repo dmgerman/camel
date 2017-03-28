@@ -1509,23 +1509,23 @@ else|:
 literal|false
 return|;
 block|}
-DECL|method|isLogEipMask ()
+DECL|method|isLogMask ()
 specifier|public
 name|boolean
-name|isLogEipMask
+name|isLogMask
 parameter_list|()
 block|{
 return|return
 name|context
 operator|.
-name|isLogEipMask
+name|isLogMask
 argument_list|()
 operator|!=
 literal|null
 condition|?
 name|context
 operator|.
-name|isLogEipMask
+name|isLogMask
 argument_list|()
 else|:
 literal|false

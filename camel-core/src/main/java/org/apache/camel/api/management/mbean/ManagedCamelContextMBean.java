@@ -584,11 +584,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Whether security mask for Log EIP is enabled"
+literal|"Whether security mask for Logging is enabled"
 argument_list|)
-DECL|method|isLogEipMask ()
+DECL|method|isLogMask ()
 name|boolean
-name|isLogEipMask
+name|isLogMask
 parameter_list|()
 function_decl|;
 annotation|@

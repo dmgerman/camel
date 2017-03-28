@@ -476,7 +476,7 @@ name|messageHistory
 argument_list|)
 expr_stmt|;
 name|Boolean
-name|logEipMask
+name|logMask
 init|=
 operator|(
 name|Boolean
@@ -487,7 +487,7 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"LogEipMask"
+literal|"LogMask"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -496,7 +496,7 @@ name|Boolean
 operator|.
 name|FALSE
 argument_list|,
-name|logEipMask
+name|logMask
 argument_list|)
 expr_stmt|;
 name|Integer
@@ -1923,7 +1923,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|29
+literal|30
 argument_list|,
 name|StringHelper
 operator|.
@@ -1937,7 +1937,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|29
+literal|30
 argument_list|,
 name|StringHelper
 operator|.

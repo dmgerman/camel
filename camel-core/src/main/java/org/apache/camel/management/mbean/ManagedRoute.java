@@ -944,10 +944,10 @@ name|isMessageHistory
 argument_list|()
 return|;
 block|}
-DECL|method|getLogEipMask ()
+DECL|method|getLogMask ()
 specifier|public
 name|Boolean
-name|getLogEipMask
+name|getLogMask
 parameter_list|()
 block|{
 return|return
@@ -956,7 +956,7 @@ operator|.
 name|getRouteContext
 argument_list|()
 operator|.
-name|isLogEipMask
+name|isLogMask
 argument_list|()
 return|;
 block|}
