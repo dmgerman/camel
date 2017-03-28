@@ -1674,9 +1674,11 @@ name|keepAliveDelay
 operator|<
 literal|0
 condition|)
+block|{
 throw|throw
 name|ex
 throw|;
+block|}
 comment|// this will log the exception and the parent loop will create a new session
 name|getExceptionHandler
 argument_list|()
@@ -1697,6 +1699,7 @@ name|keepAliveDelay
 operator|>
 literal|0
 condition|)
+block|{
 name|Thread
 operator|.
 name|sleep
@@ -1704,6 +1707,7 @@ argument_list|(
 name|keepAliveDelay
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
