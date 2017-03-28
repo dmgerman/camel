@@ -1552,7 +1552,7 @@ operator|+
 literal|".springboot"
 decl_stmt|;
 comment|// Generate properties, auto-configuration happens in camel-hystrix-starter
-name|createHystrixConfigurationSource
+name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
 argument_list|,
@@ -1618,13 +1618,79 @@ operator|+
 literal|".springboot"
 decl_stmt|;
 comment|// Generate properties, auto-configuration happens in camel-consul-starter
-name|createHystrixConfigurationSource
+name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
 argument_list|,
 name|model
 argument_list|,
 literal|"camel.cloud.consul.service-discovery"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// DNS
+name|json
+operator|=
+name|loadModelJson
+argument_list|(
+name|files
+argument_list|,
+literal|"dnsServiceDiscovery"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|json
+operator|!=
+literal|null
+condition|)
+block|{
+name|OtherModel
+name|model
+init|=
+name|generateOtherModel
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|int
+name|pos
+init|=
+name|model
+operator|.
+name|getJavaType
+argument_list|()
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|"."
+argument_list|)
+decl_stmt|;
+name|String
+name|pkg
+init|=
+name|model
+operator|.
+name|getJavaType
+argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|pos
+argument_list|)
+operator|+
+literal|".springboot"
+decl_stmt|;
+comment|// Generate properties, auto-configuration happens in camel-consul-starter
+name|createOtherModelConfigurationSource
+argument_list|(
+name|pkg
+argument_list|,
+name|model
+argument_list|,
+literal|"camel.cloud.dns.service-discovery"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1684,7 +1750,7 @@ operator|+
 literal|".springboot"
 decl_stmt|;
 comment|// Generate properties, auto-configuration happens in camel-etcd-starter
-name|createHystrixConfigurationSource
+name|createOtherModelConfigurationSource
 argument_list|(
 name|pkg
 argument_list|,
@@ -1695,10 +1761,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createHystrixConfigurationSource (String packageName, OtherModel model, String propertiesPrefix)
+DECL|method|createOtherModelConfigurationSource (String packageName, OtherModel model, String propertiesPrefix)
 specifier|private
 name|void
-name|createHystrixConfigurationSource
+name|createOtherModelConfigurationSource
 parameter_list|(
 name|String
 name|packageName
