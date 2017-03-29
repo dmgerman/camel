@@ -365,7 +365,7 @@ argument_list|(
 literal|"\t"
 argument_list|)
 operator|.
-name|withDirectRouteGenerator
+name|withDestinationGenerator
 argument_list|(
 name|o
 lambda|->

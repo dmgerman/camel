@@ -165,7 +165,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-DECL|field|directRouteGenerator
+DECL|field|destinationGenerator
 specifier|private
 name|Function
 argument_list|<
@@ -173,7 +173,7 @@ name|Operation
 argument_list|,
 name|String
 argument_list|>
-name|directRouteGenerator
+name|destinationGenerator
 init|=
 name|this
 operator|::
@@ -199,10 +199,10 @@ literal|"swagger"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|withDirectRouteGenerator (final Function<Operation, String> directRouteGenerator)
+DECL|method|withDestinationGenerator (final Function<Operation, String> directRouteGenerator)
 specifier|public
 name|G
-name|withDirectRouteGenerator
+name|withDestinationGenerator
 parameter_list|(
 specifier|final
 name|Function
@@ -223,7 +223,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|directRouteGenerator
+name|destinationGenerator
 operator|=
 name|directRouteGenerator
 expr_stmt|;
@@ -245,18 +245,18 @@ return|return
 name|that
 return|;
 block|}
-DECL|method|directRouteGenerator ()
+DECL|method|destinationGenerator ()
 name|Function
 argument_list|<
 name|Operation
 argument_list|,
 name|String
 argument_list|>
-name|directRouteGenerator
+name|destinationGenerator
 parameter_list|()
 block|{
 return|return
-name|directRouteGenerator
+name|destinationGenerator
 return|;
 block|}
 DECL|method|generateDirectName ()

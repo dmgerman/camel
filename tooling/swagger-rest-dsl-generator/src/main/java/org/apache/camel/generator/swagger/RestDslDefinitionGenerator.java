@@ -60,6 +60,8 @@ end_import
 
 begin_class
 DECL|class|RestDslDefinitionGenerator
+specifier|public
+specifier|final
 class|class
 name|RestDslDefinitionGenerator
 extends|extends
@@ -115,7 +117,7 @@ argument_list|<>
 argument_list|(
 name|emitter
 argument_list|,
-name|directRouteGenerator
+name|destinationGenerator
 argument_list|()
 argument_list|)
 decl_stmt|;
