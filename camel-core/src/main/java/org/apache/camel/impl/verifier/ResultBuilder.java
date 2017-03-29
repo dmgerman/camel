@@ -167,15 +167,15 @@ name|Status
 argument_list|>
 name|status
 decl_stmt|;
-DECL|field|errors
+DECL|field|verificationErrors
 specifier|private
 name|List
 argument_list|<
 name|ComponentVerifier
 operator|.
-name|Error
+name|VerificationError
 argument_list|>
-name|errors
+name|verificationErrors
 decl_stmt|;
 DECL|method|ResultBuilder ()
 specifier|public
@@ -258,29 +258,29 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|error (ComponentVerifier.Error error)
+DECL|method|error (ComponentVerifier.VerificationError verificationError)
 specifier|public
 name|ResultBuilder
 name|error
 parameter_list|(
 name|ComponentVerifier
 operator|.
-name|Error
-name|error
+name|VerificationError
+name|verificationError
 parameter_list|)
 block|{
 if|if
 condition|(
 name|this
 operator|.
-name|errors
+name|verificationErrors
 operator|==
 literal|null
 condition|)
 block|{
 name|this
 operator|.
-name|errors
+name|verificationErrors
 operator|=
 operator|new
 name|ArrayList
@@ -290,11 +290,11 @@ expr_stmt|;
 block|}
 name|this
 operator|.
-name|errors
+name|verificationErrors
 operator|.
 name|add
 argument_list|(
-name|error
+name|verificationError
 argument_list|)
 expr_stmt|;
 name|this
@@ -318,7 +318,7 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|error (Optional<ComponentVerifier.Error> error)
+DECL|method|error (Optional<ComponentVerifier.VerificationError> error)
 specifier|public
 name|ResultBuilder
 name|error
@@ -327,7 +327,7 @@ name|Optional
 argument_list|<
 name|ComponentVerifier
 operator|.
-name|Error
+name|VerificationError
 argument_list|>
 name|error
 parameter_list|)
@@ -348,7 +348,7 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|error (Supplier<Optional<ComponentVerifier.Error>> supplier)
+DECL|method|error (Supplier<Optional<ComponentVerifier.VerificationError>> supplier)
 specifier|public
 name|ResultBuilder
 name|error
@@ -359,7 +359,7 @@ name|Optional
 argument_list|<
 name|ComponentVerifier
 operator|.
-name|Error
+name|VerificationError
 argument_list|>
 argument_list|>
 name|supplier
@@ -583,7 +583,7 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|errors (List<ComponentVerifier.Error> errors)
+DECL|method|errors (List<ComponentVerifier.VerificationError> verificationErrors)
 specifier|public
 name|ResultBuilder
 name|errors
@@ -592,12 +592,12 @@ name|List
 argument_list|<
 name|ComponentVerifier
 operator|.
-name|Error
+name|VerificationError
 argument_list|>
-name|errors
+name|verificationErrors
 parameter_list|)
 block|{
-name|errors
+name|verificationErrors
 operator|.
 name|forEach
 argument_list|(
@@ -635,7 +635,7 @@ name|ComponentVerifier
 operator|.
 name|Scope
 operator|.
-name|NONE
+name|PARAMETERS
 argument_list|)
 argument_list|,
 name|status
@@ -653,7 +653,7 @@ operator|.
 name|UNSUPPORTED
 argument_list|)
 argument_list|,
-name|errors
+name|verificationErrors
 operator|!=
 literal|null
 condition|?
@@ -661,7 +661,7 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
-name|errors
+name|verificationErrors
 argument_list|)
 else|:
 name|Collections
@@ -779,7 +779,7 @@ name|ComponentVerifier
 operator|.
 name|Scope
 operator|.
-name|NONE
+name|PARAMETERS
 argument_list|)
 return|;
 block|}

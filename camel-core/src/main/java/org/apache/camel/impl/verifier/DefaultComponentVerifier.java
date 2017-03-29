@@ -292,9 +292,11 @@ name|ResultErrorBuilder
 operator|.
 name|withCodeAndDescription
 argument_list|(
-name|ComponentVerifier
+name|VerificationError
 operator|.
-name|CODE_INTERNAL
+name|StandardCode
+operator|.
+name|INTERNAL
 argument_list|,
 literal|"Missing camel-context"
 argument_list|)
@@ -750,7 +752,7 @@ name|getValue
 argument_list|()
 argument_list|)
 operator|.
-name|attribute
+name|detail
 argument_list|(
 literal|"enum.values"
 argument_list|,

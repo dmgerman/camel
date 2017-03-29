@@ -47,23 +47,23 @@ operator|.
 name|camel
 operator|.
 name|ComponentVerifier
+operator|.
+name|VerificationError
 import|;
 end_import
 
 begin_class
-DECL|class|DefaultResultError
+DECL|class|DefaultResultVerificationError
 specifier|public
 class|class
-name|DefaultResultError
+name|DefaultResultVerificationError
 implements|implements
-name|ComponentVerifier
-operator|.
-name|Error
+name|VerificationError
 block|{
 DECL|field|code
 specifier|private
 specifier|final
-name|String
+name|Code
 name|code
 decl_stmt|;
 DECL|field|description
@@ -72,31 +72,31 @@ specifier|final
 name|String
 name|description
 decl_stmt|;
-DECL|field|parameters
+DECL|field|parameterKeys
 specifier|private
 specifier|final
 name|Set
 argument_list|<
 name|String
 argument_list|>
-name|parameters
+name|parameterKeys
 decl_stmt|;
-DECL|field|attributes
+DECL|field|details
 specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|String
+name|Attribute
 argument_list|,
 name|Object
 argument_list|>
-name|attributes
+name|details
 decl_stmt|;
-DECL|method|DefaultResultError (String code, String description, Set<String> parameters, Map<String, Object> attributes)
+DECL|method|DefaultResultVerificationError (Code code, String description, Set<String> parameterKeys, Map<Attribute, Object> details)
 specifier|public
-name|DefaultResultError
+name|DefaultResultVerificationError
 parameter_list|(
-name|String
+name|Code
 name|code
 parameter_list|,
 name|String
@@ -106,15 +106,15 @@ name|Set
 argument_list|<
 name|String
 argument_list|>
-name|parameters
+name|parameterKeys
 parameter_list|,
 name|Map
 argument_list|<
-name|String
+name|Attribute
 argument_list|,
 name|Object
 argument_list|>
-name|attributes
+name|details
 parameter_list|)
 block|{
 name|this
@@ -131,22 +131,22 @@ name|description
 expr_stmt|;
 name|this
 operator|.
-name|parameters
+name|parameterKeys
 operator|=
-name|parameters
+name|parameterKeys
 expr_stmt|;
 name|this
 operator|.
-name|attributes
+name|details
 operator|=
-name|attributes
+name|details
 expr_stmt|;
 block|}
 annotation|@
 name|Override
 DECL|method|getCode ()
 specifier|public
-name|String
+name|Code
 name|getCode
 parameter_list|()
 block|{
@@ -168,34 +168,34 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getParameters ()
+DECL|method|getParameterKeys ()
 specifier|public
 name|Set
 argument_list|<
 name|String
 argument_list|>
-name|getParameters
+name|getParameterKeys
 parameter_list|()
 block|{
 return|return
-name|parameters
+name|parameterKeys
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getAttributes ()
+DECL|method|getDetails ()
 specifier|public
 name|Map
 argument_list|<
-name|String
+name|Attribute
 argument_list|,
 name|Object
 argument_list|>
-name|getAttributes
+name|getDetails
 parameter_list|()
 block|{
 return|return
-name|attributes
+name|details
 return|;
 block|}
 annotation|@
@@ -221,13 +221,13 @@ name|description
 operator|+
 literal|'\''
 operator|+
-literal|", parameters="
+literal|", parameterKeys="
 operator|+
-name|parameters
+name|parameterKeys
 operator|+
-literal|", attributes="
+literal|", details="
 operator|+
-name|attributes
+name|details
 operator|+
 literal|'}'
 return|;

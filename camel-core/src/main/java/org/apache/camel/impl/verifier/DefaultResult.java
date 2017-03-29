@@ -64,18 +64,18 @@ specifier|final
 name|Status
 name|status
 decl_stmt|;
-DECL|field|errors
+DECL|field|verificationErrors
 specifier|private
 specifier|final
 name|List
 argument_list|<
 name|ComponentVerifier
 operator|.
-name|Error
+name|VerificationError
 argument_list|>
-name|errors
+name|verificationErrors
 decl_stmt|;
-DECL|method|DefaultResult (ComponentVerifier.Scope scope, Status status, List<ComponentVerifier.Error> errors)
+DECL|method|DefaultResult (ComponentVerifier.Scope scope, Status status, List<ComponentVerifier.VerificationError> verificationErrors)
 specifier|public
 name|DefaultResult
 parameter_list|(
@@ -91,9 +91,9 @@ name|List
 argument_list|<
 name|ComponentVerifier
 operator|.
-name|Error
+name|VerificationError
 argument_list|>
-name|errors
+name|verificationErrors
 parameter_list|)
 block|{
 name|this
@@ -110,9 +110,9 @@ name|status
 expr_stmt|;
 name|this
 operator|.
-name|errors
+name|verificationErrors
 operator|=
-name|errors
+name|verificationErrors
 expr_stmt|;
 block|}
 annotation|@
@@ -149,13 +149,13 @@ name|List
 argument_list|<
 name|ComponentVerifier
 operator|.
-name|Error
+name|VerificationError
 argument_list|>
 name|getErrors
 parameter_list|()
 block|{
 return|return
-name|errors
+name|verificationErrors
 return|;
 block|}
 annotation|@
@@ -179,7 +179,7 @@ name|status
 operator|+
 literal|", errors="
 operator|+
-name|errors
+name|verificationErrors
 operator|+
 literal|'}'
 return|;
