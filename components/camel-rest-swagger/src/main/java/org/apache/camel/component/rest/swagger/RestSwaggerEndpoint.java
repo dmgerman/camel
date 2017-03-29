@@ -447,6 +447,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -860,14 +874,15 @@ argument_list|()
 decl_stmt|;
 name|specificationUri
 operator|=
-name|ofNullable
-argument_list|(
 name|before
 argument_list|(
 name|remaining
 argument_list|,
 literal|"#"
-argument_list|)
+argument_list|,
+name|StringHelper
+operator|::
+name|trimToNull
 argument_list|)
 operator|.
 name|map
