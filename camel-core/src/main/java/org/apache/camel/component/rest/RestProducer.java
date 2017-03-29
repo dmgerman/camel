@@ -1038,6 +1038,21 @@ argument_list|,
 name|overrideUri
 argument_list|)
 expr_stmt|;
+comment|// when chaining RestConsumer with RestProducer, the
+comment|// HTTP_PATH header will be present, we remove it here
+comment|// as the REST_HTTP_URI contains the full URI for the
+comment|// request and every other HTTP producer will concatenate
+comment|// REST_HTTP_URI with HTTP_PATH resulting in incorrect
+comment|// URIs
+name|inMessage
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_PATH
+argument_list|)
+expr_stmt|;
 block|}
 specifier|final
 name|String
