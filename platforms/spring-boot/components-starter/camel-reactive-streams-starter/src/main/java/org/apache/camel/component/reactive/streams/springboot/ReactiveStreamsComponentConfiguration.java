@@ -122,6 +122,12 @@ name|ReactiveStreamsBackpressureStrategy
 operator|.
 name|BUFFER
 decl_stmt|;
+comment|/**      * Set the type of the underlying reactive streams implementation to use.      * The implementation is looked up from the registry or using a      * ServiceLoader the default implementation is      * DefaultCamelReactiveStreamsService      */
+DECL|field|serviceType
+specifier|private
+name|String
+name|serviceType
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -180,6 +186,32 @@ operator|.
 name|backpressureStrategy
 operator|=
 name|backpressureStrategy
+expr_stmt|;
+block|}
+DECL|method|getServiceType ()
+specifier|public
+name|String
+name|getServiceType
+parameter_list|()
+block|{
+return|return
+name|serviceType
+return|;
+block|}
+DECL|method|setServiceType (String serviceType)
+specifier|public
+name|void
+name|setServiceType
+parameter_list|(
+name|String
+name|serviceType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceType
+operator|=
+name|serviceType
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()

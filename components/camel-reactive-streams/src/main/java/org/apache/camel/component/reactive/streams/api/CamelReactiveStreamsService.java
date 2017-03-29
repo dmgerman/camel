@@ -42,18 +42,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -66,7 +54,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|StaticService
+name|Service
 import|;
 end_import
 
@@ -130,6 +118,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HasId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|reactivestreams
 operator|.
 name|Publisher
@@ -156,9 +158,9 @@ specifier|public
 interface|interface
 name|CamelReactiveStreamsService
 extends|extends
-name|CamelContextAware
+name|Service
 extends|,
-name|StaticService
+name|HasId
 block|{
 comment|/*      * Main API methods.      */
 comment|/**      * Returns the publisher associated to the given stream name.      * A publisher can be used to push Camel exchanges to reactive-streams subscribers.      *      * @param name the stream name      * @return the stream publisher      */
@@ -535,8 +537,8 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Used by Camel to send the exchange to all active subscriptions on the given stream.      * The callback is used to signal that the exchange has been delivered to the subscribers.      *      * @param name the stream name      * @param exchange the exchange to be forwarded to the external subscribers      * @param callback the callback that signals the delivery of the exchange      */
-DECL|method|sendCamelExchange (String name, Exchange exchange, DispatchCallback<Exchange> callback)
+comment|/**      * Used by Camel to send the exchange to all active subscriptions on the given stream.      * The callback is used to signal that the exchange has been delivered to the subscribers.      *      * @param name the stream name      * @param exchange the exchange to be forwarded to the external subscribers      */
+DECL|method|sendCamelExchange (String name, Exchange exchange)
 name|void
 name|sendCamelExchange
 parameter_list|(
@@ -545,12 +547,6 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
-parameter_list|,
-name|DispatchCallback
-argument_list|<
-name|Exchange
-argument_list|>
-name|callback
 parameter_list|)
 function_decl|;
 comment|/*      * Methods for Camel consumers.      */

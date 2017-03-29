@@ -42,18 +42,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -128,26 +116,6 @@ name|reactive
 operator|.
 name|streams
 operator|.
-name|api
-operator|.
-name|DispatchCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|reactive
-operator|.
-name|streams
-operator|.
 name|engine
 operator|.
 name|CamelSubscriber
@@ -186,16 +154,12 @@ name|ReactiveStreamsTestService
 implements|implements
 name|CamelReactiveStreamsService
 block|{
-DECL|field|name
+DECL|field|id
 specifier|private
+specifier|final
 name|String
-name|name
+name|id
 decl_stmt|;
-DECL|method|ReactiveStreamsTestService ()
-specifier|public
-name|ReactiveStreamsTestService
-parameter_list|()
-block|{     }
 DECL|method|ReactiveStreamsTestService (String name)
 specifier|public
 name|ReactiveStreamsTestService
@@ -206,7 +170,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|name
+name|id
 operator|=
 name|name
 expr_stmt|;
@@ -223,17 +187,6 @@ name|Exception
 block|{      }
 annotation|@
 name|Override
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{      }
-annotation|@
-name|Override
 DECL|method|stop ()
 specifier|public
 name|void
@@ -242,18 +195,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{      }
-annotation|@
-name|Override
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|fromStream (String name)
@@ -346,7 +287,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|sendCamelExchange (String name, Exchange exchange, DispatchCallback<Exchange> callback)
+DECL|method|sendCamelExchange (String name, Exchange exchange)
 specifier|public
 name|void
 name|sendCamelExchange
@@ -356,12 +297,6 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
-parameter_list|,
-name|DispatchCallback
-argument_list|<
-name|Exchange
-argument_list|>
-name|callback
 parameter_list|)
 block|{      }
 annotation|@
@@ -779,31 +714,17 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|getName ()
+annotation|@
+name|Override
+DECL|method|getId ()
 specifier|public
 name|String
-name|getName
+name|getId
 parameter_list|()
 block|{
 return|return
-name|name
+name|id
 return|;
-block|}
-DECL|method|setName (String name)
-specifier|public
-name|void
-name|setName
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
 block|}
 block|}
 end_class

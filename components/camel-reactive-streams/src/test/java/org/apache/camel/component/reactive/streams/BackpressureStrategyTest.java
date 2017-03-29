@@ -1191,18 +1191,7 @@ name|cancel
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
+comment|/*     @Override     public boolean isUseRouteBuilder() {         return false;     }     */
 block|}
 end_class
 
