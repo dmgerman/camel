@@ -259,7 +259,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"http"
+literal|"http4"
 argument_list|,
 name|component
 operator|.
