@@ -50,18 +50,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|swagger
@@ -180,16 +168,11 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-DECL|field|directRouteGenerator
+DECL|field|destinationGenerator
 specifier|private
 specifier|final
-name|Function
-argument_list|<
-name|Operation
-argument_list|,
-name|String
-argument_list|>
-name|directRouteGenerator
+name|DestinationGenerator
+name|destinationGenerator
 decl_stmt|;
 DECL|field|emitter
 specifier|private
@@ -206,7 +189,7 @@ specifier|final
 name|String
 name|path
 decl_stmt|;
-DECL|method|OperationVisitor (final CodeEmitter<T> emitter, final String path, final Function<Operation, String> directRouteGenerator)
+DECL|method|OperationVisitor (final CodeEmitter<T> emitter, final String path, final DestinationGenerator destinationGenerator)
 name|OperationVisitor
 parameter_list|(
 specifier|final
@@ -221,13 +204,8 @@ name|String
 name|path
 parameter_list|,
 specifier|final
-name|Function
-argument_list|<
-name|Operation
-argument_list|,
-name|String
-argument_list|>
-name|directRouteGenerator
+name|DestinationGenerator
+name|destinationGenerator
 parameter_list|)
 block|{
 name|this
@@ -244,9 +222,9 @@ name|path
 expr_stmt|;
 name|this
 operator|.
-name|directRouteGenerator
+name|destinationGenerator
 operator|=
-name|directRouteGenerator
+name|destinationGenerator
 expr_stmt|;
 block|}
 DECL|method|asStringList (final List<?> values)
@@ -734,9 +712,9 @@ name|emit
 argument_list|(
 literal|"to"
 argument_list|,
-name|directRouteGenerator
+name|destinationGenerator
 operator|.
-name|apply
+name|generateDestinationFor
 argument_list|(
 name|operation
 argument_list|)
