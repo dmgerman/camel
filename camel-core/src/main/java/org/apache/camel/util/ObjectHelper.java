@@ -1888,6 +1888,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+return|return
 name|Optional
 operator|.
 name|of
@@ -1897,7 +1898,7 @@ index|[
 name|i
 index|]
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 return|return
