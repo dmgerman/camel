@@ -158,7 +158,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|VerifiableComponent
+name|ResolveEndpointFailedException
 import|;
 end_import
 
@@ -170,7 +170,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ResolveEndpointFailedException
+name|VerifiableComponent
 import|;
 end_import
 

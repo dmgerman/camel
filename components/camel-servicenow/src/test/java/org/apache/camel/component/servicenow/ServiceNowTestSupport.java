@@ -140,7 +140,6 @@ name|boolean
 name|setUpComponent
 decl_stmt|;
 DECL|method|ServiceNowTestSupport ()
-specifier|public
 name|ServiceNowTestSupport
 parameter_list|()
 block|{
@@ -151,7 +150,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ServiceNowTestSupport (boolean setUpComponent)
-specifier|public
 name|ServiceNowTestSupport
 parameter_list|(
 name|boolean
