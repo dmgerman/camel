@@ -263,6 +263,22 @@ argument_list|,
 name|description
 operator|=
 literal|"The operation to use"
+argument_list|,
+name|enums
+operator|=
+literal|"getVersions,getResources,"
+operator|+
+literal|"getGlobalObjects,getBasicInfo,getDescription,getSObject,createSObject,updateSObject,deleteSObject,"
+operator|+
+literal|"getSObjectWithId,upsertSObject,deleteSObjectWithId,getBlobField,query,queryMore,queryAll,search,apexCall,"
+operator|+
+literal|"recent,createJob,getJob,closeJob,abortJob,createBatch,getBatch,getAllBatches,getRequest,getResults,"
+operator|+
+literal|"createBatchQuery,getQueryResultIds,getQueryResult,getRecentReports,getReportDescription,executeSyncReport,"
+operator|+
+literal|"executeAsyncReport,getReportInstances,getReportResults,limits,approval,approvals,composite-tree,"
+operator|+
+literal|"composite-batch"
 argument_list|)
 DECL|field|operationName
 specifier|private
