@@ -80,6 +80,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ScheduledExecutorService
@@ -565,6 +575,20 @@ operator|.
 name|spi
 operator|.
 name|LifecycleStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|LogListener
 import|;
 end_import
 
@@ -3060,6 +3084,24 @@ DECL|method|getRuntimeCamelCatalog ()
 name|RuntimeCamelCatalog
 name|getRuntimeCamelCatalog
 parameter_list|()
+function_decl|;
+comment|/**      * Gets a list of {@link LogListener}.      */
+DECL|method|getLogListeners ()
+name|Set
+argument_list|<
+name|LogListener
+argument_list|>
+name|getLogListeners
+parameter_list|()
+function_decl|;
+comment|/**      * Adds a {@link LogListener}.      */
+DECL|method|addlogListener (LogListener listener)
+name|void
+name|addlogListener
+parameter_list|(
+name|LogListener
+name|listener
+parameter_list|)
 function_decl|;
 block|}
 end_interface
