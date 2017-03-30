@@ -912,9 +912,9 @@ name|get
 argument_list|(
 name|VerificationError
 operator|.
-name|ExceptionAttribute
+name|HttpAttribute
 operator|.
-name|EXCEPTION_INSTANCE
+name|HTTP_CODE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1050,7 +1050,7 @@ name|VerificationError
 operator|.
 name|StandardCode
 operator|.
-name|EXCEPTION
+name|AUTHENTICATION
 argument_list|,
 name|result
 operator|.

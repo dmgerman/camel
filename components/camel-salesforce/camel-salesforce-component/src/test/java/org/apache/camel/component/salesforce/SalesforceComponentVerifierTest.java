@@ -1021,7 +1021,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"authentication failure"
+literal|"invalid_grant"
 argument_list|,
 name|result
 operator|.
@@ -1033,8 +1033,10 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getDescription
-argument_list|()
+name|getDetail
+argument_list|(
+literal|"salesforce_code"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1262,7 +1264,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"client identifier invalid"
+literal|"invalid_client_id"
 argument_list|,
 name|result
 operator|.
@@ -1274,8 +1276,10 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getDescription
-argument_list|()
+name|getDetail
+argument_list|(
+literal|"salesforce_code"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
