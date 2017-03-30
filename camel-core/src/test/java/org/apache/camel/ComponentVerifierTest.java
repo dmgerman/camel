@@ -424,7 +424,7 @@ parameter_list|(
 name|IllegalArgumentException
 name|exp
 parameter_list|)
-block|{}
+block|{         }
 block|}
 block|}
 end_class

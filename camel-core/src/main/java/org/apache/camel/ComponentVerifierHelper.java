@@ -126,9 +126,11 @@ name|this
 operator|==
 name|o
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 if|if
 condition|(
 operator|!
@@ -138,9 +140,11 @@ operator|instanceof
 name|Code
 operator|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|Code
 name|errorCode
 init|=
@@ -260,9 +264,11 @@ name|this
 operator|==
 name|o
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 if|if
 condition|(
 operator|!
@@ -272,9 +278,11 @@ operator|instanceof
 name|Attribute
 operator|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|Attribute
 name|that
 init|=
