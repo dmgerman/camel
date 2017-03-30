@@ -1136,8 +1136,6 @@ name|RabbitMQConstants
 operator|.
 name|ROUTING_KEY
 argument_list|,
-literal|null
-argument_list|,
 name|String
 operator|.
 name|class
@@ -1312,8 +1310,6 @@ argument_list|(
 name|RabbitMQConstants
 operator|.
 name|ROUTING_KEY
-argument_list|,
-literal|null
 argument_list|,
 name|String
 operator|.
