@@ -1135,6 +1135,23 @@ operator|=
 name|inBody
 expr_stmt|;
 block|}
+comment|/**      * Sets the {@link FacebookEndpointConfiguration} to use      *       * @param configuration the {@link FacebookEndpointConfiguration} to use      */
+DECL|method|setConfiguration (FacebookEndpointConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|FacebookEndpointConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
 block|}
 end_class
 
