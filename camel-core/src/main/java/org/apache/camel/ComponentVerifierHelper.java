@@ -65,6 +65,7 @@ name|Code
 block|{
 DECL|field|name
 specifier|private
+specifier|final
 name|String
 name|name
 decl_stmt|;
@@ -203,6 +204,7 @@ name|Attribute
 block|{
 DECL|field|name
 specifier|private
+specifier|final
 name|String
 name|name
 decl_stmt|;
