@@ -82,7 +82,7 @@ name|impl
 operator|.
 name|cloud
 operator|.
-name|CachingServiceDiscovery
+name|AggregatingServiceDiscovery
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|impl
 operator|.
 name|cloud
 operator|.
-name|ChainedServiceDiscovery
+name|CachingServiceDiscovery
 import|;
 end_import
 
@@ -136,7 +136,7 @@ operator|.
 name|delegate
 operator|=
 operator|new
-name|ChainedServiceDiscovery
+name|AggregatingServiceDiscovery
 argument_list|(
 name|serviceDiscoveryList
 argument_list|)

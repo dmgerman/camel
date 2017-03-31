@@ -52,7 +52,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 import|;
 end_import
 
@@ -93,10 +93,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ChainedServiceDiscoveryTest
+DECL|class|AggregatingServiceDiscoveryTest
 specifier|public
 class|class
-name|ChainedServiceDiscoveryTest
+name|AggregatingServiceDiscoveryTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -184,10 +184,10 @@ literal|1114
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ChainedServiceDiscovery
+name|AggregatingServiceDiscovery
 name|discovery
 init|=
-name|ChainedServiceDiscovery
+name|AggregatingServiceDiscovery
 operator|.
 name|wrap
 argument_list|(
@@ -283,11 +283,11 @@ literal|"discovery2@localhost:1114"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 name|multiConf
 init|=
 operator|new
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|multiConf
@@ -304,11 +304,11 @@ name|staticConf2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ChainedServiceDiscovery
+name|AggregatingServiceDiscovery
 name|discovery
 init|=
 operator|(
-name|ChainedServiceDiscovery
+name|AggregatingServiceDiscovery
 operator|)
 name|multiConf
 operator|.
@@ -377,11 +377,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 name|multiConf
 init|=
 operator|new
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|multiConf
@@ -418,11 +418,11 @@ literal|"discovery2@localhost:1114"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ChainedServiceDiscovery
+name|AggregatingServiceDiscovery
 name|discovery
 init|=
 operator|(
-name|ChainedServiceDiscovery
+name|AggregatingServiceDiscovery
 operator|)
 name|multiConf
 operator|.

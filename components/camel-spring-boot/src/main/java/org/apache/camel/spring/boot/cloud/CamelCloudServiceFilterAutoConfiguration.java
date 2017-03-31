@@ -495,22 +495,19 @@ name|forEach
 argument_list|(
 name|entry
 lambda|->
-name|factory
-operator|.
-name|registerSingleton
+name|registerBean
 argument_list|(
+name|factory
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|createServiceFilter
-argument_list|(
 name|entry
 operator|.
 name|getValue
 argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -543,6 +540,36 @@ block|}
 comment|// *******************************
 comment|// Helper
 comment|// *******************************
+DECL|method|registerBean (ConfigurableBeanFactory factory, String name, CamelCloudConfigurationProperties.ServiceFilterConfiguration configuration)
+specifier|private
+name|void
+name|registerBean
+parameter_list|(
+name|ConfigurableBeanFactory
+name|factory
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|CamelCloudConfigurationProperties
+operator|.
+name|ServiceFilterConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|factory
+operator|.
+name|registerSingleton
+argument_list|(
+name|name
+argument_list|,
+name|createServiceFilter
+argument_list|(
+name|configuration
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createServiceFilter (CamelCloudConfigurationProperties.ServiceFilterConfiguration configuration)
 specifier|private
 name|CamelCloudServiceFilter

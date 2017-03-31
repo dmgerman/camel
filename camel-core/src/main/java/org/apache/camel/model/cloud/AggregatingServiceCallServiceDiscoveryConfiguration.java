@@ -180,10 +180,10 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|ChainedServiceCallServiceDiscoveryConfiguration
+DECL|class|AggregatingServiceCallServiceDiscoveryConfiguration
 specifier|public
 class|class
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 extends|extends
 name|ServiceCallServiceDiscoveryConfiguration
 block|{
@@ -284,9 +284,9 @@ name|ServiceCallServiceDiscoveryConfiguration
 argument_list|>
 name|serviceDiscoveryConfigurations
 decl_stmt|;
-DECL|method|ChainedServiceCallServiceDiscoveryConfiguration ()
+DECL|method|AggregatingServiceCallServiceDiscoveryConfiguration ()
 specifier|public
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 parameter_list|()
 block|{
 name|this
@@ -295,9 +295,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ChainedServiceCallServiceDiscoveryConfiguration (ServiceCallDefinition parent)
+DECL|method|AggregatingServiceCallServiceDiscoveryConfiguration (ServiceCallDefinition parent)
 specifier|public
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 parameter_list|(
 name|ServiceCallDefinition
 name|parent
@@ -307,7 +307,7 @@ name|super
 argument_list|(
 name|parent
 argument_list|,
-literal|"chained-service-discovery"
+literal|"aggregating-service-discovery"
 argument_list|)
 expr_stmt|;
 block|}
@@ -386,7 +386,7 @@ comment|// *********************************************************************
 comment|/**      *  List of ServiceDiscovery configuration to use      */
 DECL|method|serviceDiscoveryConfigurations (List<ServiceCallServiceDiscoveryConfiguration> serviceDiscoveryConfigurations)
 specifier|public
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 name|serviceDiscoveryConfigurations
 parameter_list|(
 name|List
@@ -408,7 +408,7 @@ block|}
 comment|/**      *  Add a ServiceDiscovery configuration      */
 DECL|method|serviceDiscoveryConfiguration (ServiceCallServiceDiscoveryConfiguration serviceDiscoveryConfiguration)
 specifier|public
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 name|serviceDiscoveryConfiguration
 parameter_list|(
 name|ServiceCallServiceDiscoveryConfiguration
@@ -539,15 +539,15 @@ return|;
 block|}
 DECL|method|multiServiceDiscovery ()
 specifier|public
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 name|multiServiceDiscovery
 parameter_list|()
 block|{
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 name|conf
 init|=
 operator|new
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|addServiceDiscoveryConfigurations

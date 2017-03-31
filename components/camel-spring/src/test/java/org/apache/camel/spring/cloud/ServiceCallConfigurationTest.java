@@ -30,7 +30,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|BlacklistServiceCallServiceFilterConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 import|;
 end_import
 
@@ -46,7 +46,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|BlacklistServiceCallServiceFilterConfiguration
 import|;
 end_import
 
@@ -359,11 +359,11 @@ name|getLoadBalancerConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 name|discovery2
 init|=
 operator|(
-name|ChainedServiceCallServiceDiscoveryConfiguration
+name|AggregatingServiceCallServiceDiscoveryConfiguration
 operator|)
 name|conf2
 operator|.
