@@ -48,6 +48,26 @@ name|Main
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pubnub
+operator|.
+name|example
+operator|.
+name|PubNubExampleConstants
+operator|.
+name|PUBNUB_SUBSCRIBER_KEY
+import|;
+end_import
+
 begin_class
 DECL|class|PubNubPresenseExample
 specifier|public
@@ -112,13 +132,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//@formatter:off
 name|from
 argument_list|(
-literal|"pubnub://presence:iot?subscriberKey="
+literal|"pubnub:iot?withPresence=true&subscriberKey="
 operator|+
-name|PubNubExampleConstants
-operator|.
 name|PUBNUB_SUBSCRIBER_KEY
 argument_list|)
 operator|.
@@ -132,7 +149,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|//@formatter:on
 block|}
 block|}
 block|}

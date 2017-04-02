@@ -32,13 +32,13 @@ DECL|field|PUBNUB_SUBSCRIBER_KEY
 name|String
 name|PUBNUB_SUBSCRIBER_KEY
 init|=
-literal|"mysubkey"
+literal|"subkey"
 decl_stmt|;
 DECL|field|PUBNUB_PUBLISHER_KEY
 name|String
 name|PUBNUB_PUBLISHER_KEY
 init|=
-literal|"mypubkey"
+literal|"pubkey"
 decl_stmt|;
 block|}
 end_interface

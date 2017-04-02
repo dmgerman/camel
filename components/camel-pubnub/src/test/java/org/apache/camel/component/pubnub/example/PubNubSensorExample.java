@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pubnub://pubsub:pubnub-sensor-network?subscriberKey=sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe"
+literal|"pubnub:pubnub-sensor-network?subscriberKey=sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe"
 argument_list|)
 operator|.
 name|log

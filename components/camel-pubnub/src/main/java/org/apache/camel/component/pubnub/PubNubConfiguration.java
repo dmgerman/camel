@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|pubnub
-operator|.
-name|api
-operator|.
-name|Pubnub
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -95,40 +83,6 @@ class|class
 name|PubNubConfiguration
 block|{
 annotation|@
-name|UriParam
-DECL|field|pubnub
-specifier|private
-name|Pubnub
-name|pubnub
-decl_stmt|;
-annotation|@
-name|UriPath
-argument_list|(
-name|enums
-operator|=
-literal|"pubsub,presence"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"pubsub"
-argument_list|)
-DECL|field|endpointType
-specifier|private
-name|PubNubEndpointType
-name|endpointType
-init|=
-name|PubNubEndpointType
-operator|.
-name|pubsub
-decl_stmt|;
-annotation|@
 name|UriPath
 argument_list|()
 annotation|@
@@ -169,15 +123,23 @@ name|secretKey
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|()
+DECL|field|authKey
+specifier|private
+name|String
+name|authKey
+decl_stmt|;
+annotation|@
+name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|ssl
+DECL|field|secure
 specifier|private
 name|boolean
-name|ssl
+name|secure
 init|=
 literal|true
 decl_stmt|;
@@ -198,23 +160,29 @@ literal|"producer"
 argument_list|,
 name|enums
 operator|=
-literal|"HERE_NOW, WHERE_NOW, GET_STATE, SET_STATE, GET_HISTORY, PUBLISH"
+literal|"HERE_NOW,WHERE_NOW,GET_STATE,SET_STATE,GET_HISTORY,PUBLISH,FIRE"
 argument_list|)
 DECL|field|operation
 specifier|private
 name|String
 name|operation
 decl_stmt|;
-DECL|method|getEndpointType ()
-specifier|public
-name|PubNubEndpointType
-name|getEndpointType
-parameter_list|()
-block|{
-return|return
-name|endpointType
-return|;
-block|}
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|withPresence
+specifier|private
+name|boolean
+name|withPresence
+decl_stmt|;
 comment|/**      * The publish key obtained from your PubNub account. Required when publishing messages.      */
 DECL|method|getPublisherKey ()
 specifier|public
@@ -223,6 +191,8 @@ name|getPublisherKey
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|publisherKey
 return|;
 block|}
@@ -250,6 +220,8 @@ name|getSubscriberKey
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|subscriberKey
 return|;
 block|}
@@ -277,6 +249,8 @@ name|getSecretKey
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|secretKey
 return|;
 block|}
@@ -296,31 +270,60 @@ operator|=
 name|secretKey
 expr_stmt|;
 block|}
-comment|/**      * Use ssl      */
-DECL|method|isSsl ()
+comment|/**      * If Access Manager is utilized, client will use this authKey in all restricted requests.      */
+DECL|method|getAuthKey ()
 specifier|public
-name|boolean
-name|isSsl
+name|String
+name|getAuthKey
 parameter_list|()
 block|{
 return|return
-name|ssl
+name|authKey
 return|;
 block|}
-DECL|method|setSsl (boolean ssl)
+DECL|method|setAuthKey (String authKey)
 specifier|public
 name|void
-name|setSsl
+name|setAuthKey
 parameter_list|(
-name|boolean
-name|ssl
+name|String
+name|authKey
 parameter_list|)
 block|{
 name|this
 operator|.
-name|ssl
+name|authKey
 operator|=
-name|ssl
+name|authKey
+expr_stmt|;
+block|}
+comment|/**      * Use ssl      */
+DECL|method|isSecure ()
+specifier|public
+name|boolean
+name|isSecure
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|secure
+return|;
+block|}
+DECL|method|setSecure (boolean secure)
+specifier|public
+name|void
+name|setSecure
+parameter_list|(
+name|boolean
+name|secure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secure
+operator|=
+name|secure
 expr_stmt|;
 block|}
 comment|/**      * The channel used for subscribing/publishing events      */
@@ -331,6 +334,8 @@ name|getChannel
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|channel
 return|;
 block|}
@@ -374,6 +379,8 @@ name|getUuid
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|uuid
 return|;
 block|}
@@ -401,34 +408,37 @@ name|getOperation
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|operation
 return|;
 block|}
-DECL|method|getPubnub ()
-specifier|public
-name|Pubnub
-name|getPubnub
-parameter_list|()
-block|{
-return|return
-name|pubnub
-return|;
-block|}
-DECL|method|setPubnub (Pubnub pubnub)
+comment|/**      * Also subscribe to related presence information      */
+DECL|method|setWithPresence (boolean withPresence)
 specifier|public
 name|void
-name|setPubnub
+name|setWithPresence
 parameter_list|(
-name|Pubnub
-name|pubnub
+name|boolean
+name|withPresence
 parameter_list|)
 block|{
 name|this
 operator|.
-name|pubnub
+name|withPresence
 operator|=
-name|pubnub
+name|withPresence
 expr_stmt|;
+block|}
+DECL|method|withPresence ()
+specifier|public
+name|boolean
+name|withPresence
+parameter_list|()
+block|{
+return|return
+name|withPresence
+return|;
 block|}
 block|}
 end_class
