@@ -283,11 +283,19 @@ specifier|private
 name|String
 name|loadBalancer
 decl_stmt|;
-comment|/**          * Set a custom {@link Expression} using the {@link org.apache.camel.language.simple.SimpleLanguage}          */
+comment|/**          * The {@link Expression} to use.          */
 DECL|field|expression
 specifier|private
 name|String
 name|expression
+decl_stmt|;
+comment|/**          * The {@link Expression} language to use, default is ref          */
+DECL|field|expressionLanguage
+specifier|private
+name|String
+name|expressionLanguage
+init|=
+literal|"ref"
 decl_stmt|;
 DECL|method|getUri ()
 specifier|public
@@ -469,6 +477,32 @@ operator|.
 name|expression
 operator|=
 name|expression
+expr_stmt|;
+block|}
+DECL|method|getExpressionLanguage ()
+specifier|public
+name|String
+name|getExpressionLanguage
+parameter_list|()
+block|{
+return|return
+name|expressionLanguage
+return|;
+block|}
+DECL|method|setExpressionLanguage (String expressionLanguage)
+specifier|public
+name|void
+name|setExpressionLanguage
+parameter_list|(
+name|String
+name|expressionLanguage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expressionLanguage
+operator|=
+name|expressionLanguage
 expr_stmt|;
 block|}
 block|}

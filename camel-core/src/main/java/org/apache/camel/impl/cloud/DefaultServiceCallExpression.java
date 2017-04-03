@@ -96,6 +96,30 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|DefaultServiceCallExpression ()
+specifier|public
+name|DefaultServiceCallExpression
+parameter_list|()
+block|{     }
+DECL|method|DefaultServiceCallExpression (String hostHeader, String portHeader)
+specifier|public
+name|DefaultServiceCallExpression
+parameter_list|(
+name|String
+name|hostHeader
+parameter_list|,
+name|String
+name|portHeader
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|hostHeader
+argument_list|,
+name|portHeader
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|buildCamelEndpointUri (String name, String host, Integer port, String uri, String contextPath, String scheme)

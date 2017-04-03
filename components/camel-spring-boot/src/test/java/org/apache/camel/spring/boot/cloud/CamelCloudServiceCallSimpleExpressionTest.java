@@ -220,7 +220,7 @@ name|CamelAutoConfiguration
 operator|.
 name|class
 block|,
-name|CamelCloudServiceCallExpressionTest
+name|CamelCloudServiceCallSimpleExpressionTest
 operator|.
 name|TestConfiguration
 operator|.
@@ -238,6 +238,8 @@ literal|"camel.cloud.service-call.component=jetty"
 block|,
 literal|"camel.cloud.service-call.expression=${header.CamelServiceCallScheme}:http://${header.CamelServiceCallServiceHost}:${header.CamelServiceCallServicePort}/hello"
 block|,
+literal|"camel.cloud.service-call.expression-language=simple"
+block|,
 literal|"camel.cloud.service-discovery.services[custom-svc-list]=localhost:9090,localhost:9091,localhost:9092"
 block|,
 literal|"camel.cloud.service-filter.blacklist[custom-svc-list]=localhost:9091"
@@ -247,10 +249,10 @@ block|,
 literal|"debug=true"
 block|}
 argument_list|)
-DECL|class|CamelCloudServiceCallExpressionTest
+DECL|class|CamelCloudServiceCallSimpleExpressionTest
 specifier|public
 class|class
-name|CamelCloudServiceCallExpressionTest
+name|CamelCloudServiceCallSimpleExpressionTest
 block|{
 annotation|@
 name|Autowired
