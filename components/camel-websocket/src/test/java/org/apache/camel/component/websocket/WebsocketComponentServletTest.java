@@ -297,6 +297,8 @@ name|WebsocketComponentServlet
 argument_list|(
 name|sync
 argument_list|,
+literal|null
+argument_list|,
 name|socketFactory
 argument_list|)
 expr_stmt|;

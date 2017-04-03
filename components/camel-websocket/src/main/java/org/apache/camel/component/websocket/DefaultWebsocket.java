@@ -203,12 +203,20 @@ specifier|private
 name|String
 name|connectionKey
 decl_stmt|;
-DECL|method|DefaultWebsocket (NodeSynchronization sync, WebsocketConsumer consumer)
+DECL|field|pathSpec
+specifier|private
+name|String
+name|pathSpec
+decl_stmt|;
+DECL|method|DefaultWebsocket (NodeSynchronization sync, String pathSpec, WebsocketConsumer consumer)
 specifier|public
 name|DefaultWebsocket
 parameter_list|(
 name|NodeSynchronization
 name|sync
+parameter_list|,
+name|String
+name|pathSpec
 parameter_list|,
 name|WebsocketConsumer
 name|consumer
@@ -225,6 +233,12 @@ operator|.
 name|consumer
 operator|=
 name|consumer
+expr_stmt|;
+name|this
+operator|.
+name|pathSpec
+operator|=
+name|pathSpec
 expr_stmt|;
 block|}
 annotation|@
@@ -454,6 +468,16 @@ parameter_list|()
 block|{
 return|return
 name|session
+return|;
+block|}
+DECL|method|getPathSpec ()
+specifier|public
+name|String
+name|getPathSpec
+parameter_list|()
+block|{
+return|return
+name|pathSpec
 return|;
 block|}
 DECL|method|setSession (Session session)

@@ -44,7 +44,7 @@ specifier|public
 interface|interface
 name|WebSocketFactory
 block|{
-DECL|method|newInstance (ServletUpgradeRequest request, String protocol, NodeSynchronization sync, WebsocketConsumer consumer)
+DECL|method|newInstance (ServletUpgradeRequest request, String protocol, String pathSpec, NodeSynchronization sync, WebsocketConsumer consumer)
 name|DefaultWebsocket
 name|newInstance
 parameter_list|(
@@ -53,6 +53,9 @@ name|request
 parameter_list|,
 name|String
 name|protocol
+parameter_list|,
+name|String
+name|pathSpec
 parameter_list|,
 name|NodeSynchronization
 name|sync

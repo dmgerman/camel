@@ -246,6 +246,8 @@ name|DefaultWebsocket
 argument_list|(
 name|sync
 argument_list|,
+literal|null
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
@@ -409,6 +411,8 @@ operator|new
 name|DefaultWebsocket
 argument_list|(
 name|sync
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)

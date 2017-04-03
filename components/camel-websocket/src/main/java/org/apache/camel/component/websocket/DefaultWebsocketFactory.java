@@ -48,7 +48,7 @@ name|WebSocketFactory
 block|{
 annotation|@
 name|Override
-DECL|method|newInstance (ServletUpgradeRequest request, String protocol, NodeSynchronization sync, WebsocketConsumer consumer)
+DECL|method|newInstance (ServletUpgradeRequest request, String protocol, String pathSpec, NodeSynchronization sync, WebsocketConsumer consumer)
 specifier|public
 name|DefaultWebsocket
 name|newInstance
@@ -58,6 +58,9 @@ name|request
 parameter_list|,
 name|String
 name|protocol
+parameter_list|,
+name|String
+name|pathSpec
 parameter_list|,
 name|NodeSynchronization
 name|sync
@@ -71,6 +74,8 @@ operator|new
 name|DefaultWebsocket
 argument_list|(
 name|sync
+argument_list|,
+name|pathSpec
 argument_list|,
 name|consumer
 argument_list|)

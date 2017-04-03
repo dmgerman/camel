@@ -2656,6 +2656,8 @@ name|WebsocketComponentServlet
 argument_list|(
 name|sync
 argument_list|,
+name|pathSpec
+argument_list|,
 name|socketFactory
 argument_list|)
 decl_stmt|;
@@ -3157,7 +3159,7 @@ literal|false
 return|;
 block|}
 DECL|method|createPathSpec (String remaining)
-specifier|private
+specifier|public
 specifier|static
 name|String
 name|createPathSpec

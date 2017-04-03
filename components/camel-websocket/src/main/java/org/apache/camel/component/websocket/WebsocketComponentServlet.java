@@ -194,6 +194,11 @@ specifier|private
 name|WebsocketConsumer
 name|consumer
 decl_stmt|;
+DECL|field|pathSpec
+specifier|private
+name|String
+name|pathSpec
+decl_stmt|;
 DECL|field|consumers
 specifier|private
 name|ConcurrentMap
@@ -223,12 +228,15 @@ name|WebSocketFactory
 argument_list|>
 name|socketFactory
 decl_stmt|;
-DECL|method|WebsocketComponentServlet (NodeSynchronization sync, Map<String, WebSocketFactory> socketFactory)
+DECL|method|WebsocketComponentServlet (NodeSynchronization sync, String pathSpec, Map<String, WebSocketFactory> socketFactory)
 specifier|public
 name|WebsocketComponentServlet
 parameter_list|(
 name|NodeSynchronization
 name|sync
+parameter_list|,
+name|String
+name|pathSpec
 parameter_list|,
 name|Map
 argument_list|<
@@ -250,6 +258,12 @@ operator|.
 name|socketFactory
 operator|=
 name|socketFactory
+expr_stmt|;
+name|this
+operator|.
+name|pathSpec
+operator|=
+name|pathSpec
 expr_stmt|;
 block|}
 DECL|method|getConsumer ()
@@ -403,6 +417,34 @@ name|request
 argument_list|,
 name|protocolKey
 argument_list|,
+operator|(
+name|consumer
+operator|!=
+literal|null
+operator|&&
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|!=
+literal|null
+operator|)
+condition|?
+name|WebsocketComponent
+operator|.
+name|createPathSpec
+argument_list|(
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getResourceUri
+argument_list|()
+argument_list|)
+else|:
+literal|null
+argument_list|,
 name|sync
 argument_list|,
 name|consumer
@@ -500,6 +542,8 @@ argument_list|(
 name|req
 argument_list|,
 name|protocolKey
+argument_list|,
+name|pathSpec
 argument_list|,
 name|sync
 argument_list|,
