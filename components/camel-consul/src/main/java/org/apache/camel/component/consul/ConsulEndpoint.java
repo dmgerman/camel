@@ -128,20 +128,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|UriParam
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|UriPath
 import|;
 end_import
@@ -195,15 +181,8 @@ name|ConsulEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-annotation|@
-name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"The consul configuration"
-argument_list|)
-annotation|@
-name|Metadata
+comment|//@UriParam(description = "The consul configuration")
+comment|//@Metadata
 DECL|field|configuration
 specifier|private
 specifier|final
@@ -235,6 +214,8 @@ specifier|private
 specifier|final
 name|Optional
 argument_list|<
+name|ConsulFactories
+operator|.
 name|ProducerFactory
 argument_list|>
 name|producerFactory
@@ -244,6 +225,8 @@ specifier|private
 specifier|final
 name|Optional
 argument_list|<
+name|ConsulFactories
+operator|.
 name|ConsumerFactory
 argument_list|>
 name|consumerFactory
@@ -253,7 +236,7 @@ specifier|private
 name|Consul
 name|consul
 decl_stmt|;
-DECL|method|ConsulEndpoint ( String apiEndpoint, String uri, ConsulComponent component, ConsulConfiguration configuration, Optional<ProducerFactory> producerFactory, Optional<ConsumerFactory> consumerFactory)
+DECL|method|ConsulEndpoint ( String apiEndpoint, String uri, ConsulComponent component, ConsulConfiguration configuration, Optional<ConsulFactories.ProducerFactory> producerFactory, Optional<ConsulFactories.ConsumerFactory> consumerFactory)
 specifier|public
 name|ConsulEndpoint
 parameter_list|(
@@ -271,12 +254,16 @@ name|configuration
 parameter_list|,
 name|Optional
 argument_list|<
+name|ConsulFactories
+operator|.
 name|ProducerFactory
 argument_list|>
 name|producerFactory
 parameter_list|,
 name|Optional
 argument_list|<
+name|ConsulFactories
+operator|.
 name|ConsumerFactory
 argument_list|>
 name|consumerFactory
@@ -350,6 +337,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ConsulFactories
+operator|.
 name|ProducerFactory
 name|factory
 init|=
@@ -392,6 +381,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ConsulFactories
+operator|.
 name|ConsumerFactory
 name|factory
 init|=
@@ -477,54 +468,6 @@ block|}
 return|return
 name|consul
 return|;
-block|}
-comment|// *************************************************************************
-comment|//
-comment|// *************************************************************************
-annotation|@
-name|FunctionalInterface
-DECL|interface|ProducerFactory
-specifier|public
-interface|interface
-name|ProducerFactory
-block|{
-DECL|method|create (ConsulEndpoint endpoint, ConsulConfiguration configuration)
-name|Producer
-name|create
-parameter_list|(
-name|ConsulEndpoint
-name|endpoint
-parameter_list|,
-name|ConsulConfiguration
-name|configuration
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-block|}
-annotation|@
-name|FunctionalInterface
-DECL|interface|ConsumerFactory
-specifier|public
-interface|interface
-name|ConsumerFactory
-block|{
-DECL|method|create (ConsulEndpoint endpoint, ConsulConfiguration configuration, Processor processor)
-name|Consumer
-name|create
-parameter_list|(
-name|ConsulEndpoint
-name|endpoint
-parameter_list|,
-name|ConsulConfiguration
-name|configuration
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 block|}
 block|}
 end_class

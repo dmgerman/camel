@@ -128,7 +128,7 @@ name|consul
 operator|.
 name|option
 operator|.
-name|CatalogOptions
+name|ImmutableQueryOptions
 import|;
 end_import
 
@@ -142,7 +142,7 @@ name|consul
 operator|.
 name|option
 operator|.
-name|ImmutableCatalogOptions
+name|QueryOptions
 import|;
 end_import
 
@@ -284,11 +284,11 @@ name|Consul
 argument_list|>
 name|client
 decl_stmt|;
-DECL|field|catalogOptions
+DECL|field|queryOptions
 specifier|private
 specifier|final
-name|CatalogOptions
-name|catalogOptions
+name|QueryOptions
+name|queryOptions
 decl_stmt|;
 DECL|method|ConsulServiceDiscovery (ConsulConfiguration configuration)
 specifier|public
@@ -317,12 +317,12 @@ operator|::
 name|rethrowAsRuntimeCamelException
 argument_list|)
 expr_stmt|;
-name|ImmutableCatalogOptions
+name|ImmutableQueryOptions
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableCatalogOptions
+name|ImmutableQueryOptions
 operator|.
 name|builder
 argument_list|()
@@ -350,19 +350,12 @@ operator|.
 name|getTags
 argument_list|()
 argument_list|,
-name|tags
-lambda|->
-name|tags
-operator|.
-name|forEach
-argument_list|(
 name|builder
 operator|::
 name|tag
 argument_list|)
-argument_list|)
 expr_stmt|;
-name|catalogOptions
+name|queryOptions
 operator|=
 name|builder
 operator|.
@@ -402,7 +395,7 @@ name|getService
 argument_list|(
 name|name
 argument_list|,
-name|catalogOptions
+name|queryOptions
 argument_list|)
 operator|.
 name|getResponse
@@ -426,7 +419,7 @@ name|getAllServiceInstances
 argument_list|(
 name|name
 argument_list|,
-name|catalogOptions
+name|queryOptions
 argument_list|)
 operator|.
 name|getResponse

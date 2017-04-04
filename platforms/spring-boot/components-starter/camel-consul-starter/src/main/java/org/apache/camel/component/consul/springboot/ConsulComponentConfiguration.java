@@ -26,7 +26,31 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|orbitz
+operator|.
+name|consul
+operator|.
+name|option
+operator|.
+name|ConsistencyMode
 import|;
 end_import
 
@@ -435,6 +459,24 @@ specifier|private
 name|String
 name|datacenter
 decl_stmt|;
+comment|/**          * The near node to use for queries.          */
+DECL|field|nearNode
+specifier|private
+name|String
+name|nearNode
+decl_stmt|;
+comment|/**          * The note meta-data to use for queries.          */
+DECL|field|nodeMeta
+specifier|private
+name|List
+name|nodeMeta
+decl_stmt|;
+comment|/**          * The consistencyMode used for queries, default ConsistencyMode.DEFAULT          */
+DECL|field|consistencyMode
+specifier|private
+name|ConsistencyMode
+name|consistencyMode
+decl_stmt|;
 comment|/**          * Set tags. You can separate multiple tags by comma.          */
 DECL|field|tags
 specifier|private
@@ -496,16 +538,12 @@ DECL|field|pingInstance
 specifier|private
 name|Boolean
 name|pingInstance
-init|=
-literal|true
 decl_stmt|;
 comment|/**          * Default to transform values retrieved from Consul i.e. on KV endpoint          * to string.          */
 DECL|field|valueAsString
 specifier|private
 name|Boolean
 name|valueAsString
-init|=
-literal|false
 decl_stmt|;
 comment|/**          * The default key. Can be overridden by CamelConsulKey          */
 DECL|field|key
@@ -518,24 +556,18 @@ DECL|field|blockSeconds
 specifier|private
 name|Integer
 name|blockSeconds
-init|=
-literal|10
 decl_stmt|;
 comment|/**          * The first index for watch for, default 0          */
 DECL|field|firstIndex
 specifier|private
 name|Long
 name|firstIndex
-init|=
-literal|0L
 decl_stmt|;
 comment|/**          * Recursively watch, default false          */
 DECL|field|recursive
 specifier|private
 name|Boolean
 name|recursive
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getCamelContext ()
 specifier|public
@@ -645,6 +677,84 @@ operator|.
 name|datacenter
 operator|=
 name|datacenter
+expr_stmt|;
+block|}
+DECL|method|getNearNode ()
+specifier|public
+name|String
+name|getNearNode
+parameter_list|()
+block|{
+return|return
+name|nearNode
+return|;
+block|}
+DECL|method|setNearNode (String nearNode)
+specifier|public
+name|void
+name|setNearNode
+parameter_list|(
+name|String
+name|nearNode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nearNode
+operator|=
+name|nearNode
+expr_stmt|;
+block|}
+DECL|method|getNodeMeta ()
+specifier|public
+name|List
+name|getNodeMeta
+parameter_list|()
+block|{
+return|return
+name|nodeMeta
+return|;
+block|}
+DECL|method|setNodeMeta (List nodeMeta)
+specifier|public
+name|void
+name|setNodeMeta
+parameter_list|(
+name|List
+name|nodeMeta
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nodeMeta
+operator|=
+name|nodeMeta
+expr_stmt|;
+block|}
+DECL|method|getConsistencyMode ()
+specifier|public
+name|ConsistencyMode
+name|getConsistencyMode
+parameter_list|()
+block|{
+return|return
+name|consistencyMode
+return|;
+block|}
+DECL|method|setConsistencyMode (ConsistencyMode consistencyMode)
+specifier|public
+name|void
+name|setConsistencyMode
+parameter_list|(
+name|ConsistencyMode
+name|consistencyMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consistencyMode
+operator|=
+name|consistencyMode
 expr_stmt|;
 block|}
 DECL|method|getTags ()
