@@ -357,7 +357,7 @@ comment|// if no explicit host was given, then fallback and use default configur
 name|String
 name|h
 init|=
-name|resolveAndRemoveReferenceParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
