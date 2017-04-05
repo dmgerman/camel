@@ -394,6 +394,8 @@ comment|/**          * Interface defining an error code. This is implemented by 
 DECL|interface|Code
 interface|interface
 name|Code
+extends|extends
+name|Serializable
 block|{
 comment|/**              * Name of the code. All uppercase for standard codes, all lower case for custom codes.              * Separator between two words is an underscore.              *              * @return code name              */
 DECL|method|name ()
@@ -401,6 +403,18 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**              * Bean style accessor to name.              * This is required for framework like Jackson using bean convention for object serialization.              *              * @return code name              */
+DECL|method|getName ()
+specifier|default
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**          * Standard set of error codes          */
 DECL|interface|StandardCode
@@ -570,6 +584,8 @@ comment|/**          * Interface defining an attribute which is a key for the de
 DECL|interface|Attribute
 interface|interface
 name|Attribute
+extends|extends
+name|Serializable
 block|{
 comment|/**              * Name of the attribute. All uppercase for standard attributes and all lower case for custom attributes.              * Separator between words is an underscore.              *              * @return attribute name              */
 DECL|method|name ()
@@ -577,6 +593,18 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**              * Bean style accessor to name;              * This is required for framework like Jackson using bean convention for object serialization.              *              * @return attribute name              */
+DECL|method|getName ()
+specifier|default
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**          * Attributes for details about an exception that was raised          */
 DECL|interface|ExceptionAttribute
