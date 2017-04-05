@@ -5088,7 +5088,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|doAsEndpointUri (String scheme, Map<String, String> properties, String ampersand, boolean encode)
-specifier|private
 name|String
 name|doAsEndpointUri
 parameter_list|(
