@@ -566,6 +566,19 @@ argument_list|(
 literal|"UNSUPPORTED_SCOPE"
 argument_list|)
 decl_stmt|;
+comment|/**              * The requested {@link Component} is not supported              */
+DECL|field|UNSUPPORTED_COMPONENT
+name|StandardCode
+name|UNSUPPORTED_COMPONENT
+init|=
+operator|new
+name|ComponentVerifierHelper
+operator|.
+name|StandardErrorCode
+argument_list|(
+literal|"UNSUPPORTED_COMPONENT"
+argument_list|)
+decl_stmt|;
 comment|/**              * Generic error which is explained in more details with {@link VerificationError#getDetails()}              */
 DECL|field|GENERIC
 name|StandardCode

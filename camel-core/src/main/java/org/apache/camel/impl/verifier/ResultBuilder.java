@@ -627,10 +627,8 @@ name|DefaultResult
 argument_list|(
 name|scope
 operator|.
-name|orElseGet
+name|orElse
 argument_list|(
-parameter_list|()
-lambda|->
 name|ComponentVerifier
 operator|.
 name|Scope
@@ -640,10 +638,8 @@ argument_list|)
 argument_list|,
 name|status
 operator|.
-name|orElseGet
+name|orElse
 argument_list|(
-parameter_list|()
-lambda|->
 name|ComponentVerifier
 operator|.
 name|Result
