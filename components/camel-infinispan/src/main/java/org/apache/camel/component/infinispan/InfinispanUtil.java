@@ -636,11 +636,16 @@ block|}
 DECL|method|getCache (BasicCacheContainer cacheContainer, String cacheName)
 specifier|public
 specifier|static
+parameter_list|<
+name|K
+parameter_list|,
+name|V
+parameter_list|>
 name|BasicCache
 argument_list|<
-name|Object
+name|K
 argument_list|,
-name|Object
+name|V
 argument_list|>
 name|getCache
 parameter_list|(
