@@ -213,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Processor} that binds the REST producer request and reply messages  * from sources of json or xml to Java Objects.  *<p/>  * The binding uses {@link org.apache.camel.spi.DataFormat} for the actual work to transform  * from xml/json to Java Objects and reverse again.  */
+comment|/**  * A {@link org.apache.camel.Processor} that binds the REST producer request and reply messages  * from sources of json or xml to Java Objects.  *<p/>  * The binding uses {@link org.apache.camel.spi.DataFormat} for the actual work to transform  * from xml/json to Java Objects and reverse again.  *<p/>  * The rest-dsl consumer side is implemented in {@link org.apache.camel.processor.RestBindingAdvice}  */
 end_comment
 
 begin_class
