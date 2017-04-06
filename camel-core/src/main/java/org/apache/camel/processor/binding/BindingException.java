@@ -47,8 +47,6 @@ comment|/**  * An exception if a binding is not possible, such as binding to jso
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
 DECL|class|BindingException
 specifier|public
 class|class
