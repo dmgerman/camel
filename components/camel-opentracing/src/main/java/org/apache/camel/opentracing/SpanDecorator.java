@@ -104,6 +104,12 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/**      * This method indicates whether the component associated with the SpanDecorator      * should result in a new span being created.      *      * @return Whether a new span should be created      */
+DECL|method|newSpan ()
+name|boolean
+name|newSpan
+parameter_list|()
+function_decl|;
 comment|/**      * The camel component associated with the decorator.      *      * @return The camel component name      */
 DECL|method|getComponent ()
 name|String

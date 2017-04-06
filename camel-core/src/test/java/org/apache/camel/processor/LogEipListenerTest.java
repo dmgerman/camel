@@ -191,7 +191,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|addlogListener
+name|addLogListener
 argument_list|(
 parameter_list|(
 name|exchange

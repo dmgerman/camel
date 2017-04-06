@@ -110,6 +110,11 @@ name|setParentId
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|addLogMessage
+argument_list|(
+literal|"routing at b"
+argument_list|)
 block|,
 operator|new
 name|SpanTestData
@@ -172,6 +177,11 @@ name|setParentId
 argument_list|(
 literal|3
 argument_list|)
+operator|.
+name|addLogMessage
+argument_list|(
+literal|"Exchange[ExchangePattern: InOut, BodyType: String, Body: Hello]"
+argument_list|)
 block|,
 operator|new
 name|SpanTestData
@@ -233,6 +243,16 @@ operator|.
 name|setParentId
 argument_list|(
 literal|5
+argument_list|)
+operator|.
+name|addLogMessage
+argument_list|(
+literal|"routing at a"
+argument_list|)
+operator|.
+name|addLogMessage
+argument_list|(
+literal|"End of routing"
 argument_list|)
 block|,
 operator|new
@@ -465,9 +485,9 @@ argument_list|(
 literal|"c"
 argument_list|)
 operator|.
-name|log
+name|to
 argument_list|(
-literal|"routing at ${routeId}"
+literal|"log:test"
 argument_list|)
 operator|.
 name|delay

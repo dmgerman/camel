@@ -15824,10 +15824,10 @@ return|return
 name|logListeners
 return|;
 block|}
-DECL|method|addlogListener (LogListener listener)
+DECL|method|addLogListener (LogListener listener)
 specifier|public
 name|void
-name|addlogListener
+name|addLogListener
 parameter_list|(
 name|LogListener
 name|listener

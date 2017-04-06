@@ -147,6 +147,18 @@ name|SpanDecorator
 block|{
 annotation|@
 name|Override
+DECL|method|newSpan ()
+specifier|public
+name|boolean
+name|newSpan
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getOperationName (Exchange exchange, Endpoint endpoint)
 specifier|public
 name|String

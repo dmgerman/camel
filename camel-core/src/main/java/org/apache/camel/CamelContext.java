@@ -3095,9 +3095,9 @@ name|getLogListeners
 parameter_list|()
 function_decl|;
 comment|/**      * Adds a {@link LogListener}.      */
-DECL|method|addlogListener (LogListener listener)
+DECL|method|addLogListener (LogListener listener)
 name|void
-name|addlogListener
+name|addLogListener
 parameter_list|(
 name|LogListener
 name|listener
