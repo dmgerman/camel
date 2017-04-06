@@ -196,6 +196,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestBindingMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -402,7 +418,7 @@ literal|true
 decl_stmt|;
 DECL|field|bindingMode
 specifier|private
-name|String
+name|RestBindingMode
 name|bindingMode
 decl_stmt|;
 DECL|field|skipBindingOnErrorCode
@@ -604,7 +620,7 @@ expr_stmt|;
 block|}
 DECL|method|getBindingMode ()
 specifier|public
-name|String
+name|RestBindingMode
 name|getBindingMode
 parameter_list|()
 block|{
@@ -612,12 +628,13 @@ return|return
 name|bindingMode
 return|;
 block|}
-DECL|method|setBindingMode (String bindingMode)
+DECL|method|setBindingMode (final RestBindingMode bindingMode)
 specifier|public
 name|void
 name|setBindingMode
 parameter_list|(
-name|String
+specifier|final
+name|RestBindingMode
 name|bindingMode
 parameter_list|)
 block|{
@@ -1221,6 +1238,9 @@ block|{
 name|mode
 operator|=
 name|bindingMode
+operator|.
+name|name
+argument_list|()
 expr_stmt|;
 block|}
 name|boolean
@@ -1960,8 +1980,6 @@ argument_list|,
 name|mode
 argument_list|,
 name|skip
-argument_list|,
-name|type
 argument_list|,
 name|outType
 argument_list|)

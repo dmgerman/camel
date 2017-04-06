@@ -266,19 +266,13 @@ specifier|final
 name|boolean
 name|skipBindingOnErrorCode
 decl_stmt|;
-DECL|field|type
-specifier|private
-specifier|final
-name|String
-name|type
-decl_stmt|;
 DECL|field|outType
 specifier|private
 specifier|final
 name|String
 name|outType
 decl_stmt|;
-DECL|method|RestProducerBindingProcessor (AsyncProcessor processor, CamelContext camelContext, DataFormat jsonDataFormat, DataFormat xmlDataFormat, DataFormat outJsonDataFormat, DataFormat outXmlDataFormat, String bindingMode, boolean skipBindingOnErrorCode, String type, String outType)
+DECL|method|RestProducerBindingProcessor (AsyncProcessor processor, CamelContext camelContext, DataFormat jsonDataFormat, DataFormat xmlDataFormat, DataFormat outJsonDataFormat, DataFormat outXmlDataFormat, String bindingMode, boolean skipBindingOnErrorCode, String outType)
 specifier|public
 name|RestProducerBindingProcessor
 parameter_list|(
@@ -305,9 +299,6 @@ name|bindingMode
 parameter_list|,
 name|boolean
 name|skipBindingOnErrorCode
-parameter_list|,
-name|String
-name|type
 parameter_list|,
 name|String
 name|outType
@@ -443,12 +434,6 @@ operator|.
 name|skipBindingOnErrorCode
 operator|=
 name|skipBindingOnErrorCode
-expr_stmt|;
-name|this
-operator|.
-name|type
-operator|=
-name|type
 expr_stmt|;
 name|this
 operator|.
