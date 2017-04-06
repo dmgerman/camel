@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Pluggable resolver to load JSon schmea files for components, data formats, languages etc.  */
+comment|/**  * Pluggable resolver to load JSon schema files for components, data formats, languages etc.  */
 end_comment
 
 begin_interface
