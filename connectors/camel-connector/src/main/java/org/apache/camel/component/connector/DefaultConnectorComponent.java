@@ -421,7 +421,7 @@ argument_list|)
 decl_stmt|;
 name|log
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Connector resolved: {} -> {}"
 argument_list|,
