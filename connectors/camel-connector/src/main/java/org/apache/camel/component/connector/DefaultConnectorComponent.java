@@ -228,6 +228,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+operator|.
+name|sanitizeUri
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for Camel Connector components.  */
 end_comment
@@ -419,17 +435,33 @@ argument_list|(
 name|delegateUri
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
+comment|// the uris can have sensitive information so sanitize
 name|log
 operator|.
 name|info
 argument_list|(
 literal|"Connector resolved: {} -> {}"
 argument_list|,
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 argument_list|,
+name|sanitizeUri
+argument_list|(
 name|delegateUri
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|DefaultConnectorEndpoint
