@@ -112,6 +112,26 @@ name|VersionManager
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link VersionManager} that can load the resources using Maven to download needed artifacts from  * a local or remote Maven repository.  *<p/>  * This implementation uses Groovy Grape to download the Maven JARs.  */
 end_comment
@@ -124,6 +144,22 @@ name|MavenVersionManager
 implements|implements
 name|VersionManager
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|MavenVersionManager
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|classLoader
 specifier|private
 specifier|final
@@ -339,6 +375,22 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot load version "
+operator|+
+name|version
+operator|+
+literal|" due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -454,6 +506,22 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot load runtime provider version "
+operator|+
+name|version
+operator|+
+literal|" due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -618,6 +686,26 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot open resource "
+operator|+
+name|name
+operator|+
+literal|" and version "
+operator|+
+name|version
+operator|+
+literal|" due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|null
