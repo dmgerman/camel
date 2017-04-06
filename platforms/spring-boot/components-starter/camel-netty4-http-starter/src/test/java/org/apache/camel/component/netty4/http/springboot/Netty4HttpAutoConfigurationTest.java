@@ -313,7 +313,7 @@ name|producerTemplate
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:"
+literal|"netty4-http:http://localhost:"
 operator|+
 name|getPort
 argument_list|()
@@ -350,7 +350,7 @@ name|producerTemplate
 operator|.
 name|request
 argument_list|(
-literal|"http://localhost:"
+literal|"netty4-http:http://localhost:"
 operator|+
 name|getPort
 argument_list|()

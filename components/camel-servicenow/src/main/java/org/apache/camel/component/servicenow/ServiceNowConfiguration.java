@@ -693,6 +693,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"security"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useGlobalSslContextParameters
+specifier|private
+name|boolean
+name|useGlobalSslContextParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"advanced"
 argument_list|)
 DECL|field|httpClientPolicy
@@ -1680,6 +1696,33 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|isUseGlobalSslContextParameters ()
+specifier|public
+name|boolean
+name|isUseGlobalSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|useGlobalSslContextParameters
+return|;
+block|}
+comment|/**      * Enable usage of Camel global SSL configuration.      */
+DECL|method|setUseGlobalSslContextParameters (boolean useSslContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSslContextParameters
+parameter_list|(
+name|boolean
+name|useSslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSslContextParameters
+operator|=
+name|useSslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getHttpClientPolicy ()
