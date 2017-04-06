@@ -52,6 +52,12 @@ name|InfinispanProducer
 extends|extends
 name|DefaultProducer
 block|{
+DECL|field|cacheName
+specifier|private
+specifier|final
+name|String
+name|cacheName
+decl_stmt|;
 DECL|field|configuration
 specifier|private
 specifier|final
@@ -64,12 +70,15 @@ specifier|final
 name|InfinispanManager
 name|manager
 decl_stmt|;
-DECL|method|InfinispanProducer (InfinispanEndpoint endpoint, InfinispanConfiguration configuration)
+DECL|method|InfinispanProducer (InfinispanEndpoint endpoint, String cacheName, InfinispanConfiguration configuration)
 specifier|public
 name|InfinispanProducer
 parameter_list|(
 name|InfinispanEndpoint
 name|endpoint
+parameter_list|,
+name|String
+name|cacheName
 parameter_list|,
 name|InfinispanConfiguration
 name|configuration
@@ -79,6 +88,12 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|cacheName
+operator|=
+name|cacheName
 expr_stmt|;
 name|this
 operator|.
@@ -128,6 +143,10 @@ operator|.
 name|getCache
 argument_list|(
 name|exchange
+argument_list|,
+name|this
+operator|.
+name|cacheName
 argument_list|)
 argument_list|)
 expr_stmt|;

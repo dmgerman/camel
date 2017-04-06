@@ -7129,7 +7129,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer"
+literal|"infinispan?cacheContainer=#cacheContainer"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7139,7 +7139,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=PUT"
+literal|"infinispan?cacheContainer=#cacheContainer&command=PUT"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7149,7 +7149,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=PUTIFABSENT"
+literal|"infinispan?cacheContainer=#cacheContainer&command=PUTIFABSENT"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7159,7 +7159,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=GET"
+literal|"infinispan?cacheContainer=#cacheContainer&command=GET"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7169,7 +7169,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=REMOVE"
+literal|"infinispan?cacheContainer=#cacheContainer&command=REMOVE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7179,7 +7179,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=CLEAR"
+literal|"infinispan?cacheContainer=#cacheContainer&command=CLEAR"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7189,7 +7189,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=REPLACE"
+literal|"infinispan?cacheContainer=#cacheContainer&command=REPLACE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7199,7 +7199,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=CONTAINSKEY"
+literal|"infinispan?cacheContainer=#cacheContainer&command=CONTAINSKEY"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7209,7 +7209,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=CONTAINSVALUE"
+literal|"infinispan?cacheContainer=#cacheContainer&command=CONTAINSVALUE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7219,7 +7219,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=SIZE"
+literal|"infinispan?cacheContainer=#cacheContainer&command=SIZE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7229,7 +7229,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=PUTASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&command=PUTASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7239,7 +7239,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=PUTALLASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&command=PUTALLASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7249,7 +7249,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=PUTIFABSENTASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&command=PUTIFABSENTASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7259,7 +7259,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=REPLACEASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&command=REPLACEASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7269,7 +7269,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=REMOVEASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&command=REMOVEASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7279,7 +7279,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=CLEARASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&command=CLEARASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7289,7 +7289,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&command=STATS"
+literal|"infinispan?cacheContainer=#cacheContainer&command=STATS"
 argument_list|)
 expr_stmt|;
 block|}

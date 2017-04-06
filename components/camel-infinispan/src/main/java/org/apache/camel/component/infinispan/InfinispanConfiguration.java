@@ -76,9 +76,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|Metadata
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -171,34 +169,15 @@ DECL|class|InfinispanConfiguration
 specifier|public
 class|class
 name|InfinispanConfiguration
+implements|implements
+name|Cloneable
 block|{
 annotation|@
 name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|host
+DECL|field|hosts
 specifier|private
 name|String
-name|host
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|cacheContainer
-specifier|private
-name|BasicCacheContainer
-name|cacheContainer
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|cacheName
-specifier|private
-name|String
-name|cacheName
+name|hosts
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -352,6 +331,30 @@ name|String
 argument_list|>
 name|configurationProperties
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|cacheContainer
+specifier|private
+name|BasicCacheContainer
+name|cacheContainer
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|cacheContainerConfiguration
+specifier|private
+name|Object
+name|cacheContainerConfiguration
+decl_stmt|;
 DECL|method|getCommand ()
 specifier|public
 name|String
@@ -395,30 +398,30 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Specifies the host of the cache on Infinispan instance      */
-DECL|method|getHost ()
+DECL|method|getHosts ()
 specifier|public
 name|String
-name|getHost
+name|getHosts
 parameter_list|()
 block|{
 return|return
-name|host
+name|hosts
 return|;
 block|}
-DECL|method|setHost (String host)
+DECL|method|setHosts (String hosts)
 specifier|public
 name|void
-name|setHost
+name|setHosts
 parameter_list|(
 name|String
-name|host
+name|hosts
 parameter_list|)
 block|{
 name|this
 operator|.
-name|host
+name|hosts
 operator|=
-name|host
+name|hosts
 expr_stmt|;
 block|}
 comment|/**      * Specifies the cache Container to connect      */
@@ -446,33 +449,6 @@ operator|.
 name|cacheContainer
 operator|=
 name|cacheContainer
-expr_stmt|;
-block|}
-comment|/**      * Specifies the cache name      */
-DECL|method|getCacheName ()
-specifier|public
-name|String
-name|getCacheName
-parameter_list|()
-block|{
-return|return
-name|cacheName
-return|;
-block|}
-DECL|method|setCacheName (String cacheName)
-specifier|public
-name|void
-name|setCacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|cacheName
-operator|=
-name|cacheName
 expr_stmt|;
 block|}
 comment|/**     * If true, the consumer will receive notifications synchronously     */
@@ -829,7 +805,7 @@ return|return
 name|configurationProperties
 return|;
 block|}
-comment|/**      * Infinispan configuration properties.      */
+comment|/**      * Implementation specific properties for the CacheManager      */
 DECL|method|setConfigurationProperties (Map<String, String> configurationProperties)
 specifier|public
 name|void
@@ -851,7 +827,7 @@ operator|=
 name|configurationProperties
 expr_stmt|;
 block|}
-comment|/**      * Add configuration      */
+comment|/**      * Adds an implementation specific property for the CacheManager      */
 DECL|method|addConfigurationProperty (String key, String value)
 specifier|public
 name|void
@@ -894,6 +870,66 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getCacheContainerConfiguration ()
+specifier|public
+name|Object
+name|getCacheContainerConfiguration
+parameter_list|()
+block|{
+return|return
+name|cacheContainerConfiguration
+return|;
+block|}
+comment|/**      * The CacheContainer configuration      */
+DECL|method|setCacheContainerConfiguration (Object cacheContainerConfiguration)
+specifier|public
+name|void
+name|setCacheContainerConfiguration
+parameter_list|(
+name|Object
+name|cacheContainerConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheContainerConfiguration
+operator|=
+name|cacheContainerConfiguration
+expr_stmt|;
+block|}
+DECL|method|copy ()
+specifier|public
+name|InfinispanConfiguration
+name|copy
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+operator|(
+name|InfinispanConfiguration
+operator|)
+name|super
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

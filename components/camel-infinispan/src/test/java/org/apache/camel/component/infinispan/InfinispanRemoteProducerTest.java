@@ -210,7 +210,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://localhost"
+literal|"infinispan://my-cache?hosts=localhost"
 argument_list|)
 expr_stmt|;
 block|}

@@ -303,7 +303,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&sync=false&eventTypes=CACHE_ENTRY_REMOVED"
+literal|"infinispan?cacheContainer=#cacheContainer&sync=false&eventTypes=CACHE_ENTRY_REMOVED"
 argument_list|)
 operator|.
 name|to

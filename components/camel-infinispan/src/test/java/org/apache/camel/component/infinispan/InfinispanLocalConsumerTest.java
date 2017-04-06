@@ -454,7 +454,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&eventTypes=CACHE_ENTRY_CREATED"
+literal|"infinispan?cacheContainer=#cacheContainer&eventTypes=CACHE_ENTRY_CREATED"
 argument_list|)
 operator|.
 name|to
@@ -464,7 +464,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&eventTypes=CACHE_ENTRY_EXPIRED"
+literal|"infinispan?cacheContainer=#cacheContainer&eventTypes=CACHE_ENTRY_EXPIRED"
 argument_list|)
 operator|.
 name|to

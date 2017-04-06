@@ -649,7 +649,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://?cacheContainer=#myCustomContainer&cacheName=remote_query"
+literal|"infinispan:remote_query?cacheContainer=#myCustomContainer"
 argument_list|)
 expr_stmt|;
 name|from
@@ -659,7 +659,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://?cacheContainer=#myCustomContainer&cacheName=remote_query&queryBuilder=#noResultQueryBuilder"
+literal|"infinispan:remote_query?cacheContainer=#myCustomContainer&queryBuilder=#noResultQueryBuilder"
 argument_list|)
 expr_stmt|;
 name|from
@@ -669,7 +669,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan://?cacheContainer=#myCustomContainer&cacheName=remote_query&queryBuilder=#withResultQueryBuilder"
+literal|"infinispan:remote_query?cacheContainer=#myCustomContainer&queryBuilder=#withResultQueryBuilder"
 argument_list|)
 expr_stmt|;
 block|}

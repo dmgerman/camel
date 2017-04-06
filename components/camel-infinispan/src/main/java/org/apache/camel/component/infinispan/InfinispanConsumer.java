@@ -255,6 +255,12 @@ specifier|final
 name|InfinispanManager
 name|manager
 decl_stmt|;
+DECL|field|cacheName
+specifier|private
+specifier|final
+name|String
+name|cacheName
+decl_stmt|;
 DECL|field|listener
 specifier|private
 name|InfinispanEventListener
@@ -285,7 +291,7 @@ name|Object
 argument_list|>
 name|continuousQuery
 decl_stmt|;
-DECL|method|InfinispanConsumer (InfinispanEndpoint endpoint, Processor processor, InfinispanConfiguration configuration)
+DECL|method|InfinispanConsumer (InfinispanEndpoint endpoint, Processor processor, String cacheName, InfinispanConfiguration configuration)
 specifier|public
 name|InfinispanConsumer
 parameter_list|(
@@ -294,6 +300,9 @@ name|endpoint
 parameter_list|,
 name|Processor
 name|processor
+parameter_list|,
+name|String
+name|cacheName
 parameter_list|,
 name|InfinispanConfiguration
 name|configuration
@@ -305,6 +314,12 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|cacheName
+operator|=
+name|cacheName
 expr_stmt|;
 name|this
 operator|.
@@ -521,7 +536,9 @@ operator|=
 name|manager
 operator|.
 name|getCache
-argument_list|()
+argument_list|(
+name|cacheName
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

@@ -1070,7 +1070,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"infinispan://?cacheContainer=#myCustomContainer&cacheName=remote_query&queryBuilder=#continuousQueryBuilder"
+literal|"infinispan:remote_query?cacheContainer=#myCustomContainer&queryBuilder=#continuousQueryBuilder"
 argument_list|)
 operator|.
 name|to
@@ -1080,7 +1080,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"infinispan://?cacheContainer=#myCustomContainer&cacheName=remote_query&queryBuilder=#continuousQueryBuilderNoMatch"
+literal|"infinispan:remote_query?cacheContainer=#myCustomContainer&queryBuilder=#continuousQueryBuilderNoMatch"
 argument_list|)
 operator|.
 name|to
@@ -1090,7 +1090,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"infinispan://?cacheContainer=#myCustomContainer&cacheName=remote_query&queryBuilder=#continuousQueryBuilderAll"
+literal|"infinispan:remote_query?cacheContainer=#myCustomContainer&queryBuilder=#continuousQueryBuilderAll"
 argument_list|)
 operator|.
 name|to

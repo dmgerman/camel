@@ -78,6 +78,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -93,6 +107,20 @@ operator|.
 name|spi
 operator|.
 name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
@@ -118,7 +146,7 @@ literal|"Infinispan"
 argument_list|,
 name|syntax
 operator|=
-literal|"infinispan:host"
+literal|"infinispan:cacheName"
 argument_list|,
 name|consumerClass
 operator|=
@@ -138,23 +166,42 @@ extends|extends
 name|DefaultEndpoint
 block|{
 annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The cache to use"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|cacheName
+specifier|private
+specifier|final
+name|String
+name|cacheName
+decl_stmt|;
+annotation|@
 name|UriParam
 DECL|field|configuration
 specifier|private
+specifier|final
 name|InfinispanConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|InfinispanEndpoint ()
-specifier|public
-name|InfinispanEndpoint
-parameter_list|()
-block|{     }
-DECL|method|InfinispanEndpoint (String uri, InfinispanComponent component, InfinispanConfiguration configuration)
+DECL|method|InfinispanEndpoint (String uri, String cacheName, InfinispanComponent component, InfinispanConfiguration configuration)
 specifier|public
 name|InfinispanEndpoint
 parameter_list|(
 name|String
 name|uri
+parameter_list|,
+name|String
+name|cacheName
 parameter_list|,
 name|InfinispanComponent
 name|component
@@ -169,6 +216,12 @@ name|uri
 argument_list|,
 name|component
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|cacheName
+operator|=
+name|cacheName
 expr_stmt|;
 name|this
 operator|.
@@ -192,6 +245,8 @@ operator|new
 name|InfinispanProducer
 argument_list|(
 name|this
+argument_list|,
+name|cacheName
 argument_list|,
 name|configuration
 argument_list|)
@@ -218,6 +273,8 @@ name|this
 argument_list|,
 name|processor
 argument_list|,
+name|cacheName
+argument_list|,
 name|configuration
 argument_list|)
 return|;
@@ -232,6 +289,26 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|getCacheName ()
+specifier|public
+name|String
+name|getCacheName
+parameter_list|()
+block|{
+return|return
+name|cacheName
+return|;
+block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|InfinispanConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
 return|;
 block|}
 block|}

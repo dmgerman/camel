@@ -286,7 +286,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|infinispanIdempotentRepository ( BasicCacheContainer cacheContainer, String processorName)
+DECL|method|infinispanIdempotentRepository (BasicCacheContainer cacheContainer, String processorName)
 specifier|public
 specifier|static
 name|InfinispanIdempotentRepository

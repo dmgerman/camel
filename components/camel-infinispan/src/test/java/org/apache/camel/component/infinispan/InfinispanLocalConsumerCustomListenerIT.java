@@ -170,13 +170,11 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|from
+name|fromF
 argument_list|(
-literal|"infinispan://?cacheContainer=#cacheContainer&cacheName="
-operator|+
+literal|"infinispan:%s?cacheContainer=#cacheContainer&customListener=#myCustomListener"
+argument_list|,
 name|CUSTOM_CACHE_NAME
-operator|+
-literal|"&customListener=#myCustomListener"
 argument_list|)
 operator|.
 name|to
