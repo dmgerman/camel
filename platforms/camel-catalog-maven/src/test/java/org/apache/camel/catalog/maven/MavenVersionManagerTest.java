@@ -100,6 +100,22 @@ name|camel
 operator|.
 name|catalog
 operator|.
+name|karaf
+operator|.
+name|KarafRuntimeProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
 name|springboot
 operator|.
 name|SpringBootRuntimeProvider
@@ -724,10 +740,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCatalogVersionSwitch ()
+DECL|method|testCatalogKarafRuntimeProviderVersionSwitch ()
 specifier|public
 name|void
-name|testCatalogVersionSwitch
+name|testCatalogKarafRuntimeProviderVersionSwitch
 parameter_list|()
 throws|throws
 name|Exception
@@ -771,6 +787,15 @@ operator|.
 name|setVersionManager
 argument_list|(
 name|mvm
+argument_list|)
+expr_stmt|;
+name|catalog
+operator|.
+name|setRuntimeProvider
+argument_list|(
+operator|new
+name|KarafRuntimeProvider
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -821,6 +846,34 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"2.18.1 has "
+operator|+
+name|components
+operator|+
+literal|" components"
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Should not have ejb component"
+argument_list|,
+name|catalog
+operator|.
+name|findComponentNames
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"ejb"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|loaded
 operator|=
 name|catalog
@@ -877,6 +930,34 @@ operator|!=
 name|componentsNewer
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"2.19.0-SNAPSHOT has "
+operator|+
+name|componentsNewer
+operator|+
+literal|" components"
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Should not have ejb component"
+argument_list|,
+name|catalog
+operator|.
+name|findComponentNames
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"ejb"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|loaded
 operator|=
 name|catalog
@@ -931,6 +1012,34 @@ argument_list|,
 name|components
 operator|==
 name|components3
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Should not have ejb component"
+argument_list|,
+name|catalog
+operator|.
+name|findComponentNames
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"ejb"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"2.18.1 has "
+operator|+
+name|components3
+operator|+
+literal|" components"
 argument_list|)
 expr_stmt|;
 block|}
