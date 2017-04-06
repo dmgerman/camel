@@ -485,6 +485,60 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|details (Map<VerificationError.Attribute, Object> details)
+specifier|public
+name|ResultErrorBuilder
+name|details
+parameter_list|(
+name|Map
+argument_list|<
+name|VerificationError
+operator|.
+name|Attribute
+argument_list|,
+name|Object
+argument_list|>
+name|details
+parameter_list|)
+block|{
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|VerificationError
+operator|.
+name|Attribute
+argument_list|,
+name|Object
+argument_list|>
+name|entry
+range|:
+name|details
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+name|detail
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|this
+return|;
+block|}
 comment|// **********************************
 comment|// Build
 comment|// **********************************
@@ -539,6 +593,54 @@ block|}
 comment|// **********************************
 comment|// Helpers
 comment|// **********************************
+DECL|method|fromError (VerificationError error)
+specifier|public
+specifier|static
+name|ResultErrorBuilder
+name|fromError
+parameter_list|(
+name|VerificationError
+name|error
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ResultErrorBuilder
+argument_list|()
+operator|.
+name|code
+argument_list|(
+name|error
+operator|.
+name|getCode
+argument_list|()
+argument_list|)
+operator|.
+name|description
+argument_list|(
+name|error
+operator|.
+name|getDescription
+argument_list|()
+argument_list|)
+operator|.
+name|parameterKeys
+argument_list|(
+name|error
+operator|.
+name|getParameterKeys
+argument_list|()
+argument_list|)
+operator|.
+name|details
+argument_list|(
+name|error
+operator|.
+name|getDetails
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|withCode (VerificationError.Code code)
 specifier|public
 specifier|static

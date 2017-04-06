@@ -779,6 +779,33 @@ name|PARAMETERS
 argument_list|)
 return|;
 block|}
+DECL|method|unsupportedScope (ComponentVerifier.Scope scope)
+specifier|public
+specifier|static
+name|ResultBuilder
+name|unsupportedScope
+parameter_list|(
+name|ComponentVerifier
+operator|.
+name|Scope
+name|scope
+parameter_list|)
+block|{
+return|return
+name|withStatusAndScope
+argument_list|(
+name|ComponentVerifier
+operator|.
+name|Result
+operator|.
+name|Status
+operator|.
+name|UNSUPPORTED
+argument_list|,
+name|scope
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
