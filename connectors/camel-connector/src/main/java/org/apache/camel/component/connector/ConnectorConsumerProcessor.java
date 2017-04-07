@@ -62,35 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|DelegateAsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|SynchronizationAdapter
 import|;
 end_import
 
@@ -152,7 +126,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange, AsyncCallback callback)
+DECL|method|process (Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
 name|process
@@ -160,9 +134,17 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|)
+block|{
+comment|// setup callback for after consumer
+name|AsyncCallback
+name|delegate
+init|=
+name|doneSync
+lambda|->
 block|{
 if|if
 condition|(
@@ -170,30 +152,6 @@ name|afterConsumer
 operator|!=
 literal|null
 condition|)
-block|{
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
-operator|.
-name|addSynchronization
-argument_list|(
-operator|new
-name|SynchronizationAdapter
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|onAfterRoute
-parameter_list|(
-name|Route
-name|route
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
 block|{
 try|try
 block|{
@@ -207,17 +165,29 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// ignore
-block|}
-block|}
-block|}
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
+block|}
+decl_stmt|;
+comment|// perform any before consumer
 if|if
 condition|(
 name|beforeConsumer
@@ -260,6 +230,7 @@ literal|true
 return|;
 block|}
 block|}
+comment|// process the consumer
 return|return
 name|super
 operator|.
@@ -267,7 +238,7 @@ name|process
 argument_list|(
 name|exchange
 argument_list|,
-name|callback
+name|delegate
 argument_list|)
 return|;
 block|}
