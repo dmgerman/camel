@@ -1633,30 +1633,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO cmueller: remove the "sslContextParametersRef" look up in Camel 3.0
 name|SSLContextParameters
 name|sslContextParameters
 init|=
-name|resolveAndRemoveReferenceParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"sslContextParametersRef"
-argument_list|,
-name|SSLContextParameters
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|sslContextParameters
-operator|==
-literal|null
-condition|)
-block|{
-name|sslContextParameters
-operator|=
 name|resolveAndRemoveReferenceParameter
 argument_list|(
 name|parameters
@@ -1667,8 +1646,7 @@ name|SSLContextParameters
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|Boolean
 name|enableJmx
 init|=
@@ -1754,7 +1732,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*         if (sslContextParameters == null) {             sslContextParameters = this.sslContextParameters;         } */
 comment|// prefer to use endpoint configured over component configured
 if|if
 condition|(

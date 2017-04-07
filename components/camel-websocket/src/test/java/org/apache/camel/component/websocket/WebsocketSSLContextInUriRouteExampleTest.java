@@ -519,7 +519,7 @@ literal|":"
 operator|+
 name|port
 operator|+
-literal|"/test?sslContextParametersRef=#sslContextParameters"
+literal|"/test?sslContextParameters=#sslContextParameters"
 expr_stmt|;
 name|super
 operator|.
