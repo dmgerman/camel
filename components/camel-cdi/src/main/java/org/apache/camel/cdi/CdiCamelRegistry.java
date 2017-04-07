@@ -202,9 +202,9 @@ name|camel
 operator|.
 name|util
 operator|.
-name|StringHelper
+name|ObjectHelper
 operator|.
-name|notEmpty
+name|notNull
 import|;
 end_import
 
@@ -218,9 +218,9 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 operator|.
-name|notNull
+name|notEmpty
 import|;
 end_import
 

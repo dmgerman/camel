@@ -900,7 +900,7 @@ name|start
 argument_list|,
 name|bundle
 lambda|->
-block|{}
+block|{ }
 argument_list|)
 return|;
 block|}
@@ -1051,7 +1051,7 @@ name|start
 argument_list|,
 name|bundle
 lambda|->
-block|{}
+block|{ }
 argument_list|)
 return|;
 block|}
