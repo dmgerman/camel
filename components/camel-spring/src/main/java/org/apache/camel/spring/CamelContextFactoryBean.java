@@ -4155,6 +4155,7 @@ return|return
 name|defaultServiceCallConfiguration
 return|;
 block|}
+comment|/**      * ServiceCall EIP default configuration      */
 DECL|method|setDefaultServiceCallConfiguration (ServiceCallConfigurationDefinition defaultServiceCallConfiguration)
 specifier|public
 name|void
@@ -4186,7 +4187,7 @@ return|return
 name|serviceCallConfigurations
 return|;
 block|}
-comment|/**      * ServiceCall configurations      */
+comment|/**      * ServiceCall EIP configurations      */
 DECL|method|setServiceCallConfigurations (List<ServiceCallConfigurationDefinition> serviceCallConfigurations)
 specifier|public
 name|void
@@ -4233,6 +4234,7 @@ return|return
 name|defaultHystrixConfiguration
 return|;
 block|}
+comment|/**      * Hystrix EIP default configuration      */
 DECL|method|setDefaultHystrixConfiguration (HystrixConfigurationDefinition defaultHystrixConfiguration)
 specifier|public
 name|void
@@ -4249,7 +4251,7 @@ operator|=
 name|defaultHystrixConfiguration
 expr_stmt|;
 block|}
-comment|/**      * hystrix configurations      */
+comment|/**      * Hystrix EIP configurations      */
 DECL|method|setHystrixConfigurations (List<HystrixConfigurationDefinition> hystrixConfigurations)
 specifier|public
 name|void
