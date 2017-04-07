@@ -430,20 +430,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Contract
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|LifecycleStrategy
 import|;
 end_import
@@ -2190,7 +2176,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the input message. If the actual message type is different      * at runtime, camel look for a required {@link Transformer} and apply if exists.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see {@link org.apache.camel.spi.Transformer}      * @param urn input type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the input message. If the actual message type is different      * at runtime, camel look for a required {@link Transformer} and apply if exists.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      *      * @param urn input type URN      * @return the builder      */
 DECL|method|inputType (String urn)
 specifier|public
 name|RouteDefinition
@@ -2224,7 +2210,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the input message with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see {@link org.apache.camel.spi.Transformer}, {@link org.apache.camel.spi.Validator}      * @param urn input type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the input message with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      *      * @param urn input type URN      * @return the builder      */
 DECL|method|inputTypeWithValidate (String urn)
 specifier|public
 name|RouteDefinition
@@ -2258,7 +2244,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the input message by Java class.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists.      *       * @see {@link org.apache.camel.spi.Transformer}      * @param clazz Class object of the input type      * @return the builder      */
+comment|/**      * Declare the expected data type of the input message by Java class.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists.      *      * @see org.apache.camel.spi.Transformer      *      * @param clazz Class object of the input type      * @return the builder      */
 DECL|method|inputType (Class clazz)
 specifier|public
 name|RouteDefinition
@@ -2292,7 +2278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the input message by Java class with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      *       * @see {@link org.apache.camel.spi.Transformer}, {@link org.apache.camel.spi.Validator}      * @param clazz Class object of the input type      * @return the builder      */
+comment|/**      * Declare the expected data type of the input message by Java class with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      *      * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      *      * @param clazz Class object of the input type      * @return the builder      */
 DECL|method|inputTypeWithValidate (Class clazz)
 specifier|public
 name|RouteDefinition
@@ -2326,7 +2312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the output message. If the actual message type is different      * at runtime, camel look for a required {@link Transformer} and apply if exists.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see {@link org.apache.camel.spi.Transformer}      * @param urn output type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the output message. If the actual message type is different      * at runtime, camel look for a required {@link Transformer} and apply if exists.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      *      * @param urn output type URN      * @return the builder      */
 DECL|method|outputType (String urn)
 specifier|public
 name|RouteDefinition
@@ -2360,7 +2346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the output message with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see {@link org.apache.camel.spi.Transformer}, {@link org.apache.camel.spi.Validator}      * @param urn output type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the output message with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      *      * @param urn output type URN      * @return the builder      */
 DECL|method|outputTypeWithValidate (String urn)
 specifier|public
 name|RouteDefinition
@@ -2394,7 +2380,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the output message by Java class.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists.      *       * @see {@link org.apache.camel.spi.Transformer}      * @param clazz Class object of the output type      * @return the builder      */
+comment|/**      * Declare the expected data type of the output message by Java class.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists.      *      * @see org.apache.camel.spi.Transformer      *      * @param clazz Class object of the output type      * @return the builder      */
 DECL|method|outputType (Class clazz)
 specifier|public
 name|RouteDefinition
@@ -2428,7 +2414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the ouput message by Java class with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      *       * @see {@link org.apache.camel.spi.Transformer}, {@link org.apache.camel.spi.Validator}      * @param clazz Class object of the output type      * @return the builder      */
+comment|/**      * Declare the expected data type of the ouput message by Java class with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      *       * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      * @param clazz Class object of the output type      * @return the builder      */
 DECL|method|outputTypeWithValidate (Class clazz)
 specifier|public
 name|RouteDefinition
@@ -2716,13 +2702,6 @@ block|}
 comment|/**      * Whether security mask for Logging is enabled on this route.      */
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|method|setLogMask (String logMask)
 specifier|public
 name|void
