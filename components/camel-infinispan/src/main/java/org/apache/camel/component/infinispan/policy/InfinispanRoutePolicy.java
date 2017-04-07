@@ -1889,7 +1889,6 @@ argument_list|>
 name|future
 decl_stmt|;
 DECL|method|EmbeddedCacheService (Cache<String, String> cache)
-specifier|public
 name|EmbeddedCacheService
 parameter_list|(
 name|Cache
@@ -2245,7 +2244,6 @@ name|Long
 name|version
 decl_stmt|;
 DECL|method|RemoteCacheService (RemoteCache<String, String> cache)
-specifier|public
 name|RemoteCacheService
 parameter_list|(
 name|RemoteCache
