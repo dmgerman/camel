@@ -38,7 +38,7 @@ operator|.
 name|getTestServerEndpointUri
 argument_list|()
 operator|+
-literal|"?sslContextParametersRef=sslContextParameters"
+literal|"?sslContextParameters=#sslContextParameters"
 return|;
 block|}
 DECL|method|getAhcEndpointUri ()
