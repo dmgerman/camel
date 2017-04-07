@@ -334,7 +334,7 @@ operator|.
 name|getLocalPort
 argument_list|()
 operator|+
-literal|"/mail/?x509HostnameVerifier=x509HostnameVerifier&sslContextParametersRef=sslContextParameters"
+literal|"/mail/?x509HostnameVerifier=x509HostnameVerifier&sslContextParameters=sslContextParameters"
 argument_list|,
 operator|new
 name|Processor
