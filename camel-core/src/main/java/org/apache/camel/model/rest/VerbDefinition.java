@@ -586,7 +586,7 @@ return|return
 name|method
 return|;
 block|}
-comment|/**      * @param method the HTTP verb name such as {@code get, post, put, patch, delete, head}.      */
+comment|/**      * The HTTP verb such as GET, POST, DELETE, etc.      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -613,7 +613,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * @param uri the query path for this REST service, such as {@code /&#123;id&#125;}.      */
+comment|/**      * Uri template of this REST service such as /{id}.      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -640,7 +640,7 @@ return|return
 name|consumes
 return|;
 block|}
-comment|/**      * @param consumes the HTTP Content Type of the input data, such as {@code application/xml} or {@code application/json}.      *                 This option will override what may be configured on a parent level.      */
+comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json.      * This option will override what may be configured on a parent level      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -667,7 +667,7 @@ return|return
 name|produces
 return|;
 block|}
-comment|/**      * @param produces the HTTP Content Type of the output data, such as {@code application/xml} or {@code application/json}.      *                 This option will override what may be configured on a parent level.      */
+comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      * This option will override what may be configured on a parent level      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -694,7 +694,7 @@ return|return
 name|bindingMode
 return|;
 block|}
-comment|/**      * @param bindingMode the binding mode to use. The default value is {@code RestBindingMode.auto}.      *                    This option will override what may be configured on a parent level.      *      * @see RestBindingMode      */
+comment|/**      * Sets the binding mode to use.      * This option will override what may be configured on a parent level      *<p/>      * The default value is auto      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -721,7 +721,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
-comment|/**      * @param skipBindingOnErrorCode set to {@code true} to ignore the specified binding mode on output if there      *                               is a custom HTTP error code header. This allows to build custom error messages      *                               that do not bind to json / xml etc, as success messages otherwise will do.      *                               This option will override what may be configured on a parent level.      *      * @see VerbDefinition#setBindingMode(RestBindingMode)      */
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      * This option will override what may be configured on a parent level      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -748,7 +748,7 @@ return|return
 name|enableCORS
 return|;
 block|}
-comment|/**      * @param enableCORS set to {@code true} to enable CORS headers in the HTTP response. The default value is {@code false}.      *                   This option will override what may be configured on a parent level.      */
+comment|/**      * Whether to enable CORS headers in the HTTP response.      * This option will override what may be configured on a parent level      *<p/>      * The default value is false.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void
@@ -775,7 +775,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      * This option will override what may be configured on a parent level.      *      * @param type the canonical name of the class of the input data. Append a {@code []} to the end      *             of the canonical name if you want the input to be an array of {@code type}.      */
+comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      * This option will override what may be configured on a parent level.      *<p/>      * The canonical name of the class of the input data. Append a [] to the end of the canonical name      * if you want the input to be an array type.      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -802,7 +802,7 @@ return|return
 name|outType
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      * This option will override what may be configured on a parent level.      *      * @param outType the canonical name of the class of the output data. Append a {@code []} to the end      *                of the canonical name if you want the output to be an array of {@code outType}.      */
+comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      * This option will override what may be configured on a parent level      *<p/>      * The canonical name of the class of the input data. Append a [] to the end of the canonical name      * if you want the input to be an array type.      */
 DECL|method|setOutType (String outType)
 specifier|public
 name|void
@@ -829,7 +829,7 @@ return|return
 name|routeId
 return|;
 block|}
-comment|/**      * @param routeId the route id this rest-dsl is using (read-only).      */
+comment|/**      * The route id this rest-dsl is using (read-only)      */
 DECL|method|setRouteId (String routeId)
 specifier|public
 name|void
@@ -856,7 +856,7 @@ return|return
 name|apiDocs
 return|;
 block|}
-comment|/**      * @param apiDocs set to {@code true} to include or exclude the VerbDefinition in API documentation.      *                The default value is true.      */
+comment|/**      * Whether to include or exclude the VerbDefinition in API documentation.      *<p/>      * The default value is true.      */
 DECL|method|setApiDocs (Boolean apiDocs)
 specifier|public
 name|void

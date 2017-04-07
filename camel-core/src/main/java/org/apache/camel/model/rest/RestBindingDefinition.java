@@ -1478,7 +1478,7 @@ return|return
 name|consumes
 return|;
 block|}
-comment|/**      * Adds a default value for the query parameter      *      * @param paramName    query parameter name.      * @param defaultValue the default value.      */
+comment|/**      * Adds a default value for the query parameter      *      * @param paramName   query parameter name      * @param defaultValue the default value      */
 DECL|method|addDefaultValue (String paramName, String defaultValue)
 specifier|public
 name|void
@@ -1536,7 +1536,7 @@ return|return
 name|defaultValues
 return|;
 block|}
-comment|/**      * @param component name of the component that this definition will apply to.      */
+comment|/**      * Sets the component name that this definition will apply to        */
 DECL|method|setComponent (String component)
 specifier|public
 name|void
@@ -1563,7 +1563,7 @@ return|return
 name|component
 return|;
 block|}
-comment|/**      * @param consumes the HTTP Content Type of the input data, such as {@code application/xml} or {@code application/json}.      */
+comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -1590,7 +1590,7 @@ return|return
 name|produces
 return|;
 block|}
-comment|/**      * @param produces the HTTP Content Type of the output data, such as {@code application/xml} or {@code application/json}.      */
+comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -1617,7 +1617,7 @@ return|return
 name|bindingMode
 return|;
 block|}
-comment|/**      * @param bindingMode the binding mode to use. The default value is {@code RestBindingMode.off}.      *      * @see RestBindingMode      */
+comment|/**      * Sets the binding mode to use.      *<p/>      * The default value is off      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -1644,7 +1644,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      *      * @param type the canonical name of the class of the input data. Append a {@code []} to the end      *             of the canonical name if you want the input to be an array of {@code type}.      */
+comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      *<p/>      * The canonical name of the class of the input data. Append a [] to the end of the canonical name      * if you want the input to be an array type.      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -1671,7 +1671,7 @@ return|return
 name|outType
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      *      * @param outType the canonical name of the class of the output data. Append a {@code []} to the end      *                of the canonical name if you want the output to be an array of {@code outType}.      */
+comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      *<p/>      * The canonical name of the class of the input data. Append a [] to the end of the canonical name      * if you want the input to be an array type.      */
 DECL|method|setOutType (String outType)
 specifier|public
 name|void
@@ -1698,7 +1698,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
-comment|/**      * @param skipBindingOnErrorCode set to {@code true} to ignore the specified binding mode on output if there      *                               is a custom HTTP error code header. This allows to build custom error messages      *                               that do not bind to json / xml etc, as success messages otherwise will do.      *      * @see VerbDefinition#setBindingMode(RestBindingMode)      */
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -1725,7 +1725,7 @@ return|return
 name|enableCORS
 return|;
 block|}
-comment|/**      * @param enableCORS set to {@code true} to enable CORS headers in the HTTP response. The default value is {@code false}.      */
+comment|/**      * Whether to enable CORS headers in the HTTP response.      *<p/>      * The default value is false.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void
