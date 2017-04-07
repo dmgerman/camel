@@ -202,7 +202,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 import|;
