@@ -1572,7 +1572,7 @@ name|resolveAndRemoveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
-literal|"sslContextParametersRef"
+literal|"sslContextParameters"
 argument_list|,
 name|SSLContextParameters
 operator|.

@@ -292,7 +292,7 @@ literal|"jetty:https://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"/test?sslContextParametersRef=sslContextParameters"
+literal|"/test?sslContextParameters=sslContextParameters"
 argument_list|)
 operator|.
 name|to
@@ -336,7 +336,7 @@ literal|"jetty:https://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"/hello?sslContextParametersRef=sslContextParameters"
+literal|"/hello?sslContextParameters=sslContextParameters"
 argument_list|)
 operator|.
 name|process
@@ -350,7 +350,7 @@ literal|"jetty:https://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"/test?sslContextParametersRef=sslContextParameters"
+literal|"/test?sslContextParameters=sslContextParameters"
 argument_list|)
 operator|.
 name|to
