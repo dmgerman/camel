@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|catalog
 operator|.
 name|CamelCatalog
@@ -163,6 +175,62 @@ name|Object
 argument_list|>
 name|baseComponentOptions
 parameter_list|)
+function_decl|;
+comment|/**      * To perform custom processing before the producer is sending the message.      */
+DECL|method|setBeforeProducer (Processor processor)
+name|void
+name|setBeforeProducer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+DECL|method|getBeforeProducer ()
+name|Processor
+name|getBeforeProducer
+parameter_list|()
+function_decl|;
+comment|/**      * To perform custom processing after the producer has sent the message and received any reply (if InOut).      */
+DECL|method|setAfterProducer (Processor processor)
+name|void
+name|setAfterProducer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+DECL|method|getAfterProducer ()
+name|Processor
+name|getAfterProducer
+parameter_list|()
+function_decl|;
+comment|/**      * To perform custom processing when the consumer has just received a new incoming message.      */
+DECL|method|setBeforeConsumer (Processor processor)
+name|void
+name|setBeforeConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+DECL|method|getBeforeConsumer ()
+name|Processor
+name|getBeforeConsumer
+parameter_list|()
+function_decl|;
+comment|/**      * To perform custom processing when the consumer is about to send back a reply message to the caller (if InOut).      */
+DECL|method|setAfterConsumer (Processor processor)
+name|void
+name|setAfterConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+function_decl|;
+DECL|method|getAfterConsumer ()
+name|Processor
+name|getAfterConsumer
+parameter_list|()
 function_decl|;
 block|}
 end_interface
