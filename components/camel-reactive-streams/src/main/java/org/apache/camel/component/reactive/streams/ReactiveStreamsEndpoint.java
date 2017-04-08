@@ -64,6 +64,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -145,6 +177,13 @@ argument_list|,
 name|label
 operator|=
 literal|"reactive,streams"
+argument_list|)
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed ReactiveStreamsEndpoint"
 argument_list|)
 DECL|class|ReactiveStreamsEndpoint
 specifier|public
@@ -321,6 +360,13 @@ name|processor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Name of the stream channel used by the endpoint to exchange messages"
+argument_list|)
 DECL|method|getStream ()
 specifier|public
 name|String
@@ -348,6 +394,13 @@ operator|=
 name|stream
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Maximum number of exchanges concurrently being processed by Camel"
+argument_list|)
 DECL|method|getMaxInflightExchanges ()
 specifier|public
 name|Integer
@@ -386,6 +439,13 @@ name|concurrentConsumers
 return|;
 block|}
 comment|/**      * Number of threads used to process exchanges in the Camel route.      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of threads used to process exchanges in the Camel route"
+argument_list|)
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -456,6 +516,13 @@ operator|=
 name|backpressureStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Determines if onComplete events should be pushed to the Camel route"
+argument_list|)
 DECL|method|isForwardOnComplete ()
 specifier|public
 name|boolean
@@ -483,6 +550,13 @@ operator|=
 name|forwardOnComplete
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Determines if onError events should be pushed to the Camel route"
+argument_list|)
 DECL|method|isForwardOnError ()
 specifier|public
 name|boolean
