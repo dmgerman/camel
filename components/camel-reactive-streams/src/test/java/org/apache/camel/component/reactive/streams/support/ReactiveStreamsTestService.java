@@ -138,6 +138,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
+name|engine
+operator|.
+name|CamelSubscriber
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|reactivestreams
 operator|.
 name|Publisher
@@ -348,7 +368,7 @@ annotation|@
 name|Override
 DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
 specifier|public
-name|void
+name|CamelSubscriber
 name|attachCamelConsumer
 parameter_list|(
 name|String
@@ -357,7 +377,11 @@ parameter_list|,
 name|ReactiveStreamsConsumer
 name|consumer
 parameter_list|)
-block|{      }
+block|{
+return|return
+literal|null
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|detachCamelConsumer (String name)

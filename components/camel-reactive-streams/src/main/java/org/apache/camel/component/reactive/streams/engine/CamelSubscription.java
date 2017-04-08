@@ -1132,6 +1132,19 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getBufferSize ()
+specifier|public
+name|long
+name|getBufferSize
+parameter_list|()
+block|{
+return|return
+name|buffer
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

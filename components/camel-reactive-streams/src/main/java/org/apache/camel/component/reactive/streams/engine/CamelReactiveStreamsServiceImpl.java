@@ -1779,7 +1779,7 @@ annotation|@
 name|Override
 DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
 specifier|public
-name|void
+name|CamelSubscriber
 name|attachCamelConsumer
 parameter_list|(
 name|String
@@ -1789,16 +1789,24 @@ name|ReactiveStreamsConsumer
 name|consumer
 parameter_list|)
 block|{
+name|CamelSubscriber
+name|subscriber
+init|=
 name|streamSubscriber
 argument_list|(
 name|name
 argument_list|)
+decl_stmt|;
+name|subscriber
 operator|.
 name|attachConsumer
 argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
+return|return
+name|subscriber
+return|;
 block|}
 annotation|@
 name|Override

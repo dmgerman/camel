@@ -78,6 +78,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StaticService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|reactive
@@ -103,6 +115,26 @@ operator|.
 name|streams
 operator|.
 name|ReactiveStreamsProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
+name|engine
+operator|.
+name|CamelSubscriber
 import|;
 end_import
 
@@ -138,7 +170,7 @@ name|CamelReactiveStreamsService
 extends|extends
 name|CamelContextAware
 extends|,
-name|Service
+name|StaticService
 block|{
 comment|/*      * Main API methods.      */
 comment|/**      * Returns the publisher associated to the given stream name.      * A publisher can be used to push Camel exchanges to reactive-streams subscribers.      *      * @param name the stream name      * @return the stream publisher      */
@@ -534,9 +566,9 @@ name|callback
 parameter_list|)
 function_decl|;
 comment|/*      * Methods for Camel consumers.      */
-comment|/**      * Used by Camel to associate the subscriber of the stream with the given name to a specific Camel consumer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param consumer the consumer of the route      * @throws IllegalStateException if another consumer is already associated with the given stream name      */
+comment|/**      * Used by Camel to associate the subscriber of the stream with the given name to a specific Camel consumer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param consumer the consumer of the route      * @return the associated subscriber      * @throws IllegalStateException if another consumer is already associated with the given stream name      */
 DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
-name|void
+name|CamelSubscriber
 name|attachCamelConsumer
 parameter_list|(
 name|String
