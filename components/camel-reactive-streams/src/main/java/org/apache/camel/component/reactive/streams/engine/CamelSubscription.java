@@ -1145,6 +1145,16 @@ name|size
 argument_list|()
 return|;
 block|}
+DECL|method|getBackpressureStrategy ()
+specifier|public
+name|ReactiveStreamsBackpressureStrategy
+name|getBackpressureStrategy
+parameter_list|()
+block|{
+return|return
+name|backpressureStrategy
+return|;
+block|}
 block|}
 end_class
 

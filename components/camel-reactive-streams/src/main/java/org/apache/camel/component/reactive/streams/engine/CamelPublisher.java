@@ -506,7 +506,7 @@ literal|0
 condition|)
 block|{
 comment|// When multiple subscribers have an active subscription,
-comment|// we aknowledge the exchange once it has been delivered to every
+comment|// we acknowledge the exchange once it has been delivered to every
 comment|// subscriber (or their subscription is cancelled)
 name|AtomicInteger
 name|counter
@@ -796,6 +796,19 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getSubscriptionSize ()
+specifier|public
+name|int
+name|getSubscriptionSize
+parameter_list|()
+block|{
+return|return
+name|subscriptions
+operator|.
+name|size
+argument_list|()
+return|;
 block|}
 block|}
 end_class
