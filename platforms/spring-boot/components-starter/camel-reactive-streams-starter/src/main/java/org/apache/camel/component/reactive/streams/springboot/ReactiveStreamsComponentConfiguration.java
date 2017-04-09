@@ -44,6 +44,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
+name|ReactiveStreamsComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -84,6 +102,10 @@ DECL|field|backpressureStrategy
 specifier|private
 name|ReactiveStreamsBackpressureStrategy
 name|backpressureStrategy
+init|=
+name|ReactiveStreamsBackpressureStrategy
+operator|.
+name|BUFFER
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders

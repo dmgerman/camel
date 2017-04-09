@@ -76,6 +76,20 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Camel reactive-streams component.  */
 end_comment
@@ -88,6 +102,13 @@ name|ReactiveStreamsComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|internalEngineConfiguration
 specifier|private
 name|ReactiveStreamsEngineConfiguration
@@ -97,6 +118,17 @@ operator|new
 name|ReactiveStreamsEngineConfiguration
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"BUFFER"
+argument_list|)
 DECL|field|backpressureStrategy
 specifier|private
 name|ReactiveStreamsBackpressureStrategy
