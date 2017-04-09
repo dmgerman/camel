@@ -779,7 +779,7 @@ name|VerificationError
 operator|.
 name|StandardCode
 operator|.
-name|UNSUPPORTED_SCOPE
+name|UNSUPPORTED_COMPONENT
 argument_list|)
 operator|.
 name|description
