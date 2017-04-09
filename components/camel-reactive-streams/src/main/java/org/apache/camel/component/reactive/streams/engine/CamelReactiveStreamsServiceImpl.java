@@ -2386,6 +2386,7 @@ operator|.
 name|getSubscriptionSize
 argument_list|()
 decl_stmt|;
+comment|// TODO: include more subscriber information, either as a nested table or flattern
 name|CompositeType
 name|ct
 init|=
