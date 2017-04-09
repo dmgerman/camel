@@ -520,10 +520,10 @@ name|description
 operator|=
 literal|"Managed CamelReactiveStreamsService"
 argument_list|)
-DECL|class|CamelReactiveStreamsServiceImpl
+DECL|class|DefaultCamelReactiveStreamsService
 specifier|public
 class|class
-name|CamelReactiveStreamsServiceImpl
+name|DefaultCamelReactiveStreamsService
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -603,9 +603,9 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|CamelReactiveStreamsServiceImpl ()
+DECL|method|DefaultCamelReactiveStreamsService ()
 specifier|public
-name|CamelReactiveStreamsServiceImpl
+name|DefaultCamelReactiveStreamsService
 parameter_list|()
 block|{     }
 annotation|@

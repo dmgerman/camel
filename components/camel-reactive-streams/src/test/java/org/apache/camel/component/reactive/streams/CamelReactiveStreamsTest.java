@@ -76,7 +76,7 @@ name|streams
 operator|.
 name|engine
 operator|.
-name|CamelReactiveStreamsServiceImpl
+name|DefaultCamelReactiveStreamsService
 import|;
 end_import
 
@@ -172,7 +172,7 @@ name|assertTrue
 argument_list|(
 name|service1
 operator|instanceof
-name|CamelReactiveStreamsServiceImpl
+name|DefaultCamelReactiveStreamsService
 argument_list|)
 expr_stmt|;
 block|}
@@ -212,7 +212,7 @@ name|assertTrue
 argument_list|(
 name|service1
 operator|instanceof
-name|CamelReactiveStreamsServiceImpl
+name|DefaultCamelReactiveStreamsService
 argument_list|)
 expr_stmt|;
 name|assertEquals
