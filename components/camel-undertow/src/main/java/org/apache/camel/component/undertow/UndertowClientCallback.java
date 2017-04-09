@@ -383,7 +383,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Undertow {@link ClientCallback} that will get notified when the HTTP  * connection is ready or when the client failed to connect. It will also handle  * writing the request and reading the response in  * {@link #writeRequest(ClientExchange, ByteBuffer)} and  * {@link #setupResponseListner(ClientExchange)}. The main entry point is  * {@link #completed(ClientConnection)} or {@link #failed(IOException)} in case  * of errors, every error condition that should terminate Camel {@link Exchange}  * should go to {@link #hasFailedWith(Exception)} and successful execution of  * the exchange should end with {@link #finish(Message)}. Any  * {@link ClientCallback}s that are added here should extend  * {@link ErrorHandlingClientCallback}, best way to do that is to use the  * {@link #on(Consumer)} helper method.  */
+comment|/**  * Undertow {@link ClientCallback} that will get notified when the HTTP  * connection is ready or when the client failed to connect. It will also handle  * writing the request and reading the response in  * {@link #writeRequest(ClientExchange, ByteBuffer)} and  * {@link #setupResponseListener(ClientExchange)}. The main entry point is  * {@link #completed(ClientConnection)} or {@link #failed(IOException)} in case  * of errors, every error condition that should terminate Camel {@link Exchange}  * should go to {@link #hasFailedWith(Exception)} and successful execution of  * the exchange should end with {@link #finish(Message)}. Any  * {@link ClientCallback}s that are added here should extend  * {@link ErrorHandlingClientCallback}, best way to do that is to use the  * {@link #on(Consumer)} helper method.  */
 end_comment
 
 begin_class
@@ -826,12 +826,12 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|hasFailedWith (final Exception e)
+DECL|method|hasFailedWith (final Throwable e)
 name|void
 name|hasFailedWith
 parameter_list|(
 specifier|final
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -908,7 +908,7 @@ parameter_list|)
 block|{
 comment|// add response listener to the exchange, we could receive the response
 comment|// at any time (async)
-name|setupResponseListner
+name|setupResponseListener
 argument_list|(
 name|clientExchange
 argument_list|)
@@ -922,9 +922,9 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setupResponseListner (final ClientExchange clientExchange)
+DECL|method|setupResponseListener (final ClientExchange clientExchange)
 name|void
-name|setupResponseListner
+name|setupResponseListener
 parameter_list|(
 specifier|final
 name|ClientExchange
@@ -1084,6 +1084,23 @@ name|getHeaderNames
 argument_list|()
 control|)
 block|{
+name|Object
+name|value
+init|=
+name|headerMap
+operator|.
+name|get
+argument_list|(
+name|headerName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
 name|headers
 operator|.
 name|put
@@ -1093,17 +1110,13 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|headerMap
-operator|.
-name|get
-argument_list|(
-name|headerName
-argument_list|)
+name|value
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|final
 name|Exception
@@ -1132,18 +1145,6 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|hasFailedWith
-argument_list|(
-name|cause
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|ExchangeHelper
@@ -1172,11 +1173,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|// true failure exception may get overwritten with connection close failure, so re-set cause
-name|exchange
-operator|.
-name|setException
+comment|// make sure to fail with HttpOperationFailedException
+name|hasFailedWith
 argument_list|(
 name|cause
 argument_list|)
@@ -1194,8 +1192,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-specifier|final
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
