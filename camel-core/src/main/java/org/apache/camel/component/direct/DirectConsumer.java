@@ -171,6 +171,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 comment|// add consumer to endpoint
 name|boolean
 name|existing
@@ -238,6 +243,11 @@ name|removeConsumer
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

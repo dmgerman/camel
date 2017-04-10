@@ -112,6 +112,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 name|loadBalancer
 operator|.
 name|addProcessor
@@ -138,6 +143,11 @@ argument_list|(
 name|getProcessor
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
 expr_stmt|;
 block|}
 block|}
