@@ -154,28 +154,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|management
@@ -297,6 +275,18 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|SSLContextParametersAware
 import|;
 end_import
 
@@ -566,20 +556,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CamelContextHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|FileUtil
 import|;
 end_import
@@ -681,22 +657,6 @@ operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|GlobalSSLContextParametersSupplier
 import|;
 end_import
 
@@ -1091,7 +1051,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An HttpComponent which starts an embedded Jetty for to handle consuming from  * the http endpoints.  *  * @version   */
+comment|/**  * An HttpComponent which starts an embedded Jetty for to handle consuming from  * the http endpoints.  *  * @version  */
 end_comment
 
 begin_class
@@ -1108,6 +1068,8 @@ implements|,
 name|RestApiConsumerFactory
 implements|,
 name|RestProducerFactory
+implements|,
+name|SSLContextParametersAware
 block|{
 DECL|field|TMP_DIR
 specifier|public
@@ -1652,34 +1614,8 @@ literal|null
 condition|?
 name|ssl
 else|:
-name|Optional
-operator|.
-name|ofNullable
-argument_list|(
-name|CamelContextHelper
-operator|.
-name|findByType
-argument_list|(
-name|getCamelContext
+name|getGlobalSSLContextParameters
 argument_list|()
-argument_list|,
-name|GlobalSSLContextParametersSupplier
-operator|.
-name|class
-argument_list|)
-argument_list|)
-operator|.
-name|map
-argument_list|(
-name|Supplier
-operator|::
-name|get
-argument_list|)
-operator|.
-name|orElse
-argument_list|(
-literal|null
-argument_list|)
 expr_stmt|;
 name|String
 name|proxyHost

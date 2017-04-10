@@ -150,9 +150,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|CamelContext
 import|;
 end_import
 
@@ -164,9 +162,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|JndiRegistry
+name|RouteBuilder
 import|;
 end_import
 
@@ -245,22 +243,6 @@ operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|GlobalSSLContextParametersSupplier
 import|;
 end_import
 
@@ -545,14 +527,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRegistry ()
+DECL|method|createCamelContext ()
 specifier|protected
-name|JndiRegistry
-name|createRegistry
+name|CamelContext
+name|createCamelContext
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|CamelContext
+name|context
+init|=
+name|super
+operator|.
+name|createCamelContext
+argument_list|()
+decl_stmt|;
 name|KeyStoreParameters
 name|ksp
 init|=
@@ -646,30 +636,15 @@ argument_list|(
 name|scsp
 argument_list|)
 expr_stmt|;
-name|JndiRegistry
-name|registry
-init|=
-name|super
+name|context
 operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|registry
-operator|.
-name|bind
+name|setSSLContextParameters
 argument_list|(
-literal|"sslContextParametersSupplier"
-argument_list|,
-call|(
-name|GlobalSSLContextParametersSupplier
-call|)
-argument_list|()
-operator|->
 name|sslContextParameters
 argument_list|)
 expr_stmt|;
 return|return
-name|registry
+name|context
 return|;
 block|}
 DECL|method|setSystemProp (String key, String value)

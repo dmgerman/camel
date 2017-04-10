@@ -956,6 +956,22 @@ name|LoadPropertiesException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
 begin_comment
 comment|/**  * Interface used to represent the CamelContext used to configure routes and the  * policies to use during message exchanges between endpoints.  *<p/>  * The CamelContext offers the following methods to control the lifecycle:  *<ul>  *<li>{@link #start()}  - to start (<b>important:</b> the start method is not blocked, see more details  *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>  *<li>{@link #stop()} - to shutdown (will stop all routes/components/endpoints etc and clear internal state/cache)</li>  *<li>{@link #suspend()} - to pause routing messages</li>  *<li>{@link #resume()} - to resume after a suspend</li>  *</ul>  *<p/>  *<b>Notice:</b> {@link #stop()} and {@link #suspend()} will gracefully stop/suspend routes ensuring any messages  * in progress will be given time to complete. See more details at {@link org.apache.camel.spi.ShutdownStrategy}.  *<p/>  * If you are doing a hot restart then it's advised to use the suspend/resume methods which ensure a faster  * restart but also allows any internal state to be kept as is.  * The stop/start approach will do a<i>cold</i> restart of Camel, where all internal state is reset.  *<p/>  * End users are advised to use suspend/resume. Using stop is for shutting down Camel and it's not guaranteed that  * when it's being started again using the start method that Camel will operate consistently.  *  * @version   */
 end_comment
@@ -3102,6 +3118,21 @@ parameter_list|(
 name|LogListener
 name|listener
 parameter_list|)
+function_decl|;
+comment|/**      * Sets the global SSL context parameters.      */
+DECL|method|setSSLContextParameters (SSLContextParameters sslContextParameters)
+name|void
+name|setSSLContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the global SSL context parameters if configured.      */
+DECL|method|getSSLContextParameters ()
+name|SSLContextParameters
+name|getSSLContextParameters
+parameter_list|()
 function_decl|;
 block|}
 end_interface

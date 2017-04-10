@@ -48,7 +48,7 @@ name|util
 operator|.
 name|jsse
 operator|.
-name|SSLContextParameters
+name|GlobalSSLContextParametersSupplier
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|util
 operator|.
 name|jsse
 operator|.
-name|GlobalSSLContextParametersSupplier
+name|SSLContextParameters
 import|;
 end_import
 
@@ -78,23 +78,7 @@ name|boot
 operator|.
 name|autoconfigure
 operator|.
-name|AutoConfigureAfter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|autoconfigure
-operator|.
-name|condition
-operator|.
-name|ConditionalOnBean
+name|AutoConfigureBefore
 import|;
 end_import
 
@@ -162,14 +146,7 @@ begin_class
 annotation|@
 name|Configuration
 annotation|@
-name|ConditionalOnBean
-argument_list|(
-name|CamelAutoConfiguration
-operator|.
-name|class
-argument_list|)
-annotation|@
-name|AutoConfigureAfter
+name|AutoConfigureBefore
 argument_list|(
 name|CamelAutoConfiguration
 operator|.

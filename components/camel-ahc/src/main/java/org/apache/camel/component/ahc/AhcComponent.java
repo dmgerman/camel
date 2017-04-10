@@ -50,23 +50,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Optional
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
+name|Endpoint
 import|;
 end_import
 
@@ -78,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|SSLContextParametersAware
 import|;
 end_import
 
@@ -107,20 +97,6 @@ operator|.
 name|spi
 operator|.
 name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CamelContextHelper
 import|;
 end_import
 
@@ -193,22 +169,6 @@ operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|GlobalSSLContextParametersSupplier
 import|;
 end_import
 
@@ -295,6 +255,8 @@ class|class
 name|AhcComponent
 extends|extends
 name|HeaderFilterStrategyComponent
+implements|implements
+name|SSLContextParametersAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -452,34 +414,8 @@ condition|)
 block|{
 name|ssl
 operator|=
-name|Optional
-operator|.
-name|ofNullable
-argument_list|(
-name|CamelContextHelper
-operator|.
-name|findByType
-argument_list|(
-name|getCamelContext
+name|getGlobalSSLContextParameters
 argument_list|()
-argument_list|,
-name|GlobalSSLContextParametersSupplier
-operator|.
-name|class
-argument_list|)
-argument_list|)
-operator|.
-name|map
-argument_list|(
-name|Supplier
-operator|::
-name|get
-argument_list|)
-operator|.
-name|orElse
-argument_list|(
-literal|null
-argument_list|)
 expr_stmt|;
 block|}
 comment|// Do not set the HTTP URI because we still have all of the Camel internal

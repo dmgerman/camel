@@ -358,6 +358,23 @@ name|JndiRegistry
 name|registry
 parameter_list|)
 block|{
+name|registry
+operator|.
+name|bind
+argument_list|(
+literal|"sslContextParameters"
+argument_list|,
+name|createSSLContextParameters
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|createSSLContextParameters ()
+specifier|protected
+name|SSLContextParameters
+name|createSSLContextParameters
+parameter_list|()
+block|{
 name|KeyStoreParameters
 name|ksp
 init|=
@@ -486,15 +503,9 @@ argument_list|(
 literal|"SSLv3"
 argument_list|)
 expr_stmt|;
-name|registry
-operator|.
-name|bind
-argument_list|(
-literal|"sslContextParameters"
-argument_list|,
+return|return
 name|sslContextParameters
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Indicates if the URIs returned from {@link #getTestServerEndpointUri()} and      * {@link #getAhcEndpointUri()} should use the HTTPS protocol instead of      * the HTTP protocol.      *       * If true, an {@link SSLContextParameters} is also placed in the registry under the      * key {@code sslContextParameters}.  The parameters are not added to the endpoint URIs      * as that is test specific.      *       * @return false by default      */
 DECL|method|isHttps ()

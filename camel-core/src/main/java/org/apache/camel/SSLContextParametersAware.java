@@ -4,17 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.ahc
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|component
-operator|.
-name|ahc
 package|;
 end_package
 
@@ -26,66 +22,43 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
 begin_comment
-comment|/**  * Lookup from the registry should work when only one set of context parameters is present.  */
+comment|/**  * Indicates that an object is able to use the global {@link SSLContextParameters} if configured.  */
 end_comment
 
-begin_class
-DECL|class|AhcComponentClientConfigGlobalSslContextParametersTest
+begin_interface
+DECL|interface|SSLContextParametersAware
 specifier|public
-class|class
-name|AhcComponentClientConfigGlobalSslContextParametersTest
+interface|interface
+name|SSLContextParametersAware
 extends|extends
-name|AhcComponentClientConfigTest
+name|CamelContextAware
 block|{
-annotation|@
-name|Override
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|CamelContext
-name|context
-init|=
-name|super
-operator|.
-name|createCamelContext
-argument_list|()
-decl_stmt|;
-name|context
-operator|.
-name|setSSLContextParameters
-argument_list|(
-name|createSSLContextParameters
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|context
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|isHttps ()
-specifier|protected
-name|boolean
-name|isHttps
+comment|/**      * Returns the global {@link SSLContextParameters} if configured.      */
+DECL|method|getGlobalSSLContextParameters ()
+specifier|default
+name|SSLContextParameters
+name|getGlobalSSLContextParameters
 parameter_list|()
 block|{
 return|return
-literal|true
+name|getCamelContext
+argument_list|()
+operator|.
+name|getSSLContextParameters
+argument_list|()
 return|;
 block|}
 block|}
-end_class
+end_interface
 
 end_unit
 

@@ -2266,6 +2266,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -3314,6 +3330,11 @@ name|this
 argument_list|,
 literal|true
 argument_list|)
+decl_stmt|;
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
 DECL|method|DefaultCamelContext ()
@@ -23300,6 +23321,38 @@ parameter_list|()
 block|{
 return|return
 name|runtimeCamelCatalog
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setSSLContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSSLContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getSSLContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSSLContextParameters
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|sslContextParameters
 return|;
 block|}
 DECL|method|getRouteServices ()
