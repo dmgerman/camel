@@ -280,11 +280,6 @@ name|CAMEL_TEST_FILE_NAME
 init|=
 literal|"CamelTestFile.txt"
 decl_stmt|;
-DECL|field|testFile
-specifier|private
-name|BoxFile
-name|testFile
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testSearchFolder ()
@@ -523,31 +518,6 @@ argument_list|)
 operator|.
 name|getResource
 argument_list|()
-expr_stmt|;
-block|}
-DECL|method|deleteTestFile ()
-specifier|private
-name|void
-name|deleteTestFile
-parameter_list|()
-block|{
-try|try
-block|{
-name|testFile
-operator|.
-name|delete
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{         }
-name|testFile
-operator|=
-literal|null
 expr_stmt|;
 block|}
 block|}

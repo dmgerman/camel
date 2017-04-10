@@ -339,11 +339,6 @@ name|CAMEL_TEST_DESTINATION_FOLDER_ID
 init|=
 literal|"0"
 decl_stmt|;
-DECL|field|testFolder
-specifier|private
-name|BoxFolder
-name|testFolder
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testCreateFolder ()
@@ -1729,41 +1724,6 @@ operator|.
 name|getResource
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|deleteTestFolder ()
-specifier|private
-name|void
-name|deleteTestFolder
-parameter_list|()
-block|{
-if|if
-condition|(
-name|testFolder
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|testFolder
-operator|.
-name|delete
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{             }
-name|testFolder
-operator|=
-literal|null
-expr_stmt|;
-block|}
 block|}
 DECL|method|sizeOfIterable (Iterable<?> it)
 specifier|private

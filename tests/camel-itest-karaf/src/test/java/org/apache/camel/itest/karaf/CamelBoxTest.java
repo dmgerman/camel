@@ -24,16 +24,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -97,11 +87,6 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"CAMEL-10999 Karaf camel-box feature is not updated with new Box 2 SDK"
-argument_list|)
 DECL|method|test ()
 specifier|public
 name|void

@@ -315,11 +315,6 @@ name|CAMEL_TEST_COLLABORATOR_NAME
 init|=
 literal|"cameltest"
 decl_stmt|;
-DECL|field|testFolder
-specifier|private
-name|BoxFolder
-name|testFolder
-decl_stmt|;
 DECL|field|testCollaboration
 specifier|private
 name|BoxCollaboration
@@ -1140,24 +1135,6 @@ argument_list|)
 operator|.
 name|getResource
 argument_list|()
-expr_stmt|;
-block|}
-DECL|method|deleteTestFolder ()
-specifier|private
-name|void
-name|deleteTestFolder
-parameter_list|()
-block|{
-name|testFolder
-operator|.
-name|delete
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|testFolder
-operator|=
-literal|null
 expr_stmt|;
 block|}
 DECL|method|createTestCollaborator ()
