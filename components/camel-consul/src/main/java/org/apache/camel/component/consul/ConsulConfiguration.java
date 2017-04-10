@@ -302,8 +302,6 @@ DECL|field|useGlobalSslContextParameters
 specifier|private
 name|boolean
 name|useGlobalSslContextParameters
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam

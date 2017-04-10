@@ -86,8 +86,6 @@ DECL|field|enabled
 specifier|private
 name|boolean
 name|enabled
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The Camel global SSL configuration      */
 annotation|@

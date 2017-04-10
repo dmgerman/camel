@@ -289,8 +289,6 @@ DECL|field|logMask
 specifier|private
 name|boolean
 name|logMask
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Sets whether to log exhausted message body with message history.      *      * Default is false.      */
 DECL|field|logExhaustedMessageBody
