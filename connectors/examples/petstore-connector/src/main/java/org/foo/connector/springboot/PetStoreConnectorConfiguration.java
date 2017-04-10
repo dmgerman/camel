@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|springframework
@@ -48,7 +58,40 @@ DECL|class|PetStoreConnectorConfiguration
 specifier|public
 class|class
 name|PetStoreConnectorConfiguration
-block|{ }
+block|{
+comment|/**      * Path to the Swagger specification file. The scheme host base path are      * taken from this specification but these can be overriden with properties      * on the component or endpoint level. If not given the component tries to      * load swagger.json resource. Note that the host defined on the component      * and endpoint of this Component should contain the scheme hostname and      * optionally the port in the URI syntax (i.e.      * https://api.example.com:8080). Can be overriden in endpoint      * configuration.      */
+DECL|field|specificationUri
+specifier|private
+name|URI
+name|specificationUri
+decl_stmt|;
+DECL|method|getSpecificationUri ()
+specifier|public
+name|URI
+name|getSpecificationUri
+parameter_list|()
+block|{
+return|return
+name|specificationUri
+return|;
+block|}
+DECL|method|setSpecificationUri (URI specificationUri)
+specifier|public
+name|void
+name|setSpecificationUri
+parameter_list|(
+name|URI
+name|specificationUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|specificationUri
+operator|=
+name|specificationUri
+expr_stmt|;
+block|}
+block|}
 end_class
 
 end_unit
