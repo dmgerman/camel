@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|ProtobufMarshalAndUnmarshalSpringTest
 extends|extends
-name|ProtobufMarshalAndUnmarshallTest
+name|ProtobufMarshalAndUnmarshalTest
 block|{
 DECL|method|createApplicationContext ()
 specifier|protected

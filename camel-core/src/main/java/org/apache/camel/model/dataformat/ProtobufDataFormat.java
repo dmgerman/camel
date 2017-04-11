@@ -191,6 +191,13 @@ name|String
 name|instanceClass
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|contentTypeFormat
+specifier|private
+name|String
+name|contentTypeFormat
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|defaultInstance
 specifier|private
@@ -225,6 +232,31 @@ name|instanceClass
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|ProtobufDataFormat (String instanceClass, String contentTypeFormat)
+specifier|public
+name|ProtobufDataFormat
+parameter_list|(
+name|String
+name|instanceClass
+parameter_list|,
+name|String
+name|contentTypeFormat
+parameter_list|)
+block|{
+name|this
+argument_list|()
+expr_stmt|;
+name|setInstanceClass
+argument_list|(
+name|instanceClass
+argument_list|)
+expr_stmt|;
+name|setContentTypeFormat
+argument_list|(
+name|contentTypeFormat
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getInstanceClass ()
 specifier|public
 name|String
@@ -250,6 +282,23 @@ operator|.
 name|instanceClass
 operator|=
 name|instanceClass
+expr_stmt|;
+block|}
+comment|/**      * Defines a content type format in which protobuf message will be      * serialized/deserialized from(to) the Java been. It can be native protobuf      * format or json fields representation. The default value is 'native'.      */
+DECL|method|setContentTypeFormat (String contentTypeFormat)
+specifier|public
+name|void
+name|setContentTypeFormat
+parameter_list|(
+name|String
+name|contentTypeFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentTypeFormat
+operator|=
+name|contentTypeFormat
 expr_stmt|;
 block|}
 DECL|method|getDefaultInstance ()
@@ -310,6 +359,27 @@ argument_list|,
 literal|"instanceClass"
 argument_list|,
 name|instanceClass
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|this
+operator|.
+name|contentTypeFormat
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"contentTypeFormat"
+argument_list|,
+name|contentTypeFormat
 argument_list|)
 expr_stmt|;
 block|}

@@ -137,10 +137,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ProtobufMarshalAndUnmarshallTest
+DECL|class|ProtobufMarshalAndUnmarshalTest
 specifier|public
 class|class
-name|ProtobufMarshalAndUnmarshallTest
+name|ProtobufMarshalAndUnmarshalTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -302,18 +302,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|protobuf
-operator|.
-name|generated
-operator|.
 name|AddressBookProtos
 operator|.
 name|Person

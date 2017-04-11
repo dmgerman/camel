@@ -59,6 +59,12 @@ specifier|private
 name|String
 name|instanceClass
 decl_stmt|;
+comment|/**      * Defines a content type format in which protobuf message will be      * serialized/deserialized from(to) the Java been. It can be native protobuf      * format or json fields representation. The default value is 'native'.      */
+DECL|field|contentTypeFormat
+specifier|private
+name|String
+name|contentTypeFormat
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -91,6 +97,32 @@ operator|.
 name|instanceClass
 operator|=
 name|instanceClass
+expr_stmt|;
+block|}
+DECL|method|getContentTypeFormat ()
+specifier|public
+name|String
+name|getContentTypeFormat
+parameter_list|()
+block|{
+return|return
+name|contentTypeFormat
+return|;
+block|}
+DECL|method|setContentTypeFormat (String contentTypeFormat)
+specifier|public
+name|void
+name|setContentTypeFormat
+parameter_list|(
+name|String
+name|contentTypeFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentTypeFormat
+operator|=
+name|contentTypeFormat
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()
