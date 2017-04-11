@@ -111,7 +111,7 @@ specifier|public
 class|class
 name|SnakeYAMLDataFormatConfiguration
 block|{
-comment|/**      * Which yaml library to use such. Is by default SnakeYAML      */
+comment|/**      * Which yaml library to use. By default it is SnakeYAML      */
 DECL|field|library
 specifier|private
 name|YAMLLibrary
