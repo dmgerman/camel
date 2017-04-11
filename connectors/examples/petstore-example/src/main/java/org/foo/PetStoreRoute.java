@@ -64,12 +64,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:store?period=5000"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"petstore?operationId=getInventory"
+literal|"petstore?operationId=getInventory&schedulerPeriod=2000"
 argument_list|)
 operator|.
 name|log
