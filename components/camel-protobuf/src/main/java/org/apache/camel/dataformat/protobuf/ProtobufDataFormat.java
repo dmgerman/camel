@@ -313,8 +313,6 @@ DECL|field|contentTypeHeader
 specifier|private
 name|boolean
 name|contentTypeHeader
-init|=
-literal|false
 decl_stmt|;
 DECL|field|contentTypeFormat
 specifier|private
