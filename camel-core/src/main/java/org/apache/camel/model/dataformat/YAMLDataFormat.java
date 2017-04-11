@@ -469,7 +469,7 @@ return|return
 name|library
 return|;
 block|}
-comment|/**      * Which yaml library to use such.      *<p/>      * Is by default SnakeYAML      */
+comment|/**      * Which yaml library to use.      *<p/>      * By default it is SnakeYAML      */
 DECL|method|setLibrary (YAMLLibrary library)
 specifier|public
 name|void
