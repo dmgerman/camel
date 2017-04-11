@@ -317,6 +317,10 @@ argument_list|(
 name|label
 operator|=
 literal|"client"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|keyStorePassword
 specifier|private
@@ -329,6 +333,10 @@ argument_list|(
 name|label
 operator|=
 literal|"client"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|keyPassword
 specifier|private
