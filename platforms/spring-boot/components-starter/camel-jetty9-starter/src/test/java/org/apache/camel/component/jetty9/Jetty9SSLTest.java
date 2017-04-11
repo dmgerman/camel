@@ -108,6 +108,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -292,7 +302,17 @@ block|,
 literal|"camel.ssl.config.trust-managers.key-store.password=changeit"
 block|,
 literal|"camel.ssl.config.trust-managers.key-store.type=jks"
+block|,
+literal|"camel.component.jetty.use-global-ssl-context-parameters=true"
+block|,
+literal|"camel.component.http4.use-global-ssl-context-parameters=true"
+block|,
 block|}
+argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Bug in https4 spring-boot configuration"
 argument_list|)
 DECL|class|Jetty9SSLTest
 specifier|public

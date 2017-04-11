@@ -375,14 +375,14 @@ literal|null
 operator|&&
 name|config
 operator|.
-name|getUseGlobalSSLContextParameters
+name|getUseGlobalSslContextParameters
 argument_list|()
 operator|!=
 literal|null
 operator|&&
 name|config
 operator|.
-name|getUseGlobalSSLContextParameters
+name|getUseGlobalSslContextParameters
 argument_list|()
 condition|)
 block|{

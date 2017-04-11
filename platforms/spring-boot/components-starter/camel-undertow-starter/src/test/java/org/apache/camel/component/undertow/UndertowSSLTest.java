@@ -292,6 +292,8 @@ block|,
 literal|"camel.ssl.config.trust-managers.key-store.password=changeit"
 block|,
 literal|"camel.ssl.config.trust-managers.key-store.type=jks"
+block|,
+literal|"camel.component.undertow.use-global-ssl-context-parameters=true"
 block|}
 argument_list|)
 DECL|class|UndertowSSLTest

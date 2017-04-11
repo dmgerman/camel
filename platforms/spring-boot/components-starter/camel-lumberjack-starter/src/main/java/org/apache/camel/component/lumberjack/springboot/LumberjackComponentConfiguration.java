@@ -93,7 +93,7 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|/**      * Enable usage of Camel global SSL parameters      */
+comment|/**      * Enable usage of global SSL context parameters.      */
 DECL|field|useGlobalSslContextParameters
 specifier|private
 name|Boolean

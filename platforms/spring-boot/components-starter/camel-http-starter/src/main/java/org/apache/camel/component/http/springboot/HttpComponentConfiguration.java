@@ -339,20 +339,20 @@ operator|=
 name|allowJavaSerializedObject
 expr_stmt|;
 block|}
-DECL|method|getUseGlobalSSLContextParameters ()
+DECL|method|getUseGlobalSslContextParameters ()
 specifier|public
 name|Boolean
-name|getUseGlobalSSLContextParameters
+name|getUseGlobalSslContextParameters
 parameter_list|()
 block|{
 return|return
 name|useGlobalSslContextParameters
 return|;
 block|}
-DECL|method|setUseGlobalSSLContextParameters ( Boolean useGlobalSslContextParameters)
+DECL|method|setUseGlobalSslContextParameters ( Boolean useGlobalSslContextParameters)
 specifier|public
 name|void
-name|setUseGlobalSSLContextParameters
+name|setUseGlobalSslContextParameters
 parameter_list|(
 name|Boolean
 name|useGlobalSslContextParameters

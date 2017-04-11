@@ -212,6 +212,14 @@ name|String
 argument_list|>
 name|enabledConverters
 decl_stmt|;
+comment|/**      * Enable usage of global SSL context parameters.      */
+DECL|field|useGlobalSslContextParameters
+specifier|private
+name|Boolean
+name|useGlobalSslContextParameters
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -726,6 +734,32 @@ operator|.
 name|enabledConverters
 operator|=
 name|enabledConverters
+expr_stmt|;
+block|}
+DECL|method|getUseGlobalSslContextParameters ()
+specifier|public
+name|Boolean
+name|getUseGlobalSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|useGlobalSslContextParameters
+return|;
+block|}
+DECL|method|setUseGlobalSslContextParameters ( Boolean useGlobalSslContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSslContextParameters
+parameter_list|(
+name|Boolean
+name|useGlobalSslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSslContextParameters
+operator|=
+name|useGlobalSslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()

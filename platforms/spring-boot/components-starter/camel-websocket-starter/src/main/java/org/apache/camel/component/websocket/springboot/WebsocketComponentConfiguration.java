@@ -203,13 +203,13 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|/**      * Enable usage of Camel global SSL context parameters      */
+comment|/**      * Enable usage of global SSL context parameters.      */
 DECL|field|useGlobalSslContextParameters
 specifier|private
 name|Boolean
 name|useGlobalSslContextParameters
 init|=
-literal|true
+literal|false
 decl_stmt|;
 comment|/**      * To configure a map which contains custom WebSocketFactory for sub      * protocols. The key in the map is the sub protocol. The default key is      * reserved for the default implementation.      */
 DECL|field|socketFactory

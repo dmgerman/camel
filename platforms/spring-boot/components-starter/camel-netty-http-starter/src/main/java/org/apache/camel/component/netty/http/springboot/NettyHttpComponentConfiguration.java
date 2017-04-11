@@ -179,6 +179,14 @@ specifier|private
 name|NettyHttpSecurityConfigurationNestedConfiguration
 name|securityConfiguration
 decl_stmt|;
+comment|/**      * Enable usage of global SSL context parameters.      */
+DECL|field|useGlobalSslContextParameters
+specifier|private
+name|Boolean
+name|useGlobalSslContextParameters
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * The core pool size for the ordered thread pool if its in use. The default      * value is 16.      */
 DECL|field|maximumPoolSize
 specifier|private
@@ -297,6 +305,32 @@ operator|.
 name|securityConfiguration
 operator|=
 name|securityConfiguration
+expr_stmt|;
+block|}
+DECL|method|getUseGlobalSslContextParameters ()
+specifier|public
+name|Boolean
+name|getUseGlobalSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|useGlobalSslContextParameters
+return|;
+block|}
+DECL|method|setUseGlobalSslContextParameters ( Boolean useGlobalSslContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSslContextParameters
+parameter_list|(
+name|Boolean
+name|useGlobalSslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSslContextParameters
+operator|=
+name|useGlobalSslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getMaximumPoolSize ()

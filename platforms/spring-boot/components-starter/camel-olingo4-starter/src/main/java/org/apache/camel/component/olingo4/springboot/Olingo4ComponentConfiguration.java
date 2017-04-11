@@ -165,6 +165,14 @@ specifier|private
 name|Olingo4ConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
+comment|/**      * Enable usage of global SSL context parameters.      */
+DECL|field|useGlobalSslContextParameters
+specifier|private
+name|Boolean
+name|useGlobalSslContextParameters
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -197,6 +205,32 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getUseGlobalSslContextParameters ()
+specifier|public
+name|Boolean
+name|getUseGlobalSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|useGlobalSslContextParameters
+return|;
+block|}
+DECL|method|setUseGlobalSslContextParameters ( Boolean useGlobalSslContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSslContextParameters
+parameter_list|(
+name|Boolean
+name|useGlobalSslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSslContextParameters
+operator|=
+name|useGlobalSslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
