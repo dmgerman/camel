@@ -148,7 +148,7 @@ literal|"PubNub"
 argument_list|,
 name|syntax
 operator|=
-literal|"pubnub:endpointType:channel"
+literal|"pubnub://channel"
 argument_list|,
 name|consumerClass
 operator|=
@@ -391,7 +391,7 @@ name|setPublishKey
 argument_list|(
 name|configuration
 operator|.
-name|getPublisherKey
+name|getPublishKey
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -401,7 +401,7 @@ name|setSubscribeKey
 argument_list|(
 name|configuration
 operator|.
-name|getSubscriberKey
+name|getSubscribeKey
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -422,6 +422,16 @@ argument_list|(
 name|configuration
 operator|.
 name|getAuthKey
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|pnConfiguration
+operator|.
+name|setCipherKey
+argument_list|(
+name|configuration
+operator|.
+name|getCipherKey
 argument_list|()
 argument_list|)
 expr_stmt|;

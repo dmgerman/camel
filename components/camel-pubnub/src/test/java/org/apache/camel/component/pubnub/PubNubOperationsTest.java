@@ -285,7 +285,7 @@ name|PubNubConstants
 operator|.
 name|OPERATION
 argument_list|,
-literal|"WHERE_NOW"
+literal|"WHERENOW"
 argument_list|)
 expr_stmt|;
 name|headers
@@ -411,7 +411,7 @@ name|PubNubConstants
 operator|.
 name|OPERATION
 argument_list|,
-literal|"HERE_NOW"
+literal|"HERENOW"
 argument_list|)
 expr_stmt|;
 name|PNHereNowResult
@@ -695,7 +695,7 @@ name|PubNubConstants
 operator|.
 name|OPERATION
 argument_list|,
-literal|"GET_HISTORY"
+literal|"GETHISTORY"
 argument_list|)
 expr_stmt|;
 annotation|@
@@ -796,7 +796,7 @@ name|PubNubConstants
 operator|.
 name|OPERATION
 argument_list|,
-literal|"GET_STATE"
+literal|"GETSTATE"
 argument_list|)
 expr_stmt|;
 annotation|@
@@ -922,7 +922,7 @@ name|PubNubConstants
 operator|.
 name|OPERATION
 argument_list|,
-literal|"SET_STATE"
+literal|"SETSTATE"
 argument_list|)
 expr_stmt|;
 name|PNSetStateResult
@@ -1005,7 +1005,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pubnub:myChannel?uuid=myuuid&pubnub=#pubnub"
+literal|"pubnub://myChannel?uuid=myuuid&pubnub=#pubnub"
 argument_list|)
 operator|.
 name|to

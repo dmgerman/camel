@@ -36,6 +36,18 @@ name|pubnub
 operator|.
 name|api
 operator|.
+name|PubNubException
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|pubnub
+operator|.
+name|api
+operator|.
 name|callbacks
 operator|.
 name|PNCallback
@@ -382,7 +394,7 @@ expr_stmt|;
 break|break;
 block|}
 case|case
-name|GET_HISTORY
+name|GETHISTORY
 case|:
 block|{
 name|doGetHistory
@@ -395,7 +407,7 @@ expr_stmt|;
 break|break;
 block|}
 case|case
-name|GET_STATE
+name|GETSTATE
 case|:
 block|{
 name|doGetState
@@ -408,7 +420,7 @@ expr_stmt|;
 break|break;
 block|}
 case|case
-name|HERE_NOW
+name|HERENOW
 case|:
 block|{
 name|doHereNow
@@ -421,7 +433,7 @@ expr_stmt|;
 break|break;
 block|}
 case|case
-name|SET_STATE
+name|SETSTATE
 case|:
 block|{
 name|doSetState
@@ -434,7 +446,7 @@ expr_stmt|;
 break|break;
 block|}
 case|case
-name|WHERE_NOW
+name|WHERENOW
 case|:
 block|{
 name|doWhereNow
@@ -457,6 +469,60 @@ name|toString
 argument_list|()
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|instanceof
+name|PubNubException
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Exception from PubNub : {}"
+argument_list|,
+name|exchange
+operator|.
+name|getException
+argument_list|(
+name|PubNubException
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getPubnubError
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 return|return
 literal|false
@@ -783,7 +849,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// @formatter:off
 name|endpoint
 operator|.
 name|getPubnub
@@ -849,7 +914,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// @formatter:on
 block|}
 DECL|method|doSetState (Exchange exchange, AsyncCallback callback)
 specifier|private
@@ -1009,7 +1073,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// @formatter:off
 name|endpoint
 operator|.
 name|getPubnub
@@ -1091,7 +1154,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// @formatter:on
 block|}
 DECL|method|doHereNow (Exchange exchange, AsyncCallback callback)
 specifier|private
@@ -1195,7 +1257,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// @formatter:off
 name|endpoint
 operator|.
 name|getPubnub
@@ -1265,7 +1326,6 @@ empty_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-comment|// @formatter:on
 block|}
 DECL|method|processMessage (Exchange exchange, AsyncCallback callback, PNStatus status, Object body)
 specifier|private
@@ -1310,28 +1370,10 @@ name|callback
 operator|.
 name|done
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|body
-operator|!=
-literal|null
-condition|)
-block|{
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|body
-argument_list|)
-expr_stmt|;
+return|return;
 block|}
 if|if
 condition|(
@@ -1357,13 +1399,6 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|body
-operator|!=
-literal|null
-condition|)
-block|{
 name|exchange
 operator|.
 name|getOut
@@ -1375,6 +1410,18 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
 block|}
 comment|// signal exchange completion
 name|callback
@@ -1438,6 +1485,9 @@ operator|.
 name|valueOf
 argument_list|(
 name|operation
+operator|.
+name|toUpperCase
+argument_list|()
 argument_list|)
 else|:
 name|Operation
@@ -1532,22 +1582,22 @@ specifier|private
 enum|enum
 name|Operation
 block|{
-DECL|enumConstant|HERE_NOW
-DECL|enumConstant|WHERE_NOW
-DECL|enumConstant|GET_STATE
-DECL|enumConstant|SET_STATE
-DECL|enumConstant|GET_HISTORY
+DECL|enumConstant|HERENOW
+DECL|enumConstant|WHERENOW
+DECL|enumConstant|GETSTATE
+DECL|enumConstant|SETSTATE
+DECL|enumConstant|GETHISTORY
 DECL|enumConstant|PUBLISH
 DECL|enumConstant|FIRE
-name|HERE_NOW
+name|HERENOW
 block|,
-name|WHERE_NOW
+name|WHERENOW
 block|,
-name|GET_STATE
+name|GETSTATE
 block|,
-name|SET_STATE
+name|SETSTATE
 block|,
-name|GET_HISTORY
+name|GETHISTORY
 block|,
 name|PUBLISH
 block|,

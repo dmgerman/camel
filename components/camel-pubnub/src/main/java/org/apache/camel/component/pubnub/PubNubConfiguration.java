@@ -99,23 +99,47 @@ name|channel
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|()
-DECL|field|publisherKey
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
+DECL|field|publishKey
 specifier|private
 name|String
-name|publisherKey
+name|publishKey
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|()
-DECL|field|subscriberKey
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
+DECL|field|subscribeKey
 specifier|private
 name|String
-name|subscriberKey
+name|subscribeKey
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|()
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|secretKey
 specifier|private
 name|String
@@ -123,11 +147,35 @@ name|secretKey
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|()
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|authKey
 specifier|private
 name|String
 name|authKey
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
+DECL|field|cipherKey
+specifier|private
+name|String
+name|cipherKey
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -160,7 +208,7 @@ literal|"producer"
 argument_list|,
 name|enums
 operator|=
-literal|"HERE_NOW,WHERE_NOW,GET_STATE,SET_STATE,GET_HISTORY,PUBLISH,FIRE"
+literal|"HERENOW,WHERENOW,GETSTATE,SETSTATE,GETHISTORY,PUBLISH,FIRE"
 argument_list|)
 DECL|field|operation
 specifier|private
@@ -184,61 +232,61 @@ name|boolean
 name|withPresence
 decl_stmt|;
 comment|/**      * The publish key obtained from your PubNub account. Required when publishing messages.      */
-DECL|method|getPublisherKey ()
+DECL|method|getPublishKey ()
 specifier|public
 name|String
-name|getPublisherKey
+name|getPublishKey
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|publisherKey
+name|publishKey
 return|;
 block|}
-DECL|method|setPublisherKey (String publisherKey)
+DECL|method|setPublishKey (String publishKey)
 specifier|public
 name|void
-name|setPublisherKey
+name|setPublishKey
 parameter_list|(
 name|String
-name|publisherKey
+name|publishKey
 parameter_list|)
 block|{
 name|this
 operator|.
-name|publisherKey
+name|publishKey
 operator|=
-name|publisherKey
+name|publishKey
 expr_stmt|;
 block|}
 comment|/**      * The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events      */
-DECL|method|getSubscriberKey ()
+DECL|method|getSubscribeKey ()
 specifier|public
 name|String
-name|getSubscriberKey
+name|getSubscribeKey
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|subscriberKey
+name|subscribeKey
 return|;
 block|}
-DECL|method|setSubscriberKey (String subscriberKey)
+DECL|method|setSubscribeKey (String subscribeKey)
 specifier|public
 name|void
-name|setSubscriberKey
+name|setSubscribeKey
 parameter_list|(
 name|String
-name|subscriberKey
+name|subscribeKey
 parameter_list|)
 block|{
 name|this
 operator|.
-name|subscriberKey
+name|subscribeKey
 operator|=
-name|subscriberKey
+name|subscribeKey
 expr_stmt|;
 block|}
 comment|/**      * The secret key used for message signing.      */
@@ -295,6 +343,33 @@ operator|.
 name|authKey
 operator|=
 name|authKey
+expr_stmt|;
+block|}
+comment|/**      * If cipher is passed, all communicatons to/from PubNub will be encrypted.      */
+DECL|method|getCipherKey ()
+specifier|public
+name|String
+name|getCipherKey
+parameter_list|()
+block|{
+return|return
+name|cipherKey
+return|;
+block|}
+DECL|method|setCipherKey (String cipherKey)
+specifier|public
+name|void
+name|setCipherKey
+parameter_list|(
+name|String
+name|cipherKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cipherKey
+operator|=
+name|cipherKey
 expr_stmt|;
 block|}
 comment|/**      * Use ssl      */
@@ -355,7 +430,7 @@ operator|=
 name|channel
 expr_stmt|;
 block|}
-comment|/**      * The uuid identifying the connection. Will be auto assigned if not set.      */
+comment|/**      * UUID to be used as a device identifier, a default UUID is generated if not passed.      */
 DECL|method|setUuid (String uuid)
 specifier|public
 name|void
@@ -384,7 +459,7 @@ operator|.
 name|uuid
 return|;
 block|}
-comment|/**      * The operation to perform.      */
+comment|/**      * The operation to perform.      *<ul>      *<li>PUBLISH: Default. Send a message to all subscribers of a channel.</li>      *<li>FIRE: allows the client to send a message to BLOCKS Event Handlers. These messages will go directly to any Event Handlers registered on the channel that you fire to and will trigger their execution,</li>      *<li>HERENOW: Obtain information about the current state of a channel including a list of unique user-ids currently subscribed to the channel and the total occupancy count.</li>      *<li>WHERENOW: Obtain information about the current list of channels to which a uuid is subscribed to.</li>      *<li>GETSTATE: Used to get key/value pairs specific to a subscriber uuid. State information is supplied as a JSON object of key/value pairs</li>      *<li>SETSTATE: Used to set key/value pairs specific to a subscriber uuid</li>      *<li>GETHISTORY: Fetches historical messages of a channel.</li>      *</ul>      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void

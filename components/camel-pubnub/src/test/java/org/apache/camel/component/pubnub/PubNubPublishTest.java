@@ -203,7 +203,7 @@ specifier|private
 name|String
 name|endpoint
 init|=
-literal|"pubnub:someChannel?pubnub=#pubnub"
+literal|"pubnub://someChannel?pubnub=#pubnub"
 decl_stmt|;
 annotation|@
 name|EndpointInject
@@ -377,10 +377,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testFire ()
+DECL|method|testFireWithOperationHeader ()
 specifier|public
 name|void
-name|testFire
+name|testFireWithOperationHeader
 parameter_list|()
 throws|throws
 name|Exception

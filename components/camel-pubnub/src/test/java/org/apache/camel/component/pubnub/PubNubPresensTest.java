@@ -339,7 +339,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pubnub:mychannel?pubnub=#pubnub&withPresence=true"
+literal|"pubnub://mychannel?pubnub=#pubnub&withPresence=true"
 argument_list|)
 operator|.
 name|id

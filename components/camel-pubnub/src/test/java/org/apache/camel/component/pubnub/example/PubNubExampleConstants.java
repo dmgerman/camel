@@ -26,19 +26,19 @@ specifier|public
 interface|interface
 name|PubNubExampleConstants
 block|{
-comment|// replace subscriber+publisher key with one obtained from PubNub.
+comment|// replace subscribe+publish key with one obtained from PubNub.
 comment|// http://www.pubnub.com
-DECL|field|PUBNUB_SUBSCRIBER_KEY
+DECL|field|PUBNUB_SUBSCRIBE_KEY
 name|String
-name|PUBNUB_SUBSCRIBER_KEY
+name|PUBNUB_SUBSCRIBE_KEY
 init|=
-literal|"subkey"
+literal|"mysubkey"
 decl_stmt|;
-DECL|field|PUBNUB_PUBLISHER_KEY
+DECL|field|PUBNUB_PUBLISH_KEY
 name|String
-name|PUBNUB_PUBLISHER_KEY
+name|PUBNUB_PUBLISH_KEY
 init|=
-literal|"pubkey"
+literal|"mypubkey"
 decl_stmt|;
 block|}
 end_interface

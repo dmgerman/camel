@@ -200,7 +200,7 @@ name|example
 operator|.
 name|PubNubExampleConstants
 operator|.
-name|PUBNUB_PUBLISHER_KEY
+name|PUBNUB_PUBLISH_KEY
 import|;
 end_import
 
@@ -220,7 +220,7 @@ name|example
 operator|.
 name|PubNubExampleConstants
 operator|.
-name|PUBNUB_SUBSCRIBER_KEY
+name|PUBNUB_SUBSCRIBE_KEY
 import|;
 end_import
 
@@ -293,13 +293,13 @@ specifier|final
 name|String
 name|deviceEP
 init|=
-literal|"pubnub:iot?uuid=device2&publisherKey="
+literal|"pubnub://iot?uuid=device2&publishKey="
 operator|+
-name|PUBNUB_PUBLISHER_KEY
+name|PUBNUB_PUBLISH_KEY
 operator|+
-literal|"&subscriberKey="
+literal|"&subscribeKey="
 operator|+
-name|PUBNUB_SUBSCRIBER_KEY
+name|PUBNUB_SUBSCRIBE_KEY
 decl_stmt|;
 DECL|field|devicePrivateEP
 specifier|private
@@ -307,13 +307,13 @@ specifier|final
 name|String
 name|devicePrivateEP
 init|=
-literal|"pubnub:device2private?uuid=device2&publisherKey="
+literal|"pubnub://device2private?uuid=device2&publishKey="
 operator|+
-name|PUBNUB_PUBLISHER_KEY
+name|PUBNUB_PUBLISH_KEY
 operator|+
-literal|"&subscriberKey="
+literal|"&subscribeKey="
 operator|+
-name|PUBNUB_SUBSCRIBER_KEY
+name|PUBNUB_SUBSCRIBE_KEY
 decl_stmt|;
 annotation|@
 name|Override
@@ -381,13 +381,13 @@ specifier|static
 name|String
 name|masterEP
 init|=
-literal|"pubnub:iot?uuid=master&subscriberKey="
+literal|"pubnub://iot?uuid=master&subscribeKey="
 operator|+
-name|PUBNUB_SUBSCRIBER_KEY
+name|PUBNUB_SUBSCRIBE_KEY
 operator|+
-literal|"&publisherKey="
+literal|"&publishKey="
 operator|+
-name|PUBNUB_PUBLISHER_KEY
+name|PUBNUB_PUBLISH_KEY
 decl_stmt|;
 DECL|field|devices
 specifier|private
@@ -508,9 +508,9 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"pubnub:iot?uuid=master&subscriberKey="
+literal|"pubnub://iot?uuid=master&subscribeKey="
 operator|+
-name|PUBNUB_SUBSCRIBER_KEY
+name|PUBNUB_SUBSCRIBE_KEY
 argument_list|)
 DECL|field|template
 specifier|private
@@ -594,7 +594,7 @@ name|put
 argument_list|(
 name|OPERATION
 argument_list|,
-literal|"WHERE_NOW"
+literal|"WHERENOW"
 argument_list|)
 expr_stmt|;
 name|headers
