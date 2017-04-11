@@ -59,7 +59,7 @@ specifier|private
 name|String
 name|instanceClass
 decl_stmt|;
-comment|/**      * Defines a content type format in which protobuf message will be      * serialized/deserialized from(to) the Java been. It can be native protobuf      * format or json fields representation. The default value is 'native'.      */
+comment|/**      * Defines a content type format in which protobuf message will be      * serialized/deserialized from(to) the Java been. The format can either be      * native or json for either native protobuf or json fields representation.      * The default value is native.      */
 DECL|field|contentTypeFormat
 specifier|private
 name|String

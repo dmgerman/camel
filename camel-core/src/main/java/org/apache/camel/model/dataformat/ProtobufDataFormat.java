@@ -192,6 +192,17 @@ name|instanceClass
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|enums
+operator|=
+literal|"native,json"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"native"
+argument_list|)
 DECL|field|contentTypeFormat
 specifier|private
 name|String
@@ -284,7 +295,7 @@ operator|=
 name|instanceClass
 expr_stmt|;
 block|}
-comment|/**      * Defines a content type format in which protobuf message will be      * serialized/deserialized from(to) the Java been. It can be native protobuf      * format or json fields representation. The default value is 'native'.      */
+comment|/**      * Defines a content type format in which protobuf message will be      * serialized/deserialized from(to) the Java been.      * The format can either be native or json for either native protobuf or json fields representation.      * The default value is native.      */
 DECL|method|setContentTypeFormat (String contentTypeFormat)
 specifier|public
 name|void
