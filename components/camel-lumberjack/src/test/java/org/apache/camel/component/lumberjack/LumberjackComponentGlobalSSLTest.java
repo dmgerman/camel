@@ -276,7 +276,7 @@ argument_list|)
 decl_stmt|;
 name|component
 operator|.
-name|setUseGlobalSSLContextParameters
+name|setUseGlobalSslContextParameters
 argument_list|(
 literal|true
 argument_list|)

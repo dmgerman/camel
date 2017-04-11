@@ -309,7 +309,7 @@ literal|"cxf"
 argument_list|)
 operator|)
 operator|.
-name|setUseGlobalSSLContextParameters
+name|setUseGlobalSslContextParameters
 argument_list|(
 literal|true
 argument_list|)

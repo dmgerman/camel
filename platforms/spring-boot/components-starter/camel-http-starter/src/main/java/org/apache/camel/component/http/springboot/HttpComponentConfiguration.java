@@ -186,10 +186,10 @@ init|=
 literal|false
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
-DECL|field|useGlobalSSLContextParameters
+DECL|field|useGlobalSslContextParameters
 specifier|private
 name|Boolean
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
@@ -346,23 +346,23 @@ name|getUseGlobalSSLContextParameters
 parameter_list|()
 block|{
 return|return
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 return|;
 block|}
-DECL|method|setUseGlobalSSLContextParameters ( Boolean useGlobalSSLContextParameters)
+DECL|method|setUseGlobalSSLContextParameters ( Boolean useGlobalSslContextParameters)
 specifier|public
 name|void
 name|setUseGlobalSSLContextParameters
 parameter_list|(
 name|Boolean
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 operator|=
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()

@@ -549,10 +549,10 @@ name|defaultValue
 operator|=
 literal|"false"
 argument_list|)
-DECL|field|useGlobalSSLContextParameters
+DECL|field|useGlobalSslContextParameters
 specifier|private
 name|boolean
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 decl_stmt|;
 annotation|@
 name|Metadata
@@ -670,7 +670,7 @@ condition|)
 block|{
 name|sslParams
 operator|=
-name|getGlobalSSLContextParameters
+name|retrieveGlobalSslContextParameters
 argument_list|()
 expr_stmt|;
 block|}
@@ -2040,35 +2040,35 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isUseGlobalSSLContextParameters ()
+DECL|method|isUseGlobalSslContextParameters ()
 specifier|public
 name|boolean
-name|isUseGlobalSSLContextParameters
+name|isUseGlobalSslContextParameters
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 return|;
 block|}
 comment|/**      * Enable usage of global SSL context parameters.      */
 annotation|@
 name|Override
-DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
+DECL|method|setUseGlobalSslContextParameters (boolean useGlobalSslContextParameters)
 specifier|public
 name|void
-name|setUseGlobalSSLContextParameters
+name|setUseGlobalSslContextParameters
 parameter_list|(
 name|boolean
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 operator|=
-name|useGlobalSSLContextParameters
+name|useGlobalSslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getHostOptions ()

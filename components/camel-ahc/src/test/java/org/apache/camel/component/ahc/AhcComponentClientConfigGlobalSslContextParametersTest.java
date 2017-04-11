@@ -92,7 +92,7 @@ literal|"ahc"
 argument_list|)
 operator|)
 operator|.
-name|setUseGlobalSSLContextParameters
+name|setUseGlobalSslContextParameters
 argument_list|(
 literal|true
 argument_list|)
@@ -109,7 +109,7 @@ literal|"jetty"
 argument_list|)
 operator|)
 operator|.
-name|setUseGlobalSSLContextParameters
+name|setUseGlobalSslContextParameters
 argument_list|(
 literal|true
 argument_list|)
