@@ -509,7 +509,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// add dataFormat as service which will also start the service
-comment|// (false => we and handling the lifecycle of the dataFormat)
+comment|// (false => we handle the lifecycle of the dataFormat)
 name|getCamelContext
 argument_list|()
 operator|.
@@ -518,6 +518,8 @@ argument_list|(
 name|dataFormat
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
