@@ -66,6 +66,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_class
 DECL|class|NatsComponent
 specifier|public
@@ -76,6 +90,22 @@ name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useGlobalSSLContextParameters
+specifier|private
+name|boolean
+name|useGlobalSSLContextParameters
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -156,6 +186,39 @@ decl_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isUseGlobalSSLContextParameters ()
+specifier|public
+name|boolean
+name|isUseGlobalSSLContextParameters
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+return|;
+block|}
+comment|/**      * Enable usage of global SSL context parameters.      */
+annotation|@
+name|Override
+DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSSLContextParameters
+parameter_list|(
+name|boolean
+name|useGlobalSSLContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+operator|=
+name|useGlobalSSLContextParameters
+expr_stmt|;
 block|}
 block|}
 end_class

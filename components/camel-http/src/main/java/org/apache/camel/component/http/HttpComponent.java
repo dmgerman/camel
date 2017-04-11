@@ -146,6 +146,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|SSLContextParametersAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|VerifiableComponent
 import|;
 end_import
@@ -442,6 +454,8 @@ implements|implements
 name|RestProducerFactory
 implements|,
 name|VerifiableComponent
+implements|,
+name|SSLContextParametersAware
 block|{
 annotation|@
 name|Metadata
@@ -466,6 +480,22 @@ DECL|field|httpConnectionManager
 specifier|protected
 name|HttpConnectionManager
 name|httpConnectionManager
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useGlobalSSLContextParameters
+specifier|private
+name|boolean
+name|useGlobalSSLContextParameters
 decl_stmt|;
 DECL|method|HttpComponent ()
 specifier|public
@@ -2148,6 +2178,39 @@ name|setAllowJavaSerializedObject
 argument_list|(
 name|allowJavaSerializedObject
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isUseGlobalSSLContextParameters ()
+specifier|public
+name|boolean
+name|isUseGlobalSSLContextParameters
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+return|;
+block|}
+comment|/**      * Enable usage of global SSL context parameters.      */
+annotation|@
+name|Override
+DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSSLContextParameters
+parameter_list|(
+name|boolean
+name|useGlobalSSLContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+operator|=
+name|useGlobalSSLContextParameters
 expr_stmt|;
 block|}
 comment|/**      * TODO: document      */

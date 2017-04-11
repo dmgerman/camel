@@ -148,6 +148,22 @@ specifier|private
 name|String
 name|host
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useGlobalSSLContextParameters
+specifier|private
+name|boolean
+name|useGlobalSSLContextParameters
+decl_stmt|;
 DECL|method|StompComponent ()
 specifier|public
 name|StompComponent
@@ -241,11 +257,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|config
-operator|.
-name|isUseGlobalSslContextParameters
-argument_list|()
-operator|&&
 name|config
 operator|.
 name|getSslContextParameters
@@ -364,6 +375,39 @@ name|setHost
 argument_list|(
 name|host
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isUseGlobalSSLContextParameters ()
+specifier|public
+name|boolean
+name|isUseGlobalSSLContextParameters
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+return|;
+block|}
+comment|/**      * Enable usage of global SSL context parameters.      */
+annotation|@
+name|Override
+DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSSLContextParameters
+parameter_list|(
+name|boolean
+name|useGlobalSSLContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+operator|=
+name|useGlobalSSLContextParameters
 expr_stmt|;
 block|}
 block|}

@@ -602,14 +602,12 @@ literal|"security"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"true"
+literal|"false"
 argument_list|)
-DECL|field|useGlobalSslContextParameters
+DECL|field|useGlobalSSLContextParameters
 specifier|protected
 name|boolean
-name|useGlobalSslContextParameters
-init|=
-literal|true
+name|useGlobalSSLContextParameters
 decl_stmt|;
 annotation|@
 name|Metadata
@@ -1680,34 +1678,6 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Boolean
-name|useGlobalSslContextParameters
-init|=
-name|getAndRemoveParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"useGlobalSslContextParameters"
-argument_list|,
-name|Boolean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|useGlobalSslContextParameters
-operator|==
-literal|null
-condition|)
-block|{
-name|useGlobalSslContextParameters
-operator|=
-name|this
-operator|.
-name|useGlobalSslContextParameters
-expr_stmt|;
-block|}
-name|Boolean
 name|enableJmx
 init|=
 name|getAndRemoveParameter
@@ -1809,8 +1779,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|useGlobalSslContextParameters
-operator|&&
 name|sslContextParameters
 operator|==
 literal|null
@@ -1871,13 +1839,6 @@ operator|.
 name|setHost
 argument_list|(
 name|host
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
-name|setUseGlobalSslContextParameters
-argument_list|(
-name|useGlobalSslContextParameters
 argument_list|)
 expr_stmt|;
 name|setProperties
@@ -3823,31 +3784,37 @@ operator|=
 name|sslContextParameters
 expr_stmt|;
 block|}
-DECL|method|isUseGlobalSslContextParameters ()
+annotation|@
+name|Override
+DECL|method|isUseGlobalSSLContextParameters ()
 specifier|public
 name|boolean
-name|isUseGlobalSslContextParameters
+name|isUseGlobalSSLContextParameters
 parameter_list|()
 block|{
 return|return
-name|useGlobalSslContextParameters
+name|this
+operator|.
+name|useGlobalSSLContextParameters
 return|;
 block|}
-comment|/**      * Enable usage of Camel global SSL context parameters      */
-DECL|method|setUseGlobalSslContextParameters (boolean useGlobalSslContextParameters)
+comment|/**      * Enable usage of global SSL context parameters.      */
+annotation|@
+name|Override
+DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
 specifier|public
 name|void
-name|setUseGlobalSslContextParameters
+name|setUseGlobalSSLContextParameters
 parameter_list|(
 name|boolean
-name|useGlobalSslContextParameters
+name|useGlobalSSLContextParameters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useGlobalSslContextParameters
+name|useGlobalSSLContextParameters
 operator|=
-name|useGlobalSslContextParameters
+name|useGlobalSSLContextParameters
 expr_stmt|;
 block|}
 DECL|method|getSocketFactory ()

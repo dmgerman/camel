@@ -185,6 +185,14 @@ name|allowJavaSerializedObject
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Enable usage of global SSL context parameters.      */
+DECL|field|useGlobalSSLContextParameters
+specifier|private
+name|Boolean
+name|useGlobalSSLContextParameters
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -329,6 +337,32 @@ operator|.
 name|allowJavaSerializedObject
 operator|=
 name|allowJavaSerializedObject
+expr_stmt|;
+block|}
+DECL|method|getUseGlobalSSLContextParameters ()
+specifier|public
+name|Boolean
+name|getUseGlobalSSLContextParameters
+parameter_list|()
+block|{
+return|return
+name|useGlobalSSLContextParameters
+return|;
+block|}
+DECL|method|setUseGlobalSSLContextParameters ( Boolean useGlobalSSLContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSSLContextParameters
+parameter_list|(
+name|Boolean
+name|useGlobalSSLContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+operator|=
+name|useGlobalSSLContextParameters
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()

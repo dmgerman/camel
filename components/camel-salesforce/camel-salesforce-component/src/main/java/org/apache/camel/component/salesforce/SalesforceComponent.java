@@ -871,6 +871,26 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Enable usage of global SSL context parameters"
+argument_list|,
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useGlobalSSLContextParameters
+specifier|private
+name|boolean
+name|useGlobalSSLContextParameters
+decl_stmt|;
 comment|// Proxy host and port
 annotation|@
 name|Metadata
@@ -2623,6 +2643,38 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isUseGlobalSSLContextParameters ()
+specifier|public
+name|boolean
+name|isUseGlobalSSLContextParameters
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSSLContextParameters
+parameter_list|(
+name|boolean
+name|useGlobalSSLContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+operator|=
+name|useGlobalSSLContextParameters
 expr_stmt|;
 block|}
 DECL|method|getHttpProxyHost ()

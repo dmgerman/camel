@@ -475,24 +475,6 @@ name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|useGlobalSslContextParameters
-specifier|private
-name|boolean
-name|useGlobalSslContextParameters
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"security"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|autoStartTls
 specifier|private
 name|boolean
@@ -1210,33 +1192,6 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
-expr_stmt|;
-block|}
-DECL|method|isUseGlobalSslContextParameters ()
-specifier|public
-name|boolean
-name|isUseGlobalSslContextParameters
-parameter_list|()
-block|{
-return|return
-name|useGlobalSslContextParameters
-return|;
-block|}
-comment|/**      * Enable usage of Camel global sslContextParameters.      */
-DECL|method|setUseGlobalSslContextParameters (boolean useGlobalSslContextParameters)
-specifier|public
-name|void
-name|setUseGlobalSslContextParameters
-parameter_list|(
-name|boolean
-name|useGlobalSslContextParameters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|useGlobalSslContextParameters
-operator|=
-name|useGlobalSslContextParameters
 expr_stmt|;
 block|}
 DECL|method|isAutoStartTls ()

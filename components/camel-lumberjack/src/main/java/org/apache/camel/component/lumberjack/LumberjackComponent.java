@@ -141,10 +141,10 @@ name|defaultValue
 operator|=
 literal|"false"
 argument_list|)
-DECL|field|useGlobalSslContextParameters
+DECL|field|useGlobalSSLContextParameters
 specifier|private
 name|boolean
-name|useGlobalSslContextParameters
+name|useGlobalSSLContextParameters
 decl_stmt|;
 DECL|method|LumberjackComponent ()
 specifier|public
@@ -290,9 +290,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|isUseGlobalSslContextParameters
-argument_list|()
-operator|&&
 name|answer
 operator|.
 name|getSslContextParameters
@@ -341,31 +338,37 @@ operator|=
 name|sslContextParameters
 expr_stmt|;
 block|}
-DECL|method|isUseGlobalSslContextParameters ()
+annotation|@
+name|Override
+DECL|method|isUseGlobalSSLContextParameters ()
 specifier|public
 name|boolean
-name|isUseGlobalSslContextParameters
+name|isUseGlobalSSLContextParameters
 parameter_list|()
 block|{
 return|return
-name|useGlobalSslContextParameters
+name|this
+operator|.
+name|useGlobalSSLContextParameters
 return|;
 block|}
-comment|/**      * Enable usage of Camel global SSL parameters      */
-DECL|method|setUseGlobalSslContextParameters (boolean useGlobalSslContextParameters)
+comment|/**      * Enable usage of global SSL context parameters.      */
+annotation|@
+name|Override
+DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
 specifier|public
 name|void
-name|setUseGlobalSslContextParameters
+name|setUseGlobalSSLContextParameters
 parameter_list|(
 name|boolean
-name|useGlobalSslContextParameters
+name|useGlobalSSLContextParameters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useGlobalSslContextParameters
+name|useGlobalSSLContextParameters
 operator|=
-name|useGlobalSslContextParameters
+name|useGlobalSSLContextParameters
 expr_stmt|;
 block|}
 block|}

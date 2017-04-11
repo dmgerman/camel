@@ -746,6 +746,22 @@ name|label
 operator|=
 literal|"security"
 argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useGlobalSSLContextParameters
+specifier|private
+name|boolean
+name|useGlobalSSLContextParameters
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|description
 operator|=
 literal|"To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier."
@@ -2770,6 +2786,39 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isUseGlobalSSLContextParameters ()
+specifier|public
+name|boolean
+name|isUseGlobalSSLContextParameters
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+return|;
+block|}
+comment|/**      * Enable usage of global SSL context parameters.      */
+annotation|@
+name|Override
+DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSSLContextParameters
+parameter_list|(
+name|boolean
+name|useGlobalSSLContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSSLContextParameters
+operator|=
+name|useGlobalSSLContextParameters
 expr_stmt|;
 block|}
 DECL|method|getX509HostnameVerifier ()

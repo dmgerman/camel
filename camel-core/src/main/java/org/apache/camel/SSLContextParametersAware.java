@@ -42,12 +42,18 @@ name|SSLContextParametersAware
 extends|extends
 name|CamelContextAware
 block|{
-comment|/**      * Returns the global {@link SSLContextParameters} if configured.      */
+comment|/**      * Returns the global {@link SSLContextParameters} if enabled on the implementing object, null otherwise.      */
 DECL|method|getGlobalSSLContextParameters ()
 specifier|default
 name|SSLContextParameters
 name|getGlobalSSLContextParameters
 parameter_list|()
+block|{
+if|if
+condition|(
+name|isUseGlobalSSLContextParameters
+argument_list|()
+condition|)
 block|{
 return|return
 name|getCamelContext
@@ -57,6 +63,25 @@ name|getSSLContextParameters
 argument_list|()
 return|;
 block|}
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Determine if the implementing object is using global SSL context parameters.      */
+DECL|method|isUseGlobalSSLContextParameters ()
+name|boolean
+name|isUseGlobalSSLContextParameters
+parameter_list|()
+function_decl|;
+comment|/**      * Enable usage of global SSL context parameters.      */
+DECL|method|setUseGlobalSSLContextParameters (boolean useGlobalSSLContextParameters)
+name|void
+name|setUseGlobalSSLContextParameters
+parameter_list|(
+name|boolean
+name|useGlobalSSLContextParameters
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
