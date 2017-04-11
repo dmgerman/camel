@@ -377,7 +377,7 @@ name|callback
 operator|.
 name|done
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -447,6 +447,13 @@ operator|.
 name|setException
 argument_list|(
 name|e
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
