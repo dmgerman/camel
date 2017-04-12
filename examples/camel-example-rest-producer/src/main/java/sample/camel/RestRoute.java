@@ -93,7 +93,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rest:get:petById/{id}"
+literal|"rest:get:pets/{id}"
 argument_list|)
 operator|.
 name|log

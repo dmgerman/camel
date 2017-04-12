@@ -14,17 +14,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|springframework
+name|util
 operator|.
-name|web
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|bind
+name|util
 operator|.
-name|annotation
-operator|.
-name|PathVariable
+name|Map
 import|;
 end_import
 
@@ -40,7 +44,23 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|RequestMapping
+name|GetMapping
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|web
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|PathVariable
 import|;
 end_import
 
@@ -92,19 +112,20 @@ literal|"Tony the Tiger"
 block|}
 decl_stmt|;
 annotation|@
-name|RequestMapping
+name|GetMapping
 argument_list|(
 name|value
 operator|=
-literal|"/petById/{id}"
-argument_list|,
-name|produces
-operator|=
-literal|"application/json"
+literal|"/pets/{id}"
 argument_list|)
 DECL|method|petById (@athVariableR) Integer id)
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|petById
 parameter_list|(
 annotation|@
@@ -151,11 +172,11 @@ name|index
 index|]
 decl_stmt|;
 return|return
-name|String
+name|Collections
 operator|.
-name|format
+name|singletonMap
 argument_list|(
-literal|"{ \"name\": \"%s\" }"
+literal|"name"
 argument_list|,
 name|pet
 argument_list|)
@@ -163,9 +184,11 @@ return|;
 block|}
 else|else
 block|{
-comment|// empty pet
 return|return
-literal|"{ }"
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 return|;
 block|}
 block|}
