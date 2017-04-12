@@ -746,22 +746,6 @@ name|label
 operator|=
 literal|"security"
 argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
-DECL|field|useGlobalSslContextParameters
-specifier|private
-name|boolean
-name|useGlobalSslContextParameters
-decl_stmt|;
-annotation|@
-name|Metadata
-argument_list|(
-name|label
-operator|=
-literal|"security"
-argument_list|,
 name|description
 operator|=
 literal|"To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier."
@@ -861,6 +845,22 @@ name|connectionTimeToLive
 init|=
 operator|-
 literal|1
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useGlobalSslContextParameters
+specifier|private
+name|boolean
+name|useGlobalSslContextParameters
 decl_stmt|;
 DECL|method|HttpComponent ()
 specifier|public
