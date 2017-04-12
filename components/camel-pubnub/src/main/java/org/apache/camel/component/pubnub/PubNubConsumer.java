@@ -160,20 +160,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -571,7 +557,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Got status : {}. Reconnecting to PubNub"
+literal|"Got status: {}. Reconnecting to PubNub"
 argument_list|,
 name|status
 argument_list|)
@@ -588,7 +574,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Status message : {}"
+literal|"Status message: {}"
 argument_list|,
 name|status
 argument_list|)
@@ -673,13 +659,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
 name|getExceptionHandler
 argument_list|()
 operator|.
@@ -711,16 +690,10 @@ block|{
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|endpoint
-argument_list|,
 name|endpoint
 operator|.
-name|getExchangePattern
+name|createExchange
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Message
 name|inmessage
