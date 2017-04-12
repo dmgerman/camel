@@ -114,6 +114,12 @@ name|INSTANCES_TAGS
 init|=
 literal|"CamelAwsEC2InstancesTags"
 decl_stmt|;
+DECL|field|SUBNET_ID
+name|String
+name|SUBNET_ID
+init|=
+literal|"CamelAwsEC2SubnetId"
+decl_stmt|;
 block|}
 end_interface
 
