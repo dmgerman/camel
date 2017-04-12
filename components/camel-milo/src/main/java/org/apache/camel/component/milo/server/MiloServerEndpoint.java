@@ -178,7 +178,7 @@ literal|"milo-server"
 argument_list|,
 name|syntax
 operator|=
-literal|"milo-server:itemId[?options]"
+literal|"milo-server:itemId"
 argument_list|,
 name|title
 operator|=
