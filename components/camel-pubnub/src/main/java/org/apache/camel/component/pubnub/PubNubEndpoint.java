@@ -148,7 +148,7 @@ literal|"PubNub"
 argument_list|,
 name|syntax
 operator|=
-literal|"pubnub://channel"
+literal|"pubnub:channel"
 argument_list|,
 name|consumerClass
 operator|=
@@ -169,6 +169,11 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|pubnub
 specifier|private
 name|PubNub

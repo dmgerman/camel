@@ -174,7 +174,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"pubnub://eon-maps-geolocation-input?operation=fire&publishKey="
+literal|"pubnub:eon-maps-geolocation-input?operation=fire&publishKey="
 operator|+
 name|PUBNUB_PUBLISH_KEY
 operator|+
@@ -185,7 +185,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pubnub://eon-map-geolocation-output?subscribeKey="
+literal|"pubnub:eon-map-geolocation-output?subscribeKey="
 operator|+
 name|PUBNUB_SUBSCRIBE_KEY
 argument_list|)

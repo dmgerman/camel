@@ -612,16 +612,10 @@ block|{
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|endpoint
-argument_list|,
 name|endpoint
 operator|.
-name|getExchangePattern
+name|createExchange
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Message
 name|inmessage

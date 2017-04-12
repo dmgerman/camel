@@ -115,7 +115,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"pubnub://xxx?subscribeKey=mysubkey"
+literal|"pubnub:xxx?subscribeKey=mysubkey"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -185,7 +185,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"pubnub://xxx?subscribeKey=mysubkey&publishKey=mypubkey&secretKey=secrets&uuid=myuuid&operation=PUBLISH&secure=false&authKey=authKey"
+literal|"pubnub:xxx?subscribeKey=mysubkey&publishKey=mypubkey&secretKey=secrets&uuid=myuuid&operation=PUBLISH&secure=false&authKey=authKey"
 argument_list|)
 decl_stmt|;
 name|assertEquals

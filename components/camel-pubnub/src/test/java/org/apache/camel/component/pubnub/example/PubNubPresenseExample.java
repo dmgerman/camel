@@ -134,7 +134,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pubnub://iot?withPresence=true&subscribeKey="
+literal|"pubnub:iot?withPresence=true&subscribeKey="
 operator|+
 name|PUBNUB_SUBSCRIBE_KEY
 argument_list|)

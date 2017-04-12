@@ -269,7 +269,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pubnub://mychannel?pubnub=#pubnub"
+literal|"pubnub:mychannel?pubnub=#pubnub"
 argument_list|)
 operator|.
 name|id

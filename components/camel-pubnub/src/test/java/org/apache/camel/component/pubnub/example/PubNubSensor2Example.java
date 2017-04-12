@@ -293,7 +293,7 @@ specifier|final
 name|String
 name|deviceEP
 init|=
-literal|"pubnub://iot?uuid=device2&publishKey="
+literal|"pubnub:iot?uuid=device2&publishKey="
 operator|+
 name|PUBNUB_PUBLISH_KEY
 operator|+
@@ -307,7 +307,7 @@ specifier|final
 name|String
 name|devicePrivateEP
 init|=
-literal|"pubnub://device2private?uuid=device2&publishKey="
+literal|"pubnub:device2private?uuid=device2&publishKey="
 operator|+
 name|PUBNUB_PUBLISH_KEY
 operator|+
@@ -381,7 +381,7 @@ specifier|static
 name|String
 name|masterEP
 init|=
-literal|"pubnub://iot?uuid=master&subscribeKey="
+literal|"pubnub:iot?uuid=master&subscribeKey="
 operator|+
 name|PUBNUB_SUBSCRIBE_KEY
 operator|+
@@ -508,7 +508,7 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"pubnub://iot?uuid=master&subscribeKey="
+literal|"pubnub:iot?uuid=master&subscribeKey="
 operator|+
 name|PUBNUB_SUBSCRIBE_KEY
 argument_list|)

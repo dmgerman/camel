@@ -180,6 +180,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -372,7 +376,7 @@ operator|=
 name|cipherKey
 expr_stmt|;
 block|}
-comment|/**      * Use ssl      */
+comment|/**      * Use SSL for secure transmission.      */
 DECL|method|isSecure ()
 specifier|public
 name|boolean

@@ -173,7 +173,7 @@ specifier|private
 name|String
 name|endpoint
 init|=
-literal|"pubnub://someChannel?operation=fire&pubnub=#pubnub"
+literal|"pubnub:someChannel?operation=fire&pubnub=#pubnub"
 decl_stmt|;
 annotation|@
 name|EndpointInject
