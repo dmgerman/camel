@@ -21,18 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-operator|.
-name|requireNonNull
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -41,6 +29,18 @@ operator|.
 name|function
 operator|.
 name|Consumer
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+operator|.
+name|requireNonNull
 import|;
 end_import
 
