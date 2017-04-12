@@ -81,12 +81,6 @@ specifier|public
 class|class
 name|CamelSSLConfigurationProperties
 block|{
-comment|/**      * Enable the global ssl configuration in Camel.      */
-DECL|field|enabled
-specifier|private
-name|boolean
-name|enabled
-decl_stmt|;
 comment|/**      * The Camel global SSL configuration      */
 annotation|@
 name|NestedConfigurationProperty
@@ -100,32 +94,6 @@ specifier|public
 name|CamelSSLConfigurationProperties
 parameter_list|()
 block|{     }
-DECL|method|isEnabled ()
-specifier|public
-name|boolean
-name|isEnabled
-parameter_list|()
-block|{
-return|return
-name|enabled
-return|;
-block|}
-DECL|method|setEnabled (boolean enabled)
-specifier|public
-name|void
-name|setEnabled
-parameter_list|(
-name|boolean
-name|enabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|enabled
-operator|=
-name|enabled
-expr_stmt|;
-block|}
 DECL|method|getConfig ()
 specifier|public
 name|SSLContextParameters

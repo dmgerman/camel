@@ -291,8 +291,6 @@ argument_list|(
 name|properties
 operator|=
 block|{
-literal|"camel.ssl.enabled=true"
-block|,
 literal|"camel.ssl.config.cert-alias=web"
 block|,
 literal|"camel.ssl.config.key-managers.key-password=changeit"
