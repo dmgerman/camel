@@ -80,6 +80,7 @@ end_import
 
 begin_class
 DECL|class|MiloServerProducer
+specifier|public
 class|class
 name|MiloServerProducer
 extends|extends

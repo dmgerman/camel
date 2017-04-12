@@ -200,7 +200,7 @@ literal|"milo-client"
 argument_list|,
 name|syntax
 operator|=
-literal|"milo-client:tcp://user:password@host:port/path/to/service?itemId=item.id&namespaceUri=urn:foo:bar"
+literal|"milo-client:tcp://user:password@host:port/path/to/service"
 argument_list|,
 name|title
 operator|=
@@ -272,8 +272,6 @@ DECL|field|defaultAwaitWrites
 specifier|private
 name|boolean
 name|defaultAwaitWrites
-init|=
-literal|false
 decl_stmt|;
 DECL|field|connection
 specifier|private

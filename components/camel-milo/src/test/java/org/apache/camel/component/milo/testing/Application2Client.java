@@ -63,9 +63,15 @@ end_import
 begin_class
 DECL|class|Application2Client
 specifier|public
+specifier|final
 class|class
 name|Application2Client
 block|{
+DECL|method|Application2Client ()
+specifier|private
+name|Application2Client
+parameter_list|()
+block|{     }
 DECL|method|main (final String[] args)
 specifier|public
 specifier|static

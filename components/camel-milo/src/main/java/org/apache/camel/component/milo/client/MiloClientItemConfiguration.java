@@ -59,19 +59,16 @@ interface|interface
 name|MiloClientItemConfiguration
 block|{
 DECL|method|makeNamespaceId ()
-specifier|public
 name|NamespaceId
 name|makeNamespaceId
 parameter_list|()
 function_decl|;
 DECL|method|makePartialNodeId ()
-specifier|public
 name|PartialNodeId
 name|makePartialNodeId
 parameter_list|()
 function_decl|;
 DECL|method|getSamplingInterval ()
-specifier|public
 name|Double
 name|getSamplingInterval
 parameter_list|()

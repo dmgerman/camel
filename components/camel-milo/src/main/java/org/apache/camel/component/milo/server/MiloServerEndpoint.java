@@ -195,6 +195,7 @@ operator|=
 literal|"iot"
 argument_list|)
 DECL|class|MiloServerEndpoint
+specifier|public
 class|class
 name|MiloServerEndpoint
 extends|extends

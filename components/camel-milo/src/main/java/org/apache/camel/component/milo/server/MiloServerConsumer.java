@@ -156,6 +156,7 @@ end_import
 
 begin_class
 DECL|class|MiloServerConsumer
+specifier|public
 class|class
 name|MiloServerConsumer
 extends|extends

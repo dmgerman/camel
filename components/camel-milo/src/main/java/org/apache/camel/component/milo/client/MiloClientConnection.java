@@ -387,7 +387,6 @@ interface|interface
 name|MonitorHandle
 block|{
 DECL|method|unregister ()
-specifier|public
 name|void
 name|unregister
 parameter_list|()
