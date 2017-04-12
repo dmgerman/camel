@@ -2362,26 +2362,6 @@ name|certificatesBaseDir
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Validator for client certificates using default file based approach 	 */
-DECL|method|setDefaultCertificateExistingValidator (final File trustedDir)
-specifier|public
-name|void
-name|setDefaultCertificateExistingValidator
-parameter_list|(
-specifier|final
-name|File
-name|trustedDir
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Can be implemented after fix in upstream"
-argument_list|)
-throw|;
-comment|/* 		 * checkDispose(this.certificateValidator); 		 * 		 * this.certificateValidator = new 		 * DefaultCertificateValidator(trustedDir, null, null); 		 * this.serverConfig.setCertificateValidator(this.certificateValidator); 		 */
-block|}
 block|}
 end_class
 
