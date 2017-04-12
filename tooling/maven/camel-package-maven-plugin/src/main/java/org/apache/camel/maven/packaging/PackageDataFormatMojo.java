@@ -682,12 +682,28 @@ block|}
 block|}
 block|}
 block|}
+comment|// is this from Apache Camel then the data format is out of the box and we should enrich the json schema with more details
+name|boolean
+name|apacheCamel
+init|=
+literal|"org.apache.camel"
+operator|.
+name|equals
+argument_list|(
+name|project
+operator|.
+name|getGroupId
+argument_list|()
+argument_list|)
+decl_stmt|;
 comment|// find camel-core and grab the data format model from there, and enrich this model with information from this artifact
 comment|// and create json schema model file for this data format
 try|try
 block|{
 if|if
 condition|(
+name|apacheCamel
+operator|&&
 name|count
 operator|>
 literal|0
