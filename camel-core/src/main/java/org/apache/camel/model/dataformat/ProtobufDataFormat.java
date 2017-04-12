@@ -312,6 +312,16 @@ operator|=
 name|contentTypeFormat
 expr_stmt|;
 block|}
+DECL|method|getContentTypeFormat ()
+specifier|public
+name|String
+name|getContentTypeFormat
+parameter_list|()
+block|{
+return|return
+name|contentTypeFormat
+return|;
+block|}
 DECL|method|getDefaultInstance ()
 specifier|public
 name|Object
