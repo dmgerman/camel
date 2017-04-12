@@ -398,7 +398,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** 	 * ID of the item 	 * 	 * @param itemId 	 *            the new ID of the item 	 */
+comment|/**      * ID of the item      *      * @param itemId the new ID of the item      */
 DECL|method|setItemId (final String itemId)
 specifier|public
 name|void
@@ -416,7 +416,7 @@ operator|=
 name|itemId
 expr_stmt|;
 block|}
-comment|/** 	 * Get the ID of the item 	 * 	 * @return the ID of the item 	 */
+comment|/**      * Get the ID of the item      *      * @return the ID of the item      */
 DECL|method|getItemId ()
 specifier|public
 name|String

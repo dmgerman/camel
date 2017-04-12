@@ -392,7 +392,7 @@ literal|"foo:bar,foo2:bar2"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Create a default key store for testing 	 * 	 * @return always returns a key store 	 */
+comment|/**      * Create a default key store for testing      *      * @return always returns a key store      */
 DECL|method|loadDefaultTestKey ()
 specifier|protected
 name|KeyStoreLoader

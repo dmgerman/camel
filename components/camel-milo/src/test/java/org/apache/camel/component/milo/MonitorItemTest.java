@@ -255,7 +255,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** 	 * Monitor multiple events 	 */
+comment|/**      * Monitor multiple events      */
 annotation|@
 name|Test
 DECL|method|testMonitorItem1 ()
@@ -266,7 +266,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/* 		 * we will wait 2 * 1_000 milliseconds between server updates since the 		 * default server update rate is 1_000 milliseconds 		 */
+comment|/*          * we will wait 2 * 1_000 milliseconds between server updates since the          * default server update rate is 1_000 milliseconds          */
 comment|// set server values
 name|this
 operator|.

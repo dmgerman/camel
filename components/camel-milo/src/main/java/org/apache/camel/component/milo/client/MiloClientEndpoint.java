@@ -225,7 +225,7 @@ name|DefaultEndpoint
 implements|implements
 name|MiloClientItemConfiguration
 block|{
-comment|/** 	 * The OPC UA server endpoint 	 */
+comment|/**      * The OPC UA server endpoint      */
 annotation|@
 name|UriPath
 annotation|@
@@ -241,7 +241,7 @@ specifier|final
 name|String
 name|endpointUri
 decl_stmt|;
-comment|/** 	 * The node definition (see Node ID) 	 */
+comment|/**      * The node definition (see Node ID)      */
 annotation|@
 name|UriParam
 DECL|field|node
@@ -249,7 +249,7 @@ specifier|private
 name|ExpandedNodeId
 name|node
 decl_stmt|;
-comment|/** 	 * The sampling interval in milliseconds 	 */
+comment|/**      * The sampling interval in milliseconds      */
 annotation|@
 name|UriParam
 DECL|field|samplingInterval
@@ -257,7 +257,7 @@ specifier|private
 name|Double
 name|samplingInterval
 decl_stmt|;
-comment|/** 	 * The client configuration 	 */
+comment|/**      * The client configuration      */
 annotation|@
 name|UriParam
 DECL|field|client
@@ -265,7 +265,7 @@ specifier|private
 name|MiloClientConfiguration
 name|client
 decl_stmt|;
-comment|/** 	 * Default "await" setting for writes 	 */
+comment|/**      * Default "await" setting for writes      */
 annotation|@
 name|UriParam
 DECL|field|defaultAwaitWrites

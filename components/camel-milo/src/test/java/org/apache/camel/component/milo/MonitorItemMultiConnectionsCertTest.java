@@ -502,7 +502,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** 	 * Monitor multiple connections, but only one has the correct credentials 	 */
+comment|/**      * Monitor multiple connections, but only one has the correct credentials      */
 annotation|@
 name|Test
 DECL|method|testMonitorItem1 ()

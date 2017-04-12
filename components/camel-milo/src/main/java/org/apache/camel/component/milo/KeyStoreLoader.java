@@ -255,7 +255,7 @@ DECL|method|KeyStoreLoader ()
 specifier|public
 name|KeyStoreLoader
 parameter_list|()
-block|{ 	}
+block|{     }
 DECL|method|setType (final String type)
 specifier|public
 name|void

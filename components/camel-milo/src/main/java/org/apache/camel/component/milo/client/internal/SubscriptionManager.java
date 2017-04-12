@@ -985,7 +985,7 @@ specifier|final
 name|UaException
 name|exception
 parameter_list|)
-block|{ 		}
+block|{         }
 annotation|@
 name|Override
 DECL|method|onNotificationDataLost (final UaSubscription subscription)
@@ -997,7 +997,7 @@ specifier|final
 name|UaSubscription
 name|subscription
 parameter_list|)
-block|{ 		}
+block|{         }
 annotation|@
 name|Override
 DECL|method|onKeepAlive (final UaSubscription subscription, final DateTime publishTime)
@@ -1013,7 +1013,7 @@ specifier|final
 name|DateTime
 name|publishTime
 parameter_list|)
-block|{ 		}
+block|{         }
 block|}
 DECL|interface|Worker
 specifier|public
@@ -1898,7 +1898,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/* 			 * We always read the server side table since the cache did not help 			 * us and the namespace might have been added to the server at a 			 * later time. 			 */
+comment|/*              * We always read the server side table since the cache did not help              * us and the namespace might have been added to the server at a              * later time.              */
 name|LOG
 operator|.
 name|debug

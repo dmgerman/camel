@@ -65,8 +65,8 @@ DECL|method|Messages ()
 specifier|private
 name|Messages
 parameter_list|()
-block|{ 	}
-comment|/** 	 * Fill a Message from a DataValue 	 * 	 * @param value 	 *            the value to feed from 	 * @param result 	 *            the result to feed to 	 */
+block|{     }
+comment|/**      * Fill a Message from a DataValue      *      * @param value the value to feed from      * @param result the result to feed to      */
 DECL|method|fillFromDataValue (final DataValue value, final DefaultMessage result)
 specifier|public
 specifier|static

@@ -103,7 +103,7 @@ DECL|method|ValueConverter ()
 specifier|private
 name|ValueConverter
 parameter_list|()
-block|{ 	}
+block|{     }
 annotation|@
 name|Converter
 DECL|method|toVariant (final DataValue value)

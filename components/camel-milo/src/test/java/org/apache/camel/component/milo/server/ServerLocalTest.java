@@ -231,7 +231,7 @@ specifier|public
 name|void
 name|shouldStartComponent
 parameter_list|()
-block|{ 	}
+block|{     }
 annotation|@
 name|Test
 DECL|method|testAcceptVariantString ()

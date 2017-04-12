@@ -85,8 +85,8 @@ DECL|method|NodeIds ()
 specifier|private
 name|NodeIds
 parameter_list|()
-block|{ 	}
-comment|/** 	 * Create an attribute value for the "node" attribute 	 *  	 * @param namespace 	 *            the namespace to use 	 * @param node 	 *            the node ID 	 * @return the value ready to append to a "node" URI attribute 	 */
+block|{     }
+comment|/**      * Create an attribute value for the "node" attribute      *       * @param namespace the namespace to use      * @param node the node ID      * @return the value ready to append to a "node" URI attribute      */
 DECL|method|nodeValue (final String namespace, final String node)
 specifier|public
 specifier|static
@@ -161,7 +161,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create an attribute value for the "node" attribute 	 *  	 * @param namespace 	 *            the namespace to use 	 * @param node 	 *            the node ID 	 * @return the value ready to append to a "node" URI attribute 	 */
+comment|/**      * Create an attribute value for the "node" attribute      *       * @param namespace the namespace to use      * @param node the node ID      * @return the value ready to append to a "node" URI attribute      */
 DECL|method|nodeValue (final String namespace, final int node)
 specifier|public
 specifier|static
@@ -229,7 +229,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create an attribute value for the "node" attribute 	 *  	 * @param namespace 	 *            the namespace to use 	 * @param node 	 *            the node ID 	 * @return the value ready to append to a "node" URI attribute 	 */
+comment|/**      * Create an attribute value for the "node" attribute      *       * @param namespace the namespace to use      * @param node the node ID      * @return the value ready to append to a "node" URI attribute      */
 DECL|method|nodeValue (final String namespace, final UUID node)
 specifier|public
 specifier|static
@@ -304,7 +304,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create an attribute value for the "node" attribute 	 *  	 * @param namespace 	 *            the namespace to use 	 * @param node 	 *            the node ID 	 * @return the value ready to append to a "node" URI attribute 	 */
+comment|/**      * Create an attribute value for the "node" attribute      *       * @param namespace the namespace to use      * @param node the node ID      * @return the value ready to append to a "node" URI attribute      */
 DECL|method|nodeValue (final String namespace, final ByteString node)
 specifier|public
 specifier|static
@@ -379,7 +379,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create an attribute value for the "node" attribute 	 *  	 * @param namespace 	 *            the namespace to use 	 * @param node 	 *            the node ID 	 * @return the value ready to append to a "node" URI attribute 	 */
+comment|/**      * Create an attribute value for the "node" attribute      *       * @param namespace the namespace to use      * @param node the node ID      * @return the value ready to append to a "node" URI attribute      */
 DECL|method|nodeValue (final int namespace, final String node)
 specifier|public
 specifier|static
@@ -454,7 +454,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create an attribute value for the "node" attribute 	 *  	 * @param namespace 	 *            the namespace to use 	 * @param node 	 *            the node ID 	 * @return the value ready to append to a "node" URI attribute 	 */
+comment|/**      * Create an attribute value for the "node" attribute      *       * @param namespace the namespace to use      * @param node the node ID      * @return the value ready to append to a "node" URI attribute      */
 DECL|method|nodeValue (final int namespace, final int node)
 specifier|public
 specifier|static
@@ -522,7 +522,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create an attribute value for the "node" attribute 	 *  	 * @param namespace 	 *            the namespace to use 	 * @param node 	 *            the node ID 	 * @return the value ready to append to a "node" URI attribute 	 */
+comment|/**      * Create an attribute value for the "node" attribute      *       * @param namespace the namespace to use      * @param node the node ID      * @return the value ready to append to a "node" URI attribute      */
 DECL|method|nodeValue (final int namespace, final UUID node)
 specifier|public
 specifier|static
@@ -597,7 +597,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create an attribute value for the "node" attribute 	 *  	 * @param namespace 	 *            the namespace to use 	 * @param node 	 *            the node ID 	 * @return the value ready to append to a "node" URI attribute 	 */
+comment|/**      * Create an attribute value for the "node" attribute      *       * @param namespace the namespace to use      * @param node the node ID      * @return the value ready to append to a "node" URI attribute      */
 DECL|method|nodeValue (final int namespace, final ByteString node)
 specifier|public
 specifier|static

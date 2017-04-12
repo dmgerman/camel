@@ -709,7 +709,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Run through a list, aggregating errors 	 * 	 *<p> 	 * The consumer is called for each list item, regardless if the consumer did 	 * through an exception. All exceptions are caught and thrown in one 	 * RuntimeException. The first exception being wrapped directly while the 	 * latter ones, if any, are added as suppressed exceptions. 	 *</p> 	 * 	 * @param list 	 *            the list to run through 	 * @param consumer 	 *            the consumer processing list elements 	 */
+comment|/**      * Run through a list, aggregating errors      *<p>      * The consumer is called for each list item, regardless if the consumer did      * through an exception. All exceptions are caught and thrown in one      * RuntimeException. The first exception being wrapped directly while the      * latter ones, if any, are added as suppressed exceptions.      *</p>      *      * @param list the list to run through      * @param consumer the consumer processing list elements      */
 DECL|method|runThrough (final Collection<Consumer<T>> list, final Consumer<Consumer<T>> consumer)
 specifier|protected
 parameter_list|<

@@ -726,7 +726,7 @@ DECL|method|DenyAllCertificateValidator ()
 specifier|private
 name|DenyAllCertificateValidator
 parameter_list|()
-block|{ 		}
+block|{         }
 annotation|@
 name|Override
 DECL|method|validate (final X509Certificate certificate)
@@ -1105,7 +1105,7 @@ name|startup
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Build the final server configuration, apply all complex configuration 	 * 	 * @return the new server configuration, never returns {@code null} 	 */
+comment|/**      * Build the final server configuration, apply all complex configuration      *      * @return the new server configuration, never returns {@code null}      */
 DECL|method|buildServerConfig ()
 specifier|private
 name|OpcUaServerConfig
@@ -1621,7 +1621,7 @@ name|endpoint
 return|;
 block|}
 block|}
-comment|/** 	 * The URI of the namespace, defaults to<code>urn:org:apache:camel</code> 	 */
+comment|/**      * The URI of the namespace, defaults to<code>urn:org:apache:camel</code>      */
 DECL|method|setNamespaceUri (final String namespaceUri)
 specifier|public
 name|void
@@ -1639,7 +1639,7 @@ operator|=
 name|namespaceUri
 expr_stmt|;
 block|}
-comment|/** 	 * The application name 	 */
+comment|/**      * The application name      */
 DECL|method|setApplicationName (final String applicationName)
 specifier|public
 name|void
@@ -1672,7 +1672,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * The application URI 	 */
+comment|/**      * The application URI      */
 DECL|method|setApplicationUri (final String applicationUri)
 specifier|public
 name|void
@@ -1700,7 +1700,7 @@ name|applicationUri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * The product URI 	 */
+comment|/**      * The product URI      */
 DECL|method|setProductUri (final String productUri)
 specifier|public
 name|void
@@ -1728,7 +1728,7 @@ name|productUri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * The TCP port the server binds to 	 */
+comment|/**      * The TCP port the server binds to      */
 DECL|method|setBindPort (final int port)
 specifier|public
 name|void
@@ -1749,7 +1749,7 @@ name|port
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Set whether strict endpoint URLs are enforced 	 */
+comment|/**      * Set whether strict endpoint URLs are enforced      */
 DECL|method|setStrictEndpointUrlsEnabled (final boolean strictEndpointUrlsEnforced)
 specifier|public
 name|void
@@ -1770,7 +1770,7 @@ name|strictEndpointUrlsEnforced
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Server name 	 */
+comment|/**      * Server name      */
 DECL|method|setServerName (final String serverName)
 specifier|public
 name|void
@@ -1791,7 +1791,7 @@ name|serverName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Server hostname 	 */
+comment|/**      * Server hostname      */
 DECL|method|setHostname (final String hostname)
 specifier|public
 name|void
@@ -1812,7 +1812,7 @@ name|hostname
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Security policies 	 */
+comment|/**      * Security policies      */
 DECL|method|setSecurityPolicies (final Set<SecurityPolicy> securityPolicies)
 specifier|public
 name|void
@@ -1873,7 +1873,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Security policies by URI or name 	 */
+comment|/**      * Security policies by URI or name      */
 DECL|method|setSecurityPoliciesById (final Collection<String> securityPolicies)
 specifier|public
 name|void
@@ -1961,7 +1961,7 @@ name|policies
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Security policies by URI or name 	 */
+comment|/**      * Security policies by URI or name      */
 DECL|method|setSecurityPoliciesById (final String... ids)
 specifier|public
 name|void
@@ -2006,7 +2006,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Set user password combinations in the form of "user1:pwd1,user2:pwd2" 	 *<p> 	 * Usernames and passwords will be URL decoded 	 *</p> 	 */
+comment|/**      * Set user password combinations in the form of "user1:pwd1,user2:pwd2"      *<p>      * Usernames and passwords will be URL decoded      *</p>      */
 DECL|method|setUserAuthenticationCredentials (final String userAuthenticationCredentials)
 specifier|public
 name|void
@@ -2126,7 +2126,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Enable anonymous authentication, disabled by default 	 */
+comment|/**      * Enable anonymous authentication, disabled by default      */
 DECL|method|setEnableAnonymousAuthentication (final boolean enableAnonymousAuthentication)
 specifier|public
 name|void
@@ -2144,7 +2144,7 @@ operator|=
 name|enableAnonymousAuthentication
 expr_stmt|;
 block|}
-comment|/** 	 * Set the addresses of the local addresses the server should bind to 	 */
+comment|/**      * Set the addresses of the local addresses the server should bind to      */
 DECL|method|setBindAddresses (final String bindAddresses)
 specifier|public
 name|void
@@ -2189,7 +2189,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Server build info 	 */
+comment|/**      * Server build info      */
 DECL|method|setBuildInfo (final BuildInfo buildInfo)
 specifier|public
 name|void
@@ -2210,7 +2210,7 @@ name|buildInfo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Server certificate 	 */
+comment|/**      * Server certificate      */
 DECL|method|setServerCertificate (final KeyStoreLoader.Result result)
 specifier|public
 name|void
@@ -2223,7 +2223,7 @@ name|Result
 name|result
 parameter_list|)
 block|{
-comment|/* 		 * We are not implicitly deactivating the server certificate manager. If 		 * the key could not be found by the KeyStoreLoader, it will return 		 * "null" from the load() method. 		 * 		 * So if someone calls setServerCertificate ( loader.load () ); he may, 		 * by accident, disable the server certificate. 		 * 		 * If disabling the server certificate is desired, do it explicitly. 		 */
+comment|/*          * We are not implicitly deactivating the server certificate manager. If          * the key could not be found by the KeyStoreLoader, it will return          * "null" from the load() method. So if someone calls          * setServerCertificate ( loader.load () ); he may, by accident, disable          * the server certificate. If disabling the server certificate is          * desired, do it explicitly.          */
 name|Objects
 operator|.
 name|requireNonNull
@@ -2247,7 +2247,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Server certificate 	 */
+comment|/**      * Server certificate      */
 DECL|method|setServerCertificate (final KeyPair keyPair, final X509Certificate certificate)
 specifier|public
 name|void
@@ -2274,7 +2274,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Server certificate manager 	 */
+comment|/**      * Server certificate manager      */
 DECL|method|setCertificateManager (final CertificateManager certificateManager)
 specifier|public
 name|void
@@ -2317,7 +2317,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Validator for client certificates 	 */
+comment|/**      * Validator for client certificates      */
 DECL|method|setCertificateValidator (final Supplier<CertificateValidator> certificateValidator)
 specifier|public
 name|void
@@ -2338,7 +2338,7 @@ operator|=
 name|certificateValidator
 expr_stmt|;
 block|}
-comment|/** 	 * Validator for client certificates using default file based approach 	 */
+comment|/**      * Validator for client certificates using default file based approach      */
 DECL|method|setDefaultCertificateValidator (final File certificatesBaseDir)
 specifier|public
 name|void

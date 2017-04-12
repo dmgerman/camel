@@ -347,7 +347,7 @@ DECL|method|MiloClientConfiguration ()
 specifier|public
 name|MiloClientConfiguration
 parameter_list|()
-block|{ 	}
+block|{     }
 DECL|method|MiloClientConfiguration (final MiloClientConfiguration other)
 specifier|public
 name|MiloClientConfiguration
@@ -427,7 +427,7 @@ operator|.
 name|endpointUri
 return|;
 block|}
-comment|/** 	 * A virtual client id to force the creation of a new connection instance 	 */
+comment|/**      * A virtual client id to force the creation of a new connection instance      */
 DECL|method|setClientId (final String clientId)
 specifier|public
 name|void
@@ -457,7 +457,7 @@ operator|.
 name|clientId
 return|;
 block|}
-comment|/** 	 * The application name 	 */
+comment|/**      * The application name      */
 DECL|method|setApplicationName (final String applicationName)
 specifier|public
 name|void
@@ -487,7 +487,7 @@ operator|.
 name|applicationName
 return|;
 block|}
-comment|/** 	 * The application URI 	 */
+comment|/**      * The application URI      */
 DECL|method|setApplicationUri (final String applicationUri)
 specifier|public
 name|void
@@ -517,7 +517,7 @@ operator|.
 name|applicationUri
 return|;
 block|}
-comment|/** 	 * The product URI 	 */
+comment|/**      * The product URI      */
 DECL|method|setProductUri (final String productUri)
 specifier|public
 name|void
@@ -547,7 +547,7 @@ operator|.
 name|productUri
 return|;
 block|}
-comment|/** 	 * Request timeout in milliseconds 	 */
+comment|/**      * Request timeout in milliseconds      */
 DECL|method|setRequestTimeout (final Long reconnectTimeout)
 specifier|public
 name|void
@@ -577,7 +577,7 @@ operator|.
 name|requestTimeout
 return|;
 block|}
-comment|/** 	 * Channel lifetime in milliseconds 	 */
+comment|/**      * Channel lifetime in milliseconds      */
 DECL|method|setChannelLifetime (final Long channelLifetime)
 specifier|public
 name|void
@@ -607,7 +607,7 @@ operator|.
 name|channelLifetime
 return|;
 block|}
-comment|/** 	 * Session name 	 */
+comment|/**      * Session name      */
 DECL|method|setSessionName (final String sessionName)
 specifier|public
 name|void
@@ -637,7 +637,7 @@ operator|.
 name|sessionName
 return|;
 block|}
-comment|/** 	 * Session timeout in milliseconds 	 */
+comment|/**      * Session timeout in milliseconds      */
 DECL|method|setSessionTimeout (final Long sessionTimeout)
 specifier|public
 name|void
@@ -667,7 +667,7 @@ operator|.
 name|sessionTimeout
 return|;
 block|}
-comment|/** 	 * The maximum number of pending publish requests 	 */
+comment|/**      * The maximum number of pending publish requests      */
 DECL|method|setMaxPendingPublishRequests (final Long maxPendingPublishRequests)
 specifier|public
 name|void
@@ -697,7 +697,7 @@ operator|.
 name|maxPendingPublishRequests
 return|;
 block|}
-comment|/** 	 * The maximum number of bytes a response message may have 	 */
+comment|/**      * The maximum number of bytes a response message may have      */
 DECL|method|setMaxResponseMessageSize (final Long maxResponseMessageSize)
 specifier|public
 name|void
@@ -727,7 +727,7 @@ operator|.
 name|maxResponseMessageSize
 return|;
 block|}
-comment|/** 	 * Whether secure channel re-authentication is enabled 	 */
+comment|/**      * Whether secure channel re-authentication is enabled      */
 DECL|method|setSecureChannelReauthenticationEnabled (final Boolean secureChannelReauthenticationEnabled)
 specifier|public
 name|void
@@ -757,7 +757,7 @@ operator|.
 name|secureChannelReauthenticationEnabled
 return|;
 block|}
-comment|/** 	 * The URL where the key should be loaded from 	 */
+comment|/**      * The URL where the key should be loaded from      */
 DECL|method|setKeyStoreUrl (final String keyStoreUrl)
 specifier|public
 name|void
@@ -799,7 +799,7 @@ operator|.
 name|keyStoreUrl
 return|;
 block|}
-comment|/** 	 * The key store type 	 */
+comment|/**      * The key store type      */
 DECL|method|setKeyStoreType (final String keyStoreType)
 specifier|public
 name|void
@@ -829,7 +829,7 @@ operator|.
 name|keyStoreType
 return|;
 block|}
-comment|/** 	 * The name of the key in the keystore file 	 */
+comment|/**      * The name of the key in the keystore file      */
 DECL|method|setKeyAlias (final String keyAlias)
 specifier|public
 name|void
@@ -859,7 +859,7 @@ operator|.
 name|keyAlias
 return|;
 block|}
-comment|/** 	 * The keystore password 	 */
+comment|/**      * The keystore password      */
 DECL|method|setKeyStorePassword (final String keyStorePassword)
 specifier|public
 name|void
@@ -889,7 +889,7 @@ operator|.
 name|keyStorePassword
 return|;
 block|}
-comment|/** 	 * The key password 	 */
+comment|/**      * The key password      */
 DECL|method|setKeyPassword (final String keyPassword)
 specifier|public
 name|void

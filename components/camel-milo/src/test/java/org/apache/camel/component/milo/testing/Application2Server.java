@@ -145,7 +145,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/* 				 * from( 				 * "paho:javaonedemo/eclipse-greenhouse-9home/sensors/temperature?brokerUrl=tcp://iot.eclipse.org:1883") 				 * .log("Temp update: ${body}").convertBodyTo(String.class).to( 				 * "milo-server:MyItem"); 				 */
+comment|/*                  * from(                  * "paho:javaonedemo/eclipse-greenhouse-9home/sensors/temperature?brokerUrl=tcp://iot.eclipse.org:1883")                  * .log("Temp update: ${body}").convertBodyTo(String.class).to(                  * "milo-server:MyItem");                  */
 name|from
 argument_list|(
 literal|"paho:my/foo/bar?brokerUrl=tcp://iot.eclipse.org:1883"

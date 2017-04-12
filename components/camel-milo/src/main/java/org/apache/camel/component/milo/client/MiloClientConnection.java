@@ -537,7 +537,7 @@ name|await
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Map the incoming value to some value writable to the milo client 	 * 	 * @param value 	 *            the incoming value 	 * @return the outgoing value 	 */
+comment|/**      * Map the incoming value to some value writable to the milo client      *      * @param value the incoming value      * @return the outgoing value      */
 DECL|method|mapValue (final Object value)
 specifier|private
 name|DataValue

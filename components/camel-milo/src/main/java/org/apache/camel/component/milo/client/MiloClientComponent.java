@@ -993,7 +993,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * All default options for client 	 */
+comment|/**      * All default options for client      */
 DECL|method|setDefaultConfiguration (final MiloClientConfiguration defaultConfiguration)
 specifier|public
 name|void
@@ -1011,7 +1011,7 @@ operator|=
 name|defaultConfiguration
 expr_stmt|;
 block|}
-comment|/** 	 * Default application name 	 */
+comment|/**      * Default application name      */
 DECL|method|setApplicationName (final String applicationName)
 specifier|public
 name|void
@@ -1032,7 +1032,7 @@ name|applicationName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Default application URI 	 */
+comment|/**      * Default application URI      */
 DECL|method|setApplicationUri (final String applicationUri)
 specifier|public
 name|void
@@ -1053,7 +1053,7 @@ name|applicationUri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Default product URI 	 */
+comment|/**      * Default product URI      */
 DECL|method|setProductUri (final String productUri)
 specifier|public
 name|void
@@ -1074,7 +1074,7 @@ name|productUri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Default reconnect timeout 	 */
+comment|/**      * Default reconnect timeout      */
 DECL|method|setReconnectTimeout (final Long reconnectTimeout)
 specifier|public
 name|void
