@@ -1146,6 +1146,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 if|if
 condition|(
 name|event
@@ -1505,6 +1507,23 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"OpenTracing: Failed to capture tracing data"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|isEnabled (EventObject event)
@@ -1567,6 +1586,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+block|{
+try|try
 block|{
 comment|// Check if continuing exchange on same thread
 if|if
@@ -1724,6 +1745,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"OpenTracing: Failed to capture tracing data"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|onExchangeDone (Route route, Exchange exchange)
@@ -1737,6 +1775,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+block|{
+try|try
 block|{
 name|SpanManager
 operator|.
@@ -1834,6 +1874,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"OpenTracing: Failed to capture tracing data"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|class|OpenTracingLogListener
 specifier|private
@@ -1859,6 +1916,8 @@ parameter_list|,
 name|String
 name|message
 parameter_list|)
+block|{
+try|try
 block|{
 name|SpanManager
 operator|.
@@ -1944,6 +2003,23 @@ operator|.
 name|log
 argument_list|(
 name|fields
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"OpenTracing: Failed to capture tracing data"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 block|}
