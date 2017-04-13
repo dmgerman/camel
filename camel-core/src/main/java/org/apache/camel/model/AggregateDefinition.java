@@ -3241,7 +3241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the predicate used to determine if the aggregation is completed      */
+comment|/**      * A Predicate to indicate when an aggregated exchange is complete.      * If this is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
 DECL|method|completionPredicate (@sPredicate Predicate predicate)
 specifier|public
 name|AggregateDefinition
@@ -3269,7 +3269,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the predicate used to determine if the aggregation is completed with a fluent builder      */
+comment|/**      * A Predicate to indicate when an aggregated exchange is complete.      * If this is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
 annotation|@
 name|AsPredicate
 DECL|method|completionPredicate ()
@@ -3303,7 +3303,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Sets the predicate used to determine if the aggregation is completed with a fluent builder      */
+comment|/**      * A Predicate to indicate when an aggregated exchange is complete.      * If this is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
 annotation|@
 name|AsPredicate
 DECL|method|completion ()
@@ -3320,7 +3320,7 @@ name|completionPredicate
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the predicate used to determine if the aggregation is completed      */
+comment|/**      * A Predicate to indicate when an aggregated exchange is complete.      * If this is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
 DECL|method|completion (@sPredicate Predicate predicate)
 specifier|public
 name|AggregateDefinition
