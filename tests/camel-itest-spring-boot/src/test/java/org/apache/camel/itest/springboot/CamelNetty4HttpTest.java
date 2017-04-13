@@ -170,6 +170,11 @@ name|unitTestExclusionPattern
 argument_list|(
 literal|".*(\\.integration\\..*|IntegrationTest$|BaseNettyTest$|ManagedNettyEndpointTest$|NettyMixedCaseHttpPathTest$|NettyHttpContentTypeTest$)"
 argument_list|)
+operator|.
+name|dependency
+argument_list|(
+literal|"org.hibernate:hibernate-validator"
+argument_list|)
 comment|// removed JMX check tests and tests that nof fail singularly
 operator|.
 name|build

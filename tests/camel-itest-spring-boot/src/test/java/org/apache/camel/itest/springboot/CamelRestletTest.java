@@ -200,6 +200,11 @@ literal|"${google-guava-version}"
 argument_list|)
 argument_list|)
 operator|.
+name|dependency
+argument_list|(
+literal|"org.hibernate:hibernate-validator"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;

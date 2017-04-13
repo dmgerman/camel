@@ -171,6 +171,11 @@ argument_list|(
 literal|".*(\\.integration\\..*|IntegrationTest$|BaseUndertowTest$|UndertowHttpsSpringTest$)"
 argument_list|)
 operator|.
+name|dependency
+argument_list|(
+literal|"org.hibernate:hibernate-validator"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
