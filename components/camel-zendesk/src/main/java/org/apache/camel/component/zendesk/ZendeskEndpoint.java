@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The zendesk endpoint interacts with the Zendesk server.  */
+comment|/**  * Allows producing messages to manage Zendesk ticket, user, organization, etc.  */
 end_comment
 
 begin_class

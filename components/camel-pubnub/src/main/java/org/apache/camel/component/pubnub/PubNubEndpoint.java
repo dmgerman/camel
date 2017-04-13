@@ -134,6 +134,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * To send and receive messages to PubNub data stream network for connected devices.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

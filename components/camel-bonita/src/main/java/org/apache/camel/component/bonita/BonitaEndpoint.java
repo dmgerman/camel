@@ -150,6 +150,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * Used for communicating with a remote Bonita BPM process engine.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
