@@ -41,6 +41,21 @@ name|boolean
 name|autoConfigureRoutes
 parameter_list|()
 function_decl|;
+comment|/**      * Overrides the Camel CDI behavior to automatically start all Camel contexts.      * @return this Camel CDI configuration      * @throws IllegalStateException if called outside of the observer method invocation      */
+DECL|method|autoStartContexts (boolean autoStartContexts)
+name|CdiCamelConfiguration
+name|autoStartContexts
+parameter_list|(
+name|boolean
+name|autoStartContexts
+parameter_list|)
+function_decl|;
+comment|/**      * @return Current state of autoStartContexts parameter.      */
+DECL|method|autoStartContexts ()
+name|boolean
+name|autoStartContexts
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

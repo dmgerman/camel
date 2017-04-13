@@ -36,6 +36,13 @@ name|autoConfigureRoutes
 init|=
 literal|true
 decl_stmt|;
+DECL|field|autoStartContexts
+specifier|private
+name|boolean
+name|autoStartContexts
+init|=
+literal|true
+decl_stmt|;
 DECL|field|unmodifiable
 specifier|private
 specifier|volatile
@@ -76,6 +83,42 @@ parameter_list|()
 block|{
 return|return
 name|autoConfigureRoutes
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|autoStartContexts (boolean autoStartContexts)
+specifier|public
+name|CdiCamelConfiguration
+name|autoStartContexts
+parameter_list|(
+name|boolean
+name|autoStartContexts
+parameter_list|)
+block|{
+name|throwsIfUnmodifiable
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|autoStartContexts
+operator|=
+name|autoStartContexts
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|autoStartContexts ()
+specifier|public
+name|boolean
+name|autoStartContexts
+parameter_list|()
+block|{
+return|return
+name|autoStartContexts
 return|;
 block|}
 DECL|method|unmodifiable ()

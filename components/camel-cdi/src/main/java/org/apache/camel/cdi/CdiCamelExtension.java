@@ -3672,6 +3672,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Start Camel contexts
+if|if
+condition|(
+name|configuration
+operator|.
+name|autoStartContexts
+argument_list|()
+condition|)
+block|{
 for|for
 control|(
 name|CamelContext
@@ -3730,6 +3738,7 @@ argument_list|(
 name|exception
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Clean-up
