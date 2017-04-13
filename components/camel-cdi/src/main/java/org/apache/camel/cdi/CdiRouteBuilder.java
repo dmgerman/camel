@@ -51,11 +51,11 @@ comment|/**  * An extension of the {@link RouteBuilder} to provide some addition
 end_comment
 
 begin_class
-DECL|class|JtaRouteBuilder
+DECL|class|CdiRouteBuilder
 specifier|public
 specifier|abstract
 class|class
-name|JtaRouteBuilder
+name|CdiRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
