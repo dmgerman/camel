@@ -20,30 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|inject
@@ -59,6 +35,26 @@ operator|.
 name|transaction
 operator|.
 name|Transaction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -81,7 +77,7 @@ specifier|final
 name|Logger
 name|logger
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -170,12 +166,8 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Could not do rollback of outer transaction"
 argument_list|,
 name|e
@@ -198,12 +190,8 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Could not resume outer transaction"
 argument_list|,
 name|e
