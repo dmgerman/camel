@@ -529,7 +529,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Remote service call definition  */
+comment|/**  * To call remote services  */
 end_comment
 
 begin_class
