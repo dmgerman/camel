@@ -56,6 +56,20 @@ name|ServiceDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_class
 DECL|class|RoundRobinServiceChooser
 specifier|public
@@ -74,8 +88,9 @@ literal|1
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|choose (List<ServiceDefinition> servers)
+DECL|method|choose (List<ServiceDefinition> definitions)
 specifier|public
+specifier|synchronized
 name|ServiceDefinition
 name|choose
 parameter_list|(
@@ -83,13 +98,32 @@ name|List
 argument_list|<
 name|ServiceDefinition
 argument_list|>
-name|servers
+name|definitions
 parameter_list|)
 block|{
+comment|// Fail if the service definition list is null or empty
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|definitions
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The ServiceDefinition list should not be empty"
+argument_list|)
+throw|;
+block|}
 name|int
 name|size
 init|=
-name|servers
+name|definitions
 operator|.
 name|size
 argument_list|()
@@ -112,7 +146,7 @@ literal|0
 expr_stmt|;
 block|}
 return|return
-name|servers
+name|definitions
 operator|.
 name|get
 argument_list|(
@@ -129,7 +163,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RoundRobinServiceCallServiceChooser"
+literal|"RoundRobinServiceChooser"
 return|;
 block|}
 block|}
