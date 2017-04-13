@@ -3042,7 +3042,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Sets the AggregationStrategy to use with a fluent builder.      */
 DECL|method|aggregationStrategy ()
 specifier|public
 name|AggregationStrategyClause
@@ -3074,7 +3074,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Sets the AggregationStrategy to use with a fluent builder.      */
 DECL|method|strategy ()
 specifier|public
 name|AggregationStrategyClause
@@ -3089,7 +3089,7 @@ name|aggregationStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
 DECL|method|strategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregateDefinition
@@ -3269,7 +3269,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Sets the predicate used to determine if the aggregation is completed with a fluent builder      */
 annotation|@
 name|AsPredicate
 DECL|method|completionPredicate ()
@@ -3303,7 +3303,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Sets the predicate used to determine if the aggregation is completed with a fluent builder      */
 annotation|@
 name|AsPredicate
 DECL|method|completion ()
@@ -3320,7 +3320,7 @@ name|completionPredicate
 argument_list|()
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Sets the predicate used to determine if the aggregation is completed      */
 DECL|method|completion (@sPredicate Predicate predicate)
 specifier|public
 name|AggregateDefinition

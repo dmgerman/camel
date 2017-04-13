@@ -1543,7 +1543,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Sets the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be used send using a fluent buidler.      */
 DECL|method|onPrepare ()
 specifier|public
 name|ProcessClause

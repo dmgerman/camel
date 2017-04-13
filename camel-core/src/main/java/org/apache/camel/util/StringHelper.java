@@ -1185,7 +1185,6 @@ return|return
 name|value
 return|;
 block|}
-comment|// TODO: add javadoc
 DECL|method|splitOnCharacter (String value, String needle, int count)
 specifier|public
 specifier|static

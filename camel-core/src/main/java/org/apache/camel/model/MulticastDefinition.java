@@ -551,7 +551,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast using a fluent builder.      */
 DECL|method|aggregationStrategy ()
 specifier|public
 name|AggregationStrategyClause
@@ -793,7 +793,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * Set the {@link Processor} to use when preparing the {@link org.apache.camel.Exchange} to be send using a fluent builder.      */
 DECL|method|onPrepare ()
 specifier|public
 name|ProcessClause

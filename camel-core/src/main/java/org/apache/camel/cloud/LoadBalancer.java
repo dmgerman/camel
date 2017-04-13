@@ -28,7 +28,6 @@ specifier|public
 interface|interface
 name|LoadBalancer
 block|{
-comment|// TODO: Document me
 DECL|method|process (String serviceName, LoadBalancerFunction<T> function)
 parameter_list|<
 name|T

@@ -86,10 +86,6 @@ name|Processor
 import|;
 end_import
 
-begin_comment
-comment|// TODO: Document me
-end_comment
-
 begin_class
 DECL|class|ProcessClause
 specifier|public
@@ -159,7 +155,7 @@ block|}
 comment|// *******************************
 comment|// Exchange
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link Processor} which targets the Exchange.      */
 DECL|method|exchange (final Consumer<Exchange> consumer)
 specifier|public
 name|T
@@ -186,7 +182,7 @@ block|}
 comment|// *******************************
 comment|// Message
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link Processor} which targets the Exchange In Message.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .process()      *         .message(m -> m.setHeader("HasBody", m.getBody() != null));      * }</pre></blockquote>      */
 DECL|method|message (final Consumer<Message> consumer)
 specifier|public
 name|T
@@ -221,7 +217,7 @@ block|}
 comment|// *******************************
 comment|// Body
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link Processor} which targets the Exchange In Body.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .process()      *         .body(System.out::println);      * }</pre></blockquote>      */
 DECL|method|body (final Consumer<Object> consumer)
 specifier|public
 name|T
@@ -256,7 +252,7 @@ return|return
 name|parent
 return|;
 block|}
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link Processor} which targets the typed Exchange In Body.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .process()      *         .body(MyObject.class, MyObject::dumpToStdOut);      * }</pre></blockquote>      */
 DECL|method|body (Class<B> type, final Consumer<B> consumer)
 specifier|public
 parameter_list|<
@@ -302,7 +298,7 @@ return|return
 name|parent
 return|;
 block|}
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link Processor} which targets the Exchange In Body and its Headers.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .process()      *         .body((b, h) -> h.put("ClassName", b.getClass().getName()));      * }</pre></blockquote>      */
 DECL|method|body (final BiConsumer<Object, Map<String, Object>> consumer)
 specifier|public
 name|T
@@ -352,7 +348,7 @@ return|return
 name|parent
 return|;
 block|}
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link Processor} which targets the typed Exchange In Body and its Headers.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .process()      *         .body(MyObject.class, (b, h) -> {       *             if (h.containsKey("dump")) {      *                  b.dumpToStdOut();      *             }      *         });      * }</pre></blockquote>      */
 DECL|method|body (Class<B> type, final BiConsumer<B, Map<String, Object>> consumer)
 specifier|public
 parameter_list|<

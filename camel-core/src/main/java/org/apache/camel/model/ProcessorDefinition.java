@@ -4959,7 +4959,7 @@ operator|)
 name|def
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent consumer EIP:</a>      * Creates an {@link org.apache.camel.processor.idempotent.IdempotentConsumer IdempotentConsumer} using a fluent builder.      */
 DECL|method|idempotentConsumer ()
 specifier|public
 name|ExpressionClause
@@ -6845,7 +6845,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/throttler.html">Throttler EIP:</a>      * Creates a throttler using a fluent builder.       *      * @return the builder      */
 DECL|method|throttle ()
 specifier|public
 name|ExpressionClause
@@ -7015,7 +7015,7 @@ return|return
 name|loop
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way using a fluent builder.      *      * @return the builder      */
 DECL|method|loopDoWhile ()
 specifier|public
 name|ExpressionClause
@@ -8148,7 +8148,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor using a fluent builder to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @return the builder      */
 DECL|method|process ()
 specifier|public
 name|ProcessClause
@@ -10138,7 +10138,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code> and       * with an aggregation strategy created using a fluent builder.      *           *<blockquote><pre>{@code      * fom("direct:start")      *     .enrichWith("direct:resource")      *         .body(String.class, (o, n) -> n + o);      * }</pre></blockquote>      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @return the builder      * @see org.apache.camel.processor.Enricher      */
 DECL|method|enrichWith (@sEndpointUri String resourceUri)
 specifier|public
 name|EnrichClause
@@ -10183,7 +10183,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code> and       * with an aggregation strategy created using a fluent builder.      */
 DECL|method|enrichWith (@sEndpointUri String resourceUri, boolean aggregateOnException)
 specifier|public
 name|EnrichClause
@@ -10235,7 +10235,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code> and       * with an aggregation strategy created using a fluent builder.      */
 DECL|method|enrichWith (@sEndpointUri String resourceUri, boolean aggregateOnException, boolean shareUnitOfWork)
 specifier|public
 name|EnrichClause
@@ -10677,7 +10677,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>       * and with an aggregation strategy created using a fluent builder using       * a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      */
 DECL|method|pollEnrichWith (@sEndpointUri String resourceUri)
 specifier|public
 name|EnrichClause
@@ -10727,7 +10727,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>       * and with an aggregation strategy created using a fluent builder using       * a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      */
 DECL|method|pollEnrichWith (@sEndpointUri String resourceUri, long timeout)
 specifier|public
 name|EnrichClause
@@ -10779,7 +10779,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * TODO: document      * Note: this is experimental and subject to changes in future releases.      *      * @return the builder      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>       * and with an aggregation strategy created using a fluent builder using       * a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      */
 DECL|method|pollEnrichWith (@sEndpointUri String resourceUri, long timeout, boolean aggregateOnException)
 specifier|public
 name|EnrichClause

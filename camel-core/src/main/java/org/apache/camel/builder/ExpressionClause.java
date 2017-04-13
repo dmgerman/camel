@@ -289,7 +289,7 @@ name|exchange
 argument_list|()
 return|;
 block|}
-comment|/**      * A functional expression of the exchange      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of the exchange      */
 DECL|method|exchange (final Function<Exchange, Object> function)
 specifier|public
 name|T
@@ -347,7 +347,7 @@ name|inMessage
 argument_list|()
 return|;
 block|}
-comment|/**      * A functional expression of an inbound message      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an inbound message      */
 DECL|method|message (final Function<Message, Object> function)
 specifier|public
 name|T
@@ -384,7 +384,7 @@ name|inMessage
 argument_list|()
 return|;
 block|}
-comment|/**      * A functional expression of an inbound message      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an inbound message      */
 DECL|method|inMessage (final Function<Message, Object> function)
 specifier|public
 name|T
@@ -447,7 +447,7 @@ name|outMessage
 argument_list|()
 return|;
 block|}
-comment|/**      * A functional expression of an outbound message      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an outbound message      */
 DECL|method|outMessage (final Function<Message, Object> function)
 specifier|public
 name|T
@@ -510,7 +510,7 @@ name|body
 argument_list|()
 return|;
 block|}
-comment|/**      * A functional expression of an inbound message body      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an inbound message body      */
 DECL|method|body (final Function<Object, Object> function)
 specifier|public
 name|T
@@ -562,7 +562,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * A functional expression of an inbound message body and headers      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an inbound message body and headers      */
 DECL|method|body (final BiFunction<Object, Map<String, Object>, Object> function)
 specifier|public
 name|T
@@ -651,7 +651,7 @@ name|expectedType
 argument_list|)
 return|;
 block|}
-comment|/**      * A functional expression of an inbound message body converted to the expected type      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an inbound message body converted to the expected type      */
 DECL|method|body (Class<B> expectedType, final Function<B, Object> function)
 specifier|public
 parameter_list|<
@@ -714,7 +714,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * A functional expression of an inbound message body converted to the expected type and headers      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an inbound message body converted to the expected type and headers      */
 DECL|method|body (Class<B> expectedType, final BiFunction<B, Map<String, Object>, Object> function)
 specifier|public
 parameter_list|<
@@ -806,7 +806,7 @@ name|outBody
 argument_list|()
 return|;
 block|}
-comment|/**      * A functional expression of an outbound message body      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an outbound message body      */
 DECL|method|outBody (final Function<Object, Object> function)
 specifier|public
 name|T
@@ -858,7 +858,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * A functional expression of an outbound message body and headers      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an outbound message body and headers      */
 DECL|method|outBody (final BiFunction<Object, Map<String, Object>, Object> function)
 specifier|public
 name|T
@@ -947,7 +947,7 @@ name|expectedType
 argument_list|)
 return|;
 block|}
-comment|/**      * A functional expression of an outbound message body converted to the expected type      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an outbound message body converted to the expected type      */
 DECL|method|outBody (Class<B> expectedType, final Function<B, Object> function)
 specifier|public
 parameter_list|<
@@ -1010,7 +1010,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * A functional expression of an outbound message body converted to the expected type and headers      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * A functional expression of an outbound message body converted to the expected type and headers      */
 DECL|method|outBody (Class<B> expectedType, final BiFunction<B, Map<String, Object>, Object> function)
 specifier|public
 parameter_list|<

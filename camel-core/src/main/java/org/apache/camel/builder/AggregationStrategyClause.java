@@ -160,7 +160,7 @@ block|}
 comment|// *******************************
 comment|// Exchange
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define an aggregation strategy which targets the exchnage.      */
 DECL|method|exchange (final BiFunction<Exchange, Exchange, Exchange> function)
 specifier|public
 name|T
@@ -191,7 +191,7 @@ block|}
 comment|// *******************************
 comment|// Message
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define an aggregation strategy which targets Exchanges In Message.      *      *<blockquote><pre>{@code      * from("direct:aggregate")      *     .aggregate()      *         .message((old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             String oldBody = old.getBody(String.class);      *             String newBody = new.getBody(String.class);      *      *             old.setBody(oldBody + "+" + newBody);      *      *             return old;      *         });      * }</pre></blockquote>      */
 DECL|method|message (final BiFunction<Message, Message, Message> function)
 specifier|public
 name|T
@@ -300,7 +300,7 @@ block|}
 comment|// *******************************
 comment|// Body
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define an aggregation strategy which targets Exchanges In Body.      *      *<blockquote><pre>{@code      * from("direct:aggregate")      *     .aggregate()      *         .body((old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             return old.toString() + new.toString();      *         });      * }</pre></blockquote>      */
 DECL|method|body (final BiFunction<Object, Object, Object> function)
 specifier|public
 name|T
@@ -329,7 +329,7 @@ name|function
 argument_list|)
 return|;
 block|}
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define an aggregation strategy which targets Exchanges In Body.      *      *<blockquote><pre>{@code      * from("direct:aggregate")      *     .aggregate()      *         .body(String.class, (old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             return old + new;      *         });      * }</pre></blockquote>      */
 DECL|method|body (final Class<B> type, final BiFunction<B, B, Object> function)
 specifier|public
 parameter_list|<
@@ -368,7 +368,7 @@ name|function
 argument_list|)
 return|;
 block|}
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define an aggregation strategy which targets Exchanges In Body.      */
 DECL|method|body (final Class<O> oldType, final Class<N> newType, final BiFunction<O, N, Object> function)
 specifier|public
 parameter_list|<

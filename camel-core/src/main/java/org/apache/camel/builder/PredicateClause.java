@@ -74,10 +74,6 @@ name|Message
 import|;
 end_import
 
-begin_comment
-comment|// TODO: Document me
-end_comment
-
 begin_class
 DECL|class|PredicateClause
 specifier|public
@@ -161,7 +157,7 @@ block|}
 comment|// *******************************
 comment|// Exchange
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link org.apache.camel.Predicate} which targets the Exchange.      */
 DECL|method|exchange (final Predicate<Exchange> predicate)
 specifier|public
 name|T
@@ -190,7 +186,7 @@ block|}
 comment|// *******************************
 comment|// Message
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link org.apache.camel.Predicate} which targets the Exchange In Message.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .choice()      *         .when()      *            .message(m -> m.getBody() != null)      *            .log("Received ${body}")      *     .endChoice()      * }</pre></blockquote>      */
 DECL|method|message (final Predicate<Message> predicate)
 specifier|public
 name|T
@@ -224,7 +220,7 @@ block|}
 comment|// *******************************
 comment|// Body
 comment|// *******************************
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link org.apache.camel.Predicate} which targets the Exchange In Body.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .choice()      *         .when()      *            .body(b -> b != null)      *            .log("Received ${body}")      *     .endChoice()      * }</pre></blockquote>      */
 DECL|method|body (final Predicate<Object> predicate)
 specifier|public
 name|T
@@ -258,7 +254,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link org.apache.camel.Predicate} which targets the typed Exchange In Body.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .choice()      *         .when()      *            .body(Long.class, b -> (b& 1) == 0)      *            .log("Received even number ${body}")      *     .endChoice()      * }</pre></blockquote>      */
 DECL|method|body (final Class<B> type, final Predicate<B> predicate)
 specifier|public
 parameter_list|<
@@ -304,7 +300,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link org.apache.camel.Predicate} which targets the Exchange In Body and its Headers.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .choice()      *         .when()      *            .body((b, h) -> b != null || h.containsKy("ToProcess"))      *            .log("Received ${body}")      *     .endChoice()      * }</pre></blockquote>      */
 DECL|method|body (final BiPredicate<Object, Map<String, Object>> predicate)
 specifier|public
 name|T
@@ -353,7 +349,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * TODO: document      *      * Note: this is experimental and subject to changes in future releases.      */
+comment|/**      * Define a {@link org.apache.camel.Predicate} which targets the typed Exchange In Body and its Headers.      *           *<blockquote><pre>{@code      * from("direct:aggregate")      *     .choice()      *         .when()      *            .body(String.class, (b, h) -> b != null&& !b.isEmpty() || h.containsKy("ToProcess"))      *            .log("Received ${body}")      *     .endChoice()      * }</pre></blockquote>      */
 DECL|method|body (final Class<B> type, final BiPredicate<B, Map<String, Object>> predicate)
 specifier|public
 parameter_list|<
