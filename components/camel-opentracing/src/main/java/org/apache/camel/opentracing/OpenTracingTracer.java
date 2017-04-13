@@ -1513,9 +1513,10 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// This exception is ignored
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"OpenTracing: Failed to capture tracing data"
 argument_list|,
@@ -1751,9 +1752,10 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// This exception is ignored
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"OpenTracing: Failed to capture tracing data"
 argument_list|,
@@ -1880,9 +1882,10 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// This exception is ignored
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"OpenTracing: Failed to capture tracing data"
 argument_list|,
@@ -2013,9 +2016,10 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// This exception is ignored
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"OpenTracing: Failed to capture tracing data"
 argument_list|,
