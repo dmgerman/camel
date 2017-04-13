@@ -88,6 +88,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|RedeliveryErrorHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|RedeliveryPolicy
 import|;
 end_import
@@ -132,14 +146,6 @@ specifier|public
 class|class
 name|JtaTransactionErrorHandler
 extends|extends
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|RedeliveryErrorHandler
 block|{
 DECL|method|JtaTransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, JtaTransactionPolicy transactionPolicy, Predicate retryWhile, ScheduledExecutorService executorService, LoggingLevel rollbackLoggingLevel, Processor onExceptionOccurredProcessor)

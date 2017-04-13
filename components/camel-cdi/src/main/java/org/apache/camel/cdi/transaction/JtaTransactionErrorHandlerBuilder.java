@@ -598,8 +598,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found TransactionPolicy in registry to use: "
-operator|+
+literal|"Found TransactionPolicy in registry to use: {}"
+argument_list|,
 name|transactionPolicy
 argument_list|)
 expr_stmt|;

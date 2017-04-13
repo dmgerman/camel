@@ -240,8 +240,7 @@ block|{
 comment|// do not inherit since we create our own
 comment|// (otherwise the default error handler would be used two times
 comment|// because we inherit it on our own but only in case of a
-comment|// non-transactional
-comment|// error handler)
+comment|// non-transactional error handler)
 name|definition
 operator|.
 name|setInheritErrorHandler
@@ -330,12 +329,9 @@ operator|.
 name|getRef
 argument_list|()
 decl_stmt|;
-comment|// only lookup if there was explicit an error handler builder
-comment|// configured
-comment|// otherwise its just the "default" that has not explicit been
-comment|// configured
-comment|// and if so then we can safely replace that with our transacted
-comment|// error handler
+comment|// only lookup if there was explicit an error handler builder configured
+comment|// otherwise its just the "default" that has not explicit been configured
+comment|// and if so then we can safely replace that with our transacted error handler
 if|if
 condition|(
 name|ErrorHandlerBuilderRef
