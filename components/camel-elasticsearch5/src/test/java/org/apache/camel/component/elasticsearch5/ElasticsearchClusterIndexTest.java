@@ -545,7 +545,7 @@ argument_list|,
 literal|"5"
 argument_list|)
 expr_stmt|;
-comment|//should ignore transport addresses configuration
+comment|// should ignore transport addresses configuration
 name|String
 name|indexId
 init|=
@@ -641,7 +641,9 @@ literal|"elasticsearch5://"
 operator|+
 name|clusterName
 operator|+
-literal|"?operation=INDEX&indexName=twitter&indexType=tweet&ip=localhost&port=9301"
+literal|"?operation=INDEX&indexName=twitter&indexType=tweet&ip=localhost&port="
+operator|+
+name|ES_FIRST_NODE_TRANSPORT_PORT
 argument_list|)
 expr_stmt|;
 name|from
@@ -655,7 +657,9 @@ literal|"elasticsearch5://"
 operator|+
 name|clusterName
 operator|+
-literal|"?operation=INDEX&indexName=twitter&indexType=tweet&transportAddresses=localhost:9301"
+literal|"?operation=INDEX&indexName=twitter&indexType=tweet&transportAddresses=localhost:"
+operator|+
+name|ES_FIRST_NODE_TRANSPORT_PORT
 argument_list|)
 expr_stmt|;
 name|from
@@ -669,7 +673,9 @@ literal|"elasticsearch5://"
 operator|+
 name|clusterName
 operator|+
-literal|"?operation=INDEX&indexName=twitter&indexType=tweet&ip=localhost&port=9301&transportAddresses=localhost:4444,localhost:5555"
+literal|"?operation=INDEX&indexName=twitter&indexType=tweet&transportAddresses=localhost:4444,localhost:5555&ip=localhost&port="
+operator|+
+name|ES_FIRST_NODE_TRANSPORT_PORT
 argument_list|)
 expr_stmt|;
 block|}

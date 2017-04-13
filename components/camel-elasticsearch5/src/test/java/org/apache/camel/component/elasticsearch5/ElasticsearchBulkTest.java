@@ -520,7 +520,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch5://elasticsearch?operation=BULK_INDEX&indexName=twitter&indexType=tweet&ip=localhost&port=9300"
+literal|"elasticsearch5://elasticsearch?operation=BULK_INDEX&indexName=twitter&indexType=tweet&ip=localhost&port="
+operator|+
+name|ES_TRANSPORT_PORT
 argument_list|)
 expr_stmt|;
 name|from
@@ -530,7 +532,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch5://elasticsearch?operation=BULK&indexName=twitter&indexType=tweet&ip=localhost&port=9300"
+literal|"elasticsearch5://elasticsearch?operation=BULK&indexName=twitter&indexType=tweet&ip=localhost&port="
+operator|+
+name|ES_TRANSPORT_PORT
 argument_list|)
 expr_stmt|;
 block|}
