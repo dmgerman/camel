@@ -36,7 +36,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|jta
+name|transaction
 operator|.
 name|JtaTransactionErrorHandlerBuilder
 import|;

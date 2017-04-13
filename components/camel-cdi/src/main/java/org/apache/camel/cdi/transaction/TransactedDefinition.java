@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.cdi.jta
+DECL|package|org.apache.camel.cdi.transaction
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|jta
+name|transaction
 package|;
 end_package
 

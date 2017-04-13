@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.cdi.jta
+DECL|package|org.apache.camel.cdi.transaction
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|jta
+name|transaction
 package|;
 end_package
 
@@ -28,12 +28,12 @@ begin_class
 annotation|@
 name|Named
 argument_list|(
-literal|"PROPAGATION_MANDATORY"
+literal|"PROPAGATION_REQUIRED"
 argument_list|)
-DECL|class|MandatoryJtaTransactionPolicy
+DECL|class|RequiredJtaTransactionPolicy
 specifier|public
 class|class
-name|MandatoryJtaTransactionPolicy
+name|RequiredJtaTransactionPolicy
 extends|extends
 name|TransactionalJtaTransactionPolicy
 block|{
@@ -49,23 +49,17 @@ name|Runnable
 name|runnable
 parameter_list|)
 throws|throws
-name|Exception
+name|Throwable
 block|{
-if|if
-condition|(
+name|runWithTransaction
+argument_list|(
+name|runnable
+argument_list|,
 operator|!
 name|hasActiveTransaction
 argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Policy 'PROPAGATION_MANDATORY' is configured but no active transaction was found!"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 block|}
 block|}
 end_class

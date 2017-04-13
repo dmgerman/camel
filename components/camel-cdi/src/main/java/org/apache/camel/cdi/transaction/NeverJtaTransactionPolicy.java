@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.cdi.jta
+DECL|package|org.apache.camel.cdi.transaction
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|jta
+name|transaction
 package|;
 end_package
 
@@ -28,12 +28,12 @@ begin_class
 annotation|@
 name|Named
 argument_list|(
-literal|"PROPAGATION_SUPPORTS"
+literal|"PROPAGATION_NEVER"
 argument_list|)
-DECL|class|SupportsJtaTransactionPolicy
+DECL|class|NeverJtaTransactionPolicy
 specifier|public
 class|class
-name|SupportsJtaTransactionPolicy
+name|NeverJtaTransactionPolicy
 extends|extends
 name|TransactionalJtaTransactionPolicy
 block|{
@@ -49,13 +49,22 @@ name|Runnable
 name|runnable
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
-name|runnable
-operator|.
-name|run
+if|if
+condition|(
+name|hasActiveTransaction
 argument_list|()
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Policy 'PROPAGATION_NEVER' is configured but an active transaction was found!"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class
