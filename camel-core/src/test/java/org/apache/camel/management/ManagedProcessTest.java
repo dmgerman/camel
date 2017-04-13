@@ -450,7 +450,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"description\": \"Calls a Camel processor."
+literal|"\"description\": \"Calls a Camel processor"
 argument_list|)
 argument_list|)
 expr_stmt|;
