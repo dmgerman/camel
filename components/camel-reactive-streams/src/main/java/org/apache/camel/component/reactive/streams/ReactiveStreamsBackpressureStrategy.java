@@ -83,16 +83,18 @@ argument_list|>
 name|buffer
 parameter_list|,
 name|T
-name|element
+name|newItem
 parameter_list|)
 block|{
+comment|// always buffer
 name|buffer
 operator|.
 name|addLast
 argument_list|(
-name|element
+name|newItem
 argument_list|)
 expr_stmt|;
+comment|// never discard
 return|return
 name|Collections
 operator|.
@@ -102,9 +104,9 @@ return|;
 block|}
 block|}
 block|,
-comment|/**      * Drops the most recent onNext value if the downstream can't keep up.      */
-DECL|enumConstant|DROP
-name|DROP
+comment|/**      * Keeps only the oldest onNext value, discarding any future value      * until it's consumed by the downstream subscriber.      */
+DECL|enumConstant|OLDEST
+name|OLDEST
 block|{
 annotation|@
 name|Override
@@ -125,7 +127,7 @@ argument_list|>
 name|buffer
 parameter_list|,
 name|T
-name|element
+name|newItem
 parameter_list|)
 block|{
 if|if
@@ -138,24 +140,27 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// the buffer has another item, so discarding the incoming one
 return|return
 name|Collections
 operator|.
 name|singletonList
 argument_list|(
-name|element
+name|newItem
 argument_list|)
 return|;
 block|}
 else|else
 block|{
+comment|// add the new item to the buffer, since it was empty
 name|buffer
 operator|.
 name|addLast
 argument_list|(
-name|element
+name|newItem
 argument_list|)
 expr_stmt|;
+comment|// nothing is discarded
 return|return
 name|Collections
 operator|.
@@ -189,7 +194,7 @@ argument_list|>
 name|buffer
 parameter_list|,
 name|T
-name|element
+name|newItem
 parameter_list|)
 block|{
 name|Collection
@@ -213,79 +218,8 @@ operator|>
 literal|0
 condition|)
 block|{
-name|discarded
-operator|=
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|buffer
-operator|.
-name|removeLast
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|buffer
-operator|.
-name|addLast
-argument_list|(
-name|element
-argument_list|)
-expr_stmt|;
-return|return
-name|discarded
-return|;
-block|}
-block|}
-block|,
-comment|/**      * Keeps only the oldest onNext value, overwriting any previous value if the      * downstream can't keep up.      */
-DECL|enumConstant|OLDEST
-name|OLDEST
-block|{
-annotation|@
-name|Override
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|Collection
-argument_list|<
-name|T
-argument_list|>
-name|update
-parameter_list|(
-name|Deque
-argument_list|<
-name|T
-argument_list|>
-name|buffer
-parameter_list|,
-name|T
-name|element
-parameter_list|)
-block|{
-name|Collection
-argument_list|<
-name|T
-argument_list|>
-name|discarded
-init|=
-name|Collections
-operator|.
-name|emptySet
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|buffer
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
+comment|// there should be an item in the buffer,
+comment|// so removing it to overwrite
 name|discarded
 operator|=
 name|Collections
@@ -299,11 +233,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// add the new item to the buffer
+comment|// (it should be the only item in the buffer now)
 name|buffer
 operator|.
 name|addLast
 argument_list|(
-name|element
+name|newItem
 argument_list|)
 expr_stmt|;
 return|return
@@ -312,8 +248,8 @@ return|;
 block|}
 block|}
 block|;
-comment|/**      * Updates the buffer and returns a list of discarded elements (if any).      *      * @param buffer the buffer to update      * @param element the elment that should possibly be inserted      * @param<T> the generic type of the element      * @return the list of discarded elements      */
-DECL|method|update (Deque<T> buffer, T element)
+comment|/**      * Updates the buffer and returns a list of discarded elements (if any).      *      * @param buffer the buffer to update      * @param newItem the elment that should possibly be inserted      * @param<T> the generic type of the element      * @return the list of discarded elements      */
+DECL|method|update (Deque<T> buffer, T newItem)
 specifier|public
 specifier|abstract
 parameter_list|<
@@ -332,7 +268,7 @@ argument_list|>
 name|buffer
 parameter_list|,
 name|T
-name|element
+name|newItem
 parameter_list|)
 function_decl|;
 block|}

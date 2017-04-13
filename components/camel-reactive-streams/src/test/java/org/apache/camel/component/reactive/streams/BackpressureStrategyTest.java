@@ -401,7 +401,7 @@ name|setBackpressureStrategy
 argument_list|(
 name|ReactiveStreamsBackpressureStrategy
 operator|.
-name|DROP
+name|OLDEST
 argument_list|)
 expr_stmt|;
 operator|new
@@ -973,7 +973,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"reactive-streams:integers?backpressureStrategy=DROP"
+literal|"reactive-streams:integers?backpressureStrategy=OLDEST"
 argument_list|)
 expr_stmt|;
 block|}
