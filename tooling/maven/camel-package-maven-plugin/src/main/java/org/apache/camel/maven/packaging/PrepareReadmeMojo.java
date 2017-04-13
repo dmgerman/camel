@@ -928,6 +928,35 @@ argument_list|(
 name|model
 argument_list|)
 expr_stmt|;
+comment|// special for camel-mail where we want to refer its imap scheme to mail so its mail.adoc in the doc link
+if|if
+condition|(
+literal|"imap"
+operator|.
+name|equals
+argument_list|(
+name|model
+operator|.
+name|getScheme
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|model
+operator|.
+name|setScheme
+argument_list|(
+literal|"mail"
+argument_list|)
+expr_stmt|;
+name|model
+operator|.
+name|setTitle
+argument_list|(
+literal|"Mail"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|// sort the models
