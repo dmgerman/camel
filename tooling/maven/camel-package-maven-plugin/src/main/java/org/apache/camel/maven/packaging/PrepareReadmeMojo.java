@@ -1580,6 +1580,8 @@ init|=
 name|generateDataFormatModel
 argument_list|(
 name|json
+argument_list|,
+name|coreOnly
 argument_list|)
 decl_stmt|;
 comment|// special for bindy as we have one common file
@@ -1974,6 +1976,8 @@ init|=
 name|generateLanguageModel
 argument_list|(
 name|json
+argument_list|,
+name|coreOnly
 argument_list|)
 decl_stmt|;
 name|models
@@ -4648,13 +4652,16 @@ return|return
 name|other
 return|;
 block|}
-DECL|method|generateDataFormatModel (String json)
+DECL|method|generateDataFormatModel (String json, boolean coreOnly)
 specifier|private
 name|DataFormatModel
 name|generateDataFormatModel
 parameter_list|(
 name|String
 name|json
+parameter_list|,
+name|boolean
+name|coreOnly
 parameter_list|)
 block|{
 name|List
@@ -4684,7 +4691,9 @@ name|dataFormat
 init|=
 operator|new
 name|DataFormatModel
-argument_list|()
+argument_list|(
+name|coreOnly
+argument_list|)
 decl_stmt|;
 name|dataFormat
 operator|.
@@ -4844,13 +4853,16 @@ return|return
 name|dataFormat
 return|;
 block|}
-DECL|method|generateLanguageModel (String json)
+DECL|method|generateLanguageModel (String json, boolean coreOnly)
 specifier|private
 name|LanguageModel
 name|generateLanguageModel
 parameter_list|(
 name|String
 name|json
+parameter_list|,
+name|boolean
+name|coreOnly
 parameter_list|)
 block|{
 name|List
@@ -4880,7 +4892,9 @@ name|language
 init|=
 operator|new
 name|LanguageModel
-argument_list|()
+argument_list|(
+name|coreOnly
+argument_list|)
 decl_stmt|;
 name|language
 operator|.
