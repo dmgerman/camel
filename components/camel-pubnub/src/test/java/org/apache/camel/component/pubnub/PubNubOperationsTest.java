@@ -62,11 +62,17 @@ begin_import
 import|import
 name|com
 operator|.
-name|google
+name|pubnub
 operator|.
-name|gson
+name|api
 operator|.
-name|JsonObject
+name|models
+operator|.
+name|consumer
+operator|.
+name|history
+operator|.
+name|PNHistoryItemResult
 import|;
 end_import
 
@@ -82,9 +88,9 @@ name|models
 operator|.
 name|consumer
 operator|.
-name|history
+name|presence
 operator|.
-name|PNHistoryItemResult
+name|PNGetStateResult
 import|;
 end_import
 
@@ -799,17 +805,7 @@ argument_list|,
 literal|"GETSTATE"
 argument_list|)
 expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|JsonObject
-argument_list|>
+name|PNGetStateResult
 name|response
 init|=
 name|template
@@ -822,7 +818,7 @@ literal|null
 argument_list|,
 name|headers
 argument_list|,
-name|Map
+name|PNGetStateResult
 operator|.
 name|class
 argument_list|)
@@ -835,6 +831,9 @@ expr_stmt|;
 name|assertNotNull
 argument_list|(
 name|response
+operator|.
+name|getStateByUUID
+argument_list|()
 operator|.
 name|get
 argument_list|(

@@ -28,6 +28,7 @@ block|{
 DECL|field|OPERATION
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|OPERATION
 init|=
@@ -36,6 +37,7 @@ decl_stmt|;
 DECL|field|TIMETOKEN
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|TIMETOKEN
 init|=
@@ -44,6 +46,7 @@ decl_stmt|;
 DECL|field|CHANNEL
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|CHANNEL
 init|=
@@ -52,6 +55,7 @@ decl_stmt|;
 DECL|field|UUID
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|UUID
 init|=

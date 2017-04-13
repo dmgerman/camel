@@ -1123,9 +1123,6 @@ argument_list|,
 name|status
 argument_list|,
 name|result
-operator|.
-name|getStateByUUID
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1339,13 +1336,6 @@ operator|.
 name|getErrorData
 argument_list|()
 decl_stmt|;
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|setException
