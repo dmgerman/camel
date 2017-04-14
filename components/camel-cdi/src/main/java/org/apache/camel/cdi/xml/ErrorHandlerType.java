@@ -116,6 +116,22 @@ name|NoErrorHandlerBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|transaction
+operator|.
+name|JtaTransactionErrorHandlerBuilder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Used to configure the errorHandler type  */
 end_comment
@@ -202,15 +218,11 @@ return|;
 case|case
 name|TransactionErrorHandler
 case|:
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Unsupported error handler: "
-operator|+
-name|this
-argument_list|)
-throw|;
+return|return
+name|JtaTransactionErrorHandlerBuilder
+operator|.
+name|class
+return|;
 default|default:
 throw|throw
 operator|new
