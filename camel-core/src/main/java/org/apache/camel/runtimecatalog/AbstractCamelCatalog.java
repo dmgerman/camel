@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.catalog
+DECL|package|org.apache.camel.runtimecatalog
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 package|;
 end_package
 
@@ -202,7 +202,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|CatalogHelper
 operator|.
@@ -218,7 +218,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -234,7 +234,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -250,7 +250,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -266,7 +266,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -282,7 +282,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -298,7 +298,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -314,7 +314,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -330,7 +330,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -346,7 +346,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -362,7 +362,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -378,7 +378,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -394,7 +394,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -410,7 +410,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -426,7 +426,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -442,7 +442,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -458,7 +458,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -474,7 +474,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -490,7 +490,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -506,7 +506,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|JSonSchemaHelper
 operator|.
@@ -522,7 +522,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|URISupport
 operator|.
@@ -538,7 +538,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|URISupport
 operator|.
@@ -554,7 +554,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|URISupport
 operator|.
@@ -570,7 +570,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|URISupport
 operator|.

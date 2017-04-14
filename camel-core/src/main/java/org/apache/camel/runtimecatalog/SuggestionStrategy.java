@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.catalog
+DECL|package|org.apache.camel.runtimecatalog
 package|package
 name|org
 operator|.
@@ -12,49 +12,48 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
-comment|/**  * To be backwards compatible, but favor using {@link LanguageValidationResult} instead.  */
+comment|/**  * Strategy to provide suggestions for unknown endpoint options  */
 end_comment
 
-begin_class
-DECL|class|SimpleValidationResult
+begin_interface
+DECL|interface|SuggestionStrategy
 specifier|public
-class|class
-name|SimpleValidationResult
-extends|extends
-name|LanguageValidationResult
+interface|interface
+name|SuggestionStrategy
 block|{
-DECL|method|SimpleValidationResult (String text)
-specifier|public
-name|SimpleValidationResult
+comment|/**      * Provides a list of valid option names for a did you mean function.      *      * @param names         valid names      * @param unknownOption unknown option name      * @return a list of suggested names (did you mean)      */
+DECL|method|suggestEndpointOptions (Set<String> names, String unknownOption)
+name|String
+index|[]
+name|suggestEndpointOptions
 parameter_list|(
+name|Set
+argument_list|<
 name|String
-name|text
+argument_list|>
+name|names
+parameter_list|,
+name|String
+name|unknownOption
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|text
-argument_list|)
-expr_stmt|;
+function_decl|;
 block|}
-DECL|method|getSimple ()
-specifier|public
-name|String
-name|getSimple
-parameter_list|()
-block|{
-return|return
-name|getText
-argument_list|()
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

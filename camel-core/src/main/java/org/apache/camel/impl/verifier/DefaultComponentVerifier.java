@@ -118,7 +118,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|EndpointValidationResult
 import|;
@@ -132,7 +132,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|RuntimeCamelCatalog
 import|;

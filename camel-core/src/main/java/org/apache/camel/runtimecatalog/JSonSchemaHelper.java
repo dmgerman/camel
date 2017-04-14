@@ -4,8 +4,8 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.catalog
-DECL|package|org.apache.camel.catalog
+DECL|package|org.apache.camel.runtimecatalog
+DECL|package|org.apache.camel.runtimecatalog
 package|package
 name|org
 operator|.
@@ -13,7 +13,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 package|;
 end_package
 

@@ -252,7 +252,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|DefaultRuntimeCamelCatalog
 import|;
@@ -266,7 +266,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|catalog
+name|runtimecatalog
 operator|.
 name|RuntimeCamelCatalog
 import|;
@@ -2066,7 +2066,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Parses the endpoint uri and builds a map of documentation information for each option which is extracted      * from the component json documentation      *      * @param camelContext the Camel context      * @param uri          the endpoint uri      * @return a map for each option in the uri with the corresponding information from the json      * @throws Exception is thrown in case of error      * @deprecated use {@link org.apache.camel.catalog.RuntimeCamelCatalog#endpointProperties(String)}      */
+comment|/**      * Parses the endpoint uri and builds a map of documentation information for each option which is extracted      * from the component json documentation      *      * @param camelContext the Camel context      * @param uri          the endpoint uri      * @return a map for each option in the uri with the corresponding information from the json      * @throws Exception is thrown in case of error      * @deprecated use {@link org.apache.camel.runtimecatalog.RuntimeCamelCatalog#endpointProperties(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|endpointProperties (CamelContext camelContext, String uri)
