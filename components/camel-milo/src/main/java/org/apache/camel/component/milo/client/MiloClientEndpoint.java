@@ -190,6 +190,10 @@ name|ExpandedNodeId
 import|;
 end_import
 
+begin_comment
+comment|/**  * Connect to OPC UA servers using the binary protocol for acquiring telemetry  * data  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

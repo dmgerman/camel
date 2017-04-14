@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OPC UA Server based endpoint  */
+comment|/**  * Make telemetry data available as an OPC UA server  */
 end_comment
 
 begin_class
