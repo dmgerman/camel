@@ -478,7 +478,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No tranaction policiy configured on TransactionErrorHandlerBuilder. Will try find it in the registry."
+literal|"No transaction policy configured on TransactionErrorHandlerBuilder. Will try find it in the registry."
 argument_list|)
 expr_stmt|;
 name|Map
