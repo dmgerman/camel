@@ -212,7 +212,7 @@ literal|"milo-client:endpointUri"
 argument_list|,
 name|title
 operator|=
-literal|"Milo based OPC UA Client"
+literal|"OPC UA Client"
 argument_list|,
 name|consumerClass
 operator|=
