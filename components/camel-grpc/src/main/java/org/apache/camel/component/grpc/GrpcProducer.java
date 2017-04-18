@@ -136,6 +136,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -149,18 +163,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|util
-operator|.
-name|StringUtils
 import|;
 end_import
 
@@ -665,7 +667,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|StringUtils
+name|ObjectHelper
 operator|.
 name|isEmpty
 argument_list|(
@@ -676,7 +678,7 @@ argument_list|()
 argument_list|)
 operator|&&
 operator|!
-name|StringUtils
+name|ObjectHelper
 operator|.
 name|isEmpty
 argument_list|(
@@ -739,7 +741,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|StringUtils
+name|ObjectHelper
 operator|.
 name|isEmpty
 argument_list|(
