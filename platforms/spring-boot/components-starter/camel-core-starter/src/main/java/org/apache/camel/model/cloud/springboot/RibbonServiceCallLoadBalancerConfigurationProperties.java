@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.ribbon.springboot.cloud
+DECL|package|org.apache.camel.model.cloud.springboot
 package|package
 name|org
 operator|.
@@ -12,29 +12,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|ribbon
-operator|.
-name|springboot
+name|model
 operator|.
 name|cloud
+operator|.
+name|springboot
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|component
+name|util
 operator|.
-name|ribbon
-operator|.
-name|RibbonConfiguration
+name|Map
 import|;
 end_import
 
@@ -60,13 +62,16 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.cloud.ribbon"
+literal|"camel.cloud.ribbon.load-balancer"
 argument_list|)
-DECL|class|RibbonCloudConfiguration
+DECL|class|RibbonServiceCallLoadBalancerConfigurationProperties
 specifier|public
 class|class
-name|RibbonCloudConfiguration
+name|RibbonServiceCallLoadBalancerConfigurationProperties
+extends|extends
+name|RibbonServiceCallLoadBalancerConfigurationCommon
 block|{
+comment|/**      * Enable the component      */
 DECL|field|enabled
 specifier|private
 name|boolean
@@ -74,15 +79,37 @@ name|enabled
 init|=
 literal|true
 decl_stmt|;
-DECL|field|loadBalancer
+comment|/**      * Define additional configuration definitions      */
+DECL|field|configurations
 specifier|private
-name|LoadBalancerConfiguration
-name|loadBalancer
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|RibbonServiceCallLoadBalancerConfigurationCommon
+argument_list|>
+name|configurations
 init|=
 operator|new
-name|LoadBalancerConfiguration
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|method|getConfigurations ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|RibbonServiceCallLoadBalancerConfigurationCommon
+argument_list|>
+name|getConfigurations
+parameter_list|()
+block|{
+return|return
+name|configurations
+return|;
+block|}
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -109,26 +136,6 @@ operator|=
 name|enabled
 expr_stmt|;
 block|}
-DECL|method|getLoadBalancer ()
-specifier|public
-name|LoadBalancerConfiguration
-name|getLoadBalancer
-parameter_list|()
-block|{
-return|return
-name|loadBalancer
-return|;
-block|}
-comment|// *************************************************************************
-comment|//
-comment|// *************************************************************************
-DECL|class|LoadBalancerConfiguration
-specifier|public
-class|class
-name|LoadBalancerConfiguration
-extends|extends
-name|RibbonConfiguration
-block|{     }
 block|}
 end_class
 

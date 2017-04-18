@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -378,16 +368,11 @@ decl_stmt|;
 comment|// lets update quick so we do not have to sleep so much in the tests
 name|configuration
 operator|.
-name|setClientConfig
-argument_list|(
-name|Collections
-operator|.
-name|singletonMap
+name|addProperty
 argument_list|(
 literal|"ServerListRefreshInterval"
 argument_list|,
 literal|"250"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|RibbonLoadBalancer

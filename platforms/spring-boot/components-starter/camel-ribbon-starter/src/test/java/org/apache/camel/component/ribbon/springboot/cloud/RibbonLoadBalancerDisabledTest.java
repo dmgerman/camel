@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.etcd.springboot.cloud
+DECL|package|org.apache.camel.component.ribbon.springboot.cloud
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|etcd
+name|ribbon
 operator|.
 name|springboot
 operator|.
@@ -42,7 +42,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|ServiceDiscovery
+name|LoadBalancer
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|cloud
 operator|.
 name|springboot
 operator|.
-name|EtcdServiceCallServiceDiscoveryConfigurationProperties
+name|RibbonServiceCallLoadBalancerConfigurationProperties
 import|;
 end_import
 
@@ -216,7 +216,7 @@ argument_list|(
 name|classes
 operator|=
 block|{
-name|EtcdServiceDiscoveryDisabledTest
+name|RibbonLoadBalancerDisabledTest
 operator|.
 name|TestConfiguration
 operator|.
@@ -228,13 +228,13 @@ operator|=
 block|{
 literal|"debug=false"
 block|,
-literal|"camel.cloud.etcd.service-discovery.enabled=false"
+literal|"camel.cloud.ribbon.load-balancer.enabled=false"
 block|}
 argument_list|)
-DECL|class|EtcdServiceDiscoveryDisabledTest
+DECL|class|RibbonLoadBalancerDisabledTest
 specifier|public
 class|class
-name|EtcdServiceDiscoveryDisabledTest
+name|RibbonLoadBalancerDisabledTest
 block|{
 annotation|@
 name|Autowired
@@ -266,7 +266,7 @@ name|context
 operator|.
 name|getBeansOfType
 argument_list|(
-name|EtcdServiceCallServiceDiscoveryConfigurationProperties
+name|RibbonServiceCallLoadBalancerConfigurationProperties
 operator|.
 name|class
 argument_list|)
@@ -287,14 +287,14 @@ name|context
 operator|.
 name|getBeansOfType
 argument_list|(
-name|ServiceDiscovery
+name|LoadBalancer
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
 name|Assert
 operator|.
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|beans
 operator|.
@@ -310,7 +310,7 @@ name|beans
 operator|.
 name|containsKey
 argument_list|(
-literal|"etcd-service-discovery"
+literal|"ribbon-load-balancer"
 argument_list|)
 argument_list|)
 expr_stmt|;

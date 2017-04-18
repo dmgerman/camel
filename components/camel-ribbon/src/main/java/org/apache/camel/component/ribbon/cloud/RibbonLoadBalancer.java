@@ -170,6 +170,18 @@ name|netflix
 operator|.
 name|loadbalancer
 operator|.
+name|Server
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|loadbalancer
+operator|.
 name|ServerList
 import|;
 end_import
@@ -598,41 +610,47 @@ argument_list|,
 literal|"camel context"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
+if|if
+condition|(
 name|serviceDiscovery
-argument_list|,
-literal|"service discovery"
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|serviceFilter
-argument_list|,
-literal|"service filter"
-argument_list|)
-expr_stmt|;
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOGGER
 operator|.
 name|info
 argument_list|(
-literal|"ServiceCall is using ribbon load balancer with service discovery type: {} and service filter type: {}"
+literal|"ServiceCall is using ribbon load balancer with service discovery type: {} and service filter: {}"
 argument_list|,
 name|serviceDiscovery
 operator|.
 name|getClass
 argument_list|()
 argument_list|,
+name|serviceDiscovery
+operator|!=
+literal|null
+condition|?
 name|serviceFilter
 operator|.
 name|getClass
 argument_list|()
+else|:
+literal|"none"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"ServiceCall is using ribbon load balancer"
+argument_list|)
+expr_stmt|;
+block|}
 name|ServiceHelper
 operator|.
 name|startService
@@ -715,17 +733,12 @@ lambda|->
 name|createLoadBalancer
 argument_list|(
 name|key
-argument_list|,
-name|serviceDiscovery
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|RibbonServiceDefinition
-name|service
+name|Server
+name|server
 init|=
-operator|(
-name|RibbonServiceDefinition
-operator|)
 name|loadBalancer
 operator|.
 name|chooseServer
@@ -735,7 +748,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|service
+name|server
 operator|==
 literal|null
 condition|)
@@ -750,19 +763,86 @@ name|serviceName
 argument_list|)
 throw|;
 block|}
+name|ServiceDefinition
+name|definition
+decl_stmt|;
+if|if
+condition|(
+name|server
+operator|instanceof
+name|ServiceDefinition
+condition|)
+block|{
+comment|// If the service discovery is one of camel provides, the definition
+comment|// is already of the expected type.
+name|definition
+operator|=
+operator|(
+name|ServiceDefinition
+operator|)
+name|server
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// If ribbon server list is configured through client config properties
+comment|// i.e. with listOfServers property the instance provided by the load
+comment|// balancer is of type Server so a conversion is needed
+name|definition
+operator|=
+operator|new
+name|RibbonServiceDefinition
+argument_list|(
+name|serviceName
+argument_list|,
+name|server
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|server
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|String
+name|zone
+init|=
+name|server
+operator|.
+name|getZone
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|zone
+operator|!=
+literal|null
+condition|)
+block|{
+name|server
+operator|.
+name|setZone
+argument_list|(
+name|zone
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|return
 name|request
 operator|.
 name|apply
 argument_list|(
-name|service
+name|definition
 argument_list|)
 return|;
 block|}
 comment|// ************************
 comment|// Helpers
 comment|// ************************
-DECL|method|createLoadBalancer (String serviceName, ServiceDiscovery serviceDiscovery)
+DECL|method|createLoadBalancer (String serviceName)
 specifier|private
 name|ZoneAwareLoadBalancer
 argument_list|<
@@ -772,9 +852,6 @@ name|createLoadBalancer
 parameter_list|(
 name|String
 name|serviceName
-parameter_list|,
-name|ServiceDiscovery
-name|serviceDiscovery
 parameter_list|)
 block|{
 comment|// setup client config
@@ -817,7 +894,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|getClientConfig
+name|getProperties
 argument_list|()
 operator|!=
 literal|null
@@ -837,7 +914,7 @@ name|entry
 range|:
 name|configuration
 operator|.
-name|getClientConfig
+name|getProperties
 argument_list|()
 operator|.
 name|entrySet
@@ -892,7 +969,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
+name|ZoneAwareLoadBalancer
+argument_list|<
+name|RibbonServiceDefinition
+argument_list|>
+name|loadBalancer
+decl_stmt|;
+if|if
+condition|(
+name|serviceDiscovery
+operator|!=
+literal|null
+condition|)
+block|{
+name|loadBalancer
+operator|=
 operator|new
 name|ZoneAwareLoadBalancer
 argument_list|<>
@@ -935,6 +1026,22 @@ argument_list|(
 name|config
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|loadBalancer
+operator|=
+operator|new
+name|ZoneAwareLoadBalancer
+argument_list|<>
+argument_list|(
+name|config
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|loadBalancer
 return|;
 block|}
 DECL|class|RibbonServerList

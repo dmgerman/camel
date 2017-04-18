@@ -251,7 +251,7 @@ name|clientName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getClientConfig ()
+DECL|method|getProperties ()
 specifier|public
 name|Map
 argument_list|<
@@ -259,20 +259,20 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|getClientConfig
+name|getProperties
 parameter_list|()
 block|{
 return|return
 name|configuration
 operator|.
-name|getClientConfig
+name|getProperties
 argument_list|()
 return|;
 block|}
-DECL|method|setClientConfig (Map<String, String> clientConfig)
+DECL|method|setProperties (Map<String, String> clientConfig)
 specifier|public
 name|void
-name|setClientConfig
+name|setProperties
 parameter_list|(
 name|Map
 argument_list|<
@@ -285,7 +285,7 @@ parameter_list|)
 block|{
 name|configuration
 operator|.
-name|setClientConfig
+name|setProperties
 argument_list|(
 name|clientConfig
 argument_list|)
