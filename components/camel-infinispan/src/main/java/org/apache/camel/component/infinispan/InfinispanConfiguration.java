@@ -341,6 +341,18 @@ specifier|private
 name|Object
 name|cacheContainerConfiguration
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|resultHeader
+specifier|private
+name|Object
+name|resultHeader
+decl_stmt|;
 DECL|method|getCommand ()
 specifier|public
 name|String
@@ -916,6 +928,33 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|getResultHeader ()
+specifier|public
+name|Object
+name|getResultHeader
+parameter_list|()
+block|{
+return|return
+name|resultHeader
+return|;
+block|}
+comment|/**      * Store the operation result in a header instead of the message body.      *      * By default, resultHeader == null and the query result is stored in the      * message body, any existing content in the message body is discarded. If      * resultHeader is set, the value is used as the name of the header to store      * the query result and the original message body is preserved.      *      * This value can be overridden by an in message header named:      *      *     CamelInfinispanOperationResultHeader      */
+DECL|method|setResultHeader (Object resultHeader)
+specifier|public
+name|void
+name|setResultHeader
+parameter_list|(
+name|Object
+name|resultHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resultHeader
+operator|=
+name|resultHeader
+expr_stmt|;
 block|}
 block|}
 end_class

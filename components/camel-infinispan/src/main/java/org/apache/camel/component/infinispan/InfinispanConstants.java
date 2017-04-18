@@ -185,6 +185,12 @@ name|RESULT
 init|=
 literal|"CamelInfinispanOperationResult"
 decl_stmt|;
+DECL|field|RESULT_HEADER
+name|String
+name|RESULT_HEADER
+init|=
+literal|"CamelInfinispanOperationResultHeader"
+decl_stmt|;
 DECL|field|LIFESPAN_TIME
 name|String
 name|LIFESPAN_TIME
