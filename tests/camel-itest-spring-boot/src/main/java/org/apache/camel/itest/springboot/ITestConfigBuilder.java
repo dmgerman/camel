@@ -702,6 +702,46 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|includeTestDependencies (Boolean includeTestDependencies)
+specifier|public
+name|ITestConfigBuilder
+name|includeTestDependencies
+parameter_list|(
+name|Boolean
+name|includeTestDependencies
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setIncludeTestDependencies
+argument_list|(
+name|includeTestDependencies
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|unitTestsEnabled (Boolean unitTestsEnabled)
+specifier|public
+name|ITestConfigBuilder
+name|unitTestsEnabled
+parameter_list|(
+name|Boolean
+name|unitTestsEnabled
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setUnitTestEnabled
+argument_list|(
+name|unitTestsEnabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|build ()
 specifier|public
 name|ITestConfig
