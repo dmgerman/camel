@@ -24,6 +24,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|annotation
+operator|.
+name|Generated
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|security
 operator|.
 name|auth
@@ -55,6 +65,17 @@ comment|/**  * For reading/writing from/to an HDFS filesystem using Hadoop 2.x. 
 end_comment
 
 begin_class
+annotation|@
+name|Generated
+argument_list|(
+name|value
+operator|=
+literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|,
+name|date
+operator|=
+literal|"2017-04-19T08:03:41.545Z"
+argument_list|)
 annotation|@
 name|ConfigurationProperties
 argument_list|(
