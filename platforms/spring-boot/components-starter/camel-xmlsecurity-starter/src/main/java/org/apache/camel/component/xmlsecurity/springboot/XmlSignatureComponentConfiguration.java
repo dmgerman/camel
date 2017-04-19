@@ -44,6 +44,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|annotation
+operator|.
+name|Generated
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|xml
 operator|.
 name|crypto
@@ -215,6 +225,11 @@ comment|/**  * Used to sign and verify exchanges using the XML signature specifi
 end_comment
 
 begin_class
+annotation|@
+name|Generated
+argument_list|(
+literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|)
 annotation|@
 name|ConfigurationProperties
 argument_list|(

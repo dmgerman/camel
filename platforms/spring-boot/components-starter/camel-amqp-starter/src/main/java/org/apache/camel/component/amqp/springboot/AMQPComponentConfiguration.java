@@ -24,6 +24,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|annotation
+operator|.
+name|Generated
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|jms
 operator|.
 name|ConnectionFactory
@@ -315,6 +325,11 @@ comment|/**  * Messaging with AMQP protocol using Apache QPid Client.  *   * Gen
 end_comment
 
 begin_class
+annotation|@
+name|Generated
+argument_list|(
+literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|)
 annotation|@
 name|ConfigurationProperties
 argument_list|(

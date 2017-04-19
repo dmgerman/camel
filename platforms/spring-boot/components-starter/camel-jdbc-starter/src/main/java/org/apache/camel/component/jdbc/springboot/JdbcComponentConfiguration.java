@@ -24,6 +24,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|annotation
+operator|.
+name|Generated
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|sql
 operator|.
 name|DataSource
@@ -51,6 +61,11 @@ comment|/**  * The jdbc component enables you to access databases through JDBC w
 end_comment
 
 begin_class
+annotation|@
+name|Generated
+argument_list|(
+literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|)
 annotation|@
 name|ConfigurationProperties
 argument_list|(

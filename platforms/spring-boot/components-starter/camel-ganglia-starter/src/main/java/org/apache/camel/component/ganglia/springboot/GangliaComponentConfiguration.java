@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Generated
+import|;
+end_import
+
+begin_import
+import|import
 name|info
 operator|.
 name|ganglia
@@ -101,6 +111,11 @@ comment|/**  * The ganglia component is used for sending metrics to the Ganglia 
 end_comment
 
 begin_class
+annotation|@
+name|Generated
+argument_list|(
+literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|)
 annotation|@
 name|ConfigurationProperties
 argument_list|(

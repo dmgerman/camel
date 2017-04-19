@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Generated
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -139,6 +149,11 @@ comment|/**  * Netty HTTP server and client using the Netty 3.x library.  *   * 
 end_comment
 
 begin_class
+annotation|@
+name|Generated
+argument_list|(
+literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|)
 annotation|@
 name|ConfigurationProperties
 argument_list|(
