@@ -397,6 +397,11 @@ argument_list|(
 literal|"myService"
 argument_list|)
 operator|.
+name|component
+argument_list|(
+literal|"jetty"
+argument_list|)
+operator|.
 name|loadBalancer
 argument_list|(
 name|loadBalancer

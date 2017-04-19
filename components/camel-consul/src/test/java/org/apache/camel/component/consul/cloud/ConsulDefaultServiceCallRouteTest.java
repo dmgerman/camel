@@ -438,6 +438,11 @@ argument_list|(
 name|SERVICE_NAME
 argument_list|)
 operator|.
+name|component
+argument_list|(
+literal|"jetty"
+argument_list|)
+operator|.
 name|defaultLoadBalancer
 argument_list|()
 operator|.

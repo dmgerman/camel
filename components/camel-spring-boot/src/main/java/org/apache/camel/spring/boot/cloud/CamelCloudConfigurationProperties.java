@@ -88,7 +88,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|ServiceCallConstants
+name|ServiceCallDefinitionConstants
 import|;
 end_import
 
@@ -269,7 +269,7 @@ specifier|private
 name|String
 name|component
 init|=
-name|ServiceCallConstants
+name|ServiceCallDefinitionConstants
 operator|.
 name|DEFAULT_COMPONENT
 decl_stmt|;

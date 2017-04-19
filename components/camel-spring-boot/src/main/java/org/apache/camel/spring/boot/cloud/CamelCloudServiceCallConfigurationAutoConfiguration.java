@@ -72,7 +72,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|ServiceCallConstants
+name|ServiceCallDefinitionConstants
 import|;
 end_import
 
@@ -332,7 +332,7 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-name|ServiceCallConstants
+name|ServiceCallDefinitionConstants
 operator|.
 name|DEFAULT_SERVICE_CALL_CONFIG_ID
 argument_list|)
@@ -341,7 +341,7 @@ name|ConditionalOnMissingBean
 argument_list|(
 name|name
 operator|=
-name|ServiceCallConstants
+name|ServiceCallDefinitionConstants
 operator|.
 name|DEFAULT_SERVICE_CALL_CONFIG_ID
 argument_list|)

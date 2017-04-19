@@ -173,8 +173,6 @@ operator|.
 name|serviceCall
 argument_list|(
 literal|"service-1"
-argument_list|,
-literal|"undertow:http://service-1"
 argument_list|)
 operator|.
 name|when
@@ -193,8 +191,6 @@ operator|.
 name|serviceCall
 argument_list|(
 literal|"service-2"
-argument_list|,
-literal|"undertow:http://service-2"
 argument_list|)
 expr_stmt|;
 block|}

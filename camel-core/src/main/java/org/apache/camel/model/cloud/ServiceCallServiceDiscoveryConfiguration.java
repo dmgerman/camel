@@ -329,15 +329,6 @@ name|IdentifiedType
 implements|implements
 name|ServiceDiscoveryFactory
 block|{
-DECL|field|RESOURCE_PATH
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|RESOURCE_PATH
-init|=
-literal|"META-INF/services/org/apache/camel/cloud/"
-decl_stmt|;
 annotation|@
 name|XmlTransient
 DECL|field|parent
@@ -761,6 +752,8 @@ name|camelContext
 operator|.
 name|getFactoryFinder
 argument_list|(
+name|ServiceCallDefinitionConstants
+operator|.
 name|RESOURCE_PATH
 argument_list|)
 operator|.
@@ -780,6 +773,8 @@ throw|throw
 operator|new
 name|NoFactoryAvailableException
 argument_list|(
+name|ServiceCallDefinitionConstants
+operator|.
 name|RESOURCE_PATH
 operator|+
 name|factoryKey

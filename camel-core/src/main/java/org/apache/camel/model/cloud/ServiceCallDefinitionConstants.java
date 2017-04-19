@@ -19,12 +19,21 @@ package|;
 end_package
 
 begin_class
-DECL|class|ServiceCallConstants
+DECL|class|ServiceCallDefinitionConstants
 specifier|public
 specifier|final
 class|class
-name|ServiceCallConstants
+name|ServiceCallDefinitionConstants
 block|{
+DECL|field|RESOURCE_PATH
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RESOURCE_PATH
+init|=
+literal|"META-INF/services/org/apache/camel/cloud/"
+decl_stmt|;
 DECL|field|DEFAULT_COMPONENT
 specifier|public
 specifier|static
@@ -88,9 +97,9 @@ name|DEFAULT_LOAD_BALANCER_ID
 init|=
 literal|"load-balancer"
 decl_stmt|;
-DECL|method|ServiceCallConstants ()
+DECL|method|ServiceCallDefinitionConstants ()
 specifier|private
-name|ServiceCallConstants
+name|ServiceCallDefinitionConstants
 parameter_list|()
 block|{     }
 block|}

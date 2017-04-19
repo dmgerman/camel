@@ -285,7 +285,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-name|ServiceCallConstants
+name|ServiceCallDefinitionConstants
 operator|.
 name|DEFAULT_COMPONENT
 argument_list|)

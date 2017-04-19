@@ -232,6 +232,8 @@ operator|=
 block|{
 literal|"camel.cloud.load-balancer.enabled=false"
 block|,
+literal|"camel.cloud.service-call.component=jetty"
+block|,
 literal|"camel.cloud.service-discovery.services[custom-svc-list]=localhost:9090,localhost:9091,localhost:9092"
 block|,
 literal|"camel.cloud.service-filter.blacklist[custom-svc-list]=localhost:9091"
@@ -343,16 +345,8 @@ literal|"direct:start"
 argument_list|)
 operator|.
 name|serviceCall
-argument_list|()
-operator|.
-name|name
 argument_list|(
-literal|"custom-svc-list"
-argument_list|)
-operator|.
-name|uri
-argument_list|(
-literal|"jetty:http://custom-svc-list/hello"
+literal|"custom-svc-list/hello"
 argument_list|)
 expr_stmt|;
 name|from
