@@ -328,7 +328,13 @@ begin_class
 annotation|@
 name|Generated
 argument_list|(
+name|value
+operator|=
 literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|,
+name|date
+operator|=
+literal|"2017-04-19T08:40:54.730Z"
 argument_list|)
 annotation|@
 name|Configuration
@@ -607,7 +613,13 @@ block|}
 annotation|@
 name|Generated
 argument_list|(
+name|value
+operator|=
 literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|,
+name|date
+operator|=
+literal|"2017-04-19T08:40:54.785Z"
 argument_list|)
 DECL|class|Condition
 specifier|public
