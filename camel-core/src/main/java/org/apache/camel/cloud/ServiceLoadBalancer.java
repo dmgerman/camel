@@ -16,35 +16,33 @@ name|cloud
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * A factory to create LoadBalancer  *  * @see LoadBalancer  */
+comment|/**  * Represents a Load Balancer.  *  * @see ServiceDiscovery  * @see ServiceFilter  * @see ServiceChooser  */
 end_comment
 
 begin_interface
-DECL|interface|LoadBalancerFactory
+annotation|@
+name|FunctionalInterface
+DECL|interface|ServiceLoadBalancer
 specifier|public
 interface|interface
-name|LoadBalancerFactory
+name|ServiceLoadBalancer
 block|{
-comment|/**      * Creates an instance of a LoadBalancer.      */
-DECL|method|newInstance (CamelContext camelContext)
-name|LoadBalancer
-name|newInstance
+DECL|method|process (String serviceName, ServiceLoadBalancerFunction<T> function)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|process
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|String
+name|serviceName
+parameter_list|,
+name|ServiceLoadBalancerFunction
+argument_list|<
+name|T
+argument_list|>
+name|function
 parameter_list|)
 throws|throws
 name|Exception

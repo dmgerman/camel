@@ -94,7 +94,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|DefaultServiceCallLoadBalancerConfiguration
+name|DefaultServiceCallServiceLoadBalancerConfiguration
 import|;
 end_import
 
@@ -341,7 +341,7 @@ operator|.
 name|getLoadBalancerConfiguration
 argument_list|()
 operator|instanceof
-name|DefaultServiceCallLoadBalancerConfiguration
+name|DefaultServiceCallServiceLoadBalancerConfiguration
 argument_list|)
 expr_stmt|;
 name|ServiceCallExpressionConfiguration

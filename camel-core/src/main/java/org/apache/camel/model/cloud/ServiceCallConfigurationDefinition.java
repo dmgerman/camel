@@ -164,20 +164,6 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
 name|ServiceChooser
 import|;
 end_import
@@ -207,6 +193,20 @@ operator|.
 name|cloud
 operator|.
 name|ServiceFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancer
 import|;
 end_import
 
@@ -354,7 +354,7 @@ annotation|@
 name|XmlTransient
 DECL|field|loadBalancer
 specifier|private
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|loadBalancer
 decl_stmt|;
 annotation|@
@@ -572,7 +572,7 @@ literal|"ribbonLoadBalancer"
 argument_list|,
 name|type
 operator|=
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 operator|.
 name|class
 argument_list|)
@@ -586,7 +586,7 @@ literal|"defaultLoadBalancer"
 argument_list|,
 name|type
 operator|=
-name|DefaultServiceCallLoadBalancerConfiguration
+name|DefaultServiceCallServiceLoadBalancerConfiguration
 operator|.
 name|class
 argument_list|)
@@ -594,7 +594,7 @@ block|}
 argument_list|)
 DECL|field|loadBalancerConfiguration
 specifier|private
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 name|loadBalancerConfiguration
 decl_stmt|;
 annotation|@
@@ -881,7 +881,7 @@ return|return
 name|loadBalancerRef
 return|;
 block|}
-comment|/**      * Sets a reference to a custom {@link LoadBalancer} to use.      */
+comment|/**      * Sets a reference to a custom {@link ServiceLoadBalancer} to use.      */
 DECL|method|setLoadBalancerRef (String loadBalancerRef)
 specifier|public
 name|void
@@ -900,7 +900,7 @@ expr_stmt|;
 block|}
 DECL|method|getLoadBalancer ()
 specifier|public
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|getLoadBalancer
 parameter_list|()
 block|{
@@ -908,13 +908,13 @@ return|return
 name|loadBalancer
 return|;
 block|}
-comment|/**      * Sets a custom {@link LoadBalancer} to use.      */
-DECL|method|setLoadBalancer (LoadBalancer loadBalancer)
+comment|/**      * Sets a custom {@link ServiceLoadBalancer} to use.      */
+DECL|method|setLoadBalancer (ServiceLoadBalancer loadBalancer)
 specifier|public
 name|void
 name|setLoadBalancer
 parameter_list|(
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|loadBalancer
 parameter_list|)
 block|{
@@ -1035,7 +1035,7 @@ expr_stmt|;
 block|}
 DECL|method|getLoadBalancerConfiguration ()
 specifier|public
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 name|getLoadBalancerConfiguration
 parameter_list|()
 block|{
@@ -1044,12 +1044,12 @@ name|loadBalancerConfiguration
 return|;
 block|}
 comment|/**      * Configures theL oadBalancer using the given configuration.      */
-DECL|method|setLoadBalancerConfiguration (ServiceCallLoadBalancerConfiguration loadBalancerConfiguration)
+DECL|method|setLoadBalancerConfiguration (ServiceCallServiceLoadBalancerConfiguration loadBalancerConfiguration)
 specifier|public
 name|void
 name|setLoadBalancerConfiguration
 parameter_list|(
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 name|loadBalancerConfiguration
 parameter_list|)
 block|{
@@ -1261,7 +1261,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a reference to a custom {@link LoadBalancer} to use.      */
+comment|/**      * Sets a reference to a custom {@link ServiceLoadBalancer} to use.      */
 DECL|method|loadBalancer (String loadBalancerRef)
 specifier|public
 name|ServiceCallConfigurationDefinition
@@ -1280,13 +1280,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a custom {@link LoadBalancer} to use.      */
-DECL|method|loadBalancer (LoadBalancer loadBalancer)
+comment|/**      * Sets a custom {@link ServiceLoadBalancer} to use.      */
+DECL|method|loadBalancer (ServiceLoadBalancer loadBalancer)
 specifier|public
 name|ServiceCallConfigurationDefinition
 name|loadBalancer
 parameter_list|(
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|loadBalancer
 parameter_list|)
 block|{
@@ -1408,12 +1408,12 @@ name|this
 return|;
 block|}
 comment|/**      * Configures the LoadBalancer using the given configuration.      */
-DECL|method|loadBalancerConfiguration (ServiceCallLoadBalancerConfiguration loadBalancerConfiguration)
+DECL|method|loadBalancerConfiguration (ServiceCallServiceLoadBalancerConfiguration loadBalancerConfiguration)
 specifier|public
 name|ServiceCallConfigurationDefinition
 name|loadBalancerConfiguration
 parameter_list|(
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 name|loadBalancerConfiguration
 parameter_list|)
 block|{
@@ -1954,11 +1954,11 @@ name|ServiceCallConfigurationDefinition
 name|defaultLoadBalancer
 parameter_list|()
 block|{
-name|DefaultServiceCallLoadBalancerConfiguration
+name|DefaultServiceCallServiceLoadBalancerConfiguration
 name|conf
 init|=
 operator|new
-name|DefaultServiceCallLoadBalancerConfiguration
+name|DefaultServiceCallServiceLoadBalancerConfiguration
 argument_list|()
 decl_stmt|;
 name|setLoadBalancerConfiguration
@@ -1976,11 +1976,11 @@ name|ServiceCallConfigurationDefinition
 name|ribbonLoadBalancer
 parameter_list|()
 block|{
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 name|conf
 init|=
 operator|new
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 argument_list|()
 decl_stmt|;
 name|setLoadBalancerConfiguration
@@ -2001,11 +2001,11 @@ name|String
 name|clientName
 parameter_list|)
 block|{
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 name|conf
 init|=
 operator|new
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 argument_list|()
 decl_stmt|;
 name|conf

@@ -16,27 +16,36 @@ name|cloud
 package|;
 end_package
 
-begin_comment
-comment|/**  * Represents a load balancer function to be executed by the LoadBalancer.  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
 
 begin_interface
 annotation|@
 name|FunctionalInterface
-DECL|interface|LoadBalancerFunction
+DECL|interface|ServiceFactory
 specifier|public
 interface|interface
-name|LoadBalancerFunction
+name|ServiceFactory
 parameter_list|<
 name|T
 parameter_list|>
 block|{
-DECL|method|apply (ServiceDefinition serviceDefinition)
+comment|/**      * Creates an instance of a service.      */
+DECL|method|newInstance (CamelContext camelContext)
 name|T
-name|apply
+name|newInstance
 parameter_list|(
-name|ServiceDefinition
-name|serviceDefinition
+name|CamelContext
+name|camelContext
 parameter_list|)
 throws|throws
 name|Exception

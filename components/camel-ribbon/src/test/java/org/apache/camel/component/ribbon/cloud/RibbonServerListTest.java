@@ -155,7 +155,7 @@ operator|.
 name|withDynamicServerList
 argument_list|(
 operator|new
-name|RibbonLoadBalancer
+name|RibbonServiceLoadBalancer
 operator|.
 name|RibbonServerList
 argument_list|(

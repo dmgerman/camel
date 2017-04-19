@@ -172,7 +172,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
+name|ServiceLoadBalancer
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancerFactory
+name|ServiceLoadBalancerFactory
 import|;
 end_import
 
@@ -310,14 +310,14 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|ServiceCallLoadBalancerConfiguration
+DECL|class|ServiceCallServiceLoadBalancerConfiguration
 specifier|public
 class|class
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 extends|extends
 name|IdentifiedType
 implements|implements
-name|LoadBalancerFactory
+name|ServiceLoadBalancerFactory
 block|{
 DECL|field|RESOURCE_PATH
 specifier|private
@@ -366,9 +366,9 @@ name|PropertyDefinition
 argument_list|>
 name|properties
 decl_stmt|;
-DECL|method|ServiceCallLoadBalancerConfiguration ()
+DECL|method|ServiceCallServiceLoadBalancerConfiguration ()
 specifier|public
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 parameter_list|()
 block|{
 name|this
@@ -379,9 +379,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ServiceCallLoadBalancerConfiguration (ServiceCallDefinition parent, String factoryKey)
+DECL|method|ServiceCallServiceLoadBalancerConfiguration (ServiceCallDefinition parent, String factoryKey)
 specifier|public
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 parameter_list|(
 name|ServiceCallDefinition
 name|parent
@@ -472,7 +472,7 @@ block|}
 comment|/**      * Adds a custom property to use.      *<p/>      * These properties are specific to what service call implementation are in      * use. For example if using ribbon, then the client properties are define      * in com.netflix.client.config.CommonClientConfigKey.      */
 DECL|method|property (String key, String value)
 specifier|public
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 name|property
 parameter_list|(
 name|String
@@ -643,7 +643,7 @@ annotation|@
 name|Override
 DECL|method|newInstance (CamelContext camelContext)
 specifier|public
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|newInstance
 parameter_list|(
 name|CamelContext
@@ -661,11 +661,11 @@ argument_list|,
 literal|"LoadBalancer factoryKey"
 argument_list|)
 expr_stmt|;
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|answer
 decl_stmt|;
 comment|// First try to find the factory from the registry.
-name|LoadBalancerFactory
+name|ServiceLoadBalancerFactory
 name|factory
 init|=
 name|CamelContextHelper
@@ -676,7 +676,7 @@ name|camelContext
 argument_list|,
 name|factoryKey
 argument_list|,
-name|LoadBalancerFactory
+name|ServiceLoadBalancerFactory
 operator|.
 name|class
 argument_list|)
@@ -753,7 +753,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|LoadBalancerFactory
+name|ServiceLoadBalancerFactory
 operator|.
 name|class
 operator|.
@@ -766,7 +766,7 @@ block|{
 name|factory
 operator|=
 operator|(
-name|LoadBalancerFactory
+name|ServiceLoadBalancerFactory
 operator|)
 name|camelContext
 operator|.
@@ -827,6 +827,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// Convert properties to Map<String, String>
 name|parameters
 operator|.
 name|put

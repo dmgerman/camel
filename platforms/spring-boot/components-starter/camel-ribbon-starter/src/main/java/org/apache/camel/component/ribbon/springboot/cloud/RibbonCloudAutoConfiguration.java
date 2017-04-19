@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
+name|ServiceLoadBalancer
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|ribbon
 operator|.
 name|cloud
 operator|.
-name|RibbonLoadBalancerFactory
+name|RibbonServiceLoadBalancerFactory
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|cloud
 operator|.
 name|springboot
 operator|.
-name|RibbonServiceCallLoadBalancerConfigurationCommon
+name|RibbonServiceCallServiceLoadBalancerConfigurationCommon
 import|;
 end_import
 
@@ -128,7 +128,7 @@ name|cloud
 operator|.
 name|springboot
 operator|.
-name|RibbonServiceCallLoadBalancerConfigurationProperties
+name|RibbonServiceCallServiceLoadBalancerConfigurationProperties
 import|;
 end_import
 
@@ -373,7 +373,7 @@ argument_list|)
 annotation|@
 name|EnableConfigurationProperties
 argument_list|(
-name|RibbonServiceCallLoadBalancerConfigurationProperties
+name|RibbonServiceCallServiceLoadBalancerConfigurationProperties
 operator|.
 name|class
 argument_list|)
@@ -393,7 +393,7 @@ annotation|@
 name|Autowired
 DECL|field|configuration
 specifier|private
-name|RibbonServiceCallLoadBalancerConfigurationProperties
+name|RibbonServiceCallServiceLoadBalancerConfigurationProperties
 name|configuration
 decl_stmt|;
 annotation|@
@@ -421,17 +421,17 @@ name|class
 argument_list|)
 DECL|method|configureLoadBalancerFactory ()
 specifier|public
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|configureLoadBalancerFactory
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RibbonLoadBalancerFactory
+name|RibbonServiceLoadBalancerFactory
 name|factory
 init|=
 operator|new
-name|RibbonLoadBalancerFactory
+name|RibbonServiceLoadBalancerFactory
 argument_list|()
 decl_stmt|;
 name|IntrospectionSupport
@@ -500,7 +500,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|RibbonServiceCallLoadBalancerConfigurationCommon
+name|RibbonServiceCallServiceLoadBalancerConfigurationCommon
 argument_list|>
 name|entry
 range|:
@@ -520,11 +520,11 @@ name|clear
 argument_list|()
 expr_stmt|;
 comment|// The instance factory
-name|RibbonLoadBalancerFactory
+name|RibbonServiceLoadBalancerFactory
 name|factory
 init|=
 operator|new
-name|RibbonLoadBalancerFactory
+name|RibbonServiceLoadBalancerFactory
 argument_list|()
 decl_stmt|;
 try|try

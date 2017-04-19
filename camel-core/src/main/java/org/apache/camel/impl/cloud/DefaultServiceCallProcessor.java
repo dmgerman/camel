@@ -112,7 +112,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
+name|ServiceDefinition
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|ServiceDefinition
+name|ServiceLoadBalancer
 import|;
 end_import
 
@@ -299,7 +299,7 @@ decl_stmt|;
 DECL|field|loadBalancer
 specifier|private
 specifier|final
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|loadBalancer
 decl_stmt|;
 DECL|field|expression
@@ -313,7 +313,7 @@ specifier|private
 name|SendDynamicProcessor
 name|processor
 decl_stmt|;
-DECL|method|DefaultServiceCallProcessor ( CamelContext camelContext, String name, String scheme, String uri, ExchangePattern exchangePattern, LoadBalancer loadBalancer, Expression expression)
+DECL|method|DefaultServiceCallProcessor ( CamelContext camelContext, String name, String scheme, String uri, ExchangePattern exchangePattern, ServiceLoadBalancer loadBalancer, Expression expression)
 specifier|public
 name|DefaultServiceCallProcessor
 parameter_list|(
@@ -332,7 +332,7 @@ parameter_list|,
 name|ExchangePattern
 name|exchangePattern
 parameter_list|,
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|loadBalancer
 parameter_list|,
 name|Expression
@@ -565,7 +565,7 @@ return|;
 block|}
 DECL|method|getLoadBalancer ()
 specifier|public
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|getLoadBalancer
 parameter_list|()
 block|{

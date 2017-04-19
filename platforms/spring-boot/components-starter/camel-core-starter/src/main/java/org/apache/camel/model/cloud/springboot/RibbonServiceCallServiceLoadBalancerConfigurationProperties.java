@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model.cloud
+DECL|package|org.apache.camel.model.cloud.springboot
 package|package
 name|org
 operator|.
@@ -15,20 +15,28 @@ operator|.
 name|model
 operator|.
 name|cloud
+operator|.
+name|springboot
 package|;
 end_package
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|xml
+name|util
 operator|.
-name|bind
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|annotation
+name|util
 operator|.
-name|XmlAccessType
+name|Map
 import|;
 end_import
 
@@ -36,27 +44,9 @@ begin_import
 import|import
 name|javax
 operator|.
-name|xml
-operator|.
-name|bind
-operator|.
 name|annotation
 operator|.
-name|XmlAccessorType
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlRootElement
+name|Generated
 import|;
 end_import
 
@@ -64,78 +54,103 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|boot
 operator|.
-name|spi
+name|context
 operator|.
-name|Metadata
+name|properties
+operator|.
+name|ConfigurationProperties
 import|;
 end_import
 
 begin_class
 annotation|@
-name|Metadata
+name|Generated
 argument_list|(
-name|label
-operator|=
-literal|"routing,cloud,load-balancing"
+literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
 argument_list|)
 annotation|@
-name|XmlRootElement
+name|ConfigurationProperties
 argument_list|(
-name|name
+name|prefix
 operator|=
-literal|"defaultLoadBalancer"
+literal|"camel.cloud.ribbon.load-balancer"
 argument_list|)
-annotation|@
-name|XmlAccessorType
-argument_list|(
-name|XmlAccessType
-operator|.
-name|FIELD
-argument_list|)
-DECL|class|DefaultServiceCallLoadBalancerConfiguration
+DECL|class|RibbonServiceCallServiceLoadBalancerConfigurationProperties
 specifier|public
 class|class
-name|DefaultServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfigurationProperties
 extends|extends
-name|ServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfigurationCommon
 block|{
-DECL|method|DefaultServiceCallLoadBalancerConfiguration ()
+comment|/**      * Enable the component      */
+DECL|field|enabled
+specifier|private
+name|boolean
+name|enabled
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Define additional configuration definitions      */
+DECL|field|configurations
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|RibbonServiceCallServiceLoadBalancerConfigurationCommon
+argument_list|>
+name|configurations
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+DECL|method|getConfigurations ()
 specifier|public
-name|DefaultServiceCallLoadBalancerConfiguration
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|RibbonServiceCallServiceLoadBalancerConfigurationCommon
+argument_list|>
+name|getConfigurations
 parameter_list|()
 block|{
-name|this
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
+return|return
+name|configurations
+return|;
 block|}
-DECL|method|DefaultServiceCallLoadBalancerConfiguration (ServiceCallDefinition parent)
+DECL|method|isEnabled ()
 specifier|public
-name|DefaultServiceCallLoadBalancerConfiguration
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
+block|}
+DECL|method|setEnabled (boolean enabled)
+specifier|public
+name|void
+name|setEnabled
 parameter_list|(
-name|ServiceCallDefinition
-name|parent
+name|boolean
+name|enabled
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|parent
-argument_list|,
-literal|"default-load-balancer"
-argument_list|)
+name|this
+operator|.
+name|enabled
+operator|=
+name|enabled
 expr_stmt|;
 block|}
-comment|// *************************************************************************
-comment|// Properties
-comment|// *************************************************************************
-comment|// *************************************************************************
-comment|// Fluent API
-comment|// *************************************************************************
 block|}
 end_class
 

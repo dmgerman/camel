@@ -17,37 +17,22 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a Load Balancer.  *  * @see ServiceDiscovery  * @see ServiceFilter  * @see ServiceChooser  */
+comment|/**  * A factory to create LoadBalancer  *  * @see ServiceFactory  * @see ServiceLoadBalancer  */
 end_comment
 
 begin_interface
 annotation|@
 name|FunctionalInterface
-DECL|interface|LoadBalancer
+DECL|interface|ServiceLoadBalancerFactory
 specifier|public
 interface|interface
-name|LoadBalancer
-block|{
-DECL|method|process (String serviceName, LoadBalancerFunction<T> function)
-parameter_list|<
-name|T
-parameter_list|>
-name|T
-name|process
-parameter_list|(
-name|String
-name|serviceName
-parameter_list|,
-name|LoadBalancerFunction
+name|ServiceLoadBalancerFactory
+extends|extends
+name|ServiceFactory
 argument_list|<
-name|T
+name|ServiceLoadBalancer
 argument_list|>
-name|function
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-block|}
+block|{ }
 end_interface
 
 end_unit

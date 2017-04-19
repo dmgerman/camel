@@ -1178,6 +1178,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// Convert properties to Map<String, String>
 name|parameters
 operator|.
 name|put

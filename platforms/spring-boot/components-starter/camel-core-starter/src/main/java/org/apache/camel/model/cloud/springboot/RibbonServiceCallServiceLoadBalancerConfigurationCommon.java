@@ -50,10 +50,10 @@ name|Generated
 argument_list|(
 literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
 argument_list|)
-DECL|class|RibbonServiceCallLoadBalancerConfigurationCommon
+DECL|class|RibbonServiceCallServiceLoadBalancerConfigurationCommon
 specifier|public
 class|class
-name|RibbonServiceCallLoadBalancerConfigurationCommon
+name|RibbonServiceCallServiceLoadBalancerConfigurationCommon
 block|{
 comment|/**      * The namespace      */
 DECL|field|namespace

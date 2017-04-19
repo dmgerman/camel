@@ -16,40 +16,23 @@ name|cloud
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * A factory to create ServiceChooser  *  * @see ServiceChooser  */
+comment|/**  * A factory to create ServiceChooser  *  * @see ServiceFactory  * @see ServiceChooser  */
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|ServiceChooserFactory
 specifier|public
 interface|interface
 name|ServiceChooserFactory
-block|{
-comment|/**      * Creates an instance of a ServiceChooser.      */
-DECL|method|newInstance (CamelContext camelContext)
+extends|extends
+name|ServiceFactory
+argument_list|<
 name|ServiceChooser
-name|newInstance
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-block|}
+argument_list|>
+block|{ }
 end_interface
 
 end_unit

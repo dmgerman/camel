@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
+name|ServiceLoadBalancer
 import|;
 end_import
 
@@ -279,16 +279,16 @@ argument_list|)
 annotation|@
 name|Conditional
 argument_list|(
-name|CamelSpringCloudLoadBalancerAutoConfiguration
+name|CamelSpringCloudServiceLoadBalancerAutoConfiguration
 operator|.
 name|LoadBalancerCondition
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelSpringCloudLoadBalancerAutoConfiguration
+DECL|class|CamelSpringCloudServiceLoadBalancerAutoConfiguration
 specifier|public
 class|class
-name|CamelSpringCloudLoadBalancerAutoConfiguration
+name|CamelSpringCloudServiceLoadBalancerAutoConfiguration
 block|{
 annotation|@
 name|Bean
@@ -301,7 +301,7 @@ annotation|@
 name|ConditionalOnMissingBean
 DECL|method|cloudLoadBalancer (LoadBalancerClient loadBalancerClient)
 specifier|public
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|cloudLoadBalancer
 parameter_list|(
 name|LoadBalancerClient
@@ -310,7 +310,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|CamelSpringCloudLoadBalancer
+name|CamelSpringCloudServiceLoadBalancer
 argument_list|(
 name|loadBalancerClient
 argument_list|)

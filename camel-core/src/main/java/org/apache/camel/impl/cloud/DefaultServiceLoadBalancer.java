@@ -74,34 +74,6 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|LoadBalancerFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
 name|ServiceChooser
 import|;
 end_import
@@ -198,6 +170,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancerFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -253,10 +253,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DefaultLoadBalancer
+DECL|class|DefaultServiceLoadBalancer
 specifier|public
 class|class
-name|DefaultLoadBalancer
+name|DefaultServiceLoadBalancer
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -268,7 +268,7 @@ name|ServiceChooserAware
 implements|,
 name|ServiceFilterAware
 implements|,
-name|LoadBalancer
+name|ServiceLoadBalancer
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -281,7 +281,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|DefaultLoadBalancer
+name|DefaultServiceLoadBalancer
 operator|.
 name|class
 argument_list|)
@@ -306,9 +306,9 @@ specifier|private
 name|ServiceFilter
 name|serviceFilter
 decl_stmt|;
-DECL|method|DefaultLoadBalancer ()
+DECL|method|DefaultServiceLoadBalancer ()
 specifier|public
-name|DefaultLoadBalancer
+name|DefaultServiceLoadBalancer
 parameter_list|()
 block|{     }
 comment|// *************************************
@@ -551,7 +551,7 @@ comment|// Load Balancer
 comment|// *************************************
 annotation|@
 name|Override
-DECL|method|process (String serviceName, LoadBalancerFunction<T> function)
+DECL|method|process (String serviceName, ServiceLoadBalancerFunction<T> function)
 specifier|public
 parameter_list|<
 name|T
@@ -562,7 +562,7 @@ parameter_list|(
 name|String
 name|serviceName
 parameter_list|,
-name|LoadBalancerFunction
+name|ServiceLoadBalancerFunction
 argument_list|<
 name|T
 argument_list|>

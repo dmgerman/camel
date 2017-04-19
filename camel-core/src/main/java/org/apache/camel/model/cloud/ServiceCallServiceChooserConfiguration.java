@@ -827,6 +827,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// Convert properties to Map<String, String>
 name|parameters
 operator|.
 name|put
@@ -837,6 +838,13 @@ name|getPropertiesAsMap
 argument_list|(
 name|camelContext
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|postProcessFactoryParameters
+argument_list|(
+name|camelContext
+argument_list|,
+name|parameters
 argument_list|)
 expr_stmt|;
 name|IntrospectionSupport

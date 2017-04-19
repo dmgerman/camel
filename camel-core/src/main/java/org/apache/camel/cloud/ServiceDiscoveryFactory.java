@@ -16,40 +16,23 @@ name|cloud
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * A factory to create ServiceDiscovery  *  * @see ServiceDiscovery  */
+comment|/**  * A factory to create ServiceDiscovery  *  * @see ServiceFactory  * @see ServiceDiscovery  */
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|ServiceDiscoveryFactory
 specifier|public
 interface|interface
 name|ServiceDiscoveryFactory
-block|{
-comment|/**      * Creates an instance of a ServiceDiscovery.      */
-DECL|method|newInstance (CamelContext camelContext)
+extends|extends
+name|ServiceFactory
+argument_list|<
 name|ServiceDiscovery
-name|newInstance
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-block|}
+argument_list|>
+block|{ }
 end_interface
 
 end_unit

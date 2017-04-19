@@ -232,34 +232,6 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|LoadBalancerFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
 name|ServiceDefinition
 import|;
 end_import
@@ -317,6 +289,34 @@ operator|.
 name|cloud
 operator|.
 name|ServiceFilterAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancerFunction
 import|;
 end_import
 
@@ -399,10 +399,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RibbonLoadBalancer
+DECL|class|RibbonServiceLoadBalancer
 specifier|public
 class|class
-name|RibbonLoadBalancer
+name|RibbonServiceLoadBalancer
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -412,7 +412,7 @@ name|ServiceDiscoveryAware
 implements|,
 name|ServiceFilterAware
 implements|,
-name|LoadBalancer
+name|ServiceLoadBalancer
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -425,7 +425,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|RibbonLoadBalancer
+name|RibbonServiceLoadBalancer
 operator|.
 name|class
 argument_list|)
@@ -465,9 +465,9 @@ specifier|private
 name|ServiceFilter
 name|serviceFilter
 decl_stmt|;
-DECL|method|RibbonLoadBalancer (RibbonConfiguration configuration)
+DECL|method|RibbonServiceLoadBalancer (RibbonConfiguration configuration)
 specifier|public
-name|RibbonLoadBalancer
+name|RibbonServiceLoadBalancer
 parameter_list|(
 name|RibbonConfiguration
 name|configuration
@@ -699,7 +699,7 @@ comment|// Processor
 comment|// ************************
 annotation|@
 name|Override
-DECL|method|process (String serviceName, LoadBalancerFunction<T> request)
+DECL|method|process (String serviceName, ServiceLoadBalancerFunction<T> request)
 specifier|public
 parameter_list|<
 name|T
@@ -710,7 +710,7 @@ parameter_list|(
 name|String
 name|serviceName
 parameter_list|,
-name|LoadBalancerFunction
+name|ServiceLoadBalancerFunction
 argument_list|<
 name|T
 argument_list|>

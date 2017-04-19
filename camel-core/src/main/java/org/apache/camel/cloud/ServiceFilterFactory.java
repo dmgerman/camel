@@ -16,40 +16,23 @@ name|cloud
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * A factory to create ServiceFilter  *  * @see ServiceFilter  */
+comment|/**  * A factory to create ServiceFilter  *  * @see ServiceFactory  * @see ServiceFilter  */
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|ServiceFilterFactory
 specifier|public
 interface|interface
 name|ServiceFilterFactory
-block|{
-comment|/**      * Creates an instance of a ServiceFilter.      */
-DECL|method|newInstance (CamelContext camelContext)
+extends|extends
+name|ServiceFactory
+argument_list|<
 name|ServiceFilter
-name|newInstance
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-block|}
+argument_list|>
+block|{ }
 end_interface
 
 end_unit

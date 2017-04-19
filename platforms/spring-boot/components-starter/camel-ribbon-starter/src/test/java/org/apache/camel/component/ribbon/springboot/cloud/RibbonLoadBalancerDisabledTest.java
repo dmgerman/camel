@@ -42,7 +42,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
+name|ServiceLoadBalancer
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|cloud
 operator|.
 name|springboot
 operator|.
-name|RibbonServiceCallLoadBalancerConfigurationProperties
+name|RibbonServiceCallServiceLoadBalancerConfigurationProperties
 import|;
 end_import
 
@@ -266,7 +266,7 @@ name|context
 operator|.
 name|getBeansOfType
 argument_list|(
-name|RibbonServiceCallLoadBalancerConfigurationProperties
+name|RibbonServiceCallServiceLoadBalancerConfigurationProperties
 operator|.
 name|class
 argument_list|)
@@ -287,7 +287,7 @@ name|context
 operator|.
 name|getBeansOfType
 argument_list|(
-name|LoadBalancer
+name|ServiceLoadBalancer
 operator|.
 name|class
 argument_list|)

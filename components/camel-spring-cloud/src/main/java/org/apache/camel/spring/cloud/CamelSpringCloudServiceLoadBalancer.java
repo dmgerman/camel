@@ -52,35 +52,35 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|LoadBalancerFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
 name|ServiceDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancerFunction
 import|;
 end_import
 
@@ -179,16 +179,16 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelSpringCloudLoadBalancer
+DECL|class|CamelSpringCloudServiceLoadBalancer
 specifier|public
 class|class
-name|CamelSpringCloudLoadBalancer
+name|CamelSpringCloudServiceLoadBalancer
 extends|extends
 name|ServiceSupport
 implements|implements
 name|CamelContextAware
 implements|,
-name|LoadBalancer
+name|ServiceLoadBalancer
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -201,7 +201,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CamelSpringCloudLoadBalancer
+name|CamelSpringCloudServiceLoadBalancer
 operator|.
 name|class
 argument_list|)
@@ -217,9 +217,9 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|method|CamelSpringCloudLoadBalancer (LoadBalancerClient loadBalancerClient)
+DECL|method|CamelSpringCloudServiceLoadBalancer (LoadBalancerClient loadBalancerClient)
 specifier|public
-name|CamelSpringCloudLoadBalancer
+name|CamelSpringCloudServiceLoadBalancer
 parameter_list|(
 name|LoadBalancerClient
 name|loadBalancerClient
@@ -315,7 +315,7 @@ name|Exception
 block|{     }
 annotation|@
 name|Override
-DECL|method|process (String serviceName, LoadBalancerFunction<T> function)
+DECL|method|process (String serviceName, ServiceLoadBalancerFunction<T> function)
 specifier|public
 parameter_list|<
 name|T
@@ -326,7 +326,7 @@ parameter_list|(
 name|String
 name|serviceName
 parameter_list|,
-name|LoadBalancerFunction
+name|ServiceLoadBalancerFunction
 argument_list|<
 name|T
 argument_list|>

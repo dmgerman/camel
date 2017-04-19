@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -81,18 +71,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlRootElement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
 import|;
 end_import
 
@@ -132,12 +110,12 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|RibbonServiceCallLoadBalancerConfiguration
+DECL|class|RibbonServiceCallServiceLoadBalancerConfiguration
 specifier|public
 class|class
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 extends|extends
-name|ServiceCallLoadBalancerConfiguration
+name|ServiceCallServiceLoadBalancerConfiguration
 block|{
 annotation|@
 name|XmlAttribute
@@ -167,9 +145,9 @@ specifier|private
 name|String
 name|clientName
 decl_stmt|;
-DECL|method|RibbonServiceCallLoadBalancerConfiguration ()
+DECL|method|RibbonServiceCallServiceLoadBalancerConfiguration ()
 specifier|public
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 parameter_list|()
 block|{
 name|this
@@ -178,9 +156,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RibbonServiceCallLoadBalancerConfiguration (ServiceCallDefinition parent)
+DECL|method|RibbonServiceCallServiceLoadBalancerConfiguration (ServiceCallDefinition parent)
 specifier|public
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 parameter_list|(
 name|ServiceCallDefinition
 name|parent
@@ -190,7 +168,7 @@ name|super
 argument_list|(
 name|parent
 argument_list|,
-literal|"ribbon-load-balancer"
+literal|"ribbon-service-load-balancer"
 argument_list|)
 expr_stmt|;
 block|}
@@ -311,7 +289,7 @@ comment|// *********************************************************************
 comment|/**      * Sets the namespace      */
 DECL|method|namespace (String namespace)
 specifier|public
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 name|namespace
 parameter_list|(
 name|String
@@ -330,7 +308,7 @@ block|}
 comment|/**      * Sets the username      */
 DECL|method|username (String username)
 specifier|public
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 name|username
 parameter_list|(
 name|String
@@ -349,7 +327,7 @@ block|}
 comment|/**      * Sets the password      */
 DECL|method|password (String password)
 specifier|public
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 name|password
 parameter_list|(
 name|String
@@ -368,7 +346,7 @@ block|}
 comment|/**      * Sets the Ribbon client name      */
 DECL|method|clientName (String clientName)
 specifier|public
-name|RibbonServiceCallLoadBalancerConfiguration
+name|RibbonServiceCallServiceLoadBalancerConfiguration
 name|clientName
 parameter_list|(
 name|String
@@ -383,71 +361,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-comment|// *************************************************************************
-comment|// Helpers
-comment|// *************************************************************************
-annotation|@
-name|Override
-DECL|method|postProcessFactoryParameters (CamelContext camelContext, Map<String, Object> parameters)
-specifier|protected
-name|void
-name|postProcessFactoryParameters
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|properties
-init|=
-operator|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-operator|)
-name|parameters
-operator|.
-name|get
-argument_list|(
-literal|"properties"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|properties
-operator|!=
-literal|null
-condition|)
-block|{
-name|parameters
-operator|.
-name|put
-argument_list|(
-literal|"clientConfig"
-argument_list|,
-name|properties
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class

@@ -30,7 +30,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
+name|ServiceLoadBalancer
 import|;
 end_import
 
@@ -439,7 +439,7 @@ name|ctx
 operator|.
 name|getBeansOfType
 argument_list|(
-name|LoadBalancer
+name|ServiceLoadBalancer
 operator|.
 name|class
 argument_list|)

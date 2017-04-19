@@ -121,11 +121,11 @@ argument_list|,
 literal|1002
 argument_list|)
 expr_stmt|;
-name|DefaultLoadBalancer
+name|DefaultServiceLoadBalancer
 name|loadBalancer
 init|=
 operator|new
-name|DefaultLoadBalancer
+name|DefaultServiceLoadBalancer
 argument_list|()
 decl_stmt|;
 name|loadBalancer

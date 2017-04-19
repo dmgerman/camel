@@ -259,11 +259,11 @@ operator|new
 name|RibbonConfiguration
 argument_list|()
 decl_stmt|;
-name|RibbonLoadBalancer
+name|RibbonServiceLoadBalancer
 name|loadBalancer
 init|=
 operator|new
-name|RibbonLoadBalancer
+name|RibbonServiceLoadBalancer
 argument_list|(
 name|configuration
 argument_list|)

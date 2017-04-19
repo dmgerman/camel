@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancer
+name|ServiceLoadBalancer
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|cloud
 operator|.
-name|LoadBalancerFactory
+name|ServiceLoadBalancerFactory
 import|;
 end_import
 
@@ -87,12 +87,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|RibbonLoadBalancerFactory
+DECL|class|RibbonServiceLoadBalancerFactory
 specifier|public
 class|class
-name|RibbonLoadBalancerFactory
+name|RibbonServiceLoadBalancerFactory
 implements|implements
-name|LoadBalancerFactory
+name|ServiceLoadBalancerFactory
 block|{
 DECL|field|configuration
 specifier|private
@@ -100,9 +100,9 @@ specifier|final
 name|RibbonConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|RibbonLoadBalancerFactory ()
+DECL|method|RibbonServiceLoadBalancerFactory ()
 specifier|public
-name|RibbonLoadBalancerFactory
+name|RibbonServiceLoadBalancerFactory
 parameter_list|()
 block|{
 name|this
@@ -113,9 +113,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RibbonLoadBalancerFactory (RibbonConfiguration configuration)
+DECL|method|RibbonServiceLoadBalancerFactory (RibbonConfiguration configuration)
 specifier|public
-name|RibbonLoadBalancerFactory
+name|RibbonServiceLoadBalancerFactory
 parameter_list|(
 name|RibbonConfiguration
 name|configuration
@@ -298,7 +298,7 @@ annotation|@
 name|Override
 DECL|method|newInstance (CamelContext camelContext)
 specifier|public
-name|LoadBalancer
+name|ServiceLoadBalancer
 name|newInstance
 parameter_list|(
 name|CamelContext
@@ -309,7 +309,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|RibbonLoadBalancer
+name|RibbonServiceLoadBalancer
 argument_list|(
 name|configuration
 argument_list|)

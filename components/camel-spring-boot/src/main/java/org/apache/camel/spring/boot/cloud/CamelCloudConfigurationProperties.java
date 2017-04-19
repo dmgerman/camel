@@ -70,6 +70,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|cloud
@@ -277,7 +291,7 @@ specifier|private
 name|String
 name|serviceChooser
 decl_stmt|;
-comment|/**          * A reference to the {@link org.apache.camel.cloud.LoadBalancer} to use.          */
+comment|/**          * A reference to the {@link ServiceLoadBalancer} to use.          */
 DECL|field|loadBalancer
 specifier|private
 name|String
