@@ -54,22 +54,42 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|milo
+operator|.
+name|NodeIds
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * An example application focusing on the OPC UA client endpoint  */
+end_comment
+
 begin_class
-DECL|class|Application
+DECL|class|ExampleClient
 specifier|public
 specifier|final
 class|class
-name|Application
+name|ExampleClient
 block|{
-DECL|method|Application ()
+DECL|method|ExampleClient ()
 specifier|private
-name|Application
+name|ExampleClient
 parameter_list|()
 block|{     }
 DECL|method|main (final String[] args)
@@ -95,12 +115,6 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-comment|// add paho
-comment|// no need to register, gets auto detected
-comment|// context.addComponent("paho", new PahoComponent());
-comment|// no need to register, gets auto detected
-comment|// context.addComponent("milo-server", new MiloClientComponent());
-comment|// context.addComponent("milo-client", new MiloClientComponent());
 comment|// add routes
 name|context
 operator|.
@@ -119,56 +133,38 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|from
-argument_list|(
-literal|"paho:javaonedemo/eclipse-greenhouse-9home/sensors/temperature?brokerUrl=tcp://iot.eclipse.org:1883"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"Temp update: ${body}"
-argument_list|)
-operator|.
-name|convertBodyTo
-argument_list|(
+comment|// bridge item1 to item2
+specifier|final
 name|String
+name|item1
+init|=
+name|NodeIds
 operator|.
-name|class
-argument_list|)
-operator|.
-name|to
+name|nodeValue
 argument_list|(
-literal|"milo-server:MyItem"
+literal|"urn:org:apache:camel"
+argument_list|,
+literal|"items-MyItem"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+specifier|final
+name|String
+name|item2
+init|=
+name|NodeIds
+operator|.
+name|nodeValue
+argument_list|(
+literal|"urn:org:apache:camel"
+argument_list|,
+literal|"items-MyItem2"
+argument_list|)
+decl_stmt|;
 name|from
 argument_list|(
-literal|"milo-server:MyItem"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"MyItem: ${body}"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"milo-server:MyItem2"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"MyItem2 : ${body}"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"paho:de/dentrassi/camel/milo/test1?brokerUrl=tcp://iot.eclipse.org:1883"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"milo-client:tcp://foo:bar@localhost:12685?nodeId=items-MyItem&namespaceUri=urn:camel"
+literal|"milo-client:tcp://foo:bar@localhost:12685?node="
+operator|+
+name|item1
 argument_list|)
 operator|.
 name|log
@@ -178,17 +174,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"milo-client:tcp://localhost:12685?nodeId=items-MyItem2&namespaceUri=urn:camel"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"paho:de/dentrassi/camel/milo/test1?brokerUrl=tcp://iot.eclipse.org:1883"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"Back from MQTT: ${body}"
+literal|"milo-client:tcp://foo:bar@localhost:12685?node"
+operator|+
+name|item2
 argument_list|)
 expr_stmt|;
 block|}

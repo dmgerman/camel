@@ -78,16 +78,20 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * This is a simple example application which tests a few ways of mapping data  * to an OPC UA server instance.  */
+end_comment
+
 begin_class
-DECL|class|Application2Server
+DECL|class|ExampleServer
 specifier|public
 specifier|final
 class|class
-name|Application2Server
+name|ExampleServer
 block|{
-DECL|method|Application2Server ()
+DECL|method|ExampleServer ()
 specifier|private
-name|Application2Server
+name|ExampleServer
 parameter_list|()
 block|{     }
 DECL|method|main (final String[] args)
@@ -113,9 +117,7 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-comment|// add paho
-comment|// no need to register, gets auto detected
-comment|// context.addComponent("paho", new PahoComponent());
+comment|// configure milo
 operator|(
 operator|(
 name|MiloServerComponent
@@ -151,7 +153,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*                  * from(                  * "paho:javaonedemo/eclipse-greenhouse-9home/sensors/temperature?brokerUrl=tcp://iot.eclipse.org:1883")                  * .log("Temp update: ${body}").convertBodyTo(String.class).to(                  * "milo-server:MyItem");                  */
+comment|/*                  * Take an MQTT topic and forward its content to an OPC UA                  * server item. You can e.g. take some MQTT application and an                  * OPC UA client, connect with both applications to their                  * topics/items. When you write on the MQTT item it will pop up                  * on the OPC UA item.                  */
 name|from
 argument_list|(
 literal|"paho:my/foo/bar?brokerUrl=tcp://iot.eclipse.org:1883"
@@ -174,6 +176,7 @@ argument_list|(
 literal|"milo-server:MyItem"
 argument_list|)
 expr_stmt|;
+comment|/*                  * Creating a simple item which has not data but logs anything                  * which gets written to by an OPC UA write call                  */
 name|from
 argument_list|(
 literal|"milo-server:MyItem"
@@ -184,6 +187,7 @@ argument_list|(
 literal|"MyItem: ${body}"
 argument_list|)
 expr_stmt|;
+comment|/*                  * Creating an item which takes write command and forwards them                  * to an MQTT topic                  */
 name|from
 argument_list|(
 literal|"milo-server:MyItem2"
@@ -206,6 +210,7 @@ argument_list|(
 literal|"paho:de/dentrassi/camel/milo/temperature?brokerUrl=tcp://iot.eclipse.org:1883"
 argument_list|)
 expr_stmt|;
+comment|/*                  * Re-read the output from the previous route from MQTT to the                  * local logging                  */
 name|from
 argument_list|(
 literal|"paho:de/dentrassi/camel/milo/temperature?brokerUrl=tcp://iot.eclipse.org:1883"
