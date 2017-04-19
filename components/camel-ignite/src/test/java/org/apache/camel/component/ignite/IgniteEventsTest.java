@@ -164,6 +164,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|ignite
+operator|.
+name|events
+operator|.
+name|IgniteEventsComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|JndiRegistry
@@ -269,6 +287,36 @@ extends|extends
 name|AbstractIgniteTest
 block|{
 annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|protected
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"ignite-events"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponent ()
+specifier|protected
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+block|{
+return|return
+name|IgniteEventsComponent
+operator|.
+name|fromConfiguration
+argument_list|(
+name|createConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testConsumeAllEvents ()
 specifier|public
@@ -297,7 +345,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"ignite:events:abc"
+literal|"ignite-events:abc"
 argument_list|)
 operator|.
 name|to
@@ -512,7 +560,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"ignite:events:abc?events=#filter"
+literal|"ignite-events:abc?events=#filter"
 argument_list|)
 operator|.
 name|to
@@ -656,7 +704,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"ignite:events:abc?events=EVT_CACHE_OBJECT_PUT"
+literal|"ignite-events:abc?events=EVT_CACHE_OBJECT_PUT"
 argument_list|)
 operator|.
 name|to
@@ -918,10 +966,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|buildComponent ()
+DECL|method|createConfiguration ()
 specifier|protected
-name|IgniteComponent
-name|buildComponent
+name|IgniteConfiguration
+name|createConfiguration
 parameter_list|()
 block|{
 name|IgniteConfiguration
@@ -941,12 +989,7 @@ name|EVTS_ALL_MINUS_METRIC_UPDATE
 argument_list|)
 expr_stmt|;
 return|return
-name|IgniteComponent
-operator|.
-name|fromConfiguration
-argument_list|(
 name|config
-argument_list|)
 return|;
 block|}
 block|}

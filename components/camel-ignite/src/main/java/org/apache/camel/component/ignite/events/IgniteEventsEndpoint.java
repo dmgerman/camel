@@ -200,6 +200,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|ignite
 operator|.
 name|Ignite
@@ -274,9 +288,13 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.17.0"
+argument_list|,
 name|scheme
 operator|=
-literal|"ignite:events"
+literal|"ignite-events"
 argument_list|,
 name|title
 operator|=
@@ -284,7 +302,7 @@ literal|"Ignite Events"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite:events:[endpointId]"
+literal|"ignite-events:[endpointId]"
 argument_list|,
 name|label
 operator|=
@@ -324,7 +342,27 @@ name|class
 argument_list|)
 decl_stmt|;
 annotation|@
+name|UriPath
+DECL|field|endpointId
+specifier|private
+name|String
+name|endpointId
+decl_stmt|;
+annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|javaType
+operator|=
+literal|"Set<Integer> or String"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"EventType.EVTS_ALL"
+argument_list|)
 DECL|field|events
 specifier|private
 name|Set
@@ -335,11 +373,18 @@ name|events
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|clusterGroupExpression
 specifier|private
 name|ClusterGroupExpression
 name|clusterGroupExpression
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|IgniteEventsEndpoint (String uri, URI remainingUri, Map<String, Object> parameters, IgniteComponent igniteComponent)
 specifier|public
 name|IgniteEventsEndpoint
@@ -359,6 +404,62 @@ argument_list|>
 name|parameters
 parameter_list|,
 name|IgniteComponent
+name|igniteComponent
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|uri
+argument_list|,
+name|igniteComponent
+argument_list|)
+expr_stmt|;
+comment|// Initialize subscribed event types with ALL.
+name|events
+operator|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+expr_stmt|;
+for|for
+control|(
+name|Integer
+name|eventType
+range|:
+name|EventType
+operator|.
+name|EVTS_ALL
+control|)
+block|{
+name|events
+operator|.
+name|add
+argument_list|(
+name|eventType
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|IgniteEventsEndpoint (String uri, String remaining, Map<String, Object> parameters, IgniteEventsComponent igniteComponent)
+specifier|public
+name|IgniteEventsEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|,
+name|IgniteEventsComponent
 name|igniteComponent
 parameter_list|)
 block|{
@@ -545,6 +646,34 @@ return|return
 name|events
 return|;
 block|}
+comment|/**      * Gets the endpoint ID (not used).      *       * @return endpoint ID (not used)      */
+DECL|method|getEndpointId ()
+specifier|public
+name|String
+name|getEndpointId
+parameter_list|()
+block|{
+return|return
+name|endpointId
+return|;
+block|}
+comment|/**      * The endpoint ID (not used).      *       * @param endpointId endpoint ID (not used)      */
+DECL|method|setEndpointId (String endpointId)
+specifier|public
+name|void
+name|setEndpointId
+parameter_list|(
+name|String
+name|endpointId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointId
+operator|=
+name|endpointId
+expr_stmt|;
+block|}
 comment|/**      * Gets the event types to subscribe to.      *       * @return      */
 DECL|method|getEvents ()
 specifier|public
@@ -559,7 +688,7 @@ return|return
 name|events
 return|;
 block|}
-comment|/**      * Sets the event types to subscribe to as a {@link Set}.      *       * @param events      */
+comment|/**      * The event IDs to subscribe to as a Set<Integer> directly where      * the IDs are the different constants in org.apache.ignite.events.EventType.      *       * @param events      */
 DECL|method|setEvents (Set<Integer> events)
 specifier|public
 name|void
@@ -579,7 +708,7 @@ operator|=
 name|events
 expr_stmt|;
 block|}
-comment|/**      * Sets the event types to subscribe to as a comma-separated string of event constants as defined in {@link EventType}.      *<p>      * For example: EVT_CACHE_ENTRY_CREATED,EVT_CACHE_OBJECT_REMOVED,EVT_IGFS_DIR_CREATED.      *       * @param events      */
+comment|/**      * The event types to subscribe to as a comma-separated string of event constants as defined in {@link EventType}.      *<p>      * For example: EVT_CACHE_ENTRY_CREATED,EVT_CACHE_OBJECT_REMOVED,EVT_IGFS_DIR_CREATED.      *       * @param events      */
 DECL|method|setEvents (String events)
 specifier|public
 name|void
@@ -694,6 +823,7 @@ throw|;
 block|}
 block|}
 block|}
+comment|/**      * Gets the cluster group expression.      *       * @return cluster group expression      */
 DECL|method|getClusterGroupExpression ()
 specifier|public
 name|ClusterGroupExpression
@@ -704,6 +834,7 @@ return|return
 name|clusterGroupExpression
 return|;
 block|}
+comment|/**      * The cluster group expression.      *       * @param clusterGroupExpression cluster group expression      */
 DECL|method|setClusterGroupExpression (ClusterGroupExpression clusterGroupExpression)
 specifier|public
 name|void

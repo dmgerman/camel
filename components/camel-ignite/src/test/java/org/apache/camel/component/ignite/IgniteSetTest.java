@@ -118,6 +118,24 @@ name|ignite
 operator|.
 name|set
 operator|.
+name|IgniteSetComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ignite
+operator|.
+name|set
+operator|.
 name|IgniteSetEndpoint
 import|;
 end_import
@@ -227,6 +245,36 @@ extends|extends
 name|AbstractIgniteTest
 block|{
 annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|protected
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"ignite-set"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponent ()
+specifier|protected
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+block|{
+return|return
+name|IgniteSetComponent
+operator|.
+name|fromConfiguration
+argument_list|(
+name|createConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testOperations ()
 specifier|public
@@ -241,7 +289,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=ADD"
+literal|"ignite-set:abc?operation=ADD"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -293,7 +341,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=CONTAINS"
+literal|"ignite-set:abc?operation=CONTAINS"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -345,7 +393,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=REMOVE"
+literal|"ignite-set:abc?operation=REMOVE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -397,7 +445,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=CONTAINS"
+literal|"ignite-set:abc?operation=CONTAINS"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -450,7 +498,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=ADD"
+literal|"ignite-set:abc?operation=ADD"
 argument_list|,
 literal|"hello"
 operator|+
@@ -466,7 +514,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=SIZE"
+literal|"ignite-set:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -558,7 +606,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:set:abc?operation=CLEAR"
+literal|"ignite-set:abc?operation=CLEAR"
 argument_list|,
 name|toRetain
 argument_list|,
@@ -593,7 +641,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=SIZE"
+literal|"ignite-set:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -652,7 +700,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=ITERATOR"
+literal|"ignite-set:abc?operation=ITERATOR"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -695,7 +743,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=ARRAY"
+literal|"ignite-set:abc?operation=ARRAY"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -729,7 +777,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=CLEAR"
+literal|"ignite-set:abc?operation=CLEAR"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -784,7 +832,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=SIZE"
+literal|"ignite-set:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -861,7 +909,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=ADD"
+literal|"ignite-set:abc?operation=ADD"
 argument_list|,
 literal|"hello"
 operator|+
@@ -876,7 +924,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=RETAIN_ALL"
+literal|"ignite-set:abc?operation=RETAIN_ALL"
 argument_list|,
 literal|"hello10"
 argument_list|,
@@ -905,7 +953,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=ARRAY"
+literal|"ignite-set:abc?operation=ARRAY"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -960,7 +1008,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=ADD"
+literal|"ignite-set:abc?operation=ADD"
 argument_list|,
 literal|"hello"
 operator|+
@@ -990,7 +1038,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=ADD&treatCollectionsAsCacheObjects=true"
+literal|"ignite-set:abc?operation=ADD&treatCollectionsAsCacheObjects=true"
 argument_list|,
 name|toAdd
 argument_list|)
@@ -1003,7 +1051,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=SIZE"
+literal|"ignite-set:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -1085,7 +1133,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=CONTAINS&treatCollectionsAsCacheObjects=true"
+literal|"ignite-set:abc?operation=CONTAINS&treatCollectionsAsCacheObjects=true"
 argument_list|,
 name|toAdd
 argument_list|,
@@ -1110,7 +1158,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=REMOVE&treatCollectionsAsCacheObjects=true"
+literal|"ignite-set:abc?operation=REMOVE&treatCollectionsAsCacheObjects=true"
 argument_list|,
 name|toAdd
 argument_list|)
@@ -1122,7 +1170,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:set:abc?operation=SIZE"
+literal|"ignite-set:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -1244,7 +1292,9 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"ignite:set:abc?operation=ADD&configuration=#config"
+literal|"ignite-"
+operator|+
+literal|"set:abc?operation=ADD&configuration=#config"
 argument_list|,
 name|IgniteSetEndpoint
 operator|.

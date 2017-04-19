@@ -130,6 +130,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|ignite
+operator|.
+name|compute
+operator|.
+name|IgniteComputeComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -249,6 +267,36 @@ name|newArrayList
 argument_list|()
 decl_stmt|;
 annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|protected
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"ignite-compute"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponent ()
+specifier|protected
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+block|{
+return|return
+name|IgniteComputeComponent
+operator|.
+name|fromConfiguration
+argument_list|(
+name|createConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testExecuteWithWrongPayload ()
 specifier|public
@@ -262,7 +310,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:compute:abc?executionType=EXECUTE"
+literal|"ignite-compute:abc?executionType=EXECUTE"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -341,7 +389,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:compute:abc?executionType=CALL"
+literal|"ignite-compute:abc?executionType=CALL"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -397,7 +445,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:compute:abc?executionType=CALL"
+literal|"ignite-compute:abc?executionType=CALL"
 argument_list|,
 name|Lists
 operator|.
@@ -443,7 +491,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:compute:abc?executionType=CALL"
+literal|"ignite-compute:abc?executionType=CALL"
 argument_list|,
 name|Lists
 operator|.
@@ -504,7 +552,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:compute:abc?executionType=RUN"
+literal|"ignite-compute:abc?executionType=RUN"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -572,7 +620,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:compute:abc?executionType=RUN"
+literal|"ignite-compute:abc?executionType=RUN"
 argument_list|,
 name|Lists
 operator|.
@@ -689,7 +737,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:compute:abc?executionType=BROADCAST"
+literal|"ignite-compute:abc?executionType=BROADCAST"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -740,7 +788,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:compute:abc?executionType=BROADCAST"
+literal|"ignite-compute:abc?executionType=BROADCAST"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -789,7 +837,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:compute:abc?executionType=BROADCAST"
+literal|"ignite-compute:abc?executionType=BROADCAST"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -906,7 +954,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:compute:abc?executionType=EXECUTE"
+literal|"ignite-compute:abc?executionType=EXECUTE"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -982,7 +1030,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:compute:abc?executionType=EXECUTE"
+literal|"ignite-compute:abc?executionType=EXECUTE"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -1085,7 +1133,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:compute:abc?executionType=APPLY"
+literal|"ignite-compute:abc?executionType=APPLY"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -1126,7 +1174,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:compute:abc?executionType=APPLY"
+literal|"ignite-compute:abc?executionType=APPLY"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -1217,7 +1265,7 @@ name|template
 operator|.
 name|requestBodyAndHeaders
 argument_list|(
-literal|"ignite:compute:abc?executionType=APPLY"
+literal|"ignite-compute:abc?executionType=APPLY"
 argument_list|,
 name|TestIgniteComputeResources
 operator|.
@@ -1270,10 +1318,7 @@ name|Ignition
 operator|.
 name|start
 argument_list|(
-name|buildComponent
-argument_list|()
-operator|.
-name|getIgniteConfiguration
+name|createConfiguration
 argument_list|()
 argument_list|)
 argument_list|)

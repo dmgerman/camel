@@ -169,6 +169,7 @@ end_import
 begin_class
 DECL|class|AbstractIgniteTest
 specifier|public
+specifier|abstract
 class|class
 name|AbstractIgniteTest
 extends|extends
@@ -229,9 +230,10 @@ name|context
 operator|.
 name|addComponent
 argument_list|(
-literal|"ignite"
+name|getScheme
+argument_list|()
 argument_list|,
-name|buildComponent
+name|createComponent
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -239,10 +241,10 @@ return|return
 name|context
 return|;
 block|}
-DECL|method|buildComponent ()
+DECL|method|createConfiguration ()
 specifier|protected
-name|IgniteComponent
-name|buildComponent
+name|IgniteConfiguration
+name|createConfiguration
 parameter_list|()
 block|{
 name|IgniteConfiguration
@@ -293,14 +295,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|IgniteComponent
-operator|.
-name|fromConfiguration
-argument_list|(
 name|config
-argument_list|)
 return|;
 block|}
+DECL|method|getScheme ()
+specifier|protected
+specifier|abstract
+name|String
+name|getScheme
+parameter_list|()
+function_decl|;
+DECL|method|createComponent ()
+specifier|protected
+specifier|abstract
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+function_decl|;
 DECL|method|ignite ()
 specifier|protected
 name|Ignite
@@ -320,9 +331,10 @@ name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"ignite"
+name|getScheme
+argument_list|()
 argument_list|,
-name|IgniteComponent
+name|AbstractIgniteComponent
 operator|.
 name|class
 argument_list|)

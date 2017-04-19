@@ -158,6 +158,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -204,9 +218,13 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.17.0"
+argument_list|,
 name|scheme
 operator|=
-literal|"ignite:idgen"
+literal|"ignite-idgen"
 argument_list|,
 name|title
 operator|=
@@ -214,7 +232,7 @@ literal|"Ignite ID Generator"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite:idgen:[name]"
+literal|"ignite-idgen:[name]"
 argument_list|,
 name|label
 operator|=
@@ -248,7 +266,7 @@ name|class
 argument_list|)
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 annotation|@
 name|Metadata
 argument_list|(
@@ -263,6 +281,11 @@ name|name
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|batchSize
 specifier|private
 name|Integer
@@ -271,6 +294,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"0"
@@ -284,11 +311,18 @@ literal|0L
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|IgniteIdGenOperation
 name|operation
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|IgniteIdGenEndpoint (String endpointUri, URI remainingUri, Map<String, Object> parameters, IgniteComponent igniteComponent)
 specifier|public
 name|IgniteIdGenEndpoint
@@ -326,6 +360,51 @@ name|remainingUri
 operator|.
 name|getHost
 argument_list|()
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|name
+argument_list|,
+literal|"ID Generator name"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IgniteIdGenEndpoint (String endpointUri, String remaining, Map<String, Object> parameters, IgniteIdGenComponent igniteComponent)
+specifier|public
+name|IgniteIdGenEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|,
+name|IgniteIdGenComponent
+name|igniteComponent
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|igniteComponent
+argument_list|)
+expr_stmt|;
+name|name
+operator|=
+name|remaining
 expr_stmt|;
 name|ObjectHelper
 operator|.
@@ -439,6 +518,7 @@ literal|"The Ignite Id Generator endpoint doesn't support consumers."
 argument_list|)
 throw|;
 block|}
+comment|/**      * Gets the name.      *       * @return name      */
 DECL|method|getName ()
 specifier|public
 name|String
@@ -449,6 +529,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * The sequence name.      *       * @param name name      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -465,6 +546,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+comment|/**      * Gets the initial value.      *       * @return initial value      */
 DECL|method|getInitialValue ()
 specifier|public
 name|Long
@@ -475,6 +557,7 @@ return|return
 name|initialValue
 return|;
 block|}
+comment|/**      * The initial value.      *       * @param initialValue initial value      */
 DECL|method|setInitialValue (Long initialValue)
 specifier|public
 name|void
@@ -491,6 +574,7 @@ operator|=
 name|initialValue
 expr_stmt|;
 block|}
+comment|/**      * Gets the operation.      *       * @return operation      */
 DECL|method|getOperation ()
 specifier|public
 name|IgniteIdGenOperation
@@ -501,6 +585,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * The operation to invoke on the Ignite ID Generator.      * Superseded by the IgniteConstants.IGNITE_IDGEN_OPERATION header in the IN message.      * Possible values: ADD_AND_GET, GET, GET_AND_ADD, GET_AND_INCREMENT, INCREMENT_AND_GET.      *       * @param operation operation      */
 DECL|method|setOperation (IgniteIdGenOperation operation)
 specifier|public
 name|void
@@ -517,6 +602,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
+comment|/**      * Gets the batch size.      *       * @return batch size      */
 DECL|method|getBatchSize ()
 specifier|public
 name|Integer
@@ -527,6 +613,7 @@ return|return
 name|batchSize
 return|;
 block|}
+comment|/**      * The batch size.      *       * @param batchSize batch size      */
 DECL|method|setBatchSize (Integer batchSize)
 specifier|public
 name|void

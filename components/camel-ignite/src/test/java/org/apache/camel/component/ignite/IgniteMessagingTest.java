@@ -168,6 +168,24 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ignite
+operator|.
+name|messaging
+operator|.
+name|IgniteMessagingComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|ignite
 operator|.
 name|lang
@@ -295,6 +313,36 @@ name|UUID
 name|uuid
 decl_stmt|;
 annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|protected
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"ignite-messaging"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponent ()
+specifier|protected
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+block|{
+return|return
+name|IgniteMessagingComponent
+operator|.
+name|fromConfiguration
+argument_list|(
+name|createConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testProducerSendMessage ()
 specifier|public
@@ -324,7 +372,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:messaging:TOPIC1"
+literal|"ignite-messaging:TOPIC1"
 argument_list|,
 literal|1
 argument_list|)
@@ -426,7 +474,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:messaging:TOPIC1"
+literal|"ignite-messaging:TOPIC1"
 argument_list|,
 literal|1
 argument_list|,
@@ -532,7 +580,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:messaging:TOPIC1"
+literal|"ignite-messaging:TOPIC1"
 argument_list|,
 name|request
 argument_list|)
@@ -642,7 +690,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:messaging:TOPIC1?sendMode=ORDERED&timeout=1000"
+literal|"ignite-messaging:TOPIC1?sendMode=ORDERED&timeout=1000"
 argument_list|,
 name|i
 argument_list|)
@@ -745,7 +793,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:messaging:TOPIC1?treatCollectionsAsCacheObjects=true"
+literal|"ignite-messaging:TOPIC1?treatCollectionsAsCacheObjects=true"
 argument_list|,
 name|request
 argument_list|)
@@ -825,7 +873,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"ignite:messaging:TOPIC1"
+literal|"ignite-messaging:TOPIC1"
 argument_list|)
 operator|.
 name|createConsumer

@@ -78,6 +78,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|ignite
 operator|.
 name|Ignite
@@ -89,33 +103,6 @@ comment|/**  * Base class for all Ignite endpoints.   */
 end_comment
 
 begin_class
-annotation|@
-name|UriEndpoint
-argument_list|(
-name|firstVersion
-operator|=
-literal|"2.17.0"
-argument_list|,
-name|scheme
-operator|=
-literal|"ignite:..."
-argument_list|,
-name|title
-operator|=
-literal|"Ignite endpoints"
-argument_list|,
-name|syntax
-operator|=
-literal|"ignite:..."
-argument_list|,
-name|label
-operator|=
-literal|"nosql,cache,compute"
-argument_list|,
-name|producerOnly
-operator|=
-literal|true
-argument_list|)
 DECL|class|AbstractIgniteEndpoint
 specifier|public
 specifier|abstract
@@ -126,7 +113,7 @@ name|DefaultEndpoint
 block|{
 DECL|field|component
 specifier|protected
-name|IgniteComponent
+name|AbstractIgniteComponent
 name|component
 decl_stmt|;
 annotation|@
@@ -183,7 +170,7 @@ return|;
 block|}
 DECL|method|igniteComponent ()
 specifier|protected
-name|IgniteComponent
+name|AbstractIgniteComponent
 name|igniteComponent
 parameter_list|()
 block|{
@@ -197,7 +184,7 @@ block|{
 name|component
 operator|=
 operator|(
-name|IgniteComponent
+name|AbstractIgniteComponent
 operator|)
 name|getComponent
 argument_list|()

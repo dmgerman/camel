@@ -134,6 +134,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -149,6 +163,20 @@ operator|.
 name|spi
 operator|.
 name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
@@ -184,9 +212,13 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.17.0"
+argument_list|,
 name|scheme
 operator|=
-literal|"ignite:compute"
+literal|"ignite-compute"
 argument_list|,
 name|title
 operator|=
@@ -194,7 +226,7 @@ literal|"Ignite Compute"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite:compute:[endpointId]"
+literal|"ignite-compute:[endpointId]"
 argument_list|,
 name|label
 operator|=
@@ -212,7 +244,26 @@ extends|extends
 name|AbstractIgniteEndpoint
 block|{
 annotation|@
+name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|endpointId
+specifier|private
+name|String
+name|endpointId
+decl_stmt|;
+annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|clusterGroupExpression
 specifier|private
 name|ClusterGroupExpression
@@ -220,6 +271,18 @@ name|clusterGroupExpression
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|executionType
 specifier|private
 name|IgniteComputeExecutionType
@@ -227,6 +290,11 @@ name|executionType
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|taskName
 specifier|private
 name|String
@@ -234,6 +302,11 @@ name|taskName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|computeName
 specifier|private
 name|String
@@ -241,11 +314,18 @@ name|computeName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|timeoutMillis
 specifier|private
 name|Long
 name|timeoutMillis
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|IgniteComputeEndpoint (String uri, URI remainingUri, Map<String, Object> parameters, IgniteComponent igniteComponent)
 specifier|public
 name|IgniteComputeEndpoint
@@ -265,6 +345,38 @@ argument_list|>
 name|parameters
 parameter_list|,
 name|IgniteComponent
+name|igniteComponent
+parameter_list|)
+throws|throws
+name|ClassNotFoundException
+block|{
+name|super
+argument_list|(
+name|uri
+argument_list|,
+name|igniteComponent
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IgniteComputeEndpoint (String uri, String remaining, Map<String, Object> parameters, IgniteComputeComponent igniteComponent)
+specifier|public
+name|IgniteComputeEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|,
+name|IgniteComputeComponent
 name|igniteComponent
 parameter_list|)
 throws|throws
@@ -391,6 +503,62 @@ return|return
 name|compute
 return|;
 block|}
+comment|/**      * Gets the endpoint ID.      *       * @return endpoint ID (not used)      */
+DECL|method|getEndpointId ()
+specifier|public
+name|String
+name|getEndpointId
+parameter_list|()
+block|{
+return|return
+name|endpointId
+return|;
+block|}
+comment|/**      * The endpoint ID (not used).      *       * @param endpointId endpoint ID (not used)      */
+DECL|method|setEndpointId (String endpointId)
+specifier|public
+name|void
+name|setEndpointId
+parameter_list|(
+name|String
+name|endpointId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointId
+operator|=
+name|endpointId
+expr_stmt|;
+block|}
+comment|/**      * Gets the cluster group expression.      *       * @return cluster group expression      */
+DECL|method|getClusterGroupExpression ()
+specifier|public
+name|ClusterGroupExpression
+name|getClusterGroupExpression
+parameter_list|()
+block|{
+return|return
+name|clusterGroupExpression
+return|;
+block|}
+comment|/**      * An expression that returns the Cluster Group for the IgniteCompute instance.      *       * @param clusterGroupExpression cluster group expression      */
+DECL|method|setClusterGroupExpression (ClusterGroupExpression clusterGroupExpression)
+specifier|public
+name|void
+name|setClusterGroupExpression
+parameter_list|(
+name|ClusterGroupExpression
+name|clusterGroupExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clusterGroupExpression
+operator|=
+name|clusterGroupExpression
+expr_stmt|;
+block|}
 comment|/**      * Gets the execution type of this producer.      *       * @return      */
 DECL|method|getExecutionType ()
 specifier|public
@@ -402,7 +570,7 @@ return|return
 name|executionType
 return|;
 block|}
-comment|/**      * Sets the execution type of this producer.      *       * @param executionType      */
+comment|/**      * The compute operation to perform. Possible values: CALL, BROADCAST, APPLY,      *  EXECUTE, RUN, AFFINITY_CALL, AFFINITY_RUN.      * The component expects different payload types depending on the operation.      *       * @param executionType      */
 DECL|method|setExecutionType (IgniteComputeExecutionType executionType)
 specifier|public
 name|void
@@ -430,7 +598,7 @@ return|return
 name|taskName
 return|;
 block|}
-comment|/**      * Sets the task name, only applicable if using the {@link IgniteComputeExecutionType#EXECUTE} execution type.      *       * @param taskName      */
+comment|/**      * The task name, only applicable if using the {@link IgniteComputeExecutionType#EXECUTE} execution type.      *       * @param taskName      */
 DECL|method|setTaskName (String taskName)
 specifier|public
 name|void
@@ -458,7 +626,7 @@ return|return
 name|computeName
 return|;
 block|}
-comment|/**      * Sets the name of the compute job, which will be set via {@link IgniteCompute#withName(String)}.      *       * @param computeName      */
+comment|/**      * The name of the compute job, which will be set via {@link IgniteCompute#withName(String)}.      *       * @param computeName      */
 DECL|method|setComputeName (String computeName)
 specifier|public
 name|void
@@ -486,7 +654,7 @@ return|return
 name|timeoutMillis
 return|;
 block|}
-comment|/**      * Sets the timeout interval for triggered jobs, in milliseconds, which will be set via {@link IgniteCompute#withTimeout(long)}.      *       * @param timeoutMillis      */
+comment|/**      * The timeout interval for triggered jobs, in milliseconds, which will be set via {@link IgniteCompute#withTimeout(long)}.      *       * @param timeoutMillis      */
 DECL|method|setTimeoutMillis (Long timeoutMillis)
 specifier|public
 name|void

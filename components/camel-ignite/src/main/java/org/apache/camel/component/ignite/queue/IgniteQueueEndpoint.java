@@ -158,6 +158,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -226,9 +240,13 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.17.0"
+argument_list|,
 name|scheme
 operator|=
-literal|"ignite:queue"
+literal|"ignite-queue"
 argument_list|,
 name|title
 operator|=
@@ -236,7 +254,7 @@ literal|"Ignite Queues"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite:queue:[name]"
+literal|"ignite-queue:[name]"
 argument_list|,
 name|label
 operator|=
@@ -254,7 +272,7 @@ extends|extends
 name|AbstractIgniteEndpoint
 block|{
 annotation|@
-name|UriParam
+name|UriPath
 annotation|@
 name|Metadata
 argument_list|(
@@ -269,6 +287,11 @@ name|name
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|capacity
 specifier|private
 name|int
@@ -276,6 +299,11 @@ name|capacity
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|configuration
 specifier|private
 name|CollectionConfiguration
@@ -287,6 +315,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|timeoutMillis
 specifier|private
 name|Long
@@ -294,11 +327,18 @@ name|timeoutMillis
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|IgniteQueueOperation
 name|operation
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|IgniteQueueEndpoint (String endpointUri, URI remainingUri, Map<String, Object> parameters, IgniteComponent igniteComponent)
 specifier|public
 name|IgniteQueueEndpoint
@@ -336,6 +376,109 @@ name|remainingUri
 operator|.
 name|getHost
 argument_list|()
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|name
+argument_list|,
+literal|"Queue name"
+argument_list|)
+expr_stmt|;
+comment|// Set the configuration values.
+if|if
+condition|(
+operator|!
+name|parameters
+operator|.
+name|containsKey
+argument_list|(
+literal|"configuration"
+argument_list|)
+condition|)
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|configProps
+init|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"config."
+argument_list|)
+decl_stmt|;
+name|EndpointHelper
+operator|.
+name|setReferenceProperties
+argument_list|(
+name|this
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|configProps
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|EndpointHelper
+operator|.
+name|setProperties
+argument_list|(
+name|this
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|configProps
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|IgniteQueueEndpoint (String endpointUri, String remaining, Map<String, Object> parameters, IgniteQueueComponent igniteComponent)
+specifier|public
+name|IgniteQueueEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|,
+name|IgniteQueueComponent
+name|igniteComponent
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|igniteComponent
+argument_list|)
+expr_stmt|;
+name|name
+operator|=
+name|remaining
 expr_stmt|;
 name|ObjectHelper
 operator|.
@@ -475,7 +618,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Sets the queue name.      *       * @param name      */
+comment|/**      * The queue name.      *       * @param name      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -503,7 +646,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Sets the queue operation to perform.      *       * @param operation      */
+comment|/**      * The operation to invoke on the Ignite Queue.      * Superseded by the IgniteConstants.IGNITE_QUEUE_OPERATION header in the IN message.      * Possible values: CONTAINS, ADD, SIZE, REMOVE, ITERATOR, CLEAR, RETAIN_ALL, ARRAY, DRAIN, ELEMENT, PEEK, OFFER, POLL, TAKE, PUT.      *       * @param operation      */
 DECL|method|setOperation (IgniteQueueOperation operation)
 specifier|public
 name|void
@@ -531,7 +674,7 @@ return|return
 name|capacity
 return|;
 block|}
-comment|/**      * Sets the queue capacity. Default: non-bounded.      *       * @param capacity      */
+comment|/**      * The queue capacity. Default: non-bounded.      *       * @param capacity      */
 DECL|method|setCapacity (int capacity)
 specifier|public
 name|void
@@ -559,7 +702,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * Sets the collection configuration. Default: empty configuration.      *<p>      * You can also conveniently set inner properties by using<tt>configuration.xyz=123</tt> options.      *       * @param configuration      */
+comment|/**      * The collection configuration. Default: empty configuration.      *<p>      * You can also conveniently set inner properties by using<tt>configuration.xyz=123</tt> options.      *       * @param configuration      */
 DECL|method|setConfiguration (CollectionConfiguration configuration)
 specifier|public
 name|void
@@ -587,7 +730,7 @@ return|return
 name|timeoutMillis
 return|;
 block|}
-comment|/**      * Sets the queue timeout in milliseconds. Default: no timeout.      *       * @param timeoutMillis      */
+comment|/**      * The queue timeout in milliseconds. Default: no timeout.      *       * @param timeoutMillis      */
 DECL|method|setTimeoutMillis (Long timeoutMillis)
 specifier|public
 name|void

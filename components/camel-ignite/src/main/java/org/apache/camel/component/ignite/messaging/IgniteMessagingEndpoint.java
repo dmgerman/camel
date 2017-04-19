@@ -172,6 +172,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|ignite
 operator|.
 name|Ignite
@@ -198,9 +212,13 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.17.0"
+argument_list|,
 name|scheme
 operator|=
-literal|"ignite:messaging"
+literal|"ignite-messaging"
 argument_list|,
 name|title
 operator|=
@@ -208,7 +226,7 @@ literal|"Ignite Messaging"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite:messaging:[topic]"
+literal|"ignite-messaging:[topic]"
 argument_list|,
 name|label
 operator|=
@@ -228,7 +246,7 @@ extends|extends
 name|AbstractIgniteEndpoint
 block|{
 annotation|@
-name|UriParam
+name|UriPath
 annotation|@
 name|Metadata
 argument_list|(
@@ -243,6 +261,11 @@ name|topic
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,producer"
+argument_list|)
 DECL|field|clusterGroupExpression
 specifier|private
 name|ClusterGroupExpression
@@ -250,6 +273,15 @@ name|clusterGroupExpression
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"UNORDERED"
+argument_list|)
 DECL|field|sendMode
 specifier|private
 name|IgniteMessagingSendMode
@@ -261,11 +293,18 @@ name|UNORDERED
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|timeout
 specifier|private
 name|Long
 name|timeout
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|IgniteMessagingEndpoint (String endpointUri, URI remainingUri, Map<String, Object> parameters, IgniteComponent igniteComponent)
 specifier|public
 name|IgniteMessagingEndpoint
@@ -301,6 +340,40 @@ name|remainingUri
 operator|.
 name|getHost
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|IgniteMessagingEndpoint (String endpointUri, String remaining, Map<String, Object> parameters, IgniteMessagingComponent igniteComponent)
+specifier|public
+name|IgniteMessagingEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|,
+name|IgniteMessagingComponent
+name|igniteComponent
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|igniteComponent
+argument_list|)
+expr_stmt|;
+name|topic
+operator|=
+name|remaining
 expr_stmt|;
 block|}
 annotation|@
@@ -471,6 +544,7 @@ return|return
 name|messaging
 return|;
 block|}
+comment|/**      * Gets the topic name.      *       * @return topic name      */
 DECL|method|getTopic ()
 specifier|public
 name|String
@@ -481,6 +555,7 @@ return|return
 name|topic
 return|;
 block|}
+comment|/**      * The topic name.      *       * @param topic topic name      */
 DECL|method|setTopic (String topic)
 specifier|public
 name|void
@@ -497,6 +572,7 @@ operator|=
 name|topic
 expr_stmt|;
 block|}
+comment|/**      * Gets the cluster group expression.      *       * @return cluster group expression      */
 DECL|method|getClusterGroupExpression ()
 specifier|public
 name|ClusterGroupExpression
@@ -507,6 +583,7 @@ return|return
 name|clusterGroupExpression
 return|;
 block|}
+comment|/**      * The cluster group expression.      *       * @param clusterGroupExpression cluster group expression      */
 DECL|method|setClusterGroupExpression (ClusterGroupExpression clusterGroupExpression)
 specifier|public
 name|void
@@ -523,6 +600,7 @@ operator|=
 name|clusterGroupExpression
 expr_stmt|;
 block|}
+comment|/**      * Gets the timeout.      *       * @return timeout      */
 DECL|method|getTimeout ()
 specifier|public
 name|Long
@@ -533,6 +611,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * The timeout for the send operation when using ordered messages.      *       * @param timeout timeout      */
 DECL|method|setTimeout (Long timeout)
 specifier|public
 name|void
@@ -549,6 +628,7 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+comment|/**      * Gets the send mode.      *       * @return send mode      */
 DECL|method|getSendMode ()
 specifier|public
 name|IgniteMessagingSendMode
@@ -559,6 +639,7 @@ return|return
 name|sendMode
 return|;
 block|}
+comment|/**      * The send mode to use.      * Possible values: UNORDERED, ORDERED.      *       * @param sendMode send mode      */
 DECL|method|setSendMode (IgniteMessagingSendMode sendMode)
 specifier|public
 name|void

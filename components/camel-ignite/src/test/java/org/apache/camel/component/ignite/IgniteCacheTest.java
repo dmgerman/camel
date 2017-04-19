@@ -124,6 +124,24 @@ name|ignite
 operator|.
 name|cache
 operator|.
+name|IgniteCacheComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ignite
+operator|.
+name|cache
+operator|.
 name|IgniteCacheOperation
 import|;
 end_import
@@ -259,6 +277,36 @@ extends|extends
 name|AbstractIgniteTest
 block|{
 annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|protected
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"ignite-cache"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponent ()
+specifier|protected
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+block|{
+return|return
+name|IgniteCacheComponent
+operator|.
+name|fromConfiguration
+argument_list|(
+name|createConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testAddEntry ()
 specifier|public
@@ -270,7 +318,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:cache:testcache1?operation=PUT"
+literal|"ignite-cache:testcache1?operation=PUT"
 argument_list|,
 literal|"1234"
 argument_list|,
@@ -344,7 +392,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:cache:testcache1?operation=PUT"
+literal|"ignite-cache:testcache1?operation=PUT"
 argument_list|,
 name|ImmutableMap
 operator|.
@@ -453,7 +501,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:cache:testcache1?operation=GET"
+literal|"ignite-cache:testcache1?operation=GET"
 argument_list|,
 literal|"abcd"
 argument_list|,
@@ -481,7 +529,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:cache:testcache1?operation=GET"
+literal|"ignite-cache:testcache1?operation=GET"
 argument_list|,
 literal|"this value won't be used"
 argument_list|,
@@ -600,7 +648,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:cache:testcache1?operation=GET"
+literal|"ignite-cache:testcache1?operation=GET"
 argument_list|,
 name|keys
 argument_list|,
@@ -724,7 +772,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:cache:testcache1?operation=SIZE"
+literal|"ignite-cache:testcache1?operation=SIZE"
 argument_list|,
 name|keys
 argument_list|,
@@ -897,7 +945,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:cache:testcache1?operation=QUERY"
+literal|"ignite-cache:testcache1?operation=QUERY"
 argument_list|,
 name|keys
 argument_list|,
@@ -1019,7 +1067,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:cache:testcache1?operation=GET&treatCollectionsAsCacheObjects=true"
+literal|"ignite-cache:testcache1?operation=GET&treatCollectionsAsCacheObjects=true"
 argument_list|,
 name|keys
 argument_list|,
@@ -1108,7 +1156,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:cache:testcache1?operation=REMOVE"
+literal|"ignite-cache:testcache1?operation=REMOVE"
 argument_list|,
 literal|"abcd"
 argument_list|)
@@ -1153,7 +1201,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:cache:testcache1?operation=REMOVE"
+literal|"ignite-cache:testcache1?operation=REMOVE"
 argument_list|,
 literal|"this value won't be used"
 argument_list|,
@@ -1278,7 +1326,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:cache:testcache1?operation=CLEAR"
+literal|"ignite-cache:testcache1?operation=CLEAR"
 argument_list|,
 literal|"this value won't be used"
 argument_list|)
@@ -1322,7 +1370,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:cache:testcache1?operation=GET"
+literal|"ignite-cache:testcache1?operation=GET"
 argument_list|,
 literal|"abcd"
 argument_list|,
@@ -1350,7 +1398,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:cache:testcache1?operation=GET"
+literal|"ignite-cache:testcache1?operation=GET"
 argument_list|,
 literal|"abcd"
 argument_list|,
@@ -1422,7 +1470,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:cache:testcache2?operation=PUT&failIfInexistentCache=true"
+literal|"ignite-cache:testcache2?operation=PUT&failIfInexistentCache=true"
 argument_list|,
 literal|"1234"
 argument_list|,
@@ -1488,7 +1536,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:cache:testcache1?operation=PUT&propagateIncomingBodyIfNoReturnValue=false"
+literal|"ignite-cache:testcache1?operation=PUT&propagateIncomingBodyIfNoReturnValue=false"
 argument_list|,
 literal|"1234"
 argument_list|,

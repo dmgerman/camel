@@ -184,6 +184,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|ignite
+operator|.
+name|cache
+operator|.
+name|IgniteCacheComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|JndiRegistry
@@ -301,6 +319,36 @@ name|serialVersionUID
 init|=
 literal|1L
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|protected
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"ignite-cache"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponent ()
+specifier|protected
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+block|{
+return|return
+name|IgniteCacheComponent
+operator|.
+name|fromConfiguration
+argument_list|(
+name|createConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testContinuousQueryDoNotFireExistingEntries ()
@@ -869,7 +917,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"ignite:cache:testcontinuous1?query=#query1"
+literal|"ignite-cache:testcontinuous1?query=#query1"
 argument_list|)
 operator|.
 name|routeId
@@ -887,7 +935,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"ignite:cache:testcontinuous1?query=#query1&fireExistingQueryResults=true"
+literal|"ignite-cache:testcontinuous1?query=#query1&fireExistingQueryResults=true"
 argument_list|)
 operator|.
 name|routeId
@@ -905,7 +953,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"ignite:cache:testcontinuous1?query=#query1&remoteFilter=#remoteFilter1&fireExistingQueryResults=true"
+literal|"ignite-cache:testcontinuous1?query=#query1&remoteFilter=#remoteFilter1&fireExistingQueryResults=true"
 argument_list|)
 operator|.
 name|routeId
@@ -923,7 +971,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"ignite:cache:testcontinuous1?pageSize=10&oneExchangePerUpdate=false"
+literal|"ignite-cache:testcontinuous1?pageSize=10&oneExchangePerUpdate=false"
 argument_list|)
 operator|.
 name|routeId

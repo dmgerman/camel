@@ -112,6 +112,22 @@ name|component
 operator|.
 name|ignite
 operator|.
+name|AbstractIgniteComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ignite
+operator|.
 name|AbstractIgniteEndpoint
 import|;
 end_import
@@ -171,6 +187,20 @@ operator|.
 name|spi
 operator|.
 name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
@@ -254,9 +284,13 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"2.17.0"
+argument_list|,
 name|scheme
 operator|=
-literal|"ignite:cache"
+literal|"ignite-cache"
 argument_list|,
 name|title
 operator|=
@@ -264,7 +298,7 @@ literal|"Ignite Cache"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite:cache:[cacheName]"
+literal|"ignite-cache:[cacheName]"
 argument_list|,
 name|label
 operator|=
@@ -284,7 +318,7 @@ extends|extends
 name|AbstractIgniteEndpoint
 block|{
 annotation|@
-name|UriParam
+name|UriPath
 annotation|@
 name|Metadata
 argument_list|(
@@ -299,6 +333,11 @@ name|cacheName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|IgniteCacheOperation
@@ -306,6 +345,15 @@ name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|failIfInexistentCache
 specifier|private
 name|boolean
@@ -313,6 +361,15 @@ name|failIfInexistentCache
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"ALL"
+argument_list|)
 DECL|field|cachePeekMode
 specifier|private
 name|CachePeekMode
@@ -324,6 +381,11 @@ name|ALL
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,consumer"
+argument_list|)
 DECL|field|query
 specifier|private
 name|Query
@@ -339,6 +401,11 @@ name|query
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|remoteFilter
 specifier|private
 name|CacheEntryEventSerializableFilter
@@ -351,6 +418,15 @@ name|remoteFilter
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|oneExchangePerUpdate
 specifier|private
 name|boolean
@@ -360,6 +436,15 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|fireExistingQueryResults
 specifier|private
 name|boolean
@@ -367,6 +452,19 @@ name|fireExistingQueryResults
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|defaultValueNote
+operator|=
+literal|"ContinuousQuery.DFLT_AUTO_UNSUBSCRIBE"
+argument_list|)
 DECL|field|autoUnsubscribe
 specifier|private
 name|boolean
@@ -378,6 +476,19 @@ name|DFLT_AUTO_UNSUBSCRIBE
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|,
+name|defaultValueNote
+operator|=
+literal|"ContinuousQuery.DFLT_PAGE_SIZE"
+argument_list|)
 DECL|field|pageSize
 specifier|private
 name|int
@@ -389,6 +500,19 @@ name|DFLT_PAGE_SIZE
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|,
+name|defaultValueNote
+operator|=
+literal|"ContinuousQuery.DFLT_TIME_INTERVAL"
+argument_list|)
 DECL|field|timeInterval
 specifier|private
 name|long
@@ -398,6 +522,8 @@ name|ContinuousQuery
 operator|.
 name|DFLT_TIME_INTERVAL
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|IgniteCacheEndpoint (String endpointUri, URI remainingUri, Map<String, Object> parameters, IgniteComponent igniteComponent)
 specifier|public
 name|IgniteCacheEndpoint
@@ -433,6 +559,40 @@ name|remainingUri
 operator|.
 name|getHost
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|IgniteCacheEndpoint (String endpointUri, String remaining, Map<String, Object> parameters, IgniteCacheComponent igniteComponent)
+specifier|public
+name|IgniteCacheEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|,
+name|IgniteCacheComponent
+name|igniteComponent
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|igniteComponent
+argument_list|)
+expr_stmt|;
+name|cacheName
+operator|=
+name|remaining
 expr_stmt|;
 block|}
 annotation|@
@@ -564,7 +724,7 @@ return|return
 name|cacheName
 return|;
 block|}
-comment|/**      * Sets the cache name.      *       * @param cacheName      */
+comment|/**      * The cache name.      *       * @param cacheName cache name      */
 DECL|method|setCacheName (String cacheName)
 specifier|public
 name|void
@@ -581,7 +741,7 @@ operator|=
 name|cacheName
 expr_stmt|;
 block|}
-comment|/**      * Gets the cache operation to invoke.      *       * @return      */
+comment|/**      * Gets the cache operation to invoke.      *       * @return cache name      */
 DECL|method|getOperation ()
 specifier|public
 name|IgniteCacheOperation
@@ -592,7 +752,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Sets the cache operation to invoke.      *       * @param operation      */
+comment|/**      * The cache operation to invoke.      *<p>Possible values: GET, PUT, REMOVE, SIZE, REBALANCE, QUERY, CLEAR.</p>      *       * @param operation      */
 DECL|method|setOperation (IgniteCacheOperation operation)
 specifier|public
 name|void
@@ -609,7 +769,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-comment|/**      * Gets whether to fail the initialization if the cache doesn't exist.      *       * @return      */
+comment|/**      * Whether to fail the initialization if the cache doesn't exist.      *       * @return      */
 DECL|method|isFailIfInexistentCache ()
 specifier|public
 name|boolean
@@ -620,7 +780,7 @@ return|return
 name|failIfInexistentCache
 return|;
 block|}
-comment|/**      * Sets whether to fail the initialization if the cache doesn't exist.      *       * @param failIfInexistentCache      */
+comment|/**      * Whether to fail the initialization if the cache doesn't exist.      *       * @param failIfInexistentCache      */
 DECL|method|setFailIfInexistentCache (boolean failIfInexistentCache)
 specifier|public
 name|void
@@ -648,7 +808,7 @@ return|return
 name|cachePeekMode
 return|;
 block|}
-comment|/**      * Sets the {@link CachePeekMode}, only needed for operations that require it ({@link IgniteCacheOperation#SIZE}).      *       * @param cachePeekMode      */
+comment|/**      * The {@link CachePeekMode}, only needed for operations that require it ({@link IgniteCacheOperation#SIZE}).      *       * @param cachePeekMode      */
 DECL|method|setCachePeekMode (CachePeekMode cachePeekMode)
 specifier|public
 name|void
@@ -684,7 +844,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * Sets the query to execute, only needed for operations that require it,      * and for the Continuous Query Consumer.      *       * @param query      */
+comment|/**      * The {@link Query} to execute, only needed for operations that require it,      * and for the Continuous Query Consumer.      *       * @param query      */
 DECL|method|setQuery (Query<Entry<Object, Object>> query)
 specifier|public
 name|void
@@ -725,7 +885,7 @@ return|return
 name|remoteFilter
 return|;
 block|}
-comment|/**      * Sets the remote filter, only used by the Continuous Query Consumer.      *       * @param remoteFilter      */
+comment|/**      * The remote filter, only used by the Continuous Query Consumer.      *       * @param remoteFilter      */
 DECL|method|setRemoteFilter (CacheEntryEventSerializableFilter<Object, Object> remoteFilter)
 specifier|public
 name|void
@@ -758,7 +918,7 @@ return|return
 name|oneExchangePerUpdate
 return|;
 block|}
-comment|/**      * Sets whether to pack each update in an individual Exchange, even if multiple updates are      * received in one batch. Only used by the Continuous Query Consumer.      *       * @param oneExchangePerUpdate      */
+comment|/**      * Whether to pack each update in an individual Exchange, even if multiple updates are      * received in one batch. Only used by the Continuous Query Consumer.      *       * @param oneExchangePerUpdate      */
 DECL|method|setOneExchangePerUpdate (boolean oneExchangePerUpdate)
 specifier|public
 name|void
@@ -786,7 +946,7 @@ return|return
 name|autoUnsubscribe
 return|;
 block|}
-comment|/**      * Sets whether auto unsubscribe is enabled in the Continuous Query Consumer.      *       * @param autoUnsubscribe      */
+comment|/**      * Whether auto unsubscribe is enabled in the Continuous Query Consumer.      *       * @param autoUnsubscribe      */
 DECL|method|setAutoUnsubscribe (boolean autoUnsubscribe)
 specifier|public
 name|void
@@ -814,7 +974,7 @@ return|return
 name|pageSize
 return|;
 block|}
-comment|/**      * Sets the page size. Only used by the Continuous Query Consumer.      *       * @param pageSize      */
+comment|/**      * The page size. Only used by the Continuous Query Consumer.      *       * @param pageSize      */
 DECL|method|setPageSize (int pageSize)
 specifier|public
 name|void
@@ -842,7 +1002,7 @@ return|return
 name|fireExistingQueryResults
 return|;
 block|}
-comment|/**      * Sets whether to process existing results that match the query. Used on initialization of       * the Continuous Query Consumer.      *       * @param fireExistingQueryResults      */
+comment|/**      * Whether to process existing results that match the query. Used on initialization of       * the Continuous Query Consumer.      *       * @param fireExistingQueryResults      */
 DECL|method|setFireExistingQueryResults (boolean fireExistingQueryResults)
 specifier|public
 name|void
@@ -870,7 +1030,7 @@ return|return
 name|timeInterval
 return|;
 block|}
-comment|/**      * Sets the time interval for the Continuous Query Consumer.      *       * @param timeInterval      */
+comment|/**      * The time interval for the Continuous Query Consumer.      *       * @param timeInterval      */
 DECL|method|setTimeInterval (long timeInterval)
 specifier|public
 name|void

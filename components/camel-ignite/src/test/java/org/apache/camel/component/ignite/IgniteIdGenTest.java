@@ -46,6 +46,24 @@ name|ignite
 operator|.
 name|idgen
 operator|.
+name|IgniteIdGenComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ignite
+operator|.
+name|idgen
+operator|.
 name|IgniteIdGenEndpoint
 import|;
 end_import
@@ -125,6 +143,36 @@ extends|extends
 name|AbstractIgniteTest
 block|{
 annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|protected
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"ignite-idgen"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponent ()
+specifier|protected
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+block|{
+return|return
+name|IgniteIdGenComponent
+operator|.
+name|fromConfiguration
+argument_list|(
+name|createConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testOperations ()
 specifier|public
@@ -141,7 +189,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?initialValue=0&operation=GET"
+literal|"ignite-idgen:abc?initialValue=0&operation=GET"
 argument_list|,
 literal|null
 argument_list|,
@@ -165,7 +213,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?initialValue=0&operation=GET_AND_INCREMENT"
+literal|"ignite-idgen:abc?initialValue=0&operation=GET_AND_INCREMENT"
 argument_list|,
 literal|null
 argument_list|,
@@ -189,7 +237,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?initialValue=0&operation=INCREMENT_AND_GET"
+literal|"ignite-idgen:abc?initialValue=0&operation=INCREMENT_AND_GET"
 argument_list|,
 literal|null
 argument_list|,
@@ -213,7 +261,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?initialValue=0&operation=ADD_AND_GET"
+literal|"ignite-idgen:abc?initialValue=0&operation=ADD_AND_GET"
 argument_list|,
 literal|5
 argument_list|,
@@ -237,7 +285,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?initialValue=0&operation=GET_AND_ADD"
+literal|"ignite-idgen:abc?initialValue=0&operation=GET_AND_ADD"
 argument_list|,
 literal|5
 argument_list|,
@@ -261,7 +309,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?initialValue=0&operation=GET"
+literal|"ignite-idgen:abc?initialValue=0&operation=GET"
 argument_list|,
 literal|5
 argument_list|,
@@ -294,7 +342,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?operation=GET&initialValue=100"
+literal|"ignite-idgen:abc?operation=GET&initialValue=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -318,7 +366,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?operation=GET_AND_INCREMENT&initialValue=100"
+literal|"ignite-idgen:abc?operation=GET_AND_INCREMENT&initialValue=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -342,7 +390,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?operation=INCREMENT_AND_GET&initialValue=100"
+literal|"ignite-idgen:abc?operation=INCREMENT_AND_GET&initialValue=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -366,7 +414,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?operation=ADD_AND_GET&initialValue=100"
+literal|"ignite-idgen:abc?operation=ADD_AND_GET&initialValue=100"
 argument_list|,
 literal|5
 argument_list|,
@@ -390,7 +438,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?operation=GET_AND_ADD&initialValue=100"
+literal|"ignite-idgen:abc?operation=GET_AND_ADD&initialValue=100"
 argument_list|,
 literal|5
 argument_list|,
@@ -414,7 +462,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?operation=GET&initialValue=100"
+literal|"ignite-idgen:abc?operation=GET&initialValue=100"
 argument_list|,
 literal|5
 argument_list|,
@@ -447,7 +495,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:idgen:abc?operation=GET&initialValue=100"
+literal|"ignite-idgen:abc?operation=GET&initialValue=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -471,7 +519,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:idgen:abc?operation=GET_AND_INCREMENT&initialValue=100"
+literal|"ignite-idgen:abc?operation=GET_AND_INCREMENT&initialValue=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -510,7 +558,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"ignite:idgen:abc?operation=GET&initialValue=100&batchSize=100"
+literal|"ignite-idgen:abc?operation=GET&initialValue=100&batchSize=100"
 argument_list|,
 name|IgniteIdGenEndpoint
 operator|.

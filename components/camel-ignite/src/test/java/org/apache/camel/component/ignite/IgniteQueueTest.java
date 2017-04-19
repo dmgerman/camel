@@ -180,6 +180,24 @@ name|ignite
 operator|.
 name|queue
 operator|.
+name|IgniteQueueComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ignite
+operator|.
+name|queue
+operator|.
 name|IgniteQueueEndpoint
 import|;
 end_import
@@ -289,6 +307,36 @@ extends|extends
 name|AbstractIgniteTest
 block|{
 annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|protected
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"ignite-queue"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponent ()
+specifier|protected
+name|AbstractIgniteComponent
+name|createComponent
+parameter_list|()
+block|{
+return|return
+name|IgniteQueueComponent
+operator|.
+name|fromConfiguration
+argument_list|(
+name|createConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testOperations ()
 specifier|public
@@ -303,7 +351,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=ADD"
+literal|"ignite-queue:abc?operation=ADD"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -357,7 +405,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=CONTAINS"
+literal|"ignite-queue:abc?operation=CONTAINS"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -411,7 +459,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=REMOVE"
+literal|"ignite-queue:abc?operation=REMOVE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -465,7 +513,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=CONTAINS"
+literal|"ignite-queue:abc?operation=CONTAINS"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -518,7 +566,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=ADD"
+literal|"ignite-queue:abc?operation=ADD"
 argument_list|,
 literal|"hello"
 operator|+
@@ -534,7 +582,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=SIZE"
+literal|"ignite-queue:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -628,7 +676,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ignite:queue:abc?operation=CLEAR"
+literal|"ignite-queue:abc?operation=CLEAR"
 argument_list|,
 name|toRetain
 argument_list|,
@@ -663,7 +711,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=SIZE"
+literal|"ignite-queue:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -724,7 +772,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=ITERATOR"
+literal|"ignite-queue:abc?operation=ITERATOR"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -770,7 +818,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=ARRAY"
+literal|"ignite-queue:abc?operation=ARRAY"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -807,7 +855,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=CLEAR"
+literal|"ignite-queue:abc?operation=CLEAR"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -864,7 +912,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=SIZE"
+literal|"ignite-queue:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -943,7 +991,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=ADD"
+literal|"ignite-queue:abc?operation=ADD"
 argument_list|,
 literal|"hello"
 operator|+
@@ -958,7 +1006,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=RETAIN_ALL"
+literal|"ignite-queue:abc?operation=RETAIN_ALL"
 argument_list|,
 literal|"hello10"
 argument_list|,
@@ -987,7 +1035,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=ARRAY"
+literal|"ignite-queue:abc?operation=ARRAY"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -1042,7 +1090,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=ADD"
+literal|"ignite-queue:abc?operation=ADD"
 argument_list|,
 literal|"hello"
 operator|+
@@ -1072,7 +1120,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=ADD&treatCollectionsAsCacheObjects=true"
+literal|"ignite-queue:abc?operation=ADD&treatCollectionsAsCacheObjects=true"
 argument_list|,
 name|toAdd
 argument_list|)
@@ -1085,7 +1133,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=SIZE"
+literal|"ignite-queue:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -1171,7 +1219,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=CONTAINS&treatCollectionsAsCacheObjects=true"
+literal|"ignite-queue:abc?operation=CONTAINS&treatCollectionsAsCacheObjects=true"
 argument_list|,
 name|toAdd
 argument_list|,
@@ -1196,7 +1244,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=REMOVE&treatCollectionsAsCacheObjects=true"
+literal|"ignite-queue:abc?operation=REMOVE&treatCollectionsAsCacheObjects=true"
 argument_list|,
 name|toAdd
 argument_list|)
@@ -1208,7 +1256,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:abc?operation=SIZE"
+literal|"ignite-queue:abc?operation=SIZE"
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -1334,7 +1382,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"ignite:queue:abc?operation=ADD&configuration=#config"
+literal|"ignite-queue:abc?operation=ADD&configuration=#config"
 argument_list|,
 name|IgniteQueueEndpoint
 operator|.
@@ -1434,7 +1482,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=ADD&capacity=100"
+literal|"ignite-queue:def?operation=ADD&capacity=100"
 argument_list|,
 literal|"hello"
 operator|+
@@ -1461,7 +1509,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=ADD&capacity=100"
+literal|"ignite-queue:def?operation=ADD&capacity=100"
 argument_list|,
 literal|"hello101"
 argument_list|,
@@ -1483,7 +1531,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=OFFER&capacity=100"
+literal|"ignite-queue:def?operation=OFFER&capacity=100"
 argument_list|,
 literal|"hello101"
 argument_list|,
@@ -1532,7 +1580,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=PUT&capacity=100"
+literal|"ignite-queue:def?operation=PUT&capacity=100"
 argument_list|,
 literal|"hello101"
 argument_list|,
@@ -1595,7 +1643,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=PEEK&capacity=100"
+literal|"ignite-queue:def?operation=PEEK&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -1619,7 +1667,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=ELEMENT&capacity=100"
+literal|"ignite-queue:def?operation=ELEMENT&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -1644,7 +1692,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=TAKE&capacity=100"
+literal|"ignite-queue:def?operation=TAKE&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -1668,7 +1716,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=SIZE&capacity=100"
+literal|"ignite-queue:def?operation=SIZE&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -1693,7 +1741,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=DRAIN&capacity=100"
+literal|"ignite-queue:def?operation=DRAIN&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -1721,7 +1769,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=SIZE&capacity=100"
+literal|"ignite-queue:def?operation=SIZE&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -1745,7 +1793,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=POLL&capacity=100"
+literal|"ignite-queue:def?operation=POLL&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -1784,7 +1832,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=TAKE&capacity=100"
+literal|"ignite-queue:def?operation=TAKE&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
@@ -1823,7 +1871,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=ADD&capacity=100"
+literal|"ignite-queue:def?operation=ADD&capacity=100"
 argument_list|,
 literal|"hello102"
 argument_list|,
@@ -1902,7 +1950,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ignite:queue:def?operation=POLL&timeoutMillis=1000&capacity=100"
+literal|"ignite-queue:def?operation=POLL&timeoutMillis=1000&capacity=100"
 argument_list|,
 literal|null
 argument_list|,
