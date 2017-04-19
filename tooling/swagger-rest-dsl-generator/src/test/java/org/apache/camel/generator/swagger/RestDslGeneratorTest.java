@@ -397,6 +397,9 @@ argument_list|(
 literal|"\t"
 argument_list|)
 operator|.
+name|withSourceCodeTimestamps
+argument_list|()
+operator|.
 name|withDestinationGenerator
 argument_list|(
 name|o
