@@ -141,6 +141,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Indicate if the values must be escaped when quoting (optional)      */
+DECL|method|quotingEscaped ()
+DECL|field|false
+name|boolean
+name|quotingEscaped
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 comment|/**      * Last record spans rest of line (optional)      */
 DECL|method|autospanLine ()
 DECL|field|false
