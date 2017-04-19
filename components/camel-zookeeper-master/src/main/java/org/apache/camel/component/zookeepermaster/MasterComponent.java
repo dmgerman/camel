@@ -68,20 +68,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|URISupport
-import|;
-end_import
-
 begin_comment
 comment|/**  * The zookeeper-master camel component ensures that only a single endpoint in a cluster is active at any  * point in time with all other JVMs being hot standbys which wait until the master JVM dies before  * taking over to provide high availability of a single consumer.  */
 end_comment
@@ -272,11 +258,18 @@ name|childUri
 operator|+
 literal|"?"
 operator|+
-name|URISupport
+name|uri
 operator|.
-name|createQueryString
+name|substring
 argument_list|(
-name|params
+name|uri
+operator|.
+name|indexOf
+argument_list|(
+literal|'?'
+argument_list|)
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
