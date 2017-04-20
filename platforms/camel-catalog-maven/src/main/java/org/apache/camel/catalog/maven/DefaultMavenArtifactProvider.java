@@ -439,14 +439,17 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 specifier|final
-name|ClassLoader
+name|GroovyClassLoader
 name|classLoader
 init|=
 operator|new
 name|GroovyClassLoader
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|Map
 argument_list|<
 name|String
@@ -575,6 +578,7 @@ argument_list|,
 name|names
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
