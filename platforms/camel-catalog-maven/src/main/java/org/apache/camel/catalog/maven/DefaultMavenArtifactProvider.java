@@ -313,6 +313,8 @@ operator|=
 name|directory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addMavenRepository (String name, String url)
 specifier|public
 name|void
