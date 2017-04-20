@@ -263,7 +263,7 @@ literal|"coap://localhost:"
 operator|+
 name|coapport
 operator|+
-literal|"/TestParms?id=Ducky"
+literal|"/TestParams?id=Ducky"
 argument_list|)
 expr_stmt|;
 name|client
@@ -370,7 +370,7 @@ argument_list|)
 expr_stmt|;
 name|rest
 argument_list|(
-literal|"/TestParms"
+literal|"/TestParams"
 argument_list|)
 operator|.
 name|get
