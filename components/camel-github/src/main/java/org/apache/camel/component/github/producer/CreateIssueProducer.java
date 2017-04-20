@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Producer endpoint that closes a pull request.  The endpoint requires the "GitHubPullRequest" header,  * identifying the pull request number (integer).  */
+comment|/**  * Producer endpoint that creates an issue. The endpoint requires the "GitHubIssueTitle" header,  * which sets the GitHub issue title. The issue body content is set from the exchange message body.  */
 end_comment
 
 begin_class
