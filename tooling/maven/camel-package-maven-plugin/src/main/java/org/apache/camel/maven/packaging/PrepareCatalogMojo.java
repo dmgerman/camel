@@ -1274,6 +1274,7 @@ name|missingJavaDoc
 argument_list|)
 expr_stmt|;
 block|}
+comment|// CHECKSTYLE:OFF
 DECL|method|executeComponents ()
 specifier|protected
 name|Set
@@ -2612,6 +2613,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|// CHECKSTYLE:ON
 DECL|method|executeDataFormats ()
 specifier|protected
 name|Set
@@ -4219,8 +4221,9 @@ control|)
 block|{
 comment|// skip these special cases
 comment|// (camel-jetty is a placeholder, as camel-jetty9 is the actual component)
-if|if
-condition|(
+name|boolean
+name|special
+init|=
 literal|"camel-core-osgi"
 operator|.
 name|equals
@@ -4280,7 +4283,10 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-operator|||
+decl_stmt|;
+name|boolean
+name|special2
+init|=
 literal|"camel-linkedin"
 operator|.
 name|equals
@@ -4320,6 +4326,12 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|special
+operator|||
+name|special2
 condition|)
 block|{
 continue|continue;
