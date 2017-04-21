@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To send or receive emails using imap/pop3 or stmp protocols.  */
+comment|/**  * To send or receive emails using imap/pop3 or smtp protocols.  */
 end_comment
 
 begin_class
