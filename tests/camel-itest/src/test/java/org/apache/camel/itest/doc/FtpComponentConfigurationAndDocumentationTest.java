@@ -203,7 +203,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"minDepth\": { \"kind\": \"parameter\", \"displayName\": \"Min Depth\", \"group\": \"filter\", \"label\": \"consumer,filter\", \"type\": \"integer\", \"javaType\": \"int\""
+literal|"\"minDepth\": { \"kind\": \"parameter\", \"displayName\": \"Min Depth\", \"group\": \"filter\""
+operator|+
+literal|", \"label\": \"consumer,filter\", \"type\": \"integer\", \"javaType\": \"int\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -213,7 +215,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"username\": { \"kind\": \"parameter\", \"displayName\": \"Username\", \"group\": \"security\", \"label\": \"security\", \"type\": \"string\""
+literal|"\"username\": { \"kind\": \"parameter\", \"displayName\": \"Username\", \"group\": \"security\""
+operator|+
+literal|", \"label\": \"security\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;

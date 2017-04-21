@@ -24,6 +24,34 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
+name|JsonCreator
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
+name|JsonProperty
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -62,36 +90,12 @@ name|AbstractSObjectBase
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|annotation
-operator|.
-name|JsonCreator
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|annotation
-operator|.
-name|JsonProperty
-import|;
-end_import
-
 begin_comment
 comment|/**  * Contact Data Transfer Object (DTO) needed for Salesforce component.  *<p>  * This is a trivial, hand coded, example of DTO for Contact SObject,  * for production use you would most likely want to generate these  * using {@code camel-salesforce-maven-plugin} as it adds all fields  * and generates {@link AbstractDescribedSObjectBase} based classes,  * which are needed for some of the operations (like composite API).  */
+end_comment
+
+begin_comment
+comment|// CHECKSTYLE:OFF
 end_comment
 
 begin_class
@@ -187,6 +191,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// CHECKSTYLE:ON
+end_comment
 
 end_unit
 
