@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ignite Set endpoint.  */
+comment|/**  * The Ignite Sets endpoint is one of camel-ignite endpoints which allows you to interact with  *<a href="https://apacheignite.readme.io/docs/queue-and-set">Ignite Set data structures</a>.  * This endpoint only supports producers.  */
 end_comment
 
 begin_class

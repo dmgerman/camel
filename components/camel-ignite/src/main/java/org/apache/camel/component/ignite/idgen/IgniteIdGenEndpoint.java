@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ignite ID Generator endpoint.  */
+comment|/**  * The Ignite ID Generator endpoint is one of camel-ignite endpoints which allows you to interact with  *<a href="https://apacheignite.readme.io/docs/id-generator">Ignite Atomic Sequences and ID Generators</a>.  * This endpoint only supports producers.  */
 end_comment
 
 begin_class

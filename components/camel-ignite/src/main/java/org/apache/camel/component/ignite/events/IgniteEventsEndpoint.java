@@ -281,7 +281,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ignite Events endpoint. Only supports consumers.  */
+comment|/**  * The Ignite Events endpoint is one of camel-ignite endpoints which allows you to  *<a href="https://apacheignite.readme.io/docs/events">receive events</a> from  * the Ignite cluster by creating a local event listener.  * This endpoint only supports consumers.  * The Exchanges created by this consumer put the received Event object into the body of the IN message.  */
 end_comment
 
 begin_class

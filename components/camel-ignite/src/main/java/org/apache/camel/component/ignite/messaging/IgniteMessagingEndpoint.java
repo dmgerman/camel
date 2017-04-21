@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ignite Messaging endpoint.  */
+comment|/**  * The Ignite Messaging endpoint is one of camel-ignite endpoints which allows you to send and  * consume messages from an<a href="https://apacheignite.readme.io/docs/messaging">Ignite topic</a>.  * This endpoint supports producers (to send messages) and consumers (to receive messages).  */
 end_comment
 
 begin_class

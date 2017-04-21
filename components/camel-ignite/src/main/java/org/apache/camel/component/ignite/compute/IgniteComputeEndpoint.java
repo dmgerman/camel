@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ignite Compute endpoint.  */
+comment|/**  * The Ignite Compute endpoint is one of camel-ignite endpoints which allows you to run  *<a href="https://apacheignite.readme.io/docs/compute-grid">compute operations</a>  * on the cluster by passing in an IgniteCallable, an IgniteRunnable, an IgniteClosure,  * or collections of them, along with their parameters if necessary.  * This endpoint only supports producers.  */
 end_comment
 
 begin_class

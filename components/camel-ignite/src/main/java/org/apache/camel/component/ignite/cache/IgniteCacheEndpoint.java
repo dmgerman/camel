@@ -277,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ignite Cache endpoint.  */
+comment|/**  * The Ignite Cache endpoint is one of camel-ignite endpoints which allows you to interact with  * an<a href="https://apacheignite.readme.io/docs/data-grid">Ignite Cache</a>.  * This offers both a Producer (to invoke cache operations on an Ignite cache) and  * a Consumer (to consume changes from a continuous query).  */
 end_comment
 
 begin_class

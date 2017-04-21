@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Ignite Component integrates Apache Camel with Apache Ignite, providing endpoints for the following functions:  *<ul>  *<li>Cache operations.</li>  *<li>Cluster computation.</li>  *<li>Messaging.</li>  *<li>Eventing.</li>  *<li>Id Generation.</li>  *<li>Set operations.</li>  *<li>Queue operations.</li>  *</ul>  * @deprecated Use {@link IgniteSetComponent}, {@link IgniteSetComponent}, {@link IgniteSetComponent},  * {@link IgniteSetComponent}, {@link IgniteSetComponent}, {@link IgniteSetComponent} and  * {@link IgniteSetComponent}  */
+comment|/**  * The Ignite Component integrates Apache Camel with Apache Ignite, providing endpoints for the following functions:  *<ul>  *<li>Cache operations.</li>  *<li>Cluster computation.</li>  *<li>Messaging.</li>  *<li>Eventing.</li>  *<li>Id Generation.</li>  *<li>Set operations.</li>  *<li>Queue operations.</li>  *</ul>  * @deprecated Use   * {@link org.apache.camel.component.ignite.cache.IgniteCacheComponent},  * {@link org.apache.camel.component.ignite.compute.IgniteComputeComponent},  * {@link org.apache.camel.component.ignite.events.IgniteEventsComponent},  * {@link org.apache.camel.component.ignite.idgen.IgniteIdGenComponent},  * {@link org.apache.camel.component.ignite.messaging.IgniteMessagingComponent},  * {@link org.apache.camel.component.ignite.queue.IgniteQueueComponent} and  * {@link org.apache.camel.component.ignite.set.IgniteSetComponent}  */
 end_comment
 
 begin_class
