@@ -1253,7 +1253,7 @@ literal|"ExecutorServiceRef "
 operator|+
 name|timeoutCheckerExecutorServiceRef
 operator|+
-literal|" not found in registry or as a thread pool profile."
+literal|" not found in registry (as an ScheduledExecutorService instance) or as a thread pool profile."
 argument_list|)
 throw|;
 block|}

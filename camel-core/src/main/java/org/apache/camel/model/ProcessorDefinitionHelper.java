@@ -2018,7 +2018,7 @@ operator|.
 name|getExecutorServiceRef
 argument_list|()
 operator|+
-literal|" not found in registry or as a thread pool profile."
+literal|" not found in registry (as an ExecutorService instance) or as a thread pool profile."
 argument_list|)
 throw|;
 block|}
@@ -2292,7 +2292,7 @@ operator|.
 name|getExecutorServiceRef
 argument_list|()
 operator|+
-literal|" not found in registry or as a thread pool profile."
+literal|" not found in registry (as an ScheduledExecutorService instance) or as a thread pool profile."
 argument_list|)
 throw|;
 block|}

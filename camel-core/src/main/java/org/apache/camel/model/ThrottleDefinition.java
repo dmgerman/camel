@@ -696,7 +696,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the ExecutorService which could be used by throttle definition      *      * @param executorService        * @return the builder      */
+comment|/**      * To use a custom thread pool (ScheduledExecutorService) by the throttler.      *      * @param executorService  the custom thread pool (must be scheduled)      * @return the builder      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ThrottleDefinition
@@ -715,7 +715,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the ExecutorService which could be used by throttle definition      *      * @param executorServiceRef the reference id of the Executor Service        * @return the builder      */
+comment|/**      * To use a custom thread pool (ScheduledExecutorService) by the throttler.      *      * @param executorServiceRef the reference id of the thread pool (must be scheduled)      * @return the builder      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|ThrottleDefinition
