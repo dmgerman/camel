@@ -2188,7 +2188,7 @@ return|return
 name|deadLetterUri
 return|;
 block|}
-comment|/**      *      * @param deadLetterUri  An endpoint uri for a Dead Letter Channel where exhausted recovered Exchanges will be      *                       moved. If this option is used then the maximumRedeliveries option must also be provided.      */
+comment|/**      *      * @param deadLetterUri  An endpoint uri for a Dead Letter Channel where exhausted recovered Exchanges will be      *                       moved. If this option is used then the maximumRedeliveries option must also be provided.      *                       Important note : if the deadletter route throws an exception, it will be send again to DLQ      *                       until it succeed !      */
 DECL|method|setDeadLetterUri (String deadLetterUri)
 specifier|public
 name|void
