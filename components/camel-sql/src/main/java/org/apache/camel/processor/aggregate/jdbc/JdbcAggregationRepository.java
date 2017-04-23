@@ -395,7 +395,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JDBC based {@link org.apache.camel.spi.AggregationRepository}  */
+comment|/**  * JDBC based {@link org.apache.camel.spi.AggregationRepository}  * JdbcAggregationRepository will only preserve any Serializable compatible  * data types. If a data type is not such a type its dropped and a WARN is  * logged. And it only persists the Message body and the Message headers.  * The Exchange properties are not persisted.  */
 end_comment
 
 begin_class
@@ -676,6 +676,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @param dataSource The DataSource to use for accessing the database      */
 DECL|method|setDataSource (DataSource dataSource)
 specifier|public
 specifier|final
@@ -1105,7 +1106,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inserts a new record into the given repository table      *      * @param camelContext   the current CamelContext      * @param correlationId  the correlation key      * @param exchange       the aggregated exchange      * @param repositoryName The name of the table      * @throws Exception      */
+comment|/**      * Inserts a new record into the given repository table.      * note : the exchange properties are NOT persisted.      *      * @param camelContext   the current CamelContext      * @param correlationId  the correlation key      * @param exchange       the aggregated exchange to insert. The headers will be persisted but not the properties.      * @param repositoryName The name of the table      * @throws Exception      */
 DECL|method|insert (final CamelContext camelContext, final String correlationId, final Exchange exchange, String repositoryName)
 specifier|protected
 name|void
@@ -2073,6 +2074,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      *  If recovery is enabled then a background task is run every x'th time to scan for failed exchanges to recover      *  and resubmit. By default this interval is 5000 millis.      * @param interval  the interval      * @param timeUnit  the time unit      */
 DECL|method|setRecoveryInterval (long interval, TimeUnit timeUnit)
 specifier|public
 name|void
@@ -2133,6 +2135,7 @@ return|return
 name|useRecovery
 return|;
 block|}
+comment|/**      *      * @param useRecovery Whether or not recovery is enabled. This option is by default true. When enabled the Camel      *                    Aggregator automatic recover failed aggregated exchange and have them resubmittedd      */
 DECL|method|setUseRecovery (boolean useRecovery)
 specifier|public
 name|void
@@ -2185,6 +2188,7 @@ return|return
 name|deadLetterUri
 return|;
 block|}
+comment|/**      *      * @param deadLetterUri  An endpoint uri for a Dead Letter Channel where exhausted recovered Exchanges will be      *                       moved. If this option is used then the maximumRedeliveries option must also be provided.      */
 DECL|method|setDeadLetterUri (String deadLetterUri)
 specifier|public
 name|void
@@ -2211,6 +2215,7 @@ return|return
 name|returnOldExchange
 return|;
 block|}
+comment|/**      *      * @param returnOldExchange Whether the get operation should return the old existing Exchange if any existed.      *                          By default this option is false to optimize as we do not need the old exchange when      *                          aggregating      */
 DECL|method|setReturnOldExchange (boolean returnOldExchange)
 specifier|public
 name|void
@@ -2265,6 +2270,7 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+comment|/**      * Allows to store headers as String which is human readable. By default this option is disabled,      * storing the headers in binary format.      * @param headersToStoreAsText the list of headers to store as String      */
 DECL|method|setHeadersToStoreAsText (List<String> headersToStoreAsText)
 specifier|public
 name|void
@@ -2284,6 +2290,7 @@ operator|=
 name|headersToStoreAsText
 expr_stmt|;
 block|}
+comment|/**      *      * @param storeBodyAsText Whether to store the message body as String which is human readable.      *                        By default this option is false storing the body in binary format.      */
 DECL|method|setStoreBodyAsText (boolean storeBodyAsText)
 specifier|public
 name|void
