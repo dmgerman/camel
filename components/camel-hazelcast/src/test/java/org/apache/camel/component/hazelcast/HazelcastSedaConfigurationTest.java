@@ -90,7 +90,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"hazelcast:seda:foo?transferExchange=true"
+literal|"hazelcast-seda:foo?transferExchange=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -130,7 +130,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"hazelcast:seda:foo?transferExchange=false"
+literal|"hazelcast-seda:foo?transferExchange=false"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -182,7 +182,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"hazelcast:seda:foo"
+literal|"hazelcast-seda:foo"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -251,7 +251,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"hazelcast:seda:foo?concurrentConsumers=4"
+literal|"hazelcast-seda:foo?concurrentConsumers=4"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -320,7 +320,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"hazelcast:seda:foo?pollTimeout=4000"
+literal|"hazelcast-seda:foo?pollTimeout=4000"
 argument_list|)
 decl_stmt|;
 name|assertEquals

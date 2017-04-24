@@ -313,7 +313,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar?reliable=true"
+literal|"hazelcast-%sbar?reliable=true"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -344,7 +344,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar?reliable=true"
+literal|"hazelcast-%sbar?reliable=true"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -377,7 +377,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar?reliable=true"
+literal|"hazelcast-%sbar?reliable=true"
 argument_list|,
 name|HazelcastConstants
 operator|.

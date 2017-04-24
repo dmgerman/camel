@@ -71,12 +71,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hazelcast:seda:foo"
+literal|"hazelcast-seda:foo"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"hazelcast:seda:foo?transacted=true"
+literal|"hazelcast-seda:foo?transacted=true"
 argument_list|)
 operator|.
 name|to

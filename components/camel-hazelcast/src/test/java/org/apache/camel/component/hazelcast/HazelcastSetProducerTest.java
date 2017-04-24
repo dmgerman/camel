@@ -585,7 +585,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -613,7 +613,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -645,7 +645,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -674,7 +674,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -706,7 +706,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -739,7 +739,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -772,7 +772,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -787,7 +787,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"hazelcast:%sbar?operation=%s"
+literal|"hazelcast-%sbar?operation=%s"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -805,7 +805,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"hazelcast:%sbar?operation=add"
+literal|"hazelcast-%sbar?operation=add"
 argument_list|,
 name|HazelcastConstants
 operator|.

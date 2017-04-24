@@ -304,7 +304,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hazelcast:seda:foo"
+literal|"hazelcast-seda:foo"
 argument_list|)
 expr_stmt|;
 name|from
@@ -314,12 +314,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hazelcast:seda:foo?transferExchange=true"
+literal|"hazelcast-seda:foo?transferExchange=true"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"hazelcast:seda:foo"
+literal|"hazelcast-seda:foo"
 argument_list|)
 operator|.
 name|to

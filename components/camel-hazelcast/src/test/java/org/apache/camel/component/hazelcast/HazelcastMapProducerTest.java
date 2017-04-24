@@ -1885,7 +1885,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -1918,7 +1918,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -1951,7 +1951,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -1984,7 +1984,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2017,7 +2017,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2055,7 +2055,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2093,7 +2093,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2126,7 +2126,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2164,7 +2164,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2197,7 +2197,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2235,7 +2235,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2273,7 +2273,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2311,7 +2311,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2331,7 +2331,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"hazelcast:%sfoo?operation=%s"
+literal|"hazelcast-%sfoo?operation=%s"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -2349,7 +2349,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"hazelcast:%sfoo?operation=put"
+literal|"hazelcast-%sfoo?operation=put"
 argument_list|,
 name|HazelcastConstants
 operator|.

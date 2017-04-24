@@ -452,7 +452,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo?reliable=true"
+literal|"hazelcast-%sfoo?reliable=true"
 argument_list|,
 name|HazelcastConstants
 operator|.

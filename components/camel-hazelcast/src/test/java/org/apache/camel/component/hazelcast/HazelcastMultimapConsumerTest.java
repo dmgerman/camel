@@ -676,7 +676,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%smm"
+literal|"hazelcast-%smm"
 argument_list|,
 name|HazelcastConstants
 operator|.

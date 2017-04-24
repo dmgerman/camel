@@ -131,7 +131,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"hazelcast:seda:foo"
+literal|"hazelcast-seda:foo"
 argument_list|,
 literal|"test"
 argument_list|)

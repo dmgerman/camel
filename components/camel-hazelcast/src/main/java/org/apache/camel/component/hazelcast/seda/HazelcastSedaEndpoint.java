@@ -104,7 +104,23 @@ name|component
 operator|.
 name|hazelcast
 operator|.
-name|HazelcastComponent
+name|HazelcastCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastDefaultComponent
 import|;
 end_import
 
@@ -132,6 +148,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -139,10 +169,33 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Hazelcast SEDA {@link Endpoint} implementation.  */
+comment|/**  * The hazelcast-seda component is used to access<a href="http://www.hazelcast.com/">Hazelcast</a> {@link BlockingQueue}.  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|firstVersion
+operator|=
+literal|"2.7.0"
+argument_list|,
+name|scheme
+operator|=
+literal|"hazelcast-seda"
+argument_list|,
+name|title
+operator|=
+literal|"Hazelcast SEDA"
+argument_list|,
+name|syntax
+operator|=
+literal|"hazelcast-seda:cacheName"
+argument_list|,
+name|label
+operator|=
+literal|"cache,datagrid"
+argument_list|)
 DECL|class|HazelcastSedaEndpoint
 specifier|public
 class|class
@@ -165,7 +218,7 @@ specifier|final
 name|HazelcastSedaConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|HazelcastSedaEndpoint (final HazelcastInstance hazelcastInstance, final String uri, final HazelcastComponent component, final HazelcastSedaConfiguration configuration)
+DECL|method|HazelcastSedaEndpoint (final HazelcastInstance hazelcastInstance, final String uri, final HazelcastDefaultComponent component, final HazelcastSedaConfiguration configuration)
 specifier|public
 name|HazelcastSedaEndpoint
 parameter_list|(
@@ -178,7 +231,7 @@ name|String
 name|uri
 parameter_list|,
 specifier|final
-name|HazelcastComponent
+name|HazelcastDefaultComponent
 name|component
 parameter_list|,
 specifier|final
@@ -236,6 +289,13 @@ literal|"Queue name is missing."
 argument_list|)
 throw|;
 block|}
+name|setCommand
+argument_list|(
+name|HazelcastCommand
+operator|.
+name|seda
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createProducer ()
 specifier|public

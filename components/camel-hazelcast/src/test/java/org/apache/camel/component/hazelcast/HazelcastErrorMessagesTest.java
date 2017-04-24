@@ -152,7 +152,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"hazelcast:atomicvalue:foo"
+literal|"hazelcast-atomicvalue:foo"
 argument_list|)
 operator|.
 name|to
@@ -198,7 +198,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"You cannot send messages to this endpoint: hazelcast://atomicvalue:foo"
+literal|"You cannot send messages to this endpoint: hazelcast-atomicvalue://foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -233,7 +233,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hazelcast:instance:foo"
+literal|"hazelcast-instance:foo"
 argument_list|)
 expr_stmt|;
 block|}
@@ -274,7 +274,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"You cannot send messages to this endpoint: hazelcast://instance:foo"
+literal|"You cannot send messages to this endpoint: hazelcast-instance://foo"
 argument_list|)
 argument_list|)
 expr_stmt|;

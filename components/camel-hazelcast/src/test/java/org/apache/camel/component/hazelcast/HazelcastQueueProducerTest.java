@@ -789,7 +789,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -820,7 +820,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -853,7 +853,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -886,7 +886,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -919,7 +919,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -952,7 +952,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -985,7 +985,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -1018,7 +1018,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -1051,7 +1051,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -1084,7 +1084,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar"
+literal|"hazelcast-%sbar"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -1103,7 +1103,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar?operation=%s"
+literal|"hazelcast-%sbar?operation=%s"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -1126,7 +1126,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sbar?operation=put"
+literal|"hazelcast-%sbar?operation=put"
 argument_list|,
 name|HazelcastConstants
 operator|.

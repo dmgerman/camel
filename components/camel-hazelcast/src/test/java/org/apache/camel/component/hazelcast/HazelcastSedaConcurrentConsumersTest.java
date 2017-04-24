@@ -158,7 +158,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"hazelcast:seda:foo?concurrentConsumers=4"
+literal|"hazelcast-seda:foo?concurrentConsumers=4"
 argument_list|,
 literal|"test"
 argument_list|)
@@ -199,7 +199,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"hazelcast:seda:foo?concurrentConsumers=4"
+literal|"hazelcast-seda:foo?concurrentConsumers=4"
 argument_list|)
 operator|.
 name|threads

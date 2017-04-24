@@ -80,7 +80,23 @@ name|component
 operator|.
 name|hazelcast
 operator|.
-name|HazelcastComponent
+name|HazelcastCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastDefaultComponent
 import|;
 end_import
 
@@ -100,7 +116,58 @@ name|HazelcastDefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_comment
+comment|/**  * The hazelcast-instance component is used to consume join/leave events of the cache instance in the cluster.  */
+end_comment
+
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|firstVersion
+operator|=
+literal|"2.7.0"
+argument_list|,
+name|scheme
+operator|=
+literal|"hazelcast-instance"
+argument_list|,
+name|title
+operator|=
+literal|"Hazelcast Instance"
+argument_list|,
+name|syntax
+operator|=
+literal|"hazelcast-instance:cacheName"
+argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
+name|consumerClass
+operator|=
+name|HazelcastInstanceConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"cache,datagrid"
+argument_list|)
 DECL|class|HazelcastInstanceEndpoint
 specifier|public
 class|class
@@ -108,7 +175,7 @@ name|HazelcastInstanceEndpoint
 extends|extends
 name|HazelcastDefaultEndpoint
 block|{
-DECL|method|HazelcastInstanceEndpoint (HazelcastInstance hazelcastInstance, String uri, HazelcastComponent component)
+DECL|method|HazelcastInstanceEndpoint (HazelcastInstance hazelcastInstance, String uri, HazelcastDefaultComponent component)
 specifier|public
 name|HazelcastInstanceEndpoint
 parameter_list|(
@@ -118,7 +185,7 @@ parameter_list|,
 name|String
 name|uri
 parameter_list|,
-name|HazelcastComponent
+name|HazelcastDefaultComponent
 name|component
 parameter_list|)
 block|{
@@ -129,6 +196,13 @@ argument_list|,
 name|uri
 argument_list|,
 name|component
+argument_list|)
+expr_stmt|;
+name|setCommand
+argument_list|(
+name|HazelcastCommand
+operator|.
+name|instance
 argument_list|)
 expr_stmt|;
 block|}

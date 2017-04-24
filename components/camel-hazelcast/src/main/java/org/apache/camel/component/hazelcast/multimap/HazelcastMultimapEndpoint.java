@@ -80,7 +80,23 @@ name|component
 operator|.
 name|hazelcast
 operator|.
-name|HazelcastComponent
+name|HazelcastCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastDefaultComponent
 import|;
 end_import
 
@@ -100,7 +116,48 @@ name|HazelcastDefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_comment
+comment|/**  * The hazelcast-multimap component is used to to access<a href="http://www.hazelcast.com/">Hazelcast</a> distributed multimap.  */
+end_comment
+
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|firstVersion
+operator|=
+literal|"2.7.0"
+argument_list|,
+name|scheme
+operator|=
+literal|"hazelcast-multimap"
+argument_list|,
+name|title
+operator|=
+literal|"Hazelcast Multimap"
+argument_list|,
+name|syntax
+operator|=
+literal|"hazelcast-multimap:cacheName"
+argument_list|,
+name|label
+operator|=
+literal|"cache,datagrid"
+argument_list|)
 DECL|class|HazelcastMultimapEndpoint
 specifier|public
 class|class
@@ -108,7 +165,7 @@ name|HazelcastMultimapEndpoint
 extends|extends
 name|HazelcastDefaultEndpoint
 block|{
-DECL|method|HazelcastMultimapEndpoint (HazelcastInstance hazelcastInstance, String uri, String cacheName, HazelcastComponent component)
+DECL|method|HazelcastMultimapEndpoint (HazelcastInstance hazelcastInstance, String uri, String cacheName, HazelcastDefaultComponent component)
 specifier|public
 name|HazelcastMultimapEndpoint
 parameter_list|(
@@ -121,7 +178,7 @@ parameter_list|,
 name|String
 name|cacheName
 parameter_list|,
-name|HazelcastComponent
+name|HazelcastDefaultComponent
 name|component
 parameter_list|)
 block|{
@@ -134,6 +191,13 @@ argument_list|,
 name|component
 argument_list|,
 name|cacheName
+argument_list|)
+expr_stmt|;
+name|setCommand
+argument_list|(
+name|HazelcastCommand
+operator|.
+name|multimap
 argument_list|)
 expr_stmt|;
 block|}

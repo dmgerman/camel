@@ -217,7 +217,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"hazelcast:seda:foo"
+literal|"hazelcast-seda:foo"
 argument_list|,
 literal|"test"
 operator|+
@@ -260,7 +260,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"hazelcast:seda:foo"
+literal|"hazelcast-seda:foo"
 argument_list|)
 operator|.
 name|to

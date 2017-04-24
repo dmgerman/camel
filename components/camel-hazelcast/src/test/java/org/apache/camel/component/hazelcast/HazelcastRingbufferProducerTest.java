@@ -491,7 +491,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -524,7 +524,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -557,7 +557,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -590,7 +590,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.
@@ -623,7 +623,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"hazelcast:%sfoo"
+literal|"hazelcast-%sfoo"
 argument_list|,
 name|HazelcastConstants
 operator|.

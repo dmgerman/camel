@@ -142,7 +142,7 @@ name|component
 operator|.
 name|hazelcast
 operator|.
-name|HazelcastComponent
+name|HazelcastConstants
 import|;
 end_import
 
@@ -158,7 +158,9 @@ name|component
 operator|.
 name|hazelcast
 operator|.
-name|HazelcastConstants
+name|topic
+operator|.
+name|HazelcastTopicComponent
 import|;
 end_import
 
@@ -237,11 +239,11 @@ name|config
 argument_list|)
 decl_stmt|;
 comment|// setup camel hazelcast
-name|HazelcastComponent
+name|HazelcastTopicComponent
 name|hazelcast
 init|=
 operator|new
-name|HazelcastComponent
+name|HazelcastTopicComponent
 argument_list|()
 decl_stmt|;
 name|hazelcast
@@ -256,7 +258,7 @@ argument_list|()
 operator|.
 name|addComponent
 argument_list|(
-literal|"hazelcast"
+literal|"hazelcast-topic"
 argument_list|,
 name|hazelcast
 argument_list|)
@@ -331,12 +333,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hazelcast:topic:foo"
+literal|"hazelcast-topic:foo"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"hazelcast:topic:foo"
+literal|"hazelcast-topic:foo"
 argument_list|)
 operator|.
 name|log
