@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -210,45 +200,6 @@ operator|=
 name|servers
 expr_stmt|;
 block|}
-comment|/**      * Sets the server list;      */
-DECL|method|addServer (String server)
-specifier|public
-name|void
-name|addServer
-parameter_list|(
-name|String
-name|server
-parameter_list|)
-block|{
-if|if
-condition|(
-name|this
-operator|.
-name|servers
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|servers
-operator|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-expr_stmt|;
-block|}
-name|this
-operator|.
-name|servers
-operator|.
-name|add
-argument_list|(
-name|server
-argument_list|)
-expr_stmt|;
-block|}
 comment|// *************************************************************************
 comment|// Fluent API
 comment|// *************************************************************************
@@ -268,25 +219,6 @@ block|{
 name|setServers
 argument_list|(
 name|servers
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Add a server to the list of servers      */
-DECL|method|server (String server)
-specifier|public
-name|BlacklistServiceCallServiceFilterConfiguration
-name|server
-parameter_list|(
-name|String
-name|server
-parameter_list|)
-block|{
-name|addServer
-argument_list|(
-name|server
 argument_list|)
 expr_stmt|;
 return|return
