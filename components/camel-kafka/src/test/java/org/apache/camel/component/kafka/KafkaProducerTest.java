@@ -1770,6 +1770,9 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setBridgeEndpoint
 argument_list|(
 literal|true
@@ -1880,12 +1883,14 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setCircularTopicDetection
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// enable by default
 name|Mockito
 operator|.
 name|when
@@ -1994,12 +1999,14 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setCircularTopicDetection
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// enable by default
 name|Mockito
 operator|.
 name|when

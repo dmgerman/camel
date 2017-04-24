@@ -689,6 +689,9 @@ condition|(
 operator|!
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|isBridgeEndpoint
 argument_list|()
 condition|)
@@ -726,6 +729,9 @@ operator|!=
 literal|null
 operator|&&
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|isCircularTopicDetection
 argument_list|()

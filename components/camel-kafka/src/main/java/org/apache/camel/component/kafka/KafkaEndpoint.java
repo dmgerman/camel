@@ -394,36 +394,6 @@ operator|new
 name|KafkaConfiguration
 argument_list|()
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|)
-DECL|field|bridgeEndpoint
-specifier|private
-name|boolean
-name|bridgeEndpoint
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|circularTopicDetection
-specifier|private
-name|boolean
-name|circularTopicDetection
-init|=
-literal|true
-decl_stmt|;
 DECL|method|KafkaEndpoint ()
 specifier|public
 name|KafkaEndpoint
@@ -1172,60 +1142,6 @@ argument_list|(
 name|endpoint
 argument_list|)
 return|;
-block|}
-DECL|method|isBridgeEndpoint ()
-specifier|public
-name|boolean
-name|isBridgeEndpoint
-parameter_list|()
-block|{
-return|return
-name|bridgeEndpoint
-return|;
-block|}
-comment|/**      * If the option is true, then KafkaProducer will ignore the KafkaConstants.TOPIC header setting of the inbound message.      */
-DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
-specifier|public
-name|void
-name|setBridgeEndpoint
-parameter_list|(
-name|boolean
-name|bridgeEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|bridgeEndpoint
-operator|=
-name|bridgeEndpoint
-expr_stmt|;
-block|}
-DECL|method|isCircularTopicDetection ()
-specifier|public
-name|boolean
-name|isCircularTopicDetection
-parameter_list|()
-block|{
-return|return
-name|circularTopicDetection
-return|;
-block|}
-comment|/**      * If the option is true, then KafkaProducer will detect if the message is attempted to be sent back to the same topic      * it may come from, if the message was original from a kafka consumer. If the KafkaConstants.TOPIC header is the      * same as the original kafka consumer topic, then the header setting is ignored, and the topic of the producer      * endpoint is used. In other words this avoids sending the same message back to where it came from.      * This option is not in use if the option bridgeEndpoint is set to true.      */
-DECL|method|setCircularTopicDetection (boolean circularTopicDetection)
-specifier|public
-name|void
-name|setCircularTopicDetection
-parameter_list|(
-name|boolean
-name|circularTopicDetection
-parameter_list|)
-block|{
-name|this
-operator|.
-name|circularTopicDetection
-operator|=
-name|circularTopicDetection
-expr_stmt|;
 block|}
 block|}
 end_class
