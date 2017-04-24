@@ -84,6 +84,17 @@ name|DefaultServiceDefinition
 implements|implements
 name|ServiceDefinition
 block|{
+DECL|field|DEFAULT_SERVICE_HEALTH
+specifier|private
+specifier|static
+specifier|final
+name|ServiceHealth
+name|DEFAULT_SERVICE_HEALTH
+init|=
+operator|new
+name|DefaultServiceHealth
+argument_list|()
+decl_stmt|;
 DECL|field|name
 specifier|private
 specifier|final
@@ -164,9 +175,7 @@ name|this
 operator|.
 name|health
 operator|=
-name|DefaultServiceHealth
-operator|.
-name|INSTANCE
+name|DEFAULT_SERVICE_HEALTH
 expr_stmt|;
 block|}
 DECL|method|DefaultServiceDefinition (String name, String host, int port, ServiceHealth health)
@@ -289,9 +298,7 @@ name|this
 operator|.
 name|health
 operator|=
-name|DefaultServiceHealth
-operator|.
-name|INSTANCE
+name|DEFAULT_SERVICE_HEALTH
 expr_stmt|;
 block|}
 DECL|method|DefaultServiceDefinition (String name, String host, int port, Map<String, String> meta, ServiceHealth health)

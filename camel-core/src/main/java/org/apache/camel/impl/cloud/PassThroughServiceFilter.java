@@ -64,17 +64,6 @@ name|PassThroughServiceFilter
 implements|implements
 name|ServiceFilter
 block|{
-DECL|field|INSTANCE
-specifier|public
-specifier|static
-specifier|final
-name|ServiceFilter
-name|INSTANCE
-init|=
-operator|new
-name|PassThroughServiceFilter
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|apply (List<ServiceDefinition> services)

@@ -70,17 +70,6 @@ name|DefaultServiceHealth
 implements|implements
 name|ServiceHealth
 block|{
-DECL|field|INSTANCE
-specifier|public
-specifier|static
-specifier|final
-name|ServiceHealth
-name|INSTANCE
-init|=
-operator|new
-name|DefaultServiceHealth
-argument_list|()
-decl_stmt|;
 DECL|field|healthy
 specifier|private
 specifier|final
