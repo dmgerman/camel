@@ -1881,10 +1881,10 @@ return|return
 name|conf
 return|;
 block|}
-DECL|method|blacklistFilet ()
+DECL|method|blacklistFilter ()
 specifier|public
 name|BlacklistServiceCallServiceFilterConfiguration
-name|blacklistFilet
+name|blacklistFilter
 parameter_list|()
 block|{
 name|BlacklistServiceCallServiceFilterConfiguration

@@ -2466,6 +2466,28 @@ return|return
 name|conf
 return|;
 block|}
+DECL|method|blacklistFilter ()
+specifier|public
+name|BlacklistServiceCallServiceFilterConfiguration
+name|blacklistFilter
+parameter_list|()
+block|{
+name|BlacklistServiceCallServiceFilterConfiguration
+name|conf
+init|=
+operator|new
+name|BlacklistServiceCallServiceFilterConfiguration
+argument_list|()
+decl_stmt|;
+name|setServiceFilterConfiguration
+argument_list|(
+name|conf
+argument_list|)
+expr_stmt|;
+return|return
+name|conf
+return|;
+block|}
 DECL|method|customFilter (String serviceFilter)
 specifier|public
 name|ServiceCallDefinition

@@ -1443,7 +1443,7 @@ argument_list|()
 decl_stmt|;
 name|global
 operator|.
-name|blacklistFilet
+name|blacklistFilter
 argument_list|()
 operator|.
 name|servers
