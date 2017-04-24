@@ -218,12 +218,12 @@ operator|.
 name|staticServiceDiscovery
 argument_list|()
 operator|.
-name|server
+name|servers
 argument_list|(
 literal|"localhost:9090"
 argument_list|)
 operator|.
-name|server
+name|servers
 argument_list|(
 literal|"localhost:9091"
 argument_list|)

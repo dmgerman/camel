@@ -186,9 +186,9 @@ literal|9091
 argument_list|)
 argument_list|)
 argument_list|,
+operator|new
 name|PassThroughServiceFilter
-operator|.
-name|INSTANCE
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
