@@ -579,6 +579,12 @@ block|}
 name|Object
 name|messagePolled
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|messagePolled
+operator|=
 name|transactionTemplate
 operator|.
 name|execute
@@ -806,28 +812,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Potentially EntityManager could be in an inconsistent state after transaction rollback,
-comment|// so disposing it to have it recreated in next poll. cf. Java Persistence API 3.3.2 Transaction Rollback
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Disposing EntityManager {} on {} due to coming transaction rollback"
-argument_list|,
-name|entityManager
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-name|entityManager
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|entityManager
-operator|=
-literal|null
-expr_stmt|;
 comment|// rollback all by throwning exception
 throw|throw
 name|cause
@@ -859,7 +843,44 @@ return|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// Potentially EntityManager could be in an inconsistent state after transaction rollback,
+comment|// so disposing it to have it recreated in next poll. cf. Java Persistence API 3.3.2 Transaction Rollback
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Disposing EntityManager {} on {} due to coming transaction rollback"
+argument_list|,
+name|entityManager
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|entityManager
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|entityManager
+operator|=
+literal|null
+expr_stmt|;
+throw|throw
+operator|new
+name|PersistenceException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 return|return
 name|getEndpoint
 argument_list|()
