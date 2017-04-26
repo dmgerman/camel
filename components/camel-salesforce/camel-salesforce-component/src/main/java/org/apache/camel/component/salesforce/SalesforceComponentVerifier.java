@@ -431,6 +431,10 @@ argument_list|,
 literal|"userName"
 argument_list|,
 literal|"password"
+argument_list|,
+literal|"!refreshToken"
+argument_list|,
+literal|"!keystore"
 argument_list|)
 argument_list|,
 name|OptionsGroup
@@ -449,6 +453,10 @@ argument_list|,
 literal|"clientSecret"
 argument_list|,
 literal|"refreshToken"
+argument_list|,
+literal|"!password"
+argument_list|,
+literal|"!keystore"
 argument_list|)
 argument_list|,
 name|OptionsGroup
@@ -467,6 +475,10 @@ argument_list|,
 literal|"userName"
 argument_list|,
 literal|"keystore"
+argument_list|,
+literal|"!password"
+argument_list|,
+literal|"!refreshToken"
 argument_list|)
 argument_list|)
 argument_list|)

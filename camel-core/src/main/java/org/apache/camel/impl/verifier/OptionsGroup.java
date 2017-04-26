@@ -78,6 +78,10 @@ name|Set
 import|;
 end_import
 
+begin_comment
+comment|/**  * A named group of options. A group of options requires that a set of  * component parameters is given as a whole.  *  *<a id="#syntax">The option syntax can be  * {@code "propertyName"} to denote required property and  * {@code "!propertyName"} to denote required absence of a property.  */
+end_comment
+
 begin_class
 DECL|class|OptionsGroup
 specifier|public
@@ -102,6 +106,7 @@ name|String
 argument_list|>
 name|options
 decl_stmt|;
+comment|/**      * Creates new named {@link OptionsGroup}.      *      * @param name the name of the group      */
 DECL|method|OptionsGroup (String name)
 specifier|public
 name|OptionsGroup
@@ -126,6 +131,7 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Creates new named {@link OptionsGroup} with a set of option      * definitions.      *      * @param name the name of the group      * @param options names of properties in the syntax mentioned in {@link OptionsGroup}      */
 DECL|method|OptionsGroup (String name, Collection<String> options)
 specifier|public
 name|OptionsGroup
@@ -158,6 +164,7 @@ name|options
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Adds a option definition to this group. The option syntax can be      * {@code "propertyName"} to denote required property and      * {@code "!propertyName"} to denote required absence of a property.      *      * @param option definition.      */
 DECL|method|addOption (String option)
 specifier|public
 name|void
@@ -177,6 +184,7 @@ name|option
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The name of the group.      */
 DECL|method|getName ()
 specifier|public
 name|String
@@ -187,6 +195,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * The option definitions in this group.      */
 DECL|method|getOptions ()
 specifier|public
 name|Set
@@ -202,6 +211,7 @@ operator|.
 name|options
 return|;
 block|}
+comment|/**      * Adds a option definition to this group. The option syntax can be      * {@code "propertyName"} to denote required property and      * {@code "!propertyName"} to denote required absence of a property.      *      * @param option definition.      */
 DECL|method|option (String option)
 specifier|public
 name|OptionsGroup
@@ -224,6 +234,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a number of option definitions to this group. The option      * syntax can be {@code "propertyName"} to denote required      * property and {@code "!propertyName"} to denote required absence      * of a property.      *      * @param options options definition      */
 DECL|method|options (String... options)
 specifier|public
 name|OptionsGroup
@@ -252,6 +263,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Creates new group with the specified name.      *      * @param name the name of the group      */
 DECL|method|withName (String name)
 specifier|public
 specifier|static
@@ -270,6 +282,7 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates new group with the specified name of the given      * {@link Enum} name.      *      * @param enumItem the name of the group      * @see Enum#name()      */
 DECL|method|withName (Enum<?> enumItem)
 specifier|public
 specifier|static
@@ -294,6 +307,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates new group with the specified name and option definitions.      *      * @param name the name of the group      * @param options options definition       */
 DECL|method|withNameAndOptions (String name, String... options)
 specifier|public
 specifier|static
