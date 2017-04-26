@@ -855,7 +855,7 @@ comment|// Potentially EntityManager could be in an inconsistent state after tra
 comment|// so disposing it to have it recreated in next poll. cf. Java Persistence API 3.3.2 Transaction Rollback
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Disposing EntityManager {} on {} due to coming transaction rollback"
 argument_list|,
