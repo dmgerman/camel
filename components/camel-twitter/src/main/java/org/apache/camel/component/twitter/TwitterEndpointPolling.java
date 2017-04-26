@@ -292,6 +292,12 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+name|setDelay
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+comment|// reconfigure the default delay
 name|this
 operator|.
 name|properties
