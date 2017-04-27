@@ -35,6 +35,18 @@ name|JAXB_PROVIDER_PROPERTIES
 init|=
 literal|"CamelJaxbProviderProperties"
 decl_stmt|;
+DECL|field|JAXB_PART_CLASS
+name|String
+name|JAXB_PART_CLASS
+init|=
+literal|"CamelJaxbPartClass"
+decl_stmt|;
+DECL|field|JAXB_PART_NAMESPACE
+name|String
+name|JAXB_PART_NAMESPACE
+init|=
+literal|"CamelJaxbPartNamespace"
+decl_stmt|;
 block|}
 end_interface
 
