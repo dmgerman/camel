@@ -622,7 +622,7 @@ block|{
 if|if
 condition|(
 name|channel
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
@@ -630,9 +630,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Terminating channel to the remote gRPC server "
-operator|+
-name|channel
+literal|"Terminating channel to the remote gRPC server"
 argument_list|)
 expr_stmt|;
 name|channel
