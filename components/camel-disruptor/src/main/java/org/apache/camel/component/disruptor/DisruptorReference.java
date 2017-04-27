@@ -1379,6 +1379,19 @@ name|ThreadPoolExecutor
 operator|)
 name|executor
 decl_stmt|;
+comment|//Java 9 support, checkout http://download.java.net/java/jdk9/docs/api/java/util/concurrent/ThreadPoolExecutor.html#setCorePoolSize-int-
+comment|// and http://download.java.net/java/jdk9/docs/api/java/util/concurrent/ThreadPoolExecutor.html#setMaximumPoolSize-int-
+comment|//for more information
+if|if
+condition|(
+name|newSize
+operator|<=
+name|threadPoolExecutor
+operator|.
+name|getCorePoolSize
+argument_list|()
+condition|)
+block|{
 name|threadPoolExecutor
 operator|.
 name|setCorePoolSize
@@ -1393,6 +1406,24 @@ argument_list|(
 name|newSize
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|threadPoolExecutor
+operator|.
+name|setMaximumPoolSize
+argument_list|(
+name|newSize
+argument_list|)
+expr_stmt|;
+name|threadPoolExecutor
+operator|.
+name|setCorePoolSize
+argument_list|(
+name|newSize
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
