@@ -123,7 +123,7 @@ specifier|final
 name|long
 name|DEFAULT_CONSUMER_DELAY
 init|=
-literal|60
+literal|30
 operator|*
 literal|1000L
 decl_stmt|;
