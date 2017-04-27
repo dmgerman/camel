@@ -180,7 +180,7 @@ name|core
 operator|.
 name|publisher
 operator|.
-name|DirectProcessor
+name|EmitterProcessor
 import|;
 end_import
 
@@ -193,18 +193,6 @@ operator|.
 name|publisher
 operator|.
 name|Flux
-import|;
-end_import
-
-begin_import
-import|import
-name|reactor
-operator|.
-name|core
-operator|.
-name|publisher
-operator|.
-name|FluxProcessor
 import|;
 end_import
 
@@ -258,25 +246,14 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-DECL|field|processor
+DECL|field|publisher
 specifier|private
 specifier|final
-name|FluxProcessor
-argument_list|<
-name|Exchange
-argument_list|,
-name|Exchange
-argument_list|>
-name|processor
-decl_stmt|;
-DECL|field|processorFlux
-specifier|private
-specifier|final
-name|Flux
+name|EmitterProcessor
 argument_list|<
 name|Exchange
 argument_list|>
-name|processorFlux
+name|publisher
 decl_stmt|;
 DECL|field|camelSink
 specifier|private
@@ -338,34 +315,20 @@ name|AtomicReference
 argument_list|<>
 argument_list|()
 expr_stmt|;
+comment|// TODO: A emitter processor with buffer-size 0 would be perfect
+comment|// The effect of having a prefetch of 1 element is that the chain buffers at least 2 elements instead of only one
+comment|// (one in the FluxSink and one in the EmitterProcessor) when using the "latest" or "oldest" strategy.
+comment|// This affects slightly the behavior of the backpressure strategy "latest" (but it doesn't change the semantics).
 name|this
 operator|.
-name|processor
+name|publisher
 operator|=
-name|DirectProcessor
+name|EmitterProcessor
 operator|.
 name|create
-argument_list|()
-expr_stmt|;
-comment|// As the processor can be shared among a number of subscribers we need
-comment|// to make it shared we can multicast events.
-name|this
-operator|.
-name|processorFlux
-operator|=
-name|this
-operator|.
-name|processor
-operator|.
-name|handle
 argument_list|(
-name|this
-operator|::
-name|onItemEmitted
+literal|1
 argument_list|)
-operator|.
-name|share
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -387,7 +350,7 @@ name|getPublisher
 parameter_list|()
 block|{
 return|return
-name|processorFlux
+name|publisher
 return|;
 block|}
 DECL|method|attach (ReactiveStreamsProducer producer)
@@ -481,6 +444,7 @@ name|OLDEST
 argument_list|)
 condition|)
 block|{
+comment|// signal item emitted for non-dropped items only
 name|flux
 operator|=
 name|flux
@@ -490,6 +454,13 @@ argument_list|(
 name|this
 operator|::
 name|onBackPressure
+argument_list|)
+operator|.
+name|handle
+argument_list|(
+name|this
+operator|::
+name|onItemEmitted
 argument_list|)
 expr_stmt|;
 block|}
@@ -508,9 +479,18 @@ name|LATEST
 argument_list|)
 condition|)
 block|{
+comment|// Since there is no callback for dropped elements on backpressure "latest", item emission is signaled before dropping
+comment|// No exception is reported back to the exchanges
 name|flux
 operator|=
 name|flux
+operator|.
+name|handle
+argument_list|(
+name|this
+operator|::
+name|onItemEmitted
+argument_list|)
 operator|.
 name|onBackpressureLatest
 argument_list|()
@@ -533,6 +513,13 @@ name|this
 operator|::
 name|onBackPressure
 argument_list|)
+operator|.
+name|handle
+argument_list|(
+name|this
+operator|::
+name|onItemEmitted
+argument_list|)
 expr_stmt|;
 block|}
 name|flux
@@ -541,7 +528,7 @@ name|subscribe
 argument_list|(
 name|this
 operator|.
-name|processor
+name|publisher
 argument_list|)
 expr_stmt|;
 name|camelProducer
