@@ -342,17 +342,20 @@ parameter_list|()
 block|{
 return|return
 name|errors
-operator|!=
+operator|==
 literal|null
 condition|?
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+else|:
 name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
 name|errors
 argument_list|)
-else|:
-literal|null
 return|;
 block|}
 DECL|method|getStatusCode ()
