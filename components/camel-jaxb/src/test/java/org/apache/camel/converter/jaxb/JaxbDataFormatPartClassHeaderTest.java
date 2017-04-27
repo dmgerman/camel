@@ -134,10 +134,10 @@ name|mockMarshall
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testMarshallMultipleNamespaces ()
+DECL|method|testMarshallIfPartClassSetInHeaders ()
 specifier|public
 name|void
-name|testMarshallMultipleNamespaces
+name|testMarshallIfPartClassSetInHeaders
 parameter_list|()
 throws|throws
 name|Exception
