@@ -315,10 +315,10 @@ name|AtomicReference
 argument_list|<>
 argument_list|()
 expr_stmt|;
-comment|// TODO: A emitter processor with buffer-size 0 would be perfect
-comment|// The effect of having a prefetch of 1 element is that the chain buffers at least 2 elements instead of only one
-comment|// (one in the FluxSink and one in the EmitterProcessor) when using the "latest" or "oldest" strategy.
-comment|// This affects slightly the behavior of the backpressure strategy "latest" (but it doesn't change the semantics).
+comment|// TODO: The perfect emitter processor would have no buffer (0 sized)
+comment|// The chain caches one more item than expected.
+comment|// This implementation has (almost) full control over backpressure, but it's too chatty.
+comment|// There's a ticket to improve chattiness of the reactive-streams internal impl.
 name|this
 operator|.
 name|publisher
@@ -328,6 +328,8 @@ operator|.
 name|create
 argument_list|(
 literal|1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -428,6 +430,12 @@ argument_list|(
 name|camelSink
 operator|::
 name|set
+argument_list|,
+name|FluxSink
+operator|.
+name|OverflowStrategy
+operator|.
+name|IGNORE
 argument_list|)
 decl_stmt|;
 if|if
