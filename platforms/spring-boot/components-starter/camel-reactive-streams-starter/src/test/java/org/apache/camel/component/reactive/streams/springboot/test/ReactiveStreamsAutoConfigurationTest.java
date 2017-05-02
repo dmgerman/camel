@@ -452,11 +452,18 @@ name|CamelContext
 name|context
 decl_stmt|;
 annotation|@
+name|Autowired
+DECL|field|reactiveStreamsService
+specifier|private
+name|CamelReactiveStreamsService
+name|reactiveStreamsService
+decl_stmt|;
+annotation|@
 name|Test
-DECL|method|testAutoConfiguration ()
+DECL|method|testConfiguration ()
 specifier|public
 name|void
-name|testAutoConfiguration
+name|testConfiguration
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -476,6 +483,13 @@ argument_list|(
 name|service
 operator|instanceof
 name|DefaultCamelReactiveStreamsService
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|service
+argument_list|,
+name|reactiveStreamsService
 argument_list|)
 expr_stmt|;
 name|ReactiveStreamsComponent
@@ -507,6 +521,27 @@ name|getThreadPoolName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testService ()
+specifier|public
+name|void
+name|testService
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|CamelReactiveStreamsService
+name|service
+init|=
+name|CamelReactiveStreams
+operator|.
+name|get
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
 name|CountDownLatch
 name|latch
 init|=

@@ -24,6 +24,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|time
+operator|.
+name|Duration
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -285,9 +295,14 @@ lambda|->
 name|i
 argument_list|)
 operator|.
-name|timeoutMillis
+name|timeout
+argument_list|(
+name|Duration
+operator|.
+name|ofMillis
 argument_list|(
 literal|2000
+argument_list|)
 argument_list|,
 name|Flux
 operator|.
@@ -857,8 +872,8 @@ literal|200
 argument_list|)
 expr_stmt|;
 comment|// add other time to ensure no other items arrive
-comment|// TODO the chain caches two elements instead of one: change it if you find an EmitterProcessor without prefetch
-comment|//        Assert.assertEquals(2, queue.size());
+comment|// TODO: the chain caches two elements instead of one: change it if you find an EmitterProcessor without prefetch
+comment|// Assert.assertEquals(2, queue.size());
 name|Assert
 operator|.
 name|assertEquals
@@ -895,7 +910,7 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-comment|//        Assert.assertEquals(21, sum); // 1 + 20 = 21
+comment|// Assert.assertEquals(21, sum); // 1 + 20 = 21
 name|Assert
 operator|.
 name|assertEquals
