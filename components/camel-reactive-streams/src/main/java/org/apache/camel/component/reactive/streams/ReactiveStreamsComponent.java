@@ -207,7 +207,7 @@ name|ReactiveStreamsComponent
 parameter_list|()
 block|{     }
 comment|// ****************************************
-comment|//
+comment|// Lifecycle/Implementation
 comment|// ****************************************
 annotation|@
 name|Override
@@ -219,7 +219,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// instantiate a ReactiveStreamsService
+comment|// force creation of ReactiveStreamsService
 name|getReactiveStreamsService
 argument_list|()
 expr_stmt|;
@@ -392,7 +392,7 @@ return|return
 name|serviceType
 return|;
 block|}
-comment|/**      * Set the type of the underlying reactive streams implementation to use. The      * implementation is looked up from the registry or using a ServiceLoader, the      * default implementation is DefaultCamelReactiveStreamsService      */
+comment|/**      * Set the type of the underlying reactive streams implementation to use. The      * implementation is looked up from the registry or using a ServiceLoader, the      * default implementation is DefaultCamelReactiveStreamsService      *      * @param serviceType the reactive service implementation name type      */
 DECL|method|setServiceType (String serviceType)
 specifier|public
 name|void
@@ -409,6 +409,7 @@ operator|=
 name|serviceType
 expr_stmt|;
 block|}
+comment|/**      * Lazy creation of the CamelReactiveStreamsService      *      * @return the reactive streams service      */
 DECL|method|getReactiveStreamsService ()
 specifier|public
 specifier|synchronized
@@ -474,7 +475,7 @@ name|service
 return|;
 block|}
 comment|// ****************************************
-comment|//
+comment|// Helpers
 comment|// ****************************************
 DECL|method|withServiceType (String serviceType)
 specifier|public

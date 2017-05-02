@@ -1191,7 +1191,6 @@ name|cancel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*     @Override     public boolean isUseRouteBuilder() {         return false;     }     */
 block|}
 end_class
 
