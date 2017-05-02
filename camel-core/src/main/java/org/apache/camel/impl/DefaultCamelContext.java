@@ -122,6 +122,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -3326,6 +3336,27 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+DECL|field|componentsInCreation
+specifier|private
+specifier|final
+name|ThreadLocal
+argument_list|<
+name|Set
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|componentsInCreation
+init|=
+name|ThreadLocal
+operator|.
+name|withInitial
+argument_list|(
+name|HashSet
+operator|::
+operator|new
+argument_list|)
+decl_stmt|;
 comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -3819,6 +3850,35 @@ name|boolean
 name|autoStart
 parameter_list|)
 block|{
+comment|// Check if the named component is already being created, that would mean
+comment|// that the initComponent has triggered a new getComponent
+if|if
+condition|(
+name|componentsInCreation
+operator|.
+name|get
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Circular dependency detected, the component "
+operator|+
+name|name
+operator|+
+literal|" is already being created"
+argument_list|)
+throw|;
+block|}
+try|try
+block|{
 comment|// atomic operation to get/create a component. Avoid global locks.
 return|return
 name|components
@@ -3839,6 +3899,21 @@ name|autoStart
 argument_list|)
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+comment|// cremove the reference to the component being created
+name|componentsInCreation
+operator|.
+name|get
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Function to initialize a component and auto start. Returns null if the autoCreateComponents is disabled      */
 DECL|method|initComponent (String name, boolean autoCreateComponents, boolean autoStart)
@@ -3889,6 +3964,45 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Mark the component as being created so we can detect circular
+comment|// requests.
+comment|//
+comment|// In spring apps, the component resolver may trigger a new getComponent
+comment|// because of the underlying bean factory and as the endpoints are
+comment|// registered as singleton, the spring factory creates the bean
+comment|// and then check the type so the getComponent is always triggered.
+comment|//
+comment|// Simple circular dependency:
+comment|//
+comment|//<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+comment|//<route>
+comment|//<from id="twitter" uri="twitter://timeline/home?type=polling"/>
+comment|//<log message="Got ${body}"/>
+comment|//</route>
+comment|//</camelContext>
+comment|//
+comment|// Complex circular dependency:
+comment|//
+comment|//<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+comment|//<route>
+comment|//<from id="log" uri="seda:test"/>
+comment|//<to id="seda" uri="log:test"/>
+comment|//</route>
+comment|//</camelContext>
+comment|//
+comment|// This would freeze the app (lock or infinite loop).
+comment|//
+comment|// See https://issues.apache.org/jira/browse/CAMEL-11225
+name|componentsInCreation
+operator|.
+name|get
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 name|component
 operator|=
 name|getComponentResolver
@@ -3935,7 +4049,8 @@ argument_list|()
 operator|)
 condition|)
 block|{
-comment|// If the component is looked up after the context is started, lets start it up.
+comment|// If the component is looked up after the context is started,
+comment|// lets start it up.
 if|if
 condition|(
 name|component
