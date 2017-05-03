@@ -62,7 +62,39 @@ name|component
 operator|.
 name|infinispan
 operator|.
+name|InfinispanComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|infinispan
+operator|.
 name|InfinispanCustomListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|infinispan
+operator|.
+name|InfinispanOperation
 import|;
 end_import
 
@@ -290,12 +322,14 @@ operator|.
 name|class
 decl_stmt|;
 comment|/**          * The operation to perform.          */
-DECL|field|command
+DECL|field|operation
 specifier|private
-name|String
-name|command
+name|InfinispanOperation
+name|operation
 init|=
-literal|"put"
+name|InfinispanOperation
+operator|.
+name|PUT
 decl_stmt|;
 DECL|field|hosts
 specifier|private
@@ -367,30 +401,30 @@ specifier|private
 name|Object
 name|resultHeader
 decl_stmt|;
-DECL|method|getCommand ()
+DECL|method|getOperation ()
 specifier|public
-name|String
-name|getCommand
+name|InfinispanOperation
+name|getOperation
 parameter_list|()
 block|{
 return|return
-name|command
+name|operation
 return|;
 block|}
-DECL|method|setCommand (String command)
+DECL|method|setOperation (InfinispanOperation operation)
 specifier|public
 name|void
-name|setCommand
+name|setOperation
 parameter_list|(
-name|String
-name|command
+name|InfinispanOperation
+name|operation
 parameter_list|)
 block|{
 name|this
 operator|.
-name|command
+name|operation
 operator|=
-name|command
+name|operation
 expr_stmt|;
 block|}
 DECL|method|getHosts ()

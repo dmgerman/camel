@@ -380,7 +380,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|SIZE
 argument_list|)
@@ -487,7 +487,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|PUT
 argument_list|)
@@ -1126,9 +1126,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|PUT_ALL
+name|PUTALL
 argument_list|)
 expr_stmt|;
 block|}
@@ -1280,9 +1280,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|PUT_ALL
+name|PUTALL
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -1476,9 +1476,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|PUT_ALL
+name|PUTALL
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -1820,9 +1820,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|PUT_ALL
+name|PUTALL
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -2030,9 +2030,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|PUT_ALL
+name|PUTALL
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -2242,9 +2242,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|PUT_IF_ABSENT
+name|PUTIFABSENT
 argument_list|)
 expr_stmt|;
 block|}
@@ -2365,9 +2365,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|PUT_IF_ABSENT
+name|PUTIFABSENT
 argument_list|)
 expr_stmt|;
 block|}
@@ -2977,9 +2977,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|CONTAINS_KEY
+name|CONTAINSKEY
 argument_list|)
 expr_stmt|;
 block|}
@@ -3077,9 +3077,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|CONTAINS_KEY
+name|CONTAINSKEY
 argument_list|)
 expr_stmt|;
 block|}
@@ -3177,9 +3177,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|CONTAINS_VALUE
+name|CONTAINSVALUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -3277,9 +3277,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|CONTAINS_VALUE
+name|CONTAINSVALUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -3415,7 +3415,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|PUT
 argument_list|)
@@ -3602,7 +3602,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|PUT
 argument_list|)
@@ -3704,7 +3704,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|GET
 argument_list|)
@@ -3815,7 +3815,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|REPLACE
 argument_list|)
@@ -3976,7 +3976,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|REPLACE
 argument_list|)
@@ -4179,7 +4179,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|REPLACE
 argument_list|)
@@ -4329,7 +4329,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|REPLACE
 argument_list|)
@@ -4502,7 +4502,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|REPLACE
 argument_list|)
@@ -4717,7 +4717,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|REPLACE
 argument_list|)
@@ -5777,7 +5777,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|REMOVE
 argument_list|)
@@ -5890,9 +5890,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|REMOVE_ASYNC
+name|REMOVEASYNC
 argument_list|)
 expr_stmt|;
 block|}
@@ -6030,7 +6030,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|REMOVE
 argument_list|)
@@ -6155,9 +6155,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|REMOVE_ASYNC
+name|REMOVEASYNC
 argument_list|)
 expr_stmt|;
 block|}
@@ -6273,7 +6273,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|CLEAR
 argument_list|)
@@ -6649,9 +6649,9 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
-name|CLEAR_ASYNC
+name|CLEARASYNC
 argument_list|)
 expr_stmt|;
 block|}
@@ -6788,7 +6788,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|PUT
 argument_list|)
@@ -6879,7 +6879,7 @@ name|InfinispanConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|InfinispanConstants
+name|InfinispanOperation
 operator|.
 name|PUT
 argument_list|)
@@ -7003,7 +7003,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=PUT"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=PUT"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7013,7 +7013,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=PUTIFABSENT"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=PUTIFABSENT"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7023,7 +7023,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=GET"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=GET"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7033,7 +7033,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=REMOVE"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=REMOVE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7043,7 +7043,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=CLEAR"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=CLEAR"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7053,7 +7053,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=REPLACE"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=REPLACE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7063,7 +7063,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=CONTAINSKEY"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=CONTAINSKEY"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7073,7 +7073,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=CONTAINSVALUE"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=CONTAINSVALUE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7083,7 +7083,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=SIZE"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=SIZE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7093,7 +7093,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=PUTASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=PUTASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7103,7 +7103,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=PUTALLASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=PUTALLASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7113,7 +7113,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=PUTIFABSENTASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=PUTIFABSENTASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7123,7 +7123,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=REPLACEASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=REPLACEASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7133,7 +7133,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=REMOVEASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=REMOVEASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7143,7 +7143,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=CLEARASYNC"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=CLEARASYNC"
 argument_list|)
 expr_stmt|;
 name|from
@@ -7153,7 +7153,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"infinispan?cacheContainer=#cacheContainer&command=STATS"
+literal|"infinispan?cacheContainer=#cacheContainer&operation=STATS"
 argument_list|)
 expr_stmt|;
 block|}
