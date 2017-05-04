@@ -118,7 +118,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Sets the uri delimiter to use      */
+comment|/**      * Delimiter used if the Expression returned multiple endpoints. Can be turned off using the value<tt>false</tt>.      *<p/>      * The default value is ,      */
 DECL|method|delimiter ()
 name|String
 name|delimiter
