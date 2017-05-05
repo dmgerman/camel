@@ -168,6 +168,22 @@ name|context
 operator|.
 name|properties
 operator|.
+name|DeprecatedConfigurationProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
 name|NestedConfigurationProperty
 import|;
 end_import
@@ -321,6 +337,16 @@ name|InfinispanConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * The operation to perform.          *           * @deprecated replaced by @{link setOperation}          */
+annotation|@
+name|Deprecated
+DECL|field|command
+specifier|private
+name|String
+name|command
+init|=
+literal|"PUT"
+decl_stmt|;
 comment|/**          * The operation to perform.          */
 DECL|field|operation
 specifier|private
@@ -401,6 +427,38 @@ specifier|private
 name|Object
 name|resultHeader
 decl_stmt|;
+annotation|@
+name|Deprecated
+annotation|@
+name|DeprecatedConfigurationProperty
+DECL|method|getCommand ()
+specifier|public
+name|String
+name|getCommand
+parameter_list|()
+block|{
+return|return
+name|command
+return|;
+block|}
+annotation|@
+name|Deprecated
+DECL|method|setCommand (String command)
+specifier|public
+name|void
+name|setCommand
+parameter_list|(
+name|String
+name|command
+parameter_list|)
+block|{
+name|this
+operator|.
+name|command
+operator|=
+name|command
+expr_stmt|;
+block|}
 DECL|method|getOperation ()
 specifier|public
 name|InfinispanOperation
