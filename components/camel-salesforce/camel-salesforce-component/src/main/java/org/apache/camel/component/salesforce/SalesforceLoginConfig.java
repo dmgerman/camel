@@ -72,6 +72,11 @@ specifier|private
 name|AuthenticationType
 name|type
 decl_stmt|;
+DECL|field|instanceUrl
+specifier|private
+name|String
+name|instanceUrl
+decl_stmt|;
 DECL|field|loginUrl
 specifier|private
 name|String
@@ -348,6 +353,33 @@ name|lazyLogin
 argument_list|,
 name|keystore
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getInstanceUrl ()
+specifier|public
+name|String
+name|getInstanceUrl
+parameter_list|()
+block|{
+return|return
+name|instanceUrl
+return|;
+block|}
+DECL|method|setInstanceUrl (final String instanceUrl)
+specifier|public
+name|void
+name|setInstanceUrl
+parameter_list|(
+specifier|final
+name|String
+name|instanceUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|instanceUrl
+operator|=
+name|instanceUrl
 expr_stmt|;
 block|}
 DECL|method|getLoginUrl ()
@@ -868,13 +900,19 @@ block|{
 return|return
 literal|"SalesforceLoginConfig["
 operator|+
-literal|"loginUrl='"
+literal|"instanceUrl= '"
+operator|+
+name|instanceUrl
+operator|+
+literal|"', loginUrl='"
 operator|+
 name|loginUrl
 operator|+
 literal|'\''
 operator|+
-literal|", clientId='"
+literal|","
+operator|+
+literal|"clientId='"
 operator|+
 name|clientId
 operator|+

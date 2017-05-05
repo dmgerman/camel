@@ -591,13 +591,31 @@ specifier|private
 name|SalesforceLoginConfig
 name|loginConfig
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"URL of the Salesforce instance used after authantication, by default received from"
+operator|+
+literal|" Salesforce on successful authentication"
+argument_list|,
+name|label
+operator|=
+literal|"common,security"
+argument_list|)
+DECL|field|instanceUrl
+specifier|private
+name|String
+name|instanceUrl
+decl_stmt|;
 comment|// allow fine grained login as well
 annotation|@
 name|Metadata
 argument_list|(
 name|description
 operator|=
-literal|"URL of the Salesforce instance, by default set to "
+literal|"URL of the Salesforce instance used for authentication, by default set to "
 operator|+
 name|DEFAULT_LOGIN_URL
 argument_list|,
@@ -1558,6 +1576,13 @@ argument_list|()
 expr_stmt|;
 name|loginConfig
 operator|.
+name|setInstanceUrl
+argument_list|(
+name|instanceUrl
+argument_list|)
+expr_stmt|;
+name|loginConfig
+operator|.
 name|setClientId
 argument_list|(
 name|clientId
@@ -2356,6 +2381,22 @@ operator|.
 name|loginConfig
 operator|=
 name|loginConfig
+expr_stmt|;
+block|}
+DECL|method|setInstanceUrl (String instanceUrl)
+specifier|public
+name|void
+name|setInstanceUrl
+parameter_list|(
+name|String
+name|instanceUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|instanceUrl
+operator|=
+name|instanceUrl
 expr_stmt|;
 block|}
 DECL|method|setLoginUrl (String loginUrl)
