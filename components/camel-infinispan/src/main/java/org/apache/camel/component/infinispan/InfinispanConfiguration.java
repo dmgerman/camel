@@ -358,7 +358,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * @deprecated @see @{link setOperation}      *      * The operation to perform.      */
+comment|/**      * The operation to perform.      *      * @deprecated replaced by @{link setOperation}      */
 DECL|method|setCommand (String command)
 specifier|public
 name|void
