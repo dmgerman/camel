@@ -977,7 +977,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|sendMessage (Exchange exchange, final AsyncCallback callback, final MessageProducerResources producer, final ReleaseProducerCallback releaseProducerCallback)
+DECL|method|sendMessage (Exchange exchange, AsyncCallback callback, MessageProducerResources producer, ReleaseProducerCallback releaseProducerCallback)
 specifier|public
 specifier|abstract
 name|void
@@ -986,15 +986,12 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|,
-specifier|final
 name|MessageProducerResources
 name|producer
 parameter_list|,
-specifier|final
 name|ReleaseProducerCallback
 name|releaseProducerCallback
 parameter_list|)

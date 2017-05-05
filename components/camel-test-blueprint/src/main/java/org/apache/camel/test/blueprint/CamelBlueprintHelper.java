@@ -940,7 +940,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|createBundleContext (String name, String descriptors, boolean includeTestBundle, String bundleFilter, String testBundleVersion, String testBundleDirectives, String[] ... configAdminPidFiles)
+DECL|method|createBundleContext (String name, String descriptors, boolean includeTestBundle, String bundleFilter, String testBundleVersion, String testBundleDirectives, String[]... configAdminPidFiles)
 specifier|public
 specifier|static
 name|BundleContext
@@ -993,7 +993,7 @@ name|configAdminPidFiles
 argument_list|)
 return|;
 block|}
-DECL|method|createBundleContext (String name, String descriptors, boolean includeTestBundle, String bundleFilter, String testBundleVersion, String testBundleDirectives, ClassLoader loader, String[] ... configAdminPidFiles)
+DECL|method|createBundleContext (String name, String descriptors, boolean includeTestBundle, String bundleFilter, String testBundleVersion, String testBundleDirectives, ClassLoader loader, String[]... configAdminPidFiles)
 specifier|public
 specifier|static
 name|BundleContext
@@ -2650,7 +2650,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createConfigAdminInitBundle (String[] .... configAdminPidFiles)
+DECL|method|createConfigAdminInitBundle (String[].... configAdminPidFiles)
 specifier|protected
 specifier|static
 name|TinyBundle

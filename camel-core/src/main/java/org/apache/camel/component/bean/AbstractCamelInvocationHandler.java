@@ -681,21 +681,18 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|doInvokeProxy (final Object proxy, final Method method, final Object[] args)
+DECL|method|doInvokeProxy (Object proxy, Method method, Object[] args)
 specifier|public
 specifier|abstract
 name|Object
 name|doInvokeProxy
 parameter_list|(
-specifier|final
 name|Object
 name|proxy
 parameter_list|,
-specifier|final
 name|Method
 name|method
 parameter_list|,
-specifier|final
 name|Object
 index|[]
 name|args

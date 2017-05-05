@@ -6346,7 +6346,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|findMethod (Class<?> cls, String name, Class<?> ... params)
+DECL|method|findMethod (Class<?> cls, String name, Class<?>... params)
 specifier|public
 specifier|static
 name|Method

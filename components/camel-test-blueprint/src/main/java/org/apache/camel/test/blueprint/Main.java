@@ -615,7 +615,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|createBundleContext (String name, String[] ... configAdminPidFiles)
+DECL|method|createBundleContext (String name, String[]... configAdminPidFiles)
 specifier|protected
 name|BundleContext
 name|createBundleContext
@@ -642,7 +642,7 @@ name|configAdminPidFiles
 argument_list|)
 return|;
 block|}
-DECL|method|createBundleContext (String name, ClassLoader loader, String[] ... configAdminPidFiles)
+DECL|method|createBundleContext (String name, ClassLoader loader, String[]... configAdminPidFiles)
 specifier|protected
 name|BundleContext
 name|createBundleContext

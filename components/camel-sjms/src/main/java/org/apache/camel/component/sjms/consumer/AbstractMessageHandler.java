@@ -567,13 +567,12 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|handleMessage (final Exchange exchange)
+DECL|method|handleMessage (Exchange exchange)
 specifier|public
 specifier|abstract
 name|void
 name|handleMessage
 parameter_list|(
-specifier|final
 name|Exchange
 name|exchange
 parameter_list|)

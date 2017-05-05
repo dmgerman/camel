@@ -86,13 +86,12 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|onEvent (final ExchangeEvent event, long sequence, boolean endOfBatch)
+DECL|method|onEvent (ExchangeEvent event, long sequence, boolean endOfBatch)
 specifier|public
 specifier|abstract
 name|void
 name|onEvent
 parameter_list|(
-specifier|final
 name|ExchangeEvent
 name|event
 parameter_list|,

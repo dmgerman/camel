@@ -334,14 +334,13 @@ name|maxQueueSize
 parameter_list|)
 function_decl|;
 comment|/**      * Creates a new custom thread pool.      *      * @param source                     the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name                       name which is appended to the thread name      * @param corePoolSize               the core pool size      * @param maxPoolSize                the maximum pool size      * @param keepAliveTime              keep alive time for idle threads      * @param timeUnit                   time unit for keep alive time      * @param maxQueueSize               the maximum number of tasks in the queue, use<tt>Integer.MAX_INT</tt> or<tt>-1</tt> to indicate unbounded      * @param rejectedExecutionHandler   the handler for tasks which cannot be executed by the thread pool.      *                                   If<tt>null</tt> is provided then {@link java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy CallerRunsPolicy} is used.      * @param daemon                     whether or not the created threads is daemon or not      * @return the created thread pool      */
-DECL|method|newThreadPool (Object source, final String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, boolean daemon)
+DECL|method|newThreadPool (Object source, String name, int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, boolean daemon)
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
 name|Object
 name|source
 parameter_list|,
-specifier|final
 name|String
 name|name
 parameter_list|,

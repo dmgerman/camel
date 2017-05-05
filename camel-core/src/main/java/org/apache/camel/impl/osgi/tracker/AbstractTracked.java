@@ -934,54 +934,46 @@ name|trackingCount
 return|;
 block|}
 comment|/**      * Call the specific customizer adding method. This method must not be      * called while synchronized on this object.      *       * @param item Item to be tracked.      * @param related Action related object.      * @return Customized object for the tracked item or<code>null</code> if      *         the item is not to be tracked.      */
-DECL|method|customizerAdding (final Object item, final Object related)
+DECL|method|customizerAdding (Object item, Object related)
 specifier|abstract
 name|Object
 name|customizerAdding
 parameter_list|(
-specifier|final
 name|Object
 name|item
 parameter_list|,
-specifier|final
 name|Object
 name|related
 parameter_list|)
 function_decl|;
 comment|/**      * Call the specific customizer modified method. This method must not be      * called while synchronized on this object.      *       * @param item Tracked item.      * @param related Action related object.      * @param object Customized object for the tracked item.      */
-DECL|method|customizerModified (final Object item, final Object related, final Object object)
+DECL|method|customizerModified (Object item, Object related, Object object)
 specifier|abstract
 name|void
 name|customizerModified
 parameter_list|(
-specifier|final
 name|Object
 name|item
 parameter_list|,
-specifier|final
 name|Object
 name|related
 parameter_list|,
-specifier|final
 name|Object
 name|object
 parameter_list|)
 function_decl|;
 comment|/**      * Call the specific customizer removed method. This method must not be      * called while synchronized on this object.      *       * @param item Tracked item.      * @param related Action related object.      * @param object Customized object for the tracked item.      */
-DECL|method|customizerRemoved (final Object item, final Object related, final Object object)
+DECL|method|customizerRemoved (Object item, Object related, Object object)
 specifier|abstract
 name|void
 name|customizerRemoved
 parameter_list|(
-specifier|final
 name|Object
 name|item
 parameter_list|,
-specifier|final
 name|Object
 name|related
 parameter_list|,
-specifier|final
 name|Object
 name|object
 parameter_list|)

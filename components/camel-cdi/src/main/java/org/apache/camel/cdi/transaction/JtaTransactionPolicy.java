@@ -249,13 +249,12 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|run (final Runnable runnable)
+DECL|method|run (Runnable runnable)
 specifier|public
 specifier|abstract
 name|void
 name|run
 parameter_list|(
-specifier|final
 name|Runnable
 name|runnable
 parameter_list|)

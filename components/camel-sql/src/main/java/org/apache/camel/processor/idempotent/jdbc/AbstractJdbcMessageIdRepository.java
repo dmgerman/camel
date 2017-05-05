@@ -349,37 +349,34 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Operation that returns the number of rows, if any, for the specified key      *      * @param key  the key      * @return int number of rows      */
-DECL|method|queryForInt (final T key)
+DECL|method|queryForInt (T key)
 specifier|protected
 specifier|abstract
 name|int
 name|queryForInt
 parameter_list|(
-specifier|final
 name|T
 name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Operation that inserts the key if it does not already exist      *      * @param key  the key      * @return int number of rows inserted      */
-DECL|method|insert (final T key)
+DECL|method|insert (T key)
 specifier|protected
 specifier|abstract
 name|int
 name|insert
 parameter_list|(
-specifier|final
 name|T
 name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Operations that deletes the key if it exists      *      * @param key  the key      * @return int number of rows deleted      */
-DECL|method|delete (final T key)
+DECL|method|delete (T key)
 specifier|protected
 specifier|abstract
 name|int
 name|delete
 parameter_list|(
-specifier|final
 name|T
 name|key
 parameter_list|)

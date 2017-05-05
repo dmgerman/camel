@@ -628,7 +628,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Executes a shell command and returns output as a String.      * Commands have a default timeout of 10 seconds.      *      * @param command The command to execute      * @param principals The principals (e.g. RolePrincipal objects) to run the command under      */
-DECL|method|executeCommand (final String command, Principal ... principals)
+DECL|method|executeCommand (final String command, Principal... principals)
 specifier|protected
 name|String
 name|executeCommand
@@ -656,7 +656,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Executes a shell command and returns output as a String.      * Commands have a default timeout of 10 seconds.      *      * @param command    The command to execute.      * @param timeout    The amount of time in millis to wait for the command to execute.      * @param silent     Specifies if the command should be displayed in the screen.      * @param principals The principals (e.g. RolePrincipal objects) to run the command under      */
-DECL|method|executeCommand (final String command, final Long timeout, final Boolean silent, final Principal ... principals)
+DECL|method|executeCommand (final String command, final Long timeout, final Boolean silent, final Principal... principals)
 specifier|protected
 name|String
 name|executeCommand

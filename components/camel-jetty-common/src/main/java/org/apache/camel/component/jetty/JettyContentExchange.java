@@ -112,7 +112,7 @@ specifier|public
 interface|interface
 name|JettyContentExchange
 block|{
-DECL|method|init (Exchange exchange, JettyHttpBinding jettyBinding, final HttpClient client, AsyncCallback callback)
+DECL|method|init (Exchange exchange, JettyHttpBinding jettyBinding, HttpClient client, AsyncCallback callback)
 name|void
 name|init
 parameter_list|(
@@ -122,7 +122,6 @@ parameter_list|,
 name|JettyHttpBinding
 name|jettyBinding
 parameter_list|,
-specifier|final
 name|HttpClient
 name|client
 parameter_list|,
