@@ -86,6 +86,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -173,6 +189,13 @@ comment|/**  * Provides functionality required by Healthcare providers to commun
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Mllp Endpoint"
+argument_list|)
 annotation|@
 name|UriEndpoint
 argument_list|(

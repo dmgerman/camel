@@ -90,6 +90,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|mllp
@@ -385,6 +417,13 @@ comment|/**  * The MLLP producer.  */
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"MllpTcpClient Producer"
+argument_list|)
 DECL|class|MllpTcpClientProducer
 specifier|public
 class|class
@@ -492,6 +531,56 @@ name|super
 operator|.
 name|doStop
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Close client socket"
+argument_list|)
+DECL|method|closeMllpSocket ()
+specifier|public
+name|void
+name|closeMllpSocket
+parameter_list|()
+block|{
+name|MllpSocketUtil
+operator|.
+name|close
+argument_list|(
+name|socket
+argument_list|,
+name|log
+argument_list|,
+literal|"JMX triggered closing socket"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset client socket"
+argument_list|)
+DECL|method|resetMllpSocket ()
+specifier|public
+name|void
+name|resetMllpSocket
+parameter_list|()
+block|{
+name|MllpSocketUtil
+operator|.
+name|reset
+argument_list|(
+name|socket
+argument_list|,
+name|log
+argument_list|,
+literal|"JMX triggered resetting socket"
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -1458,8 +1547,9 @@ return|return
 name|acknowledgementType
 return|;
 block|}
-comment|/**      * Validate the TCP Connection      *      * @return null if the connection is valid, otherwise the Exception encountered checking the connection      */
+comment|/**      * Validate the TCP Connection, if closed opens up the socket with      * the value set via endpoint configuration      *      * @throws IOException if the connection is not valid, otherwise the Exception is not      *                     encountered while checking the connection      */
 DECL|method|checkConnection ()
+specifier|private
 name|void
 name|checkConnection
 parameter_list|()
@@ -1710,6 +1800,55 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Check client connection"
+argument_list|)
+DECL|method|managedCheckConnection ()
+specifier|public
+name|boolean
+name|managedCheckConnection
+parameter_list|()
+block|{
+name|boolean
+name|isValid
+init|=
+literal|true
+decl_stmt|;
+try|try
+block|{
+name|checkConnection
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioEx
+parameter_list|)
+block|{
+name|isValid
+operator|=
+literal|false
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"JMX check connection: {}"
+argument_list|,
+name|ioEx
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|isValid
+return|;
 block|}
 block|}
 end_class
