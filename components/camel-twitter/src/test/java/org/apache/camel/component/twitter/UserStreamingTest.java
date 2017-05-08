@@ -161,7 +161,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"twitter://streaming/user?type=event&"
+literal|"twitter-streaming://user?type=event&"
 operator|+
 name|getUriTokens
 argument_list|()

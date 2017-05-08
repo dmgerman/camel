@@ -82,7 +82,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"twitter:timeline/mentions"
+literal|"twitter-timeline:mentions"
 argument_list|)
 operator|.
 name|log

@@ -19,6 +19,20 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|core
+operator|.
+name|Is
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -139,20 +153,6 @@ import|import
 name|twitter4j
 operator|.
 name|Status
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|core
-operator|.
-name|Is
-operator|.
-name|is
 import|;
 end_import
 
@@ -376,7 +376,7 @@ comment|//.to("log:org.apache.camel.component.twitter?level=INFO&showAll=true&mu
 operator|.
 name|inOut
 argument_list|(
-literal|"twitter://timeline/user?"
+literal|"twitter-timeline://user?"
 operator|+
 name|getUriTokens
 argument_list|()

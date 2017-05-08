@@ -100,7 +100,7 @@ name|twitter
 operator|.
 name|consumer
 operator|.
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 import|;
 end_import
 
@@ -164,6 +164,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -182,11 +196,27 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
-comment|/**  * This component integrates with Twitter to send tweets or search for tweets and more.  */
+comment|/**  * Use twitter-directmessage, twitter-search, twitter-streaming and twitter-timeline instead of this component.  * @deprecated  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 annotation|@
 name|ManagedResource
 argument_list|(
@@ -215,7 +245,7 @@ literal|"twitter:kind"
 argument_list|,
 name|consumerClass
 operator|=
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 operator|.
 name|class
 argument_list|,
@@ -232,11 +262,31 @@ name|DefaultPollingEndpoint
 implements|implements
 name|TwitterEndpoint
 block|{
-DECL|field|remaining
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The kind of endpoint"
+argument_list|,
+name|enums
+operator|=
+literal|"directmessage,search,streaming/filter,streaming/sample,streaming/user"
+operator|+
+literal|",timeline/home,timeline/mentions,timeline/retweetsofme,timeline/user"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|kind
 specifier|private
 specifier|final
 name|String
-name|remaining
+name|kind
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -303,7 +353,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|remaining
+name|kind
 operator|=
 name|remaining
 expr_stmt|;
@@ -333,7 +383,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 name|twitter4jConsumer
 init|=
 name|TwitterHelper
@@ -345,7 +395,7 @@ argument_list|,
 name|getEndpointUri
 argument_list|()
 argument_list|,
-name|remaining
+name|kind
 argument_list|)
 decl_stmt|;
 comment|// update the pulling lastID with sinceId
@@ -401,7 +451,7 @@ argument_list|,
 name|getEndpointUri
 argument_list|()
 argument_list|,
-name|remaining
+name|kind
 argument_list|)
 return|;
 block|}

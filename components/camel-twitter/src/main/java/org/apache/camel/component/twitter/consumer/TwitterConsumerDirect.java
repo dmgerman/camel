@@ -89,6 +89,8 @@ comment|/**  * Camel DirectConsumer implementation.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TwitterConsumerDirect
 specifier|public
 class|class
@@ -99,10 +101,10 @@ block|{
 DECL|field|twitter4jConsumer
 specifier|private
 specifier|final
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 name|twitter4jConsumer
 decl_stmt|;
-DECL|method|TwitterConsumerDirect (TwitterEndpoint endpoint, Processor processor, TwitterConsumer twitter4jConsumer)
+DECL|method|TwitterConsumerDirect (TwitterEndpoint endpoint, Processor processor, AbstractTwitterConsumerHandler twitter4jConsumer)
 specifier|public
 name|TwitterConsumerDirect
 parameter_list|(
@@ -112,7 +114,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 name|twitter4jConsumer
 parameter_list|)
 block|{

@@ -253,7 +253,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"twitter://streaming/filter?type=event&twitterStream=#twitterStream&keywords=#cameltest"
+literal|"twitter-streaming://filter?type=event&twitterStream=#twitterStream&keywords=#cameltest"
 argument_list|)
 operator|.
 name|transform

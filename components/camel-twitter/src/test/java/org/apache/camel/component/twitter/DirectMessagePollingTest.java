@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|slf4j
@@ -38,6 +48,14 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|twitter4j
+operator|.
+name|Twitter
+import|;
+end_import
+
 begin_comment
 comment|/**  * consumes tweets  */
 end_comment
@@ -52,6 +70,23 @@ name|CamelTwitterConsumerTestSupport
 block|{
 annotation|@
 name|Override
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+comment|/* Uncomment when you need a test direct message         TwitterConfiguration properties = new TwitterConfiguration();         properties.setConsumerKey(consumerKey);         properties.setConsumerSecret(consumerSecret);         properties.setAccessToken(accessToken);         properties.setAccessTokenSecret(accessTokenSecret);         Twitter twitter = properties.getTwitter();         twitter.sendDirectMessage(twitter.getScreenName(), "Test Direct Message: " + new Date().toString());         */
+block|}
+annotation|@
+name|Override
 DECL|method|getUri ()
 specifier|protected
 name|String
@@ -59,7 +94,7 @@ name|getUri
 parameter_list|()
 block|{
 return|return
-literal|"twitter://directmessage?type=polling&"
+literal|"twitter-directmessage://foo?type=polling&"
 return|;
 block|}
 annotation|@

@@ -166,26 +166,10 @@ specifier|public
 class|class
 name|TwitterConfiguration
 block|{
+comment|//@UriPath(description = "The kind of endpoint", enums = "directmessage,search,streaming/filter,streaming/sample,streaming/user"
+comment|//        + ",timeline/home,timeline/mentions,timeline/retweetsofme,timeline/user") @Metadata(required = "true")
 annotation|@
-name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"The kind of endpoint"
-argument_list|,
-name|enums
-operator|=
-literal|"directmessage,search,streaming/filter,streaming/sample,streaming/user"
-operator|+
-literal|",timeline/home,timeline/mentions,timeline/retweetsofme,timeline/user"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
+name|Deprecated
 DECL|field|kind
 specifier|private
 name|String
@@ -818,6 +802,8 @@ return|return
 name|twitterStream
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getKind ()
 specifier|public
 name|String
@@ -829,6 +815,8 @@ name|kind
 return|;
 block|}
 comment|/**      * What polling mode to use, direct, polling or event based.      * The event mode is only supported when the endpoint kind is event based.      */
+annotation|@
+name|Deprecated
 DECL|method|setKind (String kind)
 specifier|public
 name|void

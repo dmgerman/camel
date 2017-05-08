@@ -59,7 +59,7 @@ name|getUri
 parameter_list|()
 block|{
 return|return
-literal|"twitter://timeline/home?type=polling&"
+literal|"twitter-timeline://home?type=polling&"
 return|;
 block|}
 annotation|@

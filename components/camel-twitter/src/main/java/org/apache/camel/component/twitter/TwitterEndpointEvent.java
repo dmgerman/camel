@@ -68,7 +68,7 @@ name|twitter
 operator|.
 name|consumer
 operator|.
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 import|;
 end_import
 
@@ -123,6 +123,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TwitterEndpointEvent
 specifier|public
 class|class
@@ -132,11 +134,11 @@ name|DefaultEndpoint
 implements|implements
 name|TwitterEndpoint
 block|{
-DECL|field|remaining
+DECL|field|kind
 specifier|private
 specifier|final
 name|String
-name|remaining
+name|kind
 decl_stmt|;
 comment|// only TwitterEndpointPolling is annotated
 DECL|field|properties
@@ -170,7 +172,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|remaining
+name|kind
 operator|=
 name|remaining
 expr_stmt|;
@@ -194,7 +196,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 name|twitter4jConsumer
 init|=
 name|TwitterHelper
@@ -206,7 +208,7 @@ argument_list|,
 name|getEndpointUri
 argument_list|()
 argument_list|,
-name|remaining
+name|kind
 argument_list|)
 decl_stmt|;
 return|return

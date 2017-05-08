@@ -687,7 +687,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"twitter://search?%s&keywords=java"
+literal|"twitter-search://foo?%s&keywords=java"
 argument_list|,
 name|getUriTokens
 argument_list|()
@@ -711,7 +711,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"twitter://search?%s"
+literal|"twitter-search://foo?%s"
 argument_list|,
 name|getUriTokens
 argument_list|()
@@ -735,7 +735,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"twitter://search?filterOld=false&%s"
+literal|"twitter-search://foo?filterOld=false&%s"
 argument_list|,
 name|getUriTokens
 argument_list|()

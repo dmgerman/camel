@@ -72,11 +72,9 @@ name|component
 operator|.
 name|twitter
 operator|.
-name|consumer
-operator|.
 name|streaming
 operator|.
-name|AbstractStreamingConsumer
+name|AbstractStreamingConsumerHandler
 import|;
 end_import
 
@@ -95,6 +93,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TwitterConsumerEvent
 specifier|public
 class|class
@@ -107,10 +107,10 @@ block|{
 DECL|field|twitter4jConsumer
 specifier|private
 specifier|final
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 name|twitter4jConsumer
 decl_stmt|;
-DECL|method|TwitterConsumerEvent (TwitterEndpoint endpoint, Processor processor, TwitterConsumer twitter4jConsumer)
+DECL|method|TwitterConsumerEvent (TwitterEndpoint endpoint, Processor processor, AbstractTwitterConsumerHandler twitter4jConsumer)
 specifier|public
 name|TwitterConsumerEvent
 parameter_list|(
@@ -120,7 +120,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|TwitterConsumer
+name|AbstractTwitterConsumerHandler
 name|twitter4jConsumer
 parameter_list|)
 block|{
@@ -157,12 +157,12 @@ if|if
 condition|(
 name|twitter4jConsumer
 operator|instanceof
-name|AbstractStreamingConsumer
+name|AbstractStreamingConsumerHandler
 condition|)
 block|{
 operator|(
 operator|(
-name|AbstractStreamingConsumer
+name|AbstractStreamingConsumerHandler
 operator|)
 name|twitter4jConsumer
 operator|)
@@ -174,7 +174,7 @@ argument_list|)
 expr_stmt|;
 operator|(
 operator|(
-name|AbstractStreamingConsumer
+name|AbstractStreamingConsumerHandler
 operator|)
 name|twitter4jConsumer
 operator|)
@@ -198,12 +198,12 @@ if|if
 condition|(
 name|twitter4jConsumer
 operator|instanceof
-name|AbstractStreamingConsumer
+name|AbstractStreamingConsumerHandler
 condition|)
 block|{
 operator|(
 operator|(
-name|AbstractStreamingConsumer
+name|AbstractStreamingConsumerHandler
 operator|)
 name|twitter4jConsumer
 operator|)
@@ -215,7 +215,7 @@ argument_list|)
 expr_stmt|;
 operator|(
 operator|(
-name|AbstractStreamingConsumer
+name|AbstractStreamingConsumerHandler
 operator|)
 name|twitter4jConsumer
 operator|)

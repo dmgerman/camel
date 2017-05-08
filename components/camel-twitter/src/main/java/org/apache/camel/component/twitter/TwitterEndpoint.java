@@ -48,7 +48,13 @@ name|EndpointType
 import|;
 end_import
 
+begin_comment
+comment|/**  * @deprecated Migrate with {@link AbstractTwitterEndpoint} in 3.0  */
+end_comment
+
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|TwitterEndpoint
 specifier|public
 interface|interface

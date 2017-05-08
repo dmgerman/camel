@@ -37,6 +37,8 @@ import|;
 end_import
 
 begin_enum
+annotation|@
+name|Deprecated
 DECL|enum|TrendsType
 specifier|public
 enum|enum
