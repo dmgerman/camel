@@ -265,10 +265,10 @@ specifier|abstract
 class|class
 name|BaseNexusRepository
 block|{
-DECL|field|log
+DECL|field|logger
 specifier|final
 name|Logger
-name|log
+name|logger
 init|=
 name|LoggerFactory
 operator|.
@@ -277,6 +277,10 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|)
+decl_stmt|;
+DECL|field|log
+name|boolean
+name|log
 decl_stmt|;
 DECL|field|indexedArtifacts
 specifier|private
@@ -346,6 +350,23 @@ operator|.
 name|classifier
 operator|=
 name|classifier
+expr_stmt|;
+block|}
+comment|/**      * Sets whether to log errors and warnings to System.out.      * By default nothing is logged.      */
+DECL|method|setLog (boolean log)
+specifier|public
+name|void
+name|setLog
+parameter_list|(
+name|boolean
+name|log
+parameter_list|)
+block|{
+name|this
+operator|.
+name|log
+operator|=
+name|log
 expr_stmt|;
 block|}
 DECL|method|getNexusUrl ()
@@ -475,7 +496,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|log
+name|logger
 operator|.
 name|warn
 argument_list|(
@@ -497,7 +518,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|log
+name|logger
 operator|.
 name|info
 argument_list|(
@@ -506,7 +527,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|log
+name|logger
 operator|.
 name|info
 argument_list|(
@@ -533,7 +554,7 @@ lambda|->
 block|{
 try|try
 block|{
-name|log
+name|logger
 operator|.
 name|debug
 argument_list|(
@@ -566,7 +587,7 @@ argument_list|)
 condition|)
 block|{
 comment|// less noise if its unknown host
-name|log
+name|logger
 operator|.
 name|warn
 argument_list|(
@@ -585,7 +606,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
+name|logger
 operator|.
 name|warn
 argument_list|(
@@ -607,7 +628,7 @@ block|}
 block|}
 finally|finally
 block|{
-name|log
+name|logger
 operator|.
 name|debug
 argument_list|(
@@ -636,7 +657,7 @@ name|void
 name|stop
 parameter_list|()
 block|{
-name|log
+name|logger
 operator|.
 name|info
 argument_list|(
@@ -982,7 +1003,7 @@ argument_list|(
 name|l
 argument_list|)
 expr_stmt|;
-name|log
+name|logger
 operator|.
 name|debug
 argument_list|(

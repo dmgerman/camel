@@ -112,26 +112,6 @@ name|VersionManager
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link VersionManager} that can load the resources using Maven to download needed artifacts from  * a local or remote Maven repository.  *<p/>  * This implementation uses Groovy Grape to download the Maven JARs.  */
 end_comment
@@ -144,22 +124,6 @@ name|MavenVersionManager
 implements|implements
 name|VersionManager
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|MavenVersionManager
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|classLoader
 specifier|private
 specifier|final
@@ -185,6 +149,11 @@ specifier|private
 name|String
 name|cacheDirectory
 decl_stmt|;
+DECL|field|log
+specifier|private
+name|boolean
+name|log
+decl_stmt|;
 comment|/**      * Configures the directory for the download cache.      *<p/>      * The default folder is<tt>USER_HOME/.groovy/grape</tt>      *      * @param directory the directory.      */
 DECL|method|setCacheDirectory (String directory)
 specifier|public
@@ -200,6 +169,23 @@ operator|.
 name|cacheDirectory
 operator|=
 name|directory
+expr_stmt|;
+block|}
+comment|/**      * Sets whether to log errors and warnings to System.out.      * By default nothing is logged.      */
+DECL|method|setLog (boolean log)
+specifier|public
+name|void
+name|setLog
+parameter_list|(
+name|boolean
+name|log
+parameter_list|)
+block|{
+name|this
+operator|.
+name|log
+operator|=
+name|log
 expr_stmt|;
 block|}
 comment|/**      * To add a 3rd party Maven repository.      *      * @param name the repository name      * @param url  the repository url      */
@@ -375,11 +361,18 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|print
 argument_list|(
-literal|"Cannot load version "
+literal|"WARN: Cannot load version "
 operator|+
 name|version
 operator|+
@@ -391,6 +384,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
@@ -506,11 +500,18 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|print
 argument_list|(
-literal|"Cannot load runtime provider version "
+literal|"WARN: Cannot load runtime provider version "
 operator|+
 name|version
 operator|+
@@ -522,6 +523,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
@@ -685,12 +687,18 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|print
 argument_list|(
-literal|"Cannot open resource "
+literal|"WARN: Cannot open resource "
 operator|+
 name|name
 operator|+
@@ -706,6 +714,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|null

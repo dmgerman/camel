@@ -245,7 +245,7 @@ control|)
 block|{
 try|try
 block|{
-name|log
+name|logger
 operator|.
 name|debug
 argument_list|(
@@ -298,7 +298,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|log
+name|logger
 operator|.
 name|warn
 argument_list|(
@@ -353,7 +353,7 @@ argument_list|,
 name|json
 argument_list|)
 expr_stmt|;
-name|log
+name|logger
 operator|.
 name|info
 argument_list|(
@@ -412,6 +412,8 @@ name|properties
 init|=
 name|loadComponentProperties
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|)
 decl_stmt|;
@@ -475,6 +477,8 @@ name|javaType
 init|=
 name|extractComponentJavaType
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|,
 name|scheme
@@ -492,6 +496,8 @@ name|json
 init|=
 name|loadComponentJSonSchema
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|,
 name|scheme
@@ -530,7 +536,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|log
+name|logger
 operator|.
 name|warn
 argument_list|(

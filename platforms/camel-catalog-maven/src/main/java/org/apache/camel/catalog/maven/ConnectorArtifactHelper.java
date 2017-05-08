@@ -29,26 +29,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -71,34 +51,21 @@ specifier|final
 class|class
 name|ConnectorArtifactHelper
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ComponentArtifactHelper
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|ConnectorArtifactHelper ()
 specifier|private
 name|ConnectorArtifactHelper
 parameter_list|()
 block|{     }
-DECL|method|loadJSonSchemas (ClassLoader classLoader)
+DECL|method|loadJSonSchemas (boolean log, ClassLoader classLoader)
 specifier|public
 specifier|static
 name|String
 index|[]
 name|loadJSonSchemas
 parameter_list|(
+name|boolean
+name|log
+parameter_list|,
 name|ClassLoader
 name|classLoader
 parameter_list|)
@@ -120,6 +87,8 @@ index|]
 operator|=
 name|loadJsonSchema
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|,
 literal|"camel-connector.json"
@@ -132,6 +101,8 @@ index|]
 operator|=
 name|loadJsonSchema
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|,
 literal|"camel-connector-schema.json"
@@ -144,6 +115,8 @@ index|]
 operator|=
 name|loadJsonSchema
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|,
 literal|"camel-component-schema.json"
@@ -153,12 +126,15 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|loadJsonSchema (ClassLoader classLoader, String jsonSchemaPath)
+DECL|method|loadJsonSchema (boolean log, ClassLoader classLoader, String jsonSchemaPath)
 specifier|private
 specifier|static
 name|String
 name|loadJsonSchema
 parameter_list|(
+name|boolean
+name|log
+parameter_list|,
 name|ClassLoader
 name|classLoader
 parameter_list|,
@@ -200,19 +176,30 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Error loading "
+literal|"WARN: Error loading "
 operator|+
 name|jsonSchemaPath
 operator|+
-literal|" file"
-argument_list|,
+literal|" file due "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|null

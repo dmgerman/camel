@@ -39,26 +39,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -85,33 +65,20 @@ specifier|final
 class|class
 name|ComponentArtifactHelper
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ComponentArtifactHelper
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|ComponentArtifactHelper ()
 specifier|private
 name|ComponentArtifactHelper
 parameter_list|()
 block|{     }
-DECL|method|loadComponentProperties (ClassLoader classLoader)
+DECL|method|loadComponentProperties (boolean log, ClassLoader classLoader)
 specifier|public
 specifier|static
 name|Properties
 name|loadComponentProperties
 parameter_list|(
+name|boolean
+name|log
+parameter_list|,
 name|ClassLoader
 name|classLoader
 parameter_list|)
@@ -158,26 +125,40 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Error loading META-INF/services/org/apache/camel/component.properties file"
-argument_list|,
+literal|"WARN: Error loading META-INF/services/org/apache/camel/component.properties file due "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|answer
 return|;
 block|}
-DECL|method|extractComponentJavaType (ClassLoader classLoader, String scheme)
+DECL|method|extractComponentJavaType (boolean log, ClassLoader classLoader, String scheme)
 specifier|public
 specifier|static
 name|String
 name|extractComponentJavaType
 parameter_list|(
+name|boolean
+name|log
+parameter_list|,
 name|ClassLoader
 name|classLoader
 parameter_list|,
@@ -239,30 +220,44 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Error loading META-INF/services/org/apache/camel/component/"
+literal|"WARN: Error loading META-INF/services/org/apache/camel/component/"
 operator|+
 name|scheme
 operator|+
-literal|" file"
-argument_list|,
+literal|" file due "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 literal|null
 return|;
 block|}
-DECL|method|loadComponentJSonSchema (ClassLoader classLoader, String scheme)
+DECL|method|loadComponentJSonSchema (boolean log, ClassLoader classLoader, String scheme)
 specifier|public
 specifier|static
 name|String
 name|loadComponentJSonSchema
 parameter_list|(
+name|boolean
+name|log
+parameter_list|,
 name|ClassLoader
 name|classLoader
 parameter_list|,
@@ -285,6 +280,8 @@ name|javaType
 init|=
 name|extractComponentJavaType
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|,
 name|scheme
@@ -381,19 +378,30 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Error loading "
+literal|"WARN: Error loading "
 operator|+
 name|path
 operator|+
-literal|" file"
-argument_list|,
+literal|" file due "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

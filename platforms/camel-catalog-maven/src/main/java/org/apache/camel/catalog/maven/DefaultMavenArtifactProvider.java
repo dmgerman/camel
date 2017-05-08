@@ -171,26 +171,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -274,27 +254,33 @@ name|DefaultMavenArtifactProvider
 implements|implements
 name|MavenArtifactProvider
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DefaultMavenArtifactProvider
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|cacheDirectory
 specifier|private
 name|String
 name|cacheDirectory
 decl_stmt|;
+DECL|field|log
+specifier|private
+name|boolean
+name|log
+decl_stmt|;
+comment|/**      * Sets whether to log errors and warnings to System.out.      * By default nothing is logged.      */
+DECL|method|setLog (boolean log)
+specifier|public
+name|void
+name|setLog
+parameter_list|(
+name|boolean
+name|log
+parameter_list|)
+block|{
+name|this
+operator|.
+name|log
+operator|=
+name|log
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|setCacheDirectory (String directory)
@@ -413,15 +399,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|debug
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Using cache directory: {}"
-argument_list|,
+literal|"DEBUG: Using cache directory: "
+operator|+
 name|cacheDirectory
 argument_list|)
 expr_stmt|;
+block|}
 name|System
 operator|.
 name|setProperty
@@ -518,19 +512,31 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|debug
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Downloading {}:{}:{}"
-argument_list|,
+literal|"Downloading "
+operator|+
 name|groupId
-argument_list|,
+operator|+
+literal|":"
+operator|+
 name|artifactId
-argument_list|,
+operator|+
+literal|":"
+operator|+
 name|version
 argument_list|)
 expr_stmt|;
+block|}
 name|Grape
 operator|.
 name|grab
@@ -587,11 +593,18 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Error during add components from artifact "
+literal|"WARN: Error during add components from artifact "
 operator|+
 name|groupId
 operator|+
@@ -609,10 +622,9 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|names
@@ -642,6 +654,8 @@ name|properties
 init|=
 name|loadComponentProperties
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|)
 decl_stmt|;
@@ -711,6 +725,8 @@ name|javaType
 init|=
 name|extractComponentJavaType
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|,
 name|scheme
@@ -728,6 +744,8 @@ name|json
 init|=
 name|loadComponentJSonSchema
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|,
 name|scheme
@@ -740,15 +758,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|debug
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Adding component: {}"
-argument_list|,
+literal|"Adding component: "
+operator|+
 name|scheme
 argument_list|)
 expr_stmt|;
+block|}
 name|camelCatalog
 operator|.
 name|addComponent
@@ -807,6 +833,8 @@ name|json
 init|=
 name|loadJSonSchemas
 argument_list|(
+name|log
+argument_list|,
 name|classLoader
 argument_list|)
 decl_stmt|;
@@ -958,17 +986,27 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|debug
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Adding connector: {} with scheme: {}"
-argument_list|,
+literal|"Adding connector: "
+operator|+
 name|name
-argument_list|,
+operator|+
+literal|" with scheme: "
+operator|+
 name|scheme
 argument_list|)
 expr_stmt|;
+block|}
 name|camelConnectorCatalog
 operator|.
 name|addConnector
@@ -1022,20 +1060,26 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|LOG
+if|if
+condition|(
+name|log
+condition|)
+block|{
+name|System
 operator|.
-name|warn
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Error parsing Connector JSon due "
+literal|"WARN: Error parsing Connector JSon due "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
