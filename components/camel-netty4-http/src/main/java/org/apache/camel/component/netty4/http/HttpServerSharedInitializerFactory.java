@@ -475,7 +475,7 @@ argument_list|,
 operator|new
 name|HttpRequestDecoder
 argument_list|(
-literal|409
+literal|4096
 argument_list|,
 name|configuration
 operator|.
