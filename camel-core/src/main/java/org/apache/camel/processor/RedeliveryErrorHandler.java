@@ -3792,7 +3792,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Second Exception occured inside exception handler. Failing exchange"
+literal|"Second Exception occurred inside exception handler. Failing exchange"
 argument_list|,
 name|e
 argument_list|)
@@ -3967,7 +3967,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// note this should really not happen, but we have this code as a fail safe
+comment|// note this should really not happen, but we have this code
+comment|// as a fail safe
 comment|// to be backwards compatible with the old behavior
 name|log
 operator|.
