@@ -163,19 +163,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Enough to be considered unbounded. Requests are refilled once completed.      */
-DECL|field|MAX_INFLIGHT_UNBOUNDED
+comment|/**      * Unbounded as per rule #17. No need to refill.      */
+DECL|field|UNBOUNDED_REQUESTS
 specifier|private
 specifier|static
 specifier|final
 name|long
-name|MAX_INFLIGHT_UNBOUNDED
+name|UNBOUNDED_REQUESTS
 init|=
 name|Long
 operator|.
 name|MAX_VALUE
-operator|/
-literal|2
 decl_stmt|;
 DECL|field|consumer
 specifier|private
@@ -417,9 +415,18 @@ init|(
 name|this
 init|)
 block|{
+if|if
+condition|(
+name|requested
+operator|<
+name|UNBOUNDED_REQUESTS
+condition|)
+block|{
+comment|// When there are UNBOUNDED_REQUESTS, they remain constant
 name|requested
 operator|--
 expr_stmt|;
+block|}
 name|target
 operator|=
 name|this
@@ -549,8 +556,15 @@ operator|.
 name|longValue
 argument_list|()
 else|:
-name|MAX_INFLIGHT_UNBOUNDED
+name|UNBOUNDED_REQUESTS
 decl_stmt|;
+if|if
+condition|(
+name|requested
+operator|<
+name|UNBOUNDED_REQUESTS
+condition|)
+block|{
 name|long
 name|newRequest
 init|=
@@ -581,6 +595,7 @@ name|this
 operator|.
 name|subscription
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
