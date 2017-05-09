@@ -595,7 +595,7 @@ name|minRequests
 init|=
 name|Math
 operator|.
-name|max
+name|min
 argument_list|(
 name|max
 argument_list|,
