@@ -62,7 +62,21 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultHeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|HeaderFilterStrategyComponent
 import|;
 end_import
 
@@ -86,7 +100,7 @@ specifier|public
 class|class
 name|StompComponent
 extends|extends
-name|UriEndpointComponent
+name|HeaderFilterStrategyComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -176,6 +190,40 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
+comment|// Implementation methods
+comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|getHeaderFilterStrategy
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|setHeaderFilterStrategy
+argument_list|(
+operator|new
+name|DefaultHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -274,6 +322,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|endpoint
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
