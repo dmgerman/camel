@@ -48,9 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|processor
 operator|.
-name|CamelLogger
+name|CamelLogProcessor
 import|;
 end_import
 
@@ -58,9 +58,27 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
+name|camel
+operator|.
+name|processor
+operator|.
+name|LogProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelLogger
 import|;
 end_import
 

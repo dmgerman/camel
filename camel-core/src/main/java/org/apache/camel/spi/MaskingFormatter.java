@@ -16,18 +16,6 @@ name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * A plugin used to mask a log String, for example security information  * like password or passphrase.  */
 end_comment

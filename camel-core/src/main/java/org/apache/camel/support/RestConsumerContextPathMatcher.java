@@ -66,18 +66,6 @@ name|Locale
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-import|;
-end_import
-
 begin_comment
 comment|/**  * A context path matcher when using rest-dsl that allows components to reuse the same matching logic.  *<p/>  * The component should use the {@link #matchBestPath(String, String, java.util.List)} with the request details  * and the matcher returns the best matched, or<tt>null</tt> if none could be determined.  *<p/>  * The {@link ConsumerPath} is used for the components to provide the details to the matcher.  */
 end_comment

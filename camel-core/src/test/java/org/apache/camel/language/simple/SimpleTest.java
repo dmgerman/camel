@@ -294,20 +294,6 @@ name|Language
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|TestSupport
-operator|.
-name|getJavaMajorVersion
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version  */
 end_comment
