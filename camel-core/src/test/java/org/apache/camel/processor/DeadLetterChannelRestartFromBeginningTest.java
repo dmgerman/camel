@@ -186,7 +186,7 @@ argument_list|)
 expr_stmt|;
 name|setAssertPeriod
 argument_list|(
-literal|200
+literal|500
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

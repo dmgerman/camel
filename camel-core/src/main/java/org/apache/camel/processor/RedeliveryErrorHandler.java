@@ -3765,8 +3765,9 @@ operator|.
 name|getException
 argument_list|()
 decl_stmt|;
+comment|// e is never null
 name|Throwable
-name|origExceptionCaught
+name|previous
 init|=
 name|exchange
 operator|.
@@ -3783,34 +3784,68 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|origExceptionCaught
+name|previous
 operator|!=
 literal|null
+operator|&&
+name|previous
+operator|!=
+name|e
 condition|)
 block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Second Exception occurred inside exception handler. Failing exchange"
-argument_list|,
+comment|// a 2nd exception was thrown while handling a previous exception
+comment|// so we need to add the previous as suppressed by the new exception
+comment|// see also FatalFallbackErrorHandler
+name|Throwable
+index|[]
+name|suppressed
+init|=
 name|e
-argument_list|)
-expr_stmt|;
-name|exchange
 operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|UNIT_OF_WORK_EXHAUSTED
-argument_list|,
+name|getSuppressed
+argument_list|()
+decl_stmt|;
+name|boolean
+name|found
+init|=
+literal|false
+decl_stmt|;
+for|for
+control|(
+name|Throwable
+name|t
+range|:
+name|suppressed
+control|)
+block|{
+if|if
+condition|(
+name|t
+operator|==
+name|previous
+condition|)
+block|{
+name|found
+operator|=
 literal|true
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|found
+condition|)
+block|{
+name|e
+operator|.
+name|addSuppressed
+argument_list|(
+name|previous
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
+block|}
 comment|// store the original caused exception in a property, so we can restore it later
 name|exchange
 operator|.
@@ -3967,8 +4002,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// note this should really not happen, but we have this code
-comment|// as a fail safe
+comment|// note this should really not happen, but we have this code as a fail safe
 comment|// to be backwards compatible with the old behavior
 name|log
 operator|.
@@ -4053,7 +4087,6 @@ name|onExceptionProcessor
 operator|=
 name|processor
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// only log if not failure handled or not an exhausted unit of work

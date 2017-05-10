@@ -326,6 +326,12 @@ name|FAILURE_ROUTE_ID
 init|=
 literal|"CamelFailureRouteId"
 decl_stmt|;
+DECL|field|FATAL_FALLBACK_ERROR_HANDLER
+name|String
+name|FATAL_FALLBACK_ERROR_HANDLER
+init|=
+literal|"CamelFatalFallbackErrorHandler"
+decl_stmt|;
 DECL|field|FILE_CONTENT_TYPE
 name|String
 name|FILE_CONTENT_TYPE
