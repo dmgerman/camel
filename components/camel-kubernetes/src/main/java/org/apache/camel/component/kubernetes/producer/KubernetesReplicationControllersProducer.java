@@ -154,7 +154,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|RollableScallableResource
+name|RollableScalableResource
 import|;
 end_import
 
@@ -679,7 +679,7 @@ name|ReplicationControllerList
 argument_list|,
 name|DoneableReplicationController
 argument_list|,
-name|RollableScallableResource
+name|RollableScalableResource
 argument_list|<
 name|ReplicationController
 argument_list|,
@@ -687,9 +687,7 @@ name|DoneableReplicationController
 argument_list|>
 argument_list|>
 name|replicationControllers
-decl_stmt|;
-name|replicationControllers
-operator|=
+init|=
 name|getEndpoint
 argument_list|()
 operator|.
@@ -703,7 +701,7 @@ name|inNamespace
 argument_list|(
 name|namespaceName
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -756,7 +754,7 @@ name|ReplicationControllerList
 argument_list|,
 name|DoneableReplicationController
 argument_list|,
-name|RollableScallableResource
+name|RollableScalableResource
 argument_list|<
 name|ReplicationController
 argument_list|,
@@ -764,9 +762,7 @@ name|DoneableReplicationController
 argument_list|>
 argument_list|>
 name|replicationControllers
-decl_stmt|;
-name|replicationControllers
-operator|=
+init|=
 name|getEndpoint
 argument_list|()
 operator|.
@@ -775,7 +771,7 @@ argument_list|()
 operator|.
 name|replicationControllers
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|Map

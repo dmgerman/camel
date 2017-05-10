@@ -150,7 +150,7 @@ name|client
 operator|.
 name|dsl
 operator|.
-name|RollableScallableResource
+name|RollableScalableResource
 import|;
 end_import
 
@@ -531,7 +531,7 @@ name|ReplicationControllerList
 argument_list|,
 name|DoneableReplicationController
 argument_list|,
-name|RollableScallableResource
+name|RollableScalableResource
 argument_list|<
 name|ReplicationController
 argument_list|,
