@@ -4,30 +4,58 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.maven.connector.model
+DECL|package|org.foo.search
 package|package
+name|org
+operator|.
+name|foo
+operator|.
+name|search
+package|;
+end_package
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|maven
+name|component
 operator|.
 name|connector
 operator|.
-name|model
-package|;
-end_package
+name|DefaultConnectorComponent
+import|;
+end_import
+
+begin_comment
+comment|/**  * Camel twitter-mention connector  */
+end_comment
 
 begin_class
-DECL|class|ComponentOptionModel
+DECL|class|TwitterSearchComponent
 specifier|public
 class|class
-name|ComponentOptionModel
+name|TwitterSearchComponent
 extends|extends
-name|OptionModel
-block|{ }
+name|DefaultConnectorComponent
+block|{
+DECL|method|TwitterSearchComponent ()
+specifier|public
+name|TwitterSearchComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"twitter-search"
+argument_list|,
+literal|"org.foo.search.TwitterSearchComponent"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 end_class
 
 end_unit

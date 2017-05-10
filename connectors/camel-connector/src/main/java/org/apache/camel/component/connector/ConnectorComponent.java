@@ -151,8 +151,11 @@ name|String
 name|getCamelConnectorJSon
 parameter_list|()
 function_decl|;
-comment|/**      * A set of additional component options to use for the base component when creating connector endpoints.      */
+comment|/**      * A set of additional component/endpoint options to use for the base component when creating connector endpoints.      *      * @deprecated use {@link #getOptions()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|getComponentOptions ()
+specifier|default
 name|Map
 argument_list|<
 name|String
@@ -161,9 +164,26 @@ name|Object
 argument_list|>
 name|getComponentOptions
 parameter_list|()
+block|{
+return|return
+name|getOptions
+argument_list|()
+return|;
+block|}
+comment|/**      * A set of additional component/endpoint options to use for the base component when creating connector endpoints.      */
+DECL|method|getOptions ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getOptions
+parameter_list|()
 function_decl|;
-comment|/**      * A set of additional component options to use for the base component when creating connector endpoints.      */
-DECL|method|setComponentOptions (Map<String, Object> baseComponentOptions)
+comment|/**      * A set of additional component/endpoint options to use for the base component when creating connector endpoints.      *      * @deprecated use {@link #setOptions(Map)} instead      */
+DECL|method|setComponentOptions (Map<String, Object> options)
+specifier|default
 name|void
 name|setComponentOptions
 parameter_list|(
@@ -173,7 +193,27 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|baseComponentOptions
+name|options
+parameter_list|)
+block|{
+name|setOptions
+argument_list|(
+name|options
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * A set of additional component/endpoint options to use for the base component when creating connector endpoints.      */
+DECL|method|setOptions (Map<String, Object> options)
+name|void
+name|setOptions
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|options
 parameter_list|)
 function_decl|;
 comment|/**      * To perform custom processing before the producer is sending the message.      */
@@ -185,6 +225,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the processor used to perform custom processing before the producer is sending the message.      */
 DECL|method|getBeforeProducer ()
 name|Processor
 name|getBeforeProducer
@@ -199,6 +240,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the processor used to perform custom processing after the producer has sent the message and received any reply (if InOut).      */
 DECL|method|getAfterProducer ()
 name|Processor
 name|getAfterProducer
@@ -213,6 +255,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the processor used to perform custom processing when the consumer has just received a new incoming message.      */
 DECL|method|getBeforeConsumer ()
 name|Processor
 name|getBeforeConsumer
@@ -227,6 +270,7 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the processor used to perform custom processing when the consumer is about to send back a reply message to the caller (if InOut).      */
 DECL|method|getAfterConsumer ()
 name|Processor
 name|getAfterConsumer

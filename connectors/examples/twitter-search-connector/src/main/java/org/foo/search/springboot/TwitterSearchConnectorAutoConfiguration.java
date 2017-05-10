@@ -4,13 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.foo.mention.springboot
+DECL|package|org.foo.search.springboot
 package|package
 name|org
 operator|.
 name|foo
 operator|.
-name|mention
+name|search
 operator|.
 name|springboot
 package|;
@@ -88,9 +88,9 @@ name|org
 operator|.
 name|foo
 operator|.
-name|mention
+name|search
 operator|.
-name|TwitterMentionComponent
+name|TwitterSearchComponent
 import|;
 end_import
 
@@ -273,14 +273,14 @@ argument_list|)
 annotation|@
 name|EnableConfigurationProperties
 argument_list|(
-name|TwitterMentionConnectorConfiguration
+name|TwitterSearchConnectorConfiguration
 operator|.
 name|class
 argument_list|)
-DECL|class|TwitterMentionConnectorAutoConfiguration
+DECL|class|TwitterSearchConnectorAutoConfiguration
 specifier|public
 class|class
-name|TwitterMentionConnectorAutoConfiguration
+name|TwitterSearchConnectorAutoConfiguration
 block|{
 annotation|@
 name|Autowired
@@ -293,7 +293,7 @@ annotation|@
 name|Autowired
 DECL|field|configuration
 specifier|private
-name|TwitterMentionConnectorConfiguration
+name|TwitterSearchConnectorConfiguration
 name|configuration
 decl_stmt|;
 annotation|@
@@ -303,7 +303,7 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"twitter-mention-component"
+literal|"twitter-search-component"
 argument_list|)
 annotation|@
 name|ConditionalOnClass
@@ -317,21 +317,21 @@ name|ConditionalOnMissingBean
 argument_list|(
 name|name
 operator|=
-literal|"twitter-mention-component"
+literal|"twitter-search-component"
 argument_list|)
-DECL|method|configureTwitterMentionComponent ()
+DECL|method|configureTwitterSearchComponent ()
 specifier|public
-name|TwitterMentionComponent
-name|configureTwitterMentionComponent
+name|TwitterSearchComponent
+name|configureTwitterSearchComponent
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TwitterMentionComponent
+name|TwitterSearchComponent
 name|connector
 init|=
 operator|new
-name|TwitterMentionComponent
+name|TwitterSearchComponent
 argument_list|()
 decl_stmt|;
 name|connector
@@ -396,10 +396,10 @@ return|;
 block|}
 annotation|@
 name|PostConstruct
-DECL|method|postConstructTwitterMentionComponent ()
+DECL|method|postConstructTwitterSearchComponent ()
 specifier|public
 name|void
-name|postConstructTwitterMentionComponent
+name|postConstructTwitterSearchComponent
 parameter_list|()
 block|{
 if|if
@@ -430,7 +430,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|TwitterMentionConnectorConfigurationCommon
+name|TwitterSearchConnectorConfigurationCommon
 argument_list|>
 name|entry
 range|:
@@ -448,11 +448,11 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|TwitterMentionComponent
+name|TwitterSearchComponent
 name|connector
 init|=
 operator|new
-name|TwitterMentionComponent
+name|TwitterSearchComponent
 argument_list|()
 decl_stmt|;
 name|connector

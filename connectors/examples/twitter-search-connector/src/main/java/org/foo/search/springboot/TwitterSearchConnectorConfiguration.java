@@ -4,13 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.foo.mention.springboot
+DECL|package|org.foo.search.springboot
 package|package
 name|org
 operator|.
 name|foo
 operator|.
-name|mention
+name|search
 operator|.
 name|springboot
 package|;
@@ -73,14 +73,14 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.connector.twitter-mention"
+literal|"camel.connector.twitter-search"
 argument_list|)
-DECL|class|TwitterMentionConnectorConfiguration
+DECL|class|TwitterSearchConnectorConfiguration
 specifier|public
 class|class
-name|TwitterMentionConnectorConfiguration
+name|TwitterSearchConnectorConfiguration
 extends|extends
-name|TwitterMentionConnectorConfigurationCommon
+name|TwitterSearchConnectorConfigurationCommon
 block|{
 comment|/**      * Define additional configuration definitions      */
 DECL|field|configurations
@@ -89,7 +89,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|TwitterMentionConnectorConfigurationCommon
+name|TwitterSearchConnectorConfigurationCommon
 argument_list|>
 name|configurations
 init|=
@@ -104,7 +104,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|TwitterMentionConnectorConfigurationCommon
+name|TwitterSearchConnectorConfigurationCommon
 argument_list|>
 name|getConfigurations
 parameter_list|()
