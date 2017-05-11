@@ -78,6 +78,7 @@ name|ErrorOccuredInOnExceptionRoute
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// TODO: fails when run individually but works with mvn clean install and run all tests
 annotation|@
 name|Override
 DECL|method|isUseRouteBuilder ()
