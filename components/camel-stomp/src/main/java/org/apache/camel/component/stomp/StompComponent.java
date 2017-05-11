@@ -296,6 +296,16 @@ argument_list|,
 name|destination
 argument_list|)
 decl_stmt|;
+comment|// set header filter strategy and then call set properties
+comment|// if user wants to add CustomHeaderFilterStrategy
+name|endpoint
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -322,14 +332,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|endpoint
-operator|.
-name|setHeaderFilterStrategy
-argument_list|(
-name|getHeaderFilterStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
 return|return
 name|endpoint
 return|;

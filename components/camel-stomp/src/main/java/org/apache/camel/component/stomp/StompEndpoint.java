@@ -976,7 +976,6 @@ argument_list|(
 name|SEND
 argument_list|)
 decl_stmt|;
-comment|// feature for CAMEL-7672
 name|populateCamelMessageHeadersToStompFrames
 argument_list|(
 name|exchange
