@@ -242,7 +242,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Circular error-handler detected - breaking out"
+literal|"Circular error-handler detected - breaking out processing Exchange: {}"
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 comment|// mark this exchange as already been error handler handled (just by having this property)
