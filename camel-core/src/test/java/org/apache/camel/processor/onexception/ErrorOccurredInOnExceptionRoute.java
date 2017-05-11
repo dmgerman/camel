@@ -71,10 +71,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ErrorOccuredInOnExceptionRoute
+DECL|class|ErrorOccurredInOnExceptionRoute
 specifier|public
 class|class
-name|ErrorOccuredInOnExceptionRoute
+name|ErrorOccurredInOnExceptionRoute
 extends|extends
 name|ContextTestSupport
 block|{
