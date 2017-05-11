@@ -199,6 +199,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// will be called twice because of the two exceptions because the circular exception is detected to break out
 name|getMockEndpoint
 argument_list|(
 literal|"mock:c"
@@ -206,7 +207,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -216,7 +217,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 try|try
@@ -296,8 +297,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: should only trigger error handling in direct route one time
-comment|// assertMockEndpointsSatisfied();
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testRecursionDirectNoErrorHandler ()
 specifier|public
@@ -424,6 +426,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// we will only be called once because when the route fails its not under error handler
+comment|// and therefore onException wont trigger the 2nd time
 name|getMockEndpoint
 argument_list|(
 literal|"mock:c"

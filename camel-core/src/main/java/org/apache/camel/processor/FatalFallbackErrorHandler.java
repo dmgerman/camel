@@ -82,6 +82,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
+operator|.
+name|routeIdExpression
+import|;
+end_import
+
 begin_comment
 comment|/**  * An {@link org.apache.camel.processor.ErrorHandler} used as a safe fallback when  * processing by other error handlers such as the {@link org.apache.camel.model.OnExceptionDefinition}.  *<p/>  * This error handler is used as a fail-safe to ensure that error handling does not run in endless recursive looping  * which potentially can happen if a new exception is thrown while error handling a previous exception which then  * cause new error handling to process and this then keep on failing with new exceptions in an endless loop.  *  * @version  */
 end_comment
@@ -177,10 +193,27 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+comment|// get the current route id we use
+specifier|final
+name|String
+name|id
+init|=
+name|routeIdExpression
+argument_list|()
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// prevent endless looping if we end up coming back to ourself
 name|Stack
 argument_list|<
-name|Processor
+name|String
 argument_list|>
 name|fatals
 init|=
@@ -231,7 +264,7 @@ name|fatals
 operator|.
 name|search
 argument_list|(
-name|this
+name|id
 argument_list|)
 operator|>
 operator|-
@@ -242,7 +275,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Circular error-handler detected - breaking out processing Exchange: {}"
+literal|"Circular error-handler detected at route: {} - breaking out processing Exchange: {}"
+argument_list|,
+name|id
 argument_list|,
 name|exchange
 argument_list|)
@@ -261,6 +296,17 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ERRORHANDLER_CIRCUIT_DETECTED
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
@@ -273,17 +319,11 @@ literal|true
 return|;
 block|}
 comment|// okay we run under this fatal error handler now
-specifier|final
-name|Processor
-name|fatal
-init|=
-name|this
-decl_stmt|;
 name|fatals
 operator|.
 name|push
 argument_list|(
-name|fatal
+name|id
 argument_list|)
 expr_stmt|;
 comment|// support the asynchronous routing engine
@@ -595,7 +635,7 @@ block|{
 comment|// no longer running under this fatal fallback error handler
 name|Stack
 argument_list|<
-name|Processor
+name|String
 argument_list|>
 name|fatals
 init|=
@@ -625,7 +665,7 @@ name|fatals
 operator|.
 name|remove
 argument_list|(
-name|fatal
+name|id
 argument_list|)
 expr_stmt|;
 block|}

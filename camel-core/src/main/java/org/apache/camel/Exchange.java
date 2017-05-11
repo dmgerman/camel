@@ -296,6 +296,12 @@ name|EVALUATE_EXPRESSION_RESULT
 init|=
 literal|"CamelEvaluateExpressionResult"
 decl_stmt|;
+DECL|field|ERRORHANDLER_CIRCUIT_DETECTED
+name|String
+name|ERRORHANDLER_CIRCUIT_DETECTED
+init|=
+literal|"CamelFErrorHandlerCircuitDetected"
+decl_stmt|;
 DECL|field|ERRORHANDLER_HANDLED
 name|String
 name|ERRORHANDLER_HANDLED
