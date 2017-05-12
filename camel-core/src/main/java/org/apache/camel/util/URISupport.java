@@ -171,7 +171,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"([?&][^=]*(?:passphrase|password|secretKey)[^=]*)=([^&]*)"
+literal|"([?&][^=]*(?:passphrase|password|secretKey)[^=]*)=(RAW\\(.*\\)|[^&]*)"
 argument_list|,
 name|Pattern
 operator|.

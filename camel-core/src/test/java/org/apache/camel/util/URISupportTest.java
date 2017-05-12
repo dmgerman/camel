@@ -1340,6 +1340,35 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSanitizeUriRawUnsafePassword ()
+specifier|public
+name|void
+name|testSanitizeUriRawUnsafePassword
+parameter_list|()
+block|{
+name|String
+name|uri
+init|=
+literal|"sftp://localhost/target?password=RAW(beforeAmp&afterAmp)&username=jrandom"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"sftp://localhost/target?password=xxxxxx&username=jrandom"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|uri
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testNormalizeEndpointUriWithUserInfoSpecialSign ()
 specifier|public
 name|void
