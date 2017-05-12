@@ -446,12 +446,17 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|// Start the service
-name|ServiceHelper
+comment|// Start the service and add it to the Camel context to expose managed attributes
+name|getCamelContext
+argument_list|()
 operator|.
-name|startService
+name|addService
 argument_list|(
 name|service
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
