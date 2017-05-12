@@ -368,9 +368,6 @@ name|Query
 name|build
 parameter_list|(
 name|QueryFactory
-argument_list|<
-name|Query
-argument_list|>
 name|queryFactory
 parameter_list|)
 block|{
@@ -421,9 +418,6 @@ name|Query
 name|build
 parameter_list|(
 name|QueryFactory
-argument_list|<
-name|Query
-argument_list|>
 name|queryFactory
 parameter_list|)
 block|{
@@ -474,9 +468,6 @@ name|Query
 name|build
 parameter_list|(
 name|QueryFactory
-argument_list|<
-name|Query
-argument_list|>
 name|queryFactory
 parameter_list|)
 block|{

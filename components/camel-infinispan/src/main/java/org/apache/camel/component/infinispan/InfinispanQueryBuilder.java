@@ -52,14 +52,11 @@ specifier|public
 interface|interface
 name|InfinispanQueryBuilder
 block|{
-DECL|method|build (QueryFactory<Query> queryFactory)
+DECL|method|build (QueryFactory queryFactory)
 name|Query
 name|build
 parameter_list|(
 name|QueryFactory
-argument_list|<
-name|Query
-argument_list|>
 name|queryFactory
 parameter_list|)
 function_decl|;
