@@ -2228,9 +2228,6 @@ argument_list|)
 decl_stmt|;
 name|exception
 operator|.
-name|getCause
-argument_list|()
-operator|.
 name|printStackTrace
 argument_list|(
 name|pw
