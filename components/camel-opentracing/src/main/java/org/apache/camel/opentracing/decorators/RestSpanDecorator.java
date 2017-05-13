@@ -441,13 +441,13 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|debug
 argument_list|(
 literal|"Failed to decode URL path '"
 operator|+
 name|path
 operator|+
-literal|"'"
+literal|"', ignoring exception"
 argument_list|,
 name|e
 argument_list|)
