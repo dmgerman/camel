@@ -594,9 +594,17 @@ return|;
 block|}
 comment|// remember any hystrix execution exception which for example can be triggered by a hystrix timeout
 name|Throwable
-name|cause
+name|hystrixExecutionException
 init|=
 name|getExecutionException
+argument_list|()
+decl_stmt|;
+name|Exception
+name|camelExchangeException
+init|=
+name|copy
+operator|.
+name|getException
 argument_list|()
 decl_stmt|;
 synchronized|synchronized
@@ -654,7 +662,7 @@ comment|// execution exception must take precedence over exchange exception
 comment|// because hystrix may have caused this command to fail due timeout or something else
 if|if
 condition|(
-name|cause
+name|hystrixExecutionException
 operator|!=
 literal|null
 condition|)
@@ -670,51 +678,30 @@ literal|"Hystrix execution exception occurred while processing Exchange"
 argument_list|,
 name|exchange
 argument_list|,
-name|cause
+name|hystrixExecutionException
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if we have a fallback that can process the exchange in case of an exception
-comment|// then we need to trigger this by throwing an exception so Hystrix will execute the fallback
-comment|// if we don't have a fallback and an exception was thrown then its stored on the exchange
-comment|// and Camel will detect the exception anyway
+comment|// in case of an exception in the exchange
+comment|// we need to trigger this by throwing the exception so Hystrix will execute the fallback
+comment|// or open the circuit
 if|if
 condition|(
-name|fallback
-operator|!=
-literal|null
-operator|||
-name|fallbackCommand
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|fallbackEnabled
+name|hystrixExecutionException
 operator|==
 literal|null
-operator|||
-name|fallbackEnabled
 operator|&&
-name|exchange
-operator|.
-name|getException
-argument_list|()
+name|camelExchangeException
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// throwing exception will cause hystrix to execute fallback
 throw|throw
-name|exchange
-operator|.
-name|getException
-argument_list|()
+name|camelExchangeException
 throw|;
 block|}
-block|}
+comment|//}
 name|LOG
 operator|.
 name|debug
