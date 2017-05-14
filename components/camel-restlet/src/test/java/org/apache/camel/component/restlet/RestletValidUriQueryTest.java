@@ -143,7 +143,7 @@ literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
-literal|"/users/(username)"
+literal|"/users/{username}"
 argument_list|)
 operator|.
 name|process
@@ -164,7 +164,7 @@ literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
-literal|"/users/(username)"
+literal|"/users/{username}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -213,10 +213,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testPostBody ()
+DECL|method|testGet ()
 specifier|public
 name|void
-name|testPostBody
+name|testGet
 parameter_list|()
 throws|throws
 name|Exception

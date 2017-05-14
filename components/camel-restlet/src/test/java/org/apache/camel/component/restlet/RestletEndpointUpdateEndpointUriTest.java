@@ -118,7 +118,28 @@ name|assertEquals
 argument_list|(
 literal|"The restlet endpoint didn't update it's URI properly"
 argument_list|,
-literal|"http://localhost:9090/users/user?restletMethods=GET"
+literal|"http://localhost:9090/users/user?restletMethod=GET"
+argument_list|,
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|=
+name|component
+operator|.
+name|createEndpoint
+argument_list|(
+literal|"restlet:http://localhost:9090/users/user?restletMethod=post"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"The restlet endpoint didn't update it's URI properly"
+argument_list|,
+literal|"http://localhost:9090/users/user?restletMethod=POST"
 argument_list|,
 name|endpoint
 operator|.
