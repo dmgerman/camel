@@ -1108,13 +1108,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|restletMethod
-operator|!=
-literal|null
-condition|)
+else|else
 block|{
 name|result
 operator|.
