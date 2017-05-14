@@ -396,20 +396,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|UnsafeUriCharactersEncoder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
@@ -964,10 +950,26 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// decode %7B -> {
+comment|// decode %7D -> }
 name|String
 name|endpointUri
 init|=
 name|remaining
+operator|.
+name|replaceAll
+argument_list|(
+literal|"%7B"
+argument_list|,
+literal|"{"
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"%7D"
+argument_list|,
+literal|"}"
+argument_list|)
 decl_stmt|;
 comment|// include restlet methods in the uri (use GET as default)
 name|String
@@ -1123,6 +1125,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// construct URI so we can use it to get the splitted information
+comment|// use raw values to support paths that has spaces
 name|String
 name|remainingRaw
 init|=
@@ -1139,7 +1143,6 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// construct URI so we can use it to get the splitted information
 name|URI
 name|u
 init|=
@@ -1160,35 +1163,39 @@ decl_stmt|;
 name|String
 name|uriPattern
 init|=
-name|u
+name|URISupport
 operator|.
-name|getPath
+name|createRemainingURI
+argument_list|(
+name|u
+argument_list|,
+name|parameters
+argument_list|)
+operator|.
+name|getRawPath
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|parameters
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
+comment|// must decode back to use {} style as that is what the restlet router expect to match in its uri pattern
+comment|// decode %7B -> {
+comment|// decode %7D -> }
 name|uriPattern
 operator|=
 name|uriPattern
-operator|+
-literal|"?"
-operator|+
-name|URISupport
 operator|.
-name|createQueryString
+name|replaceAll
 argument_list|(
-name|parameters
+literal|"%7B"
+argument_list|,
+literal|"{"
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"%7D"
+argument_list|,
+literal|"}"
 argument_list|)
 expr_stmt|;
-block|}
 name|int
 name|port
 decl_stmt|;
