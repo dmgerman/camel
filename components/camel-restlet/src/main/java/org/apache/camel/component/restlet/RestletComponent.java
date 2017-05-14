@@ -950,12 +950,56 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// decode %7B -> {
-comment|// decode %7D -> }
+comment|// grab uri and remove all query parameters as we need to rebuild it a bit special
 name|String
 name|endpointUri
 init|=
-name|remaining
+name|uri
+decl_stmt|;
+if|if
+condition|(
+name|endpointUri
+operator|.
+name|indexOf
+argument_list|(
+literal|'?'
+argument_list|)
+operator|>
+literal|0
+condition|)
+block|{
+name|endpointUri
+operator|=
+name|endpointUri
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|endpointUri
+operator|.
+name|indexOf
+argument_list|(
+literal|'?'
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// normalize so the uri is as expected
+name|endpointUri
+operator|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+comment|// decode %7B -> {
+comment|// decode %7D -> }
+name|endpointUri
+operator|=
+name|endpointUri
 operator|.
 name|replaceAll
 argument_list|(
@@ -970,7 +1014,7 @@ literal|"%7D"
 argument_list|,
 literal|"}"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// include restlet methods in the uri (use GET as default)
 name|String
 name|restletMethods

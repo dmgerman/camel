@@ -118,7 +118,7 @@ name|assertEquals
 argument_list|(
 literal|"The restlet endpoint didn't update it's URI properly"
 argument_list|,
-literal|"http://localhost:9090/users/user?restletMethod=GET"
+literal|"restlet://http://localhost:9090/users/user?restletMethod=GET"
 argument_list|,
 name|endpoint
 operator|.
@@ -139,7 +139,7 @@ name|assertEquals
 argument_list|(
 literal|"The restlet endpoint didn't update it's URI properly"
 argument_list|,
-literal|"http://localhost:9090/users/user?restletMethod=POST"
+literal|"restlet://http://localhost:9090/users/user?restletMethod=POST"
 argument_list|,
 name|endpoint
 operator|.
@@ -160,7 +160,7 @@ name|assertEquals
 argument_list|(
 literal|"The restlet endpoint didn't update it's URI properly"
 argument_list|,
-literal|"http://localhost:9090/users/user?restletMethods=POST"
+literal|"restlet://http://localhost:9090/users/user?restletMethods=POST"
 argument_list|,
 name|endpoint
 operator|.
@@ -181,7 +181,7 @@ name|assertEquals
 argument_list|(
 literal|"The restlet endpoint didn't update it's URI properly"
 argument_list|,
-literal|"http://localhost:9090/users/user?restletMethods=LOCK,HEAD"
+literal|"restlet://http://localhost:9090/users/user?restletMethods=LOCK,HEAD"
 argument_list|,
 name|endpoint
 operator|.
@@ -202,7 +202,7 @@ name|assertEquals
 argument_list|(
 literal|"The restlet endpoint didn't update it's URI properly"
 argument_list|,
-literal|"http://localhost:9090/users/user?restletMethods=PROPPATCH,MKCOL,PROPFIND"
+literal|"restlet://http://localhost:9090/users/user?restletMethods=PROPPATCH,MKCOL,PROPFIND"
 argument_list|,
 name|endpoint
 operator|.
@@ -223,7 +223,7 @@ name|assertEquals
 argument_list|(
 literal|"The restlet endpoint didn't update it's URI properly"
 argument_list|,
-literal|"http://localhost:9090/users/user?restletMethods=DELETE,COPY,OPTIONS,CONNECT"
+literal|"restlet://http://localhost:9090/users/user?restletMethods=DELETE,COPY,OPTIONS,CONNECT"
 argument_list|,
 name|endpoint
 operator|.
