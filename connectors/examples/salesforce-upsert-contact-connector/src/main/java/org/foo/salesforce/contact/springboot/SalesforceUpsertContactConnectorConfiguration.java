@@ -51,7 +51,7 @@ specifier|public
 class|class
 name|SalesforceUpsertContactConnectorConfiguration
 block|{
-comment|/**      * URL of the Salesforce instance by default set to      * https://login.salesforce.com      */
+comment|/**      * URL of the Salesforce instance used for authentication by default set to      * https://login.salesforce.com      */
 DECL|field|loginUrl
 specifier|private
 name|String
