@@ -17302,8 +17302,9 @@ name|getRoutes
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
+name|ServiceStatus
+name|status
+init|=
 name|getRouteStatus
 argument_list|(
 name|route
@@ -17311,6 +17312,14 @@ operator|.
 name|getId
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|status
+operator|!=
+literal|null
+operator|&&
+name|status
 operator|.
 name|isStarted
 argument_list|()
