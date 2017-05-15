@@ -73,14 +73,20 @@ specifier|final
 class|class
 name|TwitterSorter
 block|{
-DECL|method|sortBySinceId (List<Exchange> exchanges)
+DECL|method|TwitterSorter ()
+specifier|private
+name|TwitterSorter
+parameter_list|()
+block|{     }
+comment|/**      * Sorts the tweets by {@link Status#getId()}.      */
+DECL|method|sortByStatusId (List<Exchange> exchanges)
 specifier|public
 specifier|static
 name|List
 argument_list|<
 name|Exchange
 argument_list|>
-name|sortBySinceId
+name|sortByStatusId
 parameter_list|(
 name|List
 argument_list|<
@@ -153,11 +159,7 @@ name|Status
 operator|)
 name|b2
 decl_stmt|;
-comment|// we want lowest values first (eg oldest before newest)
 return|return
-operator|-
-literal|1
-operator|*
 name|Long
 operator|.
 name|compare
