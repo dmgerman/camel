@@ -460,7 +460,7 @@ specifier|private
 name|Boolean
 name|breakOnFirstError
 init|=
-literal|true
+literal|false
 decl_stmt|;
 comment|/**          * URL of the Kafka brokers to use. The format is          * host1:port1,host2:port2, and the list can be a subset of brokers or a          * VIP pointing to a subset of brokers.          *<p/>          * This option is known as<tt>bootstrap.servers</tt> in the Kafka          * documentation.          */
 DECL|field|brokers

@@ -274,26 +274,6 @@ name|InterruptException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|KafkaConsumer
 specifier|public
@@ -302,22 +282,6 @@ name|KafkaConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|KafkaConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|executor
 specifier|protected
 name|ExecutorService
@@ -563,7 +527,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -651,7 +615,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -823,11 +787,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|run ()
 specifier|public
 name|void
@@ -992,6 +951,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|doRun ()
 specifier|protected
 name|boolean
@@ -1006,7 +970,7 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1122,7 +1086,7 @@ argument_list|)
 operator|+
 literal|1
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1190,7 +1154,7 @@ operator|.
 name|offset
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1247,7 +1211,7 @@ literal|"beginning"
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1294,7 +1258,7 @@ literal|"end"
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1453,13 +1417,13 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -1584,17 +1548,7 @@ name|isBreakOnFirstError
 argument_list|()
 condition|)
 block|{
-comment|// commit last good offset before we try again
-name|commitOffset
-argument_list|(
-name|offsetRepository
-argument_list|,
-name|partition
-argument_list|,
-name|partitionLastOffset
-argument_list|)
-expr_stmt|;
-comment|// we are failing but store last good offset
+comment|// we are failing and we should break out
 name|log
 operator|.
 name|warn
@@ -1606,6 +1560,18 @@ argument_list|,
 name|topicName
 argument_list|,
 name|partitionLastOffset
+argument_list|)
+expr_stmt|;
+comment|// force commit so we resume on next poll where we failed
+name|commitOffset
+argument_list|(
+name|offsetRepository
+argument_list|,
+name|partition
+argument_list|,
+name|partitionLastOffset
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// continue to next partition
@@ -1660,6 +1626,8 @@ argument_list|,
 name|partition
 argument_list|,
 name|partitionLastOffset
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1720,7 +1688,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1754,7 +1722,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1773,7 +1741,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1810,7 +1778,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1858,7 +1826,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -1879,7 +1847,7 @@ return|return
 name|reConnect
 return|;
 block|}
-DECL|method|commitOffset (StateRepository<String, String> offsetRepository, TopicPartition partition, long partitionLastOffset)
+DECL|method|commitOffset (StateRepository<String, String> offsetRepository, TopicPartition partition, long partitionLastOffset, boolean forceCommit)
 specifier|private
 name|void
 name|commitOffset
@@ -1897,6 +1865,9 @@ name|partition
 parameter_list|,
 name|long
 name|partitionLastOffset
+parameter_list|,
+name|boolean
+name|forceCommit
 parameter_list|)
 block|{
 if|if
@@ -1929,7 +1900,46 @@ name|partitionLastOffset
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// if autocommit is false
+block|}
+elseif|else
+if|if
+condition|(
+name|forceCommit
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Forcing commitSync {} from topic {} with offset: {}"
+argument_list|,
+name|threadId
+argument_list|,
+name|topicName
+argument_list|,
+name|partitionLastOffset
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|commitSync
+argument_list|(
+name|Collections
+operator|.
+name|singletonMap
+argument_list|(
+name|partition
+argument_list|,
+operator|new
+name|OffsetAndMetadata
+argument_list|(
+name|partitionLastOffset
+operator|+
+literal|1
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1954,7 +1964,7 @@ name|isAutoCommitEnable
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
