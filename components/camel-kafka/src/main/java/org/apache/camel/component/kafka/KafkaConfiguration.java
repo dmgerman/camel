@@ -835,6 +835,24 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|breakOnFirstError
+specifier|private
+name|boolean
+name|breakOnFirstError
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|offsetRepository
 specifier|private
@@ -3988,6 +4006,33 @@ operator|.
 name|autoCommitOnStop
 operator|=
 name|autoCommitOnStop
+expr_stmt|;
+block|}
+DECL|method|isBreakOnFirstError ()
+specifier|public
+name|boolean
+name|isBreakOnFirstError
+parameter_list|()
+block|{
+return|return
+name|breakOnFirstError
+return|;
+block|}
+comment|/**      * This options controls what happens when a consumer is processing an exchange and it fails.      * If the option is<tt>false</tt> then the consumer continues to the next message and processes it.      * If the option is<tt>true</tt> then the consumer breaks out, and will seek back to offset of the      * message that caused a failure, and then re-attempt to process this message. However this can lead      * to endless processing of the same message if its bound to fail every time, eg a poison message.      * Therefore its recommended to deal with that for example by using Camel's error handler.      */
+DECL|method|setBreakOnFirstError (boolean breakOnFirstError)
+specifier|public
+name|void
+name|setBreakOnFirstError
+parameter_list|(
+name|boolean
+name|breakOnFirstError
+parameter_list|)
+block|{
+name|this
+operator|.
+name|breakOnFirstError
+operator|=
+name|breakOnFirstError
 expr_stmt|;
 block|}
 DECL|method|getBrokers ()
