@@ -835,17 +835,11 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
 argument_list|)
 DECL|field|breakOnFirstError
 specifier|private
 name|boolean
 name|breakOnFirstError
-init|=
-literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
