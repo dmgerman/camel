@@ -696,6 +696,42 @@ argument_list|()
 return|;
 block|}
 annotation|@
+name|ManagedAttribute
+DECL|method|isSortById ()
+specifier|public
+name|boolean
+name|isSortById
+parameter_list|()
+block|{
+return|return
+name|getProperties
+argument_list|()
+operator|.
+name|isSortById
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setSortById (boolean sortById)
+specifier|public
+name|void
+name|setSortById
+parameter_list|(
+name|boolean
+name|sortById
+parameter_list|)
+block|{
+name|getProperties
+argument_list|()
+operator|.
+name|setSortById
+argument_list|(
+name|sortById
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|getEndpointType ()
 specifier|public

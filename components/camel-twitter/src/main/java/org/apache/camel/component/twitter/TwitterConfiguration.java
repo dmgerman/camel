@@ -393,6 +393,24 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"consumer,sort"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|sortById
+specifier|private
+name|boolean
+name|sortById
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"proxy"
 argument_list|)
 DECL|field|httpProxyHost
@@ -1203,6 +1221,33 @@ operator|.
 name|numberOfPages
 operator|=
 name|numberOfPages
+expr_stmt|;
+block|}
+DECL|method|isSortById ()
+specifier|public
+name|boolean
+name|isSortById
+parameter_list|()
+block|{
+return|return
+name|sortById
+return|;
+block|}
+comment|/**      * Sorts by id, so the oldest are first, and newest last.      */
+DECL|method|setSortById (boolean sortById)
+specifier|public
+name|void
+name|setSortById
+parameter_list|(
+name|boolean
+name|sortById
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sortById
+operator|=
+name|sortById
 expr_stmt|;
 block|}
 comment|/**      * The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.      */

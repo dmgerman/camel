@@ -173,7 +173,7 @@ name|newId
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Support to update the Consumer's lastId when starting the consumer      * @param sinceId      */
+comment|/**      * Support to update the Consumer's lastId when starting the consumer      */
 DECL|method|setLastId (long sinceId)
 specifier|public
 name|void
