@@ -58,6 +58,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|UUID
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
@@ -421,6 +431,14 @@ init|=
 operator|new
 name|CamelSubscription
 argument_list|(
+name|UUID
+operator|.
+name|randomUUID
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|,
 name|workerPool
 argument_list|,
 name|this
@@ -821,17 +839,17 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getSubscriptionSize ()
+DECL|method|getSubscriptions ()
 specifier|public
-name|int
-name|getSubscriptionSize
+name|List
+argument_list|<
+name|CamelSubscription
+argument_list|>
+name|getSubscriptions
 parameter_list|()
 block|{
 return|return
 name|subscriptions
-operator|.
-name|size
-argument_list|()
 return|;
 block|}
 block|}

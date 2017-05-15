@@ -256,15 +256,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|id
+specifier|private
+name|String
+name|id
+decl_stmt|;
 DECL|field|workerPool
 specifier|private
 name|ExecutorService
 name|workerPool
 decl_stmt|;
-DECL|field|name
+DECL|field|streamName
 specifier|private
 name|String
-name|name
+name|streamName
 decl_stmt|;
 DECL|field|publisher
 specifier|private
@@ -335,10 +340,13 @@ specifier|private
 name|boolean
 name|sending
 decl_stmt|;
-DECL|method|CamelSubscription (ExecutorService workerPool, CamelPublisher publisher, String name, ReactiveStreamsBackpressureStrategy backpressureStrategy, Subscriber<? super Exchange> subscriber)
+DECL|method|CamelSubscription (String id, ExecutorService workerPool, CamelPublisher publisher, String streamName, ReactiveStreamsBackpressureStrategy backpressureStrategy, Subscriber<? super Exchange> subscriber)
 specifier|public
 name|CamelSubscription
 parameter_list|(
+name|String
+name|id
+parameter_list|,
 name|ExecutorService
 name|workerPool
 parameter_list|,
@@ -346,7 +354,7 @@ name|CamelPublisher
 name|publisher
 parameter_list|,
 name|String
-name|name
+name|streamName
 parameter_list|,
 name|ReactiveStreamsBackpressureStrategy
 name|backpressureStrategy
@@ -362,6 +370,12 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
+name|this
+operator|.
 name|workerPool
 operator|=
 name|workerPool
@@ -374,9 +388,9 @@ name|publisher
 expr_stmt|;
 name|this
 operator|.
-name|name
+name|streamName
 operator|=
-name|name
+name|streamName
 expr_stmt|;
 name|this
 operator|.
@@ -1067,7 +1081,7 @@ literal|"Discarded by backpressure strategy"
 argument_list|,
 name|exchange
 argument_list|,
-name|name
+name|streamName
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1124,6 +1138,16 @@ parameter_list|()
 block|{
 return|return
 name|backpressureStrategy
+return|;
+block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
 return|;
 block|}
 block|}
