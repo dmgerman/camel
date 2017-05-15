@@ -232,6 +232,12 @@ name|DefaultPollingEndpoint
 implements|implements
 name|TwitterEndpoint
 block|{
+DECL|field|remaining
+specifier|private
+specifier|final
+name|String
+name|remaining
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -271,12 +277,15 @@ specifier|private
 name|TwitterConfiguration
 name|properties
 decl_stmt|;
-DECL|method|TwitterEndpointPolling (String uri, TwitterComponent component, TwitterConfiguration properties)
+DECL|method|TwitterEndpointPolling (String uri, String remaining, TwitterComponent component, TwitterConfiguration properties)
 specifier|public
 name|TwitterEndpointPolling
 parameter_list|(
 name|String
 name|uri
+parameter_list|,
+name|String
+name|remaining
 parameter_list|,
 name|TwitterComponent
 name|component
@@ -292,18 +301,24 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-name|setDelay
-argument_list|(
-name|delay
-argument_list|)
+name|this
+operator|.
+name|remaining
+operator|=
+name|remaining
 expr_stmt|;
-comment|// reconfigure the default delay
 name|this
 operator|.
 name|properties
 operator|=
 name|properties
 expr_stmt|;
+name|setDelay
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+comment|// reconfigure the default delay
 block|}
 annotation|@
 name|Override
@@ -329,6 +344,8 @@ name|this
 argument_list|,
 name|getEndpointUri
 argument_list|()
+argument_list|,
+name|remaining
 argument_list|)
 decl_stmt|;
 comment|// update the pulling lastID with sinceId
@@ -383,6 +400,8 @@ name|this
 argument_list|,
 name|getEndpointUri
 argument_list|()
+argument_list|,
+name|remaining
 argument_list|)
 return|;
 block|}

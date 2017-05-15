@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ComponentVerifier
 import|;
 end_import
@@ -74,7 +86,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -113,7 +125,7 @@ specifier|public
 class|class
 name|TwitterComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|VerifiableComponent
 block|{
@@ -233,12 +245,18 @@ DECL|method|TwitterComponent ()
 specifier|public
 name|TwitterComponent
 parameter_list|()
+block|{     }
+DECL|method|TwitterComponent (CamelContext context)
+specifier|public
+name|TwitterComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
 name|super
 argument_list|(
-name|TwitterEndpointEvent
-operator|.
-name|class
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -365,6 +383,8 @@ name|TwitterEndpointPolling
 argument_list|(
 name|uri
 argument_list|,
+name|remaining
+argument_list|,
 name|this
 argument_list|,
 name|properties
@@ -381,6 +401,8 @@ name|TwitterEndpointEvent
 argument_list|(
 name|uri
 argument_list|,
+name|remaining
+argument_list|,
 name|this
 argument_list|,
 name|properties
@@ -394,6 +416,8 @@ operator|new
 name|TwitterEndpointDirect
 argument_list|(
 name|uri
+argument_list|,
+name|remaining
 argument_list|,
 name|this
 argument_list|,
@@ -622,7 +646,7 @@ return|return
 name|httpProxyPort
 return|;
 block|}
-comment|/**      * TODO: document      */
+comment|/**      * Get a verifier for the twitter component.      */
 DECL|method|getVerifier ()
 specifier|public
 name|ComponentVerifier

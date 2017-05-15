@@ -132,18 +132,27 @@ name|DefaultEndpoint
 implements|implements
 name|TwitterEndpoint
 block|{
+DECL|field|remaining
+specifier|private
+specifier|final
+name|String
+name|remaining
+decl_stmt|;
 comment|// only TwitterEndpointPolling is annotated
 DECL|field|properties
 specifier|private
 name|TwitterConfiguration
 name|properties
 decl_stmt|;
-DECL|method|TwitterEndpointEvent (String uri, TwitterComponent component, TwitterConfiguration properties)
+DECL|method|TwitterEndpointEvent (String uri, String remaining, TwitterComponent component, TwitterConfiguration properties)
 specifier|public
 name|TwitterEndpointEvent
 parameter_list|(
 name|String
 name|uri
+parameter_list|,
+name|String
+name|remaining
 parameter_list|,
 name|TwitterComponent
 name|component
@@ -158,6 +167,12 @@ name|uri
 argument_list|,
 name|component
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|remaining
+operator|=
+name|remaining
 expr_stmt|;
 name|this
 operator|.
@@ -190,6 +205,8 @@ name|this
 argument_list|,
 name|getEndpointUri
 argument_list|()
+argument_list|,
+name|remaining
 argument_list|)
 decl_stmt|;
 return|return

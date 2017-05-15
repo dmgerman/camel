@@ -65,11 +65,11 @@ init|=
 name|values
 argument_list|()
 decl_stmt|;
-DECL|method|fromUri (String uri)
+DECL|method|fromString (String uri)
 specifier|public
 specifier|static
 name|StreamingType
-name|fromUri
+name|fromString
 parameter_list|(
 name|String
 name|uri
