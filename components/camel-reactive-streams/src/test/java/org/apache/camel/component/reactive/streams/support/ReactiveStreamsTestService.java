@@ -116,9 +116,7 @@ name|reactive
 operator|.
 name|streams
 operator|.
-name|engine
-operator|.
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 import|;
 end_import
 
@@ -303,7 +301,7 @@ annotation|@
 name|Override
 DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
 specifier|public
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|attachCamelConsumer
 parameter_list|(
 name|String

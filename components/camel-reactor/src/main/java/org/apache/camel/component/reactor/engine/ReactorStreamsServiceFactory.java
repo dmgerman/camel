@@ -119,8 +119,6 @@ operator|new
 name|ReactorStreamsService
 argument_list|(
 name|context
-argument_list|,
-name|configuration
 argument_list|)
 return|;
 block|}

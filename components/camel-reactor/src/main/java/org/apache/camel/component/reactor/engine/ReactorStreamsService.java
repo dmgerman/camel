@@ -120,6 +120,24 @@ name|reactive
 operator|.
 name|streams
 operator|.
+name|ReactiveStreamsCamelSubscriber
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
 name|ReactiveStreamsConsumer
 import|;
 end_import
@@ -177,46 +195,6 @@ operator|.
 name|api
 operator|.
 name|CamelReactiveStreamsService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|reactive
-operator|.
-name|streams
-operator|.
-name|engine
-operator|.
-name|CamelSubscriber
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|reactive
-operator|.
-name|streams
-operator|.
-name|engine
-operator|.
-name|ReactiveStreamsEngineConfiguration
 import|;
 end_import
 
@@ -404,12 +382,6 @@ specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|field|configuration
-specifier|private
-specifier|final
-name|ReactiveStreamsEngineConfiguration
-name|configuration
-decl_stmt|;
 DECL|field|unwrapStreamProcessorSupplier
 specifier|private
 specifier|final
@@ -437,7 +409,7 @@ name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 argument_list|>
 name|subscribers
 decl_stmt|;
@@ -463,14 +435,11 @@ name|String
 argument_list|>
 name|requestedUriToStream
 decl_stmt|;
-DECL|method|ReactorStreamsService (CamelContext context, ReactiveStreamsEngineConfiguration configuration)
+DECL|method|ReactorStreamsService (CamelContext context)
 name|ReactorStreamsService
 parameter_list|(
 name|CamelContext
 name|context
-parameter_list|,
-name|ReactiveStreamsEngineConfiguration
-name|configuration
 parameter_list|)
 block|{
 name|this
@@ -478,12 +447,6 @@ operator|.
 name|context
 operator|=
 name|context
-expr_stmt|;
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
 expr_stmt|;
 name|this
 operator|.
@@ -591,7 +554,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|subscriber
 range|:
 name|subscribers
@@ -715,7 +678,7 @@ annotation|@
 name|Override
 DECL|method|streamSubscriber (String name)
 specifier|public
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|streamSubscriber
 parameter_list|(
 name|String
@@ -732,7 +695,7 @@ argument_list|,
 name|n
 lambda|->
 operator|new
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 argument_list|(
 name|name
 argument_list|)
@@ -1794,7 +1757,7 @@ annotation|@
 name|Override
 DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
 specifier|public
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|attachCamelConsumer
 parameter_list|(
 name|String
@@ -1804,7 +1767,7 @@ name|ReactiveStreamsConsumer
 name|consumer
 parameter_list|)
 block|{
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|subscriber
 init|=
 name|streamSubscriber
@@ -1834,7 +1797,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|subscriber
 init|=
 name|streamSubscriber

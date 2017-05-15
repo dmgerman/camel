@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.reactive.streams.engine
+DECL|package|org.apache.camel.component.reactive.streams
 package|package
 name|org
 operator|.
@@ -17,8 +17,6 @@ operator|.
 name|reactive
 operator|.
 name|streams
-operator|.
-name|engine
 package|;
 end_package
 
@@ -51,24 +49,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|reactive
-operator|.
-name|streams
-operator|.
-name|ReactiveStreamsConsumer
 import|;
 end_import
 
@@ -117,10 +97,10 @@ comment|/**  * The Camel subscriber. It bridges messages from reactive streams t
 end_comment
 
 begin_class
-DECL|class|CamelSubscriber
+DECL|class|ReactiveStreamsCamelSubscriber
 specifier|public
 class|class
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 implements|implements
 name|Subscriber
 argument_list|<
@@ -140,7 +120,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 operator|.
 name|class
 argument_list|)
@@ -182,9 +162,9 @@ specifier|private
 name|long
 name|inflightCount
 decl_stmt|;
-DECL|method|CamelSubscriber (String name)
+DECL|method|ReactiveStreamsCamelSubscriber (String name)
 specifier|public
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 parameter_list|(
 name|String
 name|name

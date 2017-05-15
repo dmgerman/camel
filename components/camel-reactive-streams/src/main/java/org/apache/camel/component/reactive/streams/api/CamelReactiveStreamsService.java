@@ -108,9 +108,7 @@ name|reactive
 operator|.
 name|streams
 operator|.
-name|engine
-operator|.
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 import|;
 end_import
 
@@ -552,7 +550,7 @@ function_decl|;
 comment|/*      * Methods for Camel consumers.      */
 comment|/**      * Used by Camel to associate the subscriber of the stream with the given name to a specific Camel consumer.      * This method is used to bind a Camel route to a reactive stream.      *      * @param name the stream name      * @param consumer the consumer of the route      * @return the associated subscriber      * @throws IllegalStateException if another consumer is already associated with the given stream name      */
 DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|attachCamelConsumer
 parameter_list|(
 name|String

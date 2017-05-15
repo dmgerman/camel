@@ -284,6 +284,24 @@ name|reactive
 operator|.
 name|streams
 operator|.
+name|ReactiveStreamsCamelSubscriber
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|reactive
+operator|.
+name|streams
+operator|.
 name|ReactiveStreamsConstants
 import|;
 end_import
@@ -590,7 +608,7 @@ name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 argument_list|>
 name|subscribers
 init|=
@@ -857,7 +875,7 @@ annotation|@
 name|Override
 DECL|method|streamSubscriber (String name)
 specifier|public
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|streamSubscriber
 parameter_list|(
 name|String
@@ -874,7 +892,7 @@ argument_list|,
 name|n
 lambda|->
 operator|new
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 argument_list|(
 name|name
 argument_list|)
@@ -1987,7 +2005,7 @@ annotation|@
 name|Override
 DECL|method|attachCamelConsumer (String name, ReactiveStreamsConsumer consumer)
 specifier|public
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|attachCamelConsumer
 parameter_list|(
 name|String
@@ -1997,7 +2015,7 @@ name|ReactiveStreamsConsumer
 name|consumer
 parameter_list|)
 block|{
-name|CamelSubscriber
+name|ReactiveStreamsCamelSubscriber
 name|subscriber
 init|=
 name|streamSubscriber
