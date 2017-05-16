@@ -457,7 +457,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|"camelContext,routes"
+literal|"camelContext,routeContext,routes"
 argument_list|,
 literal|"http://camel.apache.org/schema/spring"
 argument_list|)
