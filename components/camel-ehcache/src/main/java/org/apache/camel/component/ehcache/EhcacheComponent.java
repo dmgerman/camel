@@ -102,6 +102,18 @@ name|CacheConfiguration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|ehcache
+operator|.
+name|config
+operator|.
+name|Configuration
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the component that manages {@link DefaultComponent}.  */
 end_comment
@@ -288,6 +300,39 @@ name|cacheManager
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getCacheManagerConfiguration ()
+specifier|public
+name|Configuration
+name|getCacheManagerConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getCacheManagerConfiguration
+argument_list|()
+return|;
+block|}
+comment|/**      * The cache manager configuration      */
+DECL|method|setCacheManagerConfiguration (Configuration cacheManagerConfiguration)
+specifier|public
+name|void
+name|setCacheManagerConfiguration
+parameter_list|(
+name|Configuration
+name|cacheManagerConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|.
+name|setCacheManagerConfiguration
+argument_list|(
+name|cacheManagerConfiguration
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * The default cache configuration to be used to create caches.      */
 DECL|method|setCacheConfiguration (CacheConfiguration<K, V> cacheConfiguration)
 specifier|public
@@ -354,7 +399,7 @@ name|this
 operator|.
 name|configuration
 operator|.
-name|getConfigUri
+name|getConfigurationUri
 argument_list|()
 return|;
 block|}
@@ -372,7 +417,7 @@ name|this
 operator|.
 name|configuration
 operator|.
-name|setConfigUri
+name|setConfigurationUri
 argument_list|(
 name|configurationUri
 argument_list|)

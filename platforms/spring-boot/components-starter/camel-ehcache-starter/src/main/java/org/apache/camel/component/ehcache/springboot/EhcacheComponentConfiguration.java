@@ -84,6 +84,18 @@ name|org
 operator|.
 name|ehcache
 operator|.
+name|config
+operator|.
+name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ehcache
+operator|.
 name|event
 operator|.
 name|EventFiring
@@ -186,6 +198,14 @@ specifier|private
 name|CacheManager
 name|cacheManager
 decl_stmt|;
+comment|/**      * The cache manager configuration      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|cacheManagerConfiguration
+specifier|private
+name|Configuration
+name|cacheManagerConfiguration
+decl_stmt|;
 comment|/**      * The default cache configuration to be used to create caches.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -263,6 +283,32 @@ operator|.
 name|cacheManager
 operator|=
 name|cacheManager
+expr_stmt|;
+block|}
+DECL|method|getCacheManagerConfiguration ()
+specifier|public
+name|Configuration
+name|getCacheManagerConfiguration
+parameter_list|()
+block|{
+return|return
+name|cacheManagerConfiguration
+return|;
+block|}
+DECL|method|setCacheManagerConfiguration ( Configuration cacheManagerConfiguration)
+specifier|public
+name|void
+name|setCacheManagerConfiguration
+parameter_list|(
+name|Configuration
+name|cacheManagerConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheManagerConfiguration
+operator|=
+name|cacheManagerConfiguration
 expr_stmt|;
 block|}
 DECL|method|getCacheConfiguration ()
@@ -419,6 +465,12 @@ DECL|field|cacheManager
 specifier|private
 name|CacheManager
 name|cacheManager
+decl_stmt|;
+comment|/**          * The cache manager configuration          */
+DECL|field|cacheManagerConfiguration
+specifier|private
+name|Configuration
+name|cacheManagerConfiguration
 decl_stmt|;
 DECL|field|eventOrdering
 specifier|private
@@ -625,6 +677,32 @@ operator|.
 name|cacheManager
 operator|=
 name|cacheManager
+expr_stmt|;
+block|}
+DECL|method|getCacheManagerConfiguration ()
+specifier|public
+name|Configuration
+name|getCacheManagerConfiguration
+parameter_list|()
+block|{
+return|return
+name|cacheManagerConfiguration
+return|;
+block|}
+DECL|method|setCacheManagerConfiguration ( Configuration cacheManagerConfiguration)
+specifier|public
+name|void
+name|setCacheManagerConfiguration
+parameter_list|(
+name|Configuration
+name|cacheManagerConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheManagerConfiguration
+operator|=
+name|cacheManagerConfiguration
 expr_stmt|;
 block|}
 DECL|method|getEventOrdering ()

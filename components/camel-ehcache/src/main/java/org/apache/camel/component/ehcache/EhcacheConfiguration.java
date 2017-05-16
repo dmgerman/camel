@@ -130,6 +130,18 @@ name|org
 operator|.
 name|ehcache
 operator|.
+name|config
+operator|.
+name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ehcache
+operator|.
 name|event
 operator|.
 name|EventFiring
@@ -214,6 +226,13 @@ DECL|field|cacheManager
 specifier|private
 name|CacheManager
 name|cacheManager
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|cacheManagerConfiguration
+specifier|private
+name|Configuration
+name|cacheManagerConfiguration
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -406,6 +425,21 @@ return|return
 name|configurationUri
 return|;
 block|}
+DECL|method|hasConfigurationUri ()
+specifier|public
+name|boolean
+name|hasConfigurationUri
+parameter_list|()
+block|{
+return|return
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|configurationUri
+argument_list|)
+return|;
+block|}
 comment|/**      * @deprecated use {@link #getConfigurationUri()} instead      */
 annotation|@
 name|Deprecated
@@ -556,6 +590,47 @@ return|return
 name|this
 operator|.
 name|cacheManager
+operator|!=
+literal|null
+return|;
+block|}
+DECL|method|getCacheManagerConfiguration ()
+specifier|public
+name|Configuration
+name|getCacheManagerConfiguration
+parameter_list|()
+block|{
+return|return
+name|cacheManagerConfiguration
+return|;
+block|}
+comment|/**      * The cache manager configuration      */
+DECL|method|setCacheManagerConfiguration (Configuration cacheManagerConfiguration)
+specifier|public
+name|void
+name|setCacheManagerConfiguration
+parameter_list|(
+name|Configuration
+name|cacheManagerConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheManagerConfiguration
+operator|=
+name|cacheManagerConfiguration
+expr_stmt|;
+block|}
+DECL|method|hasCacheManagerConfiguration ()
+specifier|public
+name|boolean
+name|hasCacheManagerConfiguration
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|cacheManagerConfiguration
 operator|!=
 literal|null
 return|;

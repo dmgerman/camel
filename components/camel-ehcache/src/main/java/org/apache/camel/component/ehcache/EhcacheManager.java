@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -627,6 +639,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|cache
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Unable to retrieve the cache "
+operator|+
+name|name
+operator|+
+literal|" from cache manager "
+operator|+
+name|cacheManager
+argument_list|)
+throw|;
+block|}
 return|return
 name|cache
 return|;
@@ -707,6 +740,7 @@ argument_list|,
 literal|"Camel Ehcache configuration"
 argument_list|)
 expr_stmt|;
+comment|// Check if a cache manager has been configured
 name|CacheManager
 name|manager
 init|=
@@ -718,8 +752,56 @@ decl_stmt|;
 if|if
 condition|(
 name|manager
-operator|==
+operator|!=
 literal|null
+condition|)
+block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"EhcacheManager configured with supplied CacheManager"
+argument_list|)
+expr_stmt|;
+return|return
+name|manager
+return|;
+block|}
+comment|// Check if a cache manager configuration has been provided
+if|if
+condition|(
+name|configuration
+operator|.
+name|hasCacheManagerConfiguration
+argument_list|()
+condition|)
+block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"EhcacheManager configured with supplied CacheManagerConfiguration"
+argument_list|)
+expr_stmt|;
+return|return
+name|CacheManagerBuilder
+operator|.
+name|newCacheManager
+argument_list|(
+name|configuration
+operator|.
+name|getCacheManagerConfiguration
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|// Check if a configuration file has been provided
+if|if
+condition|(
+name|configuration
+operator|.
+name|hasConfigurationUri
+argument_list|()
 condition|)
 block|{
 name|String
@@ -730,13 +812,6 @@ operator|.
 name|getConfigurationUri
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|configurationUri
-operator|!=
-literal|null
-condition|)
-block|{
 name|URL
 name|url
 init|=
@@ -762,8 +837,16 @@ argument_list|(
 name|configurationUri
 argument_list|)
 decl_stmt|;
-name|manager
-operator|=
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"EhcacheManager configured with supplied URI {}"
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
+return|return
 name|CacheManagerBuilder
 operator|.
 name|newCacheManager
@@ -774,10 +857,9 @@ argument_list|(
 name|url
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
-else|else
-block|{
+comment|// Create a cache manager using a builder
 name|CacheManagerBuilder
 name|builder
 init|=
@@ -796,6 +878,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Ehcache {} configured with custom CacheConfiguration"
+argument_list|,
+name|cacheName
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|withCache
@@ -809,17 +900,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|manager
-operator|=
+return|return
 name|builder
 operator|.
 name|build
 argument_list|()
-expr_stmt|;
-block|}
-block|}
-return|return
-name|manager
 return|;
 block|}
 block|}
