@@ -645,19 +645,6 @@ argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-comment|// is fallback enabled
-name|Boolean
-name|fallbackEnabled
-init|=
-name|getProperties
-argument_list|()
-operator|.
-name|fallbackEnabled
-argument_list|()
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
 comment|// execution exception must take precedence over exchange exception
 comment|// because hystrix may have caused this command to fail due timeout or something else
 if|if
@@ -684,7 +671,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// in case of an exception in the exchange
-comment|// we need to trigger this by throwing the exception so Hystrix will execute the fallback
+comment|// we need to trigger this by throwing the exception so hystrix will execute the fallback
 comment|// or open the circuit
 if|if
 condition|(
@@ -701,7 +688,6 @@ throw|throw
 name|camelExchangeException
 throw|;
 block|}
-comment|//}
 name|LOG
 operator|.
 name|debug
