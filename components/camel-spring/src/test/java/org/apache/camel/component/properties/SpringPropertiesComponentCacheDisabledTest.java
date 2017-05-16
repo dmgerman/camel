@@ -46,17 +46,13 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|SpringPropertiesComponentCacheDisabledTest
 specifier|public
 class|class
 name|SpringPropertiesComponentCacheDisabledTest
 extends|extends
-name|SpringPropertiesComponentTest
+name|BaseSpringPropertiesComponentTest
 block|{
 annotation|@
 name|Override

@@ -46,17 +46,13 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|SpringPropertiesComponent3Test
 specifier|public
 class|class
 name|SpringPropertiesComponent3Test
 extends|extends
-name|SpringPropertiesComponentTest
+name|BaseSpringPropertiesComponentTest
 block|{
 annotation|@
 name|Override
