@@ -170,7 +170,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|Node
+name|InternalSettingsPreparer
 import|;
 end_import
 
@@ -182,9 +182,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalSettingsPreparer
+name|Node
 import|;
 end_import
 
