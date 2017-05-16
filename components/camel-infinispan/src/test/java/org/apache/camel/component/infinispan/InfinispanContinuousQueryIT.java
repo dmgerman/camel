@@ -391,9 +391,6 @@ argument_list|(
 literal|"CQ%"
 argument_list|)
 operator|.
-name|toBuilder
-argument_list|()
-operator|.
 name|build
 argument_list|()
 return|;
@@ -441,9 +438,6 @@ argument_list|(
 literal|"%TEST%"
 argument_list|)
 operator|.
-name|toBuilder
-argument_list|()
-operator|.
 name|build
 argument_list|()
 return|;
@@ -490,9 +484,6 @@ name|like
 argument_list|(
 literal|"%Q0%"
 argument_list|)
-operator|.
-name|toBuilder
-argument_list|()
 operator|.
 name|build
 argument_list|()
