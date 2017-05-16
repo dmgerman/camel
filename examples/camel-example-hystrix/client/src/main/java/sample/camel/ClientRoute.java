@@ -59,7 +59,7 @@ block|{
 comment|// you can configure the route rule with Java DSL here
 name|from
 argument_list|(
-literal|"timer:trigger?period=1s"
+literal|"timer:trigger?period=500"
 argument_list|)
 operator|.
 name|streamCaching
@@ -77,6 +77,7 @@ argument_list|)
 operator|.
 name|hystrix
 argument_list|()
+comment|// see application.properties how hystrix is configured
 operator|.
 name|to
 argument_list|(
