@@ -135,12 +135,15 @@ specifier|final
 name|Cache
 name|cache
 decl_stmt|;
-DECL|method|EhcacheConsumer (EhcacheEndpoint endpoint, EhcacheConfiguration configuration, Processor processor)
+DECL|method|EhcacheConsumer (EhcacheEndpoint endpoint, String cacheName, EhcacheConfiguration configuration, Processor processor)
 specifier|public
 name|EhcacheConsumer
 parameter_list|(
 name|EhcacheEndpoint
 name|endpoint
+parameter_list|,
+name|String
+name|cacheName
 parameter_list|,
 name|EhcacheConfiguration
 name|configuration
@@ -180,7 +183,19 @@ operator|=
 name|manager
 operator|.
 name|getCache
+argument_list|(
+name|cacheName
+argument_list|,
+name|configuration
+operator|.
+name|getKeyType
 argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getValueType
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

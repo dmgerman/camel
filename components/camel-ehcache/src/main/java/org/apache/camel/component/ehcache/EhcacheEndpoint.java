@@ -199,7 +199,7 @@ specifier|final
 name|EhcacheManager
 name|cacheManager
 decl_stmt|;
-DECL|method|EhcacheEndpoint (String uri, EhcacheComponent component, EhcacheConfiguration configuration)
+DECL|method|EhcacheEndpoint (String uri, EhcacheComponent component, String cacheName, EhcacheConfiguration configuration)
 name|EhcacheEndpoint
 parameter_list|(
 name|String
@@ -207,6 +207,9 @@ name|uri
 parameter_list|,
 name|EhcacheComponent
 name|component
+parameter_list|,
+name|String
+name|cacheName
 parameter_list|,
 name|EhcacheConfiguration
 name|configuration
@@ -225,10 +228,7 @@ name|this
 operator|.
 name|cacheName
 operator|=
-name|configuration
-operator|.
-name|getCacheName
-argument_list|()
+name|cacheName
 expr_stmt|;
 name|this
 operator|.
@@ -243,7 +243,14 @@ operator|=
 operator|new
 name|EhcacheManager
 argument_list|(
+name|cacheName
+argument_list|,
 name|configuration
+argument_list|,
+name|component
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -262,6 +269,10 @@ operator|new
 name|EhcacheProducer
 argument_list|(
 name|this
+argument_list|,
+name|this
+operator|.
+name|cacheName
 argument_list|,
 name|configuration
 argument_list|)
@@ -285,6 +296,10 @@ operator|new
 name|EhcacheConsumer
 argument_list|(
 name|this
+argument_list|,
+name|this
+operator|.
+name|cacheName
 argument_list|,
 name|configuration
 argument_list|,
@@ -345,24 +360,6 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getComponent ()
-specifier|public
-name|EhcacheComponent
-name|getComponent
-parameter_list|()
-block|{
-return|return
-operator|(
-name|EhcacheComponent
-operator|)
-name|super
-operator|.
-name|getComponent
-argument_list|()
-return|;
 block|}
 DECL|method|getManager ()
 name|EhcacheManager
