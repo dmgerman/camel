@@ -54,6 +54,18 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
+name|ObjectUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the component that manages {@link GrpcEndpoint}.  */
 end_comment
@@ -125,6 +137,20 @@ argument_list|)
 expr_stmt|;
 comment|// Convert method name to the camel case style
 comment|// This requires if method name as described inside .proto file directly
+if|if
+condition|(
+operator|!
+name|ObjectUtils
+operator|.
+name|isEmpty
+argument_list|(
+name|config
+operator|.
+name|getMethod
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|config
 operator|.
 name|setMethod
@@ -140,6 +166,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|Endpoint
 name|endpoint
 init|=

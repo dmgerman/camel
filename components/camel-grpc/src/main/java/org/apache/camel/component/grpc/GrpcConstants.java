@@ -28,9 +28,9 @@ specifier|public
 interface|interface
 name|GrpcConstants
 block|{
-DECL|field|GRPC_SERVICE_CLASS_PREFIX
+DECL|field|GRPC_SERVICE_CLASS_POSTFIX
 name|String
-name|GRPC_SERVICE_CLASS_PREFIX
+name|GRPC_SERVICE_CLASS_POSTFIX
 init|=
 literal|"Grpc"
 decl_stmt|;
