@@ -199,7 +199,7 @@ specifier|final
 name|EhcacheManager
 name|cacheManager
 decl_stmt|;
-DECL|method|EhcacheEndpoint (String uri, EhcacheComponent component, String cacheName, EhcacheConfiguration configuration)
+DECL|method|EhcacheEndpoint (String uri, EhcacheComponent component, String cacheName, EhcacheManager cacheManager, EhcacheConfiguration configuration)
 name|EhcacheEndpoint
 parameter_list|(
 name|String
@@ -210,6 +210,9 @@ name|component
 parameter_list|,
 name|String
 name|cacheName
+parameter_list|,
+name|EhcacheManager
+name|cacheManager
 parameter_list|,
 name|EhcacheConfiguration
 name|configuration
@@ -240,18 +243,7 @@ name|this
 operator|.
 name|cacheManager
 operator|=
-operator|new
-name|EhcacheManager
-argument_list|(
-name|cacheName
-argument_list|,
-name|configuration
-argument_list|,
-name|component
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|)
+name|cacheManager
 expr_stmt|;
 block|}
 annotation|@
