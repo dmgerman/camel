@@ -81,7 +81,7 @@ specifier|private
 name|Boolean
 name|circuitBreakerForceClosed
 init|=
-literal|true
+literal|false
 decl_stmt|;
 comment|/**      * If true the HystrixCircuitBreaker.allowRequest() will always return false      * causing the circuit to be open (tripped) and reject all requests. This      * property takes precedence over circuitBreakerForceClosed();      */
 DECL|field|circuitBreakerForceOpen

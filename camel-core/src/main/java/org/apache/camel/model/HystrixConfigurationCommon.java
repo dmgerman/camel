@@ -210,7 +210,7 @@ literal|"command"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"true"
+literal|"false"
 argument_list|)
 DECL|field|circuitBreakerForceClosed
 specifier|private
