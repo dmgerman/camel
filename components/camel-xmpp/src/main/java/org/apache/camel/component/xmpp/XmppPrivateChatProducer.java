@@ -575,7 +575,7 @@ parameter_list|)
 throws|throws
 name|XmppStringprepException
 block|{
-comment|// this starts a new chat or retrieves the existing one in a threadsafe manner
+comment|// this starts a new chat or retrieves the pre-existing one in a threadsafe manner
 return|return
 name|chatManager
 operator|.
@@ -693,7 +693,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Could not establish connection to XMPP server:  "
+literal|"Could not establish connection to XMPP server: "
 operator|+
 name|endpoint
 operator|.
@@ -710,7 +710,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not connect to XMPP server. {}  Producer will attempt lazy connection when needed."
+literal|"Could not connect to XMPP server: {} Producer will attempt lazy connection when needed."
 argument_list|,
 name|e
 operator|.

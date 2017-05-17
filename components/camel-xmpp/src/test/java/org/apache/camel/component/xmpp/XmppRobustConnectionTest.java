@@ -124,24 +124,6 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Override
-DECL|method|doPreSetup ()
-specifier|public
-name|void
-name|doPreSetup
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|ReconnectionManager
-operator|.
-name|setEnabledPerDefault
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry
