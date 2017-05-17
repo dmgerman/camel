@@ -138,6 +138,12 @@ name|CACHE_ENTRY_LEAVING
 init|=
 literal|"CacheEntryLeaving"
 decl_stmt|;
+DECL|field|CACHE_ENTRY_UPDATED
+name|String
+name|CACHE_ENTRY_UPDATED
+init|=
+literal|"CacheEntryUpdated"
+decl_stmt|;
 comment|/**      * @deprecated use {@link InfinispanOperation#PUT} instead.      */
 annotation|@
 name|Deprecated

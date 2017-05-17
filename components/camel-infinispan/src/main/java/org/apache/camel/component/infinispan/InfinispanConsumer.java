@@ -845,6 +845,36 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|resultUpdated (Object key, Object value)
+specifier|public
+name|void
+name|resultUpdated
+parameter_list|(
+name|Object
+name|key
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+name|processEvent
+argument_list|(
+name|InfinispanConstants
+operator|.
+name|CACHE_ENTRY_UPDATED
+argument_list|,
+literal|false
+argument_list|,
+name|cacheName
+argument_list|,
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|resultLeaving (Object key)
 specifier|public
 name|void
