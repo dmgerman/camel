@@ -620,21 +620,16 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The default cache configuration to be used to create caches.      */
-DECL|method|setCacheConfiguration (CacheConfiguration<K, V> cacheConfiguration)
+DECL|method|setCacheConfiguration (CacheConfiguration<?, ?> cacheConfiguration)
 specifier|public
-parameter_list|<
-name|K
-parameter_list|,
-name|V
-parameter_list|>
 name|void
 name|setCacheConfiguration
 parameter_list|(
 name|CacheConfiguration
 argument_list|<
-name|K
+name|?
 argument_list|,
-name|V
+name|?
 argument_list|>
 name|cacheConfiguration
 parameter_list|)
@@ -651,16 +646,11 @@ expr_stmt|;
 block|}
 DECL|method|getCacheConfiguration ()
 specifier|public
-parameter_list|<
-name|K
-parameter_list|,
-name|V
-parameter_list|>
 name|CacheConfiguration
 argument_list|<
-name|K
+name|?
 argument_list|,
-name|V
+name|?
 argument_list|>
 name|getCacheConfiguration
 parameter_list|()
