@@ -112,7 +112,21 @@ name|smack
 operator|.
 name|packet
 operator|.
-name|DefaultPacketExtension
+name|DefaultExtensionElement
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jivesoftware
+operator|.
+name|smack
+operator|.
+name|packet
+operator|.
+name|ExtensionElement
 import|;
 end_import
 
@@ -140,21 +154,7 @@ name|smack
 operator|.
 name|packet
 operator|.
-name|Packet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jivesoftware
-operator|.
-name|smack
-operator|.
-name|packet
-operator|.
-name|PacketExtension
+name|Stanza
 import|;
 end_import
 
@@ -562,14 +562,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Populates the given XMPP packet from the inbound exchange      */
-DECL|method|populateXmppPacket (Packet packet, Exchange exchange)
+comment|/**      * Populates the given XMPP stanza from the inbound exchange      */
+DECL|method|populateXmppStanza (Stanza stanza, Exchange exchange)
 specifier|public
 name|void
-name|populateXmppPacket
+name|populateXmppStanza
 parameter_list|(
-name|Packet
-name|packet
+name|Stanza
+name|stanza
 parameter_list|,
 name|Exchange
 name|exchange
@@ -651,7 +651,7 @@ name|JivePropertiesManager
 operator|.
 name|addProperty
 argument_list|(
-name|packet
+name|stanza
 argument_list|,
 name|name
 argument_list|,
@@ -716,7 +716,7 @@ name|JivePropertiesManager
 operator|.
 name|addProperty
 argument_list|(
-name|packet
+name|stanza
 argument_list|,
 literal|"exchangeId"
 argument_list|,
@@ -726,7 +726,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Extracts the body from the XMPP message      */
-DECL|method|extractBodyFromXmpp (Exchange exchange, Packet xmppPacket)
+DECL|method|extractBodyFromXmpp (Exchange exchange, Stanza stanza)
 specifier|public
 name|Object
 name|extractBodyFromXmpp
@@ -734,13 +734,13 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|Packet
-name|xmppPacket
+name|Stanza
+name|stanza
 parameter_list|)
 block|{
 return|return
 operator|(
-name|xmppPacket
+name|stanza
 operator|instanceof
 name|Message
 operator|)
@@ -750,10 +750,10 @@ argument_list|(
 operator|(
 name|Message
 operator|)
-name|xmppPacket
+name|stanza
 argument_list|)
 else|:
-name|xmppPacket
+name|stanza
 return|;
 block|}
 DECL|method|getMessageBody (Message message)
@@ -789,7 +789,7 @@ return|return
 name|messageBody
 return|;
 block|}
-DECL|method|extractHeadersFromXmpp (Packet xmppPacket, Exchange exchange)
+DECL|method|extractHeadersFromXmpp (Stanza stanza, Exchange exchange)
 specifier|public
 name|Map
 argument_list|<
@@ -799,8 +799,8 @@ name|Object
 argument_list|>
 name|extractHeadersFromXmpp
 parameter_list|(
-name|Packet
-name|xmppPacket
+name|Stanza
+name|stanza
 parameter_list|,
 name|Exchange
 name|exchange
@@ -823,10 +823,10 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|PacketExtension
+name|ExtensionElement
 name|jpe
 init|=
-name|xmppPacket
+name|stanza
 operator|.
 name|getExtension
 argument_list|(
@@ -867,13 +867,13 @@ literal|null
 operator|&&
 name|jpe
 operator|instanceof
-name|DefaultPacketExtension
+name|DefaultExtensionElement
 condition|)
 block|{
 name|extractHeadersFrom
 argument_list|(
 operator|(
-name|DefaultPacketExtension
+name|DefaultExtensionElement
 operator|)
 name|jpe
 argument_list|,
@@ -885,7 +885,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|xmppPacket
+name|stanza
 operator|instanceof
 name|Message
 condition|)
@@ -896,7 +896,7 @@ init|=
 operator|(
 name|Message
 operator|)
-name|xmppPacket
+name|stanza
 decl_stmt|;
 name|answer
 operator|.
@@ -944,7 +944,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|xmppPacket
+name|stanza
 operator|instanceof
 name|PubSub
 condition|)
@@ -955,7 +955,7 @@ init|=
 operator|(
 name|PubSub
 operator|)
-name|xmppPacket
+name|stanza
 decl_stmt|;
 name|answer
 operator|.
@@ -980,7 +980,7 @@ name|XmppConstants
 operator|.
 name|FROM
 argument_list|,
-name|xmppPacket
+name|stanza
 operator|.
 name|getFrom
 argument_list|()
@@ -994,9 +994,23 @@ name|XmppConstants
 operator|.
 name|PACKET_ID
 argument_list|,
-name|xmppPacket
+name|stanza
 operator|.
-name|getPacketID
+name|getStanzaId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|put
+argument_list|(
+name|XmppConstants
+operator|.
+name|STANZA_ID
+argument_list|,
+name|stanza
+operator|.
+name|getStanzaId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1008,7 +1022,7 @@ name|XmppConstants
 operator|.
 name|TO
 argument_list|,
-name|xmppPacket
+name|stanza
 operator|.
 name|getTo
 argument_list|()
@@ -1086,12 +1100,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|extractHeadersFrom (DefaultPacketExtension jpe, Exchange exchange, Map<String, Object> answer)
+DECL|method|extractHeadersFrom (DefaultExtensionElement jpe, Exchange exchange, Map<String, Object> answer)
 specifier|private
 name|void
 name|extractHeadersFrom
 parameter_list|(
-name|DefaultPacketExtension
+name|DefaultExtensionElement
 name|jpe
 parameter_list|,
 name|Exchange

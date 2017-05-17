@@ -52,11 +52,20 @@ name|FROM
 init|=
 literal|"CamelXmppFrom"
 decl_stmt|;
+comment|/**      * @deprecated use {@link #STANZA_ID}      */
+annotation|@
+name|Deprecated
 DECL|field|PACKET_ID
 name|String
 name|PACKET_ID
 init|=
 literal|"CamelXmppPacketID"
+decl_stmt|;
+DECL|field|STANZA_ID
+name|String
+name|STANZA_ID
+init|=
+literal|"CamelXmppStanzaID"
 decl_stmt|;
 DECL|field|TO
 name|String

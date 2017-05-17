@@ -64,7 +64,7 @@ name|jivesoftware
 operator|.
 name|smack
 operator|.
-name|XMPPConnection
+name|XMPPException
 import|;
 end_import
 
@@ -76,7 +76,9 @@ name|jivesoftware
 operator|.
 name|smack
 operator|.
-name|XMPPException
+name|tcp
+operator|.
+name|XMPPTCPConnection
 import|;
 end_import
 
@@ -149,7 +151,7 @@ name|endpoint
 decl_stmt|;
 DECL|field|connection
 specifier|private
-name|XMPPConnection
+name|XMPPTCPConnection
 name|connection
 decl_stmt|;
 DECL|method|XmppPubSubProducer (XmppEndpoint endpoint)
@@ -322,7 +324,7 @@ operator|.
 name|getBinding
 argument_list|()
 operator|.
-name|populateXmppPacket
+name|populateXmppStanza
 argument_list|(
 name|pubsubpacket
 argument_list|,
@@ -345,7 +347,7 @@ argument_list|)
 expr_stmt|;
 name|connection
 operator|.
-name|sendPacket
+name|sendStanza
 argument_list|(
 name|pubsubpacket
 argument_list|)
@@ -391,38 +393,6 @@ argument_list|,
 name|exchange
 argument_list|,
 name|xmppe
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeExchangeException
-argument_list|(
-literal|"Cannot send XMPP pubsub: from "
-operator|+
-name|endpoint
-operator|.
-name|getUser
-argument_list|()
-operator|+
-literal|" to: "
-operator|+
-name|XmppEndpoint
-operator|.
-name|getConnectionMessage
-argument_list|(
-name|connection
-argument_list|)
-argument_list|,
-name|exchange
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}

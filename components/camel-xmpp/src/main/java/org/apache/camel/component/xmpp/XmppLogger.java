@@ -26,7 +26,7 @@ name|jivesoftware
 operator|.
 name|smack
 operator|.
-name|PacketListener
+name|StanzaListener
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|smack
 operator|.
 name|packet
 operator|.
-name|Packet
+name|Stanza
 import|;
 end_import
 
@@ -70,7 +70,7 @@ specifier|public
 class|class
 name|XmppLogger
 implements|implements
-name|PacketListener
+name|StanzaListener
 block|{
 DECL|field|LOG
 specifier|private
@@ -108,13 +108,13 @@ operator|=
 name|direction
 expr_stmt|;
 block|}
-DECL|method|processPacket (Packet packet)
+DECL|method|processStanza (Stanza stanza)
 specifier|public
 name|void
-name|processPacket
+name|processStanza
 parameter_list|(
-name|Packet
-name|packet
+name|Stanza
+name|stanza
 parameter_list|)
 block|{
 if|if
@@ -133,7 +133,7 @@ literal|"{} : {}"
 argument_list|,
 name|direction
 argument_list|,
-name|packet
+name|stanza
 operator|.
 name|toXML
 argument_list|()

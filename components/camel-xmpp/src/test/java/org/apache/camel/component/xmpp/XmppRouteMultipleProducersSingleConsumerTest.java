@@ -56,6 +56,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -96,6 +110,38 @@ specifier|protected
 name|MockEndpoint
 name|badEndpoint
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|registry
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|EmbeddedXmppTestServer
+operator|.
+name|instance
+argument_list|()
+operator|.
+name|bindSSLContextTo
+argument_list|(
+name|registry
+argument_list|)
+expr_stmt|;
+return|return
+name|registry
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testProducerGetsEverything ()
@@ -297,7 +343,7 @@ operator|.
 name|getXmppPort
 argument_list|()
 operator|+
-literal|"/camel_consumer@apache.camel?user=camel_producer&password=secret&serviceName=apache.camel"
+literal|"/camel_consumer@apache.camel?connectionConfig=#customConnectionConfig&room=camel-test-room@conference.apache.camel&user=camel_producer&password=secret&serviceName=apache.camel"
 return|;
 block|}
 DECL|method|getProducer2Uri ()
@@ -317,7 +363,7 @@ operator|.
 name|getXmppPort
 argument_list|()
 operator|+
-literal|"/camel_consumer@apache.camel?user=camel_producer1&password=secret&serviceName=apache.camel"
+literal|"/camel_consumer@apache.camel?connectionConfig=#customConnectionConfig&user=camel_producer1&password=secret&serviceName=apache.camel"
 return|;
 block|}
 DECL|method|getConsumerUri ()
@@ -337,7 +383,7 @@ operator|.
 name|getXmppPort
 argument_list|()
 operator|+
-literal|"/camel_producer@apache.camel?user=camel_consumer&password=secret&serviceName=apache.camel"
+literal|"/camel_producer@apache.camel?connectionConfig=#customConnectionConfig&room=camel-test-room@conference.apache.camel&user=camel_consumer&password=secret&serviceName=apache.camel"
 return|;
 block|}
 block|}

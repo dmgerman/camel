@@ -64,18 +64,6 @@ name|jivesoftware
 operator|.
 name|smack
 operator|.
-name|XMPPConnection
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jivesoftware
-operator|.
-name|smack
-operator|.
 name|XMPPException
 import|;
 end_import
@@ -90,7 +78,21 @@ name|smack
 operator|.
 name|packet
 operator|.
-name|Packet
+name|Stanza
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jivesoftware
+operator|.
+name|smack
+operator|.
+name|tcp
+operator|.
+name|XMPPTCPConnection
 import|;
 end_import
 
@@ -147,7 +149,7 @@ name|endpoint
 decl_stmt|;
 DECL|field|connection
 specifier|private
-name|XMPPConnection
+name|XMPPTCPConnection
 name|connection
 decl_stmt|;
 DECL|method|XmppDirectProducer (XmppEndpoint endpoint)
@@ -295,15 +297,15 @@ if|if
 condition|(
 name|body
 operator|instanceof
-name|Packet
+name|Stanza
 condition|)
 block|{
 name|connection
 operator|.
-name|sendPacket
+name|sendStanza
 argument_list|(
 operator|(
-name|Packet
+name|Stanza
 operator|)
 name|body
 argument_list|)
@@ -314,17 +316,17 @@ if|if
 condition|(
 name|body
 operator|instanceof
-name|Packet
+name|Stanza
 index|[]
 condition|)
 block|{
 specifier|final
-name|Packet
+name|Stanza
 index|[]
 name|packets
 init|=
 operator|(
-name|Packet
+name|Stanza
 index|[]
 operator|)
 name|body
@@ -332,7 +334,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|Packet
+name|Stanza
 name|packet
 range|:
 name|packets
@@ -340,7 +342,7 @@ control|)
 block|{
 name|connection
 operator|.
-name|sendPacket
+name|sendStanza
 argument_list|(
 name|packet
 argument_list|)
@@ -353,7 +355,7 @@ throw|throw
 operator|new
 name|Exception
 argument_list|(
-literal|"Body does not contain Packet/Packet[] object(s)"
+literal|"Body does not contain Stanza/Stanza[] object(s)"
 argument_list|)
 throw|;
 block|}

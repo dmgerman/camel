@@ -56,6 +56,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -89,11 +103,6 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target"
-argument_list|)
 DECL|class|XmppMultiUserChatTest
 specifier|public
 class|class
@@ -105,11 +114,6 @@ DECL|field|consumerEndpoint
 specifier|protected
 name|MockEndpoint
 name|consumerEndpoint
-decl_stmt|;
-DECL|field|producerEndpoint
-specifier|protected
-name|MockEndpoint
-name|producerEndpoint
 decl_stmt|;
 DECL|field|body1
 specifier|protected
@@ -125,6 +129,38 @@ name|body2
 init|=
 literal|"the second message"
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|registry
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|EmbeddedXmppTestServer
+operator|.
+name|instance
+argument_list|()
+operator|.
+name|bindSSLContextTo
+argument_list|(
+name|registry
+argument_list|)
+expr_stmt|;
+return|return
+name|registry
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testXmppChat ()
@@ -254,7 +290,7 @@ operator|.
 name|getXmppPort
 argument_list|()
 operator|+
-literal|"/?room=camel-test@conference.apache.camel&user=camel_producer@apache.camel&password=secret&nickname=camel_producer"
+literal|"/?connectionConfig=#customConnectionConfig&room=camel-test@conference.apache.camel&user=camel_producer@apache.camel&password=secret&nickname=camel_producer"
 return|;
 block|}
 DECL|method|getConsumerUri ()
@@ -274,7 +310,7 @@ operator|.
 name|getXmppPort
 argument_list|()
 operator|+
-literal|"/?room=camel-test@conference.apache.camel&user=camel_consumer@apache.camel&password=secret&nickname=camel_consumer"
+literal|"/?connectionConfig=#customConnectionConfig&room=camel-test@conference.apache.camel&user=camel_consumer@apache.camel&password=secret&nickname=camel_consumer"
 return|;
 block|}
 block|}

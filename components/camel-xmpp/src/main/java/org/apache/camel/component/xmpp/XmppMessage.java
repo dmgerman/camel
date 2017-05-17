@@ -80,7 +80,7 @@ name|smack
 operator|.
 name|packet
 operator|.
-name|Packet
+name|Stanza
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|DefaultMessage
 block|{
 DECL|field|xmppPacket
 specifier|private
-name|Packet
+name|Stanza
 name|xmppPacket
 decl_stmt|;
 DECL|method|XmppMessage ()
@@ -114,34 +114,34 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|XmppMessage (Message jmsMessage)
+DECL|method|XmppMessage (Message message)
 specifier|public
 name|XmppMessage
 parameter_list|(
 name|Message
-name|jmsMessage
+name|message
 parameter_list|)
 block|{
 name|this
 operator|.
 name|xmppPacket
 operator|=
-name|jmsMessage
+name|message
 expr_stmt|;
 block|}
-DECL|method|XmppMessage (Packet jmsMessage)
+DECL|method|XmppMessage (Stanza stanza)
 specifier|public
 name|XmppMessage
 parameter_list|(
-name|Packet
-name|jmsMessage
+name|Stanza
+name|stanza
 parameter_list|)
 block|{
 name|this
 operator|.
 name|xmppPacket
 operator|=
-name|jmsMessage
+name|stanza
 expr_stmt|;
 block|}
 annotation|@
@@ -216,7 +216,7 @@ block|}
 comment|/**      * Returns the underlying XMPP packet      */
 DECL|method|getXmppPacket ()
 specifier|public
-name|Packet
+name|Stanza
 name|getXmppPacket
 parameter_list|()
 block|{
@@ -224,12 +224,12 @@ return|return
 name|xmppPacket
 return|;
 block|}
-DECL|method|setXmppPacket (Packet xmppPacket)
+DECL|method|setXmppPacket (Stanza xmppPacket)
 specifier|public
 name|void
 name|setXmppPacket
 parameter_list|(
-name|Packet
+name|Stanza
 name|xmppPacket
 parameter_list|)
 block|{
