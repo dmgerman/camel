@@ -990,18 +990,6 @@ argument_list|,
 name|headers
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|result
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Result is not of type List"

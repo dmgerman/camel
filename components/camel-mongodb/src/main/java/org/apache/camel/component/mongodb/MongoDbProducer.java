@@ -1865,24 +1865,6 @@ decl_stmt|;
 name|BasicDBObject
 name|query
 init|=
-literal|null
-decl_stmt|;
-comment|// do not run around looking for a type converter unless there is a need for it
-if|if
-condition|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|query
-operator|=
 name|exchange
 operator|.
 name|getIn
@@ -1894,8 +1876,7 @@ name|BasicDBObject
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|DistinctIterable
 argument_list|<
 name|String
