@@ -1012,7 +1012,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Connection to XMPP server failed. Will try to reconnect later again"
+literal|"Connection to XMPP server failed. Will try to reconnect later again."
 argument_list|,
 name|e
 argument_list|)
