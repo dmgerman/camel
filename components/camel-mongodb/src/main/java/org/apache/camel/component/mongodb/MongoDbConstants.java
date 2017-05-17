@@ -97,6 +97,15 @@ name|MULTIUPDATE
 init|=
 literal|"CamelMongoDbMultiUpdate"
 decl_stmt|;
+DECL|field|MULTIINSERT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MULTIINSERT
+init|=
+literal|"CamelMongoDbMultiInsert"
+decl_stmt|;
 DECL|field|UPSERT
 specifier|public
 specifier|static
