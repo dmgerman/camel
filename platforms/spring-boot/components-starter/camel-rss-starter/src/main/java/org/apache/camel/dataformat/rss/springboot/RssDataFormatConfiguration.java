@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|RssDataFormatConfiguration
 specifier|public
 class|class
 name|RssDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader

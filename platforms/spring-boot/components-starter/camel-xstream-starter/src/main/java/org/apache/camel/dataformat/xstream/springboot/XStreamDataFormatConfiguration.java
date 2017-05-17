@@ -54,6 +54,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -87,6 +103,8 @@ DECL|class|XStreamDataFormatConfiguration
 specifier|public
 class|class
 name|XStreamDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Adds permissions that controls which Java packages and classes XStream is      * allowed to use during unmarshal from xml/json to Java beans. A permission      * must be configured either here or globally using a JVM system property.      * The permission can be specified in a syntax where a plus sign is allow      * and minus sign is deny. Wildcards is supported by using . as prefix. For      * example to allow com.foo and all subpackages then specfy com.foo..      * Multiple permissions can be configured separated by comma such as      * com.foo.-com.foo.bar.MySecretBean. The following default permission is      * always included: -java.lang.java.util. unless its overridden by      * specifying a JVM system property with they key      * org.apache.camel.xstream.permissions.      */
 DECL|field|permissions

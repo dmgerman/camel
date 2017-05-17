@@ -50,6 +50,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -99,6 +115,8 @@ DECL|class|BeanstalkComponentConfiguration
 specifier|public
 class|class
 name|BeanstalkComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Custom ConnectionSettingsFactory. Specify which ConnectionSettingsFactory      * to use to make connections to Beanstalkd. Especially useful for unit      * testing without beanstalkd daemon (you can mock ConnectionSettings)      */
 annotation|@

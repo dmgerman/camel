@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|XMLSecurityDataFormatConfiguration
 specifier|public
 class|class
 name|XMLSecurityDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * The cipher algorithm to be used for encryption/decryption of the XML      * message content. The available choices are: XMLCipher.TRIPLEDES      * XMLCipher.AES_128 XMLCipher.AES_128_GCM XMLCipher.AES_192      * XMLCipher.AES_192_GCM XMLCipher.AES_256 XMLCipher.AES_256_GCM      * XMLCipher.SEED_128 XMLCipher.CAMELLIA_128 XMLCipher.CAMELLIA_192      * XMLCipher.CAMELLIA_256 The default value is MLCipher.TRIPLEDES      */
 DECL|field|xmlCipherAlgorithm

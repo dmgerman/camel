@@ -102,6 +102,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -151,6 +167,8 @@ DECL|class|PropertiesComponentConfiguration
 specifier|public
 class|class
 name|PropertiesComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * A list of locations to load properties. This option will override any      * default locations and only use the locations from this option.      */
 DECL|field|locations

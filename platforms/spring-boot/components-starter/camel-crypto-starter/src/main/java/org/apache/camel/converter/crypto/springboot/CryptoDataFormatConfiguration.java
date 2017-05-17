@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|CryptoDataFormatConfiguration
 specifier|public
 class|class
 name|CryptoDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * The JCE algorithm name indicating the cryptographic algorithm that will      * be used. Is by default DES/CBC/PKCS5Padding.      */
 DECL|field|algorithm

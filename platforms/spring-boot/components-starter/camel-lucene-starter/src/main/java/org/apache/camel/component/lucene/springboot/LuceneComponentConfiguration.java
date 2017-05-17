@@ -72,6 +72,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|analysis
@@ -147,6 +163,8 @@ DECL|class|LuceneComponentConfiguration
 specifier|public
 class|class
 name|LuceneComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use a shared lucene configuration      */
 DECL|field|config

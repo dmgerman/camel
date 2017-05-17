@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|JibxDataFormatConfiguration
 specifier|public
 class|class
 name|JibxDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Class name to use when unmarshalling from XML to Java.      */
 DECL|field|unmarshallClass

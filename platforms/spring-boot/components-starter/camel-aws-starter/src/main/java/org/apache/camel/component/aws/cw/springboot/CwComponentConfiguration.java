@@ -24,6 +24,32 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|Generated
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|springframework
@@ -44,6 +70,11 @@ end_comment
 
 begin_class
 annotation|@
+name|Generated
+argument_list|(
+literal|"org.apache.camel.maven.packaging.SpringBootAutoConfigurationMojo"
+argument_list|)
+annotation|@
 name|ConfigurationProperties
 argument_list|(
 name|prefix
@@ -54,6 +85,8 @@ DECL|class|CwComponentConfiguration
 specifier|public
 class|class
 name|CwComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders

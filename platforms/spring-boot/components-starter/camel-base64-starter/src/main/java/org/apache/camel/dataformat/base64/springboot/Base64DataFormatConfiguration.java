@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|Base64DataFormatConfiguration
 specifier|public
 class|class
 name|Base64DataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * To specific a maximum line length for the encoded data. By default 76 is      * used.      */
 DECL|field|lineLength

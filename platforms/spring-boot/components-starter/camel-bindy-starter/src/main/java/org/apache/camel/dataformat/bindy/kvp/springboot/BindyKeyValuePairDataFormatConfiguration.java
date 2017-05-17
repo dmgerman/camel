@@ -52,6 +52,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -85,6 +101,8 @@ DECL|class|BindyKeyValuePairDataFormatConfiguration
 specifier|public
 class|class
 name|BindyKeyValuePairDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Whether to use csv fixed or key value pairs mode.      */
 DECL|field|type

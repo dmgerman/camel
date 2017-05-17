@@ -46,6 +46,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -95,6 +111,8 @@ DECL|class|JoltComponentConfiguration
 specifier|public
 class|class
 name|JoltComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Explicitly sets the Transform to use. If not set a Transform specified by      * the transformDsl will be created      */
 annotation|@

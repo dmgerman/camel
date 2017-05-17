@@ -36,6 +36,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|velocity
 operator|.
 name|app
@@ -97,6 +113,8 @@ DECL|class|VelocityComponentConfiguration
 specifier|public
 class|class
 name|VelocityComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use the VelocityEngine otherwise a new engine is created      */
 annotation|@

@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|PGPDataFormatConfiguration
 specifier|public
 class|class
 name|PGPDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * The user ID of the key in the PGP keyring used during encryption. Can      * also be only a part of a user ID. For example if the user ID is Test User      * then you can use the part Test User or to address the user ID.      */
 DECL|field|keyUserid

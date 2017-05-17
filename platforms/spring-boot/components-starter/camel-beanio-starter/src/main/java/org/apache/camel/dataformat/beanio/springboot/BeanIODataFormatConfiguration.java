@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|BeanIODataFormatConfiguration
 specifier|public
 class|class
 name|BeanIODataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * The BeanIO mapping file. Is by default loaded from the classpath. You can      * prefix with file: http: or classpath: to denote from where to load the      * mapping file.      */
 DECL|field|mapping

@@ -46,6 +46,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -79,6 +95,8 @@ DECL|class|RestSwaggerComponentConfiguration
 specifier|public
 class|class
 name|RestSwaggerComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * API basePath for example /v2. Default is unset if set overrides the value      * present in Swagger specification.      */
 DECL|field|basePath

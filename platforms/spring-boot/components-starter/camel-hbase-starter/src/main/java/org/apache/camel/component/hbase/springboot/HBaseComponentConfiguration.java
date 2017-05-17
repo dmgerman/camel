@@ -36,6 +36,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|hadoop
 operator|.
 name|conf
@@ -97,6 +113,8 @@ DECL|class|HBaseComponentConfiguration
 specifier|public
 class|class
 name|HBaseComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use the shared configuration      */
 annotation|@

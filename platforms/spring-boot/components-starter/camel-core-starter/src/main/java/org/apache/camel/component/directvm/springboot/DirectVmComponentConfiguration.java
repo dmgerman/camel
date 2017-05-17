@@ -48,6 +48,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -97,6 +113,8 @@ DECL|class|DirectVmComponentConfiguration
 specifier|public
 class|class
 name|DirectVmComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * If sending a message to a direct endpoint which has no active consumer      * then we can tell the producer to block and wait for the consumer to      * become active.      */
 DECL|field|block

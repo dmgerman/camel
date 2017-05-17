@@ -118,6 +118,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|infinispan
 operator|.
 name|commons
@@ -209,6 +225,8 @@ DECL|class|InfinispanComponentConfiguration
 specifier|public
 class|class
 name|InfinispanComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * The default configuration shared among endpoints.      */
 DECL|field|configuration

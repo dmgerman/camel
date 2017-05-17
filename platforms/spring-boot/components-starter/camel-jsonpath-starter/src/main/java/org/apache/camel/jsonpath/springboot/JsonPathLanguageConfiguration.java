@@ -32,6 +32,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|LanguageConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -65,6 +81,8 @@ DECL|class|JsonPathLanguageConfiguration
 specifier|public
 class|class
 name|JsonPathLanguageConfiguration
+extends|extends
+name|LanguageConfigurationPropertiesCommon
 block|{
 comment|/**      * Whether to suppress exceptions such as PathNotFoundException.      */
 DECL|field|suppressExceptions

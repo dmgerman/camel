@@ -130,6 +130,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -179,6 +195,8 @@ DECL|class|NettyHttpComponentConfiguration
 specifier|public
 class|class
 name|NettyHttpComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use a custom org.apache.camel.component.netty4.http.NettyHttpBinding      * for binding to/from Netty and Camel Message API.      */
 annotation|@

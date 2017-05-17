@@ -98,6 +98,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -147,6 +163,8 @@ DECL|class|WebsocketComponentConfiguration
 specifier|public
 class|class
 name|WebsocketComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Default name of servlet to use. The default name is CamelServlet.      */
 DECL|field|servletName

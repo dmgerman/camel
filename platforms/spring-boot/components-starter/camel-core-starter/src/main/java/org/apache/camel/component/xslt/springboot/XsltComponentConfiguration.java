@@ -106,6 +106,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -155,6 +171,8 @@ DECL|class|XsltComponentConfiguration
 specifier|public
 class|class
 name|XsltComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use a custom implementation of      * org.apache.camel.converter.jaxp.XmlConverter      */
 DECL|field|xmlConverter

@@ -36,6 +36,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -69,6 +85,8 @@ DECL|class|MimeMultipartDataFormatConfiguration
 specifier|public
 class|class
 name|MimeMultipartDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Specify the subtype of the MIME Multipart. Default is mixed.      */
 DECL|field|multipartSubType

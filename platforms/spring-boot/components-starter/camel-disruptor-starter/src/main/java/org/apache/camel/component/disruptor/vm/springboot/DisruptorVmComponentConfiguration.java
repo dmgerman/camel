@@ -86,6 +86,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -135,6 +151,8 @@ DECL|class|DisruptorVmComponentConfiguration
 specifier|public
 class|class
 name|DisruptorVmComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To configure the default number of concurrent consumers      */
 DECL|field|defaultConcurrentConsumers

@@ -48,6 +48,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -97,6 +113,8 @@ DECL|class|Jt400ComponentConfiguration
 specifier|public
 class|class
 name|Jt400ComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Returns the default connection pool used by this component.      */
 annotation|@

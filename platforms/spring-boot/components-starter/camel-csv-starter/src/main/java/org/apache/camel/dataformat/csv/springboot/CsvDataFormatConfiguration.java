@@ -44,6 +44,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -77,6 +93,8 @@ DECL|class|CsvDataFormatConfiguration
 specifier|public
 class|class
 name|CsvDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * The reference format to use it will be updated with the other format      * options the default value is CSVFormat.DEFAULT      */
 DECL|field|formatRef

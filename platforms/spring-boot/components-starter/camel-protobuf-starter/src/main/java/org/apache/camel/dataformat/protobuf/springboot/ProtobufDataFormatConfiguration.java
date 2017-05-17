@@ -50,6 +50,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -83,6 +99,8 @@ DECL|class|ProtobufDataFormatConfiguration
 specifier|public
 class|class
 name|ProtobufDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Name of class to use when unarmshalling      */
 DECL|field|instanceClass

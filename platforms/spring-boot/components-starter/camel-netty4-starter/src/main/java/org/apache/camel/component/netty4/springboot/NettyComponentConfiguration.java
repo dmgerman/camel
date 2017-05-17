@@ -226,6 +226,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jsse
@@ -303,6 +319,8 @@ DECL|class|NettyComponentConfiguration
 specifier|public
 class|class
 name|NettyComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * The thread pool size for the EventExecutorGroup if its in use. The      * default value is 16.      */
 DECL|field|maximumPoolSize

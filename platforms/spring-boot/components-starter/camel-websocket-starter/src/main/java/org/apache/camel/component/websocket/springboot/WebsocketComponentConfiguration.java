@@ -64,6 +64,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jsse
@@ -141,6 +157,8 @@ DECL|class|WebsocketComponentConfiguration
 specifier|public
 class|class
 name|WebsocketComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Set a resource path for static resources (such as .html files etc). The      * resources can be loaded from classpath if you prefix with classpath:      * otherwise the resources is loaded from file system or from JAR files. For      * example to load from root classpath use classpath:. or      * classpath:WEB-INF/static If not configured (eg null) then no static      * resource is in use.      */
 DECL|field|staticResources

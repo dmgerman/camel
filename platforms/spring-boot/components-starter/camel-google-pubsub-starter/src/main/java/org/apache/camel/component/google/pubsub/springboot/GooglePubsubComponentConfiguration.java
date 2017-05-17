@@ -36,6 +36,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -69,6 +85,8 @@ DECL|class|GooglePubsubComponentConfiguration
 specifier|public
 class|class
 name|GooglePubsubComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Sets the connection factory to use: provides the ability to explicitly      * manage connection credentials: - the path to the key file - the Service      * Account Key / Email pair      */
 DECL|field|connectionFactory

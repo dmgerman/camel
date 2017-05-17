@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|LanguageConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|XPathLanguageConfiguration
 specifier|public
 class|class
 name|XPathLanguageConfiguration
+extends|extends
+name|LanguageConfigurationPropertiesCommon
 block|{
 comment|/**      * Name of class for document type The default value is org.w3c.dom.Document      */
 DECL|field|documentType

@@ -68,6 +68,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jsse
@@ -149,6 +165,8 @@ DECL|class|AhcComponentConfiguration
 specifier|public
 class|class
 name|AhcComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use a custom AsyncHttpClient      */
 annotation|@

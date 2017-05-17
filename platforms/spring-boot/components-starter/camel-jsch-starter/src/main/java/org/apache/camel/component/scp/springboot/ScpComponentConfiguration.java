@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|ScpComponentConfiguration
 specifier|public
 class|class
 name|ScpComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * JSCH is verbose logging out of the box. Therefore we turn the logging      * down to DEBUG logging by default. But setting this option to true turns      * on the verbose logging again.      */
 DECL|field|verboseLogging

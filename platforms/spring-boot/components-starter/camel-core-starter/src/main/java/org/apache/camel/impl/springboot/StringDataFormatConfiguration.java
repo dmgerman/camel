@@ -32,6 +32,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -65,6 +81,8 @@ DECL|class|StringDataFormatConfiguration
 specifier|public
 class|class
 name|StringDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Sets an encoding to use. Will by default use the JVM platform default      * charset.      */
 DECL|field|charset

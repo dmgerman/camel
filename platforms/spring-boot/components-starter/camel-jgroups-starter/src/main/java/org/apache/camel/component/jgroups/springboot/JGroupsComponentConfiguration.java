@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jgroups
 operator|.
 name|JChannel
@@ -93,6 +109,8 @@ DECL|class|JGroupsComponentConfiguration
 specifier|public
 class|class
 name|JGroupsComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Channel to use      */
 annotation|@

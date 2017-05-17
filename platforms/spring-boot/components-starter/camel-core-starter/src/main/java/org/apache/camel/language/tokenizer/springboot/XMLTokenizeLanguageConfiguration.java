@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|LanguageConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|XMLTokenizeLanguageConfiguration
 specifier|public
 class|class
 name|XMLTokenizeLanguageConfiguration
+extends|extends
+name|LanguageConfigurationPropertiesCommon
 block|{
 comment|/**      * The extraction mode. The available extraction modes are: i - injecting      * the contextual namespace bindings into the extracted token (default) w -      * wrapping the extracted token in its ancestor context u - unwrapping the      * extracted token to its child content t - extracting the text content of      * the specified element      */
 DECL|field|mode

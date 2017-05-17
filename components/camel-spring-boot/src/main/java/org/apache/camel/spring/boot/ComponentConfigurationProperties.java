@@ -46,41 +46,9 @@ DECL|class|ComponentConfigurationProperties
 specifier|public
 class|class
 name|ComponentConfigurationProperties
-block|{
-DECL|field|enabled
-specifier|private
-name|boolean
-name|enabled
-init|=
-literal|true
-decl_stmt|;
-DECL|method|isEnabled ()
-specifier|public
-name|boolean
-name|isEnabled
-parameter_list|()
-block|{
-return|return
-name|enabled
-return|;
-block|}
-DECL|method|setEnabled (boolean enabled)
-specifier|public
-name|void
-name|setEnabled
-parameter_list|(
-name|boolean
-name|enabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|enabled
-operator|=
-name|enabled
-expr_stmt|;
-block|}
-block|}
+extends|extends
+name|ComponentConfigurationPropertiesCommon
+block|{ }
 end_class
 
 end_unit

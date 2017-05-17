@@ -48,6 +48,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -97,6 +113,8 @@ DECL|class|HazelcastMultimapComponentConfiguration
 specifier|public
 class|class
 name|HazelcastMultimapComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * The hazelcast instance reference which can be used for hazelcast      * endpoint. If you don't specify the instance reference camel use the      * default hazelcast instance from the camel-hazelcast instance.      */
 annotation|@

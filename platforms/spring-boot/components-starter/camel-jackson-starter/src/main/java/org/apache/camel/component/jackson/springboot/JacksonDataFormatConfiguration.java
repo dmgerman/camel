@@ -66,6 +66,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -99,6 +115,8 @@ DECL|class|JacksonDataFormatConfiguration
 specifier|public
 class|class
 name|JacksonDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Lookup and use the existing ObjectMapper with the given id when using      * Jackson.      */
 DECL|field|objectMapper

@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|LanguageConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|XQueryLanguageConfiguration
 specifier|public
 class|class
 name|XQueryLanguageConfiguration
+extends|extends
+name|LanguageConfigurationPropertiesCommon
 block|{
 comment|/**      * Sets the class name of the result type (type from output) The default      * result type is NodeSet      */
 DECL|field|type

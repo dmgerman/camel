@@ -48,6 +48,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jsse
@@ -139,6 +155,8 @@ DECL|class|CometdComponentConfiguration
 specifier|public
 class|class
 name|CometdComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * The password for the keystore when using SSL.      */
 DECL|field|sslKeyPassword

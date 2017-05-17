@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|TidyMarkupDataFormatConfiguration
 specifier|public
 class|class
 name|TidyMarkupDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * What data type to unmarshal as can either be org.w3c.dom.Node or      * java.lang.String. Is by default org.w3c.dom.Node      */
 DECL|field|dataObjectType

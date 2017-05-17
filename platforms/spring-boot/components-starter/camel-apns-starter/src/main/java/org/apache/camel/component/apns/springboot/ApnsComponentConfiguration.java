@@ -46,6 +46,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -95,6 +111,8 @@ DECL|class|ApnsComponentConfiguration
 specifier|public
 class|class
 name|ApnsComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * The ApnsService to use. The      * org.apache.camel.component.apns.factory.ApnsServiceFactory can be used to      * build a ApnsService      */
 annotation|@

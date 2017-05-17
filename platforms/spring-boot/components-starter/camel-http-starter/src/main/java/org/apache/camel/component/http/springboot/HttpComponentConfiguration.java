@@ -98,6 +98,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|httpclient
@@ -159,6 +175,8 @@ DECL|class|HttpComponentConfiguration
 specifier|public
 class|class
 name|HttpComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use the custom HttpClientConfigurer to perform configuration of the      * HttpClient that will be used.      */
 annotation|@

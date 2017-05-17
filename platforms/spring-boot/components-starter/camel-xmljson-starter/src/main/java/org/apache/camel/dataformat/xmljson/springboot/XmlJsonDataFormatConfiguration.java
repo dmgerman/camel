@@ -44,6 +44,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -77,6 +93,8 @@ DECL|class|XmlJsonDataFormatConfiguration
 specifier|public
 class|class
 name|XmlJsonDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Sets the encoding. Used for unmarshalling (JSON to XML conversion).      */
 DECL|field|encoding

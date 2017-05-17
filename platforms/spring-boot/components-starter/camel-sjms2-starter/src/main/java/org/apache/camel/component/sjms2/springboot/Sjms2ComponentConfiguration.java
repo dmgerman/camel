@@ -164,6 +164,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -213,6 +229,8 @@ DECL|class|Sjms2ComponentConfiguration
 specifier|public
 class|class
 name|Sjms2ComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * A ConnectionFactory is required to enable the SjmsComponent. It can be      * set directly or set set as part of a ConnectionResource.      */
 DECL|field|connectionFactory

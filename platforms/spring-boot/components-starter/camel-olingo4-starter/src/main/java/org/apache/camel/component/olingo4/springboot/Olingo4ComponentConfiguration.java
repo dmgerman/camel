@@ -66,6 +66,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jsse
@@ -173,6 +189,8 @@ DECL|class|Olingo4ComponentConfiguration
 specifier|public
 class|class
 name|Olingo4ComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use the shared configuration      */
 DECL|field|configuration

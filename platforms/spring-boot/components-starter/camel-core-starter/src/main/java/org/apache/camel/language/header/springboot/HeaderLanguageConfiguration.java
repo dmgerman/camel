@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|LanguageConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|HeaderLanguageConfiguration
 specifier|public
 class|class
 name|HeaderLanguageConfiguration
+extends|extends
+name|LanguageConfigurationPropertiesCommon
 block|{
 comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and      * line breaks      */
 DECL|field|trim

@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|LanguageConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -67,6 +83,8 @@ DECL|class|JXPathLanguageConfiguration
 specifier|public
 class|class
 name|JXPathLanguageConfiguration
+extends|extends
+name|LanguageConfigurationPropertiesCommon
 block|{
 comment|/**      * Allows to turn lenient on the JXPathContext. When turned on this allows      * the JXPath expression to evaluate against expressions and message bodies      * which may be invalid / missing data. This option is by default false      */
 DECL|field|lenient

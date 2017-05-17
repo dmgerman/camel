@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|client
@@ -95,6 +111,8 @@ DECL|class|ElasticsearchComponentConfiguration
 specifier|public
 class|class
 name|ElasticsearchComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * To use an existing configured Elasticsearch client instead of creating a      * client per endpoint.      */
 annotation|@

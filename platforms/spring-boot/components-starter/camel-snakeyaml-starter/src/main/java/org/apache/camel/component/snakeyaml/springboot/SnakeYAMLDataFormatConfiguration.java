@@ -92,6 +92,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|DataFormatConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -125,6 +141,8 @@ DECL|class|SnakeYAMLDataFormatConfiguration
 specifier|public
 class|class
 name|SnakeYAMLDataFormatConfiguration
+extends|extends
+name|DataFormatConfigurationPropertiesCommon
 block|{
 comment|/**      * Which yaml library to use. By default it is SnakeYAML      */
 DECL|field|library

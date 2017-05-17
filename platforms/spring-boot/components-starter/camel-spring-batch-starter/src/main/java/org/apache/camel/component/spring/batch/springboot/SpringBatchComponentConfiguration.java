@@ -36,6 +36,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|batch
@@ -117,6 +133,8 @@ DECL|class|SpringBatchComponentConfiguration
 specifier|public
 class|class
 name|SpringBatchComponentConfiguration
+extends|extends
+name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * Explicitly specifies a JobLauncher to be used.      */
 annotation|@
