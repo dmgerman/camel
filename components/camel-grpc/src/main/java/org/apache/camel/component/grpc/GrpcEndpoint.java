@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The gRPC component is using for calling remote procedures via HTTP/2  */
+comment|/**  * The gRPC component allows to call and expose remote procedures via HTTP/2 with protobuf dataformat  */
 end_comment
 
 begin_class
@@ -133,10 +133,6 @@ argument_list|,
 name|syntax
 operator|=
 literal|"grpc:service"
-argument_list|,
-name|producerOnly
-operator|=
-literal|true
 argument_list|,
 name|label
 operator|=
@@ -238,16 +234,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-throw|throw
+return|return
 operator|new
-name|UnsupportedOperationException
+name|GrpcConsumer
 argument_list|(
-literal|"Cannot consume from a gRPC endpoint: "
-operator|+
-name|getEndpointUri
-argument_list|()
+name|this
+argument_list|,
+name|processor
+argument_list|,
+name|configuration
 argument_list|)
-throw|;
+return|;
 block|}
 DECL|method|isSingleton ()
 specifier|public
