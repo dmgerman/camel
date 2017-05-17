@@ -172,7 +172,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//keep a cache of endpoints so they can be properly cleaned up
+comment|// keep a cache of endpoints so they can be properly cleaned up
 DECL|field|endpointCache
 specifier|private
 specifier|final
@@ -186,11 +186,7 @@ name|endpointCache
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|XmppEndpoint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|XmppComponent ()
@@ -471,17 +467,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 name|ReconnectionManager
 operator|.
 name|setEnabledPerDefault
 argument_list|(
 literal|true
 argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|doStart
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
