@@ -758,14 +758,6 @@ argument_list|(
 name|mucc
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -783,7 +775,6 @@ name|getNickname
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|this
 operator|.
@@ -1107,14 +1098,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -1127,7 +1110,6 @@ name|getRoom
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|muc
 operator|.
 name|removeMessageListener
