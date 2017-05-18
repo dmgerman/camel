@@ -52,7 +52,7 @@ name|FROM
 init|=
 literal|"CamelXmppFrom"
 decl_stmt|;
-comment|/**      * @deprecated use {@link #STANZA_ID}      */
+comment|/**      * @deprecated use {@link #STANZA_ID} instead.      */
 annotation|@
 name|Deprecated
 DECL|field|PACKET_ID

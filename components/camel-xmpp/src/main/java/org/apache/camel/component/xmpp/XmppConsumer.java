@@ -1376,12 +1376,9 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
+literal|"Error while polling message from MultiUserChat. This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
