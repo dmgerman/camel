@@ -315,6 +315,16 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|GrpcConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()

@@ -152,6 +152,22 @@ name|usePlainText
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|processingStrategy
+specifier|private
+name|GrpcProcessingStrategies
+name|processingStrategy
+init|=
+name|GrpcProcessingStrategies
+operator|.
+name|PROPAGATION
+decl_stmt|;
 DECL|field|serviceName
 specifier|private
 name|String
@@ -297,7 +313,7 @@ operator|=
 name|target
 expr_stmt|;
 block|}
-comment|/**      * The plaintext connection to the server flag      */
+comment|/**      * The plain text connection to the server flag      */
 DECL|method|getUsePlainText ()
 specifier|public
 name|Boolean
@@ -322,6 +338,33 @@ operator|.
 name|usePlainText
 operator|=
 name|usePlainText
+expr_stmt|;
+block|}
+comment|/**      * TBD      */
+DECL|method|getProcessingStrategy ()
+specifier|public
+name|GrpcProcessingStrategies
+name|getProcessingStrategy
+parameter_list|()
+block|{
+return|return
+name|processingStrategy
+return|;
+block|}
+DECL|method|setProcessingStrategy (GrpcProcessingStrategies processingStrategy)
+specifier|public
+name|void
+name|setProcessingStrategy
+parameter_list|(
+name|GrpcProcessingStrategies
+name|processingStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|processingStrategy
+operator|=
+name|processingStrategy
 expr_stmt|;
 block|}
 comment|/**      * The service name extracted from the full service name      */
