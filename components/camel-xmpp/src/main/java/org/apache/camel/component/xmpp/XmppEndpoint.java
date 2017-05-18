@@ -792,10 +792,14 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Currently only XMPPTCPConnectionConfiguration is supported (XMPP over TCP) and not BOSHConfiguration (XMPP over HTTP)"
 argument_list|)
 DECL|field|connectionConfig
 specifier|private
-name|XMPPTCPConnectionConfiguration
+name|ConnectionConfiguration
 name|connectionConfig
 decl_stmt|;
 DECL|method|XmppEndpoint ()
@@ -1379,6 +1383,9 @@ return|return
 operator|new
 name|XMPPTCPConnection
 argument_list|(
+operator|(
+name|XMPPTCPConnectionConfiguration
+operator|)
 name|connectionConfig
 argument_list|)
 return|;
@@ -2022,12 +2029,12 @@ name|connectionConfig
 return|;
 block|}
 comment|/**      * To use an existing connection configuration      */
-DECL|method|setConnectionConfig (XMPPTCPConnectionConfiguration connectionConfig)
+DECL|method|setConnectionConfig (ConnectionConfiguration connectionConfig)
 specifier|public
 name|void
 name|setConnectionConfig
 parameter_list|(
-name|XMPPTCPConnectionConfiguration
+name|ConnectionConfiguration
 name|connectionConfig
 parameter_list|)
 block|{
