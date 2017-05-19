@@ -11575,7 +11575,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"boolean useConfigurers = globalConfiguration.getConfigurer().isEnabled()&& componentConfiguration.getConfigurer().isEnabled();\n"
+literal|"boolean useCustomizers = globalConfiguration.getCustomizer().isEnabled()&& componentConfiguration.getCustomizer().isEnabled();\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -11589,7 +11589,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"if (useConfigurers&& ObjectHelper.isNotEmpty(customizers)) {\n"
+literal|"if (useCustomizers&& ObjectHelper.isNotEmpty(customizers)) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -11606,21 +11606,21 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"> configurer : customizers) {\n"
+literal|"> customizer : customizers) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"        LOGGER.debug(\"Configure component {}, with configurer {}\", component, configurer);\n"
+literal|"        LOGGER.debug(\"Configure component {}, with customizer {}\", component, customizer);\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"        configurer.customize(component);\n"
+literal|"        customizer.customize(component);\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -11840,7 +11840,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"boolean useConfigurers = globalConfiguration.getConfigurer().isEnabled()&& dataformatConfiguration.getConfigurer().isEnabled();\n"
+literal|"boolean useCustomizers = globalConfiguration.getCustomizer().isEnabled()&& dataformatConfiguration.getCustomizer().isEnabled();\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -11854,7 +11854,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"if (useConfigurers&& ObjectHelper.isNotEmpty(customizers)) {\n"
+literal|"if (useCustomizers&& ObjectHelper.isNotEmpty(customizers)) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -11871,21 +11871,21 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"> configurer : customizers) {\n"
+literal|"> customizer : customizers) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"        LOGGER.debug(\"Configure dataformat {}, with configurer {}\", dataformat, configurer);\n"
+literal|"        LOGGER.debug(\"Configure dataformat {}, with customizer {}\", dataformat, customizer);\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"        configurer.customize(dataformat);\n"
+literal|"        customizer.customize(dataformat);\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -12072,7 +12072,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"boolean useConfigurers = globalConfiguration.getConfigurer().isEnabled()&& languageConfiguration.getConfigurer().isEnabled();\n"
+literal|"boolean useCustomizers = globalConfiguration.getCustomizer().isEnabled()&& languageConfiguration.getCustomizer().isEnabled();\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -12086,7 +12086,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"if (useConfigurers&& ObjectHelper.isNotEmpty(customizers)) {\n"
+literal|"if (useCustomizers&& ObjectHelper.isNotEmpty(customizers)) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -12103,21 +12103,21 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"> configurer : customizers) {\n"
+literal|"> customizer : customizers) {\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"        LOGGER.debug(\"Configure language {}, with configurer {}\", language, configurer);\n"
+literal|"        LOGGER.debug(\"Configure language {}, with customizer {}\", language, customizer);\n"
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"        configurer.customize(language);\n"
+literal|"        customizer.customize(language);\n"
 argument_list|)
 expr_stmt|;
 name|sb

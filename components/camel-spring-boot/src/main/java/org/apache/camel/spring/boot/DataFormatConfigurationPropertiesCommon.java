@@ -50,13 +50,13 @@ literal|true
 decl_stmt|;
 annotation|@
 name|NestedConfigurationProperty
-DECL|field|configurer
+DECL|field|customizer
 specifier|private
-name|ConfigurerProperties
-name|configurer
+name|CustomizerProperties
+name|customizer
 init|=
 operator|new
-name|ConfigurerProperties
+name|CustomizerProperties
 argument_list|()
 decl_stmt|;
 DECL|method|isEnabled ()
@@ -85,25 +85,25 @@ operator|=
 name|enabled
 expr_stmt|;
 block|}
-DECL|method|getConfigurer ()
+DECL|method|getCustomizer ()
 specifier|public
-name|ConfigurerProperties
-name|getConfigurer
+name|CustomizerProperties
+name|getCustomizer
 parameter_list|()
 block|{
 return|return
-name|configurer
+name|customizer
 return|;
 block|}
 comment|// ********************************
-comment|// Configurer
+comment|// Customizer
 comment|// ********************************
-DECL|class|ConfigurerProperties
+DECL|class|CustomizerProperties
 specifier|public
 class|class
-name|ConfigurerProperties
+name|CustomizerProperties
 block|{
-comment|/**          * Global option to enable/disable dataformat configurers, default is true.          */
+comment|/**          * Global option to enable/disable dataformat customizers, default is true.          */
 DECL|field|enabled
 specifier|private
 name|boolean
