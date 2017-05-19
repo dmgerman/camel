@@ -675,11 +675,11 @@ name|parameters
 argument_list|)
 expr_stmt|;
 name|boolean
-name|useConfigurers
+name|useCustomizers
 init|=
 name|globalConfiguration
 operator|.
-name|getConfigurer
+name|getCustomizer
 argument_list|()
 operator|.
 name|isEnabled
@@ -687,7 +687,7 @@ argument_list|()
 operator|&&
 name|languageConfiguration
 operator|.
-name|getConfigurer
+name|getCustomizer
 argument_list|()
 operator|.
 name|isEnabled
@@ -695,7 +695,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|useConfigurers
+name|useCustomizers
 operator|&&
 name|ObjectHelper
 operator|.
@@ -711,7 +711,7 @@ name|LanguageCustomizer
 argument_list|<
 name|OgnlLanguage
 argument_list|>
-name|configurer
+name|customizer
 range|:
 name|customizers
 control|)
@@ -720,14 +720,14 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Configure language {}, with configurer {}"
+literal|"Configure language {}, with customizer {}"
 argument_list|,
 name|language
 argument_list|,
-name|configurer
+name|customizer
 argument_list|)
 expr_stmt|;
-name|configurer
+name|customizer
 operator|.
 name|customize
 argument_list|(

@@ -762,11 +762,11 @@ name|parameters
 argument_list|)
 expr_stmt|;
 name|boolean
-name|useConfigurers
+name|useCustomizers
 init|=
 name|globalConfiguration
 operator|.
-name|getConfigurer
+name|getCustomizer
 argument_list|()
 operator|.
 name|isEnabled
@@ -774,7 +774,7 @@ argument_list|()
 operator|&&
 name|componentConfiguration
 operator|.
-name|getConfigurer
+name|getCustomizer
 argument_list|()
 operator|.
 name|isEnabled
@@ -782,7 +782,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|useConfigurers
+name|useCustomizers
 operator|&&
 name|ObjectHelper
 operator|.
@@ -798,7 +798,7 @@ name|ComponentCustomizer
 argument_list|<
 name|SqlStoredComponent
 argument_list|>
-name|configurer
+name|customizer
 range|:
 name|customizers
 control|)
@@ -807,14 +807,14 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Configure component {}, with configurer {}"
+literal|"Configure component {}, with customizer {}"
 argument_list|,
 name|component
 argument_list|,
-name|configurer
+name|customizer
 argument_list|)
 expr_stmt|;
-name|configurer
+name|customizer
 operator|.
 name|customize
 argument_list|(

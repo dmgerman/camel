@@ -727,11 +727,11 @@ argument_list|)
 throw|;
 block|}
 name|boolean
-name|useConfigurers
+name|useCustomizers
 init|=
 name|globalConfiguration
 operator|.
-name|getConfigurer
+name|getCustomizer
 argument_list|()
 operator|.
 name|isEnabled
@@ -739,7 +739,7 @@ argument_list|()
 operator|&&
 name|dataformatConfiguration
 operator|.
-name|getConfigurer
+name|getCustomizer
 argument_list|()
 operator|.
 name|isEnabled
@@ -747,7 +747,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|useConfigurers
+name|useCustomizers
 operator|&&
 name|ObjectHelper
 operator|.
@@ -763,7 +763,7 @@ name|DataFormatCustomizer
 argument_list|<
 name|BindyCsvDataFormat
 argument_list|>
-name|configurer
+name|customizer
 range|:
 name|customizers
 control|)
@@ -772,14 +772,14 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Configure dataformat {}, with configurer {}"
+literal|"Configure dataformat {}, with customizer {}"
 argument_list|,
 name|dataformat
 argument_list|,
-name|configurer
+name|customizer
 argument_list|)
 expr_stmt|;
-name|configurer
+name|customizer
 operator|.
 name|customize
 argument_list|(

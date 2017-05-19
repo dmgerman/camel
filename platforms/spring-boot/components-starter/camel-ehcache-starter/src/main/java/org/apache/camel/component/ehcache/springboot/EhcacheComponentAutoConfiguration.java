@@ -758,7 +758,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 name|boolean
-name|useConfigurers
+name|useCustomizers
 init|=
 name|globalConfiguration
 operator|.
@@ -778,7 +778,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|useConfigurers
+name|useCustomizers
 operator|&&
 name|ObjectHelper
 operator|.
