@@ -228,6 +228,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|StringHelper
 import|;
 end_import
@@ -795,7 +809,7 @@ literal|"advanced"
 argument_list|,
 name|description
 operator|=
-literal|"Currently only XMPPTCPConnectionConfiguration is supported (XMPP over TCP) and not BOSHConfiguration (XMPP over HTTP)"
+literal|"Currently XMPPTCPConnectionConfiguration is only supported (XMPP over TCP) but not BOSHConfiguration (XMPP over HTTP)."
 argument_list|)
 DECL|field|connectionConfig
 specifier|private
@@ -1383,10 +1397,16 @@ return|return
 operator|new
 name|XMPPTCPConnection
 argument_list|(
-operator|(
+name|ObjectHelper
+operator|.
+name|cast
+argument_list|(
 name|XMPPTCPConnectionConfiguration
-operator|)
+operator|.
+name|class
+argument_list|,
 name|connectionConfig
+argument_list|)
 argument_list|)
 return|;
 block|}
