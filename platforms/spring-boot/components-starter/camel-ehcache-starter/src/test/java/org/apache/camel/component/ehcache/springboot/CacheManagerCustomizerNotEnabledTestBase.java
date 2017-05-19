@@ -125,9 +125,9 @@ import|;
 end_import
 
 begin_class
-DECL|class|CacheManagerConfigurerNotEnabledTestBase
+DECL|class|CacheManagerCustomizerNotEnabledTestBase
 class|class
-name|CacheManagerConfigurerNotEnabledTestBase
+name|CacheManagerCustomizerNotEnabledTestBase
 block|{
 annotation|@
 name|Autowired

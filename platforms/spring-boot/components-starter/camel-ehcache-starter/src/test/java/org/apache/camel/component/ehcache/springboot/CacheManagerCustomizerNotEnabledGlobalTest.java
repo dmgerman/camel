@@ -110,7 +110,7 @@ argument_list|(
 name|classes
 operator|=
 block|{
-name|CacheManagerConfigurerNotEnabledTestBase
+name|CacheManagerCustomizerNotEnabledTestBase
 operator|.
 name|TestConfiguration
 operator|.
@@ -122,15 +122,15 @@ operator|=
 block|{
 literal|"debug=false"
 block|,
-literal|"camel.component.ehcache.configurer.enabled=false"
+literal|"camel.component.customizer.enabled=false"
 block|}
 argument_list|)
-DECL|class|CacheManagerConfigurerNotEnabledOnComponentTest
+DECL|class|CacheManagerCustomizerNotEnabledGlobalTest
 specifier|public
 class|class
-name|CacheManagerConfigurerNotEnabledOnComponentTest
+name|CacheManagerCustomizerNotEnabledGlobalTest
 extends|extends
-name|CacheManagerConfigurerNotEnabledTestBase
+name|CacheManagerCustomizerNotEnabledTestBase
 block|{ }
 end_class
 
