@@ -2620,6 +2620,9 @@ name|ObjectHelper
 operator|.
 name|isOverridingMethod
 argument_list|(
+name|getType
+argument_list|()
+argument_list|,
 name|source
 argument_list|,
 name|method
