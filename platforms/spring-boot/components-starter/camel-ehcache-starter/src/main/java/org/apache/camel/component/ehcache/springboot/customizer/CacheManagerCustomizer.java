@@ -214,6 +214,20 @@ name|context
 operator|.
 name|annotation
 operator|.
+name|Conditional
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
 name|Configuration
 import|;
 end_import
@@ -245,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple implementation of {@link ComponentCustomizer} that auto discovers a  * {@link CacheManager} instance and bind it to the {@link EhcacheComponent}  * component.  *  * This customizer can be disabled/enabled with different strategies:  *  * 1. globally using:  *    camel.component.customizer.enable = true/false  *  * 2. for component:  *    camel.component.ehcache.customizer.enabled = true/false  *  * 3. individually:  *    camel.component.ehcache.customizer.cache-manager.enabled = true/false  */
+comment|/**  * A simple implementation of {@link ComponentCustomizer} that auto discovers a  * {@link CacheManager} instance and bind it to the {@link EhcacheComponent}  * component.  *  * This customizer can be disabled/enabled with different strategies:  *  * 1. globally using:  *    camel.component.customizer.enable = true/false  * 2. for component:  *    camel.component.ehcache.customizer.enabled = true/false  * 3. individually:  *    camel.component.ehcache.customizer.cache-manager.enabled = true/false  */
 end_comment
 
 begin_class
@@ -258,6 +272,15 @@ name|LOWEST_PRECEDENCE
 argument_list|)
 annotation|@
 name|Configuration
+annotation|@
+name|Conditional
+argument_list|(
+name|CacheManagerCustomizer
+operator|.
+name|NestedConditions
+operator|.
+name|class
+argument_list|)
 annotation|@
 name|ConditionalOnProperty
 argument_list|(
@@ -294,8 +317,6 @@ DECL|class|CacheManagerCustomizer
 specifier|public
 class|class
 name|CacheManagerCustomizer
-extends|extends
-name|AllNestedConditions
 implements|implements
 name|ComponentCustomizer
 argument_list|<
@@ -316,19 +337,6 @@ specifier|private
 name|CacheManagerCustomizerConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|CacheManagerCustomizer ()
-specifier|public
-name|CacheManagerCustomizer
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|ConfigurationPhase
-operator|.
-name|REGISTER_BEAN
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|customize (EhcacheComponent component)
@@ -368,15 +376,35 @@ block|}
 block|}
 comment|// *************************************************************************
 comment|// By default ConditionalOnBean works using an OR operation so if you list
-comment|// a number of classes, the condition succeeds if a single instance of the
-comment|// classes is found.
+comment|// a number of classes, the condition succeeds if a single instance of any
+comment|// class is found.
 comment|//
 comment|// A workaround is to use AllNestedConditions and creates some dummy classes
-comment|// annotated @ConditionalOnBean
+comment|// annotated with @ConditionalOnBean
 comment|//
 comment|// This should be fixed in spring-boot 2.0 where ConditionalOnBean uses and
 comment|// AND operation instead of the OR as it does today.
 comment|// *************************************************************************
+DECL|class|NestedConditions
+specifier|static
+class|class
+name|NestedConditions
+extends|extends
+name|AllNestedConditions
+block|{
+DECL|method|NestedConditions ()
+specifier|public
+name|NestedConditions
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|ConfigurationPhase
+operator|.
+name|REGISTER_BEAN
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|ConditionalOnBean
 argument_list|(
@@ -388,7 +416,7 @@ DECL|class|OnCacheManager
 specifier|static
 class|class
 name|OnCacheManager
-block|{     }
+block|{         }
 annotation|@
 name|ConditionalOnBean
 argument_list|(
@@ -400,7 +428,8 @@ DECL|class|OnCamelAutoConfiguration
 specifier|static
 class|class
 name|OnCamelAutoConfiguration
-block|{     }
+block|{         }
+block|}
 block|}
 end_class
 
