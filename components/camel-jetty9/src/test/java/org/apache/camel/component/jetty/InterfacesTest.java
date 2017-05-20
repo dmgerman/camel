@@ -219,6 +219,8 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|nextAddress
@@ -234,6 +236,15 @@ argument_list|(
 literal|2000
 argument_list|)
 condition|)
+block|{
+continue|continue;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
 block|{
 continue|continue;
 block|}
