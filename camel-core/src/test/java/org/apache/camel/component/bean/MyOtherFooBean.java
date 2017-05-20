@@ -86,6 +86,61 @@ return|return
 literal|"toString(String) was called"
 return|;
 block|}
+DECL|interface|InterfaceSize
+specifier|public
+interface|interface
+name|InterfaceSize
+block|{
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+function_decl|;
+block|}
+DECL|class|AbstractClassSize
+specifier|public
+specifier|abstract
+specifier|static
+class|class
+name|AbstractClassSize
+block|{
+DECL|method|size ()
+specifier|public
+specifier|abstract
+name|int
+name|size
+parameter_list|()
+function_decl|;
+block|}
+DECL|class|SuperClazz
+specifier|public
+specifier|static
+class|class
+name|SuperClazz
+extends|extends
+name|AbstractClassSize
+implements|implements
+name|InterfaceSize
+block|{
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+literal|1
+return|;
+block|}
+block|}
+DECL|class|Clazz
+specifier|public
+specifier|static
+class|class
+name|Clazz
+extends|extends
+name|SuperClazz
+block|{     }
 block|}
 end_class
 
