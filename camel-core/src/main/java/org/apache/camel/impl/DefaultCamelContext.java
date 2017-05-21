@@ -5860,12 +5860,9 @@ argument_list|(
 name|id
 argument_list|)
 decl_stmt|;
+comment|// processor may be null if its anonymous inner class or as lambda
 if|if
 condition|(
-name|processor
-operator|!=
-literal|null
-operator|&&
 name|def
 operator|!=
 literal|null
