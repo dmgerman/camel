@@ -192,7 +192,7 @@ literal|"src/test/resources"
 decl_stmt|;
 name|XmlRouteParser
 operator|.
-name|parseXmlRouteRoutes
+name|parseXmlRouteRouteIds
 argument_list|(
 name|is
 argument_list|,

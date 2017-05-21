@@ -761,12 +761,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Parses the XML source to discover Camel routes.      *      * @param xml                     the xml file as input stream      * @param baseDir                 the base of the source code      * @param fullyQualifiedFileName  the fully qualified source code file name      * @param routes                  list to add discovered and parsed routes      */
-DECL|method|parseXmlRouteRoutes (InputStream xml, String baseDir, String fullyQualifiedFileName, List<CamelRouteDetails> routes)
+comment|/**      * Parses the XML source to discover Camel routes with id's assigned.      *      * @param xml                     the xml file as input stream      * @param baseDir                 the base of the source code      * @param fullyQualifiedFileName  the fully qualified source code file name      * @param routes                  list to add discovered and parsed routes      */
+DECL|method|parseXmlRouteRouteIds (InputStream xml, String baseDir, String fullyQualifiedFileName, List<CamelRouteDetails> routes)
 specifier|public
 specifier|static
 name|void
-name|parseXmlRouteRoutes
+name|parseXmlRouteRouteIds
 parameter_list|(
 name|InputStream
 name|xml
