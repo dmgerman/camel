@@ -122,6 +122,8 @@ operator|=
 block|{
 literal|"debug=false"
 block|,
+literal|"camel.component.customizer.enabled=true"
+block|,
 literal|"camel.component.ehcache.customizer.enabled=false"
 block|}
 argument_list|)
