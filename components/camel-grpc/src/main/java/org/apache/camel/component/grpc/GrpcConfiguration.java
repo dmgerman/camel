@@ -178,7 +178,7 @@ specifier|private
 name|String
 name|servicePackage
 decl_stmt|;
-comment|/**      * Fully qualified service name from the protocol buffer descriptor file      * (package dot service definition name)       */
+comment|/**      * Fully qualified service name from the protocol buffer descriptor file      * (package dot service definition name)      */
 DECL|method|getService ()
 specifier|public
 name|String
@@ -340,7 +340,7 @@ operator|=
 name|usePlainText
 expr_stmt|;
 block|}
-comment|/**      * TBD      */
+comment|/**      * This option specifies the top-level strategy for processing service      * requests and responses in streaming mode. If an aggregation strategy is      * selected, all requests will be accumulated in the list, then transferred      * to the flow, and the accumulated responses will be sent to the sender. If      * a propagation strategy is selected, request is sent to the stream, and the      * response will be immediately sent back to the sender.      */
 DECL|method|getProcessingStrategy ()
 specifier|public
 name|GrpcProcessingStrategies
