@@ -818,20 +818,7 @@ argument_list|,
 name|s
 argument_list|)
 expr_stmt|;
-name|response
-operator|.
-name|headers
-argument_list|()
-operator|.
-name|set
-argument_list|(
-name|Exchange
-operator|.
-name|CONTENT_TYPE
-argument_list|,
-literal|"text/plain"
-argument_list|)
-expr_stmt|;
+comment|// do not include content-type as that would indicate to the caller that we can only do text/plain
 name|response
 operator|.
 name|headers

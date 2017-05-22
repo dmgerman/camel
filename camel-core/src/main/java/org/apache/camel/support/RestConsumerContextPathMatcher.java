@@ -437,6 +437,78 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+comment|// we could not find a direct match, and if the request is OPTIONS then we need all candidates
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+operator|&&
+name|isOptionsMethod
+argument_list|(
+name|requestMethod
+argument_list|)
+condition|)
+block|{
+name|candidates
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|candidates
+operator|.
+name|addAll
+argument_list|(
+name|consumerPaths
+argument_list|)
+expr_stmt|;
+comment|// then try again to see if we can find a direct match
+name|it
+operator|=
+name|candidates
+operator|.
+name|iterator
+argument_list|()
+expr_stmt|;
+while|while
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|ConsumerPath
+name|consumer
+init|=
+name|it
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|matchRestPath
+argument_list|(
+name|requestPath
+argument_list|,
+name|consumer
+operator|.
+name|getConsumerPath
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
+condition|)
+block|{
+name|answer
+operator|=
+name|consumer
+expr_stmt|;
+break|break;
+block|}
+block|}
+block|}
 comment|// if there are no wildcards, then select the matching with the longest path
 name|boolean
 name|noWildcards
@@ -710,7 +782,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Matches the given request HTTP method with the configured HTTP method of the consumer      *      * @param method   the request HTTP method      * @param restrict the consumer configured HTTP restrict method      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
+comment|/**      * Matches the given request HTTP method with the configured HTTP method of the consumer.      *      * @param method   the request HTTP method      * @param restrict the consumer configured HTTP restrict method      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
 DECL|method|matchRestMethod (String method, String restrict)
 specifier|private
 specifier|static
@@ -755,6 +827,26 @@ name|Locale
 operator|.
 name|ENGLISH
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Is the request method OPTIONS      *      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
+DECL|method|isOptionsMethod (String method)
+specifier|private
+specifier|static
+name|boolean
+name|isOptionsMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|)
+block|{
+return|return
+literal|"options"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|method
 argument_list|)
 return|;
 block|}
