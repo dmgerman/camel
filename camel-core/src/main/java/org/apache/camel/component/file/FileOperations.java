@@ -471,7 +471,7 @@ name|exists
 argument_list|()
 return|;
 block|}
-DECL|method|buildDirectory (File dir, Set<PosixFilePermission> permissions)
+DECL|method|buildDirectory (File dir, Set<PosixFilePermission> permissions, boolean absolute)
 specifier|protected
 name|boolean
 name|buildDirectory
@@ -484,6 +484,9 @@ argument_list|<
 name|PosixFilePermission
 argument_list|>
 name|permissions
+parameter_list|,
+name|boolean
+name|absolute
 parameter_list|)
 block|{
 if|if
@@ -540,13 +543,33 @@ argument_list|)
 decl_stmt|;
 name|File
 name|base
-init|=
+decl_stmt|;
+comment|// reusing absolute flag to handle relative and absolute paths
+if|if
+condition|(
+name|absolute
+condition|)
+block|{
+name|base
+operator|=
 operator|new
 name|File
 argument_list|(
 literal|""
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|base
+operator|=
+operator|new
+name|File
+argument_list|(
+literal|"."
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|String
@@ -729,6 +752,8 @@ name|endpoint
 operator|.
 name|getDirectoryPermissions
 argument_list|()
+argument_list|,
+name|absolute
 argument_list|)
 expr_stmt|;
 block|}
@@ -904,6 +929,8 @@ name|endpoint
 operator|.
 name|getDirectoryPermissions
 argument_list|()
+argument_list|,
+name|absolute
 argument_list|)
 return|;
 block|}
