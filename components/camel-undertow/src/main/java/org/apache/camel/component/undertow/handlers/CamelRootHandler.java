@@ -341,6 +341,7 @@ name|basePathHandler
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|prefixMatch
 condition|)
 block|{

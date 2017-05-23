@@ -240,7 +240,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"undertow:http://localhost:{{port}}/myapp/suffix?matchOnUriPrefix=false"
+literal|"undertow:http://localhost:{{port}}/myapp/suffix"
 argument_list|)
 operator|.
 name|transform
@@ -265,7 +265,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"undertow:http://localhost:{{port}}/bar"
+literal|"undertow:http://localhost:{{port}}/bar?matchOnUriPrefix=true"
 argument_list|)
 operator|.
 name|transform
