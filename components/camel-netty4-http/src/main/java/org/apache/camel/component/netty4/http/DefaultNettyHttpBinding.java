@@ -1233,6 +1233,10 @@ operator|.
 name|createIterator
 argument_list|(
 name|values
+argument_list|,
+literal|","
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 while|while
@@ -1400,6 +1404,10 @@ operator|.
 name|createIterator
 argument_list|(
 name|values
+argument_list|,
+literal|","
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 while|while
@@ -1540,8 +1548,6 @@ decl_stmt|;
 comment|// Push POST form params into the headers to retain compatibility with DefaultHttpBinding
 name|String
 name|body
-init|=
-literal|null
 decl_stmt|;
 name|ByteBuf
 name|buffer
@@ -2501,8 +2507,6 @@ block|}
 block|}
 name|HttpResponse
 name|response
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -2682,6 +2686,8 @@ argument_list|(
 name|value
 argument_list|,
 literal|null
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 while|while
