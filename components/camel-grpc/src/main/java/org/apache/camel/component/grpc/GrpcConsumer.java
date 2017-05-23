@@ -731,6 +731,14 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|configuration
+operator|.
+name|isForwardOnCompleted
+argument_list|()
+condition|)
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -753,9 +761,10 @@ name|exchange
 argument_list|,
 name|done
 lambda|->
-block|{         }
+block|{             }
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|onError (Exchange exchange, Throwable error)
 specifier|public
@@ -768,6 +777,14 @@ parameter_list|,
 name|Throwable
 name|error
 parameter_list|)
+block|{
+if|if
+condition|(
+name|configuration
+operator|.
+name|isForwardOnError
+argument_list|()
+condition|)
 block|{
 name|exchange
 operator|.
@@ -801,9 +818,10 @@ name|exchange
 argument_list|,
 name|done
 lambda|->
-block|{         }
+block|{             }
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|doSend (Exchange exchange, AsyncCallback callback)
 specifier|private

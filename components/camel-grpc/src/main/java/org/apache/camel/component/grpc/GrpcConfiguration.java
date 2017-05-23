@@ -168,6 +168,38 @@ name|GrpcProcessingStrategies
 operator|.
 name|PROPAGATION
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|forwardOnCompleted
+specifier|private
+name|boolean
+name|forwardOnCompleted
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|forwardOnError
+specifier|private
+name|boolean
+name|forwardOnError
+decl_stmt|;
 DECL|field|serviceName
 specifier|private
 name|String
@@ -366,6 +398,60 @@ name|processingStrategy
 operator|=
 name|processingStrategy
 expr_stmt|;
+block|}
+comment|/**      * Determines if onCompleted events should be pushed to the Camel route.      */
+DECL|method|setForwardOnCompleted (boolean forwardOnCompleted)
+specifier|public
+name|void
+name|setForwardOnCompleted
+parameter_list|(
+name|boolean
+name|forwardOnCompleted
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forwardOnCompleted
+operator|=
+name|forwardOnCompleted
+expr_stmt|;
+block|}
+DECL|method|isForwardOnCompleted ()
+specifier|public
+name|boolean
+name|isForwardOnCompleted
+parameter_list|()
+block|{
+return|return
+name|forwardOnCompleted
+return|;
+block|}
+comment|/**      * Determines if onError events should be pushed to the Camel route.      * Exceptions will be set as message body.      */
+DECL|method|setForwardOnError (boolean forwardOnError)
+specifier|public
+name|void
+name|setForwardOnError
+parameter_list|(
+name|boolean
+name|forwardOnError
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forwardOnError
+operator|=
+name|forwardOnError
+expr_stmt|;
+block|}
+DECL|method|isForwardOnError ()
+specifier|public
+name|boolean
+name|isForwardOnError
+parameter_list|()
+block|{
+return|return
+name|forwardOnError
+return|;
 block|}
 comment|/**      * The service name extracted from the full service name      */
 DECL|method|getServiceName ()
