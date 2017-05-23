@@ -352,6 +352,13 @@ argument_list|)
 expr_stmt|;
 name|restEndpoint
 operator|.
+name|setHost
+argument_list|(
+literal|"http://localhost"
+argument_list|)
+expr_stmt|;
+name|restEndpoint
+operator|.
 name|setBindingMode
 argument_list|(
 name|RestBindingMode
