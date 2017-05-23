@@ -566,6 +566,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// must be in upper case
+name|name
+operator|=
+name|name
+operator|.
+name|toUpperCase
+argument_list|()
+expr_stmt|;
 return|return
 name|HttpMethod
 operator|.

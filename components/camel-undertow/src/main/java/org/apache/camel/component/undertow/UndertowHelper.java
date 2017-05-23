@@ -766,6 +766,14 @@ literal|null
 condition|)
 block|{
 comment|// always use what end-user provides in a header
+comment|// must be in upper case
+name|m
+operator|=
+name|m
+operator|.
+name|toUpperCase
+argument_list|()
+expr_stmt|;
 name|answer
 operator|=
 operator|new
