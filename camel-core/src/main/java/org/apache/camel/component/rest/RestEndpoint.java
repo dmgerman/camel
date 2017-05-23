@@ -1109,6 +1109,35 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|host
+argument_list|)
+condition|)
+block|{
+comment|// hostname must be provided
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Hostname must be configured on either restConfiguration"
+operator|+
+literal|" or in the rest endpoint uri as a query parameter with name host, eg rest:"
+operator|+
+name|method
+operator|+
+literal|":"
+operator|+
+name|path
+operator|+
+literal|"?host=someserver"
+argument_list|)
+throw|;
+block|}
 name|RestProducerFactory
 name|apiDocFactory
 init|=
