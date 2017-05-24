@@ -44,7 +44,9 @@ name|component
 operator|.
 name|twitter
 operator|.
-name|TwitterComponent
+name|search
+operator|.
+name|TwitterSearchComponent
 import|;
 end_import
 
@@ -339,7 +341,7 @@ literal|"classpath:."
 argument_list|)
 expr_stmt|;
 comment|// setup Twitter component
-name|TwitterComponent
+name|TwitterSearchComponent
 name|tc
 init|=
 name|getContext
@@ -347,9 +349,9 @@ argument_list|()
 operator|.
 name|getComponent
 argument_list|(
-literal|"twitter"
+literal|"twitter-search"
 argument_list|,
-name|TwitterComponent
+name|TwitterSearchComponent
 operator|.
 name|class
 argument_list|)
