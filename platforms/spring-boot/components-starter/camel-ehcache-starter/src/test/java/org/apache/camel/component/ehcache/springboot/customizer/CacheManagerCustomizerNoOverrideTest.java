@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.ehcache.springboot
+DECL|package|org.apache.camel.component.ehcache.springboot.customizer
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|ehcache
 operator|.
 name|springboot
+operator|.
+name|customizer
 package|;
 end_package
 
@@ -33,6 +35,24 @@ operator|.
 name|ehcache
 operator|.
 name|EhcacheComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ehcache
+operator|.
+name|springboot
+operator|.
+name|EhcacheComponentAutoConfiguration
 import|;
 end_import
 

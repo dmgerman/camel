@@ -26,6 +26,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -37,22 +47,6 @@ operator|.
 name|annotation
 operator|.
 name|Generated
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|ehcache
-operator|.
-name|EhcacheComponent
 import|;
 end_import
 
@@ -237,6 +231,22 @@ name|?
 argument_list|>
 name|cacheConfiguration
 decl_stmt|;
+comment|/**      * A map of caches configurations to be used to create caches.      */
+DECL|field|cachesConfigurations
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|CacheConfiguration
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+argument_list|>
+name|cachesConfigurations
+decl_stmt|;
 comment|/**      * URI pointing to the Ehcache XML configuration file's location      */
 DECL|field|cacheConfigurationUri
 specifier|private
@@ -363,6 +373,52 @@ operator|.
 name|cacheConfiguration
 operator|=
 name|cacheConfiguration
+expr_stmt|;
+block|}
+DECL|method|getCachesConfigurations ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|CacheConfiguration
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+argument_list|>
+name|getCachesConfigurations
+parameter_list|()
+block|{
+return|return
+name|cachesConfigurations
+return|;
+block|}
+DECL|method|setCachesConfigurations ( Map<String, CacheConfiguration<?, ?>> cachesConfigurations)
+specifier|public
+name|void
+name|setCachesConfigurations
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|CacheConfiguration
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+argument_list|>
+name|cachesConfigurations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cachesConfigurations
+operator|=
+name|cachesConfigurations
 expr_stmt|;
 block|}
 DECL|method|getCacheConfigurationUri ()
@@ -518,6 +574,11 @@ DECL|field|configuration
 specifier|private
 name|CacheConfiguration
 name|configuration
+decl_stmt|;
+DECL|field|configurations
+specifier|private
+name|Map
+name|configurations
 decl_stmt|;
 comment|/**          * The cache key type, default "java.lang.Object"          */
 DECL|field|keyType
@@ -825,6 +886,32 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getConfigurations ()
+specifier|public
+name|Map
+name|getConfigurations
+parameter_list|()
+block|{
+return|return
+name|configurations
+return|;
+block|}
+DECL|method|setConfigurations (Map configurations)
+specifier|public
+name|void
+name|setConfigurations
+parameter_list|(
+name|Map
+name|configurations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configurations
+operator|=
+name|configurations
 expr_stmt|;
 block|}
 DECL|method|getKeyType ()

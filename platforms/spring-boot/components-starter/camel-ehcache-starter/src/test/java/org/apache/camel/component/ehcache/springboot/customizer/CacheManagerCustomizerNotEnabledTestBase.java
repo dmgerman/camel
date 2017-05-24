@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.ehcache.springboot
+DECL|package|org.apache.camel.component.ehcache.springboot.customizer
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|ehcache
 operator|.
 name|springboot
+operator|.
+name|customizer
 package|;
 end_package
 
@@ -125,9 +127,9 @@ import|;
 end_import
 
 begin_class
-DECL|class|CacheManagerCustomizerEnabledTestBase
+DECL|class|CacheManagerCustomizerNotEnabledTestBase
 class|class
-name|CacheManagerCustomizerEnabledTestBase
+name|CacheManagerCustomizerNotEnabledTestBase
 block|{
 annotation|@
 name|Autowired
@@ -167,7 +169,7 @@ argument_list|)
 expr_stmt|;
 name|Assert
 operator|.
-name|assertNotNull
+name|assertNull
 argument_list|(
 name|component
 operator|.
