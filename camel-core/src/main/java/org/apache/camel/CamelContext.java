@@ -518,6 +518,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|HeadersMapFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|InflightRepository
 import|;
 end_import
@@ -3133,6 +3147,21 @@ DECL|method|getSSLContextParameters ()
 name|SSLContextParameters
 name|getSSLContextParameters
 parameter_list|()
+function_decl|;
+comment|/**      * Gets the {@link HeadersMapFactory} to use.      */
+DECL|method|getHeadersMapFactory ()
+name|HeadersMapFactory
+name|getHeadersMapFactory
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link HeadersMapFactory} to be used.      */
+DECL|method|setHeadersMapFactory (HeadersMapFactory factory)
+name|void
+name|setHeadersMapFactory
+parameter_list|(
+name|HeadersMapFactory
+name|factory
+parameter_list|)
 function_decl|;
 block|}
 end_interface

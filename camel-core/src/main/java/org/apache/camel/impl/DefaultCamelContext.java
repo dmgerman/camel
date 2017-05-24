@@ -1572,6 +1572,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|HeadersMapFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|InflightRepository
 import|;
 end_import
@@ -2729,6 +2743,15 @@ init|=
 operator|new
 name|LinkedHashSet
 argument_list|<>
+argument_list|()
+decl_stmt|;
+DECL|field|headersMapFactory
+specifier|private
+name|HeadersMapFactory
+name|headersMapFactory
+init|=
+operator|new
+name|DefaultHeadersMapFactory
 argument_list|()
 decl_stmt|;
 comment|// special flags to control the first startup which can are special
@@ -23465,6 +23488,36 @@ name|this
 operator|.
 name|sslContextParameters
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getHeadersMapFactory ()
+specifier|public
+name|HeadersMapFactory
+name|getHeadersMapFactory
+parameter_list|()
+block|{
+return|return
+name|headersMapFactory
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setHeadersMapFactory (HeadersMapFactory headersMapFactory)
+specifier|public
+name|void
+name|setHeadersMapFactory
+parameter_list|(
+name|HeadersMapFactory
+name|headersMapFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headersMapFactory
+operator|=
+name|headersMapFactory
+expr_stmt|;
 block|}
 DECL|method|getRouteServices ()
 specifier|protected

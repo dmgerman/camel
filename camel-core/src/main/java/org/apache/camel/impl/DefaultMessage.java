@@ -98,7 +98,33 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeadersMapFactory
 import|;
 end_import
 
@@ -159,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of {@link org.apache.camel.Message}  *<p/>  * This implementation uses a {@link org.apache.camel.util.CaseInsensitiveMap} storing the headers.  * This allows us to be able to lookup headers using case insensitive keys, making it easier for end users  * as they do not have to be worried about using exact keys.  * See more details at {@link org.apache.camel.util.CaseInsensitiveMap}.  *  * @version   */
+comment|/**  * The default implementation of {@link org.apache.camel.Message}  *<p/>  * This implementation uses a {@link org.apache.camel.util.CaseInsensitiveMap} storing the headers.  * This allows us to be able to lookup headers using case insensitive keys, making it easier for end users  * as they do not have to be worried about using exact keys.  * See more details at {@link org.apache.camel.util.CaseInsensitiveMap}.  * The implementation of the map can be configured by the {@link HeadersMapFactory} which can be set  * on the {@link CamelContext}. The default implementation uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  *  * @version   */
 end_comment
 
 begin_class
@@ -1044,9 +1070,19 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|getExchange
+argument_list|()
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getHeadersMapFactory
+argument_list|()
+operator|.
+name|isInstanceOf
+argument_list|(
 name|headers
-operator|instanceof
-name|CaseInsensitiveMap
+argument_list|)
 condition|)
 block|{
 name|this
@@ -1058,13 +1094,21 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// wrap it in a case insensitive map
+comment|// create a new map
 name|this
 operator|.
 name|headers
 operator|=
-operator|new
-name|CaseInsensitiveMap
+name|getExchange
+argument_list|()
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getHeadersMapFactory
+argument_list|()
+operator|.
+name|fromMap
 argument_list|(
 name|headers
 argument_list|)
@@ -1133,8 +1177,16 @@ name|Object
 argument_list|>
 name|map
 init|=
-operator|new
-name|CaseInsensitiveMap
+name|getExchange
+argument_list|()
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getHeadersMapFactory
+argument_list|()
+operator|.
+name|newMap
 argument_list|()
 decl_stmt|;
 name|populateInitialHeaders

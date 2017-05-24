@@ -710,7 +710,6 @@ return|;
 block|}
 DECL|method|safeCopyHeaders (Map<String, Object> headers)
 specifier|private
-specifier|static
 name|Map
 argument_list|<
 name|String
@@ -739,27 +738,16 @@ return|return
 literal|null
 return|;
 block|}
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|answer
-init|=
-operator|new
-name|CaseInsensitiveMap
-argument_list|()
-decl_stmt|;
-name|answer
+return|return
+name|context
 operator|.
-name|putAll
+name|getHeadersMapFactory
+argument_list|()
+operator|.
+name|fromMap
 argument_list|(
 name|headers
 argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 annotation|@
@@ -769,7 +757,6 @@ literal|"unchecked"
 argument_list|)
 DECL|method|safeCopyProperties (Map<String, Object> properties)
 specifier|private
-specifier|static
 name|Map
 argument_list|<
 name|String
@@ -798,7 +785,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// TODO: properties should use same map kind as headers
 name|Map
 argument_list|<
 name|String
@@ -807,13 +793,12 @@ name|Object
 argument_list|>
 name|answer
 init|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|context
+operator|.
+name|getHeadersMapFactory
+argument_list|()
+operator|.
+name|fromMap
 argument_list|(
 name|properties
 argument_list|)
