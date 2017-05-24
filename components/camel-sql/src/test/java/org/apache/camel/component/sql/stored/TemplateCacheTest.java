@@ -249,6 +249,8 @@ argument_list|,
 operator|new
 name|TemplateParser
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|BatchCallableStatementCreatorFactory

@@ -201,7 +201,6 @@ name|DefaultPollingEndpoint
 block|{
 DECL|field|wrapperFactory
 specifier|private
-specifier|final
 name|CallableStatementWrapperFactory
 name|wrapperFactory
 decl_stmt|;
@@ -244,10 +243,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
 name|description
 operator|=
 literal|"Enables or disables batch mode"
@@ -260,10 +255,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
 name|description
 operator|=
 literal|"Whether to use the message body as the template and then headers for parameters. If this option is enabled then the template in the uri is not used."
@@ -276,10 +267,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
 name|description
 operator|=
 literal|"If set, will ignore the results of the template and use the existing IN message as the OUT message for the continuation of processing"
@@ -305,6 +292,18 @@ specifier|private
 name|String
 name|outputHeader
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Whether this call is for a function."
+argument_list|)
+DECL|field|function
+specifier|private
+name|boolean
+name|function
+decl_stmt|;
 DECL|method|SqlStoredEndpoint (String uri, SqlStoredComponent component, JdbcTemplate jdbcTemplate)
 specifier|public
 name|SqlStoredEndpoint
@@ -329,18 +328,6 @@ expr_stmt|;
 name|setJdbcTemplate
 argument_list|(
 name|jdbcTemplate
-argument_list|)
-expr_stmt|;
-name|wrapperFactory
-operator|=
-operator|new
-name|CallableStatementWrapperFactory
-argument_list|(
-name|jdbcTemplate
-argument_list|,
-operator|new
-name|TemplateParser
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -384,6 +371,39 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|this
+operator|.
+name|wrapperFactory
+operator|=
+operator|new
+name|CallableStatementWrapperFactory
+argument_list|(
+name|jdbcTemplate
+argument_list|,
+operator|new
+name|TemplateParser
+argument_list|()
+argument_list|,
+name|isFunction
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -397,6 +417,15 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|wrapperFactory
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|wrapperFactory
@@ -404,6 +433,7 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|getJdbcTemplate ()
 specifier|public
@@ -585,6 +615,32 @@ operator|.
 name|dataSource
 operator|=
 name|dataSource
+expr_stmt|;
+block|}
+DECL|method|isFunction ()
+specifier|public
+name|boolean
+name|isFunction
+parameter_list|()
+block|{
+return|return
+name|function
+return|;
+block|}
+DECL|method|setFunction (boolean function)
+specifier|public
+name|void
+name|setFunction
+parameter_list|(
+name|boolean
+name|function
+parameter_list|)
+block|{
+name|this
+operator|.
+name|function
+operator|=
+name|function
 expr_stmt|;
 block|}
 annotation|@

@@ -257,7 +257,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|TemplateStoredProcedure (JdbcTemplate jdbcTemplate, Template template)
+DECL|method|TemplateStoredProcedure (JdbcTemplate jdbcTemplate, Template template, boolean function)
 specifier|public
 name|TemplateStoredProcedure
 parameter_list|(
@@ -266,6 +266,9 @@ name|jdbcTemplate
 parameter_list|,
 name|Template
 name|template
+parameter_list|,
+name|boolean
+name|function
 parameter_list|)
 block|{
 name|this
@@ -273,6 +276,11 @@ operator|.
 name|template
 operator|=
 name|template
+expr_stmt|;
+name|setFunction
+argument_list|(
+name|function
+argument_list|)
 expr_stmt|;
 name|setDataSource
 argument_list|(

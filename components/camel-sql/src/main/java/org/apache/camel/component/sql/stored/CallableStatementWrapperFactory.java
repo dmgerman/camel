@@ -132,6 +132,10 @@ specifier|final
 name|TemplateParser
 name|templateParser
 decl_stmt|;
+DECL|field|function
+name|boolean
+name|function
+decl_stmt|;
 DECL|field|templateCache
 specifier|private
 specifier|final
@@ -168,7 +172,7 @@ argument_list|(
 name|BATCH_TEMPLATE_CACHE_DEFAULT_SIZE
 argument_list|)
 decl_stmt|;
-DECL|method|CallableStatementWrapperFactory (JdbcTemplate jdbcTemplate, TemplateParser templateParser)
+DECL|method|CallableStatementWrapperFactory (JdbcTemplate jdbcTemplate, TemplateParser templateParser, boolean function)
 specifier|public
 name|CallableStatementWrapperFactory
 parameter_list|(
@@ -177,6 +181,9 @@ name|jdbcTemplate
 parameter_list|,
 name|TemplateParser
 name|templateParser
+parameter_list|,
+name|boolean
+name|function
 parameter_list|)
 block|{
 name|this
@@ -190,6 +197,12 @@ operator|.
 name|templateParser
 operator|=
 name|templateParser
+expr_stmt|;
+name|this
+operator|.
+name|function
+operator|=
+name|function
 expr_stmt|;
 block|}
 DECL|method|create (String sql)
@@ -318,6 +331,8 @@ name|parseTemplate
 argument_list|(
 name|sql
 argument_list|)
+argument_list|,
+name|function
 argument_list|)
 expr_stmt|;
 name|this

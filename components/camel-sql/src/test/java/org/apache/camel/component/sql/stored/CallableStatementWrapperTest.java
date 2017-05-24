@@ -285,6 +285,8 @@ argument_list|(
 name|jdbcTemplate
 argument_list|,
 name|templateParser
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|super
