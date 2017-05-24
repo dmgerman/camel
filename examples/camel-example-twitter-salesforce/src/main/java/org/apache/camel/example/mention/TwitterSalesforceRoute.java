@@ -87,7 +87,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Mention ${body}"
+literal|"Tweet id ${body.id} mention: ${body}"
 argument_list|)
 operator|.
 name|process
