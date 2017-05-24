@@ -77,7 +77,7 @@ name|setBody
 argument_list|(
 name|constant
 argument_list|(
-literal|"hello from camel"
+literal|"Hello from Camel"
 argument_list|)
 argument_list|)
 operator|.

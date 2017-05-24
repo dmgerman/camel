@@ -164,7 +164,7 @@ decl_stmt|;
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Requires a running activemq with openwire port 1234"
+literal|"Requires a running activemq broker"
 argument_list|)
 DECL|method|shouldProduceMessages ()
 specifier|public
