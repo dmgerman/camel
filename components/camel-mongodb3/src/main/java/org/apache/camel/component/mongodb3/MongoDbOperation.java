@@ -36,6 +36,9 @@ name|findAll
 block|,
 comment|// group,       // future operation see aggregate
 comment|// mapReduce,   // future operation
+DECL|enumConstant|findDistinct
+name|findDistinct
+block|,
 comment|// create/update operations
 DECL|enumConstant|insert
 name|insert

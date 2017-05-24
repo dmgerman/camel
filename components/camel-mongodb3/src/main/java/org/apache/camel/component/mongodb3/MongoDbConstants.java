@@ -205,6 +205,15 @@ name|OID
 init|=
 literal|"CamelMongoOid"
 decl_stmt|;
+DECL|field|DISTINCT_QUERY_FIELD
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISTINCT_QUERY_FIELD
+init|=
+literal|"CamelMongoDbDistinctQueryField"
+decl_stmt|;
 DECL|field|MONGO_ID
 specifier|public
 specifier|static
