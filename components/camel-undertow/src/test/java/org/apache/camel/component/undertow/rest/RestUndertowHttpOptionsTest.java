@@ -80,26 +80,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Not supported by camel-undertow yet"
-argument_list|)
 DECL|class|RestUndertowHttpOptionsTest
 specifier|public
 class|class
@@ -184,7 +169,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"OPTIONS,GET"
+literal|"GET,OPTIONS"
 argument_list|,
 name|exchange
 operator|.
@@ -246,7 +231,7 @@ literal|200
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getHeader
@@ -259,11 +244,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"OPTIONS,PUT"
+literal|"PUT,OPTIONS"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getHeader
@@ -278,7 +263,7 @@ literal|""
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getBody

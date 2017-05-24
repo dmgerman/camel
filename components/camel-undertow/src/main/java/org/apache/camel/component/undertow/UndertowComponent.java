@@ -1298,6 +1298,46 @@ expr_stmt|;
 block|}
 block|}
 name|boolean
+name|explicitOptions
+init|=
+literal|true
+decl_stmt|;
+comment|// must use upper case for restrict
+name|String
+name|restrict
+init|=
+name|verb
+operator|.
+name|toUpperCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+decl_stmt|;
+comment|// allow OPTIONS in rest-dsl to allow clients to call the API and have responses with ALLOW headers
+if|if
+condition|(
+operator|!
+name|restrict
+operator|.
+name|contains
+argument_list|(
+literal|"OPTIONS"
+argument_list|)
+condition|)
+block|{
+name|restrict
+operator|+=
+literal|",OPTIONS"
+expr_stmt|;
+comment|// this is not an explicit OPTIONS path in the rest-dsl
+name|explicitOptions
+operator|=
+literal|false
+expr_stmt|;
+block|}
+name|boolean
 name|cors
 init|=
 name|config
@@ -1311,6 +1351,23 @@ name|cors
 condition|)
 block|{
 comment|// allow HTTP Options as we want to handle CORS in rest-dsl
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"optionsEnabled"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|explicitOptions
+condition|)
+block|{
+comment|// the rest-dsl is using OPTIONS
 name|map
 operator|.
 name|put
@@ -1349,29 +1406,6 @@ block|{
 name|url
 operator|=
 literal|"undertow:%s://%s:%s/%s?matchOnUriPrefix=false&httpMethodRestrict=%s"
-expr_stmt|;
-block|}
-comment|// must use upper case for restrict
-name|String
-name|restrict
-init|=
-name|verb
-operator|.
-name|toUpperCase
-argument_list|(
-name|Locale
-operator|.
-name|US
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|cors
-condition|)
-block|{
-name|restrict
-operator|+=
-literal|",OPTIONS"
 expr_stmt|;
 block|}
 comment|// get the endpoint
