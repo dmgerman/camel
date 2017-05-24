@@ -38,6 +38,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Producer
 import|;
 end_import
@@ -72,7 +96,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultPollingEndpoint
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -197,7 +221,7 @@ specifier|public
 class|class
 name|SqlStoredEndpoint
 extends|extends
-name|DefaultPollingEndpoint
+name|DefaultEndpoint
 block|{
 DECL|field|wrapperFactory
 specifier|private
@@ -346,6 +370,27 @@ argument_list|(
 name|this
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createConsumer (Processor processor)
+specifier|public
+name|Consumer
+name|createConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Consumer not supported"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
