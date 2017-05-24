@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -92,10 +104,13 @@ specifier|transient
 name|FullHttpResponse
 name|httpResponse
 decl_stmt|;
-DECL|method|NettyHttpMessage (FullHttpRequest httpRequest, FullHttpResponse httpResponse)
+DECL|method|NettyHttpMessage (CamelContext camelContext, FullHttpRequest httpRequest, FullHttpResponse httpResponse)
 specifier|public
 name|NettyHttpMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|FullHttpRequest
 name|httpRequest
 parameter_list|,
@@ -103,6 +118,11 @@ name|FullHttpResponse
 name|httpResponse
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|httpRequest
@@ -148,6 +168,9 @@ return|return
 operator|new
 name|NettyHttpMessage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|httpRequest
 argument_list|,
 name|httpResponse

@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -74,10 +86,13 @@ specifier|transient
 name|Response
 name|response
 decl_stmt|;
-DECL|method|SparkMessage (Request request, Response response)
+DECL|method|SparkMessage (CamelContext camelContext, Request request, Response response)
 specifier|public
 name|SparkMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Request
 name|request
 parameter_list|,
@@ -85,6 +100,11 @@ name|Response
 name|response
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|request
@@ -130,6 +150,9 @@ return|return
 operator|new
 name|SparkMessage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|request
 argument_list|,
 name|response

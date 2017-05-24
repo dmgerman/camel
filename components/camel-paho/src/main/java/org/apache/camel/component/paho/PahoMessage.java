@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -62,19 +74,22 @@ specifier|transient
 name|MqttMessage
 name|mqttMessage
 decl_stmt|;
-DECL|method|PahoMessage ()
-specifier|public
-name|PahoMessage
-parameter_list|()
-block|{     }
-DECL|method|PahoMessage (MqttMessage mqttMessage)
+DECL|method|PahoMessage (CamelContext camelContext, MqttMessage mqttMessage)
 specifier|public
 name|PahoMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|MqttMessage
 name|mqttMessage
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|mqttMessage
@@ -120,6 +135,9 @@ return|return
 operator|new
 name|PahoMessage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|mqttMessage
 argument_list|)
 return|;

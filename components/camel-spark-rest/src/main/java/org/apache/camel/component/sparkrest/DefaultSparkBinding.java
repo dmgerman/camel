@@ -317,6 +317,11 @@ init|=
 operator|new
 name|SparkMessage
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|request
 argument_list|,
 literal|null

@@ -307,7 +307,9 @@ name|SmppMessage
 name|newInstance
 parameter_list|()
 block|{
-return|return
+name|SmppMessage
+name|answer
+init|=
 operator|new
 name|SmppMessage
 argument_list|(
@@ -315,6 +317,17 @@ name|this
 operator|.
 name|configuration
 argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|isAlertNotification ()

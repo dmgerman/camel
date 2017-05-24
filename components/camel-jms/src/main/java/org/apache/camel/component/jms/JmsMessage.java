@@ -777,7 +777,9 @@ name|JmsMessage
 name|newInstance
 parameter_list|()
 block|{
-return|return
+name|JmsMessage
+name|answer
+init|=
 operator|new
 name|JmsMessage
 argument_list|(
@@ -787,6 +789,17 @@ literal|null
 argument_list|,
 name|binding
 argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Returns true if a new JMS message instance should be created to send to the next component      */

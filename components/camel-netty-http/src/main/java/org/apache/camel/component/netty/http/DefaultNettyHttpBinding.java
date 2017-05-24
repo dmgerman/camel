@@ -620,6 +620,11 @@ init|=
 operator|new
 name|NettyHttpMessage
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|request
 argument_list|,
 literal|null
@@ -1747,6 +1752,11 @@ init|=
 operator|new
 name|NettyHttpMessage
 argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 literal|null
 argument_list|,
 name|response
