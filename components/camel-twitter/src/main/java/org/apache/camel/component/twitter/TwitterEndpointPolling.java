@@ -260,7 +260,7 @@ name|TwitterEndpointPolling
 extends|extends
 name|DefaultPollingEndpoint
 implements|implements
-name|TwitterEndpoint
+name|CommonPropertiesTwitterEndpoint
 block|{
 annotation|@
 name|UriPath
@@ -326,6 +326,34 @@ DECL|field|properties
 specifier|private
 name|TwitterConfiguration
 name|properties
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Username, used for user timeline consumption, direct message production, etc."
+argument_list|)
+DECL|field|user
+specifier|private
+name|String
+name|user
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Can be used for search and streaming/filter. Multiple values can be separated with comma."
+argument_list|,
+name|label
+operator|=
+literal|"consumer,filter"
+argument_list|)
+DECL|field|keywords
+specifier|private
+name|String
+name|keywords
 decl_stmt|;
 DECL|method|TwitterEndpointPolling (String uri, String remaining, TwitterComponent component, TwitterConfiguration properties)
 specifier|public
@@ -495,6 +523,36 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|getUser ()
+specifier|public
+name|String
+name|getUser
+parameter_list|()
+block|{
+return|return
+name|user
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setUser (String user)
+specifier|public
+name|void
+name|setUser
+parameter_list|(
+name|String
+name|user
+parameter_list|)
+block|{
+name|this
+operator|.
+name|user
+operator|=
+name|user
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getKeywords ()
 specifier|public
 name|String
@@ -502,11 +560,7 @@ name|getKeywords
 parameter_list|()
 block|{
 return|return
-name|getProperties
-argument_list|()
-operator|.
-name|getKeywords
-argument_list|()
+name|keywords
 return|;
 block|}
 annotation|@
@@ -520,13 +574,11 @@ name|String
 name|keywords
 parameter_list|)
 block|{
-name|getProperties
-argument_list|()
+name|this
 operator|.
-name|setKeywords
-argument_list|(
 name|keywords
-argument_list|)
+operator|=
+name|keywords
 expr_stmt|;
 block|}
 annotation|@

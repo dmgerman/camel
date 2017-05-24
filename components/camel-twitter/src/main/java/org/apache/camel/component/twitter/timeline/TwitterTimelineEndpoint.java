@@ -242,7 +242,12 @@ specifier|private
 name|TimelineType
 name|timelineType
 decl_stmt|;
-DECL|method|TwitterTimelineEndpoint (String uri, String remaining, TwitterTimelineComponent component, TwitterConfiguration properties)
+DECL|field|user
+specifier|private
+name|String
+name|user
+decl_stmt|;
+DECL|method|TwitterTimelineEndpoint (String uri, String remaining, String user, TwitterTimelineComponent component, TwitterConfiguration properties)
 specifier|public
 name|TwitterTimelineEndpoint
 parameter_list|(
@@ -251,6 +256,9 @@ name|uri
 parameter_list|,
 name|String
 name|remaining
+parameter_list|,
+name|String
+name|user
 parameter_list|,
 name|TwitterTimelineComponent
 name|component
@@ -303,6 +311,12 @@ operator|.
 name|toUpperCase
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|user
+operator|=
+name|user
 expr_stmt|;
 block|}
 annotation|@
@@ -409,19 +423,11 @@ name|USER
 case|:
 if|if
 condition|(
-name|getProperties
-argument_list|()
-operator|.
-name|getUser
-argument_list|()
+name|user
 operator|==
 literal|null
 operator|||
-name|getProperties
-argument_list|()
-operator|.
-name|getUser
-argument_list|()
+name|user
 operator|.
 name|trim
 argument_list|()
@@ -446,6 +452,8 @@ operator|new
 name|UserConsumerHandler
 argument_list|(
 name|this
+argument_list|,
+name|user
 argument_list|)
 expr_stmt|;
 break|break;

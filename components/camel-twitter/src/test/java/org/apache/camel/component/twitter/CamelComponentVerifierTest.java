@@ -766,7 +766,7 @@ name|expected
 operator|.
 name|add
 argument_list|(
-literal|"endpointId"
+literal|"keywords"
 argument_list|)
 expr_stmt|;
 name|expected

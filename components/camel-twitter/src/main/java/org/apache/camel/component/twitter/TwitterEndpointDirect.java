@@ -178,7 +178,7 @@ name|TwitterEndpointDirect
 extends|extends
 name|DirectEndpoint
 implements|implements
-name|TwitterEndpoint
+name|CommonPropertiesTwitterEndpoint
 block|{
 DECL|field|kind
 specifier|private
@@ -191,6 +191,16 @@ DECL|field|properties
 specifier|private
 name|TwitterConfiguration
 name|properties
+decl_stmt|;
+DECL|field|user
+specifier|private
+name|String
+name|user
+decl_stmt|;
+DECL|field|keywords
+specifier|private
+name|String
+name|keywords
 decl_stmt|;
 DECL|method|TwitterEndpointDirect (String uri, String remaining, TwitterComponent component, TwitterConfiguration properties)
 specifier|public
@@ -454,6 +464,36 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|getUser ()
+specifier|public
+name|String
+name|getUser
+parameter_list|()
+block|{
+return|return
+name|user
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setUser (String user)
+specifier|public
+name|void
+name|setUser
+parameter_list|(
+name|String
+name|user
+parameter_list|)
+block|{
+name|this
+operator|.
+name|user
+operator|=
+name|user
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getKeywords ()
 specifier|public
 name|String
@@ -461,11 +501,7 @@ name|getKeywords
 parameter_list|()
 block|{
 return|return
-name|getProperties
-argument_list|()
-operator|.
-name|getKeywords
-argument_list|()
+name|keywords
 return|;
 block|}
 annotation|@
@@ -479,13 +515,11 @@ name|String
 name|keywords
 parameter_list|)
 block|{
-name|getProperties
-argument_list|()
+name|this
 operator|.
-name|setKeywords
-argument_list|(
 name|keywords
-argument_list|)
+operator|=
+name|keywords
 expr_stmt|;
 block|}
 annotation|@

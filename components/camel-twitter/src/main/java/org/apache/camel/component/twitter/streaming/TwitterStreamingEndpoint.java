@@ -178,6 +178,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -246,7 +260,23 @@ specifier|private
 name|StreamingType
 name|streamingType
 decl_stmt|;
-DECL|method|TwitterStreamingEndpoint (String uri, String remaining, TwitterStreamingComponent component, TwitterConfiguration properties)
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Can be used for a streaming filter. Multiple values can be separated with comma."
+argument_list|,
+name|label
+operator|=
+literal|"consumer,filter"
+argument_list|)
+DECL|field|keywords
+specifier|private
+name|String
+name|keywords
+decl_stmt|;
+DECL|method|TwitterStreamingEndpoint (String uri, String remaining, String keywords, TwitterStreamingComponent component, TwitterConfiguration properties)
 specifier|public
 name|TwitterStreamingEndpoint
 parameter_list|(
@@ -255,6 +285,9 @@ name|uri
 parameter_list|,
 name|String
 name|remaining
+parameter_list|,
+name|String
+name|keywords
 parameter_list|,
 name|TwitterStreamingComponent
 name|component
@@ -307,6 +340,12 @@ operator|.
 name|toUpperCase
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|keywords
+operator|=
+name|keywords
 expr_stmt|;
 block|}
 annotation|@
@@ -369,6 +408,8 @@ operator|new
 name|FilterStreamingConsumerHandler
 argument_list|(
 name|this
+argument_list|,
+name|keywords
 argument_list|)
 expr_stmt|;
 break|break;

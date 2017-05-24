@@ -165,12 +165,20 @@ specifier|private
 name|TwitterEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|SearchProducer (TwitterEndpoint endpoint)
+DECL|field|keywords
+specifier|private
+name|String
+name|keywords
+decl_stmt|;
+DECL|method|SearchProducer (TwitterEndpoint endpoint, String keywords)
 specifier|public
 name|SearchProducer
 parameter_list|(
 name|TwitterEndpoint
 name|endpoint
+parameter_list|,
+name|String
+name|keywords
 parameter_list|)
 block|{
 name|super
@@ -183,6 +191,12 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|keywords
+operator|=
+name|keywords
 expr_stmt|;
 block|}
 annotation|@
@@ -233,13 +247,9 @@ condition|)
 block|{
 name|keywords
 operator|=
-name|endpoint
+name|this
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|getKeywords
-argument_list|()
+name|keywords
 expr_stmt|;
 block|}
 if|if

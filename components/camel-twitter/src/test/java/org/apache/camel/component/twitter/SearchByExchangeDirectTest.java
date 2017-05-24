@@ -687,7 +687,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"twitter-search://foo?%s&keywords=java"
+literal|"twitter-search://java?%s"
 argument_list|,
 name|getUriTokens
 argument_list|()

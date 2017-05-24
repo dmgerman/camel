@@ -166,15 +166,6 @@ specifier|public
 class|class
 name|TwitterConfiguration
 block|{
-comment|//@UriPath(description = "The kind of endpoint", enums = "directmessage,search,streaming/filter,streaming/sample,streaming/user"
-comment|//        + ",timeline/home,timeline/mentions,timeline/retweetsofme,timeline/user") @Metadata(required = "true")
-annotation|@
-name|Deprecated
-DECL|field|kind
-specifier|private
-name|String
-name|kind
-decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -262,25 +253,6 @@ DECL|field|consumerSecret
 specifier|private
 name|String
 name|consumerSecret
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|user
-specifier|private
-name|String
-name|user
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer,filter"
-argument_list|)
-DECL|field|keywords
-specifier|private
-name|String
-name|keywords
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -802,37 +774,6 @@ return|return
 name|twitterStream
 return|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|getKind ()
-specifier|public
-name|String
-name|getKind
-parameter_list|()
-block|{
-return|return
-name|kind
-return|;
-block|}
-comment|/**      * What polling mode to use, direct, polling or event based.      * The event mode is only supported when the endpoint kind is event based.      */
-annotation|@
-name|Deprecated
-DECL|method|setKind (String kind)
-specifier|public
-name|void
-name|setKind
-parameter_list|(
-name|String
-name|kind
-parameter_list|)
-block|{
-name|this
-operator|.
-name|kind
-operator|=
-name|kind
-expr_stmt|;
-block|}
 DECL|method|getConsumerKey ()
 specifier|public
 name|String
@@ -939,60 +880,6 @@ operator|.
 name|accessTokenSecret
 operator|=
 name|accessTokenSecret
-expr_stmt|;
-block|}
-DECL|method|getUser ()
-specifier|public
-name|String
-name|getUser
-parameter_list|()
-block|{
-return|return
-name|user
-return|;
-block|}
-comment|/**      * Username, used for user timeline consumption, direct message production, etc.      */
-DECL|method|setUser (String user)
-specifier|public
-name|void
-name|setUser
-parameter_list|(
-name|String
-name|user
-parameter_list|)
-block|{
-name|this
-operator|.
-name|user
-operator|=
-name|user
-expr_stmt|;
-block|}
-DECL|method|getKeywords ()
-specifier|public
-name|String
-name|getKeywords
-parameter_list|()
-block|{
-return|return
-name|keywords
-return|;
-block|}
-comment|/**      * Can be used for search and streaming/filter. Multiple values can be separated with comma.      */
-DECL|method|setKeywords (String keywords)
-specifier|public
-name|void
-name|setKeywords
-parameter_list|(
-name|String
-name|keywords
-parameter_list|)
-block|{
-name|this
-operator|.
-name|keywords
-operator|=
-name|keywords
 expr_stmt|;
 block|}
 DECL|method|getType ()

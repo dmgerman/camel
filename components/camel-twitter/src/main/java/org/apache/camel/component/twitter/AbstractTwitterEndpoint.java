@@ -307,42 +307,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getKeywords ()
-specifier|public
-name|String
-name|getKeywords
-parameter_list|()
-block|{
-return|return
-name|getProperties
-argument_list|()
-operator|.
-name|getKeywords
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-DECL|method|setKeywords (String keywords)
-specifier|public
-name|void
-name|setKeywords
-parameter_list|(
-name|String
-name|keywords
-parameter_list|)
-block|{
-name|getProperties
-argument_list|()
-operator|.
-name|setKeywords
-argument_list|(
-name|keywords
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|getLocations ()
 specifier|public
 name|String

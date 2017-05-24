@@ -124,7 +124,7 @@ name|getUri
 parameter_list|()
 block|{
 return|return
-literal|"my-twitter://foo?type=direct&keywords=java&"
+literal|"my-twitter://java?type=direct&"
 return|;
 block|}
 annotation|@

@@ -387,11 +387,11 @@ expr_stmt|;
 comment|// poll twitter search for new tweets
 name|fromF
 argument_list|(
-literal|"twitter-search://foo?delay=%s&keywords=%s"
-argument_list|,
-name|delay
+literal|"twitter-search://%s?delay=%s"
 argument_list|,
 name|searchTerm
+argument_list|,
+name|delay
 argument_list|)
 operator|.
 name|to

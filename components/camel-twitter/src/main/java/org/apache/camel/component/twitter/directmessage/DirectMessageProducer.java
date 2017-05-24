@@ -121,12 +121,20 @@ specifier|private
 name|TwitterEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|DirectMessageProducer (TwitterEndpoint endpoint)
+DECL|field|user
+specifier|private
+name|String
+name|user
+decl_stmt|;
+DECL|method|DirectMessageProducer (TwitterEndpoint endpoint, String user)
 specifier|public
 name|DirectMessageProducer
 parameter_list|(
 name|TwitterEndpoint
 name|endpoint
+parameter_list|,
+name|String
+name|user
 parameter_list|)
 block|{
 name|super
@@ -139,6 +147,12 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|user
+operator|=
+name|user
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -156,13 +170,7 @@ comment|// send direct message
 name|String
 name|toUsername
 init|=
-name|endpoint
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|getUser
-argument_list|()
+name|user
 decl_stmt|;
 if|if
 condition|(

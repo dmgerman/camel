@@ -146,6 +146,20 @@ name|UriPath
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Twitter Direct Message Component consumes/produces user's direct messages.  */
 end_comment
@@ -168,7 +182,7 @@ literal|"Twitter Direct Message"
 argument_list|,
 name|syntax
 operator|=
-literal|"twitter-directmessage:endpointId"
+literal|"twitter-directmessage:user"
 argument_list|,
 name|consumerClass
 operator|=
@@ -192,7 +206,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"The endpoint ID (not used)."
+literal|"The user name to send a direct message. This will be ignored for consumer."
 argument_list|)
 annotation|@
 name|Metadata
@@ -201,10 +215,10 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|endpointId
+DECL|field|user
 specifier|private
 name|String
-name|endpointId
+name|user
 decl_stmt|;
 DECL|method|TwitterDirectMessageEndpoint (String uri, String remaining, TwitterDirectMessageComponent component, TwitterConfiguration properties)
 specifier|public
@@ -234,7 +248,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|endpointId
+name|user
 operator|=
 name|remaining
 expr_stmt|;
@@ -249,47 +263,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|getProperties
-argument_list|()
-operator|.
-name|getUser
-argument_list|()
-operator|==
-literal|null
-operator|||
-name|getProperties
-argument_list|()
-operator|.
-name|getUser
-argument_list|()
-operator|.
-name|trim
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Producer type set to DIRECT MESSAGE but no recipient user was set."
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
 return|return
 operator|new
 name|DirectMessageProducer
 argument_list|(
 name|this
+argument_list|,
+name|user
 argument_list|)
 return|;
-block|}
 block|}
 annotation|@
 name|Override

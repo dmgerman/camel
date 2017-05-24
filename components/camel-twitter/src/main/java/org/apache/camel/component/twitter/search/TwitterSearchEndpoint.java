@@ -146,6 +146,20 @@ name|UriPath
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Twitter Search component consumes search results.  */
 end_comment
@@ -168,7 +182,7 @@ literal|"Twitter Search"
 argument_list|,
 name|syntax
 operator|=
-literal|"twitter-search:endpointId"
+literal|"twitter-search:keywords"
 argument_list|,
 name|consumerClass
 operator|=
@@ -192,7 +206,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"The endpoint ID (not used)."
+literal|"The search keywords. Multiple values can be separated with comma."
 argument_list|)
 annotation|@
 name|Metadata
@@ -201,10 +215,10 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|endpointId
+DECL|field|keywords
 specifier|private
 name|String
-name|endpointId
+name|keywords
 decl_stmt|;
 DECL|method|TwitterSearchEndpoint (String uri, String remaining, TwitterSearchComponent component, TwitterConfiguration properties)
 specifier|public
@@ -234,7 +248,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|endpointId
+name|keywords
 operator|=
 name|remaining
 expr_stmt|;
@@ -254,6 +268,8 @@ operator|new
 name|SearchProducer
 argument_list|(
 name|this
+argument_list|,
+name|keywords
 argument_list|)
 return|;
 block|}
@@ -270,44 +286,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|boolean
-name|hasNoKeywords
-init|=
-name|getProperties
-argument_list|()
-operator|.
-name|getKeywords
-argument_list|()
-operator|==
-literal|null
-operator|||
-name|getProperties
-argument_list|()
-operator|.
-name|getKeywords
-argument_list|()
-operator|.
-name|trim
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|hasNoKeywords
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Type set to SEARCH but no keywords were provided."
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
 return|return
 name|TwitterHelper
 operator|.
@@ -321,10 +299,11 @@ operator|new
 name|SearchConsumerHandler
 argument_list|(
 name|this
+argument_list|,
+name|keywords
 argument_list|)
 argument_list|)
 return|;
-block|}
 block|}
 block|}
 end_class

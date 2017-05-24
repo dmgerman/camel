@@ -224,18 +224,32 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|SearchConsumerHandler (TwitterEndpoint te)
+DECL|field|keywords
+specifier|private
+name|String
+name|keywords
+decl_stmt|;
+DECL|method|SearchConsumerHandler (TwitterEndpoint te, String keywords)
 specifier|public
 name|SearchConsumerHandler
 parameter_list|(
 name|TwitterEndpoint
 name|te
+parameter_list|,
+name|String
+name|keywords
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|te
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|keywords
+operator|=
+name|keywords
 expr_stmt|;
 block|}
 DECL|method|pollConsume ()
@@ -252,13 +266,9 @@ block|{
 name|String
 name|keywords
 init|=
-name|endpoint
+name|this
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|getKeywords
-argument_list|()
+name|keywords
 decl_stmt|;
 name|Query
 name|query
@@ -355,13 +365,9 @@ block|{
 name|String
 name|keywords
 init|=
-name|endpoint
+name|this
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|getKeywords
-argument_list|()
+name|keywords
 decl_stmt|;
 if|if
 condition|(

@@ -22,9 +22,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
+name|camel
+operator|.
+name|Endpoint
 import|;
 end_import
 
@@ -32,57 +34,62 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|LoggerFactory
+name|camel
+operator|.
+name|component
+operator|.
+name|twitter
+operator|.
+name|data
+operator|.
+name|EndpointType
 import|;
 end_import
 
 begin_comment
-comment|/**  * consumes tweets  */
+comment|/**  * @deprecated This has been introduced to just keep deprecated endpoints working as is.  * Remove this once Endpoint{Direct,Event,Polling} is removed.  */
 end_comment
 
-begin_class
-DECL|class|SearchPollingTest
+begin_interface
+annotation|@
+name|Deprecated
+DECL|interface|CommonPropertiesTwitterEndpoint
 specifier|public
-class|class
-name|SearchPollingTest
+interface|interface
+name|CommonPropertiesTwitterEndpoint
 extends|extends
-name|CamelTwitterConsumerTestSupport
+name|TwitterEndpoint
 block|{
-annotation|@
-name|Override
-DECL|method|getUri ()
-specifier|protected
+DECL|method|getKeywords ()
 name|String
-name|getUri
+name|getKeywords
 parameter_list|()
-block|{
-return|return
-literal|"twitter-search://java?type=polling&delay=5000&"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getLogger ()
-specifier|protected
-name|Logger
-name|getLogger
+function_decl|;
+DECL|method|setKeywords (String keywords)
+name|void
+name|setKeywords
+parameter_list|(
+name|String
+name|keywords
+parameter_list|)
+function_decl|;
+DECL|method|getUser ()
+name|String
+name|getUser
 parameter_list|()
-block|{
-return|return
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SearchPollingTest
-operator|.
-name|class
-argument_list|)
-return|;
+function_decl|;
+DECL|method|setUser (String user)
+name|void
+name|setUser
+parameter_list|(
+name|String
+name|user
+parameter_list|)
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
