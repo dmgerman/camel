@@ -80,6 +80,13 @@ name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"CamelSedaPollTimeout"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|ClassPathXmlApplicationContext
@@ -158,7 +165,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5000
+literal|250
 argument_list|,
 name|foo
 operator|.
@@ -178,7 +185,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"seda://foo?blockWhenFull=true&pollTimeout=5000&size=100"
+literal|"seda://foo?blockWhenFull=true&pollTimeout=250&size=100"
 argument_list|,
 name|foo
 operator|.

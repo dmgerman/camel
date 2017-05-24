@@ -132,6 +132,18 @@ literal|3000
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|useJmx ()
+specifier|protected
+name|boolean
+name|useJmx
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|setUp ()
 specifier|protected
 name|void

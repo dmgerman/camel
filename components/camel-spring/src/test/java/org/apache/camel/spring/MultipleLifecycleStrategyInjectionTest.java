@@ -82,7 +82,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|4
+literal|3
 argument_list|,
 name|context
 operator|.
@@ -106,7 +106,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -123,7 +123,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
