@@ -64,6 +64,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"CamelSedaPollTimeout"
+argument_list|,
+literal|"10"
+argument_list|)
+expr_stmt|;
 return|return
 name|createSpringCamelContext
 argument_list|(

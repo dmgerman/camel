@@ -80,6 +80,15 @@ name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"CamelSedaPollTimeout"
+argument_list|,
+literal|"10"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 operator|new

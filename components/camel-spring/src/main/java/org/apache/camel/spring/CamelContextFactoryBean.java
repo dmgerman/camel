@@ -756,6 +756,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -2261,6 +2275,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
 name|super
 operator|.
 name|afterPropertiesSet
@@ -2305,6 +2326,18 @@ name|shutdownEager
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"afterPropertiesSet() took {} millis"
+argument_list|,
+name|watch
+operator|.
+name|stop
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|initCustomRegistry (SpringCamelContext context)
 specifier|protected
