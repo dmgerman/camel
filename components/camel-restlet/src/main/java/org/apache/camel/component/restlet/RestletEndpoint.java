@@ -660,6 +660,18 @@ specifier|private
 name|CookieHandler
 name|cookieHandler
 decl_stmt|;
+comment|// should NOT be exposes as @UriParam
+DECL|field|queryParameters
+specifier|private
+specifier|transient
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|queryParameters
+decl_stmt|;
 DECL|method|RestletEndpoint (RestletComponent component, String remaining)
 specifier|public
 name|RestletEndpoint
@@ -678,6 +690,21 @@ argument_list|(
 name|remaining
 argument_list|,
 name|component
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setCompleteEndpointUri (String uri)
+specifier|public
+name|void
+name|setCompleteEndpointUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|setEndpointUri
+argument_list|(
+name|uri
 argument_list|)
 expr_stmt|;
 block|}
@@ -1378,6 +1405,43 @@ operator|.
 name|cookieHandler
 operator|=
 name|cookieHandler
+expr_stmt|;
+block|}
+DECL|method|getQueryParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getQueryParameters
+parameter_list|()
+block|{
+return|return
+name|queryParameters
+return|;
+block|}
+comment|/**      * Additional query parameters for producer      */
+DECL|method|setQueryParameters (Map<String, Object> queryParameters)
+specifier|public
+name|void
+name|setQueryParameters
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|queryParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queryParameters
+operator|=
+name|queryParameters
 expr_stmt|;
 block|}
 annotation|@

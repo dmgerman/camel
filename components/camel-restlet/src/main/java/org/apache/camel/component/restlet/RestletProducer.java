@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|CookieStore
@@ -55,6 +65,16 @@ operator|.
 name|net
 operator|.
 name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
 import|;
 end_import
 
@@ -1397,7 +1417,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|CamelExchangeException
+name|Exception
 block|{
 comment|// rest producer may provide an override url to be used which we should discard if using (hence the remove)
 name|String
@@ -1452,12 +1472,38 @@ name|getUriPattern
 argument_list|()
 expr_stmt|;
 block|}
+comment|// include any query parameters if needed
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getQueryParameters
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|uri
+operator|=
+name|URISupport
+operator|.
+name|appendParametersToURI
+argument_list|(
+name|uri
+argument_list|,
+name|endpoint
+operator|.
+name|getQueryParameters
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// substitute { } placeholders in uri and use mandatory headers
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Substituting '(value)' placeholders in uri: {}"
+literal|"Substituting '{value}' placeholders in uri: {}"
 argument_list|,
 name|uri
 argument_list|)

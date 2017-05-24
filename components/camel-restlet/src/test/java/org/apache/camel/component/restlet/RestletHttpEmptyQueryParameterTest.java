@@ -38,16 +38,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -57,11 +47,6 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need to add support for lenient properties to producer"
-argument_list|)
 DECL|class|RestletHttpEmptyQueryParameterTest
 specifier|public
 class|class
