@@ -1125,6 +1125,23 @@ name|SOBJECT_PICKLIST_VM
 init|=
 literal|"/sobject-picklist.vm"
 decl_stmt|;
+DECL|field|IGNORED_OBJECTS
+specifier|private
+specifier|static
+specifier|final
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|IGNORED_OBJECTS
+init|=
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"FieldDefinition"
+argument_list|)
+decl_stmt|;
 comment|// used for velocity logging, to avoid creating velocity.log
 DECL|field|LOG
 specifier|private
@@ -2059,10 +2076,10 @@ throw|throw
 name|ex
 throw|;
 block|}
-name|descriptions
-operator|.
-name|add
-argument_list|(
+specifier|final
+name|SObjectDescription
+name|description
+init|=
 name|mapper
 operator|.
 name|readValue
@@ -2076,6 +2093,24 @@ name|SObjectDescription
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// remove some of the unused used metadata
+comment|// properties in order to minimize the code size
+comment|// for CAMEL-11310
+specifier|final
+name|SObjectDescription
+name|descriptionToAdd
+init|=
+name|description
+operator|.
+name|prune
+argument_list|()
+decl_stmt|;
+name|descriptions
+operator|.
+name|add
+argument_list|(
+name|descriptionToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -2247,6 +2282,21 @@ range|:
 name|descriptions
 control|)
 block|{
+if|if
+condition|(
+name|IGNORED_OBJECTS
+operator|.
+name|contains
+argument_list|(
+name|description
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 try|try
 block|{
 name|processDescription
