@@ -856,6 +856,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Enable usage of global SSL context parameters."
 argument_list|)
 DECL|field|useGlobalSslContextParameters
 specifier|private
