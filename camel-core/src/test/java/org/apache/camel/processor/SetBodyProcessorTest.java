@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -272,7 +284,12 @@ name|my
 init|=
 operator|new
 name|MyMessage
+argument_list|(
+name|exchange
+operator|.
+name|getContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|my
 operator|.
@@ -431,6 +448,20 @@ name|MyMessage
 extends|extends
 name|DefaultMessage
 block|{
+DECL|method|MyMessage (CamelContext camelContext)
+specifier|public
+name|MyMessage
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|newInstance ()
@@ -442,7 +473,10 @@ block|{
 return|return
 operator|new
 name|MyMessage
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

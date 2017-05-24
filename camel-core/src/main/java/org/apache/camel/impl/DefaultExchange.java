@@ -2375,6 +2375,14 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+name|messageSupport
+operator|.
+name|setCamelContext
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@

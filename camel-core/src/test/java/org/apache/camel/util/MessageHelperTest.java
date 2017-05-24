@@ -201,6 +201,15 @@ specifier|private
 name|Message
 name|message
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -215,7 +224,9 @@ name|message
 operator|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * Tests the {@link MessageHelper#resetStreamCache(Message)} method      */
@@ -438,7 +449,9 @@ name|target
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 name|source
 operator|.
@@ -521,7 +534,9 @@ name|target
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 name|source
 operator|.

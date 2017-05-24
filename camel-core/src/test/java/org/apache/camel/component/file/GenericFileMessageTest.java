@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -49,6 +61,20 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -74,6 +100,15 @@ name|GenericFileMessageTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
 DECL|method|testGenericMessageToStringConversion ()
 specifier|public
 name|void
@@ -93,7 +128,9 @@ name|GenericFileMessage
 argument_list|<
 name|File
 argument_list|>
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 name|assertStringContains
 argument_list|(
@@ -146,6 +183,8 @@ argument_list|<
 name|File
 argument_list|>
 argument_list|(
+name|camelContext
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
@@ -227,6 +266,8 @@ argument_list|<
 name|File
 argument_list|>
 argument_list|(
+name|camelContext
+argument_list|,
 name|file
 argument_list|)
 decl_stmt|;

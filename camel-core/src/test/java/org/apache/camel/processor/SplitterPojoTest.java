@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -495,7 +507,7 @@ name|answer
 return|;
 block|}
 comment|/**          * The split message method returns something that is iteratable such as a java.util.List.          *          * @param header the header of the incoming message with the name user          * @param body the payload of the incoming message          * @return a list containing each part splitted          */
-DECL|method|splitMessage (@eadervalue = R) String header, @Body String body)
+DECL|method|splitMessage (@eadervalue = R) String header, @Body String body, CamelContext camelContext)
 specifier|public
 name|List
 argument_list|<
@@ -517,6 +529,9 @@ annotation|@
 name|Body
 name|String
 name|body
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 comment|// we can leverage the Parameter Binding Annotations
@@ -562,7 +577,9 @@ name|message
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 name|message
 operator|.

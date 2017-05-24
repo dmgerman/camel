@@ -253,7 +253,9 @@ name|in
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -314,7 +316,9 @@ name|out
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|out
 operator|.
