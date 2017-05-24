@@ -287,6 +287,12 @@ argument_list|>
 name|event
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
 specifier|final
 name|Exchange
 name|exchange
@@ -387,6 +393,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

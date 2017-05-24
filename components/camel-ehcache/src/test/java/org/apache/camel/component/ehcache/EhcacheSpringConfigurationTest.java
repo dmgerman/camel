@@ -183,7 +183,7 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"ehcache://myFileCacheConf?keyType=java.lang.String&valueType=java.lang.String&configUri=classpath:ehcache/ehcache-file-config.xml"
+literal|"ehcache://myFileCacheConf?keyType=java.lang.String&valueType=java.lang.String&configurationUri=classpath:ehcache/ehcache-file-config.xml"
 argument_list|)
 DECL|field|ehcacheFileConf
 specifier|private
