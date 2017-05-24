@@ -189,6 +189,11 @@ block|{
 name|restConfiguration
 argument_list|()
 operator|.
+name|host
+argument_list|(
+literal|"camelhost"
+argument_list|)
+operator|.
 name|producerComponent
 argument_list|(
 literal|"dummy"
