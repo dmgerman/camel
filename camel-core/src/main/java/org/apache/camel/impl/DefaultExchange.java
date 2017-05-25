@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedList
 import|;
 end_import
@@ -780,7 +790,9 @@ argument_list|>
 name|answer
 init|=
 name|createProperties
-argument_list|()
+argument_list|(
+name|properties
+argument_list|)
 decl_stmt|;
 comment|// safe copy message history using a defensive copy
 name|List
@@ -2428,16 +2440,41 @@ argument_list|>
 name|createProperties
 parameter_list|()
 block|{
-comment|// TODO: a concurrent map is likely not needed
+comment|// TODO: likely not needed, we can use a HashMap
 return|return
 operator|new
 name|ConcurrentHashMap
+argument_list|<>
+argument_list|()
+return|;
+block|}
+DECL|method|createProperties (Map<String, Object> properties)
+specifier|protected
+name|Map
 argument_list|<
 name|String
 argument_list|,
 name|Object
 argument_list|>
-argument_list|()
+name|createProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+parameter_list|)
+block|{
+comment|// TODO: likely not needed, we can use a HashMap
+return|return
+operator|new
+name|ConcurrentHashMap
+argument_list|<>
+argument_list|(
+name|properties
+argument_list|)
 return|;
 block|}
 DECL|method|isExcludePatternMatch (String key, String... excludePatterns)
