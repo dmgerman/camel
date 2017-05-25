@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -37,20 +47,6 @@ operator|.
 name|spi
 operator|.
 name|HeadersMapFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CaseInsensitiveMap
 import|;
 end_import
 
@@ -81,7 +77,8 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|CaseInsensitiveMap
+name|HashMap
+argument_list|<>
 argument_list|()
 return|;
 block|}
@@ -108,7 +105,8 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|CaseInsensitiveMap
+name|HashMap
+argument_list|<>
 argument_list|(
 name|map
 argument_list|)
@@ -133,7 +131,7 @@ block|{
 return|return
 name|map
 operator|instanceof
-name|CaseInsensitiveMap
+name|HashMap
 return|;
 block|}
 block|}
