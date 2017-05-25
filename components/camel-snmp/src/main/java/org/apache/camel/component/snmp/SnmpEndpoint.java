@@ -774,6 +774,9 @@ argument_list|(
 operator|new
 name|SnmpMessage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|pdu
 argument_list|)
 argument_list|)
@@ -810,6 +813,9 @@ argument_list|(
 operator|new
 name|SnmpMessage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|pdu
 argument_list|,
 name|event
