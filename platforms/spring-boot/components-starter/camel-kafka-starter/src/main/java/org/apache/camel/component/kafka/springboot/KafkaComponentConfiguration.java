@@ -170,6 +170,14 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * This options controls what happens when a consumer is processing an      * exchange and it fails. If the option is false then the consumer continues      * to the next message and processes it. If the option is true then the      * consumer breaks out and will seek back to offset of the message that      * caused a failure and then re-attempt to process this message. However      * this can lead to endless processing of the same message if its bound to      * fail every time eg a poison message. Therefore its recommended to deal      * with that for example by using Camel's error handler.      */
+DECL|field|breakOnFirstError
+specifier|private
+name|Boolean
+name|breakOnFirstError
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -280,6 +288,32 @@ operator|.
 name|useGlobalSslContextParameters
 operator|=
 name|useGlobalSslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getBreakOnFirstError ()
+specifier|public
+name|Boolean
+name|getBreakOnFirstError
+parameter_list|()
+block|{
+return|return
+name|breakOnFirstError
+return|;
+block|}
+DECL|method|setBreakOnFirstError (Boolean breakOnFirstError)
+specifier|public
+name|void
+name|setBreakOnFirstError
+parameter_list|(
+name|Boolean
+name|breakOnFirstError
+parameter_list|)
+block|{
+name|this
+operator|.
+name|breakOnFirstError
+operator|=
+name|breakOnFirstError
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()

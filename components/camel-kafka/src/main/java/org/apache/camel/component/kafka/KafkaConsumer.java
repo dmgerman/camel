@@ -531,7 +531,23 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Starting Kafka consumer"
+literal|"Starting Kafka consumer on topic: {} with breakOnFirstError: {}"
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getTopic
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isBreakOnFirstError
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|super
@@ -619,7 +635,15 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Stopping Kafka consumer"
+literal|"Stopping Kafka consumer on topic: {}"
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getTopic
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
