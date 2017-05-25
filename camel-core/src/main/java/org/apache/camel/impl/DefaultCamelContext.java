@@ -18593,6 +18593,24 @@ literal|"AllowUseOriginalMessage enabled because UseOriginalMessage is in use"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|getHeadersMapFactory
+argument_list|()
+operator|.
+name|isCaseInsensitive
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"HeadersMapFactory is case-sensitive which can cause problems for protocols such as HTTP based, which rely on case-insensitive headers."
+argument_list|)
+expr_stmt|;
+block|}
 comment|// start routes
 if|if
 condition|(

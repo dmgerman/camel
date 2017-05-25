@@ -92,6 +92,12 @@ argument_list|>
 name|map
 parameter_list|)
 function_decl|;
+comment|/**      * Whether the created {@link Map} are case insensitive or not.      *<p/>      * Important: When using case sensitive (this method return false).      * Then the map is case sensitive which means headers such as<tt>content-type</tt> and<tt>Content-Type</tt> are      * two different keys which can be a problem for some protocols such as HTTP based, which rely on case insensitive headers.      * However case sensitive implementations can yield faster performance. Therefore use case sensitive implementation with care.      */
+DECL|method|isCaseInsensitive ()
+name|boolean
+name|isCaseInsensitive
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

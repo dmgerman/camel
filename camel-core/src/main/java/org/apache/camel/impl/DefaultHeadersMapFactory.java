@@ -136,6 +136,18 @@ operator|instanceof
 name|CaseInsensitiveMap
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isCaseInsensitive ()
+specifier|public
+name|boolean
+name|isCaseInsensitive
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

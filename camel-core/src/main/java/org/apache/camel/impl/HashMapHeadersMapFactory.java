@@ -134,6 +134,18 @@ operator|instanceof
 name|HashMap
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isCaseInsensitive ()
+specifier|public
+name|boolean
+name|isCaseInsensitive
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
