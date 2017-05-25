@@ -810,6 +810,12 @@ argument_list|(
 operator|new
 name|SnmpMessage
 argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|responseEvent
 operator|.
 name|getResponse
