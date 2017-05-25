@@ -130,10 +130,6 @@ name|JndiRegistry
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|XsltCustomizeEntityResolverTest
 specifier|public
@@ -264,21 +260,6 @@ name|SAXException
 throws|,
 name|IOException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"publicId:"
-operator|+
-name|publicId
-operator|+
-literal|",systeMdi:"
-operator|+
-name|systemId
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|InputSource
