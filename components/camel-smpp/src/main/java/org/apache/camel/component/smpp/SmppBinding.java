@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -374,11 +386,14 @@ name|command
 return|;
 block|}
 comment|/**      * Create a new SmppMessage from the inbound alert notification      */
-DECL|method|createSmppMessage (AlertNotification alertNotification)
+DECL|method|createSmppMessage (CamelContext camelContext, AlertNotification alertNotification)
 specifier|public
 name|SmppMessage
 name|createSmppMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|AlertNotification
 name|alertNotification
 parameter_list|)
@@ -394,6 +409,13 @@ argument_list|,
 name|configuration
 argument_list|)
 decl_stmt|;
+name|smppMessage
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|smppMessage
 operator|.
 name|setHeader
@@ -541,11 +563,14 @@ name|smppMessage
 return|;
 block|}
 comment|/**      * Create a new SmppMessage from the inbound deliver sm or deliver receipt      */
-DECL|method|createSmppMessage (DeliverSm deliverSm)
+DECL|method|createSmppMessage (CamelContext camelContext, DeliverSm deliverSm)
 specifier|public
 name|SmppMessage
 name|createSmppMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|DeliverSm
 name|deliverSm
 parameter_list|)
@@ -563,6 +588,13 @@ argument_list|,
 name|configuration
 argument_list|)
 decl_stmt|;
+name|smppMessage
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|String
 name|messagePayload
 init|=
@@ -1937,11 +1969,14 @@ return|return
 name|optParams
 return|;
 block|}
-DECL|method|createSmppMessage (DataSm dataSm, String smppMessageId)
+DECL|method|createSmppMessage (CamelContext camelContext, DataSm dataSm, String smppMessageId)
 specifier|public
 name|SmppMessage
 name|createSmppMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|DataSm
 name|dataSm
 parameter_list|,
@@ -1960,6 +1995,13 @@ argument_list|,
 name|configuration
 argument_list|)
 decl_stmt|;
+name|smppMessage
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|smppMessage
 operator|.
 name|setHeader

@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -343,6 +355,11 @@ specifier|private
 name|SmppBinding
 name|binding
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -370,6 +387,12 @@ argument_list|)
 return|;
 block|}
 block|}
+expr_stmt|;
+name|camelContext
+operator|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -521,6 +544,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|alertNotification
 argument_list|)
 decl_stmt|;
@@ -742,6 +767,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|deliverSm
 argument_list|)
 decl_stmt|;
@@ -1001,6 +1028,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|deliverSm
 argument_list|)
 decl_stmt|;
@@ -1473,6 +1502,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|deliverSm
 argument_list|)
 decl_stmt|;
@@ -1656,6 +1687,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|deliverSm
 argument_list|)
 decl_stmt|;
@@ -1853,6 +1886,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|deliverSm
 argument_list|)
 decl_stmt|;
@@ -2203,6 +2238,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|deliverSm
 argument_list|)
 decl_stmt|;
@@ -2539,6 +2576,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataSm
 argument_list|,
 literal|"1"
@@ -2928,6 +2967,8 @@ name|binding
 operator|.
 name|createSmppMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|deliverSm
 argument_list|)
 decl_stmt|;

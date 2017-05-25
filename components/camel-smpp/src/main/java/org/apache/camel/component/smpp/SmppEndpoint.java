@@ -401,6 +401,9 @@ argument_list|()
 operator|.
 name|createSmppMessage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|alertNotification
 argument_list|)
 argument_list|)
@@ -475,6 +478,9 @@ argument_list|()
 operator|.
 name|createSmppMessage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|deliverSm
 argument_list|)
 argument_list|)
@@ -553,6 +559,9 @@ argument_list|()
 operator|.
 name|createSmppMessage
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|dataSm
 argument_list|,
 name|smppMessageId

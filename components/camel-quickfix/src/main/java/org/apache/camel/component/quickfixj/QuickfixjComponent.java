@@ -94,7 +94,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -170,7 +170,7 @@ specifier|public
 class|class
 name|QuickfixjComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|StartupListener
 block|{
@@ -333,12 +333,18 @@ DECL|method|QuickfixjComponent ()
 specifier|public
 name|QuickfixjComponent
 parameter_list|()
+block|{     }
+DECL|method|QuickfixjComponent (CamelContext context)
+specifier|public
+name|QuickfixjComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
 name|super
 argument_list|(
-name|QuickfixjEndpoint
-operator|.
-name|class
+name|context
 argument_list|)
 expr_stmt|;
 block|}
