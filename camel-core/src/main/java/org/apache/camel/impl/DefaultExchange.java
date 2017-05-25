@@ -779,15 +779,8 @@ name|Object
 argument_list|>
 name|answer
 init|=
-name|context
-operator|.
-name|getHeadersMapFactory
+name|createProperties
 argument_list|()
-operator|.
-name|newMap
-argument_list|(
-name|properties
-argument_list|)
 decl_stmt|;
 comment|// safe copy message history using a defensive copy
 name|List
@@ -1336,13 +1329,7 @@ condition|)
 block|{
 name|properties
 operator|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|createProperties
 argument_list|()
 expr_stmt|;
 block|}
@@ -2428,6 +2415,29 @@ expr_stmt|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+DECL|method|createProperties ()
+specifier|protected
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|createProperties
+parameter_list|()
+block|{
+comment|// TODO: a concurrent map is likely not needed
+return|return
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
 return|;
 block|}
 DECL|method|isExcludePatternMatch (String key, String... excludePatterns)

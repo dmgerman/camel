@@ -18593,6 +18593,16 @@ literal|"AllowUseOriginalMessage enabled because UseOriginalMessage is in use"
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using HeadersMapFactory: {}"
+argument_list|,
+name|getHeadersMapFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -18607,7 +18617,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"HeadersMapFactory is case-sensitive which can cause problems for protocols such as HTTP based, which rely on case-insensitive headers."
+literal|"HeadersMapFactory: {} is case-sensitive which can cause problems for protocols such as HTTP based, which rely on case-insensitive headers."
+argument_list|,
+name|getHeadersMapFactory
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

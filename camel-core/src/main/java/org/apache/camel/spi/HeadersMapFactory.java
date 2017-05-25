@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to create the {@link Map} implementation to use for storing headers and properties  * on {@link Message} and {@link org.apache.camel.Exchange}.  *  * @see org.apache.camel.impl.DefaultHeadersMapFactory  */
+comment|/**  * Factory to create the {@link Map} implementation to use for storing headers on {@link Message}.  *  * @see org.apache.camel.impl.DefaultHeadersMapFactory  */
 end_comment
 
 begin_interface
