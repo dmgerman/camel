@@ -186,7 +186,7 @@ operator|new
 name|DefaultHeadersMapFactory
 argument_list|()
 operator|.
-name|fromMap
+name|newMap
 argument_list|(
 name|other
 argument_list|)
@@ -297,7 +297,7 @@ operator|new
 name|DefaultHeadersMapFactory
 argument_list|()
 operator|.
-name|fromMap
+name|newMap
 argument_list|(
 name|map
 argument_list|)

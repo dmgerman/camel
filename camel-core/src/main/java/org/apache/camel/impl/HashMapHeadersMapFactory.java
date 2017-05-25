@@ -55,14 +55,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link HeadersMapFactory} which uses the {@link org.apache.camel.util.CaseInsensitiveMap CaseInsensitiveMap}.  * This implementation uses a {@link org.apache.camel.util.CaseInsensitiveMap} storing the headers.  * This allows us to be able to lookup headers using case insensitive keys, making it easier for end users  * as they do not have to be worried about using exact keys.  * See more details at {@link org.apache.camel.util.CaseInsensitiveMap}.  */
+comment|/**  * HashMap {@link HeadersMapFactory} which uses a plain {@link java.util.HashMap}.  * Important: The map is case sensitive which means headers such as<tt>content-type</tt> and<tt>Content-Type</tt> are  * two different keys which can be a problem for some protocols such as HTTP based.  * Therefore use this implementation with care.  */
 end_comment
 
 begin_class
-DECL|class|DefaultHeadersMapFactory
+DECL|class|HashMapHeadersMapFactory
 specifier|public
 class|class
-name|DefaultHeadersMapFactory
+name|HashMapHeadersMapFactory
 implements|implements
 name|HeadersMapFactory
 block|{

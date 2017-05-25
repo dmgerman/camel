@@ -1122,7 +1122,7 @@ operator|.
 name|getHeadersMapFactory
 argument_list|()
 operator|.
-name|fromMap
+name|newMap
 argument_list|(
 name|headers
 argument_list|)

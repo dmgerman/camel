@@ -60,14 +60,14 @@ name|newMap
 parameter_list|()
 function_decl|;
 comment|/**      * Creates a new {@link Map} and copies over all the content from the existing map.      *<p/>      * The copy of the content should use defensive copy, so the returned map      * can add/remove/change the content without affecting the existing map.      *      * @param map  existing map to copy over (must use defensive copy)      * @return new map with the content from the existing map      */
-DECL|method|fromMap (Map<String, Object> map)
+DECL|method|newMap (Map<String, Object> map)
 name|Map
 argument_list|<
 name|String
 argument_list|,
 name|Object
 argument_list|>
-name|fromMap
+name|newMap
 parameter_list|(
 name|Map
 argument_list|<
