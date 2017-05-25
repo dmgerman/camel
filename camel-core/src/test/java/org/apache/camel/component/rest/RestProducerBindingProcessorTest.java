@@ -464,7 +464,9 @@ name|input
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 specifier|final
 name|RequestPojo
@@ -714,7 +716,9 @@ name|input
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 specifier|final
 name|RequestPojo
@@ -964,7 +968,9 @@ name|input
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 specifier|final
 name|RequestPojo

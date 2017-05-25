@@ -428,7 +428,13 @@ name|result
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+name|getEndpoint
 argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|Messages
 operator|.

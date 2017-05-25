@@ -132,7 +132,9 @@ name|message
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|message
 operator|.
@@ -233,7 +235,9 @@ name|message
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|message
 operator|.
@@ -334,7 +338,9 @@ name|message
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|message
 operator|.

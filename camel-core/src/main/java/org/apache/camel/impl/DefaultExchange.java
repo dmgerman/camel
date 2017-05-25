@@ -1420,7 +1420,10 @@ name|in
 operator|=
 operator|new
 name|DefaultMessage
+argument_list|(
+name|getContext
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|configureMessage
 argument_list|(
@@ -1550,7 +1553,10 @@ argument_list|()
 else|:
 operator|new
 name|DefaultMessage
+argument_list|(
+name|getContext
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|configureMessage
 argument_list|(

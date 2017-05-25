@@ -351,7 +351,12 @@ name|msg
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+name|exchange
+operator|.
+name|getContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|msg
 operator|.

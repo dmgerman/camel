@@ -5754,7 +5754,11 @@ name|msg
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+operator|new
+name|DefaultCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|msg
 operator|.
@@ -5847,7 +5851,11 @@ name|msg
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+operator|new
+name|DefaultCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|msg
 operator|.
@@ -5920,7 +5928,11 @@ name|msg
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+operator|new
+name|DefaultCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|msg
 operator|.

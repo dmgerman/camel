@@ -1177,23 +1177,13 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-name|DefaultMessage
-name|answer
-init|=
+return|return
 operator|new
 name|DefaultMessage
-argument_list|()
-decl_stmt|;
-name|answer
-operator|.
-name|setCamelContext
 argument_list|(
 name|getCamelContext
 argument_list|()
 argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 comment|/**      * A factory method to lazily create the headers to make it easy to create      * efficient Message implementations which only construct and populate the      * Map on demand      *      * @return return a newly constructed Map possibly containing headers from      *         the underlying inbound transport      */

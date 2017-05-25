@@ -72,16 +72,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|nio
 operator|.
 name|ByteBuffer
@@ -664,7 +654,12 @@ name|result
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+name|exchange
+operator|.
+name|getContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|populateCamelHeaders
 argument_list|(
@@ -923,7 +918,12 @@ name|result
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+name|exchange
+operator|.
+name|getContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|//retrieve response headers
 name|populateCamelHeaders

@@ -56,7 +56,33 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -344,6 +370,16 @@ specifier|private
 name|ServerMessage
 name|cometdMessage
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+specifier|final
+name|CamelContext
+name|camelContext
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Before
 DECL|method|before ()
@@ -523,6 +559,8 @@ name|testObj
 operator|.
 name|createCamelMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|remote
 argument_list|,
 name|cometdMessage
@@ -634,6 +672,8 @@ name|testObj
 operator|.
 name|createCamelMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|remote
 argument_list|,
 name|cometdMessage
@@ -767,6 +807,8 @@ name|testObj
 operator|.
 name|createCamelMessage
 argument_list|(
+name|camelContext
+argument_list|,
 name|remote
 argument_list|,
 name|cometdMessage

@@ -440,7 +440,15 @@ name|outMessage
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+name|inMessage
+operator|.
+name|getExchange
 argument_list|()
+operator|.
+name|getContext
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|outMessage
 operator|.

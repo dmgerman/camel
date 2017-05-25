@@ -954,7 +954,15 @@ name|message
 init|=
 operator|new
 name|DefaultMessage
+argument_list|(
+name|this
+operator|.
+name|getEndpoint
 argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|String
 name|fileName

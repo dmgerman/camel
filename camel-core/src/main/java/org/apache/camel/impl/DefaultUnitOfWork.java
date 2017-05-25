@@ -550,7 +550,9 @@ name|originalInMessage
 operator|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 name|this
 operator|.

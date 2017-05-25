@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -370,11 +382,14 @@ return|return
 name|mutable
 return|;
 block|}
-DECL|method|createCamelMessage (ServerSession remote, ServerMessage cometdMessage, Object data)
+DECL|method|createCamelMessage (CamelContext camelContext, ServerSession remote, ServerMessage cometdMessage, Object data)
 specifier|public
 name|Message
 name|createCamelMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|ServerSession
 name|remote
 parameter_list|,
@@ -405,7 +420,9 @@ name|message
 init|=
 operator|new
 name|DefaultMessage
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 name|message
 operator|.
