@@ -656,7 +656,7 @@ name|watchedEvent
 parameter_list|)
 block|{
 name|Exchange
-name|e
+name|exchange
 init|=
 name|getEndpoint
 argument_list|()
@@ -670,6 +670,12 @@ init|=
 operator|new
 name|ZooKeeperMessage
 argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|path
 argument_list|,
 name|result
@@ -680,7 +686,7 @@ argument_list|,
 name|watchedEvent
 argument_list|)
 decl_stmt|;
-name|e
+name|exchange
 operator|.
 name|setIn
 argument_list|(
@@ -708,7 +714,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|e
+name|exchange
 operator|.
 name|setException
 argument_list|(
@@ -720,7 +726,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|e
+name|exchange
 return|;
 block|}
 DECL|class|OperationsExecutor

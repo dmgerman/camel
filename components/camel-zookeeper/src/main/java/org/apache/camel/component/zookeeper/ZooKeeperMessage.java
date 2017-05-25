@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -174,10 +186,27 @@ name|ZOOKEEPER_OPERATION
 init|=
 literal|"CamelZookeeperOperation"
 decl_stmt|;
-DECL|method|ZooKeeperMessage (String node, Stat statistics, WatchedEvent watchedEvent)
+DECL|method|ZooKeeperMessage (CamelContext camelContext)
 specifier|public
 name|ZooKeeperMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|ZooKeeperMessage (CamelContext camelContext, String node, Stat statistics, WatchedEvent watchedEvent)
+specifier|public
+name|ZooKeeperMessage
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|node
 parameter_list|,
@@ -190,6 +219,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|camelContext
+argument_list|,
 name|node
 argument_list|,
 name|statistics
@@ -208,10 +239,13 @@ name|watchedEvent
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ZooKeeperMessage (String node, Stat statistics, Map<String, Object> headers)
+DECL|method|ZooKeeperMessage (CamelContext camelContext, String node, Stat statistics, Map<String, Object> headers)
 specifier|public
 name|ZooKeeperMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|node
 parameter_list|,
@@ -229,6 +263,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|camelContext
+argument_list|,
 name|node
 argument_list|,
 name|statistics
@@ -239,10 +275,13 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ZooKeeperMessage (String node, Stat statistics, Map<String, Object> headers, WatchedEvent watchedEvent)
+DECL|method|ZooKeeperMessage (CamelContext camelContext, String node, Stat statistics, Map<String, Object> headers, WatchedEvent watchedEvent)
 specifier|public
 name|ZooKeeperMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|node
 parameter_list|,
@@ -261,6 +300,11 @@ name|WatchedEvent
 name|watchedEvent
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|setHeaders
 argument_list|(
 name|headers
@@ -383,6 +427,23 @@ expr_stmt|;
 block|}
 return|return
 name|path
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|newInstance ()
+specifier|public
+name|DefaultMessage
+name|newInstance
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ZooKeeperMessage
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

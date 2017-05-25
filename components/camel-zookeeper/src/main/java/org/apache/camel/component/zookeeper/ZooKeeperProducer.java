@@ -889,6 +889,12 @@ init|=
 operator|new
 name|ZooKeeperMessage
 argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|context
 operator|.
 name|node
