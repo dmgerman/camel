@@ -225,13 +225,9 @@ argument_list|()
 operator|.
 name|map
 argument_list|(
-name|r
-lambda|->
-operator|new
 name|RouteEndpointInfo
-argument_list|(
-name|r
-argument_list|)
+operator|::
+operator|new
 argument_list|)
 operator|.
 name|collect
