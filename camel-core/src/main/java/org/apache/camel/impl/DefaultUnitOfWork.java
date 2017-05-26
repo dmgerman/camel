@@ -751,10 +751,16 @@ decl_stmt|;
 if|if
 condition|(
 name|redelivered
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+comment|// not from a transactional resource so mark it as false by default
+name|redelivered
+operator|=
+literal|false
+expr_stmt|;
+block|}
 name|exchange
 operator|.
 name|setProperty
@@ -766,7 +772,6 @@ argument_list|,
 name|redelivered
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// fire event
 try|try

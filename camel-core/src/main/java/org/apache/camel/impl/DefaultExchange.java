@@ -2057,24 +2057,6 @@ operator|.
 name|isTransactedRedelivered
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|answer
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// store as property to keep around
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXTERNAL_REDELIVERED
-argument_list|,
-name|answer
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 return|return
