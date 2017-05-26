@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>DozerTypeConverter</code> is a standard {@link TypeConverter} that  * delegates to a {@link Mapper} from the Dozer framework to convert between  * types.<code>DozerTypeConverter</code>s are created and installed into a  * {@link CamelContext} by an instance of {@link DozerTypeConverterLoader}.  *<p>  * See<a href="http://dozer.sourceforge.net">dozer project page</a> or more information on configuring Dozer  *  * @see DozerTypeConverterLoader  */
+comment|/**  *<code>DozerTypeConverter</code> is a standard {@link TypeConverter} that  * delegates to a {@link Mapper} from the Dozer framework to convert between  * types.<code>DozerTypeConverter</code>s are created and installed into a  * {@link CamelContext} by an instance of {@link DozerTypeConverterLoader}.  *<p>  * See<a href="https://github.com/DozerMapper/dozer">dozer project page</a> or more information on configuring Dozer  *  * @see DozerTypeConverterLoader  */
 end_comment
 
 begin_class
