@@ -829,7 +829,7 @@ else|else
 block|{
 name|hits
 operator|.
-name|incrementAndGet
+name|increment
 argument_list|()
 expr_stmt|;
 block|}
