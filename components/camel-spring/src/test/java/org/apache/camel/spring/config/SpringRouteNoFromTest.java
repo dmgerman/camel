@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|SpringTestSupport
@@ -59,10 +71,6 @@ operator|.
 name|ClassPathXmlApplicationContext
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|SpringRouteNoFromTest
@@ -123,7 +131,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{

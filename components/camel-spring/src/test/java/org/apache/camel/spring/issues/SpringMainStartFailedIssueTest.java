@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TestSupport
 import|;
 end_import
@@ -55,10 +67,6 @@ operator|.
 name|Main
 import|;
 end_import
-
-begin_comment
-comment|/**  * @version   */
-end_comment
 
 begin_class
 DECL|class|SpringMainStartFailedIssueTest
@@ -113,7 +121,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{

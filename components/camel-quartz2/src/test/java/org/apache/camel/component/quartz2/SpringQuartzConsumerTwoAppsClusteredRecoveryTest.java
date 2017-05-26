@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through with recoverableJob option is true {@link QuartzConsumer}.  *   * @version  */
+comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through with recoverableJob option is true {@link QuartzConsumer}.  */
 end_comment
 
 begin_class
@@ -218,11 +218,6 @@ argument_list|(
 literal|"org/apache/camel/component/quartz2/SpringQuartzConsumerClusteredAppDatabase.xml"
 argument_list|)
 decl_stmt|;
-name|db
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 comment|// now launch the first clustered app which will acquire the quartz database lock and become the master
 name|AbstractXmlApplicationContext
 name|app
@@ -233,17 +228,19 @@ argument_list|(
 literal|"org/apache/camel/component/quartz2/SpringQuartzConsumerRecoveryClusteredAppOne.xml"
 argument_list|)
 decl_stmt|;
-name|app
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 comment|// now let's simulate a crash of the first app (the quartz instance 'app-one')
 name|log
 operator|.
 name|warn
 argument_list|(
 literal|"The first app is going to crash NOW!"
+argument_list|)
+expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|app
 argument_list|)
 expr_stmt|;
 name|log

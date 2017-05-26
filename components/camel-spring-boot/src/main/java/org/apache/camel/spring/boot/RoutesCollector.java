@@ -326,6 +326,18 @@ name|springframework
 operator|.
 name|core
 operator|.
+name|Ordered
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|core
+operator|.
 name|io
 operator|.
 name|Resource
@@ -346,6 +358,8 @@ name|ApplicationListener
 argument_list|<
 name|ContextRefreshedEvent
 argument_list|>
+implements|,
+name|Ordered
 block|{
 comment|// Static collaborators
 DECL|field|LOG
@@ -1126,6 +1140,27 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|// RoutesCollector implements Ordered so that it's the
+comment|// second to last in ApplicationListener to receive events,
+comment|// SpringCamelContext should be the last one,
+comment|// CamelContextFactoryBean should be on par with
+comment|// RoutesCollector this is important for startup as we want
+comment|// all resources to be ready and all routes added to the
+comment|// context
+return|return
+name|LOWEST_PRECEDENCE
+operator|-
+literal|1
+return|;
 block|}
 DECL|method|maybeStart (CamelContext camelContext)
 specifier|private

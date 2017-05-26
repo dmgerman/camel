@@ -26,7 +26,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -82,10 +106,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|SpringDeadLetterChannelInvalidOptionDeadLetterUriTest
 specifier|public
@@ -94,6 +114,8 @@ name|SpringDeadLetterChannelInvalidOptionDeadLetterUriTest
 extends|extends
 name|SpringTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext
@@ -133,10 +155,25 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
+name|FailedToCreateRouteException
+name|ftcre
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|FailedToCreateRouteException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|ResolveEndpointFailedException
 name|cause
 init|=
@@ -146,10 +183,7 @@ name|ResolveEndpointFailedException
 operator|.
 name|class
 argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
+name|ftcre
 operator|.
 name|getCause
 argument_list|()

@@ -102,6 +102,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|quartz
+operator|.
+name|Scheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -127,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through {@link CronScheduledRoutePolicy}.  *   * @version  */
+comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through {@link CronScheduledRoutePolicy}.  */
 end_comment
 
 begin_class
@@ -158,11 +168,6 @@ argument_list|(
 literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzClusteredAppDatabase.xml"
 argument_list|)
 decl_stmt|;
-name|db
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 comment|// now launch the first clustered app which will acquire the quartz database lock and become the master
 name|AbstractXmlApplicationContext
 name|app
@@ -173,11 +178,6 @@ argument_list|(
 literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzClusteredAppOne.xml"
 argument_list|)
 decl_stmt|;
-name|app
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 comment|// as well as the second one which will run in slave mode as it will not be able to acquire the same lock
 name|AbstractXmlApplicationContext
 name|app2
@@ -188,11 +188,6 @@ argument_list|(
 literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzClusteredAppTwo.xml"
 argument_list|)
 decl_stmt|;
-name|app2
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|CamelContext
 name|camel
 init|=
@@ -273,6 +268,21 @@ name|warn
 argument_list|(
 literal|"The first app is going to crash NOW!"
 argument_list|)
+expr_stmt|;
+comment|// we need to stop the Scheduler first as the CamelContext will gracefully shutdown and
+comment|// delete all scheduled jobs, so there would be nothing for the second CamelContext to
+comment|// failover from
+name|app
+operator|.
+name|getBean
+argument_list|(
+name|Scheduler
+operator|.
+name|class
+argument_list|)
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 name|IOHelper
 operator|.

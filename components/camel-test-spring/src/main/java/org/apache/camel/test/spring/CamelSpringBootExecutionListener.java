@@ -22,6 +22,32 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -140,6 +166,18 @@ operator|.
 name|getTestClass
 argument_list|()
 decl_stmt|;
+comment|// we are customizing the Camel context with
+comment|// CamelAnnotationsHandler so we do not want to start it
+comment|// automatically, which would happen when SpringCamelContext
+comment|// is added to Spring ApplicationContext, so we set the flag
+comment|// not to start it just yet
+name|SpringCamelContext
+operator|.
+name|setNoStart
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|ConfigurableApplicationContext
 name|context
 init|=
@@ -196,6 +234,31 @@ name|context
 argument_list|,
 name|testClass
 argument_list|)
+expr_stmt|;
+name|SpringCamelContext
+operator|.
+name|setNoStart
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|CamelContext
+name|camelContext
+init|=
+name|context
+operator|.
+name|getBean
+argument_list|(
+name|CamelContext
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// after our customizations we should start the CamelContext
+name|camelContext
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

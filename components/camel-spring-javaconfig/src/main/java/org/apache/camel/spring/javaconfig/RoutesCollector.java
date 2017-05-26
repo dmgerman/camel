@@ -112,6 +112,18 @@ name|ContextRefreshedEvent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|core
+operator|.
+name|Ordered
+import|;
+end_import
+
 begin_comment
 comment|/**  * Collects routes and rests from the various sources (like Spring application context beans registry or opinionated  * classpath locations) and injects these into the Camel context.  */
 end_comment
@@ -126,6 +138,8 @@ name|ApplicationListener
 argument_list|<
 name|ContextRefreshedEvent
 argument_list|>
+implements|,
+name|Ordered
 block|{
 comment|// Static collaborators
 DECL|field|LOG
@@ -391,6 +405,22 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|// we want the RoutesCollector to receive ContextRefreshedEvent
+comment|// before SpringCamelContext (see SpringCamelContext::getOrder)
+return|return
+name|LOWEST_PRECEDENCE
+operator|-
+literal|1
+return|;
 block|}
 block|}
 end_class

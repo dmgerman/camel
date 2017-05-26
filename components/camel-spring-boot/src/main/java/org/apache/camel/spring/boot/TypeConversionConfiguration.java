@@ -191,13 +191,14 @@ specifier|public
 class|class
 name|TypeConversionConfiguration
 block|{
+comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
+comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
+comment|// and in that case ShutdownableService::shutdown/Service::close
+comment|// (BaseTypeConverterRegistry extends ServiceSupport) would be used for
+comment|// bean destruction. And we want Camel to handle the lifecycle.
 annotation|@
 name|Bean
 argument_list|(
-name|initMethod
-operator|=
-literal|""
-argument_list|,
 name|destroyMethod
 operator|=
 literal|""
@@ -220,16 +221,6 @@ return|;
 block|}
 annotation|@
 name|Bean
-argument_list|(
-name|initMethod
-operator|=
-literal|""
-argument_list|,
-name|destroyMethod
-operator|=
-literal|""
-argument_list|)
-comment|// Camel handles the lifecycle of this bean
 DECL|method|springTypeConverter (CamelContext camelContext, ConversionService[] conversionServices)
 name|SpringTypeConverter
 name|springTypeConverter

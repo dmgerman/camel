@@ -55,6 +55,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -71,10 +83,6 @@ operator|.
 name|createSpringCamelContext
 import|;
 end_import
-
-begin_comment
-comment|/**  * @version   */
-end_comment
 
 begin_class
 DECL|class|SpringDoubleLoadBalancerMisconfigurationTest
@@ -109,7 +117,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
@@ -166,6 +174,8 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

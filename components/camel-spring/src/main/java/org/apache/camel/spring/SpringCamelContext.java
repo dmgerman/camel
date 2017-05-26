@@ -260,34 +260,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|DisposableBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|InitializingBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|context
 operator|.
 name|ApplicationContext
@@ -326,6 +298,18 @@ name|springframework
 operator|.
 name|context
 operator|.
+name|ApplicationListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
 name|ConfigurableApplicationContext
 import|;
 end_import
@@ -338,9 +322,19 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|event
+name|Lifecycle
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|ContextClosedEvent
+name|springframework
+operator|.
+name|context
+operator|.
+name|Phased
 import|;
 end_import
 
@@ -366,9 +360,9 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|event
+name|support
 operator|.
-name|ContextStoppedEvent
+name|ClassPathXmlApplicationContext
 import|;
 end_import
 
@@ -378,11 +372,9 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|context
+name|core
 operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
+name|Ordered
 import|;
 end_import
 
@@ -414,11 +406,18 @@ name|SpringCamelContext
 extends|extends
 name|DefaultCamelContext
 implements|implements
-name|InitializingBean
-implements|,
-name|DisposableBean
+name|Lifecycle
 implements|,
 name|ApplicationContextAware
+implements|,
+name|Phased
+implements|,
+name|ApplicationListener
+argument_list|<
+name|ApplicationEvent
+argument_list|>
+implements|,
+name|Ordered
 block|{
 DECL|field|LOG
 specifier|private
@@ -631,7 +630,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|afterPropertiesSet
+name|start
 argument_list|()
 expr_stmt|;
 block|}
@@ -665,13 +664,51 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|afterPropertiesSet ()
+annotation|@
+name|Override
+DECL|method|start ()
 specifier|public
 name|void
-name|afterPropertiesSet
+name|start
 parameter_list|()
-throws|throws
-name|Exception
+block|{
+comment|// for example from unit testing we want to start Camel later (manually)
+if|if
+condition|(
+name|Boolean
+operator|.
+name|TRUE
+operator|.
+name|equals
+argument_list|(
+name|NO_START
+operator|.
+name|get
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Ignoring start() as NO_START is false"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|isStarted
+argument_list|()
+operator|&&
+operator|!
+name|isStarting
+argument_list|()
+condition|)
+block|{
+try|try
 block|{
 name|StopWatch
 name|watch
@@ -680,14 +717,16 @@ operator|new
 name|StopWatch
 argument_list|()
 decl_stmt|;
-name|maybeStart
+name|super
+operator|.
+name|start
 argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"afterPropertiesSet() took {} millis"
+literal|"start() took {} millis"
 argument_list|,
 name|watch
 operator|.
@@ -696,18 +735,87 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|destroy ()
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+comment|// ignore as Camel is already started
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Ignoring start() as Camel is already started"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|stop ()
 specifier|public
 name|void
-name|destroy
+name|stop
 parameter_list|()
-throws|throws
-name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|isStopping
+argument_list|()
+operator|&&
+operator|!
+name|isStopped
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|super
+operator|.
 name|stop
 argument_list|()
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+comment|// ignore as Camel is already stopped
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Ignoring stop() as Camel is already stopped"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|onApplicationEvent (ApplicationEvent event)
 specifier|public
 name|void
@@ -733,92 +841,20 @@ operator|instanceof
 name|ContextRefreshedEvent
 condition|)
 block|{
-comment|// now lets start the CamelContext so that all its possible
-comment|// dependencies are initialized
-try|try
-block|{
-name|maybeStart
+comment|// nominally we would prefer to use Lifecycle interface that
+comment|// would invoke start() method, but in order to do that
+comment|// SpringCamelContext needs to implement SmartLifecycle
+comment|// (look at DefaultLifecycleProcessor::startBeans), but it
+comment|// cannot implement it as it already implements
+comment|// RuntimeConfiguration, and both SmartLifecycle and
+comment|// RuntimeConfiguration declare isAutoStartup method but
+comment|// with boolean and Boolean return types, and covariant
+comment|// methods with primitive types are not allowed by the JLS
+comment|// so we need to listen for ContextRefreshedEvent and start
+comment|// on its reception
+name|start
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|event
-operator|instanceof
-name|ContextClosedEvent
-condition|)
-block|{
-comment|// ContextClosedEvent is emitted when Spring is about to be shutdown
-if|if
-condition|(
-name|isShutdownEager
-argument_list|()
-condition|)
-block|{
-try|try
-block|{
-name|maybeStop
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|event
-operator|instanceof
-name|ContextStoppedEvent
-condition|)
-block|{
-comment|// ContextStoppedEvent is emitted when Spring is end of shutdown
-try|try
-block|{
-name|maybeStop
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 if|if
 condition|(
@@ -836,6 +872,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|// SpringCamelContext implements Ordered so that it's the last
+comment|// in ApplicationListener to receive events, this is important
+comment|// for startup as we want all resources to be ready and all
+comment|// routes added to the context (see
+comment|// org.apache.camel.spring.boot.RoutesCollector)
+comment|// and we need to be after CamelContextFactoryBean
+return|return
+name|LOWEST_PRECEDENCE
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getApplicationContext ()
@@ -848,6 +902,8 @@ return|return
 name|applicationContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void
@@ -1097,6 +1153,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
 specifier|protected
 name|Endpoint
@@ -1192,99 +1250,6 @@ name|SpringModelJAXBContextFactory
 argument_list|()
 return|;
 block|}
-DECL|method|maybeStart ()
-specifier|private
-name|void
-name|maybeStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// for example from unit testing we want to start Camel later and not when Spring framework
-comment|// publish a ContextRefreshedEvent
-if|if
-condition|(
-name|NO_START
-operator|.
-name|get
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|isStarted
-argument_list|()
-operator|&&
-operator|!
-name|isStarting
-argument_list|()
-condition|)
-block|{
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// ignore as Camel is already started
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Ignoring maybeStart() as Apache Camel is already started"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Ignoring maybeStart() as NO_START is false"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-DECL|method|maybeStop ()
-specifier|private
-name|void
-name|maybeStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-operator|!
-name|isStopping
-argument_list|()
-operator|&&
-operator|!
-name|isStopped
-argument_list|()
-condition|)
-block|{
-name|stop
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// ignore as Camel is already stopped
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Ignoring maybeStop() as Apache Camel is already stopped"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1345,6 +1310,46 @@ return|return
 name|sb
 operator|.
 name|toString
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getPhase ()
+specifier|public
+name|int
+name|getPhase
+parameter_list|()
+block|{
+comment|// the context is started by invoking start method which
+comment|// happens either on ContextRefreshedEvent or explicitly
+comment|// invoking the method, for instance CamelContextFactoryBean
+comment|// is using that to start the context, _so_ here we want to
+comment|// have maximum priority as the getPhase() will be used only
+comment|// for stopping, in order to be used for starting we would
+comment|// need to implement SmartLifecycle which we cannot
+comment|// (explained in comment in the onApplicationEvent method)
+comment|// we use LOWEST_PRECEDENCE here as this is taken into account
+comment|// only when stopping and then in reversed order
+return|return
+name|LOWEST_PRECEDENCE
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isRunning ()
+specifier|public
+name|boolean
+name|isRunning
+parameter_list|()
+block|{
+return|return
+operator|!
+name|isStopping
+argument_list|()
+operator|&&
+operator|!
+name|isStopped
 argument_list|()
 return|;
 block|}

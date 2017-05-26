@@ -102,6 +102,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|quartz
+operator|.
+name|Scheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -273,6 +283,21 @@ name|warn
 argument_list|(
 literal|"The first app is going to crash NOW!"
 argument_list|)
+expr_stmt|;
+comment|// we need to stop the Scheduler first as the CamelContext will gracefully shutdown and
+comment|// delete all scheduled jobs, so there would be nothing for the second CamelContext to
+comment|// failover from
+name|app
+operator|.
+name|getBean
+argument_list|(
+name|Scheduler
+operator|.
+name|class
+argument_list|)
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 name|IOHelper
 operator|.

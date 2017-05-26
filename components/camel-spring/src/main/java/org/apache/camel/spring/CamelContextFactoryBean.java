@@ -876,7 +876,7 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationEvent
+name|ApplicationListener
 import|;
 end_import
 
@@ -888,7 +888,19 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationListener
+name|Lifecycle
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|Phased
 import|;
 end_import
 
@@ -903,6 +915,18 @@ operator|.
 name|event
 operator|.
 name|ContextRefreshedEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|core
+operator|.
+name|Ordered
 import|;
 end_import
 
@@ -923,7 +947,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CamelContext using XML configuration.  *  * @version   */
+comment|/**  * CamelContext using XML configuration.  */
 end_comment
 
 begin_class
@@ -969,10 +993,16 @@ name|DisposableBean
 implements|,
 name|ApplicationContextAware
 implements|,
+name|Lifecycle
+implements|,
+name|Phased
+implements|,
 name|ApplicationListener
 argument_list|<
-name|ApplicationEvent
+name|ContextRefreshedEvent
 argument_list|>
+implements|,
+name|Ordered
 block|{
 DECL|field|LOG
 specifier|private
@@ -2619,26 +2649,48 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|onApplicationEvent (ApplicationEvent event)
+annotation|@
+name|Override
+DECL|method|start ()
 specifier|public
 name|void
-name|onApplicationEvent
+name|start
+parameter_list|()
+block|{
+try|try
+block|{
+name|setupRoutes
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
 parameter_list|(
-name|ApplicationEvent
-name|event
+name|Exception
+name|e
 parameter_list|)
 block|{
-comment|// From Spring 3.0.1, The BeanFactory applicationEventListener
-comment|// and Bean's applicationEventListener will be called,
-comment|// So we just delegate the onApplicationEvent call here.
-name|SpringCamelContext
-name|context
-init|=
-name|getContext
+throw|throw
+name|wrapRuntimeCamelException
 argument_list|(
-literal|false
+name|e
 argument_list|)
-decl_stmt|;
+throw|;
+block|}
+comment|// when the routes are setup we need to start the Camel context
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+block|{
 if|if
 condition|(
 name|context
@@ -2646,100 +2698,95 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// we need to defer setting up routes until Spring has done all its dependency injection
-comment|// which is only guaranteed to be done when it emits the ContextRefreshedEvent event.
-if|if
-condition|(
-name|event
-operator|instanceof
-name|ContextRefreshedEvent
-condition|)
-block|{
-try|try
-block|{
-name|setupRoutes
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-comment|// let the spring camel context handle the events
 name|context
 operator|.
-name|onApplicationEvent
-argument_list|(
-name|event
-argument_list|)
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
-else|else
+block|}
+annotation|@
+name|Override
+DECL|method|isRunning ()
+specifier|public
+name|boolean
+name|isRunning
+parameter_list|()
 block|{
-name|LOG
+return|return
+name|context
+operator|!=
+literal|null
+operator|&&
+name|context
 operator|.
-name|debug
-argument_list|(
-literal|"Publishing spring-event: {}"
-argument_list|,
-name|event
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|event
-operator|instanceof
+name|isRunning
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getPhase ()
+specifier|public
+name|int
+name|getPhase
+parameter_list|()
+block|{
+comment|// the factory starts the context from
+comment|// onApplicationEvent(ContextRefreshedEvent) so the phase we're
+comment|// in only influences when the context is to be stopped, and
+comment|// we want the CamelContext to be first in line to get stopped
+comment|// if we wanted the phase to be considered while starting, we
+comment|// would need to implement SmartLifecycle (see
+comment|// DefaultLifecycleProcessor::startBeans)
+comment|// we use LOWEST_PRECEDENCE here as this is taken into account
+comment|// only when stopping and then in reversed order
+return|return
+name|LOWEST_PRECEDENCE
+operator|-
+literal|1
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|// CamelContextFactoryBean implements Ordered so that it's the
+comment|// second to last in ApplicationListener to receive events,
+comment|// SpringCamelContext should be the last one, this is important
+comment|// for startup as we want all resources to be ready and all
+comment|// routes added to the context (see setupRoutes() and
+comment|// org.apache.camel.spring.boot.RoutesCollector)
+return|return
+name|LOWEST_PRECEDENCE
+operator|-
+literal|1
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|onApplicationEvent (final ContextRefreshedEvent event)
+specifier|public
+name|void
+name|onApplicationEvent
+parameter_list|(
+specifier|final
 name|ContextRefreshedEvent
-condition|)
+name|event
+parameter_list|)
 block|{
-comment|// now lets start the CamelContext so that all its possible
-comment|// dependencies are initialized
-try|try
-block|{
-comment|// we need to defer setting up routes until Spring has done all its dependency injection
-comment|// which is only guaranteed to be done when it emits the ContextRefreshedEvent event.
-name|setupRoutes
-argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Starting the context now"
-argument_list|)
-expr_stmt|;
-name|getContext
-argument_list|()
-operator|.
+comment|// start the CamelContext when the Spring ApplicationContext is
+comment|// done initializing, as the last step in ApplicationContext
+comment|// being started/refreshed, there could be a race condition with
+comment|// other ApplicationListeners that react to
+comment|// ContextRefreshedEvent but this is the best that we can do
 name|start
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
@@ -2768,6 +2815,8 @@ return|return
 name|applicationContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

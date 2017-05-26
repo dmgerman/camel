@@ -708,13 +708,6 @@ init|=
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-name|SpringCamelContext
-operator|.
-name|setNoStart
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|setupCamelContext
 argument_list|(
 name|camelContext

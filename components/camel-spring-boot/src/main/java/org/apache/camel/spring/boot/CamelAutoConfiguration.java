@@ -723,8 +723,19 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * Spring-aware Camel context for the application. Auto-detects and loads all routes available in the Spring context.      */
+comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
+comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
+comment|// and in that case CamelContext::shutdown or CamelContext::stop would
+comment|// be used for bean destruction. As SpringCamelContext is a lifecycle
+comment|// bean (implements Lifecycle) additional invocations of shutdown or
+comment|// close would be superfluous.
 annotation|@
 name|Bean
+argument_list|(
+name|destroyMethod
+operator|=
+literal|""
+argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
@@ -833,13 +844,6 @@ argument_list|(
 name|applicationContext
 argument_list|)
 decl_stmt|;
-name|SpringCamelContext
-operator|.
-name|setNoStart
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1637,17 +1641,6 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-comment|// CAMEL-10279: We have to call setNoStart(true) here so that if a<camelContext> is imported via
-comment|// @ImportResource then it does not get started before the RoutesCollector gets a chance to add any
-comment|// routes found in RouteBuilders.  Even if no RouteBuilders are found, the RoutesCollector will handle
-comment|// starting the the Camel Context.
-name|SpringCamelContext
-operator|.
-name|setNoStart
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|CamelSpringBootApplicationController
@@ -1716,18 +1709,18 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Default producer template for the bootstrapped Camel context.      */
+comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
+comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
+comment|// and in that case Service::close (ProducerTemplate implements Service)
+comment|// would be used for bean destruction. And we want Camel to handle the
+comment|// lifecycle.
 annotation|@
 name|Bean
 argument_list|(
-name|initMethod
-operator|=
-literal|""
-argument_list|,
 name|destroyMethod
 operator|=
 literal|""
 argument_list|)
-comment|// Camel handles the lifecycle of this bean
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
@@ -1762,6 +1755,7 @@ name|getProducerTemplateCacheSize
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// we add this producerTemplate as a Service to CamelContext so that it performs proper lifecycle (start and stop)
 name|camelContext
 operator|.
 name|addService
@@ -1774,18 +1768,18 @@ name|producerTemplate
 return|;
 block|}
 comment|/**      * Default consumer template for the bootstrapped Camel context.      */
+comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
+comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
+comment|// and in that case Service::close (ConsumerTemplate implements Service)
+comment|// would be used for bean destruction. And we want Camel to handle the
+comment|// lifecycle.
 annotation|@
 name|Bean
 argument_list|(
-name|initMethod
-operator|=
-literal|""
-argument_list|,
 name|destroyMethod
 operator|=
 literal|""
 argument_list|)
-comment|// Camel handles the lifecycle of this bean
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
@@ -1820,6 +1814,7 @@ name|getConsumerTemplateCacheSize
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// we add this consumerTemplate as a Service to CamelContext so that it performs proper lifecycle (start and stop)
 name|camelContext
 operator|.
 name|addService
@@ -1845,18 +1840,18 @@ name|SpringPropertiesParser
 argument_list|()
 return|;
 block|}
+comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
+comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
+comment|// and in that case ShutdownableService::shutdown/Service::close
+comment|// (PropertiesComponent extends ServiceSupport) would be used for bean
+comment|// destruction. And we want Camel to handle the lifecycle.
 annotation|@
 name|Bean
 argument_list|(
-name|initMethod
-operator|=
-literal|""
-argument_list|,
 name|destroyMethod
 operator|=
 literal|""
 argument_list|)
-comment|// Camel handles the lifecycle of this bean
 DECL|method|properties (CamelContext camelContext, PropertiesParser parser)
 name|PropertiesComponent
 name|properties

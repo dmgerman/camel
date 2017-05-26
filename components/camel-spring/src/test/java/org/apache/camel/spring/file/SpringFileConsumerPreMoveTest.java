@@ -50,20 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|SpringCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -88,10 +74,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|SpringFileConsumerPreMoveTest
 specifier|public
@@ -105,6 +87,8 @@ specifier|private
 name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -122,11 +106,13 @@ literal|"org/apache/camel/spring/file/SpringFileConsumerPreMoveTest.xml"
 argument_list|)
 expr_stmt|;
 return|return
-name|SpringCamelContext
-operator|.
-name|springCamelContext
-argument_list|(
 name|applicationContext
+operator|.
+name|getBean
+argument_list|(
+name|CamelContext
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
