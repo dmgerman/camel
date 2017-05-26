@@ -372,7 +372,6 @@ annotation|@
 name|Override
 DECL|method|reset ()
 specifier|public
-specifier|synchronized
 name|void
 name|reset
 parameter_list|()

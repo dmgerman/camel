@@ -197,7 +197,6 @@ expr_stmt|;
 block|}
 DECL|method|reset ()
 specifier|public
-specifier|synchronized
 name|void
 name|reset
 parameter_list|()
@@ -293,7 +292,6 @@ return|;
 block|}
 DECL|method|increment ()
 specifier|public
-specifier|synchronized
 name|void
 name|increment
 parameter_list|()

@@ -573,7 +573,6 @@ annotation|@
 name|Override
 DECL|method|reset ()
 specifier|public
-specifier|synchronized
 name|void
 name|reset
 parameter_list|()
@@ -1038,7 +1037,6 @@ expr_stmt|;
 block|}
 DECL|method|processExchange (Exchange exchange)
 specifier|public
-specifier|synchronized
 name|void
 name|processExchange
 parameter_list|(
@@ -1054,7 +1052,6 @@ expr_stmt|;
 block|}
 DECL|method|completedExchange (Exchange exchange, long time)
 specifier|public
-specifier|synchronized
 name|void
 name|completedExchange
 parameter_list|(
@@ -1244,7 +1241,6 @@ expr_stmt|;
 block|}
 DECL|method|failedExchange (Exchange exchange)
 specifier|public
-specifier|synchronized
 name|void
 name|failedExchange
 parameter_list|(
