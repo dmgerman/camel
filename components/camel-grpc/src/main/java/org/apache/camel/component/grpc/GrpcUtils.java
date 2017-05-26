@@ -86,6 +86,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|util
@@ -110,7 +122,7 @@ specifier|private
 name|GrpcUtils
 parameter_list|()
 block|{     }
-DECL|method|constructGrpcAsyncStub (String packageName, String serviceName, Channel channel)
+DECL|method|constructGrpcAsyncStub (String packageName, String serviceName, Channel channel, final CamelContext context)
 specifier|public
 specifier|static
 name|Object
@@ -124,6 +136,10 @@ name|serviceName
 parameter_list|,
 name|Channel
 name|channel
+parameter_list|,
+specifier|final
+name|CamelContext
+name|context
 parameter_list|)
 block|{
 return|return
@@ -138,10 +154,12 @@ operator|.
 name|GRPC_SERVICE_ASYNC_STUB_METHOD
 argument_list|,
 name|channel
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
-DECL|method|constructGrpcBlockingStub (String packageName, String serviceName, Channel channel)
+DECL|method|constructGrpcBlockingStub (String packageName, String serviceName, Channel channel, final CamelContext context)
 specifier|public
 specifier|static
 name|Object
@@ -155,6 +173,10 @@ name|serviceName
 parameter_list|,
 name|Channel
 name|channel
+parameter_list|,
+specifier|final
+name|CamelContext
+name|context
 parameter_list|)
 block|{
 return|return
@@ -169,6 +191,8 @@ operator|.
 name|GRPC_SERVICE_SYNC_STUB_METHOD
 argument_list|,
 name|channel
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -180,7 +204,7 @@ block|{
 literal|"rawtypes"
 block|}
 argument_list|)
-DECL|method|constructGrpcStubClass (String packageName, String serviceName, String stubMethod, Channel channel)
+DECL|method|constructGrpcStubClass (String packageName, String serviceName, String stubMethod, Channel channel, final CamelContext context)
 specifier|private
 specifier|static
 name|Object
@@ -197,6 +221,10 @@ name|stubMethod
 parameter_list|,
 name|Channel
 name|channel
+parameter_list|,
+specifier|final
+name|CamelContext
+name|context
 parameter_list|)
 block|{
 name|Class
@@ -241,9 +269,12 @@ block|{
 name|Class
 name|grpcServiceClass
 init|=
-name|Class
+name|context
 operator|.
-name|forName
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveMandatoryClass
 argument_list|(
 name|serviceClassName
 argument_list|)
@@ -324,7 +355,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
 argument_list|)
-DECL|method|constructGrpcImplBaseClass (String packageName, String serviceName)
+DECL|method|constructGrpcImplBaseClass (String packageName, String serviceName, final CamelContext context)
 specifier|public
 specifier|static
 name|Class
@@ -335,6 +366,10 @@ name|packageName
 parameter_list|,
 name|String
 name|serviceName
+parameter_list|,
+specifier|final
+name|CamelContext
+name|context
 parameter_list|)
 block|{
 name|Class
@@ -365,9 +400,12 @@ try|try
 block|{
 name|grpcServerImpl
 operator|=
-name|Class
+name|context
 operator|.
-name|forName
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveMandatoryClass
 argument_list|(
 name|serverBaseImpl
 argument_list|)
