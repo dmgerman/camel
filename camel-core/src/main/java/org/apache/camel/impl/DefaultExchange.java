@@ -2032,30 +2032,38 @@ block|{
 comment|// lets avoid adding methods to the Message API, so we use the
 comment|// DefaultMessage to allow component specific messages to extend
 comment|// and implement the isExternalRedelivered method.
-name|DefaultMessage
+name|Message
 name|msg
 init|=
 name|getIn
-argument_list|(
-name|DefaultMessage
-operator|.
-name|class
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|msg
-operator|!=
-literal|null
+operator|instanceof
+name|DefaultMessage
 condition|)
 block|{
 name|answer
 operator|=
+operator|(
+operator|(
+name|DefaultMessage
+operator|)
 name|msg
+operator|)
 operator|.
 name|isTransactedRedelivered
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// store as property to keep around
 name|setProperty
 argument_list|(
@@ -2066,6 +2074,7 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

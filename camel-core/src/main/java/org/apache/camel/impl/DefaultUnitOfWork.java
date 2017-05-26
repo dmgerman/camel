@@ -740,6 +740,21 @@ operator|==
 literal|null
 condition|)
 block|{
+name|Boolean
+name|redelivered
+init|=
+name|exchange
+operator|.
+name|isExternalRedelivered
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|redelivered
+operator|!=
+literal|null
+condition|)
+block|{
 name|exchange
 operator|.
 name|setProperty
@@ -748,12 +763,10 @@ name|Exchange
 operator|.
 name|EXTERNAL_REDELIVERED
 argument_list|,
-name|exchange
-operator|.
-name|isExternalRedelivered
-argument_list|()
+name|redelivered
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// fire event
 try|try
