@@ -45,6 +45,9 @@ block|,
 DECL|enumConstant|GET
 name|GET
 block|,
+DECL|enumConstant|GETORDEFAULT
+name|GETORDEFAULT
+block|,
 DECL|enumConstant|CONTAINSKEY
 name|CONTAINSKEY
 block|,

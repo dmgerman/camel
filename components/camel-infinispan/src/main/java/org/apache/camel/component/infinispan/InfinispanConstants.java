@@ -54,6 +54,12 @@ name|VALUE
 init|=
 literal|"CamelInfinispanValue"
 decl_stmt|;
+DECL|field|DEFAULT_VALUE
+name|String
+name|DEFAULT_VALUE
+init|=
+literal|"CamelInfinispanDefaultValue"
+decl_stmt|;
 DECL|field|OLD_VALUE
 name|String
 name|OLD_VALUE
