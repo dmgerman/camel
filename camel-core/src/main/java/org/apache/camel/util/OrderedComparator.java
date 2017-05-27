@@ -78,28 +78,6 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-DECL|method|get ()
-specifier|public
-specifier|static
-name|OrderedComparator
-name|get
-parameter_list|()
-block|{
-return|return
-name|INSTANCE
-return|;
-block|}
-DECL|method|getReverse ()
-specifier|public
-specifier|static
-name|OrderedComparator
-name|getReverse
-parameter_list|()
-block|{
-return|return
-name|INSTANCE_REVERSE
-return|;
-block|}
 DECL|field|reverse
 specifier|private
 specifier|final
@@ -133,6 +111,30 @@ name|reverse
 operator|=
 name|reverse
 expr_stmt|;
+block|}
+comment|/**      * Gets the comparator that sorts a..z      */
+DECL|method|get ()
+specifier|public
+specifier|static
+name|OrderedComparator
+name|get
+parameter_list|()
+block|{
+return|return
+name|INSTANCE
+return|;
+block|}
+comment|/**      * Gets the comparator that sorts z..a (reverse)      */
+DECL|method|getReverse ()
+specifier|public
+specifier|static
+name|OrderedComparator
+name|getReverse
+parameter_list|()
+block|{
+return|return
+name|INSTANCE_REVERSE
+return|;
 block|}
 DECL|method|compare (Object o1, Object o2)
 specifier|public
