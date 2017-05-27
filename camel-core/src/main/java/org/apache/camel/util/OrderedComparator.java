@@ -54,12 +54,59 @@ argument_list|<
 name|Object
 argument_list|>
 block|{
+DECL|field|INSTANCE
+specifier|private
+specifier|static
+specifier|final
+name|OrderedComparator
+name|INSTANCE
+init|=
+operator|new
+name|OrderedComparator
+argument_list|()
+decl_stmt|;
+DECL|field|INSTANCE_REVERSE
+specifier|private
+specifier|static
+specifier|final
+name|OrderedComparator
+name|INSTANCE_REVERSE
+init|=
+operator|new
+name|OrderedComparator
+argument_list|(
+literal|true
+argument_list|)
+decl_stmt|;
+DECL|method|get ()
+specifier|public
+specifier|static
+name|OrderedComparator
+name|get
+parameter_list|()
+block|{
+return|return
+name|INSTANCE
+return|;
+block|}
+DECL|method|getReverse ()
+specifier|public
+specifier|static
+name|OrderedComparator
+name|getReverse
+parameter_list|()
+block|{
+return|return
+name|INSTANCE_REVERSE
+return|;
+block|}
 DECL|field|reverse
 specifier|private
 specifier|final
 name|boolean
 name|reverse
 decl_stmt|;
+comment|/**      * Favor using the static instance {@link #get()}      */
 DECL|method|OrderedComparator ()
 specifier|public
 name|OrderedComparator
@@ -71,6 +118,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Favor using the static instance {@link #getReverse()}      */
 DECL|method|OrderedComparator (boolean reverse)
 specifier|public
 name|OrderedComparator

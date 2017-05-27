@@ -1263,8 +1263,9 @@ name|interceptors
 operator|.
 name|sort
 argument_list|(
-operator|new
 name|OrderedComparator
+operator|.
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
