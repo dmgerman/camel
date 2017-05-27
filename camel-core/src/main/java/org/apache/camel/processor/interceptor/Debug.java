@@ -218,6 +218,8 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+try|try
+block|{
 name|debugger
 operator|.
 name|beforeProcess
@@ -229,6 +231,31 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 specifier|final
 name|StopWatch
 name|watch
@@ -264,6 +291,8 @@ operator|.
 name|stop
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|debugger
 operator|.
 name|afterProcess
@@ -277,6 +306,9 @@ argument_list|,
 name|diff
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 comment|// must notify original callback
 name|callback
 operator|.
@@ -285,6 +317,7 @@ argument_list|(
 name|doneSync
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
