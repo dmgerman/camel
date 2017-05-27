@@ -382,7 +382,7 @@ name|exchange
 argument_list|,
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 argument_list|)
 expr_stmt|;

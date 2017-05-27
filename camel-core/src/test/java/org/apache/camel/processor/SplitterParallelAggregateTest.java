@@ -473,7 +473,7 @@ expr_stmt|;
 block|}
 name|stopWatch
 operator|.
-name|stop
+name|taken
 argument_list|()
 expr_stmt|;
 name|log

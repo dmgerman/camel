@@ -106,6 +106,11 @@ specifier|final
 name|StopWatch
 name|stopWatch
 decl_stmt|;
+DECL|field|elapsed
+specifier|private
+name|long
+name|elapsed
+decl_stmt|;
 DECL|method|DefaultMessageHistory (String routeId, NamedNode node, Date timestamp)
 specifier|public
 name|DefaultMessageHistory
@@ -193,10 +198,7 @@ name|getElapsed
 parameter_list|()
 block|{
 return|return
-name|stopWatch
-operator|.
-name|taken
-argument_list|()
+name|elapsed
 return|;
 block|}
 DECL|method|nodeProcessingDone ()
@@ -205,9 +207,11 @@ name|void
 name|nodeProcessingDone
 parameter_list|()
 block|{
+name|elapsed
+operator|=
 name|stopWatch
 operator|.
-name|stop
+name|taken
 argument_list|()
 expr_stmt|;
 block|}

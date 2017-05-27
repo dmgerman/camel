@@ -317,7 +317,7 @@ literal|"Took "
 operator|+
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 operator|+
 literal|" millis to convert "

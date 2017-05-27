@@ -209,11 +209,14 @@ argument_list|(
 literal|"foo"
 argument_list|)
 expr_stmt|;
+name|long
+name|taken
+init|=
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:deadLetter"
@@ -238,15 +241,9 @@ name|assertTrue
 argument_list|(
 literal|"Should stop route faster, was "
 operator|+
-name|watch
-operator|.
 name|taken
-argument_list|()
 argument_list|,
-name|watch
-operator|.
 name|taken
-argument_list|()
 operator|<
 literal|7000
 argument_list|)

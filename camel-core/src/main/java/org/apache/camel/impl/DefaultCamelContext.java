@@ -17058,11 +17058,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|watch
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -17315,11 +17310,6 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-name|stopWatch
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -19010,11 +19000,6 @@ argument_list|()
 expr_stmt|;
 comment|// stop to clear introspection cache
 name|IntrospectionSupport
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-name|stopWatch
 operator|.
 name|stop
 argument_list|()

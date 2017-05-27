@@ -127,7 +127,7 @@ argument_list|)
 expr_stmt|;
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 expr_stmt|;
 name|assertTrue

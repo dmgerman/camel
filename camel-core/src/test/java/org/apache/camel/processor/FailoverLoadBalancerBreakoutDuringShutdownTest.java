@@ -168,7 +168,7 @@ argument_list|()
 argument_list|,
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 operator|<
 literal|5000

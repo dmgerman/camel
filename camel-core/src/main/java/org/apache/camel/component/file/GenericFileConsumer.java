@@ -617,7 +617,7 @@ name|delta
 init|=
 name|stop
 operator|.
-name|stop
+name|taken
 argument_list|()
 decl_stmt|;
 if|if

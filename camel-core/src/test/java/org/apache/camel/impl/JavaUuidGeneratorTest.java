@@ -235,7 +235,7 @@ name|printDuration
 argument_list|(
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 argument_list|)
 argument_list|)

@@ -42,11 +42,6 @@ specifier|private
 name|long
 name|start
 decl_stmt|;
-DECL|field|stop
-specifier|private
-name|long
-name|stop
-decl_stmt|;
 comment|/**      * Starts the stop watch      */
 DECL|method|StopWatch ()
 specifier|public
@@ -109,55 +104,28 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 expr_stmt|;
-name|stop
-operator|=
-literal|0
-expr_stmt|;
 block|}
-comment|/**      * Stops the stop watch      *      * @return the time taken in millis.      */
+comment|/**      * Reports the time taken (does not stop the stop watch)      *      * @return the time taken in millis.      * @deprecated use {@link #taken()}      */
+annotation|@
+name|Deprecated
 DECL|method|stop ()
 specifier|public
 name|long
 name|stop
 parameter_list|()
 block|{
-name|stop
-operator|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-expr_stmt|;
 return|return
 name|taken
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the time taken in millis.      *      * @return time in millis      */
+comment|/**      * Returns the time taken in millis.      *      * @return time in millis, or<tt>0</tt> if not started yet.      */
 DECL|method|taken ()
 specifier|public
 name|long
 name|taken
 parameter_list|()
 block|{
-if|if
-condition|(
-name|start
-operator|>
-literal|0
-operator|&&
-name|stop
-operator|>
-literal|0
-condition|)
-block|{
-return|return
-name|stop
-operator|-
-name|start
-return|;
-block|}
-elseif|else
 if|if
 condition|(
 name|start

@@ -1698,7 +1698,7 @@ name|timeTaken
 init|=
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 decl_stmt|;
 comment|// emit event that the exchange was sent to the endpoint
@@ -2188,7 +2188,7 @@ name|timeTaken
 init|=
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 decl_stmt|;
 name|EventHelper
