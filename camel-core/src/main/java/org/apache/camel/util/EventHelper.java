@@ -205,7 +205,7 @@ block|{     }
 DECL|method|notifyCamelContextStarting (CamelContext context)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextStarting
 parameter_list|(
 name|CamelContext
@@ -227,7 +227,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -244,7 +246,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -269,8 +273,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -319,9 +330,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -330,11 +345,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextStarted (CamelContext context)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextStarted
 parameter_list|(
 name|CamelContext
@@ -356,7 +374,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -373,7 +393,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -398,8 +420,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -448,9 +477,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -459,11 +492,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextStartupFailed (CamelContext context, Throwable cause)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextStartupFailed
 parameter_list|(
 name|CamelContext
@@ -488,7 +524,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -505,7 +543,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -530,8 +570,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -582,9 +629,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -593,11 +644,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextStopping (CamelContext context)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextStopping
 parameter_list|(
 name|CamelContext
@@ -619,7 +673,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -636,7 +692,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -661,8 +719,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -711,9 +776,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -722,11 +791,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextStopped (CamelContext context)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextStopped
 parameter_list|(
 name|CamelContext
@@ -748,7 +820,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -765,7 +839,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -790,8 +866,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -840,9 +923,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -851,11 +938,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextStopFailed (CamelContext context, Throwable cause)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextStopFailed
 parameter_list|(
 name|CamelContext
@@ -880,7 +970,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -897,7 +989,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -922,8 +1016,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -974,9 +1075,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -985,11 +1090,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyServiceStopFailure (CamelContext context, Object service, Throwable cause)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyServiceStopFailure
 parameter_list|(
 name|CamelContext
@@ -1017,7 +1125,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -1034,7 +1144,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -1059,8 +1171,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -1113,9 +1232,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -1124,11 +1247,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyServiceStartupFailure (CamelContext context, Object service, Throwable cause)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyServiceStartupFailure
 parameter_list|(
 name|CamelContext
@@ -1156,7 +1282,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -1173,7 +1301,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -1198,8 +1328,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -1252,9 +1389,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -1263,11 +1404,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyRouteStarted (CamelContext context, Route route)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyRouteStarted
 parameter_list|(
 name|CamelContext
@@ -1292,7 +1436,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -1309,7 +1455,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -1334,8 +1482,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -1384,9 +1539,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -1395,11 +1554,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyRouteStopped (CamelContext context, Route route)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyRouteStopped
 parameter_list|(
 name|CamelContext
@@ -1424,7 +1586,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -1441,7 +1605,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -1466,8 +1632,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -1516,9 +1689,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -1527,11 +1704,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyRouteAdded (CamelContext context, Route route)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyRouteAdded
 parameter_list|(
 name|CamelContext
@@ -1556,7 +1736,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -1573,7 +1755,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -1598,8 +1782,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -1648,9 +1839,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -1659,11 +1854,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyRouteRemoved (CamelContext context, Route route)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyRouteRemoved
 parameter_list|(
 name|CamelContext
@@ -1688,7 +1886,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -1705,7 +1905,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -1730,8 +1932,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -1780,9 +1989,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -1791,11 +2004,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyExchangeCreated (CamelContext context, Exchange exchange)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyExchangeCreated
 parameter_list|(
 name|CamelContext
@@ -1824,7 +2040,9 @@ argument_list|)
 condition|)
 block|{
 comment|// do not generate events for an notify event
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|ManagementStrategy
 name|management
@@ -1841,7 +2059,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -1858,7 +2078,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -1883,8 +2105,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -1938,9 +2167,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -1949,11 +2182,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyExchangeDone (CamelContext context, Exchange exchange)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyExchangeDone
 parameter_list|(
 name|CamelContext
@@ -1982,7 +2218,9 @@ argument_list|)
 condition|)
 block|{
 comment|// do not generate events for an notify event
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|ManagementStrategy
 name|management
@@ -1999,7 +2237,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -2016,7 +2256,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -2041,8 +2283,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -2096,9 +2345,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -2107,11 +2360,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyExchangeFailed (CamelContext context, Exchange exchange)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyExchangeFailed
 parameter_list|(
 name|CamelContext
@@ -2140,7 +2396,9 @@ argument_list|)
 condition|)
 block|{
 comment|// do not generate events for an notify event
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|ManagementStrategy
 name|management
@@ -2157,7 +2415,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -2174,7 +2434,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -2199,8 +2461,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -2254,9 +2523,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -2265,11 +2538,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyExchangeFailureHandling (CamelContext context, Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyExchangeFailureHandling
 parameter_list|(
 name|CamelContext
@@ -2307,7 +2583,9 @@ argument_list|)
 condition|)
 block|{
 comment|// do not generate events for an notify event
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|ManagementStrategy
 name|management
@@ -2324,7 +2602,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -2341,7 +2621,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -2366,8 +2648,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -2427,9 +2716,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -2438,11 +2731,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyExchangeFailureHandled (CamelContext context, Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyExchangeFailureHandled
 parameter_list|(
 name|CamelContext
@@ -2480,7 +2776,9 @@ argument_list|)
 condition|)
 block|{
 comment|// do not generate events for an notify event
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|ManagementStrategy
 name|management
@@ -2497,7 +2795,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -2514,7 +2814,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -2539,8 +2841,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -2600,9 +2909,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -2611,11 +2924,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyExchangeRedelivery (CamelContext context, Exchange exchange, int attempt)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyExchangeRedelivery
 parameter_list|(
 name|CamelContext
@@ -2647,7 +2963,9 @@ argument_list|)
 condition|)
 block|{
 comment|// do not generate events for an notify event
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|ManagementStrategy
 name|management
@@ -2664,7 +2982,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -2681,7 +3001,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -2706,8 +3028,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -2763,9 +3092,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -2774,11 +3107,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyExchangeSending (CamelContext context, Exchange exchange, Endpoint endpoint)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyExchangeSending
 parameter_list|(
 name|CamelContext
@@ -2810,7 +3146,9 @@ argument_list|)
 condition|)
 block|{
 comment|// do not generate events for an notify event
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|ManagementStrategy
 name|management
@@ -2827,7 +3165,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -2844,7 +3184,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -2869,8 +3211,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -2926,9 +3275,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -2937,11 +3290,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyExchangeSent (CamelContext context, Exchange exchange, Endpoint endpoint, long timeTaken)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyExchangeSent
 parameter_list|(
 name|CamelContext
@@ -2976,7 +3332,9 @@ argument_list|)
 condition|)
 block|{
 comment|// do not generate events for an notify event
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|ManagementStrategy
 name|management
@@ -2993,7 +3351,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -3010,7 +3370,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -3035,8 +3397,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -3094,9 +3463,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -3105,11 +3478,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextSuspending (CamelContext context)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextSuspending
 parameter_list|(
 name|CamelContext
@@ -3131,7 +3507,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -3148,7 +3526,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -3173,8 +3553,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -3223,9 +3610,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -3234,11 +3625,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextSuspended (CamelContext context)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextSuspended
 parameter_list|(
 name|CamelContext
@@ -3260,7 +3654,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -3277,7 +3673,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -3302,8 +3700,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -3352,9 +3757,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -3363,11 +3772,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextResuming (CamelContext context)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextResuming
 parameter_list|(
 name|CamelContext
@@ -3389,7 +3801,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -3406,7 +3820,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -3431,8 +3847,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -3481,9 +3904,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -3492,11 +3919,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextResumed (CamelContext context)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextResumed
 parameter_list|(
 name|CamelContext
@@ -3518,7 +3948,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -3535,7 +3967,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -3560,8 +3994,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -3610,9 +4051,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -3621,11 +4066,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|notifyCamelContextResumeFailed (CamelContext context, Throwable cause)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|notifyCamelContextResumeFailed
 parameter_list|(
 name|CamelContext
@@ -3650,7 +4098,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|EventFactory
 name|factory
@@ -3667,7 +4117,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|List
 argument_list|<
@@ -3692,8 +4144,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|false
+decl_stmt|;
 name|EventObject
 name|event
 init|=
@@ -3744,9 +4203,13 @@ literal|null
 condition|)
 block|{
 comment|// factory could not create event so exit
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
+name|answer
+operator||=
 name|doNotifyEvent
 argument_list|(
 name|notifier
@@ -3755,11 +4218,14 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|doNotifyEvent (EventNotifier notifier, EventObject event)
 specifier|private
 specifier|static
-name|void
+name|boolean
 name|doNotifyEvent
 parameter_list|(
 name|EventNotifier
@@ -3812,7 +4278,9 @@ argument_list|,
 name|notifier
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 if|if
 condition|(
@@ -3836,7 +4304,9 @@ argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 try|try
 block|{
@@ -3868,6 +4338,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class

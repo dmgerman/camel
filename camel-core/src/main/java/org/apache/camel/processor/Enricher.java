@@ -820,6 +820,14 @@ operator|.
 name|getEndpoint
 argument_list|()
 decl_stmt|;
+name|StopWatch
+name|sw
+init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|sending
+init|=
 name|EventHelper
 operator|.
 name|notifyExchangeSending
@@ -833,15 +841,25 @@ name|resourceExchange
 argument_list|,
 name|destination
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|sending
+condition|)
+block|{
+name|sw
+operator|=
+operator|new
+name|StopWatch
+argument_list|()
 expr_stmt|;
+block|}
 comment|// record timing for sending the exchange using the producer
 specifier|final
 name|StopWatch
 name|watch
 init|=
-operator|new
-name|StopWatch
-argument_list|()
+name|sw
 decl_stmt|;
 name|AsyncProcessor
 name|ap
@@ -883,6 +901,13 @@ block|{
 return|return;
 block|}
 comment|// emit event that the exchange was sent to the endpoint
+if|if
+condition|(
+name|watch
+operator|!=
+literal|null
+condition|)
+block|{
 name|long
 name|timeTaken
 init|=
@@ -907,6 +932,7 @@ argument_list|,
 name|timeTaken
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
