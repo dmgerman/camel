@@ -112,6 +112,22 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|isDisabled ()
+specifier|public
+name|boolean
+name|isDisabled
+parameter_list|()
+block|{
+return|return
+operator|!
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+return|;
+block|}
 DECL|method|isEnabled (EventObject event)
 specifier|public
 name|boolean
