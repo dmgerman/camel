@@ -985,7 +985,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=persistentVolumesClaims&operation=listPersistentVolumesClaims"
+literal|"kubernetes-persistent-volumes-claims://%s?oauthToken=%s&operation=listPersistentVolumesClaims"
 argument_list|,
 name|host
 argument_list|,
@@ -999,7 +999,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=persistentVolumesClaims&operation=listPersistentVolumesClaimsByLabels"
+literal|"kubernetes-persistent-volumes-claims://%s?oauthToken=%s&operation=listPersistentVolumesClaimsByLabels"
 argument_list|,
 name|host
 argument_list|,
@@ -1013,7 +1013,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=persistentVolumesClaims&operation=createPersistentVolumeClaim"
+literal|"kubernetes-persistent-volumes-claims://%s?oauthToken=%s&operation=createPersistentVolumeClaim"
 argument_list|,
 name|host
 argument_list|,
@@ -1027,7 +1027,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=persistentVolumesClaims&operation=deletePersistentVolumeClaim"
+literal|"kubernetes-persistent-volumes-claims://%s?oauthToken=%s&operation=deletePersistentVolumeClaim"
 argument_list|,
 name|host
 argument_list|,

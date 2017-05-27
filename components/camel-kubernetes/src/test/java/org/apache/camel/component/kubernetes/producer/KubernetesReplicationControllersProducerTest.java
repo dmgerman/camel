@@ -1456,7 +1456,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=replicationControllers&operation=listReplicationControllers"
+literal|"kubernetes-replication-controllers://%s?oauthToken=%s&operation=listReplicationControllers"
 argument_list|,
 name|host
 argument_list|,
@@ -1470,7 +1470,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=replicationControllers&operation=listReplicationControllersByLabels"
+literal|"kubernetes-replication-controllers://%s?oauthToken=%s&operation=listReplicationControllersByLabels"
 argument_list|,
 name|host
 argument_list|,
@@ -1484,7 +1484,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=replicationControllers&operation=getReplicationController"
+literal|"kubernetes-replication-controllers://%s?oauthToken=%s&operation=getReplicationController"
 argument_list|,
 name|host
 argument_list|,
@@ -1498,7 +1498,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=replicationControllers&operation=createReplicationController"
+literal|"kubernetes-replication-controllers://%s?oauthToken=%s&operation=createReplicationController"
 argument_list|,
 name|host
 argument_list|,
@@ -1512,7 +1512,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=replicationControllers&operation=scaleReplicationController"
+literal|"kubernetes-replication-controllers://%s?oauthToken=%s&operation=scaleReplicationController"
 argument_list|,
 name|host
 argument_list|,
@@ -1526,7 +1526,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=replicationControllers&operation=deleteReplicationController"
+literal|"kubernetes-replication-controllers://%s?oauthToken=%s&operation=deleteReplicationController"
 argument_list|,
 name|host
 argument_list|,

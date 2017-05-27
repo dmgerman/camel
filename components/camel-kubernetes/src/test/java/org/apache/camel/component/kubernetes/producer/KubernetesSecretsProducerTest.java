@@ -830,7 +830,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=secrets&operation=listSecrets"
+literal|"kubernetes-secrets://%s?oauthToken=%s&operation=listSecrets"
 argument_list|,
 name|host
 argument_list|,
@@ -844,7 +844,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=secrets&operation=listSecretsByLabels"
+literal|"kubernetes-secrets://%s?oauthToken=%s&operation=listSecretsByLabels"
 argument_list|,
 name|host
 argument_list|,
@@ -858,7 +858,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=secrets&operation=getSecret"
+literal|"kubernetes-secrets://%s?oauthToken=%s&operation=getSecret"
 argument_list|,
 name|host
 argument_list|,
@@ -872,7 +872,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=secrets&operation=createSecret"
+literal|"kubernetes-secrets://%s?oauthToken=%s&operation=createSecret"
 argument_list|,
 name|host
 argument_list|,
@@ -886,7 +886,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=secrets&operation=deleteSecret"
+literal|"kubernetes-secrets://%s?oauthToken=%s&operation=deleteSecret"
 argument_list|,
 name|host
 argument_list|,

@@ -375,7 +375,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=persistentVolumes&operation=listPersistentVolumes"
+literal|"kubernetes-persistent-volumes://%s?oauthToken=%s&operation=listPersistentVolumes"
 argument_list|,
 name|host
 argument_list|,
@@ -389,7 +389,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=persistentVolumes&operation=listPersistentVolumesByLabels"
+literal|"kubernetes-persistent-volumes://%s?oauthToken=%s&operation=listPersistentVolumesByLabels"
 argument_list|,
 name|host
 argument_list|,

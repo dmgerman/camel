@@ -640,7 +640,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=namespaces&operation=listNamespaces"
+literal|"kubernetes-namespaces://%s?oauthToken=%s&operation=listNamespaces"
 argument_list|,
 name|host
 argument_list|,
@@ -654,7 +654,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=namespaces&operation=listNamespacesByLabels"
+literal|"kubernetes-namespaces://%s?oauthToken=%s&operation=listNamespacesByLabels"
 argument_list|,
 name|host
 argument_list|,
@@ -668,7 +668,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=namespaces&operation=getNamespace"
+literal|"kubernetes-namespaces://%s?oauthToken=%s&operation=getNamespace"
 argument_list|,
 name|host
 argument_list|,
@@ -682,7 +682,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=namespaces&operation=createNamespace"
+literal|"kubernetes-namespaces://%s?oauthToken=%s&operation=createNamespace"
 argument_list|,
 name|host
 argument_list|,
@@ -696,7 +696,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=namespaces&operation=deleteNamespace"
+literal|"kubernetes-namespaces://%s?oauthToken=%s&operation=deleteNamespace"
 argument_list|,
 name|host
 argument_list|,
@@ -705,7 +705,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=namespaces"
+literal|"kubernetes-namespaces://%s?oauthToken=%s"
 argument_list|,
 name|host
 argument_list|,

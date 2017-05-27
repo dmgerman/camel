@@ -666,7 +666,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=pods&operation=listPods"
+literal|"kubernetes-pods://%s?oauthToken=%s&operation=listPods"
 argument_list|,
 name|host
 argument_list|,
@@ -680,7 +680,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=pods&operation=listPodsByLabels"
+literal|"kubernetes-pods://%s?oauthToken=%s&operation=listPodsByLabels"
 argument_list|,
 name|host
 argument_list|,
@@ -694,7 +694,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=pods&operation=getPod"
+literal|"kubernetes-pods://%s?oauthToken=%s&operation=getPod"
 argument_list|,
 name|host
 argument_list|,
@@ -708,7 +708,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=pods&operation=createPod"
+literal|"kubernetes-pods://%s?oauthToken=%s&operation=createPod"
 argument_list|,
 name|host
 argument_list|,
@@ -722,7 +722,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=pods&operation=deletePod"
+literal|"kubernetes-pods://%s?oauthToken=%s&operation=deletePod"
 argument_list|,
 name|host
 argument_list|,
@@ -731,7 +731,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=nodes&resourceName=minikube"
+literal|"kubernetes-nodes://%s?oauthToken=%s&resourceName=minikube"
 argument_list|,
 name|host
 argument_list|,

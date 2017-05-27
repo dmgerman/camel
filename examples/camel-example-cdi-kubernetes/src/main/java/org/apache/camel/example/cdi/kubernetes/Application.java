@@ -263,7 +263,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"kubernetes://{{kubernetes-master-url:{{env:KUBERNETES_MASTER}}}}?oauthToken={{kubernetes-oauth-token:}}&category=pods&operation=listPods"
+literal|"kubernetes-pods://{{kubernetes-master-url:{{env:KUBERNETES_MASTER}}}}?oauthToken={{kubernetes-oauth-token:}}&operation=listPods"
 argument_list|)
 operator|.
 name|log

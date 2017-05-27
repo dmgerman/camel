@@ -385,7 +385,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=buildConfigs&operation=listBuildConfigs"
+literal|"kubernetes-build-configs://%s?oauthToken=%s&operation=listBuildConfigs"
 argument_list|,
 name|host
 argument_list|,
@@ -399,7 +399,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=buildConfigs&operation=listBuildConfigsByLabels"
+literal|"kubernetes-build-configs://%s?oauthToken=%s&operation=listBuildConfigsByLabels"
 argument_list|,
 name|host
 argument_list|,

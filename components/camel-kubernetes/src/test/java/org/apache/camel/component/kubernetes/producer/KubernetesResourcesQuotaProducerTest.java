@@ -671,7 +671,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=resourcesQuota&operation=listResourcesQuota"
+literal|"kubernetes-resources-quota://%s?oauthToken=%s&operation=listResourcesQuota"
 argument_list|,
 name|host
 argument_list|,
@@ -685,7 +685,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=resourcesQuota&operation=listResourcesQuotaByLabels"
+literal|"kubernetes-resources-quota://%s?oauthToken=%s&operation=listResourcesQuotaByLabels"
 argument_list|,
 name|host
 argument_list|,
@@ -699,7 +699,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=resourcesQuota&operation=getResourceQuota"
+literal|"kubernetes-resources-quota://%s?oauthToken=%s&operation=getResourceQuota"
 argument_list|,
 name|host
 argument_list|,
@@ -713,7 +713,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=resourcesQuota&operation=createResourceQuota"
+literal|"kubernetes-resources-quota://%s?oauthToken=%s&operation=createResourceQuota"
 argument_list|,
 name|host
 argument_list|,
@@ -727,7 +727,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=resourcesQuota&operation=deleteResourceQuota"
+literal|"kubernetes-resources-quota://%s?oauthToken=%s&operation=deleteResourceQuota"
 argument_list|,
 name|host
 argument_list|,

@@ -395,7 +395,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=nodes&operation=listNodes"
+literal|"kubernetes-nodes://%s?oauthToken=%s&operation=listNodes"
 argument_list|,
 name|host
 argument_list|,
@@ -409,7 +409,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=nodes&operation=listNodesByLabels"
+literal|"kubernetes-nodes://%s?oauthToken=%s&operation=listNodesByLabels"
 argument_list|,
 name|host
 argument_list|,

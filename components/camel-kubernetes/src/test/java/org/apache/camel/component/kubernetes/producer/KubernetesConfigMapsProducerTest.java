@@ -921,7 +921,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=configMaps&operation=listConfigMaps"
+literal|"kubernetes-config-maps://%s?oauthToken=%s&operation=listConfigMaps"
 argument_list|,
 name|host
 argument_list|,
@@ -935,7 +935,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=configMaps&operation=listConfigMapsByLabels"
+literal|"kubernetes-config-maps://%s?oauthToken=%s&operation=listConfigMapsByLabels"
 argument_list|,
 name|host
 argument_list|,
@@ -949,7 +949,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=configMaps&operation=getConfigMap"
+literal|"kubernetes-config-maps://%s?oauthToken=%s&operation=getConfigMap"
 argument_list|,
 name|host
 argument_list|,
@@ -963,7 +963,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=configMaps&operation=createConfigMap"
+literal|"kubernetes-config-maps://%s?oauthToken=%s&operation=createConfigMap"
 argument_list|,
 name|host
 argument_list|,
@@ -977,7 +977,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=configMaps&operation=deleteConfigMap"
+literal|"kubernetes-config-maps://%s?oauthToken=%s&operation=deleteConfigMap"
 argument_list|,
 name|host
 argument_list|,

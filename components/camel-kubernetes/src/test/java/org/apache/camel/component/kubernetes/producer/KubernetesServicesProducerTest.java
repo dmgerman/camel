@@ -988,7 +988,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=services&operation=listServices"
+literal|"kubernetes-services://%s?oauthToken=%s&operation=listServices"
 argument_list|,
 name|host
 argument_list|,
@@ -1002,7 +1002,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=services&operation=listServicesByLabels"
+literal|"kubernetes-services://%s?oauthToken=%s&operation=listServicesByLabels"
 argument_list|,
 name|host
 argument_list|,
@@ -1016,7 +1016,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=services&operation=getService"
+literal|"kubernetes-services://%s?oauthToken=%s&operation=getService"
 argument_list|,
 name|host
 argument_list|,
@@ -1030,7 +1030,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=services&operation=createService"
+literal|"kubernetes-services://%s?oauthToken=%s&operation=createService"
 argument_list|,
 name|host
 argument_list|,
@@ -1044,7 +1044,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=services&operation=deleteService"
+literal|"kubernetes-services://%s?oauthToken=%s&operation=deleteService"
 argument_list|,
 name|host
 argument_list|,
