@@ -4854,10 +4854,11 @@ name|scheme
 init|=
 literal|null
 decl_stmt|;
+comment|// use optimized method to get the endpoint uri
 name|EndpointKey
 name|key
 init|=
-name|getEndpointKey
+name|getEndpointKeyPreNormalized
 argument_list|(
 name|uri
 argument_list|)
@@ -5568,6 +5569,26 @@ operator|new
 name|EndpointKey
 argument_list|(
 name|uri
+argument_list|)
+return|;
+block|}
+comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the {@link DefaultEndpointRegistry}      *      * @param uri the endpoint uri which is pre normalized      * @return the key      */
+DECL|method|getEndpointKeyPreNormalized (String uri)
+specifier|protected
+name|EndpointKey
+name|getEndpointKeyPreNormalized
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+operator|new
+name|EndpointKey
+argument_list|(
+name|uri
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

@@ -87,6 +87,32 @@ literal|"uri"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Optimized when the uri is already normalized.      */
+DECL|method|EndpointKey (String uri, boolean normalized)
+name|EndpointKey
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|normalized
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|uri
+argument_list|,
+literal|"uri"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
