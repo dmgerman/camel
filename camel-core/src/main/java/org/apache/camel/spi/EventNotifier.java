@@ -56,6 +56,12 @@ name|EventObject
 name|event
 parameter_list|)
 function_decl|;
+comment|/**      * Checks whether notification is disabled for all events      *      * @return<tt>true</tt> if disabled and no events is being notified.      */
+DECL|method|isDisabled ()
+name|boolean
+name|isDisabled
+parameter_list|()
+function_decl|;
 DECL|method|isIgnoreCamelContextEvents ()
 name|boolean
 name|isIgnoreCamelContextEvents

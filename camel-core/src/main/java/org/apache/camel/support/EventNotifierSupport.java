@@ -138,6 +138,18 @@ return|return
 name|ignoreCamelContextEvents
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isDisabled ()
+specifier|public
+name|boolean
+name|isDisabled
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|setIgnoreCamelContextEvents (boolean ignoreCamelContextEvents)
 specifier|public
 name|void

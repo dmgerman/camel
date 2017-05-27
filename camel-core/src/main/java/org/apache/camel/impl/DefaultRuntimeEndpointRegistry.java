@@ -1707,6 +1707,19 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|isDisabled ()
+specifier|public
+name|boolean
+name|isDisabled
+parameter_list|()
+block|{
+return|return
+operator|!
+name|enabled
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|isEnabled (EventObject event)
 specifier|public
 name|boolean
