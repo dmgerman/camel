@@ -50,20 +50,6 @@ name|NamedNode
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StopWatch
-import|;
-end_import
-
 begin_comment
 comment|/**  * Default {@link org.apache.camel.MessageHistory}.  */
 end_comment
@@ -99,12 +85,6 @@ specifier|private
 specifier|final
 name|Date
 name|timestamp
-decl_stmt|;
-DECL|field|stopWatch
-specifier|private
-specifier|final
-name|StopWatch
-name|stopWatch
 decl_stmt|;
 DECL|field|elapsed
 specifier|private
@@ -151,14 +131,6 @@ operator|.
 name|timestamp
 operator|=
 name|timestamp
-expr_stmt|;
-name|this
-operator|.
-name|stopWatch
-operator|=
-operator|new
-name|StopWatch
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getRouteId ()
@@ -207,13 +179,26 @@ name|void
 name|nodeProcessingDone
 parameter_list|()
 block|{
+if|if
+condition|(
+name|timestamp
+operator|!=
+literal|null
+condition|)
+block|{
 name|elapsed
 operator|=
-name|stopWatch
+name|System
 operator|.
-name|taken
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|timestamp
+operator|.
+name|getTime
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
