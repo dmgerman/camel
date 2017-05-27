@@ -277,7 +277,7 @@ specifier|final
 name|int
 name|CONCURRENT_THREAD_COUNT
 init|=
-literal|300
+literal|30
 decl_stmt|;
 DECL|field|ROUNDS_PER_THREAD_COUNT
 specifier|private
