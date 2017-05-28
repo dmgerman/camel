@@ -392,7 +392,7 @@ block|}
 comment|//pass validation test
 name|DropboxConfigurationValidator
 operator|.
-name|validate
+name|validateCommonProperties
 argument_list|(
 name|configuration
 argument_list|)
