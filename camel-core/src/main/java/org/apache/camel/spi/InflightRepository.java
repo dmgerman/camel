@@ -255,6 +255,15 @@ name|boolean
 name|sortByLongestDuration
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the oldest {@link InflightExchange} that are currently inflight that started from the given route.      *      * @param fromRouteId  the route id, or<tt>null</tt> for all routes.      * @return the oldest, or<tt>null</tt> if none inflight      */
+DECL|method|oldest (String fromRouteId)
+name|InflightExchange
+name|oldest
+parameter_list|(
+name|String
+name|fromRouteId
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
