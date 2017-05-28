@@ -20,6 +20,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -1275,6 +1285,12 @@ argument_list|<
 name|Synchronization
 argument_list|>
 name|handoverCompletions
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the timestamp when this exchange was created.      */
+DECL|method|getCreated ()
+name|Date
+name|getCreated
 parameter_list|()
 function_decl|;
 block|}
