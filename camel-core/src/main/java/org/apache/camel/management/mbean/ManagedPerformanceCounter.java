@@ -992,11 +992,9 @@ expr_stmt|;
 name|long
 name|now
 init|=
-operator|new
-name|Date
-argument_list|()
+name|System
 operator|.
-name|getTime
+name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 if|if
@@ -1148,11 +1146,9 @@ block|}
 name|long
 name|now
 init|=
-operator|new
-name|Date
-argument_list|()
+name|System
 operator|.
-name|getTime
+name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 if|if
@@ -1431,7 +1427,7 @@ name|dateAsString
 argument_list|(
 name|startTimestamp
 operator|.
-name|getValue
+name|getTime
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1451,7 +1447,7 @@ name|dateAsString
 argument_list|(
 name|resetTimestamp
 operator|.
-name|getValue
+name|getTime
 argument_list|()
 argument_list|)
 argument_list|)
