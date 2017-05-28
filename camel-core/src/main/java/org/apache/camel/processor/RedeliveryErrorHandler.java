@@ -604,6 +604,7 @@ specifier|protected
 class|class
 name|RedeliveryData
 block|{
+comment|// redelivery state
 DECL|field|original
 name|Exchange
 name|original
@@ -635,10 +636,6 @@ DECL|field|currentRedeliveryPolicy
 name|RedeliveryPolicy
 name|currentRedeliveryPolicy
 decl_stmt|;
-DECL|field|deadLetterProcessor
-name|Processor
-name|deadLetterProcessor
-decl_stmt|;
 DECL|field|failureProcessor
 name|Processor
 name|failureProcessor
@@ -646,10 +643,6 @@ decl_stmt|;
 DECL|field|onRedeliveryProcessor
 name|Processor
 name|onRedeliveryProcessor
-decl_stmt|;
-DECL|field|onPrepareProcessor
-name|Processor
-name|onPrepareProcessor
 decl_stmt|;
 DECL|field|onExceptionProcessor
 name|Processor
@@ -666,10 +659,6 @@ decl_stmt|;
 DECL|field|useOriginalInMessage
 name|boolean
 name|useOriginalInMessage
-decl_stmt|;
-DECL|field|handleNewException
-name|boolean
-name|handleNewException
 decl_stmt|;
 DECL|method|RedeliveryData ()
 specifier|public
@@ -691,25 +680,9 @@ name|redeliveryPolicy
 expr_stmt|;
 name|this
 operator|.
-name|deadLetterProcessor
-operator|=
-name|deadLetter
-expr_stmt|;
-name|this
-operator|.
 name|onRedeliveryProcessor
 operator|=
 name|redeliveryProcessor
-expr_stmt|;
-name|this
-operator|.
-name|onPrepareProcessor
-operator|=
-name|RedeliveryErrorHandler
-operator|.
-name|this
-operator|.
-name|onPrepareProcessor
 expr_stmt|;
 name|this
 operator|.
@@ -733,12 +706,6 @@ operator|.
 name|useOriginalInMessage
 operator|=
 name|useOriginalMessagePolicy
-expr_stmt|;
-name|this
-operator|.
-name|handleNewException
-operator|=
-name|deadLetterHandleNewException
 expr_stmt|;
 block|}
 block|}
@@ -2190,9 +2157,7 @@ name|data
 operator|.
 name|failureProcessor
 else|:
-name|data
-operator|.
-name|deadLetterProcessor
+name|deadLetter
 expr_stmt|;
 block|}
 comment|// we should always invoke the deliverToFailureProcessor as it prepares, logs and does a fair
@@ -2210,9 +2175,7 @@ literal|null
 operator|||
 name|target
 operator|==
-name|data
-operator|.
-name|deadLetterProcessor
+name|deadLetter
 operator|)
 decl_stmt|;
 name|boolean
@@ -2932,9 +2895,7 @@ name|data
 operator|.
 name|failureProcessor
 else|:
-name|data
-operator|.
-name|deadLetterProcessor
+name|deadLetter
 expr_stmt|;
 block|}
 comment|// we should always invoke the deliverToFailureProcessor as it prepares, logs and does a fair
@@ -2947,9 +2908,7 @@ argument_list|()
 operator|&&
 name|target
 operator|==
-name|data
-operator|.
-name|deadLetterProcessor
+name|deadLetter
 decl_stmt|;
 name|deliverToFailureProcessor
 argument_list|(
@@ -4722,9 +4681,7 @@ name|deadLetterChannel
 init|=
 name|processor
 operator|==
-name|data
-operator|.
-name|deadLetterProcessor
+name|deadLetter
 decl_stmt|;
 name|EventHelper
 operator|.
@@ -5227,9 +5184,7 @@ name|newException
 operator|==
 literal|null
 operator|||
-name|data
-operator|.
-name|handleNewException
+name|deadLetterHandleNewException
 decl_stmt|;
 comment|// when using DLC then log new exception whether its being handled or not, as otherwise it may appear as
 comment|// the DLC swallow new exceptions by default (which is by design to ensure the DLC always complete,
