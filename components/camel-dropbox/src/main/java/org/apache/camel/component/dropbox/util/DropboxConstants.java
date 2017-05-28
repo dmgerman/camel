@@ -20,26 +20,19 @@ name|util
 package|;
 end_package
 
-begin_class
-DECL|class|DropboxConstants
+begin_interface
+DECL|interface|DropboxConstants
 specifier|public
-specifier|final
-class|class
+interface|interface
 name|DropboxConstants
 block|{
 DECL|field|DROPBOX_FILE_SEPARATOR
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|DROPBOX_FILE_SEPARATOR
 init|=
 literal|"/"
 decl_stmt|;
 DECL|field|POLL_CONSUMER_DELAY
-specifier|public
-specifier|static
-specifier|final
 name|long
 name|POLL_CONSUMER_DELAY
 init|=
@@ -49,13 +42,38 @@ literal|60
 operator|*
 literal|1000L
 decl_stmt|;
-DECL|method|DropboxConstants ()
-specifier|private
-name|DropboxConstants
-parameter_list|()
-block|{ }
+DECL|field|HEADER_REMOTE_PATH
+name|String
+name|HEADER_REMOTE_PATH
+init|=
+literal|"CamelDropboxRemotePath"
+decl_stmt|;
+DECL|field|HEADER_NEW_REMOTE_PATH
+name|String
+name|HEADER_NEW_REMOTE_PATH
+init|=
+literal|"CamelDropboxNewRemotePath"
+decl_stmt|;
+DECL|field|HEADER_LOCAL_PATH
+name|String
+name|HEADER_LOCAL_PATH
+init|=
+literal|"CamelDropboxLocalPath"
+decl_stmt|;
+DECL|field|HEADER_UPLOAD_MODE
+name|String
+name|HEADER_UPLOAD_MODE
+init|=
+literal|"CamelDropboxUploadMode"
+decl_stmt|;
+DECL|field|HEADER_QUERY
+name|String
+name|HEADER_QUERY
+init|=
+literal|"CamelDropboxQuery"
+decl_stmt|;
 block|}
-end_class
+end_interface
 
 end_unit
 

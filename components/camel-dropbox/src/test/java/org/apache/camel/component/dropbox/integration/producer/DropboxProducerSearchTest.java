@@ -102,7 +102,7 @@ name|dropbox
 operator|.
 name|util
 operator|.
-name|DropboxRequestHeader
+name|DropboxConstants
 import|;
 end_import
 
@@ -461,12 +461,9 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|DropboxRequestHeader
+name|DropboxConstants
 operator|.
-name|REMOTE_PATH
-operator|.
-name|name
-argument_list|()
+name|HEADER_REMOTE_PATH
 argument_list|,
 name|constant
 argument_list|(
