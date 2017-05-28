@@ -122,6 +122,19 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isUpdated ()
+specifier|public
+name|boolean
+name|isUpdated
+parameter_list|()
+block|{
+comment|// this is okay
+return|return
+literal|true
+return|;
+block|}
 DECL|method|reset ()
 specifier|public
 name|void

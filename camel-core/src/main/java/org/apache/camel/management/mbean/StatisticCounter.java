@@ -115,17 +115,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getUpdateCount ()
+DECL|method|isUpdated ()
 specifier|public
-name|long
-name|getUpdateCount
+name|boolean
+name|isUpdated
 parameter_list|()
 block|{
+comment|// this is okay
 return|return
-name|value
-operator|.
-name|get
-argument_list|()
+literal|true
 return|;
 block|}
 block|}

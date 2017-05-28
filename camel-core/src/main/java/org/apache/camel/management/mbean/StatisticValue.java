@@ -102,10 +102,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getUpdateCount ()
+DECL|method|isUpdated ()
 specifier|public
-name|long
-name|getUpdateCount
+name|boolean
+name|isUpdated
 parameter_list|()
 block|{
 return|return
@@ -113,12 +113,8 @@ name|value
 operator|.
 name|get
 argument_list|()
-operator|==
+operator|!=
 operator|-
-literal|1
-condition|?
-literal|0
-else|:
 literal|1
 return|;
 block|}
