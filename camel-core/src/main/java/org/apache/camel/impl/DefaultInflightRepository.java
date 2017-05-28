@@ -714,7 +714,11 @@ argument_list|(
 name|e2
 argument_list|)
 decl_stmt|;
+comment|// need the biggest number first
 return|return
+operator|-
+literal|1
+operator|*
 name|Long
 operator|.
 name|compare
