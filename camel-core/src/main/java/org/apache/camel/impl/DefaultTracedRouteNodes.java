@@ -98,6 +98,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RouteNode
 import|;
 end_import
@@ -131,10 +143,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link org.apache.camel.spi.TracedRouteNodes}  *  * @version   */
+comment|/**  * Default {@link org.apache.camel.spi.TracedRouteNodes}  *  * @deprecated use {@link Exchange#MESSAGE_HISTORY} instead.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultTracedRouteNodes
 specifier|public
 class|class

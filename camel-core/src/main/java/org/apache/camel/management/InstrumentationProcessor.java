@@ -132,6 +132,7 @@ name|InstrumentationProcessor
 extends|extends
 name|DelegateAsyncProcessor
 block|{
+comment|// TODO: Would be good to get this as an advice instead
 DECL|field|LOG
 specifier|private
 specifier|static

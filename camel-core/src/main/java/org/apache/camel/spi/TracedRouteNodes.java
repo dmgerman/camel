@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RouteNode
 import|;
 end_import
@@ -53,10 +65,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tracing information used by {@link org.apache.camel.processor.interceptor.TraceInterceptor}  * so we can trace the exact route path a given {@link org.apache.camel.Exchange} has been processed.  *  * @version   */
+comment|/**  * Tracing information used by {@link org.apache.camel.processor.interceptor.TraceInterceptor}  * so we can trace the exact route path a given {@link org.apache.camel.Exchange} has been processed.  *  * @deprecated use {@link Exchange#MESSAGE_HISTORY} instead.  */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|TracedRouteNodes
 specifier|public
 interface|interface
