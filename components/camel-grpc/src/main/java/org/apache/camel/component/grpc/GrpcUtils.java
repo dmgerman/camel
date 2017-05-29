@@ -98,11 +98,27 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
-name|ReflectionUtils
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ReflectionHelper
 import|;
 end_import
 
@@ -282,7 +298,7 @@ decl_stmt|;
 name|Method
 name|grpcBlockingMethod
 init|=
-name|ReflectionUtils
+name|ReflectionHelper
 operator|.
 name|findMethod
 argument_list|(
@@ -318,7 +334,7 @@ throw|;
 block|}
 name|grpcBlockingStub
 operator|=
-name|ReflectionUtils
+name|ObjectHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -468,7 +484,7 @@ decl_stmt|;
 name|Method
 name|method
 init|=
-name|ReflectionUtils
+name|ReflectionHelper
 operator|.
 name|findMethod
 argument_list|(
@@ -536,7 +552,7 @@ argument_list|<
 name|Object
 argument_list|>
 operator|)
-name|ReflectionUtils
+name|ObjectHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -606,7 +622,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ReflectionUtils
+name|ObjectHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -655,7 +671,7 @@ decl_stmt|;
 name|Method
 name|method
 init|=
-name|ReflectionUtils
+name|ReflectionHelper
 operator|.
 name|findMethod
 argument_list|(
@@ -723,7 +739,7 @@ argument_list|<
 name|Object
 argument_list|>
 operator|)
-name|ReflectionUtils
+name|ObjectHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -773,7 +789,7 @@ block|}
 else|else
 block|{
 return|return
-name|ReflectionUtils
+name|ObjectHelper
 operator|.
 name|invokeMethod
 argument_list|(

@@ -58,11 +58,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
-name|ObjectUtils
+name|ObjectHelper
 import|;
 end_import
 
@@ -140,7 +142,7 @@ comment|// This requires if method name as described inside .proto file directly
 if|if
 condition|(
 operator|!
-name|ObjectUtils
+name|ObjectHelper
 operator|.
 name|isEmpty
 argument_list|(
