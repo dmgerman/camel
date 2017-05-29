@@ -121,6 +121,8 @@ comment|/**  * Default {@link TraceEventMessage}.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultTraceEventMessage
 specifier|public
 specifier|final

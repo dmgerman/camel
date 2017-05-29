@@ -201,6 +201,8 @@ comment|/**  * An interceptor strategy for tracing routes  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|Tracer
 specifier|public
 class|class

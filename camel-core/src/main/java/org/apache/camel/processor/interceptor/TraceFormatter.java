@@ -49,6 +49,8 @@ comment|/**  * Formatter to format trace logs when tracing {@link Exchange} duri
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|TraceFormatter
 specifier|public
 interface|interface

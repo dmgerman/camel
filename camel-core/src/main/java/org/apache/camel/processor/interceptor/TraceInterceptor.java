@@ -435,6 +435,8 @@ comment|/**  * An interceptor for debugging and tracing routes  *  * @version   
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TraceInterceptor
 specifier|public
 class|class
