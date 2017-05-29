@@ -129,6 +129,8 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultTraceFormatter
 specifier|public
 class|class

@@ -61,6 +61,8 @@ comment|/**  * A handler which reacts on trace events.  */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|TraceEventHandler
 specifier|public
 interface|interface

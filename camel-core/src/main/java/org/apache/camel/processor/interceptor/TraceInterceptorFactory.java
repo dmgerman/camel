@@ -49,6 +49,8 @@ comment|/**  * Factory to create the trace interceptor.  */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|TraceInterceptorFactory
 specifier|public
 interface|interface
