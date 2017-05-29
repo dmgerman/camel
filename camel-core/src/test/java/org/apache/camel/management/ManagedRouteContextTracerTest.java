@@ -104,11 +104,25 @@ name|Tracer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
+annotation|@
+name|Ignore
 DECL|class|ManagedRouteContextTracerTest
 specifier|public
 class|class

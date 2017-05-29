@@ -86,11 +86,25 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
+annotation|@
+name|Ignore
 DECL|class|TracerTest
 specifier|public
 class|class
