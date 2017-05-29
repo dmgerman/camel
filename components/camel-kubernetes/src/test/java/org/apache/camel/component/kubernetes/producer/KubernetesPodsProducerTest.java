@@ -911,27 +911,6 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|toUrlEncoded (String str)
-specifier|private
-specifier|static
-name|String
-name|toUrlEncoded
-parameter_list|(
-name|String
-name|str
-parameter_list|)
-block|{
-return|return
-name|str
-operator|.
-name|replaceAll
-argument_list|(
-literal|"="
-argument_list|,
-literal|"%3D"
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 

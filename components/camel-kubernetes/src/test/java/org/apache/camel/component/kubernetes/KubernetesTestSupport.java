@@ -81,6 +81,27 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|toUrlEncoded (String str)
+specifier|public
+specifier|static
+name|String
+name|toUrlEncoded
+parameter_list|(
+name|String
+name|str
+parameter_list|)
+block|{
+return|return
+name|str
+operator|.
+name|replaceAll
+argument_list|(
+literal|"="
+argument_list|,
+literal|"%3D"
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
