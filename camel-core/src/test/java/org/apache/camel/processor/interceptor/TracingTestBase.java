@@ -70,21 +70,7 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
 begin_class
-annotation|@
-name|Deprecated
-annotation|@
-name|Ignore
 DECL|class|TracingTestBase
 specifier|public
 specifier|abstract

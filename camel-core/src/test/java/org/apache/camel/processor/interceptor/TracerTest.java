@@ -101,10 +101,6 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
-annotation|@
-name|Ignore
 DECL|class|TracerTest
 specifier|public
 class|class

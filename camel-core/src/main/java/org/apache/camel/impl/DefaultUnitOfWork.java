@@ -404,6 +404,11 @@ specifier|private
 name|Message
 name|originalInMessage
 decl_stmt|;
+DECL|field|tracedRouteNodes
+specifier|private
+name|TracedRouteNodes
+name|tracedRouteNodes
+decl_stmt|;
 DECL|field|transactedBy
 specifier|private
 name|Set
@@ -504,6 +509,30 @@ operator|.
 name|getContext
 argument_list|()
 expr_stmt|;
+comment|// only use tracer if explicit enabled
+if|if
+condition|(
+name|context
+operator|.
+name|isTracing
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|context
+operator|.
+name|isTracing
+argument_list|()
+condition|)
+block|{
+comment|// backwards compatible
+name|tracedRouteNodes
+operator|=
+operator|new
+name|DefaultTracedRouteNodes
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|context
@@ -913,6 +942,19 @@ literal|null
 condition|)
 block|{
 name|synchronizations
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|tracedRouteNodes
+operator|!=
+literal|null
+condition|)
+block|{
+name|tracedRouteNodes
 operator|.
 name|clear
 argument_list|()
@@ -1584,7 +1626,7 @@ name|getTracedRouteNodes
 parameter_list|()
 block|{
 return|return
-literal|null
+name|tracedRouteNodes
 return|;
 block|}
 DECL|method|isTransacted ()

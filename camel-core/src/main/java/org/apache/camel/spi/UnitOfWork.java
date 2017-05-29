@@ -209,6 +209,8 @@ name|getOriginalInMessage
 parameter_list|()
 function_decl|;
 comment|/**      * Gets tracing information      *      * @return trace information      */
+annotation|@
+name|Deprecated
 DECL|method|getTracedRouteNodes ()
 name|TracedRouteNodes
 name|getTracedRouteNodes
