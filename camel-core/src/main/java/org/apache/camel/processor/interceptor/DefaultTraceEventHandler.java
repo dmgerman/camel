@@ -199,6 +199,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DefaultTraceEventHandler
 specifier|public
 class|class

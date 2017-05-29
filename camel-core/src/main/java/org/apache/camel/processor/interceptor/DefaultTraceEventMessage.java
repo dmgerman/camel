@@ -617,6 +617,13 @@ operator|.
 name|getTracedRouteNodes
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|traced
+operator|!=
+literal|null
+condition|)
+block|{
 name|RouteNode
 name|last
 init|=
@@ -639,6 +646,7 @@ argument_list|)
 else|:
 literal|null
 return|;
+block|}
 block|}
 return|return
 literal|null
@@ -675,6 +683,13 @@ operator|.
 name|getTracedRouteNodes
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|traced
+operator|!=
+literal|null
+condition|)
+block|{
 name|RouteNode
 name|last
 init|=
@@ -697,6 +712,7 @@ argument_list|)
 else|:
 literal|null
 return|;
+block|}
 block|}
 return|return
 literal|null

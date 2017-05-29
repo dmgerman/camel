@@ -404,12 +404,6 @@ specifier|private
 name|Message
 name|originalInMessage
 decl_stmt|;
-DECL|field|tracedRouteNodes
-specifier|private
-specifier|final
-name|TracedRouteNodes
-name|tracedRouteNodes
-decl_stmt|;
 DECL|field|transactedBy
 specifier|private
 name|Set
@@ -503,12 +497,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-name|tracedRouteNodes
-operator|=
-operator|new
-name|DefaultTracedRouteNodes
-argument_list|()
-expr_stmt|;
 name|context
 operator|=
 name|exchange
@@ -925,19 +913,6 @@ literal|null
 condition|)
 block|{
 name|synchronizations
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|tracedRouteNodes
-operator|!=
-literal|null
-condition|)
-block|{
-name|tracedRouteNodes
 operator|.
 name|clear
 argument_list|()
@@ -1609,7 +1584,7 @@ name|getTracedRouteNodes
 parameter_list|()
 block|{
 return|return
-name|tracedRouteNodes
+literal|null
 return|;
 block|}
 DECL|method|isTransacted ()

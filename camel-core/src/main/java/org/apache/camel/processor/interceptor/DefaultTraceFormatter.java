@@ -1569,6 +1569,13 @@ operator|.
 name|getTracedRouteNodes
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|traced
+operator|!=
+literal|null
+condition|)
+block|{
 name|RouteNode
 name|traceFrom
 init|=
@@ -1686,6 +1693,7 @@ name|getProcessorDefinition
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

@@ -823,6 +823,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|traced
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
 name|node
 operator|instanceof
 name|OnCompletionDefinition
@@ -979,6 +986,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 else|else
 block|{
 name|LOG
@@ -1071,6 +1079,13 @@ operator|.
 name|getTracedRouteNodes
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|traced
+operator|!=
+literal|null
+condition|)
+block|{
 name|traceIntercept
 argument_list|(
 operator|(
@@ -1086,6 +1101,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// process the exchange
 name|sync
