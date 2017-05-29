@@ -34,6 +34,20 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|fabric8
+operator|.
+name|kubernetes
+operator|.
+name|client
+operator|.
+name|KubernetesClient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -121,7 +135,7 @@ annotation|@
 name|UriParam
 DECL|field|kubernetesClient
 specifier|private
-name|DefaultKubernetesClient
+name|KubernetesClient
 name|kubernetesClient
 decl_stmt|;
 annotation|@
@@ -504,7 +518,7 @@ block|}
 comment|/**      * Default KubernetesClient to use if provided      */
 DECL|method|getKubernetesClient ()
 specifier|public
-name|DefaultKubernetesClient
+name|KubernetesClient
 name|getKubernetesClient
 parameter_list|()
 block|{
@@ -512,12 +526,12 @@ return|return
 name|kubernetesClient
 return|;
 block|}
-DECL|method|setKubernetesClient (DefaultKubernetesClient kubernetesClient)
+DECL|method|setKubernetesClient (KubernetesClient kubernetesClient)
 specifier|public
 name|void
 name|setKubernetesClient
 parameter_list|(
-name|DefaultKubernetesClient
+name|KubernetesClient
 name|kubernetesClient
 parameter_list|)
 block|{
