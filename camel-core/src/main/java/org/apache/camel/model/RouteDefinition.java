@@ -4251,6 +4251,51 @@ return|return
 name|routeContext
 return|;
 block|}
+comment|// ****************************
+comment|// Static helpers
+comment|// ****************************
+DECL|method|fromUri (String uri)
+specifier|public
+specifier|static
+name|RouteDefinition
+name|fromUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RouteDefinition
+argument_list|()
+operator|.
+name|from
+argument_list|(
+name|uri
+argument_list|)
+return|;
+block|}
+DECL|method|fromEndpoint (Endpoint endpoint)
+specifier|public
+specifier|static
+name|RouteDefinition
+name|fromEndpoint
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RouteDefinition
+argument_list|()
+operator|.
+name|from
+argument_list|(
+name|endpoint
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
