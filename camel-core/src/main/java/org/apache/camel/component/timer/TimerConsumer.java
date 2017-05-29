@@ -142,6 +142,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultConsumer
@@ -181,6 +193,8 @@ extends|extends
 name|DefaultConsumer
 implements|implements
 name|StartupListener
+implements|,
+name|Suspendable
 block|{
 DECL|field|LOG
 specifier|private
