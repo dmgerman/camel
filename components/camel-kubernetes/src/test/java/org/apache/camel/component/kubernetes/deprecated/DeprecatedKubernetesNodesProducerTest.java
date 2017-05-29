@@ -52,7 +52,19 @@ name|KubernetesNodesProducerTest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Ignore
 annotation|@
 name|Deprecated
 DECL|class|DeprecatedKubernetesNodesProducerTest
