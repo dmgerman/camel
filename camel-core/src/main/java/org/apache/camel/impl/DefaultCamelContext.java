@@ -2749,10 +2749,6 @@ DECL|field|headersMapFactory
 specifier|private
 name|HeadersMapFactory
 name|headersMapFactory
-init|=
-operator|new
-name|DefaultHeadersMapFactory
-argument_list|()
 decl_stmt|;
 comment|// special flags to control the first startup which can are special
 DECL|field|firstStartDone
@@ -18604,14 +18600,33 @@ literal|"AllowUseOriginalMessage enabled because UseOriginalMessage is in use"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|headersMapFactory
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use resolver to find the headers map factory to be used
+name|headersMapFactory
+operator|=
+operator|new
+name|HeadersMapFactoryResolver
+argument_list|()
+operator|.
+name|resolve
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 name|log
 operator|.
 name|debug
 argument_list|(
 literal|"Using HeadersMapFactory: {}"
 argument_list|,
-name|getHeadersMapFactory
-argument_list|()
+name|headersMapFactory
 argument_list|)
 expr_stmt|;
 if|if
