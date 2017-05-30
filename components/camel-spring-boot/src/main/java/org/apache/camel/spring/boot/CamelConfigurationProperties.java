@@ -310,13 +310,11 @@ name|autoStartup
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sets whether to allow access to the original message from Camel's error handler,      * or from org.apache.camel.spi.UnitOfWork.getOriginalInMessage().      * Turning this off can optimize performance, as defensive copy of the original message is not needed.      *      * Default is true.      */
+comment|/**      * Sets whether to allow access to the original message from Camel's error handler,      * or from org.apache.camel.spi.UnitOfWork.getOriginalInMessage().      * Turning this off can optimize performance, as defensive copy of the original message is not needed.      *      * Default is false.      */
 DECL|field|allowUseOriginalMessage
 specifier|private
 name|boolean
 name|allowUseOriginalMessage
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *      * The default value is true.      */
 DECL|field|endpointRuntimeStatisticsEnabled
