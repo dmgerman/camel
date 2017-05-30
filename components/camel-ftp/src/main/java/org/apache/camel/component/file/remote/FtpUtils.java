@@ -354,7 +354,7 @@ name|it
 init|=
 name|stack
 operator|.
-name|descendingIterator
+name|iterator
 argument_list|()
 init|;
 name|it
