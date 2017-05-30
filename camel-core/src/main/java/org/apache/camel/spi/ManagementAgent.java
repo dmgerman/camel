@@ -385,7 +385,7 @@ name|Boolean
 name|flag
 parameter_list|)
 function_decl|;
-comment|/**      * Gets whether load statistics is enabled      *      * @return<tt>true</tt> if enabled      */
+comment|/**      * Gets whether endpoint runtime statistics is enabled      *      * @return<tt>true</tt> if enabled      */
 DECL|method|getEndpointRuntimeStatisticsEnabled ()
 name|Boolean
 name|getEndpointRuntimeStatisticsEnabled
