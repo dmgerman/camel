@@ -526,6 +526,9 @@ operator|.
 name|resourceQuotas
 argument_list|()
 operator|.
+name|inAnyNamespace
+argument_list|()
+operator|.
 name|list
 argument_list|()
 decl_stmt|;
