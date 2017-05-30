@@ -108,7 +108,7 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-comment|// turn on extended mode
+comment|// turn on runtime statistics in extended mode
 name|camelContext
 operator|.
 name|getManagementStrategy

@@ -316,13 +316,11 @@ specifier|private
 name|boolean
 name|allowUseOriginalMessage
 decl_stmt|;
-comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *      * The default value is true.      */
+comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *      * The default value is false.      */
 DECL|field|endpointRuntimeStatisticsEnabled
 specifier|private
 name|boolean
 name|endpointRuntimeStatisticsEnabled
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * Sets the JMX statistics level      * The level can be set to Extended to gather additional information      *      * The default value is Default.      */
 DECL|field|jmxManagementStatisticsLevel

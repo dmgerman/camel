@@ -376,7 +376,7 @@ name|Boolean
 name|getLoadStatisticsEnabled
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *<p/>      * The default value is<tt>true</tt>      *      * @param flag<tt>false</tt> to disable endpoint runtime statistics      */
+comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *<p/>      * The default value is<tt>false</tt>      *      * @param flag<tt>true</tt> to enable endpoint runtime statistics      */
 DECL|method|setEndpointRuntimeStatisticsEnabled (Boolean flag)
 name|void
 name|setEndpointRuntimeStatisticsEnabled

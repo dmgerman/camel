@@ -1181,6 +1181,18 @@ name|limit
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Runtime endpoint registry is in normal mode gathering information of all incoming and outgoing endpoints (cache limit: {})"
+argument_list|,
+name|limit
+argument_list|)
+expr_stmt|;
+block|}
 name|ServiceHelper
 operator|.
 name|startServices

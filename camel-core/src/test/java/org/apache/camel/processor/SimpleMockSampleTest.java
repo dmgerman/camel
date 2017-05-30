@@ -110,43 +110,6 @@ name|SimpleMockSampleTest
 extends|extends
 name|ContextTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// use simple register which is faster than jndi
-name|CamelContext
-name|context
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|(
-operator|new
-name|SimpleRegistry
-argument_list|()
-argument_list|)
-decl_stmt|;
-comment|// can be used to optimise camel
-name|context
-operator|.
-name|getRuntimeEndpointRegistry
-argument_list|()
-operator|.
-name|setEnabled
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-return|return
-name|context
-return|;
-block|}
 DECL|method|testSimpleThousandMessages ()
 specifier|public
 name|void

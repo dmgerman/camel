@@ -586,8 +586,6 @@ DECL|field|endpointRuntimeStatisticsEnabled
 specifier|private
 name|Boolean
 name|endpointRuntimeStatisticsEnabled
-init|=
-literal|true
 decl_stmt|;
 DECL|field|registerAlways
 specifier|private
