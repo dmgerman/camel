@@ -754,6 +754,23 @@ operator|.
 name|decrementAndGet
 argument_list|()
 expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Ending this polling consumer thread, there are still {} consumer threads left."
+argument_list|,
+name|latch
+operator|.
+name|getCount
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|doRun ()
@@ -780,10 +797,8 @@ name|queue
 operator|!=
 literal|null
 operator|&&
-operator|(
 name|isRunAllowed
 argument_list|()
-operator|)
 condition|)
 block|{
 comment|// do not poll during CamelContext is starting, as we should only poll when CamelContext is fully started
@@ -1185,23 +1200,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Ending this polling consumer thread, there are still {} consumer threads left."
-argument_list|,
-name|latch
-operator|.
-name|getCount
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Strategy to prepare exchange for being processed by this consumer      *      * @param exchange the exchange      * @return the exchange to process by this consumer.      */
 DECL|method|prepareExchange (Exchange exchange)
