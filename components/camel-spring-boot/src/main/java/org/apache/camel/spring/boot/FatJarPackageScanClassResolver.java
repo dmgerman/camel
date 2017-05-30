@@ -122,30 +122,30 @@ name|FatJarPackageScanClassResolver
 extends|extends
 name|DefaultPackageScanClassResolver
 block|{
-DECL|field|SPRINGBOOT_CLASSIC_LIB_ROOT
+DECL|field|SPRING_BOOT_CLASSIC_LIB_ROOT
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|SPRINGBOOT_CLASSIC_LIB_ROOT
+name|SPRING_BOOT_CLASSIC_LIB_ROOT
 init|=
 literal|"lib/"
 decl_stmt|;
-DECL|field|SPRINGBOOT_BOOT_INF_LIB_ROOT
+DECL|field|SPRING_BOOT_BOOT_INF_LIB_ROOT
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|SPRINGBOOT_BOOT_INF_LIB_ROOT
+name|SPRING_BOOT_BOOT_INF_LIB_ROOT
 init|=
 literal|"BOOT-INF/lib/"
 decl_stmt|;
-DECL|field|SPRINGBOOT_BOOT_INF_CLASSES_ROOT
+DECL|field|SPRING_BOOT_BOOT_INF_CLASSES_ROOT
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|SPRINGBOOT_BOOT_INF_CLASSES_ROOT
+name|SPRING_BOOT_BOOT_INF_CLASSES_ROOT
 init|=
 literal|"BOOT-INF/classes/"
 decl_stmt|;
@@ -306,7 +306,7 @@ operator|.
 name|isDirectory
 argument_list|()
 operator|&&
-name|isSpringbootNestedJar
+name|isSpringBootNestedJar
 argument_list|(
 name|name
 argument_list|)
@@ -378,6 +378,8 @@ name|ioe
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|". This exception is ignored."
 argument_list|,
 name|ioe
 argument_list|)
@@ -408,10 +410,10 @@ return|return
 name|entries
 return|;
 block|}
-DECL|method|isSpringbootNestedJar (String name)
+DECL|method|isSpringBootNestedJar (String name)
 specifier|private
 name|boolean
-name|isSpringbootNestedJar
+name|isSpringBootNestedJar
 parameter_list|(
 name|String
 name|name
@@ -431,14 +433,14 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-name|SPRINGBOOT_CLASSIC_LIB_ROOT
+name|SPRING_BOOT_CLASSIC_LIB_ROOT
 argument_list|)
 operator|||
 name|name
 operator|.
 name|startsWith
 argument_list|(
-name|SPRINGBOOT_BOOT_INF_LIB_ROOT
+name|SPRING_BOOT_BOOT_INF_LIB_ROOT
 argument_list|)
 operator|)
 return|;
@@ -459,7 +461,7 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-name|SPRINGBOOT_BOOT_INF_CLASSES_ROOT
+name|SPRING_BOOT_BOOT_INF_CLASSES_ROOT
 argument_list|)
 condition|)
 block|{
@@ -469,7 +471,7 @@ name|name
 operator|.
 name|substring
 argument_list|(
-name|SPRINGBOOT_BOOT_INF_CLASSES_ROOT
+name|SPRING_BOOT_BOOT_INF_CLASSES_ROOT
 operator|.
 name|length
 argument_list|()
