@@ -18604,7 +18604,14 @@ literal|"AllowUseOriginalMessage enabled because UseOriginalMessage is in use"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// use resolver to find the headers map factory to be used
+comment|// use resolver to find the headers map factory to be used, if we are using the default
+if|if
+condition|(
+name|headersMapFactory
+operator|instanceof
+name|DefaultHeadersMapFactory
+condition|)
+block|{
 name|headersMapFactory
 operator|=
 operator|new
@@ -18616,6 +18623,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|log
 operator|.
 name|debug
@@ -18628,8 +18636,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|getHeadersMapFactory
-argument_list|()
+name|headersMapFactory
 operator|.
 name|isCaseInsensitive
 argument_list|()
