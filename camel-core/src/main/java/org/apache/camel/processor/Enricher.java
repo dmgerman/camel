@@ -1121,6 +1121,13 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|watch
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// emit event that the exchange was sent to the endpoint
 name|long
 name|timeTaken
@@ -1146,6 +1153,7 @@ argument_list|,
 name|timeTaken
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
