@@ -116,16 +116,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayDeque
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|ArrayList
 import|;
 end_import
@@ -167,16 +157,6 @@ operator|.
 name|util
 operator|.
 name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Deque
 import|;
 end_import
 
@@ -237,6 +217,16 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Stack
 import|;
 end_import
 
@@ -4185,7 +4175,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|stack
 specifier|private
-name|Deque
+name|Stack
 argument_list|<
 name|String
 argument_list|>
@@ -5209,7 +5199,7 @@ block|{
 name|stack
 operator|=
 operator|new
-name|ArrayDeque
+name|Stack
 argument_list|<>
 argument_list|()
 expr_stmt|;

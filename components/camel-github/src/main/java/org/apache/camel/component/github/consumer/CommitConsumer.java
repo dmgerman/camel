@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayDeque
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|ArrayList
 import|;
 end_import
@@ -46,7 +36,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Deque
+name|List
 import|;
 end_import
 
@@ -56,7 +46,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Stack
 import|;
 end_import
 
@@ -389,15 +379,17 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// In the end, we want tags oldest to newest.
-name|Deque
+name|Stack
 argument_list|<
 name|RepositoryCommit
 argument_list|>
 name|newCommits
 init|=
 operator|new
-name|ArrayDeque
-argument_list|<>
+name|Stack
+argument_list|<
+name|RepositoryCommit
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -446,7 +438,7 @@ condition|(
 operator|!
 name|newCommits
 operator|.
-name|isEmpty
+name|empty
 argument_list|()
 condition|)
 block|{

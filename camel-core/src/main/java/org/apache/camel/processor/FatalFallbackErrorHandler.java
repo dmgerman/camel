@@ -22,17 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayDeque
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Deque
+name|Stack
 import|;
 end_import
 
@@ -221,7 +211,7 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// prevent endless looping if we end up coming back to ourself
-name|Deque
+name|Stack
 argument_list|<
 name|String
 argument_list|>
@@ -237,7 +227,7 @@ name|FATAL_FALLBACK_ERROR_HANDLER
 argument_list|,
 literal|null
 argument_list|,
-name|Deque
+name|Stack
 operator|.
 name|class
 argument_list|)
@@ -252,7 +242,7 @@ block|{
 name|fatals
 operator|=
 operator|new
-name|ArrayDeque
+name|Stack
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -272,10 +262,13 @@ if|if
 condition|(
 name|fatals
 operator|.
-name|contains
+name|search
 argument_list|(
 name|id
 argument_list|)
+operator|>
+operator|-
+literal|1
 condition|)
 block|{
 name|LOG
@@ -640,7 +633,7 @@ block|}
 finally|finally
 block|{
 comment|// no longer running under this fatal fallback error handler
-name|Deque
+name|Stack
 argument_list|<
 name|String
 argument_list|>
@@ -656,7 +649,7 @@ name|FATAL_FALLBACK_ERROR_HANDLER
 argument_list|,
 literal|null
 argument_list|,
-name|Deque
+name|Stack
 operator|.
 name|class
 argument_list|)
