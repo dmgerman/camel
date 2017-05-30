@@ -26,7 +26,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayDeque
 import|;
 end_import
 
@@ -36,7 +36,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Stack
+name|Deque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -360,17 +370,15 @@ literal|"open"
 argument_list|)
 decl_stmt|;
 comment|// In the end, we want PRs oldest to newest.
-name|Stack
+name|Deque
 argument_list|<
 name|PullRequest
 argument_list|>
 name|newPullRequests
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|PullRequest
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -432,7 +440,7 @@ condition|(
 operator|!
 name|newPullRequests
 operator|.
-name|empty
+name|isEmpty
 argument_list|()
 condition|)
 block|{

@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|ArrayList
 import|;
 end_import
@@ -34,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Deque
 import|;
 end_import
 
@@ -44,7 +54,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Stack
+name|List
 import|;
 end_import
 
@@ -519,17 +529,15 @@ name|SimpleNode
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|Stack
+name|Deque
 argument_list|<
 name|Block
 argument_list|>
 name|stack
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|Block
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -793,17 +801,15 @@ name|void
 name|prepareUnaryExpressions
 parameter_list|()
 block|{
-name|Stack
+name|Deque
 argument_list|<
 name|SimpleNode
 argument_list|>
 name|stack
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|SimpleNode
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -26,6 +26,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|ArrayList
 import|;
 end_import
@@ -36,7 +46,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Deque
 import|;
 end_import
 
@@ -46,7 +56,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Stack
+name|List
 import|;
 end_import
 
@@ -254,17 +264,15 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// In the end, we want tags oldest to newest.
-name|Stack
+name|Deque
 argument_list|<
 name|RepositoryTag
 argument_list|>
 name|newTags
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|RepositoryTag
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -313,7 +321,7 @@ condition|(
 operator|!
 name|newTags
 operator|.
-name|empty
+name|isEmpty
 argument_list|()
 condition|)
 block|{

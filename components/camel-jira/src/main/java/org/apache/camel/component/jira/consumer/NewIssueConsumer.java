@@ -26,7 +26,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayDeque
 import|;
 end_import
 
@@ -36,7 +36,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Stack
+name|Deque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -204,17 +214,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Stack
+name|Deque
 argument_list|<
 name|BasicIssue
 argument_list|>
 name|newIssues
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|BasicIssue
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|getNewIssues
@@ -229,7 +237,7 @@ condition|(
 operator|!
 name|newIssues
 operator|.
-name|empty
+name|isEmpty
 argument_list|()
 condition|)
 block|{
@@ -277,7 +285,7 @@ argument_list|()
 return|;
 block|}
 comment|// In the end, we want *new* issues oldest to newest.
-DECL|method|getNewIssues (int start, Stack<BasicIssue> stack)
+DECL|method|getNewIssues (int start, Deque<BasicIssue> stack)
 specifier|private
 name|void
 name|getNewIssues
@@ -285,7 +293,7 @@ parameter_list|(
 name|int
 name|start
 parameter_list|,
-name|Stack
+name|Deque
 argument_list|<
 name|BasicIssue
 argument_list|>

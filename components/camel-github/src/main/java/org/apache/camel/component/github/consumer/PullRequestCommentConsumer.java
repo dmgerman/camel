@@ -26,7 +26,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Deque
 import|;
 end_import
 
@@ -57,16 +77,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Stack
 import|;
 end_import
 
@@ -576,17 +586,15 @@ literal|"open"
 argument_list|)
 decl_stmt|;
 comment|// In the end, we want comments oldest to newest.
-name|Stack
+name|Deque
 argument_list|<
 name|Comment
 argument_list|>
 name|newComments
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|Comment
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -747,7 +755,7 @@ condition|(
 operator|!
 name|newComments
 operator|.
-name|empty
+name|isEmpty
 argument_list|()
 condition|)
 block|{

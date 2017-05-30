@@ -26,6 +26,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|ArrayList
 import|;
 end_import
@@ -36,7 +46,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Deque
 import|;
 end_import
 
@@ -46,7 +56,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Stack
+name|List
 import|;
 end_import
 
@@ -247,7 +257,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Stack
+name|Deque
 argument_list|<
 name|Comment
 argument_list|>
@@ -261,7 +271,7 @@ condition|(
 operator|!
 name|newComments
 operator|.
-name|empty
+name|isEmpty
 argument_list|()
 condition|)
 block|{
@@ -311,24 +321,22 @@ block|}
 comment|// In the end, we want *new* comments oldest to newest.
 DECL|method|getComments ()
 specifier|private
-name|Stack
+name|Deque
 argument_list|<
 name|Comment
 argument_list|>
 name|getComments
 parameter_list|()
 block|{
-name|Stack
+name|Deque
 argument_list|<
 name|Comment
 argument_list|>
 name|newComments
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|Comment
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List

@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|ArrayList
 import|;
 end_import
@@ -33,6 +43,16 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Deque
 import|;
 end_import
 
@@ -63,16 +83,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Stack
 import|;
 end_import
 
@@ -159,7 +169,7 @@ block|{
 DECL|field|routeNodes
 specifier|private
 specifier|final
-name|Stack
+name|Deque
 argument_list|<
 name|List
 argument_list|<
@@ -169,13 +179,8 @@ argument_list|>
 name|routeNodes
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|List
-argument_list|<
-name|RouteNode
-argument_list|>
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|nodeCounter
