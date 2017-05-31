@@ -50,6 +50,30 @@ name|Predicate
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the View of the cluster at some given period of time.  */
 end_comment
@@ -59,6 +83,10 @@ DECL|interface|CamelClusterView
 specifier|public
 interface|interface
 name|CamelClusterView
+extends|extends
+name|Service
+extends|,
+name|CamelContextAware
 block|{
 DECL|enum|Event
 enum|enum

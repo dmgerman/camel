@@ -24,55 +24,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HasId
+name|CamelContext
 import|;
 end_import
 
 begin_interface
-DECL|interface|CamelCluster
+annotation|@
+name|FunctionalInterface
+DECL|interface|CamelClusterFactory
 specifier|public
 interface|interface
-name|CamelCluster
-extends|extends
-name|Service
-extends|,
-name|CamelContextAware
-extends|,
-name|HasId
+name|CamelClusterFactory
 block|{
-comment|/**      * Creates a view of the cluster bound to a namespace.      *      * @param namespace the namespace the view refer to.      * @return the cluster view.      * @throws Exception if the view can't be created.      */
-DECL|method|createView (String namespace)
-name|CamelClusterView
-name|createView
+comment|/**      * Creates an instance of a cluster.      */
+DECL|method|newInstance (CamelContext camelContext)
+name|CamelCluster
+name|newInstance
 parameter_list|(
-name|String
-name|namespace
+name|CamelContext
+name|camelContext
 parameter_list|)
 throws|throws
 name|Exception
