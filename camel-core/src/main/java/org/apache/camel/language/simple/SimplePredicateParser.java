@@ -24,7 +24,37 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Deque
 import|;
 end_import
 
@@ -45,16 +75,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Stack
 import|;
 end_import
 
@@ -1535,17 +1555,15 @@ name|void
 name|prepareBinaryExpressions
 parameter_list|()
 block|{
-name|Stack
+name|Deque
 argument_list|<
 name|SimpleNode
 argument_list|>
 name|stack
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|SimpleNode
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|SimpleNode
@@ -1833,6 +1851,14 @@ argument_list|(
 name|stack
 argument_list|)
 expr_stmt|;
+comment|// must reverse as it was added from a stack that is reverse
+name|Collections
+operator|.
+name|reverse
+argument_list|(
+name|nodes
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Prepares logical expressions.      *<p/>      * This process prepares the logical expressions in the AST. This is done      * by linking the logical operator with both the right and left hand side      * nodes, to have the AST graph updated and prepared properly.      *<p/>      * So when the AST node is later used to create the {@link Predicate}s      * to be used by Camel then the AST graph has a linked and prepared      * graph of nodes which represent the input expression.      */
 DECL|method|prepareLogicalExpressions ()
@@ -1841,17 +1867,15 @@ name|void
 name|prepareLogicalExpressions
 parameter_list|()
 block|{
-name|Stack
+name|Deque
 argument_list|<
 name|SimpleNode
 argument_list|>
 name|stack
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|SimpleNode
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|SimpleNode
@@ -2137,6 +2161,14 @@ operator|.
 name|addAll
 argument_list|(
 name|stack
+argument_list|)
+expr_stmt|;
+comment|// must reverse as it was added from a stack that is reverse
+name|Collections
+operator|.
+name|reverse
+argument_list|(
+name|nodes
 argument_list|)
 expr_stmt|;
 block|}
