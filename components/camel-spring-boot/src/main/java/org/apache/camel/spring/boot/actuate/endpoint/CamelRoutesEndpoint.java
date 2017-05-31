@@ -305,10 +305,10 @@ specifier|final
 name|long
 name|uptimeMillis
 decl_stmt|;
-DECL|field|serviceStatus
+DECL|field|status
 specifier|private
 name|String
-name|serviceStatus
+name|status
 decl_stmt|;
 DECL|method|RouteEndpointInfo (Route route)
 specifier|public
@@ -363,7 +363,7 @@ condition|)
 block|{
 name|this
 operator|.
-name|serviceStatus
+name|status
 operator|=
 operator|(
 operator|(
@@ -420,14 +420,14 @@ return|return
 name|uptimeMillis
 return|;
 block|}
-DECL|method|getServiceStatus ()
+DECL|method|getStatus ()
 specifier|public
 name|String
-name|getServiceStatus
+name|getStatus
 parameter_list|()
 block|{
 return|return
-name|serviceStatus
+name|status
 return|;
 block|}
 block|}
