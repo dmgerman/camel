@@ -36,7 +36,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|ArrayDeque
 import|;
 end_import
 
@@ -46,7 +46,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Stack
+name|Deque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
 import|;
 end_import
 
@@ -206,17 +216,15 @@ argument_list|(
 literal|"\\"
 argument_list|)
 decl_stmt|;
-name|Stack
+name|Deque
 argument_list|<
 name|String
 argument_list|>
 name|stack
 init|=
 operator|new
-name|Stack
-argument_list|<
-name|String
-argument_list|>
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -344,6 +352,7 @@ name|separator
 argument_list|)
 expr_stmt|;
 block|}
+comment|// now we build back using FIFO so need to use descending
 for|for
 control|(
 name|Iterator
@@ -354,7 +363,7 @@ name|it
 init|=
 name|stack
 operator|.
-name|iterator
+name|descendingIterator
 argument_list|()
 init|;
 name|it
