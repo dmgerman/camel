@@ -1304,6 +1304,13 @@ argument_list|(
 name|item
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|document
+operator|!=
+literal|null
+condition|)
+block|{
 name|ContentStream
 name|contentStream
 init|=
@@ -1314,10 +1321,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|document
-operator|!=
-literal|null
-operator|&&
 name|contentStream
 operator|!=
 literal|null
@@ -1329,6 +1332,7 @@ operator|.
 name|getStream
 argument_list|()
 return|;
+block|}
 block|}
 return|return
 literal|null
