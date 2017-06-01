@@ -6723,6 +6723,8 @@ name|publicConstructors
 return|;
 block|}
 comment|/**      * Gets the list of methods (unsorted)      *      * @return the methods.      */
+annotation|@
+name|Deprecated
 DECL|method|getMethods ()
 specifier|public
 name|List
@@ -6787,6 +6789,8 @@ name|methods
 return|;
 block|}
 comment|/**      * Gets the list of methods sorted by A..Z method name.      *      * @return the methods.      */
+annotation|@
+name|Deprecated
 DECL|method|getSortedMethods ()
 specifier|public
 name|List
@@ -6839,6 +6843,53 @@ expr_stmt|;
 block|}
 return|return
 name|methods
+return|;
+block|}
+comment|/**      * Does any of the methods have a Canel @Handler annotation.      */
+DECL|method|hasAnyMethodHandlerAnnotation ()
+specifier|public
+name|boolean
+name|hasAnyMethodHandlerAnnotation
+parameter_list|()
+block|{
+for|for
+control|(
+name|List
+argument_list|<
+name|MethodInfo
+argument_list|>
+name|list
+range|:
+name|operations
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+for|for
+control|(
+name|MethodInfo
+name|mi
+range|:
+name|list
+control|)
+block|{
+if|if
+condition|(
+name|mi
+operator|.
+name|hasHandlerAnnotation
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+block|}
+return|return
+literal|false
 return|;
 block|}
 comment|/**      * Get the operation(s) with the given name. We can have multiple when methods is overloaded.      *<p/>      * Shorthand method names for getters is supported, so you can pass in eg 'name' and Camel      * will can find the real 'getName' method instead.      *      * @param methodName the method name      * @return the found method, or<tt>null</tt> if not found      */

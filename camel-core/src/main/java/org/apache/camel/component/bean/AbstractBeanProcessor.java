@@ -1158,29 +1158,17 @@ block|}
 comment|// don't allow if any of the methods has a @Handler annotation
 comment|// as the @Handler annotation takes precedence and is supposed to trigger invocation
 comment|// of the given method
-for|for
-control|(
-name|MethodInfo
-name|method
-range|:
-name|info
-operator|.
-name|getMethods
-argument_list|()
-control|)
-block|{
 if|if
 condition|(
-name|method
+name|info
 operator|.
-name|hasHandlerAnnotation
+name|hasAnyMethodHandlerAnnotation
 argument_list|()
 condition|)
 block|{
 return|return
 literal|false
 return|;
-block|}
 block|}
 comment|// fallback and allow using the processor
 return|return
