@@ -64,18 +64,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|ExecutionException
 import|;
 end_import
@@ -3253,7 +3241,7 @@ name|answer
 operator|.
 name|setProperties
 argument_list|(
-name|safeCopy
+name|safeCopyProperties
 argument_list|(
 name|exchange
 operator|.
@@ -3499,7 +3487,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|safeCopy (Map<String, Object> properties)
+DECL|method|safeCopyProperties (Map<String, Object> properties)
 specifier|private
 specifier|static
 name|Map
@@ -3508,7 +3496,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|safeCopy
+name|safeCopyProperties
 parameter_list|(
 name|Map
 argument_list|<
@@ -3539,12 +3527,8 @@ argument_list|>
 name|answer
 init|=
 operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|HashMap
+argument_list|<>
 argument_list|(
 name|properties
 argument_list|)
