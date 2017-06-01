@@ -662,6 +662,8 @@ name|OgnlInvokeProcessor
 argument_list|(
 name|beanHolder
 argument_list|,
+name|beanName
+argument_list|,
 name|method
 argument_list|)
 decl_stmt|;
@@ -731,6 +733,8 @@ operator|new
 name|InvokeProcessor
 argument_list|(
 name|beanHolder
+argument_list|,
+name|beanName
 argument_list|,
 name|method
 argument_list|)
@@ -1069,6 +1073,7 @@ block|}
 comment|/**      * Invokes a given bean holder. The method name is optional.      */
 DECL|class|InvokeProcessor
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|InvokeProcessor
@@ -1077,25 +1082,36 @@ name|Processor
 block|{
 DECL|field|beanHolder
 specifier|private
+specifier|final
 name|BeanHolder
 name|beanHolder
 decl_stmt|;
 DECL|field|methodName
 specifier|private
+specifier|final
 name|String
 name|methodName
+decl_stmt|;
+DECL|field|beanName
+specifier|private
+specifier|final
+name|String
+name|beanName
 decl_stmt|;
 DECL|field|result
 specifier|private
 name|Object
 name|result
 decl_stmt|;
-DECL|method|InvokeProcessor (BeanHolder beanHolder, String methodName)
+DECL|method|InvokeProcessor (BeanHolder beanHolder, String beanName, String methodName)
 specifier|private
 name|InvokeProcessor
 parameter_list|(
 name|BeanHolder
 name|beanHolder
+parameter_list|,
+name|String
+name|beanName
 parameter_list|,
 name|String
 name|methodName
@@ -1112,6 +1128,12 @@ operator|.
 name|methodName
 operator|=
 name|methodName
+expr_stmt|;
+name|this
+operator|.
+name|beanName
+operator|=
+name|beanName
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -1315,6 +1337,7 @@ block|}
 comment|/**      * To invoke a bean using a OGNL notation which denotes the chain of methods to invoke.      *<p/>      * For more advanced OGNL you may have to look for a real framework such as OGNL, Mvel or dynamic      * programming language such as Groovy, JuEL, JavaScript.      */
 DECL|class|OgnlInvokeProcessor
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|OgnlInvokeProcessor
@@ -1333,16 +1356,26 @@ specifier|final
 name|BeanHolder
 name|beanHolder
 decl_stmt|;
+DECL|field|beanName
+specifier|private
+specifier|final
+name|String
+name|beanName
+decl_stmt|;
 DECL|field|result
 specifier|private
 name|Object
 name|result
 decl_stmt|;
-DECL|method|OgnlInvokeProcessor (BeanHolder beanHolder, String ognl)
+DECL|method|OgnlInvokeProcessor (BeanHolder beanHolder, String beanName, String ognl)
+specifier|private
 name|OgnlInvokeProcessor
 parameter_list|(
 name|BeanHolder
 name|beanHolder
+parameter_list|,
+name|String
+name|beanName
 parameter_list|,
 name|String
 name|ognl
@@ -1353,6 +1386,12 @@ operator|.
 name|beanHolder
 operator|=
 name|beanHolder
+expr_stmt|;
+name|this
+operator|.
+name|beanName
+operator|=
+name|beanName
 expr_stmt|;
 name|this
 operator|.
@@ -1683,6 +1722,8 @@ operator|new
 name|InvokeProcessor
 argument_list|(
 name|holder
+argument_list|,
+name|beanName
 argument_list|,
 name|methodName
 argument_list|)
