@@ -2130,7 +2130,7 @@ name|Set
 argument_list|<
 name|Method
 argument_list|>
-name|overriddenMethods
+name|overrides
 init|=
 operator|new
 name|HashSet
@@ -2235,7 +2235,7 @@ literal|false
 argument_list|)
 condition|)
 block|{
-name|overriddenMethods
+name|overrides
 operator|.
 name|add
 argument_list|(
@@ -2249,10 +2249,10 @@ name|methods
 operator|.
 name|removeAll
 argument_list|(
-name|overriddenMethods
+name|overrides
 argument_list|)
 expr_stmt|;
-name|overriddenMethods
+name|overrides
 operator|.
 name|clear
 argument_list|()
