@@ -785,11 +785,6 @@ name|watch
 init|=
 name|sw
 decl_stmt|;
-name|boolean
-name|sync
-init|=
-literal|true
-decl_stmt|;
 try|try
 block|{
 name|LOG
@@ -803,8 +798,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|sync
-operator|=
+return|return
 name|producer
 operator|.
 name|process
@@ -882,7 +876,7 @@ block|}
 block|}
 block|}
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -901,12 +895,12 @@ name|callback
 operator|.
 name|done
 argument_list|(
-name|sync
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|sync
+literal|true
 return|;
 block|}
 comment|// send the exchange to the destination using the producer cache for the non optimized producers
