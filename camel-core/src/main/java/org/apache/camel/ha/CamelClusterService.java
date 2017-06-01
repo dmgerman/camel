@@ -24,25 +24,33 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Service
 import|;
 end_import
 
 begin_interface
-annotation|@
-name|FunctionalInterface
-DECL|interface|CamelClusterFactory
+DECL|interface|CamelClusterService
 specifier|public
 interface|interface
-name|CamelClusterFactory
+name|CamelClusterService
+extends|extends
+name|Service
 block|{
-comment|/**      * Creates an instance of a cluster.      */
-DECL|method|newInstance (CamelContext camelContext)
+comment|/**      * Get the {@linke CamelCluster} instance managed by the service      */
+DECL|method|getCluster ()
 name|CamelCluster
-name|newInstance
+name|getCluster
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Create a {@linke CamelClusterView} for the given namespace      */
+DECL|method|createView (String namespace)
+name|CamelClusterView
+name|createView
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|String
+name|namespace
 parameter_list|)
 throws|throws
 name|Exception

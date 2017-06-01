@@ -241,7 +241,7 @@ name|getCamelContext
 parameter_list|()
 block|{
 return|return
-literal|null
+name|camelContext
 return|;
 block|}
 annotation|@
