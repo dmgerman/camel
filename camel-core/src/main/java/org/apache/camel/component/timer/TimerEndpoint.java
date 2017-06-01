@@ -540,7 +540,20 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// do nothing, the timer will be set when the first consumer will request it
+if|if
+condition|(
+name|timerName
+operator|==
+literal|null
+condition|)
+block|{
+name|timerName
+operator|=
+name|getEndpointUri
+argument_list|()
+expr_stmt|;
+block|}
+comment|// do nothing in regards to setTimer, the timer will be set when the first consumer will request it
 block|}
 annotation|@
 name|Override
@@ -588,19 +601,6 @@ name|String
 name|getTimerName
 parameter_list|()
 block|{
-if|if
-condition|(
-name|timerName
-operator|==
-literal|null
-condition|)
-block|{
-name|timerName
-operator|=
-name|getEndpointUri
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|timerName
 return|;

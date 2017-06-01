@@ -539,8 +539,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|getId
-argument_list|()
+name|id
 return|;
 block|}
 DECL|method|getCustomId ()

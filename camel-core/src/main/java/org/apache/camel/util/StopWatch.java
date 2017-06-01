@@ -49,9 +49,13 @@ name|StopWatch
 parameter_list|()
 block|{
 name|this
-argument_list|(
-literal|true
-argument_list|)
+operator|.
+name|start
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Starts the stop watch from the given timestamp      */
