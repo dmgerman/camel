@@ -236,10 +236,8 @@ name|useExchange
 operator|=
 name|method
 operator|.
-name|getParameterTypes
+name|getParameterCount
 argument_list|()
-operator|.
-name|length
 operator|==
 literal|2
 expr_stmt|;

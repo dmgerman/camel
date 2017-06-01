@@ -3603,7 +3603,7 @@ comment|// the parameter values is between the parenthesis
 name|String
 name|methodParameters
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|betweenOuterPair
 argument_list|(

@@ -808,16 +808,12 @@ operator|.
 name|getReturnType
 argument_list|()
 decl_stmt|;
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|params
-index|[]
+name|int
+name|parameterCount
 init|=
 name|method
 operator|.
-name|getParameterTypes
+name|getParameterCount
 argument_list|()
 decl_stmt|;
 comment|// is it a getXXX method
@@ -851,9 +847,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|params
-operator|.
-name|length
+name|parameterCount
 operator|==
 literal|0
 operator|&&
@@ -899,9 +893,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|params
-operator|.
-name|length
+name|parameterCount
 operator|==
 literal|0
 operator|&&
@@ -1164,16 +1156,12 @@ operator|.
 name|getReturnType
 argument_list|()
 decl_stmt|;
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|params
-index|[]
+name|int
+name|parameterCount
 init|=
 name|method
 operator|.
-name|getParameterTypes
+name|getParameterCount
 argument_list|()
 decl_stmt|;
 comment|// is it a getXXX method
@@ -1207,9 +1195,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|params
-operator|.
-name|length
+name|parameterCount
 operator|==
 literal|1
 operator|&&
