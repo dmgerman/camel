@@ -216,6 +216,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|KeyValueHolder
 import|;
 end_import
@@ -1091,10 +1105,14 @@ comment|// copy the original exchange to avoid side effects on it
 name|Exchange
 name|resultExchange
 init|=
-name|exchange
+name|ExchangeHelper
 operator|.
-name|copy
-argument_list|()
+name|createCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 comment|// remove any existing exception in case we do OGNL on the exception
 name|resultExchange
@@ -1265,10 +1283,14 @@ comment|// copy the original exchange to avoid side effects on it
 name|Exchange
 name|resultExchange
 init|=
-name|exchange
+name|ExchangeHelper
 operator|.
-name|copy
-argument_list|()
+name|createCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 comment|// remove any existing exception in case we do OGNL on the exception
 name|resultExchange
