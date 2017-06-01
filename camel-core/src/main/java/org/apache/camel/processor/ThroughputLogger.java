@@ -868,13 +868,11 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newScheduledThreadPool
+name|newSingleThreadScheduledExecutor
 argument_list|(
 name|this
 argument_list|,
 literal|"ThroughputLogger"
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|Runnable
