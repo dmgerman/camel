@@ -60,6 +60,16 @@ name|io
 operator|.
 name|atomix
 operator|.
+name|Atomix
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|atomix
+operator|.
 name|group
 operator|.
 name|DistributedGroup
@@ -87,6 +97,20 @@ operator|.
 name|group
 operator|.
 name|LocalMember
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|atomix
+operator|.
+name|group
+operator|.
+name|election
+operator|.
+name|Term
 import|;
 end_import
 
@@ -157,6 +181,7 @@ end_import
 begin_class
 DECL|class|AtomixClusterView
 specifier|public
+specifier|final
 class|class
 name|AtomixClusterView
 extends|extends
@@ -178,11 +203,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|group
+DECL|field|atomix
 specifier|private
 specifier|final
-name|DistributedGroup
-name|group
+name|Atomix
+name|atomix
 decl_stmt|;
 DECL|field|localMember
 specifier|private
@@ -190,7 +215,12 @@ specifier|final
 name|AtomixLocalMember
 name|localMember
 decl_stmt|;
-DECL|method|AtomixClusterView (AtomixCluster cluster, String namespace, DistributedGroup group)
+DECL|field|group
+specifier|private
+name|DistributedGroup
+name|group
+decl_stmt|;
+DECL|method|AtomixClusterView (AtomixCluster cluster, String namespace, Atomix atomix)
 name|AtomixClusterView
 parameter_list|(
 name|AtomixCluster
@@ -199,8 +229,8 @@ parameter_list|,
 name|String
 name|namespace
 parameter_list|,
-name|DistributedGroup
-name|group
+name|Atomix
+name|atomix
 parameter_list|)
 block|{
 name|super
@@ -212,9 +242,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|group
+name|atomix
 operator|=
-name|group
+name|atomix
 expr_stmt|;
 name|this
 operator|.
@@ -222,9 +252,7 @@ name|localMember
 operator|=
 operator|new
 name|AtomixLocalMember
-argument_list|(
-name|group
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -235,11 +263,24 @@ name|CamelClusterMember
 name|getMaster
 parameter_list|()
 block|{
+if|if
+condition|(
+name|group
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"The view has not yet joined the cluster"
+argument_list|)
+throw|;
+block|}
 return|return
 name|asCamelClusterMember
 argument_list|(
-name|this
-operator|.
 name|group
 operator|.
 name|election
@@ -262,8 +303,6 @@ name|getLocalMember
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|localMember
 return|;
 block|}
@@ -278,7 +317,21 @@ argument_list|>
 name|getMembers
 parameter_list|()
 block|{
-comment|// TODO: Dummy implementation for testing purpose
+if|if
+condition|(
+name|group
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"The view has not yet joined the cluster"
+argument_list|)
+throw|;
+block|}
 return|return
 name|this
 operator|.
@@ -338,23 +391,59 @@ block|{
 if|if
 condition|(
 operator|!
-name|this
-operator|.
 name|localMember
 operator|.
 name|hasJoined
 argument_list|()
 condition|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Get group {}"
+argument_list|,
+name|getNamespace
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|group
+operator|=
 name|this
 operator|.
+name|atomix
+operator|.
+name|getGroup
+argument_list|(
+name|getNamespace
+argument_list|()
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Join group {}"
+argument_list|,
+name|getNamespace
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|localMember
 operator|.
 name|join
 argument_list|()
 expr_stmt|;
-name|this
+name|LOGGER
 operator|.
+name|debug
+argument_list|(
+literal|"Listen election events"
+argument_list|)
+expr_stmt|;
 name|group
 operator|.
 name|election
@@ -362,24 +451,9 @@ argument_list|()
 operator|.
 name|onElection
 argument_list|(
-name|t
-lambda|->
-name|fireEvent
-argument_list|(
-name|CamelClusterView
-operator|.
-name|Event
-operator|.
-name|LEADERSHIP_CHANGED
-argument_list|,
-name|asCamelClusterMember
-argument_list|(
-name|t
-operator|.
-name|leader
-argument_list|()
-argument_list|)
-argument_list|)
+name|this
+operator|::
+name|onElection
 argument_list|)
 expr_stmt|;
 block|}
@@ -400,6 +474,33 @@ name|leave
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|onElection (Term term)
+specifier|private
+name|void
+name|onElection
+parameter_list|(
+name|Term
+name|term
+parameter_list|)
+block|{
+name|fireEvent
+argument_list|(
+name|CamelClusterView
+operator|.
+name|Event
+operator|.
+name|LEADERSHIP_CHANGED
+argument_list|,
+name|asCamelClusterMember
+argument_list|(
+name|term
+operator|.
+name|leader
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// ***********************************************
 comment|//
 comment|// ***********************************************
@@ -409,31 +510,15 @@ name|AtomixLocalMember
 implements|implements
 name|CamelClusterMember
 block|{
-DECL|field|group
-specifier|private
-specifier|final
-name|DistributedGroup
-name|group
-decl_stmt|;
 DECL|field|member
 specifier|private
 name|LocalMember
 name|member
 decl_stmt|;
-DECL|method|AtomixLocalMember (DistributedGroup group)
+DECL|method|AtomixLocalMember ()
 name|AtomixLocalMember
-parameter_list|(
-name|DistributedGroup
-name|group
-parameter_list|)
-block|{
-name|this
-operator|.
-name|group
-operator|=
-name|group
-expr_stmt|;
-block|}
+parameter_list|()
+block|{         }
 annotation|@
 name|Override
 DECL|method|getId ()
@@ -453,7 +538,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Cluster not yet joined"
+literal|"The view has not yet joined the cluster"
 argument_list|)
 throw|;
 block|}
@@ -526,6 +611,10 @@ condition|(
 name|member
 operator|==
 literal|null
+operator|&&
+name|group
+operator|!=
+literal|null
 condition|)
 block|{
 name|LOGGER
@@ -539,14 +628,12 @@ argument_list|)
 expr_stmt|;
 name|member
 operator|=
-name|this
-operator|.
 name|group
 operator|.
 name|join
 argument_list|()
 operator|.
-name|get
+name|join
 argument_list|()
 expr_stmt|;
 block|}
