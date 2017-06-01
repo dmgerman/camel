@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -80,6 +92,20 @@ name|DefaultAsyncProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AsyncProcessorConverterHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Log producer.  */
 end_comment
@@ -95,7 +121,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|Processor
+name|AsyncProcessor
 name|logger
 decl_stmt|;
 DECL|method|LogProducer (Endpoint endpoint, Processor logger)
@@ -118,7 +144,12 @@ name|this
 operator|.
 name|logger
 operator|=
+name|AsyncProcessorConverterHelper
+operator|.
+name|convert
+argument_list|(
 name|logger
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange, AsyncCallback callback)
@@ -133,42 +164,15 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-try|try
-block|{
+return|return
 name|logger
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
+argument_list|,
 name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|true
 return|;
 block|}
 DECL|method|getLogger ()
