@@ -71,21 +71,27 @@ name|getTime
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates the stop watch      *      * @param started whether it should start immediately      */
-DECL|method|StopWatch (boolean started)
+comment|/**      * Creates the stop watch      *      * @param start whether it should start immediately      */
+DECL|method|StopWatch (boolean start)
 specifier|public
 name|StopWatch
 parameter_list|(
 name|boolean
-name|started
+name|start
 parameter_list|)
 block|{
 if|if
 condition|(
-name|started
+name|start
 condition|)
 block|{
-name|restart
+name|this
+operator|.
+name|start
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
