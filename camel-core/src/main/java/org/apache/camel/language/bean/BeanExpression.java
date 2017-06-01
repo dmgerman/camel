@@ -134,7 +134,7 @@ name|component
 operator|.
 name|bean
 operator|.
-name|BeanHolder
+name|BeanExpressionProcessor
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|component
 operator|.
 name|bean
 operator|.
-name|BeanProcessor
+name|BeanHolder
 import|;
 end_import
 
@@ -1147,11 +1147,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|BeanProcessor
+name|BeanExpressionProcessor
 name|processor
 init|=
 operator|new
-name|BeanProcessor
+name|BeanExpressionProcessor
 argument_list|(
 name|beanHolder
 argument_list|)
