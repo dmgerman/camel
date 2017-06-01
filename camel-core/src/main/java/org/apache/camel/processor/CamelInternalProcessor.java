@@ -664,24 +664,20 @@ return|return
 literal|true
 return|;
 block|}
+comment|// optimise to use object array for states
 specifier|final
-name|List
-argument_list|<
 name|Object
-argument_list|>
+index|[]
 name|states
 init|=
 operator|new
-name|ArrayList
-argument_list|<
 name|Object
-argument_list|>
-argument_list|(
+index|[
 name|advices
 operator|.
 name|size
 argument_list|()
-argument_list|)
+index|]
 decl_stmt|;
 comment|// optimise for loop using index access to avoid creating iterator object
 for|for
@@ -725,11 +721,11 @@ name|exchange
 argument_list|)
 decl_stmt|;
 name|states
-operator|.
-name|add
-argument_list|(
+index|[
+name|i
+index|]
+operator|=
 name|state
-argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1063,10 +1059,8 @@ block|{
 DECL|field|states
 specifier|private
 specifier|final
-name|List
-argument_list|<
 name|Object
-argument_list|>
+index|[]
 name|states
 decl_stmt|;
 DECL|field|exchange
@@ -1081,14 +1075,12 @@ specifier|final
 name|AsyncCallback
 name|callback
 decl_stmt|;
-DECL|method|InternalCallback (List<Object> states, Exchange exchange, AsyncCallback callback)
+DECL|method|InternalCallback (Object[] states, Exchange exchange, AsyncCallback callback)
 specifier|private
 name|InternalCallback
 parameter_list|(
-name|List
-argument_list|<
 name|Object
-argument_list|>
+index|[]
 name|states
 parameter_list|,
 name|Exchange
@@ -1172,11 +1164,9 @@ name|Object
 name|state
 init|=
 name|states
-operator|.
-name|get
-argument_list|(
+index|[
 name|i
-argument_list|)
+index|]
 decl_stmt|;
 try|try
 block|{
