@@ -1422,7 +1422,7 @@ condition|)
 block|{
 name|name
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1457,7 +1457,7 @@ comment|// and there must be an even number of parenthesis in the syntax
 comment|// (we can use betweenOuterPair as it return null if the syntax is invalid)
 if|if
 condition|(
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|betweenOuterPair
 argument_list|(
@@ -1912,9 +1912,16 @@ condition|(
 name|methodInfo
 operator|==
 literal|null
+operator|&&
+name|methodMap
+operator|.
+name|size
+argument_list|()
+operator|>=
+literal|2
 condition|)
 block|{
-comment|// no name or type
+comment|// only try to choose if there is at least 2 methods
 name|methodInfo
 operator|=
 name|chooseMethod
