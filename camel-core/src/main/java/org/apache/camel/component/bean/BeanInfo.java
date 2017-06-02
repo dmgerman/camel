@@ -3084,6 +3084,11 @@ name|hasHandlerAnnotation
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|collectParameterAnnotations (Class<?> c, Method m)
 specifier|protected
 name|List
@@ -3103,11 +3108,6 @@ name|Method
 name|m
 parameter_list|)
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|List
 argument_list|<
 name|Annotation
@@ -5114,8 +5114,6 @@ name|chosen
 init|=
 name|chooseMethodWithCustomAnnotations
 argument_list|(
-name|exchange
-argument_list|,
 name|possibles
 argument_list|)
 decl_stmt|;
@@ -5349,22 +5347,17 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|chooseMethodWithCustomAnnotations (Exchange exchange, Collection<MethodInfo> possibles)
+DECL|method|chooseMethodWithCustomAnnotations (Collection<MethodInfo> possibles)
 specifier|private
 name|MethodInfo
 name|chooseMethodWithCustomAnnotations
 parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
 name|Collection
 argument_list|<
 name|MethodInfo
 argument_list|>
 name|possibles
 parameter_list|)
-throws|throws
-name|AmbiguousMethodCallException
 block|{
 comment|// if we have only one method with custom annotations let's choose that
 name|MethodInfo
@@ -5932,25 +5925,18 @@ name|getInterfaces
 argument_list|()
 control|)
 block|{
-for|for
-control|(
-name|Method
-name|interfaceMethod
-range|:
+name|Collections
+operator|.
+name|addAll
+argument_list|(
+name|answer
+argument_list|,
 name|interfaceClazz
 operator|.
 name|getDeclaredMethods
 argument_list|()
-control|)
-block|{
-name|answer
-operator|.
-name|add
-argument_list|(
-name|interfaceMethod
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|clazz
 operator|=
@@ -6062,35 +6048,13 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|Iterator
-argument_list|<
-name|MethodInfo
-argument_list|>
-name|it
-init|=
+comment|// method does not match so remove it
 name|methods
 operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
-name|MethodInfo
+name|removeIf
+argument_list|(
 name|info
-init|=
-name|it
-operator|.
-name|next
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
+lambda|->
 operator|!
 name|matchMethod
 argument_list|(
@@ -6101,16 +6065,8 @@ argument_list|()
 argument_list|,
 name|name
 argument_list|)
-condition|)
-block|{
-comment|// method does not match so remove it
-name|it
-operator|.
-name|remove
-argument_list|()
+argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 DECL|method|removeAllAbstractMethods (List<MethodInfo> methods)
 specifier|private
@@ -6268,7 +6224,7 @@ condition|)
 block|{
 name|name
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -6330,7 +6286,7 @@ comment|// match qualifier types which is used to select among overloaded method
 name|String
 name|types
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|between
 argument_list|(
@@ -6722,9 +6678,7 @@ return|return
 name|publicConstructors
 return|;
 block|}
-comment|/**      * Gets the list of methods (unsorted)      *      * @return the methods.      */
-annotation|@
-name|Deprecated
+comment|/**      * Gets the list of methods sorted by A..Z method name.      *      * @return the methods.      */
 DECL|method|getMethods ()
 specifier|public
 name|List
@@ -6784,31 +6738,6 @@ name|col
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|methods
-return|;
-block|}
-comment|/**      * Gets the list of methods sorted by A..Z method name.      *      * @return the methods.      */
-annotation|@
-name|Deprecated
-DECL|method|getSortedMethods ()
-specifier|public
-name|List
-argument_list|<
-name|MethodInfo
-argument_list|>
-name|getSortedMethods
-parameter_list|()
-block|{
-name|List
-argument_list|<
-name|MethodInfo
-argument_list|>
-name|methods
-init|=
-name|getMethods
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|methods
