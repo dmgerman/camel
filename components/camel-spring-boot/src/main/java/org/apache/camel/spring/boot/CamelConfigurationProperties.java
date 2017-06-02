@@ -322,6 +322,14 @@ specifier|private
 name|boolean
 name|endpointRuntimeStatisticsEnabled
 decl_stmt|;
+comment|/**      * Set whether breadcrumb is enabled.      */
+DECL|field|useBreadcrumb
+specifier|private
+name|boolean
+name|useBreadcrumb
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Sets the JMX statistics level      * The level can be set to Extended to gather additional information      *      * The default value is Default.      */
 DECL|field|jmxManagementStatisticsLevel
 specifier|private
@@ -1413,6 +1421,32 @@ operator|.
 name|endpointRuntimeStatisticsEnabled
 operator|=
 name|endpointRuntimeStatisticsEnabled
+expr_stmt|;
+block|}
+DECL|method|isUseBreadcrumb ()
+specifier|public
+name|boolean
+name|isUseBreadcrumb
+parameter_list|()
+block|{
+return|return
+name|useBreadcrumb
+return|;
+block|}
+DECL|method|setUseBreadcrumb (boolean useBreadcrumb)
+specifier|public
+name|void
+name|setUseBreadcrumb
+parameter_list|(
+name|boolean
+name|useBreadcrumb
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useBreadcrumb
+operator|=
+name|useBreadcrumb
 expr_stmt|;
 block|}
 DECL|method|getJmxManagementStatisticsLevel ()

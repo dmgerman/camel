@@ -1288,6 +1288,16 @@ name|isAllowUseOriginalMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|camelContext
+operator|.
+name|setUseBreadcrumb
+argument_list|(
+name|config
+operator|.
+name|isUseBreadcrumb
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|camelContext
