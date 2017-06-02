@@ -295,7 +295,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Twilio endpoint.  */
+comment|/**  * The Twilio component allows you to interact with the Twilio REST APIs using Twilio Java SDK.  */
 end_comment
 
 begin_class
