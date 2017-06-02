@@ -734,16 +734,8 @@ block|}
 comment|// set temporary header which is a hint for the bean info that introspect the bean
 if|if
 condition|(
-name|in
-operator|.
-name|getHeader
-argument_list|(
-name|Exchange
-operator|.
-name|BEAN_MULTI_PARAMETER_ARRAY
-argument_list|)
-operator|==
-literal|null
+name|isMultiParameterArray
+argument_list|()
 condition|)
 block|{
 name|in
@@ -754,14 +746,12 @@ name|Exchange
 operator|.
 name|BEAN_MULTI_PARAMETER_ARRAY
 argument_list|,
-name|isMultiParameterArray
-argument_list|()
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
-name|MethodInvocation
-name|invocation
-decl_stmt|;
 comment|// set explicit method name to invoke as a header, which is how BeanInfo can detect it
 if|if
 condition|(
@@ -782,6 +772,9 @@ name|explicitMethodName
 argument_list|)
 expr_stmt|;
 block|}
+name|MethodInvocation
+name|invocation
+decl_stmt|;
 try|try
 block|{
 name|invocation
@@ -823,6 +816,12 @@ block|}
 finally|finally
 block|{
 comment|// must remove headers as they were provisional
+if|if
+condition|(
+name|isMultiParameterArray
+argument_list|()
+condition|)
+block|{
 name|in
 operator|.
 name|removeHeader
@@ -832,6 +831,14 @@ operator|.
 name|BEAN_MULTI_PARAMETER_ARRAY
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|explicitMethodName
+operator|!=
+literal|null
+condition|)
+block|{
 name|in
 operator|.
 name|removeHeader
@@ -841,6 +848,7 @@ operator|.
 name|BEAN_METHOD_NAME
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

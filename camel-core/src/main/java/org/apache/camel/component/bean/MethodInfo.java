@@ -3532,27 +3532,6 @@ decl_stmt|;
 name|boolean
 name|multiParameterArray
 init|=
-literal|false
-decl_stmt|;
-if|if
-condition|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|Exchange
-operator|.
-name|BEAN_MULTI_PARAMETER_ARRAY
-argument_list|)
-operator|!=
-literal|null
-condition|)
-block|{
-name|multiParameterArray
-operator|=
 name|exchange
 operator|.
 name|getIn
@@ -3564,11 +3543,13 @@ name|Exchange
 operator|.
 name|BEAN_MULTI_PARAMETER_ARRAY
 argument_list|,
-name|Boolean
+literal|false
+argument_list|,
+name|boolean
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|multiParameterArray
@@ -3601,7 +3582,6 @@ operator|.
 expr|class
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// if there was an explicit method name to invoke, then we should support using
@@ -3693,6 +3673,11 @@ comment|// remove headers as they should not be propagated
 comment|// we need to do this before the expressions gets evaluated as it may contain
 comment|// a @Bean expression which would by mistake read these headers. So the headers
 comment|// must be removed at this point of time
+if|if
+condition|(
+name|multiParameterArray
+condition|)
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -3705,6 +3690,7 @@ operator|.
 name|BEAN_MULTI_PARAMETER_ARRAY
 argument_list|)
 expr_stmt|;
+block|}
 name|exchange
 operator|.
 name|getIn
