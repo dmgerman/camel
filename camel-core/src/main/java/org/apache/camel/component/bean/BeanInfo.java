@@ -1357,6 +1357,11 @@ name|createMethodInvocation
 argument_list|(
 name|pojo
 argument_list|,
+name|info
+operator|.
+name|hasParameters
+argument_list|()
+argument_list|,
 name|exchange
 argument_list|)
 return|;
@@ -1970,6 +1975,11 @@ operator|.
 name|createMethodInvocation
 argument_list|(
 name|pojo
+argument_list|,
+name|methodInfo
+operator|.
+name|hasParameters
+argument_list|()
 argument_list|,
 name|exchange
 argument_list|)

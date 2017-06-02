@@ -116,6 +116,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -1671,7 +1681,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|createMethodInvocation (final Object pojo, final Exchange exchange)
+DECL|method|createMethodInvocation (final Object pojo, boolean hasParameters, final Exchange exchange)
 specifier|public
 name|MethodInvocation
 name|createMethodInvocation
@@ -1679,6 +1689,9 @@ parameter_list|(
 specifier|final
 name|Object
 name|pojo
+parameter_list|,
+name|boolean
+name|hasParameters
 parameter_list|,
 specifier|final
 name|Exchange
@@ -1689,7 +1702,14 @@ specifier|final
 name|Object
 index|[]
 name|arguments
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|hasParameters
+condition|)
+block|{
+name|arguments
+operator|=
 name|parametersExpression
 operator|.
 name|evaluate
@@ -1701,7 +1721,15 @@ index|[]
 operator|.
 expr|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|arguments
+operator|=
+literal|null
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|MethodInvocation
