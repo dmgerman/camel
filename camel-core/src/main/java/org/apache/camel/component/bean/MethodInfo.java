@@ -3600,8 +3600,6 @@ name|Exchange
 operator|.
 name|BEAN_METHOD_NAME
 argument_list|,
-literal|""
-argument_list|,
 name|String
 operator|.
 name|class
@@ -3691,6 +3689,13 @@ name|BEAN_MULTI_PARAMETER_ARRAY
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|methodName
+operator|!=
+literal|null
+condition|)
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -3703,6 +3708,7 @@ operator|.
 name|BEAN_METHOD_NAME
 argument_list|)
 expr_stmt|;
+block|}
 name|Object
 index|[]
 name|answer
