@@ -91,6 +91,8 @@ DECL|field|xmlCipherAlgorithm
 specifier|private
 name|String
 name|xmlCipherAlgorithm
+init|=
+literal|"TRIPLEDES"
 decl_stmt|;
 comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. If no passPhrase is specified a default passPhrase is      * used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a Only another 24 Byte key      */
 DECL|field|passPhrase
@@ -117,6 +119,8 @@ DECL|field|keyCipherAlgorithm
 specifier|private
 name|String
 name|keyCipherAlgorithm
+init|=
+literal|"RSA_OAEP"
 decl_stmt|;
 comment|/**      * The key alias to be used when retrieving the recipient's public or      * private key from a KeyStore when performing asymmetric key encryption or      * decryption.      */
 DECL|field|recipientKeyAlias
@@ -141,12 +145,16 @@ DECL|field|digestAlgorithm
 specifier|private
 name|String
 name|digestAlgorithm
+init|=
+literal|"SHA1"
 decl_stmt|;
 comment|/**      * The MGF Algorithm to use with the RSA OAEP algorithm. The available      * choices are: EncryptionConstants.MGF1_SHA1      * EncryptionConstants.MGF1_SHA256 EncryptionConstants.MGF1_SHA512 The      * default value is EncryptionConstants.MGF1_SHA1      */
 DECL|field|mgfAlgorithm
 specifier|private
 name|String
 name|mgfAlgorithm
+init|=
+literal|"MGF1_SHA1"
 decl_stmt|;
 comment|/**      * Whether to add the public key used to encrypt the session key as a      * KeyValue in the EncryptedKey structure or not.      */
 DECL|field|addKeyValueForEncryptedKey

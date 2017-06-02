@@ -93,6 +93,8 @@ DECL|field|multipartSubType
 specifier|private
 name|String
 name|multipartSubType
+init|=
+literal|"mixed"
 decl_stmt|;
 comment|/**      * Defines whether a message without attachment is also marshaled into a      * MIME Multipart (with only one body part). Default is false.      */
 DECL|field|multipartWithoutAttachment

@@ -91,6 +91,8 @@ DECL|field|algorithm
 specifier|private
 name|String
 name|algorithm
+init|=
+literal|"DES/CBC/PKCS5Padding"
 decl_stmt|;
 comment|/**      * The name of the JCE Security Provider that should be used.      */
 DECL|field|cryptoProvider
@@ -127,6 +129,8 @@ DECL|field|macAlgorithm
 specifier|private
 name|String
 name|macAlgorithm
+init|=
+literal|"HmacSHA1"
 decl_stmt|;
 comment|/**      * Flag indicating that a Message Authentication Code should be calculated      * and appended to the encrypted data.      */
 DECL|field|shouldAppendHMAC

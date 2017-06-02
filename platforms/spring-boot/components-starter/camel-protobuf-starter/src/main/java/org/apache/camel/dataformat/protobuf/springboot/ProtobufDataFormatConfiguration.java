@@ -38,22 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|dataformat
-operator|.
-name|protobuf
-operator|.
-name|ProtobufDataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -113,6 +97,8 @@ DECL|field|contentTypeFormat
 specifier|private
 name|String
 name|contentTypeFormat
+init|=
+literal|"native"
 decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader

@@ -91,6 +91,8 @@ DECL|field|dataObjectType
 specifier|private
 name|String
 name|dataObjectType
+init|=
+literal|"org.w3c.dom.Node"
 decl_stmt|;
 comment|/**      * When returning a String do we omit the XML declaration in the top.      */
 DECL|field|omitXmlDeclaration

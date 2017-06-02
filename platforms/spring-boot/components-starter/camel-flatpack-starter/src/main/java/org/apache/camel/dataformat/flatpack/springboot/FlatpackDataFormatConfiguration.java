@@ -119,12 +119,16 @@ DECL|field|textQualifier
 specifier|private
 name|String
 name|textQualifier
+init|=
+literal|"\""
 decl_stmt|;
 comment|/**      * The delimiter char (could be ; or similar)      */
 DECL|field|delimiter
 specifier|private
 name|String
 name|delimiter
+init|=
+literal|","
 decl_stmt|;
 comment|/**      * Allows for lines to be shorter than expected and ignores the extra      * characters      */
 DECL|field|allowShortLines

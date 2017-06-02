@@ -99,18 +99,24 @@ DECL|field|quote
 specifier|private
 name|String
 name|quote
+init|=
+literal|"\""
 decl_stmt|;
 comment|/**      * The quote escape symbol      */
 DECL|field|quoteEscape
 specifier|private
 name|String
 name|quoteEscape
+init|=
+literal|"\""
 decl_stmt|;
 comment|/**      * The delimiter of values      */
 DECL|field|delimiter
 specifier|private
 name|String
 name|delimiter
+init|=
+literal|","
 decl_stmt|;
 comment|/**      * The string representation of a null value. The default value is null      */
 DECL|field|nullValue
@@ -181,12 +187,16 @@ DECL|field|normalizedLineSeparator
 specifier|private
 name|String
 name|normalizedLineSeparator
+init|=
+literal|"\\n"
 decl_stmt|;
 comment|/**      * The comment symbol. The default value is      */
 DECL|field|comment
 specifier|private
 name|String
 name|comment
+init|=
+literal|"#"
 decl_stmt|;
 comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines      * on the fly or if all the lines must be read at one. The default value is      * false      */
 DECL|field|lazyLoad

@@ -105,6 +105,8 @@ DECL|field|encoding
 specifier|private
 name|String
 name|encoding
+init|=
+literal|"UTF-8"
 decl_stmt|;
 comment|/**      * Add additional packages to Castor XmlContext      */
 DECL|field|packages

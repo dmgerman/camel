@@ -91,6 +91,8 @@ DECL|field|escapeChar
 specifier|private
 name|String
 name|escapeChar
+init|=
+literal|"\\"
 decl_stmt|;
 comment|/**      * The string representation of a null value. The default value is null      */
 DECL|field|nullValue
@@ -161,12 +163,16 @@ DECL|field|normalizedLineSeparator
 specifier|private
 name|String
 name|normalizedLineSeparator
+init|=
+literal|"\\n"
 decl_stmt|;
 comment|/**      * The comment symbol. The default value is      */
 DECL|field|comment
 specifier|private
 name|String
 name|comment
+init|=
+literal|"#"
 decl_stmt|;
 comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines      * on the fly or if all the lines must be read at one. The default value is      * false      */
 DECL|field|lazyLoad

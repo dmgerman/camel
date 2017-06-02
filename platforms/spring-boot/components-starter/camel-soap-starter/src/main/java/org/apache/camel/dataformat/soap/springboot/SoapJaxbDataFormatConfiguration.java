@@ -109,6 +109,8 @@ DECL|field|version
 specifier|private
 name|String
 name|version
+init|=
+literal|"1.1"
 decl_stmt|;
 comment|/**      * When marshalling using JAXB or SOAP then the JAXB implementation will      * automatic assign namespace prefixes such as ns2 ns3 ns4 etc. To control      * this mapping Camel allows you to refer to a map which contains the      * desired mapping.      */
 DECL|field|namespacePrefixRef
