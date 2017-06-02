@@ -7569,7 +7569,7 @@ name|equals
 argument_list|(
 name|option
 operator|.
-name|getType
+name|getJavaType
 argument_list|()
 argument_list|)
 condition|)
@@ -8450,7 +8450,7 @@ name|equals
 argument_list|(
 name|option
 operator|.
-name|getType
+name|getJavaType
 argument_list|()
 argument_list|)
 condition|)
