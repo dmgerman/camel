@@ -1133,6 +1133,57 @@ block|}
 comment|// ****************************************************
 comment|// Static helpers
 comment|// ****************************************************
+DECL|method|forNamespace (CamelContext camelContext, String namespace)
+specifier|public
+specifier|static
+name|ClusteredRoutePolicy
+name|forNamespace
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|namespace
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|CamelCluster
+name|cluster
+init|=
+name|camelContext
+operator|.
+name|hasService
+argument_list|(
+name|CamelCluster
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cluster
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"CamelCluster service not found"
+argument_list|)
+throw|;
+block|}
+return|return
+name|forNamespace
+argument_list|(
+name|cluster
+argument_list|,
+name|namespace
+argument_list|)
+return|;
+block|}
 DECL|method|forNamespace (CamelCluster cluster, String namespace)
 specifier|public
 specifier|static
@@ -1153,7 +1204,7 @@ name|forView
 argument_list|(
 name|cluster
 operator|.
-name|createView
+name|getView
 argument_list|(
 name|namespace
 argument_list|)

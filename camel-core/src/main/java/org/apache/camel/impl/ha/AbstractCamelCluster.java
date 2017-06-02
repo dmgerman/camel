@@ -236,6 +236,46 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
+name|long
+name|stamp
+init|=
+name|lock
+operator|.
+name|writeLock
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+for|for
+control|(
+name|T
+name|view
+range|:
+name|views
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|view
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|unlockWrite
+argument_list|(
+name|stamp
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -349,10 +389,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createView (String namespace)
+DECL|method|getView (String namespace)
 specifier|public
 name|CamelClusterView
-name|createView
+name|getView
 parameter_list|(
 name|String
 name|namespace
@@ -389,7 +429,7 @@ condition|)
 block|{
 name|view
 operator|=
-name|doCreateView
+name|createView
 argument_list|(
 name|namespace
 argument_list|)
@@ -447,11 +487,11 @@ block|}
 comment|// **********************************
 comment|// Implementation
 comment|// **********************************
-DECL|method|doCreateView (String namespace)
+DECL|method|createView (String namespace)
 specifier|protected
 specifier|abstract
 name|T
-name|doCreateView
+name|createView
 parameter_list|(
 name|String
 name|namespace

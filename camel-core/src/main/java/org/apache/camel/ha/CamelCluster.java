@@ -66,10 +66,10 @@ name|CamelContextAware
 extends|,
 name|HasId
 block|{
-comment|/**      * Creates a view of the cluster bound to a namespace.      *      * @param namespace the namespace the view refer to.      * @return the cluster view.      * @throws Exception if the view can't be created.      */
-DECL|method|createView (String namespace)
+comment|/**      * Get a view of the cluster bound to a namespace creating it if needed.      *      * @param namespace the namespace the view refer to.      * @return the view.      * @throws Exception if the view can't be created.      */
+DECL|method|getView (String namespace)
 name|CamelClusterView
-name|createView
+name|getView
 parameter_list|(
 name|String
 name|namespace
