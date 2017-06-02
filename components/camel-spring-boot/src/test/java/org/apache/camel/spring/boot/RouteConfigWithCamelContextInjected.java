@@ -140,6 +140,8 @@ operator|.
 name|notNull
 argument_list|(
 name|camelContext
+argument_list|,
+literal|"camelContext must not be null"
 argument_list|)
 expr_stmt|;
 return|return
