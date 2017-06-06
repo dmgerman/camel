@@ -372,14 +372,14 @@ literal|"advanced"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"com.github.dockerjava.jaxrs.JerseyDockerCmdExecFactory"
+literal|"com.github.dockerjava.netty.NettyDockerCmdExecFactory"
 argument_list|)
 DECL|field|cmdExecFactory
 specifier|private
 name|String
 name|cmdExecFactory
 init|=
-literal|"com.github.dockerjava.jaxrs.JerseyDockerCmdExecFactory"
+literal|"com.github.dockerjava.netty.NettyDockerCmdExecFactory"
 decl_stmt|;
 DECL|field|parameters
 specifier|private

@@ -74,11 +74,6 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"camel-docker do not work in OSGi"
-argument_list|)
 DECL|class|CamelDockerTest
 specifier|public
 class|class

@@ -333,7 +333,7 @@ specifier|private
 name|String
 name|cmdExecFactory
 init|=
-literal|"com.github.dockerjava.jaxrs.JerseyDockerCmdExecFactory"
+literal|"com.github.dockerjava.netty.NettyDockerCmdExecFactory"
 decl_stmt|;
 DECL|method|getHost ()
 specifier|public
