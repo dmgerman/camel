@@ -34,6 +34,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Matcher
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|codahale
@@ -781,12 +793,6 @@ name|replaceFirst
 argument_list|(
 literal|"##routeId##"
 argument_list|,
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
 name|Matcher
 operator|.
 name|quoteReplacement
