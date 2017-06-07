@@ -970,6 +970,18 @@ literal|"json"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set data type if in use
+if|if
+condition|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|isUseDataType
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|exchange
@@ -1009,6 +1021,7 @@ literal|"xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// only allow xml/json if the binding mode allows that
 name|isXml

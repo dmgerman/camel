@@ -322,6 +322,12 @@ specifier|private
 name|boolean
 name|endpointRuntimeStatisticsEnabled
 decl_stmt|;
+comment|/**      * Whether to enable using data type on Camel messages.      *<p/>      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      */
+DECL|field|useDataType
+specifier|private
+name|boolean
+name|useDataType
+decl_stmt|;
 comment|/**      * Set whether breadcrumb is enabled.      */
 DECL|field|useBreadcrumb
 specifier|private
@@ -1421,6 +1427,32 @@ operator|.
 name|endpointRuntimeStatisticsEnabled
 operator|=
 name|endpointRuntimeStatisticsEnabled
+expr_stmt|;
+block|}
+DECL|method|isUseDataType ()
+specifier|public
+name|boolean
+name|isUseDataType
+parameter_list|()
+block|{
+return|return
+name|useDataType
+return|;
+block|}
+DECL|method|setUseDataType (boolean useDataType)
+specifier|public
+name|void
+name|setUseDataType
+parameter_list|(
+name|boolean
+name|useDataType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useDataType
+operator|=
+name|useDataType
 expr_stmt|;
 block|}
 DECL|method|isUseBreadcrumb ()

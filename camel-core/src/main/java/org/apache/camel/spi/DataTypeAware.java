@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Allows {@link org.apache.camel.Message} to store a {@link DataType} which  * represents the data type of the Message. Sometimes message content is marshaled  * into {@code String}, {@code InputStream} or etc, and the data type structure is  * not available until it's unmarshaled into Java object. The {@link DataType} stored  * in a DataTypeAware message carries that missing data type information even if it's  * marshaled, and whatever the Java class of the body is. This type information is used  * to detect required {@link Transformer} and {@link Validator}.  *   * @see {@link DataType} {@link Transformer} {@link Validator}  */
+comment|/**  * Allows {@link org.apache.camel.Message} to store a {@link DataType} which  * represents the data type of the Message. Sometimes message content is marshaled  * into {@code String}, {@code InputStream} or etc, and the data type structure is  * not available until it's unmarshaled into Java object. The {@link DataType} stored  * in a DataTypeAware message carries that missing data type information even if it's  * marshaled, and whatever the Java class of the body is. This type information is used  * to detect required {@link Transformer} and {@link Validator}.  *<p/>  * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.  * Otherwise data type is default off.  *  * @see DataType  * @see Transformer  * @see Validator  */
 end_comment
 
 begin_interface
@@ -26,7 +26,7 @@ specifier|public
 interface|interface
 name|DataTypeAware
 block|{
-comment|/**      * Set the data type of the message.      * @param type data type      */
+comment|/**      * Set the data type of the message.      *      * @param type data type      */
 DECL|method|setDataType (DataType type)
 name|void
 name|setDataType
@@ -35,13 +35,19 @@ name|DataType
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Get the data type of the message.      * @return data type      */
+comment|/**      * Get the data type of the message.      *      * @return data type      */
 DECL|method|getDataType ()
 name|DataType
 name|getDataType
 parameter_list|()
 function_decl|;
-comment|/**      * Set the message body with data type.      * @param body message body      * @param type data type      */
+comment|/**      * Whether any data type has been configured      */
+DECL|method|hasDataType ()
+name|boolean
+name|hasDataType
+parameter_list|()
+function_decl|;
+comment|/**      * Set the message body with data type.      *      * @param body message body      * @param type data type      */
 DECL|method|setBody (Object body, DataType type)
 name|void
 name|setBody

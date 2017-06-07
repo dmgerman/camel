@@ -481,6 +481,8 @@ literal|"{{getAutoStartup}}"
 argument_list|,
 literal|"{{getUseMDCLogging}}"
 argument_list|,
+literal|"{{getUseDataType}}"
+argument_list|,
 literal|"{{getUseBreadcrumb}}"
 argument_list|,
 literal|"{{getAllowUseOriginalMessage}}"

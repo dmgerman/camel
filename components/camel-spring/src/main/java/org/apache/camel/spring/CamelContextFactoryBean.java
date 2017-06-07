@@ -1139,6 +1139,13 @@ name|useMDCLogging
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|useDataType
+specifier|private
+name|String
+name|useDataType
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 annotation|@
 name|Metadata
 argument_list|(
@@ -3663,6 +3670,33 @@ operator|.
 name|useMDCLogging
 operator|=
 name|useMDCLogging
+expr_stmt|;
+block|}
+DECL|method|getUseDataType ()
+specifier|public
+name|String
+name|getUseDataType
+parameter_list|()
+block|{
+return|return
+name|useDataType
+return|;
+block|}
+comment|/**      * Whether to enable using data type on Camel messages.      *<p/>      * Data type are automatic turned on if:      *<ul>      *<li>one ore more routes has been explicit configured with input and output types</li>      *<li>when using rest-dsl with binding turned on</li>      *</ul>      * Otherwise data type is default off.      */
+DECL|method|setUseDataType (String useDataType)
+specifier|public
+name|void
+name|setUseDataType
+parameter_list|(
+name|String
+name|useDataType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useDataType
+operator|=
+name|useDataType
 expr_stmt|;
 block|}
 DECL|method|getUseBreadcrumb ()

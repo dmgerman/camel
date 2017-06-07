@@ -917,6 +917,13 @@ name|useMDCLogging
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|useDataType
+specifier|private
+name|String
+name|useDataType
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|useBreadcrumb
 specifier|private
 name|String
@@ -2496,6 +2503,32 @@ operator|.
 name|useMDCLogging
 operator|=
 name|useMDCLogging
+expr_stmt|;
+block|}
+DECL|method|getUseDataType ()
+specifier|public
+name|String
+name|getUseDataType
+parameter_list|()
+block|{
+return|return
+name|useDataType
+return|;
+block|}
+DECL|method|setUseDataType (String useDataType)
+specifier|public
+name|void
+name|setUseDataType
+parameter_list|(
+name|String
+name|useDataType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useDataType
+operator|=
+name|useDataType
 expr_stmt|;
 block|}
 DECL|method|getUseBreadcrumb ()

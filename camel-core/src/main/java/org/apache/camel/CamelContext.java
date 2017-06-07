@@ -2818,6 +2818,21 @@ name|Boolean
 name|useMDCLogging
 parameter_list|)
 function_decl|;
+comment|/**      * Whether to enable using data type on Camel messages.      *<p/>      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      *      * @return<tt>true</tt> if data type is enabled      */
+DECL|method|isUseDataType ()
+name|Boolean
+name|isUseDataType
+parameter_list|()
+function_decl|;
+comment|/**      * Whether to enable using data type on Camel messages.      *<p/>      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      *      * @param  useDataType<tt>true</tt> to enable data type on Camel messages.      */
+DECL|method|setUseDataType (Boolean useDataType)
+name|void
+name|setUseDataType
+parameter_list|(
+name|Boolean
+name|useDataType
+parameter_list|)
+function_decl|;
 comment|/**      * Whether or not breadcrumb is enabled.      *      * @return<tt>true</tt> if breadcrumb is enabled      */
 DECL|method|isUseBreadcrumb ()
 name|Boolean

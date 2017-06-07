@@ -224,7 +224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the 'from' data type using Java class.      *      * @param clazz 'from' Java class      */
+comment|/**      * Set the 'from' data type using Java class.      *      * @param from 'from' Java class      */
 DECL|method|fromType (Class<?> from)
 specifier|public
 name|TransformerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the URI to be used for the endpoint {@code Transformer}.      * @see {@code EndpointTransformerDefinition}, {@code ProcessorTransformer}      *       * @param uri endpoint URI      */
+comment|/**      * Set the URI to be used for the endpoint {@code Transformer}.      *      * @param uri endpoint URI      */
 DECL|method|withUri (String uri)
 specifier|public
 name|TransformerBuilder
@@ -327,7 +327,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the {@code DataFormatDefinition} to be used for the {@code DataFormat} {@code Transformer}.      * @see {@code DataFormatTransformerDefinition}, {@code DataFormatTransformer}      *       * @param dataFormatDefinition {@code DataFormatDefinition}      */
+comment|/**      * Set the {@code DataFormatDefinition} to be used for the {@code DataFormat} {@code Transformer}.      */
 DECL|method|withDataFormat (DataFormatDefinition dataFormatDefinition)
 specifier|public
 name|TransformerBuilder
@@ -350,7 +350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the Java {@code Class} represents a custom {@code Transformer} implementation class.      * @see {@code CustomTransformerDefinition}      *       * @param clazz {@code Class} object represents custom transformer implementation      */
+comment|/**      * Set the Java {@code Class} represents a custom {@code Transformer} implementation class.      */
 DECL|method|withJava (Class<? extends Transformer> clazz)
 specifier|public
 name|TransformerBuilder
@@ -378,7 +378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the Java Bean name to be used for custom {@code Transformer}.      * @see {@code CustomTransformerDefinition}      *       * @param ref bean name for the custom {@code Transformer}      */
+comment|/**      * Set the Java Bean name to be used for custom {@code Transformer}.      */
 DECL|method|withBean (String ref)
 specifier|public
 name|TransformerBuilder

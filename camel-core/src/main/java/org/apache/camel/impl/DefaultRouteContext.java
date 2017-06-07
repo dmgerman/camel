@@ -1301,6 +1301,14 @@ name|contract
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// make sure to enable data type as its in use when using input/output types on routes
+name|camelContext
+operator|.
+name|setUseDataType
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 comment|// and create the route that wraps the UoW
 name|Route

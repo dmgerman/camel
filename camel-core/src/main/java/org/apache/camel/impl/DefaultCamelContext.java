@@ -2898,6 +2898,15 @@ name|Boolean
 operator|.
 name|FALSE
 decl_stmt|;
+DECL|field|useDataType
+specifier|private
+name|Boolean
+name|useDataType
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 DECL|field|useBreadcrumb
 specifier|private
 name|Boolean
@@ -18623,6 +18632,24 @@ block|}
 block|}
 if|if
 condition|(
+name|isUseDataType
+argument_list|()
+condition|)
+block|{
+comment|// log if DataType has been enabled
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Message DataType is enabled on CamelContext: {}"
+argument_list|,
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|streamCachingInUse
 condition|)
 block|{
@@ -22645,6 +22672,34 @@ operator|.
 name|useMDCLogging
 operator|=
 name|useMDCLogging
+expr_stmt|;
+block|}
+DECL|method|isUseDataType ()
+specifier|public
+name|Boolean
+name|isUseDataType
+parameter_list|()
+block|{
+return|return
+name|useDataType
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setUseDataType (Boolean useDataType)
+specifier|public
+name|void
+name|setUseDataType
+parameter_list|(
+name|Boolean
+name|useDataType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useDataType
+operator|=
+name|useDataType
 expr_stmt|;
 block|}
 DECL|method|isUseBreadcrumb ()

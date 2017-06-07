@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link CamelInternalProcessorAdvice} which applies {@link Transformer} and {@link Validator}  * according to the data type Contract.  *<p/>  * The default camel {@link Message} implements {@link DataTypeAware} which  * holds a {@link DataType} to indicate current message type. If the input type  * declared by {@link InputTypeDefinition} is different from current IN message type,  * camel internal processor look for a Transformer which transforms from the current  * message type to the expected message type before routing.  * After routing, if the output type declared by {@link OutputTypeDefinition} is different  * from current OUT message (or IN message if no OUT), camel look for a Transformer and apply.  *   * @see Transformer  * @see Validator}  * @see InputTypeDefinition  * @see OutputTypeDefinition  */
+comment|/**  * A {@link CamelInternalProcessorAdvice} which applies {@link Transformer} and {@link Validator}  * according to the data type Contract.  *<p/>  * The default camel {@link Message} implements {@link DataTypeAware} which  * holds a {@link DataType} to indicate current message type. If the input type  * declared by {@link InputTypeDefinition} is different from current IN message type,  * camel internal processor look for a Transformer which transforms from the current  * message type to the expected message type before routing.  * After routing, if the output type declared by {@link OutputTypeDefinition} is different  * from current OUT message (or IN message if no OUT), camel look for a Transformer and apply.  *   * @see Transformer  * @see Validator  * @see InputTypeDefinition  * @see OutputTypeDefinition  */
 end_comment
 
 begin_class
@@ -205,7 +205,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CamelInternalProcessor
+name|ContractAdvice
 operator|.
 name|class
 argument_list|)
@@ -630,7 +630,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO for better performance it may be better to add TypeConveterTransformer
+comment|// TODO for better performance it may be better to add TypeConverterTransformer
 comment|// into transformer registry automatically to avoid unnecessary scan in transformer registry
 if|if
 condition|(

@@ -1544,6 +1544,19 @@ name|isUseMDCLogging
 argument_list|()
 return|;
 block|}
+DECL|method|isUseDataType ()
+specifier|public
+name|boolean
+name|isUseDataType
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|isUseDataType
+argument_list|()
+return|;
+block|}
 DECL|method|onTimer ()
 specifier|public
 name|void

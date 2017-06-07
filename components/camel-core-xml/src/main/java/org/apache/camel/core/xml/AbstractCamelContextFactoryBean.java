@@ -5114,6 +5114,13 @@ name|String
 name|getUseMDCLogging
 parameter_list|()
 function_decl|;
+DECL|method|getUseDataType ()
+specifier|public
+specifier|abstract
+name|String
+name|getUseDataType
+parameter_list|()
+function_decl|;
 DECL|method|getUseBreadcrumb ()
 specifier|public
 specifier|abstract
@@ -5613,6 +5620,30 @@ argument_list|(
 name|context
 argument_list|,
 name|getUseMDCLogging
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getUseDataType
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ctx
+operator|.
+name|setUseDataType
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|context
+argument_list|,
+name|getUseDataType
 argument_list|()
 argument_list|)
 argument_list|)

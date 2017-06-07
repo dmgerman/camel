@@ -604,6 +604,18 @@ name|isUseMDCLogging
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether Message DataType is enabled"
+argument_list|)
+DECL|method|isUseDataType ()
+name|boolean
+name|isUseDataType
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
