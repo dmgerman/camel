@@ -134,10 +134,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCAMEL_11382 ()
+DECL|method|testCAMEL11382 ()
 specifier|public
 name|void
-name|testCAMEL_11382
+name|testCAMEL11382
 parameter_list|()
 block|{
 name|assertNotNull
