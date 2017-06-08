@@ -723,6 +723,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|inflightRequests
+operator|!=
+literal|null
+condition|)
+block|{
 name|inflightRequests
 operator|.
 name|arrive
@@ -762,6 +769,7 @@ name|ignored
 parameter_list|)
 block|{
 comment|// exception is ignored
+block|}
 block|}
 block|}
 comment|// deregister listener
