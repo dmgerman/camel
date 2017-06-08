@@ -1294,6 +1294,16 @@ name|isUseDataType
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|camelContext
+operator|.
+name|setUseMDCLogging
+argument_list|(
+name|config
+operator|.
+name|isUseMDCLogging
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|camelContext

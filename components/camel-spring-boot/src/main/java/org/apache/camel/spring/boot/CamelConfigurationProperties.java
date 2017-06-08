@@ -465,7 +465,7 @@ decl_stmt|;
 comment|/**      *  Adds the option for MDCLogging      */
 DECL|field|useMDCLogging
 specifier|private
-name|String
+name|boolean
 name|useMDCLogging
 decl_stmt|;
 comment|// Getters& setters
@@ -1981,22 +1981,22 @@ operator|=
 name|includeNonSingletons
 expr_stmt|;
 block|}
-DECL|method|getUseMDCLogging ()
+DECL|method|isUseMDCLogging ()
 specifier|public
-name|String
-name|getUseMDCLogging
+name|boolean
+name|isUseMDCLogging
 parameter_list|()
 block|{
 return|return
 name|useMDCLogging
 return|;
 block|}
-DECL|method|setUseMDCLogging (String useMDCLogging)
+DECL|method|setUseMDCLogging (boolean useMDCLogging)
 specifier|public
 name|void
 name|setUseMDCLogging
 parameter_list|(
-name|String
+name|boolean
 name|useMDCLogging
 parameter_list|)
 block|{
