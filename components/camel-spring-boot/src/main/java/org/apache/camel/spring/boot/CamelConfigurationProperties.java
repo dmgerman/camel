@@ -462,7 +462,7 @@ name|tracerFormatterMaxChars
 init|=
 literal|10000
 decl_stmt|;
-comment|/**      *  Adds the option for MDCLogging      */
+comment|/**      * To turn on MDC logging      */
 DECL|field|useMDCLogging
 specifier|private
 name|boolean
