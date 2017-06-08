@@ -462,6 +462,12 @@ name|tracerFormatterMaxChars
 init|=
 literal|10000
 decl_stmt|;
+comment|/**      *  Adds the option for MDCLogging      */
+DECL|field|useMDCLogging
+specifier|private
+name|String
+name|useMDCLogging
+decl_stmt|;
 comment|// Getters& setters
 DECL|method|getName ()
 specifier|public
@@ -1973,6 +1979,32 @@ operator|.
 name|includeNonSingletons
 operator|=
 name|includeNonSingletons
+expr_stmt|;
+block|}
+DECL|method|getUseMDCLogging ()
+specifier|public
+name|String
+name|getUseMDCLogging
+parameter_list|()
+block|{
+return|return
+name|useMDCLogging
+return|;
+block|}
+DECL|method|setUseMDCLogging (String useMDCLogging)
+specifier|public
+name|void
+name|setUseMDCLogging
+parameter_list|(
+name|String
+name|useMDCLogging
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useMDCLogging
+operator|=
+name|useMDCLogging
 expr_stmt|;
 block|}
 block|}
