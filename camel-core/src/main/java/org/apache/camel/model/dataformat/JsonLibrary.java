@@ -64,6 +64,7 @@ DECL|enumConstant|XStream
 DECL|enumConstant|Jackson
 DECL|enumConstant|Johnzon
 DECL|enumConstant|Gson
+DECL|enumConstant|Fastjson
 name|XStream
 block|,
 name|Jackson
@@ -71,6 +72,8 @@ block|,
 name|Johnzon
 block|,
 name|Gson
+block|,
+name|Fastjson
 block|}
 end_enum
 

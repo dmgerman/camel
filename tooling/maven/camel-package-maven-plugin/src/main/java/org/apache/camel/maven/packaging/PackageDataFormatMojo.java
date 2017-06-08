@@ -1763,27 +1763,32 @@ block|{
 name|String
 name|json
 init|=
-literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"XStream\""
+literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\", \"Fastjson\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"XStream\""
 decl_stmt|;
 name|String
 name|jsonGson
 init|=
-literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"Gson\""
+literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\", \"Fastjson\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"Gson\""
 decl_stmt|;
 name|String
 name|jsonJackson
 init|=
-literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"Jackson\""
+literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\", \"Fastjson\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"Jackson\""
 decl_stmt|;
 name|String
 name|jsonJohnzon
 init|=
-literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"Johnzon\""
+literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\", \"Fastjson\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"Johnzon\""
 decl_stmt|;
 name|String
 name|jsonXStream
 init|=
-literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"XStream\""
+literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\", \"Fastjson\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"XStream\""
+decl_stmt|;
+name|String
+name|jsonFastjson
+init|=
+literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\", \"Fastjson\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"Fastjson\""
 decl_stmt|;
 if|if
 condition|(
@@ -1873,6 +1878,29 @@ argument_list|(
 name|json
 argument_list|,
 name|jsonXStream
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"json-fastjson"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+name|properties
+operator|=
+name|properties
+operator|.
+name|replace
+argument_list|(
+name|json
+argument_list|,
+name|jsonFastjson
 argument_list|)
 expr_stmt|;
 block|}
@@ -1947,6 +1975,21 @@ condition|)
 block|{
 return|return
 literal|"2.0.0"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"json-fastjson"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"2.20.0"
 return|;
 block|}
 return|return
@@ -2149,6 +2192,13 @@ name|equals
 argument_list|(
 name|name
 argument_list|)
+operator|||
+literal|"json-fastjson"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
 condition|)
 block|{
 return|return
@@ -2290,6 +2340,21 @@ condition|)
 block|{
 return|return
 literal|"JSon XStream"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"json-fastjson"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"JSon Fastjson"
 return|;
 block|}
 elseif|else
