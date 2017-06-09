@@ -42,88 +42,102 @@ init|=
 literal|0
 decl_stmt|;
 comment|/** RegularExpression Id. */
+DECL|field|SCALE
+name|int
+name|SCALE
+init|=
+literal|3
+decl_stmt|;
+comment|/** RegularExpression Id. */
 DECL|field|NUMBER
 name|int
 name|NUMBER
 init|=
-literal|3
+literal|4
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|DIGIT
 name|int
 name|DIGIT
 init|=
-literal|4
+literal|5
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|LETTER
 name|int
 name|LETTER
 init|=
-literal|5
+literal|6
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|SPECIAL
 name|int
 name|SPECIAL
 init|=
-literal|6
+literal|7
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|WHITESPACE
 name|int
 name|WHITESPACE
 init|=
-literal|7
+literal|8
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|COMMA
 name|int
 name|COMMA
 init|=
-literal|8
+literal|9
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|SEPARATOR
 name|int
 name|SEPARATOR
 init|=
-literal|9
+literal|10
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|PROCEDURE_BEGIN
 name|int
 name|PROCEDURE_BEGIN
 init|=
-literal|10
+literal|11
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|PROCEDURE_END
 name|int
 name|PROCEDURE_END
 init|=
-literal|11
+literal|12
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|SIMPLE_EXP_TOKEN
 name|int
 name|SIMPLE_EXP_TOKEN
 init|=
-literal|12
+literal|13
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|PARAMETER_POS_TOKEN
 name|int
 name|PARAMETER_POS_TOKEN
 init|=
-literal|13
+literal|14
+decl_stmt|;
+comment|/** RegularExpression Id. */
+DECL|field|PARAMETER_NAME
+name|int
+name|PARAMETER_NAME
+init|=
+literal|15
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|IDENTIFIER
 name|int
 name|IDENTIFIER
 init|=
-literal|14
+literal|16
 decl_stmt|;
 comment|/** Lexical state. */
 DECL|field|DEFAULT
@@ -143,7 +157,9 @@ literal|"<EOF>"
 block|,
 literal|"\" \""
 block|,
-literal|"\"OUT\""
+literal|"\"OUT \""
+block|,
+literal|"<SCALE>"
 block|,
 literal|"<NUMBER>"
 block|,
@@ -166,6 +182,8 @@ block|,
 literal|"<SIMPLE_EXP_TOKEN>"
 block|,
 literal|"<PARAMETER_POS_TOKEN>"
+block|,
+literal|"<PARAMETER_NAME>"
 block|,
 literal|"<IDENTIFIER>"
 block|,   }

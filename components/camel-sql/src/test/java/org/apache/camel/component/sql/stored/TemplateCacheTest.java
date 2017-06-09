@@ -248,7 +248,12 @@ name|jdbcTemplate
 argument_list|,
 operator|new
 name|TemplateParser
+argument_list|(
+name|context
+operator|.
+name|getClassResolver
 argument_list|()
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)

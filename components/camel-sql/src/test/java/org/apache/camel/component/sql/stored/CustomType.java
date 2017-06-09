@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sql.stored.template.ast
+DECL|package|org.apache.camel.component.sql.stored
 package|package
 name|org
 operator|.
@@ -17,68 +17,30 @@ operator|.
 name|sql
 operator|.
 name|stored
-operator|.
-name|template
-operator|.
-name|ast
 package|;
 end_package
 
 begin_class
-DECL|class|ParseRuntimeException
+DECL|class|CustomType
 specifier|public
+specifier|final
 class|class
-name|ParseRuntimeException
-extends|extends
-name|RuntimeException
+name|CustomType
 block|{
-DECL|method|ParseRuntimeException (String message)
+DECL|field|INTEGER
 specifier|public
-name|ParseRuntimeException
-parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ParseRuntimeException (String message, Throwable cause)
-specifier|public
-name|ParseRuntimeException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ParseRuntimeException (Throwable cause)
-specifier|public
-name|ParseRuntimeException
-parameter_list|(
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
+specifier|static
+specifier|final
+name|int
+name|INTEGER
+init|=
+literal|1
+decl_stmt|;
+DECL|method|CustomType ()
+specifier|private
+name|CustomType
+parameter_list|()
+block|{      }
 block|}
 end_class
 

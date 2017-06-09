@@ -435,7 +435,13 @@ name|jdbcTemplate
 argument_list|,
 operator|new
 name|TemplateParser
+argument_list|(
+name|getCamelContext
 argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+argument_list|)
 argument_list|,
 name|isFunction
 argument_list|()

@@ -128,18 +128,30 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
+DECL|field|typeName
+specifier|private
+specifier|final
+name|String
+name|typeName
+decl_stmt|;
 DECL|field|sqlType
 specifier|private
 specifier|final
 name|int
 name|sqlType
 decl_stmt|;
+DECL|field|scale
+specifier|private
+specifier|final
+name|Integer
+name|scale
+decl_stmt|;
 DECL|field|valueExtractor
 specifier|private
 name|ValueExtractor
 name|valueExtractor
 decl_stmt|;
-DECL|method|InputParameter (String name, int sqlType, Token valueSrcToken)
+DECL|method|InputParameter (String name, int sqlType, Token valueSrcToken, Integer scale, String typeName)
 specifier|public
 name|InputParameter
 parameter_list|(
@@ -151,6 +163,12 @@ name|sqlType
 parameter_list|,
 name|Token
 name|valueSrcToken
+parameter_list|,
+name|Integer
+name|scale
+parameter_list|,
+name|String
+name|typeName
 parameter_list|)
 block|{
 name|this
@@ -170,6 +188,54 @@ argument_list|(
 name|valueSrcToken
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|scale
+operator|=
+name|scale
+expr_stmt|;
+name|this
+operator|.
+name|typeName
+operator|=
+name|typeName
+expr_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|scale
+operator|!=
+literal|null
+operator|&&
+name|this
+operator|.
+name|typeName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParseRuntimeException
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Both scale=%s and typeName=%s cannot be set"
+argument_list|,
+name|this
+operator|.
+name|scale
+argument_list|,
+name|this
+operator|.
+name|typeName
+argument_list|)
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|parseValueExpression (Token valueSrcToken)
 specifier|private
@@ -308,6 +374,16 @@ block|}
 expr_stmt|;
 block|}
 block|}
+DECL|method|getScale ()
+specifier|public
+name|Integer
+name|getScale
+parameter_list|()
+block|{
+return|return
+name|scale
+return|;
+block|}
 DECL|method|getName ()
 specifier|public
 name|String
@@ -316,6 +392,16 @@ parameter_list|()
 block|{
 return|return
 name|name
+return|;
+block|}
+DECL|method|getTypeName ()
+specifier|public
+name|String
+name|getTypeName
+parameter_list|()
+block|{
+return|return
+name|typeName
 return|;
 block|}
 DECL|method|getSqlType ()
