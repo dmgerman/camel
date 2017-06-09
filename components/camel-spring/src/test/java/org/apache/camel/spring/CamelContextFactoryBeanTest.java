@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ActiveMQUuidGenerator
+name|DefaultModelJAXBContextFactory
 import|;
 end_import
 
@@ -122,7 +122,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultModelJAXBContextFactory
+name|DefaultUuidGenerator
 import|;
 end_import
 
@@ -301,7 +301,7 @@ name|assertTrue
 argument_list|(
 name|uuidGenerator
 operator|instanceof
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 argument_list|)
 expr_stmt|;
 block|}

@@ -23796,7 +23796,7 @@ else|else
 block|{
 return|return
 operator|new
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 argument_list|()
 return|;
 block|}

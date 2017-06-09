@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This implementation uses a counter which increments by one  */
+comment|/**  * This implementation uses a counter which increments by one.  * This generator is not unique per host or JVM, as its private per CamelContext.  */
 end_comment
 
 begin_class

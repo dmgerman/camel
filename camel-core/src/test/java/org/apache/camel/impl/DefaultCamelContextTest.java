@@ -503,7 +503,7 @@ operator|.
 name|getClass
 argument_list|()
 argument_list|,
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 operator|.
 name|class
 argument_list|)
