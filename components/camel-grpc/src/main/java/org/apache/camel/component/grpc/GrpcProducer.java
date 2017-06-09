@@ -400,7 +400,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Getting synchronous method stub from channel"
 argument_list|)
@@ -434,7 +434,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Getting asynchronous method stub from channel"
 argument_list|)
@@ -485,7 +485,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Terminating channel to the remote gRPC server"
 argument_list|)

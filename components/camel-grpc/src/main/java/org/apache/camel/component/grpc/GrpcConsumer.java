@@ -395,7 +395,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Terminating gRPC server"
 argument_list|)
@@ -569,7 +569,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Building gRPC server on "
 operator|+
@@ -635,7 +635,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Building gRPC server on<any address>"
 operator|+

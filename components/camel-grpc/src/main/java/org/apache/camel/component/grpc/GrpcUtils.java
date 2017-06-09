@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GrpcUtils helpers are working with dynamic methods via Spring reflection  * utilities  */
+comment|/**  * GrpcUtils helpers are working with dynamic methods via Camel and   * Java reflection utilities  */
 end_comment
 
 begin_class
@@ -326,9 +326,7 @@ name|serviceClassName
 operator|+
 literal|"."
 operator|+
-name|GrpcConstants
-operator|.
-name|GRPC_SERVICE_SYNC_STUB_METHOD
+name|stubMethod
 argument_list|)
 throw|;
 block|}
