@@ -173,10 +173,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|PubNubPresensTest
+DECL|class|PubNubPresenceTest
 specifier|public
 class|class
-name|PubNubPresensTest
+name|PubNubPresenceTest
 extends|extends
 name|PubNubTestBase
 block|{
@@ -194,10 +194,10 @@ name|mockResult
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testPresens ()
+DECL|method|testPresence ()
 specifier|public
 name|void
-name|testPresens
+name|testPresence
 parameter_list|()
 throws|throws
 name|Exception
@@ -313,6 +313,19 @@ argument_list|,
 name|equalTo
 argument_list|(
 literal|"join"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|presence
+operator|.
+name|getOccupancy
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
