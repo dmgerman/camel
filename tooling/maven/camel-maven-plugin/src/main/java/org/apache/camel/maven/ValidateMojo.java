@@ -550,6 +550,32 @@ operator|.
 name|enableCache
 argument_list|()
 expr_stmt|;
+name|String
+name|detectedVersion
+init|=
+name|findCamelVersion
+argument_list|(
+name|project
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|detectedVersion
+operator|!=
+literal|null
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Detected Camel version used in project: "
+operator|+
+name|detectedVersion
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|downloadVersion
@@ -626,28 +652,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// if using the same version as the camel-maven-plugin we must still load it
-if|if
-condition|(
-name|catalog
-operator|.
-name|getLoadedVersion
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|catalog
-operator|.
-name|loadVersion
-argument_list|(
-name|catalog
-operator|.
-name|getCatalogVersion
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|catalog
@@ -663,7 +667,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Using Camel version: "
+literal|"Validating using downloaded Camel version: "
 operator|+
 name|catalog
 operator|.
@@ -674,13 +678,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// force load version from the camel-maven-plugin
 name|getLog
 argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Using Camel version: "
+literal|"Validating using Camel version: "
 operator|+
 name|catalog
 operator|.
