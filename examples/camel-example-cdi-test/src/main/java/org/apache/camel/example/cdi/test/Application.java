@@ -192,7 +192,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"${body} from ${camelContext.name} at ${date:now:hh:mm:ss a}!"
+literal|"${body} from ${camelContext.name}"
 argument_list|)
 expr_stmt|;
 name|from

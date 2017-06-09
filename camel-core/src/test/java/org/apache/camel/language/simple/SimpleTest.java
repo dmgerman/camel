@@ -3366,6 +3366,30 @@ literal|"1974-04-20T00:55:47:123"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testDateNow ()
+specifier|public
+name|void
+name|testDateNow
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Object
+name|out
+init|=
+name|evaluateExpression
+argument_list|(
+literal|"${date:now:hh:mm:ss a}"
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testDatePredicates ()
 specifier|public
 name|void
