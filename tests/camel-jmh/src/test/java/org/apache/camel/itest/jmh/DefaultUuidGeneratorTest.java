@@ -362,8 +362,6 @@ name|shouldDoGC
 argument_list|(
 literal|true
 argument_list|)
-comment|//.jvmArgs("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintInlining")
-comment|//.addProfiler(WinPerfAsmProfiler.class)
 operator|.
 name|build
 argument_list|()
@@ -439,7 +437,7 @@ name|Measurement
 argument_list|(
 name|batchSize
 operator|=
-literal|1000
+literal|1000000
 argument_list|)
 DECL|method|benchmark (BenchmarkState state, Blackhole bh)
 specifier|public
