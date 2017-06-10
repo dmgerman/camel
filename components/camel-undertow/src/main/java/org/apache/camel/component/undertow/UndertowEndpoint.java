@@ -1759,7 +1759,7 @@ name|Options
 operator|.
 name|REUSE_ADDRESSES
 argument_list|,
-name|tcpNoDelay
+name|reuseAddresses
 argument_list|)
 expr_stmt|;
 name|optionMap
