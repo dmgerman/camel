@@ -142,7 +142,7 @@ name|component
 operator|.
 name|grpc
 operator|.
-name|GrpcEndpoint
+name|GrpcConsumerStrategy
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|component
 operator|.
 name|grpc
 operator|.
-name|GrpcProcessingStrategies
+name|GrpcEndpoint
 import|;
 end_import
 
@@ -524,10 +524,10 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getProcessingStrategy
+name|getConsumerStrategy
 argument_list|()
 operator|==
-name|GrpcProcessingStrategies
+name|GrpcConsumerStrategy
 operator|.
 name|AGGREGATION
 condition|)
@@ -555,10 +555,10 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getProcessingStrategy
+name|getConsumerStrategy
 argument_list|()
 operator|==
-name|GrpcProcessingStrategies
+name|GrpcConsumerStrategy
 operator|.
 name|PROPAGATION
 condition|)
@@ -591,7 +591,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getProcessingStrategy
+name|getConsumerStrategy
 argument_list|()
 argument_list|)
 throw|;

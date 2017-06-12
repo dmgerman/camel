@@ -19,61 +19,23 @@ package|;
 end_package
 
 begin_comment
-comment|/*  * Available values for the request and response processing strategies  */
+comment|/*  * Available values for the consumer processing strategy.  */
 end_comment
 
 begin_enum
-DECL|enum|GrpcProcessingStrategies
+DECL|enum|GrpcConsumerStrategy
 specifier|public
 enum|enum
-name|GrpcProcessingStrategies
+name|GrpcConsumerStrategy
 block|{
+comment|/**      * Collect all streaming elements in a single request and process them as a list in the route.      */
 DECL|enumConstant|AGGREGATION
 name|AGGREGATION
-argument_list|(
-literal|"AGGREGATION"
-argument_list|)
 block|,
+comment|/**      * Process each streaming element of a request independently.      */
 DECL|enumConstant|PROPAGATION
 name|PROPAGATION
-argument_list|(
-literal|"PROPAGATION"
-argument_list|)
-block|;
-DECL|field|strategy
-specifier|private
-specifier|final
-name|String
-name|strategy
-decl_stmt|;
-DECL|method|GrpcProcessingStrategies (final String strategy)
-name|GrpcProcessingStrategies
-parameter_list|(
-specifier|final
-name|String
-name|strategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|strategy
-operator|=
-name|strategy
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|strategy
-return|;
-block|}
-block|}
+block|;  }
 end_enum
 
 end_unit

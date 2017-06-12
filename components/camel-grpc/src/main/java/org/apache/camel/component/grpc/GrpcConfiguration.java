@@ -157,16 +157,28 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"producer"
 argument_list|)
-DECL|field|processingStrategy
+DECL|field|producerStrategy
 specifier|private
-name|GrpcProcessingStrategies
-name|processingStrategy
+name|GrpcProducerStrategy
+name|producerStrategy
 init|=
-name|GrpcProcessingStrategies
+name|GrpcProducerStrategy
 operator|.
-name|PROPAGATION
+name|RPC
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|streamRepliesTo
+specifier|private
+name|String
+name|streamRepliesTo
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -174,7 +186,19 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
+argument_list|)
+DECL|field|consumerStrategy
+specifier|private
+name|GrpcConsumerStrategy
+name|consumerStrategy
+init|=
+name|GrpcConsumerStrategy
+operator|.
+name|PROPAGATION
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|defaultValue
 operator|=
 literal|"false"
@@ -187,10 +211,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
@@ -373,30 +393,30 @@ name|usePlainText
 expr_stmt|;
 block|}
 comment|/**      * This option specifies the top-level strategy for processing service      * requests and responses in streaming mode. If an aggregation strategy is      * selected, all requests will be accumulated in the list, then transferred      * to the flow, and the accumulated responses will be sent to the sender. If      * a propagation strategy is selected, request is sent to the stream, and the      * response will be immediately sent back to the sender.      */
-DECL|method|getProcessingStrategy ()
+DECL|method|getConsumerStrategy ()
 specifier|public
-name|GrpcProcessingStrategies
-name|getProcessingStrategy
+name|GrpcConsumerStrategy
+name|getConsumerStrategy
 parameter_list|()
 block|{
 return|return
-name|processingStrategy
+name|consumerStrategy
 return|;
 block|}
-DECL|method|setProcessingStrategy (GrpcProcessingStrategies processingStrategy)
+DECL|method|setConsumerStrategy (GrpcConsumerStrategy consumerStrategy)
 specifier|public
 name|void
-name|setProcessingStrategy
+name|setConsumerStrategy
 parameter_list|(
-name|GrpcProcessingStrategies
-name|processingStrategy
+name|GrpcConsumerStrategy
+name|consumerStrategy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|processingStrategy
+name|consumerStrategy
 operator|=
-name|processingStrategy
+name|consumerStrategy
 expr_stmt|;
 block|}
 comment|/**      * Determines if onCompleted events should be pushed to the Camel route.      */
@@ -505,6 +525,60 @@ operator|.
 name|servicePackage
 operator|=
 name|servicePackage
+expr_stmt|;
+block|}
+DECL|method|getProducerStrategy ()
+specifier|public
+name|GrpcProducerStrategy
+name|getProducerStrategy
+parameter_list|()
+block|{
+return|return
+name|producerStrategy
+return|;
+block|}
+comment|/**      * The mode used to communicate with a remote gRPC server.      * In RPC mode a single exchange is translated to a remote call.      * In STREAMING mode all exchanges will be sent within the same request (input and output of the recipient gRPC service must be of type 'stream').      */
+DECL|method|setProducerStrategy (GrpcProducerStrategy producerStrategy)
+specifier|public
+name|void
+name|setProducerStrategy
+parameter_list|(
+name|GrpcProducerStrategy
+name|producerStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|producerStrategy
+operator|=
+name|producerStrategy
+expr_stmt|;
+block|}
+DECL|method|getStreamRepliesTo ()
+specifier|public
+name|String
+name|getStreamRepliesTo
+parameter_list|()
+block|{
+return|return
+name|streamRepliesTo
+return|;
+block|}
+comment|/**      * When using STREAMING client mode, it indicates the endpoint where responses should be forwarded.      */
+DECL|method|setStreamRepliesTo (String streamRepliesTo)
+specifier|public
+name|void
+name|setStreamRepliesTo
+parameter_list|(
+name|String
+name|streamRepliesTo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamRepliesTo
+operator|=
+name|streamRepliesTo
 expr_stmt|;
 block|}
 block|}

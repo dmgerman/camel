@@ -696,7 +696,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?processingStrategy=PROPAGATION&host=localhost&port="
+literal|"grpc://org.apache.camel.component.grpc.PingPong?consumerStrategy=PROPAGATION&host=localhost&port="
 operator|+
 name|GRPC_ASYNC_NEXT_REQUEST_TEST_PORT
 argument_list|)
@@ -717,7 +717,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?processingStrategy=PROPAGATION&forwardOnCompleted=true&host=localhost&port="
+literal|"grpc://org.apache.camel.component.grpc.PingPong?consumerStrategy=PROPAGATION&forwardOnCompleted=true&host=localhost&port="
 operator|+
 name|GRPC_ASYNC_COMPLETED_REQUEST_TEST_PORT
 argument_list|)
