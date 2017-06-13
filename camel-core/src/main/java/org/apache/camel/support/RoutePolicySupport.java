@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ExceptionHandler
@@ -286,6 +298,7 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+comment|/**      * Starts the consumer.      *      * @return the returned value is always<tt>true</tt> and should not be used.      * @see #resumeOrStartConsumer(Consumer)      */
 DECL|method|startConsumer (Consumer consumer)
 specifier|public
 name|boolean
@@ -297,35 +310,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|boolean
-name|resumed
-init|=
+comment|// TODO: change to void in Camel 3.0
 name|ServiceHelper
 operator|.
-name|resumeService
+name|startService
 argument_list|(
 name|consumer
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|resumed
-condition|)
-block|{
+expr_stmt|;
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resuming consumer {}"
+literal|"Started consumer {}"
 argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
-name|resumed
+literal|true
 return|;
 block|}
+comment|/**      * Stops the consumer.      *      * @return the returned value is always<tt>true</tt> and should not be used.      * @see #suspendOrStopConsumer(Consumer)      */
 DECL|method|stopConsumer (Consumer consumer)
 specifier|public
 name|boolean
@@ -336,6 +342,47 @@ name|consumer
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+comment|// TODO: change to void in Camel 3.0
+comment|// stop and shutdown
+name|ServiceHelper
+operator|.
+name|stopAndShutdownServices
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Stopped consumer {}"
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+comment|/**      * Suspends or stops the consumer.      *      * If the consumer is {@link org.apache.camel.Suspendable} then the consumer is suspended,      * otherwise the consumer is stopped.      *      * @see #stopConsumer(Consumer)      * @return<tt>true</tt> if the consumer was suspended or stopped,<tt>false</tt> if the consumer was already suspend or stopped      */
+DECL|method|suspendOrStopConsumer (Consumer consumer)
+specifier|public
+name|boolean
+name|suspendOrStopConsumer
+parameter_list|(
+name|Consumer
+name|consumer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|consumer
+operator|instanceof
+name|Suspendable
+condition|)
 block|{
 name|boolean
 name|suspended
@@ -362,8 +409,150 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Consumer already suspended {}"
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|suspended
+return|;
+block|}
+if|if
+condition|(
+operator|!
+name|ServiceHelper
+operator|.
+name|isStopped
+argument_list|(
+name|consumer
+argument_list|)
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Stopped consumer {}"
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Resumes or starts the consumer.      *      * If the consumer is {@link org.apache.camel.Suspendable} then the consumer is resumed,      * otherwise the consumer is started.      *      * @see #startConsumer(Consumer)      * @return<tt>true</tt> if the consumer was resumed or started,<tt>false</tt> if the consumer was already resumed or started      */
+DECL|method|resumeOrStartConsumer (Consumer consumer)
+specifier|public
+name|boolean
+name|resumeOrStartConsumer
+parameter_list|(
+name|Consumer
+name|consumer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|consumer
+operator|instanceof
+name|Suspendable
+condition|)
+block|{
+name|boolean
+name|resumed
+init|=
+name|ServiceHelper
+operator|.
+name|resumeService
+argument_list|(
+name|consumer
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|resumed
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Resumed consumer {}"
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Consumer already resumed {}"
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|resumed
+return|;
+block|}
+if|if
+condition|(
+operator|!
+name|ServiceHelper
+operator|.
+name|isStarted
+argument_list|(
+name|consumer
+argument_list|)
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Started consumer {}"
+argument_list|,
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 DECL|method|startRoute (Route route)

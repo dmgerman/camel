@@ -402,7 +402,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|startConsumer
+name|resumeOrStartConsumer
 argument_list|(
 name|route
 operator|.
@@ -485,7 +485,7 @@ operator|.
 name|Started
 condition|)
 block|{
-name|stopConsumer
+name|suspendOrStopConsumer
 argument_list|(
 name|route
 operator|.
@@ -539,7 +539,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|startConsumer
+name|resumeOrStartConsumer
 argument_list|(
 name|route
 operator|.

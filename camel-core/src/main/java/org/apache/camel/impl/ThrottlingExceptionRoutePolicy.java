@@ -885,7 +885,7 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-name|stopConsumer
+name|suspendOrStopConsumer
 argument_list|(
 name|route
 operator|.
@@ -967,7 +967,7 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-name|startConsumer
+name|resumeOrStartConsumer
 argument_list|(
 name|route
 operator|.
@@ -1023,7 +1023,7 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-name|startConsumer
+name|resumeOrStartConsumer
 argument_list|(
 name|route
 operator|.

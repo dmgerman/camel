@@ -957,9 +957,7 @@ block|{
 name|boolean
 name|started
 init|=
-name|super
-operator|.
-name|startConsumer
+name|resumeOrStartConsumer
 argument_list|(
 name|consumer
 argument_list|)
@@ -1006,9 +1004,7 @@ block|{
 name|boolean
 name|stopped
 init|=
-name|super
-operator|.
-name|stopConsumer
+name|suspendOrStopConsumer
 argument_list|(
 name|consumer
 argument_list|)

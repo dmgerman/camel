@@ -130,13 +130,6 @@ operator|+
 name|i
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -188,6 +181,11 @@ operator|.
 name|routePolicy
 argument_list|(
 name|policy
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|3
 argument_list|)
 operator|.
 name|to

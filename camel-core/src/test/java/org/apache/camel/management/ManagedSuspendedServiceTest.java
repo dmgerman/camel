@@ -584,7 +584,7 @@ try|try
 block|{
 name|super
 operator|.
-name|stopConsumer
+name|suspendOrStopConsumer
 argument_list|(
 name|route
 operator|.
