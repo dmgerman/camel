@@ -615,6 +615,7 @@ condition|(
 operator|!
 name|hasPassword
 operator|&&
+operator|!
 name|hasRefreshToken
 operator|&&
 name|hasKeystore
