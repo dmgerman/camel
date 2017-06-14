@@ -124,6 +124,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -225,13 +237,30 @@ name|String
 name|accessToken
 parameter_list|)
 block|{
-name|Credential
-name|credential
-decl_stmt|;
+if|if
+condition|(
+name|clientId
+operator|==
+literal|null
+operator|||
+name|clientSecret
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"clientId and clientSecret are required to create Gmail client."
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
+name|Credential
 name|credential
-operator|=
+init|=
 name|authorize
 argument_list|(
 name|clientId
@@ -240,7 +269,7 @@ name|clientSecret
 argument_list|,
 name|scopes
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|refreshToken
@@ -315,19 +344,16 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
+throw|throw
+operator|new
+name|RuntimeCamelException
 argument_list|(
-literal|"Could not create Google Drive client."
+literal|"Could not create Gmail client."
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
-return|return
-literal|null
-return|;
 block|}
 comment|// Authorizes the installed application to access user's protected data.
 DECL|method|authorize (String clientId, String clientSecret, Collection<String> scopes)

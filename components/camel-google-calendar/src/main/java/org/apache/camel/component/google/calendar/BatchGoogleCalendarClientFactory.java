@@ -168,6 +168,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -278,11 +290,11 @@ name|String
 name|user
 parameter_list|)
 block|{
-name|Credential
-name|credential
+name|boolean
+name|serviceAccount
+init|=
+literal|false
 decl_stmt|;
-try|try
-block|{
 comment|// if emailAddress and p12FileName values are present, assume Google Service Account
 if|if
 condition|(
@@ -309,6 +321,45 @@ name|equals
 argument_list|(
 name|p12FileName
 argument_list|)
+condition|)
+block|{
+name|serviceAccount
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|serviceAccount
+operator|&&
+operator|(
+name|clientId
+operator|==
+literal|null
+operator|||
+name|clientSecret
+operator|==
+literal|null
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"clientId and clientSecret are required to create Google Calendar client."
+argument_list|)
+throw|;
+block|}
+try|try
+block|{
+name|Credential
+name|credential
+decl_stmt|;
+if|if
+condition|(
+name|serviceAccount
 condition|)
 block|{
 name|credential
@@ -413,19 +464,16 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
+throw|throw
+operator|new
+name|RuntimeCamelException
 argument_list|(
-literal|"Could not create Google Drive client."
+literal|"Could not create Google Calendar client."
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
-return|return
-literal|null
-return|;
 block|}
 comment|// Authorizes the installed application to access user's protected data.
 DECL|method|authorize (String clientId, String clientSecret, Collection<String> scopes)

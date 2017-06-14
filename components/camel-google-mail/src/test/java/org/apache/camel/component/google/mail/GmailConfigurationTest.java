@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for {@link com.google.api.services.gmail.Gmail$Users$Messages}  * APIs.  */
+comment|/**  * Test class for {@link GoogleMailConfiguration}.  */
 end_comment
 
 begin_class
