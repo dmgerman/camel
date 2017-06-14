@@ -18,54 +18,67 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|function
+name|camel
 operator|.
-name|Predicate
+name|CamelContextAware
 import|;
 end_import
 
-begin_class
-DECL|class|CamelClusterHelper
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|IdAware
+import|;
+end_import
+
+begin_interface
+DECL|interface|CamelClusterService
 specifier|public
-specifier|final
-class|class
-name|CamelClusterHelper
+interface|interface
+name|CamelClusterService
+extends|extends
+name|Service
+extends|,
+name|CamelContextAware
+extends|,
+name|IdAware
 block|{
-DECL|method|CamelClusterHelper ()
-specifier|private
-name|CamelClusterHelper
-parameter_list|()
-block|{     }
-DECL|method|leadershipEventFilter ()
-specifier|public
-specifier|static
-name|Predicate
-argument_list|<
+comment|/**      * Get a view of the cluster bound to a namespace creating it if needed.      *      * @param namespace the namespace the view refer to.      * @return the view.      * @throws Exception if the view can't be created.      */
+DECL|method|getView (String namespace)
 name|CamelClusterView
-operator|.
-name|Event
-argument_list|>
-name|leadershipEventFilter
-parameter_list|()
-block|{
-return|return
-name|e
-lambda|->
-name|e
-operator|==
-name|CamelClusterView
-operator|.
-name|Event
-operator|.
-name|LEADERSHIP_CHANGED
-return|;
+name|getView
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

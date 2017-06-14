@@ -64,18 +64,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|BiConsumer
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -164,7 +152,7 @@ name|camel
 operator|.
 name|ha
 operator|.
-name|CamelCluster
+name|CameClusterEventListener
 import|;
 end_import
 
@@ -178,7 +166,21 @@ name|camel
 operator|.
 name|ha
 operator|.
-name|CamelClusterHelper
+name|CamelClusterMember
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ha
+operator|.
+name|CamelClusterService
 import|;
 end_import
 
@@ -344,18 +346,13 @@ specifier|final
 name|CamelClusterView
 name|clusterView
 decl_stmt|;
-DECL|field|leadershipEventConsumer
+DECL|field|leadershipEventListener
 specifier|private
 specifier|final
-name|BiConsumer
-argument_list|<
-name|CamelClusterView
+name|CameClusterEventListener
 operator|.
-name|Event
-argument_list|,
-name|Object
-argument_list|>
-name|leadershipEventConsumer
+name|Leadership
+name|leadershipEventListener
 decl_stmt|;
 DECL|field|listener
 specifier|private
@@ -390,11 +387,11 @@ name|clusterView
 expr_stmt|;
 name|this
 operator|.
-name|leadershipEventConsumer
+name|leadershipEventListener
 operator|=
-name|this
-operator|::
-name|onLeadershipEvent
+operator|new
+name|CamelClusterLeadershipListener
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -467,7 +464,7 @@ argument_list|)
 throw|;
 block|}
 comment|// Cleanup the policy when all the routes it manages have been shut down
-comment|// so it can be shared among routes.
+comment|// so a single policy instance can be shared among routes.
 name|this
 operator|.
 name|refCount
@@ -501,7 +498,7 @@ name|clusterView
 operator|.
 name|removeEventListener
 argument_list|(
-name|leadershipEventConsumer
+name|leadershipEventListener
 argument_list|)
 expr_stmt|;
 name|setLeader
@@ -978,18 +975,27 @@ block|}
 comment|// ****************************************************
 comment|// Event handling
 comment|// ****************************************************
-DECL|method|onLeadershipEvent (CamelClusterView.Event event, Object payload)
+DECL|class|CamelClusterLeadershipListener
 specifier|private
+class|class
+name|CamelClusterLeadershipListener
+implements|implements
+name|CameClusterEventListener
+operator|.
+name|Leadership
+block|{
+annotation|@
+name|Override
+DECL|method|leadershipChanged (CamelClusterView view, CamelClusterMember leader)
+specifier|public
 name|void
-name|onLeadershipEvent
+name|leadershipChanged
 parameter_list|(
 name|CamelClusterView
-operator|.
-name|Event
-name|event
+name|view
 parameter_list|,
-name|Object
-name|payload
+name|CamelClusterMember
+name|leader
 parameter_list|)
 block|{
 name|setLeader
@@ -1003,6 +1009,7 @@ name|isMaster
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|class|CamelContextStartupListener
 specifier|private
@@ -1108,12 +1115,7 @@ name|clusterView
 operator|.
 name|addEventListener
 argument_list|(
-name|CamelClusterHelper
-operator|.
-name|leadershipEventFilter
-argument_list|()
-argument_list|,
-name|leadershipEventConsumer
+name|leadershipEventListener
 argument_list|)
 expr_stmt|;
 name|setLeader
@@ -1148,14 +1150,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|CamelCluster
+name|CamelClusterService
 name|cluster
 init|=
 name|camelContext
 operator|.
 name|hasService
 argument_list|(
-name|CamelCluster
+name|CamelClusterService
 operator|.
 name|class
 argument_list|)
@@ -1184,13 +1186,13 @@ name|namespace
 argument_list|)
 return|;
 block|}
-DECL|method|forNamespace (CamelCluster cluster, String namespace)
+DECL|method|forNamespace (CamelClusterService cluster, String namespace)
 specifier|public
 specifier|static
 name|ClusteredRoutePolicy
 name|forNamespace
 parameter_list|(
-name|CamelCluster
+name|CamelClusterService
 name|cluster
 parameter_list|,
 name|String

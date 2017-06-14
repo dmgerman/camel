@@ -28,30 +28,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|BiConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -88,20 +64,10 @@ name|Service
 extends|,
 name|CamelContextAware
 block|{
-DECL|enum|Event
-enum|enum
-name|Event
-block|{
-DECL|enumConstant|KEEP_ALIVE
-name|KEEP_ALIVE
-block|,
-DECL|enumConstant|LEADERSHIP_CHANGED
-name|LEADERSHIP_CHANGED
-block|;     }
 comment|/**      * @return the cluster.      */
-DECL|method|getCluster ()
-name|CamelCluster
-name|getCluster
+DECL|method|getClusterService ()
+name|CamelClusterService
+name|getClusterService
 parameter_list|()
 function_decl|;
 comment|/**      * @return the namespace for this view.      */
@@ -131,52 +97,22 @@ argument_list|>
 name|getMembers
 parameter_list|()
 function_decl|;
-comment|/**      * Add an event consumer.      *      * @param consumer the event consumer.      */
-DECL|method|addEventListener (BiConsumer<Event, Object> consumer)
+comment|/**      * Add an event listener.      *      * @param listener the event listener.      */
+DECL|method|addEventListener (CameClusterEventListener listener)
 name|void
 name|addEventListener
 parameter_list|(
-name|BiConsumer
-argument_list|<
-name|Event
-argument_list|,
-name|Object
-argument_list|>
-name|consumer
+name|CameClusterEventListener
+name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Add an event consumer for events matching the given predicate.      *      * @param predicate the predicate to filter events.      * @param consumer the event consumer.      */
-DECL|method|addEventListener (Predicate<Event> predicate, BiConsumer<Event, Object> consumer)
-name|void
-name|addEventListener
-parameter_list|(
-name|Predicate
-argument_list|<
-name|Event
-argument_list|>
-name|predicate
-parameter_list|,
-name|BiConsumer
-argument_list|<
-name|Event
-argument_list|,
-name|Object
-argument_list|>
-name|consumer
-parameter_list|)
-function_decl|;
-comment|/**      * Remove the event consumer.      *      * @param event the event consumer.      */
-DECL|method|removeEventListener (BiConsumer<Event, Object> event)
+comment|/**      * Remove the event listener.      *      * @param listener the event listener.      */
+DECL|method|removeEventListener (CameClusterEventListener listener)
 name|void
 name|removeEventListener
 parameter_list|(
-name|BiConsumer
-argument_list|<
-name|Event
-argument_list|,
-name|Object
-argument_list|>
-name|event
+name|CameClusterEventListener
+name|listener
 parameter_list|)
 function_decl|;
 block|}
