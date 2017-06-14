@@ -367,7 +367,7 @@ block|}
 comment|// **************************************
 comment|// Events
 comment|// **************************************
-DECL|method|executeWithListener (Class<T> type, Consumer<T> consumer)
+DECL|method|doWithListener (Class<T> type, Consumer<T> consumer)
 specifier|private
 parameter_list|<
 name|T
@@ -375,7 +375,7 @@ extends|extends
 name|CameClusterEventListener
 parameter_list|>
 name|void
-name|executeWithListener
+name|doWithListener
 parameter_list|(
 name|Class
 argument_list|<
@@ -464,7 +464,7 @@ name|CamelClusterMember
 name|leader
 parameter_list|)
 block|{
-name|executeWithListener
+name|doWithListener
 argument_list|(
 name|CameClusterEventListener
 operator|.
@@ -494,7 +494,7 @@ name|CamelClusterMember
 name|member
 parameter_list|)
 block|{
-name|executeWithListener
+name|doWithListener
 argument_list|(
 name|CameClusterEventListener
 operator|.
@@ -524,7 +524,7 @@ name|CamelClusterMember
 name|member
 parameter_list|)
 block|{
-name|executeWithListener
+name|doWithListener
 argument_list|(
 name|CameClusterEventListener
 operator|.

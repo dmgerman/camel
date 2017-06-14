@@ -28,6 +28,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -76,9 +86,12 @@ name|String
 name|getNamespace
 parameter_list|()
 function_decl|;
-comment|/**      * Provides the master member.      *      * @return the master member.      */
+comment|/**      * Provides the master member if elected.      *      * @return the master member.      */
 DECL|method|getMaster ()
+name|Optional
+argument_list|<
 name|CamelClusterMember
+argument_list|>
 name|getMaster
 parameter_list|()
 function_decl|;

@@ -235,7 +235,6 @@ name|StampedLock
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the id      *      * @param id the id      */
 annotation|@
 name|Override
 DECL|method|setId (String id)
@@ -420,15 +419,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|long
-name|stamp
-init|=
-name|lock
+return|return
+name|LockHelper
 operator|.
-name|writeLock
-argument_list|()
-decl_stmt|;
-try|try
+name|callWithWriteLock
+argument_list|(
+name|lock
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|T
 name|view
@@ -493,16 +492,8 @@ return|return
 name|view
 return|;
 block|}
-finally|finally
-block|{
-name|lock
-operator|.
-name|unlockWrite
-argument_list|(
-name|stamp
 argument_list|)
-expr_stmt|;
-block|}
+return|;
 block|}
 comment|// **********************************
 comment|// Implementation
