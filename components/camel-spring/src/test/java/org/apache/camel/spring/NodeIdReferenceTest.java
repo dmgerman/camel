@@ -127,7 +127,7 @@ specifier|protected
 name|String
 name|expectedBody
 init|=
-literal|"Godday World"
+literal|"Hi World"
 decl_stmt|;
 annotation|@
 name|Autowired

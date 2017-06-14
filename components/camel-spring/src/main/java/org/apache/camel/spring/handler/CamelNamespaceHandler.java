@@ -3070,17 +3070,7 @@ block|}
 block|}
 block|}
 comment|// register as endpoint defined indirectly in the routes by from/to types having id explicit set
-name|registerEndpointsWithIdsDefinedInFromOrToTypes
-argument_list|(
-name|element
-argument_list|,
-name|parserContext
-argument_list|,
-name|contextId
-argument_list|,
-name|binder
-argument_list|)
-expr_stmt|;
+comment|// registerEndpointsWithIdsDefinedInFromOrToTypes(element, parserContext, contextId, binder);
 comment|// register templates if not already defined
 name|registerTemplates
 argument_list|(
@@ -3638,6 +3628,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Used for auto registering endpoints from the<tt>from</tt> or<tt>to</tt> DSL if they have an id attribute set      */
+annotation|@
+name|Deprecated
 DECL|method|registerEndpointsWithIdsDefinedInFromOrToTypes (Element element, ParserContext parserContext, String contextId, Binder<Node> binder)
 specifier|protected
 name|void
