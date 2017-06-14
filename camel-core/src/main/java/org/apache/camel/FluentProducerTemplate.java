@@ -126,6 +126,12 @@ parameter_list|()
 function_decl|;
 comment|// Fluent methods
 comment|// -----------------------------------------------------------------------
+comment|/**      * Remove the body and headers.      */
+DECL|method|clearAll ()
+name|FluentProducerTemplate
+name|clearAll
+parameter_list|()
+function_decl|;
 comment|/**      * Set the header      *      * @param key the key of the header      * @param value the value of the header      */
 DECL|method|withHeader (String key, Object value)
 name|FluentProducerTemplate

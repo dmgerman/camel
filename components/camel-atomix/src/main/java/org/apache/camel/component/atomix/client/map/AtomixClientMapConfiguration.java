@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.atomix.cluster
+DECL|package|org.apache.camel.component.atomix.client.map
 package|package
 name|org
 operator|.
@@ -16,7 +16,9 @@ name|component
 operator|.
 name|atomix
 operator|.
-name|cluster
+name|client
+operator|.
+name|map
 package|;
 end_package
 
@@ -26,37 +28,9 @@ name|io
 operator|.
 name|atomix
 operator|.
-name|AtomixReplica
-import|;
-end_import
-
-begin_import
-import|import
-name|io
+name|collections
 operator|.
-name|atomix
-operator|.
-name|catalyst
-operator|.
-name|transport
-operator|.
-name|Transport
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|atomix
-operator|.
-name|copycat
-operator|.
-name|server
-operator|.
-name|storage
-operator|.
-name|StorageLevel
+name|DistributedMap
 import|;
 end_import
 
@@ -84,7 +58,27 @@ name|component
 operator|.
 name|atomix
 operator|.
-name|AtomixConfiguration
+name|client
+operator|.
+name|AtomixClientAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|atomix
+operator|.
+name|client
+operator|.
+name|AtomixClientConfiguration
 import|;
 end_import
 
@@ -119,199 +113,227 @@ end_import
 begin_class
 annotation|@
 name|UriParams
-DECL|class|AtomixClusterConfiguration
+DECL|class|AtomixClientMapConfiguration
 specifier|public
 class|class
-name|AtomixClusterConfiguration
+name|AtomixClientMapConfiguration
 extends|extends
-name|AtomixConfiguration
-argument_list|<
-name|AtomixReplica
-argument_list|>
-implements|implements
-name|Cloneable
+name|AtomixClientConfiguration
 block|{
-annotation|@
-name|UriParam
-DECL|field|clientTransport
-specifier|private
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|clientTransport
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|serverTransport
-specifier|private
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|serverTransport
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|storagePath
-specifier|private
-name|String
-name|storagePath
-decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"MEMORY"
+literal|"PUT"
 argument_list|)
-DECL|field|storageLevel
+DECL|field|defaultAction
 specifier|private
-name|StorageLevel
-name|storageLevel
+name|AtomixClientAction
+name|defaultAction
 init|=
-name|StorageLevel
+name|AtomixClientAction
 operator|.
-name|MEMORY
+name|PUT
 decl_stmt|;
-DECL|method|AtomixClusterConfiguration ()
-specifier|public
-name|AtomixClusterConfiguration
-parameter_list|()
-block|{     }
-comment|// ******************************************
+annotation|@
+name|UriParam
+DECL|field|ttl
+specifier|private
+name|Long
+name|ttl
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|resultHeader
+specifier|private
+name|String
+name|resultHeader
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|config
+specifier|private
+name|DistributedMap
+operator|.
+name|Config
+name|config
+init|=
+operator|new
+name|DistributedMap
+operator|.
+name|Config
+argument_list|()
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|options
+specifier|private
+name|DistributedMap
+operator|.
+name|Options
+name|options
+init|=
+operator|new
+name|DistributedMap
+operator|.
+name|Options
+argument_list|()
+decl_stmt|;
+comment|// ****************************************
 comment|// Properties
-comment|// ******************************************
-DECL|method|getClientTransport ()
+comment|// ****************************************
+DECL|method|getDefaultAction ()
 specifier|public
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|getClientTransport
+name|AtomixClientAction
+name|getDefaultAction
 parameter_list|()
 block|{
 return|return
-name|clientTransport
+name|defaultAction
 return|;
 block|}
-comment|/**      * The client transport      */
-DECL|method|setClientTransport (Class<? extends Transport> clientTransport)
+comment|/**      * The default action.      */
+DECL|method|setDefaultAction (AtomixClientAction defaultAction)
 specifier|public
 name|void
-name|setClientTransport
+name|setDefaultAction
 parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|clientTransport
+name|AtomixClientAction
+name|defaultAction
 parameter_list|)
 block|{
 name|this
 operator|.
-name|clientTransport
+name|defaultAction
 operator|=
-name|clientTransport
+name|defaultAction
 expr_stmt|;
 block|}
-DECL|method|getServerTransport ()
+DECL|method|getTtl ()
 specifier|public
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|getServerTransport
+name|Long
+name|getTtl
 parameter_list|()
 block|{
 return|return
-name|serverTransport
+name|ttl
 return|;
 block|}
-comment|/**      * The server transport      */
-DECL|method|setServerTransport (Class<? extends Transport> serverTransport)
+comment|/**      * The resource ttl.      */
+DECL|method|setTtl (Long ttl)
 specifier|public
 name|void
-name|setServerTransport
+name|setTtl
 parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|serverTransport
+name|Long
+name|ttl
 parameter_list|)
 block|{
 name|this
 operator|.
-name|serverTransport
+name|ttl
 operator|=
-name|serverTransport
+name|ttl
 expr_stmt|;
 block|}
-DECL|method|getStoragePath ()
+DECL|method|getResultHeader ()
 specifier|public
 name|String
-name|getStoragePath
+name|getResultHeader
 parameter_list|()
 block|{
 return|return
-name|storagePath
+name|resultHeader
 return|;
 block|}
-comment|/**      * Sets the log directory.      */
-DECL|method|setStoragePath (String storagePath)
+comment|/**      * The header that wil carry the result.      */
+DECL|method|setResultHeader (String resultHeader)
 specifier|public
 name|void
-name|setStoragePath
+name|setResultHeader
 parameter_list|(
 name|String
-name|storagePath
+name|resultHeader
 parameter_list|)
 block|{
 name|this
 operator|.
-name|storagePath
+name|resultHeader
 operator|=
-name|storagePath
+name|resultHeader
 expr_stmt|;
 block|}
-DECL|method|getStorageLevel ()
+DECL|method|getConfig ()
 specifier|public
-name|StorageLevel
-name|getStorageLevel
+name|DistributedMap
+operator|.
+name|Config
+name|getConfig
 parameter_list|()
 block|{
 return|return
-name|storageLevel
+name|config
 return|;
 block|}
-comment|/**      * Sets the log storage level.      */
-DECL|method|setStorageLevel (StorageLevel storageLevel)
+comment|/**      * The cluster wide map config      */
+DECL|method|setConfig (DistributedMap.Config config)
 specifier|public
 name|void
-name|setStorageLevel
+name|setConfig
 parameter_list|(
-name|StorageLevel
-name|storageLevel
+name|DistributedMap
+operator|.
+name|Config
+name|config
 parameter_list|)
 block|{
 name|this
 operator|.
-name|storageLevel
+name|config
 operator|=
-name|storageLevel
+name|config
+expr_stmt|;
+block|}
+DECL|method|getOptions ()
+specifier|public
+name|DistributedMap
+operator|.
+name|Options
+name|getOptions
+parameter_list|()
+block|{
+return|return
+name|options
+return|;
+block|}
+comment|/**      * The local map options      */
+DECL|method|setOptions (DistributedMap.Options options)
+specifier|public
+name|void
+name|setOptions
+parameter_list|(
+name|DistributedMap
+operator|.
+name|Options
+name|options
+parameter_list|)
+block|{
+name|this
+operator|.
+name|options
+operator|=
+name|options
 expr_stmt|;
 block|}
 comment|// ****************************************
@@ -319,7 +341,7 @@ comment|// Copy
 comment|// ****************************************
 DECL|method|copy ()
 specifier|public
-name|AtomixClusterConfiguration
+name|AtomixClientMapConfiguration
 name|copy
 parameter_list|()
 block|{
@@ -327,7 +349,7 @@ try|try
 block|{
 return|return
 operator|(
-name|AtomixClusterConfiguration
+name|AtomixClientMapConfiguration
 operator|)
 name|super
 operator|.

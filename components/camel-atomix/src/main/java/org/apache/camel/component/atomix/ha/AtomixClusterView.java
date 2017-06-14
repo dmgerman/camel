@@ -26,7 +26,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
 import|;
 end_import
 
@@ -166,7 +186,6 @@ end_import
 
 begin_class
 DECL|class|AtomixClusterView
-specifier|public
 specifier|final
 class|class
 name|AtomixClusterView
@@ -245,7 +264,10 @@ annotation|@
 name|Override
 DECL|method|getMaster ()
 specifier|public
+name|Optional
+argument_list|<
 name|CamelClusterMember
+argument_list|>
 name|getMaster
 parameter_list|()
 block|{
@@ -256,17 +278,16 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"The view has not yet joined the cluster"
-argument_list|)
-throw|;
-block|}
 return|return
-name|asCamelClusterMember
-argument_list|(
+name|Optional
+operator|.
+name|empty
+argument_list|()
+return|;
+block|}
+name|GroupMember
+name|leader
+init|=
 name|group
 operator|.
 name|election
@@ -277,6 +298,30 @@ argument_list|()
 operator|.
 name|leader
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|leader
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|Optional
+operator|.
+name|empty
+argument_list|()
+return|;
+block|}
+return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
+name|asCamelClusterMember
+argument_list|(
+name|leader
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -310,13 +355,12 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"The view has not yet joined the cluster"
-argument_list|)
-throw|;
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
 block|}
 return|return
 name|this
@@ -527,10 +571,6 @@ specifier|private
 name|LocalMember
 name|member
 decl_stmt|;
-DECL|method|AtomixLocalMember ()
-name|AtomixLocalMember
-parameter_list|()
-block|{         }
 annotation|@
 name|Override
 DECL|method|getId ()
@@ -539,6 +579,29 @@ name|String
 name|getId
 parameter_list|()
 block|{
+name|String
+name|id
+init|=
+name|getClusterService
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|id
+argument_list|)
+condition|)
+block|{
+return|return
+name|id
+return|;
+block|}
 if|if
 condition|(
 name|member
@@ -730,15 +793,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|get ()
-name|LocalMember
-name|get
-parameter_list|()
-block|{
-return|return
-name|member
-return|;
-block|}
 block|}
 DECL|class|AtomixClusterMember
 class|class
@@ -805,6 +859,10 @@ name|isMaster
 parameter_list|()
 block|{
 return|return
+name|member
+operator|.
+name|equals
+argument_list|(
 name|group
 operator|.
 name|election
@@ -815,20 +873,7 @@ argument_list|()
 operator|.
 name|leader
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|member
 argument_list|)
-return|;
-block|}
-DECL|method|get ()
-name|GroupMember
-name|get
-parameter_list|()
-block|{
-return|return
-name|member
 return|;
 block|}
 block|}

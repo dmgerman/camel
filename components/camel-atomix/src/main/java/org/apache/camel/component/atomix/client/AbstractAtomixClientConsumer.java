@@ -22,11 +22,13 @@ end_package
 
 begin_import
 import|import
-name|io
+name|org
 operator|.
-name|atomix
+name|apache
 operator|.
-name|AtomixClient
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -38,27 +40,67 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|atomix
-operator|.
-name|AtomixConfiguration
+name|DefaultConsumer
 import|;
 end_import
 
 begin_class
-DECL|class|AtomixClientConfiguration
+DECL|class|AbstractAtomixClientConsumer
 specifier|public
+specifier|abstract
 class|class
-name|AtomixClientConfiguration
+name|AbstractAtomixClientConsumer
+parameter_list|<
+name|E
 extends|extends
-name|AtomixConfiguration
-argument_list|<
-name|AtomixClient
-argument_list|>
-implements|implements
-name|Cloneable
-block|{ }
+name|AbstractAtomixClientEndpoint
+parameter_list|>
+extends|extends
+name|DefaultConsumer
+block|{
+DECL|method|AbstractAtomixClientConsumer (E endpoint, Processor processor)
+specifier|protected
+name|AbstractAtomixClientConsumer
+parameter_list|(
+name|E
+name|endpoint
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpoint
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|getAtomixEndpoint ()
+specifier|protected
+name|E
+name|getAtomixEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|E
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
+block|}
 end_class
 
 end_unit

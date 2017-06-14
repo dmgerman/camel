@@ -68,6 +68,16 @@ name|io
 operator|.
 name|atomix
 operator|.
+name|Atomix
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|atomix
+operator|.
 name|catalyst
 operator|.
 name|transport
@@ -108,6 +118,18 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|atomix
+operator|.
+name|resource
+operator|.
+name|ReadConsistency
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -139,7 +161,21 @@ DECL|class|AtomixConfiguration
 specifier|public
 class|class
 name|AtomixConfiguration
+parameter_list|<
+name|T
+extends|extends
+name|Atomix
+parameter_list|>
+implements|implements
+name|Cloneable
 block|{
+annotation|@
+name|UriParam
+DECL|field|atomix
+specifier|private
+name|T
+name|atomix
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -188,11 +224,53 @@ specifier|private
 name|String
 name|configurationUri
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|readConsistency
+specifier|private
+name|ReadConsistency
+name|readConsistency
+decl_stmt|;
 DECL|method|AtomixConfiguration ()
 specifier|protected
 name|AtomixConfiguration
 parameter_list|()
 block|{     }
+comment|// *****************************************
+comment|// Properties
+comment|// *****************************************
+DECL|method|getAtomix ()
+specifier|public
+name|T
+name|getAtomix
+parameter_list|()
+block|{
+return|return
+name|atomix
+return|;
+block|}
+comment|/**      * The Atomix instance to use      */
+DECL|method|setAtomix (T client)
+specifier|public
+name|void
+name|setAtomix
+parameter_list|(
+name|T
+name|client
+parameter_list|)
+block|{
+name|this
+operator|.
+name|atomix
+operator|=
+name|client
+expr_stmt|;
+block|}
 DECL|method|getNodes ()
 specifier|public
 name|List
@@ -346,6 +424,33 @@ operator|.
 name|configurationUri
 operator|=
 name|configurationUri
+expr_stmt|;
+block|}
+DECL|method|getReadConsistency ()
+specifier|public
+name|ReadConsistency
+name|getReadConsistency
+parameter_list|()
+block|{
+return|return
+name|readConsistency
+return|;
+block|}
+comment|/**      * The read consistency level.      */
+DECL|method|setReadConsistency (ReadConsistency readConsistency)
+specifier|public
+name|void
+name|setReadConsistency
+parameter_list|(
+name|ReadConsistency
+name|readConsistency
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readConsistency
+operator|=
+name|readConsistency
 expr_stmt|;
 block|}
 block|}

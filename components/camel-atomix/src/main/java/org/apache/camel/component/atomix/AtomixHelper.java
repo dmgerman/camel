@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.atomix.client
+DECL|package|org.apache.camel.component.atomix
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|atomix
-operator|.
-name|client
 package|;
 end_package
 
@@ -26,39 +24,69 @@ name|io
 operator|.
 name|atomix
 operator|.
-name|AtomixClient
+name|copycat
+operator|.
+name|server
+operator|.
+name|storage
+operator|.
+name|Storage
 import|;
 end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
+name|io
 operator|.
 name|atomix
 operator|.
-name|AtomixConfiguration
+name|copycat
+operator|.
+name|server
+operator|.
+name|storage
+operator|.
+name|StorageLevel
 import|;
 end_import
 
 begin_class
-DECL|class|AtomixClientConfiguration
+DECL|class|AtomixHelper
 specifier|public
+specifier|final
 class|class
-name|AtomixClientConfiguration
-extends|extends
-name|AtomixConfiguration
-argument_list|<
-name|AtomixClient
-argument_list|>
-implements|implements
-name|Cloneable
-block|{ }
+name|AtomixHelper
+block|{
+DECL|method|AtomixHelper ()
+specifier|private
+name|AtomixHelper
+parameter_list|()
+block|{     }
+DECL|method|inMemoryStorage ()
+specifier|public
+specifier|static
+name|Storage
+name|inMemoryStorage
+parameter_list|()
+block|{
+return|return
+name|Storage
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|withStorageLevel
+argument_list|(
+name|StorageLevel
+operator|.
+name|MEMORY
+argument_list|)
+operator|.
+name|build
+argument_list|()
+return|;
+block|}
+block|}
 end_class
 
 end_unit

@@ -36,16 +36,6 @@ name|io
 operator|.
 name|atomix
 operator|.
-name|Atomix
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|atomix
-operator|.
 name|AtomixReplica
 import|;
 end_import
@@ -517,63 +507,33 @@ name|transport
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getReplicaRef ()
+DECL|method|getAtomix ()
 specifier|public
-name|String
-name|getReplicaRef
+name|AtomixReplica
+name|getAtomix
 parameter_list|()
 block|{
 return|return
 name|configuration
 operator|.
-name|getReplicaRef
+name|getAtomix
 argument_list|()
 return|;
 block|}
-DECL|method|setReplicaRef (String clusterref)
+DECL|method|setAtomix (AtomixReplica atomix)
 specifier|public
 name|void
-name|setReplicaRef
-parameter_list|(
-name|String
-name|clusterref
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setReplicaRef
-argument_list|(
-name|clusterref
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getReplica ()
-specifier|public
-name|Atomix
-name|getReplica
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getReplica
-argument_list|()
-return|;
-block|}
-DECL|method|setReplica (AtomixReplica replica)
-specifier|public
-name|void
-name|setReplica
+name|setAtomix
 parameter_list|(
 name|AtomixReplica
-name|replica
+name|atomix
 parameter_list|)
 block|{
 name|configuration
 operator|.
-name|setReplica
+name|setAtomix
 argument_list|(
-name|replica
+name|atomix
 argument_list|)
 expr_stmt|;
 block|}
@@ -620,56 +580,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Assume that if addresses are provided the cluster needs be bootstrapped.
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|configuration
-operator|.
-name|getNodes
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|LOGGER
-operator|.
-name|debug
-argument_list|(
-literal|"Bootstrap cluster on address {} for nodes: {}"
-argument_list|,
-name|address
-argument_list|,
-name|configuration
-operator|.
-name|getNodes
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|getOrCreateAtomix
-argument_list|()
-operator|.
-name|bootstrap
-argument_list|(
-name|configuration
-operator|.
-name|getNodes
-argument_list|()
-argument_list|)
-operator|.
-name|join
+comment|// instantiate a new atomix replica
+name|getOrCreateReplica
 argument_list|()
 expr_stmt|;
-name|LOGGER
-operator|.
-name|debug
-argument_list|(
-literal|"Bootstrap cluster done"
-argument_list|)
-expr_stmt|;
-block|}
 name|super
 operator|.
 name|doStart
@@ -697,15 +611,15 @@ name|this
 argument_list|,
 name|namespace
 argument_list|,
-name|getOrCreateAtomix
+name|getOrCreateReplica
 argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|getOrCreateAtomix ()
+DECL|method|getOrCreateReplica ()
 specifier|private
 name|AtomixReplica
-name|getOrCreateAtomix
+name|getOrCreateReplica
 parameter_list|()
 throws|throws
 name|Exception

@@ -650,6 +650,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|clearAll ()
+specifier|public
+name|FluentProducerTemplate
+name|clearAll
+parameter_list|()
+block|{
+name|clearBody
+argument_list|()
+expr_stmt|;
+name|clearHeaders
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|withHeader (String key, Object value)
 specifier|public
 name|FluentProducerTemplate

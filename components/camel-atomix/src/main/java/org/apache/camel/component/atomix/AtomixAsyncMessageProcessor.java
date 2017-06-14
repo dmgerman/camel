@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.atomix.client
+DECL|package|org.apache.camel.component.atomix
 package|package
 name|org
 operator|.
@@ -15,18 +15,18 @@ operator|.
 name|component
 operator|.
 name|atomix
-operator|.
-name|client
 package|;
 end_package
 
 begin_import
 import|import
-name|io
+name|org
 operator|.
-name|atomix
+name|apache
 operator|.
-name|AtomixClient
+name|camel
+operator|.
+name|AsyncCallback
 import|;
 end_import
 
@@ -38,28 +38,34 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|atomix
-operator|.
-name|AtomixConfiguration
+name|Message
 import|;
 end_import
 
-begin_class
-DECL|class|AtomixClientConfiguration
+begin_interface
+annotation|@
+name|FunctionalInterface
+DECL|interface|AtomixAsyncMessageProcessor
 specifier|public
-class|class
-name|AtomixClientConfiguration
-extends|extends
-name|AtomixConfiguration
-argument_list|<
-name|AtomixClient
-argument_list|>
-implements|implements
-name|Cloneable
-block|{ }
-end_class
+interface|interface
+name|AtomixAsyncMessageProcessor
+block|{
+comment|/**      * @param message      * @param callback      * @return      * @throws Exception      */
+DECL|method|process (Message message, AsyncCallback callback)
+name|boolean
+name|process
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+block|}
+end_interface
 
 end_unit
 
