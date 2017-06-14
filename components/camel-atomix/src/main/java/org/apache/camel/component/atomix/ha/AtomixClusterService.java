@@ -154,7 +154,7 @@ name|impl
 operator|.
 name|ha
 operator|.
-name|AbstractCamelCluster
+name|AbstractCamelClusterService
 import|;
 end_import
 
@@ -193,13 +193,13 @@ import|;
 end_import
 
 begin_class
-DECL|class|AtomixCluster
+DECL|class|AtomixClusterService
 specifier|public
 specifier|final
 class|class
-name|AtomixCluster
+name|AtomixClusterService
 extends|extends
-name|AbstractCamelCluster
+name|AbstractCamelClusterService
 argument_list|<
 name|AtomixClusterView
 argument_list|>
@@ -215,15 +215,10 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|AtomixCluster
+name|AtomixClusterService
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
 decl_stmt|;
 DECL|field|address
 specifier|private
@@ -240,16 +235,11 @@ specifier|private
 name|AtomixReplica
 name|atomix
 decl_stmt|;
-DECL|method|AtomixCluster ()
+DECL|method|AtomixClusterService ()
 specifier|public
-name|AtomixCluster
+name|AtomixClusterService
 parameter_list|()
 block|{
-name|super
-argument_list|(
-literal|"atomix"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|configuration
@@ -259,9 +249,9 @@ name|AtomixClusterConfiguration
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|AtomixCluster (CamelContext camelContext, Address address, AtomixClusterConfiguration configuration)
+DECL|method|AtomixClusterService (CamelContext camelContext, Address address, AtomixClusterConfiguration configuration)
 specifier|public
-name|AtomixCluster
+name|AtomixClusterService
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -275,14 +265,10 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"atomix"
+literal|null
+argument_list|,
+name|camelContext
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
 expr_stmt|;
 name|this
 operator|.
@@ -303,36 +289,6 @@ block|}
 comment|// **********************************
 comment|// Properties
 comment|// **********************************
-annotation|@
-name|Override
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
-block|}
 DECL|method|getAddress ()
 specifier|public
 name|Address
@@ -766,7 +722,8 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|camelContext
+name|getCamelContext
+argument_list|()
 argument_list|,
 literal|"Camel Context"
 argument_list|)
@@ -795,14 +752,14 @@ name|AtomixClusterHelper
 operator|.
 name|createReplica
 argument_list|(
-name|camelContext
+name|getCamelContext
+argument_list|()
 argument_list|,
 name|address
 argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
-comment|// Assume that if addresses are provided the cluster needs be bootstrapped.
 if|if
 condition|(
 name|ObjectHelper
@@ -841,6 +798,40 @@ operator|.
 name|getNodes
 argument_list|()
 argument_list|)
+operator|.
+name|join
+argument_list|()
+expr_stmt|;
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Bootstrap cluster done"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Bootstrap cluster on address {}"
+argument_list|,
+name|address
+argument_list|,
+name|configuration
+operator|.
+name|getNodes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|atomix
+operator|.
+name|bootstrap
+argument_list|()
 operator|.
 name|join
 argument_list|()
