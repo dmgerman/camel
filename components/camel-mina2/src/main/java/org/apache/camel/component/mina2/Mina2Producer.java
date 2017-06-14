@@ -646,6 +646,11 @@ specifier|private
 name|boolean
 name|lazySessionCreation
 decl_stmt|;
+DECL|field|writeTimeout
+specifier|private
+name|long
+name|writeTimeout
+decl_stmt|;
 DECL|field|timeout
 specifier|private
 name|long
@@ -717,6 +722,15 @@ operator|=
 name|configuration
 operator|.
 name|isLazySessionCreation
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|writeTimeout
+operator|=
+name|configuration
+operator|.
+name|getWriteTimeout
 argument_list|()
 expr_stmt|;
 name|this
@@ -1128,6 +1142,8 @@ argument_list|,
 name|body
 argument_list|,
 name|exchange
+argument_list|,
+name|writeTimeout
 argument_list|)
 expr_stmt|;
 if|if

@@ -291,6 +291,20 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
+literal|"10000"
+argument_list|)
+DECL|field|writeTimeout
+specifier|private
+name|long
+name|writeTimeout
+init|=
+literal|10000
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
 literal|"30000"
 argument_list|)
 DECL|field|timeout
@@ -847,6 +861,33 @@ operator|.
 name|encoding
 operator|=
 name|encoding
+expr_stmt|;
+block|}
+DECL|method|getWriteTimeout ()
+specifier|public
+name|long
+name|getWriteTimeout
+parameter_list|()
+block|{
+return|return
+name|writeTimeout
+return|;
+block|}
+comment|/**      * Maximum amount of time it should take to send data to the MINA session. Default is 10000 milliseconds.      */
+DECL|method|setWriteTimeout (long writeTimeout)
+specifier|public
+name|void
+name|setWriteTimeout
+parameter_list|(
+name|long
+name|writeTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writeTimeout
+operator|=
+name|writeTimeout
 expr_stmt|;
 block|}
 DECL|method|getTimeout ()

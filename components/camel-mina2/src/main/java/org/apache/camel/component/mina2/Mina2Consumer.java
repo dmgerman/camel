@@ -2819,6 +2819,11 @@ argument_list|,
 name|response
 argument_list|,
 name|exchange
+argument_list|,
+name|configuration
+operator|.
+name|getWriteTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -128,8 +128,8 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Asynchronously writes the given body to MINA session. Will wait at most for      * 10 seconds until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
-DECL|method|writeBody (IoSession session, Object body, Exchange exchange)
+comment|/**      * Asynchronously writes the given body to MINA session. Will wait at most for      * {{ writeTimeout }} milliseconds until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the exchange      * @param writeTimeout maximum amount of time we wait for the WriteFuture to complete (in milliseconds)      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
+DECL|method|writeBody (IoSession session, Object body, Exchange exchange, long writeTimeout)
 specifier|public
 specifier|static
 name|void
@@ -143,6 +143,9 @@ name|body
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|writeTimeout
 parameter_list|)
 throws|throws
 name|CamelExchangeException
@@ -158,8 +161,7 @@ argument_list|(
 name|body
 argument_list|)
 decl_stmt|;
-comment|// must use a timeout (we use 10s) as in some very high performance scenarios a write can cause
-comment|// thread hanging forever
+comment|// must use a timeout as in some very high performance scenarios a write can cause thread hanging forever
 name|LOG
 operator|.
 name|trace
@@ -178,7 +180,7 @@ name|future
 operator|.
 name|awaitUninterruptibly
 argument_list|(
-literal|10000L
+name|writeTimeout
 argument_list|)
 condition|)
 block|{

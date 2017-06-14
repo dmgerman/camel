@@ -367,6 +367,14 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
+comment|/**          * Maximum amount of time it should take to send data to the MINA          * session. Default is 10000 milliseconds.          */
+DECL|field|writeTimeout
+specifier|private
+name|Long
+name|writeTimeout
+init|=
+literal|10000L
+decl_stmt|;
 comment|/**          * You can configure the timeout that specifies how long to wait for a          * response from a remote server. The timeout unit is in milliseconds,          * so 60000 is 60 seconds.          */
 DECL|field|timeout
 specifier|private
@@ -710,6 +718,32 @@ operator|.
 name|encoding
 operator|=
 name|encoding
+expr_stmt|;
+block|}
+DECL|method|getWriteTimeout ()
+specifier|public
+name|Long
+name|getWriteTimeout
+parameter_list|()
+block|{
+return|return
+name|writeTimeout
+return|;
+block|}
+DECL|method|setWriteTimeout (Long writeTimeout)
+specifier|public
+name|void
+name|setWriteTimeout
+parameter_list|(
+name|Long
+name|writeTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writeTimeout
+operator|=
+name|writeTimeout
 expr_stmt|;
 block|}
 DECL|method|getTimeout ()
