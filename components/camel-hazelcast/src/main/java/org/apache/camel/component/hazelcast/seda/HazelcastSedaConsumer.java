@@ -448,6 +448,8 @@ name|transactionCtx
 init|=
 literal|null
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|endpoint
@@ -496,8 +498,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-try|try
-block|{
 specifier|final
 name|Object
 name|body
@@ -759,11 +759,20 @@ name|getTxnId
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|transactionCtx
 operator|.
 name|rollbackTransaction
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|ignore
+parameter_list|)
+block|{                     }
 block|}
 name|getExceptionHandler
 argument_list|()
@@ -777,6 +786,22 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ignore
+parameter_list|)
+block|{                 }
 block|}
 block|}
 block|}
