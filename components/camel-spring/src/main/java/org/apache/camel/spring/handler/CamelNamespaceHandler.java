@@ -2346,6 +2346,11 @@ name|implicitId
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|registerEndpointIdsFromRoute
+init|=
+literal|false
+decl_stmt|;
 comment|// lets avoid folks having to explicitly give an ID to a camel context
 if|if
 condition|(
@@ -2837,6 +2842,18 @@ argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
+name|registerEndpointIdsFromRoute
+operator|=
+literal|"true"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|factoryBean
+operator|.
+name|getRegisterEndpointIdsFromRoute
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|NodeList
 name|list
@@ -3069,8 +3086,31 @@ block|}
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|registerEndpointIdsFromRoute
+condition|)
+block|{
 comment|// register as endpoint defined indirectly in the routes by from/to types having id explicit set
-comment|// registerEndpointsWithIdsDefinedInFromOrToTypes(element, parserContext, contextId, binder);
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Registering endpoint with ids defined in Camel routes"
+argument_list|)
+expr_stmt|;
+name|registerEndpointsWithIdsDefinedInFromOrToTypes
+argument_list|(
+name|element
+argument_list|,
+name|parserContext
+argument_list|,
+name|contextId
+argument_list|,
+name|binder
+argument_list|)
+expr_stmt|;
+block|}
 comment|// register templates if not already defined
 name|registerTemplates
 argument_list|(
@@ -4455,6 +4495,28 @@ name|id
 argument_list|)
 condition|)
 block|{
+comment|// skip underscore as they are internal naming and should not be registered
+if|if
+condition|(
+name|id
+operator|.
+name|startsWith
+argument_list|(
+literal|"_"
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skip registering endpoint starting with underscore: {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|BeanDefinition
 name|definition
 init|=
