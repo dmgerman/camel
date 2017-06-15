@@ -802,7 +802,11 @@ name|camelExchange
 argument_list|)
 return|;
 block|}
-finally|finally
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
 block|{
 name|cxfRsConsumer
 operator|.
@@ -811,6 +815,9 @@ argument_list|(
 name|camelExchange
 argument_list|)
 expr_stmt|;
+throw|throw
+name|ex
+throw|;
 block|}
 block|}
 else|else
@@ -885,7 +892,11 @@ name|camelExchange
 argument_list|)
 return|;
 block|}
-finally|finally
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
 block|{
 name|cxfRsConsumer
 operator|.
@@ -894,6 +905,9 @@ argument_list|(
 name|camelExchange
 argument_list|)
 expr_stmt|;
+throw|throw
+name|ex
+throw|;
 block|}
 block|}
 block|}
@@ -994,7 +1008,11 @@ name|camelExchange
 argument_list|)
 return|;
 block|}
-finally|finally
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
 block|{
 name|cxfRsConsumer
 operator|.
@@ -1003,6 +1021,9 @@ argument_list|(
 name|camelExchange
 argument_list|)
 expr_stmt|;
+throw|throw
+name|ex
+throw|;
 block|}
 block|}
 DECL|method|prepareExchange (Exchange cxfExchange, Method method, Object[] paramArray, Object response)
@@ -1073,6 +1094,24 @@ argument_list|(
 name|ep
 argument_list|)
 decl_stmt|;
+comment|//needs access in MessageObserver/Interceptor to close the UnitOfWork
+name|cxfExchange
+operator|.
+name|put
+argument_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+operator|.
+name|class
+argument_list|,
+name|camelExchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|response
