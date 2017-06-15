@@ -1138,6 +1138,28 @@ name|UriParser
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|olingo2
+operator|.
+name|api
+operator|.
+name|impl
+operator|.
+name|Olingo4Helper
+operator|.
+name|getContentTypeHeader
+import|;
+end_import
+
 begin_comment
 comment|/**  * Application API used by Olingo2 Component.  */
 end_comment
@@ -3192,6 +3214,32 @@ case|case
 name|URI9
 case|:
 comment|// $batch
+name|String
+name|type
+init|=
+name|result
+operator|.
+name|containsHeader
+argument_list|(
+name|HttpHeaders
+operator|.
+name|CONTENT_TYPE
+argument_list|)
+condition|?
+name|result
+operator|.
+name|getFirstHeader
+argument_list|(
+name|HttpHeaders
+operator|.
+name|CONTENT_TYPE
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 specifier|final
 name|List
 argument_list|<
@@ -3211,17 +3259,7 @@ operator|.
 name|getContent
 argument_list|()
 argument_list|,
-name|result
-operator|.
-name|getFirstHeader
-argument_list|(
-name|HttpHeaders
-operator|.
-name|CONTENT_TYPE
-argument_list|)
-operator|.
-name|getValue
-argument_list|()
+name|type
 argument_list|)
 decl_stmt|;
 comment|// parse batch response bodies
