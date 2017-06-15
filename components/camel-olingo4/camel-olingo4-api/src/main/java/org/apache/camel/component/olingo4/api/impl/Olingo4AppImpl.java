@@ -1450,6 +1450,28 @@ name|UriValidationException
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|olingo4
+operator|.
+name|api
+operator|.
+name|impl
+operator|.
+name|Olingo4Helper
+operator|.
+name|getContentTypeHeader
+import|;
+end_import
+
 begin_comment
 comment|/**  * Application API used by Olingo4 Component.  */
 end_comment
@@ -5086,21 +5108,9 @@ specifier|final
 name|ContentType
 name|responseContentType
 init|=
-name|ContentType
-operator|.
-name|parse
+name|getContentTypeHeader
 argument_list|(
 name|batchPartHttpResponse
-operator|.
-name|getFirstHeader
-argument_list|(
-name|HttpHeaders
-operator|.
-name|CONTENT_TYPE
-argument_list|)
-operator|.
-name|getValue
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|content
