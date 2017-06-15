@@ -475,6 +475,11 @@ specifier|protected
 name|String
 name|fileWatchDirectory
 decl_stmt|;
+DECL|field|fileWatchDirectoryRecursively
+specifier|protected
+name|boolean
+name|fileWatchDirectoryRecursively
+decl_stmt|;
 DECL|field|camelContexts
 specifier|protected
 specifier|final
@@ -1720,6 +1725,33 @@ operator|=
 name|fileWatchDirectory
 expr_stmt|;
 block|}
+DECL|method|isFileWatchDirectoryRecursively ()
+specifier|public
+name|boolean
+name|isFileWatchDirectoryRecursively
+parameter_list|()
+block|{
+return|return
+name|fileWatchDirectoryRecursively
+return|;
+block|}
+comment|/**      * Sets the flag to watch directory of XML file changes recursively to trigger live reload of Camel routes.      *<p/>      * Notice you cannot set this value and a custom {@link ReloadStrategy} as well.      */
+DECL|method|setFileWatchDirectoryRecursively (boolean fileWatchDirectoryRecursively)
+specifier|public
+name|void
+name|setFileWatchDirectoryRecursively
+parameter_list|(
+name|boolean
+name|fileWatchDirectoryRecursively
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileWatchDirectoryRecursively
+operator|=
+name|fileWatchDirectoryRecursively
+expr_stmt|;
+block|}
 DECL|method|getRouteBuilderClasses ()
 specifier|public
 name|String
@@ -2376,6 +2408,8 @@ operator|new
 name|FileWatcherReloadStrategy
 argument_list|(
 name|fileWatchDirectory
+argument_list|,
+name|fileWatchDirectoryRecursively
 argument_list|)
 decl_stmt|;
 name|camelContext
