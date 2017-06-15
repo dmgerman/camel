@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|http
 operator|.
-name|HttpHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
 name|HttpResponse
 import|;
 end_import
@@ -260,7 +248,7 @@ name|api
 operator|.
 name|impl
 operator|.
-name|Olingo4Helper
+name|Olingo2Helper
 operator|.
 name|getContentTypeHeader
 import|;

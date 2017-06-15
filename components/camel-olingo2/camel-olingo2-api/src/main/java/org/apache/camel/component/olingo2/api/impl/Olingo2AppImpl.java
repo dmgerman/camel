@@ -1138,28 +1138,6 @@ name|UriParser
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|olingo2
-operator|.
-name|api
-operator|.
-name|impl
-operator|.
-name|Olingo4Helper
-operator|.
-name|getContentTypeHeader
-import|;
-end_import
-
 begin_comment
 comment|/**  * Application API used by Olingo2 Component.  */
 end_comment

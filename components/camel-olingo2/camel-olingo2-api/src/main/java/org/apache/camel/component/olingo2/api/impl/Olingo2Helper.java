@@ -65,15 +65,15 @@ comment|/**  * Helper  */
 end_comment
 
 begin_class
-DECL|class|Olingo4Helper
+DECL|class|Olingo2Helper
 specifier|public
 specifier|final
 class|class
-name|Olingo4Helper
+name|Olingo2Helper
 block|{
-DECL|method|Olingo4Helper ()
+DECL|method|Olingo2Helper ()
 specifier|private
-name|Olingo4Helper
+name|Olingo2Helper
 parameter_list|()
 block|{     }
 comment|/**      * Gets the content type header in a safe way      */
