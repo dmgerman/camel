@@ -365,9 +365,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|PUBLISH_OPERATION
+name|PUBLISH
 argument_list|)
 argument_list|)
 operator|.

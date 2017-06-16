@@ -152,6 +152,22 @@ name|HazelcastDefaultProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastOperation
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implementation of Hazelcast List {@link Producer}.  */
 end_comment
@@ -231,7 +247,7 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-comment|// get header parameters
+comment|// GET header parameters
 name|Integer
 name|pos
 init|=
@@ -290,10 +306,10 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|int
+name|HazelcastOperation
 name|operation
 init|=
-name|lookupOperationNumber
+name|lookupOperation
 argument_list|(
 name|exchange
 argument_list|)
@@ -304,9 +320,7 @@ name|operation
 condition|)
 block|{
 case|case
-name|HazelcastConstants
-operator|.
-name|ADD_OPERATION
+name|ADD
 case|:
 name|this
 operator|.
@@ -319,9 +333,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|GET_OPERATION
+name|GET
 case|:
 name|this
 operator|.
@@ -334,9 +346,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|SETVALUE_OPERATION
+name|SET_VALUE
 case|:
 name|this
 operator|.
@@ -349,9 +359,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|REMOVEVALUE_OPERATION
+name|REMOVE_VALUE
 case|:
 name|this
 operator|.
@@ -364,9 +372,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|CLEAR_OPERATION
+name|CLEAR
 case|:
 name|this
 operator|.
@@ -375,9 +381,7 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|ADD_ALL_OPERATION
+name|ADD_ALL
 case|:
 name|this
 operator|.
@@ -390,9 +394,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|REMOVE_ALL_OPERATION
+name|REMOVE_ALL
 case|:
 name|this
 operator|.
@@ -403,9 +405,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|RETAIN_ALL_OPERATION
+name|RETAIN_ALL
 case|:
 name|this
 operator|.
@@ -475,7 +475,7 @@ operator|==
 name|pos
 condition|)
 block|{
-comment|// add the specified element to the end of the list
+comment|// ADD the specified element to the end of the list
 name|list
 operator|.
 name|add
@@ -486,7 +486,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// add the specified element at the specified position
+comment|// ADD the specified element at the specified position
 name|list
 operator|.
 name|add

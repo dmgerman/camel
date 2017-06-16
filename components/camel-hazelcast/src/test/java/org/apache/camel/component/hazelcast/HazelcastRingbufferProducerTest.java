@@ -227,7 +227,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"direct:readonceHead"
+literal|"direct:READ_ONCE_HEAD"
 argument_list|,
 literal|12L
 argument_list|,
@@ -279,7 +279,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"direct:readonceTail"
+literal|"direct:READ_ONCE_TAIL"
 argument_list|,
 literal|12L
 argument_list|,
@@ -425,7 +425,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"direct:remainingCapacity"
+literal|"direct:REMAINING_CAPACITY"
 argument_list|,
 literal|""
 argument_list|,
@@ -468,7 +468,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:readonceHead"
+literal|"direct:READ_ONCE_HEAD"
 argument_list|)
 operator|.
 name|setHeader
@@ -479,9 +479,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|READ_ONCE_HEAD_OPERATION
+name|READ_ONCE_HEAD
 argument_list|)
 argument_list|)
 operator|.
@@ -501,7 +501,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:readonceTail"
+literal|"direct:READ_ONCE_TAIL"
 argument_list|)
 operator|.
 name|setHeader
@@ -512,9 +512,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|READ_ONCE_TAIL_OPERATION
+name|READ_ONCE_TAIL
 argument_list|)
 argument_list|)
 operator|.
@@ -545,9 +545,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|ADD_OPERATION
+name|ADD
 argument_list|)
 argument_list|)
 operator|.
@@ -578,9 +578,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|GET_CAPACITY_OPERATION
+name|CAPACITY
 argument_list|)
 argument_list|)
 operator|.
@@ -600,7 +600,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:remainingCapacity"
+literal|"direct:REMAINING_CAPACITY"
 argument_list|)
 operator|.
 name|setHeader
@@ -611,9 +611,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|REMAINING_CAPACITY_OPERATION
+name|REMAINING_CAPACITY
 argument_list|)
 argument_list|)
 operator|.

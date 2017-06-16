@@ -262,7 +262,7 @@ name|CACHE_TYPE
 init|=
 literal|"CamelHazelcastCacheType"
 decl_stmt|;
-comment|// actions (put, delete, get, getAll, update, clear)
+comment|// actions (PUT, DELETE, GET, GET_ALL, UPDATE, CLEAR)
 DECL|field|OPERATION
 specifier|public
 specifier|static
@@ -272,316 +272,350 @@ name|OPERATION
 init|=
 literal|"CamelHazelcastOperationType"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#PUT}      */
 DECL|field|PUT_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|PUT_OPERATION
 init|=
-literal|1
+literal|"put"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#DELETE}      */
 DECL|field|DELETE_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|DELETE_OPERATION
 init|=
-literal|2
+literal|"delete"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#GET}      */
 DECL|field|GET_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|GET_OPERATION
 init|=
-literal|3
+literal|"get"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#UPDATE}      */
 DECL|field|UPDATE_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|UPDATE_OPERATION
 init|=
-literal|4
+literal|"update"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#QUERY}      */
 DECL|field|QUERY_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|QUERY_OPERATION
 init|=
-literal|5
+literal|"query"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#GET_ALL}      */
 DECL|field|GET_ALL_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|GET_ALL_OPERATION
 init|=
-literal|6
+literal|"getAll"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#CLEAR}      */
 DECL|field|CLEAR_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|CLEAR_OPERATION
 init|=
-literal|7
+literal|"clear"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#PUT_IF_ABSENT}      */
 DECL|field|PUT_IF_ABSENT_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|PUT_IF_ABSENT_OPERATION
 init|=
-literal|8
+literal|"putIfAbsent"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#ADD_ALL}      */
 DECL|field|ADD_ALL_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|ADD_ALL_OPERATION
 init|=
-literal|9
+literal|"addAll"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#REMOVE_ALL}      */
 DECL|field|REMOVE_ALL_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|REMOVE_ALL_OPERATION
 init|=
-literal|10
+literal|"removeAll"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#RETAIN_ALL}      */
 DECL|field|RETAIN_ALL_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|RETAIN_ALL_OPERATION
 init|=
-literal|11
+literal|"retailAll"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#EVICT}      */
 DECL|field|EVICT_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|EVICT_OPERATION
 init|=
-literal|12
+literal|"evict"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#EVICT_ALL}      */
 DECL|field|EVICT_ALL_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|EVICT_ALL_OPERATION
 init|=
-literal|13
+literal|"evictAll"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#VALUE_COUNT}      */
 DECL|field|VALUE_COUNT_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|VALUE_COUNT_OPERATION
 init|=
-literal|14
+literal|"valueCount"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#CONTAINS_KEY}      */
 DECL|field|CONTAINS_KEY_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|CONTAINS_KEY_OPERATION
 init|=
-literal|15
+literal|"containsKey"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#CONTAINS_VALUE}      */
 DECL|field|CONTAINS_VALUE_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|CONTAINS_VALUE_OPERATION
 init|=
-literal|16
+literal|"containsValue"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#GET_KEYS}      */
 DECL|field|GET_KEYS_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|GET_KEYS_OPERATION
 init|=
-literal|41
+literal|"keySet"
 decl_stmt|;
 comment|// multimap
+comment|/**      * @deprecated      * use {@link HazelcastOperation#REMOVE_VALUE}      */
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|REMOVEVALUE_OPERATION
 init|=
-literal|17
+literal|"removevalue"
 decl_stmt|;
 comment|// atomic numbers
+comment|/**      * @deprecated      * use {@link HazelcastOperation#INCREMENT}      */
 DECL|field|INCREMENT_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|INCREMENT_OPERATION
 init|=
-literal|20
+literal|"increment"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#DECREMENT}      */
 DECL|field|DECREMENT_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|DECREMENT_OPERATION
 init|=
-literal|21
+literal|"decrement"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#SET_VALUE}      */
 DECL|field|SETVALUE_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|SETVALUE_OPERATION
 init|=
-literal|22
+literal|"setvalue"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#DESTROY}      */
 DECL|field|DESTROY_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|DESTROY_OPERATION
 init|=
-literal|23
+literal|"destroy"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#COMPARE_AND_SET}      */
 DECL|field|COMPARE_AND_SET_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|COMPARE_AND_SET_OPERATION
 init|=
-literal|24
+literal|"compareAndSet"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#GET_AND_ADD}      */
 DECL|field|GET_AND_ADD_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|GET_AND_ADD_OPERATION
 init|=
-literal|25
+literal|"getAndAdd"
 decl_stmt|;
 comment|// queue
+comment|/**      * @deprecated      * use {@link HazelcastOperation#ADD}      */
 DECL|field|ADD_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|ADD_OPERATION
 init|=
-literal|31
+literal|"add"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#OFFER}      */
 DECL|field|OFFER_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|OFFER_OPERATION
 init|=
-literal|32
+literal|"offer"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#PEEK}      */
 DECL|field|PEEK_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|PEEK_OPERATION
 init|=
-literal|33
+literal|"peek"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#POLL}      */
 DECL|field|POLL_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|POLL_OPERATION
 init|=
-literal|34
+literal|"poll"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#REMAINING_CAPACITY}      */
 DECL|field|REMAINING_CAPACITY_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|REMAINING_CAPACITY_OPERATION
 init|=
-literal|35
+literal|"remainingCapacity"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#DRAIN_TO}      */
 DECL|field|DRAIN_TO_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|DRAIN_TO_OPERATION
 init|=
-literal|36
+literal|"drainTo"
 decl_stmt|;
 comment|// topic
+comment|/**      * @deprecated      * use {@link HazelcastOperation#PUBLISH}      */
 DECL|field|PUBLISH_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|PUBLISH_OPERATION
 init|=
-literal|37
+literal|"publish"
 decl_stmt|;
 comment|// ring_buffer
+comment|/**      * @deprecated      * use {@link HazelcastOperation#READ_ONCE_HEAD}      */
 DECL|field|READ_ONCE_HEAD_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|READ_ONCE_HEAD_OPERATION
 init|=
-literal|38
+literal|"readOnceHead"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#READ_ONCE_TAIL}      */
 DECL|field|READ_ONCE_TAIL_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|READ_ONCE_TAIL_OPERATION
 init|=
-literal|39
+literal|"readOnceTail"
 decl_stmt|;
+comment|/**      * @deprecated      * use {@link HazelcastOperation#CAPACITY}      */
 DECL|field|GET_CAPACITY_OPERATION
 specifier|public
 specifier|static
 specifier|final
-name|int
+name|String
 name|GET_CAPACITY_OPERATION
 init|=
-literal|40
+literal|"capacity"
 decl_stmt|;
 comment|/*      * header values      */
 comment|// listener actions

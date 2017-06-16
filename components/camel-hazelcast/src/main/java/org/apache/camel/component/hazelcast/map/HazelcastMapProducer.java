@@ -166,6 +166,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -249,7 +265,7 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-comment|// get header parameters
+comment|// GET header parameters
 name|Object
 name|oid
 init|=
@@ -399,10 +415,10 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|int
+name|HazelcastOperation
 name|operation
 init|=
-name|lookupOperationNumber
+name|lookupOperation
 argument_list|(
 name|exchange
 argument_list|)
@@ -413,9 +429,7 @@ name|operation
 condition|)
 block|{
 case|case
-name|HazelcastConstants
-operator|.
-name|PUT_OPERATION
+name|PUT
 case|:
 if|if
 condition|(
@@ -462,9 +476,7 @@ expr_stmt|;
 block|}
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|PUT_IF_ABSENT_OPERATION
+name|PUT_IF_ABSENT
 case|:
 if|if
 condition|(
@@ -511,9 +523,7 @@ expr_stmt|;
 block|}
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|GET_OPERATION
+name|GET
 case|:
 name|this
 operator|.
@@ -526,9 +536,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|GET_ALL_OPERATION
+name|GET_ALL
 case|:
 name|this
 operator|.
@@ -541,9 +549,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|GET_KEYS_OPERATION
+name|GET_KEYS
 case|:
 name|this
 operator|.
@@ -554,9 +560,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|CONTAINS_KEY_OPERATION
+name|CONTAINS_KEY
 case|:
 name|this
 operator|.
@@ -569,9 +573,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|CONTAINS_VALUE_OPERATION
+name|CONTAINS_VALUE
 case|:
 name|this
 operator|.
@@ -582,9 +584,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|DELETE_OPERATION
+name|DELETE
 case|:
 name|this
 operator|.
@@ -595,9 +595,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|UPDATE_OPERATION
+name|UPDATE
 case|:
 if|if
 condition|(
@@ -635,9 +633,7 @@ expr_stmt|;
 block|}
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|QUERY_OPERATION
+name|QUERY
 case|:
 name|this
 operator|.
@@ -650,9 +646,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|CLEAR_OPERATION
+name|CLEAR
 case|:
 name|this
 operator|.
@@ -663,9 +657,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|EVICT_OPERATION
+name|EVICT
 case|:
 name|this
 operator|.
@@ -676,9 +668,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|EVICT_ALL_OPERATION
+name|EVICT_ALL
 case|:
 name|this
 operator|.
@@ -715,7 +705,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * query map with a sql like syntax (see http://www.hazelcast.com/)      */
+comment|/**      * QUERY map with a sql like syntax (see http://www.hazelcast.com/)      */
 DECL|method|query (String query, Exchange exchange)
 specifier|private
 name|void
@@ -783,7 +773,7 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * update an object in your cache (the whole object will be replaced)      */
+comment|/**      * UPDATE an object in your cache (the whole object will be replaced)      */
 DECL|method|update (Object oid, Exchange exchange)
 specifier|private
 name|void
@@ -947,7 +937,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * get All objects and give it back      */
+comment|/**      * GET All objects and give it back      */
 DECL|method|getAll (Object oid, Exchange exchange)
 specifier|private
 name|void
@@ -984,7 +974,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * put a new object into the cache      */
+comment|/**      * PUT a new object into the cache      */
 DECL|method|put (Object oid, Exchange exchange)
 specifier|private
 name|void
@@ -1020,7 +1010,7 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * put a new object into the cache with a specific time to live      */
+comment|/**      * PUT a new object into the cache with a specific time to live      */
 DECL|method|put (Object oid, Object ttl, Object ttlUnit, Exchange exchange)
 specifier|private
 name|void
@@ -1283,7 +1273,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**     * get keys set of objects and give it back     */
+comment|/**     * GET keys set of objects and give it back     */
 DECL|method|getKeys (Exchange exchange)
 specifier|private
 name|void

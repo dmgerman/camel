@@ -42,6 +42,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|hazelcast
@@ -148,9 +160,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
 operator|.
-name|ObjectHelper
+name|hazelcast
+operator|.
+name|HazelcastOperation
 import|;
 end_import
 
@@ -263,10 +277,10 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|int
+name|HazelcastOperation
 name|operation
 init|=
-name|lookupOperationNumber
+name|lookupOperation
 argument_list|(
 name|exchange
 argument_list|)
@@ -277,14 +291,7 @@ name|operation
 condition|)
 block|{
 case|case
-operator|-
-literal|1
-case|:
-comment|//If no operation is specified use ADD.
-case|case
-name|HazelcastConstants
-operator|.
-name|ADD_OPERATION
+name|ADD
 case|:
 name|this
 operator|.
@@ -295,9 +302,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|PUT_OPERATION
+name|PUT
 case|:
 name|this
 operator|.
@@ -308,9 +313,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|POLL_OPERATION
+name|POLL
 case|:
 name|this
 operator|.
@@ -321,9 +324,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|PEEK_OPERATION
+name|PEEK
 case|:
 name|this
 operator|.
@@ -334,9 +335,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|OFFER_OPERATION
+name|OFFER
 case|:
 name|this
 operator|.
@@ -347,9 +346,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|REMOVEVALUE_OPERATION
+name|REMOVE_VALUE
 case|:
 name|this
 operator|.
@@ -360,9 +357,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|REMAINING_CAPACITY_OPERATION
+name|REMAINING_CAPACITY
 case|:
 name|this
 operator|.
@@ -373,9 +368,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|DRAIN_TO_OPERATION
+name|DRAIN_TO
 case|:
 name|this
 operator|.

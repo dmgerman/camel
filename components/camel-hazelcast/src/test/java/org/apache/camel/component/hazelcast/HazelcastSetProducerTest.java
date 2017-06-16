@@ -347,7 +347,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:removevalue"
+literal|"direct:removeValue"
 argument_list|,
 literal|"foo2"
 argument_list|)
@@ -424,7 +424,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:addAll"
+literal|"direct:addall"
 argument_list|,
 name|t
 argument_list|)
@@ -526,7 +526,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:retainAll"
+literal|"direct:RETAIN_ALL"
 argument_list|,
 name|t
 argument_list|)
@@ -605,9 +605,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|ADD_OPERATION
+name|ADD
 argument_list|)
 argument_list|)
 operator|.
@@ -622,7 +622,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:removevalue"
+literal|"direct:removeValue"
 argument_list|)
 operator|.
 name|setHeader
@@ -633,9 +633,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|REMOVEVALUE_OPERATION
+name|REMOVE_VALUE
 argument_list|)
 argument_list|)
 operator|.
@@ -666,9 +666,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|CLEAR_OPERATION
+name|CLEAR
 argument_list|)
 argument_list|)
 operator|.
@@ -683,7 +683,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:addAll"
+literal|"direct:addall"
 argument_list|)
 operator|.
 name|setHeader
@@ -694,9 +694,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|ADD_ALL_OPERATION
+name|ADD_ALL
 argument_list|)
 argument_list|)
 operator|.
@@ -727,9 +727,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|REMOVE_ALL_OPERATION
+name|REMOVE_ALL
 argument_list|)
 argument_list|)
 operator|.
@@ -749,7 +749,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:retainAll"
+literal|"direct:RETAIN_ALL"
 argument_list|)
 operator|.
 name|setHeader
@@ -760,9 +760,9 @@ name|OPERATION
 argument_list|,
 name|constant
 argument_list|(
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|RETAIN_ALL_OPERATION
+name|RETAIN_ALL
 argument_list|)
 argument_list|)
 operator|.
@@ -793,9 +793,9 @@ name|HazelcastConstants
 operator|.
 name|SET_PREFIX
 argument_list|,
-name|HazelcastConstants
+name|HazelcastOperation
 operator|.
-name|ADD_OPERATION
+name|ADD
 argument_list|)
 expr_stmt|;
 name|from
@@ -805,7 +805,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"hazelcast-%sbar?operation=add"
+literal|"hazelcast-%sbar?operation=ADD"
 argument_list|,
 name|HazelcastConstants
 operator|.

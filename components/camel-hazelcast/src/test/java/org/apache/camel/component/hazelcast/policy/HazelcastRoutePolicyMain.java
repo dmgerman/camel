@@ -150,7 +150,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:///tmp/camel?delete=true"
+literal|"file:///tmp/camel?DELETE=true"
 argument_list|)
 operator|.
 name|routeId

@@ -120,6 +120,22 @@ name|HazelcastDefaultProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastOperation
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -207,10 +223,10 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|int
+name|HazelcastOperation
 name|operation
 init|=
-name|lookupOperationNumber
+name|lookupOperation
 argument_list|(
 name|exchange
 argument_list|)
@@ -221,14 +237,7 @@ name|operation
 condition|)
 block|{
 case|case
-operator|-
-literal|1
-case|:
-comment|// default operation to publish
-case|case
-name|HazelcastConstants
-operator|.
-name|PUBLISH_OPERATION
+name|PUBLISH
 case|:
 name|this
 operator|.

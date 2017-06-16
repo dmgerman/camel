@@ -248,7 +248,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// add first key
+comment|// ADD first key
 name|assertTrue
 argument_list|(
 name|repo
@@ -269,7 +269,7 @@ name|key01
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// try to add the same key again
+comment|// try to ADD the same key again
 name|assertFalse
 argument_list|(
 name|repo
@@ -290,7 +290,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// try to add an other one
+comment|// try to ADD an other one
 name|assertTrue
 argument_list|(
 name|repo
@@ -322,7 +322,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// add first key and confirm
+comment|// ADD first key and confirm
 name|assertTrue
 argument_list|(
 name|repo
@@ -375,7 +375,7 @@ name|key01
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// add key and check again
+comment|// ADD key and check again
 name|assertTrue
 argument_list|(
 name|repo
@@ -407,7 +407,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// add key to remove
+comment|// ADD key to remove
 name|assertTrue
 argument_list|(
 name|repo
@@ -438,7 +438,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// clear repo
+comment|// CLEAR repo
 name|repo
 operator|.
 name|clear
@@ -465,7 +465,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// add key to remove
+comment|// ADD key to remove
 name|assertTrue
 argument_list|(
 name|repo

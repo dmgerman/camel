@@ -152,20 +152,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|UriEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|UriParam
 import|;
 end_import
@@ -232,16 +218,9 @@ name|hazelcastInstanceName
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|enums
-operator|=
-literal|"put,delete,get,update,query,getAll,clear,evict,evictAll,putIfAbsent,addAll,removeAll,retainAll,valueCount,containsKey,containsValue,keySet,removevalue,increment"
-operator|+
-literal|",decrement,setvalue,destroy,compareAndSet,getAndAdd,add,offer,peek,poll,remainingCapacity,drainTo,publish,capacity,readonceHead,readonceTail"
-argument_list|)
 DECL|field|defaultOperation
 specifier|private
-name|String
+name|HazelcastOperation
 name|defaultOperation
 decl_stmt|;
 annotation|@
@@ -462,12 +441,12 @@ name|hazelcastInstanceName
 expr_stmt|;
 block|}
 comment|/**      * To specify a default operation to use, if no operation header has been provided.      */
-DECL|method|setDefaultOperation (String defaultOperation)
+DECL|method|setDefaultOperation (HazelcastOperation defaultOperation)
 specifier|public
 name|void
 name|setDefaultOperation
 parameter_list|(
-name|String
+name|HazelcastOperation
 name|defaultOperation
 parameter_list|)
 block|{
@@ -480,7 +459,7 @@ expr_stmt|;
 block|}
 DECL|method|getDefaultOperation ()
 specifier|public
-name|String
+name|HazelcastOperation
 name|getDefaultOperation
 parameter_list|()
 block|{

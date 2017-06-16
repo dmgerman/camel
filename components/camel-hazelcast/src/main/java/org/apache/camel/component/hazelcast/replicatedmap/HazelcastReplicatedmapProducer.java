@@ -130,6 +130,22 @@ name|HazelcastDefaultProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastOperation
+import|;
+end_import
+
 begin_class
 DECL|class|HazelcastReplicatedmapProducer
 specifier|public
@@ -207,7 +223,7 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-comment|// get header parameters
+comment|// GET header parameters
 name|Object
 name|oid
 init|=
@@ -238,10 +254,10 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|int
+name|HazelcastOperation
 name|operation
 init|=
-name|lookupOperationNumber
+name|lookupOperation
 argument_list|(
 name|exchange
 argument_list|)
@@ -252,9 +268,7 @@ name|operation
 condition|)
 block|{
 case|case
-name|HazelcastConstants
-operator|.
-name|PUT_OPERATION
+name|PUT
 case|:
 name|this
 operator|.
@@ -267,9 +281,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|GET_OPERATION
+name|GET
 case|:
 name|this
 operator|.
@@ -282,9 +294,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|DELETE_OPERATION
+name|DELETE
 case|:
 name|this
 operator|.
@@ -295,9 +305,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|CLEAR_OPERATION
+name|CLEAR
 case|:
 name|this
 operator|.
@@ -308,9 +316,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|CONTAINS_KEY_OPERATION
+name|CONTAINS_KEY
 case|:
 name|this
 operator|.
@@ -323,9 +329,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|CONTAINS_VALUE_OPERATION
+name|CONTAINS_VALUE
 case|:
 name|this
 operator|.

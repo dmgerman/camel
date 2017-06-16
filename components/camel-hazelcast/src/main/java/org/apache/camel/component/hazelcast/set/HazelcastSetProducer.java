@@ -142,6 +142,22 @@ name|HazelcastDefaultProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|hazelcast
+operator|.
+name|HazelcastOperation
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implementation of Hazelcast Set {@link Producer}.  */
 end_comment
@@ -206,10 +222,10 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|int
+name|HazelcastOperation
 name|operation
 init|=
-name|lookupOperationNumber
+name|lookupOperation
 argument_list|(
 name|exchange
 argument_list|)
@@ -220,9 +236,7 @@ name|operation
 condition|)
 block|{
 case|case
-name|HazelcastConstants
-operator|.
-name|ADD_OPERATION
+name|ADD
 case|:
 name|this
 operator|.
@@ -233,9 +247,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|REMOVEVALUE_OPERATION
+name|REMOVE_VALUE
 case|:
 name|this
 operator|.
@@ -246,9 +258,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|CLEAR_OPERATION
+name|CLEAR
 case|:
 name|this
 operator|.
@@ -257,9 +267,7 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|ADD_ALL_OPERATION
+name|ADD_ALL
 case|:
 name|this
 operator|.
@@ -270,9 +278,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|REMOVE_ALL_OPERATION
+name|REMOVE_ALL
 case|:
 name|this
 operator|.
@@ -283,9 +289,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|HazelcastConstants
-operator|.
-name|RETAIN_ALL_OPERATION
+name|RETAIN_ALL
 case|:
 name|this
 operator|.
