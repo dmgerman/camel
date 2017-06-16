@@ -1034,7 +1034,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Will allow asynchronous delayed redeliveries.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
+comment|/**      * Will allow asynchronous delayed redeliveries. The route, in particular the consumer's component,      * must support the Asynchronous Routing Engine (e.g. seda)      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public
 name|DefaultErrorHandlerBuilder

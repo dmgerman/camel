@@ -926,7 +926,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Allow synchronous delayed redelivery.      *      * @return the builder      */
+comment|/**      * Allow synchronous delayed redelivery. The route, in particular the consumer's component,      * must support the Asynchronous Routing Engine (e.g. seda).      *      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public
 name|RedeliveryPolicyDefinition
