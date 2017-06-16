@@ -90,12 +90,12 @@ argument_list|()
 operator|==
 name|GrpcProducerStrategy
 operator|.
-name|RPC
+name|SIMPLE
 condition|)
 block|{
 return|return
 operator|new
-name|GrpcRPCExchangeForwarder
+name|GrpcSimpleExchangeForwarder
 argument_list|(
 name|configuration
 argument_list|,

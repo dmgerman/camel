@@ -158,6 +158,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"SIMPLE"
 argument_list|)
 DECL|field|producerStrategy
 specifier|private
@@ -166,7 +170,7 @@ name|producerStrategy
 init|=
 name|GrpcProducerStrategy
 operator|.
-name|RPC
+name|SIMPLE
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -186,6 +190,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"PROPAGATION"
 argument_list|)
 DECL|field|consumerStrategy
 specifier|private
@@ -537,7 +545,7 @@ return|return
 name|producerStrategy
 return|;
 block|}
-comment|/**      * The mode used to communicate with a remote gRPC server.      * In RPC mode a single exchange is translated to a remote call.      * In STREAMING mode all exchanges will be sent within the same request (input and output of the recipient gRPC service must be of type 'stream').      */
+comment|/**      * The mode used to communicate with a remote gRPC server.      * In SIMPLE mode a single exchange is translated into a remote procedure call.      * In STREAMING mode all exchanges will be sent within the same request (input and output of the recipient gRPC service must be of type 'stream').      */
 DECL|method|setProducerStrategy (GrpcProducerStrategy producerStrategy)
 specifier|public
 name|void

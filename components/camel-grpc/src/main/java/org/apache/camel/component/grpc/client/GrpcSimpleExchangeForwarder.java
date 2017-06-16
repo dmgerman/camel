@@ -105,9 +105,9 @@ comment|/**  * An exchange forwarder that creates a RPC request for each camel E
 end_comment
 
 begin_class
-DECL|class|GrpcRPCExchangeForwarder
+DECL|class|GrpcSimpleExchangeForwarder
 class|class
-name|GrpcRPCExchangeForwarder
+name|GrpcSimpleExchangeForwarder
 implements|implements
 name|GrpcExchangeForwarder
 block|{
@@ -123,9 +123,9 @@ specifier|final
 name|Object
 name|grpcStub
 decl_stmt|;
-DECL|method|GrpcRPCExchangeForwarder (GrpcConfiguration configuration, Object grpcStub)
+DECL|method|GrpcSimpleExchangeForwarder (GrpcConfiguration configuration, Object grpcStub)
 specifier|public
-name|GrpcRPCExchangeForwarder
+name|GrpcSimpleExchangeForwarder
 parameter_list|(
 name|GrpcConfiguration
 name|configuration

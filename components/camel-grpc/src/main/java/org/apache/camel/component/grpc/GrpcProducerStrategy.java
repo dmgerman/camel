@@ -29,8 +29,8 @@ enum|enum
 name|GrpcProducerStrategy
 block|{
 comment|/**      * Transform each exchange into a RPC.      */
-DECL|enumConstant|RPC
-name|RPC
+DECL|enumConstant|SIMPLE
+name|SIMPLE
 block|,
 comment|/**      * Forward each exchange using a shared gRPC request.      */
 DECL|enumConstant|STREAMING
