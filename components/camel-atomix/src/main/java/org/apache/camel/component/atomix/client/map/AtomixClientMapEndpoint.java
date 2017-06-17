@@ -108,7 +108,7 @@ literal|"atomix-map"
 argument_list|,
 name|title
 operator|=
-literal|"atomix-map"
+literal|"Atomix Map"
 argument_list|,
 name|syntax
 operator|=
