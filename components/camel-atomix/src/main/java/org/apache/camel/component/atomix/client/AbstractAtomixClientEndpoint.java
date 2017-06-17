@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -80,6 +92,48 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_class
 DECL|class|AbstractAtomixClientEndpoint
 specifier|public
@@ -98,18 +152,32 @@ parameter_list|>
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|configuration
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The distributed resource name"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|resourceName
 specifier|private
 specifier|final
-name|C
-name|configuration
+name|String
+name|resourceName
 decl_stmt|;
 DECL|field|atomix
 specifier|private
 name|AtomixClient
 name|atomix
 decl_stmt|;
-DECL|method|AbstractAtomixClientEndpoint (String uri, T component, C configuration)
+DECL|method|AbstractAtomixClientEndpoint (String uri, T component, String resourceName)
 specifier|protected
 name|AbstractAtomixClientEndpoint
 parameter_list|(
@@ -119,8 +187,8 @@ parameter_list|,
 name|T
 name|component
 parameter_list|,
-name|C
-name|configuration
+name|String
+name|resourceName
 parameter_list|)
 block|{
 name|super
@@ -132,9 +200,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|configuration
+name|resourceName
 operator|=
-name|configuration
+name|resourceName
 expr_stmt|;
 block|}
 annotation|@
@@ -205,14 +273,45 @@ operator|==
 literal|null
 condition|)
 block|{
+specifier|final
+name|C
+name|configuration
+init|=
+name|getConfiguration
+argument_list|()
+decl_stmt|;
+specifier|final
+name|CamelContext
+name|context
+init|=
+name|getCamelContext
+argument_list|()
+decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|configuration
+argument_list|,
+literal|"Configuration"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|context
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
 name|atomix
 operator|=
 name|AtomixClientHelper
 operator|.
 name|createClient
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|context
 argument_list|,
 name|configuration
 argument_list|)
@@ -268,7 +367,7 @@ block|}
 block|}
 comment|// **********************************
 comment|// Helpers for implementations
-comment|// *********************************
+comment|// **********************************
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -290,18 +389,6 @@ name|getComponent
 argument_list|()
 return|;
 block|}
-DECL|method|getAtomixConfiguration ()
-specifier|public
-name|C
-name|getAtomixConfiguration
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|configuration
-return|;
-block|}
 DECL|method|getAtomix ()
 specifier|public
 name|AtomixClient
@@ -312,6 +399,36 @@ return|return
 name|atomix
 return|;
 block|}
+DECL|method|getResourceName ()
+specifier|public
+name|String
+name|getResourceName
+parameter_list|()
+block|{
+return|return
+name|resourceName
+return|;
+block|}
+comment|// **********************************
+comment|// Abstract
+comment|// **********************************
+DECL|method|getConfiguration ()
+specifier|public
+specifier|abstract
+name|C
+name|getConfiguration
+parameter_list|()
+function_decl|;
+DECL|method|setConfiguration (C configuration)
+specifier|public
+specifier|abstract
+name|void
+name|setConfiguration
+parameter_list|(
+name|C
+name|configuration
+parameter_list|)
+function_decl|;
 block|}
 end_class
 

@@ -46,6 +46,20 @@ name|AtomixConfiguration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_class
 DECL|class|AtomixClientConfiguration
 specifier|public
@@ -58,7 +72,45 @@ name|AtomixClient
 argument_list|>
 implements|implements
 name|Cloneable
-block|{ }
+block|{
+annotation|@
+name|UriParam
+DECL|field|resultHeader
+specifier|private
+name|String
+name|resultHeader
+decl_stmt|;
+comment|// ****************************************
+comment|// Properties
+comment|// ****************************************
+DECL|method|getResultHeader ()
+specifier|public
+name|String
+name|getResultHeader
+parameter_list|()
+block|{
+return|return
+name|resultHeader
+return|;
+block|}
+comment|/**      * The header that wil carry the result.      */
+DECL|method|setResultHeader (String resultHeader)
+specifier|public
+name|void
+name|setResultHeader
+parameter_list|(
+name|String
+name|resultHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resultHeader
+operator|=
+name|resultHeader
+expr_stmt|;
+block|}
+block|}
 end_class
 
 end_unit
