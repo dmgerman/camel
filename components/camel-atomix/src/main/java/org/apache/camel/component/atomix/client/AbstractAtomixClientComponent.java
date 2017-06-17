@@ -80,20 +80,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Metadata
-import|;
-end_import
-
 begin_class
 DECL|class|AbstractAtomixClientComponent
 specifier|public
@@ -108,42 +94,17 @@ parameter_list|>
 extends|extends
 name|DefaultComponent
 block|{
-annotation|@
-name|Metadata
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|configuration
-specifier|private
-name|C
-name|configuration
-decl_stmt|;
-DECL|method|AbstractAtomixClientComponent (C configuration)
+DECL|method|AbstractAtomixClientComponent ()
 specifier|protected
 name|AbstractAtomixClientComponent
-parameter_list|(
-name|C
-name|configuration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
-block|}
-DECL|method|AbstractAtomixClientComponent (CamelContext camelContext, C configuration)
+parameter_list|()
+block|{     }
+DECL|method|AbstractAtomixClientComponent (CamelContext camelContext)
 specifier|protected
 name|AbstractAtomixClientComponent
 parameter_list|(
 name|CamelContext
 name|camelContext
-parameter_list|,
-name|C
-name|configuration
 parameter_list|)
 block|{
 name|super
@@ -151,43 +112,10 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
 block|}
 comment|// *****************************************
 comment|// Properties
 comment|// *****************************************
-DECL|method|getConfiguration ()
-specifier|public
-name|C
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-name|configuration
-return|;
-block|}
-comment|/**      * The shared component configuration      */
-DECL|method|setConfiguration (C configuration)
-specifier|public
-name|void
-name|setConfiguration
-parameter_list|(
-name|C
-name|configuration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
-block|}
 DECL|method|getAtomix ()
 specifier|public
 name|AtomixClient
@@ -195,7 +123,8 @@ name|getAtomix
 parameter_list|()
 block|{
 return|return
-name|configuration
+name|getComponentConfiguration
+argument_list|()
 operator|.
 name|getAtomix
 argument_list|()
@@ -211,7 +140,8 @@ name|AtomixClient
 name|client
 parameter_list|)
 block|{
-name|configuration
+name|getComponentConfiguration
+argument_list|()
 operator|.
 name|setAtomix
 argument_list|(
@@ -229,7 +159,8 @@ name|getNodes
 parameter_list|()
 block|{
 return|return
-name|configuration
+name|getComponentConfiguration
+argument_list|()
 operator|.
 name|getNodes
 argument_list|()
@@ -248,7 +179,8 @@ argument_list|>
 name|nodes
 parameter_list|)
 block|{
-name|configuration
+name|getComponentConfiguration
+argument_list|()
 operator|.
 name|setNodes
 argument_list|(
@@ -265,7 +197,8 @@ name|String
 name|nodes
 parameter_list|)
 block|{
-name|configuration
+name|getComponentConfiguration
+argument_list|()
 operator|.
 name|setNodes
 argument_list|(
@@ -280,7 +213,8 @@ name|getConfigurationUri
 parameter_list|()
 block|{
 return|return
-name|configuration
+name|getComponentConfiguration
+argument_list|()
 operator|.
 name|getConfigurationUri
 argument_list|()
@@ -296,7 +230,8 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|configuration
+name|getComponentConfiguration
+argument_list|()
 operator|.
 name|setConfigurationUri
 argument_list|(
@@ -304,6 +239,16 @@ name|configurationUri
 argument_list|)
 expr_stmt|;
 block|}
+comment|// *****************************************
+comment|// Properties
+comment|// *****************************************
+DECL|method|getComponentConfiguration ()
+specifier|protected
+specifier|abstract
+name|C
+name|getComponentConfiguration
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

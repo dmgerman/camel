@@ -85,17 +85,22 @@ argument_list|<
 name|AtomixClientMapConfiguration
 argument_list|>
 block|{
+DECL|field|configuration
+specifier|private
+name|AtomixClientMapConfiguration
+name|configuration
+init|=
+operator|new
+name|AtomixClientMapConfiguration
+argument_list|()
+decl_stmt|;
 DECL|method|AtomixClientMapComponent ()
 specifier|public
 name|AtomixClientMapComponent
 parameter_list|()
 block|{
 name|super
-argument_list|(
-operator|new
-name|AtomixClientMapConfiguration
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|AtomixClientMapComponent (CamelContext camelContext)
@@ -109,13 +114,12 @@ block|{
 name|super
 argument_list|(
 name|camelContext
-argument_list|,
-operator|new
-name|AtomixClientMapConfiguration
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// **********************************************
+comment|// Endpoints
+comment|// **********************************************
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -143,10 +147,9 @@ block|{
 name|AtomixClientMapConfiguration
 name|configuration
 init|=
-name|super
+name|this
 operator|.
-name|getConfiguration
-argument_list|()
+name|configuration
 operator|.
 name|copy
 argument_list|()
@@ -170,6 +173,51 @@ name|configuration
 argument_list|,
 name|remaining
 argument_list|)
+return|;
+block|}
+comment|// **********************************************
+comment|// Properties
+comment|// **********************************************
+DECL|method|getConfiguration ()
+specifier|public
+name|AtomixClientMapConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|configuration
+return|;
+block|}
+comment|/**      * The shared component configuration      */
+DECL|method|setConfiguration (AtomixClientMapConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|AtomixClientMapConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getComponentConfiguration ()
+specifier|protected
+name|AtomixClientMapConfiguration
+name|getComponentConfiguration
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
 return|;
 block|}
 block|}

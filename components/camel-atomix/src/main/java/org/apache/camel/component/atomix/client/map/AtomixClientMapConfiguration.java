@@ -24,18 +24,6 @@ end_package
 
 begin_import
 import|import
-name|io
-operator|.
-name|atomix
-operator|.
-name|collections
-operator|.
-name|DistributedMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -150,46 +138,10 @@ specifier|private
 name|String
 name|resultHeader
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|config
-specifier|private
-name|DistributedMap
-operator|.
-name|Config
-name|config
-init|=
-operator|new
-name|DistributedMap
-operator|.
-name|Config
-argument_list|()
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|options
-specifier|private
-name|DistributedMap
-operator|.
-name|Options
-name|options
-init|=
-operator|new
-name|DistributedMap
-operator|.
-name|Options
-argument_list|()
-decl_stmt|;
+comment|//    @UriParam(label = "advanced")
+comment|//    private DistributedMap.Config config = new DistributedMap.Config();
+comment|//    @UriParam(label = "advanced")
+comment|//    private DistributedMap.Options options = new DistributedMap.Options();
 comment|// ****************************************
 comment|// Properties
 comment|// ****************************************
@@ -274,68 +226,27 @@ operator|=
 name|resultHeader
 expr_stmt|;
 block|}
-DECL|method|getConfig ()
-specifier|public
-name|DistributedMap
-operator|.
-name|Config
-name|getConfig
-parameter_list|()
-block|{
-return|return
-name|config
-return|;
-block|}
-comment|/**      * The cluster wide map config      */
-DECL|method|setConfig (DistributedMap.Config config)
-specifier|public
-name|void
-name|setConfig
-parameter_list|(
-name|DistributedMap
-operator|.
-name|Config
-name|config
-parameter_list|)
-block|{
-name|this
-operator|.
-name|config
-operator|=
-name|config
-expr_stmt|;
-block|}
-DECL|method|getOptions ()
-specifier|public
-name|DistributedMap
-operator|.
-name|Options
-name|getOptions
-parameter_list|()
-block|{
-return|return
-name|options
-return|;
-block|}
-comment|/**      * The local map options      */
-DECL|method|setOptions (DistributedMap.Options options)
-specifier|public
-name|void
-name|setOptions
-parameter_list|(
-name|DistributedMap
-operator|.
-name|Options
-name|options
-parameter_list|)
-block|{
-name|this
-operator|.
-name|options
-operator|=
-name|options
-expr_stmt|;
-block|}
+comment|//    public DistributedMap.Config getConfig() {
+comment|//        return config;
+comment|//    }
+comment|//
+comment|//    /**
+comment|//     * The cluster wide map config
+comment|//     */
+comment|//    public void setConfig(DistributedMap.Config config) {
+comment|//        this.config = config;
+comment|//    }
+comment|//
+comment|//    public DistributedMap.Options getOptions() {
+comment|//        return options;
+comment|//    }
+comment|//
+comment|//    /**
+comment|//     * The local map options
+comment|//     */
+comment|//    public void setOptions(DistributedMap.Options options) {
+comment|//        this.options = options;
+comment|//    }
 comment|// ****************************************
 comment|// Copy
 comment|// ****************************************

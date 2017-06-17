@@ -76,6 +76,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|atomix
+operator|.
+name|client
+operator|.
+name|AtomixClientAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|boot
@@ -141,11 +159,9 @@ extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
 comment|/**      * The shared component configuration      */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|configuration
 specifier|private
-name|C
+name|AtomixClientMapConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
 comment|/**      * The shared AtomixClient instance      */
@@ -181,7 +197,7 @@ literal|true
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
-name|C
+name|AtomixClientMapConfigurationNestedConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
@@ -189,12 +205,12 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|setConfiguration (C configuration)
+DECL|method|setConfiguration ( AtomixClientMapConfigurationNestedConfiguration configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|C
+name|AtomixClientMapConfigurationNestedConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -314,6 +330,134 @@ name|resolvePropertyPlaceholders
 operator|=
 name|resolvePropertyPlaceholders
 expr_stmt|;
+block|}
+DECL|class|AtomixClientMapConfigurationNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|AtomixClientMapConfigurationNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|atomix
+operator|.
+name|client
+operator|.
+name|map
+operator|.
+name|AtomixClientMapConfiguration
+operator|.
+name|class
+decl_stmt|;
+comment|/**          * The default action.          */
+DECL|field|defaultAction
+specifier|private
+name|AtomixClientAction
+name|defaultAction
+decl_stmt|;
+comment|/**          * The resource ttl.          */
+DECL|field|ttl
+specifier|private
+name|Long
+name|ttl
+decl_stmt|;
+comment|/**          * The header that wil carry the result.          */
+DECL|field|resultHeader
+specifier|private
+name|String
+name|resultHeader
+decl_stmt|;
+DECL|method|getDefaultAction ()
+specifier|public
+name|AtomixClientAction
+name|getDefaultAction
+parameter_list|()
+block|{
+return|return
+name|defaultAction
+return|;
+block|}
+DECL|method|setDefaultAction (AtomixClientAction defaultAction)
+specifier|public
+name|void
+name|setDefaultAction
+parameter_list|(
+name|AtomixClientAction
+name|defaultAction
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultAction
+operator|=
+name|defaultAction
+expr_stmt|;
+block|}
+DECL|method|getTtl ()
+specifier|public
+name|Long
+name|getTtl
+parameter_list|()
+block|{
+return|return
+name|ttl
+return|;
+block|}
+DECL|method|setTtl (Long ttl)
+specifier|public
+name|void
+name|setTtl
+parameter_list|(
+name|Long
+name|ttl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ttl
+operator|=
+name|ttl
+expr_stmt|;
+block|}
+DECL|method|getResultHeader ()
+specifier|public
+name|String
+name|getResultHeader
+parameter_list|()
+block|{
+return|return
+name|resultHeader
+return|;
+block|}
+DECL|method|setResultHeader (String resultHeader)
+specifier|public
+name|void
+name|setResultHeader
+parameter_list|(
+name|String
+name|resultHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resultHeader
+operator|=
+name|resultHeader
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
