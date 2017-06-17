@@ -254,7 +254,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"hazelcast-seda:foo?transacted=true"
+literal|"hazelcast-seda:foo?transacted=true&onErrorDelay=5"
 argument_list|)
 operator|.
 name|to

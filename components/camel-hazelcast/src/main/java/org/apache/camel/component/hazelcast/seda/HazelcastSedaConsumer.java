@@ -792,7 +792,13 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getOnErrorDelay
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

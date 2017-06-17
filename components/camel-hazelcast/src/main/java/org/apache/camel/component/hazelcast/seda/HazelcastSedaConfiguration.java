@@ -109,6 +109,24 @@ argument_list|(
 name|label
 operator|=
 literal|"seda"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
+DECL|field|onErrorDelay
+specifier|private
+name|int
+name|onErrorDelay
+init|=
+literal|1000
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"seda"
 argument_list|)
 DECL|field|transferExchange
 specifier|private
@@ -253,6 +271,50 @@ parameter_list|()
 block|{
 return|return
 name|transferExchange
+return|;
+block|}
+comment|/**      * Milliseconds before consumer continues polling after an error has occurred.      */
+DECL|method|setOnErrorDelay (int onErrorDelay)
+specifier|public
+name|void
+name|setOnErrorDelay
+parameter_list|(
+name|int
+name|onErrorDelay
+parameter_list|)
+block|{
+if|if
+condition|(
+name|onErrorDelay
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Property onErrorDelay must be a positive number, was "
+operator|+
+name|onErrorDelay
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|onErrorDelay
+operator|=
+name|onErrorDelay
+expr_stmt|;
+block|}
+DECL|method|getOnErrorDelay ()
+specifier|public
+name|int
+name|getOnErrorDelay
+parameter_list|()
+block|{
+return|return
+name|onErrorDelay
 return|;
 block|}
 comment|/**      * If set to true the whole Exchange will be transfered. If header or body contains not serializable objects, they will be skipped.      */
