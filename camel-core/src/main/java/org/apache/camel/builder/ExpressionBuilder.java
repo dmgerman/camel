@@ -286,6 +286,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExpressionEvaluationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|InvalidPayloadException
 import|;
 end_import
@@ -347,6 +359,18 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeExchangeException
 import|;
 end_import
 
@@ -6316,7 +6340,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|groupXmlIteratorExpression (final Expression expression, final int group)
+DECL|method|groupXmlIteratorExpression (final Expression expression, final String group)
 specifier|public
 specifier|static
 name|Expression
@@ -6327,7 +6351,7 @@ name|Expression
 name|expression
 parameter_list|,
 specifier|final
-name|int
+name|String
 name|group
 parameter_list|)
 block|{
@@ -6380,6 +6404,73 @@ literal|" must return an java.util.Iterator"
 argument_list|)
 expr_stmt|;
 comment|// must use GroupTokenIterator in xml mode as we want to concat the xml parts into a single message
+comment|// the group can be a simple expression so evaluate it as a number
+name|Integer
+name|parts
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"simple"
+argument_list|)
+operator|.
+name|createExpression
+argument_list|(
+name|group
+argument_list|)
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|parts
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Group evaluated as null, must be evaluated as a positive Integer value from expression: "
+operator|+
+name|group
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|parts
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Group must be a positive number, was: "
+operator|+
+name|parts
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|GroupTokenIterator
@@ -6390,7 +6481,7 @@ name|it
 argument_list|,
 literal|null
 argument_list|,
-name|group
+name|parts
 argument_list|,
 literal|false
 argument_list|)
@@ -6418,7 +6509,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|groupIteratorExpression (final Expression expression, final String token, final int group, final boolean skipFirst)
+DECL|method|groupIteratorExpression (final Expression expression, final String token, final String group, final boolean skipFirst)
 specifier|public
 specifier|static
 name|Expression
@@ -6433,7 +6524,7 @@ name|String
 name|token
 parameter_list|,
 specifier|final
-name|int
+name|String
 name|group
 parameter_list|,
 specifier|final
@@ -6489,6 +6580,73 @@ operator|+
 literal|" must return an java.util.Iterator"
 argument_list|)
 expr_stmt|;
+comment|// the group can be a simple expression so evaluate it as a number
+name|Integer
+name|parts
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"simple"
+argument_list|)
+operator|.
+name|createExpression
+argument_list|(
+name|group
+argument_list|)
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|parts
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Group evaluated as null, must be evaluated as a positive Integer value from expression: "
+operator|+
+name|group
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|parts
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Group must be a positive number, was: "
+operator|+
+name|parts
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|token
@@ -6506,7 +6664,7 @@ name|it
 argument_list|,
 name|token
 argument_list|,
-name|group
+name|parts
 argument_list|,
 name|skipFirst
 argument_list|)
@@ -6522,7 +6680,7 @@ name|exchange
 argument_list|,
 name|it
 argument_list|,
-name|group
+name|parts
 argument_list|,
 name|skipFirst
 argument_list|)
@@ -9920,6 +10078,8 @@ name|exp
 argument_list|,
 literal|null
 argument_list|,
+literal|""
+operator|+
 name|group
 argument_list|,
 literal|false

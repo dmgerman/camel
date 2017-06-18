@@ -253,7 +253,7 @@ annotation|@
 name|XmlAttribute
 DECL|field|group
 specifier|private
-name|Integer
+name|String
 name|group
 decl_stmt|;
 annotation|@
@@ -471,7 +471,7 @@ expr_stmt|;
 block|}
 DECL|method|getGroup ()
 specifier|public
-name|Integer
+name|String
 name|getGroup
 parameter_list|()
 block|{
@@ -479,13 +479,13 @@ return|return
 name|group
 return|;
 block|}
-comment|/**      * To group N parts together, for example to split big files into chunks of 1000 lines.      */
-DECL|method|setGroup (Integer group)
+comment|/**      * To group N parts together, for example to split big files into chunks of 1000 lines.      * You can use simple language as the group to support dynamic group sizes.      */
+DECL|method|setGroup (String group)
 specifier|public
 name|void
 name|setGroup
 parameter_list|(
-name|Integer
+name|String
 name|group
 parameter_list|)
 block|{
@@ -644,23 +644,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|group
-operator|<=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Group must be a positive number, was: "
-operator|+
-name|group
-argument_list|)
-throw|;
-block|}
 name|language
 operator|.
 name|setGroup

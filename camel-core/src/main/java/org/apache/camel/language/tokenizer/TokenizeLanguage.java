@@ -161,7 +161,7 @@ name|includeTokens
 decl_stmt|;
 DECL|field|group
 specifier|private
-name|int
+name|String
 name|group
 decl_stmt|;
 DECL|field|skipFirst
@@ -597,7 +597,7 @@ if|if
 condition|(
 name|group
 operator|==
-literal|0
+literal|null
 operator|&&
 name|skipFirst
 condition|)
@@ -618,8 +618,8 @@ comment|// if group then wrap answer in group expression
 if|if
 condition|(
 name|group
-operator|>
-literal|0
+operator|!=
+literal|null
 condition|)
 block|{
 if|if
@@ -878,7 +878,7 @@ expr_stmt|;
 block|}
 DECL|method|getGroup ()
 specifier|public
-name|int
+name|String
 name|getGroup
 parameter_list|()
 block|{
@@ -886,12 +886,12 @@ return|return
 name|group
 return|;
 block|}
-DECL|method|setGroup (int group)
+DECL|method|setGroup (String group)
 specifier|public
 name|void
 name|setGroup
 parameter_list|(
-name|int
+name|String
 name|group
 parameter_list|)
 block|{
