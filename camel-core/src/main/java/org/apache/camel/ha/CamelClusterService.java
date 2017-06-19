@@ -66,7 +66,7 @@ name|CamelContextAware
 extends|,
 name|IdAware
 block|{
-comment|/**      * Get a view of the cluster bound to a namespace creating it if needed.      *      * @param namespace the namespace the view refer to.      * @return the view.      * @throws Exception if the view can't be created.      */
+comment|/**      * Get a view of the cluster bound to a namespace creating it if needed.      *      * Multiple calls to this method with the same namespace should return the      * same instance.      *      * @param namespace the namespace the view refer to.      * @return the view.      * @throws Exception if the view can't be created.      */
 DECL|method|getView (String namespace)
 name|CamelClusterView
 name|getView
@@ -77,6 +77,60 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Access the underlying concrete CamelClusterService implementation to      * provide access to further features.      *      * @param clazz the proprietary class or interface of the underlying concrete CamelClusterService.      * @return an instance of the underlying concrete CamelClusterService as the required type.      */
+DECL|method|unwrap (Class<T> clazz)
+specifier|default
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|unwrap
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|clazz
+parameter_list|)
+block|{
+if|if
+condition|(
+name|CamelClusterService
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|clazz
+argument_list|)
+condition|)
+block|{
+return|return
+name|clazz
+operator|.
+name|cast
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unable to unwrap this CamelClusterService type ("
+operator|+
+name|getClass
+argument_list|()
+operator|+
+literal|") to the required type ("
+operator|+
+name|clazz
+operator|+
+literal|")"
+argument_list|)
+throw|;
+block|}
 block|}
 end_interface
 

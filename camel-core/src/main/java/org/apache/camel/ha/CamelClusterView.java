@@ -128,6 +128,60 @@ name|CameClusterEventListener
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Access the underlying concrete CamelClusterView implementation to      * provide access to further features.      *      * @param clazz the proprietary class or interface of the underlying concrete CamelClusterView.      * @return an instance of the underlying concrete CamelClusterView as the required type.      */
+DECL|method|unwrap (Class<T> clazz)
+specifier|default
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|unwrap
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|clazz
+parameter_list|)
+block|{
+if|if
+condition|(
+name|CamelClusterView
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|clazz
+argument_list|)
+condition|)
+block|{
+return|return
+name|clazz
+operator|.
+name|cast
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unable to unwrap this CamelClusterView type ("
+operator|+
+name|getClass
+argument_list|()
+operator|+
+literal|") to the required type ("
+operator|+
+name|clazz
+operator|+
+literal|")"
+argument_list|)
+throw|;
+block|}
 block|}
 end_interface
 

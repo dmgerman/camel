@@ -173,11 +173,11 @@ name|ServiceSupport
 implements|implements
 name|CamelClusterView
 block|{
-DECL|field|cluster
+DECL|field|clusterService
 specifier|private
 specifier|final
 name|CamelClusterService
-name|cluster
+name|clusterService
 decl_stmt|;
 DECL|field|namespace
 specifier|private
@@ -218,7 +218,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|cluster
+name|clusterService
 operator|=
 name|cluster
 expr_stmt|;
@@ -287,7 +287,7 @@ block|{
 return|return
 name|this
 operator|.
-name|cluster
+name|clusterService
 return|;
 block|}
 annotation|@
