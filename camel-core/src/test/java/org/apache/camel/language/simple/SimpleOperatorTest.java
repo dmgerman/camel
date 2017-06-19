@@ -1626,6 +1626,43 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testContainsIgnoreCase ()
+specifier|public
+name|void
+name|testContainsIgnoreCase
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} ~~ 'A'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} ~~ 'Ab'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} ~~ 'Abc'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} ~~ 'defG'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testRegex ()
 specifier|public
 name|void
