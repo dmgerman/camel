@@ -394,6 +394,8 @@ DECL|field|maxCacheEntries
 specifier|private
 name|int
 name|maxCacheEntries
+init|=
+literal|100
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -410,6 +412,10 @@ DECL|field|encryptionAlgorithm
 specifier|private
 name|EncryptionAlgorithm
 name|encryptionAlgorithm
+init|=
+name|EncryptionAlgorithm
+operator|.
+name|RSA_SHA_256
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -426,6 +432,8 @@ DECL|field|authenticationType
 specifier|private
 name|String
 name|authenticationType
+init|=
+name|APP_USER_AUTHENTICATION
 decl_stmt|;
 annotation|@
 name|UriParam
