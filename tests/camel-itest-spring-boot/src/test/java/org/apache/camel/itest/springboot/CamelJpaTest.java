@@ -164,6 +164,12 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+comment|// Exclude tests which require build time enhancement of @Entity annotated classes
+operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(.*Idempotent.*Test$|JpaUsePersistTest$|JpaTraceEventMessageTest$)"
+argument_list|)
 operator|.
 name|build
 argument_list|()
