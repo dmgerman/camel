@@ -59,6 +59,12 @@ name|Object
 name|instance
 parameter_list|)
 function_decl|;
+comment|/**      * Whether the injector supports creating new instances using auto-wiring.      * If this is possible then bean instances is attempt first to be created this way      * and if not, then the bean can only be created if there is a public no-arg constructor.      */
+DECL|method|supportsAutoWiring ()
+name|boolean
+name|supportsAutoWiring
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

@@ -172,6 +172,19 @@ name|instance
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|supportsAutoWiring ()
+specifier|public
+name|boolean
+name|supportsAutoWiring
+parameter_list|()
+block|{
+comment|// TODO: cdi to support some kind of @Inject on constructors?
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

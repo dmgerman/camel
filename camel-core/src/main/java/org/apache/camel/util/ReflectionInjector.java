@@ -138,6 +138,18 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|supportsAutoWiring ()
+specifier|public
+name|boolean
+name|supportsAutoWiring
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 
