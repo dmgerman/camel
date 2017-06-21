@@ -1248,10 +1248,31 @@ annotation|@
 name|XmlAttribute
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|lazyLoadTypeConverters
 specifier|private
 name|Boolean
 name|lazyLoadTypeConverters
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|loadTypeConverters
+specifier|private
+name|Boolean
+name|loadTypeConverters
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -3906,6 +3927,35 @@ operator|.
 name|lazyLoadTypeConverters
 operator|=
 name|lazyLoadTypeConverters
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getLoadTypeConverters ()
+specifier|public
+name|Boolean
+name|getLoadTypeConverters
+parameter_list|()
+block|{
+return|return
+name|loadTypeConverters
+return|;
+block|}
+comment|/**      * Sets whether to load custom type converters by scanning classpath.      * This can be turned off if you are only using Camel components      * that does not provide type converters which is needed at runtime.      * In such situations setting this option to false, can speedup starting      * Camel.      *      * @param loadTypeConverters whether to load custom type converters.      */
+DECL|method|setLoadTypeConverters (Boolean loadTypeConverters)
+specifier|public
+name|void
+name|setLoadTypeConverters
+parameter_list|(
+name|Boolean
+name|loadTypeConverters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadTypeConverters
+operator|=
+name|loadTypeConverters
 expr_stmt|;
 block|}
 DECL|method|getTypeConverterStatisticsEnabled ()

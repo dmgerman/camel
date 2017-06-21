@@ -2880,6 +2880,15 @@ name|Boolean
 operator|.
 name|FALSE
 decl_stmt|;
+DECL|field|loadTypeConverters
+specifier|private
+name|Boolean
+name|loadTypeConverters
+init|=
+name|Boolean
+operator|.
+name|TRUE
+decl_stmt|;
 DECL|field|typeConverterStatisticsEnabled
 specifier|private
 name|Boolean
@@ -21593,6 +21602,9 @@ argument_list|()
 argument_list|,
 name|getDefaultFactoryFinder
 argument_list|()
+argument_list|,
+name|isLoadTypeConverters
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -22612,6 +22624,36 @@ operator|.
 name|lazyLoadTypeConverters
 operator|=
 name|lazyLoadTypeConverters
+expr_stmt|;
+block|}
+DECL|method|isLoadTypeConverters ()
+specifier|public
+name|Boolean
+name|isLoadTypeConverters
+parameter_list|()
+block|{
+return|return
+name|loadTypeConverters
+operator|!=
+literal|null
+operator|&&
+name|loadTypeConverters
+return|;
+block|}
+DECL|method|setLoadTypeConverters (Boolean loadTypeConverters)
+specifier|public
+name|void
+name|setLoadTypeConverters
+parameter_list|(
+name|Boolean
+name|loadTypeConverters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadTypeConverters
+operator|=
+name|loadTypeConverters
 expr_stmt|;
 block|}
 DECL|method|isTypeConverterStatisticsEnabled ()

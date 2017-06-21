@@ -547,6 +547,17 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Whether to load additional type converters by scanning the classpath.      * This should only be enabled for tests that uses custom type converters.      */
+DECL|method|isLoadTypeConverters ()
+specifier|protected
+name|boolean
+name|isLoadTypeConverters
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|stopCamelContext ()
 specifier|protected
 name|void
@@ -677,6 +688,14 @@ operator|.
 name|setLazyLoadTypeConverters
 argument_list|(
 name|isLazyLoadingTypeConverter
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|setLoadTypeConverters
+argument_list|(
+name|isLoadTypeConverters
 argument_list|()
 argument_list|)
 expr_stmt|;

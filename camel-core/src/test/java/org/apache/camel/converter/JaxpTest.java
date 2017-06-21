@@ -282,6 +282,8 @@ operator|new
 name|DefaultClassResolver
 argument_list|()
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 annotation|@

@@ -989,6 +989,13 @@ name|lazyLoadTypeConverters
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|loadTypeConverters
+specifier|private
+name|Boolean
+name|loadTypeConverters
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|typeConverterStatisticsEnabled
 specifier|private
 name|Boolean
@@ -2698,6 +2705,34 @@ operator|.
 name|lazyLoadTypeConverters
 operator|=
 name|lazyLoadTypeConverters
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getLoadTypeConverters ()
+specifier|public
+name|Boolean
+name|getLoadTypeConverters
+parameter_list|()
+block|{
+return|return
+name|loadTypeConverters
+return|;
+block|}
+DECL|method|setLoadTypeConverters (Boolean loadTypeConverters)
+specifier|public
+name|void
+name|setLoadTypeConverters
+parameter_list|(
+name|Boolean
+name|loadTypeConverters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadTypeConverters
+operator|=
+name|loadTypeConverters
 expr_stmt|;
 block|}
 DECL|method|getTypeConverterStatisticsEnabled ()

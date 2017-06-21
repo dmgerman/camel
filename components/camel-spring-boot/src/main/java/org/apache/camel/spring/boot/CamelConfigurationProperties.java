@@ -136,6 +136,14 @@ name|typeConversion
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Sets whether to load custom type converters by scanning classpath.      * This can be turned off if you are only using Camel components      * that does not provide type converters which is needed at runtime.      * In such situations setting this option to false, can speedup starting      * Camel.      */
+DECL|field|loadTypeConverters
+specifier|private
+name|boolean
+name|loadTypeConverters
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      */
 DECL|field|xmlRoutes
 specifier|private
@@ -727,6 +735,32 @@ operator|.
 name|typeConversion
 operator|=
 name|typeConversion
+expr_stmt|;
+block|}
+DECL|method|isLoadTypeConverters ()
+specifier|public
+name|boolean
+name|isLoadTypeConverters
+parameter_list|()
+block|{
+return|return
+name|loadTypeConverters
+return|;
+block|}
+DECL|method|setLoadTypeConverters (boolean loadTypeConverters)
+specifier|public
+name|void
+name|setLoadTypeConverters
+parameter_list|(
+name|boolean
+name|loadTypeConverters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadTypeConverters
+operator|=
+name|loadTypeConverters
 expr_stmt|;
 block|}
 DECL|method|getXmlRoutes ()

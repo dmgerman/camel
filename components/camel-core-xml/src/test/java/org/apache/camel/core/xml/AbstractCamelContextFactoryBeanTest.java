@@ -449,6 +449,8 @@ argument_list|()
 argument_list|,
 literal|"META-INF/services/org/apache/camel/"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// properties that should return value that can be converted to boolean

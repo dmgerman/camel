@@ -72,7 +72,13 @@ name|DefaultTypeConverter
 extends|extends
 name|BaseTypeConverterRegistry
 block|{
-DECL|method|DefaultTypeConverter (PackageScanClassResolver resolver, Injector injector, FactoryFinder factoryFinder)
+DECL|field|loadTypeConverters
+specifier|private
+specifier|final
+name|boolean
+name|loadTypeConverters
+decl_stmt|;
+DECL|method|DefaultTypeConverter (PackageScanClassResolver resolver, Injector injector, FactoryFinder factoryFinder, boolean loadTypeConverters)
 specifier|public
 name|DefaultTypeConverter
 parameter_list|(
@@ -84,6 +90,9 @@ name|injector
 parameter_list|,
 name|FactoryFinder
 name|factoryFinder
+parameter_list|,
+name|boolean
+name|loadTypeConverters
 parameter_list|)
 block|{
 name|super
@@ -94,6 +103,12 @@ name|injector
 argument_list|,
 name|factoryFinder
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|loadTypeConverters
+operator|=
+name|loadTypeConverters
 expr_stmt|;
 block|}
 annotation|@
@@ -136,26 +151,59 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// load type converters up front
+comment|// core type converters is always loaded which does not use any classpath scanning
+comment|// and therefore is fast
 name|loadCoreTypeConverters
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|loadTypeConverters
+condition|)
+block|{
+name|int
+name|core
+init|=
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+comment|// load type converters up front
 name|loadTypeConverters
 argument_list|()
 expr_stmt|;
+name|int
+name|additional
+init|=
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+operator|-
+name|core
+decl_stmt|;
+if|if
+condition|(
+name|additional
+operator|>
+literal|0
+condition|)
+block|{
 comment|// report how many type converters we have loaded
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Loaded {} type converters"
+literal|"Type converters loaded (core: {}, classpath: {})"
 argument_list|,
-name|typeMappings
-operator|.
-name|size
-argument_list|()
+name|core
+argument_list|,
+name|additional
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 end_class

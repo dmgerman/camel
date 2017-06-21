@@ -3078,6 +3078,24 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|getLoadTypeConverters
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|setLoadTypeConverters
+argument_list|(
+name|getLoadTypeConverters
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|getLazyLoadTypeConverters
 argument_list|()
 operator|!=
@@ -5164,6 +5182,13 @@ specifier|public
 specifier|abstract
 name|Boolean
 name|getLazyLoadTypeConverters
+parameter_list|()
+function_decl|;
+DECL|method|getLoadTypeConverters ()
+specifier|public
+specifier|abstract
+name|Boolean
+name|getLoadTypeConverters
 parameter_list|()
 function_decl|;
 DECL|method|getTypeConverterStatisticsEnabled ()

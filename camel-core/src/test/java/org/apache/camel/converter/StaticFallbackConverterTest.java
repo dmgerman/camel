@@ -108,6 +108,18 @@ name|StaticFallbackConverterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|isLoadTypeConverters ()
+specifier|protected
+name|boolean
+name|isLoadTypeConverters
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|testStaticFallbackConverter ()
 specifier|public
 name|void

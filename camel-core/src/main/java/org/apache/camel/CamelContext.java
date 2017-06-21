@@ -2788,6 +2788,21 @@ name|Boolean
 name|lazyLoadTypeConverters
 parameter_list|)
 function_decl|;
+comment|/**      * Sets whether to load custom type converters by scanning classpath.      * This can be turned off if you are only using Camel components      * that does not provide type converters which is needed at runtime.      * In such situations setting this option to false, can speedup starting      * Camel.      */
+DECL|method|isLoadTypeConverters ()
+name|Boolean
+name|isLoadTypeConverters
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether to load custom type converters by scanning classpath.      * This can be turned off if you are only using Camel components      * that does not provide type converters which is needed at runtime.      * In such situations setting this option to false, can speedup starting      * Camel.      *      * @param loadTypeConverters whether to load custom type converters.      */
+DECL|method|setLoadTypeConverters (Boolean loadTypeConverters)
+name|void
+name|setLoadTypeConverters
+parameter_list|(
+name|Boolean
+name|loadTypeConverters
+parameter_list|)
+function_decl|;
 comment|/**      * Whether or not type converter statistics is enabled.      *<p/>      * By default the type converter utilization statistics is disabled.      *<b>Notice:</b> If enabled then there is a slight performance impact under very heavy load.      *      * @return<tt>true</tt> if enabled,<tt>false</tt> if disabled (default).      */
 DECL|method|isTypeConverterStatisticsEnabled ()
 name|Boolean
