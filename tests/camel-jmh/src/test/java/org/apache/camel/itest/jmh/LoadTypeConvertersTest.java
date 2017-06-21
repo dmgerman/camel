@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests start/stop {@link org.apache.camel.CamelContext}  */
+comment|/**  * Tests loading type converters from classpath scanning.  */
 end_comment
 
 begin_class
