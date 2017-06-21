@@ -642,6 +642,14 @@ condition|(
 name|group
 operator|!=
 literal|null
+operator|&&
+operator|!
+literal|"0"
+operator|.
+name|equals
+argument_list|(
+name|group
+argument_list|)
 condition|)
 block|{
 name|language
