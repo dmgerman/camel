@@ -374,8 +374,7 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
-comment|// The JMH samples are the best documentation for how to use it
-comment|// http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
+comment|/**      * Setup a fresh CamelContext per invocation      */
 annotation|@
 name|State
 argument_list|(
@@ -398,7 +397,7 @@ name|Setup
 argument_list|(
 name|Level
 operator|.
-name|Trial
+name|Invocation
 argument_list|)
 DECL|method|initialize ()
 specifier|public
@@ -418,7 +417,7 @@ name|TearDown
 argument_list|(
 name|Level
 operator|.
-name|Trial
+name|Invocation
 argument_list|)
 DECL|method|close ()
 specifier|public
