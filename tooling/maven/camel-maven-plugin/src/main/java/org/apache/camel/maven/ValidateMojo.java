@@ -399,7 +399,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parses the source code and validates the Camel routes has valid endpoint uris and simple expressions.  *  * @goal validate  */
+comment|/**  * Parses the source code and validates the Camel routes has valid endpoint uris and simple expressions.  *  * @goal validate  * @threadSafe  */
 end_comment
 
 begin_class
