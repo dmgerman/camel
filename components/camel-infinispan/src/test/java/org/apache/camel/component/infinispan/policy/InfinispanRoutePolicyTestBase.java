@@ -116,8 +116,8 @@ name|InfinispanRoutePolicyTestBase
 block|{
 DECL|field|CACHE_NAME
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|CACHE_NAME
 init|=
@@ -125,8 +125,8 @@ literal|"camel-route-policy"
 decl_stmt|;
 DECL|field|CACHE_KEY
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|CACHE_KEY
 init|=
