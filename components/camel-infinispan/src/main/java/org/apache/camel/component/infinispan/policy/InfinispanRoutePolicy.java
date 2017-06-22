@@ -944,28 +944,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|this
-operator|.
-name|lockValue
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|lockValue
-operator|=
-name|camelContext
-operator|.
-name|getUuidGenerator
-argument_list|()
-operator|.
-name|generateUuid
-argument_list|()
-expr_stmt|;
-block|}
 try|try
 block|{
 name|this
@@ -1016,6 +994,14 @@ literal|"Lock lifespan can not be less that 2 seconds"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|manager
+operator|.
+name|isCacheContainerEmbedded
+argument_list|()
+condition|)
+block|{
 name|BasicCache
 argument_list|<
 name|String
@@ -1031,14 +1017,6 @@ argument_list|(
 name|lockMapName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|manager
-operator|.
-name|isCacheContainerEmbedded
-argument_list|()
-condition|)
-block|{
 name|this
 operator|.
 name|service
@@ -1057,6 +1035,25 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// By default, previously existing values for java.util.Map operations
+comment|// are not returned for remote caches but policy needs it so force it.
+name|BasicCache
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|cache
+init|=
+name|manager
+operator|.
+name|getCache
+argument_list|(
+name|lockMapName
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 name|this
 operator|.
 name|service
@@ -2225,10 +2222,35 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-comment|// Looks like I've lost the leadership.
 name|setLeader
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|version
+operator|=
+name|cache
+operator|.
+name|getWithMetadata
+argument_list|(
+name|lockKey
+argument_list|)
+operator|.
+name|getVersion
+argument_list|()
+expr_stmt|;
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Lock refreshed key={} with new version={}"
+argument_list|,
+name|lockKey
+argument_list|,
+name|version
 argument_list|)
 expr_stmt|;
 block|}
@@ -2355,14 +2377,14 @@ block|}
 block|}
 annotation|@
 name|ClientCacheEntryRemoved
-DECL|method|onCacheEntryRemoved (ClientCacheEntryRemovedEvent<Object> event)
+DECL|method|onCacheEntryRemoved (ClientCacheEntryRemovedEvent<String> event)
 specifier|public
 name|void
 name|onCacheEntryRemoved
 parameter_list|(
 name|ClientCacheEntryRemovedEvent
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|event
 parameter_list|)
@@ -2389,14 +2411,14 @@ block|}
 block|}
 annotation|@
 name|ClientCacheEntryExpired
-DECL|method|onCacheEntryExpired (ClientCacheEntryExpiredEvent<Object> event)
+DECL|method|onCacheEntryExpired (ClientCacheEntryExpiredEvent<String> event)
 specifier|public
 name|void
 name|onCacheEntryExpired
 parameter_list|(
 name|ClientCacheEntryExpiredEvent
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|event
 parameter_list|)
