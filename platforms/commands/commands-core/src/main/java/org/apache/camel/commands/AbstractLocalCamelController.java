@@ -3567,6 +3567,13 @@ condition|(
 name|context
 operator|!=
 literal|null
+operator|&&
+name|context
+operator|.
+name|getRuntimeEndpointRegistry
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|EndpointRegistry
