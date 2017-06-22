@@ -596,7 +596,7 @@ specifier|final
 name|Integer
 name|val
 init|=
-literal|1
+literal|2
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -628,7 +628,7 @@ name|CaffeineConstants
 operator|.
 name|ACTION_HAS_RESULT
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|mock
