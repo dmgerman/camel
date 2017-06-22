@@ -104,6 +104,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The atomix-map component is used to access Atomix's<a href="http://atomix.io/atomix/docs/collections/#distributedmap">distributed map</a>.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

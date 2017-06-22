@@ -104,6 +104,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The atomix-set component is used to access Atomix's<a href="http://atomix.io/atomix/docs/collections/#distributedset">distributed set</a>.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

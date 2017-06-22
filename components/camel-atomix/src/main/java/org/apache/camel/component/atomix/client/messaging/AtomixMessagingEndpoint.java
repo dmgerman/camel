@@ -104,6 +104,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The atomix-messaging component is used to access Atomix's<a href="http://atomix.io/atomix/docs/groups/#messaging">group messaging</a>.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

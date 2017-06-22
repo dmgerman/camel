@@ -201,6 +201,11 @@ name|Cloneable
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|javaType
+operator|=
+literal|"io.atomix.Atomix"
+argument_list|)
 DECL|field|atomix
 specifier|private
 name|T
@@ -229,6 +234,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|javaType
+operator|=
+literal|"io.atomix.catalyst.transport.Transport"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"io.atomix.catalyst.transport.netty.NettyTransport"
