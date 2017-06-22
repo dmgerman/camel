@@ -388,7 +388,14 @@ specifier|public
 name|void
 name|setUp
 parameter_list|()
+throws|throws
+name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|when
 argument_list|(
 name|ldapEndpoint
@@ -408,7 +415,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|NullPointerException
+name|UnsupportedOperationException
 operator|.
 name|class
 argument_list|)
@@ -442,7 +449,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|NullPointerException
+name|UnsupportedOperationException
 operator|.
 name|class
 argument_list|)
