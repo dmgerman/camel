@@ -226,10 +226,10 @@ name|CaffeineConstants
 operator|.
 name|ACTION_CLEANUP
 argument_list|)
-DECL|method|onClear (Message message)
+DECL|method|onCleanUp (Message message)
 specifier|public
 name|void
-name|onClear
+name|onCleanUp
 parameter_list|(
 name|Message
 name|message
