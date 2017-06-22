@@ -1287,6 +1287,8 @@ argument_list|,
 name|injector
 argument_list|,
 name|factoryFinder
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// inject CamelContext

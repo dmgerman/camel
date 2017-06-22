@@ -297,6 +297,21 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|supportsAutoWiring ()
+specifier|public
+name|boolean
+name|supportsAutoWiring
+parameter_list|()
+block|{
+return|return
+name|delegate
+operator|.
+name|supportsAutoWiring
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
