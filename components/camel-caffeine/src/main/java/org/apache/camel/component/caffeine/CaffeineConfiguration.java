@@ -289,7 +289,7 @@ literal|"producer"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"size_based"
+literal|"SIZE_BASED"
 argument_list|)
 DECL|field|evictionType
 specifier|private
