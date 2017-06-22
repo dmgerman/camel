@@ -374,7 +374,7 @@ name|result
 init|=
 name|cache
 operator|.
-name|getIfPresent
+name|get
 argument_list|(
 name|getKey
 argument_list|(
