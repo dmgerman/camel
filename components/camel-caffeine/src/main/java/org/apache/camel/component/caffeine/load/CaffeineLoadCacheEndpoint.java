@@ -216,6 +216,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The caffeine-loadcache component is used for integration with Caffeine Load Cache.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

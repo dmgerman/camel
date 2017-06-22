@@ -216,6 +216,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The caffeine-cache component is used for integration with Caffeine Cache.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
