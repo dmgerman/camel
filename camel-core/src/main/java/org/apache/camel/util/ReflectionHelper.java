@@ -36,18 +36,6 @@ name|lang
 operator|.
 name|reflect
 operator|.
-name|InvocationTargetException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
 name|Method
 import|;
 end_import
@@ -61,18 +49,6 @@ operator|.
 name|reflect
 operator|.
 name|Modifier
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|UndeclaredThrowableException
 import|;
 end_import
 

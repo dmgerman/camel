@@ -26,20 +26,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|LongAdder
-import|;
-end_import
-
 begin_comment
 comment|/**  * Various statistics about endpoint utilization, such as from EIP patterns that uses dynamic endpoints.  */
 end_comment
