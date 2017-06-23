@@ -135,10 +135,7 @@ name|assertEquals
 argument_list|(
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getMessageId
+name|getExchangeId
 argument_list|()
 argument_list|,
 name|exchange
@@ -196,10 +193,7 @@ name|assertEquals
 argument_list|(
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getMessageId
+name|getExchangeId
 argument_list|()
 argument_list|,
 name|exchange

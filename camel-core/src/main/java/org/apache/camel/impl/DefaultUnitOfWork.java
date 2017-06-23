@@ -732,15 +732,12 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// no existing breadcrumb, so create a new one based on the message id
+comment|// no existing breadcrumb, so create a new one based on the exchange id
 name|breadcrumbId
 operator|=
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getMessageId
+name|getExchangeId
 argument_list|()
 expr_stmt|;
 name|exchange
