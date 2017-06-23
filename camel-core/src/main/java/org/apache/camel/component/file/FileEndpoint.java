@@ -847,6 +847,8 @@ operator|.
 name|bindToExchange
 argument_list|(
 name|exchange
+argument_list|,
+name|probeContentType
 argument_list|)
 expr_stmt|;
 block|}

@@ -276,6 +276,8 @@ operator|.
 name|populateHeaders
 argument_list|(
 name|message
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertEquals

@@ -97,11 +97,16 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// because there is not probeContentType option
+comment|// in other file based components, false may be passed
+comment|// as the second argument.
 name|super
 operator|.
 name|populateHeaders
 argument_list|(
 name|message
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|message
