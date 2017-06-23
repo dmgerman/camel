@@ -1115,6 +1115,29 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
+comment|// add the routes to the inflight registry so they are pre-installed
+for|for
+control|(
+name|Route
+name|route
+range|:
+name|routes
+control|)
+block|{
+name|camelContext
+operator|.
+name|getInflightRepository
+argument_list|()
+operator|.
+name|addRoute
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|doStart ()

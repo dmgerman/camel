@@ -183,6 +183,15 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
+comment|/**      * Adds the route from the in flight registry.      *<p/>      * Is used for initializing up resources      *      * @param routeId the id of the route      */
+DECL|method|addRoute (String routeId)
+name|void
+name|addRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
 comment|/**      * Removes the route from the in flight registry.      *<p/>      * Is used for cleaning up resources to avoid leaking.      *      * @param routeId the id of the route      */
 DECL|method|removeRoute (String routeId)
 name|void
