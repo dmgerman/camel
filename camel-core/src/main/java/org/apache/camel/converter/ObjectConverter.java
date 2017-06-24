@@ -93,6 +93,9 @@ specifier|private
 name|ObjectConverter
 parameter_list|()
 block|{     }
+comment|/**      * @deprecated not in use      */
+annotation|@
+name|Deprecated
 DECL|method|isCollection (Object value)
 specifier|public
 specifier|static
