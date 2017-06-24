@@ -2461,7 +2461,9 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-return|return
+name|Object
+name|value
+init|=
 name|exchange
 operator|.
 name|getProperty
@@ -2469,13 +2471,18 @@ argument_list|(
 name|Exchange
 operator|.
 name|INTERRUPTED
-argument_list|,
-literal|false
-argument_list|,
-name|boolean
-operator|.
-name|class
 argument_list|)
+decl_stmt|;
+return|return
+name|value
+operator|!=
+literal|null
+operator|&&
+name|Boolean
+operator|.
+name|TRUE
+operator|==
+name|value
 return|;
 block|}
 comment|/**      * Check whether or not stream caching is enabled for the given route or globally.      *      * @param exchange  the exchange      * @return<tt>true</tt> if enabled,<tt>false</tt> otherwise      */

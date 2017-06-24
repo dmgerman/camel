@@ -350,7 +350,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|1
 argument_list|,
 name|hit
 operator|.
@@ -375,7 +375,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|1
 argument_list|,
 name|coreHit
 operator|.
