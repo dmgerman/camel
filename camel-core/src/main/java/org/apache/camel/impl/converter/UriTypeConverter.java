@@ -79,6 +79,8 @@ comment|/**  * A {@link TypeConverter} that converts to and from {@link URI}s.  
 end_comment
 
 begin_class
+annotation|@
+name|Converter
 DECL|class|UriTypeConverter
 specifier|public
 specifier|final

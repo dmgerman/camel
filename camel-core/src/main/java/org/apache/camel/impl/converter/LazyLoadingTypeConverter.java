@@ -217,6 +217,8 @@ parameter_list|,
 name|boolean
 name|tryConvert
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Object
 name|answer

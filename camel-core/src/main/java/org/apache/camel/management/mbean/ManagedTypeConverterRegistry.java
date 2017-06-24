@@ -290,6 +290,22 @@ name|getHitCounter
 argument_list|()
 return|;
 block|}
+DECL|method|getCoreHitCounter ()
+specifier|public
+name|long
+name|getCoreHitCounter
+parameter_list|()
+block|{
+return|return
+name|registry
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|getCoreHitCounter
+argument_list|()
+return|;
+block|}
 DECL|method|getMissCounter ()
 specifier|public
 name|long

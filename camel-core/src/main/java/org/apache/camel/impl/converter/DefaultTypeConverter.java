@@ -183,13 +183,6 @@ argument_list|()
 operator|-
 name|core
 decl_stmt|;
-if|if
-condition|(
-name|additional
-operator|>
-literal|0
-condition|)
-block|{
 comment|// report how many type converters we have loaded
 name|log
 operator|.
@@ -202,7 +195,6 @@ argument_list|,
 name|additional
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

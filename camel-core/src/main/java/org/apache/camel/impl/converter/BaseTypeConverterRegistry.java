@@ -678,6 +678,16 @@ operator|new
 name|LongAdder
 argument_list|()
 decl_stmt|;
+DECL|field|coreHitCounter
+specifier|protected
+specifier|final
+name|LongAdder
+name|coreHitCounter
+init|=
+operator|new
+name|LongAdder
+argument_list|()
+decl_stmt|;
 DECL|field|hitCounter
 specifier|protected
 specifier|final
@@ -1516,6 +1526,8 @@ specifier|final
 name|boolean
 name|tryConvert
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -1529,7 +1541,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Converting {} -> {} with value: {}"
+literal|"Finding type converter to convert {} -> {} with value: {}"
 argument_list|,
 operator|new
 name|Object
@@ -1758,11 +1770,33 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|statistics
+operator|.
+name|isStatisticsEnabled
+argument_list|()
+condition|)
+block|{
+name|coreHitCounter
+operator|.
+name|increment
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Using optimised converter to convert: {} -> {}"
+literal|"Using optimised core converter to convert: {} -> {}"
 argument_list|,
 name|type
 argument_list|,
@@ -1770,8 +1804,12 @@ name|value
 operator|.
 name|getClass
 argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|result
 return|;
@@ -3961,6 +3999,21 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getCoreHitCounter ()
+specifier|public
+name|long
+name|getCoreHitCounter
+parameter_list|()
+block|{
+return|return
+name|coreHitCounter
+operator|.
+name|longValue
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getMissCounter ()
 specifier|public
 name|long
@@ -4008,6 +4061,11 @@ name|reset
 argument_list|()
 expr_stmt|;
 name|hitCounter
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|coreHitCounter
 operator|.
 name|reset
 argument_list|()
@@ -4066,7 +4124,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"TypeConverterRegistry utilization[noop=%s, attempts=%s, hits=%s, misses=%s, failures=%s]"
+literal|"TypeConverterRegistry utilization[noop=%s, attempts=%s, hits=%s, coreHits=%s, misses=%s, failures=%s]"
 argument_list|,
 name|getNoopCounter
 argument_list|()
@@ -4075,6 +4133,9 @@ name|getAttemptCounter
 argument_list|()
 argument_list|,
 name|getHitCounter
+argument_list|()
+argument_list|,
+name|getCoreHitCounter
 argument_list|()
 argument_list|,
 name|getMissCounter
