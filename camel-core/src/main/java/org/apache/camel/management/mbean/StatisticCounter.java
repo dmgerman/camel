@@ -63,7 +63,7 @@ parameter_list|)
 block|{
 name|value
 operator|.
-name|addAndGet
+name|getAndAdd
 argument_list|(
 name|newValue
 argument_list|)
