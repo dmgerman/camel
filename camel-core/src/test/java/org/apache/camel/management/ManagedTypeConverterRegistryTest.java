@@ -309,6 +309,20 @@ name|intValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// reset
+name|mbeanServer
+operator|.
+name|invoke
+argument_list|(
+name|name
+argument_list|,
+literal|"resetTypeConversionCounters"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -336,7 +350,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|3
 argument_list|,
 name|hit
 operator|.
@@ -361,7 +375,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|3
 argument_list|,
 name|coreHit
 operator|.
