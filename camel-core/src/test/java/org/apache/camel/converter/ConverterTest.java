@@ -1721,7 +1721,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"java.lang.IllegalArgumentException: String must have exactly a length of 1: ABC"
+literal|"String must have exactly a length of 1: ABC"
 argument_list|,
 name|e
 operator|.

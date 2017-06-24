@@ -1011,12 +1011,6 @@ operator|.
 name|class
 operator|==
 name|type
-operator|||
-name|Boolean
-operator|.
-name|class
-operator|==
-name|type
 condition|)
 block|{
 return|return
@@ -1111,12 +1105,6 @@ comment|// lets avoid NullPointerException when converting to boolean for null v
 if|if
 condition|(
 name|boolean
-operator|.
-name|class
-operator|==
-name|type
-operator|||
-name|Boolean
 operator|.
 name|class
 operator|==
