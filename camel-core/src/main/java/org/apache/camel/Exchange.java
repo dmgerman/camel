@@ -548,6 +548,12 @@ name|INTERCEPT_SEND_TO_ENDPOINT_WHEN_MATCHED
 init|=
 literal|"CamelInterceptSendToEndpointWhenMatched"
 decl_stmt|;
+DECL|field|INTERRUPTED
+name|String
+name|INTERRUPTED
+init|=
+literal|"CamelInterrupted"
+decl_stmt|;
 DECL|field|LANGUAGE_SCRIPT
 name|String
 name|LANGUAGE_SCRIPT

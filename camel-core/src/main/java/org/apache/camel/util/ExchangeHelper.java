@@ -2464,14 +2464,18 @@ block|{
 return|return
 name|exchange
 operator|.
-name|getException
+name|getProperty
 argument_list|(
-name|InterruptedException
+name|Exchange
+operator|.
+name|INTERRUPTED
+argument_list|,
+literal|false
+argument_list|,
+name|boolean
 operator|.
 name|class
 argument_list|)
-operator|!=
-literal|null
 return|;
 block|}
 comment|/**      * Check whether or not stream caching is enabled for the given route or globally.      *      * @param exchange  the exchange      * @return<tt>true</tt> if enabled,<tt>false</tt> otherwise      */

@@ -1833,6 +1833,26 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|t
+operator|instanceof
+name|InterruptedException
+condition|)
+block|{
+comment|// mark the exchange as interrupted due to the interrupt exception
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|INTERRUPTED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getPattern ()
 specifier|public
