@@ -156,10 +156,7 @@ name|assertEquals
 argument_list|(
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getMessageId
+name|getExchangeId
 argument_list|()
 argument_list|,
 name|MDC
@@ -207,10 +204,7 @@ name|assertEquals
 argument_list|(
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getMessageId
+name|getExchangeId
 argument_list|()
 argument_list|,
 name|MDC
