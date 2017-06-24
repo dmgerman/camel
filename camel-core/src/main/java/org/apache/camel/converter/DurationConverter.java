@@ -38,28 +38,8 @@ name|Converter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
-comment|/**  * Converters for java.time.Duration.  * Provides a converter from a string (ISO-8601) to a Duration,  * a Duration to a string (ISO-8601) and  * a Duration to millis (long)  */
+comment|/**  * Converters for java.time.Duration.  */
 end_comment
 
 begin_class
@@ -71,22 +51,6 @@ specifier|final
 class|class
 name|DurationConverter
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DurationConverter
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|DurationConverter ()
 specifier|private
@@ -105,99 +69,51 @@ name|Duration
 name|source
 parameter_list|)
 block|{
-name|long
-name|milliseconds
-init|=
+return|return
 name|source
 operator|.
 name|toMillis
 argument_list|()
-decl_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"source: {} milliseconds: "
-argument_list|,
-name|source
-argument_list|,
-name|milliseconds
-argument_list|)
-expr_stmt|;
-return|return
-name|milliseconds
 return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|fromString (String source)
+DECL|method|toDuration (String source)
 specifier|public
 specifier|static
 name|Duration
-name|fromString
+name|toDuration
 parameter_list|(
 name|String
 name|source
 parameter_list|)
 block|{
-name|Duration
-name|duration
-init|=
+return|return
 name|Duration
 operator|.
 name|parse
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"source: {} milliseconds: "
-argument_list|,
-name|source
-argument_list|,
-name|duration
-argument_list|)
-expr_stmt|;
-return|return
-name|duration
 return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|asString (Duration source)
+DECL|method|toString (Duration source)
 specifier|public
 specifier|static
 name|String
-name|asString
+name|toString
 parameter_list|(
 name|Duration
 name|source
 parameter_list|)
 block|{
-name|String
-name|result
-init|=
+return|return
 name|source
 operator|.
 name|toString
 argument_list|()
-decl_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"source: {} milliseconds: "
-argument_list|,
-name|source
-argument_list|,
-name|result
-argument_list|)
-expr_stmt|;
-return|return
-name|result
 return|;
 block|}
 block|}
