@@ -71,10 +71,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ShutdownGracefuTimeoutTriggerTest
+DECL|class|ShutdownGracefulTimeoutTriggerTest
 specifier|public
 class|class
-name|ShutdownGracefuTimeoutTriggerTest
+name|ShutdownGracefulTimeoutTriggerTest
 extends|extends
 name|ContextTestSupport
 block|{
