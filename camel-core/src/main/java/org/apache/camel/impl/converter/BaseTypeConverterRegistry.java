@@ -1646,11 +1646,11 @@ block|}
 comment|// special for NaN numbers, which we can only convert for floating numbers
 if|if
 condition|(
+operator|(
 name|value
 operator|instanceof
-name|Number
+name|Float
 operator|&&
-operator|(
 name|value
 operator|.
 name|equals
@@ -1659,7 +1659,13 @@ name|Float
 operator|.
 name|NaN
 argument_list|)
+operator|)
 operator|||
+operator|(
+name|value
+operator|instanceof
+name|Double
+operator|&&
 name|value
 operator|.
 name|equals
