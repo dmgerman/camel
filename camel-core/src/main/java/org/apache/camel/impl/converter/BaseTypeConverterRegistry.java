@@ -1628,6 +1628,11 @@ comment|// special for NaN numbers, which we can only convert for floating numbe
 if|if
 condition|(
 name|value
+operator|instanceof
+name|Number
+operator|&&
+operator|(
+name|value
 operator|.
 name|equals
 argument_list|(
@@ -1644,6 +1649,7 @@ name|Double
 operator|.
 name|NaN
 argument_list|)
+operator|)
 condition|)
 block|{
 comment|// no type conversion was needed
