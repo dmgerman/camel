@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|codahale
@@ -100,7 +90,7 @@ operator|.
 name|Context
 name|context
 decl_stmt|;
-DECL|method|MetricsMessageHistory (String routeId, NamedNode namedNode, Timer timer)
+DECL|method|MetricsMessageHistory (String routeId, NamedNode namedNode, Timer timer, long timestamp)
 specifier|public
 name|MetricsMessageHistory
 parameter_list|(
@@ -112,6 +102,9 @@ name|namedNode
 parameter_list|,
 name|Timer
 name|timer
+parameter_list|,
+name|long
+name|timestamp
 parameter_list|)
 block|{
 name|super
@@ -120,9 +113,7 @@ name|routeId
 argument_list|,
 name|namedNode
 argument_list|,
-operator|new
-name|Date
-argument_list|()
+name|timestamp
 argument_list|)
 expr_stmt|;
 name|this

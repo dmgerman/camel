@@ -46,10 +46,18 @@ name|NamedNode
 name|getNode
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the timestamp at the point of this history.      */
+comment|/**      * Gets the timestamp at the point of this history.      *      * @deprecated use {@link #getTime()}      */
+annotation|@
+name|Deprecated
 DECL|method|getTimestamp ()
 name|Date
 name|getTimestamp
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the timestamp at the point of this history.      */
+DECL|method|getTime ()
+name|long
+name|getTime
 parameter_list|()
 function_decl|;
 comment|/**      * Gets the elapsed time in millis processing the node took      */

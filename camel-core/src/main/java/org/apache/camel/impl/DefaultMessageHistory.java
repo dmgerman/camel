@@ -83,7 +83,7 @@ decl_stmt|;
 DECL|field|timestamp
 specifier|private
 specifier|final
-name|Date
+name|long
 name|timestamp
 decl_stmt|;
 DECL|field|elapsed
@@ -91,7 +91,7 @@ specifier|private
 name|long
 name|elapsed
 decl_stmt|;
-DECL|method|DefaultMessageHistory (String routeId, NamedNode node, Date timestamp)
+DECL|method|DefaultMessageHistory (String routeId, NamedNode node, long timestamp)
 specifier|public
 name|DefaultMessageHistory
 parameter_list|(
@@ -101,7 +101,7 @@ parameter_list|,
 name|NamedNode
 name|node
 parameter_list|,
-name|Date
+name|long
 name|timestamp
 parameter_list|)
 block|{
@@ -160,6 +160,22 @@ name|getTimestamp
 parameter_list|()
 block|{
 return|return
+operator|new
+name|Date
+argument_list|(
+name|timestamp
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getTime ()
+specifier|public
+name|long
+name|getTime
+parameter_list|()
+block|{
+return|return
 name|timestamp
 return|;
 block|}
@@ -182,8 +198,8 @@ block|{
 if|if
 condition|(
 name|timestamp
-operator|!=
-literal|null
+operator|>
+literal|0
 condition|)
 block|{
 name|elapsed
@@ -194,9 +210,6 @@ name|currentTimeMillis
 argument_list|()
 operator|-
 name|timestamp
-operator|.
-name|getTime
-argument_list|()
 expr_stmt|;
 block|}
 block|}

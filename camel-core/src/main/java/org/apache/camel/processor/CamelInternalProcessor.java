@@ -3429,8 +3429,9 @@ name|targetRouteId
 argument_list|,
 name|definition
 argument_list|,
-operator|new
-name|Date
+name|System
+operator|.
+name|currentTimeMillis
 argument_list|()
 argument_list|)
 decl_stmt|;

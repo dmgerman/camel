@@ -460,7 +460,7 @@ argument_list|(
 literal|null
 argument_list|)
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -566,7 +566,7 @@ argument_list|(
 literal|"nodeId"
 argument_list|)
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

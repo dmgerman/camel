@@ -451,6 +451,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Deprecated
 DECL|method|newMessageHistory (String routeId, NamedNode namedNode, Date date)
 specifier|public
 name|MessageHistory
@@ -464,6 +466,37 @@ name|namedNode
 parameter_list|,
 name|Date
 name|date
+parameter_list|)
+block|{
+return|return
+name|newMessageHistory
+argument_list|(
+name|routeId
+argument_list|,
+name|namedNode
+argument_list|,
+name|date
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|newMessageHistory (String routeId, NamedNode namedNode, long timestamp)
+specifier|public
+name|MessageHistory
+name|newMessageHistory
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|NamedNode
+name|namedNode
+parameter_list|,
+name|long
+name|timestamp
 parameter_list|)
 block|{
 name|Timer
@@ -495,6 +528,8 @@ argument_list|,
 name|namedNode
 argument_list|,
 name|timer
+argument_list|,
+name|timestamp
 argument_list|)
 return|;
 block|}
