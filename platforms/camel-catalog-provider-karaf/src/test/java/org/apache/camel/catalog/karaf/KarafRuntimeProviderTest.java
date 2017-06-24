@@ -282,14 +282,14 @@ literal|"paxlogging"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// camel-docker does not work in Karaf
+comment|// camel-ejb does not work in Karaf
 name|assertFalse
 argument_list|(
 name|names
 operator|.
 name|contains
 argument_list|(
-literal|"docker"
+literal|"ejb"
 argument_list|)
 argument_list|)
 expr_stmt|;
