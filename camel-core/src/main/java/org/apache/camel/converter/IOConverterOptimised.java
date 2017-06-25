@@ -148,6 +148,18 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StreamCache
+import|;
+end_import
+
 begin_comment
 comment|/**  * Optimised {@link IOConverter}  */
 end_comment
@@ -197,6 +209,26 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
+comment|// if the value is StreamCache then ensure its readable before doing conversions
+comment|// by resetting it (this is also what StreamCachingAdvice does)
+if|if
+condition|(
+name|value
+operator|instanceof
+name|StreamCache
+condition|)
+block|{
+operator|(
+operator|(
+name|StreamCache
+operator|)
+name|value
+operator|)
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|type
@@ -952,6 +984,26 @@ operator|.
 name|class
 condition|)
 block|{
+comment|// if the value is both an InputStream and StreamCache then ensure its readable
+comment|// before doing conversions by resetting it (this is also what StreamCachingAdvice does)
+if|if
+condition|(
+name|value
+operator|instanceof
+name|StreamCache
+condition|)
+block|{
+operator|(
+operator|(
+name|StreamCache
+operator|)
+name|value
+operator|)
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|IOConverter
 operator|.
