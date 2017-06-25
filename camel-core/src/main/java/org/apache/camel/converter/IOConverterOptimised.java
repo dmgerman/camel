@@ -984,26 +984,6 @@ operator|.
 name|class
 condition|)
 block|{
-comment|// if the value is both an InputStream and StreamCache then ensure its readable
-comment|// before doing conversions by resetting it (this is also what StreamCachingAdvice does)
-if|if
-condition|(
-name|value
-operator|instanceof
-name|StreamCache
-condition|)
-block|{
-operator|(
-operator|(
-name|StreamCache
-operator|)
-name|value
-operator|)
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|IOConverter
 operator|.
