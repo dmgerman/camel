@@ -110,6 +110,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The gRPC component allows to call and expose remote procedures via HTTP/2 with protobuf dataformat  */
 end_comment
@@ -132,7 +146,7 @@ literal|"gRPC"
 argument_list|,
 name|syntax
 operator|=
-literal|"grpc:service"
+literal|"grpc:host:port/service"
 argument_list|,
 name|label
 operator|=
@@ -152,6 +166,16 @@ specifier|protected
 specifier|final
 name|GrpcConfiguration
 name|configuration
+decl_stmt|;
+DECL|field|serviceName
+specifier|private
+name|String
+name|serviceName
+decl_stmt|;
+DECL|field|servicePackage
+specifier|private
+name|String
+name|servicePackage
 decl_stmt|;
 DECL|method|GrpcEndpoint (String uri, GrpcComponent component, GrpcConfiguration config)
 specifier|public
@@ -182,6 +206,63 @@ name|configuration
 operator|=
 name|config
 expr_stmt|;
+comment|// Extract service and package names from the full service name
+name|serviceName
+operator|=
+name|GrpcUtils
+operator|.
+name|extractServiceName
+argument_list|(
+name|configuration
+operator|.
+name|getService
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|servicePackage
+operator|=
+name|GrpcUtils
+operator|.
+name|extractServicePackage
+argument_list|(
+name|configuration
+operator|.
+name|getService
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Convert method name to the camel case style
+comment|// This requires if method name as described inside .proto file directly
+if|if
+condition|(
+operator|!
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getMethod
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|configuration
+operator|.
+name|setMethod
+argument_list|(
+name|GrpcUtils
+operator|.
+name|convertMethod2CamelCase
+argument_list|(
+name|configuration
+operator|.
+name|getMethod
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|createProducer ()
 specifier|public
@@ -254,6 +335,26 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|getServiceName ()
+specifier|public
+name|String
+name|getServiceName
+parameter_list|()
+block|{
+return|return
+name|serviceName
+return|;
+block|}
+DECL|method|getServicePackage ()
+specifier|public
+name|String
+name|getServicePackage
+parameter_list|()
+block|{
+return|return
+name|servicePackage
 return|;
 block|}
 block|}

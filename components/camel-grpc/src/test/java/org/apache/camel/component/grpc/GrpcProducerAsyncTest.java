@@ -343,8 +343,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"gRPC server started on port "
-operator|+
+literal|"gRPC server started on port {}"
+argument_list|,
 name|GRPC_TEST_PORT
 argument_list|)
 expr_stmt|;
@@ -1125,9 +1125,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?method=pingSyncSync&host=localhost&port="
+literal|"grpc://localhost:"
 operator|+
 name|GRPC_TEST_PORT
+operator|+
+literal|"/org.apache.camel.component.grpc.PingPong?method=pingSyncSync"
 argument_list|)
 expr_stmt|;
 name|from
@@ -1137,9 +1139,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?method=pingSyncAsync&host=localhost&port="
+literal|"grpc://localhost:"
 operator|+
 name|GRPC_TEST_PORT
+operator|+
+literal|"/org.apache.camel.component.grpc.PingPong?method=pingSyncAsync"
 argument_list|)
 expr_stmt|;
 name|from
@@ -1149,9 +1153,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?method=pingAsyncSync&host=localhost&port="
+literal|"grpc://localhost:"
 operator|+
 name|GRPC_TEST_PORT
+operator|+
+literal|"/org.apache.camel.component.grpc.PingPong?method=pingAsyncSync"
 argument_list|)
 expr_stmt|;
 name|from
@@ -1161,9 +1167,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?method=pingAsyncAsync&host=localhost&port="
+literal|"grpc://localhost:"
 operator|+
 name|GRPC_TEST_PORT
+operator|+
+literal|"/org.apache.camel.component.grpc.PingPong?method=pingAsyncAsync"
 argument_list|)
 expr_stmt|;
 block|}

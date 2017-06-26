@@ -278,8 +278,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"gRPC server started on port "
-operator|+
+literal|"gRPC server started on port {}"
+argument_list|,
 name|GRPC_TEST_PORT
 argument_list|)
 expr_stmt|;
@@ -691,9 +691,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?producerStrategy=STREAMING&streamRepliesTo=direct:grpc-replies&method=pingAsyncAsync&host=localhost&port="
+literal|"grpc://localhost:"
 operator|+
 name|GRPC_TEST_PORT
+operator|+
+literal|"/org.apache.camel.component.grpc.PingPong?producerStrategy=STREAMING&streamRepliesTo=direct:grpc-replies&method=pingAsyncAsync"
 argument_list|)
 expr_stmt|;
 name|from
@@ -897,8 +899,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Error in pingAsyncAsync() "
-operator|+
+literal|"Error in pingAsyncAsync() {}"
+argument_list|,
 name|t
 operator|.
 name|getMessage
