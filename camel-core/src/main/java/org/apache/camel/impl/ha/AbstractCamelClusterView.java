@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|ha
 operator|.
-name|CameClusterEventListener
+name|CamelClusterEventListener
 import|;
 end_import
 
@@ -190,7 +190,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|CameClusterEventListener
+name|CamelClusterEventListener
 argument_list|>
 name|listeners
 decl_stmt|;
@@ -306,12 +306,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addEventListener (CameClusterEventListener listener)
+DECL|method|addEventListener (CamelClusterEventListener listener)
 specifier|public
 name|void
 name|addEventListener
 parameter_list|(
-name|CameClusterEventListener
+name|CamelClusterEventListener
 name|listener
 parameter_list|)
 block|{
@@ -334,12 +334,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|removeEventListener (CameClusterEventListener listener)
+DECL|method|removeEventListener (CamelClusterEventListener listener)
 specifier|public
 name|void
 name|removeEventListener
 parameter_list|(
-name|CameClusterEventListener
+name|CamelClusterEventListener
 name|listener
 parameter_list|)
 block|{
@@ -372,7 +372,7 @@ specifier|private
 parameter_list|<
 name|T
 extends|extends
-name|CameClusterEventListener
+name|CamelClusterEventListener
 parameter_list|>
 name|void
 name|doWithListener
@@ -417,7 +417,7 @@ name|i
 operator|++
 control|)
 block|{
-name|CameClusterEventListener
+name|CamelClusterEventListener
 name|listener
 init|=
 name|listeners
@@ -466,7 +466,7 @@ parameter_list|)
 block|{
 name|doWithListener
 argument_list|(
-name|CameClusterEventListener
+name|CamelClusterEventListener
 operator|.
 name|Leadership
 operator|.
@@ -496,7 +496,7 @@ parameter_list|)
 block|{
 name|doWithListener
 argument_list|(
-name|CameClusterEventListener
+name|CamelClusterEventListener
 operator|.
 name|Membership
 operator|.
@@ -526,7 +526,7 @@ parameter_list|)
 block|{
 name|doWithListener
 argument_list|(
-name|CameClusterEventListener
+name|CamelClusterEventListener
 operator|.
 name|Membership
 operator|.

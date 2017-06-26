@@ -152,7 +152,7 @@ name|camel
 operator|.
 name|ha
 operator|.
-name|CameClusterEventListener
+name|CamelClusterEventListener
 import|;
 end_import
 
@@ -349,7 +349,7 @@ decl_stmt|;
 DECL|field|leadershipEventListener
 specifier|private
 specifier|final
-name|CameClusterEventListener
+name|CamelClusterEventListener
 operator|.
 name|Leadership
 name|leadershipEventListener
@@ -980,7 +980,7 @@ specifier|private
 class|class
 name|CamelClusterLeadershipListener
 implements|implements
-name|CameClusterEventListener
+name|CamelClusterEventListener
 operator|.
 name|Leadership
 block|{

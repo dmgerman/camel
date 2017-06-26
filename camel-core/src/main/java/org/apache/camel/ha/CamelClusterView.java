@@ -111,20 +111,20 @@ name|getMembers
 parameter_list|()
 function_decl|;
 comment|/**      * Add an event listener.      *      * @param listener the event listener.      */
-DECL|method|addEventListener (CameClusterEventListener listener)
+DECL|method|addEventListener (CamelClusterEventListener listener)
 name|void
 name|addEventListener
 parameter_list|(
-name|CameClusterEventListener
+name|CamelClusterEventListener
 name|listener
 parameter_list|)
 function_decl|;
 comment|/**      * Remove the event listener.      *      * @param listener the event listener.      */
-DECL|method|removeEventListener (CameClusterEventListener listener)
+DECL|method|removeEventListener (CamelClusterEventListener listener)
 name|void
 name|removeEventListener
 parameter_list|(
-name|CameClusterEventListener
+name|CamelClusterEventListener
 name|listener
 parameter_list|)
 function_decl|;

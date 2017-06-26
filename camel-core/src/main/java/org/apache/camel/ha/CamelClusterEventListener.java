@@ -21,16 +21,16 @@ comment|/**  * Marker interface  */
 end_comment
 
 begin_interface
-DECL|interface|CameClusterEventListener
+DECL|interface|CamelClusterEventListener
 specifier|public
 interface|interface
-name|CameClusterEventListener
+name|CamelClusterEventListener
 block|{
 DECL|interface|Leadership
 interface|interface
 name|Leadership
 extends|extends
-name|CameClusterEventListener
+name|CamelClusterEventListener
 block|{
 DECL|method|leadershipChanged (CamelClusterView view, CamelClusterMember leader)
 name|void
@@ -48,7 +48,7 @@ DECL|interface|Membership
 interface|interface
 name|Membership
 extends|extends
-name|CameClusterEventListener
+name|CamelClusterEventListener
 block|{
 DECL|method|memberAdded (CamelClusterView view, CamelClusterMember leader)
 name|void
