@@ -92,22 +92,6 @@ name|component
 operator|.
 name|atomix
 operator|.
-name|AtomixConfigurationAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|atomix
-operator|.
 name|client
 operator|.
 name|AtomixClientConfiguration
@@ -193,11 +177,6 @@ name|AbstractCamelClusterService
 argument_list|<
 name|AtomixClusterView
 argument_list|>
-implements|implements
-name|AtomixConfigurationAware
-argument_list|<
-name|AtomixClientConfiguration
-argument_list|>
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -270,8 +249,6 @@ block|}
 comment|// **********************************
 comment|// Properties
 comment|// **********************************
-annotation|@
-name|Override
 DECL|method|getConfiguration ()
 specifier|public
 name|AtomixClientConfiguration
@@ -282,8 +259,6 @@ return|return
 name|configuration
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|setConfiguration (AtomixClientConfiguration configuration)
 specifier|public
 name|void
@@ -502,6 +477,8 @@ name|namespace
 argument_list|,
 name|getOrCreateClient
 argument_list|()
+argument_list|,
+name|configuration
 argument_list|)
 return|;
 block|}

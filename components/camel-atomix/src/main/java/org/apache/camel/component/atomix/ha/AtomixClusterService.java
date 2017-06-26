@@ -104,22 +104,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|atomix
-operator|.
-name|AtomixConfigurationAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|ha
@@ -172,11 +156,6 @@ extends|extends
 name|AbstractCamelClusterService
 argument_list|<
 name|AtomixClusterView
-argument_list|>
-implements|implements
-name|AtomixConfigurationAware
-argument_list|<
-name|AtomixClusterConfiguration
 argument_list|>
 block|{
 DECL|field|LOGGER
@@ -310,8 +289,6 @@ operator|=
 name|address
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|getConfiguration ()
 specifier|public
 name|AtomixClusterConfiguration
@@ -322,8 +299,6 @@ return|return
 name|configuration
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|setConfiguration (AtomixClusterConfiguration configuration)
 specifier|public
 name|void
@@ -602,6 +577,8 @@ name|namespace
 argument_list|,
 name|getOrCreateReplica
 argument_list|()
+argument_list|,
+name|configuration
 argument_list|)
 return|;
 block|}
