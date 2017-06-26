@@ -1401,7 +1401,7 @@ block|}
 comment|// Wait methods are taken directly from the Zookeeper tests. A tests jar
 comment|// would be nice! Another good reason the keeper folks should move to maven.
 DECL|method|waitForServerUp (String hp, long timeout)
-specifier|private
+specifier|public
 specifier|static
 name|boolean
 name|waitForServerUp
