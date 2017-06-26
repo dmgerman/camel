@@ -434,9 +434,8 @@ operator|new
 name|ZipIterator
 argument_list|(
 name|exchange
-operator|.
-name|getIn
-argument_list|()
+argument_list|,
+name|inputStream
 argument_list|)
 decl_stmt|;
 name|zipIterator
