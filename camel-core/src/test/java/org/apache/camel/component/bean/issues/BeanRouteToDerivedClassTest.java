@@ -316,6 +316,43 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|out
+operator|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"direct:other"
+argument_list|,
+operator|new
+name|MyMessage
+argument_list|(
+literal|"Hello Again"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Derived class should NOT have been invoked"
+argument_list|,
+literal|null
+argument_list|,
+name|derived
+operator|.
+name|getAndClearBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|out
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testDerivedClassCalledWithCustomProcessor ()
 specifier|public
@@ -443,6 +480,43 @@ operator|new
 name|MyMessage
 argument_list|(
 literal|"Hello World"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Derived class should NOT have been invoked"
+argument_list|,
+literal|null
+argument_list|,
+name|derived
+operator|.
+name|getAndClearBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|out
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|out
+operator|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"direct:other"
+argument_list|,
+operator|new
+name|MyMessage
+argument_list|(
+literal|"Hello Again"
 argument_list|)
 argument_list|)
 expr_stmt|;
