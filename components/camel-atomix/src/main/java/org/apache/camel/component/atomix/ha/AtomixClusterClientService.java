@@ -36,7 +36,7 @@ name|io
 operator|.
 name|atomix
 operator|.
-name|AtomixReplica
+name|AtomixClient
 import|;
 end_import
 
@@ -70,22 +70,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|atomix
-operator|.
-name|copycat
-operator|.
-name|server
-operator|.
-name|storage
-operator|.
-name|StorageLevel
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -109,6 +93,42 @@ operator|.
 name|atomix
 operator|.
 name|AtomixConfigurationAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|atomix
+operator|.
+name|client
+operator|.
+name|AtomixClientConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|atomix
+operator|.
+name|client
+operator|.
+name|AtomixClientHelper
 import|;
 end_import
 
@@ -163,11 +183,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AtomixClusterService
+DECL|class|AtomixClusterClientService
 specifier|public
 specifier|final
 class|class
-name|AtomixClusterService
+name|AtomixClusterClientService
 extends|extends
 name|AbstractCamelClusterService
 argument_list|<
@@ -176,7 +196,7 @@ argument_list|>
 implements|implements
 name|AtomixConfigurationAware
 argument_list|<
-name|AtomixClusterConfiguration
+name|AtomixClientConfiguration
 argument_list|>
 block|{
 DECL|field|LOGGER
@@ -190,29 +210,24 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|AtomixClusterService
+name|AtomixClusterClientService
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|address
-specifier|private
-name|Address
-name|address
-decl_stmt|;
 DECL|field|configuration
 specifier|private
-name|AtomixClusterConfiguration
+name|AtomixClientConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|atomix
 specifier|private
-name|AtomixReplica
+name|AtomixClient
 name|atomix
 decl_stmt|;
-DECL|method|AtomixClusterService ()
+DECL|method|AtomixClusterClientService ()
 specifier|public
-name|AtomixClusterService
+name|AtomixClusterClientService
 parameter_list|()
 block|{
 name|this
@@ -220,21 +235,18 @@ operator|.
 name|configuration
 operator|=
 operator|new
-name|AtomixClusterConfiguration
+name|AtomixClientConfiguration
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|AtomixClusterService (CamelContext camelContext, Address address, AtomixClusterConfiguration configuration)
+DECL|method|AtomixClusterClientService (CamelContext camelContext, AtomixClientConfiguration configuration)
 specifier|public
-name|AtomixClusterService
+name|AtomixClusterClientService
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|Address
-name|address
-parameter_list|,
-name|AtomixClusterConfiguration
+name|AtomixClientConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -244,12 +256,6 @@ literal|null
 argument_list|,
 name|camelContext
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|address
-operator|=
-name|address
 expr_stmt|;
 name|this
 operator|.
@@ -264,57 +270,11 @@ block|}
 comment|// **********************************
 comment|// Properties
 comment|// **********************************
-DECL|method|getAddress ()
-specifier|public
-name|Address
-name|getAddress
-parameter_list|()
-block|{
-return|return
-name|address
-return|;
-block|}
-DECL|method|setAddress (String address)
-specifier|public
-name|void
-name|setAddress
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|this
-operator|.
-name|address
-operator|=
-operator|new
-name|Address
-argument_list|(
-name|address
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setAddress (Address address)
-specifier|public
-name|void
-name|setAddress
-parameter_list|(
-name|Address
-name|address
-parameter_list|)
-block|{
-name|this
-operator|.
-name|address
-operator|=
-name|address
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|getConfiguration ()
 specifier|public
-name|AtomixClusterConfiguration
+name|AtomixClientConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
@@ -324,12 +284,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setConfiguration (AtomixClusterConfiguration configuration)
+DECL|method|setConfiguration (AtomixClientConfiguration configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|AtomixClusterConfiguration
+name|AtomixClientConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -342,49 +302,6 @@ operator|.
 name|copy
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|getStoragePath ()
-specifier|public
-name|String
-name|getStoragePath
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getStoragePath
-argument_list|()
-return|;
-block|}
-DECL|method|setStoragePath (String storagePath)
-specifier|public
-name|void
-name|setStoragePath
-parameter_list|(
-name|String
-name|storagePath
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setStoragePath
-argument_list|(
-name|storagePath
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getStorageLevel ()
-specifier|public
-name|StorageLevel
-name|getStorageLevel
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getStorageLevel
-argument_list|()
-return|;
 block|}
 DECL|method|getNodes ()
 specifier|public
@@ -419,23 +336,6 @@ operator|.
 name|setNodes
 argument_list|(
 name|nodes
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setStorageLevel (StorageLevel storageLevel)
-specifier|public
-name|void
-name|setStorageLevel
-parameter_list|(
-name|StorageLevel
-name|storageLevel
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setStorageLevel
-argument_list|(
-name|storageLevel
 argument_list|)
 expr_stmt|;
 block|}
@@ -498,7 +398,7 @@ expr_stmt|;
 block|}
 DECL|method|getAtomix ()
 specifier|public
-name|AtomixReplica
+name|AtomixClient
 name|getAtomix
 parameter_list|()
 block|{
@@ -509,12 +409,12 @@ name|getAtomix
 argument_list|()
 return|;
 block|}
-DECL|method|setAtomix (AtomixReplica atomix)
+DECL|method|setAtomix (AtomixClient atomix)
 specifier|public
 name|void
 name|setAtomix
 parameter_list|(
-name|AtomixReplica
+name|AtomixClient
 name|atomix
 parameter_list|)
 block|{
@@ -570,7 +470,7 @@ throws|throws
 name|Exception
 block|{
 comment|// instantiate a new atomix replica
-name|getOrCreateReplica
+name|getOrCreateClient
 argument_list|()
 expr_stmt|;
 name|super
@@ -600,15 +500,15 @@ name|this
 argument_list|,
 name|namespace
 argument_list|,
-name|getOrCreateReplica
+name|getOrCreateClient
 argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|getOrCreateReplica ()
+DECL|method|getOrCreateClient ()
 specifier|private
-name|AtomixReplica
-name|getOrCreateReplica
+name|AtomixClient
+name|getOrCreateClient
 parameter_list|()
 throws|throws
 name|Exception
@@ -635,39 +535,16 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|address
-argument_list|,
-literal|"Atomix Node Address"
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
 name|configuration
 argument_list|,
 literal|"Atomix Node Configuration"
-argument_list|)
-expr_stmt|;
-name|atomix
-operator|=
-name|AtomixClusterHelper
-operator|.
-name|createReplica
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|address
-argument_list|,
-name|configuration
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
 operator|.
-name|isNotEmpty
+name|isEmpty
 argument_list|(
 name|configuration
 operator|.
@@ -676,13 +553,31 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Atomix nodes should not be empty"
+argument_list|)
+throw|;
+block|}
+name|atomix
+operator|=
+name|AtomixClientHelper
+operator|.
+name|createClient
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
 name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Bootstrap cluster on address {} for nodes: {}"
-argument_list|,
-name|address
+literal|"Connect to cluster nodes: {}"
 argument_list|,
 name|configuration
 operator|.
@@ -690,11 +585,9 @@ name|getNodes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|atomix
 operator|.
-name|bootstrap
+name|connect
 argument_list|(
 name|configuration
 operator|.
@@ -709,44 +602,9 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Bootstrap cluster done"
+literal|"Connect to cluster done"
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|LOGGER
-operator|.
-name|debug
-argument_list|(
-literal|"Bootstrap cluster on address {}"
-argument_list|,
-name|address
-argument_list|,
-name|configuration
-operator|.
-name|getNodes
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|atomix
-operator|.
-name|bootstrap
-argument_list|()
-operator|.
-name|join
-argument_list|()
-expr_stmt|;
-name|LOGGER
-operator|.
-name|debug
-argument_list|(
-literal|"Bootstrap cluster done"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|this

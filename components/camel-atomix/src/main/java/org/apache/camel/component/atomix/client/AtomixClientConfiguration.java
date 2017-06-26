@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|atomix
@@ -109,6 +121,42 @@ name|resultHeader
 operator|=
 name|resultHeader
 expr_stmt|;
+block|}
+comment|// ****************************************
+comment|// Copy
+comment|// ****************************************
+DECL|method|copy ()
+specifier|public
+name|AtomixClientConfiguration
+name|copy
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+operator|(
+name|AtomixClientConfiguration
+operator|)
+name|super
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class
