@@ -582,6 +582,17 @@ name|defaultEndpoint
 operator|=
 name|Optional
 operator|.
+name|ofNullable
+argument_list|(
+name|defaultEndpoint
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|defaultEndpoint
+operator|=
+name|Optional
+operator|.
 name|of
 argument_list|(
 name|defaultEndpoint
