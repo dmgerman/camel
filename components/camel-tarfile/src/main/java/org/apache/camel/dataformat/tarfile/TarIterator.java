@@ -289,11 +289,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|inputMessage
+DECL|field|exchange
 specifier|private
 specifier|final
-name|Message
-name|inputMessage
+name|Exchange
+name|exchange
 decl_stmt|;
 DECL|field|tarInputStream
 specifier|private
@@ -312,12 +312,12 @@ specifier|private
 name|boolean
 name|allowEmptyDirectory
 decl_stmt|;
-DECL|method|TarIterator (Message inputMessage, InputStream inputStream)
+DECL|method|TarIterator (Exchange exchange, InputStream inputStream)
 specifier|public
 name|TarIterator
 parameter_list|(
-name|Message
-name|inputMessage
+name|Exchange
+name|exchange
 parameter_list|,
 name|InputStream
 name|inputStream
@@ -325,11 +325,16 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|inputMessage
+name|exchange
 operator|=
-name|inputMessage
+name|exchange
 expr_stmt|;
-comment|//InputStream inputStream = inputMessage.getBody(InputStream.class);
+name|this
+operator|.
+name|allowEmptyDirectory
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 name|inputStream
@@ -579,10 +584,7 @@ init|=
 operator|new
 name|DefaultMessage
 argument_list|(
-name|inputMessage
-operator|.
-name|getExchange
-argument_list|()
+name|exchange
 operator|.
 name|getContext
 argument_list|()
@@ -595,7 +597,10 @@ argument_list|()
 operator|.
 name|putAll
 argument_list|(
-name|inputMessage
+name|exchange
+operator|.
+name|getIn
+argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
