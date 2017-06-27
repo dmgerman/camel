@@ -341,6 +341,22 @@ name|Properties
 argument_list|>
 name|resourceOptions
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|ephemeral
+specifier|private
+name|boolean
+name|ephemeral
+decl_stmt|;
 DECL|method|AtomixConfiguration ()
 specifier|protected
 name|AtomixConfiguration
@@ -964,6 +980,33 @@ block|}
 return|return
 name|properties
 return|;
+block|}
+DECL|method|isEphemeral ()
+specifier|public
+name|boolean
+name|isEphemeral
+parameter_list|()
+block|{
+return|return
+name|ephemeral
+return|;
+block|}
+comment|/**      * Sets if the local member should join groups as PersistentMember or not.      *      * If set to ephemeral the local member will receive an auto generated ID thus      * the local one is ignored.      */
+DECL|method|setEphemeral (boolean ephemeral)
+specifier|public
+name|void
+name|setEphemeral
+parameter_list|(
+name|boolean
+name|ephemeral
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ephemeral
+operator|=
+name|ephemeral
+expr_stmt|;
 block|}
 block|}
 end_class

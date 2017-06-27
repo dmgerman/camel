@@ -59,11 +59,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AtomixClientRoutePolicyTest
+DECL|class|AtomixEphemeralClientRoutePolicyTest
 specifier|public
 specifier|final
 class|class
-name|AtomixClientRoutePolicyTest
+name|AtomixEphemeralClientRoutePolicyTest
 extends|extends
 name|AtomixClientRoutePolicyTestSupport
 block|{
@@ -113,7 +113,7 @@ name|service
 operator|.
 name|setEphemeral
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 return|return

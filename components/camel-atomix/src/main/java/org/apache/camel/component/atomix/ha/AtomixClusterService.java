@@ -531,6 +531,36 @@ name|configurationUri
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isEphemeral ()
+specifier|public
+name|boolean
+name|isEphemeral
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isEphemeral
+argument_list|()
+return|;
+block|}
+DECL|method|setEphemeral (boolean ephemeral)
+specifier|public
+name|void
+name|setEphemeral
+parameter_list|(
+name|boolean
+name|ephemeral
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setEphemeral
+argument_list|(
+name|ephemeral
+argument_list|)
+expr_stmt|;
+block|}
 comment|// *********************************************
 comment|// Lifecycle
 comment|// *********************************************
