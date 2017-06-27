@@ -835,7 +835,7 @@ block|{
 name|int
 name|consumers
 init|=
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -851,7 +851,7 @@ decl_stmt|;
 name|boolean
 name|limitConcurrentConsumers
 init|=
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
