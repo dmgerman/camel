@@ -1087,9 +1087,11 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?synchronous=true&consumerStrategy=AGGREGATION&host=localhost&port="
+literal|"grpc://localhost:"
 operator|+
 name|GRPC_SYNC_REQUEST_TEST_PORT
+operator|+
+literal|"/org.apache.camel.component.grpc.PingPong?synchronous=true&consumerStrategy=AGGREGATION"
 argument_list|)
 operator|.
 name|bean
@@ -1103,9 +1105,11 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"grpc://org.apache.camel.component.grpc.PingPong?synchronous=true&consumerStrategy=AGGREGATION&host=localhost&port="
+literal|"grpc://localhost:"
 operator|+
 name|GRPC_ASYNC_REQUEST_TEST_PORT
+operator|+
+literal|"/org.apache.camel.component.grpc.PingPong?synchronous=true&consumerStrategy=AGGREGATION"
 argument_list|)
 operator|.
 name|bean
