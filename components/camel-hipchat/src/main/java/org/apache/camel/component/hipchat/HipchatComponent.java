@@ -246,7 +246,7 @@ throw|;
 block|}
 name|parseUri
 argument_list|(
-name|uri
+name|remaining
 argument_list|,
 name|endpoint
 argument_list|)
@@ -270,13 +270,13 @@ return|return
 name|endpoint
 return|;
 block|}
-DECL|method|parseUri (String uri, HipchatEndpoint endpoint)
+DECL|method|parseUri (String remaining, HipchatEndpoint endpoint)
 specifier|private
 name|void
 name|parseUri
 parameter_list|(
 name|String
-name|uri
+name|remaining
 parameter_list|,
 name|HipchatEndpoint
 name|endpoint
@@ -284,27 +284,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// strip scheme
+name|String
 name|uri
-operator|=
-name|ObjectHelper
-operator|.
-name|after
-argument_list|(
-name|uri
-argument_list|,
-literal|":"
-argument_list|)
-expr_stmt|;
-name|uri
-operator|=
+init|=
 name|URISupport
 operator|.
 name|normalizeUri
 argument_list|(
-name|uri
+name|remaining
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|URI
 name|hipChatUri
 init|=
