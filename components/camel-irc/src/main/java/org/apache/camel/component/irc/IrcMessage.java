@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -125,15 +137,27 @@ specifier|private
 name|String
 name|value
 decl_stmt|;
-DECL|method|IrcMessage ()
-specifier|public
-name|IrcMessage
-parameter_list|()
-block|{     }
-DECL|method|IrcMessage (String messageType, IRCUser user, String message)
+DECL|method|IrcMessage (CamelContext camelContext)
 specifier|public
 name|IrcMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IrcMessage (CamelContext camelContext, String messageType, IRCUser user, String message)
+specifier|public
+name|IrcMessage
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|messageType
 parameter_list|,
@@ -144,6 +168,11 @@ name|String
 name|message
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|messageType
@@ -168,10 +197,13 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|IrcMessage (String messageType, String target, IRCUser user, String message)
+DECL|method|IrcMessage (CamelContext camelContext, String messageType, String target, IRCUser user, String message)
 specifier|public
 name|IrcMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|messageType
 parameter_list|,
@@ -185,6 +217,11 @@ name|String
 name|message
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|messageType
@@ -215,10 +252,13 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|IrcMessage (String messageType, String target, IRCUser user, String whoWasKickedNick, String message)
+DECL|method|IrcMessage (CamelContext camelContext, String messageType, String target, IRCUser user, String whoWasKickedNick, String message)
 specifier|public
 name|IrcMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|messageType
 parameter_list|,
@@ -235,6 +275,11 @@ name|String
 name|message
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|messageType
@@ -271,10 +316,13 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|IrcMessage (String messageType, String target, IRCUser user)
+DECL|method|IrcMessage (CamelContext camelContext, String messageType, String target, IRCUser user)
 specifier|public
 name|IrcMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|messageType
 parameter_list|,
@@ -285,6 +333,11 @@ name|IRCUser
 name|user
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|messageType
@@ -304,10 +357,13 @@ operator|=
 name|user
 expr_stmt|;
 block|}
-DECL|method|IrcMessage (String messageType, int num, String value, String message)
+DECL|method|IrcMessage (CamelContext camelContext, String messageType, int num, String value, String message)
 specifier|public
 name|IrcMessage
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|messageType
 parameter_list|,
@@ -321,6 +377,11 @@ name|String
 name|message
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|messageType
@@ -535,23 +596,13 @@ name|IrcMessage
 name|newInstance
 parameter_list|()
 block|{
-name|IrcMessage
-name|answer
-init|=
+return|return
 operator|new
 name|IrcMessage
-argument_list|()
-decl_stmt|;
-name|answer
-operator|.
-name|setCamelContext
 argument_list|(
 name|getCamelContext
 argument_list|()
 argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 annotation|@
