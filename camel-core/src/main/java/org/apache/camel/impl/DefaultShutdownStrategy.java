@@ -1080,6 +1080,9 @@ argument_list|,
 name|abortAfterTimeout
 argument_list|,
 name|timeoutOccurred
+argument_list|,
+name|isLogInflightExchangesOnTimeout
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2242,7 +2245,13 @@ specifier|final
 name|AtomicBoolean
 name|timeoutOccurred
 decl_stmt|;
-DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout, AtomicBoolean timeoutOccurred)
+DECL|field|logInflightExchangesOnTimeout
+specifier|private
+specifier|final
+name|boolean
+name|logInflightExchangesOnTimeout
+decl_stmt|;
+DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout, AtomicBoolean timeoutOccurred, boolean logInflightExchangesOnTimeout)
 name|ShutdownTask
 parameter_list|(
 name|CamelContext
@@ -2268,6 +2277,9 @@ name|abortAfterTimeout
 parameter_list|,
 name|AtomicBoolean
 name|timeoutOccurred
+parameter_list|,
+name|boolean
+name|logInflightExchangesOnTimeout
 parameter_list|)
 block|{
 name|this
@@ -2311,6 +2323,12 @@ operator|.
 name|timeoutOccurred
 operator|=
 name|timeoutOccurred
+expr_stmt|;
+name|this
+operator|.
+name|logInflightExchangesOnTimeout
+operator|=
+name|logInflightExchangesOnTimeout
 expr_stmt|;
 block|}
 DECL|method|run ()
@@ -2935,7 +2953,7 @@ name|context
 argument_list|,
 name|routes
 argument_list|,
-literal|false
+name|logInflightExchangesOnTimeout
 argument_list|)
 expr_stmt|;
 name|Thread
