@@ -362,7 +362,13 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * @deprecated use {@link org.apache.camel.component.consul.ha.ConsulClusterService} and {@link org.apache.camel.impl.ha.ClusteredRoutePolicy} instead.  */
+end_comment
+
 begin_class
+annotation|@
+name|Deprecated
 annotation|@
 name|ManagedResource
 argument_list|(
