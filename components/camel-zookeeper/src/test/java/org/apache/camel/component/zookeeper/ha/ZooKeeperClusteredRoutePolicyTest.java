@@ -257,11 +257,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|ZooKeeperClientRoutePolicyTest
+DECL|class|ZooKeeperClusteredRoutePolicyTest
 specifier|public
 specifier|final
 class|class
-name|ZooKeeperClientRoutePolicyTest
+name|ZooKeeperClusteredRoutePolicyTest
 block|{
 DECL|field|PORT
 specifier|private
@@ -286,7 +286,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|ZooKeeperClientRoutePolicyTest
+name|ZooKeeperClusteredRoutePolicyTest
 operator|.
 name|class
 argument_list|)
