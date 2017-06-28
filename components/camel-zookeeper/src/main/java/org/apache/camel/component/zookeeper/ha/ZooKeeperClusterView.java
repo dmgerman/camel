@@ -96,6 +96,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|zookeeper
+operator|.
+name|ZooKeeperCuratorConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ha
 operator|.
 name|CamelClusterMember
@@ -244,6 +260,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|configuration
+specifier|private
+specifier|final
+name|ZooKeeperCuratorConfiguration
+name|configuration
+decl_stmt|;
 DECL|field|client
 specifier|private
 specifier|final
@@ -261,12 +283,15 @@ specifier|private
 name|LeaderSelector
 name|leaderSelector
 decl_stmt|;
-DECL|method|ZooKeeperClusterView (CamelClusterService cluster, CuratorFramework client, String namespace)
+DECL|method|ZooKeeperClusterView (CamelClusterService cluster, ZooKeeperCuratorConfiguration configuration, CuratorFramework client, String namespace)
 specifier|public
 name|ZooKeeperClusterView
 parameter_list|(
 name|CamelClusterService
 name|cluster
+parameter_list|,
+name|ZooKeeperCuratorConfiguration
+name|configuration
 parameter_list|,
 name|CuratorFramework
 name|client
@@ -289,6 +314,12 @@ operator|=
 operator|new
 name|CuratorLocalMember
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 name|this
 operator|.
@@ -460,7 +491,9 @@ name|LeaderSelector
 argument_list|(
 name|client
 argument_list|,
-name|getNamespace
+name|configuration
+operator|.
+name|getBasePath
 argument_list|()
 argument_list|,
 operator|new

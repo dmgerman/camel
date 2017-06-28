@@ -549,9 +549,9 @@ argument_list|)
 expr_stmt|;
 name|service
 operator|.
-name|setNamespace
+name|setBasePath
 argument_list|(
-literal|null
+literal|"/camel"
 argument_list|)
 expr_stmt|;
 name|DefaultCamelContext
@@ -590,7 +590,7 @@ name|ClusteredRoutePolicyFactory
 operator|.
 name|forNamespace
 argument_list|(
-literal|"/my-ns"
+literal|"my-ns"
 argument_list|)
 argument_list|)
 expr_stmt|;
