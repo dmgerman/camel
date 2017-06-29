@@ -370,7 +370,7 @@ name|getAttribute
 argument_list|(
 name|name
 argument_list|,
-literal|"CoreHitCounter"
+literal|"BaseHitCounter"
 argument_list|)
 decl_stmt|;
 name|assertEquals
