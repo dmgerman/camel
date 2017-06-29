@@ -523,13 +523,11 @@ name|deadLetterHandleNewException
 decl_stmt|;
 DECL|field|output
 specifier|protected
-specifier|final
 name|Processor
 name|output
 decl_stmt|;
 DECL|field|outputAsync
 specifier|protected
-specifier|final
 name|AsyncProcessor
 name|outputAsync
 decl_stmt|;
@@ -1534,6 +1532,34 @@ operator|=
 name|formatter
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Allows to change the output of the error handler which are used when optimising the      * JMX instrumentation to use either an advice or wrapped processor when calling a processor.      * The former is faster and therefore preferred, however if the error handler supports      * redelivery we need fine grained instrumentation which then must be wrapped and therefore      * need to change the output on the error handler.      */
+DECL|method|changeOutput (Processor output)
+specifier|public
+name|void
+name|changeOutput
+parameter_list|(
+name|Processor
+name|output
+parameter_list|)
+block|{
+name|this
+operator|.
+name|output
+operator|=
+name|output
+expr_stmt|;
+name|this
+operator|.
+name|outputAsync
+operator|=
+name|AsyncProcessorConverterHelper
+operator|.
+name|convert
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|supportTransacted ()
 specifier|public
@@ -6496,7 +6522,7 @@ block|}
 block|}
 comment|/**      * Determines if redelivery is enabled by checking if any of the redelivery policy      * settings may allow redeliveries.      *      * @return<tt>true</tt> if redelivery is possible,<tt>false</tt> otherwise      * @throws Exception can be thrown      */
 DECL|method|determineIfRedeliveryIsEnabled ()
-specifier|private
+specifier|public
 name|boolean
 name|determineIfRedeliveryIsEnabled
 parameter_list|()
