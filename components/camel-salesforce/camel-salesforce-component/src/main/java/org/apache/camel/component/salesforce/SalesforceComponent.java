@@ -649,10 +649,6 @@ name|label
 operator|=
 literal|"common,security"
 argument_list|,
-name|secret
-operator|=
-literal|true
-argument_list|,
 name|required
 operator|=
 literal|"true"
@@ -724,10 +720,6 @@ argument_list|,
 name|label
 operator|=
 literal|"common,security"
-argument_list|,
-name|secret
-operator|=
-literal|true
 argument_list|)
 DECL|field|userName
 specifier|private
@@ -796,10 +788,6 @@ argument_list|,
 name|label
 operator|=
 literal|"common,security"
-argument_list|,
-name|secret
-operator|=
-literal|false
 argument_list|,
 name|enums
 operator|=
@@ -1033,10 +1021,6 @@ argument_list|,
 name|label
 operator|=
 literal|"common,proxy,security"
-argument_list|,
-name|secret
-operator|=
-literal|true
 argument_list|)
 DECL|field|httpProxyUsername
 specifier|private
