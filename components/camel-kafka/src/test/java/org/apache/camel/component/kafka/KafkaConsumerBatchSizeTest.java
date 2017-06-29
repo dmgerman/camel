@@ -180,9 +180,7 @@ literal|"kafka:"
 operator|+
 name|TOPIC
 operator|+
-literal|"?groupId=group1"
-operator|+
-literal|"&autoOffsetReset=earliest"
+literal|"?autoOffsetReset=earliest"
 operator|+
 literal|"&autoCommitEnable=false"
 operator|+
