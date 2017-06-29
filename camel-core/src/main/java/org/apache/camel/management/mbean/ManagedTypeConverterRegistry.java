@@ -290,10 +290,10 @@ name|getHitCounter
 argument_list|()
 return|;
 block|}
-DECL|method|getCoreHitCounter ()
+DECL|method|getBaseHitCounter ()
 specifier|public
 name|long
-name|getCoreHitCounter
+name|getBaseHitCounter
 parameter_list|()
 block|{
 return|return
@@ -302,7 +302,7 @@ operator|.
 name|getStatistics
 argument_list|()
 operator|.
-name|getCoreHitCounter
+name|getBaseHitCounter
 argument_list|()
 return|;
 block|}

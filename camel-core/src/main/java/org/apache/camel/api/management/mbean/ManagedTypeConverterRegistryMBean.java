@@ -113,11 +113,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of type conversion hits by optimised core converters (successful conversions)"
+literal|"Number of type conversion hits by base core converters (successful conversions)"
 argument_list|)
-DECL|method|getCoreHitCounter ()
+DECL|method|getBaseHitCounter ()
 name|long
-name|getCoreHitCounter
+name|getBaseHitCounter
 parameter_list|()
 function_decl|;
 annotation|@

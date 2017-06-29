@@ -122,9 +122,9 @@ name|getHitCounter
 parameter_list|()
 function_decl|;
 comment|/**          * Number of successful conversions by optimised core converters          */
-DECL|method|getCoreHitCounter ()
+DECL|method|getBaseHitCounter ()
 name|long
-name|getCoreHitCounter
+name|getBaseHitCounter
 parameter_list|()
 function_decl|;
 comment|/**          * Number of attempts which cannot be converted as no suitable type converter exists          */

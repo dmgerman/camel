@@ -678,11 +678,11 @@ operator|new
 name|LongAdder
 argument_list|()
 decl_stmt|;
-DECL|field|coreHitCounter
+DECL|field|baseHitCounter
 specifier|protected
 specifier|final
 name|LongAdder
-name|coreHitCounter
+name|baseHitCounter
 init|=
 operator|new
 name|LongAdder
@@ -1784,7 +1784,7 @@ name|isStatisticsEnabled
 argument_list|()
 condition|)
 block|{
-name|coreHitCounter
+name|baseHitCounter
 operator|.
 name|increment
 argument_list|()
@@ -4005,14 +4005,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getCoreHitCounter ()
+DECL|method|getBaseHitCounter ()
 specifier|public
 name|long
-name|getCoreHitCounter
+name|getBaseHitCounter
 parameter_list|()
 block|{
 return|return
-name|coreHitCounter
+name|baseHitCounter
 operator|.
 name|longValue
 argument_list|()
@@ -4071,7 +4071,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|coreHitCounter
+name|baseHitCounter
 operator|.
 name|reset
 argument_list|()
@@ -4130,7 +4130,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"TypeConverterRegistry utilization[noop=%s, attempts=%s, hits=%s, coreHits=%s, misses=%s, failures=%s]"
+literal|"TypeConverterRegistry utilization[noop=%s, attempts=%s, hits=%s, baseHits=%s, misses=%s, failures=%s]"
 argument_list|,
 name|getNoopCounter
 argument_list|()
@@ -4141,7 +4141,7 @@ argument_list|,
 name|getHitCounter
 argument_list|()
 argument_list|,
-name|getCoreHitCounter
+name|getBaseHitCounter
 argument_list|()
 argument_list|,
 name|getMissCounter
