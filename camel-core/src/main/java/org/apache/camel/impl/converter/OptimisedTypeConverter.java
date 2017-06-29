@@ -82,6 +82,20 @@ name|ObjectConverterOptimised
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|TimePatternConverterOptimised
+import|;
+end_import
+
 begin_comment
 comment|/**  * Optimised type converter for performing the most common conversions using the type converters  * from camel-core.  *<p/>  * The most commonly used type converters has been optimised to be invoked in a faster by  * using direct method calls instead of a calling via a reflection method call via  * {@link InstanceMethodTypeConverter} or {@link StaticMethodTypeConverter}.  * In addition the performance is faster because the type converter is not looked up  * via a key in the type converter {@link Map}; which requires creating a new object  * as they key and perform the map lookup. The caveat is that for any new type converter  * to be included it must be manually added by adding the nessasary source code to the  * optimised classes such as {@link ObjectConverterOptimised}.  */
 end_comment
@@ -130,6 +144,27 @@ name|Object
 name|answer
 decl_stmt|;
 comment|// use the optimised type converters and use them in the most commonly used order
+comment|// we need time pattern first as it can do a special String -> long conversion which should happen first
+name|answer
+operator|=
+name|TimePatternConverterOptimised
+operator|.
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|exchange
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
 name|answer
 operator|=
 name|ObjectConverterOptimised
@@ -143,6 +178,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|answer
