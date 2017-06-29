@@ -9728,8 +9728,8 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a random number between 0 and upperbound (exclusive)      */
-DECL|method|randomExpression (final int upperbound)
+comment|/**      * Returns a random number between 0 and max (exclusive)      */
+DECL|method|randomExpression (final int max)
 specifier|public
 specifier|static
 name|Expression
@@ -9737,7 +9737,7 @@ name|randomExpression
 parameter_list|(
 specifier|final
 name|int
-name|upperbound
+name|max
 parameter_list|)
 block|{
 return|return
@@ -9745,11 +9745,11 @@ name|randomExpression
 argument_list|(
 literal|0
 argument_list|,
-name|upperbound
+name|max
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a random number between min and max      */
+comment|/**      * Returns a random number between min and max (exclusive)      */
 DECL|method|randomExpression (final int min, final int max)
 specifier|public
 specifier|static
@@ -9811,13 +9811,21 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"random"
+literal|"random("
+operator|+
+name|min
+operator|+
+literal|","
+operator|+
+name|max
+operator|+
+literal|")"
 return|;
 block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a random number between min and max      */
+comment|/**      * Returns a random number between min and max (exclusive)      */
 DECL|method|randomExpression (final String min, final String max)
 specifier|public
 specifier|static
@@ -9913,7 +9921,15 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"random"
+literal|"random("
+operator|+
+name|min
+operator|+
+literal|","
+operator|+
+name|max
+operator|+
+literal|")"
 return|;
 block|}
 block|}
