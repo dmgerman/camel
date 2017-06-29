@@ -1471,11 +1471,28 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isUseAdviceWith
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Skipping starting CamelContext as isUseAdviceWith is set to true."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|context
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Override this method to add services to be registered on startup.      *<p/>      * You can use the builder methods {@link #asService(Object, java.util.Dictionary)}, {@link #asService(Object, String, String)}      * to make it easy to add the services to the map.      */
 DECL|method|addServicesOnStartup (Map<String, KeyValueHolder<Object, Dictionary>> services)
