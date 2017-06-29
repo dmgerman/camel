@@ -456,34 +456,10 @@ name|ContextRefreshedEvent
 name|event
 parameter_list|)
 block|{
-name|ApplicationContext
-name|applicationContext
-init|=
-name|event
-operator|.
-name|getApplicationContext
-argument_list|()
-decl_stmt|;
-comment|// only listen to context refresh of "my" applicationContext
-if|if
-condition|(
-name|this
-operator|.
-name|applicationContext
-operator|.
-name|equals
-argument_list|(
-name|applicationContext
-argument_list|)
-condition|)
-block|{
 name|CamelContext
 name|camelContext
 init|=
-name|event
-operator|.
-name|getApplicationContext
-argument_list|()
+name|applicationContext
 operator|.
 name|getBean
 argument_list|(
@@ -1069,12 +1045,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// start camel manually
-name|maybeStart
-argument_list|(
-name|camelContext
-argument_list|)
-expr_stmt|;
 block|}
 for|for
 control|(
@@ -1128,19 +1098,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Ignore ContextRefreshedEvent: {}"
-argument_list|,
-name|event
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 annotation|@
 name|Override
 DECL|method|getOrder ()
@@ -1161,56 +1118,6 @@ name|LOWEST_PRECEDENCE
 operator|-
 literal|1
 return|;
-block|}
-DECL|method|maybeStart (CamelContext camelContext)
-specifier|private
-name|void
-name|maybeStart
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// for example from unit testing we want to start Camel later and not when Spring framework
-comment|// publish a ContextRefreshedEvent
-name|boolean
-name|skip
-init|=
-literal|"true"
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"skipStartingCamelContext"
-argument_list|)
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|skip
-condition|)
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Skipping starting CamelContext as system property skipStartingCamelContext is set to be true."
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|camelContext
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 comment|// Helpers
 DECL|method|loadXmlRoutes (ApplicationContext applicationContext, CamelContext camelContext, String directory)
