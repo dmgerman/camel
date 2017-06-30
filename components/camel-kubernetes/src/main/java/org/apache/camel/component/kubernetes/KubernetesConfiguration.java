@@ -54,6 +54,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -109,6 +121,8 @@ DECL|class|KubernetesConfiguration
 specifier|public
 class|class
 name|KubernetesConfiguration
+implements|implements
+name|Cloneable
 block|{
 annotation|@
 name|UriPath
@@ -1140,6 +1154,42 @@ name|resourceName
 operator|=
 name|resourceName
 expr_stmt|;
+block|}
+comment|// ****************************************
+comment|// Copy
+comment|// ****************************************
+DECL|method|copy ()
+specifier|public
+name|KubernetesConfiguration
+name|copy
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+operator|(
+name|KubernetesConfiguration
+operator|)
+name|super
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
