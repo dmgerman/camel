@@ -108,6 +108,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|StringHelper
 import|;
 end_import
@@ -126,17 +140,38 @@ name|BaseSimpleNode
 implements|implements
 name|BlockStart
 block|{
+comment|// use caches to avoid re-parsing the same expressions over and over again
+DECL|field|cacheExpression
+specifier|private
+specifier|final
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Expression
+argument_list|>
+name|cacheExpression
+decl_stmt|;
 DECL|field|block
 specifier|private
+specifier|final
 name|CompositeNodes
 name|block
 decl_stmt|;
-DECL|method|SimpleFunctionStart (SimpleToken token)
+DECL|method|SimpleFunctionStart (SimpleToken token, LRUCache<String, Expression> cacheExpression)
 specifier|public
 name|SimpleFunctionStart
 parameter_list|(
 name|SimpleToken
 name|token
+parameter_list|,
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Expression
+argument_list|>
+name|cacheExpression
 parameter_list|)
 block|{
 name|super
@@ -153,6 +188,12 @@ name|CompositeNodes
 argument_list|(
 name|token
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|cacheExpression
+operator|=
+name|cacheExpression
 expr_stmt|;
 block|}
 DECL|method|lazyEval (SimpleNode child)
@@ -274,6 +315,8 @@ name|this
 operator|.
 name|getToken
 argument_list|()
+argument_list|,
+name|cacheExpression
 argument_list|)
 decl_stmt|;
 name|LiteralNode
@@ -600,6 +643,8 @@ operator|new
 name|SimpleFunctionExpression
 argument_list|(
 name|token
+argument_list|,
+name|cacheExpression
 argument_list|)
 decl_stmt|;
 name|function

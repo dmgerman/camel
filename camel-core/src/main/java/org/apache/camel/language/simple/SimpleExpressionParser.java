@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ExpressionBuilder
@@ -258,6 +270,20 @@ name|TokenType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LRUCache
+import|;
+end_import
+
 begin_comment
 comment|/**  * A parser to parse simple language as a Camel {@link Expression}  */
 end_comment
@@ -270,6 +296,17 @@ name|SimpleExpressionParser
 extends|extends
 name|BaseSimpleParser
 block|{
+comment|// use caches to avoid re-parsing the same expressions over and over again
+DECL|field|cacheExpression
+specifier|private
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Expression
+argument_list|>
+name|cacheExpression
+decl_stmt|;
 annotation|@
 name|Deprecated
 DECL|method|SimpleExpressionParser (String expression)
@@ -288,6 +325,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|SimpleExpressionParser (String expression, boolean allowEscape)
 specifier|public
 name|SimpleExpressionParser
@@ -305,6 +344,39 @@ name|expression
 argument_list|,
 name|allowEscape
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SimpleExpressionParser (String expression, boolean allowEscape, LRUCache<String, Expression> cacheExpression)
+specifier|public
+name|SimpleExpressionParser
+parameter_list|(
+name|String
+name|expression
+parameter_list|,
+name|boolean
+name|allowEscape
+parameter_list|,
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Expression
+argument_list|>
+name|cacheExpression
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|,
+name|allowEscape
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|cacheExpression
+operator|=
+name|cacheExpression
 expr_stmt|;
 block|}
 DECL|method|parseExpression ()
@@ -662,6 +734,8 @@ operator|new
 name|SimpleFunctionStart
 argument_list|(
 name|token
+argument_list|,
+name|cacheExpression
 argument_list|)
 return|;
 block|}

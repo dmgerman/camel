@@ -507,6 +507,8 @@ argument_list|(
 name|expression
 argument_list|,
 name|allowEscape
+argument_list|,
+name|cacheExpression
 argument_list|)
 decl_stmt|;
 name|answer
@@ -520,6 +522,10 @@ block|}
 if|if
 condition|(
 name|cachePredicate
+operator|!=
+literal|null
+operator|&&
+name|answer
 operator|!=
 literal|null
 condition|)
@@ -621,6 +627,8 @@ argument_list|(
 name|expression
 argument_list|,
 name|allowEscape
+argument_list|,
+name|cacheExpression
 argument_list|)
 decl_stmt|;
 name|answer
@@ -634,6 +642,10 @@ block|}
 if|if
 condition|(
 name|cacheExpression
+operator|!=
+literal|null
+operator|&&
+name|answer
 operator|!=
 literal|null
 condition|)
