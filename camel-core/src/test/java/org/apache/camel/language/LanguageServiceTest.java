@@ -218,9 +218,10 @@ name|getState
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// simple language is resolved by default hence why there is 2
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|context
 operator|.
@@ -267,9 +268,10 @@ name|getState
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// simple language is resolved by default hence why there is 2
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|context
 operator|.
@@ -330,9 +332,10 @@ argument_list|(
 name|tol
 argument_list|)
 expr_stmt|;
+comment|// simple language is resolved by default hence why there is 2
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|context
 operator|.
@@ -366,9 +369,10 @@ argument_list|,
 name|tol2
 argument_list|)
 expr_stmt|;
+comment|// simple language is resolved by default hence why there is 2
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|context
 operator|.

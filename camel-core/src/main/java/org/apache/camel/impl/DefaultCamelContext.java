@@ -21532,6 +21532,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// resolve simple language to initialize it
+name|resolveLanguage
+argument_list|(
+literal|"simple"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Force clear lazy initialization so they can be re-created on restart      */
 DECL|method|forceStopLazyInitialization ()
