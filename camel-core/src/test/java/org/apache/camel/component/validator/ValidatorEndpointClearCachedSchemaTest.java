@@ -448,6 +448,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|handlerPackageSystemProp
+init|=
+literal|"java.protocol.handler.pkgs"
+decl_stmt|;
+name|String
+name|customUrlHandlerPackage
+init|=
+literal|"org.apache.camel.urlhandler"
+decl_stmt|;
+name|registerSystemProperty
+argument_list|(
+name|handlerPackageSystemProp
+argument_list|,
+name|customUrlHandlerPackage
+argument_list|,
+literal|"|"
+argument_list|)
+expr_stmt|;
 name|simpleReg
 operator|=
 operator|new
@@ -460,15 +479,6 @@ operator|new
 name|DefaultCamelContext
 argument_list|(
 name|simpleReg
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|setClassResolver
-argument_list|(
-operator|new
-name|ClassResolverImpl
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -746,200 +756,6 @@ argument_list|(
 literal|"schema cache cleared"
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-block|}
-comment|/**      * Class to simulate a change of the XSD document. During the first call of      * the resource a XSD is returned which does not fit to the XML document. In      * the second call a XSD fitting to the XML document is returned.      */
-DECL|class|ClassResolverImpl
-specifier|static
-class|class
-name|ClassResolverImpl
-extends|extends
-name|DefaultClassResolver
-block|{
-DECL|field|xsdtemplate1
-specifier|private
-specifier|final
-name|String
-name|xsdtemplate1
-init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-operator|+
-comment|//
-literal|"<xsd:schema targetNamespace=\"http://apache.camel.org/test\" xmlns=\"http://apache.camel.org/test\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">"
-operator|+
-comment|//
-literal|"<xsd:complexType name=\"TestMessage\">"
-operator|+
-comment|//
-literal|"<xsd:sequence>"
-operator|+
-comment|//
-literal|"<xsd:element name=\"Content\" type=\"xsd:string\" />"
-operator|+
-comment|// //
-comment|// wrong
-comment|// element
-comment|// name
-comment|// will
-comment|// cause
-comment|// the
-comment|// validation
-comment|// to
-comment|// fail
-literal|"</xsd:sequence>"
-operator|+
-comment|//
-literal|"<xsd:attribute name=\"attr\" type=\"xsd:string\" default=\"xsd1\"/>"
-operator|+
-comment|//
-literal|"</xsd:complexType>"
-operator|+
-comment|//
-literal|"<xsd:element name=\"TestMessage\" type=\"TestMessage\" />"
-operator|+
-comment|//
-literal|"</xsd:schema>"
-decl_stmt|;
-comment|//
-DECL|field|xsdtemplate2
-specifier|private
-specifier|final
-name|String
-name|xsdtemplate2
-init|=
-name|xsdtemplate1
-operator|.
-name|replace
-argument_list|(
-literal|"\"Content\""
-argument_list|,
-literal|"\"MessageContent\""
-argument_list|)
-decl_stmt|;
-comment|// correct
-comment|// element
-comment|// name
-comment|// -->
-comment|// validation
-comment|// will
-comment|// be
-comment|// correct
-DECL|field|xsd1
-specifier|private
-name|byte
-index|[]
-name|xsd1
-init|=
-name|xsdtemplate1
-operator|.
-name|getBytes
-argument_list|(
-name|StandardCharsets
-operator|.
-name|UTF_8
-argument_list|)
-decl_stmt|;
-DECL|field|xsd2
-specifier|private
-name|byte
-index|[]
-name|xsd2
-init|=
-name|xsdtemplate2
-operator|.
-name|getBytes
-argument_list|(
-name|StandardCharsets
-operator|.
-name|UTF_8
-argument_list|)
-decl_stmt|;
-DECL|field|counter
-specifier|private
-specifier|volatile
-name|short
-name|counter
-decl_stmt|;
-annotation|@
-name|Override
-DECL|method|loadResourceAsStream (String uri)
-specifier|public
-name|InputStream
-name|loadResourceAsStream
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-if|if
-condition|(
-name|uri
-operator|.
-name|startsWith
-argument_list|(
-literal|"pd:"
-argument_list|)
-condition|)
-block|{
-name|byte
-index|[]
-name|xsd
-decl_stmt|;
-if|if
-condition|(
-name|counter
-operator|==
-literal|0
-condition|)
-block|{
-name|xsd
-operator|=
-name|xsd1
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"resolved XSD1"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|xsd
-operator|=
-name|xsd2
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"resolved XSD2"
-argument_list|)
-expr_stmt|;
-block|}
-name|counter
-operator|++
-expr_stmt|;
-return|return
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|xsd
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-return|return
-name|super
-operator|.
-name|loadResourceAsStream
-argument_list|(
-name|uri
-argument_list|)
-return|;
 block|}
 block|}
 block|}

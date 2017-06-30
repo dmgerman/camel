@@ -315,7 +315,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a value builder for the given exchange property      *       * @deprecated use {@link #exchangeProperty(String)}      */
+comment|/**      * Returns a value builder for the given exchange property      *      * @deprecated use {@link #exchangeProperty(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|property (String name)
@@ -398,7 +398,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      *       * @deprecated use {@link #body()}      */
+comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      *      * @deprecated use {@link #body()}      */
 annotation|@
 name|Deprecated
 DECL|method|outBody ()
@@ -415,7 +415,7 @@ name|outBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      *       * @deprecated use {@link #bodyAs(Class)}      */
+comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      *      * @deprecated use {@link #bodyAs(Class)}      */
 annotation|@
 name|Deprecated
 DECL|method|outBodyAs (Class<T> type)
@@ -458,7 +458,7 @@ name|faultBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      *       * @deprecated use {@link #bodyAs(Class)}      */
+comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      *      * @deprecated use {@link #bodyAs(Class)}      */
 annotation|@
 name|Deprecated
 DECL|method|faultBodyAs (Class<T> type)
@@ -2175,7 +2175,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Is this version the given Java version.      *<p/>      * Uses<tt>java.version</tt> from the system properties to determine the version.      *      * @param version such as 1.6 or 6       * @return<tt>true</tt> if its that vendor.      */
+comment|/**      * Is this version the given Java version.      *<p/>      * Uses<tt>java.version</tt> from the system properties to determine the version.      *      * @param version such as 1.6 or 6      * @return<tt>true</tt> if its that vendor.      */
 DECL|method|isJavaVersion (String version)
 specifier|public
 specifier|static
@@ -2288,6 +2288,94 @@ argument_list|(
 name|javaSpecVersion
 argument_list|)
 return|;
+block|}
+block|}
+comment|/**      * Used for registering a sysetem property.      *<p/>      * if the property already contains the passed value nothing will happen.      * If the system property has already a value, the passed value will be appended separated by<tt>separator</tt>      *      * @param sysPropertyName   the name of the system property to be set      * @param sysPropertyValue  the value to be set for the system property passed as sysPropertyName      * @param separator         the property separator to be used to append sysPropertyValue      *      */
+DECL|method|registerSystemProperty (String sysPropertyName, String sysPropertyValue, String separator)
+specifier|public
+specifier|static
+name|void
+name|registerSystemProperty
+parameter_list|(
+name|String
+name|sysPropertyName
+parameter_list|,
+name|String
+name|sysPropertyValue
+parameter_list|,
+name|String
+name|separator
+parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|System
+operator|.
+name|getProperties
+argument_list|()
+init|)
+block|{
+if|if
+condition|(
+name|System
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|sysPropertyName
+argument_list|)
+condition|)
+block|{
+name|String
+name|current
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|sysPropertyName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|current
+operator|.
+name|contains
+argument_list|(
+name|sysPropertyValue
+argument_list|)
+condition|)
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|sysPropertyName
+argument_list|,
+name|current
+operator|+
+name|separator
+operator|+
+name|sysPropertyValue
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|sysPropertyName
+argument_list|,
+name|sysPropertyValue
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
