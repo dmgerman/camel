@@ -34,6 +34,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|github
+operator|.
+name|benmanes
+operator|.
+name|caffeine
+operator|.
+name|cache
+operator|.
+name|Cache
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -85,22 +101,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|benmanes
-operator|.
-name|caffeine
-operator|.
-name|cache
-operator|.
-name|Cache
 import|;
 end_import
 
