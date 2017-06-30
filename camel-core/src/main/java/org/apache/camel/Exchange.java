@@ -602,6 +602,12 @@ name|MAXIMUM_ENDPOINT_CACHE_SIZE
 init|=
 literal|"CamelMaximumEndpointCacheSize"
 decl_stmt|;
+DECL|field|MAXIMUM_SIMPLE_CACHE_SIZE
+name|String
+name|MAXIMUM_SIMPLE_CACHE_SIZE
+init|=
+literal|"CamelMaximumSimpleCacheSize"
+decl_stmt|;
 DECL|field|MAXIMUM_TRANSFORMER_CACHE_SIZE
 name|String
 name|MAXIMUM_TRANSFORMER_CACHE_SIZE

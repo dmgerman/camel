@@ -384,7 +384,7 @@ name|TimeValue
 operator|.
 name|seconds
 argument_list|(
-literal|1
+literal|10
 argument_list|)
 argument_list|)
 operator|.
@@ -497,6 +497,14 @@ operator|.
 name|setBody
 argument_list|(
 literal|"World"
+argument_list|)
+expr_stmt|;
+comment|// warm up as we use cache on simple expression
+name|ExpressionBuilder
+operator|.
+name|simpleExpression
+argument_list|(
+name|expression
 argument_list|)
 expr_stmt|;
 block|}
