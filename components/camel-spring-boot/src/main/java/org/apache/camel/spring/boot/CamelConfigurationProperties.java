@@ -144,6 +144,14 @@ name|loadTypeConverters
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * To filter component scanning of RouteBuilder classes with @Component annotation.      * You can use a regular expression to match which class names (simple name) to match.      * For example to match all classes starting with Foo,<tt>Foo*</tt> or use      * a regular expression to match all Foo or Bar routes with<tt>(Foo|Bar).*</tt>      */
+DECL|field|javaRoutesFilter
+specifier|private
+name|String
+name|javaRoutesFilter
+init|=
+literal|"*"
+decl_stmt|;
 comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      */
 DECL|field|xmlRoutes
 specifier|private
@@ -761,6 +769,32 @@ operator|.
 name|loadTypeConverters
 operator|=
 name|loadTypeConverters
+expr_stmt|;
+block|}
+DECL|method|getJavaRoutesFilter ()
+specifier|public
+name|String
+name|getJavaRoutesFilter
+parameter_list|()
+block|{
+return|return
+name|javaRoutesFilter
+return|;
+block|}
+DECL|method|setJavaRoutesFilter (String javaRoutesFilter)
+specifier|public
+name|void
+name|setJavaRoutesFilter
+parameter_list|(
+name|String
+name|javaRoutesFilter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|javaRoutesFilter
+operator|=
+name|javaRoutesFilter
 expr_stmt|;
 block|}
 DECL|method|getXmlRoutes ()
