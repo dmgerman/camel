@@ -162,14 +162,14 @@ name|SpringBootTest
 argument_list|(
 name|classes
 operator|=
-name|FooTest
+name|BarTest
 operator|.
 name|class
 argument_list|,
 name|properties
 operator|=
 block|{
-literal|"camel.springboot.javaRoutesFilter=Foo*"
+literal|"camel.springboot.java-routes-exclude-pattern=**/Bar*,**/Drink*"
 block|}
 argument_list|)
 DECL|class|FooTest

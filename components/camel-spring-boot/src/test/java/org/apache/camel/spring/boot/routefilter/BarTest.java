@@ -168,7 +168,7 @@ argument_list|,
 name|properties
 operator|=
 block|{
-literal|"camel.springboot.javaRoutesFilter=Bar*"
+literal|"camel.springboot.java-routes-include-pattern=**/Bar*"
 block|}
 argument_list|)
 DECL|class|BarTest

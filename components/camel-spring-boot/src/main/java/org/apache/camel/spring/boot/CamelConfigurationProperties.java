@@ -144,13 +144,17 @@ name|loadTypeConverters
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * To filter component scanning of RouteBuilder classes with @Component annotation.      * You can use a regular expression to match which class names (simple name) to match.      * For example to match all classes starting with Foo,<tt>Foo*</tt> or use      * a regular expression to match all Foo or Bar routes with<tt>(Foo|Bar).*</tt>      */
-DECL|field|javaRoutesFilter
+comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *<p/>      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use<tt>&#42;&#42;/Foo*</tt>.      * To include all routes form a specific package use,<tt>com/mycompany/foo/*</tt>      * To include all routes form a specific package and its sub-packages use double wildcards,<tt>com/mycompany/foo/**</tt>      * And to include all routes from two specific packages use,<tt>com/mycompany/foo/*,com/mycompany/stuff/*</tt>      *      * @see org.springframework.util.AntPathMatcher      */
+DECL|field|javaRoutesIncludePattern
 specifier|private
 name|String
-name|javaRoutesFilter
-init|=
-literal|"*"
+name|javaRoutesIncludePattern
+decl_stmt|;
+comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *<p/>      * For example to exclude all classes starting with Bar use<tt>&#42;&#42;/Bar*</tt>.      * To exclude all routes form a specific package use,<tt>com/mycompany/bar/*</tt>      * To exclude all routes form a specific package and its sub-packages use double wildcards,<tt>com/mycompany/bar/**</tt>      * And to exclude all routes from two specific packages use,<tt>com/mycompany/bar/*,com/mycompany/stuff/*</tt>      *      * @see org.springframework.util.AntPathMatcher      */
+DECL|field|javaRoutesExcludePattern
+specifier|private
+name|String
+name|javaRoutesExcludePattern
 decl_stmt|;
 comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      */
 DECL|field|xmlRoutes
@@ -771,30 +775,56 @@ operator|=
 name|loadTypeConverters
 expr_stmt|;
 block|}
-DECL|method|getJavaRoutesFilter ()
+DECL|method|getJavaRoutesIncludePattern ()
 specifier|public
 name|String
-name|getJavaRoutesFilter
+name|getJavaRoutesIncludePattern
 parameter_list|()
 block|{
 return|return
-name|javaRoutesFilter
+name|javaRoutesIncludePattern
 return|;
 block|}
-DECL|method|setJavaRoutesFilter (String javaRoutesFilter)
+DECL|method|setJavaRoutesIncludePattern (String javaRoutesIncludePattern)
 specifier|public
 name|void
-name|setJavaRoutesFilter
+name|setJavaRoutesIncludePattern
 parameter_list|(
 name|String
-name|javaRoutesFilter
+name|javaRoutesIncludePattern
 parameter_list|)
 block|{
 name|this
 operator|.
-name|javaRoutesFilter
+name|javaRoutesIncludePattern
 operator|=
-name|javaRoutesFilter
+name|javaRoutesIncludePattern
+expr_stmt|;
+block|}
+DECL|method|getJavaRoutesExcludePattern ()
+specifier|public
+name|String
+name|getJavaRoutesExcludePattern
+parameter_list|()
+block|{
+return|return
+name|javaRoutesExcludePattern
+return|;
+block|}
+DECL|method|setJavaRoutesExcludePattern (String javaRoutesExcludePattern)
+specifier|public
+name|void
+name|setJavaRoutesExcludePattern
+parameter_list|(
+name|String
+name|javaRoutesExcludePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|javaRoutesExcludePattern
+operator|=
+name|javaRoutesExcludePattern
 expr_stmt|;
 block|}
 DECL|method|getXmlRoutes ()
