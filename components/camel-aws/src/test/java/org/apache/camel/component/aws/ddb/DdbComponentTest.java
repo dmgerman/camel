@@ -213,6 +213,33 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Test
+DECL|method|createEndpointWithOnlyAccessKeyAndSecretKey ()
+specifier|public
+name|void
+name|createEndpointWithOnlyAccessKeyAndSecretKey
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|DdbComponent
+name|component
+init|=
+operator|new
+name|DdbComponent
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
+name|component
+operator|.
+name|createEndpoint
+argument_list|(
+literal|"aws-ddb://activeTable?accessKey=xxx&secretKey=yyy"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|createRegistry ()
 specifier|protected
