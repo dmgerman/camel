@@ -279,7 +279,7 @@ parameter_list|()
 block|{
 comment|// the nickname parameter is necessary in these URLs because the '@' in the user name can not be parsed by
 comment|// vysper during chat room message routing.
-comment|// here on purpose we provide the room query parameter without the domain name as 'camel-test', and camel
+comment|// here on purpose we provide the room query parameter without the domain name as 'camel-test', and Camel
 comment|// will resolve it properly to 'camel-test@conference.apache.camel'
 return|return
 literal|"xmpp://localhost:"
@@ -301,7 +301,7 @@ name|String
 name|getConsumerUri
 parameter_list|()
 block|{
-comment|// however here we provide the room query parameter as fully qualified including the domain name as
+comment|// however here we provide the room query parameter as fully qualified, including the domain name as
 comment|// 'camel-test@conference.apache.camel'
 return|return
 literal|"xmpp://localhost:"
