@@ -96,7 +96,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCache
+name|LRUCacheFactory
 import|;
 end_import
 
@@ -154,6 +154,11 @@ name|Date
 name|lastUpdate
 decl_stmt|;
 comment|// use a LRU so we only keep the last 1000 elements to avoid growing to large
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|field|entriesForLastUpdate
 specifier|private
 name|Map
@@ -164,13 +169,9 @@ name|Integer
 argument_list|>
 name|entriesForLastUpdate
 init|=
-operator|new
-name|LRUCache
-argument_list|<
-name|Integer
-argument_list|,
-name|Integer
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 literal|1000
 argument_list|)
