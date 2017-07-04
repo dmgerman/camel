@@ -924,9 +924,9 @@ decl_stmt|;
 comment|// use initial properties
 if|if
 condition|(
-literal|null
-operator|!=
 name|initialProperties
+operator|!=
+literal|null
 condition|)
 block|{
 name|prop
@@ -2265,15 +2265,9 @@ parameter_list|()
 block|{
 return|return
 name|locations
-operator|!=
-literal|null
-condition|?
-name|locations
 operator|.
 name|hashCode
 argument_list|()
-else|:
-literal|0
 return|;
 block|}
 annotation|@

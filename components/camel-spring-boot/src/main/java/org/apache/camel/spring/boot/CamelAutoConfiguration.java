@@ -662,6 +662,20 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Lazy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|core
 operator|.
 name|env
@@ -1764,7 +1778,7 @@ name|config
 argument_list|)
 return|;
 block|}
-comment|/**      * Default producer template for the bootstrapped Camel context.      */
+comment|/**      * Default producer template for the bootstrapped Camel context.      * Create the bean lazy as it should only be created if its in-use.      */
 comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
 comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
 comment|// and in that case Service::close (ProducerTemplate implements Service)
@@ -1784,6 +1798,8 @@ name|ProducerTemplate
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Lazy
 DECL|method|producerTemplate (CamelContext camelContext, CamelConfigurationProperties config)
 name|ProducerTemplate
 name|producerTemplate
@@ -1823,7 +1839,7 @@ return|return
 name|producerTemplate
 return|;
 block|}
-comment|/**      * Default consumer template for the bootstrapped Camel context.      */
+comment|/**      * Default consumer template for the bootstrapped Camel context.      * Create the bean lazy as it should only be created if its in-use.      */
 comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
 comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
 comment|// and in that case Service::close (ConsumerTemplate implements Service)
@@ -1843,6 +1859,8 @@ name|ConsumerTemplate
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Lazy
 DECL|method|consumerTemplate (CamelContext camelContext, CamelConfigurationProperties config)
 name|ConsumerTemplate
 name|consumerTemplate
