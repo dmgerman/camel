@@ -312,6 +312,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|LRUWeakCache
 import|;
 end_import
@@ -383,7 +397,6 @@ comment|// use a weak cache as we dont want the cache to keep around as it refer
 comment|// which could prevent classloader to unload classes if being referenced from this cache
 DECL|field|cache
 specifier|private
-specifier|final
 name|LRUCache
 argument_list|<
 name|Class
@@ -394,20 +407,6 @@ argument_list|,
 name|MBeanAttributesAndOperations
 argument_list|>
 name|cache
-init|=
-operator|new
-name|LRUWeakCache
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|,
-name|MBeanAttributesAndOperations
-argument_list|>
-argument_list|(
-literal|1000
-argument_list|)
 decl_stmt|;
 DECL|method|MBeanInfoAssembler ()
 specifier|public
@@ -426,6 +425,11 @@ parameter_list|)
 block|{     }
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|start ()
 specifier|public
 name|void
@@ -434,7 +438,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|cache
+operator|=
+name|LRUCacheFactory
+operator|.
+name|newLRUWeakCache
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

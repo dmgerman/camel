@@ -2160,6 +2160,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|LoadPropertiesException
 import|;
 end_import
@@ -3400,6 +3414,36 @@ specifier|public
 name|DefaultCamelContext
 parameter_list|()
 block|{
+name|boolean
+name|warmUp
+init|=
+literal|"true"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"CamelWarmUpLRUCacheFactory"
+argument_list|,
+literal|"true"
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|warmUp
+condition|)
+block|{
+comment|// warm-up LRUCache which happens in a background test, which can speedup starting Camel
+comment|// as the warm-up can run concurrently with starting up Camel and the runtime container Camel may be running inside
+name|LRUCacheFactory
+operator|.
+name|warmUp
+argument_list|()
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|executorServiceManager
@@ -3410,16 +3454,15 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// create endpoint registry at first since end users may access endpoints before CamelContext is started
+comment|// create a provisional (temporary) endpoint registry at first since end users may access endpoints before CamelContext is started
+comment|// we will later transfer the endpoints to the actual DefaultEndpointRegistry later, but we do this to starup Camel faster.
 name|this
 operator|.
 name|endpoints
 operator|=
 operator|new
-name|DefaultEndpointRegistry
-argument_list|(
-name|this
-argument_list|)
+name|ProvisionalEndpointRegistry
+argument_list|()
 expr_stmt|;
 comment|// add the defer service startup listener
 name|this

@@ -376,7 +376,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUSoftCache
+name|LRUCacheFactory
 import|;
 end_import
 
@@ -2773,16 +2773,9 @@ block|{
 comment|// use a JAR cache to speed up scanning JARs, but let it be soft referenced so it can claim the data when memory is needed
 name|jarCache
 operator|=
-operator|new
-name|LRUSoftCache
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 literal|1000
 argument_list|)

@@ -384,6 +384,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -487,6 +501,11 @@ DECL|field|server
 specifier|private
 name|MBeanServer
 name|server
+decl_stmt|;
+DECL|field|assembler
+specifier|private
+name|ManagementMBeanAssembler
+name|assembler
 decl_stmt|;
 comment|// need a name -> actual name mapping as some servers changes the names (such as WebSphere)
 DECL|field|mbeansRegistered
@@ -1940,14 +1959,6 @@ name|e
 parameter_list|)
 block|{
 comment|// If this is not a "normal" MBean, then try to deploy it using JMX annotations
-name|ManagementMBeanAssembler
-name|assembler
-init|=
-name|camelContext
-operator|.
-name|getManagementMBeanAssembler
-argument_list|()
-decl_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -2198,6 +2209,21 @@ name|createMBeanServer
 argument_list|()
 expr_stmt|;
 block|}
+comment|// ensure assembler is started
+name|assembler
+operator|=
+name|camelContext
+operator|.
+name|getManagementMBeanAssembler
+argument_list|()
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|assembler
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -2401,6 +2427,13 @@ literal|" See INFO log for details."
 argument_list|)
 expr_stmt|;
 block|}
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|assembler
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|registerMBeanWithServer (Object obj, ObjectName name, boolean forceRegistration)
 specifier|private
