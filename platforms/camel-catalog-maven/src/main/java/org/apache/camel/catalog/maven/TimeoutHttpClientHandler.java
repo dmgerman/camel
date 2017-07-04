@@ -81,14 +81,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A patched {@link HttpClientHandler} which allows to use HttpClient for downloading via http/https  * and have support for timeouts which is not supported out of the box by default.  */
+comment|/**  * A {@link HttpClientHandler} which uses HttpClient for downloading via http/https  * and have support for connection timeouts which otherwise is not supported by default in Apache Ivy.  */
 end_comment
 
 begin_class
-DECL|class|PatchedHttpClientHandler
+DECL|class|TimeoutHttpClientHandler
 specifier|public
 class|class
-name|PatchedHttpClientHandler
+name|TimeoutHttpClientHandler
 extends|extends
 name|HttpClientHandler
 block|{

@@ -153,11 +153,11 @@ decl_stmt|;
 DECL|field|httpClient
 specifier|private
 specifier|final
-name|PatchedHttpClientHandler
+name|TimeoutHttpClientHandler
 name|httpClient
 init|=
 operator|new
-name|PatchedHttpClientHandler
+name|TimeoutHttpClientHandler
 argument_list|()
 decl_stmt|;
 DECL|field|version
