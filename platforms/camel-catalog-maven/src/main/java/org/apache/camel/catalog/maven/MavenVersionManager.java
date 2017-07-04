@@ -112,6 +112,22 @@ name|VersionManager
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|ivy
+operator|.
+name|util
+operator|.
+name|url
+operator|.
+name|URLHandlerRegistry
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link VersionManager} that can load the resources using Maven to download needed artifacts from  * a local or remote Maven repository.  *<p/>  * This implementation uses Groovy Grape to download the Maven JARs.  */
 end_comment
@@ -132,6 +148,16 @@ name|classLoader
 init|=
 operator|new
 name|GroovyClassLoader
+argument_list|()
+decl_stmt|;
+DECL|field|httpClient
+specifier|private
+specifier|final
+name|PatchedHttpClientHandler
+name|httpClient
+init|=
+operator|new
+name|PatchedHttpClientHandler
 argument_list|()
 decl_stmt|;
 DECL|field|version
@@ -186,6 +212,24 @@ operator|.
 name|log
 operator|=
 name|log
+expr_stmt|;
+block|}
+comment|/**      * Sets the timeout in millis (http.socket.timeout) when downloading via http/https protocols.      *<p/>      * The default value is 10000      */
+DECL|method|setHttpClientTimeout (int timeout)
+specifier|public
+name|void
+name|setHttpClientTimeout
+parameter_list|(
+name|int
+name|timeout
+parameter_list|)
+block|{
+name|httpClient
+operator|.
+name|setTimeout
+argument_list|(
+name|timeout
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * To add a 3rd party Maven repository.      *      * @param name the repository name      * @param url  the repository url      */
@@ -265,6 +309,13 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|URLHandlerRegistry
+operator|.
+name|setDefault
+argument_list|(
+name|httpClient
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|cacheDirectory
@@ -421,6 +472,13 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|URLHandlerRegistry
+operator|.
+name|setDefault
+argument_list|(
+name|httpClient
+argument_list|)
+expr_stmt|;
 name|Grape
 operator|.
 name|setEnableAutoDownload
