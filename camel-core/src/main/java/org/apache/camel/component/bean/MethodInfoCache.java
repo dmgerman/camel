@@ -62,6 +62,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|LRUSoftCache
 import|;
 end_import
@@ -357,6 +371,11 @@ name|declaringClass
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createLruCache (int size)
 specifier|protected
 specifier|static
@@ -379,13 +398,9 @@ parameter_list|)
 block|{
 comment|// use a soft cache
 return|return
-operator|new
-name|LRUSoftCache
-argument_list|<
-name|K
-argument_list|,
-name|V
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUSoftCache
 argument_list|(
 name|size
 argument_list|)

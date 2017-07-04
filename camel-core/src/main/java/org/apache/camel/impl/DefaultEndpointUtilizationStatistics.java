@@ -64,6 +64,20 @@ name|LRUCache
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
 begin_class
 DECL|class|DefaultEndpointUtilizationStatistics
 specifier|public
@@ -83,6 +97,11 @@ name|Long
 argument_list|>
 name|map
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|DefaultEndpointUtilizationStatistics (int maxCapacity)
 specifier|public
 name|DefaultEndpointUtilizationStatistics
@@ -95,13 +114,9 @@ name|this
 operator|.
 name|map
 operator|=
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Long
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 literal|16
 argument_list|,

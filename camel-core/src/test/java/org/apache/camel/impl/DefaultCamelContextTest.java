@@ -755,6 +755,11 @@ argument_list|(
 literal|"log:bar"
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Collection
 argument_list|<
 name|Endpoint

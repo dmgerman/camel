@@ -2140,15 +2140,6 @@ argument_list|,
 literal|"classes"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|jarCache
-argument_list|,
-literal|"jarCache"
-argument_list|)
-expr_stmt|;
 name|List
 argument_list|<
 name|String

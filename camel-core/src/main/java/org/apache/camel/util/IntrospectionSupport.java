@@ -381,6 +381,11 @@ decl_stmt|;
 comment|// use a cache to speedup introspecting for known classes during startup
 comment|// use a weak cache as we dont want the cache to keep around as it reference classes
 comment|// which could prevent classloader to unload classes if being referenced from this cache
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|field|CACHE
 specifier|private
 specifier|static
@@ -396,16 +401,9 @@ name|ClassInfo
 argument_list|>
 name|CACHE
 init|=
-operator|new
-name|LRUWeakCache
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|,
-name|ClassInfo
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUWeakCache
 argument_list|(
 literal|1000
 argument_list|)

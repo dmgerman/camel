@@ -118,6 +118,20 @@ name|LRUCache
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A memory based implementation of {@link org.apache.camel.spi.IdempotentRepository}.   *<p/>  * Care should be taken to use a suitable underlying {@link Map} to avoid this class being a  * memory leak.  *  * @version   */
 end_comment
@@ -157,6 +171,11 @@ specifier|private
 name|int
 name|cacheSize
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|MemoryIdempotentRepository ()
 specifier|public
 name|MemoryIdempotentRepository
@@ -166,13 +185,9 @@ name|this
 operator|.
 name|cache
 operator|=
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 literal|1000
 argument_list|)
@@ -216,6 +231,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Creates a new memory based repository using a {@link LRUCache}.      *      * @param cacheSize  the cache size      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|memoryIdempotentRepository (int cacheSize)
 specifier|public
 specifier|static
@@ -232,13 +252,9 @@ block|{
 return|return
 name|memoryIdempotentRepository
 argument_list|(
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 name|cacheSize
 argument_list|)
@@ -480,6 +496,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -497,13 +518,9 @@ condition|)
 block|{
 name|cache
 operator|=
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 name|cacheSize
 argument_list|)

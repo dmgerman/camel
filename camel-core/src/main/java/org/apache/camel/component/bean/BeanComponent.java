@@ -78,6 +78,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|LRUSoftCache
 import|;
 end_import
@@ -132,6 +146,11 @@ argument_list|)
 decl_stmt|;
 comment|// use an internal soft cache for BeanInfo as they are costly to introspect
 comment|// for example the bean language using OGNL expression runs much faster reusing the BeanInfo from this cache
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|field|cache
 specifier|private
 specifier|final
@@ -143,13 +162,9 @@ name|BeanInfo
 argument_list|>
 name|cache
 init|=
-operator|new
-name|LRUSoftCache
-argument_list|<
-name|BeanInfoCacheKey
-argument_list|,
-name|BeanInfo
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUSoftCache
 argument_list|(
 literal|1000
 argument_list|)

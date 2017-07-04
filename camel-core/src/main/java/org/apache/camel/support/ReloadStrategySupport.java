@@ -70,6 +70,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -321,10 +335,8 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// store state
 DECL|field|cache
 specifier|protected
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -332,17 +344,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|cache
-init|=
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|(
-literal|100
-argument_list|)
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -1094,6 +1095,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1103,6 +1109,15 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+name|cache
+operator|=
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

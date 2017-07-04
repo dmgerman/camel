@@ -210,6 +210,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -321,24 +335,7 @@ DECL|method|FileIdempotentRepository ()
 specifier|public
 name|FileIdempotentRepository
 parameter_list|()
-block|{
-comment|// default use a 1st level cache
-name|this
-operator|.
-name|cache
-operator|=
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|FileIdempotentRepository (File fileStore, Map<String, Object> set)
 specifier|public
 name|FileIdempotentRepository
@@ -392,6 +389,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new file based repository using a {@link org.apache.camel.util.LRUCache}      * as 1st level cache.      *      * @param fileStore  the file store      * @param cacheSize  the cache size      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|fileIdempotentRepository (File fileStore, int cacheSize)
 specifier|public
 specifier|static
@@ -413,13 +415,9 @@ name|fileIdempotentRepository
 argument_list|(
 name|fileStore
 argument_list|,
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 name|cacheSize
 argument_list|)
@@ -427,6 +425,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new file based repository using a {@link org.apache.camel.util.LRUCache}      * as 1st level cache.      *      * @param fileStore  the file store      * @param cacheSize  the cache size      * @param maxFileStoreSize  the max size in bytes for the filestore file       */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|fileIdempotentRepository (File fileStore, int cacheSize, long maxFileStoreSize)
 specifier|public
 specifier|static
@@ -454,13 +457,9 @@ name|FileIdempotentRepository
 argument_list|(
 name|fileStore
 argument_list|,
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 name|cacheSize
 argument_list|)
@@ -841,6 +840,11 @@ name|maxFileStoreSize
 expr_stmt|;
 block|}
 comment|/**      * Sets the cache size      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setCacheSize (int size)
 specifier|public
 name|void
@@ -865,13 +869,9 @@ expr_stmt|;
 block|}
 name|cache
 operator|=
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 name|size
 argument_list|)
@@ -1417,6 +1417,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1434,6 +1439,18 @@ argument_list|,
 literal|"fileStore"
 argument_list|,
 name|this
+argument_list|)
+expr_stmt|;
+comment|// default use a 1st level cache
+name|this
+operator|.
+name|cache
+operator|=
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
+argument_list|(
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// init store if not loaded before

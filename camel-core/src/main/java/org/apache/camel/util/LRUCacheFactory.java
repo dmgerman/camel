@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -63,7 +77,6 @@ specifier|final
 class|class
 name|LRUCacheFactory
 block|{
-comment|// TODO: use LRUCacheFactory in other places to create the LRUCaches
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -79,6 +92,17 @@ name|LRUCacheFactory
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|done
+specifier|private
+specifier|static
+specifier|final
+name|AtomicBoolean
+name|done
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
 decl_stmt|;
 DECL|method|LRUCacheFactory ()
 specifier|private
@@ -97,15 +121,35 @@ name|void
 name|warmUp
 parameter_list|()
 block|{
-comment|// create a dummy map in a separate thread to warmup the Caffeine cache
-comment|// as we want to do this as early as possible while creating CamelContext
-comment|// so when Camel is starting up its faster as the Caffeine cache has been initialized
+comment|// create a dummy map in a separate thread to warm-up the Caffeine cache concurrently
+comment|// while Camel is starting up. This allows us to overall startup Camel a bit faster
+comment|// as Caffeine takes 150+ millis to initialize.
+if|if
+condition|(
+operator|!
+name|done
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
 name|Runnable
 name|warmup
 init|=
 parameter_list|()
 lambda|->
 block|{
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -122,7 +166,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Warming up LRUCache complete"
+literal|"Warming up LRUCache complete in {} millis"
+argument_list|,
+name|watch
+operator|.
+name|taken
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -156,6 +205,8 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified maximumCacheSize, and will stop on eviction.      *      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
 DECL|method|newLRUCache (int maximumCacheSize)
 specifier|public
 specifier|static
@@ -166,6 +217,15 @@ name|int
 name|maximumCacheSize
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating LRUCache with maximumCacheSize: {}"
+argument_list|,
+name|maximumCacheSize
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|LRUCache
@@ -174,6 +234,112 @@ name|maximumCacheSize
 argument_list|)
 return|;
 block|}
+comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize, and will stop on eviction.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
+DECL|method|newLRUCache (int initialCapacity, int maximumCacheSize)
+specifier|public
+specifier|static
+name|LRUCache
+name|newLRUCache
+parameter_list|(
+name|int
+name|initialCapacity
+parameter_list|,
+name|int
+name|maximumCacheSize
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating LRUCache with initialCapacity: {}, maximumCacheSize: {}"
+argument_list|,
+name|initialCapacity
+argument_list|,
+name|maximumCacheSize
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|LRUCache
+argument_list|(
+name|initialCapacity
+argument_list|,
+name|maximumCacheSize
+argument_list|)
+return|;
+block|}
+comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize,load factor and ordering mode.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize the max capacity.      * @param stopOnEviction   whether to stop service on eviction.      * @throws IllegalArgumentException if the initial capacity is negative      */
+DECL|method|newLRUCache (int initialCapacity, int maximumCacheSize, boolean stopOnEviction)
+specifier|public
+specifier|static
+name|LRUCache
+name|newLRUCache
+parameter_list|(
+name|int
+name|initialCapacity
+parameter_list|,
+name|int
+name|maximumCacheSize
+parameter_list|,
+name|boolean
+name|stopOnEviction
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating LRUCache with initialCapacity: {}, maximumCacheSize: {}, stopOnEviction: {}"
+argument_list|,
+name|initialCapacity
+argument_list|,
+name|maximumCacheSize
+argument_list|,
+name|stopOnEviction
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|LRUCache
+argument_list|(
+name|initialCapacity
+argument_list|,
+name|maximumCacheSize
+argument_list|,
+name|stopOnEviction
+argument_list|)
+return|;
+block|}
+comment|/**      * Constructs an empty<tt>LRUSoftCache</tt> instance with the      * specified maximumCacheSize, and will stop on eviction.      *      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
+DECL|method|newLRUSoftCache (int maximumCacheSize)
+specifier|public
+specifier|static
+name|LRUSoftCache
+name|newLRUSoftCache
+parameter_list|(
+name|int
+name|maximumCacheSize
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating LRUSoftCache with maximumCacheSize: {}"
+argument_list|,
+name|maximumCacheSize
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|LRUSoftCache
+argument_list|(
+name|maximumCacheSize
+argument_list|)
+return|;
+block|}
+comment|/**      * Constructs an empty<tt>LRUWeakCache</tt> instance with the      * specified maximumCacheSize, and will stop on eviction.      *      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
 DECL|method|newLRUWeakCache (int maximumCacheSize)
 specifier|public
 specifier|static
@@ -184,6 +350,15 @@ name|int
 name|maximumCacheSize
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating LRUWeakCache with maximumCacheSize: {}"
+argument_list|,
+name|maximumCacheSize
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|LRUWeakCache

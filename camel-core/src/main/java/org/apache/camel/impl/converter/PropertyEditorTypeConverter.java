@@ -92,6 +92,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|LRUSoftCache
 import|;
 end_import
@@ -162,6 +176,11 @@ argument_list|)
 decl_stmt|;
 comment|// use a soft bound cache to avoid using too much memory in case a lot of different classes
 comment|// is being converted to string
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|field|misses
 specifier|private
 specifier|final
@@ -179,19 +198,9 @@ argument_list|>
 argument_list|>
 name|misses
 init|=
-operator|new
-name|LRUSoftCache
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUSoftCache
 argument_list|(
 literal|1000
 argument_list|)

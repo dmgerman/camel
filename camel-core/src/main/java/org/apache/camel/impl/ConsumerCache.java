@@ -202,6 +202,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -532,6 +546,11 @@ name|extendedStatistics
 expr_stmt|;
 block|}
 comment|/**      * Creates the {@link LRUCache} to be used.      *<p/>      * This implementation returns a {@link LRUCache} instance.       * @param cacheSize the cache size      * @return the cache      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createLRUCache (int cacheSize)
 specifier|protected
 specifier|static
@@ -552,13 +571,9 @@ comment|// being cache is properly handled, such as they are stopped when being 
 comment|// or when this cache is stopped. This is needed as some consumers requires to
 comment|// be stopped so they can shutdown internal resources that otherwise may cause leaks
 return|return
-operator|new
-name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|PollingConsumer
-argument_list|>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 name|cacheSize
 argument_list|)

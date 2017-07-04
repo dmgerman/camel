@@ -120,6 +120,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUCacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -235,6 +249,11 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|start ()
 specifier|public
 name|void
@@ -280,9 +299,9 @@ condition|)
 block|{
 name|cacheExpression
 operator|=
-operator|new
-name|LRUCache
-argument_list|<>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 literal|16
 argument_list|,
@@ -293,9 +312,9 @@ argument_list|)
 expr_stmt|;
 name|cachePredicate
 operator|=
-operator|new
-name|LRUCache
-argument_list|<>
+name|LRUCacheFactory
+operator|.
+name|newLRUCache
 argument_list|(
 literal|16
 argument_list|,
