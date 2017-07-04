@@ -462,10 +462,8 @@ name|ClassLoader
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// use a JAR cache to speed up scanning JARs, but let it be soft referenced so it can claim the data when memory is needed
 DECL|field|jarCache
 specifier|private
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -476,20 +474,6 @@ name|String
 argument_list|>
 argument_list|>
 name|jarCache
-init|=
-operator|new
-name|LRUSoftCache
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
-argument_list|(
-literal|1000
-argument_list|)
 decl_stmt|;
 DECL|field|scanFilters
 specifier|private
@@ -2779,7 +2763,31 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+if|if
+condition|(
+name|jarCache
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use a JAR cache to speed up scanning JARs, but let it be soft referenced so it can claim the data when memory is needed
+name|jarCache
+operator|=
+operator|new
+name|LRUSoftCache
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
