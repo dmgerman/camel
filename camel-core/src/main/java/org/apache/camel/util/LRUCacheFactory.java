@@ -93,12 +93,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|done
+DECL|field|init
 specifier|private
 specifier|static
 specifier|final
 name|AtomicBoolean
-name|done
+name|init
 init|=
 operator|new
 name|AtomicBoolean
@@ -126,8 +126,7 @@ comment|// while Camel is starting up. This allows us to overall startup Camel a
 comment|// as Caffeine takes 150+ millis to initialize.
 if|if
 condition|(
-operator|!
-name|done
+name|init
 operator|.
 name|compareAndSet
 argument_list|(
@@ -137,8 +136,9 @@ literal|true
 argument_list|)
 condition|)
 block|{
+comment|// only need to init Caffeine once in the JVM/classloader
 name|Runnable
-name|warmup
+name|task
 init|=
 parameter_list|()
 lambda|->
@@ -194,7 +194,7 @@ init|=
 operator|new
 name|Thread
 argument_list|(
-name|warmup
+name|task
 argument_list|,
 name|threadName
 argument_list|)

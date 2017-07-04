@@ -302,16 +302,6 @@ argument_list|,
 literal|"10"
 argument_list|)
 expr_stmt|;
-comment|// no need to warm-up when testing camel-core as that creates a new thread per CamelContext and Caffiene is initialized only once
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"CamelWarmUpLRUCacheFactory"
-argument_list|,
-literal|"false"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
