@@ -18402,7 +18402,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// optimised to not include runtimeEndpointRegistry unless its enabled or JMX statis is in extended mode
+comment|// optimised to not include runtimeEndpointRegistry unless its enabled or JMX statistics is in extended mode
 if|if
 condition|(
 name|runtimeEndpointRegistry
@@ -18768,7 +18768,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Skip starting of routes as CamelContext has been configured with autoStartup=false"
+literal|"Skip starting routes as CamelContext has been configured with autoStartup=false"
 argument_list|)
 expr_stmt|;
 block|}
