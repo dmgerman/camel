@@ -880,12 +880,12 @@ name|catalog
 operator|.
 name|loadVersion
 argument_list|(
-literal|"2.19.0-SNAPSHOT"
+literal|"2.19.1"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Unable to switch to Camel Catalog 2.19.0-SNAPSHOT"
+literal|"Unable to switch to Camel Catalog 2.19.1"
 argument_list|,
 name|loaded
 argument_list|)
@@ -900,12 +900,12 @@ literal|"org.apache.camel"
 argument_list|,
 literal|"camel-catalog-provider-karaf"
 argument_list|,
-literal|"2.19.0-SNAPSHOT"
+literal|"2.19.1"
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Unable to load Karaf Provider Camel Catalog 2.19.0-SNAPSHOT"
+literal|"Unable to load Karaf Provider Camel Catalog 2.19.1"
 argument_list|,
 name|loaded
 argument_list|)
@@ -936,7 +936,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"2.19.0-SNAPSHOT has "
+literal|"2.19.1 has "
 operator|+
 name|componentsNewer
 operator|+
