@@ -60,6 +60,7 @@ specifier|private
 name|HierarchicalPropertiesEvaluator
 parameter_list|()
 block|{     }
+comment|/**      * Determine the value of the "enabled" flag for a hierarchy of properties.      *      * @param environment the environment      * @param prefixes an ordered list of prefixed (less restrictive to more restrictive)      * @return the value of the key `enabled` for most restrictive prefix      */
 DECL|method|evaluate (Environment environment, String... prefixes)
 specifier|public
 specifier|static
@@ -79,6 +80,8 @@ name|answer
 init|=
 literal|true
 decl_stmt|;
+comment|// Loop over all the prefixes to find out the value of the key `enabled`
+comment|// for the most restrictive prefix.
 for|for
 control|(
 name|String
@@ -87,6 +90,9 @@ range|:
 name|prefixes
 control|)
 block|{
+comment|// evaluate the value of the current prefix using the parent one
+comment|// as default value so if the enabled property is not set, the parent
+comment|// one is used.
 name|answer
 operator|=
 name|isEnabled
