@@ -50,6 +50,14 @@ begin_import
 import|import
 name|twitter4j
 operator|.
+name|Paging
+import|;
+end_import
+
+begin_import
+import|import
+name|twitter4j
+operator|.
 name|Status
 import|;
 end_import
@@ -115,6 +123,12 @@ parameter_list|()
 throws|throws
 name|TwitterException
 block|{
+name|Paging
+name|paging
+init|=
+name|getLastIdPaging
+argument_list|()
+decl_stmt|;
 name|log
 operator|.
 name|trace
@@ -123,8 +137,7 @@ literal|"doPoll.getUserTimeline(user={}, sinceId={})"
 argument_list|,
 name|user
 argument_list|,
-name|getLastIdPaging
-argument_list|()
+name|paging
 operator|.
 name|getSinceId
 argument_list|()
@@ -138,8 +151,7 @@ name|getUserTimeline
 argument_list|(
 name|user
 argument_list|,
-name|getLastIdPaging
-argument_list|()
+name|paging
 argument_list|)
 return|;
 block|}
