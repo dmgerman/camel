@@ -162,11 +162,38 @@ name|Endpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|ConfigurationProperties
+import|;
+end_import
+
 begin_comment
 comment|/**  * {@link Endpoint} to expose {@link org.apache.camel.Route} information.  */
 end_comment
 
 begin_class
+annotation|@
+name|ConfigurationProperties
+argument_list|(
+name|prefix
+operator|=
+literal|"endpoints."
+operator|+
+name|CamelRoutesEndpoint
+operator|.
+name|ENDPOINT_ID
+argument_list|)
 DECL|class|CamelRoutesEndpoint
 specifier|public
 class|class
@@ -181,7 +208,7 @@ argument_list|>
 argument_list|>
 block|{
 DECL|field|ENDPOINT_ID
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
