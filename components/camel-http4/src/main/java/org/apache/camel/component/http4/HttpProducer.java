@@ -3192,6 +3192,15 @@ literal|"charset"
 argument_list|)
 operator|>
 literal|0
+operator|||
+name|contentTypeString
+operator|.
+name|indexOf
+argument_list|(
+literal|";"
+argument_list|)
+operator|>
+literal|0
 condition|)
 block|{
 name|contentType
