@@ -28,6 +28,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -85,6 +97,18 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -296,11 +320,44 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// need a bit time to let JMX update
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|1000
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+name|Long
+name|completed
+init|=
+operator|(
+name|Long
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"ExchangesCompleted"
+argument_list|)
+decl_stmt|;
+return|return
+name|completed
+operator|>
+literal|0
+return|;
+block|}
 argument_list|)
 expr_stmt|;
 comment|// should have 1 completed exchange
