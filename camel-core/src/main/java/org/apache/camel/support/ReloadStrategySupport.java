@@ -70,20 +70,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|LRUCacheFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|w3c
 operator|.
 name|dom
@@ -240,7 +226,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCache
+name|LRUCacheFactory
 import|;
 end_import
 

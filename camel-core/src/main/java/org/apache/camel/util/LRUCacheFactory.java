@@ -93,12 +93,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|init
+DECL|field|INIT
 specifier|private
 specifier|static
 specifier|final
 name|AtomicBoolean
-name|init
+name|INIT
 init|=
 operator|new
 name|AtomicBoolean
@@ -109,6 +109,7 @@ specifier|private
 name|LRUCacheFactory
 parameter_list|()
 block|{     }
+comment|/**      * Warm-up the LRUCache to startup Apache Camel faster.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -126,7 +127,7 @@ comment|// while Camel is starting up. This allows us to overall startup Camel a
 comment|// as Caffeine takes 150+ millis to initialize.
 if|if
 condition|(
-name|init
+name|INIT
 operator|.
 name|compareAndSet
 argument_list|(
