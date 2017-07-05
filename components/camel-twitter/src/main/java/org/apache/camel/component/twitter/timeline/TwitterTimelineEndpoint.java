@@ -178,6 +178,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -242,6 +256,13 @@ specifier|private
 name|TimelineType
 name|timelineType
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"The username when using timelineType=user"
+argument_list|)
 DECL|field|user
 specifier|private
 name|String
