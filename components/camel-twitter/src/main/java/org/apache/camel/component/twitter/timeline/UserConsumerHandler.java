@@ -115,6 +115,21 @@ parameter_list|()
 throws|throws
 name|TwitterException
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"doPoll.getUserTimeline(user={}, sinceId={})"
+argument_list|,
+name|user
+argument_list|,
+name|getLastIdPaging
+argument_list|()
+operator|.
+name|getSinceId
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|getTwitter
 argument_list|()
@@ -141,6 +156,15 @@ parameter_list|()
 throws|throws
 name|TwitterException
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"doDirect.getUserTimeline(user={})"
+argument_list|,
+name|user
+argument_list|)
+expr_stmt|;
 return|return
 name|getTwitter
 argument_list|()
