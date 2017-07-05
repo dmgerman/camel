@@ -580,20 +580,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|LRUCacheFactory
 import|;
 end_import
@@ -1326,6 +1312,13 @@ DECL|field|completeAllOnStop
 specifier|private
 name|boolean
 name|completeAllOnStop
+decl_stmt|;
+DECL|field|completionTimeoutCheckerInterval
+specifier|private
+name|long
+name|completionTimeoutCheckerInterval
+init|=
+literal|1000
 decl_stmt|;
 DECL|field|deadLetterProducerTemplate
 specifier|private
@@ -4619,6 +4612,32 @@ return|return
 name|completeAllOnStop
 return|;
 block|}
+DECL|method|getCompletionTimeoutCheckerInterval ()
+specifier|public
+name|long
+name|getCompletionTimeoutCheckerInterval
+parameter_list|()
+block|{
+return|return
+name|completionTimeoutCheckerInterval
+return|;
+block|}
+DECL|method|setCompletionTimeoutCheckerInterval (long completionTimeoutCheckerInterval)
+specifier|public
+name|void
+name|setCompletionTimeoutCheckerInterval
+parameter_list|(
+name|long
+name|completionTimeoutCheckerInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|completionTimeoutCheckerInterval
+operator|=
+name|completionTimeoutCheckerInterval
+expr_stmt|;
+block|}
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler
@@ -6644,7 +6663,8 @@ argument_list|(
 name|getTimeoutCheckerExecutorService
 argument_list|()
 argument_list|,
-literal|1000L
+name|getCompletionTimeoutCheckerInterval
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// fill in existing timeout values from the aggregation repository, for example if a restart occurred, then we

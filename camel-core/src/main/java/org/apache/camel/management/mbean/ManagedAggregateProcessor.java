@@ -398,6 +398,19 @@ name|getCompletionInterval
 argument_list|()
 return|;
 block|}
+DECL|method|getCompletionTimeoutCheckerInterval ()
+specifier|public
+name|long
+name|getCompletionTimeoutCheckerInterval
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|getCompletionTimeoutCheckerInterval
+argument_list|()
+return|;
+block|}
 DECL|method|getCompletionSize ()
 specifier|public
 name|int

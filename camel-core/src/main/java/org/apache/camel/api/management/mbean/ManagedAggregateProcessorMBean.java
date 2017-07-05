@@ -137,6 +137,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Completion timeout checker interval in millis"
+argument_list|)
+DECL|method|getCompletionTimeoutCheckerInterval ()
+name|long
+name|getCompletionTimeoutCheckerInterval
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Completion size"
 argument_list|)
 DECL|method|getCompletionSize ()

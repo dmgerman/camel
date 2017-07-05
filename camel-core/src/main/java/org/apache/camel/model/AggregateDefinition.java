@@ -690,6 +690,22 @@ name|completionTimeout
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
+DECL|field|completionTimeoutCheckerInterval
+specifier|private
+name|Long
+name|completionTimeoutCheckerInterval
+init|=
+literal|1000L
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|completionFromBatchConsumer
 specifier|private
 name|Boolean
@@ -1637,6 +1653,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|getCompletionTimeoutCheckerInterval
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setCompletionTimeoutCheckerInterval
+argument_list|(
+name|getCompletionTimeoutCheckerInterval
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -2305,6 +2338,32 @@ operator|.
 name|completionTimeout
 operator|=
 name|completionTimeout
+expr_stmt|;
+block|}
+DECL|method|getCompletionTimeoutCheckerInterval ()
+specifier|public
+name|Long
+name|getCompletionTimeoutCheckerInterval
+parameter_list|()
+block|{
+return|return
+name|completionTimeoutCheckerInterval
+return|;
+block|}
+DECL|method|setCompletionTimeoutCheckerInterval (Long completionTimeoutCheckerInterval)
+specifier|public
+name|void
+name|setCompletionTimeoutCheckerInterval
+parameter_list|(
+name|Long
+name|completionTimeoutCheckerInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|completionTimeoutCheckerInterval
+operator|=
+name|completionTimeoutCheckerInterval
 expr_stmt|;
 block|}
 DECL|method|getCompletionPredicate ()
@@ -3000,7 +3059,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Time in millis that an aggregated exchange should be inactive before its complete (timeout).      * This option can be set as either a fixed value or using an Expression which allows you to evaluate      * a timeout dynamically - will use Long as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      * You cannot use this option together with completionInterval, only one of the two can be used.      *      * @param completionTimeout  the timeout in millis, must be a positive value      * @return the builder      */
+comment|/**      * Time in millis that an aggregated exchange should be inactive before its complete (timeout).      * This option can be set as either a fixed value or using an Expression which allows you to evaluate      * a timeout dynamically - will use Long as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      * You cannot use this option together with completionInterval, only one of the two can be used.      *<p/>      * By default the timeout checker runs every second, you can use the completionTimeoutCheckerInterval option      * to configure how frequently to run the checker.      * The timeout is an approximation and there is no guarantee that the a timeout is triggered exactly after the timeout value.      * It is not recommended to use very low timeout values or checker intervals.      *      * @param completionTimeout  the timeout in millis, must be a positive value      * @return the builder      */
 DECL|method|completionTimeout (long completionTimeout)
 specifier|public
 name|AggregateDefinition
@@ -3019,7 +3078,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Time in millis that an aggregated exchange should be inactive before its complete (timeout).      * This option can be set as either a fixed value or using an Expression which allows you to evaluate      * a timeout dynamically - will use Long as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      * You cannot use this option together with completionInterval, only one of the two can be used.      *      * @param completionTimeout  the timeout as an {@link Expression} which is evaluated as a {@link Long} type      * @return the builder      */
+comment|/**      * Time in millis that an aggregated exchange should be inactive before its complete (timeout).      * This option can be set as either a fixed value or using an Expression which allows you to evaluate      * a timeout dynamically - will use Long as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      * You cannot use this option together with completionInterval, only one of the two can be used.      *<p/>      * By default the timeout checker runs every second, you can use the completionTimeoutCheckerInterval option      * to configure how frequently to run the checker.      * The timeout is an approximation and there is no guarantee that the a timeout is triggered exactly after the timeout value.      * It is not recommended to use very low timeout values or checker intervals.      *      * @param completionTimeout  the timeout as an {@link Expression} which is evaluated as a {@link Long} type      * @return the builder      */
 DECL|method|completionTimeout (Expression completionTimeout)
 specifier|public
 name|AggregateDefinition
@@ -3036,6 +3095,25 @@ name|ExpressionSubElementDefinition
 argument_list|(
 name|completionTimeout
 argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Interval in millis that is used by the background task that checks for timeouts ({@link org.apache.camel.TimeoutMap}).      *<p/>      * By default the timeout checker runs every second.      * The timeout is an approximation and there is no guarantee that the a timeout is triggered exactly after the timeout value.      * It is not recommended to use very low timeout values or checker intervals.      *      * @param completionTimeoutCheckerInterval  the interval in millis, must be a positive value      * @return the builder      */
+DECL|method|completionTimeoutCheckerInterval (long completionTimeoutCheckerInterval)
+specifier|public
+name|AggregateDefinition
+name|completionTimeoutCheckerInterval
+parameter_list|(
+name|long
+name|completionTimeoutCheckerInterval
+parameter_list|)
+block|{
+name|setCompletionTimeoutCheckerInterval
+argument_list|(
+name|completionTimeoutCheckerInterval
 argument_list|)
 expr_stmt|;
 return|return
