@@ -172,14 +172,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Sleeping for 1 sec before writing enrichdata file"
+literal|"Sleeping for 0.5 sec before writing enrichdata file"
 argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|template

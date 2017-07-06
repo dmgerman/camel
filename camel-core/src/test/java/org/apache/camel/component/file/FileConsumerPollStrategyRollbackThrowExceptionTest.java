@@ -20,6 +20,30 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -108,6 +132,18 @@ name|PollingConsumerPollStrategy
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for poll strategy  */
 end_comment
@@ -128,6 +164,19 @@ name|String
 name|event
 init|=
 literal|""
+decl_stmt|;
+DECL|field|LATCH
+specifier|private
+specifier|static
+specifier|final
+name|CountDownLatch
+name|LATCH
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
 DECL|field|fileUrl
 specifier|private
@@ -213,12 +262,28 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// let it run for a little, but it fails all the time
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|200
+literal|2
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+name|LATCH
+operator|.
+name|getCount
+argument_list|()
+operator|==
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// and we should rollback X number of times
@@ -346,6 +411,11 @@ block|{
 name|event
 operator|+=
 literal|"rollback"
+expr_stmt|;
+name|LATCH
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 throw|throw
 name|cause

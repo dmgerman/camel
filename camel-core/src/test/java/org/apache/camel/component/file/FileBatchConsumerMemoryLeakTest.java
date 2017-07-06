@@ -68,11 +68,26 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test to test CAMEL-1652  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Manual test"
+argument_list|)
 DECL|class|FileBatchConsumerMemoryLeakTest
 specifier|public
 class|class
@@ -129,10 +144,10 @@ block|{
 comment|// need a single test method to not fail because of no test methods
 block|}
 comment|/**      * Process 100 files with a sorted file endpoint. For each exchange the body will be replaced      * by a large buffer. In reality a similar thing happens if you have a lot of large files      * and use convertBodyTo(String.class). In both cases the Exchanges becomes quite large.      * The test will consume a lot of memory if all exchanges are kept in a list while doing      * the batch processing. This is because the garbage collector can not clean them as they      * are referenced in the list of exchanges.      *<p/>      * The test is not really a good integration test as it simply waits and does not fail      * or succeed fast      */
-DECL|method|xxxtestMemoryLeak ()
+DECL|method|testMemoryLeak ()
 specifier|public
 name|void
-name|xxxtestMemoryLeak
+name|testMemoryLeak
 parameter_list|()
 throws|throws
 name|Exception

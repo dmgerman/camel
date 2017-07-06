@@ -138,7 +138,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|250
+literal|100
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -248,7 +248,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/done?doneFileName=${file:name}.ready&initialDelay=0"
+literal|"file:target/done?doneFileName=${file:name}.ready&initialDelay=0&delay=50"
 argument_list|)
 operator|.
 name|convertBodyTo
