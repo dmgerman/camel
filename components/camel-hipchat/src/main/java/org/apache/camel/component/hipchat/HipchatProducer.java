@@ -132,6 +132,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|http
 operator|.
 name|StatusLine
@@ -247,6 +261,22 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encodeHttpURI
 import|;
 end_import
 
@@ -537,7 +567,10 @@ name|statusLine
 init|=
 name|post
 argument_list|(
+name|encodeHttpURI
+argument_list|(
 name|urlPath
+argument_list|)
 argument_list|,
 name|jsonParam
 argument_list|)
