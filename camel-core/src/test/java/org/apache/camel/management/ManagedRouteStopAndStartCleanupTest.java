@@ -28,6 +28,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -83,6 +95,18 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -195,11 +219,44 @@ name|state
 argument_list|)
 expr_stmt|;
 comment|// need a bit time to let JMX update
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|1000
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+name|Long
+name|num
+init|=
+operator|(
+name|Long
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"ExchangesCompleted"
+argument_list|)
+decl_stmt|;
+return|return
+name|num
+operator|==
+literal|1
+return|;
+block|}
 argument_list|)
 expr_stmt|;
 comment|// should have 1 completed exchange
@@ -410,12 +467,12 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-comment|// wait 3 seconds while route is stopped to verify that file was not consumed
+comment|// wait 2 seconds while route is stopped to verify that file was not consumed
 name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|3000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|template
@@ -570,11 +627,44 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// need a bit time to let JMX update
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|1000
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+name|Long
+name|num
+init|=
+operator|(
+name|Long
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"ExchangesCompleted"
+argument_list|)
+decl_stmt|;
+return|return
+name|num
+operator|==
+literal|2
+return|;
+block|}
 argument_list|)
 expr_stmt|;
 comment|// should have 2 completed exchange

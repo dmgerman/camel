@@ -282,7 +282,7 @@ name|mock
 operator|.
 name|setAssertPeriod
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|template
@@ -325,7 +325,7 @@ name|mock
 operator|.
 name|setAssertPeriod
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|template

@@ -147,12 +147,12 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait 4 seconds
+comment|// wait 1 seconds
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|4000
+literal|1000
 argument_list|)
 expr_stmt|;
 name|mock
@@ -213,15 +213,18 @@ literal|123
 argument_list|)
 expr_stmt|;
 comment|// should complete before timeout
+name|assertTrue
+argument_list|(
 name|mock
 operator|.
 name|await
 argument_list|(
-literal|1500
+literal|1000
 argument_list|,
 name|TimeUnit
 operator|.
 name|MILLISECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -271,11 +274,11 @@ name|completionSize
 argument_list|(
 literal|3
 argument_list|)
-comment|// use a 2 second timeout
+comment|// use a 0.5 second timeout
 operator|.
 name|completionTimeout
 argument_list|(
-literal|2000
+literal|500
 argument_list|)
 comment|// and if timeout occurred then just discard the aggregated message
 operator|.
