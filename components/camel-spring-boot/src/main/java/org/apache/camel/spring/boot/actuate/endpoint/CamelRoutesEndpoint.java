@@ -252,7 +252,20 @@ argument_list|>
 name|invoke
 parameter_list|()
 block|{
-comment|// @formatter:off
+return|return
+name|getRoutesInfo
+argument_list|()
+return|;
+block|}
+DECL|method|getRoutesInfo ()
+specifier|public
+name|List
+argument_list|<
+name|RouteEndpointInfo
+argument_list|>
+name|getRoutesInfo
+parameter_list|()
+block|{
 return|return
 name|camelContext
 operator|.
@@ -277,7 +290,44 @@ name|toList
 argument_list|()
 argument_list|)
 return|;
-comment|// @formatter:on
+block|}
+DECL|method|getRouteInfo (String id)
+specifier|public
+name|RouteEndpointInfo
+name|getRouteInfo
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|Route
+name|route
+init|=
+name|camelContext
+operator|.
+name|getRoute
+argument_list|(
+name|id
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|RouteEndpointInfo
+argument_list|(
+name|route
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
 block|}
 comment|/**      * Container for exposing {@link org.apache.camel.Route} information as JSON.      */
 annotation|@
