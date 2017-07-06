@@ -202,7 +202,12 @@ argument_list|()
 operator|.
 name|tokenize
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
