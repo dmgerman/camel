@@ -142,11 +142,26 @@ name|TimeUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Manual test"
+argument_list|)
 DECL|class|SplitterParallelBigFileTest
 specifier|public
 class|class
@@ -259,19 +274,10 @@ name|fos
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testNoop ()
+DECL|method|testSplitParallelBigFile ()
 specifier|public
 name|void
-name|testNoop
-parameter_list|()
-block|{
-comment|// noop
-block|}
-comment|// disabled due manual test
-DECL|method|xxxtestSplitParallelBigFile ()
-specifier|public
-name|void
-name|xxxtestSplitParallelBigFile
+name|testSplitParallelBigFile
 parameter_list|()
 throws|throws
 name|Exception
@@ -348,7 +354,15 @@ argument_list|)
 throw|;
 block|}
 comment|// need a little sleep for capturing memory profiling
-comment|// Thread.sleep(60 * 1000);
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|60
+operator|*
+literal|1000
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

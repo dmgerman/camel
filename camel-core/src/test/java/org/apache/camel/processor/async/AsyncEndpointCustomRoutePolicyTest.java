@@ -26,6 +26,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -121,6 +133,18 @@ operator|.
 name|support
 operator|.
 name|RoutePolicySupport
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -360,12 +384,23 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give time for slow boxes
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|500
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+name|policy
+operator|::
+name|isStopped
 argument_list|)
 expr_stmt|;
 name|assertTrue
