@@ -115,13 +115,6 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -165,7 +158,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?fixedRate=true&delay=0&period=500"
+literal|"timer://foo?fixedRate=true&delay=0&period=10"
 argument_list|)
 operator|.
 name|to

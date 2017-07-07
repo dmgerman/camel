@@ -38,6 +38,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ExecutorService
 import|;
 end_import
@@ -469,6 +481,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 name|service
 operator|.
 name|submit
@@ -488,11 +510,15 @@ throws|throws
 name|Exception
 block|{
 comment|// this task should be slower than B but we should still get it first
-name|Thread
+name|latch
 operator|.
-name|sleep
+name|await
 argument_list|(
-literal|1000
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 expr_stmt|;
 return|return
@@ -541,13 +567,6 @@ argument_list|(
 name|a
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
 comment|// and neither the 2nd time
 name|a
 operator|=
@@ -560,6 +579,12 @@ name|assertNull
 argument_list|(
 name|a
 argument_list|)
+expr_stmt|;
+comment|// okay complete task
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 comment|// okay take them
 name|a
@@ -653,7 +678,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|100
 argument_list|)
 expr_stmt|;
 return|return
@@ -755,7 +780,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|100
 argument_list|)
 expr_stmt|;
 return|return
@@ -822,6 +847,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 name|service
 operator|.
 name|submit
@@ -865,11 +900,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Thread
+name|latch
 operator|.
-name|sleep
+name|await
 argument_list|(
-literal|1000
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 expr_stmt|;
 return|return
@@ -889,7 +928,13 @@ name|take
 argument_list|()
 operator|.
 name|get
-argument_list|()
+argument_list|(
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -910,13 +955,6 @@ argument_list|(
 name|b
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
 comment|// and neither the 2nd time
 name|b
 operator|=
@@ -930,6 +968,12 @@ argument_list|(
 name|b
 argument_list|)
 expr_stmt|;
+comment|// okay complete task
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 comment|// okay take it
 name|b
 operator|=
@@ -939,7 +983,13 @@ name|take
 argument_list|()
 operator|.
 name|get
-argument_list|()
+argument_list|(
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
