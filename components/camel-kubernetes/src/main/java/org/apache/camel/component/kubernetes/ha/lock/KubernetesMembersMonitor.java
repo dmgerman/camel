@@ -223,15 +223,6 @@ name|KubernetesMembersMonitor
 implements|implements
 name|Service
 block|{
-DECL|field|DEFAULT_WATCHER_REFRESH_INTERVAL_SECONDS
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|DEFAULT_WATCHER_REFRESH_INTERVAL_SECONDS
-init|=
-literal|1800
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -435,7 +426,7 @@ name|recreationDelay
 init|=
 name|lockConfiguration
 operator|.
-name|getWatchRefreshIntervalSecondsOrDefault
+name|getWatchRefreshIntervalSeconds
 argument_list|()
 decl_stmt|;
 if|if
