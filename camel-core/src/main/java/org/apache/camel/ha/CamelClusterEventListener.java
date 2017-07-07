@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Marker interface  */
+comment|/**  * Marker interface for cluster events  */
 end_comment
 
 begin_interface
@@ -32,6 +32,7 @@ name|Leadership
 extends|extends
 name|CamelClusterEventListener
 block|{
+comment|/**          * Notify a change in the leadership for a particular cluster.          *          * @param view the cluster view          * @param leader the new leader or null (when there are no active leaders)          */
 DECL|method|leadershipChanged (CamelClusterView view, CamelClusterMember leader)
 name|void
 name|leadershipChanged
@@ -50,7 +51,8 @@ name|Membership
 extends|extends
 name|CamelClusterEventListener
 block|{
-DECL|method|memberAdded (CamelClusterView view, CamelClusterMember leader)
+comment|/**          * Notify a change (addition) in the cluster composition.          *          * @param view the cluster view          * @param member the member that has been added          */
+DECL|method|memberAdded (CamelClusterView view, CamelClusterMember member)
 name|void
 name|memberAdded
 parameter_list|(
@@ -58,10 +60,11 @@ name|CamelClusterView
 name|view
 parameter_list|,
 name|CamelClusterMember
-name|leader
+name|member
 parameter_list|)
 function_decl|;
-DECL|method|memberRemoved (CamelClusterView view, CamelClusterMember leader)
+comment|/**          * Notify a change (removal) in the cluster composition.          *          * @param view the cluster view          * @param member the member that has been removed          */
+DECL|method|memberRemoved (CamelClusterView view, CamelClusterMember member)
 name|void
 name|memberRemoved
 parameter_list|(
@@ -69,7 +72,7 @@ name|CamelClusterView
 name|view
 parameter_list|,
 name|CamelClusterMember
-name|leader
+name|member
 parameter_list|)
 function_decl|;
 block|}
