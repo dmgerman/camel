@@ -155,7 +155,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct-vm:suspended?block=true&timeout=2000"
+literal|"direct-vm:suspended?block=true&timeout=500"
 argument_list|,
 literal|"hello world"
 argument_list|)
@@ -203,7 +203,7 @@ operator|.
 name|taken
 argument_list|()
 operator|>
-literal|1500
+literal|490
 argument_list|)
 expr_stmt|;
 block|}
@@ -249,7 +249,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct-vm:start?block=true&timeout=2000"
+literal|"direct-vm:start?block=true&timeout=500"
 argument_list|,
 literal|"hello world"
 argument_list|)
@@ -297,7 +297,7 @@ operator|.
 name|taken
 argument_list|()
 operator|>
-literal|1500
+literal|490
 argument_list|)
 expr_stmt|;
 block|}
@@ -346,7 +346,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|200
 argument_list|)
 expr_stmt|;
 name|log
@@ -390,7 +390,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct-vm:suspended?block=true&timeout=5000"
+literal|"direct-vm:suspended?block=true&timeout=1000"
 argument_list|,
 literal|"hello world"
 argument_list|)
