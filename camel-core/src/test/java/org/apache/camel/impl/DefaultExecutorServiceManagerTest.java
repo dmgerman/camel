@@ -3321,10 +3321,10 @@ name|Ignore
 argument_list|(
 literal|"This is a manual test, by looking at the logs"
 argument_list|)
-DECL|method|testLongShutdownOfThreadPool ()
+DECL|method|xxxtestLongShutdownOfThreadPool ()
 specifier|public
 name|void
-name|testLongShutdownOfThreadPool
+name|xxxtestLongShutdownOfThreadPool
 parameter_list|()
 throws|throws
 name|Exception

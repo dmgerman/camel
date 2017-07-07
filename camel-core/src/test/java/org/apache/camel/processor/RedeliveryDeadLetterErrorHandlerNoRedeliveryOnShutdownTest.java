@@ -187,12 +187,12 @@ operator|new
 name|StopWatch
 argument_list|()
 decl_stmt|;
-comment|// sleep 3 seconds to do some redeliveries before we stop
+comment|// sleep 0.5 seconds to do some redeliveries before we stop
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3000
+literal|500
 argument_list|)
 expr_stmt|;
 name|log
@@ -245,12 +245,12 @@ name|taken
 argument_list|,
 name|taken
 operator|<
-literal|7000
+literal|5000
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Redelivery counter should be>= 2 and< 12, was: "
+literal|"Redelivery counter should be>= 20 and< 100, was: "
 operator|+
 name|counter
 operator|.
@@ -262,14 +262,14 @@ operator|.
 name|get
 argument_list|()
 operator|>=
-literal|2
+literal|20
 operator|&&
 name|counter
 operator|.
 name|get
 argument_list|()
 operator|<
-literal|12
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -346,12 +346,12 @@ argument_list|)
 operator|.
 name|maximumRedeliveries
 argument_list|(
-literal|20
+literal|200
 argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|1000
+literal|10
 argument_list|)
 operator|.
 name|retryAttemptedLogLevel
