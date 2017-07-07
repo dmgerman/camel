@@ -118,6 +118,16 @@ name|SizedScheduledExecutorService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -3306,11 +3316,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// this is a manual test, by looking at the logs
-DECL|method|xxxTestLongShutdownOfThreadPool ()
+annotation|@
+name|Ignore
+argument_list|(
+literal|"This is a manual test, by looking at the logs"
+argument_list|)
+DECL|method|testLongShutdownOfThreadPool ()
 specifier|public
 name|void
-name|xxxTestLongShutdownOfThreadPool
+name|testLongShutdownOfThreadPool
 parameter_list|()
 throws|throws
 name|Exception

@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -69,6 +81,18 @@ operator|.
 name|seda
 operator|.
 name|SedaEndpoint
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -347,11 +371,31 @@ literal|"World"
 argument_list|)
 expr_stmt|;
 comment|// give time for route to stop
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|1000
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+name|context
+operator|.
+name|getRouteStatus
+argument_list|(
+literal|"errorRoute"
+argument_list|)
+operator|.
+name|isStopped
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals

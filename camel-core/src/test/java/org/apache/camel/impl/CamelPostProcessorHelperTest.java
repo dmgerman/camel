@@ -52,6 +52,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -287,6 +299,18 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -778,11 +802,26 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// give UoW a bit of time
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|500
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+name|mySynchronization
+operator|.
+name|isOnDone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -872,11 +911,26 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// give UoW a bit of time
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|500
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+name|mySynchronization
+operator|.
+name|isOnDone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue

@@ -807,6 +807,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// run a little while
 name|Thread
 operator|.
 name|sleep

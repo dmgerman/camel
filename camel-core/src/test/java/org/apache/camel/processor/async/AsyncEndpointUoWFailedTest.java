@@ -236,11 +236,12 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// wait a bit to ensure UoW has been run
-name|Thread
-operator|.
-name|sleep
+name|assertTrue
 argument_list|(
-literal|1000
+name|oneExchangeDone
+operator|.
+name|matchesMockWaitTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse

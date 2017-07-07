@@ -138,11 +138,11 @@ name|wrap
 argument_list|(
 name|discovery
 argument_list|,
-literal|1
+literal|50
 argument_list|,
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MILLISECONDS
 argument_list|)
 decl_stmt|;
 name|discovery
@@ -214,7 +214,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1100
+literal|100
 argument_list|)
 expr_stmt|;
 name|Assert
@@ -282,7 +282,7 @@ name|cachingConf
 operator|.
 name|setTimeout
 argument_list|(
-literal|1
+literal|50
 argument_list|)
 expr_stmt|;
 name|cachingConf
@@ -291,7 +291,7 @@ name|setUnits
 argument_list|(
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 name|CachingServiceDiscovery
@@ -364,7 +364,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1100
+literal|100
 argument_list|)
 expr_stmt|;
 name|Assert

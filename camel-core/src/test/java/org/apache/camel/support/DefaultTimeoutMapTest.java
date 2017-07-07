@@ -74,6 +74,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -99,6 +111,18 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -1534,38 +1558,30 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// start and wait for scheduler to purge
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|250
+literal|2
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
 name|map
 operator|.
 name|size
 argument_list|()
-operator|>
+operator|==
 literal|0
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Waiting extra due slow CI box"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-block|}
 comment|// now it should be gone
 name|assertEquals
 argument_list|(
