@@ -196,7 +196,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/gf"
+literal|"file://target/gf?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -298,7 +298,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/gf"
+literal|"file://target/gf?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -415,7 +415,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/gf"
+literal|"file://target/gf?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -538,7 +538,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/gf"
+literal|"file://target/gf?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -659,7 +659,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/gf"
+literal|"file://target/gf?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -780,7 +780,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/gf"
+literal|"file://target/gf?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

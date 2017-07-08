@@ -312,7 +312,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/xslt?moveFailed=error&move=ok"
+literal|"file:target/xslt?moveFailed=error&move=ok&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|onException

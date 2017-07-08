@@ -193,12 +193,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/marker-unlock/input-a?fileName=file1.dat&readLock=markerFile"
+literal|"file:target/marker-unlock/input-a?fileName=file1.dat&readLock=markerFile&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file:target/marker-unlock/input-b?fileName=file2.dat&readLock=markerFile"
+literal|"file:target/marker-unlock/input-b?fileName=file2.dat&readLock=markerFile&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

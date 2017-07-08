@@ -274,7 +274,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/include/?include=^report.*txt$"
+literal|"file://target/include/?initialDelay=0&delay=10&include=^report.*txt$"
 argument_list|)
 operator|.
 name|convertBodyTo

@@ -217,7 +217,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/?exclude=.*bak"
+literal|"file://target/filelanguage/?initialDelay=0&delay=10&exclude=.*bak"
 operator|+
 literal|"&move=${id}.bak"
 argument_list|)
@@ -351,7 +351,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/?exclude=.*bak"
+literal|"file://target/filelanguage/?initialDelay=0&delay=10&exclude=.*bak"
 operator|+
 literal|"&move=backup-${id}-${file:name.noext}.bak"
 argument_list|)
@@ -485,7 +485,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/?exclude=.*bak"
+literal|"file://target/filelanguage/?initialDelay=0&delay=10&exclude=.*bak"
 operator|+
 literal|"&move=backup/${bean:myguidgenerator.guid}.txt"
 argument_list|)
@@ -581,7 +581,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filelanguage/?exclude=.*bak"
+literal|"file://target/filelanguage/?initialDelay=0&delay=10&exclude=.*bak"
 operator|+
 literal|"&move=../backup/${file:name}.bak"
 argument_list|)
@@ -716,6 +716,13 @@ operator|.
 name|setExclude
 argument_list|(
 literal|".*bak"
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setInitialDelay
+argument_list|(
+literal|10
 argument_list|)
 expr_stmt|;
 name|from

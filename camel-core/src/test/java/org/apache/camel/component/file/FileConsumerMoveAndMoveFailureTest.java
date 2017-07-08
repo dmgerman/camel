@@ -218,7 +218,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/failed?move=moved&moveFailed=error/${file:name.noext}-error.txt"
+literal|"file://target/failed?move=moved&initialDelay=0&delay=10&moveFailed=error/${file:name.noext}-error.txt"
 argument_list|)
 operator|.
 name|process

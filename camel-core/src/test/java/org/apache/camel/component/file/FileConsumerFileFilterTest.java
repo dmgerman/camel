@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for  the file filter option  */
+comment|/**  * Unit test for the file filter option  */
 end_comment
 
 begin_class
@@ -103,7 +103,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filefilter/?filter=#myFilter"
+literal|"file://target/filefilter/?initialDelay=0&delay=10&filter=#myFilter"
 decl_stmt|;
 annotation|@
 name|Override
@@ -204,7 +204,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 expr_stmt|;
 name|mock
@@ -229,13 +229,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|mock
 operator|.
 name|expectedBodiesReceived

@@ -267,7 +267,7 @@ argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/exclude/"
+literal|"file://target/exclude/?initialDelay=10&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

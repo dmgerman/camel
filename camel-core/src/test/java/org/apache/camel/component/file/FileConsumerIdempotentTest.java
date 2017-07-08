@@ -115,7 +115,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"file://target/idempotent/?idempotent=true&move=done/${file:name}&delay=10"
+literal|"file://target/idempotent/?idempotent=true&move=done/${file:name}&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override

@@ -257,7 +257,7 @@ name|Exception
 block|{
 name|fromF
 argument_list|(
-literal|"file://%s/basic?extendedAttributes=basic:*"
+literal|"file://%s/basic?initialDelay=0&delay=10&extendedAttributes=basic:*"
 argument_list|,
 name|ROOT
 argument_list|)
@@ -276,7 +276,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"file://%s/basic-as-default?extendedAttributes=*"
+literal|"file://%s/basic-as-default?initialDelay=0&delay=10&extendedAttributes=*"
 argument_list|,
 name|ROOT
 argument_list|)
@@ -295,7 +295,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"file://%s/basic-as-default-with-filter?extendedAttributes=size,lastModifiedTime,lastAccessTime"
+literal|"file://%s/basic-as-default-with-filter?initialDelay=0&delay=10&extendedAttributes=size,lastModifiedTime,lastAccessTime"
 argument_list|,
 name|ROOT
 argument_list|)
@@ -314,7 +314,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"file://%s/posix?extendedAttributes=posix:*"
+literal|"file://%s/posix?initialDelay=0&delay=10&extendedAttributes=posix:*"
 argument_list|,
 name|ROOT
 argument_list|)

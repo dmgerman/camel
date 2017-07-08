@@ -144,7 +144,7 @@ specifier|final
 name|String
 name|fileUrl
 init|=
-literal|"file://target/directoryfilter/?recursive=true&filter=#myFilter"
+literal|"file://target/directoryfilter/?recursive=true&filter=#myFilter&initialDelay=0&delay=10"
 decl_stmt|;
 DECL|field|names
 specifier|private

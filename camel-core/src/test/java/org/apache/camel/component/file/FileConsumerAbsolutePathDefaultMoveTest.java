@@ -212,6 +212,8 @@ argument_list|(
 literal|"file:"
 operator|+
 name|base
+operator|+
+literal|"?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

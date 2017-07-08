@@ -306,7 +306,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/reports?preMove=../inprogress/${file:name.noext}.bak"
+literal|"file://target/reports?preMove=../inprogress/${file:name.noext}.bak&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|process

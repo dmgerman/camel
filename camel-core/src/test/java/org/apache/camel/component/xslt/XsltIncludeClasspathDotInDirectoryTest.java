@@ -226,7 +226,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:src/test/data/?fileName=staff.xml&noop=true"
+literal|"file:src/test/data/?fileName=staff.xml&noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

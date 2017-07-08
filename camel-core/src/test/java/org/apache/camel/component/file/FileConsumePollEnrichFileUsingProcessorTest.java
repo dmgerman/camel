@@ -289,7 +289,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/enrich?move=.done"
+literal|"file://target/enrich?initialDelay=0&delay=10&move=.done"
 argument_list|)
 operator|.
 name|process
@@ -364,7 +364,7 @@ name|con
 operator|.
 name|receive
 argument_list|(
-literal|"file://target/enrichdata?move=.done&fileName="
+literal|"file://target/enrichdata?initialDelay=0&delay=10&move=.done&fileName="
 operator|+
 name|name
 argument_list|,

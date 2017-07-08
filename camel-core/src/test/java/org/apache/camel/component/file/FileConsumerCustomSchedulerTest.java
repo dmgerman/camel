@@ -288,7 +288,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/file/custom?scheduler=#myScheduler&scheduler.foo=bar"
+literal|"file:target/file/custom?scheduler=#myScheduler&scheduler.foo=bar&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId
@@ -461,7 +461,7 @@ name|schedule
 argument_list|(
 name|timerTask
 argument_list|,
-literal|100
+literal|10
 argument_list|)
 expr_stmt|;
 block|}

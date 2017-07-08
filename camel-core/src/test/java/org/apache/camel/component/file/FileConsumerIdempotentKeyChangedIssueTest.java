@@ -126,6 +126,11 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -200,7 +205,7 @@ name|endpoint
 operator|=
 name|endpoint
 argument_list|(
-literal|"file:target/changed?noop=true&readLock=changed"
+literal|"file:target/changed?noop=true&readLock=changed&initialDelay=0&delay=10&readLockCheckInterval=100"
 operator|+
 literal|"&idempotentKey=${file:onlyname}-${file:size}-${date:file:yyyyMMddHHmmss}"
 argument_list|)
@@ -209,6 +214,9 @@ name|from
 argument_list|(
 name|endpoint
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|convertBodyTo
 argument_list|(

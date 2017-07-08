@@ -256,7 +256,7 @@ name|from
 argument_list|(
 literal|"file://target/filelanguage/bean/"
 operator|+
-literal|"?fileName=${bean:counter.next}.txt&delete=true"
+literal|"?initialDelay=0&delay=10&fileName=${bean:counter.next}.txt&delete=true"
 argument_list|)
 operator|.
 name|to
@@ -287,13 +287,6 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Goodday World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|5000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -378,7 +371,7 @@ name|from
 argument_list|(
 literal|"file://target/filelanguage/date/"
 operator|+
-literal|"?fileName=myfile-${date:now:yyyyMMdd}.txt"
+literal|"?initialDelay=0&delay=10&fileName=myfile-${date:now:yyyyMMdd}.txt"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -417,13 +410,6 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Goodday World"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|5000
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

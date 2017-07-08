@@ -218,7 +218,7 @@ literal|"file://"
 operator|+
 name|base
 operator|+
-literal|"?move=../done/${file:onlyname}"
+literal|"?initialDelay=0&delay=10&move=../done/${file:onlyname}"
 argument_list|)
 operator|.
 name|convertBodyTo

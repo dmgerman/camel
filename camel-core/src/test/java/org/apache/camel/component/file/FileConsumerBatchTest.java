@@ -104,36 +104,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/file-batch/"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/file-batch/"
-argument_list|,
-literal|"Bye World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"bye.txt"
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -159,8 +129,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file-batch?initialDelay=2000"
+literal|"file://target/file-batch?initialDelay=0&delay=10"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|convertBodyTo
 argument_list|(
@@ -201,6 +174,36 @@ argument_list|(
 literal|"Hello World"
 argument_list|,
 literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/file-batch/"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/file-batch/"
+argument_list|,
+literal|"Bye World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"bye.txt"
 argument_list|)
 expr_stmt|;
 comment|// test header keys
@@ -260,6 +263,12 @@ name|isEqualTo
 argument_list|(
 literal|1
 argument_list|)
+expr_stmt|;
+comment|// start routes
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()

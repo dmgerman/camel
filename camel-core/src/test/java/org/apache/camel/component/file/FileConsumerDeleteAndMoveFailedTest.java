@@ -94,7 +94,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/failed?delete=true&moveFailed=error"
+literal|"file://target/failed?delete=true&moveFailed=error&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|setBody

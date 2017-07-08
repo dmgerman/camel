@@ -204,7 +204,7 @@ literal|"file://"
 operator|+
 name|base
 operator|+
-literal|"?delete=true"
+literal|"?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|convertBodyTo

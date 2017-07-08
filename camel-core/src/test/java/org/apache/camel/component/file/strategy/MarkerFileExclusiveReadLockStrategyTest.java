@@ -547,7 +547,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/marker/in?readLock=markerFile"
+literal|"file:target/marker/in?readLock=markerFile&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|onCompletion

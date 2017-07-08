@@ -104,22 +104,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// the file name is also starting with target/consumedfilename
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file:target/consumedfilename"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testValidFilenameOnExchange ()
 specifier|public
@@ -182,6 +166,22 @@ argument_list|(
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
+comment|// the file name is also starting with target/consumedfilename
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file:target/consumedfilename"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -212,7 +212,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/consumedfilename"
+literal|"file:target/consumedfilename?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

@@ -222,7 +222,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/idempotent/?idempotent=true&idempotentRepository=#myRepo&move=done/${file:name}&delay=10"
+literal|"file://target/idempotent/?idempotent=true&idempotentRepository=#myRepo&move=done/${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

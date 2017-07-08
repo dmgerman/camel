@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for  the filter file option  */
+comment|/**  * Unit test for the filter file option  */
 end_comment
 
 begin_class
@@ -89,7 +89,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filefilter/?recursive=true&filterDirectory=${header.CamelFileNameOnly.length()}> 4"
+literal|"file://target/filefilter/?initialDelay=0&delay=10&recursive=true&filterDirectory=${header.CamelFileNameOnly.length()}> 4"
 decl_stmt|;
 annotation|@
 name|Override
@@ -164,7 +164,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 expr_stmt|;
 name|mock

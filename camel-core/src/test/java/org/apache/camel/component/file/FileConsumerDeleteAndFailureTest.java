@@ -212,6 +212,11 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|handled
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|useOriginalMessage
 argument_list|()
 operator|.
@@ -222,7 +227,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/failed?delete=true"
+literal|"file://target/failed?delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|setBody

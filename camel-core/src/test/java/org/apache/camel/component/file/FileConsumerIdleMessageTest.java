@@ -96,7 +96,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/empty?delay=50&sendEmptyMessageWhenIdle=true"
+literal|"file://target/empty?initialDelay=0&delay=10&sendEmptyMessageWhenIdle=true"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -123,13 +123,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|110
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=

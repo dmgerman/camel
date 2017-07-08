@@ -89,14 +89,14 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/filefilter/?filterFile=${bodyAs(String)} contains 'World'"
+literal|"file://target/filefilter/?initialDelay=0&delay=10&filterFile=${bodyAs(String)} contains 'World'"
 decl_stmt|;
 DECL|field|fileUrl2
 specifier|private
 name|String
 name|fileUrl2
 init|=
-literal|"file://target/filefilter/?filterFile=${file:modified}< ${date:now-2s}"
+literal|"file://target/filefilter/?initialDelay=0&delay=10&filterFile=${file:modified}< ${date:now-2s}"
 decl_stmt|;
 annotation|@
 name|Override
@@ -161,7 +161,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 expr_stmt|;
 name|mock
@@ -254,23 +254,9 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Something else"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|setResultMinimumWaitTime
-argument_list|(
-literal|1500
 argument_list|)
 expr_stmt|;
 name|template

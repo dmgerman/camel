@@ -213,7 +213,7 @@ literal|"file://"
 operator|+
 name|base
 operator|+
-literal|"?move="
+literal|"?initialDelay=0&delay=10&move="
 operator|+
 name|base
 operator|+

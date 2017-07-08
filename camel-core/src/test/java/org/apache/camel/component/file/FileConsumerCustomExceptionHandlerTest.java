@@ -373,7 +373,7 @@ comment|// this is the file route that pickup files, notice how we use our custo
 comment|// the exclusiveReadLockStrategy is only configured because this is from an unit test, so we use that to simulate exceptions
 name|from
 argument_list|(
-literal|"file:target/nospace?exclusiveReadLockStrategy=#myReadLockStrategy&consumer.exceptionHandler=#myExceptionHandler"
+literal|"file:target/nospace?exclusiveReadLockStrategy=#myReadLockStrategy&consumer.exceptionHandler=#myExceptionHandler&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

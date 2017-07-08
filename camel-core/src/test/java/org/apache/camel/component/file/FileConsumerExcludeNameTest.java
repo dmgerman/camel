@@ -258,7 +258,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/exclude/?exclude=^secret.*|.*xml$"
+literal|"file://target/exclude/?initialDelay=0&delay=10&exclude=^secret.*|.*xml$"
 argument_list|)
 operator|.
 name|convertBodyTo

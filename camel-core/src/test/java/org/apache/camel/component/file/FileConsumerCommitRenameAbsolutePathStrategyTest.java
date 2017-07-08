@@ -218,7 +218,7 @@ literal|"file://target/reports?move="
 operator|+
 name|base
 operator|+
-literal|"/done/${file:name}&consumer.delay=5000"
+literal|"/done/${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

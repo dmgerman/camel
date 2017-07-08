@@ -557,7 +557,7 @@ expr_stmt|;
 comment|// our route logic to process files from the input folder
 name|from
 argument_list|(
-literal|"file:target/messages/input/?delete=true"
+literal|"file:target/messages/input/?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|process
