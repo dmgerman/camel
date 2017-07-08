@@ -165,11 +165,12 @@ expr_stmt|;
 name|writeFile
 argument_list|()
 expr_stmt|;
+comment|// sleep to make the file a little bit old
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|50
+literal|100
 argument_list|)
 expr_stmt|;
 name|super
@@ -322,7 +323,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockMinAge=500&readLockCheckInterval=30000&readLockTimeout=90000"
+literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockMinAge=10&readLockCheckInterval=30000&readLockTimeout=90000"
 argument_list|)
 operator|.
 name|to
