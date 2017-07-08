@@ -204,10 +204,8 @@ name|tokenize
 argument_list|(
 name|System
 operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
