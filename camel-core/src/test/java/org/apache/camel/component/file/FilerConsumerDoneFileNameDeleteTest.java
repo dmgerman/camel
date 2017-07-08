@@ -137,7 +137,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

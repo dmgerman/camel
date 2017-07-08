@@ -174,7 +174,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/noop?noop=true&idempotent=false"
+literal|"file://target/noop?initialDelay=0&delay=10&noop=true&idempotent=false"
 argument_list|)
 operator|.
 name|convertBodyTo

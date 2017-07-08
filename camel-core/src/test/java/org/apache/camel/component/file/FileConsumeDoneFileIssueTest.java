@@ -282,7 +282,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 comment|// the done file should be deleted
@@ -494,7 +494,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 comment|// the done file should be deleted
@@ -567,7 +567,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/done?doneFileName=foo.done"
+literal|"file:target/done?doneFileName=foo.done&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId
@@ -592,7 +592,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/done2?doneFileName=${file:name}.done"
+literal|"file:target/done2?doneFileName=${file:name}.done&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId

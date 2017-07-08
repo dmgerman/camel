@@ -249,7 +249,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/begin?processStrategy=#myStrategy"
+literal|"file://target/begin?initialDelay=0&delay=10&processStrategy=#myStrategy"
 argument_list|)
 operator|.
 name|convertBodyTo

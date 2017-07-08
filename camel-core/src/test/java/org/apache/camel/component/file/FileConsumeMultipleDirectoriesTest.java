@@ -99,7 +99,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/multidir/?recursive=true&delete=true&initialDelay=2000&delay=5000&sortBy=file:path"
+literal|"file://target/multidir/?initialDelay=0&delay=10&recursive=true&delete=true&sortBy=file:path"
 decl_stmt|;
 annotation|@
 name|Override
@@ -120,6 +120,39 @@ name|super
 operator|.
 name|setUp
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|testMultiDir ()
+specifier|public
+name|void
+name|testMultiDir
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Bye World"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"Godday World"
+argument_list|)
 expr_stmt|;
 name|template
 operator|.
@@ -164,39 +197,6 @@ operator|.
 name|FILE_NAME
 argument_list|,
 literal|"sub/sub2/godday.txt"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|testMultiDir ()
-specifier|public
-name|void
-name|testMultiDir
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye World"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-literal|"Godday World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

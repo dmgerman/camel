@@ -176,7 +176,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files/?delete=true&backoffMultiplier=4&backoffIdleThreshold=3"
+literal|"file://target/files/?initialDelay=0&delay=10&delete=true&backoffMultiplier=4&backoffIdleThreshold=3"
 argument_list|)
 operator|.
 name|convertBodyTo

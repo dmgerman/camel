@@ -337,7 +337,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filerelative?recursive=true"
+literal|"file://target/filerelative?initialDelay=0&delay=10&recursive=true"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -358,7 +358,7 @@ literal|"file://"
 operator|+
 name|base
 operator|+
-literal|"?recursive=true"
+literal|"?initialDelay=0&delay=10&recursive=true"
 argument_list|)
 operator|.
 name|convertBodyTo

@@ -114,51 +114,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/files"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"report.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/files"
-argument_list|,
-literal|"Bye World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"report2.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/files/2008"
-argument_list|,
-literal|"2008 Report"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"report2008.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testConsumeAndDelete ()
 specifier|public
@@ -181,6 +136,51 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/files"
+argument_list|,
+literal|"Bye World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"report2.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/files"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"report.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/files/2008"
+argument_list|,
+literal|"2008 Report"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"report2008.txt"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -231,7 +231,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files/?fileName=report.txt&delete=true"
+literal|"file://target/files/?initialDelay=0&delay=10&fileName=report.txt&delete=true"
 argument_list|)
 operator|.
 name|convertBodyTo

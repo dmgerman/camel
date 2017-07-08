@@ -154,7 +154,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files?delete=true"
+literal|"file://target/files?initialDelay=0&delay=10&delete=true"
 argument_list|)
 comment|// remove all headers
 operator|.
@@ -280,7 +280,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files?delete=true"
+literal|"file://target/files?initialDelay=0&delay=10&delete=true"
 argument_list|)
 comment|// change file header
 operator|.
@@ -403,7 +403,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/files?initialDelay=0&delay=10"
 argument_list|)
 comment|// remove all headers
 operator|.
@@ -529,7 +529,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/files"
+literal|"file://target/files?initialDelay=0&delay=10"
 argument_list|)
 comment|// change file header
 operator|.

@@ -104,21 +104,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/noop"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testNoop ()
 specifier|public
@@ -144,12 +129,27 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/noop"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
 comment|// give some time to let consumer try to read the file multiple times
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -182,7 +182,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/noop?noop=true&idempotent=true&delay=10"
+literal|"file://target/noop?noop=true&idempotent=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

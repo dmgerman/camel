@@ -116,11 +116,26 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Manual test"
+argument_list|)
 DECL|class|FileProducerAppendManyMessagesFastTest
 specifier|public
 class|class

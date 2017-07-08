@@ -68,11 +68,26 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Manual test"
+argument_list|)
 DECL|class|FileAsyncStressReadLockRenameTest
 specifier|public
 class|class

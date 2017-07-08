@@ -89,7 +89,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/poll/?maxMessagesPerPoll=2"
+literal|"file://target/poll/?initialDelay=0&delay=10&maxMessagesPerPoll=2"
 decl_stmt|;
 annotation|@
 name|Override

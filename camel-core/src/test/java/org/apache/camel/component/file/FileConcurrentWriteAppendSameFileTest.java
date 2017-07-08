@@ -246,7 +246,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|context
@@ -383,7 +383,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/concurrent"
+literal|"file:target/concurrent?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId

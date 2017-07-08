@@ -152,7 +152,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/browse"
+literal|"file:target/browse?initialDelay=0&delay=10"
 argument_list|,
 name|BrowsableEndpoint
 operator|.
@@ -221,7 +221,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/browse"
+literal|"file:target/browse?initialDelay=0&delay=10"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -381,7 +381,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/browse?sortBy=file:name"
+literal|"file:target/browse?initialDelay=0&delay=10&sortBy=file:name"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -599,7 +599,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/browse?recursive=true&sortBy=file:name"
+literal|"file:target/browse?initialDelay=0&delay=10&recursive=true&sortBy=file:name"
 argument_list|,
 name|FileEndpoint
 operator|.

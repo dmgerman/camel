@@ -157,7 +157,7 @@ literal|"file:"
 operator|+
 name|start
 operator|+
-literal|"?move="
+literal|"?initialDelay=0&delay=10&move="
 operator|+
 name|done
 operator|+

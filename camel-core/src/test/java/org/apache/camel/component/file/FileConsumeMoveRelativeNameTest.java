@@ -89,7 +89,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/multidir/?recursive=true&move=.done/${file:name}.old"
+literal|"file://target/multidir/?initialDelay=0&delay=10&recursive=true&move=.done/${file:name}.old"
 decl_stmt|;
 annotation|@
 name|Override
