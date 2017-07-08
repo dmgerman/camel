@@ -317,6 +317,17 @@ name|isStopped
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|int
+name|before
+init|=
+name|mockEP
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 comment|// send some more messages through the route
 for|for
 control|(
@@ -345,17 +356,9 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should not have received more than 5 messages"
-argument_list|,
+name|int
+name|after
+init|=
 name|mockEP
 operator|.
 name|getExchanges
@@ -363,8 +366,14 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|<=
-literal|5
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should not route messages"
+argument_list|,
+name|before
+argument_list|,
+name|after
 argument_list|)
 expr_stmt|;
 block|}

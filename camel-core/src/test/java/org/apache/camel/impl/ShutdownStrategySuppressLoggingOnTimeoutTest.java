@@ -56,7 +56,7 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Test manually"
+literal|"Test manually by inspecting logs"
 argument_list|)
 DECL|class|ShutdownStrategySuppressLoggingOnTimeoutTest
 specifier|public

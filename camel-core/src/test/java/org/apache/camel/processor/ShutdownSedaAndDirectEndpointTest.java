@@ -138,13 +138,6 @@ argument_list|,
 literal|"E"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|10
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|stop

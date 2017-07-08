@@ -18,6 +18,30 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -130,6 +154,17 @@ name|StopRouteFromRouteTest
 extends|extends
 name|TestCase
 block|{
+DECL|field|latch
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 comment|// START SNIPPET: e1
 DECL|method|testStopRouteFromRoute ()
 specifier|public
@@ -252,11 +287,15 @@ literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
 comment|// just wait a bit for the thread to stop the route
-name|Thread
+name|latch
 operator|.
-name|sleep
+name|await
 argument_list|(
-literal|1500
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 expr_stmt|;
 comment|// the route should now be stopped
@@ -411,6 +450,15 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+block|}
+finally|finally
+block|{
+comment|// signal we stopped the route
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
