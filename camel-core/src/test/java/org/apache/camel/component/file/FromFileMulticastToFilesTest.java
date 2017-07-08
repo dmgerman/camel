@@ -132,7 +132,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/multicast"
+literal|"file://target/multicast?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|multicast
@@ -321,7 +321,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/multicast"
+literal|"file://target/multicast?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|multicast

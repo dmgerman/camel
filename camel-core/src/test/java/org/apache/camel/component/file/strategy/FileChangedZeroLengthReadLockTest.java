@@ -201,7 +201,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?readLock=changed&readLockMinLength=0"
+literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=100&readLockMinLength=0"
 argument_list|)
 operator|.
 name|to

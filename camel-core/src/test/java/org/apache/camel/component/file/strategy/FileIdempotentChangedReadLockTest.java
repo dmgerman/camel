@@ -96,7 +96,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?readLock=idempotent-changed&idempotentRepository=#myRepo"
+literal|"file:target/changed/in?initialDelay=0&delay=10&readLockCheckInterval=100&readLock=idempotent-changed&idempotentRepository=#myRepo"
 argument_list|)
 operator|.
 name|process

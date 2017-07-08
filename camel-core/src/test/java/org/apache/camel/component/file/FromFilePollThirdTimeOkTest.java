@@ -252,7 +252,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/deletefile?delete=true&initialDelay=0&delay=30"
+literal|"file://target/deletefile?delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|noAutoStartup

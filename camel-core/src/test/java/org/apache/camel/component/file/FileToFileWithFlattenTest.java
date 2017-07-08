@@ -222,7 +222,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/flatten-in?recursive=true&flatten=true"
+literal|"file://target/flatten-in?initialDelay=0&delay=10&recursive=true&flatten=true"
 argument_list|)
 operator|.
 name|to
@@ -331,7 +331,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/flatten-in?recursive=true"
+literal|"file://target/flatten-in?initialDelay=0&delay=10&recursive=true"
 argument_list|)
 operator|.
 name|to

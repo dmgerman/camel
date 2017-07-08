@@ -239,7 +239,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/movefile?move=done"
+literal|"file://target/movefile?initialDelay=0&delay=10&move=done"
 argument_list|)
 operator|.
 name|process

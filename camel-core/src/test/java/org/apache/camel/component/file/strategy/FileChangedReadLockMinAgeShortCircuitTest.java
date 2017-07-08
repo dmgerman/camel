@@ -169,7 +169,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|50
 argument_list|)
 expr_stmt|;
 name|super
@@ -322,7 +322,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?readLock=changed&readLockMinAge=500&readLockCheckInterval=30000&readLockTimeout=90000"
+literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockMinAge=500&readLockCheckInterval=30000&readLockTimeout=90000"
 argument_list|)
 operator|.
 name|to

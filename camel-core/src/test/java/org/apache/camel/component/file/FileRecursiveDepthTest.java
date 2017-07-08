@@ -489,7 +489,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/depth?recursive=true&minDepth=2&maxDepth=2"
+literal|"file:target/depth?initialDelay=0&delay=10&recursive=true&minDepth=2&maxDepth=2"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -506,7 +506,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/depth2?recursive=true&minDepth=2&maxDepth=99"
+literal|"file:target/depth2?initialDelay=0&delay=10&recursive=true&minDepth=2&maxDepth=99"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -523,7 +523,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/depth3?recursive=true&minDepth=1&maxDepth=1"
+literal|"file:target/depth3?initialDelay=0&delay=10&recursive=true&minDepth=1&maxDepth=1"
 argument_list|)
 operator|.
 name|convertBodyTo

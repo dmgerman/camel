@@ -272,7 +272,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/noop?recursive=true&noop=true"
+literal|"file:target/noop?initialDelay=0&delay=10&recursive=true&noop=true"
 argument_list|)
 operator|.
 name|convertBodyTo

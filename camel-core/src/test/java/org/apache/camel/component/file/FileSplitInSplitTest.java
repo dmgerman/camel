@@ -439,7 +439,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/split"
+literal|"file:target/split?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId

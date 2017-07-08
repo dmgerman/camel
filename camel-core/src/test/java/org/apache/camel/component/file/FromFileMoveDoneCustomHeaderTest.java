@@ -192,7 +192,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/inbox?move=${header.bar}"
+literal|"file:target/inbox?initialDelay=0&delay=10&move=${header.bar}"
 argument_list|)
 operator|.
 name|setHeader

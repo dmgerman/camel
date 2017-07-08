@@ -192,7 +192,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/movefile?moveFailed=error"
+literal|"file://target/movefile?initialDelay=0&delay=10&moveFailed=error"
 argument_list|)
 operator|.
 name|convertBodyTo

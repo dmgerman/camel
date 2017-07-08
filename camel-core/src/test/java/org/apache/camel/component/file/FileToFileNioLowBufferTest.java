@@ -187,7 +187,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/nio/in"
+literal|"file://target/nio/in?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

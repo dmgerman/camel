@@ -192,7 +192,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/renameissue?noop=false"
+literal|"file://target/renameissue?noop=false&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|setProperty

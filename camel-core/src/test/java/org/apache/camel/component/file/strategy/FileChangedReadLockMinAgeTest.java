@@ -235,7 +235,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|3000
+literal|500
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -385,7 +385,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -433,7 +433,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?readLock=changed&readLockMinAge=3000&readLockTimeout=1500"
+literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=100&readLockMinAge=1000&readLockTimeout=1500"
 argument_list|)
 operator|.
 name|to

@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for  the file sort by expression  */
+comment|/**  * Unit test for the file sort by expression  */
 end_comment
 
 begin_class
@@ -300,7 +300,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"b/?sortBy=ignoreCase:file:name&initialDelay=500&delay=1000"
+literal|"b/?initialDelay=0&delay=10&sortBy=ignoreCase:file:name"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -381,7 +381,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"c/?sortBy=reverse:ignoreCase:file:name&initialDelay=750&delay=1000"
+literal|"c/?initialDelay=0&delay=10&sortBy=reverse:ignoreCase:file:name"
 argument_list|)
 operator|.
 name|convertBodyTo

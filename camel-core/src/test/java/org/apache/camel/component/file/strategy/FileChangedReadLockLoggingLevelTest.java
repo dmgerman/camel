@@ -68,7 +68,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?readLock=changed&readLockLoggingLevel=DEBUG"
+literal|"file:target/changed/in?initialDelay=0&delay=10&readLock=changed&readLockCheckInterval=100&readLockLoggingLevel=DEBUG"
 argument_list|)
 operator|.
 name|to

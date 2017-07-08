@@ -389,7 +389,7 @@ literal|"file://"
 operator|+
 name|path
 operator|+
-literal|"/route/poller"
+literal|"/route/poller?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to
@@ -409,7 +409,7 @@ literal|"file://"
 operator|+
 name|path
 operator|+
-literal|"/from/poller"
+literal|"/from/poller?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

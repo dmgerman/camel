@@ -116,30 +116,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|deleteDirectory
 argument_list|(
 literal|"target/rename"
 argument_list|)
 expr_stmt|;
-name|template
+name|super
 operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file:target/rename"
-argument_list|,
-literal|"Bye World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"bye.txt"
-argument_list|)
+name|setUp
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testCamelLockFile ()
@@ -188,6 +173,21 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
+literal|"bye.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file:target/rename"
+argument_list|,
+literal|"Bye World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
 literal|"bye.txt"
 argument_list|)
 expr_stmt|;
@@ -263,7 +263,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/rename?readLock=rename"
+literal|"file:target/rename?readLock=rename&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|routeId

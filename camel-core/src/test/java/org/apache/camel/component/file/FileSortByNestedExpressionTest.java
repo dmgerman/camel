@@ -236,7 +236,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"a/?sortBy=file:ext;file:name"
+literal|"a/?initialDelay=0&delay=10&sortBy=file:ext;file:name"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -319,7 +319,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"b/?sortBy=file:ext;reverse:file:name"
+literal|"b/?initialDelay=0&delay=10&sortBy=file:ext;reverse:file:name"
 argument_list|)
 operator|.
 name|convertBodyTo
