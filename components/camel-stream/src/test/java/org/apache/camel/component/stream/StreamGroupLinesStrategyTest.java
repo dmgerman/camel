@@ -167,10 +167,7 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|)
 expr_stmt|;
 block|}

@@ -294,18 +294,6 @@ specifier|static
 name|String
 name|propertyText
 decl_stmt|;
-DECL|field|LINE_SEPARATOR
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|LINE_SEPARATOR
-init|=
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
-decl_stmt|;
 DECL|field|TEST_OPTIONS_PROPERTIES
 specifier|private
 specifier|static
@@ -542,7 +530,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|LINE_SEPARATOR
+name|LS
 argument_list|)
 expr_stmt|;
 block|}

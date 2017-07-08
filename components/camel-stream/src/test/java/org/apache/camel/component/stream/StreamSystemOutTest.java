@@ -152,10 +152,7 @@ name|assertEquals
 argument_list|(
 name|message
 operator|+
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|,
 operator|new
 name|String
