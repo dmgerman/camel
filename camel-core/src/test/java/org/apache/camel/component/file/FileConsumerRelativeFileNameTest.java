@@ -104,37 +104,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// the file name is also starting with target/filename-consumer
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file:target/filename-consumer"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"target/filename-consumer-hello.txt"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file:target/filename-consumer"
-argument_list|,
-literal|"Bye World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"target/filename-consumer-bye.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testValidFilenameOnExchange ()
 specifier|public
@@ -173,6 +142,42 @@ name|FILE_NAME
 argument_list|)
 operator|.
 name|isNotNull
+argument_list|()
+expr_stmt|;
+comment|// the file name is also starting with target/filename-consumer
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file:target/filename-consumer"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"target/filename-consumer-hello.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file:target/filename-consumer"
+argument_list|,
+literal|"Bye World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"target/filename-consumer-bye.txt"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startAllRoutes
 argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -264,8 +269,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/filename-consumer?recursive=true&sortBy=file:name"
+literal|"file:target/filename-consumer?initialDelay=0&delay=10&recursive=true&sortBy=file:name"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|to
 argument_list|(

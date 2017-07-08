@@ -361,7 +361,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/a?scheduledExecutorService=#myPool"
+literal|"file:target/a?initialDelay=0&delay=10&scheduledExecutorService=#myPool"
 argument_list|)
 operator|.
 name|routeId
@@ -376,7 +376,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/b?scheduledExecutorService=#myPool"
+literal|"file:target/b?initialDelay=0&delay=10&scheduledExecutorService=#myPool"
 argument_list|)
 operator|.
 name|routeId

@@ -164,6 +164,8 @@ argument_list|(
 literal|"file:"
 operator|+
 name|dir
+operator|+
+literal|"?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

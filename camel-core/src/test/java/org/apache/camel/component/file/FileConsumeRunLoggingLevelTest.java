@@ -152,7 +152,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/files?runLoggingLevel=INFO"
+literal|"file:target/files?runLoggingLevel=INFO&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

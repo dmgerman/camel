@@ -170,7 +170,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/pollstrategy/?pollStrategy=#myPoll"
+literal|"file://target/pollstrategy/?pollStrategy=#myPoll&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override
@@ -269,7 +269,7 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|(
-literal|2000
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertEquals

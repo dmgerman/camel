@@ -183,7 +183,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll"
+literal|"file://target/pollstrategy/?consumer.pollStrategy=#myPoll&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override

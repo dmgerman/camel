@@ -195,7 +195,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/premove?preMove=before/${file:name.noext}-moved.${file:ext}"
+literal|"file://target/premove?preMove=before/${file:name.noext}-moved.${file:ext}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|process

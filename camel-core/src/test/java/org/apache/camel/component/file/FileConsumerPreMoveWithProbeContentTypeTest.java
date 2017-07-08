@@ -184,7 +184,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/premove?probeContentType=true&preMove=work/work-${file:name}&initialDelay=0&delay=100"
+literal|"file://target/premove?probeContentType=true&preMove=work/work-${file:name}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

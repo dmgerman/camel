@@ -147,9 +147,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sendFiles
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -184,6 +181,9 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|sendFiles
+argument_list|()
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -196,9 +196,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sendFiles
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -233,6 +230,9 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|sendFiles
+argument_list|()
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -245,9 +245,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sendFiles
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -291,6 +288,9 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|sendFiles
+argument_list|()
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -321,7 +321,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/cbr?noop=true"
+literal|"file://target/cbr?noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|choice

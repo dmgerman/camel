@@ -104,6 +104,47 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|testConsumeFileOnly ()
+specifier|public
+name|void
+name|testConsumeFileOnly
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceivedInAnyOrder
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/singledirectoryonly/2008"
+argument_list|,
+literal|"2008 Report"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"report2008.txt"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -134,56 +175,6 @@ argument_list|,
 literal|"report2.txt"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/singledirectoryonly/2008"
-argument_list|,
-literal|"2008 Report"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"report2008.txt"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testConsumeFileOnly ()
-specifier|public
-name|void
-name|testConsumeFileOnly
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-decl_stmt|;
-comment|// Default wait time of 10 sec is not quite long enough on slow
-comment|// machines.
-name|mock
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|15000L
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceivedInAnyOrder
-argument_list|(
-literal|"Hello World"
-argument_list|,
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -212,7 +203,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/singledirectoryonly/?recursive=false&delete=true"
+literal|"file://target/singledirectoryonly/?recursive=false&delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo
