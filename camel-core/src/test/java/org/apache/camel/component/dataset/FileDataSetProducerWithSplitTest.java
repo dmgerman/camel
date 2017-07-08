@@ -354,10 +354,7 @@ name|FileDataSet
 argument_list|(
 name|fileDataset
 argument_list|,
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|)
 expr_stmt|;
 name|assertEquals

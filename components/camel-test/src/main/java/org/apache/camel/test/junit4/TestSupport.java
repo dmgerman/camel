@@ -350,10 +350,8 @@ name|LS
 init|=
 name|System
 operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|lineSeparator
+argument_list|()
 decl_stmt|;
 DECL|field|LOG
 specifier|private

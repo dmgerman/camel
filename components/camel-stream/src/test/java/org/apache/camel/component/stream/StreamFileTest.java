@@ -418,10 +418,7 @@ argument_list|()
 operator|.
 name|tokenize
 argument_list|(
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|)
 operator|.
 name|to

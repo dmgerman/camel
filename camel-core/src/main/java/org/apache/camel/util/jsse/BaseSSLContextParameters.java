@@ -512,10 +512,8 @@ name|LS
 init|=
 name|System
 operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|lineSeparator
+argument_list|()
 decl_stmt|;
 DECL|field|SSL_ENGINE_CIPHER_SUITE_LOG_MSG
 specifier|private
