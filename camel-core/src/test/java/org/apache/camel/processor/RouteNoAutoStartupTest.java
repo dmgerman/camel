@@ -93,6 +93,13 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|setAssertPeriod
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -100,13 +107,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -136,6 +136,13 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|setAssertPeriod
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -143,13 +150,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

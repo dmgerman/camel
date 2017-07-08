@@ -415,7 +415,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 expr_stmt|;
 name|template
@@ -533,6 +533,12 @@ argument_list|)
 operator|.
 name|rejectOld
 argument_list|()
+operator|.
+name|timeout
+argument_list|(
+literal|50
+argument_list|)
+comment|// use low timeout to run faster
 operator|.
 name|to
 argument_list|(

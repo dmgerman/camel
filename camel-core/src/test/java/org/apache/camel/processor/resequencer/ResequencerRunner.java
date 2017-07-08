@@ -47,6 +47,12 @@ specifier|private
 name|boolean
 name|cancelRequested
 decl_stmt|;
+DECL|field|running
+specifier|private
+specifier|volatile
+name|boolean
+name|running
+decl_stmt|;
 DECL|method|ResequencerRunner (ResequencerEngineSync<E> resequencer, long interval)
 specifier|public
 name|ResequencerRunner
@@ -95,6 +101,10 @@ name|cancelRequested
 argument_list|()
 condition|)
 block|{
+name|running
+operator|=
+literal|true
+expr_stmt|;
 try|try
 block|{
 name|Thread
@@ -143,6 +153,10 @@ operator|.
 name|run
 argument_list|()
 expr_stmt|;
+name|running
+operator|=
+literal|false
+expr_stmt|;
 block|}
 DECL|method|cancel ()
 specifier|public
@@ -167,6 +181,16 @@ parameter_list|()
 block|{
 return|return
 name|cancelRequested
+return|;
+block|}
+DECL|method|isRunning ()
+specifier|public
+name|boolean
+name|isRunning
+parameter_list|()
+block|{
+return|return
+name|running
 return|;
 block|}
 block|}

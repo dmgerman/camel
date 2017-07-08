@@ -184,6 +184,16 @@ name|TestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -3538,10 +3548,15 @@ name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testCopyMapWithCamelHeadersTest ()
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Manual test"
+argument_list|)
+DECL|method|xxxTestCopyMapWithCamelHeadersTest ()
 specifier|public
 name|void
-name|testCopyMapWithCamelHeadersTest
+name|xxxTestCopyMapWithCamelHeadersTest
 parameter_list|()
 throws|throws
 name|Exception
@@ -3752,7 +3767,13 @@ expr_stmt|;
 comment|// use a memory profiler to see memory allocation
 comment|// often you may want to give it time to run so you
 comment|// have chance to capture memory snapshot in profiler
-comment|// Thread.sleep(9999999);
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|9999999
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
