@@ -189,7 +189,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/utf8"
+literal|"file://target/utf8?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

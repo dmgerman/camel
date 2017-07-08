@@ -91,7 +91,7 @@ name|uri
 init|=
 literal|"file://target/inbox?idempotent=false&move=../done&moveFailed=../error"
 operator|+
-literal|"&preMove=working/${date:now:yyyyMMddHHmmssSSS}-${file:name}&readLock=none"
+literal|"&preMove=working/${date:now:yyyyMMddHHmmssSSS}-${file:name}&readLock=none&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override

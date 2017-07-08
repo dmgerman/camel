@@ -327,7 +327,7 @@ block|{
 comment|// for locks
 name|from
 argument_list|(
-literal|"file://target/reports/locked/?noop=true"
+literal|"file://target/reports/locked/?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|process
@@ -345,7 +345,7 @@ expr_stmt|;
 comment|// for no locks
 name|from
 argument_list|(
-literal|"file://target/reports/notlocked/?noop=true&readLock=none"
+literal|"file://target/reports/notlocked/?initialDelay=0&delay=10&noop=true&readLock=none"
 argument_list|)
 operator|.
 name|process

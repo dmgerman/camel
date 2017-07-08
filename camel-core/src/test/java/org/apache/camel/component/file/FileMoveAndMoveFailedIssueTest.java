@@ -205,7 +205,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:./target/input?move=${file:parent}.bak/somedate/${file:onlyname}&moveFailed=${file:parent}.err/somedate/${file:onlyname}"
+literal|"file:./target/input?move=${file:parent}.bak/somedate/${file:onlyname}&moveFailed=${file:parent}.err/somedate/${file:onlyname}&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

@@ -204,7 +204,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/inbox?delete=true"
+literal|"file:target/inbox?delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|multicast
@@ -265,7 +265,7 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 operator|.
 name|convertBodyTo

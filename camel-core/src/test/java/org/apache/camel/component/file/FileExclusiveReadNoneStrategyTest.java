@@ -157,7 +157,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/exclusiveread/slowfile?noop=true&consumer.delay=500&readLock=none"
+literal|"file://target/exclusiveread/slowfile?noop=true&initialDelay=0&delay=10&readLock=none"
 decl_stmt|;
 annotation|@
 name|Override
@@ -225,7 +225,7 @@ name|from
 argument_list|(
 name|fileUrl
 operator|+
-literal|"&readLockTimeout=1000"
+literal|"&readLockTimeout=500"
 argument_list|)
 operator|.
 name|to
@@ -393,7 +393,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 name|fos

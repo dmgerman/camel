@@ -77,7 +77,7 @@ specifier|private
 name|String
 name|fileUrl
 init|=
-literal|"file://target/exclusiveread?readLock=fileLock"
+literal|"file://target/exclusiveread?readLock=fileLock&initialDelay=0&delay=10"
 decl_stmt|;
 annotation|@
 name|Override

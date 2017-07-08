@@ -94,14 +94,38 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/oldlock"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|deleteDirectory
+block|}
+DECL|method|testDeleteOldLockOnStartup ()
+specifier|public
+name|void
+name|testDeleteOldLockOnStartup
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
 argument_list|(
-literal|"target/oldlock"
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"New World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -188,30 +212,6 @@ argument_list|,
 literal|"new.txt"
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|testDeleteOldLockOnStartup ()
-specifier|public
-name|void
-name|testDeleteOldLockOnStartup
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"New World"
-argument_list|)
-expr_stmt|;
 comment|// start the route
 name|context
 operator|.
@@ -250,7 +250,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/oldlock?readLockDeleteOrphanLockFiles=false&recursive=true"
+literal|"file:target/oldlock?initialDelay=0&delay=10&readLockDeleteOrphanLockFiles=false&recursive=true"
 argument_list|)
 operator|.
 name|routeId
