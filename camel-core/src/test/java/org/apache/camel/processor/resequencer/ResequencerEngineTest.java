@@ -933,12 +933,9 @@ argument_list|)
 operator|.
 name|until
 argument_list|(
-parameter_list|()
-lambda|->
 name|runner
-operator|.
+operator|::
 name|isRunning
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

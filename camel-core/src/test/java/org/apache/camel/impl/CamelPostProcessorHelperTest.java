@@ -803,7 +803,9 @@ argument_list|()
 expr_stmt|;
 comment|// give UoW a bit of time
 name|await
-argument_list|()
+argument_list|(
+literal|"onDone invokation"
+argument_list|)
 operator|.
 name|atMost
 argument_list|(
@@ -816,22 +818,9 @@ argument_list|)
 operator|.
 name|until
 argument_list|(
-parameter_list|()
-lambda|->
 name|mySynchronization
-operator|.
+operator|::
 name|isOnDone
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have invoked onDone"
-argument_list|,
-name|mySynchronization
-operator|.
-name|isOnDone
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -912,7 +901,9 @@ argument_list|()
 expr_stmt|;
 comment|// give UoW a bit of time
 name|await
-argument_list|()
+argument_list|(
+literal|"onDone invocation"
+argument_list|)
 operator|.
 name|atMost
 argument_list|(
@@ -925,22 +916,9 @@ argument_list|)
 operator|.
 name|until
 argument_list|(
-parameter_list|()
-lambda|->
 name|mySynchronization
-operator|.
+operator|::
 name|isOnDone
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have invoked onDone"
-argument_list|,
-name|mySynchronization
-operator|.
-name|isOnDone
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

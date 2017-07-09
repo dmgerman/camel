@@ -182,7 +182,9 @@ name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
 name|await
-argument_list|()
+argument_list|(
+literal|"postPollCheck invocation"
+argument_list|)
 operator|.
 name|atMost
 argument_list|(
@@ -195,22 +197,9 @@ argument_list|)
 operator|.
 name|until
 argument_list|(
-parameter_list|()
-lambda|->
 name|myFile
-operator|.
+operator|::
 name|isPost
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have invoked postPollCheck"
-argument_list|,
-name|myFile
-operator|.
-name|isPost
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
