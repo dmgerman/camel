@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 import|;
 end_import
 
@@ -246,7 +246,7 @@ condition|)
 block|{
 name|id
 operator|=
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 operator|.
 name|generateSanitizedId
 argument_list|(
@@ -260,7 +260,7 @@ else|else
 block|{
 name|id
 operator|=
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 operator|.
 name|generateSanitizedId
 argument_list|(
@@ -360,6 +360,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// speedup pooling to also be able to shutdown faster
+name|seda
+operator|.
+name|setPollTimeout
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
 return|return
 name|seda
 operator|.
@@ -403,7 +411,7 @@ comment|// just use a seda endpoint for testing purpose
 name|String
 name|id
 init|=
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 operator|.
 name|generateSanitizedId
 argument_list|(
@@ -449,6 +457,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// speedup pooling to also be able to shutdown faster
+name|seda
+operator|.
+name|setPollTimeout
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
 return|return
 name|seda
 operator|.
