@@ -66,6 +66,24 @@ name|springframework
 operator|.
 name|boot
 operator|.
+name|actuate
+operator|.
+name|endpoint
+operator|.
+name|mvc
+operator|.
+name|MvcEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
 name|context
 operator|.
 name|properties
@@ -163,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Adapter to expose {@link CamelRoutesEndpoint} as an {@link MvcEndpoint}.  *  * @author Ben Hale  * @author Kazuki Shimizu  * @author EddÃº MelÃ©ndez  * @since 1.5.0  */
+comment|/**  * Adapter to expose {@link CamelRoutesEndpoint} as an {@link MvcEndpoint}.  */
 end_comment
 
 begin_class
