@@ -74,7 +74,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"timer://foo?fixedRate=true&delay=0&period=500"
+literal|"timer://foo?fixedRate=true&delay=0&period=10"
 argument_list|)
 operator|.
 name|to

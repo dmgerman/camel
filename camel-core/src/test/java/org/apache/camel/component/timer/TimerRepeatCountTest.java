@@ -111,7 +111,7 @@ name|mock
 operator|.
 name|setAssertPeriod
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 expr_stmt|;
 name|mock
@@ -172,6 +172,11 @@ literal|3
 argument_list|)
 expr_stmt|;
 comment|// we should only get 3 messages as we have a repeat count limit at 3
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -200,8 +205,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer://hello?repeatCount=3&period=10"
+literal|"timer://hello?delay=0&repeatCount=3&period=10"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|to
 argument_list|(

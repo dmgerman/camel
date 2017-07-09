@@ -236,7 +236,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test:my:foo"
+literal|"test:my:foo?timeout=0"
 argument_list|)
 expr_stmt|;
 block|}

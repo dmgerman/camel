@@ -114,7 +114,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test:seda:testme?anyOrder=true"
+literal|"test:seda:testme?anyOrder=true&timeout=0"
 argument_list|)
 expr_stmt|;
 block|}

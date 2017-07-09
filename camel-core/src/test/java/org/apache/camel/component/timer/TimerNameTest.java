@@ -61,7 +61,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"timer://foo?delay=2000&timerName=bar"
+literal|"timer://foo?delay=0&period=10&timerName=bar"
 decl_stmt|;
 DECL|method|testTimerName ()
 specifier|public
@@ -80,6 +80,11 @@ name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -137,6 +142,9 @@ name|from
 argument_list|(
 name|uri
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|to
 argument_list|(

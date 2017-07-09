@@ -165,7 +165,7 @@ decl_stmt|;
 comment|// use the flip route policy in the foo route
 name|from
 argument_list|(
-literal|"timer://foo"
+literal|"timer://foo?delay=0&period=10"
 argument_list|)
 operator|.
 name|routeId
@@ -200,7 +200,7 @@ comment|// use the flip route policy in the bar route and do NOT start
 comment|// this route on startup
 name|from
 argument_list|(
-literal|"timer://bar"
+literal|"timer://bar?delay=0&period=10"
 argument_list|)
 operator|.
 name|routeId

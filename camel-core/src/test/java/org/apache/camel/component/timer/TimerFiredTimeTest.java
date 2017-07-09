@@ -206,7 +206,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer://hello"
+literal|"timer://hello?period=10&delay=10"
 argument_list|)
 operator|.
 name|to

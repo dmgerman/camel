@@ -114,7 +114,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:mytimer"
+literal|"timer:mytimer?period=0&delay=10"
 argument_list|)
 operator|.
 name|to
@@ -124,7 +124,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"timer:mytimer"
+literal|"timer:mytimer?period=0&delay=10"
 argument_list|)
 operator|.
 name|to

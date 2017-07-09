@@ -394,7 +394,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Test that the reference configuration params are correct      *      * @throws Exception      */
+comment|/**      * Test that the reference configuration params are correct      */
 DECL|method|testReferenceConfiguration ()
 specifier|public
 name|void
@@ -533,7 +533,7 @@ name|repeatCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test that the 'value' configuration params are correct      *      * @throws Exception      */
+comment|/**      * Test that the 'value' configuration params are correct      */
 DECL|method|testValueConfiguration ()
 specifier|public
 name|void

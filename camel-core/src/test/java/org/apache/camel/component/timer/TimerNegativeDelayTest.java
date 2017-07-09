@@ -72,10 +72,10 @@ name|TimerNegativeDelayTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testDelay ()
+DECL|method|testNegativeDelay ()
 specifier|public
 name|void
-name|testDelay
+name|testNegativeDelay
 parameter_list|()
 throws|throws
 name|Exception
@@ -94,6 +94,11 @@ name|expectedMessageCount
 argument_list|(
 literal|10
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -127,6 +132,9 @@ name|from
 argument_list|(
 literal|"timer://foo?delay=-1&period=0&repeatCount=10"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|to
 argument_list|(

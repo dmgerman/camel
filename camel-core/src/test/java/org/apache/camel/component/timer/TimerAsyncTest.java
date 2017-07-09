@@ -210,7 +210,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?fixedRate=true&delay=0&period=200"
+literal|"timer://foo?fixedRate=true&delay=0&period=10"
 argument_list|)
 operator|.
 name|id
@@ -266,11 +266,11 @@ block|{
 comment|// simulate long task
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MILLISECONDS
 operator|.
 name|sleep
 argument_list|(
-literal|1
+literal|50
 argument_list|)
 expr_stmt|;
 block|}

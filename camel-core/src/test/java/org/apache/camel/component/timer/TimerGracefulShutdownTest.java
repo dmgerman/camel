@@ -231,12 +231,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:foo?period=100&exceptionHandler=#eh"
+literal|"timer:foo?period=10&delay=10&exceptionHandler=#eh"
 argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|200
+literal|10
 argument_list|)
 operator|.
 name|to

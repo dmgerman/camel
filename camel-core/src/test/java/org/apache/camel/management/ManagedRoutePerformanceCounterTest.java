@@ -336,24 +336,24 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 3 sec: was "
+literal|"Should take around 1 sec: was "
 operator|+
 name|last
 argument_list|,
 name|last
 operator|>
-literal|2900
+literal|900
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 3 sec: was "
+literal|"Should take around 1 sec: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|>
-literal|2900
+literal|900
 argument_list|)
 expr_stmt|;
 comment|// send in another message
@@ -439,24 +439,24 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 3 sec: was "
+literal|"Should take around 1 sec: was "
 operator|+
 name|last
 argument_list|,
 name|last
 operator|>
-literal|2900
+literal|900
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be around 5 sec now: was "
+literal|"Should be around 2 sec now: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|>
-literal|4900
+literal|1900
 argument_list|)
 expr_stmt|;
 name|Date
@@ -581,7 +581,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|3000
+literal|1000
 argument_list|)
 operator|.
 name|to
