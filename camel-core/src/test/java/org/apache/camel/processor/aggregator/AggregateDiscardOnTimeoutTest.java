@@ -147,12 +147,12 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait 1 seconds
+comment|// wait 0. seconds
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 expr_stmt|;
 name|mock
@@ -179,37 +179,37 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"A"
-argument_list|,
-literal|"id"
-argument_list|,
-literal|123
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"B"
-argument_list|,
-literal|"id"
-argument_list|,
-literal|123
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"direct:start"
-argument_list|,
 literal|"C"
 argument_list|,
 literal|"id"
 argument_list|,
-literal|123
+literal|456
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"D"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|456
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"E"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|456
 argument_list|)
 expr_stmt|;
 comment|// should complete before timeout
@@ -274,11 +274,17 @@ name|completionSize
 argument_list|(
 literal|3
 argument_list|)
-comment|// use a 0.5 second timeout
+comment|// use a 0.2 second timeout
 operator|.
 name|completionTimeout
 argument_list|(
-literal|500
+literal|200
+argument_list|)
+comment|// speedup checker
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 comment|// and if timeout occurred then just discard the aggregated message
 operator|.
