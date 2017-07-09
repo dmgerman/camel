@@ -178,10 +178,10 @@ name|CamelRoutesEndpoint
 operator|.
 name|ENDPOINT_ID
 argument_list|)
-DECL|class|CamelMvcRoutesEndpoint
+DECL|class|CamelRoutesMvcEndpoint
 specifier|public
 class|class
-name|CamelMvcRoutesEndpoint
+name|CamelRoutesMvcEndpoint
 extends|extends
 name|EndpointMvcAdapter
 block|{
@@ -209,9 +209,9 @@ specifier|final
 name|CamelRoutesEndpoint
 name|delegate
 decl_stmt|;
-DECL|method|CamelMvcRoutesEndpoint (CamelRoutesEndpoint delegate)
+DECL|method|CamelRoutesMvcEndpoint (CamelRoutesEndpoint delegate)
 specifier|public
-name|CamelMvcRoutesEndpoint
+name|CamelRoutesMvcEndpoint
 parameter_list|(
 name|CamelRoutesEndpoint
 name|delegate

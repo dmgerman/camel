@@ -216,7 +216,7 @@ annotation|@
 name|ConditionalOnMissingBean
 DECL|method|camelMvcEndpoint (CamelRoutesEndpoint delegate)
 specifier|public
-name|CamelMvcRoutesEndpoint
+name|CamelRoutesMvcEndpoint
 name|camelMvcEndpoint
 parameter_list|(
 name|CamelRoutesEndpoint
@@ -225,7 +225,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|CamelMvcRoutesEndpoint
+name|CamelRoutesMvcEndpoint
 argument_list|(
 name|delegate
 argument_list|)

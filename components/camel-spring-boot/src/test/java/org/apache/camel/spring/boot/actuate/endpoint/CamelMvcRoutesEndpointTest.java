@@ -251,7 +251,7 @@ block|{
 annotation|@
 name|Autowired
 DECL|field|endpoint
-name|CamelMvcRoutesEndpoint
+name|CamelRoutesMvcEndpoint
 name|endpoint
 decl_stmt|;
 annotation|@
