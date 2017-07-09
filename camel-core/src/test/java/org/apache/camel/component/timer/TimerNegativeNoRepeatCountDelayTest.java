@@ -232,7 +232,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer://negativeDelay?delay=-1"
+literal|"timer://negativeDelay?delay=-1&repeatCount=10"
 argument_list|)
 operator|.
 name|routeId

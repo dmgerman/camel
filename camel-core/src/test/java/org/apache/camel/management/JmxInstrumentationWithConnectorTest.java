@@ -248,10 +248,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sleepForConnection
-operator|=
-literal|3000
-expr_stmt|;
 name|registryPort
 operator|=
 literal|30000

@@ -139,6 +139,11 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|handled
 argument_list|(
 literal|true
@@ -230,6 +235,11 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|3
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|logHandled
@@ -328,6 +338,11 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|3
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|logHandled
@@ -821,6 +836,11 @@ argument_list|(
 name|IllegalArgumentException
 operator|.
 name|class
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|maximumRedeliveries

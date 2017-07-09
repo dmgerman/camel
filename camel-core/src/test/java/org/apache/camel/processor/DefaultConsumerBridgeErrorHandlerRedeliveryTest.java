@@ -258,6 +258,12 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+comment|// setting delay to zero is just to make unit testing faster
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|handled
 argument_list|(

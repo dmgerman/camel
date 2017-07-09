@@ -197,6 +197,11 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|2
@@ -332,6 +337,11 @@ argument_list|(
 name|Exception
 operator|.
 name|class
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|maximumRedeliveries
@@ -482,6 +492,11 @@ argument_list|(
 name|Exception
 operator|.
 name|class
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|maximumRedeliveries
@@ -640,6 +655,11 @@ argument_list|(
 name|Exception
 operator|.
 name|class
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|maximumRedeliveries

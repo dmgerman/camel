@@ -319,11 +319,6 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|backOffMultiplier
-argument_list|(
-literal|2
-argument_list|)
-operator|.
 name|redeliveryDelay
 argument_list|(
 literal|0

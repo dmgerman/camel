@@ -241,7 +241,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|2000
+literal|0
 argument_list|)
 expr_stmt|;
 name|from

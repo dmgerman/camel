@@ -282,7 +282,7 @@ name|mock
 operator|.
 name|setAssertPeriod
 argument_list|(
-literal|500
+literal|10
 argument_list|)
 expr_stmt|;
 name|template
@@ -325,7 +325,7 @@ name|mock
 operator|.
 name|setAssertPeriod
 argument_list|(
-literal|500
+literal|10
 argument_list|)
 expr_stmt|;
 name|template
@@ -346,6 +346,7 @@ argument_list|,
 literal|"B"
 argument_list|)
 expr_stmt|;
+comment|// we got 2 messages so the assertion is not
 name|mock
 operator|.
 name|assertIsNotSatisfied
@@ -375,13 +376,12 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// wait 2 sec after preliminary assertion to ensure its still correct
-comment|// after the 2 seconds.
+comment|// wait a bit after preliminary assertion to ensure its still correct
 name|mock
 operator|.
 name|setAssertPeriod
 argument_list|(
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 name|template
@@ -420,7 +420,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -556,12 +556,10 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|Thread
+name|latch
 operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
+name|await
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -590,14 +588,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-finally|finally
-block|{
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)
@@ -607,19 +597,10 @@ comment|// the assertion was valid at the time given
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertTrue
-argument_list|(
 name|latch
 operator|.
-name|await
-argument_list|(
-literal|10
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-argument_list|)
+name|countDown
+argument_list|()
 expr_stmt|;
 name|executor
 operator|.
@@ -662,7 +643,7 @@ argument_list|()
 operator|.
 name|noLaterThan
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 operator|.
 name|seconds
@@ -684,7 +665,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -735,7 +716,7 @@ argument_list|()
 operator|.
 name|noLaterThan
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 operator|.
 name|seconds
@@ -757,7 +738,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -808,7 +789,7 @@ argument_list|()
 operator|.
 name|noLaterThan
 argument_list|(
-literal|500
+literal|250
 argument_list|)
 operator|.
 name|millis
@@ -829,7 +810,7 @@ argument_list|()
 operator|.
 name|noLaterThan
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 operator|.
 name|millis
@@ -851,7 +832,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -867,7 +848,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -918,12 +899,12 @@ argument_list|()
 operator|.
 name|between
 argument_list|(
-literal|1
+literal|10
 argument_list|,
-literal|4
+literal|500
 argument_list|)
 operator|.
-name|seconds
+name|millis
 argument_list|()
 operator|.
 name|afterPrevious
@@ -942,7 +923,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -993,12 +974,12 @@ argument_list|()
 operator|.
 name|between
 argument_list|(
-literal|1
+literal|10
 argument_list|,
-literal|4
+literal|500
 argument_list|)
 operator|.
-name|seconds
+name|millis
 argument_list|()
 operator|.
 name|beforeNext
@@ -1017,7 +998,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -1097,7 +1078,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -1113,7 +1094,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|150
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -1129,7 +1110,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|200
+literal|50
 argument_list|)
 expr_stmt|;
 name|template

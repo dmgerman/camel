@@ -344,6 +344,11 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|setHeader
 argument_list|(
 name|MESSAGE_INFO
@@ -369,6 +374,11 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|3
+argument_list|)
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|setHeader

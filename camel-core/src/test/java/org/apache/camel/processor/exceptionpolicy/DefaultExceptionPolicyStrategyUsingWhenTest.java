@@ -317,6 +317,12 @@ name|maximumRedeliveries
 argument_list|(
 literal|1
 argument_list|)
+comment|// setting delay to zero is just to make unit testing faster
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|to
 argument_list|(
@@ -338,6 +344,12 @@ operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|2
+argument_list|)
+comment|// setting delay to zero is just to make unit testing faster
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|to

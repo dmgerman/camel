@@ -228,7 +228,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|200
 argument_list|)
 operator|.
 name|to
@@ -368,7 +368,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|200
 argument_list|)
 operator|.
 name|to
@@ -405,12 +405,12 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// wait at most 5 seconds
+comment|// wait at most 2 seconds
 name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|5000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|template
@@ -519,7 +519,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 operator|.
 name|to
@@ -686,7 +686,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 operator|.
 name|to
@@ -853,7 +853,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 operator|.
 name|to
@@ -1020,7 +1020,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|200
+literal|100
 argument_list|)
 operator|.
 name|to
@@ -1158,6 +1158,11 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|redeliveryDelay
+argument_list|(
+literal|250
+argument_list|)
+operator|.
 name|maximumRedeliveries
 argument_list|(
 literal|3
@@ -1209,7 +1214,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 operator|.
 name|to

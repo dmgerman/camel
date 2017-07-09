@@ -329,7 +329,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|100
+literal|10
 argument_list|)
 operator|.
 name|maximumRedeliveries

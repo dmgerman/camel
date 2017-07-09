@@ -387,7 +387,7 @@ argument_list|)
 operator|.
 name|redeliveryDelay
 argument_list|(
-literal|5000
+literal|500
 argument_list|)
 argument_list|)
 expr_stmt|;

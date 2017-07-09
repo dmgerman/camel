@@ -486,6 +486,12 @@ name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
+comment|// setting delay to zero is just to make unit testing faster
+operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|maximumRedeliveries
 argument_list|(
