@@ -140,7 +140,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|// stop route with a 2s timeout and abortAfterTimeout=true (should abort after 2s)
+comment|// stop route with a 1s timeout and abortAfterTimeout=true (should abort after 1s)
 name|boolean
 name|stopRouteResponse
 init|=
@@ -150,7 +150,7 @@ name|stopRoute
 argument_list|(
 literal|"start"
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|TimeUnit
 operator|.
@@ -273,7 +273,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|// stop route with a 2s timeout and abortAfterTimeout=false (normal timeout behavior)
+comment|// stop route with a 1s timeout and abortAfterTimeout=false (normal timeout behavior)
 name|boolean
 name|stopRouteResponse
 init|=
@@ -283,7 +283,7 @@ name|stopRoute
 argument_list|(
 literal|"start"
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|TimeUnit
 operator|.
@@ -424,7 +424,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 operator|.
 name|to

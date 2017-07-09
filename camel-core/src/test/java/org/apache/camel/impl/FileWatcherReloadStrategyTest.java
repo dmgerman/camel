@@ -210,6 +210,14 @@ argument_list|(
 literal|"target/dummy"
 argument_list|)
 expr_stmt|;
+comment|// to make unit test faster
+name|reloadStrategy
+operator|.
+name|setPollTimeout
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|setReloadStrategy

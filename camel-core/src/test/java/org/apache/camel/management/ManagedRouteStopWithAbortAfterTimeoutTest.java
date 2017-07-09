@@ -211,14 +211,14 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|// stop route with a 2s timeout and abortAfterTimeout=true (should abort after 2s)
+comment|// stop route with a 1s timeout and abortAfterTimeout=true (should abort after 1s)
 name|Long
 name|timeout
 init|=
 operator|new
 name|Long
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 decl_stmt|;
 name|Boolean
@@ -441,14 +441,14 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|// stop route with a 2s timeout and abortAfterTimeout=false (normal timeout behavior)
+comment|// stop route with a 1s timeout and abortAfterTimeout=false (normal timeout behavior)
 name|Long
 name|timeout
 init|=
 operator|new
 name|Long
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 decl_stmt|;
 name|Boolean
@@ -565,7 +565,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3000
+literal|1000
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -676,7 +676,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 operator|.
 name|to

@@ -349,6 +349,13 @@ name|Path
 argument_list|>
 name|folderKeys
 decl_stmt|;
+DECL|field|pollTimeout
+specifier|private
+name|long
+name|pollTimeout
+init|=
+literal|2000
+decl_stmt|;
 DECL|method|FileWatcherReloadStrategy ()
 specifier|public
 name|FileWatcherReloadStrategy
@@ -431,6 +438,23 @@ operator|.
 name|isRecursive
 operator|=
 name|isRecursive
+expr_stmt|;
+block|}
+comment|/**      * Sets the poll timeout in millis. The default value is 2000.      */
+DECL|method|setPollTimeout (long pollTimeout)
+specifier|public
+name|void
+name|setPollTimeout
+parameter_list|(
+name|long
+name|pollTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollTimeout
+operator|=
+name|pollTimeout
 expr_stmt|;
 block|}
 annotation|@
@@ -1114,11 +1138,11 @@ name|watcher
 operator|.
 name|poll
 argument_list|(
-literal|2
+name|pollTimeout
 argument_list|,
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}

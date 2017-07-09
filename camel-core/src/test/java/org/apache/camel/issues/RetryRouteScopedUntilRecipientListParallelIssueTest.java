@@ -78,6 +78,11 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|retryWhile
 argument_list|(
 name|method

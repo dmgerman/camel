@@ -189,12 +189,12 @@ argument_list|(
 literal|20
 argument_list|)
 expr_stmt|;
-comment|// should at least take 3 sec
+comment|// should at least take 0.5 sec
 name|mock
 operator|.
 name|setResultMinimumWaitTime
 argument_list|(
-literal|3000
+literal|500
 argument_list|)
 expr_stmt|;
 for|for
@@ -251,12 +251,12 @@ argument_list|(
 literal|20
 argument_list|)
 expr_stmt|;
-comment|// should at least take 3 sec
+comment|// should at least take 0.5 sec
 name|mock
 operator|.
 name|setResultMinimumWaitTime
 argument_list|(
-literal|3000
+literal|500
 argument_list|)
 expr_stmt|;
 for|for
@@ -326,12 +326,12 @@ argument_list|(
 literal|"Bye"
 argument_list|)
 expr_stmt|;
-comment|// should at least take 3 sec
+comment|// should at least take 0.5 sec
 name|mock
 operator|.
 name|setResultMinimumWaitTime
 argument_list|(
-literal|3000
+literal|500
 argument_list|)
 expr_stmt|;
 name|ExecutorService
@@ -480,12 +480,12 @@ argument_list|(
 literal|"Bye"
 argument_list|)
 expr_stmt|;
-comment|// should at least take 3 sec
+comment|// should at least take 0.5 sec
 name|mock
 operator|.
 name|setResultMinimumWaitTime
 argument_list|(
-literal|3000
+literal|500
 argument_list|)
 expr_stmt|;
 comment|// use our own template that has a higher thread pool than default camel that uses 5
@@ -679,7 +679,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|500
 argument_list|)
 operator|.
 name|to
@@ -699,7 +699,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|500
 argument_list|)
 operator|.
 name|transform
