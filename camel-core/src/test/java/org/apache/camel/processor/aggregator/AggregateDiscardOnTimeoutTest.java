@@ -147,7 +147,7 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait 0. seconds
+comment|// wait 0.25 seconds
 name|Thread
 operator|.
 name|sleep
