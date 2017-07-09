@@ -559,7 +559,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|500
+literal|10
 argument_list|)
 operator|.
 name|transform

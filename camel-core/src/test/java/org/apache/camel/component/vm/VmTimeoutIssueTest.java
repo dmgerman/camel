@@ -106,7 +106,7 @@ name|template2
 operator|.
 name|requestBody
 argument_list|(
-literal|"vm:start1?timeout=4000"
+literal|"vm:start1?timeout=1000"
 argument_list|,
 literal|"Hello"
 argument_list|)
@@ -140,7 +140,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2000
+literal|500
 argument_list|,
 name|cause
 operator|.
@@ -239,7 +239,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|3000
+literal|1000
 argument_list|)
 operator|.
 name|transform
@@ -286,7 +286,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"vm:start1?timeout=4000"
+literal|"vm:start1?timeout=1000"
 argument_list|)
 operator|.
 name|to
@@ -296,7 +296,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"vm:end?timeout=2000"
+literal|"vm:end?timeout=500"
 argument_list|)
 operator|.
 name|to

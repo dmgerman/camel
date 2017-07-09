@@ -319,7 +319,14 @@ name|ap
 operator|.
 name|setCompletionTimeout
 argument_list|(
-literal|2000
+literal|250
+argument_list|)
+expr_stmt|;
+name|ap
+operator|.
+name|setCompletionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 expr_stmt|;
 name|ap
@@ -403,7 +410,7 @@ argument_list|(
 name|e2
 argument_list|)
 expr_stmt|;
-comment|// shutdown before the 2 sec timeout occurs
+comment|// shutdown before the 1/4 sec timeout occurs
 comment|// however we use stop instead of shutdown as shutdown will clear the in memory aggregation repository,
 name|ap
 operator|.
@@ -542,6 +549,13 @@ argument_list|)
 expr_stmt|;
 name|ap
 operator|.
+name|setCompletionTimeoutCheckerInterval
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
+name|ap
+operator|.
 name|start
 argument_list|()
 expr_stmt|;
@@ -585,7 +599,7 @@ name|setHeader
 argument_list|(
 literal|"myTimeout"
 argument_list|,
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -628,7 +642,7 @@ name|setHeader
 argument_list|(
 literal|"myTimeout"
 argument_list|,
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 name|ap
@@ -645,7 +659,7 @@ argument_list|(
 name|e2
 argument_list|)
 expr_stmt|;
-comment|// shutdown before the 2 sec timeout occurs
+comment|// shutdown before the 1/4 sec timeout occurs
 comment|// however we use stop instead of shutdown as shutdown will clear the in memory aggregation repository,
 name|ap
 operator|.
@@ -786,6 +800,13 @@ argument_list|)
 expr_stmt|;
 name|ap
 operator|.
+name|setCompletionTimeoutCheckerInterval
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
+name|ap
+operator|.
 name|start
 argument_list|()
 expr_stmt|;
@@ -829,7 +850,7 @@ name|setHeader
 argument_list|(
 literal|"myTimeout"
 argument_list|,
-literal|3000
+literal|300
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -872,7 +893,7 @@ name|setHeader
 argument_list|(
 literal|"myTimeout"
 argument_list|,
-literal|3000
+literal|300
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -915,7 +936,7 @@ name|setHeader
 argument_list|(
 literal|"myTimeout"
 argument_list|,
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -958,7 +979,7 @@ name|setHeader
 argument_list|(
 literal|"myTimeout"
 argument_list|,
-literal|2000
+literal|250
 argument_list|)
 expr_stmt|;
 name|ap
@@ -989,7 +1010,7 @@ argument_list|(
 name|e4
 argument_list|)
 expr_stmt|;
-comment|// shutdown before the 2 sec timeout occurs
+comment|// shutdown before the 1/4 sec timeout occurs
 comment|// however we use stop instead of shutdown as shutdown will clear the in memory aggregation repository,
 name|ap
 operator|.

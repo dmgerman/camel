@@ -1228,7 +1228,7 @@ name|ap
 operator|.
 name|setCompletionTimeout
 argument_list|(
-literal|3000
+literal|100
 argument_list|)
 expr_stmt|;
 name|ap
@@ -1236,6 +1236,13 @@ operator|.
 name|setEagerCheckCompletion
 argument_list|(
 name|eager
+argument_list|)
+expr_stmt|;
+name|ap
+operator|.
+name|setCompletionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 expr_stmt|;
 name|ap
@@ -1378,7 +1385,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|250
+literal|5
 argument_list|)
 expr_stmt|;
 name|ap
@@ -1392,7 +1399,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|10
 argument_list|)
 expr_stmt|;
 name|ap
@@ -1406,7 +1413,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|5000
+literal|150
 argument_list|)
 expr_stmt|;
 name|ap
@@ -1519,7 +1526,14 @@ name|ap
 operator|.
 name|setCompletionInterval
 argument_list|(
-literal|3000
+literal|100
+argument_list|)
+expr_stmt|;
+name|ap
+operator|.
+name|setCompletionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 expr_stmt|;
 name|ap
@@ -1676,7 +1690,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|5000
+literal|250
 argument_list|)
 expr_stmt|;
 name|ap

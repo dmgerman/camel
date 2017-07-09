@@ -110,10 +110,10 @@ name|messageCount
 init|=
 literal|9
 decl_stmt|;
-DECL|method|testSendLotsOfMessagesButOnly3GetThrough ()
+DECL|method|testSendLotsOfMessages ()
 specifier|public
 name|void
-name|testSendLotsOfMessagesButOnly3GetThrough
+name|testSendLotsOfMessages
 parameter_list|()
 throws|throws
 name|Exception
@@ -134,14 +134,7 @@ name|resultEndpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|5000
+name|messageCount
 argument_list|)
 expr_stmt|;
 for|for
@@ -173,30 +166,20 @@ literal|"</message>"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lets pause to give the requests time to be processed
-comment|// to check that the throttle really does kick in
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSendLotsOfMessagesSimultaneouslyButOnly3GetThrough ()
+DECL|method|testSendLotsOfMessagesSimultaneously ()
 specifier|public
 name|void
-name|testSendLotsOfMessagesSimultaneouslyButOnly3GetThrough
+name|testSendLotsOfMessagesSimultaneously
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|long
-name|start
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|MockEndpoint
 name|resultEndpoint
 init|=
@@ -274,45 +257,10 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// now assert that they have actually been throttled
-name|long
-name|minimumTime
-init|=
-operator|(
-name|messageCount
-operator|-
-literal|1
-operator|)
-operator|*
-name|INTERVAL
-decl_stmt|;
-comment|// add a little slack
-name|long
-name|delta
-init|=
-name|System
+name|context
 operator|.
-name|currentTimeMillis
+name|stop
 argument_list|()
-operator|-
-name|start
-operator|+
-literal|200
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should take at least "
-operator|+
-name|minimumTime
-operator|+
-literal|"ms, was: "
-operator|+
-name|delta
-argument_list|,
-name|delta
-operator|>=
-name|minimumTime
-argument_list|)
 expr_stmt|;
 name|executor
 operator|.
@@ -349,7 +297,7 @@ argument_list|)
 operator|.
 name|timePeriodMillis
 argument_list|(
-literal|10000
+name|INTERVAL
 argument_list|)
 operator|.
 name|asyncDelayed
@@ -370,7 +318,7 @@ argument_list|)
 operator|.
 name|throttle
 argument_list|(
-literal|1
+literal|3
 argument_list|)
 operator|.
 name|timePeriodMillis

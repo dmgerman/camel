@@ -85,7 +85,7 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 comment|// ignore invalid exchanges (they are discarded)
 operator|.

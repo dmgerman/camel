@@ -338,7 +338,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"dataset:foo"
+literal|"dataset:foo?initialDelay=0"
 argument_list|)
 operator|.
 name|to
@@ -353,7 +353,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dataset:foo"
+literal|"dataset:foo?initialDelay=0"
 argument_list|)
 expr_stmt|;
 block|}

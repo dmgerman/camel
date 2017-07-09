@@ -201,7 +201,7 @@ name|future
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|2
 argument_list|,
 name|TimeUnit
 operator|.
@@ -310,7 +310,7 @@ name|future
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|2
 argument_list|,
 name|TimeUnit
 operator|.
@@ -380,7 +380,7 @@ name|future
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|2
 argument_list|,
 name|TimeUnit
 operator|.
@@ -443,7 +443,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|50
 argument_list|)
 operator|.
 name|process
