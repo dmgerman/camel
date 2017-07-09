@@ -112,7 +112,7 @@ argument_list|,
 literal|"A+B+C"
 argument_list|)
 expr_stmt|;
-comment|// will use fallback timeout (5 sec)
+comment|// will use fallback timeout (1 sec)
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -152,6 +152,7 @@ argument_list|,
 literal|789
 argument_list|)
 expr_stmt|;
+comment|// will use 0.5 sec timeout
 name|Map
 argument_list|<
 name|String
@@ -184,10 +185,9 @@ name|put
 argument_list|(
 literal|"timeout"
 argument_list|,
-literal|3000
+literal|500
 argument_list|)
 expr_stmt|;
-comment|// will use 3 sec timeout
 name|template
 operator|.
 name|sendBodyAndHeaders
@@ -221,6 +221,7 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
+comment|// will use 0.1 sec timeout
 name|Map
 argument_list|<
 name|String
@@ -253,10 +254,9 @@ name|put
 argument_list|(
 literal|"timeout"
 argument_list|,
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
-comment|// will use 1 sec timeout
 name|template
 operator|.
 name|sendBodyAndHeaders
@@ -350,7 +350,12 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|5000
+literal|1000
+argument_list|)
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to

@@ -244,7 +244,7 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 operator|.
 name|to
@@ -272,7 +272,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|3000
+literal|500
 argument_list|)
 operator|.
 name|setBody
@@ -303,7 +303,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|4000
+literal|500
 argument_list|)
 operator|.
 name|setBody

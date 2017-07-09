@@ -112,12 +112,12 @@ argument_list|(
 literal|"Message 9"
 argument_list|)
 expr_stmt|;
-comment|// ensure messages are send after the 1s
+comment|// ensure messages are send after a little bit
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|100
 argument_list|)
 expr_stmt|;
 for|for
@@ -196,11 +196,11 @@ operator|new
 name|UseLatestAggregationStrategy
 argument_list|()
 argument_list|)
-comment|// trigger completion every 5th second
+comment|// trigger completion every 2nd second
 operator|.
 name|completionInterval
 argument_list|(
-literal|5000
+literal|2000
 argument_list|)
 operator|.
 name|to

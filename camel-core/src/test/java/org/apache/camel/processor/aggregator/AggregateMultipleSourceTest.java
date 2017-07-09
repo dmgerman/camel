@@ -131,13 +131,6 @@ name|body
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|20000
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -305,7 +298,12 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|5000
+literal|500
+argument_list|)
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to
