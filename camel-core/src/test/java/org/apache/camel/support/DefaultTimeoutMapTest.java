@@ -1570,18 +1570,10 @@ operator|.
 name|SECONDS
 argument_list|)
 operator|.
-name|until
+name|untilAsserted
 argument_list|(
 parameter_list|()
 lambda|->
-name|map
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|0
-argument_list|)
-expr_stmt|;
 comment|// now it should be gone
 name|assertEquals
 argument_list|(
@@ -1591,6 +1583,7 @@ name|map
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|map

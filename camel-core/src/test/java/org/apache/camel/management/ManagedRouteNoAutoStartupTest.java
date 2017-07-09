@@ -332,34 +332,11 @@ operator|.
 name|SECONDS
 argument_list|)
 operator|.
-name|until
+name|untilAsserted
 argument_list|(
 parameter_list|()
 lambda|->
 block|{
-name|Long
-name|completed
-init|=
-operator|(
-name|Long
-operator|)
-name|mbeanServer
-operator|.
-name|getAttribute
-argument_list|(
-name|on
-argument_list|,
-literal|"ExchangesCompleted"
-argument_list|)
-decl_stmt|;
-return|return
-name|completed
-operator|>
-literal|0
-return|;
-block|}
-argument_list|)
-expr_stmt|;
 comment|// should have 1 completed exchange
 name|Long
 name|completed
@@ -384,6 +361,9 @@ name|completed
 operator|.
 name|longValue
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 comment|// should be 1 consumer and 1 processor

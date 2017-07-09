@@ -1114,18 +1114,10 @@ operator|.
 name|SECONDS
 argument_list|)
 operator|.
-name|until
+name|untilAsserted
 argument_list|(
 parameter_list|()
 lambda|->
-name|events
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|6
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|6
@@ -1134,6 +1126,7 @@ name|events
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// we should find log:foo which we tapped

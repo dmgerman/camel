@@ -396,13 +396,10 @@ operator|.
 name|SECONDS
 argument_list|)
 operator|.
-name|until
+name|untilAsserted
 argument_list|(
-name|policy
-operator|::
-name|isStopped
-argument_list|)
-expr_stmt|;
+parameter_list|()
+lambda|->
 name|assertTrue
 argument_list|(
 literal|"Should be stopped"
@@ -411,6 +408,7 @@ name|policy
 operator|.
 name|isStopped
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

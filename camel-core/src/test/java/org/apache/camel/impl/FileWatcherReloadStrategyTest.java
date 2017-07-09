@@ -305,21 +305,10 @@ operator|.
 name|SECONDS
 argument_list|)
 operator|.
-name|until
+name|untilAsserted
 argument_list|(
 parameter_list|()
 lambda|->
-name|context
-operator|.
-name|getRoutes
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -331,6 +320,7 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and the route should work
@@ -748,21 +738,10 @@ operator|.
 name|SECONDS
 argument_list|)
 operator|.
-name|until
+name|untilAsserted
 argument_list|(
 parameter_list|()
 lambda|->
-name|context
-operator|.
-name|getRoutes
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -774,6 +753,7 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and the route should work
