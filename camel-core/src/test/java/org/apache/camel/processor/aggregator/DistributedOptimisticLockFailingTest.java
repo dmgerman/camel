@@ -569,7 +569,7 @@ name|Executors
 operator|.
 name|newFixedThreadPool
 argument_list|(
-literal|50
+literal|10
 argument_list|)
 decl_stmt|;
 name|List
@@ -811,6 +811,7 @@ argument_list|)
 operator|.
 name|optimisticLocking
 argument_list|()
+comment|// do not use retry delay to speedup test
 operator|.
 name|optimisticLockRetryPolicy
 argument_list|(
@@ -821,6 +822,11 @@ operator|.
 name|maximumRetries
 argument_list|(
 literal|5
+argument_list|)
+operator|.
+name|retryDelay
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 operator|.

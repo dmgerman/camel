@@ -900,12 +900,12 @@ argument_list|(
 literal|6
 argument_list|)
 expr_stmt|;
-comment|// wait at most 2 sec to speedup unit testing
+comment|// wait at most 0.5 sec to speedup unit testing
 name|resultEndpoint
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|2000
+literal|500
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -2197,7 +2197,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 expr_stmt|;
 name|template
@@ -2217,7 +2217,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|500
+literal|100
 argument_list|,
 name|mock
 operator|.
@@ -2257,14 +2257,14 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|assertIsNotSatisfied
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2279,7 +2279,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|500
+literal|100
 argument_list|,
 name|mock
 operator|.
@@ -2319,7 +2319,7 @@ name|mock
 operator|.
 name|setSleepForEmptyTest
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 expr_stmt|;
 name|mock
@@ -2339,7 +2339,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|500
+literal|100
 argument_list|,
 name|mock
 operator|.
@@ -2379,7 +2379,7 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|(
-literal|400
+literal|100
 argument_list|)
 expr_stmt|;
 name|assertEquals

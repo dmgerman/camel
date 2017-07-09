@@ -94,7 +94,7 @@ name|policy
 operator|.
 name|setMaximumRetryDelay
 argument_list|(
-literal|500L
+literal|100L
 argument_list|)
 expr_stmt|;
 for|for
@@ -180,7 +180,7 @@ name|policy
 operator|.
 name|setRetryDelay
 argument_list|(
-literal|50L
+literal|10L
 argument_list|)
 expr_stmt|;
 for|for
@@ -210,7 +210,7 @@ argument_list|)
 decl_stmt|;
 name|assertDelay
 argument_list|(
-literal|50L
+literal|10L
 operator|<<
 name|i
 argument_list|,
@@ -252,7 +252,7 @@ name|policy
 operator|.
 name|setMaximumRetryDelay
 argument_list|(
-literal|200L
+literal|100L
 argument_list|)
 expr_stmt|;
 name|policy
@@ -317,7 +317,7 @@ break|break;
 default|default:
 name|assertDelay
 argument_list|(
-literal|200L
+literal|100L
 argument_list|,
 name|elapsed
 argument_list|)

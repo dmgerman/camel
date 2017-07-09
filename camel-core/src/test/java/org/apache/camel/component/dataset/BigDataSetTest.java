@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -54,11 +66,42 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Manual test"
+argument_list|)
 DECL|class|BigDataSetTest
 specifier|public
 class|class
@@ -87,8 +130,19 @@ name|Exception
 block|{
 comment|// data set will itself set its assertions so we should just
 comment|// assert that all mocks is ok
-comment|// TODO: For testing with bigger number of messages that takes a longer time
-comment|// MockEndpoint.assertIsSatisfied(context, 5, TimeUnit.MINUTES);
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|(
+name|context
+argument_list|,
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

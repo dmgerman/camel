@@ -130,6 +130,8 @@ init|=
 literal|"dataset://"
 operator|+
 name|dataSetName
+operator|+
+literal|"?initialDelay=0"
 decl_stmt|;
 DECL|field|dataSetUriWithDataSetIndexSetToOff
 specifier|final
@@ -138,7 +140,7 @@ name|dataSetUriWithDataSetIndexSetToOff
 init|=
 name|dataSetUri
 operator|+
-literal|"?dataSetIndex=off"
+literal|"&dataSetIndex=off"
 decl_stmt|;
 DECL|field|dataSetUriWithDataSetIndexSetToLenient
 specifier|final
@@ -147,7 +149,7 @@ name|dataSetUriWithDataSetIndexSetToLenient
 init|=
 name|dataSetUri
 operator|+
-literal|"?dataSetIndex=lenient"
+literal|"&dataSetIndex=lenient"
 decl_stmt|;
 DECL|field|dataSetUriWithDataSetIndexSetToStrict
 specifier|final
@@ -156,7 +158,7 @@ name|dataSetUriWithDataSetIndexSetToStrict
 init|=
 name|dataSetUri
 operator|+
-literal|"?dataSetIndex=strict"
+literal|"&dataSetIndex=strict"
 decl_stmt|;
 DECL|field|resultUri
 specifier|final
@@ -238,11 +240,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"expectedMessageCount should be unset(i.e. -1) for a consumer-only endpoint"
@@ -291,6 +288,11 @@ operator|.
 name|DATASET_INDEX
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -342,11 +344,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -406,6 +403,11 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -450,11 +452,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|MockEndpoint
 name|result
@@ -511,6 +508,11 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -556,11 +558,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|result
 init|=
@@ -595,6 +592,11 @@ name|DATASET_INDEX
 argument_list|)
 operator|.
 name|isNull
+argument_list|()
+expr_stmt|;
+name|context
+operator|.
+name|start
 argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -642,11 +644,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|result
 init|=
@@ -701,6 +698,11 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -747,11 +749,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|result
 init|=
@@ -807,13 +804,10 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// run a little while
-name|Thread
+name|context
 operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
+name|start
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()

@@ -157,7 +157,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"dataset:foo?minRate=50"
+literal|"dataset:foo?initialDelay=0&minRate=50"
 argument_list|)
 operator|.
 name|to

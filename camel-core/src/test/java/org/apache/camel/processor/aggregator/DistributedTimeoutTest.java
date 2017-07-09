@@ -26,6 +26,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicInteger
@@ -103,6 +115,18 @@ operator|.
 name|aggregate
 operator|.
 name|TimeoutAwareAggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -227,12 +251,29 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait 3 seconds so that the timeout kicks in
-name|Thread
+comment|// wait a bit until the timeout was triggered
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|3000
+literal|2
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+parameter_list|()
+lambda|->
+name|invoked
+operator|.
+name|get
+argument_list|()
+operator|==
+literal|1
 argument_list|)
 expr_stmt|;
 name|mock
@@ -244,17 +285,6 @@ name|mock2
 operator|.
 name|assertIsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// should invoke the timeout method
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|invoked
-operator|.
-name|get
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
@@ -292,7 +322,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2000
+literal|200
 argument_list|,
 name|receivedTimeout
 argument_list|)
@@ -366,14 +396,14 @@ name|mock2
 operator|.
 name|assertIsSatisfied
 argument_list|(
-literal|2000
+literal|500
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|(
-literal|5000
+literal|500
 argument_list|)
 expr_stmt|;
 comment|// should have not invoked the timeout method anymore
@@ -447,9 +477,13 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|2000
+literal|200
 argument_list|)
-comment|// use a 2 second timeout
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
+argument_list|)
 operator|.
 name|to
 argument_list|(

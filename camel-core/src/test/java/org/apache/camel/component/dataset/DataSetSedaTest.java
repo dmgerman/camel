@@ -98,7 +98,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"dataset:foo?produceDelay=3"
+literal|"dataset:foo?initialDelay=0&produceDelay=1"
 decl_stmt|;
 DECL|method|testDataSetWithSeda ()
 specifier|public
@@ -128,6 +128,11 @@ operator|.
 name|getSize
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -195,6 +200,9 @@ name|to
 argument_list|(
 literal|"seda:test"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
