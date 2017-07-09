@@ -62,6 +62,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -324,7 +336,13 @@ expr_stmt|;
 name|latch
 operator|.
 name|await
-argument_list|()
+argument_list|(
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 name|consumer
 operator|.

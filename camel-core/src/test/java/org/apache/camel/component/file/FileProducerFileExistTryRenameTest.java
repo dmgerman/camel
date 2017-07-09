@@ -104,21 +104,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/file"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testIgnore ()
 specifier|public
@@ -167,6 +152,21 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
+literal|"file://target/file"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
 literal|"file://target/file?fileExist=TryRename&tempPrefix=tmp"
 argument_list|,
 literal|"Bye World"
@@ -177,6 +177,11 @@ name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -208,8 +213,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file?noop=true&delay=1000"
+literal|"file://target/file?noop=true&initialDelay=0&delay=10"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|convertBodyTo
 argument_list|(

@@ -110,21 +110,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/file"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testNoForcedWrites ()
 specifier|public
@@ -147,6 +132,21 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/file"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -235,7 +235,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/file?noop=true"
+literal|"file:target/file?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|multicast

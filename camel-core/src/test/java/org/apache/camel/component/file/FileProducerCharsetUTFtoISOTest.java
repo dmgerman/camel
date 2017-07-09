@@ -473,7 +473,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/charset/input?noop=true"
+literal|"file:target/charset/input?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|to

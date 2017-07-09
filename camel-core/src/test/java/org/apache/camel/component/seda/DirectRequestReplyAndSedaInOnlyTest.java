@@ -160,11 +160,6 @@ argument_list|(
 literal|"seda:log"
 argument_list|)
 operator|.
-name|delay
-argument_list|(
-literal|1000
-argument_list|)
-operator|.
 name|transform
 argument_list|(
 name|body

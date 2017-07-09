@@ -431,7 +431,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/charset/input?noop=true"
+literal|"file:target/charset/input?initialDelay=0&delay=10&noop=true"
 argument_list|)
 comment|// no charset so its optimized to write directly
 operator|.

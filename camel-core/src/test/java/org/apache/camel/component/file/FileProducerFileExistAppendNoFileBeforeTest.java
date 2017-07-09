@@ -182,7 +182,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file?noop=true&delay=1000"
+literal|"file://target/file?noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

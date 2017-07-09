@@ -117,6 +117,17 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// wait a bit and it should not pickup the written file as there are no done file
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|setResultMinimumWaitTime
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -130,14 +141,6 @@ operator|.
 name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
-argument_list|)
-expr_stmt|;
-comment|// wait a bit and it should not pickup the written file as there are no done file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|250
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -255,7 +258,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/done?doneFileName=done&noop=true"
+literal|"file:target/done?initialDelay=0&delay=10&doneFileName=done&noop=true"
 argument_list|)
 operator|.
 name|to

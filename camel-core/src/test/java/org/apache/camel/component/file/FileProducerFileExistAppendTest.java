@@ -104,6 +104,15 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|testAppend ()
+specifier|public
+name|void
+name|testAppend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -119,15 +128,11 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|testAppend ()
-specifier|public
-name|void
-name|testAppend
-parameter_list|()
-throws|throws
-name|Exception
-block|{
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -197,8 +202,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file?noop=true&delay=1000"
+literal|"file://target/file?noop=true&initialDelay=0&delay=10"
 argument_list|)
+operator|.
+name|noAutoStartup
+argument_list|()
 operator|.
 name|convertBodyTo
 argument_list|(

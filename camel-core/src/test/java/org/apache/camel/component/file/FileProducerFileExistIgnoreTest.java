@@ -104,21 +104,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/file"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testIgnore ()
 specifier|public
@@ -150,6 +135,21 @@ argument_list|(
 literal|"target/file/hello.txt"
 argument_list|,
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/file"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
 argument_list|)
 expr_stmt|;
 name|template
@@ -197,7 +197,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file?noop=true&delay=1000"
+literal|"file://target/file?noop=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

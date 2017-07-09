@@ -504,7 +504,7 @@ block|{
 comment|// the input file is in utf-8
 name|from
 argument_list|(
-literal|"file:target/charset/input?noop=true&charset=utf-8"
+literal|"file:target/charset/input?initialDelay=0&delay=10&noop=true&charset=utf-8"
 argument_list|)
 comment|// now convert the input file from utf-8 to iso-8859-1
 operator|.
