@@ -363,7 +363,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1000
+literal|250
 argument_list|,
 name|timePeriod
 operator|.
@@ -388,13 +388,13 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take at most 2.0 sec: was "
+literal|"Should take at most 1.0 sec: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|<
-literal|2000
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// change the throttler using JMX
@@ -528,13 +528,13 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be around 5 sec now: was "
+literal|"Should be around 1 sec now: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|>
-literal|3500
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}
@@ -1391,6 +1391,11 @@ operator|.
 name|throttle
 argument_list|(
 literal|10
+argument_list|)
+operator|.
+name|timePeriodMillis
+argument_list|(
+literal|250
 argument_list|)
 operator|.
 name|id

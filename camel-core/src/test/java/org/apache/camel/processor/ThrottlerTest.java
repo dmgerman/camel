@@ -260,13 +260,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-name|resultEndpoint
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|errorEndpoint
 init|=
@@ -284,13 +277,6 @@ operator|.
 name|expectedMessageCount
 argument_list|(
 literal|4
-argument_list|)
-expr_stmt|;
-name|errorEndpoint
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|2000
 argument_list|)
 expr_stmt|;
 for|for
@@ -324,14 +310,7 @@ expr_stmt|;
 block|}
 comment|// lets pause to give the requests time to be processed
 comment|// to check that the throttle really does kick in
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-name|errorEndpoint
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -382,7 +361,7 @@ name|assertThrottlerTiming
 argument_list|(
 name|elapsed
 argument_list|,
-literal|1
+literal|5
 argument_list|,
 name|INTERVAL
 argument_list|,
@@ -437,7 +416,7 @@ name|assertThrottlerTiming
 argument_list|(
 name|elapsed
 argument_list|,
-literal|1
+literal|5
 argument_list|,
 name|INTERVAL
 argument_list|,
@@ -499,7 +478,7 @@ name|executor
 argument_list|,
 name|resultEndpoint
 argument_list|,
-literal|1
+literal|5
 argument_list|,
 name|INTERVAL
 argument_list|,
@@ -563,7 +542,7 @@ name|executor
 argument_list|,
 name|resultEndpoint
 argument_list|,
-literal|1
+literal|5
 argument_list|,
 name|INTERVAL
 argument_list|,
@@ -619,7 +598,7 @@ name|executor
 argument_list|,
 name|resultEndpoint
 argument_list|,
-literal|1
+literal|5
 argument_list|,
 name|INTERVAL
 argument_list|,
@@ -716,7 +695,7 @@ name|assertThrottlerTiming
 argument_list|(
 name|elapsed
 argument_list|,
-literal|1000
+literal|10000
 argument_list|,
 name|INTERVAL
 argument_list|,
@@ -1262,7 +1241,7 @@ argument_list|)
 operator|.
 name|timePeriodMillis
 argument_list|(
-literal|10000
+literal|1000
 argument_list|)
 operator|.
 name|to
@@ -1280,7 +1259,7 @@ argument_list|)
 operator|.
 name|throttle
 argument_list|(
-literal|1
+literal|5
 argument_list|)
 operator|.
 name|timePeriodMillis
@@ -1304,7 +1283,7 @@ name|throttle
 argument_list|(
 name|constant
 argument_list|(
-literal|1
+literal|5
 argument_list|)
 argument_list|)
 operator|.
@@ -1357,7 +1336,7 @@ argument_list|)
 operator|.
 name|timePeriodMillis
 argument_list|(
-literal|10000
+literal|1000
 argument_list|)
 operator|.
 name|rejectExecution
@@ -1379,7 +1358,7 @@ argument_list|)
 operator|.
 name|throttle
 argument_list|(
-literal|1000
+literal|10000
 argument_list|)
 operator|.
 name|timePeriodMillis
