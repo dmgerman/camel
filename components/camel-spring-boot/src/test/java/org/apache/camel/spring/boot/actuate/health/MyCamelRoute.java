@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot.health
+DECL|package|org.apache.camel.spring.boot.actuate.health
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|spring
 operator|.
 name|boot
+operator|.
+name|actuate
 operator|.
 name|health
 package|;
