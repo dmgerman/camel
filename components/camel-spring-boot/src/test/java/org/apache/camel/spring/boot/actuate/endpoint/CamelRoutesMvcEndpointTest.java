@@ -241,10 +241,10 @@ operator|.
 name|class
 block|}
 argument_list|)
-DECL|class|CamelMvcRoutesEndpointTest
+DECL|class|CamelRoutesMvcEndpointTest
 specifier|public
 class|class
-name|CamelMvcRoutesEndpointTest
+name|CamelRoutesMvcEndpointTest
 extends|extends
 name|Assert
 block|{
