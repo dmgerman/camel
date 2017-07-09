@@ -282,7 +282,7 @@ name|result
 init|=
 name|delegate
 operator|.
-name|getRouteInfo
+name|getRouteDetailsInfo
 argument_list|(
 name|id
 argument_list|)
