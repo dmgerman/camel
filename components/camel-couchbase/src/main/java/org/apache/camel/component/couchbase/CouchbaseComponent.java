@@ -70,7 +70,7 @@ DECL|method|CouchbaseComponent ()
 specifier|public
 name|CouchbaseComponent
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|CouchbaseComponent (CamelContext context)
 specifier|public
 name|CouchbaseComponent

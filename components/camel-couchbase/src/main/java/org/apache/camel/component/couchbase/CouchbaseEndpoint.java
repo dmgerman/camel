@@ -520,7 +520,7 @@ literal|"Couchbase"
 argument_list|,
 name|syntax
 operator|=
-literal|"couchbase:url"
+literal|"couchbase:protocol:hostname:port"
 argument_list|,
 name|consumerClass
 operator|=
@@ -568,7 +568,7 @@ name|String
 name|hostname
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 argument_list|(
 name|defaultValue
 operator|=
