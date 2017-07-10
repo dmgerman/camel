@@ -232,7 +232,7 @@ literal|"Ignite ID Generator"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite-idgen:[name]"
+literal|"ignite-idgen:name"
 argument_list|,
 name|label
 operator|=

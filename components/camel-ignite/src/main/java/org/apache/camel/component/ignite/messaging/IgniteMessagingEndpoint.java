@@ -226,7 +226,7 @@ literal|"Ignite Messaging"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite-messaging:[topic]"
+literal|"ignite-messaging:topic"
 argument_list|,
 name|label
 operator|=

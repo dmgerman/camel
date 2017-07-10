@@ -242,7 +242,7 @@ literal|"Ignite Sets"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite-set:[name]"
+literal|"ignite-set:name"
 argument_list|,
 name|label
 operator|=

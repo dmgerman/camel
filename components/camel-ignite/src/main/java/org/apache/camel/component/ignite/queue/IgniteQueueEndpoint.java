@@ -254,7 +254,7 @@ literal|"Ignite Queues"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite-queue:[name]"
+literal|"ignite-queue:name"
 argument_list|,
 name|label
 operator|=

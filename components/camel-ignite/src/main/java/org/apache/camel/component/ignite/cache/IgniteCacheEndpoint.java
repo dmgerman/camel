@@ -298,7 +298,7 @@ literal|"Ignite Cache"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite-cache:[cacheName]"
+literal|"ignite-cache:cacheName"
 argument_list|,
 name|label
 operator|=
