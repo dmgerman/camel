@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Experimental
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -355,6 +367,52 @@ argument_list|>
 name|node
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the last error.      *      * @return the error      */
+DECL|method|getLastError ()
+specifier|default
+name|RouteError
+name|getLastError
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Sets the last error.      *      * @param error the error      */
+DECL|method|setLastError (RouteError error)
+specifier|default
+name|void
+name|setLastError
+parameter_list|(
+name|RouteError
+name|error
+parameter_list|)
+block|{     }
+comment|/**      * Gets the  {@link RouteController} for this route.      *      * @return the route controller,      */
+annotation|@
+name|Experimental
+DECL|method|getRouteController ()
+specifier|default
+name|RouteController
+name|getRouteController
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Sets the {@link RouteController} for this route.      *      * @param controller the RouteController      */
+annotation|@
+name|Experimental
+DECL|method|setRouteController (RouteController controller)
+specifier|default
+name|void
+name|setRouteController
+parameter_list|(
+name|RouteController
+name|controller
+parameter_list|)
+block|{     }
 block|}
 end_interface
 

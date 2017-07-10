@@ -372,7 +372,7 @@ name|result
 init|=
 name|endpoint
 operator|.
-name|get
+name|info
 argument_list|(
 literal|"foo-route"
 argument_list|)

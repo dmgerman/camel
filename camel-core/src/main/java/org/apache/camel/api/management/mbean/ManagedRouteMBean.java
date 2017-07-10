@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Experimental
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|api
 operator|.
 name|management
@@ -49,6 +61,20 @@ operator|.
 name|management
 operator|.
 name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteError
 import|;
 end_import
 
@@ -512,6 +538,34 @@ argument_list|)
 DECL|method|getOldestInflightExchangeId ()
 name|String
 name|getOldestInflightExchangeId
+parameter_list|()
+function_decl|;
+annotation|@
+name|Experimental
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Route controller"
+argument_list|)
+DECL|method|getHasRouteController ()
+name|Boolean
+name|getHasRouteController
+parameter_list|()
+function_decl|;
+annotation|@
+name|Experimental
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Last error"
+argument_list|)
+DECL|method|getLastError ()
+name|RouteError
+name|getLastError
 parameter_list|()
 function_decl|;
 block|}

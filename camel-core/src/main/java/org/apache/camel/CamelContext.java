@@ -784,6 +784,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RouteController
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RoutePolicyFactory
 import|;
 end_import
@@ -1425,6 +1439,21 @@ parameter_list|)
 function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
+comment|/**      * NOTE: experimental api      *      * @param routeController the route controller      */
+DECL|method|setRouteController (RouteController routeController)
+name|void
+name|setRouteController
+parameter_list|(
+name|RouteController
+name|routeController
+parameter_list|)
+function_decl|;
+comment|/**      * NOTE: experimental api      *      * @return the route controller or null if not set.      */
+DECL|method|getRouteController ()
+name|RouteController
+name|getRouteController
+parameter_list|()
+function_decl|;
 comment|/**      * Method to signal to {@link CamelContext} that the process to initialize setup routes is in progress.      *      * @param done<tt>false</tt> to start the process, call again with<tt>true</tt> to signal its done.      * @see #isSetupRoutes()      */
 DECL|method|setupRoutes (boolean done)
 name|void

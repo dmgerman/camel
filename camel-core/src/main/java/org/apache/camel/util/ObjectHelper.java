@@ -1933,6 +1933,54 @@ name|empty
 argument_list|()
 return|;
 block|}
+comment|/**      * Tests whether the value is<tt>null</tt>, an empty string, an empty collection or a map      *      * @param value  the value, if its a String it will be tested for text length as well      * @param supplier  the supplier, the supplier to be used to get a value if value is null      */
+DECL|method|supplyIfEmpty (T value, Supplier<T> supplier)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|supplyIfEmpty
+parameter_list|(
+name|T
+name|value
+parameter_list|,
+name|Supplier
+argument_list|<
+name|T
+argument_list|>
+name|supplier
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|supplier
+argument_list|,
+literal|"Supplier"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|isNotEmpty
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+return|return
+name|value
+return|;
+block|}
+return|return
+name|supplier
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
 comment|/**      * Tests whether the value is<b>not</b><tt>null</tt>, an empty string, an empty collection or a map      *      * @param value  the value, if its a String it will be tested for text length as well      * @param consumer  the consumer, the operation to be executed against value if not empty      */
 DECL|method|ifNotEmpty (T value, Consumer<T> consumer)
 specifier|public
