@@ -435,11 +435,73 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+comment|// If there is an exception while starting up, Undertow wraps it
+comment|// as RuntimeException which leaves the consumer in an inconsistent
+comment|// state as a subsequent start if the route (i.e. manually) won't
+comment|// start the Undertow instance as undertow is not null.
 name|undertow
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Failed to start Undertow server on {}://{}:{}, reason: {}"
+argument_list|,
+name|key
+operator|.
+name|getSslContext
+argument_list|()
+operator|!=
+literal|null
+condition|?
+literal|"https"
+else|:
+literal|"http"
+argument_list|,
+name|key
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|key
+operator|.
+name|getPort
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Cleanup any resource that may have been created during start
+comment|// and reset the instance so a subsequent start will trigger the
+comment|// initialization again.
+name|undertow
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|undertow
+operator|=
+literal|null
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 name|String
 name|path
