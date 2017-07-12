@@ -72,6 +72,32 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|LongAdder
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -186,6 +212,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|StreamCache
 import|;
 end_import
@@ -241,6 +279,20 @@ operator|.
 name|spi
 operator|.
 name|IdAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ShutdownAware
 import|;
 end_import
 
@@ -350,6 +402,8 @@ name|AsyncProcessor
 implements|,
 name|Traceable
 implements|,
+name|ShutdownAware
+implements|,
 name|IdAware
 implements|,
 name|CamelContextAware
@@ -415,6 +469,16 @@ specifier|private
 specifier|volatile
 name|boolean
 name|shutdownExecutorService
+decl_stmt|;
+DECL|field|taskCount
+specifier|private
+specifier|final
+name|LongAdder
+name|taskCount
+init|=
+operator|new
+name|LongAdder
+argument_list|()
 decl_stmt|;
 comment|// expression or processor used for populating a new exchange to send
 comment|// as opposed to traditional wiretap that sends a copy of the original exchange
@@ -594,6 +658,53 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
+specifier|public
+name|boolean
+name|deferShutdown
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
+block|{
+comment|// not in use
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getPendingExchangesSize ()
+specifier|public
+name|int
+name|getPendingExchangesSize
+parameter_list|()
+block|{
+return|return
+name|taskCount
+operator|.
+name|intValue
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|prepareShutdown (boolean suspendOnly, boolean forced)
+specifier|public
+name|void
+name|prepareShutdown
+parameter_list|(
+name|boolean
+name|suspendOnly
+parameter_list|,
+name|boolean
+name|forced
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|getEndpointUtilizationStatistics ()
 specifier|public
 name|EndpointUtilizationStatistics
@@ -724,6 +835,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|taskCount
+operator|.
+name|increment
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|LOG
@@ -767,6 +883,14 @@ literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|taskCount
+operator|.
+name|decrement
+argument_list|()
 expr_stmt|;
 block|}
 return|return

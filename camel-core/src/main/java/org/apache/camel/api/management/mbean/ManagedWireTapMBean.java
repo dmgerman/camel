@@ -127,6 +127,18 @@ name|isCopy
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Current size of inflight wire tapped exchanges."
+argument_list|)
+DECL|method|getTaskSize ()
+name|Integer
+name|getTaskSize
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

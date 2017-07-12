@@ -477,6 +477,19 @@ name|isCopy
 argument_list|()
 return|;
 block|}
+DECL|method|getTaskSize ()
+specifier|public
+name|Integer
+name|getTaskSize
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|getPendingExchangesSize
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|extendedInformation ()
