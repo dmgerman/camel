@@ -295,13 +295,16 @@ name|int
 name|maximumCacheSize
 parameter_list|)
 block|{
+comment|//Do not stop service if ConcurrentLinkedHashMap try to evict entry when its max capacity is zero.
 name|this
 argument_list|(
 name|initialCapacity
 argument_list|,
 name|maximumCacheSize
 argument_list|,
-literal|true
+name|maximumCacheSize
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
