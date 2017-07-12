@@ -253,6 +253,21 @@ operator|.
 name|nullValue
 return|;
 block|}
+comment|/**      * Whether the type is a minus operator      */
+DECL|method|isMinusValue ()
+specifier|public
+name|boolean
+name|isMinusValue
+parameter_list|()
+block|{
+return|return
+name|type
+operator|==
+name|TokenType
+operator|.
+name|minusValue
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

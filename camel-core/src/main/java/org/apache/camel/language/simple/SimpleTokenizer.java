@@ -747,6 +747,24 @@ literal|"or"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//binary operator
+comment|// it is added as the last item because unary -- has the priority
+comment|// if unary not found it is highly possible - operator is run into.
+name|KNOWN_TOKENS
+operator|.
+name|add
+argument_list|(
+operator|new
+name|SimpleTokenType
+argument_list|(
+name|TokenType
+operator|.
+name|minusValue
+argument_list|,
+literal|"-"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|SimpleTokenizer ()
 specifier|private

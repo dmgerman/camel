@@ -122,7 +122,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|18
+literal|19
 argument_list|,
 name|e
 operator|.
@@ -494,7 +494,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|11
+literal|13
 argument_list|,
 name|e
 operator|.

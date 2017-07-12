@@ -674,6 +674,7 @@ DECL|enumConstant|Function
 DECL|enumConstant|NumericValue
 DECL|enumConstant|BooleanValue
 DECL|enumConstant|NullValue
+DECL|enumConstant|MinusValue
 name|Literal
 block|,
 name|LiteralWithFunction
@@ -685,6 +686,8 @@ block|,
 name|BooleanValue
 block|,
 name|NullValue
+block|,
+name|MinusValue
 block|;
 DECL|method|isLiteralSupported ()
 specifier|public
@@ -756,6 +759,18 @@ return|return
 name|this
 operator|==
 name|NullValue
+return|;
+block|}
+DECL|method|isMinusValueSupported ()
+specifier|public
+name|boolean
+name|isMinusValueSupported
+parameter_list|()
+block|{
+return|return
+name|this
+operator|==
+name|MinusValue
 return|;
 block|}
 block|}

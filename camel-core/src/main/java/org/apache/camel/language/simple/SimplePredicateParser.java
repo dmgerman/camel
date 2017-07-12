@@ -2893,6 +2893,11 @@ name|nullSupported
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|minusSupported
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|types
@@ -2928,6 +2933,10 @@ operator|=
 literal|true
 expr_stmt|;
 name|nullSupported
+operator|=
+literal|true
+expr_stmt|;
+name|minusSupported
 operator|=
 literal|true
 expr_stmt|;
@@ -2984,6 +2993,13 @@ operator||=
 name|parameterType
 operator|.
 name|isNullValueSupported
+argument_list|()
+expr_stmt|;
+name|minusSupported
+operator||=
+name|parameterType
+operator|.
+name|isMinusValueSupported
 argument_list|()
 expr_stmt|;
 block|}
@@ -3045,6 +3061,13 @@ operator|(
 name|nullSupported
 operator|&&
 name|nullValue
+argument_list|()
+operator|)
+operator|||
+operator|(
+name|minusSupported
+operator|&&
+name|minusValue
 argument_list|()
 operator|)
 condition|)
@@ -3265,6 +3288,25 @@ argument_list|(
 name|TokenType
 operator|.
 name|nullValue
+argument_list|)
+return|;
+comment|// no other tokens to check so do not use nextToken
+block|}
+DECL|method|minusValue ()
+specifier|protected
+name|boolean
+name|minusValue
+parameter_list|()
+block|{
+name|nextToken
+argument_list|()
+expr_stmt|;
+return|return
+name|accept
+argument_list|(
+name|TokenType
+operator|.
+name|numericValue
 argument_list|)
 return|;
 comment|// no other tokens to check so do not use nextToken

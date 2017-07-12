@@ -47,9 +47,12 @@ name|nullValue
 block|,
 DECL|enumConstant|singleQuote
 DECL|enumConstant|doubleQuote
+DECL|enumConstant|minusValue
 name|singleQuote
 block|,
 name|doubleQuote
+block|,
+name|minusValue
 block|,
 DECL|enumConstant|escape
 name|escape
