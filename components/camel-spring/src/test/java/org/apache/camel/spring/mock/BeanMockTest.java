@@ -97,14 +97,6 @@ operator|.
 name|assertEndpointsValid
 argument_list|()
 expr_stmt|;
-comment|// give time for file consumer to stop properly
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|20
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|createApplicationContext ()
 specifier|protected

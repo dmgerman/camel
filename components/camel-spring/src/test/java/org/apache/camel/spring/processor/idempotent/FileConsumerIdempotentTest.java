@@ -259,6 +259,14 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// sleep to let the consumer try to poll the file
+name|mock
+operator|.
+name|setResultMinimumWaitTime
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 comment|// move file back
 name|File
 name|file
@@ -283,14 +291,6 @@ operator|.
 name|renameTo
 argument_list|(
 name|renamed
-argument_list|)
-expr_stmt|;
-comment|// sleep to let the consumer try to poll the file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
 argument_list|)
 expr_stmt|;
 comment|// should NOT consume the file again, let 2 secs pass to let the consumer try to consume it but it should not

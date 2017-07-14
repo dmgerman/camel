@@ -80,7 +80,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/transacted/okay"
+literal|"file://target/transacted/okay?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|transacted
@@ -114,7 +114,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/transacted/fail?moveFailed=../failed"
+literal|"file://target/transacted/fail?initialDelay=0&delay=10&moveFailed=../failed"
 argument_list|)
 operator|.
 name|onException

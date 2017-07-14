@@ -102,7 +102,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://src/test/data?noop=true"
+literal|"file://src/test/data?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|process
@@ -126,12 +126,12 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// then some time later
-name|Thread
+comment|// run for 100 millis
+name|main
 operator|.
-name|sleep
+name|setDuration
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 name|main
@@ -167,12 +167,12 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// sleep for a while
-name|Thread
+comment|// run for 100 millis
+name|main
 operator|.
-name|sleep
+name|setDuration
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 name|main

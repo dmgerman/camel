@@ -292,6 +292,13 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|result
+operator|.
+name|setResultMinimumWaitTime
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 name|ProducerTemplate
 name|template
 init|=
@@ -318,13 +325,6 @@ name|template
 operator|.
 name|stop
 argument_list|()
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
 expr_stmt|;
 name|result
 operator|.

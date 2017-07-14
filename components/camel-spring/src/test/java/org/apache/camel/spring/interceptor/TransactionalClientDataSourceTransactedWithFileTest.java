@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,6 +67,18 @@ operator|.
 name|spring
 operator|.
 name|SpringRouteBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 
@@ -114,14 +138,24 @@ argument_list|,
 literal|"okay.txt"
 argument_list|)
 expr_stmt|;
-comment|// wait for route to complete
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|3000
+literal|3
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
-expr_stmt|;
+operator|.
+name|untilAsserted
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+comment|// wait for route to complete
 name|int
 name|count
 init|=
@@ -143,6 +177,9 @@ argument_list|,
 literal|3
 argument_list|,
 name|count
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -169,14 +206,23 @@ argument_list|,
 literal|"fail.txt"
 argument_list|)
 expr_stmt|;
-comment|// wait for route to complete
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|3000
+literal|3
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
-expr_stmt|;
+operator|.
+name|untilAsserted
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 comment|// should not be able to process the file so we still got 1 book as we did from the start
 name|int
 name|count
@@ -202,6 +248,9 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -224,7 +273,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/transacted/okay"
+literal|"file://target/transacted/okay?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|transacted
@@ -258,7 +307,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/transacted/fail?delay=1000"
+literal|"file://target/transacted/fail?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|transacted

@@ -189,7 +189,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://src/test/data?noop=true"
+literal|"file://src/test/data?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|process
