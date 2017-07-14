@@ -93,7 +93,7 @@ specifier|final
 name|long
 name|DEFAULT_LEASE_DURATION_SECONDS
 init|=
-literal|20
+literal|60
 decl_stmt|;
 DECL|field|DEFAULT_RENEW_DEADLINE_SECONDS
 specifier|public
@@ -102,7 +102,7 @@ specifier|final
 name|long
 name|DEFAULT_RENEW_DEADLINE_SECONDS
 init|=
-literal|15
+literal|45
 decl_stmt|;
 DECL|field|DEFAULT_RETRY_PERIOD_SECONDS
 specifier|public
@@ -111,7 +111,7 @@ specifier|final
 name|long
 name|DEFAULT_RETRY_PERIOD_SECONDS
 init|=
-literal|6
+literal|9
 decl_stmt|;
 DECL|field|DEFAULT_RETRY_ON_ERROR_INTERVAL_SECONDS
 specifier|public

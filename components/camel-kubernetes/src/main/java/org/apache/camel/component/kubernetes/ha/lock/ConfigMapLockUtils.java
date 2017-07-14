@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Utilities for managing ConfigMaps that contain lock information.  */
 end_comment
 
 begin_class
