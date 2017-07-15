@@ -114,19 +114,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"file://target/keep"
-argument_list|,
-literal|"Hello World"
-argument_list|,
-literal|"CamelFileName"
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testKeepLastModified ()
 specifier|public
@@ -160,7 +147,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|100
+literal|10
 argument_list|)
 operator|.
 name|to
@@ -196,13 +183,6 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedFileExists
-argument_list|(
-literal|"target/keep/out/hello.txt"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|message
 argument_list|(
 literal|0
@@ -217,6 +197,19 @@ argument_list|)
 operator|.
 name|isNotNull
 argument_list|()
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/keep"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"CamelFileName"
+argument_list|,
+literal|"hello.txt"
+argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -302,7 +295,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|100
+literal|10
 argument_list|)
 operator|.
 name|to
@@ -338,13 +331,6 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedFileExists
-argument_list|(
-literal|"target/keep/out/hello.txt"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|message
 argument_list|(
 literal|0
@@ -359,6 +345,19 @@ argument_list|)
 operator|.
 name|isNotNull
 argument_list|()
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/keep"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"CamelFileName"
+argument_list|,
+literal|"hello.txt"
+argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -444,7 +443,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|100
+literal|10
 argument_list|)
 operator|.
 name|to
@@ -480,13 +479,6 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedFileExists
-argument_list|(
-literal|"target/keep/out/hello.txt"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|message
 argument_list|(
 literal|0
@@ -501,6 +493,19 @@ argument_list|)
 operator|.
 name|isNotNull
 argument_list|()
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/keep"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"CamelFileName"
+argument_list|,
+literal|"hello.txt"
+argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()

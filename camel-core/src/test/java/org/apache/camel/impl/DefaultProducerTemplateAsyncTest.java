@@ -328,7 +328,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -454,7 +454,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -553,7 +553,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -650,7 +650,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -780,7 +780,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -908,7 +908,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -1080,7 +1080,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -1250,7 +1250,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -1385,7 +1385,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -1501,7 +1501,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|250
+literal|50
 argument_list|)
 expr_stmt|;
 block|}
@@ -3356,7 +3356,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|400
+literal|200
 argument_list|)
 operator|.
 name|asyncDelayed
@@ -3385,7 +3385,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|400
+literal|200
 argument_list|)
 operator|.
 name|asyncDelayed
