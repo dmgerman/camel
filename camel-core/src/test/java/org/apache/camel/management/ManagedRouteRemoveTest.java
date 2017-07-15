@@ -410,7 +410,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/managed"
+literal|"file://target/managed?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to

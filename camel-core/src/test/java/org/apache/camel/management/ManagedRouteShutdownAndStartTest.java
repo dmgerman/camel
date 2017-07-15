@@ -268,12 +268,12 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-comment|// wait 3 seconds while route is stopped to verify that file was not consumed
+comment|// wait a bit while route is stopped to verify that file was not consumed
 name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|3000
+literal|250
 argument_list|)
 expr_stmt|;
 name|template
@@ -374,7 +374,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/managed"
+literal|"file://target/managed?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to
