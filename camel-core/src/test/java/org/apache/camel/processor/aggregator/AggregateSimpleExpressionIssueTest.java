@@ -180,6 +180,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -201,6 +211,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Manual unit test"
+argument_list|)
 DECL|class|AggregateSimpleExpressionIssueTest
 specifier|public
 class|class

@@ -248,7 +248,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/splitter?delete=true&sortBy=file:name"
+literal|"file:target/splitter?initialDelay=0&delay=10&delete=true&sortBy=file:name"
 argument_list|)
 operator|.
 name|split

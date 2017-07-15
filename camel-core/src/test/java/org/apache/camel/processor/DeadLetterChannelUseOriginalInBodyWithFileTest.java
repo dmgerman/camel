@@ -254,7 +254,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/originalexchange?noop=true"
+literal|"file://target/originalexchange?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|transform

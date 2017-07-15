@@ -36,7 +36,7 @@ name|body
 parameter_list|)
 block|{
 return|return
-literal|1000
+literal|100
 return|;
 block|}
 block|}

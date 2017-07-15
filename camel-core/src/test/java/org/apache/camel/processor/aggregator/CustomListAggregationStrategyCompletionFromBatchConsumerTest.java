@@ -303,7 +303,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/batch?sortBy=file:name"
+literal|"file:target/batch?initialDelay=0&delay=10&sortBy=file:name"
 argument_list|)
 operator|.
 name|routeId

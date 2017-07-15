@@ -321,7 +321,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"file:target/pair"
+literal|"file:target/pair?initialDelay=0&delay=10"
 argument_list|)
 comment|// split the order child tags, and inherit namespaces from the orders root tag
 operator|.

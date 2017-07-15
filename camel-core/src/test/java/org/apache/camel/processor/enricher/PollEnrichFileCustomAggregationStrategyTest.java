@@ -277,7 +277,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/enrich?move=.done"
+literal|"file://target/enrich?initialDelay=0&delay=10&move=.done"
 argument_list|)
 operator|.
 name|to
@@ -287,7 +287,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file://target/enrichdata?readLock=markerFile&move=.done"
+literal|"file://target/enrichdata?initialDelay=0&delay=10&readLock=markerFile&move=.done"
 argument_list|,
 literal|10000
 argument_list|,

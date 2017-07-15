@@ -198,7 +198,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/batch?sendEmptyMessageWhenIdle=true&delay=250"
+literal|"file:target/batch?initialDelay=0&delay=10&sendEmptyMessageWhenIdle=true"
 argument_list|)
 operator|.
 name|aggregate

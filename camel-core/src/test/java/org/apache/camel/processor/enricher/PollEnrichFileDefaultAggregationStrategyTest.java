@@ -194,14 +194,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Sleeping for 1 sec before writing enrichdata file"
+literal|"Sleeping for 0.25 sec before writing enrichdata file"
 argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|250
 argument_list|)
 expr_stmt|;
 name|template
@@ -261,7 +261,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/enrich?move=.done"
+literal|"file://target/enrich?initialDelay=0&delay=10&move=.done"
 argument_list|)
 operator|.
 name|to
@@ -271,7 +271,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file://target/enrichdata?readLock=markerFile&move=.done"
+literal|"file://target/enrichdata?initialDelay=0&delay=10&readLock=markerFile&move=.done"
 argument_list|,
 literal|10000
 argument_list|)

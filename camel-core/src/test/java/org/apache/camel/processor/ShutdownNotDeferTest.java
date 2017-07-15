@@ -345,7 +345,7 @@ init|=
 operator|new
 name|MyDeferFileEndpoint
 argument_list|(
-literal|"file://target/deferred"
+literal|"file://target/deferred?initialDelay=0&delay=10"
 argument_list|,
 name|getContext
 argument_list|()

@@ -136,7 +136,7 @@ name|resultEndpoint
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|500
+literal|10
 argument_list|)
 expr_stmt|;
 name|template
@@ -149,10 +149,10 @@ literal|"<hello>world!</hello>"
 argument_list|,
 literal|"MyDelay"
 argument_list|,
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
-comment|// we should not receive it as we wait at most 0.5 sec and it take 1 sec to send
+comment|// we should not receive it as we wait at most 0.01 sec and it take 0.1 sec to send
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
@@ -204,12 +204,12 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// should at least take 1 sec to complete
+comment|// should at least take 0.1 sec to complete
 name|resultEndpoint
 operator|.
 name|setResultMinimumWaitTime
 argument_list|(
-literal|900
+literal|90
 argument_list|)
 expr_stmt|;
 name|template
@@ -254,12 +254,12 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// should at least take 1 sec to complete
+comment|// should at least take 0.1 sec to complete
 name|resultEndpoint
 operator|.
 name|setResultMinimumWaitTime
 argument_list|(
-literal|900
+literal|90
 argument_list|)
 expr_stmt|;
 name|template
@@ -304,12 +304,12 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// should at least take 1 sec to complete
+comment|// should at least take 0.1 sec to complete
 name|resultEndpoint
 operator|.
 name|setResultMinimumWaitTime
 argument_list|(
-literal|900
+literal|90
 argument_list|)
 expr_stmt|;
 name|template
@@ -322,7 +322,7 @@ literal|"<hello>world!</hello>"
 argument_list|,
 name|BEAN_DELAYER_HEADER
 argument_list|,
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -375,7 +375,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 operator|.
 name|to

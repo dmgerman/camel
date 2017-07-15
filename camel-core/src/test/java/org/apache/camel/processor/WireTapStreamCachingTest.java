@@ -498,7 +498,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|500
 argument_list|)
 operator|.
 name|process

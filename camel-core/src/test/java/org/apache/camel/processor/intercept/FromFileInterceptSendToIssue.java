@@ -199,7 +199,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file://target/intercept"
+literal|"file://target/intercept?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|setHeader

@@ -392,7 +392,7 @@ comment|// lower max pool to 10 for less number of concurrent threads
 comment|//context.getExecutorServiceStrategy().getDefaultThreadPoolProfile().setMaxPoolSize(10);
 name|from
 argument_list|(
-literal|"file:target/split"
+literal|"file:target/split?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|split
