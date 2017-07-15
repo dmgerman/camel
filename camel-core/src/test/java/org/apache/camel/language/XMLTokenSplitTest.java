@@ -412,7 +412,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"file:target/xtokenizer"
+literal|"file:target/xtokenizer?initialDelay=0&delay=10"
 argument_list|)
 comment|// split the order child tags, and inherit namespaces from the orders root tag
 operator|.
@@ -434,7 +434,7 @@ expr_stmt|;
 comment|// END SNIPPET: e1
 name|from
 argument_list|(
-literal|"file:target/xtokenizer2"
+literal|"file:target/xtokenizer2?initialDelay=0&delay=10"
 argument_list|)
 comment|// split the order child tags, and inherit namespaces from the orders root tag
 operator|.

@@ -206,7 +206,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/pair?move=ok"
+literal|"file:target/pair?initialDelay=0&delay=10&move=ok"
 argument_list|)
 operator|.
 name|choice

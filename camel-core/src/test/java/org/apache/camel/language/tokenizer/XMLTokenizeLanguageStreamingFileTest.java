@@ -197,7 +197,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"file:target/xmltokenize"
+literal|"file:target/xmltokenize?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|split

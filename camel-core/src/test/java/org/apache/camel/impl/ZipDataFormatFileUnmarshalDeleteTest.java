@@ -236,7 +236,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/zip?delete=true"
+literal|"file:target/zip?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|marshal
@@ -252,7 +252,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:target/zip/out?delete=true"
+literal|"file:target/zip/out?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|unmarshal

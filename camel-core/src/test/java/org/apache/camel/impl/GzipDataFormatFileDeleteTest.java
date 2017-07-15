@@ -207,7 +207,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/gzip?delete=true"
+literal|"file:target/gzip?initialDelay=0&delay=10&delete=true"
 argument_list|)
 operator|.
 name|marshal

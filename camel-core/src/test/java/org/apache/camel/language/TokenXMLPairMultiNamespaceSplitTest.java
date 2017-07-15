@@ -44,6 +44,16 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -149,6 +159,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
 DECL|method|testTokenXMLPair2 ()
 specifier|public
 name|void

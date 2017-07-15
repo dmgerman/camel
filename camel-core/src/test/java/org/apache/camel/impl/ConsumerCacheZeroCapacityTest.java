@@ -147,7 +147,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file:target/foo?fileName=foo.txt&delay=10"
+literal|"file:target/foo?fileName=foo.txt&initialDelay=0&delay=10"
 argument_list|)
 decl_stmt|;
 name|PollingConsumer

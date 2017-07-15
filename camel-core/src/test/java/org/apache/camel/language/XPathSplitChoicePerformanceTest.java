@@ -158,6 +158,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -169,6 +179,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Test manually"
+argument_list|)
 DECL|class|XPathSplitChoicePerformanceTest
 specifier|public
 class|class
@@ -480,7 +495,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/data?noop=true"
+literal|"file:target/data?initialDelay=0&delay=10&noop=true"
 argument_list|)
 operator|.
 name|process

@@ -310,7 +310,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/xpath?moveFailed=error&move=ok"
+literal|"file:target/xpath?initialDelay=0&delay=10&moveFailed=error&move=ok"
 argument_list|)
 operator|.
 name|onException

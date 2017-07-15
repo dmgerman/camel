@@ -1934,7 +1934,7 @@ name|consumer
 operator|.
 name|receive
 argument_list|(
-literal|"file:target/foo?delete=true"
+literal|"file:target/foo?initialDelay=0&delay=10&delete=true"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
