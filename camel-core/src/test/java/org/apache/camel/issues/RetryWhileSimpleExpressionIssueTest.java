@@ -163,6 +163,11 @@ literal|"${body.areWeCool} == 'no'"
 argument_list|)
 argument_list|)
 operator|.
+name|redeliveryDelay
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|handled
 argument_list|(
 literal|true

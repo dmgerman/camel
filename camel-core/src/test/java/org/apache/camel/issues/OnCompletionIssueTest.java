@@ -271,11 +271,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|setAssertPeriod
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

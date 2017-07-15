@@ -258,7 +258,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"file://target/file/xpathsplit"
+literal|"file://target/file/xpathsplit?initialDelay=0&delay=10"
 argument_list|)
 comment|// set documentType to org.xml.sax.InputSource then Camel will use SAX to split the file
 operator|.

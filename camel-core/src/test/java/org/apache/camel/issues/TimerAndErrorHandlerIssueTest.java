@@ -166,7 +166,9 @@ literal|"?fixedRate=true"
 operator|+
 literal|"&daemon=true"
 operator|+
-literal|"&period=500"
+literal|"&delay=0"
+operator|+
+literal|"&period=10"
 decl_stmt|;
 name|from
 argument_list|(

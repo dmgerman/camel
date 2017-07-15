@@ -259,7 +259,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/file/splitprop?move=done"
+literal|"file://target/file/splitprop?initialDelay=0&delay=10&move=done"
 argument_list|)
 operator|.
 name|convertBodyTo

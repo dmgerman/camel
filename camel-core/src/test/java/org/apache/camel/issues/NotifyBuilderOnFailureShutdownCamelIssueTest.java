@@ -128,7 +128,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:foo?period=100"
+literal|"timer:foo?delay=0&period=10"
 argument_list|)
 operator|.
 name|throwException

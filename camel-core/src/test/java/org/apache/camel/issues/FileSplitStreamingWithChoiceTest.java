@@ -206,7 +206,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/filesplit"
+literal|"file://target/filesplit?initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|split

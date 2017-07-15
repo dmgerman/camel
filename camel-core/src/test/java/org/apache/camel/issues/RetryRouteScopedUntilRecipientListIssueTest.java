@@ -616,7 +616,7 @@ argument_list|()
 operator|.
 name|whenDone
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 operator|.
 name|create
@@ -717,7 +717,7 @@ argument_list|()
 operator|.
 name|whenDone
 argument_list|(
-literal|1
+literal|3
 argument_list|)
 operator|.
 name|create
@@ -816,9 +816,9 @@ init|=
 name|event
 argument_list|()
 operator|.
-name|whenFailed
+name|whenDone
 argument_list|(
-literal|1
+literal|3
 argument_list|)
 operator|.
 name|create
@@ -986,7 +986,7 @@ argument_list|()
 operator|.
 name|whenDone
 argument_list|(
-literal|1
+literal|3
 argument_list|)
 operator|.
 name|create
@@ -1087,7 +1087,7 @@ argument_list|()
 operator|.
 name|whenDone
 argument_list|(
-literal|1
+literal|3
 argument_list|)
 operator|.
 name|create
