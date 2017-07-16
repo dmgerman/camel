@@ -134,6 +134,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// must be a bit more than 1 sec
 name|from
 argument_list|(
 literal|"direct:start"
@@ -146,7 +147,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|1200
 argument_list|)
 operator|.
 name|to
@@ -350,6 +351,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// must be a bit more than 1 sec
 name|from
 argument_list|(
 literal|"direct:start"
@@ -362,7 +364,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|1200
 argument_list|)
 operator|.
 name|to

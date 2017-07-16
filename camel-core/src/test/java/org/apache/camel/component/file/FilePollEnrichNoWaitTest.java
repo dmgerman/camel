@@ -215,7 +215,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:foo?period=1000"
+literal|"timer:foo?delay=0&period=10"
 argument_list|)
 operator|.
 name|routeId
@@ -231,7 +231,7 @@ comment|// use 0 as timeout for no wait
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file:target/pollenrich?move=done"
+literal|"file:target/pollenrich?initialDelay=0&delay=10&move=done"
 argument_list|,
 literal|0
 argument_list|)

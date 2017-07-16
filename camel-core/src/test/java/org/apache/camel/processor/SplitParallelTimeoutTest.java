@@ -193,7 +193,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1000
+literal|100
 argument_list|,
 name|receivedTimeout
 argument_list|)
@@ -248,7 +248,7 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 operator|.
 name|choice
@@ -322,7 +322,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|5000
+literal|200
 argument_list|)
 operator|.
 name|setBody
@@ -353,7 +353,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|500
+literal|10
 argument_list|)
 operator|.
 name|setBody

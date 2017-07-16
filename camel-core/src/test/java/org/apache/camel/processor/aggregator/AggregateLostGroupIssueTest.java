@@ -204,7 +204,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?period=100&delay=1000"
+literal|"timer://foo?period=10&delay=0"
 argument_list|)
 operator|.
 name|startupOrder
@@ -361,7 +361,12 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|2000L
+literal|100
+argument_list|)
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to
