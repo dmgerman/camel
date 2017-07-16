@@ -38,6 +38,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -134,6 +146,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Before
@@ -170,6 +196,18 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
+import|;
+end_import
+
 begin_class
 DECL|class|ThrottlingExceptionRoutePolicyHalfOpenHandlerSedaTest
 specifier|public
@@ -198,7 +236,7 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"seda:foo?concurrentConsumers=20"
+literal|"seda:foo?concurrentConsumers=2"
 decl_stmt|;
 DECL|field|result
 specifier|private
@@ -272,14 +310,9 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"Message One"
-block|,
+argument_list|,
 literal|"Message Two"
-block|}
 argument_list|)
 decl_stmt|;
 name|result
@@ -350,13 +383,41 @@ argument_list|(
 literal|"Message Two"
 argument_list|)
 expr_stmt|;
-comment|// wait long enough to
-comment|// have the route shutdown
-name|Thread
+specifier|final
+name|ServiceSupport
+name|consumer
+init|=
+operator|(
+name|ServiceSupport
+operator|)
+name|context
 operator|.
-name|sleep
+name|getRoute
 argument_list|(
-literal|3000
+literal|"foo"
+argument_list|)
+operator|.
+name|getConsumer
+argument_list|()
+decl_stmt|;
+comment|// wait long enough to have the consumer suspended
+name|await
+argument_list|()
+operator|.
+name|atMost
+argument_list|(
+literal|2
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+name|consumer
+operator|::
+name|isSuspended
 argument_list|)
 expr_stmt|;
 comment|// send more messages
@@ -396,14 +457,9 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"Message Three"
-block|,
+argument_list|,
 literal|"Message Four"
-block|}
 argument_list|)
 expr_stmt|;
 name|result
@@ -413,13 +469,24 @@ argument_list|(
 name|bodies
 argument_list|)
 expr_stmt|;
-comment|// wait long enough for
-comment|// half open attempt
-name|Thread
+comment|// wait long enough to have the consumer resumed
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|4000
+literal|2
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|until
+argument_list|(
+name|consumer
+operator|::
+name|isStarted
 argument_list|)
 expr_stmt|;
 comment|// send message
@@ -477,7 +544,7 @@ decl_stmt|;
 name|long
 name|halfOpenAfter
 init|=
-literal|5000
+literal|250
 decl_stmt|;
 name|ThrottlingExceptionRoutePolicy
 name|policy
@@ -506,6 +573,11 @@ expr_stmt|;
 name|from
 argument_list|(
 name|url
+argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"foo"
 argument_list|)
 operator|.
 name|routePolicy

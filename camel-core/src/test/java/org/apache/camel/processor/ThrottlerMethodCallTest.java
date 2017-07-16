@@ -96,6 +96,20 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -115,14 +129,14 @@ specifier|final
 name|int
 name|INTERVAL
 init|=
-literal|500
+literal|100
 decl_stmt|;
 DECL|field|messageCount
 specifier|protected
 name|int
 name|messageCount
 init|=
-literal|9
+literal|10
 decl_stmt|;
 DECL|method|canTest ()
 specifier|protected
@@ -170,14 +184,14 @@ return|return
 name|jndi
 return|;
 block|}
-DECL|method|getMessagesPerSecond ()
+DECL|method|getMessagesPerInterval ()
 specifier|public
 name|long
-name|getMessagesPerSecond
+name|getMessagesPerInterval
 parameter_list|()
 block|{
 return|return
-literal|1
+literal|3
 return|;
 block|}
 DECL|method|testConfigurationWithMethodCallExpression ()
@@ -226,12 +240,11 @@ argument_list|(
 name|messageCount
 argument_list|)
 decl_stmt|;
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 decl_stmt|;
 for|for
@@ -282,44 +295,15 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// now assert that they have actually been throttled
-name|long
-name|minimumTime
-init|=
-operator|(
-name|messageCount
-operator|-
-literal|1
-operator|)
-operator|*
-name|INTERVAL
-decl_stmt|;
-comment|// add a little slack
-name|long
-name|delta
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|start
-operator|+
-literal|200
-decl_stmt|;
+comment|// should take a little time
 name|assertTrue
 argument_list|(
-literal|"Should take at least "
-operator|+
-name|minimumTime
-operator|+
-literal|"ms, was: "
-operator|+
-name|delta
-argument_list|,
-name|delta
-operator|>=
-name|minimumTime
+name|watch
+operator|.
+name|taken
+argument_list|()
+operator|>
+literal|100
 argument_list|)
 expr_stmt|;
 name|executor
@@ -355,7 +339,7 @@ name|method
 argument_list|(
 literal|"myBean"
 argument_list|,
-literal|"getMessagesPerSecond"
+literal|"getMessagesPerInterval"
 argument_list|)
 argument_list|)
 operator|.

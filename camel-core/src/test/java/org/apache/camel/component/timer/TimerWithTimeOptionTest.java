@@ -164,7 +164,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|1000
+literal|10
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -173,7 +173,7 @@ init|=
 operator|new
 name|SimpleDateFormat
 argument_list|(
-literal|"yyyy-MM-dd'T'HH:mm:ss"
+literal|"yyyy-MM-dd'T'HH:mm:ss.SSS"
 argument_list|)
 decl_stmt|;
 name|String
@@ -188,7 +188,7 @@ argument_list|)
 decl_stmt|;
 name|fromF
 argument_list|(
-literal|"timer://foo?time=%s"
+literal|"timer://foo?delay=0&period=10&time=%s"
 argument_list|,
 name|time
 argument_list|)
@@ -210,7 +210,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// period is default 1000 so we can get more messages
+comment|// period is 10 so we can get more messages
 name|mock
 operator|.
 name|expectedMinimumMessageCount
@@ -265,7 +265,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|1000
+literal|10
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -274,7 +274,7 @@ init|=
 operator|new
 name|SimpleDateFormat
 argument_list|(
-literal|"yyyy-MM-dd'T'HH:mm:ss"
+literal|"yyyy-MM-dd'T'HH:mm:ss.SSS"
 argument_list|)
 decl_stmt|;
 name|String
@@ -365,7 +365,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|1000
+literal|10
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -374,7 +374,7 @@ init|=
 operator|new
 name|SimpleDateFormat
 argument_list|(
-literal|"yyyy-MM-dd'T'HH:mm:ss"
+literal|"yyyy-MM-dd'T'HH:mm:ss.SSS"
 argument_list|)
 decl_stmt|;
 name|String
@@ -389,7 +389,7 @@ argument_list|)
 decl_stmt|;
 name|fromF
 argument_list|(
-literal|"timer://foo?fixedRate=true&time=%s"
+literal|"timer://foo?delay=0&period=10&fixedRate=true&time=%s"
 argument_list|,
 name|time
 argument_list|)
@@ -411,7 +411,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// period is default 1000 so we can get more messages
+comment|// period is 10 so we can get more messages
 name|mock
 operator|.
 name|expectedMinimumMessageCount
@@ -466,7 +466,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|1000
+literal|10
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -475,7 +475,7 @@ init|=
 operator|new
 name|SimpleDateFormat
 argument_list|(
-literal|"yyyy-MM-dd HH:mm:ss"
+literal|"yyyy-MM-dd HH:mm:ss.SSS"
 argument_list|)
 decl_stmt|;
 name|String
@@ -490,7 +490,7 @@ argument_list|)
 decl_stmt|;
 name|fromF
 argument_list|(
-literal|"timer://foo?time=%s"
+literal|"timer://foo?delay=0&period=10&time=%s"
 argument_list|,
 name|time
 argument_list|)
@@ -512,7 +512,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// period is default 1000 so we can get more messages
+comment|// period is 10 so we can get more messages
 name|mock
 operator|.
 name|expectedMinimumMessageCount
@@ -567,7 +567,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|1000
+literal|10
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -576,7 +576,7 @@ init|=
 operator|new
 name|SimpleDateFormat
 argument_list|(
-literal|"yyyy-MM-dd HH:mm:ss"
+literal|"yyyy-MM-dd HH:mm:ss.SSS"
 argument_list|)
 decl_stmt|;
 name|String
@@ -591,7 +591,7 @@ argument_list|)
 decl_stmt|;
 name|fromF
 argument_list|(
-literal|"timer://foo?period=0&time=%s"
+literal|"timer://foo?delay=0&period=0&time=%s"
 argument_list|,
 name|time
 argument_list|)
@@ -667,7 +667,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|1000
+literal|10
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -676,7 +676,7 @@ init|=
 operator|new
 name|SimpleDateFormat
 argument_list|(
-literal|"dd-MM-yyyy HH:mm:ss"
+literal|"dd-MM-yyyy HH:mm:ss.SSS"
 argument_list|)
 decl_stmt|;
 name|String
@@ -691,7 +691,7 @@ argument_list|)
 decl_stmt|;
 name|fromF
 argument_list|(
-literal|"timer://foo?time=%s&pattern=dd-MM-yyyy HH:mm:ss"
+literal|"timer://foo?delay=0&period=10&time=%s&pattern=dd-MM-yyyy HH:mm:ss.SSS"
 argument_list|,
 name|time
 argument_list|)
@@ -713,7 +713,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// period is default 1000 so we can get more messages
+comment|// period is 10 so we can get more messages
 name|mock
 operator|.
 name|expectedMinimumMessageCount
@@ -768,7 +768,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|1000
+literal|10
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -777,7 +777,7 @@ init|=
 operator|new
 name|SimpleDateFormat
 argument_list|(
-literal|"dd-MM-yyyy HH:mm:ss"
+literal|"dd-MM-yyyy HH:mm:ss.SSS"
 argument_list|)
 decl_stmt|;
 name|String
@@ -792,7 +792,7 @@ argument_list|)
 decl_stmt|;
 name|fromF
 argument_list|(
-literal|"timer://foo?period=0&time=%s&pattern=dd-MM-yyyy HH:mm:ss"
+literal|"timer://foo?delay=0&period=0&time=%s&pattern=dd-MM-yyyy HH:mm:ss.SSS"
 argument_list|,
 name|time
 argument_list|)
