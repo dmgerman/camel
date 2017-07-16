@@ -245,7 +245,7 @@ literal|"direct:start"
 operator|+
 name|i
 argument_list|)
-comment|// aggregate timeout after 3th seconds
+comment|// aggregate timeout after 0.1 second
 operator|.
 name|aggregate
 argument_list|(
@@ -261,7 +261,12 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|3000
+literal|100
+argument_list|)
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to

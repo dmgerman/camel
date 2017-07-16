@@ -162,7 +162,7 @@ literal|"direct:start"
 argument_list|)
 comment|// aggregate all exchanges correlated by the id header.
 comment|// Aggregate them using the BodyInAggregatingStrategy strategy which
-comment|// and after 3 seconds of inactivity them timeout and complete the aggregation
+comment|// and after 0.1 second of inactivity them timeout and complete the aggregation
 comment|// and send it to mock:aggregated
 operator|.
 name|aggregate
@@ -179,7 +179,12 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|3000
+literal|100
+argument_list|)
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to

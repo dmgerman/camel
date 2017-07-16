@@ -189,24 +189,24 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 1 sec: was "
+literal|"Should take around 0.1 sec: was "
 operator|+
 name|last
 argument_list|,
 name|last
 operator|>
-literal|900
+literal|90
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 1 sec: was "
+literal|"Should take around 0.1 sec: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|>
-literal|900
+literal|90
 argument_list|)
 expr_stmt|;
 comment|// change the delay time using JMX
@@ -222,7 +222,7 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|2000
+literal|200
 block|}
 argument_list|,
 operator|new
@@ -317,24 +317,24 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take around 2 sec: was "
+literal|"Should take around 0.2 sec: was "
 operator|+
 name|last
 argument_list|,
 name|last
 operator|>
-literal|1900
+literal|190
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be around 3 sec now: was "
+literal|"Should be around 0.3 sec now: was "
 operator|+
 name|total
 argument_list|,
 name|total
 operator|>
-literal|2900
+literal|290
 argument_list|)
 expr_stmt|;
 block|}
@@ -374,7 +374,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|100
 argument_list|)
 operator|.
 name|id

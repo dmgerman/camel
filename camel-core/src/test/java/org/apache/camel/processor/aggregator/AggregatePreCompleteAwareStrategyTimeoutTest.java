@@ -395,7 +395,12 @@ argument_list|)
 operator|.
 name|completionTimeout
 argument_list|(
-literal|1000
+literal|100
+argument_list|)
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to

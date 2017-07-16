@@ -140,7 +140,7 @@ name|put
 argument_list|(
 literal|"timeout"
 argument_list|,
-literal|2000
+literal|100
 argument_list|)
 expr_stmt|;
 name|template
@@ -232,6 +232,11 @@ name|header
 argument_list|(
 literal|"timeout"
 argument_list|)
+argument_list|)
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to

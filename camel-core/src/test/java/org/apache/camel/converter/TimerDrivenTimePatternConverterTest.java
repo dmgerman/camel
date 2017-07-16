@@ -188,20 +188,20 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Should take approx 2000 milliseconds, was: {}"
+literal|"Should take approx 50 milliseconds, was: {}"
 argument_list|,
 name|interval
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take approx 2000 milliseconds, was: "
+literal|"Should take approx 50 milliseconds, was: "
 operator|+
 name|interval
 argument_list|,
 name|interval
 operator|>=
-literal|1700
+literal|40
 argument_list|)
 expr_stmt|;
 block|}
@@ -227,7 +227,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?fixedRate=true&delay=0&period=2s"
+literal|"timer://foo?fixedRate=true&delay=0&period=50"
 argument_list|)
 operator|.
 name|to

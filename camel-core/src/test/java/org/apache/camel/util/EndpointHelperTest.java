@@ -186,6 +186,7 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// uses 1 sec default timeout
 name|EndpointHelper
 operator|.
 name|pollEndpoint
@@ -352,7 +353,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|,
-literal|2000
+literal|10
 argument_list|)
 expr_stmt|;
 name|assertEquals

@@ -197,12 +197,12 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait about 4 seconds so that the timeout kicks in but it was discarded
+comment|// wait about 0.2 second so that the timeout kicks in but it was discarded
 name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|(
-literal|4000
+literal|200
 argument_list|)
 expr_stmt|;
 comment|// should invoke the timeout method
@@ -252,7 +252,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2000
+literal|100
 argument_list|,
 name|receivedTimeout
 argument_list|)
@@ -314,7 +314,7 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|(
-literal|1500
+literal|150
 argument_list|)
 expr_stmt|;
 comment|// should have not invoked the timeout method anymore
@@ -377,11 +377,16 @@ name|completionSize
 argument_list|(
 literal|3
 argument_list|)
-comment|// use a 2 second timeout
+comment|// use a 0.1 second timeout
 operator|.
 name|completionTimeout
 argument_list|(
-literal|2000
+literal|100
+argument_list|)
+operator|.
+name|completionTimeoutCheckerInterval
+argument_list|(
+literal|10
 argument_list|)
 operator|.
 name|to

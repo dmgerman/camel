@@ -78,10 +78,10 @@ name|DelayInterceptorTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testSendingSomeMessages ()
+DECL|method|testDelayer ()
 specifier|public
 name|void
-name|testSendingSomeMessages
+name|testDelayer
 parameter_list|()
 throws|throws
 name|Exception
@@ -139,7 +139,7 @@ name|delta
 argument_list|,
 name|delta
 operator|>
-literal|3800
+literal|100
 argument_list|)
 expr_stmt|;
 comment|// some OS boxes are slow
@@ -151,27 +151,8 @@ name|delta
 argument_list|,
 name|delta
 operator|<
-literal|11000
+literal|5000
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|disableJMX
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
@@ -195,13 +176,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// configure delayer for each step 200 millis
+comment|// configure delayer for each step 10 millis
 name|getContext
 argument_list|()
 operator|.
 name|setDelayer
 argument_list|(
-literal|200L
+literal|10L
 argument_list|)
 expr_stmt|;
 comment|// regular routes here

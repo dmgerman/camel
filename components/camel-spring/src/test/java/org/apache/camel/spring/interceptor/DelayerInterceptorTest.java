@@ -160,7 +160,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|// add a little slack
 name|long
 name|delta
 init|=
@@ -170,23 +169,22 @@ name|currentTimeMillis
 argument_list|()
 operator|-
 name|start
-operator|+
-literal|200
 decl_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be slower to run: "
+literal|"Should not be that fast to run: "
 operator|+
 name|delta
 argument_list|,
 name|delta
-operator|>=
-literal|2000
+operator|>
+literal|100
 argument_list|)
 expr_stmt|;
+comment|// some OS boxes are slow
 name|assertTrue
 argument_list|(
 literal|"Should not take that long to run: "
@@ -194,8 +192,8 @@ operator|+
 name|delta
 argument_list|,
 name|delta
-operator|<=
-literal|7000
+operator|<
+literal|5000
 argument_list|)
 expr_stmt|;
 block|}
