@@ -553,6 +553,16 @@ operator|.
 name|stream
 argument_list|()
 operator|.
+name|timeout
+argument_list|(
+literal|100
+argument_list|)
+operator|.
+name|deliveryAttemptInterval
+argument_list|(
+literal|10
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"

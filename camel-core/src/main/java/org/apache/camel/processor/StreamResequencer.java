@@ -392,15 +392,6 @@ name|Traceable
 implements|,
 name|IdAware
 block|{
-DECL|field|DELIVERY_ATTEMPT_INTERVAL
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|DELIVERY_ATTEMPT_INTERVAL
-init|=
-literal|1000L
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -469,6 +460,13 @@ DECL|field|ignoreInvalidExchanges
 specifier|private
 name|boolean
 name|ignoreInvalidExchanges
+decl_stmt|;
+DECL|field|deliveryAttemptInterval
+specifier|private
+name|long
+name|deliveryAttemptInterval
+init|=
+literal|1000L
 decl_stmt|;
 comment|/**      * Creates a new {@link StreamResequencer} instance.      *       * @param processor next processor that processes re-ordered exchanges.      * @param comparator a sequence element comparator for exchanges.      */
 DECL|method|StreamResequencer (CamelContext camelContext, Processor processor, SequenceElementComparator<Exchange> comparator, Expression expression)
@@ -642,6 +640,22 @@ name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setDeliveryAttemptInterval (long deliveryAttemptInterval)
+specifier|public
+name|void
+name|setDeliveryAttemptInterval
+parameter_list|(
+name|long
+name|deliveryAttemptInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deliveryAttemptInterval
+operator|=
+name|deliveryAttemptInterval
 expr_stmt|;
 block|}
 DECL|method|isIgnoreInvalidExchanges ()
@@ -1114,7 +1128,7 @@ name|deliveryRequestCondition
 operator|.
 name|await
 argument_list|(
-name|DELIVERY_ATTEMPT_INTERVAL
+name|deliveryAttemptInterval
 argument_list|,
 name|TimeUnit
 operator|.

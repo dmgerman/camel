@@ -538,6 +538,11 @@ name|timeout
 argument_list|(
 literal|50
 argument_list|)
+operator|.
+name|deliveryAttemptInterval
+argument_list|(
+literal|10
+argument_list|)
 comment|// use low timeout to run faster
 operator|.
 name|to

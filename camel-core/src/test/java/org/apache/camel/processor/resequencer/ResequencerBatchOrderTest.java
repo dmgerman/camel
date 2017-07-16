@@ -141,7 +141,7 @@ argument_list|)
 operator|.
 name|timeout
 argument_list|(
-literal|3000
+literal|50
 argument_list|)
 operator|.
 name|to

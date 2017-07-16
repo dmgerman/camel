@@ -197,6 +197,20 @@ name|timeout
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
+DECL|field|deliveryAttemptInterval
+specifier|private
+name|Long
+name|deliveryAttemptInterval
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|ignoreInvalidExchanges
 specifier|private
 name|Boolean
@@ -433,6 +447,33 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|getDeliveryAttemptInterval ()
+specifier|public
+name|Long
+name|getDeliveryAttemptInterval
+parameter_list|()
+block|{
+return|return
+name|deliveryAttemptInterval
+return|;
+block|}
+comment|/**      * Sets the interval in milli seconds the stream resequencer will at most wait      * while waiting for condition of being able to deliver.      */
+DECL|method|setDeliveryAttemptInterval (Long deliveryAttemptInterval)
+specifier|public
+name|void
+name|setDeliveryAttemptInterval
+parameter_list|(
+name|Long
+name|deliveryAttemptInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deliveryAttemptInterval
+operator|=
+name|deliveryAttemptInterval
 expr_stmt|;
 block|}
 DECL|method|getIgnoreInvalidExchanges ()

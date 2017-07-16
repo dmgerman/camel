@@ -284,6 +284,11 @@ operator|.
 name|body
 argument_list|()
 operator|.
+name|timeout
+argument_list|(
+literal|50
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"

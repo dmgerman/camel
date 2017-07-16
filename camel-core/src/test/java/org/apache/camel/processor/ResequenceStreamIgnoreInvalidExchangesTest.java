@@ -397,7 +397,12 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|(
-literal|250
+literal|50
+argument_list|)
+operator|.
+name|deliveryAttemptInterval
+argument_list|(
+literal|10
 argument_list|)
 comment|// ignore invalid exchanges (they are discarded)
 operator|.

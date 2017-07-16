@@ -689,6 +689,42 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the interval in milli seconds the stream resequencer will at most wait      * while waiting for condition of being able to deliver.      *      * @param deliveryAttemptInterval  interval in millis      * @return the builder      */
+DECL|method|deliveryAttemptInterval (long deliveryAttemptInterval)
+specifier|public
+name|ResequenceDefinition
+name|deliveryAttemptInterval
+parameter_list|(
+name|long
+name|deliveryAttemptInterval
+parameter_list|)
+block|{
+if|if
+condition|(
+name|streamConfig
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"deliveryAttemptInterval() only supported for stream resequencer"
+argument_list|)
+throw|;
+block|}
+name|streamConfig
+operator|.
+name|setDeliveryAttemptInterval
+argument_list|(
+name|deliveryAttemptInterval
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the rejectOld flag to throw an error when a message older than the last delivered message is processed      * @return the builder      */
 DECL|method|rejectOld ()
 specifier|public
@@ -1627,6 +1663,27 @@ name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|config
+operator|.
+name|getDeliveryAttemptInterval
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|resequencer
+operator|.
+name|setDeliveryAttemptInterval
+argument_list|(
+name|config
+operator|.
+name|getDeliveryAttemptInterval
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|resequencer
 operator|.
 name|setCapacity
