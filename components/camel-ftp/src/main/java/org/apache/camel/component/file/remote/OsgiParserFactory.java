@@ -385,6 +385,8 @@ name|ClassResolver
 name|ocr
 parameter_list|)
 block|{
+name|this
+operator|.
 name|ocr
 operator|=
 name|ocr
