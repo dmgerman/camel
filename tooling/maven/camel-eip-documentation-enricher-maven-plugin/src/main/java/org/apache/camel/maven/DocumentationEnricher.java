@@ -670,9 +670,25 @@ condition|)
 block|{
 name|text
 operator|+=
-literal|". Default value: "
+operator|(
+operator|!
+name|text
+operator|.
+name|endsWith
+argument_list|(
+literal|"."
+argument_list|)
+condition|?
+literal|"."
+else|:
+literal|""
+operator|)
+operator|+
+operator|(
+literal|" Default value: "
 operator|+
 name|defaultValueText
+operator|)
 expr_stmt|;
 block|}
 name|addDocumentation
