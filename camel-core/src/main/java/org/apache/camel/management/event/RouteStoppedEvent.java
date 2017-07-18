@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -50,7 +40,7 @@ specifier|public
 class|class
 name|RouteStoppedEvent
 extends|extends
-name|EventObject
+name|AbstractRouteEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -61,12 +51,6 @@ name|serialVersionUID
 init|=
 operator|-
 literal|4466503512787398888L
-decl_stmt|;
-DECL|field|route
-specifier|private
-specifier|final
-name|Route
-name|route
 decl_stmt|;
 DECL|method|RouteStoppedEvent (Route source)
 specifier|public
@@ -81,22 +65,6 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|route
-operator|=
-name|source
-expr_stmt|;
-block|}
-DECL|method|getRoute ()
-specifier|public
-name|Route
-name|getRoute
-parameter_list|()
-block|{
-return|return
-name|route
-return|;
 block|}
 annotation|@
 name|Override
@@ -109,7 +77,8 @@ block|{
 return|return
 literal|"Stopped route: "
 operator|+
-name|route
+name|getRoute
+argument_list|()
 operator|.
 name|getId
 argument_list|()

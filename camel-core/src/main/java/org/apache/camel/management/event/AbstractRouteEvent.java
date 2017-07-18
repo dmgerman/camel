@@ -20,6 +20,28 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -31,16 +53,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Base class for {@link CamelContext} events.  *  * @version   */
 end_comment
 
 begin_class
-DECL|class|RouteStartedEvent
+DECL|class|AbstractRouteEvent
 specifier|public
+specifier|abstract
 class|class
-name|RouteStartedEvent
-extends|extends
 name|AbstractRouteEvent
+extends|extends
+name|EventObject
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -49,11 +72,16 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-literal|1330257282431407329L
+literal|1L
 decl_stmt|;
-DECL|method|RouteStartedEvent (Route source)
+DECL|field|route
+specifier|private
+name|Route
+name|route
+decl_stmt|;
+DECL|method|AbstractRouteEvent (Route source)
 specifier|public
-name|RouteStartedEvent
+name|AbstractRouteEvent
 parameter_list|(
 name|Route
 name|source
@@ -64,23 +92,21 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|route
+operator|=
+name|source
+expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
+DECL|method|getRoute ()
 specifier|public
-name|String
-name|toString
+name|Route
+name|getRoute
 parameter_list|()
 block|{
 return|return
-literal|"Started route: "
-operator|+
-name|getRoute
-argument_list|()
-operator|.
-name|getId
-argument_list|()
+name|route
 return|;
 block|}
 block|}
