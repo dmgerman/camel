@@ -48,81 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|VerifiableComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|data
-operator|.
-name|ConsumerType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|data
-operator|.
-name|EndpointType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultComponent
 import|;
 end_import
 
@@ -161,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Twitter component  *   * @deprecated Use  * {@link org.apache.camel.component.twitter.directmessage.TwitterDirectMessageComponent},  * {@link org.apache.camel.component.twitter.search.TwitterSearchComponent},  * {@link org.apache.camel.component.twitter.streaming..TwitterStreamingComponent} or  * {@link org.apache.camel.component.twitter.timeline.TwitterTimelineComponent}  * instead.  */
+comment|/**  * Twitter component  *   * @deprecated Use  * {@link org.apache.camel.component.twitter.directmessage.TwitterDirectMessageComponent},  * {@link org.apache.camel.component.twitter.search.TwitterSearchComponent},  * {@link org.apache.camel.component.twitter.streaming.TwitterStreamingComponent} or  * {@link org.apache.camel.component.twitter.timeline.TwitterTimelineComponent}  * instead.  */
 end_comment
 
 begin_class
@@ -205,7 +131,13 @@ DECL|method|TwitterComponent ()
 specifier|public
 name|TwitterComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+literal|"twitter"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|TwitterComponent (CamelContext context)
 specifier|public
 name|TwitterComponent
@@ -217,9 +149,13 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+literal|"twitter"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doCreateEndpoint (TwitterConfiguration properties, String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -371,21 +307,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|endpoint
-return|;
-block|}
-comment|/**      * Get a verifier for the twitter component.      */
-DECL|method|getVerifier ()
-specifier|public
-name|ComponentVerifier
-name|getVerifier
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultTwitterComponentVerifier
-argument_list|(
-name|this
-argument_list|)
 return|;
 block|}
 block|}

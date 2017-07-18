@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
+name|CamelContext
 import|;
 end_import
 
@@ -67,22 +67,6 @@ operator|.
 name|twitter
 operator|.
 name|AbstractTwitterComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|DefaultTwitterComponentVerifier
 import|;
 end_import
 
@@ -139,6 +123,35 @@ name|TwitterStreamingComponent
 extends|extends
 name|AbstractTwitterComponent
 block|{
+DECL|method|TwitterStreamingComponent ()
+specifier|public
+name|TwitterStreamingComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"twitter-streaming"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|TwitterStreamingComponent (CamelContext context)
+specifier|public
+name|TwitterStreamingComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
+literal|"twitter-streaming"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|doCreateEndpoint (TwitterConfiguration properties, String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -191,23 +204,6 @@ argument_list|,
 name|this
 argument_list|,
 name|properties
-argument_list|)
-return|;
-block|}
-comment|/**      * Get a verifier for the twitter streaming component.      */
-DECL|method|getVerifier ()
-specifier|public
-name|ComponentVerifier
-name|getVerifier
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultTwitterComponentVerifier
-argument_list|(
-name|this
-argument_list|,
-literal|"twitter-streaming"
 argument_list|)
 return|;
 block|}

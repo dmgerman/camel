@@ -138,6 +138,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|ComponentVerifierExtension
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -319,6 +335,19 @@ specifier|private
 name|String
 name|host
 decl_stmt|;
+DECL|method|RestComponent ()
+specifier|public
+name|RestComponent
+parameter_list|()
+block|{
+name|registerExtension
+argument_list|(
+name|RestComponentVerifierExtension
+operator|::
+operator|new
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -1303,7 +1332,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the {@link ComponentVerifier}      *      * @return the Component Verifier      */
 annotation|@
 name|Override
 DECL|method|getVerifier ()
@@ -1313,10 +1341,31 @@ name|getVerifier
 parameter_list|()
 block|{
 return|return
-operator|new
-name|RestComponentVerifier
+parameter_list|(
+name|scope
+parameter_list|,
+name|parameters
+parameter_list|)
+lambda|->
+name|getExtension
 argument_list|(
-name|this
+name|ComponentVerifierExtension
+operator|.
+name|class
+argument_list|)
+operator|.
+name|orElseThrow
+argument_list|(
+name|UnsupportedOperationException
+operator|::
+operator|new
+argument_list|)
+operator|.
+name|verify
+argument_list|(
+name|scope
+argument_list|,
+name|parameters
 argument_list|)
 return|;
 block|}

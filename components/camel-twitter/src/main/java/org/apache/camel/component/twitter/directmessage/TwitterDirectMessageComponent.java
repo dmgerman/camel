@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
+name|CamelContext
 import|;
 end_import
 
@@ -67,22 +67,6 @@ operator|.
 name|twitter
 operator|.
 name|AbstractTwitterComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|DefaultTwitterComponentVerifier
 import|;
 end_import
 
@@ -139,6 +123,35 @@ name|TwitterDirectMessageComponent
 extends|extends
 name|AbstractTwitterComponent
 block|{
+DECL|method|TwitterDirectMessageComponent ()
+specifier|public
+name|TwitterDirectMessageComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"twitter-directmessage"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|TwitterDirectMessageComponent (CamelContext context)
+specifier|public
+name|TwitterDirectMessageComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
+literal|"twitter-directmessage"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|doCreateEndpoint (TwitterConfiguration properties, String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -175,23 +188,6 @@ argument_list|,
 name|this
 argument_list|,
 name|properties
-argument_list|)
-return|;
-block|}
-comment|/**      * Get a verifier for the twitter directmessage component.      */
-DECL|method|getVerifier ()
-specifier|public
-name|ComponentVerifier
-name|getVerifier
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultTwitterComponentVerifier
-argument_list|(
-name|this
-argument_list|,
-literal|"twitter-directmessage"
 argument_list|)
 return|;
 block|}

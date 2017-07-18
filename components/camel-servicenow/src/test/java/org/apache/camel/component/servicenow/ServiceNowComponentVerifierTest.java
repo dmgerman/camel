@@ -56,20 +56,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ComponentVerifier
-operator|.
-name|VerificationError
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -119,7 +105,7 @@ return|;
 block|}
 DECL|method|getVerifier ()
 specifier|protected
-name|ServiceNowComponentVerifier
+name|ServiceNowComponentVerifierExtension
 name|getVerifier
 parameter_list|()
 block|{
@@ -138,11 +124,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ServiceNowComponentVerifier
+name|ServiceNowComponentVerifierExtension
 name|verifier
 init|=
 operator|(
-name|ServiceNowComponentVerifier
+name|ServiceNowComponentVerifierExtension
 operator|)
 name|component
 operator|.
@@ -295,6 +281,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|StandardCode
@@ -424,6 +412,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|StandardCode
@@ -681,6 +671,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|StandardCode
@@ -720,6 +712,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|ExceptionAttribute
@@ -747,6 +741,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|ExceptionAttribute
@@ -842,6 +838,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|StandardCode
@@ -881,6 +879,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|ExceptionAttribute
@@ -910,6 +910,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|HttpAttribute
@@ -937,6 +939,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|ExceptionAttribute
@@ -1046,6 +1050,8 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|StandardCode
@@ -1085,6 +1091,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|ExceptionAttribute
@@ -1114,6 +1122,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|HttpAttribute
@@ -1141,6 +1151,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
+name|ComponentVerifier
+operator|.
 name|VerificationError
 operator|.
 name|ExceptionAttribute

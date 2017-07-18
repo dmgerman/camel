@@ -15,10 +15,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An interface to represent an object which support validation  */
+comment|/**  * An interface to represent an object which support validation  *  * @deprecated see {@link org.apache.camel.extension.ComponentExtension}  */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|VerifiableComponent
 specifier|public
 interface|interface

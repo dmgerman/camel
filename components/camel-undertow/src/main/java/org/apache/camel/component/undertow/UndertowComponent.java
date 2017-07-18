@@ -184,6 +184,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|ComponentVerifierExtension
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -518,7 +534,13 @@ DECL|method|UndertowComponent ()
 specifier|public
 name|UndertowComponent
 parameter_list|()
-block|{     }
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|UndertowComponent (CamelContext context)
 specifier|public
 name|UndertowComponent
@@ -530,6 +552,13 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+name|registerExtension
+argument_list|(
+name|UndertowComponentVerifierExtension
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}
@@ -2080,7 +2109,8 @@ operator|=
 name|hostOptions
 expr_stmt|;
 block|}
-comment|/**      *      */
+annotation|@
+name|Override
 DECL|method|getVerifier ()
 specifier|public
 name|ComponentVerifier
@@ -2088,10 +2118,31 @@ name|getVerifier
 parameter_list|()
 block|{
 return|return
-operator|new
-name|UndertowComponentVerifier
+parameter_list|(
+name|scope
+parameter_list|,
+name|parameters
+parameter_list|)
+lambda|->
+name|getExtension
 argument_list|(
-name|this
+name|ComponentVerifierExtension
+operator|.
+name|class
+argument_list|)
+operator|.
+name|orElseThrow
+argument_list|(
+name|UnsupportedOperationException
+operator|::
+operator|new
+argument_list|)
+operator|.
+name|verify
+argument_list|(
+name|scope
+argument_list|,
+name|parameters
 argument_list|)
 return|;
 block|}

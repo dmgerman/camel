@@ -84,6 +84,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|ComponentVerifierExtension
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -231,17 +247,31 @@ specifier|private
 name|Integer
 name|httpProxyPort
 decl_stmt|;
-DECL|method|AbstractTwitterComponent ()
-specifier|public
+DECL|method|AbstractTwitterComponent (String componentVerifierScheme)
+specifier|protected
 name|AbstractTwitterComponent
-parameter_list|()
-block|{     }
-DECL|method|AbstractTwitterComponent (CamelContext context)
-specifier|public
+parameter_list|(
+name|String
+name|componentVerifierScheme
+parameter_list|)
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|,
+name|componentVerifierScheme
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|AbstractTwitterComponent (CamelContext context, String componentVerifierScheme)
+specifier|protected
 name|AbstractTwitterComponent
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|String
+name|componentVerifierScheme
 parameter_list|)
 block|{
 name|super
@@ -249,7 +279,20 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+name|registerExtension
+argument_list|(
+parameter_list|()
+lambda|->
+operator|new
+name|TwitterComponentVerifierExtension
+argument_list|(
+name|componentVerifierScheme
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -604,6 +647,44 @@ parameter_list|()
 block|{
 return|return
 name|httpProxyPort
+return|;
+block|}
+comment|/**      * Get a verifier for the component.      */
+annotation|@
+name|Override
+DECL|method|getVerifier ()
+specifier|public
+name|ComponentVerifier
+name|getVerifier
+parameter_list|()
+block|{
+return|return
+parameter_list|(
+name|scope
+parameter_list|,
+name|parameters
+parameter_list|)
+lambda|->
+name|getExtension
+argument_list|(
+name|ComponentVerifierExtension
+operator|.
+name|class
+argument_list|)
+operator|.
+name|orElseThrow
+argument_list|(
+name|UnsupportedOperationException
+operator|::
+operator|new
+argument_list|)
+operator|.
+name|verify
+argument_list|(
+name|scope
+argument_list|,
+name|parameters
+argument_list|)
 return|;
 block|}
 block|}

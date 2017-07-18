@@ -244,7 +244,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
+operator|.
+name|extension
 operator|.
 name|verifier
 operator|.
@@ -260,7 +262,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
+operator|.
+name|extension
 operator|.
 name|verifier
 operator|.
