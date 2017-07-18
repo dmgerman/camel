@@ -102,7 +102,7 @@ name|zipkin
 operator|.
 name|setHostName
 argument_list|(
-literal|"192.168.99.100"
+literal|"localhost"
 argument_list|)
 expr_stmt|;
 name|zipkin
