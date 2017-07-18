@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -50,7 +40,7 @@ specifier|public
 class|class
 name|CamelContextStartupFailureEvent
 extends|extends
-name|EventObject
+name|AbstractContextEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -61,11 +51,6 @@ name|serialVersionUID
 init|=
 operator|-
 literal|4271899927507894567L
-decl_stmt|;
-DECL|field|context
-specifier|private
-name|CamelContext
-name|context
 decl_stmt|;
 DECL|field|cause
 specifier|private
@@ -90,26 +75,10 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|context
-operator|=
-name|context
-expr_stmt|;
-name|this
-operator|.
 name|cause
 operator|=
 name|cause
 expr_stmt|;
-block|}
-DECL|method|getContext ()
-specifier|public
-name|CamelContext
-name|getContext
-parameter_list|()
-block|{
-return|return
-name|context
-return|;
 block|}
 DECL|method|getCause ()
 specifier|public
@@ -132,7 +101,8 @@ block|{
 return|return
 literal|"Failed to start Camel: "
 operator|+
-name|context
+name|getContext
+argument_list|()
 operator|.
 name|getName
 argument_list|()

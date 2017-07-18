@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -31,16 +41,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Base class for {@link CamelContext} events.  *  * @version   */
 end_comment
 
 begin_class
-DECL|class|CamelContextSuspendedEvent
+DECL|class|AbstractContextEvent
 specifier|public
+specifier|abstract
 class|class
-name|CamelContextSuspendedEvent
-extends|extends
 name|AbstractContextEvent
+extends|extends
+name|EventObject
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -49,11 +60,16 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-literal|6761726800283072242L
+literal|1L
 decl_stmt|;
-DECL|method|CamelContextSuspendedEvent (CamelContext source)
+DECL|field|context
+specifier|private
+name|CamelContext
+name|context
+decl_stmt|;
+DECL|method|AbstractContextEvent (CamelContext source)
 specifier|public
-name|CamelContextSuspendedEvent
+name|AbstractContextEvent
 parameter_list|(
 name|CamelContext
 name|source
@@ -64,23 +80,21 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|context
+operator|=
+name|source
+expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
+DECL|method|getContext ()
 specifier|public
-name|String
-name|toString
+name|CamelContext
+name|getContext
 parameter_list|()
 block|{
 return|return
-literal|"Suspended CamelContext: "
-operator|+
-name|getContext
-argument_list|()
-operator|.
-name|getName
-argument_list|()
+name|context
 return|;
 block|}
 block|}

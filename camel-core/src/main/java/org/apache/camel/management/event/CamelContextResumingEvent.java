@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EventObject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -50,7 +40,7 @@ specifier|public
 class|class
 name|CamelContextResumingEvent
 extends|extends
-name|EventObject
+name|AbstractContextEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -60,12 +50,6 @@ name|long
 name|serialVersionUID
 init|=
 literal|6761726800283234511L
-decl_stmt|;
-DECL|field|context
-specifier|private
-specifier|final
-name|CamelContext
-name|context
 decl_stmt|;
 DECL|method|CamelContextResumingEvent (CamelContext source)
 specifier|public
@@ -80,22 +64,6 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|context
-operator|=
-name|source
-expr_stmt|;
-block|}
-DECL|method|getContext ()
-specifier|public
-name|CamelContext
-name|getContext
-parameter_list|()
-block|{
-return|return
-name|context
-return|;
 block|}
 annotation|@
 name|Override
@@ -108,7 +76,8 @@ block|{
 return|return
 literal|"Resuming CamelContext: "
 operator|+
-name|context
+name|getContext
+argument_list|()
 operator|.
 name|getName
 argument_list|()
