@@ -41,6 +41,8 @@ class|class
 name|ExchangeFailedEvent
 extends|extends
 name|AbstractExchangeEvent
+implements|implements
+name|FailureEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -65,6 +67,22 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCause ()
+specifier|public
+name|Throwable
+name|getCause
+parameter_list|()
+block|{
+return|return
+name|getExchange
+argument_list|()
+operator|.
+name|getException
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

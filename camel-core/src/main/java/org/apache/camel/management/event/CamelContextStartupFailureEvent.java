@@ -41,6 +41,8 @@ class|class
 name|CamelContextStartupFailureEvent
 extends|extends
 name|AbstractContextEvent
+implements|implements
+name|FailureEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -80,6 +82,8 @@ operator|=
 name|cause
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCause ()
 specifier|public
 name|Throwable

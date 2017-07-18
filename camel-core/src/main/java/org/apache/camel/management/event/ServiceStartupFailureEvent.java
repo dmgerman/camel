@@ -51,6 +51,8 @@ class|class
 name|ServiceStartupFailureEvent
 extends|extends
 name|EventObject
+implements|implements
+name|FailureEvent
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -135,6 +137,8 @@ return|return
 name|service
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCause ()
 specifier|public
 name|Throwable
