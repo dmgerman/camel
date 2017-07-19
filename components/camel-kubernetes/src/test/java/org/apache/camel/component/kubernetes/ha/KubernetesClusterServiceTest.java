@@ -1267,7 +1267,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|b1
+name|b2
 operator|.
 name|waitForAnyLeader
 argument_list|(
