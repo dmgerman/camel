@@ -212,7 +212,7 @@ specifier|final
 name|String
 name|MILO_CLIENT_ITEM_C1_1
 init|=
-literal|"milo-client:tcp://foo:bar@localhost:12685?node="
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@?node="
 operator|+
 name|NodeIds
 operator|.
@@ -235,7 +235,7 @@ specifier|final
 name|String
 name|MILO_CLIENT_ITEM_C2_1
 init|=
-literal|"milo-client:tcp://foo:bar2@localhost:12685?node="
+literal|"milo-client:tcp://foo:bar2@localhost:@@port@@?node="
 operator|+
 name|NodeIds
 operator|.
@@ -256,7 +256,7 @@ specifier|final
 name|String
 name|MILO_CLIENT_ITEM_C3_1
 init|=
-literal|"milo-client:tcp://foo:bar@localhost:12685?clientId=1&node="
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@?clientId=1&node="
 operator|+
 name|NodeIds
 operator|.
@@ -470,7 +470,10 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
+name|resolve
+argument_list|(
 name|MILO_CLIENT_ITEM_C1_1
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -480,7 +483,10 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
+name|resolve
+argument_list|(
 name|MILO_CLIENT_ITEM_C2_1
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -490,7 +496,10 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
+name|resolve
+argument_list|(
 name|MILO_CLIENT_ITEM_C3_1
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -513,16 +522,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// set server value
-name|this
-operator|.
-name|producer1
-operator|.
-name|sendBody
-argument_list|(
-literal|"Foo"
-argument_list|)
-expr_stmt|;
 comment|// item 1 ... only this one receives
 name|this
 operator|.
@@ -578,6 +577,16 @@ operator|.
 name|setSleepForEmptyTest
 argument_list|(
 literal|5_000
+argument_list|)
+expr_stmt|;
+comment|// set server value
+name|this
+operator|.
+name|producer1
+operator|.
+name|sendBody
+argument_list|(
+literal|"Foo"
 argument_list|)
 expr_stmt|;
 comment|// assert

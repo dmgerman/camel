@@ -161,7 +161,7 @@ specifier|final
 name|String
 name|MILO_CLIENT_ITEM_C1_1
 init|=
-literal|"milo-client:tcp://foo:bar@localhost:12685?node="
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@?node="
 operator|+
 name|NodeIds
 operator|.
@@ -243,7 +243,10 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
+name|resolve
+argument_list|(
 name|MILO_CLIENT_ITEM_C1_1
+argument_list|)
 argument_list|)
 operator|.
 name|to

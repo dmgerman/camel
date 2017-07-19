@@ -193,7 +193,7 @@ argument_list|)
 decl_stmt|;
 name|testUri
 argument_list|(
-literal|"milo-client:tcp://foo:bar@localhost:12685?samplingInterval=1000&node=RAW("
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@?samplingInterval=1000&node=RAW("
 operator|+
 name|s
 operator|+
@@ -230,7 +230,7 @@ argument_list|)
 decl_stmt|;
 name|testUri
 argument_list|(
-literal|"milo-client:tcp://foo:bar@localhost:12685?samplingInterval=1000&node=RAW("
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@?samplingInterval=1000&node=RAW("
 operator|+
 name|s
 operator|+
@@ -270,7 +270,7 @@ argument_list|)
 decl_stmt|;
 name|testUri
 argument_list|(
-literal|"milo-client:tcp://foo:bar@localhost:12685?samplingInterval=1000&node=RAW("
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@?samplingInterval=1000&node=RAW("
 operator|+
 name|s
 operator|+
@@ -313,7 +313,7 @@ argument_list|)
 decl_stmt|;
 name|testUri
 argument_list|(
-literal|"milo-client:tcp://foo:bar@localhost:12685?samplingInterval=1000&node="
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@?samplingInterval=1000&node="
 operator|+
 name|urlFormParameterEscaper
 argument_list|()
@@ -371,7 +371,7 @@ block|{
 comment|// This must fail since "node" is incomplete
 name|testUri
 argument_list|(
-literal|"milo-client:tcp://foo:bar@localhost:12685?node=foo&namespaceUri="
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@?node=foo&namespaceUri="
 operator|+
 name|DEFAULT_NAMESPACE_URI
 argument_list|,
@@ -403,7 +403,10 @@ name|assertNodeId
 argument_list|(
 name|getMandatoryEndpoint
 argument_list|(
+name|resolve
+argument_list|(
 name|uri
+argument_list|)
 argument_list|,
 name|MiloClientEndpoint
 operator|.

@@ -237,7 +237,7 @@ specifier|final
 name|String
 name|MILO_CLIENT_BASE_C1
 init|=
-literal|"milo-client:tcp://foo:bar@localhost:12685"
+literal|"milo-client:tcp://foo:bar@localhost:@@port@@"
 decl_stmt|;
 DECL|field|MILO_CLIENT_BASE_C2
 specifier|private
@@ -246,7 +246,7 @@ specifier|final
 name|String
 name|MILO_CLIENT_BASE_C2
 init|=
-literal|"milo-client:tcp://foo2:bar2@localhost:12685"
+literal|"milo-client:tcp://foo2:bar2@localhost:@@port@@"
 decl_stmt|;
 DECL|field|MILO_CLIENT_ITEM_C1_1
 specifier|private
@@ -469,7 +469,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+name|resolve
+argument_list|(
 name|MILO_CLIENT_ITEM_C1_1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|from
@@ -479,7 +482,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+name|resolve
+argument_list|(
 name|MILO_CLIENT_ITEM_C1_2
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|from
@@ -489,7 +495,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+name|resolve
+argument_list|(
 name|MILO_CLIENT_ITEM_C2_1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|from
@@ -499,7 +508,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+name|resolve
+argument_list|(
 name|MILO_CLIENT_ITEM_C2_2
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
