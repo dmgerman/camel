@@ -1116,6 +1116,8 @@ name|METADATA
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1219,6 +1221,8 @@ argument_list|(
 literal|null
 argument_list|,
 literal|""
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1346,6 +1350,8 @@ name|MANUFACTURERS
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1409,6 +1415,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|MANUFACTURERS
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1507,6 +1515,8 @@ name|TEST_MANUFACTURER
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1542,6 +1552,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_CAR
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1614,6 +1626,8 @@ name|TEST_MANUFACTURER
 argument_list|,
 name|queryParams
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1669,6 +1683,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_MANUFACTURER
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1737,6 +1753,8 @@ name|TEST_CAR
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1831,6 +1849,8 @@ argument_list|,
 name|TEST_MANUFACTURER
 argument_list|,
 name|queryParams
+argument_list|,
+literal|null
 argument_list|,
 name|responseHandler
 argument_list|)
@@ -1927,6 +1947,8 @@ name|TEST_MANUFACTURER_FOUNDED_PROPERTY
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|propertyHandler
 argument_list|)
 expr_stmt|;
@@ -1979,6 +2001,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_MANUFACTURER_FOUNDED_VALUE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2057,6 +2081,8 @@ name|edm
 argument_list|,
 name|TEST_MANUFACTURER_FOUNDED_PROPERTY
 argument_list|,
+literal|null
+argument_list|,
 operator|new
 name|Date
 argument_list|()
@@ -2091,6 +2117,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_MANUFACTURER_FOUNDED_VALUE
+argument_list|,
+literal|null
 argument_list|,
 operator|new
 name|Date
@@ -2127,6 +2155,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_MANUFACTURER_ADDRESS_PROPERTY
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2218,6 +2248,8 @@ name|edm
 argument_list|,
 name|TEST_MANUFACTURER_ADDRESS_PROPERTY
 argument_list|,
+literal|null
+argument_list|,
 name|address
 argument_list|,
 name|statusHandler
@@ -2279,6 +2311,8 @@ name|TEST_MANUFACTURER_LINKS_CARS
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|linksHandler
 argument_list|)
 expr_stmt|;
@@ -2332,6 +2366,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_CAR_LINK_MANUFACTURER
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2395,6 +2431,8 @@ name|COUNT_OPTION
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|countHandler
 argument_list|)
 expr_stmt|;
@@ -2424,6 +2462,8 @@ argument_list|,
 name|TEST_MANUFACTURER
 operator|+
 name|COUNT_OPTION
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2459,6 +2499,8 @@ name|COUNT_OPTION
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|countHandler
 argument_list|)
 expr_stmt|;
@@ -2488,6 +2530,8 @@ argument_list|,
 name|TEST_CAR_LINK_MANUFACTURER
 operator|+
 name|COUNT_OPTION
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2539,6 +2583,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|MANUFACTURERS
+argument_list|,
+literal|null
 argument_list|,
 name|getEntityData
 argument_list|()
@@ -2645,6 +2691,8 @@ name|edm
 argument_list|,
 name|TEST_CREATE_MANUFACTURER
 argument_list|,
+literal|null
+argument_list|,
 name|data
 argument_list|,
 name|statusHandler
@@ -2677,6 +2725,8 @@ name|edm
 argument_list|,
 name|TEST_CREATE_MANUFACTURER
 argument_list|,
+literal|null
+argument_list|,
 name|data
 argument_list|,
 name|statusHandler
@@ -2699,6 +2749,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_CREATE_MANUFACTURER
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2735,6 +2787,8 @@ operator|.
 name|delete
 argument_list|(
 name|TEST_CREATE_MANUFACTURER
+argument_list|,
+literal|null
 argument_list|,
 name|statusHandler
 argument_list|)
@@ -2785,6 +2839,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_CREATE_MANUFACTURER
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -3152,6 +3208,8 @@ operator|.
 name|batch
 argument_list|(
 name|edm
+argument_list|,
+literal|null
 argument_list|,
 name|batchParts
 argument_list|,
@@ -4038,13 +4096,21 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|onResponse (T response)
+DECL|method|onResponse (T response, Map<String, String> responseHeaders)
 specifier|public
 name|void
 name|onResponse
 parameter_list|(
 name|T
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|responseHeaders
 parameter_list|)
 block|{
 name|this

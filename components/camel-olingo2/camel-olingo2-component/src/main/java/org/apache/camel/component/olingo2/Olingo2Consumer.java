@@ -302,6 +302,14 @@ name|onResponse
 parameter_list|(
 name|Object
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|responseHeaders
 parameter_list|)
 block|{
 name|result
