@@ -18,6 +18,10 @@ name|event
 package|;
 end_package
 
+begin_comment
+comment|/**  * This interface is implemented by all events that contain an exception and is used to  * retrieve the exception in a universal way.  *    * @version  */
+end_comment
+
 begin_interface
 DECL|interface|FailureEvent
 specifier|public
