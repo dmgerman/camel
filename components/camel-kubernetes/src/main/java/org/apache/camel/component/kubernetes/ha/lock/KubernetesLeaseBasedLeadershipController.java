@@ -1947,7 +1947,7 @@ parameter_list|()
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Checking if the current leader has changed to notify the event handler..."
 argument_list|)
@@ -2062,7 +2062,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Current leader has changed from {} to {}. Sending notifications..."
+literal|"Current leader has changed from {} to {}. Sending notification..."
 argument_list|,
 name|this
 operator|.
