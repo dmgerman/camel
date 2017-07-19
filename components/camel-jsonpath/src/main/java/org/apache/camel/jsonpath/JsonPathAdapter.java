@@ -77,6 +77,18 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Attempts to write the value as a JSOn {@link String} value.      *      * @param value  the value      * @param exchange the Camel exchange      * @return written as {@link String} JSon or<tt>null</tt> if not possible      */
+DECL|method|writeAsString (Object value, Exchange exchange)
+name|String
+name|writeAsString
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

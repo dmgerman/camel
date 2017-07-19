@@ -207,6 +207,11 @@ name|allowEasyPredicate
 init|=
 literal|true
 decl_stmt|;
+DECL|field|writeAsString
+specifier|private
+name|boolean
+name|writeAsString
+decl_stmt|;
 DECL|field|options
 specifier|private
 name|Option
@@ -367,6 +372,33 @@ operator|.
 name|allowEasyPredicate
 operator|=
 name|allowEasyPredicate
+expr_stmt|;
+block|}
+DECL|method|isWriteAsString ()
+specifier|public
+name|boolean
+name|isWriteAsString
+parameter_list|()
+block|{
+return|return
+name|writeAsString
+return|;
+block|}
+comment|/**      * Whether to write the output of each row/element as a JSon String value instead of a Map/POJO value.      */
+DECL|method|setWriteAsString (boolean writeAsString)
+specifier|public
+name|void
+name|setWriteAsString
+parameter_list|(
+name|boolean
+name|writeAsString
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writeAsString
+operator|=
+name|writeAsString
 expr_stmt|;
 block|}
 DECL|method|getOptions ()
@@ -570,6 +602,8 @@ operator|new
 name|JsonPathEngine
 argument_list|(
 name|exp
+argument_list|,
+name|writeAsString
 argument_list|,
 name|suppressExceptions
 argument_list|,

@@ -1530,6 +1530,49 @@ name|resultType
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|jsonpathWriteAsString (String text)
+specifier|public
+name|T
+name|jsonpathWriteAsString
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|jsonpathWriteAsString
+argument_list|(
+name|text
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @return the builder to continue processing the DSL      */
+DECL|method|jsonpathWriteAsString (String text, boolean suppressExceptions)
+specifier|public
+name|T
+name|jsonpathWriteAsString
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|boolean
+name|suppressExceptions
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|jsonpathWriteAsString
+argument_list|(
+name|text
+argument_list|,
+name|suppressExceptions
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|jxpath (String text)
 specifier|public

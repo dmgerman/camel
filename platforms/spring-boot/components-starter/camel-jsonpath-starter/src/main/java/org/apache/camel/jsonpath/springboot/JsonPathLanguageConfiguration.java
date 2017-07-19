@@ -108,6 +108,14 @@ name|allowEasyPredicate
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Whether to write the output of each row/element as a JSon String value      * instead of a Map/POJO value.      */
+DECL|field|writeAsString
+specifier|private
+name|Boolean
+name|writeAsString
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and      * line breaks      */
 DECL|field|trim
 specifier|private
@@ -192,6 +200,32 @@ operator|.
 name|allowEasyPredicate
 operator|=
 name|allowEasyPredicate
+expr_stmt|;
+block|}
+DECL|method|getWriteAsString ()
+specifier|public
+name|Boolean
+name|getWriteAsString
+parameter_list|()
+block|{
+return|return
+name|writeAsString
+return|;
+block|}
+DECL|method|setWriteAsString (Boolean writeAsString)
+specifier|public
+name|void
+name|setWriteAsString
+parameter_list|(
+name|Boolean
+name|writeAsString
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writeAsString
+operator|=
+name|writeAsString
 expr_stmt|;
 block|}
 DECL|method|getTrim ()
