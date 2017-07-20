@@ -185,6 +185,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Additional description that can explain the user about the deprecation and give reference to what to use instead.      */
+DECL|method|deprecationNode ()
+name|String
+name|deprecationNode
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 

@@ -90,6 +90,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|deprecationNote
+specifier|private
+name|String
+name|deprecationNote
+decl_stmt|;
 DECL|field|secret
 specifier|private
 name|boolean
@@ -118,7 +123,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointPath (String name, String displayName, String type, String required, String defaultValue, String documentation, boolean deprecated, boolean secret, String group, String label, boolean enumType, Set<String> enums)
+DECL|method|EndpointPath (String name, String displayName, String type, String required, String defaultValue, String documentation, boolean deprecated, String deprecationNote, boolean secret, String group, String label, boolean enumType, Set<String> enums)
 specifier|public
 name|EndpointPath
 parameter_list|(
@@ -142,6 +147,9 @@ name|documentation
 parameter_list|,
 name|boolean
 name|deprecated
+parameter_list|,
+name|String
+name|deprecationNote
 parameter_list|,
 name|boolean
 name|secret
@@ -203,6 +211,12 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+name|this
+operator|.
+name|deprecationNote
+operator|=
+name|deprecationNote
 expr_stmt|;
 name|this
 operator|.
@@ -303,6 +317,16 @@ parameter_list|()
 block|{
 return|return
 name|deprecated
+return|;
+block|}
+DECL|method|getDeprecationNote ()
+specifier|public
+name|String
+name|getDeprecationNote
+parameter_list|()
+block|{
+return|return
+name|deprecationNote
 return|;
 block|}
 DECL|method|isSecret ()

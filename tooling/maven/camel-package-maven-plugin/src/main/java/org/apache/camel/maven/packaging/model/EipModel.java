@@ -76,6 +76,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|deprecationNote
+specifier|private
+name|String
+name|deprecationNote
+decl_stmt|;
 DECL|field|input
 specifier|private
 name|boolean
@@ -256,6 +261,32 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+block|}
+DECL|method|getDeprecationNote ()
+specifier|public
+name|String
+name|getDeprecationNote
+parameter_list|()
+block|{
+return|return
+name|deprecationNote
+return|;
+block|}
+DECL|method|setDeprecationNote (String deprecationNote)
+specifier|public
+name|void
+name|setDeprecationNote
+parameter_list|(
+name|String
+name|deprecationNote
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deprecationNote
+operator|=
+name|deprecationNote
 expr_stmt|;
 block|}
 DECL|method|isInput ()

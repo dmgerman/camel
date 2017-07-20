@@ -130,6 +130,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|deprecationNote
+specifier|private
+name|String
+name|deprecationNote
+decl_stmt|;
 DECL|field|secret
 specifier|private
 name|boolean
@@ -158,7 +163,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointOption (String name, String displayName, String type, String required, String defaultValue, String defaultValueNote, String documentation, String optionalPrefix, String prefix, boolean multiValue, boolean deprecated, boolean secret, String group, String label, boolean enumType, Set<String> enums)
+DECL|method|EndpointOption (String name, String displayName, String type, String required, String defaultValue, String defaultValueNote, String documentation, String optionalPrefix, String prefix, boolean multiValue, boolean deprecated, String deprecationNote, boolean secret, String group, String label, boolean enumType, Set<String> enums)
 specifier|public
 name|EndpointOption
 parameter_list|(
@@ -194,6 +199,9 @@ name|multiValue
 parameter_list|,
 name|boolean
 name|deprecated
+parameter_list|,
+name|String
+name|deprecationNote
 parameter_list|,
 name|boolean
 name|secret
@@ -279,6 +287,12 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+name|this
+operator|.
+name|deprecationNote
+operator|=
+name|deprecationNote
 expr_stmt|;
 name|this
 operator|.
@@ -411,6 +425,16 @@ return|return
 name|deprecated
 return|;
 block|}
+DECL|method|getDeprecationNote ()
+specifier|public
+name|String
+name|getDeprecationNote
+parameter_list|()
+block|{
+return|return
+name|deprecationNote
+return|;
+block|}
 DECL|method|isSecret ()
 specifier|public
 name|boolean
@@ -460,6 +484,28 @@ operator|.
 name|append
 argument_list|(
 name|defaultValueNote
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|isNullOrEmpty
+argument_list|(
+name|deprecationNote
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|". Deprecation note: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|deprecationNote
 argument_list|)
 expr_stmt|;
 block|}

@@ -115,6 +115,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|deprecationNode
+specifier|private
+name|String
+name|deprecationNode
+decl_stmt|;
 DECL|field|secret
 specifier|private
 name|boolean
@@ -143,7 +148,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|ComponentOption (String name, String displayName, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, boolean secret, String group, String label, boolean enumType, Set<String> enums)
+DECL|method|ComponentOption (String name, String displayName, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String deprecationNode, boolean secret, String group, String label, boolean enumType, Set<String> enums)
 specifier|public
 name|ComponentOption
 parameter_list|(
@@ -170,6 +175,9 @@ name|documentation
 parameter_list|,
 name|boolean
 name|deprecated
+parameter_list|,
+name|String
+name|deprecationNode
 parameter_list|,
 name|boolean
 name|secret
@@ -237,6 +245,12 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+name|this
+operator|.
+name|deprecationNode
+operator|=
+name|deprecationNode
 expr_stmt|;
 name|this
 operator|.
@@ -339,6 +353,16 @@ return|return
 name|deprecated
 return|;
 block|}
+DECL|method|getDeprecationNode ()
+specifier|public
+name|String
+name|getDeprecationNode
+parameter_list|()
+block|{
+return|return
+name|deprecationNode
+return|;
+block|}
 DECL|method|isSecret ()
 specifier|public
 name|boolean
@@ -388,6 +412,28 @@ operator|.
 name|append
 argument_list|(
 name|defaultValueNote
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|isNullOrEmpty
+argument_list|(
+name|deprecationNode
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|". Deprecation note: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|deprecationNode
 argument_list|)
 expr_stmt|;
 block|}
