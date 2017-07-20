@@ -269,10 +269,17 @@ name|description
 operator|=
 literal|"How to treat the parameters which are passed from the message body."
 operator|+
-literal|"true means the message body should be an array of parameters. Note: This option is used internally by Camel, and is not intended for end users to use."
+literal|"true means the message body should be an array of parameters."
 argument_list|)
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|deprecationNode
+operator|=
+literal|"This option is used internally by Camel, and is not intended for end users to use."
+argument_list|)
 DECL|field|multiParameterArray
 specifier|private
 name|boolean

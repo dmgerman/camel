@@ -632,7 +632,6 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
-comment|// expectedMessageCount((int) size);
 return|return
 name|answer
 return|;

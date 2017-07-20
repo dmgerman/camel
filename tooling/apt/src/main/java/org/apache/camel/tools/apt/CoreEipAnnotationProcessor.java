@@ -1481,6 +1481,11 @@ operator|.
 name|isDeprecated
 argument_list|()
 argument_list|,
+name|entry
+operator|.
+name|getDeprecationNode
+argument_list|()
+argument_list|,
 literal|false
 argument_list|,
 literal|null

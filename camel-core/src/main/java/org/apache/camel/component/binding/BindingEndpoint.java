@@ -252,6 +252,13 @@ begin_class
 annotation|@
 name|Deprecated
 annotation|@
+name|Metadata
+argument_list|(
+name|deprecationNode
+operator|=
+literal|"Use org.apache.camel.spi.Contract instead"
+argument_list|)
+annotation|@
 name|UriEndpoint
 argument_list|(
 name|firstVersion
