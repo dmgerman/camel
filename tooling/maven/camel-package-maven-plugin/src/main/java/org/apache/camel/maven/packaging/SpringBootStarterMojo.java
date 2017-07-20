@@ -708,8 +708,6 @@ literal|"camel-blueprint"
 block|,
 literal|"camel-core-osgi"
 block|,
-literal|"camel-spring-dm"
-block|,
 literal|"camel-eventadmin"
 block|,
 literal|"camel-paxlogging"

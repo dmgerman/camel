@@ -516,27 +516,6 @@ range|:
 name|components
 control|)
 block|{
-comment|// skip camel-spring-dm
-if|if
-condition|(
-name|dir
-operator|.
-name|isDirectory
-argument_list|()
-operator|&&
-literal|"camel-spring-dm"
-operator|.
-name|equals
-argument_list|(
-name|dir
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-condition|)
-block|{
-continue|continue;
-block|}
 if|if
 condition|(
 name|dir
@@ -1048,27 +1027,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// skip camel-spring-dm
-if|if
-condition|(
-name|dir
-operator|.
-name|isDirectory
-argument_list|()
-operator|&&
-literal|"camel-spring-dm"
-operator|.
-name|equals
-argument_list|(
-name|dir
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-condition|)
-block|{
-continue|continue;
-block|}
 comment|// the directory must be in the list of known features
 if|if
 condition|(
@@ -1481,27 +1439,6 @@ range|:
 name|languages
 control|)
 block|{
-comment|// skip camel-spring-dm
-if|if
-condition|(
-name|dir
-operator|.
-name|isDirectory
-argument_list|()
-operator|&&
-literal|"camel-spring-dm"
-operator|.
-name|equals
-argument_list|(
-name|dir
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-condition|)
-block|{
-continue|continue;
-block|}
 comment|// the directory must be in the list of known features
 if|if
 condition|(
