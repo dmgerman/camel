@@ -44,6 +44,12 @@ name|THREAD_PROFILE_NAME
 init|=
 literal|"CamelOlingo4"
 decl_stmt|;
+DECL|field|RESPONSE_HTTP_HEADERS
+name|String
+name|RESPONSE_HTTP_HEADERS
+init|=
+literal|"responseHttpHeaders"
+decl_stmt|;
 block|}
 end_interface
 

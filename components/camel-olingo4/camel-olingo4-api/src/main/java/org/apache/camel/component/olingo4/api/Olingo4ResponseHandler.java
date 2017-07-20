@@ -20,6 +20,16 @@ name|api
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Callback interface to asynchronously process Olingo4 response.  */
 end_comment
@@ -33,13 +43,21 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Handle response data on successful completion of Olingo4 request.      * @param response response data from Olingo4, may be NULL for Olingo4 operations with no response data.      */
-DECL|method|onResponse (T response)
+comment|/**      * Handle response data on successful completion of Olingo4 request.      * @param response response data from Olingo4, may be NULL for Olingo4 operations with no response data.      * @param responseHeaders the response HTTP headers received from the endpoint.      */
+DECL|method|onResponse (T response, Map<String, String> responseHeaders)
 name|void
 name|onResponse
 parameter_list|(
 name|T
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|responseHeaders
 parameter_list|)
 function_decl|;
 comment|/**      * Handle exception raised from Olingo4 request.      * @param ex exception from Olingo4 request.      * May be an instance of {@link org.apache.olingo.commons.api.ex.ODataException} or      * some other exception, such as {@link java.io.IOException}      */

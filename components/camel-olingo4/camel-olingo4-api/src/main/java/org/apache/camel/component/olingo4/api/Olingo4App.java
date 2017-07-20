@@ -177,8 +177,8 @@ name|void
 name|close
 parameter_list|()
 function_decl|;
-comment|/**      * Reads an OData resource and invokes callback with appropriate result.      * @param edm Service Edm, read from calling<code>read(null, "$metdata", null, responseHandler)</code>      * @param resourcePath OData Resource path      * @param queryParams OData query params      *                    http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html#_Toc453752288      * @param responseHandler callback handler      */
-DECL|method|read (Edm edm, String resourcePath, Map<String, String> queryParams, Olingo4ResponseHandler<T> responseHandler)
+comment|/**      * Reads an OData resource and invokes callback with appropriate result.      * @param edm Service Edm, read from calling<code>read(null, "$metdata", null, responseHandler)</code>      * @param resourcePath OData Resource path      * @param queryParams OData query params      *                    http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html#_Toc453752288      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param responseHandler callback handler      */
+DECL|method|read (Edm edm, String resourcePath, Map<String, String> queryParams, Map<String, String> endpointHttpHeaders, Olingo4ResponseHandler<T> responseHandler)
 parameter_list|<
 name|T
 parameter_list|>
@@ -199,6 +199,14 @@ name|String
 argument_list|>
 name|queryParams
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+parameter_list|,
 name|Olingo4ResponseHandler
 argument_list|<
 name|T
@@ -206,8 +214,8 @@ argument_list|>
 name|responseHandler
 parameter_list|)
 function_decl|;
-comment|/**      * Reads an OData resource and invokes callback with the unparsed input stream.      * @param edm Service Edm, read from calling<code>read(null, "$metdata", null, responseHandler)</code>      * @param resourcePath OData Resource path      * @param queryParams OData query params      *                    http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html#_Toc453752288      * @param responseHandler callback handler      */
-DECL|method|uread (Edm edm, String resourcePath, Map<String, String> queryParams, Olingo4ResponseHandler<InputStream> responseHandler)
+comment|/**      * Reads an OData resource and invokes callback with the unparsed input stream.      * @param edm Service Edm, read from calling<code>read(null, "$metdata", null, responseHandler)</code>      * @param resourcePath OData Resource path      * @param queryParams OData query params      *                    http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html#_Toc453752288      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param responseHandler callback handler      */
+DECL|method|uread (Edm edm, String resourcePath, Map<String, String> queryParams, Map<String, String> endpointHttpHeaders, Olingo4ResponseHandler<InputStream> responseHandler)
 name|void
 name|uread
 parameter_list|(
@@ -225,6 +233,14 @@ name|String
 argument_list|>
 name|queryParams
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+parameter_list|,
 name|Olingo4ResponseHandler
 argument_list|<
 name|InputStream
@@ -232,13 +248,21 @@ argument_list|>
 name|responseHandler
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes an OData resource and invokes callback      * with {@link org.apache.olingo.commons.api.http.HttpStatusCode} on success, or with exception on failure.      * @param resourcePath resource path for Entry      * @param responseHandler {@link org.apache.olingo.commons.api.http.HttpStatusCode} callback handler      */
-DECL|method|delete (String resourcePath, Olingo4ResponseHandler<HttpStatusCode> responseHandler)
+comment|/**      * Deletes an OData resource and invokes callback      * with {@link org.apache.olingo.commons.api.http.HttpStatusCode} on success, or with exception on failure.      * @param resourcePath resource path for Entry      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param responseHandler {@link org.apache.olingo.commons.api.http.HttpStatusCode} callback handler      */
+DECL|method|delete (String resourcePath, Map<String, String> endpointHttpHeaders, Olingo4ResponseHandler<HttpStatusCode> responseHandler)
 name|void
 name|delete
 parameter_list|(
 name|String
 name|resourcePath
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
 parameter_list|,
 name|Olingo4ResponseHandler
 argument_list|<
@@ -247,8 +271,8 @@ argument_list|>
 name|responseHandler
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new OData resource.      * @param edm service Edm      * @param resourcePath resource path to create      * @param data request data      * @param responseHandler callback handler      */
-DECL|method|create (Edm edm, String resourcePath, Object data, Olingo4ResponseHandler<T> responseHandler)
+comment|/**      * Creates a new OData resource.      * @param edm service Edm      * @param resourcePath resource path to create      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param data request data      * @param responseHandler callback handler      */
+DECL|method|create (Edm edm, String resourcePath, Map<String, String> endpointHttpHeaders, Object data, Olingo4ResponseHandler<T> responseHandler)
 parameter_list|<
 name|T
 parameter_list|>
@@ -261,6 +285,14 @@ parameter_list|,
 name|String
 name|resourcePath
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+parameter_list|,
 name|Object
 name|data
 parameter_list|,
@@ -271,8 +303,8 @@ argument_list|>
 name|responseHandler
 parameter_list|)
 function_decl|;
-comment|/**      * Updates an OData resource.      * @param edm service Edm      * @param resourcePath resource path to update      * @param data updated data      * @param responseHandler {@link org.apache.olingo.client.api.domain.ClientEntity} callback handler      */
-DECL|method|update (Edm edm, String resourcePath, Object data, Olingo4ResponseHandler<T> responseHandler)
+comment|/**      * Updates an OData resource.      * @param edm service Edm      * @param resourcePath resource path to update      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param data updated data      * @param responseHandler {@link org.apache.olingo.client.api.domain.ClientEntity} callback handler      */
+DECL|method|update (Edm edm, String resourcePath, Map<String, String> endpointHttpHeaders, Object data, Olingo4ResponseHandler<T> responseHandler)
 parameter_list|<
 name|T
 parameter_list|>
@@ -285,6 +317,14 @@ parameter_list|,
 name|String
 name|resourcePath
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+parameter_list|,
 name|Object
 name|data
 parameter_list|,
@@ -295,8 +335,8 @@ argument_list|>
 name|responseHandler
 parameter_list|)
 function_decl|;
-comment|/**      * Patches/merges an OData resource using HTTP PATCH.      * @param edm service Edm      * @param resourcePath resource path to update      * @param data patch/merge data      * @param responseHandler {@link org.apache.olingo.client.api.domain.ClientEntity} callback handler      */
-DECL|method|patch (Edm edm, String resourcePath, Object data, Olingo4ResponseHandler<T> responseHandler)
+comment|/**      * Patches/merges an OData resource using HTTP PATCH.      * @param edm service Edm      * @param resourcePath resource path to update      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param data patch/merge data      * @param responseHandler {@link org.apache.olingo.client.api.domain.ClientEntity} callback handler      */
+DECL|method|patch (Edm edm, String resourcePath, Map<String, String> endpointHttpHeaders, Object data, Olingo4ResponseHandler<T> responseHandler)
 parameter_list|<
 name|T
 parameter_list|>
@@ -309,6 +349,14 @@ parameter_list|,
 name|String
 name|resourcePath
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+parameter_list|,
 name|Object
 name|data
 parameter_list|,
@@ -319,8 +367,8 @@ argument_list|>
 name|responseHandler
 parameter_list|)
 function_decl|;
-comment|/**      * Patches/merges an OData resource using HTTP MERGE.      * @param edm service Edm      * @param resourcePath resource path to update      * @param data patch/merge data      * @param responseHandler {@link org.apache.olingo.client.api.domain.ClientEntity} callback handler      */
-DECL|method|merge (Edm edm, String resourcePath, Object data, Olingo4ResponseHandler<T> responseHandler)
+comment|/**      * Patches/merges an OData resource using HTTP MERGE.      * @param edm service Edm      * @param resourcePath resource path to update      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param data patch/merge data      * @param responseHandler {@link org.apache.olingo.client.api.domain.ClientEntity} callback handler      */
+DECL|method|merge (Edm edm, String resourcePath, Map<String, String> endpointHttpHeaders, Object data, Olingo4ResponseHandler<T> responseHandler)
 parameter_list|<
 name|T
 parameter_list|>
@@ -333,6 +381,14 @@ parameter_list|,
 name|String
 name|resourcePath
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+parameter_list|,
 name|Object
 name|data
 parameter_list|,
@@ -343,13 +399,21 @@ argument_list|>
 name|responseHandler
 parameter_list|)
 function_decl|;
-comment|/**      * Executes a batch request.      * @param edm service Edm      * @param data ordered {@link org.apache.camel.component.olingo4.api.batch.Olingo4BatchRequest} list      * @param responseHandler callback handler      */
-DECL|method|batch (Edm edm, Object data, Olingo4ResponseHandler<List<Olingo4BatchResponse>> responseHandler)
+comment|/**      * Executes a batch request.      * @param edm service Edm      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param data ordered {@link org.apache.camel.component.olingo4.api.batch.Olingo4BatchRequest} list      * @param responseHandler callback handler      */
+DECL|method|batch (Edm edm, Map<String, String> endpointHttpHeaders, Object data, Olingo4ResponseHandler<List<Olingo4BatchResponse>> responseHandler)
 name|void
 name|batch
 parameter_list|(
 name|Edm
 name|edm
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
 parameter_list|,
 name|Object
 name|data

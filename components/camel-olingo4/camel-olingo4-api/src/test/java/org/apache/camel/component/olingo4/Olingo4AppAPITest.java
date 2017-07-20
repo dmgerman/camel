@@ -1175,6 +1175,8 @@ name|METADATA
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1358,6 +1360,8 @@ literal|""
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1440,6 +1444,8 @@ name|PEOPLE
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1516,6 +1522,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|PEOPLE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1613,6 +1621,8 @@ name|TEST_AIRLINE
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1666,6 +1676,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_PEOPLE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1756,6 +1768,8 @@ name|TEST_PEOPLE
 argument_list|,
 name|queryParams
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -1811,6 +1825,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_AIRLINE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1886,6 +1902,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_PEOPLE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1987,6 +2005,8 @@ name|TEST_PEOPLE
 argument_list|,
 name|queryParams
 argument_list|,
+literal|null
+argument_list|,
 name|responseHandler
 argument_list|)
 expr_stmt|;
@@ -2056,6 +2076,8 @@ name|TEST_AIRPORTS_SIMPLE_PROPERTY
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|propertyHandler
 argument_list|)
 expr_stmt|;
@@ -2116,6 +2138,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_AIRPORTS_SIMPLE_PROPERTY_VALUE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2210,6 +2234,8 @@ name|edm
 argument_list|,
 name|TEST_PEOPLE
 argument_list|,
+literal|null
+argument_list|,
 name|clientEntity
 argument_list|,
 name|statusHandler
@@ -2266,6 +2292,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_PEOPLE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2347,6 +2375,8 @@ name|COUNT_OPTION
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|countHandler
 argument_list|)
 expr_stmt|;
@@ -2410,6 +2440,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|PEOPLE
+argument_list|,
+literal|null
 argument_list|,
 name|createEntity
 argument_list|()
@@ -2490,6 +2522,8 @@ name|edm
 argument_list|,
 name|TEST_CREATE_PEOPLE
 argument_list|,
+literal|null
+argument_list|,
 name|updateEntity
 argument_list|,
 name|statusHandler
@@ -2543,6 +2577,8 @@ name|edm
 argument_list|,
 name|TEST_CREATE_PEOPLE
 argument_list|,
+literal|null
+argument_list|,
 name|updateEntity
 argument_list|,
 name|statusHandler
@@ -2565,6 +2601,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_CREATE_PEOPLE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2601,6 +2639,8 @@ operator|.
 name|delete
 argument_list|(
 name|TEST_CREATE_PEOPLE
+argument_list|,
+literal|null
 argument_list|,
 name|statusHandler
 argument_list|)
@@ -2651,6 +2691,8 @@ argument_list|(
 name|edm
 argument_list|,
 name|TEST_CREATE_PEOPLE
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -3017,6 +3059,8 @@ operator|.
 name|batch
 argument_list|(
 name|edm
+argument_list|,
+literal|null
 argument_list|,
 name|batchParts
 argument_list|,
@@ -3992,13 +4036,21 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|onResponse (T response)
+DECL|method|onResponse (T response, Map<String, String> responseHeaders)
 specifier|public
 name|void
 name|onResponse
 parameter_list|(
 name|T
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|responseHeaders
 parameter_list|)
 block|{
 name|this
