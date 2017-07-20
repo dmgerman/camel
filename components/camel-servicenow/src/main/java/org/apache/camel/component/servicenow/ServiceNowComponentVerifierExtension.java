@@ -128,40 +128,20 @@ end_import
 
 begin_class
 DECL|class|ServiceNowComponentVerifierExtension
-specifier|public
+specifier|final
 class|class
 name|ServiceNowComponentVerifierExtension
 extends|extends
 name|DefaultComponentVerifierExtension
 block|{
-DECL|field|component
-specifier|private
-specifier|final
-name|ServiceNowComponent
-name|component
-decl_stmt|;
-DECL|method|ServiceNowComponentVerifierExtension (ServiceNowComponent component)
+DECL|method|ServiceNowComponentVerifierExtension ()
 name|ServiceNowComponentVerifierExtension
-parameter_list|(
-name|ServiceNowComponent
-name|component
-parameter_list|)
+parameter_list|()
 block|{
 name|super
 argument_list|(
 literal|"servicenow"
-argument_list|,
-name|component
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|component
-operator|=
-name|component
 expr_stmt|;
 block|}
 comment|// *********************************

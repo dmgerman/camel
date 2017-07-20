@@ -208,6 +208,12 @@ name|ServiceNowComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * The ServiceNow instance name      */
+DECL|field|instanceName
+specifier|private
+name|String
+name|instanceName
+decl_stmt|;
 comment|/**      * The ServiceNow default configuration      */
 DECL|field|configuration
 specifier|private
@@ -266,6 +272,32 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getInstanceName ()
+specifier|public
+name|String
+name|getInstanceName
+parameter_list|()
+block|{
+return|return
+name|instanceName
+return|;
+block|}
+DECL|method|setInstanceName (String instanceName)
+specifier|public
+name|void
+name|setInstanceName
+parameter_list|(
+name|String
+name|instanceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|instanceName
+operator|=
+name|instanceName
+expr_stmt|;
+block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|ServiceNowConfigurationNestedConfiguration

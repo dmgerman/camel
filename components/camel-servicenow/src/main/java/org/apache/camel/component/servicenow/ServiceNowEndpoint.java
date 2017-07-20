@@ -204,7 +204,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"The ServiceNow instance name "
+literal|"The ServiceNow instance name"
 argument_list|)
 annotation|@
 name|Metadata

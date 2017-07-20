@@ -105,13 +105,11 @@ return|;
 block|}
 DECL|method|getVerifier ()
 specifier|protected
-name|ServiceNowComponentVerifierExtension
+name|ComponentVerifier
 name|getVerifier
 parameter_list|()
 block|{
-name|ServiceNowComponent
-name|component
-init|=
+return|return
 name|context
 argument_list|()
 operator|.
@@ -123,20 +121,9 @@ name|ServiceNowComponent
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|ServiceNowComponentVerifierExtension
-name|verifier
-init|=
-operator|(
-name|ServiceNowComponentVerifierExtension
-operator|)
-name|component
 operator|.
 name|getVerifier
 argument_list|()
-decl_stmt|;
-return|return
-name|verifier
 return|;
 block|}
 comment|// *********************************
