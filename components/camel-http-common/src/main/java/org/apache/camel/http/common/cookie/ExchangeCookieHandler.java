@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|CookiePolicy
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -54,6 +64,15 @@ name|ExchangeCookieHandler
 extends|extends
 name|BaseCookieHandler
 block|{
+DECL|field|cookiePolicy
+specifier|private
+name|CookiePolicy
+name|cookiePolicy
+init|=
+name|CookiePolicy
+operator|.
+name|ACCEPT_ORIGINAL_SERVER
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getCookieManager (Exchange exchange)
@@ -104,6 +123,13 @@ operator|new
 name|CookieManager
 argument_list|()
 decl_stmt|;
+name|handler
+operator|.
+name|setCookiePolicy
+argument_list|(
+name|cookiePolicy
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setProperty
@@ -119,6 +145,24 @@ return|return
 name|handler
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|setCookiePolicy (CookiePolicy cookiePolicy)
+specifier|public
+name|void
+name|setCookiePolicy
+parameter_list|(
+name|CookiePolicy
+name|cookiePolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cookiePolicy
+operator|=
+name|cookiePolicy
+expr_stmt|;
 block|}
 block|}
 end_class

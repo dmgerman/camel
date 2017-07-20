@@ -36,6 +36,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|CookiePolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|CookieStore
 import|;
 end_import
@@ -83,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The interface for cookie handling will allow components to handle cookies for  * HTTP requests.  *<p>  * Note: The usual cookie policies apply, so cookies will only be handled for  * fully qualified host names in the URI (not local host names like "myhost" or  * "localhost").  */
+comment|/**  * The interface for cookie handling will allow components to handle cookies for  * HTTP requests.  *<p>  * Note: The defined cookie policies apply. The default is  * CookiePolicy.ACCEPT_ORIGINAL_SERVER, so cookies will only be handled for  * fully qualified host names in the URI (not local host names like "myhost" or  * "localhost").  */
 end_comment
 
 begin_interface
@@ -146,6 +156,15 @@ name|getCookieStore
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Define a CookiePolicy for cookies stored by this CookieHandler      *       * @param cookiePolicy the CookiePolicy      */
+DECL|method|setCookiePolicy (CookiePolicy cookiePolicy)
+name|void
+name|setCookiePolicy
+parameter_list|(
+name|CookiePolicy
+name|cookiePolicy
 parameter_list|)
 function_decl|;
 block|}
