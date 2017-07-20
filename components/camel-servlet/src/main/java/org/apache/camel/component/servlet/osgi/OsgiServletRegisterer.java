@@ -124,7 +124,7 @@ specifier|private
 name|HttpServlet
 name|servlet
 decl_stmt|;
-comment|/**      * HttpService to register with. Get this with osgi:reference in the blueprint/spring-dm file      */
+comment|/**      * HttpService to register with. Get this with osgi:reference in the blueprint file      */
 DECL|field|httpService
 specifier|private
 name|HttpService

@@ -529,7 +529,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// fallback to default as spring-dm may have issues loading resources
+comment|// fallback to default as OSGi may have issues loading resources
 if|if
 condition|(
 name|answer
@@ -592,7 +592,7 @@ argument_list|(
 name|resolvedName
 argument_list|)
 decl_stmt|;
-comment|// fallback to default as spring-dm may have issues loading resources
+comment|// fallback to default as OSGi may have issues loading resources
 if|if
 condition|(
 name|answer
