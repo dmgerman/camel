@@ -216,6 +216,27 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|lumberjackServer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|doResume ()
 specifier|protected
 name|void
