@@ -390,11 +390,11 @@ literal|"2.3.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"http4,http4s"
+literal|"http4,https4"
 argument_list|,
 name|title
 operator|=
-literal|"HTTP4,HTTP4S"
+literal|"HTTP4,HTTPS4"
 argument_list|,
 name|syntax
 operator|=

@@ -531,7 +531,11 @@ name|Bean
 argument_list|(
 name|name
 operator|=
+block|{
 literal|"http4-component"
+block|,
+literal|"https4-component"
+block|}
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean

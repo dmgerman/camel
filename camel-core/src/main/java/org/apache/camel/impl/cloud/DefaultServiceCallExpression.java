@@ -358,7 +358,7 @@ condition|)
 block|{
 name|scheme
 operator|=
-literal|"http4s"
+literal|"https4"
 expr_stmt|;
 block|}
 else|else
