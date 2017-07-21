@@ -24,6 +24,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|charset
@@ -78,11 +88,13 @@ begin_import
 import|import
 name|com
 operator|.
-name|google
+name|fasterxml
 operator|.
-name|gson
+name|jackson
 operator|.
-name|Gson
+name|databind
+operator|.
+name|ObjectMapper
 import|;
 end_import
 
@@ -378,11 +390,15 @@ specifier|final
 name|LumberjackSessionHandler
 name|sessionHandler
 decl_stmt|;
-DECL|field|gson
+DECL|field|jackson
 specifier|private
 specifier|final
-name|Gson
-name|gson
+name|ObjectMapper
+name|jackson
+init|=
+operator|new
+name|ObjectMapper
+argument_list|()
 decl_stmt|;
 DECL|method|LumberjackFrameDecoder (LumberjackSessionHandler sessionHandler)
 name|LumberjackFrameDecoder
@@ -396,12 +412,6 @@ operator|.
 name|sessionHandler
 operator|=
 name|sessionHandler
-expr_stmt|;
-name|gson
-operator|=
-operator|new
-name|Gson
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -598,6 +608,8 @@ name|Object
 argument_list|>
 name|out
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -645,9 +657,9 @@ block|}
 name|Object
 name|jsonMessage
 init|=
-name|gson
+name|jackson
 operator|.
-name|fromJson
+name|readValue
 argument_list|(
 name|jsonStr
 argument_list|,
