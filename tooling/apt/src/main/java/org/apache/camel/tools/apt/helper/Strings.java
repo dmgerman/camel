@@ -434,6 +434,33 @@ condition|(
 name|upper
 condition|)
 block|{
+name|char
+name|prev
+init|=
+name|sb
+operator|.
+name|charAt
+argument_list|(
+name|sb
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|Character
+operator|.
+name|isUpperCase
+argument_list|(
+name|prev
+argument_list|)
+condition|)
+block|{
+comment|// append space if previous is not upper
 name|sb
 operator|.
 name|append
@@ -441,6 +468,7 @@ argument_list|(
 literal|' '
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append

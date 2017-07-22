@@ -44,6 +44,26 @@ name|helper
 operator|.
 name|Strings
 operator|.
+name|asTitle
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|helper
+operator|.
+name|Strings
+operator|.
 name|between
 import|;
 end_import
@@ -85,6 +105,45 @@ argument_list|,
 literal|"<"
 argument_list|,
 literal|">"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testAsTitle ()
+specifier|public
+name|void
+name|testAsTitle
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"Broker URL"
+argument_list|,
+name|asTitle
+argument_list|(
+literal|"brokerURL"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Expose All Queues"
+argument_list|,
+name|asTitle
+argument_list|(
+literal|"exposeAllQueues"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Reply To Concurrent Consumers"
+argument_list|,
+name|asTitle
+argument_list|(
+literal|"replyToConcurrentConsumers"
 argument_list|)
 argument_list|)
 expr_stmt|;
