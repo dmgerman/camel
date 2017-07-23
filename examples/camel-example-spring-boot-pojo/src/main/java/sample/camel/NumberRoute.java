@@ -75,7 +75,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:numbers"
+literal|"direct:numbers"
 argument_list|)
 expr_stmt|;
 block|}

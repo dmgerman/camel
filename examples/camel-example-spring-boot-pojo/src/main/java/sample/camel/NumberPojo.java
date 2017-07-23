@@ -81,7 +81,7 @@ name|Consume
 argument_list|(
 name|uri
 operator|=
-literal|"seda:numbers"
+literal|"direct:numbers"
 argument_list|,
 name|predicate
 operator|=
@@ -112,7 +112,7 @@ name|Consume
 argument_list|(
 name|uri
 operator|=
-literal|"seda:numbers"
+literal|"direct:numbers"
 argument_list|,
 name|predicate
 operator|=
