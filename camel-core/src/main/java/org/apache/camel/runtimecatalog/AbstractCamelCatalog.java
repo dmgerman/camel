@@ -5258,6 +5258,21 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// clip the scheme from the syntax
+name|String
+name|syntax
+init|=
+literal|""
+decl_stmt|;
+if|if
+condition|(
+name|originalSyntax
+operator|.
+name|contains
+argument_list|(
+literal|":"
+argument_list|)
+condition|)
+block|{
 name|originalSyntax
 operator|=
 name|after
@@ -5267,6 +5282,7 @@ argument_list|,
 literal|":"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// build at first according to syntax (use a tree map as we want the uri options sorted)
 name|Map
 argument_list|<
@@ -5282,11 +5298,6 @@ argument_list|<>
 argument_list|(
 name|properties
 argument_list|)
-decl_stmt|;
-name|String
-name|syntax
-init|=
-literal|""
 decl_stmt|;
 name|Matcher
 name|syntaxMatcher
