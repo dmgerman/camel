@@ -57,10 +57,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|CamelPostProcessorHelperConsumePredicateTest
+DECL|class|CamelPostProcessorHelperSedaConsumePredicateTest
 specifier|public
 class|class
-name|CamelPostProcessorHelperConsumePredicateTest
+name|CamelPostProcessorHelperSedaConsumePredicateTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -173,7 +173,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"17"
 argument_list|)
@@ -182,7 +182,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"219"
 argument_list|)
@@ -191,7 +191,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"89"
 argument_list|)
@@ -200,7 +200,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"112"
 argument_list|)
@@ -209,7 +209,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"39"
 argument_list|)
@@ -321,7 +321,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"17"
 argument_list|)
@@ -331,7 +331,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"-1"
 argument_list|)
@@ -340,7 +340,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 literal|"112"
 argument_list|)
@@ -359,7 +359,7 @@ name|Consume
 argument_list|(
 name|uri
 operator|=
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 name|predicate
 operator|=
@@ -389,7 +389,7 @@ name|Consume
 argument_list|(
 name|uri
 operator|=
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|,
 name|predicate
 operator|=

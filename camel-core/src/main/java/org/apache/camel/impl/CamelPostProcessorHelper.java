@@ -156,6 +156,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|MultipleConsumersSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoSuchBeanException
 import|;
 end_import
@@ -635,6 +647,31 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|boolean
+name|multipleConsumer
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|MultipleConsumersSupport
+condition|)
+block|{
+name|multipleConsumer
+operator|=
+operator|(
+operator|(
+name|MultipleConsumersSupport
+operator|)
+name|endpoint
+operator|)
+operator|.
+name|isMultipleConsumersSupported
+argument_list|()
+expr_stmt|;
+block|}
 try|try
 block|{
 name|SubscribeMethodProcessor
@@ -645,8 +682,11 @@ argument_list|(
 name|endpoint
 argument_list|)
 decl_stmt|;
+comment|// if multiple consumer then create a new consumer per subscribed method
 if|if
 condition|(
+name|multipleConsumer
+operator|||
 name|processor
 operator|==
 literal|null
@@ -714,7 +754,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// add to existing processor
+comment|// add method to existing processor
 name|processor
 operator|.
 name|addMethod
@@ -729,6 +769,13 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|predicate
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -742,6 +789,21 @@ argument_list|,
 name|predicate
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Subscribed method: {} to consume from endpoint: {}"
+argument_list|,
+name|method
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
