@@ -142,6 +142,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Optional predicate (using simple language) to only consume if the predicate matches .      * This can be used to filter messages.      *<p/>      * Notice that only the first method that matches the predicate will be used.      * And if no predicate matches then the message is dropped.      */
+DECL|method|predicate ()
+name|String
+name|predicate
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 

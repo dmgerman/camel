@@ -1198,6 +1198,24 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * Has the given service type already been added to this CamelContext?      *      * @param type the class type      * @return the services instance or empty set.      */
+DECL|method|hasServices (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Set
+argument_list|<
+name|T
+argument_list|>
+name|hasServices
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Defers starting the service until {@link CamelContext} is (almost started) or started and has initialized all its prior services and routes.      *<p/>      * If {@link CamelContext} is already started then the service is started immediately.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown. Setting this to<tt>true</tt> will keep a reference to the service in      *                       this {@link CamelContext} until the CamelContext is stopped. So do not use it for short lived services.      * @throws Exception can be thrown when starting the service, which is only attempted if {@link CamelContext} has already been started when calling this method.      */
 DECL|method|deferStartService (Object object, boolean stopOnShutdown)
 name|void
