@@ -1452,7 +1452,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created new ScheduledThreadPool for source: {} with name: {}. -> {}"
+literal|"Created new ScheduledThreadPool for source: {} with name: {} -> {}"
 argument_list|,
 name|source
 argument_list|,
