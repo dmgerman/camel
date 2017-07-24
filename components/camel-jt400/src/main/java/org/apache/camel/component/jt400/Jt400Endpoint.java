@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|MultipleConsumersSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -234,6 +246,8 @@ class|class
 name|Jt400Endpoint
 extends|extends
 name|ScheduledPollEndpoint
+implements|implements
+name|MultipleConsumersSupport
 block|{
 DECL|field|KEY
 specifier|public
@@ -1047,6 +1061,18 @@ argument_list|(
 name|readTimeout
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class
