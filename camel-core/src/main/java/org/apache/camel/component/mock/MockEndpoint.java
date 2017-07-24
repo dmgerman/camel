@@ -116,18 +116,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|CopyOnWriteArrayList
 import|;
 end_import
@@ -2657,7 +2645,7 @@ block|{
 name|expectedPropertyValues
 operator|=
 operator|new
-name|ConcurrentHashMap
+name|HashMap
 argument_list|<
 name|String
 argument_list|,
@@ -2666,14 +2654,6 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|value
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// ConcurrentHashMap cannot store null values
 name|expectedPropertyValues
 operator|.
 name|put
@@ -2683,7 +2663,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 name|expects
 argument_list|(
 operator|new
@@ -2756,7 +2735,7 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// we accept that an expectedValue of null also means that the header may be absent
+comment|// we accept that an expectedValue of null also means that the property may be absent
 if|if
 condition|(
 name|expectedValue
