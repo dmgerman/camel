@@ -316,6 +316,37 @@ name|GET_NODE_OPERATION
 init|=
 literal|"getNode"
 decl_stmt|;
+comment|// Deployments
+DECL|field|LIST_DEPLOYMENTS
+name|String
+name|LIST_DEPLOYMENTS
+init|=
+literal|"listDeployments"
+decl_stmt|;
+DECL|field|LIST_DEPLOYMENTS_BY_LABELS_OPERATION
+name|String
+name|LIST_DEPLOYMENTS_BY_LABELS_OPERATION
+init|=
+literal|"listDeploymentsByLabels"
+decl_stmt|;
+DECL|field|GET_DEPLOYMENT
+name|String
+name|GET_DEPLOYMENT
+init|=
+literal|"getDeployment"
+decl_stmt|;
+DECL|field|DELETE_DEPLOYMENT
+name|String
+name|DELETE_DEPLOYMENT
+init|=
+literal|"deleteDeployment"
+decl_stmt|;
+DECL|field|CREATE_DEPLOYMENT
+name|String
+name|CREATE_DEPLOYMENT
+init|=
+literal|"createDeployment"
+decl_stmt|;
 comment|// Config Maps
 DECL|field|LIST_CONFIGMAPS
 name|String
