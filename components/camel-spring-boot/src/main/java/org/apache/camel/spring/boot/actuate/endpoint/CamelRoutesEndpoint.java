@@ -318,6 +318,14 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
+comment|// is enabled by default
+name|this
+operator|.
+name|setEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
