@@ -84,6 +84,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -647,9 +657,7 @@ name|request
 operator|.
 name|getHeader
 argument_list|(
-name|Exchange
-operator|.
-name|ACCEPT_CONTENT_TYPE
+literal|"Accept"
 argument_list|)
 decl_stmt|;
 comment|// whether to use json or yaml
@@ -751,6 +759,13 @@ name|json
 operator|=
 name|accept
 operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+operator|.
 name|contains
 argument_list|(
 literal|"json"
@@ -759,6 +774,13 @@ expr_stmt|;
 name|yaml
 operator|=
 name|accept
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
 operator|.
 name|contains
 argument_list|(

@@ -94,6 +94,8 @@ name|AUTHENTICATION_FAILURE_POLICY_ID
 init|=
 literal|"CamelAuthenticationFailurePolicyId"
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|ACCEPT_CONTENT_TYPE
 name|String
 name|ACCEPT_CONTENT_TYPE
