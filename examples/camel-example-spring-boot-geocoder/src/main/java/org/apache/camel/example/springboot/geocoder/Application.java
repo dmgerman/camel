@@ -46,6 +46,10 @@ name|SpringBootApplication
 import|;
 end_import
 
+begin_comment
+comment|// CHECKSTYLE:OFF
+end_comment
+
 begin_class
 annotation|@
 name|SpringBootApplication
@@ -54,13 +58,6 @@ specifier|public
 class|class
 name|Application
 block|{
-comment|/*      * For  PMD HideUtilityClassConstructorCheck      */
-DECL|method|noop ()
-specifier|private
-name|void
-name|noop
-parameter_list|()
-block|{      }
 comment|/**      * Main method to start the application.      */
 DECL|method|main (String[] args)
 specifier|public
@@ -87,6 +84,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// CHECKSTYLE:ON
+end_comment
 
 end_unit
 

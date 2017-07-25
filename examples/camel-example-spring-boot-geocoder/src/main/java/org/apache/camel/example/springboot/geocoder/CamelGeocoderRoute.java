@@ -97,16 +97,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple Camel REST DSL route example using the Geocoder component and documented with Swagger  *   */
+comment|/**  * A simple Camel REST DSL route example using the Geocoder component and documented with Swagger  */
 end_comment
 
 begin_class
 annotation|@
 name|Component
-DECL|class|CamelRouter
+DECL|class|CamelGeocoderRoute
 specifier|public
 class|class
-name|CamelRouter
+name|CamelGeocoderRoute
 extends|extends
 name|RouteBuilder
 block|{
@@ -120,54 +120,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|restConfiguration
-argument_list|()
-operator|.
-name|component
-argument_list|(
-literal|"servlet"
-argument_list|)
-operator|.
-name|bindingMode
-argument_list|(
-name|RestBindingMode
-operator|.
-name|json
-argument_list|)
-operator|.
-name|dataFormatProperty
-argument_list|(
-literal|"prettyPrint"
-argument_list|,
-literal|"true"
-argument_list|)
-operator|.
-name|apiContextPath
-argument_list|(
-literal|"/api-doc"
-argument_list|)
-operator|.
-name|apiProperty
-argument_list|(
-literal|"api.title"
-argument_list|,
-literal|"Geocoder API"
-argument_list|)
-operator|.
-name|apiProperty
-argument_list|(
-literal|"api.version"
-argument_list|,
-literal|"1.0.0"
-argument_list|)
-operator|.
-name|apiProperty
-argument_list|(
-literal|"cors"
-argument_list|,
-literal|"true"
-argument_list|)
-expr_stmt|;
+comment|// rest-dsl is also configured in the application.properties file
 name|rest
 argument_list|(
 literal|"/geocoder"
@@ -244,6 +197,7 @@ argument_list|)
 operator|.
 name|endResponseMessage
 argument_list|()
+comment|// call the geocoder to lookup details from the provided address
 operator|.
 name|toD
 argument_list|(

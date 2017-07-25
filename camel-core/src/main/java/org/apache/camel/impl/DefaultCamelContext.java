@@ -15993,37 +15993,13 @@ name|RestConfiguration
 name|getRestConfiguration
 parameter_list|()
 block|{
-name|RestConfiguration
-name|config
-init|=
+return|return
 name|restConfigurations
 operator|.
 name|get
 argument_list|(
 literal|""
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|config
-operator|==
-literal|null
-condition|)
-block|{
-name|config
-operator|=
-operator|new
-name|RestConfiguration
-argument_list|()
-expr_stmt|;
-name|setRestConfiguration
-argument_list|(
-name|config
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|config
 return|;
 block|}
 DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
@@ -16126,6 +16102,7 @@ operator|&&
 name|defaultIfNotExist
 condition|)
 block|{
+comment|// grab the default configuration
 name|config
 operator|=
 name|getRestConfiguration
@@ -16134,9 +16111,10 @@ expr_stmt|;
 if|if
 condition|(
 name|config
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
+operator|(
 name|config
 operator|.
 name|getComponent
@@ -16154,6 +16132,7 @@ name|equals
 argument_list|(
 name|component
 argument_list|)
+operator|)
 condition|)
 block|{
 name|config
