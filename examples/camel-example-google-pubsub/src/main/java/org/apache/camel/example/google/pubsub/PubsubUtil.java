@@ -213,7 +213,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"application.properties"
+literal|"example.properties"
 argument_list|)
 decl_stmt|;
 try|try

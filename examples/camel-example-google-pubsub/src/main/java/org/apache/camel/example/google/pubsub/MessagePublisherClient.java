@@ -257,7 +257,7 @@ name|pc
 operator|.
 name|setLocation
 argument_list|(
-literal|"classpath:application.properties"
+literal|"classpath:example.properties"
 argument_list|)
 expr_stmt|;
 comment|// setup google pubsub component
