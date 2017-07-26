@@ -1387,6 +1387,17 @@ name|props
 operator|.
 name|put
 argument_list|(
+name|ProducerConfig
+operator|.
+name|ENABLE_IDEMPOTENCE_CONFIG
+argument_list|,
+literal|"false"
+argument_list|)
+expr_stmt|;
+name|props
+operator|.
+name|put
+argument_list|(
 name|CommonClientConfigs
 operator|.
 name|SECURITY_PROTOCOL_CONFIG

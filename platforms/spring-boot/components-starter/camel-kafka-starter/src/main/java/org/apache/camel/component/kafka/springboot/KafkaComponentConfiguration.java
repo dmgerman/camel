@@ -972,6 +972,14 @@ specifier|private
 name|String
 name|interceptorClasses
 decl_stmt|;
+comment|/**          * If set to 'true' the producer will ensure that exactly one copy of          * each message is written in the stream. If 'false', producer retries          * may write duplicates of the retried message in the stream. If set to          * true this option will require max.in.flight.requests.per.connection          * to be set to 1 and retries cannot be zero and additionally acks must          * be set to 'all'.          */
+DECL|field|enableIdempotence
+specifier|private
+name|Boolean
+name|enableIdempotence
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getGroupId ()
 specifier|public
 name|String
@@ -3076,6 +3084,32 @@ operator|.
 name|interceptorClasses
 operator|=
 name|interceptorClasses
+expr_stmt|;
+block|}
+DECL|method|getEnableIdempotence ()
+specifier|public
+name|Boolean
+name|getEnableIdempotence
+parameter_list|()
+block|{
+return|return
+name|enableIdempotence
+return|;
+block|}
+DECL|method|setEnableIdempotence (Boolean enableIdempotence)
+specifier|public
+name|void
+name|setEnableIdempotence
+parameter_list|(
+name|Boolean
+name|enableIdempotence
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableIdempotence
+operator|=
+name|enableIdempotence
 expr_stmt|;
 block|}
 block|}
