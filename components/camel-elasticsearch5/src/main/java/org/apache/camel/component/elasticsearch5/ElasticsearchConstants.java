@@ -97,6 +97,27 @@ init|=
 literal|1
 decl_stmt|;
 comment|// Meaning only wait for the primary shard
+DECL|field|DEFAULT_PING_SCHEDULE
+name|String
+name|DEFAULT_PING_SCHEDULE
+init|=
+literal|"5s"
+decl_stmt|;
+comment|// Meaning how often it should ping the cluster
+DECL|field|DEFAULT_PING_TIMEOUT
+name|String
+name|DEFAULT_PING_TIMEOUT
+init|=
+literal|"5s"
+decl_stmt|;
+comment|// Meaning how long to wait for ping before timeout
+DECL|field|DEFAULT_TCP_CONNECT_TIMEOUT
+name|String
+name|DEFAULT_TCP_CONNECT_TIMEOUT
+init|=
+literal|"30s"
+decl_stmt|;
+comment|// Meaning how many seconds before it timeout when establish connection
 DECL|field|TRANSPORT_ADDRESSES_SEPARATOR_REGEX
 name|String
 name|TRANSPORT_ADDRESSES_SEPARATOR_REGEX

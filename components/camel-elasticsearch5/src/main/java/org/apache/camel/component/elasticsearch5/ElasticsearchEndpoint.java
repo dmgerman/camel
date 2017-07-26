@@ -116,6 +116,20 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|transport
+operator|.
+name|TransportClient
+import|;
+end_import
+
 begin_comment
 comment|/**  * The elasticsearch component is used for interfacing with ElasticSearch server using 5.x API.  */
 end_comment
@@ -171,6 +185,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|client
+specifier|private
+name|TransportClient
+name|client
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|configuration
@@ -179,7 +198,7 @@ specifier|final
 name|ElasticsearchConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|ElasticsearchEndpoint (String uri, ElasticsearchComponent component, ElasticsearchConfiguration config)
+DECL|method|ElasticsearchEndpoint (String uri, ElasticsearchComponent component, ElasticsearchConfiguration config, TransportClient client)
 specifier|public
 name|ElasticsearchEndpoint
 parameter_list|(
@@ -191,6 +210,9 @@ name|component
 parameter_list|,
 name|ElasticsearchConfiguration
 name|config
+parameter_list|,
+name|TransportClient
+name|client
 parameter_list|)
 throws|throws
 name|Exception
@@ -207,6 +229,12 @@ operator|.
 name|configuration
 operator|=
 name|config
+expr_stmt|;
+name|this
+operator|.
+name|client
+operator|=
+name|client
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
@@ -257,6 +285,16 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|getClient ()
+specifier|public
+name|TransportClient
+name|getClient
+parameter_list|()
+block|{
+return|return
+name|client
 return|;
 block|}
 block|}

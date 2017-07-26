@@ -385,7 +385,7 @@ argument_list|(
 literal|"target/testcluster/"
 argument_list|)
 operator|.
-name|useLogger
+name|disableESLogger
 argument_list|()
 argument_list|)
 expr_stmt|;
