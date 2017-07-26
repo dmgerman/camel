@@ -3014,6 +3014,22 @@ operator|=
 literal|"java.util.Map<java.lang.String, java.lang.String>"
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"java.util.List<org.apache.camel.model.rest.RestPropertyDefinition>"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+name|type
+operator|=
+literal|"java.util.Map<java.lang.String, java.lang.Object>"
+expr_stmt|;
+block|}
 if|if
 condition|(
 literal|"enableCORS"
@@ -3507,6 +3523,13 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
+literal|"org.apache.camel.util.CollectionHelper"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
 literal|"org.apache.camel.util.IntrospectionSupport"
 argument_list|)
 expr_stmt|;
@@ -3703,6 +3726,39 @@ operator|+
 literal|"definition.setEnableCORS(config.getEnableCors());\n"
 operator|+
 literal|"\n"
+operator|+
+literal|"if (config.getApiProperty() != null) {\n"
+operator|+
+literal|"    definition.setApiProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getApiProperty(), \".\")));\n"
+operator|+
+literal|"}\n"
+operator|+
+literal|"if (config.getComponentProperty() != null) {\n"
+operator|+
+literal|"    definition.setComponentProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getComponentProperty(), \".\")));\n"
+operator|+
+literal|"}\n"
+operator|+
+literal|"if (config.getConsumerProperty() != null) {\n"
+operator|+
+literal|"    definition.setConsumerProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getConsumerProperty(), \".\")));\n"
+operator|+
+literal|"}\n"
+comment|//            + "if (config.getCorsHeaders() != null) {\n"
+comment|//            + "    definition.setCorsHeaders(new HashMap<>(config.getCorsHeaders()));\n"
+comment|//            + "}\n"
+operator|+
+literal|"if (config.getDataFormatProperty() != null) {\n"
+operator|+
+literal|"    definition.setDataFormatProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getDataFormatProperty(), \".\")));\n"
+operator|+
+literal|"}\n"
+operator|+
+literal|"if (config.getEndpointProperty() != null) {\n"
+operator|+
+literal|"    definition.setEndpointProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getEndpointProperty(), \".\")));\n"
+operator|+
+literal|"}\n"
 operator|+
 literal|"return definition;"
 argument_list|)

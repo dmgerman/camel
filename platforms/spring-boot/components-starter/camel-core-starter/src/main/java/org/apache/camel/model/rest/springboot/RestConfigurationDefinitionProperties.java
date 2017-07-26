@@ -26,7 +26,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Map
 import|;
 end_import
 
@@ -69,22 +69,6 @@ operator|.
 name|rest
 operator|.
 name|RestHostNameResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|rest
-operator|.
-name|RestPropertyDefinition
 import|;
 end_import
 
@@ -245,54 +229,66 @@ decl_stmt|;
 comment|/**      * Allows to configure as many additional properties for the rest component      * in use.      */
 DECL|field|componentProperty
 specifier|private
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|componentProperty
 decl_stmt|;
 comment|/**      * Allows to configure as many additional properties for the rest endpoint      * in use.      */
 DECL|field|endpointProperty
 specifier|private
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|endpointProperty
 decl_stmt|;
 comment|/**      * Allows to configure as many additional properties for the rest consumer      * in use.      */
 DECL|field|consumerProperty
 specifier|private
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|consumerProperty
 decl_stmt|;
 comment|/**      * Allows to configure as many additional properties for the data formats in      * use. For example set property prettyPrint to true to have json outputted      * in pretty mode. The properties can be prefixed to denote the option is      * only for either JSON or XML and for either the IN or the OUT. The      * prefixes are: json.in. json.out. xml.in. xml.out. For example a key with      * value xml.out.mustBeJAXBElement is only for the XML data format for the      * outgoing. A key without a prefix is a common key for all situations.      */
 DECL|field|dataFormatProperty
 specifier|private
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|dataFormatProperty
 decl_stmt|;
 comment|/**      * Allows to configure as many additional properties for the api      * documentation (swagger). For example set property api.title to my cool      * stuff      */
 DECL|field|apiProperty
 specifier|private
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|apiProperty
 decl_stmt|;
 comment|/**      * Allows to configure custom CORS headers.      */
 DECL|field|corsHeaders
 specifier|private
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|corsHeaders
 decl_stmt|;
@@ -766,9 +762,11 @@ expr_stmt|;
 block|}
 DECL|method|getComponentProperty ()
 specifier|public
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|getComponentProperty
 parameter_list|()
@@ -777,14 +775,16 @@ return|return
 name|componentProperty
 return|;
 block|}
-DECL|method|setComponentProperty ( List<RestPropertyDefinition> componentProperty)
+DECL|method|setComponentProperty (Map<String, Object> componentProperty)
 specifier|public
 name|void
 name|setComponentProperty
 parameter_list|(
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|componentProperty
 parameter_list|)
@@ -798,9 +798,11 @@ expr_stmt|;
 block|}
 DECL|method|getEndpointProperty ()
 specifier|public
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|getEndpointProperty
 parameter_list|()
@@ -809,14 +811,16 @@ return|return
 name|endpointProperty
 return|;
 block|}
-DECL|method|setEndpointProperty ( List<RestPropertyDefinition> endpointProperty)
+DECL|method|setEndpointProperty (Map<String, Object> endpointProperty)
 specifier|public
 name|void
 name|setEndpointProperty
 parameter_list|(
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|endpointProperty
 parameter_list|)
@@ -830,9 +834,11 @@ expr_stmt|;
 block|}
 DECL|method|getConsumerProperty ()
 specifier|public
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|getConsumerProperty
 parameter_list|()
@@ -841,14 +847,16 @@ return|return
 name|consumerProperty
 return|;
 block|}
-DECL|method|setConsumerProperty ( List<RestPropertyDefinition> consumerProperty)
+DECL|method|setConsumerProperty (Map<String, Object> consumerProperty)
 specifier|public
 name|void
 name|setConsumerProperty
 parameter_list|(
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|consumerProperty
 parameter_list|)
@@ -862,9 +870,11 @@ expr_stmt|;
 block|}
 DECL|method|getDataFormatProperty ()
 specifier|public
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|getDataFormatProperty
 parameter_list|()
@@ -873,14 +883,16 @@ return|return
 name|dataFormatProperty
 return|;
 block|}
-DECL|method|setDataFormatProperty ( List<RestPropertyDefinition> dataFormatProperty)
+DECL|method|setDataFormatProperty (Map<String, Object> dataFormatProperty)
 specifier|public
 name|void
 name|setDataFormatProperty
 parameter_list|(
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|dataFormatProperty
 parameter_list|)
@@ -894,9 +906,11 @@ expr_stmt|;
 block|}
 DECL|method|getApiProperty ()
 specifier|public
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|getApiProperty
 parameter_list|()
@@ -905,14 +919,16 @@ return|return
 name|apiProperty
 return|;
 block|}
-DECL|method|setApiProperty (List<RestPropertyDefinition> apiProperty)
+DECL|method|setApiProperty (Map<String, Object> apiProperty)
 specifier|public
 name|void
 name|setApiProperty
 parameter_list|(
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|apiProperty
 parameter_list|)
@@ -926,9 +942,11 @@ expr_stmt|;
 block|}
 DECL|method|getCorsHeaders ()
 specifier|public
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|getCorsHeaders
 parameter_list|()
@@ -937,14 +955,16 @@ return|return
 name|corsHeaders
 return|;
 block|}
-DECL|method|setCorsHeaders (List<RestPropertyDefinition> corsHeaders)
+DECL|method|setCorsHeaders (Map<String, Object> corsHeaders)
 specifier|public
 name|void
 name|setCorsHeaders
 parameter_list|(
-name|List
+name|Map
 argument_list|<
-name|RestPropertyDefinition
+name|String
+argument_list|,
+name|Object
 argument_list|>
 name|corsHeaders
 parameter_list|)
