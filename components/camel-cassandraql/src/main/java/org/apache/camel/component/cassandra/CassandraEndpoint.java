@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 import|;
 end_import
 
@@ -289,7 +289,7 @@ specifier|public
 class|class
 name|CassandraEndpoint
 extends|extends
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 block|{
 DECL|field|sessionHolder
 specifier|private
@@ -509,7 +509,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|CassandraConsumer
+name|consumer
+init|=
 operator|new
 name|CassandraConsumer
 argument_list|(
@@ -517,6 +519,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 DECL|method|isSingleton ()
