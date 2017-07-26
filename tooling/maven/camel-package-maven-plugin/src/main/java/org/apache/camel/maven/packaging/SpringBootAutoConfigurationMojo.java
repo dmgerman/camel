@@ -3744,9 +3744,6 @@ operator|+
 literal|"    definition.setConsumerProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getConsumerProperty(), \".\")));\n"
 operator|+
 literal|"}\n"
-comment|//            + "if (config.getCorsHeaders() != null) {\n"
-comment|//            + "    definition.setCorsHeaders(new HashMap<>(config.getCorsHeaders()));\n"
-comment|//            + "}\n"
 operator|+
 literal|"if (config.getDataFormatProperty() != null) {\n"
 operator|+
@@ -3757,6 +3754,18 @@ operator|+
 literal|"if (config.getEndpointProperty() != null) {\n"
 operator|+
 literal|"    definition.setEndpointProperties(new HashMap<>(CollectionHelper.flatternKeysInMap(config.getEndpointProperty(), \".\")));\n"
+operator|+
+literal|"}\n"
+operator|+
+literal|"if (config.getCorsHeaders() != null) {\n"
+operator|+
+literal|"    Map<String, Object> map = CollectionHelper.flatternKeysInMap(config.getCorsHeaders(), \".\");\n"
+operator|+
+literal|"    Map<String, String> target = new HashMap<>();\n"
+operator|+
+literal|"    map.forEach((k, v) -> target.put(k, v.toString()));\n"
+operator|+
+literal|"    definition.setCorsHeaders(target);\n"
 operator|+
 literal|"}\n"
 operator|+
