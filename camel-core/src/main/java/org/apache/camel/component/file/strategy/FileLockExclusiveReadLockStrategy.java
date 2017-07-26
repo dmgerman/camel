@@ -267,7 +267,7 @@ name|readLockLoggingLevel
 init|=
 name|LoggingLevel
 operator|.
-name|WARN
+name|DEBUG
 decl_stmt|;
 annotation|@
 name|Override
