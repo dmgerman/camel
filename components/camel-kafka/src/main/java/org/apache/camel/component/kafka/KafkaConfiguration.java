@@ -1443,8 +1443,6 @@ DECL|field|enableIdempotence
 specifier|private
 name|boolean
 name|enableIdempotence
-init|=
-literal|false
 decl_stmt|;
 comment|// SSL
 annotation|@
