@@ -127,6 +127,7 @@ operator|=
 literal|"_tcp"
 argument_list|)
 DECL|field|proto
+specifier|private
 name|String
 name|proto
 init|=
@@ -135,6 +136,7 @@ decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|domain
+specifier|private
 name|String
 name|domain
 decl_stmt|;
