@@ -208,14 +208,14 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"true"
+literal|"false"
 argument_list|)
 DECL|field|clientTransportSniff
 specifier|private
 name|Boolean
 name|clientTransportSniff
 init|=
-literal|true
+literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -317,10 +317,10 @@ name|defaultValue
 operator|=
 literal|"false"
 argument_list|)
-DECL|field|enabledSSL
+DECL|field|enableSSL
 specifier|private
 name|Boolean
-name|enabledSSL
+name|enableSSL
 init|=
 literal|false
 decl_stmt|;
@@ -735,30 +735,30 @@ name|password
 expr_stmt|;
 block|}
 comment|/**      * Enable SSL      */
-DECL|method|getEnabledSSL ()
+DECL|method|getEnableSSL ()
 specifier|public
 name|Boolean
-name|getEnabledSSL
+name|getEnableSSL
 parameter_list|()
 block|{
 return|return
-name|enabledSSL
+name|enableSSL
 return|;
 block|}
-DECL|method|setEnabledSSL (Boolean enabledSSL)
+DECL|method|setEnableSSL (Boolean enableSSL)
 specifier|public
 name|void
-name|setEnabledSSL
+name|setEnableSSL
 parameter_list|(
 name|Boolean
-name|enabledSSL
+name|enableSSL
 parameter_list|)
 block|{
 name|this
 operator|.
-name|enabledSSL
+name|enableSSL
 operator|=
-name|enabledSSL
+name|enableSSL
 expr_stmt|;
 block|}
 comment|/**      * The time(in unit) to wait for a ping response from a node too return.      */
