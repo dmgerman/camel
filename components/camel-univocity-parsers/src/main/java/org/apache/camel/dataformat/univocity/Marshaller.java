@@ -187,6 +187,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+synchronized|synchronized
+init|(
+name|this
+operator|.
+name|headers
+init|)
+block|{
 name|this
 operator|.
 name|headers
@@ -201,6 +208,7 @@ name|headers
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|this
 operator|.
@@ -347,6 +355,11 @@ name|keySet
 argument_list|()
 control|)
 block|{
+synchronized|synchronized
+init|(
+name|headers
+init|)
+block|{
 name|headers
 operator|.
 name|add
@@ -363,6 +376,7 @@ name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|Object
