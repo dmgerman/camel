@@ -3127,34 +3127,6 @@ name|routeController
 argument_list|)
 expr_stmt|;
 block|}
-comment|// rest-dsl global configuration
-name|RestConfiguration
-name|restConfiguration
-init|=
-name|getSingleBeanOfType
-argument_list|(
-name|applicationContext
-argument_list|,
-name|RestConfiguration
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|restConfiguration
-operator|!=
-literal|null
-condition|)
-block|{
-name|camelContext
-operator|.
-name|setRestConfiguration
-argument_list|(
-name|restConfiguration
-argument_list|)
-expr_stmt|;
-block|}
 comment|// set the default thread pool profile if defined
 name|initThreadPoolProfiles
 argument_list|(
