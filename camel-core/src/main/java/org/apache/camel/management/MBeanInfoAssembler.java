@@ -446,6 +446,13 @@ name|Exception
 block|{
 if|if
 condition|(
+name|cache
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -485,13 +492,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|cache
-operator|!=
-literal|null
-condition|)
-block|{
 name|cache
 operator|.
 name|clear
