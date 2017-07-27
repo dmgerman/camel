@@ -142,16 +142,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|activation
@@ -1953,7 +1943,7 @@ argument_list|)
 decl_stmt|;
 name|httpExchange
 operator|.
-name|setResponseCode
+name|setStatusCode
 argument_list|(
 name|code
 argument_list|)
