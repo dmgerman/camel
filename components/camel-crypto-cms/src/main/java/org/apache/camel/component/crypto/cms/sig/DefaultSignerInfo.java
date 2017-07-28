@@ -302,7 +302,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"sign,advanced"
+literal|"sign"
 argument_list|)
 DECL|field|signedAttributeGenerator
 specifier|private
@@ -318,7 +318,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"sign,advanced"
+literal|"sign"
 argument_list|,
 name|defaultValue
 operator|=

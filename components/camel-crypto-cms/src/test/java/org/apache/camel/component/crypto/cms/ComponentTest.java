@@ -600,8 +600,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// optional default
-comment|// value is true
 name|signerInfo
 operator|.
 name|setSignatureAlgorithm
@@ -609,7 +607,6 @@ argument_list|(
 literal|"SHA256withRSA"
 argument_list|)
 expr_stmt|;
-comment|// mandatory
 name|signerInfo
 operator|.
 name|setPrivateKeyAlias
@@ -651,21 +648,6 @@ operator|.
 name|setKeyStoreParameters
 argument_list|(
 name|keystore
-argument_list|)
-expr_stmt|;
-name|getContext
-argument_list|()
-operator|.
-name|addComponent
-argument_list|(
-literal|"crypto-cms"
-argument_list|,
-operator|new
-name|CryptoCmsComponent
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|simpleReg

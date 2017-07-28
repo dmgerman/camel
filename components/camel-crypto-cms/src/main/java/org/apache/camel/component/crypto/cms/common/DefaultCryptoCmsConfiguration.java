@@ -149,7 +149,7 @@ specifier|private
 name|KeyStore
 name|keyStore
 decl_stmt|;
-comment|/**      * Keystore containing signer private keys verifier public keys, encryptor      * public keys, decryptor private keys depending on the operation. Use      * either this parameter or the parameter 'keystore'.      */
+comment|/**      * Keystore containing signer private keys, verifier public keys, encryptor      * public keys, decryptor private keys depending on the operation. Use      * either this parameter or the parameter 'keystore'.      */
 DECL|method|setKeyStoreParameters (KeyStoreParameters keyStoreParameters)
 specifier|public
 name|void

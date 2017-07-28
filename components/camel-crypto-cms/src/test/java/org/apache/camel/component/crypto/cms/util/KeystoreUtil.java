@@ -105,7 +105,7 @@ else|else
 block|{
 name|pw
 operator|=
-literal|""
+literal|"Abcd1234"
 expr_stmt|;
 block|}
 name|keystorePas
