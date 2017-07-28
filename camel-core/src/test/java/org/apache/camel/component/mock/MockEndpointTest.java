@@ -928,7 +928,7 @@ try|try
 block|{
 name|resultEndpoint
 operator|.
-name|assertIsNotSatisfied
+name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|fail
@@ -945,7 +945,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"mock://result Expected 2 properties with key[bar], received 1 properties. Expected property values: [456]"
+literal|"mock://result Expected 2 properties with key[foo], received 1 properties. Expected property values: [456]"
 argument_list|,
 name|e
 operator|.
