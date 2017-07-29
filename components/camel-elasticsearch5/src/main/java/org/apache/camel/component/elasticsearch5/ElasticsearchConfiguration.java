@@ -680,7 +680,7 @@ operator|=
 name|tcpCompress
 expr_stmt|;
 block|}
-comment|/**      *  User for authenticate against the cluster. Requires "transport_client" role      *  for accessing the cluster      */
+comment|/**      *  User for authenticate against the cluster. Requires "transport_client" role      *  for accessing the cluster. Require XPack client jar on the classpath      */
 DECL|method|getUser ()
 specifier|public
 name|String
@@ -707,7 +707,7 @@ operator|=
 name|user
 expr_stmt|;
 block|}
-comment|/**      *  Password for authenticate against the cluster      */
+comment|/**      *  Password for authenticate against the cluster. Require XPack client jar on the classpath      */
 DECL|method|getPassword ()
 specifier|public
 name|String
@@ -734,7 +734,7 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-comment|/**      * Enable SSL      */
+comment|/**      * Enable SSL. Require XPack client jar on the classpath      */
 DECL|method|getEnableSSL ()
 specifier|public
 name|Boolean

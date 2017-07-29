@@ -216,11 +216,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|xpack
+name|transport
 operator|.
 name|client
 operator|.
-name|PreBuiltXPackTransportClient
+name|PreBuiltTransportClient
 import|;
 end_import
 
@@ -397,7 +397,7 @@ expr_stmt|;
 name|client
 operator|=
 operator|new
-name|PreBuiltXPackTransportClient
+name|PreBuiltTransportClient
 argument_list|(
 name|Settings
 operator|.
