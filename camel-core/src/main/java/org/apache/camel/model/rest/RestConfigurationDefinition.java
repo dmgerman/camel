@@ -268,6 +268,13 @@ name|host
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|apiHost
+specifier|private
+name|String
+name|apiHost
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|port
 specifier|private
 name|String
@@ -706,6 +713,33 @@ operator|.
 name|host
 operator|=
 name|host
+expr_stmt|;
+block|}
+DECL|method|getApiHost ()
+specifier|public
+name|String
+name|getApiHost
+parameter_list|()
+block|{
+return|return
+name|apiHost
+return|;
+block|}
+comment|/**      * To use an specific hostname for the API documentation (eg swagger)      *<p/>      * This can be used to override the generated host with this configured hostname      */
+DECL|method|setApiHost (String apiHost)
+specifier|public
+name|void
+name|setApiHost
+parameter_list|(
+name|String
+name|apiHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiHost
+operator|=
+name|apiHost
 expr_stmt|;
 block|}
 DECL|method|getPort ()
@@ -1346,6 +1380,25 @@ name|host
 parameter_list|)
 block|{
 name|setHost
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To define a specific host to use for API documentation (eg swagger) instead      * of using a generated API hostname that is relative to the REST service host.      */
+DECL|method|apiHost (String host)
+specifier|public
+name|RestConfigurationDefinition
+name|apiHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|setApiHost
 argument_list|(
 name|host
 argument_list|)
@@ -2049,6 +2102,28 @@ argument_list|(
 name|context
 argument_list|,
 name|host
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|apiHost
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setApiHost
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|context
+argument_list|,
+name|apiHost
 argument_list|)
 argument_list|)
 expr_stmt|;

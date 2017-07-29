@@ -1176,6 +1176,17 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+comment|// setup host if not configured
+if|if
+condition|(
+name|swaggerConfig
+operator|.
+name|getHost
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 name|swaggerConfig
 operator|.
 name|setHost
@@ -1234,6 +1245,7 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|swaggerConfig
 operator|.

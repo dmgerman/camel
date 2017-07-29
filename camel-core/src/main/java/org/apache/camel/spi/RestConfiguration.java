@@ -136,6 +136,11 @@ specifier|private
 name|String
 name|host
 decl_stmt|;
+DECL|field|apiHost
+specifier|private
+name|String
+name|apiHost
+decl_stmt|;
 DECL|field|port
 specifier|private
 name|int
@@ -404,6 +409,33 @@ operator|.
 name|host
 operator|=
 name|host
+expr_stmt|;
+block|}
+DECL|method|getApiHost ()
+specifier|public
+name|String
+name|getApiHost
+parameter_list|()
+block|{
+return|return
+name|apiHost
+return|;
+block|}
+comment|/**      * To use an specific hostname for the API documentation (eg swagger)      *<p/>      * This can be used to override the generated host with this configured hostname      */
+DECL|method|setApiHost (String apiHost)
+specifier|public
+name|void
+name|setApiHost
+parameter_list|(
+name|String
+name|apiHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiHost
+operator|=
+name|apiHost
 expr_stmt|;
 block|}
 comment|/**      * Gets the scheme to use by the REST consumer      *      * @return the scheme, or<tt>null</tt> to use default scheme      */

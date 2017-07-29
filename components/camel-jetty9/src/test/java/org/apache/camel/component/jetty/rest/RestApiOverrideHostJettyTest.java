@@ -77,10 +77,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RestApiJettyTest
+DECL|class|RestApiOverrideHostJettyTest
 specifier|public
 class|class
-name|RestApiJettyTest
+name|RestApiOverrideHostJettyTest
 extends|extends
 name|BaseJettyTest
 block|{
@@ -127,6 +127,15 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|out
@@ -153,12 +162,7 @@ name|out
 operator|.
 name|contains
 argument_list|(
-literal|"\"host\" : \"localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"\""
+literal|"\"host\" : \"mycoolserver/myapi\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -239,6 +243,11 @@ operator|.
 name|apiContextPath
 argument_list|(
 literal|"/api-doc"
+argument_list|)
+operator|.
+name|apiHost
+argument_list|(
+literal|"mycoolserver/myapi"
 argument_list|)
 operator|.
 name|apiProperty

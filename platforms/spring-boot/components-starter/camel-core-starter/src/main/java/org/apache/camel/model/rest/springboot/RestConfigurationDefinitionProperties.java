@@ -142,6 +142,12 @@ specifier|private
 name|String
 name|host
 decl_stmt|;
+comment|/**      * To use an specific hostname for the API documentation (eg swagger) This      * can be used to override the generated host with this configured hostname      */
+DECL|field|apiHost
+specifier|private
+name|String
+name|apiHost
+decl_stmt|;
 comment|/**      * The port number to use for exposing the REST service. Notice if you use      * servlet component then the port number configured here does not apply as      * the port number in use is the actual port number the servlet component is      * using. eg if using Apache Tomcat its the tomcat http port if using Apache      * Karaf its the HTTP service in Karaf that uses port 8181 by default etc.      * Though in those situations setting the port number here allows tooling      * and JMX to know the port number so its recommended to set the port number      * to the number that the servlet engine uses.      */
 DECL|field|port
 specifier|private
@@ -420,6 +426,32 @@ operator|.
 name|host
 operator|=
 name|host
+expr_stmt|;
+block|}
+DECL|method|getApiHost ()
+specifier|public
+name|String
+name|getApiHost
+parameter_list|()
+block|{
+return|return
+name|apiHost
+return|;
+block|}
+DECL|method|setApiHost (String apiHost)
+specifier|public
+name|void
+name|setApiHost
+parameter_list|(
+name|String
+name|apiHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiHost
+operator|=
+name|apiHost
 expr_stmt|;
 block|}
 DECL|method|getPort ()
