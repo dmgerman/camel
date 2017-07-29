@@ -112,6 +112,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FluentProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -405,20 +417,6 @@ operator|.
 name|spi
 operator|.
 name|ReloadStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RestConfiguration
 import|;
 end_import
 
@@ -1804,6 +1802,67 @@ argument_list|)
 argument_list|,
 name|config
 argument_list|)
+return|;
+block|}
+comment|/**      * Default fluent producer template for the bootstrapped Camel context.      * Create the bean lazy as it should only be created if its in-use.      */
+comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
+comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
+comment|// and in that case Service::close (FluentProducerTemplate implements Service)
+comment|// would be used for bean destruction. And we want Camel to handle the
+comment|// lifecycle.
+annotation|@
+name|Bean
+argument_list|(
+name|destroyMethod
+operator|=
+literal|""
+argument_list|)
+annotation|@
+name|ConditionalOnMissingBean
+argument_list|(
+name|FluentProducerTemplate
+operator|.
+name|class
+argument_list|)
+annotation|@
+name|Lazy
+DECL|method|fluentProducerTemplate (CamelContext camelContext, CamelConfigurationProperties config)
+name|FluentProducerTemplate
+name|fluentProducerTemplate
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|CamelConfigurationProperties
+name|config
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+specifier|final
+name|FluentProducerTemplate
+name|fluentProducerTemplate
+init|=
+name|camelContext
+operator|.
+name|createFluentProducerTemplate
+argument_list|(
+name|config
+operator|.
+name|getProducerTemplateCacheSize
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// we add this fluentProducerTemplate as a Service to CamelContext so that it performs proper lifecycle (start and stop)
+name|camelContext
+operator|.
+name|addService
+argument_list|(
+name|fluentProducerTemplate
+argument_list|)
+expr_stmt|;
+return|return
+name|fluentProducerTemplate
 return|;
 block|}
 comment|/**      * Default producer template for the bootstrapped Camel context.      * Create the bean lazy as it should only be created if its in-use.      */

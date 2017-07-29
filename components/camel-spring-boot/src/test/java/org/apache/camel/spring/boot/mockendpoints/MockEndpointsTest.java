@@ -40,7 +40,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|FluentProducerTemplate
 import|;
 end_import
 
@@ -189,7 +189,7 @@ block|{
 annotation|@
 name|Autowired
 DECL|field|producerTemplate
-name|ProducerTemplate
+name|FluentProducerTemplate
 name|producerTemplate
 decl_stmt|;
 annotation|@
@@ -238,12 +238,18 @@ expr_stmt|;
 comment|// When
 name|producerTemplate
 operator|.
-name|sendBody
+name|withBody
 argument_list|(
-literal|"direct:start"
-argument_list|,
 name|msg
 argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|send
+argument_list|()
 expr_stmt|;
 comment|// Then
 name|mock
