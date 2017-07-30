@@ -533,7 +533,7 @@ operator|=
 name|waitForActiveShards
 expr_stmt|;
 block|}
-comment|/**      * Is the client allowed to sniff the rest of the cluster or not (default true). This setting map to the<tt>client.transport.sniff</tt> setting.      */
+comment|/**      * Is the client allowed to sniff the rest of the cluster or not. This setting map to the<tt>client.transport.sniff</tt> setting.      */
 DECL|method|getClientTransportSniff ()
 specifier|public
 name|boolean
