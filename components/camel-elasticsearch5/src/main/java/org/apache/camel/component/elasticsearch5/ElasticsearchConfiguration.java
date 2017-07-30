@@ -205,17 +205,10 @@ name|DEFAULT_PORT
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|clientTransportSniff
 specifier|private
-name|Boolean
+name|boolean
 name|clientTransportSniff
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -279,20 +272,18 @@ name|DEFAULT_TCP_CONNECT_TIMEOUT
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|tcpCompress
 specifier|private
-name|Boolean
+name|boolean
 name|tcpCompress
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"authentication"
+argument_list|)
 DECL|field|user
 specifier|private
 name|String
@@ -301,6 +292,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"authentication"
+argument_list|,
 name|secret
 operator|=
 literal|true
@@ -313,16 +308,14 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
+name|label
 operator|=
-literal|"false"
+literal|"advanced,security"
 argument_list|)
 DECL|field|enableSSL
 specifier|private
-name|Boolean
+name|boolean
 name|enableSSL
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Name of the cluster      */
 DECL|method|getClusterName ()
@@ -543,7 +536,7 @@ block|}
 comment|/**      * Is the client allowed to sniff the rest of the cluster or not (default true). This setting map to the<tt>client.transport.sniff</tt> setting.      */
 DECL|method|getClientTransportSniff ()
 specifier|public
-name|Boolean
+name|boolean
 name|getClientTransportSniff
 parameter_list|()
 block|{
@@ -551,12 +544,12 @@ return|return
 name|clientTransportSniff
 return|;
 block|}
-DECL|method|setClientTransportSniff (Boolean clientTransportSniff)
+DECL|method|setClientTransportSniff (boolean clientTransportSniff)
 specifier|public
 name|void
 name|setClientTransportSniff
 parameter_list|(
-name|Boolean
+name|boolean
 name|clientTransportSniff
 parameter_list|)
 block|{
@@ -656,7 +649,7 @@ block|}
 comment|/**      * true if compression (LZF) enable between all nodes.      */
 DECL|method|getTcpCompress ()
 specifier|public
-name|Boolean
+name|boolean
 name|getTcpCompress
 parameter_list|()
 block|{
@@ -664,12 +657,12 @@ return|return
 name|tcpCompress
 return|;
 block|}
-DECL|method|setTcpCompress (Boolean tcpCompress)
+DECL|method|setTcpCompress (boolean tcpCompress)
 specifier|public
 name|void
 name|setTcpCompress
 parameter_list|(
-name|Boolean
+name|boolean
 name|tcpCompress
 parameter_list|)
 block|{
@@ -737,7 +730,7 @@ block|}
 comment|/**      * Enable SSL. Require XPack client jar on the classpath      */
 DECL|method|getEnableSSL ()
 specifier|public
-name|Boolean
+name|boolean
 name|getEnableSSL
 parameter_list|()
 block|{
@@ -745,12 +738,12 @@ return|return
 name|enableSSL
 return|;
 block|}
-DECL|method|setEnableSSL (Boolean enableSSL)
+DECL|method|setEnableSSL (boolean enableSSL)
 specifier|public
 name|void
 name|setEnableSSL
 parameter_list|(
-name|Boolean
+name|boolean
 name|enableSSL
 parameter_list|)
 block|{

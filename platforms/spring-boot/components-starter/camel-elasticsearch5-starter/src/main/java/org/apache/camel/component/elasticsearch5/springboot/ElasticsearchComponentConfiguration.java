@@ -50,6 +50,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|transport
+operator|.
+name|TransportClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -59,6 +73,22 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -86,6 +116,14 @@ name|ElasticsearchComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * To use an existing configured Elasticsearch client instead of creating a      * client per endpoint. This allow to customize the client with specific      * settings.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|client
+specifier|private
+name|TransportClient
+name|client
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -94,6 +132,32 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getClient ()
+specifier|public
+name|TransportClient
+name|getClient
+parameter_list|()
+block|{
+return|return
+name|client
+return|;
+block|}
+DECL|method|setClient (TransportClient client)
+specifier|public
+name|void
+name|setClient
+parameter_list|(
+name|TransportClient
+name|client
+parameter_list|)
+block|{
+name|this
+operator|.
+name|client
+operator|=
+name|client
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean

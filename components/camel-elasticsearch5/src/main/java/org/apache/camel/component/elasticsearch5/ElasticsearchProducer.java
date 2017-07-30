@@ -34,18 +34,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|InvocationTargetException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|InetAddress
@@ -545,10 +533,7 @@ name|BULK_INDEX
 condition|)
 block|{
 return|return
-name|configuration
-operator|.
-name|getOperation
-argument_list|()
+name|ElasticsearchOperation
 operator|.
 name|BULK_INDEX
 return|;
@@ -556,10 +541,7 @@ block|}
 else|else
 block|{
 return|return
-name|configuration
-operator|.
-name|getOperation
-argument_list|()
+name|ElasticsearchOperation
 operator|.
 name|BULK
 return|;
@@ -1464,8 +1446,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Connecting to the ElasticSearch cluster: "
-operator|+
+literal|"Connecting to the ElasticSearch cluster: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getClusterName
@@ -1551,25 +1533,16 @@ name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
-for|for
-control|(
-name|TransportAddress
-name|address
-range|:
+name|addresses
+operator|.
+name|addAll
+argument_list|(
 name|configuration
 operator|.
 name|getTransportAddressesList
 argument_list|()
-control|)
-block|{
-name|addresses
-operator|.
-name|add
-argument_list|(
-name|address
 argument_list|)
 expr_stmt|;
-block|}
 name|client
 operator|=
 name|createClient
@@ -1611,13 +1584,7 @@ name|TransportClient
 name|createClient
 parameter_list|()
 throws|throws
-name|NoSuchMethodException
-throws|,
-name|IllegalAccessException
-throws|,
-name|InvocationTargetException
-throws|,
-name|InstantiationException
+name|Exception
 block|{
 specifier|final
 name|Settings
@@ -1713,7 +1680,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"XPack Client was found on the classpath"
 argument_list|)
@@ -1750,7 +1717,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"XPack Client was not found on the classpath, using the standard client"
+literal|"XPack Client was not found on the classpath, using the standard client."
 argument_list|)
 expr_stmt|;
 return|return
