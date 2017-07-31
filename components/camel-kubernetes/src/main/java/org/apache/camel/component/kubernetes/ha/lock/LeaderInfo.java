@@ -34,6 +34,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -66,17 +76,25 @@ specifier|private
 name|String
 name|leader
 decl_stmt|;
-DECL|field|timestamp
+DECL|field|localTimestamp
 specifier|private
 name|Date
-name|timestamp
+name|localTimestamp
+decl_stmt|;
+DECL|field|members
+specifier|private
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|members
 decl_stmt|;
 DECL|method|LeaderInfo ()
 specifier|public
 name|LeaderInfo
 parameter_list|()
 block|{     }
-DECL|method|LeaderInfo (String groupName, String leader, Date timestamp)
+DECL|method|LeaderInfo (String groupName, String leader, Date timestamp, Set<String> members)
 specifier|public
 name|LeaderInfo
 parameter_list|(
@@ -88,6 +106,12 @@ name|leader
 parameter_list|,
 name|Date
 name|timestamp
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|members
 parameter_list|)
 block|{
 name|this
@@ -104,56 +128,60 @@ name|leader
 expr_stmt|;
 name|this
 operator|.
-name|timestamp
+name|localTimestamp
 operator|=
 name|timestamp
+expr_stmt|;
+name|this
+operator|.
+name|members
+operator|=
+name|members
 expr_stmt|;
 block|}
-DECL|method|isTimeElapsedSeconds (long timeSeconds)
+DECL|method|hasEmptyLeader ()
 specifier|public
 name|boolean
-name|isTimeElapsedSeconds
-parameter_list|(
-name|long
-name|timeSeconds
-parameter_list|)
+name|hasEmptyLeader
+parameter_list|()
 block|{
-if|if
-condition|(
-name|timestamp
+return|return
+name|this
+operator|.
+name|leader
 operator|==
 literal|null
-condition|)
-block|{
-return|return
-literal|true
 return|;
 block|}
-name|long
-name|now
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
-return|return
-name|timestamp
-operator|.
-name|getTime
-argument_list|()
-operator|+
-name|timeSeconds
-operator|*
-literal|1000
-operator|<=
-name|now
-return|;
-block|}
-DECL|method|isLeader (String pod)
+DECL|method|hasValidLeader ()
 specifier|public
 name|boolean
-name|isLeader
+name|hasValidLeader
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|leader
+operator|!=
+literal|null
+operator|&&
+name|this
+operator|.
+name|members
+operator|.
+name|contains
+argument_list|(
+name|this
+operator|.
+name|leader
+argument_list|)
+return|;
+block|}
+DECL|method|isValidLeader (String pod)
+specifier|public
+name|boolean
+name|isValidLeader
 parameter_list|(
 name|String
 name|pod
@@ -169,6 +197,9 @@ literal|"pod"
 argument_list|)
 expr_stmt|;
 return|return
+name|hasValidLeader
+argument_list|()
+operator|&&
 name|pod
 operator|.
 name|equals
@@ -229,30 +260,62 @@ operator|=
 name|leader
 expr_stmt|;
 block|}
-DECL|method|getTimestamp ()
+DECL|method|getLocalTimestamp ()
 specifier|public
 name|Date
-name|getTimestamp
+name|getLocalTimestamp
 parameter_list|()
 block|{
 return|return
-name|timestamp
+name|localTimestamp
 return|;
 block|}
-DECL|method|setTimestamp (Date timestamp)
+DECL|method|setLocalTimestamp (Date localTimestamp)
 specifier|public
 name|void
-name|setTimestamp
+name|setLocalTimestamp
 parameter_list|(
 name|Date
-name|timestamp
+name|localTimestamp
 parameter_list|)
 block|{
 name|this
 operator|.
-name|timestamp
+name|localTimestamp
 operator|=
-name|timestamp
+name|localTimestamp
+expr_stmt|;
+block|}
+DECL|method|getMembers ()
+specifier|public
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getMembers
+parameter_list|()
+block|{
+return|return
+name|members
+return|;
+block|}
+DECL|method|setMembers (Set<String> members)
+specifier|public
+name|void
+name|setMembers
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|members
+parameter_list|)
+block|{
+name|this
+operator|.
+name|members
+operator|=
+name|members
 expr_stmt|;
 block|}
 annotation|@
@@ -311,12 +374,24 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", timestamp="
+literal|", localTimestamp="
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|timestamp
+name|localTimestamp
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", members="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|members
 argument_list|)
 expr_stmt|;
 name|sb

@@ -44,6 +44,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|fabric8
@@ -139,14 +149,14 @@ name|LEADER_PREFIX
 init|=
 literal|"leader.pod."
 decl_stmt|;
-DECL|field|TIMESTAMP_PREFIX
+DECL|field|LOCAL_TIMESTAMP_PREFIX
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|TIMESTAMP_PREFIX
+name|LOCAL_TIMESTAMP_PREFIX
 init|=
-literal|"leader.timestamp."
+literal|"leader.local.timestamp."
 decl_stmt|;
 DECL|method|ConfigMapLockUtils ()
 specifier|private
@@ -213,7 +223,7 @@ argument_list|)
 operator|.
 name|addToData
 argument_list|(
-name|TIMESTAMP_PREFIX
+name|LOCAL_TIMESTAMP_PREFIX
 operator|+
 name|leaderInfo
 operator|.
@@ -224,7 +234,7 @@ name|formatDate
 argument_list|(
 name|leaderInfo
 operator|.
-name|getTimestamp
+name|getLocalTimestamp
 argument_list|()
 argument_list|)
 argument_list|)
@@ -270,7 +280,7 @@ argument_list|)
 operator|.
 name|addToData
 argument_list|(
-name|TIMESTAMP_PREFIX
+name|LOCAL_TIMESTAMP_PREFIX
 operator|+
 name|leaderInfo
 operator|.
@@ -281,7 +291,7 @@ name|formatDate
 argument_list|(
 name|leaderInfo
 operator|.
-name|getTimestamp
+name|getLocalTimestamp
 argument_list|()
 argument_list|)
 argument_list|)
@@ -290,7 +300,7 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|getLeaderInfo (ConfigMap configMap, String group)
+DECL|method|getLeaderInfo (ConfigMap configMap, Set<String> members, String group)
 specifier|public
 specifier|static
 name|LeaderInfo
@@ -298,6 +308,12 @@ name|getLeaderInfo
 parameter_list|(
 name|ConfigMap
 name|configMap
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|members
 parameter_list|,
 name|String
 name|group
@@ -316,12 +332,14 @@ argument_list|,
 name|group
 argument_list|)
 argument_list|,
-name|getTimestamp
+name|getLocalTimestamp
 argument_list|(
 name|configMap
 argument_list|,
 name|group
 argument_list|)
+argument_list|,
+name|members
 argument_list|)
 return|;
 block|}
@@ -411,11 +429,11 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|getTimestamp (ConfigMap configMap, String group)
+DECL|method|getLocalTimestamp (ConfigMap configMap, String group)
 specifier|private
 specifier|static
 name|Date
-name|getTimestamp
+name|getLocalTimestamp
 parameter_list|(
 name|ConfigMap
 name|configMap
@@ -431,7 +449,7 @@ name|getConfigMapValue
 argument_list|(
 name|configMap
 argument_list|,
-name|TIMESTAMP_PREFIX
+name|LOCAL_TIMESTAMP_PREFIX
 operator|+
 name|group
 argument_list|)

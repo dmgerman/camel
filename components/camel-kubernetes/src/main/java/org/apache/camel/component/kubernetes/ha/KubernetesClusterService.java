@@ -439,7 +439,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRetryOnErrorIntervalSeconds
+name|getRetryPeriodMillis
 argument_list|()
 operator|<=
 literal|0
@@ -449,11 +449,11 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"retryOnErrorIntervalSeconds must be> 0 (found: "
+literal|"retryPeriodMillis must be> 0 (found: "
 operator|+
 name|config
 operator|.
-name|getRetryOnErrorIntervalSeconds
+name|getRetryPeriodMillis
 argument_list|()
 operator|+
 literal|")"
@@ -464,7 +464,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRetryPeriodSeconds
+name|getRenewDeadlineMillis
 argument_list|()
 operator|<=
 literal|0
@@ -474,11 +474,11 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"retryPeriodSeconds must be> 0 (found: "
+literal|"renewDeadlineMillis must be> 0 (found: "
 operator|+
 name|config
 operator|.
-name|getRetryPeriodSeconds
+name|getRenewDeadlineMillis
 argument_list|()
 operator|+
 literal|")"
@@ -489,7 +489,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRenewDeadlineSeconds
+name|getLeaseDurationMillis
 argument_list|()
 operator|<=
 literal|0
@@ -499,11 +499,11 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"renewDeadlineSeconds must be> 0 (found: "
+literal|"leaseDurationMillis must be> 0 (found: "
 operator|+
 name|config
 operator|.
-name|getRenewDeadlineSeconds
+name|getLeaseDurationMillis
 argument_list|()
 operator|+
 literal|")"
@@ -514,37 +514,12 @@ if|if
 condition|(
 name|config
 operator|.
-name|getLeaseDurationSeconds
-argument_list|()
-operator|<=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"leaseDurationSeconds must be> 0 (found: "
-operator|+
-name|config
-operator|.
-name|getLeaseDurationSeconds
-argument_list|()
-operator|+
-literal|")"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|config
-operator|.
-name|getLeaseDurationSeconds
+name|getLeaseDurationMillis
 argument_list|()
 operator|<=
 name|config
 operator|.
-name|getRenewDeadlineSeconds
+name|getRenewDeadlineMillis
 argument_list|()
 condition|)
 block|{
@@ -552,20 +527,20 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"leaseDurationSeconds must be greater than renewDeadlineSeconds "
+literal|"leaseDurationMillis must be greater than renewDeadlineMillis "
 operator|+
 literal|"("
 operator|+
 name|config
 operator|.
-name|getLeaseDurationSeconds
+name|getLeaseDurationMillis
 argument_list|()
 operator|+
 literal|" is not greater than "
 operator|+
 name|config
 operator|.
-name|getRenewDeadlineSeconds
+name|getRenewDeadlineMillis
 argument_list|()
 operator|+
 literal|")"
@@ -576,7 +551,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRenewDeadlineSeconds
+name|getRenewDeadlineMillis
 argument_list|()
 operator|<=
 name|config
@@ -586,7 +561,7 @@ argument_list|()
 operator|*
 name|config
 operator|.
-name|getRetryPeriodSeconds
+name|getRetryPeriodMillis
 argument_list|()
 condition|)
 block|{
@@ -594,13 +569,13 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"renewDeadlineSeconds must be greater than jitterFactor*retryPeriodSeconds "
+literal|"renewDeadlineMillis must be greater than jitterFactor*retryPeriodMillis "
 operator|+
 literal|"("
 operator|+
 name|config
 operator|.
-name|getRenewDeadlineSeconds
+name|getRenewDeadlineMillis
 argument_list|()
 operator|+
 literal|" is not greater than "
@@ -614,7 +589,7 @@ literal|"*"
 operator|+
 name|config
 operator|.
-name|getRetryPeriodSeconds
+name|getRetryPeriodMillis
 argument_list|()
 operator|+
 literal|")"
@@ -855,36 +830,23 @@ name|kubernetesResourcesNamespace
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getRetryOnErrorIntervalSeconds ()
+DECL|method|getKubernetesResourcesNamespaceOrDefault (KubernetesClient kubernetesClient)
 specifier|public
-name|long
-name|getRetryOnErrorIntervalSeconds
-parameter_list|()
+name|String
+name|getKubernetesResourcesNamespaceOrDefault
+parameter_list|(
+name|KubernetesClient
+name|kubernetesClient
+parameter_list|)
 block|{
 return|return
 name|lockConfiguration
 operator|.
-name|getRetryOnErrorIntervalSeconds
-argument_list|()
-return|;
-block|}
-comment|/**      * Indicates the maximum amount of time a Kubernetes watch should be kept active, before being recreated.      * Watch recreation can be disabled by putting value<= 0.      */
-DECL|method|setRetryOnErrorIntervalSeconds (long retryOnErrorIntervalSeconds)
-specifier|public
-name|void
-name|setRetryOnErrorIntervalSeconds
-parameter_list|(
-name|long
-name|retryOnErrorIntervalSeconds
-parameter_list|)
-block|{
-name|lockConfiguration
-operator|.
-name|setRetryOnErrorIntervalSeconds
+name|getKubernetesResourcesNamespaceOrDefault
 argument_list|(
-name|retryOnErrorIntervalSeconds
+name|kubernetesClient
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|getJitterFactor ()
 specifier|public
@@ -899,7 +861,7 @@ name|getJitterFactor
 argument_list|()
 return|;
 block|}
-comment|/**      * A jitter factor to apply in order to prevent all pods to try to become leaders in the same instant.      */
+comment|/**      * A jitter factor to apply in order to prevent all pods to call Kubernetes APIs in the same instant.      */
 DECL|method|setJitterFactor (double jitterFactor)
 specifier|public
 name|void
@@ -917,127 +879,96 @@ name|jitterFactor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getLeaseDurationSeconds ()
+DECL|method|getLeaseDurationMillis ()
 specifier|public
 name|long
-name|getLeaseDurationSeconds
+name|getLeaseDurationMillis
 parameter_list|()
 block|{
 return|return
 name|lockConfiguration
 operator|.
-name|getLeaseDurationSeconds
+name|getLeaseDurationMillis
 argument_list|()
 return|;
 block|}
 comment|/**      * The default duration of the lease for the current leader.      */
-DECL|method|setLeaseDurationSeconds (long leaseDurationSeconds)
+DECL|method|setLeaseDurationMillis (long leaseDurationMillis)
 specifier|public
 name|void
-name|setLeaseDurationSeconds
+name|setLeaseDurationMillis
 parameter_list|(
 name|long
-name|leaseDurationSeconds
+name|leaseDurationMillis
 parameter_list|)
 block|{
 name|lockConfiguration
 operator|.
-name|setLeaseDurationSeconds
+name|setLeaseDurationMillis
 argument_list|(
-name|leaseDurationSeconds
+name|leaseDurationMillis
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getRenewDeadlineSeconds ()
+DECL|method|getRenewDeadlineMillis ()
 specifier|public
 name|long
-name|getRenewDeadlineSeconds
+name|getRenewDeadlineMillis
 parameter_list|()
 block|{
 return|return
 name|lockConfiguration
 operator|.
-name|getRenewDeadlineSeconds
+name|getRenewDeadlineMillis
 argument_list|()
 return|;
 block|}
-comment|/**      * The deadline after which the leader must stop trying to renew its leadership (and yield it).      */
-DECL|method|setRenewDeadlineSeconds (long renewDeadlineSeconds)
+comment|/**      * The deadline after which the leader must stop its services because it may have lost the leadership.      */
+DECL|method|setRenewDeadlineMillis (long renewDeadlineMillis)
 specifier|public
 name|void
-name|setRenewDeadlineSeconds
+name|setRenewDeadlineMillis
 parameter_list|(
 name|long
-name|renewDeadlineSeconds
+name|renewDeadlineMillis
 parameter_list|)
 block|{
 name|lockConfiguration
 operator|.
-name|setRenewDeadlineSeconds
+name|setRenewDeadlineMillis
 argument_list|(
-name|renewDeadlineSeconds
+name|renewDeadlineMillis
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getRetryPeriodSeconds ()
+DECL|method|getRetryPeriodMillis ()
 specifier|public
 name|long
-name|getRetryPeriodSeconds
+name|getRetryPeriodMillis
 parameter_list|()
 block|{
 return|return
 name|lockConfiguration
 operator|.
-name|getRetryPeriodSeconds
+name|getRetryPeriodMillis
 argument_list|()
 return|;
 block|}
-comment|/**      * The time between two subsequent attempts to acquire/renew the leadership (or after the lease expiration).      * It is randomized using the jitter factor in case of new leader election (not renewal).      */
-DECL|method|setRetryPeriodSeconds (long retryPeriodSeconds)
+comment|/**      * The time between two subsequent attempts to check and acquire the leadership.      * It is randomized using the jitter factor.      */
+DECL|method|setRetryPeriodMillis (long retryPeriodMillis)
 specifier|public
 name|void
-name|setRetryPeriodSeconds
+name|setRetryPeriodMillis
 parameter_list|(
 name|long
-name|retryPeriodSeconds
+name|retryPeriodMillis
 parameter_list|)
 block|{
 name|lockConfiguration
 operator|.
-name|setRetryPeriodSeconds
+name|setRetryPeriodMillis
 argument_list|(
-name|retryPeriodSeconds
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getWatchRefreshIntervalSeconds ()
-specifier|public
-name|long
-name|getWatchRefreshIntervalSeconds
-parameter_list|()
-block|{
-return|return
-name|lockConfiguration
-operator|.
-name|getWatchRefreshIntervalSeconds
-argument_list|()
-return|;
-block|}
-comment|/**      * Set this to a positive value in order to recreate watchers after a certain amount of time,      * to avoid having stale watchers.      */
-DECL|method|setWatchRefreshIntervalSeconds (long watchRefreshIntervalSeconds)
-specifier|public
-name|void
-name|setWatchRefreshIntervalSeconds
-parameter_list|(
-name|long
-name|watchRefreshIntervalSeconds
-parameter_list|)
-block|{
-name|lockConfiguration
-operator|.
-name|setWatchRefreshIntervalSeconds
-argument_list|(
-name|watchRefreshIntervalSeconds
+name|retryPeriodMillis
 argument_list|)
 expr_stmt|;
 block|}

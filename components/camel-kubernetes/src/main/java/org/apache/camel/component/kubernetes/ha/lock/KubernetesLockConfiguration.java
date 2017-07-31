@@ -86,50 +86,32 @@ name|DEFAULT_JITTER_FACTOR
 init|=
 literal|1.2
 decl_stmt|;
-DECL|field|DEFAULT_LEASE_DURATION_SECONDS
+DECL|field|DEFAULT_LEASE_DURATION_MILLIS
 specifier|public
 specifier|static
 specifier|final
 name|long
-name|DEFAULT_LEASE_DURATION_SECONDS
+name|DEFAULT_LEASE_DURATION_MILLIS
 init|=
-literal|60
+literal|60000
 decl_stmt|;
-DECL|field|DEFAULT_RENEW_DEADLINE_SECONDS
+DECL|field|DEFAULT_RENEW_DEADLINE_MILLIS
 specifier|public
 specifier|static
 specifier|final
 name|long
-name|DEFAULT_RENEW_DEADLINE_SECONDS
+name|DEFAULT_RENEW_DEADLINE_MILLIS
 init|=
-literal|45
+literal|45000
 decl_stmt|;
-DECL|field|DEFAULT_RETRY_PERIOD_SECONDS
+DECL|field|DEFAULT_RETRY_PERIOD_MILLIS
 specifier|public
 specifier|static
 specifier|final
 name|long
-name|DEFAULT_RETRY_PERIOD_SECONDS
+name|DEFAULT_RETRY_PERIOD_MILLIS
 init|=
-literal|9
-decl_stmt|;
-DECL|field|DEFAULT_RETRY_ON_ERROR_INTERVAL_SECONDS
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|DEFAULT_RETRY_ON_ERROR_INTERVAL_SECONDS
-init|=
-literal|5
-decl_stmt|;
-DECL|field|DEFAULT_WATCH_REFRESH_INTERVAL_SECONDS
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|DEFAULT_WATCH_REFRESH_INTERVAL_SECONDS
-init|=
-literal|1800
+literal|9000
 decl_stmt|;
 comment|/**      * Kubernetes namespace containing the pods and the ConfigMap used for locking.      */
 DECL|field|kubernetesResourcesNamespace
@@ -173,15 +155,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Indicates the maximum amount of time a Kubernetes watch should be kept active, before being recreated.      * Watch recreation can be disabled by putting value<= 0.      */
-DECL|field|retryOnErrorIntervalSeconds
-specifier|private
-name|long
-name|retryOnErrorIntervalSeconds
-init|=
-name|DEFAULT_RETRY_ON_ERROR_INTERVAL_SECONDS
-decl_stmt|;
-comment|/**      * A jitter factor to apply in order to prevent all pods to try to become leaders in the same instant.      */
+comment|/**      * A jitter factor to apply in order to prevent all pods to call Kubernetes APIs in the same instant.      */
 DECL|field|jitterFactor
 specifier|private
 name|double
@@ -190,36 +164,28 @@ init|=
 name|DEFAULT_JITTER_FACTOR
 decl_stmt|;
 comment|/**      * The default duration of the lease for the current leader.      */
-DECL|field|leaseDurationSeconds
+DECL|field|leaseDurationMillis
 specifier|private
 name|long
-name|leaseDurationSeconds
+name|leaseDurationMillis
 init|=
-name|DEFAULT_LEASE_DURATION_SECONDS
+name|DEFAULT_LEASE_DURATION_MILLIS
 decl_stmt|;
-comment|/**      * The deadline after which the leader must stop trying to renew its leadership (and yield it).      */
-DECL|field|renewDeadlineSeconds
+comment|/**      * The deadline after which the leader must stop its services because it may have lost the leadership.      */
+DECL|field|renewDeadlineMillis
 specifier|private
 name|long
-name|renewDeadlineSeconds
+name|renewDeadlineMillis
 init|=
-name|DEFAULT_RENEW_DEADLINE_SECONDS
+name|DEFAULT_RENEW_DEADLINE_MILLIS
 decl_stmt|;
-comment|/**      * The time between two subsequent attempts to acquire/renew the leadership (or after the lease expiration).      * It is randomized using the jitter factor in case of new leader election (not renewal).      */
-DECL|field|retryPeriodSeconds
+comment|/**      * The time between two subsequent attempts to check and acquire the leadership.      * It is randomized using the jitter factor.      */
+DECL|field|retryPeriodMillis
 specifier|private
 name|long
-name|retryPeriodSeconds
+name|retryPeriodMillis
 init|=
-name|DEFAULT_RETRY_PERIOD_SECONDS
-decl_stmt|;
-comment|/**      * Set this to a positive value in order to recreate watchers after a certain amount of time      * (to prevent them becoming stale).      */
-DECL|field|watchRefreshIntervalSeconds
-specifier|private
-name|long
-name|watchRefreshIntervalSeconds
-init|=
-name|DEFAULT_WATCH_REFRESH_INTERVAL_SECONDS
+name|DEFAULT_RETRY_PERIOD_MILLIS
 decl_stmt|;
 DECL|method|KubernetesLockConfiguration ()
 specifier|public
@@ -417,32 +383,6 @@ operator|=
 name|clusterLabels
 expr_stmt|;
 block|}
-DECL|method|getRetryOnErrorIntervalSeconds ()
-specifier|public
-name|long
-name|getRetryOnErrorIntervalSeconds
-parameter_list|()
-block|{
-return|return
-name|retryOnErrorIntervalSeconds
-return|;
-block|}
-DECL|method|setRetryOnErrorIntervalSeconds (long retryOnErrorIntervalSeconds)
-specifier|public
-name|void
-name|setRetryOnErrorIntervalSeconds
-parameter_list|(
-name|long
-name|retryOnErrorIntervalSeconds
-parameter_list|)
-block|{
-name|this
-operator|.
-name|retryOnErrorIntervalSeconds
-operator|=
-name|retryOnErrorIntervalSeconds
-expr_stmt|;
-block|}
 DECL|method|getJitterFactor ()
 specifier|public
 name|double
@@ -469,108 +409,82 @@ operator|=
 name|jitterFactor
 expr_stmt|;
 block|}
-DECL|method|getLeaseDurationSeconds ()
+DECL|method|getLeaseDurationMillis ()
 specifier|public
 name|long
-name|getLeaseDurationSeconds
+name|getLeaseDurationMillis
 parameter_list|()
 block|{
 return|return
-name|leaseDurationSeconds
+name|leaseDurationMillis
 return|;
 block|}
-DECL|method|setLeaseDurationSeconds (long leaseDurationSeconds)
+DECL|method|setLeaseDurationMillis (long leaseDurationMillis)
 specifier|public
 name|void
-name|setLeaseDurationSeconds
+name|setLeaseDurationMillis
 parameter_list|(
 name|long
-name|leaseDurationSeconds
+name|leaseDurationMillis
 parameter_list|)
 block|{
 name|this
 operator|.
-name|leaseDurationSeconds
+name|leaseDurationMillis
 operator|=
-name|leaseDurationSeconds
+name|leaseDurationMillis
 expr_stmt|;
 block|}
-DECL|method|getRenewDeadlineSeconds ()
+DECL|method|getRenewDeadlineMillis ()
 specifier|public
 name|long
-name|getRenewDeadlineSeconds
+name|getRenewDeadlineMillis
 parameter_list|()
 block|{
 return|return
-name|renewDeadlineSeconds
+name|renewDeadlineMillis
 return|;
 block|}
-DECL|method|setRenewDeadlineSeconds (long renewDeadlineSeconds)
+DECL|method|setRenewDeadlineMillis (long renewDeadlineMillis)
 specifier|public
 name|void
-name|setRenewDeadlineSeconds
+name|setRenewDeadlineMillis
 parameter_list|(
 name|long
-name|renewDeadlineSeconds
+name|renewDeadlineMillis
 parameter_list|)
 block|{
 name|this
 operator|.
-name|renewDeadlineSeconds
+name|renewDeadlineMillis
 operator|=
-name|renewDeadlineSeconds
+name|renewDeadlineMillis
 expr_stmt|;
 block|}
-DECL|method|getRetryPeriodSeconds ()
+DECL|method|getRetryPeriodMillis ()
 specifier|public
 name|long
-name|getRetryPeriodSeconds
+name|getRetryPeriodMillis
 parameter_list|()
 block|{
 return|return
-name|retryPeriodSeconds
+name|retryPeriodMillis
 return|;
 block|}
-DECL|method|setRetryPeriodSeconds (long retryPeriodSeconds)
+DECL|method|setRetryPeriodMillis (long retryPeriodMillis)
 specifier|public
 name|void
-name|setRetryPeriodSeconds
+name|setRetryPeriodMillis
 parameter_list|(
 name|long
-name|retryPeriodSeconds
+name|retryPeriodMillis
 parameter_list|)
 block|{
 name|this
 operator|.
-name|retryPeriodSeconds
+name|retryPeriodMillis
 operator|=
-name|retryPeriodSeconds
-expr_stmt|;
-block|}
-DECL|method|getWatchRefreshIntervalSeconds ()
-specifier|public
-name|long
-name|getWatchRefreshIntervalSeconds
-parameter_list|()
-block|{
-return|return
-name|watchRefreshIntervalSeconds
-return|;
-block|}
-DECL|method|setWatchRefreshIntervalSeconds (long watchRefreshIntervalSeconds)
-specifier|public
-name|void
-name|setWatchRefreshIntervalSeconds
-parameter_list|(
-name|long
-name|watchRefreshIntervalSeconds
-parameter_list|)
-block|{
-name|this
-operator|.
-name|watchRefreshIntervalSeconds
-operator|=
-name|watchRefreshIntervalSeconds
+name|retryPeriodMillis
 expr_stmt|;
 block|}
 DECL|method|copy ()
@@ -715,18 +629,6 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", retryOnErrorIntervalSeconds="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|retryOnErrorIntervalSeconds
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
 literal|", jitterFactor="
 argument_list|)
 operator|.
@@ -739,48 +641,36 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", leaseDurationSeconds="
+literal|", leaseDurationMillis="
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|leaseDurationSeconds
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", renewDeadlineSeconds="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|renewDeadlineSeconds
+name|leaseDurationMillis
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|", retryPeriodSeconds="
+literal|", renewDeadlineMillis="
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|retryPeriodSeconds
+name|renewDeadlineMillis
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|", watchRefreshIntervalSeconds="
+literal|", retryPeriodMillis="
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|watchRefreshIntervalSeconds
+name|retryPeriodMillis
 argument_list|)
 expr_stmt|;
 name|sb

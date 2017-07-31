@@ -184,7 +184,7 @@ name|ha
 operator|.
 name|lock
 operator|.
-name|KubernetesLeaseBasedLeadershipController
+name|KubernetesLeadershipController
 import|;
 end_import
 
@@ -324,7 +324,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|controller
 specifier|private
-name|KubernetesLeaseBasedLeadershipController
+name|KubernetesLeadershipController
 name|controller
 decl_stmt|;
 DECL|method|KubernetesClusterView (KubernetesClusterService cluster, KubernetesConfiguration configuration, KubernetesLockConfiguration lockConfiguration)
@@ -459,7 +459,7 @@ expr_stmt|;
 name|controller
 operator|=
 operator|new
-name|KubernetesLeaseBasedLeadershipController
+name|KubernetesLeadershipController
 argument_list|(
 name|kubernetesClient
 argument_list|,
