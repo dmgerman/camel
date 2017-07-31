@@ -93,7 +93,7 @@ specifier|final
 name|long
 name|DEFAULT_LEASE_DURATION_MILLIS
 init|=
-literal|60000
+literal|30000
 decl_stmt|;
 DECL|field|DEFAULT_RENEW_DEADLINE_MILLIS
 specifier|public
@@ -102,7 +102,7 @@ specifier|final
 name|long
 name|DEFAULT_RENEW_DEADLINE_MILLIS
 init|=
-literal|45000
+literal|20000
 decl_stmt|;
 DECL|field|DEFAULT_RETRY_PERIOD_MILLIS
 specifier|public
@@ -111,7 +111,7 @@ specifier|final
 name|long
 name|DEFAULT_RETRY_PERIOD_MILLIS
 init|=
-literal|9000
+literal|5000
 decl_stmt|;
 comment|/**      * Kubernetes namespace containing the pods and the ConfigMap used for locking.      */
 DECL|field|kubernetesResourcesNamespace

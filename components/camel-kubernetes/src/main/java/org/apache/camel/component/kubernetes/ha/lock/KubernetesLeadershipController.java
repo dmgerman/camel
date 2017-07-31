@@ -1975,7 +1975,7 @@ name|logPrefix
 parameter_list|()
 block|{
 return|return
-literal|"Leadership Controller ["
+literal|"Pod["
 operator|+
 name|this
 operator|.
