@@ -795,6 +795,15 @@ name|lastCommunicatedLeader
 operator|=
 name|newLeader
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Communicating new leader: {}"
+operator|+
+name|newLeader
+argument_list|)
+expr_stmt|;
 name|handler
 operator|.
 name|onKubernetesClusterEvent
@@ -846,6 +855,15 @@ block|{
 name|lastCommunicatedMembers
 operator|=
 name|newMembers
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Communicating new cluster members: {}"
+operator|+
+name|newMembers
+argument_list|)
 expr_stmt|;
 name|handler
 operator|.

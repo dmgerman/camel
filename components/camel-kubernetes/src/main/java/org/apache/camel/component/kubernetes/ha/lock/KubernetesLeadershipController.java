@@ -567,16 +567,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"{} Leadership acquired by current pod ({}) with immediate effect"
+literal|"{} Leadership acquired by current pod with immediate effect"
 argument_list|,
 name|logPrefix
-argument_list|()
-argument_list|,
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getPodName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -653,16 +646,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"{} Leadership acquired by current pod ({})"
+literal|"{} Leadership acquired by current pod"
 argument_list|,
 name|logPrefix
-argument_list|()
-argument_list|,
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getPodName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -724,16 +710,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"{} Leadership is already owned by current pod ({})"
+literal|"{} Leadership is already owned by current pod"
 argument_list|,
 name|logPrefix
-argument_list|()
-argument_list|,
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getPodName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -823,16 +802,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"{} Current pod ({}) owns the leadership, but it will be effective in {} seconds..."
+literal|"{} Current pod owns the leadership, but it will be effective in {} seconds..."
 argument_list|,
 name|logPrefix
-argument_list|()
-argument_list|,
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getPodName
 argument_list|()
 argument_list|,
 operator|new
@@ -888,16 +860,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"{} Current pod ({}) is becoming the new leader now..."
+literal|"{} Current pod is becoming the new leader now..."
 argument_list|,
 name|logPrefix
-argument_list|()
-argument_list|,
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getPodName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -983,16 +948,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"{} Current Pod ({}) is still the leader"
+literal|"{} Current Pod is still the leader"
 argument_list|,
 name|logPrefix
-argument_list|()
-argument_list|,
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getPodName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1042,16 +1000,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"{} Current Pod ({}) has lost the leadership"
+literal|"{} Current Pod has lost the leadership"
 argument_list|,
 name|logPrefix
-argument_list|()
-argument_list|,
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getPodName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1093,27 +1044,16 @@ name|getMembers
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// wait a lease time and restart
+comment|// restart from scratch to acquire leadership
 name|this
 operator|.
 name|serializedExecutor
 operator|.
-name|schedule
+name|execute
 argument_list|(
 name|this
 operator|::
 name|refreshStatus
-argument_list|,
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getLeaseDurationMillis
-argument_list|()
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}
@@ -1385,16 +1325,7 @@ operator|.
 name|getMembers
 argument_list|()
 operator|+
-literal|" does not contain the current pod ("
-operator|+
-name|this
-operator|.
-name|lockConfiguration
-operator|.
-name|getPodName
-argument_list|()
-operator|+
-literal|"). Cannot acquire"
+literal|" does not contain the current Pod. Cannot acquire"
 operator|+
 literal|" leadership."
 argument_list|)
@@ -1727,7 +1658,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"{} Another pod ({}) is the current leader and it is still active"
+literal|"{} Another Pod ({}) is the current leader and it is still active"
 argument_list|,
 name|logPrefix
 argument_list|()
