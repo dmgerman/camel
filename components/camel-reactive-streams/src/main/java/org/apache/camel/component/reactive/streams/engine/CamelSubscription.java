@@ -294,6 +294,7 @@ decl_stmt|;
 comment|/**      * The lock is used just for the time necessary to read/write shared variables.      */
 DECL|field|mutex
 specifier|private
+specifier|final
 name|Lock
 name|mutex
 init|=
@@ -305,6 +306,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|buffer
 specifier|private
+specifier|final
 name|LinkedList
 argument_list|<
 name|Exchange
