@@ -2308,6 +2308,13 @@ name|ignore
 operator|.
 name|add
 argument_list|(
+literal|"org.springframework.security:spring-security-rsa"
+argument_list|)
+expr_stmt|;
+name|ignore
+operator|.
+name|add
+argument_list|(
 literal|"org.springframework.social"
 argument_list|)
 expr_stmt|;
