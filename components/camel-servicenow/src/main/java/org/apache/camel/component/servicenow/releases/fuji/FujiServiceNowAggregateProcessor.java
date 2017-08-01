@@ -235,6 +235,10 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
+name|requestModel
+argument_list|,
+name|responseModel
+argument_list|,
 name|tableName
 argument_list|)
 expr_stmt|;
@@ -264,13 +268,25 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|retrieveStats (Message in, String tableName)
+DECL|method|retrieveStats (Message in, Class<?> requestModel, Class<?> responseModel, String tableName)
 specifier|private
 name|Response
 name|retrieveStats
 parameter_list|(
 name|Message
 name|in
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|tableName
@@ -417,6 +433,11 @@ operator|.
 name|SYSPARM_DISPLAY_VALUE
 argument_list|,
 name|in
+argument_list|)
+operator|.
+name|query
+argument_list|(
+name|responseModel
 argument_list|)
 operator|.
 name|invoke

@@ -326,6 +326,11 @@ argument_list|,
 name|in
 argument_list|)
 operator|.
+name|query
+argument_list|(
+name|responseModel
+argument_list|)
+operator|.
 name|invoke
 argument_list|(
 name|HttpMethod
@@ -422,6 +427,11 @@ operator|.
 name|SYSPARM_DATA_SOURCE
 argument_list|,
 name|in
+argument_list|)
+operator|.
+name|query
+argument_list|(
+name|responseModel
 argument_list|)
 operator|.
 name|invoke

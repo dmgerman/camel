@@ -219,6 +219,10 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
+name|requestModel
+argument_list|,
+name|responseModel
+argument_list|,
 name|apiVersion
 argument_list|,
 name|tableName
@@ -289,13 +293,25 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * GET      * https://instance.service-now.com/api/now/import/{tableName}/{sys_id}      */
-DECL|method|retrieveRecord (Message in, String apiVersion, String tableName, String sysId)
+DECL|method|retrieveRecord (Message in, Class<?> requestModel, Class<?> responseModel, String apiVersion, String tableName, String sysId)
 specifier|private
 name|Response
 name|retrieveRecord
 parameter_list|(
 name|Message
 name|in
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|requestModel
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|responseModel
 parameter_list|,
 name|String
 name|apiVersion
@@ -354,6 +370,11 @@ literal|"sysId"
 argument_list|)
 argument_list|)
 operator|.
+name|query
+argument_list|(
+name|responseModel
+argument_list|)
+operator|.
 name|invoke
 argument_list|(
 name|HttpMethod
@@ -363,7 +384,7 @@ argument_list|)
 return|;
 block|}
 comment|/*      * POST      * https://instance.service-now.com/api/now/import/{tableName}      */
-DECL|method|createRecord (Message in, Class<?> requestModel, Class<?> responseModell, String apiVersion, String tableName)
+DECL|method|createRecord (Message in, Class<?> requestModel, Class<?> responseModel, String apiVersion, String tableName)
 specifier|private
 name|Response
 name|createRecord
@@ -381,7 +402,7 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|responseModell
+name|responseModel
 parameter_list|,
 name|String
 name|apiVersion
@@ -430,6 +451,11 @@ operator|.
 name|path
 argument_list|(
 name|tableName
+argument_list|)
+operator|.
+name|query
+argument_list|(
+name|responseModel
 argument_list|)
 operator|.
 name|invoke

@@ -324,6 +324,11 @@ literal|"sysId"
 argument_list|)
 argument_list|)
 operator|.
+name|query
+argument_list|(
+name|responseModel
+argument_list|)
+operator|.
 name|invoke
 argument_list|(
 name|HttpMethod
@@ -448,6 +453,11 @@ operator|.
 name|path
 argument_list|(
 name|tableName
+argument_list|)
+operator|.
+name|query
+argument_list|(
+name|responseModel
 argument_list|)
 operator|.
 name|invoke

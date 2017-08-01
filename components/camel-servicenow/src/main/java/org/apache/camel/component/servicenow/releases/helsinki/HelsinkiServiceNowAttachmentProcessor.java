@@ -776,6 +776,11 @@ argument_list|,
 name|in
 argument_list|)
 operator|.
+name|query
+argument_list|(
+name|responseModel
+argument_list|)
+operator|.
 name|invoke
 argument_list|(
 name|HttpMethod
@@ -904,6 +909,11 @@ name|sysId
 argument_list|,
 literal|"sysId"
 argument_list|)
+argument_list|)
+operator|.
+name|query
+argument_list|(
+name|responseModel
 argument_list|)
 operator|.
 name|invoke

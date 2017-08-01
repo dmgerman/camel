@@ -346,6 +346,11 @@ argument_list|,
 name|in
 argument_list|)
 operator|.
+name|query
+argument_list|(
+name|responseModel
+argument_list|)
+operator|.
 name|invoke
 argument_list|(
 name|HttpMethod
@@ -397,6 +402,11 @@ operator|.
 name|SYSPARM_VIEW
 argument_list|,
 name|in
+argument_list|)
+operator|.
+name|query
+argument_list|(
+name|responseModel
 argument_list|)
 operator|.
 name|invoke
@@ -553,6 +563,11 @@ operator|.
 name|SYSPARM_OFFSET
 argument_list|,
 name|in
+argument_list|)
+operator|.
+name|query
+argument_list|(
+name|responseModel
 argument_list|)
 operator|.
 name|invoke
