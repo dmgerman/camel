@@ -797,13 +797,15 @@ name|newLeader
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Communicating new leader: {}"
-operator|+
+literal|"The cluster has a new leader: {}"
+argument_list|,
 name|newLeader
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|handler
 operator|.
 name|onKubernetesClusterEvent
@@ -832,6 +834,23 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error while communicating the new leader to the handler"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 specifier|final
 name|Set
 argument_list|<
@@ -858,13 +877,15 @@ name|newMembers
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Communicating new cluster members: {}"
-operator|+
+literal|"The list of cluster members has changed: {}"
+argument_list|,
 name|newMembers
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|handler
 operator|.
 name|onKubernetesClusterEvent
@@ -892,6 +913,23 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error while communicating the cluster members to the handler"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
