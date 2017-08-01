@@ -19,38 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-operator|.
-name|convertToMandatoryType
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-operator|.
-name|convertToType
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -92,6 +60,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|univocity
+operator|.
+name|parsers
+operator|.
+name|common
+operator|.
+name|AbstractWriter
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -115,21 +97,39 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
+import|import static
+name|org
 operator|.
-name|univocity
+name|apache
 operator|.
-name|parsers
+name|camel
 operator|.
-name|common
+name|util
 operator|.
-name|AbstractWriter
+name|ExchangeHelper
+operator|.
+name|convertToMandatoryType
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+operator|.
+name|convertToType
 import|;
 end_import
 
 begin_comment
-comment|/**  * This class marshalls the exchange body using an uniVocity writer. It can automatically generates headers and keep  * their order in memory.  *  * @param<W> Writer class  */
+comment|/**  * This class marshalls the exchange body using an uniVocity writer. It can  * automatically generates headers and keep their order in memory.  *  * @param<W> Writer class  */
 end_comment
 
 begin_class
@@ -168,7 +168,7 @@ specifier|final
 name|boolean
 name|adaptHeaders
 decl_stmt|;
-comment|/**      * Creates a new instance.      *      * @param headers      the base headers to use      * @param adaptHeaders whether or not we can add headers on the fly depending on the data      */
+comment|/**      * Creates a new instance.      *      * @param headers the base headers to use      * @param adaptHeaders whether or not we can add headers on the fly      *            depending on the data      */
 DECL|method|Marshaller (String[] headers, boolean adaptHeaders)
 name|Marshaller
 parameter_list|(
@@ -209,7 +209,7 @@ operator|=
 name|adaptHeaders
 expr_stmt|;
 block|}
-comment|/**      * Marshals the given body.      *      * @param exchange exchange to use (for type conversion)      * @param body     body to marshal      * @param writer   uniVocity writer to use      * @throws NoTypeConversionAvailableException when it's not possible to convert the body as list and maps.      */
+comment|/**      * Marshals the given body.      *      * @param exchange exchange to use (for type conversion)      * @param body body to marshal      * @param writer uniVocity writer to use      * @throws NoTypeConversionAvailableException when it's not possible to      *             convert the body as list and maps.      */
 DECL|method|marshal (Exchange exchange, Object body, W writer)
 specifier|public
 name|void
@@ -294,7 +294,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Writes the given row.      *      * @param exchange exchange to use (for type conversion)      * @param row      row to write      * @param writer   uniVocity writer to use      * @throws NoTypeConversionAvailableException when it's not possible to convert the row as map.      */
+comment|/**      * Writes the given row.      *      * @param exchange exchange to use (for type conversion)      * @param row row to write      * @param writer uniVocity writer to use      * @throws NoTypeConversionAvailableException when it's not possible to      *             convert the row as map.      */
 DECL|method|writeRow (Exchange exchange, Object row, W writer)
 specifier|private
 name|void
