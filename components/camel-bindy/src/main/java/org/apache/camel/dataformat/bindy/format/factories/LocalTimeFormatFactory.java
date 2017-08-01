@@ -349,14 +349,6 @@ argument_list|,
 literal|"pattern"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|doesStringFitLengthOfPattern
-argument_list|(
-name|string
-argument_list|)
-condition|)
-block|{
 name|date
 operator|=
 name|LocalTime
@@ -370,40 +362,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|date
-return|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|FormatException
-argument_list|(
-literal|"Date provided does not fit the pattern defined"
-argument_list|)
-throw|;
-block|}
-block|}
-DECL|method|doesStringFitLengthOfPattern (String string)
-specifier|private
-name|boolean
-name|doesStringFitLengthOfPattern
-parameter_list|(
-name|String
-name|string
-parameter_list|)
-block|{
-return|return
-name|string
-operator|.
-name|length
-argument_list|()
-operator|<=
-name|this
-operator|.
-name|pattern
-operator|.
-name|length
-argument_list|()
 return|;
 block|}
 DECL|method|getDateFormat ()
