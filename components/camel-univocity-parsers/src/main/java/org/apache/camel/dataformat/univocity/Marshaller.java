@@ -19,6 +19,38 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+operator|.
+name|convertToMandatoryType
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+operator|.
+name|convertToType
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -60,20 +92,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|univocity
-operator|.
-name|parsers
-operator|.
-name|common
-operator|.
-name|AbstractWriter
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -97,34 +115,16 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|com
 operator|.
-name|apache
+name|univocity
 operator|.
-name|camel
+name|parsers
 operator|.
-name|util
+name|common
 operator|.
-name|ExchangeHelper
-operator|.
-name|convertToMandatoryType
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-operator|.
-name|convertToType
+name|AbstractWriter
 import|;
 end_import
 
@@ -336,6 +336,11 @@ condition|(
 name|adaptHeaders
 condition|)
 block|{
+synchronized|synchronized
+init|(
+name|headers
+init|)
+block|{
 for|for
 control|(
 name|Object
@@ -364,7 +369,44 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|writeRow
+argument_list|(
+name|map
+argument_list|,
+name|writer
+argument_list|)
+expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+name|writeRow
+argument_list|(
+name|map
+argument_list|,
+name|writer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Writes the given map as row.      *       * @param map row values by header      * @param writer uniVocity writer to use      */
+DECL|method|writeRow (Map<?, ?> map, W writer)
+specifier|private
+name|void
+name|writeRow
+parameter_list|(
+name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+name|map
+parameter_list|,
+name|W
+name|writer
+parameter_list|)
+block|{
 name|Object
 index|[]
 name|values
