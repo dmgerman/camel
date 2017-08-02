@@ -667,6 +667,14 @@ specifier|private
 name|Boolean
 name|favorites
 decl_stmt|;
+comment|/**          * Set this parameter to true to retrieve the target record when using          * import set api. The import set result is then replaced by the target          * record          */
+DECL|field|retrieveTargetRecordOnImport
+specifier|private
+name|Boolean
+name|retrieveTargetRecordOnImport
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * Set this parameter to true to return only scorecards for key          * indicators.          */
 DECL|field|key
 specifier|private
@@ -1276,6 +1284,32 @@ operator|.
 name|favorites
 operator|=
 name|favorites
+expr_stmt|;
+block|}
+DECL|method|getRetrieveTargetRecordOnImport ()
+specifier|public
+name|Boolean
+name|getRetrieveTargetRecordOnImport
+parameter_list|()
+block|{
+return|return
+name|retrieveTargetRecordOnImport
+return|;
+block|}
+DECL|method|setRetrieveTargetRecordOnImport ( Boolean retrieveTargetRecordOnImport)
+specifier|public
+name|void
+name|setRetrieveTargetRecordOnImport
+parameter_list|(
+name|Boolean
+name|retrieveTargetRecordOnImport
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retrieveTargetRecordOnImport
+operator|=
+name|retrieveTargetRecordOnImport
 expr_stmt|;
 block|}
 DECL|method|getKey ()

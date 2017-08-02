@@ -178,6 +178,15 @@ name|RESPONSE_TYPE
 init|=
 literal|"CamelServiceNowResponseType"
 decl_stmt|;
+DECL|field|RETRIEVE_TARGET_RECORD
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RETRIEVE_TARGET_RECORD
+init|=
+literal|"CamelServiceNowRetrieveTargetRecord"
+decl_stmt|;
 DECL|field|ATTACHMENT_META_HEADER
 specifier|public
 specifier|static

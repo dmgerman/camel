@@ -448,6 +448,24 @@ name|favorites
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|retrieveTargetRecordOnImport
+specifier|private
+name|Boolean
+name|retrieveTargetRecordOnImport
+init|=
+literal|false
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|key
 specifier|private
 name|Boolean
@@ -1326,6 +1344,33 @@ operator|.
 name|favorites
 operator|=
 name|favorites
+expr_stmt|;
+block|}
+DECL|method|getRetrieveTargetRecordOnImport ()
+specifier|public
+name|Boolean
+name|getRetrieveTargetRecordOnImport
+parameter_list|()
+block|{
+return|return
+name|retrieveTargetRecordOnImport
+return|;
+block|}
+comment|/**      * Set this parameter to true to retrieve the target record when using import      * set api. The import set result is then replaced by the target record      */
+DECL|method|setRetrieveTargetRecordOnImport (Boolean retrieveTargetRecordOnImport)
+specifier|public
+name|void
+name|setRetrieveTargetRecordOnImport
+parameter_list|(
+name|Boolean
+name|retrieveTargetRecordOnImport
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retrieveTargetRecordOnImport
+operator|=
+name|retrieveTargetRecordOnImport
 expr_stmt|;
 block|}
 DECL|method|getKey ()
