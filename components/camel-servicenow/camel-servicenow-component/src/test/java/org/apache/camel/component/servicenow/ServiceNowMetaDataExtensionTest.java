@@ -44,6 +44,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|ObjectMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -184,7 +198,7 @@ argument_list|)
 operator|.
 name|orElseThrow
 argument_list|(
-name|IllegalStateException
+name|UnsupportedOperationException
 operator|::
 operator|new
 argument_list|)
@@ -251,7 +265,7 @@ argument_list|)
 operator|.
 name|orElseThrow
 argument_list|(
-name|IllegalStateException
+name|RuntimeException
 operator|::
 operator|new
 argument_list|)
@@ -428,9 +442,26 @@ literal|"properties"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//LOGGER.info(
-comment|//    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(result.getPayload())
-comment|//);
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+operator|new
+name|ObjectMapper
+argument_list|()
+operator|.
+name|writerWithDefaultPrettyPrinter
+argument_list|()
+operator|.
+name|writeValueAsString
+argument_list|(
+name|result
+operator|.
+name|getPayload
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -441,10 +472,10 @@ name|UnsupportedOperationException
 operator|.
 name|class
 argument_list|)
-DECL|method|testMInvalidObjectType ()
+DECL|method|testInvalidObjectType ()
 specifier|public
 name|void
-name|testMInvalidObjectType
+name|testInvalidObjectType
 parameter_list|()
 throws|throws
 name|Exception
