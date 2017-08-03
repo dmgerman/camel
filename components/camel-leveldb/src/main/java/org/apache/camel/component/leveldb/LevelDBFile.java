@@ -835,7 +835,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|ignored
 parameter_list|)
 block|{             }
