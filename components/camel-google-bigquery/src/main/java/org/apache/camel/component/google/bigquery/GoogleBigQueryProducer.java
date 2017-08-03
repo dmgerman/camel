@@ -584,13 +584,6 @@ expr_stmt|;
 name|tableId
 operator|=
 name|tmpTableId
-operator|.
-name|isEmpty
-argument_list|()
-condition|?
-name|tableId
-else|:
-name|tmpTableId
 expr_stmt|;
 block|}
 name|processGroup

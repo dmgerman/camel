@@ -330,7 +330,6 @@ name|routeId
 argument_list|(
 literal|"Async"
 argument_list|)
-comment|//.threads(10)
 operator|.
 name|inOnly
 argument_list|(
