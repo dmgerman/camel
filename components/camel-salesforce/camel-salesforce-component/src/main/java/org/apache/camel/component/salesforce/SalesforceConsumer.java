@@ -1046,6 +1046,27 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getRawPayload
+argument_list|()
+condition|)
+block|{
+comment|// return sobject string as exchange body
+name|in
+operator|.
+name|setBody
+argument_list|(
+name|sObjectString
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|sObjectClass
 operator|==
 literal|null
