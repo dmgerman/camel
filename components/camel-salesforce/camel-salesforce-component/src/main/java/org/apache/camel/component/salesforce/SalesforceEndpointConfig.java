@@ -316,6 +316,15 @@ name|FORMAT
 init|=
 literal|"format"
 decl_stmt|;
+DECL|field|RAW_PAYLOAD
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RAW_PAYLOAD
+init|=
+literal|"rawPayload"
+decl_stmt|;
 DECL|field|SOBJECT_NAME
 specifier|public
 specifier|static
@@ -596,6 +605,13 @@ init|=
 name|PayloadFormat
 operator|.
 name|JSON
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|rawPayload
+specifier|private
+name|boolean
+name|rawPayload
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -984,6 +1000,33 @@ operator|.
 name|format
 operator|=
 name|format
+expr_stmt|;
+block|}
+DECL|method|getRawPayload ()
+specifier|public
+name|boolean
+name|getRawPayload
+parameter_list|()
+block|{
+return|return
+name|rawPayload
+return|;
+block|}
+comment|/**      * Use raw payload {@link String} for request and response (either JSON or XML depending on {@code format}),      * instead of DTOs, false by default      */
+DECL|method|setRawPayload (boolean rawPayload)
+specifier|public
+name|void
+name|setRawPayload
+parameter_list|(
+name|boolean
+name|rawPayload
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rawPayload
+operator|=
+name|rawPayload
 expr_stmt|;
 block|}
 DECL|method|getApiVersion ()

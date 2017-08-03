@@ -2124,7 +2124,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Missing property packages, getSObject* operations will NOT work"
+literal|"Missing property packages, getSObject* operations will NOT work without property rawPayload=true"
 argument_list|)
 expr_stmt|;
 name|classMap

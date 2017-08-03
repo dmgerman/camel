@@ -298,6 +298,12 @@ specifier|final
 name|SalesforceHttpClient
 name|httpClient
 decl_stmt|;
+DECL|field|rawPayload
+specifier|protected
+specifier|final
+name|boolean
+name|rawPayload
+decl_stmt|;
 DECL|method|AbstractSalesforceProcessor (SalesforceEndpoint endpoint)
 specifier|public
 name|AbstractSalesforceProcessor
@@ -361,6 +367,18 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|getHttpClient
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|rawPayload
+operator|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getRawPayload
 argument_list|()
 expr_stmt|;
 block|}
