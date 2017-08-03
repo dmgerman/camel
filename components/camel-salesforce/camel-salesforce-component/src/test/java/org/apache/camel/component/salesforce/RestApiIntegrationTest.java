@@ -976,6 +976,13 @@ argument_list|(
 literal|100.0
 argument_list|)
 expr_stmt|;
+name|merchandise
+operator|.
+name|setDescription__c
+argument_list|(
+literal|"Test Merchandise!"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|CreateSObjectResult
 name|result

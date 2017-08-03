@@ -1403,6 +1403,9 @@ name|response
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|rawPayload
+operator|&&
 name|responseClass
 operator|!=
 literal|null

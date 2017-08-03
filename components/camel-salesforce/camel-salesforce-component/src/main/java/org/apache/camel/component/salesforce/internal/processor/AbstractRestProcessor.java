@@ -5129,6 +5129,14 @@ parameter_list|)
 throws|throws
 name|SalesforceException
 block|{
+comment|// nothing to do if using rawPayload
+if|if
+condition|(
+name|rawPayload
+condition|)
+block|{
+return|return;
+block|}
 name|Class
 argument_list|<
 name|?

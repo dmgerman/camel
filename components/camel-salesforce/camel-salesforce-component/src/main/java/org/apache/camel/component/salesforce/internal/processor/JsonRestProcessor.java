@@ -1002,10 +1002,9 @@ literal|null
 condition|)
 block|{
 comment|// do we need to un-marshal a response
+specifier|final
 name|Object
 name|response
-init|=
-literal|null
 decl_stmt|;
 name|Class
 argument_list|<
@@ -1026,6 +1025,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|rawPayload
+operator|&&
 name|responseClass
 operator|!=
 literal|null
@@ -1064,6 +1066,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|rawPayload
+operator|&&
 name|responseType
 operator|!=
 literal|null
