@@ -53,6 +53,7 @@ end_comment
 begin_class
 DECL|class|AbstractSObjectBase
 specifier|public
+specifier|abstract
 class|class
 name|AbstractSObjectBase
 extends|extends

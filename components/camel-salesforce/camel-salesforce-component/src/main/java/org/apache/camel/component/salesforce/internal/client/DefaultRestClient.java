@@ -2346,6 +2346,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// guard against requests that do not support bodies
+switch|switch
+condition|(
+name|request
+operator|.
+name|getMethod
+argument_list|()
+condition|)
+block|{
+case|case
+literal|"PUT"
+case|:
+case|case
+literal|"PATCH"
+case|:
+case|case
+literal|"POST"
+case|:
 name|request
 operator|.
 name|content
@@ -2379,6 +2397,10 @@ else|:
 name|APPLICATION_XML_UTF8
 argument_list|)
 expr_stmt|;
+break|break;
+default|default:
+comment|// ignore body for other methods
+block|}
 block|}
 comment|// requires authorization token
 name|setAccessToken

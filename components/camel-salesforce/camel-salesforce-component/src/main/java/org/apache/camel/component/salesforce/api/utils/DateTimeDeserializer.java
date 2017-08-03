@@ -193,6 +193,23 @@ name|currentToken
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|handledType ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|handledType
+parameter_list|()
+block|{
+return|return
+name|ZonedDateTime
+operator|.
+name|class
+return|;
+block|}
 block|}
 end_class
 
