@@ -1707,6 +1707,14 @@ specifier|private
 name|PayloadFormat
 name|format
 decl_stmt|;
+comment|/**          * Use raw payload {@link String} for request and response (either JSON          * or XML depending on {@code format} ), instead of DTOs, false by          * default          */
+DECL|field|rawPayload
+specifier|private
+name|Boolean
+name|rawPayload
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * Salesforce API version, defaults to          * SalesforceEndpointConfig.DEFAULT_VERSION          */
 DECL|field|apiVersion
 specifier|private
@@ -2005,6 +2013,32 @@ operator|.
 name|format
 operator|=
 name|format
+expr_stmt|;
+block|}
+DECL|method|getRawPayload ()
+specifier|public
+name|Boolean
+name|getRawPayload
+parameter_list|()
+block|{
+return|return
+name|rawPayload
+return|;
+block|}
+DECL|method|setRawPayload (Boolean rawPayload)
+specifier|public
+name|void
+name|setRawPayload
+parameter_list|(
+name|Boolean
+name|rawPayload
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rawPayload
+operator|=
+name|rawPayload
 expr_stmt|;
 block|}
 DECL|method|getApiVersion ()
