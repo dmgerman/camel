@@ -160,6 +160,8 @@ operator|.
 name|format
 argument_list|(
 literal|"Status (%d)"
+argument_list|,
+name|code
 argument_list|)
 argument_list|)
 expr_stmt|;
