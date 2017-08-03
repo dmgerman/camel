@@ -1174,13 +1174,7 @@ operator|=
 name|UndertowClient
 operator|.
 name|getInstance
-argument_list|(
-name|getCamelContext
 argument_list|()
-operator|.
-name|getApplicationContextClassLoader
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|send (String httpUri, Optional<String> httpMethod)
