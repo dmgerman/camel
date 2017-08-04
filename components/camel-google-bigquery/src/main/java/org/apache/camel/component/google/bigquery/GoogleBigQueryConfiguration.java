@@ -89,22 +89,6 @@ name|UriParam
 argument_list|(
 name|name
 operator|=
-literal|"concurrentProducers"
-argument_list|,
-name|description
-operator|=
-literal|"Maximum number of simultaneous consumers when using async processing"
-argument_list|)
-DECL|field|concurrentProducers
-specifier|private
-name|int
-name|concurrentProducers
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|name
-operator|=
 literal|"connectionFactory"
 argument_list|,
 name|description
@@ -115,22 +99,6 @@ DECL|field|connectionFactory
 specifier|private
 name|GoogleBigQueryConnectionFactory
 name|connectionFactory
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"loggerId"
-argument_list|,
-name|description
-operator|=
-literal|"Logger ID to use when a match to the parent route required"
-argument_list|)
-DECL|field|loggerId
-specifier|private
-name|String
-name|loggerId
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -294,35 +262,6 @@ index|]
 expr_stmt|;
 block|}
 block|}
-DECL|method|getLoggerId ()
-specifier|public
-name|String
-name|getLoggerId
-parameter_list|()
-block|{
-return|return
-name|loggerId
-return|;
-block|}
-DECL|method|setLoggerId (String loggerId)
-specifier|public
-name|GoogleBigQueryConfiguration
-name|setLoggerId
-parameter_list|(
-name|String
-name|loggerId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|loggerId
-operator|=
-name|loggerId
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * ConnectionFactory to obtain connection to Bigquery Service. If non provided the default will be used.      */
 DECL|method|getConnectionFactory ()
 specifier|public
@@ -349,35 +288,6 @@ name|connectionFactory
 operator|=
 name|connectionFactory
 expr_stmt|;
-block|}
-DECL|method|getConcurrentProducers ()
-specifier|public
-name|int
-name|getConcurrentProducers
-parameter_list|()
-block|{
-return|return
-name|concurrentProducers
-return|;
-block|}
-DECL|method|setConcurrentProducers (int concurrentProducers)
-specifier|public
-name|GoogleBigQueryConfiguration
-name|setConcurrentProducers
-parameter_list|(
-name|int
-name|concurrentProducers
-parameter_list|)
-block|{
-name|this
-operator|.
-name|concurrentProducers
-operator|=
-name|concurrentProducers
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 DECL|method|getUseAsInsertId ()
 specifier|public
