@@ -433,6 +433,20 @@ specifier|private
 name|String
 name|filePersistenceDirectory
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|autoReconnect
+specifier|private
+name|boolean
+name|autoReconnect
+init|=
+literal|true
+decl_stmt|;
 comment|// Collaboration members
 annotation|@
 name|UriParam
@@ -756,10 +770,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|MqttConnectOptions
+name|options
+init|=
 operator|new
 name|MqttConnectOptions
 argument_list|()
+decl_stmt|;
+name|options
+operator|.
+name|setAutomaticReconnect
+argument_list|(
+name|autoReconnect
+argument_list|)
+expr_stmt|;
+return|return
+name|options
 return|;
 block|}
 DECL|method|createExchange (MqttMessage mqttMessage, String topic)
@@ -1069,6 +1095,35 @@ operator|.
 name|connectOptions
 operator|=
 name|connOpts
+expr_stmt|;
+block|}
+DECL|method|isAutoReconnect ()
+specifier|public
+specifier|synchronized
+name|boolean
+name|isAutoReconnect
+parameter_list|()
+block|{
+return|return
+name|autoReconnect
+return|;
+block|}
+comment|/**      * Client will automatically attempt to reconnect to the server if the connection is lost       * @param autoReconnect      */
+DECL|method|setAutoReconnect (boolean autoReconnect)
+specifier|public
+specifier|synchronized
+name|void
+name|setAutoReconnect
+parameter_list|(
+name|boolean
+name|autoReconnect
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoReconnect
+operator|=
+name|autoReconnect
 expr_stmt|;
 block|}
 block|}
