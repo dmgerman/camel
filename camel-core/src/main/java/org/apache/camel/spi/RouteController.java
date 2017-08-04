@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -49,6 +59,18 @@ operator|.
 name|camel
 operator|.
 name|Experimental
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Route
 import|;
 end_import
 
@@ -166,6 +188,15 @@ name|routeId
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Return the list of routes controlled by this controller.      *      * @return the list of controlled routes;      */
+DECL|method|getControlledRoutes ()
+name|List
+argument_list|<
+name|Route
+argument_list|>
+name|getControlledRoutes
+parameter_list|()
 function_decl|;
 block|}
 end_interface

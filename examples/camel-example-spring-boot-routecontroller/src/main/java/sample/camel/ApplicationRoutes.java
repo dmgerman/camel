@@ -117,6 +117,26 @@ argument_list|(
 literal|"From undertow ..."
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"undertow:http://localhost:9012"
+argument_list|)
+operator|.
+name|id
+argument_list|(
+literal|"undertow-2"
+argument_list|)
+operator|.
+name|autoStartup
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"From undertow ..."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
