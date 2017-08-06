@@ -807,6 +807,30 @@ specifier|private
 name|String
 name|proxyPassword
 decl_stmt|;
+comment|/**          * The date format used for Json serialization/deserialization          */
+DECL|field|dateFormat
+specifier|private
+name|String
+name|dateFormat
+init|=
+literal|"yyyy-MM-dd"
+decl_stmt|;
+comment|/**          * The time format used for Json serialization/deserialization          */
+DECL|field|timeFormat
+specifier|private
+name|String
+name|timeFormat
+init|=
+literal|"HH:mm:ss"
+decl_stmt|;
+comment|/**          * The date-time format used for Json serialization/deserialization          */
+DECL|field|dateTimeFormat
+specifier|private
+name|String
+name|dateTimeFormat
+init|=
+literal|"yyyy-MM-dd HH:mm:ss"
+decl_stmt|;
 DECL|field|models
 specifier|private
 name|Map
@@ -1804,6 +1828,84 @@ operator|.
 name|proxyPassword
 operator|=
 name|proxyPassword
+expr_stmt|;
+block|}
+DECL|method|getDateFormat ()
+specifier|public
+name|String
+name|getDateFormat
+parameter_list|()
+block|{
+return|return
+name|dateFormat
+return|;
+block|}
+DECL|method|setDateFormat (String dateFormat)
+specifier|public
+name|void
+name|setDateFormat
+parameter_list|(
+name|String
+name|dateFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dateFormat
+operator|=
+name|dateFormat
+expr_stmt|;
+block|}
+DECL|method|getTimeFormat ()
+specifier|public
+name|String
+name|getTimeFormat
+parameter_list|()
+block|{
+return|return
+name|timeFormat
+return|;
+block|}
+DECL|method|setTimeFormat (String timeFormat)
+specifier|public
+name|void
+name|setTimeFormat
+parameter_list|(
+name|String
+name|timeFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeFormat
+operator|=
+name|timeFormat
+expr_stmt|;
+block|}
+DECL|method|getDateTimeFormat ()
+specifier|public
+name|String
+name|getDateTimeFormat
+parameter_list|()
+block|{
+return|return
+name|dateTimeFormat
+return|;
+block|}
+DECL|method|setDateTimeFormat (String dateTimeFormat)
+specifier|public
+name|void
+name|setDateTimeFormat
+parameter_list|(
+name|String
+name|dateTimeFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dateTimeFormat
+operator|=
+name|dateTimeFormat
 expr_stmt|;
 block|}
 DECL|method|getModels ()

@@ -391,7 +391,7 @@ name|JacksonJsonProvider
 argument_list|(
 name|configuration
 operator|.
-name|getMapper
+name|getOrCreateMapper
 argument_list|()
 argument_list|)
 argument_list|)
