@@ -649,7 +649,7 @@ name|put
 argument_list|(
 literal|"$schema"
 argument_list|,
-literal|"http://json-schema.org/draft-04/schema#"
+literal|"http://json-schema.org/schema#"
 argument_list|)
 expr_stmt|;
 name|root

@@ -212,7 +212,11 @@ specifier|final
 name|String
 name|DEFAULT_DATE_TIME_FORMAT
 init|=
-literal|"yyyy-MM-dd HH:mm:ss"
+name|DEFAULT_DATE_FORMAT
+operator|+
+literal|" "
+operator|+
+name|DEFAULT_TIME_FORMAT
 decl_stmt|;
 DECL|field|ATTACHMENT_META_HEADER
 specifier|public
