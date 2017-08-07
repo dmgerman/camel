@@ -67,11 +67,13 @@ specifier|public
 class|class
 name|SupervisingRouteControllerConfiguration
 block|{
+comment|/**      * Global option to enable/disable this ${@link org.apache.camel.spi.RouteController}, default is false.      */
 DECL|field|enabled
 specifier|private
 name|boolean
 name|enabled
 decl_stmt|;
+comment|/**      * The default back-off configuration, back-off configuration for routes inherits from this default.      */
 DECL|field|backOff
 specifier|private
 name|BackOffConfiguration
@@ -81,6 +83,7 @@ operator|new
 name|BackOffConfiguration
 argument_list|()
 decl_stmt|;
+comment|/**      * Routes configuration.      */
 DECL|field|routes
 specifier|private
 name|Map
@@ -156,6 +159,7 @@ specifier|static
 class|class
 name|RouteConfiguration
 block|{
+comment|/**          * The back-off configuration from this route, inherits from default back-off          */
 DECL|field|backOff
 specifier|private
 name|BackOffConfiguration
@@ -194,26 +198,31 @@ specifier|static
 class|class
 name|BackOffConfiguration
 block|{
+comment|/**          * The delay to wait before retry the operation.          *          * You can also specify time values using units, such as 60s (60 seconds),          * 5m30s (5 minutes and 30 seconds), and 1h (1 hour).          */
 DECL|field|delay
 specifier|private
 name|String
 name|delay
 decl_stmt|;
+comment|/**          * The maximum back-off time.          *          * You can also specify time values using units, such as 60s (60 seconds),          * 5m30s (5 minutes and 30 seconds), and 1h (1 hour).          */
 DECL|field|maxDelay
 specifier|private
 name|String
 name|maxDelay
 decl_stmt|;
+comment|/**          * The maximum elapsed time after which the back-off is exhausted.          *          * You can also specify time values using units, such as 60s (60 seconds),          * 5m30s (5 minutes and 30 seconds), and 1h (1 hour).          */
 DECL|field|maxElapsedTime
 specifier|private
 name|String
 name|maxElapsedTime
 decl_stmt|;
+comment|/**          * Teh maximum number of attempts after which the back-off is exhausted.          */
 DECL|field|maxAttempts
 specifier|private
 name|Long
 name|maxAttempts
 decl_stmt|;
+comment|/**          * The value to multiply the current interval by for each retry attempt.          */
 DECL|field|multiplier
 specifier|private
 name|Double
