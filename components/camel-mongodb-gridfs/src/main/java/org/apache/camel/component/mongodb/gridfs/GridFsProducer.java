@@ -401,6 +401,13 @@ argument_list|(
 name|metaData
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|dbObject
+operator|!=
+literal|null
+condition|)
+block|{
 name|gfsFile
 operator|.
 name|setMetaData
@@ -408,6 +415,7 @@ argument_list|(
 name|dbObject
 argument_list|)
 expr_stmt|;
+block|}
 name|gfsFile
 operator|.
 name|save
