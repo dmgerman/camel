@@ -191,12 +191,46 @@ specifier|static
 class|class
 name|RouteConfiguration
 block|{
+comment|/**          * Control if the route should be supervised or not, default is true.          */
+DECL|field|supervise
+specifier|private
+name|boolean
+name|supervise
+init|=
+literal|true
+decl_stmt|;
 comment|/**          * The back-off configuration from this route, inherits from default back-off          */
 DECL|field|backOff
 specifier|private
 name|BackOffConfiguration
 name|backOff
 decl_stmt|;
+DECL|method|isSupervised ()
+specifier|public
+name|boolean
+name|isSupervised
+parameter_list|()
+block|{
+return|return
+name|supervise
+return|;
+block|}
+DECL|method|setSupervise (boolean supervise)
+specifier|public
+name|void
+name|setSupervise
+parameter_list|(
+name|boolean
+name|supervise
+parameter_list|)
+block|{
+name|this
+operator|.
+name|supervise
+operator|=
+name|supervise
+expr_stmt|;
+block|}
 DECL|method|getBackOff ()
 specifier|public
 name|BackOffConfiguration

@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collection
 import|;
 end_import
 
@@ -98,6 +98,15 @@ name|CamelContextAware
 extends|,
 name|Service
 block|{
+comment|/**      * Return the list of routes controlled by this controller.      *      * @return the list of controlled routes;      */
+DECL|method|getControlledRoutes ()
+name|Collection
+argument_list|<
+name|Route
+argument_list|>
+name|getControlledRoutes
+parameter_list|()
+function_decl|;
 DECL|method|startRoute (String routeId)
 name|void
 name|startRoute
@@ -188,15 +197,6 @@ name|routeId
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
-comment|/**      * Return the list of routes controlled by this controller.      *      * @return the list of controlled routes;      */
-DECL|method|getControlledRoutes ()
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|getControlledRoutes
-parameter_list|()
 function_decl|;
 block|}
 end_interface

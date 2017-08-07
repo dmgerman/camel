@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|Collection
 import|;
 end_import
 
@@ -33,16 +33,6 @@ operator|.
 name|util
 operator|.
 name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -128,15 +118,6 @@ name|ServiceSupport
 implements|implements
 name|RouteController
 block|{
-DECL|field|routes
-specifier|private
-specifier|final
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -166,15 +147,6 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
-expr_stmt|;
-name|this
-operator|.
-name|routes
-operator|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
 expr_stmt|;
 block|}
 comment|// ***************************************************
@@ -419,11 +391,14 @@ name|routeId
 argument_list|)
 expr_stmt|;
 block|}
+comment|// ***************************************************
+comment|//
+comment|// ***************************************************
 annotation|@
 name|Override
 DECL|method|getControlledRoutes ()
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|Route
 argument_list|>

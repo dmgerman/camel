@@ -17956,7 +17956,7 @@ expr_stmt|;
 block|}
 block|}
 specifier|final
-name|List
+name|Collection
 argument_list|<
 name|Route
 argument_list|>

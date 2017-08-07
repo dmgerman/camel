@@ -124,7 +124,7 @@ argument_list|)
 operator|.
 name|id
 argument_list|(
-literal|"undertow-2"
+literal|"undertow2"
 argument_list|)
 operator|.
 name|autoStartup
@@ -134,7 +134,22 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"From undertow ..."
+literal|"From undertow 2..."
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"undertow:http://localhost:9013"
+argument_list|)
+operator|.
+name|id
+argument_list|(
+literal|"undertow3"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"From undertow 3..."
 argument_list|)
 expr_stmt|;
 block|}
