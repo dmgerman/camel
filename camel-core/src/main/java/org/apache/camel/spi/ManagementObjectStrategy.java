@@ -221,6 +221,14 @@ name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
+DECL|method|getManagedObjectForRouteController (CamelContext context)
+name|Object
+name|getManagedObjectForRouteController
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
 DECL|method|getManagedObjectForRoute (CamelContext context, Route route)
 name|Object
 name|getManagedObjectForRoute

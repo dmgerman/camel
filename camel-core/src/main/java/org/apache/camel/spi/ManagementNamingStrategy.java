@@ -202,6 +202,16 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
+DECL|method|getObjectNameForRouteController (CamelContext context)
+name|ObjectName
+name|getObjectNameForRouteController
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
 DECL|method|getObjectNameForComponent (Component component, String name)
 name|ObjectName
 name|getObjectNameForComponent
