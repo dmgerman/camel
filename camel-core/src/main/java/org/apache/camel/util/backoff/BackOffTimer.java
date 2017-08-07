@@ -70,6 +70,10 @@ name|ThrowingFunction
 import|;
 end_import
 
+begin_comment
+comment|/**  * A simple timer utility that use a linked {@link BackOff} to determine when  * a task should be executed.  */
+end_comment
+
 begin_class
 DECL|class|BackOffTimer
 specifier|public
@@ -97,6 +101,7 @@ operator|=
 name|scheduler
 expr_stmt|;
 block|}
+comment|/**      * Schedule the given function/task to be executed some time in the future      * according to the given backOff.      */
 DECL|method|schedule (BackOff backOff, ThrowingFunction<BackOffContext, Boolean, Exception> function)
 specifier|public
 name|CompletableFuture

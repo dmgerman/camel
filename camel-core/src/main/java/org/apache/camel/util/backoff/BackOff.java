@@ -54,6 +54,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * A back-off policy.  */
+end_comment
+
 begin_class
 DECL|class|BackOff
 specifier|public
@@ -257,6 +261,7 @@ block|}
 comment|// *************************************
 comment|// Properties
 comment|// *************************************
+comment|/**      * @return the delay to wait before retry the operation.      */
 DECL|method|getDelay ()
 specifier|public
 name|Duration
@@ -267,6 +272,7 @@ return|return
 name|delay
 return|;
 block|}
+comment|/**      * The delay to wait before retry the operation.      */
 DECL|method|setDelay (Duration delay)
 specifier|public
 name|void
@@ -293,6 +299,7 @@ return|return
 name|maxDelay
 return|;
 block|}
+comment|/**      * The maximum back-off time after which the delay is not more increased.      */
 DECL|method|setMaxDelay (Duration maxDelay)
 specifier|public
 name|void
@@ -319,6 +326,7 @@ return|return
 name|maxElapsedTime
 return|;
 block|}
+comment|/**      * The maximum elapsed time after which the back-off should be considered      * exhausted and no more attempts should be made.      */
 DECL|method|setMaxElapsedTime (Duration maxElapsedTime)
 specifier|public
 name|void
@@ -345,6 +353,7 @@ return|return
 name|maxAttempts
 return|;
 block|}
+comment|/**      * The maximum number of attempts after which the back-off should be considered      * exhausted and no more attempts should be made.      *      * @param maxAttempts      */
 DECL|method|setMaxAttempts (Long maxAttempts)
 specifier|public
 name|void
@@ -371,6 +380,7 @@ return|return
 name|multiplier
 return|;
 block|}
+comment|/**      * The value to multiply the current interval by for each retry attempt.      */
 DECL|method|setMultiplier (Double multiplier)
 specifier|public
 name|void
@@ -437,6 +447,7 @@ name|Builder
 argument_list|()
 return|;
 block|}
+comment|/**      * A builder for {@link BackOff}      */
 DECL|class|Builder
 specifier|public
 specifier|static
@@ -489,6 +500,7 @@ name|BackOff
 operator|.
 name|DEFAULT_MULTIPLIER
 decl_stmt|;
+comment|/**          * Read values from the given {@link BackOff}          */
 DECL|method|read (BackOff template)
 specifier|public
 name|Builder
@@ -777,6 +789,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Build a new instance of {@link BackOff}          */
 DECL|method|build ()
 specifier|public
 name|BackOff

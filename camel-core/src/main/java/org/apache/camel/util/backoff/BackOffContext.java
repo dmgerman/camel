@@ -18,6 +18,10 @@ name|backoff
 package|;
 end_package
 
+begin_comment
+comment|/**  * The context associated to a back-off operation.  */
+end_comment
+
 begin_class
 DECL|class|BackOffContext
 specifier|public
@@ -88,6 +92,7 @@ block|}
 comment|// *************************************
 comment|// Properties
 comment|// *************************************
+comment|/**      * The back-off associated with this context.      */
 DECL|method|backOff ()
 specifier|public
 name|BackOff
@@ -98,6 +103,7 @@ return|return
 name|backOff
 return|;
 block|}
+comment|/**      * The number of attempts so far.      */
 DECL|method|getCurrentAttempts ()
 specifier|public
 name|long
@@ -108,6 +114,7 @@ return|return
 name|currentAttempts
 return|;
 block|}
+comment|/**      * The current computed delay.      */
 DECL|method|getCurrentDelay ()
 specifier|public
 name|long
@@ -118,6 +125,7 @@ return|return
 name|currentDelay
 return|;
 block|}
+comment|/**      * The current elapsed time.      */
 DECL|method|getCurrentElapsedTime ()
 specifier|public
 name|long
@@ -128,6 +136,7 @@ return|return
 name|currentElapsedTime
 return|;
 block|}
+comment|/**      * Inform if the context is exhausted thus not more attempts should be made.      */
 DECL|method|isExhausted ()
 specifier|public
 name|boolean
@@ -145,6 +154,7 @@ block|}
 comment|// *************************************
 comment|// Impl
 comment|// *************************************
+comment|/**      * Return the number of milliseconds to wait before retrying the operation      * or ${@link BackOff#NEVER} to indicate that no further attempt should be      * made.      */
 DECL|method|next ()
 specifier|public
 name|long
@@ -245,6 +255,7 @@ return|return
 name|currentDelay
 return|;
 block|}
+comment|/**      * Reset the context.      */
 DECL|method|reset ()
 specifier|public
 name|BackOffContext
@@ -273,6 +284,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Mark the context as exhausted to indicate that no further attempt should      * be made.      */
 DECL|method|stop ()
 specifier|public
 name|BackOffContext

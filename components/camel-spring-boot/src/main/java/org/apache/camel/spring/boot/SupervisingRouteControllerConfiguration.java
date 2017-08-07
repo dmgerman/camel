@@ -216,7 +216,7 @@ specifier|private
 name|String
 name|maxElapsedTime
 decl_stmt|;
-comment|/**          * Teh maximum number of attempts after which the back-off is exhausted.          */
+comment|/**          * The maximum number of attempts after which the back-off is exhausted.          */
 DECL|field|maxAttempts
 specifier|private
 name|Long
