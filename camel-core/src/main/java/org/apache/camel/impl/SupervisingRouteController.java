@@ -1964,6 +1964,47 @@ block|{
 comment|// ignored, exception handled by startRoute
 block|}
 block|}
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Total managed routes: {} of which {} successfully started and {} re-starting"
+argument_list|,
+name|routes
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|routes
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|r
+lambda|->
+name|r
+operator|.
+name|getStatus
+argument_list|()
+operator|==
+name|ServiceStatus
+operator|.
+name|Started
+argument_list|)
+operator|.
+name|count
+argument_list|()
+argument_list|,
+name|routeManager
+operator|.
+name|routes
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|stopRoutes ()
 specifier|private
@@ -2881,9 +2922,9 @@ condition|)
 block|{
 name|LOGGER
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Context is started: attempt to start route {}"
+literal|"Context is already started: attempt to start route {}"
 argument_list|,
 name|route
 operator|.
@@ -2938,9 +2979,9 @@ else|else
 block|{
 name|LOGGER
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Context is not started: add route {} to stopped routes"
+literal|"Context is not yet started: defer route {} start"
 argument_list|,
 name|holder
 operator|.
