@@ -936,6 +936,45 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|shouldNotSendMessageAuthIsNotValid ()
+specifier|public
+name|void
+name|shouldNotSendMessageAuthIsNotValid
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+comment|// Given
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// When
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"paho:someRandomQueue?brokerUrl=tcp://localhost:"
+operator|+
+name|mqttPort
+operator|+
+literal|"&userName=test&password=test"
+argument_list|,
+literal|"msg"
+argument_list|)
+expr_stmt|;
+comment|// Then
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 
