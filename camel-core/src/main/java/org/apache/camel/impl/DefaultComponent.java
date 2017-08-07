@@ -1932,7 +1932,6 @@ return|;
 block|}
 DECL|method|registerExtension (ComponentExtension extension)
 specifier|protected
-specifier|final
 name|void
 name|registerExtension
 parameter_list|(
@@ -1952,7 +1951,6 @@ expr_stmt|;
 block|}
 DECL|method|registerExtension (Supplier<ComponentExtension> supplier)
 specifier|protected
-specifier|final
 name|void
 name|registerExtension
 parameter_list|(
