@@ -73,6 +73,12 @@ specifier|private
 name|boolean
 name|enabled
 decl_stmt|;
+comment|/**      * Set the amount of time the route controller should wait before to start      * the routes after the camel context is started or after the route is      * initialized if the route is created after the camel context is started.      */
+DECL|field|initialDelay
+specifier|private
+name|String
+name|initialDelay
+decl_stmt|;
 comment|/**      * The default back-off configuration, back-off configuration for routes inherits from this default.      */
 DECL|field|defaultBackOff
 specifier|private
@@ -123,6 +129,32 @@ operator|.
 name|enabled
 operator|=
 name|enabled
+expr_stmt|;
+block|}
+DECL|method|getInitialDelay ()
+specifier|public
+name|String
+name|getInitialDelay
+parameter_list|()
+block|{
+return|return
+name|initialDelay
+return|;
+block|}
+DECL|method|setInitialDelay (String initialDelay)
+specifier|public
+name|void
+name|setInitialDelay
+parameter_list|(
+name|String
+name|initialDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initialDelay
+operator|=
+name|initialDelay
 expr_stmt|;
 block|}
 DECL|method|getDefaultBackOff ()

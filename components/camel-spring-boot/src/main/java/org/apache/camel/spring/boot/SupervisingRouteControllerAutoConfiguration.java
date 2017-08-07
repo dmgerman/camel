@@ -332,6 +332,32 @@ operator|new
 name|SupervisingRouteController
 argument_list|()
 decl_stmt|;
+comment|// Initial delay
+name|Optional
+operator|.
+name|ofNullable
+argument_list|(
+name|configuration
+operator|.
+name|getInitialDelay
+argument_list|()
+argument_list|)
+operator|.
+name|map
+argument_list|(
+name|TimePatternConverter
+operator|::
+name|toMilliSeconds
+argument_list|)
+operator|.
+name|ifPresent
+argument_list|(
+name|controller
+operator|::
+name|setInitialDelay
+argument_list|)
+expr_stmt|;
+comment|// Back off
 name|controller
 operator|.
 name|setDefaultBackOff
