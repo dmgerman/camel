@@ -447,6 +447,27 @@ name|Builder
 argument_list|()
 return|;
 block|}
+DECL|method|builder (BackOff template)
+specifier|public
+specifier|static
+name|Builder
+name|builder
+parameter_list|(
+name|BackOff
+name|template
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Builder
+argument_list|()
+operator|.
+name|read
+argument_list|(
+name|template
+argument_list|)
+return|;
+block|}
 comment|/**      * A builder for {@link BackOff}      */
 DECL|class|Builder
 specifier|public

@@ -345,7 +345,7 @@ argument_list|()
 argument_list|,
 name|configuration
 operator|.
-name|getBackOff
+name|getDefaultBackOff
 argument_list|()
 argument_list|)
 argument_list|)
@@ -432,17 +432,9 @@ name|template
 operator|.
 name|map
 argument_list|(
-name|t
-lambda|->
 name|BackOff
-operator|.
+operator|::
 name|builder
-argument_list|()
-operator|.
-name|read
-argument_list|(
-name|t
-argument_list|)
 argument_list|)
 operator|.
 name|orElseGet

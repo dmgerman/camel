@@ -74,10 +74,10 @@ name|boolean
 name|enabled
 decl_stmt|;
 comment|/**      * The default back-off configuration, back-off configuration for routes inherits from this default.      */
-DECL|field|backOff
+DECL|field|defaultBackOff
 specifier|private
 name|BackOffConfiguration
-name|backOff
+name|defaultBackOff
 init|=
 operator|new
 name|BackOffConfiguration
@@ -125,14 +125,14 @@ operator|=
 name|enabled
 expr_stmt|;
 block|}
-DECL|method|getBackOff ()
+DECL|method|getDefaultBackOff ()
 specifier|public
 name|BackOffConfiguration
-name|getBackOff
+name|getDefaultBackOff
 parameter_list|()
 block|{
 return|return
-name|backOff
+name|defaultBackOff
 return|;
 block|}
 DECL|method|getRoutes ()
