@@ -475,6 +475,18 @@ name|poolSize
 init|=
 literal|1
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|connectionTimeout
+specifier|private
+name|Integer
+name|connectionTimeout
+decl_stmt|;
 comment|/**      * Kubernetes Master url      */
 DECL|method|getMasterUrl ()
 specifier|public
@@ -1155,6 +1167,33 @@ operator|=
 name|resourceName
 expr_stmt|;
 block|}
+DECL|method|getConnectionTimeout ()
+specifier|public
+name|Integer
+name|getConnectionTimeout
+parameter_list|()
+block|{
+return|return
+name|connectionTimeout
+return|;
+block|}
+comment|/**      * Connection timeout in milliseconds to use when making requests to the Kubernetes API server.      */
+DECL|method|setConnectionTimeout (Integer connectionTimeout)
+specifier|public
+name|void
+name|setConnectionTimeout
+parameter_list|(
+name|Integer
+name|connectionTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionTimeout
+operator|=
+name|connectionTimeout
+expr_stmt|;
+block|}
 comment|// ****************************************
 comment|// Copy
 comment|// ****************************************
@@ -1295,6 +1334,10 @@ operator|+
 literal|", poolSize="
 operator|+
 name|poolSize
+operator|+
+literal|", connectionTimeout="
+operator|+
+name|connectionTimeout
 operator|+
 literal|"]"
 return|;
