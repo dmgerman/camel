@@ -86,16 +86,6 @@ name|org
 operator|.
 name|dozer
 operator|.
-name|DozerBeanMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|dozer
-operator|.
 name|Mapper
 import|;
 end_import
@@ -163,14 +153,14 @@ decl_stmt|;
 DECL|field|mapper
 specifier|private
 specifier|final
-name|DozerBeanMapper
+name|Mapper
 name|mapper
 decl_stmt|;
-DECL|method|DozerTypeConverter (DozerBeanMapper mapper)
+DECL|method|DozerTypeConverter (Mapper mapper)
 specifier|public
 name|DozerTypeConverter
 parameter_list|(
-name|DozerBeanMapper
+name|Mapper
 name|mapper
 parameter_list|)
 block|{
@@ -183,7 +173,7 @@ expr_stmt|;
 block|}
 DECL|method|getMapper ()
 specifier|public
-name|DozerBeanMapper
+name|Mapper
 name|getMapper
 parameter_list|()
 block|{
