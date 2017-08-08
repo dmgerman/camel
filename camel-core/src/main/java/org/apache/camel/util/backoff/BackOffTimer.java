@@ -125,23 +125,13 @@ name|function
 parameter_list|)
 block|{
 specifier|final
-name|BackOffContext
-name|context
-init|=
-operator|new
-name|BackOffContext
-argument_list|(
-name|backOff
-argument_list|)
-decl_stmt|;
-specifier|final
 name|Task
 name|task
 init|=
 operator|new
 name|Task
 argument_list|(
-name|context
+name|backOff
 argument_list|,
 name|function
 argument_list|)
@@ -149,7 +139,10 @@ decl_stmt|;
 name|long
 name|delay
 init|=
-name|context
+name|task
+operator|.
+name|getContext
+argument_list|()
 operator|.
 name|next
 argument_list|()
@@ -224,11 +217,11 @@ name|Exception
 argument_list|>
 name|function
 decl_stmt|;
-DECL|method|Task (BackOffContext context, ThrowingFunction<BackOffContext, Boolean, Exception> function)
+DECL|method|Task (BackOff backOff, ThrowingFunction<BackOffContext, Boolean, Exception> function)
 name|Task
 parameter_list|(
-name|BackOffContext
-name|context
+name|BackOff
+name|backOff
 parameter_list|,
 name|ThrowingFunction
 argument_list|<
@@ -245,7 +238,11 @@ name|this
 operator|.
 name|context
 operator|=
-name|context
+operator|new
+name|BackOffContext
+argument_list|(
+name|backOff
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -411,6 +408,15 @@ name|complete
 argument_list|(
 name|context
 argument_list|)
+return|;
+block|}
+DECL|method|getContext ()
+name|BackOffContext
+name|getContext
+parameter_list|()
+block|{
+return|return
+name|context
 return|;
 block|}
 block|}

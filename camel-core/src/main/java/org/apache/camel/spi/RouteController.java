@@ -198,6 +198,62 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Access the underlying concrete RouteController implementation.      *      * @param clazz the proprietary class or interface of the underlying concrete RouteController.      * @return an instance of the underlying concrete RouteController as the required type.      */
+DECL|method|unwrap (Class<T> clazz)
+specifier|default
+parameter_list|<
+name|T
+extends|extends
+name|RouteController
+parameter_list|>
+name|T
+name|unwrap
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|clazz
+parameter_list|)
+block|{
+if|if
+condition|(
+name|RouteController
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|clazz
+argument_list|)
+condition|)
+block|{
+return|return
+name|clazz
+operator|.
+name|cast
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unable to unwrap this RouteController type ("
+operator|+
+name|getClass
+argument_list|()
+operator|+
+literal|") to the required type ("
+operator|+
+name|clazz
+operator|+
+literal|")"
+argument_list|)
+throw|;
+block|}
 block|}
 end_interface
 

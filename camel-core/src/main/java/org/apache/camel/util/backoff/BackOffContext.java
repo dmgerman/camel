@@ -93,10 +93,10 @@ comment|// *************************************
 comment|// Properties
 comment|// *************************************
 comment|/**      * The back-off associated with this context.      */
-DECL|method|backOff ()
+DECL|method|getBackOff ()
 specifier|public
 name|BackOff
-name|backOff
+name|getBackOff
 parameter_list|()
 block|{
 return|return
@@ -156,7 +156,6 @@ comment|// Impl
 comment|// *************************************
 comment|/**      * Return the number of milliseconds to wait before retrying the operation      * or ${@link BackOff#NEVER} to indicate that no further attempt should be      * made.      */
 DECL|method|next ()
-specifier|public
 name|long
 name|next
 parameter_list|()
@@ -238,7 +237,6 @@ argument_list|(
 name|currentDelay
 operator|*
 name|backOff
-argument_list|()
 operator|.
 name|getMultiplier
 argument_list|()
