@@ -293,6 +293,9 @@ return|return
 operator|new
 name|KubernetesClusterView
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|this
 argument_list|,
 name|config
