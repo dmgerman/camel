@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|googlecode
+operator|.
+name|jsendnsca
+operator|.
+name|NonBlockingNagiosPassiveCheckSender
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -61,18 +73,6 @@ operator|.
 name|mockito
 operator|.
 name|Mockito
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|googlecode
-operator|.
-name|jsendnsca
-operator|.
-name|NonBlockingNagiosPassiveCheckSender
 import|;
 end_import
 
