@@ -44,17 +44,15 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|apache
+name|googlecode
 operator|.
-name|camel
+name|jsendnsca
 operator|.
-name|component
+name|encryption
 operator|.
-name|nagios
-operator|.
-name|NagiosEncryptionMethod
+name|Encryption
 import|;
 end_import
 
@@ -265,10 +263,10 @@ name|String
 name|password
 decl_stmt|;
 comment|/**          * To specify an encryption method.          */
-DECL|field|encryptionMethod
+DECL|field|encryption
 specifier|private
-name|NagiosEncryptionMethod
-name|encryptionMethod
+name|Encryption
+name|encryption
 decl_stmt|;
 DECL|method|getNagiosSettings ()
 specifier|public
@@ -426,30 +424,30 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-DECL|method|getEncryptionMethod ()
+DECL|method|getEncryption ()
 specifier|public
-name|NagiosEncryptionMethod
-name|getEncryptionMethod
+name|Encryption
+name|getEncryption
 parameter_list|()
 block|{
 return|return
-name|encryptionMethod
+name|encryption
 return|;
 block|}
-DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
+DECL|method|setEncryption (Encryption encryption)
 specifier|public
 name|void
-name|setEncryptionMethod
+name|setEncryption
 parameter_list|(
-name|NagiosEncryptionMethod
-name|encryptionMethod
+name|Encryption
+name|encryption
 parameter_list|)
 block|{
 name|this
 operator|.
-name|encryptionMethod
+name|encryption
 operator|=
-name|encryptionMethod
+name|encryption
 expr_stmt|;
 block|}
 block|}

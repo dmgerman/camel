@@ -235,10 +235,14 @@ name|label
 operator|=
 literal|"security"
 argument_list|)
-DECL|field|encryptionMethod
+DECL|field|encryption
 specifier|private
-name|NagiosEncryptionMethod
-name|encryptionMethod
+name|Encryption
+name|encryption
+init|=
+name|Encryption
+operator|.
+name|NONE
 decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
@@ -421,18 +425,18 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|encryptionMethod
+name|encryption
 operator|!=
 literal|null
 condition|)
 block|{
 if|if
 condition|(
-name|NagiosEncryptionMethod
+name|Encryption
 operator|.
-name|No
+name|NONE
 operator|==
-name|encryptionMethod
+name|encryption
 condition|)
 block|{
 name|nagiosSettings
@@ -448,11 +452,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|NagiosEncryptionMethod
+name|Encryption
 operator|.
-name|Xor
+name|XOR
 operator|==
-name|encryptionMethod
+name|encryption
 condition|)
 block|{
 name|nagiosSettings
@@ -468,11 +472,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|NagiosEncryptionMethod
+name|Encryption
 operator|.
-name|TripleDes
+name|TRIPLE_DES
 operator|==
-name|encryptionMethod
+name|encryption
 condition|)
 block|{
 name|nagiosSettings
@@ -493,7 +497,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Unknown encryption method: "
 operator|+
-name|encryptionMethod
+name|encryption
 argument_list|)
 throw|;
 block|}
@@ -656,29 +660,29 @@ expr_stmt|;
 block|}
 DECL|method|getEncryptionMethod ()
 specifier|public
-name|NagiosEncryptionMethod
+name|Encryption
 name|getEncryptionMethod
 parameter_list|()
 block|{
 return|return
-name|encryptionMethod
+name|encryption
 return|;
 block|}
 comment|/**      * To specify an encryption method.      */
-DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
+DECL|method|setEncryption (Encryption encryptionMethod)
 specifier|public
 name|void
-name|setEncryptionMethod
+name|setEncryption
 parameter_list|(
-name|NagiosEncryptionMethod
+name|Encryption
 name|encryptionMethod
 parameter_list|)
 block|{
 name|this
 operator|.
-name|encryptionMethod
+name|encryption
 operator|=
-name|encryptionMethod
+name|encryption
 expr_stmt|;
 block|}
 annotation|@
@@ -706,9 +710,9 @@ literal|", timeout="
 operator|+
 name|timeout
 operator|+
-literal|", encryptionMethod="
+literal|", encryption="
 operator|+
-name|encryptionMethod
+name|encryption
 operator|+
 literal|"]"
 return|;

@@ -366,7 +366,7 @@ block|{
 name|String
 name|uri
 init|=
-literal|"nagios:127.0.0.1:25664?password=secret&encryptionMethod=Xor"
+literal|"nagios:127.0.0.1:25664?password=secret&encryption=Xor"
 decl_stmt|;
 name|NagiosComponent
 name|nagiosComponent
