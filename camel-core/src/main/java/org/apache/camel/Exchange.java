@@ -592,6 +592,13 @@ name|LOOP_SIZE
 init|=
 literal|"CamelLoopSize"
 decl_stmt|;
+comment|// Long running action (saga)
+DECL|field|SAGA_LONG_RUNNING_ACTION
+name|String
+name|SAGA_LONG_RUNNING_ACTION
+init|=
+literal|"Long-Running-Action"
+decl_stmt|;
 DECL|field|MAXIMUM_CACHE_POOL_SIZE
 name|String
 name|MAXIMUM_CACHE_POOL_SIZE

@@ -1648,12 +1648,9 @@ block|{
 if|if
 condition|(
 name|output
-operator|instanceof
-name|TransactedDefinition
-operator|||
-name|output
-operator|instanceof
-name|PolicyDefinition
+operator|.
+name|isWrappingEntireOutput
+argument_list|()
 condition|)
 block|{
 comment|// special for those as they wrap entire output, so we should just check its output

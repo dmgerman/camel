@@ -534,6 +534,18 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isWrappingEntireOutput ()
+specifier|public
+name|boolean
+name|isWrappingEntireOutput
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|getRef ()
 specifier|public
 name|String

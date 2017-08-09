@@ -1040,6 +1040,17 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Whether this definition is wrapping the entire output.      *<p/>      * When a definition is wrapping the entire output, the check to ensure      * that a route definition is empty should be done on the wrapped output.      *      * @return<tt>true</tt> when wrapping the entire output.      */
+DECL|method|isWrappingEntireOutput ()
+specifier|public
+name|boolean
+name|isWrappingEntireOutput
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Override this in definition class and implement logic to create the processor      * based on the definition model.      */
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
@@ -8030,6 +8041,29 @@ argument_list|(
 name|ref
 argument_list|)
 expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Marks this route as participating to a saga.      *      * @return the saga definition      */
+DECL|method|saga ()
+specifier|public
+name|SagaDefinition
+name|saga
+parameter_list|()
+block|{
+name|SagaDefinition
+name|answer
+init|=
+operator|new
+name|SagaDefinition
+argument_list|()
+decl_stmt|;
 name|addOutput
 argument_list|(
 name|answer
