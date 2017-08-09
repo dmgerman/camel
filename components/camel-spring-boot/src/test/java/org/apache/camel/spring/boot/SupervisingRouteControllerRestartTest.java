@@ -116,7 +116,7 @@ name|util
 operator|.
 name|backoff
 operator|.
-name|BackOffContext
+name|BackOffTimer
 import|;
 end_import
 
@@ -543,7 +543,9 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|BackOffContext
+name|BackOffTimer
+operator|.
+name|Task
 operator|.
 name|Status
 operator|.
