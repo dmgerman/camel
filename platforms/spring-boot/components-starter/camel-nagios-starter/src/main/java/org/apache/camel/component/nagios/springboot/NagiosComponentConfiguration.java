@@ -38,8 +38,6 @@ name|googlecode
 operator|.
 name|jsendnsca
 operator|.
-name|core
-operator|.
 name|NagiosSettings
 import|;
 end_import
