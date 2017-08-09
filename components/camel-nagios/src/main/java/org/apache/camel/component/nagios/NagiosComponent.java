@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -102,7 +102,7 @@ specifier|public
 class|class
 name|NagiosComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -121,13 +121,6 @@ specifier|public
 name|NagiosComponent
 parameter_list|()
 block|{
-name|super
-argument_list|(
-name|NagiosEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 name|configuration
 operator|=
 operator|new
