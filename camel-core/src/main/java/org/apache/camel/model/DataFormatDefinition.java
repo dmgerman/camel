@@ -507,15 +507,20 @@ literal|null
 condition|)
 block|{
 comment|// is enabled by default so assume true if null
-if|if
-condition|(
+specifier|final
+name|boolean
+name|contentTypeHeader
+init|=
+name|this
+operator|.
 name|contentTypeHeader
 operator|==
 literal|null
 operator|||
+name|this
+operator|.
 name|contentTypeHeader
-condition|)
-block|{
+decl_stmt|;
 try|try
 block|{
 name|setProperty
@@ -529,9 +534,7 @@ name|dataFormat
 argument_list|,
 literal|"contentTypeHeader"
 argument_list|,
-name|Boolean
-operator|.
-name|TRUE
+name|contentTypeHeader
 argument_list|)
 expr_stmt|;
 block|}
@@ -542,7 +545,6 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore as this option is optional and not all data formats support this
-block|}
 block|}
 comment|// configure the rest of the options
 name|configureDataFormat
