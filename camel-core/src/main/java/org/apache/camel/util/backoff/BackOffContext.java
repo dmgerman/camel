@@ -29,11 +29,30 @@ specifier|final
 class|class
 name|BackOffContext
 block|{
+DECL|enum|Status
+specifier|public
+enum|enum
+name|Status
+block|{
+DECL|enumConstant|Active
+name|Active
+block|,
+DECL|enumConstant|Inactive
+name|Inactive
+block|,
+DECL|enumConstant|Exhausted
+name|Exhausted
+block|}
 DECL|field|backOff
 specifier|private
 specifier|final
 name|BackOff
 name|backOff
+decl_stmt|;
+DECL|field|status
+specifier|private
+name|Status
+name|status
 decl_stmt|;
 DECL|field|currentAttempts
 specifier|private
@@ -50,6 +69,16 @@ specifier|private
 name|long
 name|currentElapsedTime
 decl_stmt|;
+DECL|field|lastAttemptTime
+specifier|private
+name|long
+name|lastAttemptTime
+decl_stmt|;
+DECL|field|nextAttemptTime
+specifier|private
+name|long
+name|nextAttemptTime
+decl_stmt|;
 DECL|method|BackOffContext (BackOff backOff)
 specifier|public
 name|BackOffContext
@@ -63,6 +92,14 @@ operator|.
 name|backOff
 operator|=
 name|backOff
+expr_stmt|;
+name|this
+operator|.
+name|status
+operator|=
+name|Status
+operator|.
+name|Active
 expr_stmt|;
 name|this
 operator|.
@@ -88,6 +125,22 @@ name|currentElapsedTime
 operator|=
 literal|0
 expr_stmt|;
+name|this
+operator|.
+name|lastAttemptTime
+operator|=
+name|BackOff
+operator|.
+name|NEVER
+expr_stmt|;
+name|this
+operator|.
+name|nextAttemptTime
+operator|=
+name|BackOff
+operator|.
+name|NEVER
+expr_stmt|;
 block|}
 comment|// *************************************
 comment|// Properties
@@ -101,6 +154,17 @@ parameter_list|()
 block|{
 return|return
 name|backOff
+return|;
+block|}
+comment|/**      * Gets the context status.      */
+DECL|method|getStatus ()
+specifier|public
+name|Status
+name|getStatus
+parameter_list|()
+block|{
+return|return
+name|status
 return|;
 block|}
 comment|/**      * The number of attempts so far.      */
@@ -136,20 +200,59 @@ return|return
 name|currentElapsedTime
 return|;
 block|}
-comment|/**      * Inform if the context is exhausted thus not more attempts should be made.      */
-DECL|method|isExhausted ()
+comment|/**      * The time the last attempt has been performed.      */
+DECL|method|getLastAttemptTime ()
 specifier|public
-name|boolean
-name|isExhausted
+name|long
+name|getLastAttemptTime
 parameter_list|()
 block|{
 return|return
-name|currentDelay
-operator|==
-name|BackOff
-operator|.
-name|NEVER
+name|lastAttemptTime
 return|;
+block|}
+comment|/**      * Used by BackOffTimer      */
+DECL|method|setLastAttemptTime (long lastAttemptTime)
+name|void
+name|setLastAttemptTime
+parameter_list|(
+name|long
+name|lastAttemptTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lastAttemptTime
+operator|=
+name|lastAttemptTime
+expr_stmt|;
+block|}
+comment|/**      * An indication about the time the next attempt will be made.      */
+DECL|method|getNextAttemptTime ()
+specifier|public
+name|long
+name|getNextAttemptTime
+parameter_list|()
+block|{
+return|return
+name|nextAttemptTime
+return|;
+block|}
+comment|/**      * Used by BackOffTimer      */
+DECL|method|setNextAttemptTime (long nextAttemptTime)
+name|void
+name|setNextAttemptTime
+parameter_list|(
+name|long
+name|nextAttemptTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nextAttemptTime
+operator|=
+name|nextAttemptTime
+expr_stmt|;
 block|}
 comment|// *************************************
 comment|// Impl
@@ -165,11 +268,11 @@ comment|// as this means that either the timer is exhausted or it has explicit
 comment|// stopped
 if|if
 condition|(
-name|currentDelay
-operator|!=
-name|BackOff
+name|status
+operator|==
+name|Status
 operator|.
-name|NEVER
+name|Active
 condition|)
 block|{
 name|currentAttempts
@@ -191,6 +294,12 @@ name|BackOff
 operator|.
 name|NEVER
 expr_stmt|;
+name|status
+operator|=
+name|Status
+operator|.
+name|Exhausted
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -211,6 +320,12 @@ operator|=
 name|BackOff
 operator|.
 name|NEVER
+expr_stmt|;
+name|status
+operator|=
+name|Status
+operator|.
+name|Exhausted
 expr_stmt|;
 block|}
 else|else
@@ -278,6 +393,30 @@ name|currentElapsedTime
 operator|=
 literal|0
 expr_stmt|;
+name|this
+operator|.
+name|lastAttemptTime
+operator|=
+name|BackOff
+operator|.
+name|NEVER
+expr_stmt|;
+name|this
+operator|.
+name|nextAttemptTime
+operator|=
+name|BackOff
+operator|.
+name|NEVER
+expr_stmt|;
+name|this
+operator|.
+name|status
+operator|=
+name|Status
+operator|.
+name|Active
+expr_stmt|;
 return|return
 name|this
 return|;
@@ -308,6 +447,30 @@ operator|.
 name|currentElapsedTime
 operator|=
 literal|0
+expr_stmt|;
+name|this
+operator|.
+name|lastAttemptTime
+operator|=
+name|BackOff
+operator|.
+name|NEVER
+expr_stmt|;
+name|this
+operator|.
+name|nextAttemptTime
+operator|=
+name|BackOff
+operator|.
+name|NEVER
+expr_stmt|;
+name|this
+operator|.
+name|status
+operator|=
+name|Status
+operator|.
+name|Inactive
 expr_stmt|;
 return|return
 name|this
