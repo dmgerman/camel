@@ -692,6 +692,11 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+name|entityManager
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return
 name|Boolean
 operator|.
@@ -1018,6 +1023,11 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+name|entityManager
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return
 name|Boolean
 operator|.
@@ -1208,6 +1218,11 @@ block|}
 name|entityManager
 operator|.
 name|flush
+argument_list|()
+expr_stmt|;
+name|entityManager
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 block|}
