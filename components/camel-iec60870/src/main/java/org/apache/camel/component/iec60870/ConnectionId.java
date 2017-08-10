@@ -87,12 +87,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
 literal|"Port must be greater than 0"
-argument_list|)
 argument_list|)
 throw|;
 block|}
