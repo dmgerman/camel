@@ -486,6 +486,47 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|atomix
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Shutdown atomix client {}"
+argument_list|,
+name|atomix
+argument_list|)
+expr_stmt|;
+name|atomix
+operator|.
+name|close
+argument_list|()
+operator|.
+name|join
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|createView (String namespace)
 specifier|protected
 name|AtomixClusterView
