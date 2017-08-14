@@ -1826,6 +1826,12 @@ finally|finally
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|responseStream
+operator|!=
+literal|null
+condition|)
 name|responseStream
 operator|.
 name|close
