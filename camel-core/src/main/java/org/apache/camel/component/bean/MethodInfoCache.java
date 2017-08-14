@@ -66,20 +66,6 @@ name|LRUCacheFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|LRUSoftCache
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a cache of {@link MethodInfo} objects to avoid the expense of introspection for each  * invocation of a method via a proxy.  *  * @version   */
 end_comment
