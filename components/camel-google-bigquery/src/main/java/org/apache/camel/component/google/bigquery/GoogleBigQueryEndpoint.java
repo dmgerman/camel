@@ -148,11 +148,15 @@ literal|"BigQuery"
 argument_list|,
 name|syntax
 operator|=
-literal|"bigquery:projectId:datasetId[:tableName]"
+literal|"bigquery:projectId:datasetId:tableName"
 argument_list|,
 name|label
 operator|=
 literal|"messaging"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
 argument_list|)
 DECL|class|GoogleBigQueryEndpoint
 specifier|public
