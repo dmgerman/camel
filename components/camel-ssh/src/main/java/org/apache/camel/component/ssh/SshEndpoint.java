@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The ssh component enables access to SSH servers such that you can send an SSH command, and process the response.  */
+comment|/**  * The ssh component enables access to SSH servers such that you can send an SSH  * command, and process the response.  */
 end_comment
 
 begin_class
@@ -663,6 +663,70 @@ operator|.
 name|setCertResource
 argument_list|(
 name|certResource
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getKnownHostsResource ()
+specifier|public
+name|String
+name|getKnownHostsResource
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getKnownHostsResource
+argument_list|()
+return|;
+block|}
+DECL|method|setKnownHostsResource (String knownHostsResource)
+specifier|public
+name|void
+name|setKnownHostsResource
+parameter_list|(
+name|String
+name|knownHostsResource
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setKnownHostsResource
+argument_list|(
+name|knownHostsResource
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isFailOnUnknownHost ()
+specifier|public
+name|boolean
+name|isFailOnUnknownHost
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isFailOnUnknownHost
+argument_list|()
+return|;
+block|}
+DECL|method|setFailOnUnknownHost (boolean failOnUnknownHost)
+specifier|public
+name|void
+name|setFailOnUnknownHost
+parameter_list|(
+name|boolean
+name|failOnUnknownHost
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setFailOnUnknownHost
+argument_list|(
+name|failOnUnknownHost
 argument_list|)
 expr_stmt|;
 block|}

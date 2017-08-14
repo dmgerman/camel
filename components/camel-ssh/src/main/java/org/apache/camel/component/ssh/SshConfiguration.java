@@ -279,6 +279,26 @@ name|timeout
 init|=
 literal|30000
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|()
+DECL|field|knownHostsResource
+specifier|private
+name|String
+name|knownHostsResource
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|failOnUnknownHost
+specifier|private
+name|boolean
+name|failOnUnknownHost
+decl_stmt|;
 DECL|method|SshConfiguration ()
 specifier|public
 name|SshConfiguration
@@ -479,7 +499,7 @@ return|return
 name|username
 return|;
 block|}
-comment|/**      * Sets the username to use in logging into the remote SSH server.      *      * @param username String representing login username.      */
+comment|/**      * Sets the username to use in logging into the remote SSH server.      *      * @param username      *            String representing login username.      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -506,7 +526,7 @@ return|return
 name|host
 return|;
 block|}
-comment|/**      * Sets the hostname of the remote SSH server.      *      * @param host String representing hostname of SSH server.      */
+comment|/**      * Sets the hostname of the remote SSH server.      *      * @param host      *            String representing hostname of SSH server.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -533,7 +553,7 @@ return|return
 name|port
 return|;
 block|}
-comment|/**      * Sets the port number for the remote SSH server.      *      * @param port int representing port number on remote host. Defaults to 22.      */
+comment|/**      * Sets the port number for the remote SSH server.      *      * @param port      *            int representing port number on remote host. Defaults to 22.      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -560,7 +580,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * Sets the password to use in connecting to remote SSH server.      * Requires keyPairProvider to be set to null.      *      * @param password String representing password for username at remote host.      */
+comment|/**      * Sets the password to use in connecting to remote SSH server. Requires      * keyPairProvider to be set to null.      *      * @param password      *            String representing password for username at remote host.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -587,7 +607,7 @@ return|return
 name|pollCommand
 return|;
 block|}
-comment|/**      * Sets the command string to send to the remote SSH server during every poll cycle.      * Only works with camel-ssh component being used as a consumer, i.e. from("ssh://...")      * You may need to end your command with a newline, and that must be URL encoded %0A      *      * @param pollCommand String representing the command to send.      */
+comment|/**      * Sets the command string to send to the remote SSH server during every poll      * cycle. Only works with camel-ssh component being used as a consumer, i.e.      * from("ssh://...") You may need to end your command with a newline, and that      * must be URL encoded %0A      *      * @param pollCommand      *            String representing the command to send.      */
 DECL|method|setPollCommand (String pollCommand)
 specifier|public
 name|void
@@ -614,7 +634,7 @@ return|return
 name|keyPairProvider
 return|;
 block|}
-comment|/**      * Sets the KeyPairProvider reference to use when connecting using Certificates to the remote SSH Server.      *      * @param keyPairProvider KeyPairProvider reference to use in authenticating. If set to 'null',      *                        then will attempt to connect using username/password settings.      *      * @see KeyPairProvider      */
+comment|/**      * Sets the KeyPairProvider reference to use when connecting using Certificates      * to the remote SSH Server.      *      * @param keyPairProvider      *            KeyPairProvider reference to use in authenticating. If set to      *            'null', then will attempt to connect using username/password      *            settings.      *      * @see KeyPairProvider      */
 DECL|method|setKeyPairProvider (KeyPairProvider keyPairProvider)
 specifier|public
 name|void
@@ -641,7 +661,7 @@ return|return
 name|keyType
 return|;
 block|}
-comment|/**      * Sets the key type to pass to the KeyPairProvider as part of authentication.      * KeyPairProvider.loadKey(...) will be passed this value. Defaults to "ssh-rsa".      *      * @param keyType String defining the type of KeyPair to use for authentication.      *      * @see KeyPairProvider      */
+comment|/**      * Sets the key type to pass to the KeyPairProvider as part of authentication.      * KeyPairProvider.loadKey(...) will be passed this value. Defaults to      * "ssh-rsa".      *      * @param keyType      *            String defining the type of KeyPair to use for authentication.      *      * @see KeyPairProvider      */
 DECL|method|setKeyType (String keyType)
 specifier|public
 name|void
@@ -668,7 +688,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Sets the timeout in milliseconds to wait in establishing the remote SSH server connection.      * Defaults to 30000 milliseconds.      *      * @param timeout long milliseconds to wait.      */
+comment|/**      * Sets the timeout in milliseconds to wait in establishing the remote SSH      * server connection. Defaults to 30000 milliseconds.      *      * @param timeout      *            long milliseconds to wait.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -751,7 +771,7 @@ return|return
 name|certResource
 return|;
 block|}
-comment|/**      * Sets the resource path of the certificate to use for Authentication.      * Will use {@link ResourceHelperKeyPairProvider} to resolve file based certificate, and depends on keyType setting.      *      * @param certResource String file, classpath, or http url for the certificate      */
+comment|/**      * Sets the resource path of the certificate to use for Authentication. Will use      * {@link ResourceHelperKeyPairProvider} to resolve file based certificate, and      * depends on keyType setting.      *      * @param certResource      *            String file, classpath, or http url for the certificate      */
 DECL|method|setCertResource (String certResource)
 specifier|public
 name|void
@@ -766,6 +786,60 @@ operator|.
 name|certResource
 operator|=
 name|certResource
+expr_stmt|;
+block|}
+DECL|method|getKnownHostsResource ()
+specifier|public
+name|String
+name|getKnownHostsResource
+parameter_list|()
+block|{
+return|return
+name|knownHostsResource
+return|;
+block|}
+comment|/**      * Sets the resource path for a known_hosts file      *      * @param knownHosts      *            String file, classpath, or http url for the certificate      */
+DECL|method|setKnownHostsResource (String knownHostsResource)
+specifier|public
+name|void
+name|setKnownHostsResource
+parameter_list|(
+name|String
+name|knownHostsResource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|knownHostsResource
+operator|=
+name|knownHostsResource
+expr_stmt|;
+block|}
+DECL|method|isFailOnUnknownHost ()
+specifier|public
+name|boolean
+name|isFailOnUnknownHost
+parameter_list|()
+block|{
+return|return
+name|failOnUnknownHost
+return|;
+block|}
+comment|/**      * Specifies whether a connection to an unknown host should fail or not. This      * value is only checked when the property knownHosts is set.      *      * @param boolean      *            boolean flag, whether a connection to an unknown host should fail      */
+DECL|method|setFailOnUnknownHost (boolean failOnUnknownHost)
+specifier|public
+name|void
+name|setFailOnUnknownHost
+parameter_list|(
+name|boolean
+name|failOnUnknownHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|failOnUnknownHost
+operator|=
+name|failOnUnknownHost
 expr_stmt|;
 block|}
 block|}
