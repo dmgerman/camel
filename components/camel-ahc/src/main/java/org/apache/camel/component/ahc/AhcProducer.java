@@ -230,13 +230,10 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
-name|prepareRequest
+name|executeRequest
 argument_list|(
 name|request
-argument_list|)
-operator|.
-name|execute
-argument_list|(
+argument_list|,
 operator|new
 name|AhcAsyncHandler
 argument_list|(
