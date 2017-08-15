@@ -330,6 +330,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|module
+operator|.
+name|jsonSchema
+operator|.
+name|JsonSchema
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -2456,7 +2472,7 @@ decl_stmt|;
 specifier|final
 name|Set
 argument_list|<
-name|Object
+name|JsonSchema
 argument_list|>
 name|allSchemas
 init|=
@@ -2492,7 +2508,7 @@ try|try
 block|{
 name|allSchemas
 operator|.
-name|add
+name|addAll
 argument_list|(
 name|JsonUtils
 operator|.

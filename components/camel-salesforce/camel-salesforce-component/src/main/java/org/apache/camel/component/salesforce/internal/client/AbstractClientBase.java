@@ -312,6 +312,20 @@ name|jetty
 operator|.
 name|client
 operator|.
+name|HttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|client
+operator|.
 name|HttpContentResponse
 import|;
 end_import
@@ -504,6 +518,8 @@ operator|.
 name|SalesforceSessionListener
 implements|,
 name|Service
+implements|,
+name|HttpClientHolder
 block|{
 DECL|field|APPLICATION_JSON_UTF8
 specifier|protected
@@ -1466,6 +1482,18 @@ name|instanceUrl
 operator|=
 name|instanceUrl
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getHttpClient ()
+specifier|public
+name|HttpClient
+name|getHttpClient
+parameter_list|()
+block|{
+return|return
+name|httpClient
+return|;
 block|}
 DECL|method|readErrorsFrom (final InputStream responseContent, final PayloadFormat format, final ObjectMapper objectMapper, final XStream xStream)
 specifier|final
