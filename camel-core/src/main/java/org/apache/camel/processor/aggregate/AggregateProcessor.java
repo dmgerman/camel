@@ -5693,6 +5693,20 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+operator|!
+name|optimisticLocking
+condition|)
+block|{
+name|lock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+block|}
+try|try
+block|{
 comment|// consider in progress if it was in progress before we did the scan, or currently after we did the scan
 comment|// its safer to consider it in progress than risk duplicates due both in progress + recovered
 name|boolean
@@ -6057,6 +6071,22 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|optimisticLocking
+condition|)
+block|{
+name|lock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
