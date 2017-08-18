@@ -183,8 +183,6 @@ parameter_list|(
 name|ServiceNowConfiguration
 name|conf
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

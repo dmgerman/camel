@@ -192,6 +192,16 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
+DECL|method|getObjectNameForCamelHealth (CamelContext context)
+name|ObjectName
+name|getObjectNameForCamelHealth
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
 DECL|method|getObjectNameForCamelContext (CamelContext context)
 name|ObjectName
 name|getObjectNameForCamelContext

@@ -22,6 +22,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|GeneralSecurityException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -340,6 +360,7 @@ name|WebClient
 name|client
 decl_stmt|;
 DECL|method|ServiceNowClient (CamelContext camelContext, ServiceNowConfiguration configuration)
+specifier|public
 name|ServiceNowClient
 parameter_list|(
 name|CamelContext
@@ -348,8 +369,6 @@ parameter_list|,
 name|ServiceNowConfiguration
 name|configuration
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|this
 operator|.
@@ -1120,8 +1139,6 @@ parameter_list|,
 name|WebClient
 name|client
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|WebClient
 operator|.
@@ -1156,8 +1173,6 @@ parameter_list|,
 name|WebClient
 name|client
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|SSLContextParameters
 name|sslContextParams
@@ -1209,6 +1224,8 @@ name|TLSClientParameters
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+block|{
 name|SSLContext
 name|sslContext
 init|=
@@ -1237,6 +1254,24 @@ name|tlsClientParams
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|IOException
+decl||
+name|GeneralSecurityException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 DECL|method|configureHttpClientPolicy ( CamelContext context, ServiceNowConfiguration configuration, WebClient client)
 specifier|private
@@ -1253,8 +1288,6 @@ parameter_list|,
 name|WebClient
 name|client
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|HTTPClientPolicy
 name|httpPolicy
@@ -1359,8 +1392,6 @@ parameter_list|,
 name|WebClient
 name|client
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|ProxyAuthorizationPolicy
 name|proxyPolicy

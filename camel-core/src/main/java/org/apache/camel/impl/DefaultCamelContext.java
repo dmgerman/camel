@@ -864,6 +864,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|health
+operator|.
+name|HealthCheckRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|converter
@@ -901,6 +915,22 @@ operator|.
 name|converter
 operator|.
 name|LazyLoadingTypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|health
+operator|.
+name|DefaultHealthCheckRegistry
 import|;
 end_import
 
@@ -3441,6 +3471,11 @@ specifier|private
 name|RouteController
 name|routeController
 decl_stmt|;
+DECL|field|healthCheckRegistry
+specifier|private
+name|HealthCheckRegistry
+name|healthCheckRegistry
+decl_stmt|;
 comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
 DECL|method|DefaultCamelContext ()
 specifier|public
@@ -3572,6 +3607,17 @@ name|routeController
 operator|=
 operator|new
 name|DefaultRouteController
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+comment|// Health check registry
+name|this
+operator|.
+name|healthCheckRegistry
+operator|=
+operator|new
+name|DefaultHealthCheckRegistry
 argument_list|(
 name|this
 argument_list|)
@@ -24667,6 +24713,42 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getHealthCheckRegistry ()
+specifier|public
+name|HealthCheckRegistry
+name|getHealthCheckRegistry
+parameter_list|()
+block|{
+return|return
+name|healthCheckRegistry
+return|;
+block|}
+comment|/**      * Sets a {@link HealthCheckRegistry}.      */
+DECL|method|setHealthCheckRegistry (HealthCheckRegistry healthCheckRegistry)
+specifier|public
+name|void
+name|setHealthCheckRegistry
+parameter_list|(
+name|HealthCheckRegistry
+name|healthCheckRegistry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|healthCheckRegistry
+operator|=
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|healthCheckRegistry
+argument_list|,
+literal|"HealthCheckRegistry"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

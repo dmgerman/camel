@@ -684,14 +684,6 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
-name|configuration
-operator|.
-name|setCamelContext
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// using global ssl context parameters if set
 if|if
 condition|(

@@ -25,6 +25,15 @@ specifier|final
 class|class
 name|ServiceNowConstants
 block|{
+DECL|field|COMPONENT_SCHEME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPONENT_SCHEME
+init|=
+literal|"servicenow"
+decl_stmt|;
 DECL|field|CAMEL_HEADER_PREFIX
 specifier|public
 specifier|static

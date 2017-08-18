@@ -208,7 +208,7 @@ name|put
 argument_list|(
 literal|"method"
 argument_list|,
-literal|"get"
+literal|"GET"
 argument_list|)
 expr_stmt|;
 name|ComponentVerifier
@@ -539,7 +539,7 @@ name|put
 argument_list|(
 literal|"method"
 argument_list|,
-literal|"get"
+literal|"GET"
 argument_list|)
 expr_stmt|;
 comment|// This parameter does not belong to the rest component and validation
@@ -759,7 +759,7 @@ name|put
 argument_list|(
 literal|"method"
 argument_list|,
-literal|"get"
+literal|"GET"
 argument_list|)
 expr_stmt|;
 name|ComponentVerifier

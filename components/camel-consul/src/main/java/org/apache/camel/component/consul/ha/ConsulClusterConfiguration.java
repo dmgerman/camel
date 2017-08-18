@@ -44,7 +44,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|ConsulConfiguration
+name|ConsulClientConfiguration
 import|;
 end_import
 
@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|ConsulClusterConfiguration
 extends|extends
-name|ConsulConfiguration
+name|ConsulClientConfiguration
 block|{
 DECL|field|sessionTtl
 specifier|private

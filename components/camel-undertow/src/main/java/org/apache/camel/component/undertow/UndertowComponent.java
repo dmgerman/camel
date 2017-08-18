@@ -586,6 +586,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Sa ve a copy of the parameters.
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|healthCheckOptions
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|(
+name|parameters
+argument_list|)
+decl_stmt|;
 name|URI
 name|uriHttpUriAddress
 init|=

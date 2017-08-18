@@ -104,22 +104,6 @@ name|actuate
 operator|.
 name|endpoint
 operator|.
-name|AbstractEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|actuate
-operator|.
-name|endpoint
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -161,7 +145,7 @@ specifier|public
 class|class
 name|CamelRouteControllerEndpoint
 extends|extends
-name|AbstractEndpoint
+name|AbstractCamelEndpoint
 argument_list|<
 name|List
 argument_list|<
@@ -178,11 +162,6 @@ name|ENDPOINT_ID
 init|=
 literal|"camelroutecontroller"
 decl_stmt|;
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
-decl_stmt|;
 DECL|method|CamelRouteControllerEndpoint (CamelContext camelContext)
 specifier|public
 name|CamelRouteControllerEndpoint
@@ -194,20 +173,8 @@ block|{
 name|super
 argument_list|(
 name|ENDPOINT_ID
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
+argument_list|,
 name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
-comment|// is enabled by default
-name|this
-operator|.
-name|setEnabled
-argument_list|(
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -225,7 +192,8 @@ block|{
 name|RouteController
 name|controller
 init|=
-name|camelContext
+name|getCamelContext
+argument_list|()
 operator|.
 name|getRouteController
 argument_list|()

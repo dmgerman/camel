@@ -193,12 +193,8 @@ operator|.
 name|verifier
 operator|=
 operator|new
-name|DefaultComponentVerifierExtension
-argument_list|(
-literal|"timer"
-argument_list|,
-name|context
-argument_list|)
+name|TestVerifier
+argument_list|()
 expr_stmt|;
 block|}
 comment|// *************************************
@@ -557,6 +553,27 @@ literal|"fixedRate"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+DECL|class|TestVerifier
+specifier|private
+class|class
+name|TestVerifier
+extends|extends
+name|DefaultComponentVerifierExtension
+block|{
+DECL|method|TestVerifier ()
+specifier|public
+name|TestVerifier
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"timer"
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

@@ -154,18 +154,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|cloud
 operator|.
 name|ServiceDefinition
@@ -308,13 +296,24 @@ name|Suppliers
 operator|.
 name|memorize
 argument_list|(
+parameter_list|()
+lambda|->
 name|configuration
-operator|::
+operator|.
 name|createConsulClient
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
 argument_list|,
-name|this
-operator|::
-name|rethrowAsRuntimeCamelException
+name|e
+lambda|->
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ImmutableQueryOptions
@@ -457,23 +456,6 @@ block|}
 comment|// *************************
 comment|// Helpers
 comment|// *************************
-DECL|method|rethrowAsRuntimeCamelException (Exception e)
-specifier|private
-name|void
-name|rethrowAsRuntimeCamelException
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 DECL|method|isHealthy (ServiceHealth serviceHealth)
 specifier|private
 name|boolean

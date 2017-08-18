@@ -184,6 +184,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|health
+operator|.
+name|HealthCheckRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -3238,6 +3252,21 @@ name|setHeadersMapFactory
 parameter_list|(
 name|HeadersMapFactory
 name|factory
+parameter_list|)
+function_decl|;
+comment|/**      * Returns an optional {@link HealthCheckRegistry}, by default no registry is      * present and it must be explicit activated. Components can register/unregister      * health checks in response to life-cycle events (i.e. start/stop).      *      * This registry is not used by the camel context but it is up to the impl to      * properly use it, i.e.      *      * - a RouteController could use the registry to decide to restart a route      *   with failing health checks      * - spring boot could integrate such checks within its health endpoint or      *   make it available only as separate endpoint.      */
+DECL|method|getHealthCheckRegistry ()
+name|HealthCheckRegistry
+name|getHealthCheckRegistry
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a {@link HealthCheckRegistry}.      */
+DECL|method|setHealthCheckRegistry (HealthCheckRegistry healthCheckRegistry)
+name|void
+name|setHealthCheckRegistry
+parameter_list|(
+name|HealthCheckRegistry
+name|healthCheckRegistry
 parameter_list|)
 function_decl|;
 block|}

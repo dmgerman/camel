@@ -396,9 +396,7 @@ name|configuration
 init|=
 operator|new
 name|ConsulConfiguration
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|ServiceDiscovery
 name|discovery

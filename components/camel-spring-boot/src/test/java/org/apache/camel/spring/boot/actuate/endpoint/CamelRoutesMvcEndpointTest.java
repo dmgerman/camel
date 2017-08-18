@@ -72,13 +72,9 @@ name|spring
 operator|.
 name|boot
 operator|.
-name|actuate
+name|model
 operator|.
-name|endpoint
-operator|.
-name|CamelRoutesEndpoint
-operator|.
-name|RouteDetailsEndpointInfo
+name|RouteDetailsInfo
 import|;
 end_import
 
@@ -94,13 +90,9 @@ name|spring
 operator|.
 name|boot
 operator|.
-name|actuate
+name|model
 operator|.
-name|endpoint
-operator|.
-name|CamelRoutesEndpoint
-operator|.
-name|RouteEndpointInfo
+name|RouteInfo
 import|;
 end_import
 
@@ -294,14 +286,14 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|RouteEndpointInfo
+name|RouteInfo
 argument_list|>
 name|routes
 init|=
 operator|(
 name|List
 argument_list|<
-name|RouteEndpointInfo
+name|RouteInfo
 argument_list|>
 operator|)
 name|endpoint
@@ -381,7 +373,7 @@ name|assertTrue
 argument_list|(
 name|result
 operator|instanceof
-name|RouteDetailsEndpointInfo
+name|RouteDetailsInfo
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -390,7 +382,7 @@ literal|"foo-route"
 argument_list|,
 operator|(
 operator|(
-name|RouteDetailsEndpointInfo
+name|RouteDetailsInfo
 operator|)
 name|result
 operator|)

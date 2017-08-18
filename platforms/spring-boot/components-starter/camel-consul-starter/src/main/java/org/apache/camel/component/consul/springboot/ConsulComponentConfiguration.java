@@ -72,18 +72,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -501,10 +489,23 @@ name|ConsulConfiguration
 operator|.
 name|class
 decl_stmt|;
-DECL|field|camelContext
+comment|/**          * The default action. Can be overridden by CamelConsulAction          */
+DECL|field|action
 specifier|private
-name|CamelContext
-name|camelContext
+name|String
+name|action
+decl_stmt|;
+comment|/**          * Default to transform values retrieved from Consul i.e. on KV endpoint          * to string.          */
+DECL|field|valueAsString
+specifier|private
+name|Boolean
+name|valueAsString
+decl_stmt|;
+comment|/**          * The default key. Can be overridden by CamelConsulKey          */
+DECL|field|key
+specifier|private
+name|String
+name|key
 decl_stmt|;
 comment|/**          * The Consul agent URL          */
 DECL|field|url
@@ -564,12 +565,6 @@ specifier|private
 name|String
 name|aclToken
 decl_stmt|;
-comment|/**          * The default action. Can be overridden by CamelConsulAction          */
-DECL|field|action
-specifier|private
-name|String
-name|action
-decl_stmt|;
 comment|/**          * Sets the username to be used for basic authentication          */
 DECL|field|userName
 specifier|private
@@ -606,18 +601,6 @@ specifier|private
 name|Boolean
 name|pingInstance
 decl_stmt|;
-comment|/**          * Default to transform values retrieved from Consul i.e. on KV endpoint          * to string.          */
-DECL|field|valueAsString
-specifier|private
-name|Boolean
-name|valueAsString
-decl_stmt|;
-comment|/**          * The default key. Can be overridden by CamelConsulKey          */
-DECL|field|key
-specifier|private
-name|String
-name|key
-decl_stmt|;
 comment|/**          * The second to wait for a watch event, default 10 seconds          */
 DECL|field|blockSeconds
 specifier|private
@@ -636,30 +619,82 @@ specifier|private
 name|Boolean
 name|recursive
 decl_stmt|;
-DECL|method|getCamelContext ()
+DECL|method|getAction ()
 specifier|public
-name|CamelContext
-name|getCamelContext
+name|String
+name|getAction
 parameter_list|()
 block|{
 return|return
-name|camelContext
+name|action
 return|;
 block|}
-DECL|method|setCamelContext (CamelContext camelContext)
+DECL|method|setAction (String action)
 specifier|public
 name|void
-name|setCamelContext
+name|setAction
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|String
+name|action
 parameter_list|)
 block|{
 name|this
 operator|.
-name|camelContext
+name|action
 operator|=
-name|camelContext
+name|action
+expr_stmt|;
+block|}
+DECL|method|getValueAsString ()
+specifier|public
+name|Boolean
+name|getValueAsString
+parameter_list|()
+block|{
+return|return
+name|valueAsString
+return|;
+block|}
+DECL|method|setValueAsString (Boolean valueAsString)
+specifier|public
+name|void
+name|setValueAsString
+parameter_list|(
+name|Boolean
+name|valueAsString
+parameter_list|)
+block|{
+name|this
+operator|.
+name|valueAsString
+operator|=
+name|valueAsString
+expr_stmt|;
+block|}
+DECL|method|getKey ()
+specifier|public
+name|String
+name|getKey
+parameter_list|()
+block|{
+return|return
+name|key
+return|;
+block|}
+DECL|method|setKey (String key)
+specifier|public
+name|void
+name|setKey
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|this
+operator|.
+name|key
+operator|=
+name|key
 expr_stmt|;
 block|}
 DECL|method|getUrl ()
@@ -902,32 +937,6 @@ operator|=
 name|aclToken
 expr_stmt|;
 block|}
-DECL|method|getAction ()
-specifier|public
-name|String
-name|getAction
-parameter_list|()
-block|{
-return|return
-name|action
-return|;
-block|}
-DECL|method|setAction (String action)
-specifier|public
-name|void
-name|setAction
-parameter_list|(
-name|String
-name|action
-parameter_list|)
-block|{
-name|this
-operator|.
-name|action
-operator|=
-name|action
-expr_stmt|;
-block|}
 DECL|method|getUserName ()
 specifier|public
 name|String
@@ -1082,58 +1091,6 @@ operator|.
 name|pingInstance
 operator|=
 name|pingInstance
-expr_stmt|;
-block|}
-DECL|method|getValueAsString ()
-specifier|public
-name|Boolean
-name|getValueAsString
-parameter_list|()
-block|{
-return|return
-name|valueAsString
-return|;
-block|}
-DECL|method|setValueAsString (Boolean valueAsString)
-specifier|public
-name|void
-name|setValueAsString
-parameter_list|(
-name|Boolean
-name|valueAsString
-parameter_list|)
-block|{
-name|this
-operator|.
-name|valueAsString
-operator|=
-name|valueAsString
-expr_stmt|;
-block|}
-DECL|method|getKey ()
-specifier|public
-name|String
-name|getKey
-parameter_list|()
-block|{
-return|return
-name|key
-return|;
-block|}
-DECL|method|setKey (String key)
-specifier|public
-name|void
-name|setKey
-parameter_list|(
-name|String
-name|key
-parameter_list|)
-block|{
-name|this
-operator|.
-name|key
-operator|=
-name|key
 expr_stmt|;
 block|}
 DECL|method|getBlockSeconds ()

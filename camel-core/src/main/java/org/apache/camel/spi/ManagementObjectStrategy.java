@@ -168,6 +168,14 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+DECL|method|getManagedObjectForCamelHealth (CamelContext context)
+name|Object
+name|getManagedObjectForCamelHealth
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
 DECL|method|getManagedObjectForComponent (CamelContext context, Component component, String name)
 name|Object
 name|getManagedObjectForComponent

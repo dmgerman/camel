@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Component
 import|;
 end_import
@@ -62,7 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentAware
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -78,6 +68,9 @@ specifier|private
 name|ComponentExtensionHelper
 parameter_list|()
 block|{     }
+comment|/**      * @deprecated use {@link ObjectHelper#trySetCamelContext(Object, CamelContext)}      */
+annotation|@
+name|Deprecated
 DECL|method|trySetCamelContext (T object, CamelContext camelContext)
 specifier|public
 specifier|static
@@ -94,30 +87,20 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-if|if
-condition|(
-name|object
-operator|instanceof
-name|CamelContextAware
-condition|)
-block|{
-operator|(
-operator|(
-name|CamelContextAware
-operator|)
-name|object
-operator|)
+return|return
+name|ObjectHelper
 operator|.
-name|setCamelContext
+name|trySetCamelContext
 argument_list|(
+name|object
+argument_list|,
 name|camelContext
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|object
 return|;
 block|}
+comment|/**      * @deprecated use {@link ObjectHelper#trySetComponent(Object, Component)}      */
+annotation|@
+name|Deprecated
 DECL|method|trySetComponent (T object, Component component)
 specifier|public
 specifier|static
@@ -134,28 +117,15 @@ name|Component
 name|component
 parameter_list|)
 block|{
-if|if
-condition|(
-name|object
-operator|instanceof
-name|ComponentAware
-condition|)
-block|{
-operator|(
-operator|(
-name|ComponentAware
-operator|)
-name|object
-operator|)
+return|return
+name|ObjectHelper
 operator|.
-name|setComponent
+name|trySetComponent
 argument_list|(
+name|object
+argument_list|,
 name|component
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|object
 return|;
 block|}
 block|}
