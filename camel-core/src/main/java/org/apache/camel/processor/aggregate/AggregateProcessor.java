@@ -1966,7 +1966,16 @@ argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-comment|// we are completed so submit to completion
+block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
+comment|// we are completed so do that work outside the lock
 if|if
 condition|(
 name|aggregated
@@ -1990,15 +1999,6 @@ name|agg
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-finally|finally
-block|{
-name|lock
-operator|.
-name|unlock
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|// check for the special header to force completion of all groups (inclusive of the message)
