@@ -1966,7 +1966,7 @@ argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-comment|// we are completed so do that work outside the lock
+comment|// we are completed so submit to completion
 if|if
 condition|(
 name|aggregated
