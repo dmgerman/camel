@@ -64,6 +64,8 @@ name|apache
 operator|.
 name|sshd
 operator|.
+name|client
+operator|.
 name|SshClient
 import|;
 end_import

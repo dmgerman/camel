@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -58,7 +70,9 @@ name|sshd
 operator|.
 name|common
 operator|.
-name|KeyPairProvider
+name|keyprovider
+operator|.
+name|FileKeyPairProvider
 import|;
 end_import
 
@@ -74,7 +88,7 @@ name|common
 operator|.
 name|keyprovider
 operator|.
-name|FileKeyPairProvider
+name|KeyPairProvider
 import|;
 end_import
 
@@ -110,7 +124,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -161,7 +175,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -272,12 +286,12 @@ argument_list|(
 operator|new
 name|FileKeyPairProvider
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
+name|Paths
+operator|.
+name|get
+argument_list|(
 literal|"src/test/resources/hostkey.pem"
-block|}
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

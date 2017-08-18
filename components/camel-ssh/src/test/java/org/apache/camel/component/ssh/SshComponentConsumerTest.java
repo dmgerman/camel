@@ -95,7 +95,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"test\r"
+literal|"test"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -117,7 +117,7 @@ name|SshResult
 operator|.
 name|STDERR
 argument_list|,
-literal|"Error:test\r"
+literal|"Error:test"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

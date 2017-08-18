@@ -106,7 +106,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -119,6 +119,8 @@ operator|.
 name|sshd
 operator|.
 name|common
+operator|.
+name|keyprovider
 operator|.
 name|KeyPairProvider
 import|;
@@ -336,7 +338,7 @@ condition|)
 block|{
 name|pw
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -347,7 +349,7 @@ argument_list|)
 expr_stmt|;
 name|username
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

@@ -116,7 +116,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mockError

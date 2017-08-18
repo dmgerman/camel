@@ -106,6 +106,8 @@ name|sshd
 operator|.
 name|common
 operator|.
+name|keyprovider
+operator|.
 name|KeyPairProvider
 import|;
 end_import

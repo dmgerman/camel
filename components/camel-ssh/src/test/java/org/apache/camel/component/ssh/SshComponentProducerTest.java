@@ -100,7 +100,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -143,7 +143,7 @@ name|SshResult
 operator|.
 name|STDERR
 argument_list|,
-literal|"Error:test\n"
+literal|"Error:test"
 argument_list|)
 expr_stmt|;
 name|template
@@ -173,7 +173,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -265,7 +265,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -333,7 +333,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -376,7 +376,7 @@ name|SshResult
 operator|.
 name|STDERR
 argument_list|,
-literal|"Error:test\n"
+literal|"Error:test"
 argument_list|)
 expr_stmt|;
 name|Map
