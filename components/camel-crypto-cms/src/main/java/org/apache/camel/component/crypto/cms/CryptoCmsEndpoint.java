@@ -206,6 +206,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The crypto cms component is used for encrypting data in CMS Enveloped Data  * format, decrypting CMS Enveloped Data, signing data in CMS Signed Data  * format, and verifying CMS Signed Data.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
