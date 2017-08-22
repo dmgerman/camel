@@ -152,7 +152,7 @@ literal|"ssh://smx:smx@localhost:"
 operator|+
 name|port
 operator|+
-literal|"?useFixedDelay=true&delay=40000&pollCommand=test%0D"
+literal|"?useFixedDelay=true&delay=40000&pollCommand=test%0A"
 argument_list|)
 operator|.
 name|to

@@ -446,7 +446,7 @@ literal|"ssh://smx:smx@localhost:"
 operator|+
 name|port
 operator|+
-literal|"?useFixedDelay=true&delay=40000&pollCommand=test%0D&knownHostsResource=classpath:known_hosts_valid&failOnUnknownHost=true"
+literal|"?useFixedDelay=true&delay=40000&pollCommand=test%0A&knownHostsResource=classpath:known_hosts_valid&failOnUnknownHost=true"
 argument_list|)
 operator|.
 name|to
@@ -460,7 +460,7 @@ literal|"ssh://smx:smx@localhost:"
 operator|+
 name|port
 operator|+
-literal|"?useFixedDelay=true&delay=40000&pollCommand=test%0D&knownHostsResource=classpath:known_hosts_invalid&failOnUnknownHost=true"
+literal|"?useFixedDelay=true&delay=40000&pollCommand=test%0A&knownHostsResource=classpath:known_hosts_invalid&failOnUnknownHost=true"
 argument_list|)
 operator|.
 name|to
@@ -474,7 +474,7 @@ literal|"ssh://smx:smx@localhost:"
 operator|+
 name|port
 operator|+
-literal|"?useFixedDelay=true&delay=40000&pollCommand=test%0D&knownHostsResource=classpath:known_hosts_invalid"
+literal|"?useFixedDelay=true&delay=40000&pollCommand=test%0A&knownHostsResource=classpath:known_hosts_invalid"
 argument_list|)
 operator|.
 name|to
