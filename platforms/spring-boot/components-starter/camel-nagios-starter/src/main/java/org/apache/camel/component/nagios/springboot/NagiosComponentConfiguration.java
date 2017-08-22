@@ -44,6 +44,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|googlecode
+operator|.
+name|jsendnsca
+operator|.
+name|encryption
+operator|.
+name|Encryption
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -87,6 +101,22 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|DeprecatedConfigurationProperty
 import|;
 end_import
 
@@ -265,10 +295,18 @@ name|String
 name|password
 decl_stmt|;
 comment|/**          * To specify an encryption method.          */
+annotation|@
+name|Deprecated
 DECL|field|encryptionMethod
 specifier|private
 name|NagiosEncryptionMethod
 name|encryptionMethod
+decl_stmt|;
+comment|/**          * To specify an encryption method.          */
+DECL|field|encryption
+specifier|private
+name|Encryption
+name|encryption
 decl_stmt|;
 DECL|method|getNagiosSettings ()
 specifier|public
@@ -426,6 +464,10 @@ operator|=
 name|password
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
+annotation|@
+name|DeprecatedConfigurationProperty
 DECL|method|getEncryptionMethod ()
 specifier|public
 name|NagiosEncryptionMethod
@@ -436,6 +478,8 @@ return|return
 name|encryptionMethod
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
 specifier|public
 name|void
@@ -450,6 +494,32 @@ operator|.
 name|encryptionMethod
 operator|=
 name|encryptionMethod
+expr_stmt|;
+block|}
+DECL|method|getEncryption ()
+specifier|public
+name|Encryption
+name|getEncryption
+parameter_list|()
+block|{
+return|return
+name|encryption
+return|;
+block|}
+DECL|method|setEncryption (Encryption encryption)
+specifier|public
+name|void
+name|setEncryption
+parameter_list|(
+name|Encryption
+name|encryption
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryption
+operator|=
+name|encryption
 expr_stmt|;
 block|}
 block|}
