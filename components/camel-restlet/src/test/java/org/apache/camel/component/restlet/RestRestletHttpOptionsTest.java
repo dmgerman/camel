@@ -81,11 +81,6 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Not supported by camel-restlet yet"
-argument_list|)
 DECL|class|RestRestletHttpOptionsTest
 specifier|public
 class|class
@@ -169,7 +164,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"OPTIONS,GET"
+literal|"GET, OPTIONS"
 argument_list|,
 name|exchange
 operator|.
@@ -243,7 +238,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"OPTIONS,PUT"
+literal|"OPTIONS, PUT"
 argument_list|,
 name|exchange
 operator|.

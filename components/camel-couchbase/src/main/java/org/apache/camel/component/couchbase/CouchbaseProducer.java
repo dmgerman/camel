@@ -773,6 +773,35 @@ name|HEADER_ID
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|client
+operator|!=
+literal|null
+condition|)
+block|{
+name|client
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|setDocument (String id, int expiry, Object obj, PersistTo persistTo, ReplicateTo replicateTo)
 specifier|private
 name|Boolean

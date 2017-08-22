@@ -208,6 +208,12 @@ argument_list|(
 literal|"drainTo"
 argument_list|)
 block|,
+DECL|enumConstant|REMOVE_IF
+name|REMOVE_IF
+argument_list|(
+literal|"removeIf"
+argument_list|)
+block|,
 comment|// topic
 DECL|enumConstant|PUBLISH
 name|PUBLISH
