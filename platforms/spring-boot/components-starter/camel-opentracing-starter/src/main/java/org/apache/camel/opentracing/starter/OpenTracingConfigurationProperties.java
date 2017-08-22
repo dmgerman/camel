@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|springframework
@@ -47,7 +57,47 @@ specifier|public
 class|class
 name|OpenTracingConfigurationProperties
 block|{
-comment|// Placeholder for configuration properties
+comment|/**      * Sets exclude pattern(s) that will disable tracing for Camel messages that matches the pattern.      */
+DECL|field|excludePatterns
+specifier|private
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|excludePatterns
+decl_stmt|;
+DECL|method|getExcludePatterns ()
+specifier|public
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getExcludePatterns
+parameter_list|()
+block|{
+return|return
+name|excludePatterns
+return|;
+block|}
+DECL|method|setExcludePatterns (Set<String> excludePatterns)
+specifier|public
+name|void
+name|setExcludePatterns
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|excludePatterns
+parameter_list|)
+block|{
+name|this
+operator|.
+name|excludePatterns
+operator|=
+name|excludePatterns
+expr_stmt|;
+block|}
 block|}
 end_class
 

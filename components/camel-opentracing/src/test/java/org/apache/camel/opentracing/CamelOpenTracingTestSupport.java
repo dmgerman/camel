@@ -62,6 +62,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -73,6 +83,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -271,6 +291,14 @@ argument_list|)
 expr_stmt|;
 name|ottracer
 operator|.
+name|setExcludePatterns
+argument_list|(
+name|getExcludePatterns
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|ottracer
+operator|.
 name|init
 argument_list|(
 name|context
@@ -288,6 +316,24 @@ parameter_list|()
 block|{
 return|return
 name|tracer
+return|;
+block|}
+DECL|method|getExcludePatterns ()
+specifier|protected
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getExcludePatterns
+parameter_list|()
+block|{
+return|return
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
 return|;
 block|}
 DECL|method|verify ()
