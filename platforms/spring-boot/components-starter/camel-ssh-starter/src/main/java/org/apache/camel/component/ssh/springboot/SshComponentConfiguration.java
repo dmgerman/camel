@@ -557,19 +557,19 @@ name|SshConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * Sets the username to use in logging into the remote SSH server.          *           * @param username          *            String representing login username.          */
+comment|/**          * Sets the username to use in logging into the remote SSH server.          *           * @param usernameString          *            representing login username.          */
 DECL|field|username
 specifier|private
 name|String
 name|username
 decl_stmt|;
-comment|/**          * Sets the hostname of the remote SSH server.          *           * @param host          *            String representing hostname of SSH server.          */
+comment|/**          * Sets the hostname of the remote SSH server.          *           * @param hostString          *            representing hostname of SSH server.          */
 DECL|field|host
 specifier|private
 name|String
 name|host
 decl_stmt|;
-comment|/**          * Sets the port number for the remote SSH server.          *           * @param port          *            int representing port number on remote host. Defaults to          *            22.          */
+comment|/**          * Sets the port number for the remote SSH server.          *           * @param portint          *            representing port number on remote host. Defaults to 22.          */
 DECL|field|port
 specifier|private
 name|Integer
@@ -577,25 +577,25 @@ name|port
 init|=
 literal|22
 decl_stmt|;
-comment|/**          * Sets the password to use in connecting to remote SSH server. Requires          * keyPairProvider to be set to null.          *           * @param password          *            String representing password for username at remote host.          */
+comment|/**          * Sets the password to use in connecting to remote SSH server. Requires          * keyPairProvider to be set to null.          *           * @param passwordString          *            representing password for username at remote host.          */
 DECL|field|password
 specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**          * Sets the command string to send to the remote SSH server during every          * poll cycle. Only works with camel-ssh component being used as a          * consumer, i.e. from("ssh://...") You may need to end your command          * with a newline, and that must be URL encoded %0A          *           * @param pollCommand          *            String representing the command to send.          */
+comment|/**          * Sets the command string to send to the remote SSH server during every          * poll cycle. Only works with camel-ssh component being used as a          * consumer, i.e. from("ssh://...") You may need to end your command          * with a newline, and that must be URL encoded %0A          *           * @param pollCommandString          *            representing the command to send.          */
 DECL|field|pollCommand
 specifier|private
 name|String
 name|pollCommand
 decl_stmt|;
-comment|/**          * Sets the KeyPairProvider reference to use when connecting using          * Certificates to the remote SSH Server.          *           * @param keyPairProvider          *            KeyPairProvider reference to use in authenticating. If set          *            to 'null', then will attempt to connect using          *            username/password settings.          * @see KeyPairProvider          */
+comment|/**          * Sets the KeyPairProvider reference to use when connecting using          * Certificates to the remote SSH Server.          *           * @param keyPairProviderKeyPairProvider          *            reference to use in authenticating. If set to 'null', then          *            will attempt to connect using username/password settings.          * @see KeyPairProvider          */
 DECL|field|keyPairProvider
 specifier|private
 name|KeyPairProvider
 name|keyPairProvider
 decl_stmt|;
-comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. Defaults to "ssh-rsa".          *           * @param keyType          *            String defining the type of KeyPair to use for          *            authentication.          * @see KeyPairProvider          */
+comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. Defaults to "ssh-rsa".          *           * @param keyTypeString          *            defining the type of KeyPair to use for authentication.          * @see KeyPairProvider          */
 DECL|field|keyType
 specifier|private
 name|String
@@ -603,7 +603,7 @@ name|keyType
 init|=
 literal|"ssh-rsa"
 decl_stmt|;
-comment|/**          * Sets the timeout in milliseconds to wait in establishing the remote          * SSH server connection. Defaults to 30000 milliseconds.          *           * @param timeout          *            long milliseconds to wait.          */
+comment|/**          * Sets the timeout in milliseconds to wait in establishing the remote          * SSH server connection. Defaults to 30000 milliseconds.          *           * @param timeoutlong          *            milliseconds to wait.          */
 DECL|field|timeout
 specifier|private
 name|Long
@@ -619,11 +619,25 @@ specifier|private
 name|String
 name|certFilename
 decl_stmt|;
-comment|/**          * Sets the resource path of the certificate to use for Authentication.          * Will use {@link ResourceHelperKeyPairProvider} to resolve file based          * certificate, and depends on keyType setting.          *           * @param certResource          *            String file, classpath, or http url for the certificate          */
+comment|/**          * Sets the resource path of the certificate to use for Authentication.          * Will use {@link ResourceHelperKeyPairProvider} to resolve file based          * certificate, and depends on keyType setting.          *           * @param certResourceString          *            file, classpath, or http url for the certificate          */
 DECL|field|certResource
 specifier|private
 name|String
 name|certResource
+decl_stmt|;
+comment|/**          * Sets the resource path for a known_hosts file          *           * @param knownHostsString          *            file, classpath, or http url for the certificate          */
+DECL|field|knownHostsResource
+specifier|private
+name|String
+name|knownHostsResource
+decl_stmt|;
+comment|/**          * Specifies whether a connection to an unknown host should fail or not.          * This value is only checked when the property knownHosts is set.          *           * @param boolean boolean flag, whether a connection to an unknown host          *        should fail          */
+DECL|field|failOnUnknownHost
+specifier|private
+name|Boolean
+name|failOnUnknownHost
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getUsername ()
 specifier|public
@@ -889,6 +903,58 @@ operator|.
 name|certResource
 operator|=
 name|certResource
+expr_stmt|;
+block|}
+DECL|method|getKnownHostsResource ()
+specifier|public
+name|String
+name|getKnownHostsResource
+parameter_list|()
+block|{
+return|return
+name|knownHostsResource
+return|;
+block|}
+DECL|method|setKnownHostsResource (String knownHostsResource)
+specifier|public
+name|void
+name|setKnownHostsResource
+parameter_list|(
+name|String
+name|knownHostsResource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|knownHostsResource
+operator|=
+name|knownHostsResource
+expr_stmt|;
+block|}
+DECL|method|getFailOnUnknownHost ()
+specifier|public
+name|Boolean
+name|getFailOnUnknownHost
+parameter_list|()
+block|{
+return|return
+name|failOnUnknownHost
+return|;
+block|}
+DECL|method|setFailOnUnknownHost (Boolean failOnUnknownHost)
+specifier|public
+name|void
+name|setFailOnUnknownHost
+parameter_list|(
+name|Boolean
+name|failOnUnknownHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|failOnUnknownHost
+operator|=
+name|failOnUnknownHost
 expr_stmt|;
 block|}
 block|}

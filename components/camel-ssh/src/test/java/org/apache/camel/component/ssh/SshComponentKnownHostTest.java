@@ -80,7 +80,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -123,7 +123,7 @@ name|SshResult
 operator|.
 name|STDERR
 argument_list|,
-literal|"Error:test\n"
+literal|"Error:test"
 argument_list|)
 expr_stmt|;
 name|template
@@ -153,7 +153,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -197,7 +197,7 @@ specifier|final
 name|String
 name|msg
 init|=
-literal|"test\n"
+literal|"test"
 decl_stmt|;
 name|MockEndpoint
 name|mock
@@ -240,7 +240,7 @@ name|SshResult
 operator|.
 name|STDERR
 argument_list|,
-literal|"Error:test\n"
+literal|"Error:test"
 argument_list|)
 expr_stmt|;
 name|template
@@ -285,7 +285,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"test\r"
+literal|"test"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -307,7 +307,7 @@ name|SshResult
 operator|.
 name|STDERR
 argument_list|,
-literal|"Error:test\r"
+literal|"Error:test"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -372,7 +372,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"test\r"
+literal|"test"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -394,7 +394,7 @@ name|SshResult
 operator|.
 name|STDERR
 argument_list|,
-literal|"Error:test\r"
+literal|"Error:test"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
