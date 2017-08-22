@@ -674,6 +674,12 @@ name|saslMechanism
 init|=
 literal|"GSSAPI"
 decl_stmt|;
+comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username=\"USERNAME\" password=\"PASSWORD\";          */
+DECL|field|saslJaasConfig
+specifier|private
+name|String
+name|saslJaasConfig
+decl_stmt|;
 comment|/**          * Protocol used to communicate with brokers. Currently only PLAINTEXT          * and SSL are supported.          */
 DECL|field|securityProtocol
 specifier|private
@@ -2044,6 +2050,32 @@ operator|.
 name|saslMechanism
 operator|=
 name|saslMechanism
+expr_stmt|;
+block|}
+DECL|method|getSaslJaasConfig ()
+specifier|public
+name|String
+name|getSaslJaasConfig
+parameter_list|()
+block|{
+return|return
+name|saslJaasConfig
+return|;
+block|}
+DECL|method|setSaslJaasConfig (String saslJaasConfig)
+specifier|public
+name|void
+name|setSaslJaasConfig
+parameter_list|(
+name|String
+name|saslJaasConfig
+parameter_list|)
+block|{
+name|this
+operator|.
+name|saslJaasConfig
+operator|=
+name|saslJaasConfig
 expr_stmt|;
 block|}
 DECL|method|getSecurityProtocol ()
