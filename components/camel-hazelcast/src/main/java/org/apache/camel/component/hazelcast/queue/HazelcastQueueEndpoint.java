@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|hazelcast
@@ -177,7 +189,13 @@ name|HazelcastQueueEndpoint
 extends|extends
 name|HazelcastDefaultEndpoint
 block|{
-DECL|method|HazelcastQueueEndpoint (HazelcastInstance hazelcastInstance, String endpointUri, Component component, String cacheName)
+DECL|field|configuration
+specifier|private
+specifier|final
+name|HazelcastQueueConfiguration
+name|configuration
+decl_stmt|;
+DECL|method|HazelcastQueueEndpoint (HazelcastInstance hazelcastInstance, String endpointUri, Component component, String cacheName, final HazelcastQueueConfiguration configuration)
 specifier|public
 name|HazelcastQueueEndpoint
 parameter_list|(
@@ -192,6 +210,10 @@ name|component
 parameter_list|,
 name|String
 name|cacheName
+parameter_list|,
+specifier|final
+name|HazelcastQueueConfiguration
+name|configuration
 parameter_list|)
 block|{
 name|super
@@ -204,6 +226,12 @@ name|component
 argument_list|,
 name|cacheName
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 name|setCommand
 argument_list|(
@@ -246,6 +274,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|cacheName
+argument_list|,
+name|configuration
 argument_list|)
 decl_stmt|;
 name|configureConsumer
@@ -276,6 +306,32 @@ argument_list|,
 name|this
 argument_list|,
 name|cacheName
+argument_list|)
+return|;
+block|}
+DECL|method|createExecutor ()
+specifier|public
+name|ExecutorService
+name|createExecutor
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newFixedThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"QueueConsumer"
+argument_list|,
+name|configuration
+operator|.
+name|getPoolSize
+argument_list|()
 argument_list|)
 return|;
 block|}
