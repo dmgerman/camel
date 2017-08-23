@@ -532,11 +532,6 @@ argument_list|(
 name|sqlOutParameter
 argument_list|)
 expr_stmt|;
-name|setFunction
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 name|LOG
