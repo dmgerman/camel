@@ -214,6 +214,12 @@ argument_list|(
 literal|"removeIf"
 argument_list|)
 block|,
+DECL|enumConstant|TAKE
+name|TAKE
+argument_list|(
+literal|"take"
+argument_list|)
+block|,
 comment|// topic
 DECL|enumConstant|PUBLISH
 name|PUBLISH
