@@ -502,6 +502,26 @@ init|=
 literal|10
 decl_stmt|;
 annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"60"
+argument_list|)
+DECL|field|maxConnections
+specifier|private
+name|int
+name|maxConnections
+init|=
+literal|50
+operator|+
+name|maxMessagesPerPoll
+decl_stmt|;
+annotation|@
 name|Deprecated
 DECL|method|S3Endpoint (String uri, CamelContext context, S3Configuration configuration)
 specifier|public
@@ -1393,8 +1413,6 @@ name|clientConfiguration
 operator|.
 name|setMaxConnections
 argument_list|(
-name|configuration
-operator|.
 name|getMaxConnections
 argument_list|()
 argument_list|)
@@ -1416,8 +1434,6 @@ name|clientConfiguration
 operator|.
 name|setMaxConnections
 argument_list|(
-name|configuration
-operator|.
 name|getMaxConnections
 argument_list|()
 argument_list|)
@@ -1570,6 +1586,33 @@ operator|.
 name|maxMessagesPerPoll
 operator|=
 name|maxMessagesPerPoll
+expr_stmt|;
+block|}
+DECL|method|getMaxConnections ()
+specifier|public
+name|int
+name|getMaxConnections
+parameter_list|()
+block|{
+return|return
+name|maxConnections
+return|;
+block|}
+comment|/**      * Set the maxConnections parameter in the S3 client configuration      */
+DECL|method|setMaxConnections (int maxConnections)
+specifier|public
+name|void
+name|setMaxConnections
+parameter_list|(
+name|int
+name|maxConnections
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxConnections
+operator|=
+name|maxConnections
 expr_stmt|;
 block|}
 block|}

@@ -329,24 +329,6 @@ name|autocloseBody
 init|=
 literal|true
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"50"
-argument_list|)
-DECL|field|maxConnections
-specifier|private
-name|int
-name|maxConnections
-init|=
-literal|50
-decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|long
@@ -913,33 +895,6 @@ operator|.
 name|autocloseBody
 operator|=
 name|autocloseBody
-expr_stmt|;
-block|}
-DECL|method|getMaxConnections ()
-specifier|public
-name|int
-name|getMaxConnections
-parameter_list|()
-block|{
-return|return
-name|maxConnections
-return|;
-block|}
-comment|/**      * Set the maxConnections parameter in the S3 client configuration      */
-DECL|method|setMaxConnections (int maxConnections)
-specifier|public
-name|void
-name|setMaxConnections
-parameter_list|(
-name|int
-name|maxConnections
-parameter_list|)
-block|{
-name|this
-operator|.
-name|maxConnections
-operator|=
-name|maxConnections
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
