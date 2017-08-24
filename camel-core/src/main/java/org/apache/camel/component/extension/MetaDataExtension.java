@@ -106,7 +106,7 @@ name|JAVA_TYPE
 init|=
 literal|"Java-Type"
 decl_stmt|;
-comment|/**          *          * Returns an attribute associated with this meta data by name.          *          * @param name the attribute name          * @return the attribute          */
+comment|/**          * Returns an attribute associated with this meta data by name.          *          * @param name the attribute name          * @return the attribute          */
 DECL|method|getAttribute (String name)
 name|Object
 name|getAttribute
@@ -114,6 +114,17 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
+function_decl|;
+comment|/**          * @return a red-only list of attributes.          */
+DECL|method|getAttributes ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getAttributes
+parameter_list|()
 function_decl|;
 comment|/**          *          * Returns an attribute associated with this meta data by name and          * specifying the type required.          *          * @param name the attribute name          * @param type the type of the attribute          * @return the value of the given attribute or<tt>null</tt> if there is no attribute for the given name          * @throws TypeConversionException is thrown if error during type conversion          */
 DECL|method|getAttribute (String name, Class<T> type)
