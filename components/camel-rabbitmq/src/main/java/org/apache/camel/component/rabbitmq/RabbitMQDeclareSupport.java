@@ -237,7 +237,8 @@ name|shouldDeclareQueue
 argument_list|()
 condition|)
 block|{
-comment|// need to make sure the queueDeclare is same with the exchange declare
+comment|// need to make sure the queueDeclare is same with the exchange
+comment|// declare
 name|declareAndBindQueue
 argument_list|(
 name|channel
@@ -560,6 +561,7 @@ operator|.
 name|isPassive
 argument_list|()
 condition|)
+block|{
 name|channel
 operator|.
 name|exchangeDeclarePassive
@@ -567,7 +569,9 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|channel
 operator|.
 name|exchangeDeclare
@@ -589,6 +593,7 @@ argument_list|,
 name|exchangeArgs
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|declareAndBindQueue (final Channel channel, final String queue, final String exchange, final String routingKey, final Map<String, Object> queueArgs, final Map<String, Object> bindingArgs)
 specifier|private
@@ -639,6 +644,7 @@ operator|.
 name|isPassive
 argument_list|()
 condition|)
+block|{
 name|channel
 operator|.
 name|queueDeclarePassive
@@ -646,7 +652,9 @@ argument_list|(
 name|queue
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|channel
 operator|.
 name|queueDeclare
@@ -671,6 +679,7 @@ argument_list|,
 name|queueArgs
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|shouldBindQueue

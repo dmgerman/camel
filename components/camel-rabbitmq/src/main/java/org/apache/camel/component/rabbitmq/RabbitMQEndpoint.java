@@ -118,6 +118,78 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|AMQP
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|Address
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|Channel
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|Connection
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|Envelope
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -258,80 +330,8 @@ name|UriPath
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|AMQP
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|Address
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|Channel
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|Connection
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|Envelope
-import|;
-end_import
-
 begin_comment
-comment|/**  * The rabbitmq component allows you produce and consume messages from<a href="http://www.rabbitmq.com/">RabbitMQ</a> instances.  */
+comment|/**  * The rabbitmq component allows you produce and consume messages from  *<a href="http://www.rabbitmq.com/">RabbitMQ</a> instances.  */
 end_comment
 
 begin_class
@@ -603,8 +603,6 @@ DECL|field|passive
 specifier|private
 name|boolean
 name|passive
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1309,7 +1307,8 @@ specifier|private
 name|boolean
 name|guaranteedDeliveries
 decl_stmt|;
-comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
+comment|// camel-jms supports this setting but it is not currently configurable in
+comment|// camel-rabbitmq
 DECL|field|useMessageIDAsCorrelationID
 specifier|private
 name|boolean
@@ -1317,7 +1316,8 @@ name|useMessageIDAsCorrelationID
 init|=
 literal|true
 decl_stmt|;
-comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
+comment|// camel-jms supports this setting but it is not currently configurable in
+comment|// camel-rabbitmq
 DECL|field|replyToType
 specifier|private
 name|String
@@ -1330,7 +1330,8 @@ operator|.
 name|name
 argument_list|()
 decl_stmt|;
-comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
+comment|// camel-jms supports this setting but it is not currently configurable in
+comment|// camel-rabbitmq
 DECL|field|replyTo
 specifier|private
 name|String
@@ -1540,7 +1541,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// If it is BridgeEndpoint we should ignore the message header of EXCHANGE_NAME
+comment|// If it is BridgeEndpoint we should ignore the message header of
+comment|// EXCHANGE_NAME
 if|if
 condition|(
 name|exchangeName
@@ -1881,7 +1883,7 @@ return|return
 name|threadPoolSize
 return|;
 block|}
-comment|/**      * The consumer uses a Thread Pool Executor with a fixed number of threads. This setting allows you to set that number of threads.      */
+comment|/**      * The consumer uses a Thread Pool Executor with a fixed number of threads.      * This setting allows you to set that number of threads.      */
 DECL|method|setThreadPoolSize (int threadPoolSize)
 specifier|public
 name|void
@@ -1908,7 +1910,7 @@ return|return
 name|portNumber
 return|;
 block|}
-comment|/**      * Port number for the host with the running rabbitmq instance or cluster. Default value is 5672.      */
+comment|/**      * Port number for the host with the running rabbitmq instance or cluster.      * Default value is 5672.      */
 DECL|method|setPortNumber (int portNumber)
 specifier|public
 name|void
@@ -1989,7 +1991,7 @@ return|return
 name|durable
 return|;
 block|}
-comment|/**      * If we are declaring a durable exchange (the exchange will survive a server restart)      */
+comment|/**      * If we are declaring a durable exchange (the exchange will survive a      * server restart)      */
 DECL|method|setDurable (boolean durable)
 specifier|public
 name|void
@@ -2043,7 +2045,7 @@ return|return
 name|exchangeName
 return|;
 block|}
-comment|/**      * The exchange name determines which exchange produced messages will sent to.      * In the case of consumers, the exchange name determines which exchange the queue will bind to.      */
+comment|/**      * The exchange name determines which exchange produced messages will sent      * to. In the case of consumers, the exchange name determines which exchange      * the queue will bind to.      */
 DECL|method|setExchangeName (String exchangeName)
 specifier|public
 name|void
@@ -2097,7 +2099,7 @@ return|return
 name|routingKey
 return|;
 block|}
-comment|/**      * The routing key to use when binding a consumer queue to the exchange.      * For producer routing keys, you set the header rabbitmq.ROUTING_KEY.      */
+comment|/**      * The routing key to use when binding a consumer queue to the exchange. For      * producer routing keys, you set the header rabbitmq.ROUTING_KEY.      */
 DECL|method|setRoutingKey (String routingKey)
 specifier|public
 name|void
@@ -2114,7 +2116,7 @@ operator|=
 name|routingKey
 expr_stmt|;
 block|}
-comment|/**      * If true the producer will not declare and bind a queue.      * This can be used for directing messages via an existing routing key.      */
+comment|/**      * If true the producer will not declare and bind a queue. This can be used      * for directing messages via an existing routing key.      */
 DECL|method|setSkipQueueDeclare (boolean skipQueueDeclare)
 specifier|public
 name|void
@@ -2141,7 +2143,7 @@ return|return
 name|skipQueueDeclare
 return|;
 block|}
-comment|/**      * If true the queue will not be bound to the exchange after declaring it      * @return      */
+comment|/**      * If true the queue will not be bound to the exchange after declaring it      *       * @return      */
 DECL|method|isSkipQueueBind ()
 specifier|public
 name|boolean
@@ -2195,7 +2197,7 @@ return|return
 name|skipExchangeDeclare
 return|;
 block|}
-comment|/**      * If the bridgeEndpoint is true, the producer will ignore the message header of "rabbitmq.EXCHANGE_NAME" and "rabbitmq.ROUTING_KEY"      */
+comment|/**      * If the bridgeEndpoint is true, the producer will ignore the message      * header of "rabbitmq.EXCHANGE_NAME" and "rabbitmq.ROUTING_KEY"      */
 DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
 specifier|public
 name|void
@@ -2222,7 +2224,7 @@ return|return
 name|bridgeEndpoint
 return|;
 block|}
-comment|/**      * If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses.      * The addresses value is a string which looks like "server1:12345, server2:12345"      */
+comment|/**      * If this option is set, camel-rabbitmq will try to create connection based      * on the setting of option addresses. The addresses value is a string which      * looks like "server1:12345, server2:12345"      */
 DECL|method|setAddresses (String addresses)
 specifier|public
 name|void
@@ -2416,7 +2418,7 @@ return|return
 name|connectionFactory
 return|;
 block|}
-comment|/**      * To use a custom RabbitMQ connection factory.      * When this option is set, all connection options (connectionTimeout, requestedChannelMax...) set on URI are not used      */
+comment|/**      * To use a custom RabbitMQ connection factory. When this option is set, all      * connection options (connectionTimeout, requestedChannelMax...) set on URI      * are not used      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -2443,7 +2445,7 @@ return|return
 name|trustManager
 return|;
 block|}
-comment|/**      * Configure SSL trust manager, SSL should be enabled for this option to be effective      */
+comment|/**      * Configure SSL trust manager, SSL should be enabled for this option to be      * effective      */
 DECL|method|setTrustManager (TrustManager trustManager)
 specifier|public
 name|void
@@ -2475,7 +2477,7 @@ return|return
 name|clientProperties
 return|;
 block|}
-comment|/**      * Connection client properties (client info used in negotiating with the server)      */
+comment|/**      * Connection client properties (client info used in negotiating with the      * server)      */
 DECL|method|setClientProperties (Map<String, Object> clientProperties)
 specifier|public
 name|void
@@ -2507,7 +2509,7 @@ return|return
 name|automaticRecoveryEnabled
 return|;
 block|}
-comment|/**      * Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application)      */
+comment|/**      * Enables connection automatic recovery (uses connection implementation      * that performs automatic recovery when connection shutdown is not      * initiated by the application)      */
 DECL|method|setAutomaticRecoveryEnabled (Boolean automaticRecoveryEnabled)
 specifier|public
 name|void
@@ -2534,7 +2536,7 @@ return|return
 name|networkRecoveryInterval
 return|;
 block|}
-comment|/**      * Network recovery interval in milliseconds (interval used when recovering from network failure)      */
+comment|/**      * Network recovery interval in milliseconds (interval used when recovering      * from network failure)      */
 DECL|method|setNetworkRecoveryInterval (Integer networkRecoveryInterval)
 specifier|public
 name|void
@@ -2561,7 +2563,7 @@ return|return
 name|topologyRecoveryEnabled
 return|;
 block|}
-comment|/**      * Enables connection topology recovery (should topology recovery be performed?)      */
+comment|/**      * Enables connection topology recovery (should topology recovery be      * performed?)      */
 DECL|method|setTopologyRecoveryEnabled (Boolean topologyRecoveryEnabled)
 specifier|public
 name|void
@@ -2588,7 +2590,7 @@ return|return
 name|prefetchEnabled
 return|;
 block|}
-comment|/**      * Enables the quality of service on the RabbitMQConsumer side.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
+comment|/**      * Enables the quality of service on the RabbitMQConsumer side. You need to      * specify the option of prefetchSize, prefetchCount, prefetchGlobal at the      * same time      */
 DECL|method|setPrefetchEnabled (boolean prefetchEnabled)
 specifier|public
 name|void
@@ -2605,7 +2607,7 @@ operator|=
 name|prefetchEnabled
 expr_stmt|;
 block|}
-comment|/**      * The maximum amount of content (measured in octets) that the server will deliver, 0 if unlimited.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
+comment|/**      * The maximum amount of content (measured in octets) that the server will      * deliver, 0 if unlimited. You need to specify the option of prefetchSize,      * prefetchCount, prefetchGlobal at the same time      */
 DECL|method|setPrefetchSize (int prefetchSize)
 specifier|public
 name|void
@@ -2632,7 +2634,7 @@ return|return
 name|prefetchSize
 return|;
 block|}
-comment|/**      * The maximum number of messages that the server will deliver, 0 if unlimited.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
+comment|/**      * The maximum number of messages that the server will deliver, 0 if      * unlimited. You need to specify the option of prefetchSize, prefetchCount,      * prefetchGlobal at the same time      */
 DECL|method|setPrefetchCount (int prefetchCount)
 specifier|public
 name|void
@@ -2659,7 +2661,7 @@ return|return
 name|prefetchCount
 return|;
 block|}
-comment|/**      * If the settings should be applied to the entire channel rather than each consumer      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
+comment|/**      * If the settings should be applied to the entire channel rather than each      * consumer You need to specify the option of prefetchSize, prefetchCount,      * prefetchGlobal at the same time      */
 DECL|method|setPrefetchGlobal (boolean prefetchGlobal)
 specifier|public
 name|void
@@ -2696,7 +2698,7 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-comment|/**      * Number of concurrent consumers when consuming from broker. (eg similar as to the same option for the JMS component).      */
+comment|/**      * Number of concurrent consumers when consuming from broker. (eg similar as      * to the same option for the JMS component).      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -2723,7 +2725,7 @@ return|return
 name|declare
 return|;
 block|}
-comment|/**      * If the option is true, camel declare the exchange and queue name and bind them together.      * If the option is false, camel won't declare the exchange and queue name on the server.      */
+comment|/**      * If the option is true, camel declare the exchange and queue name and bind      * them together. If the option is false, camel won't declare the exchange      * and queue name on the server.      */
 DECL|method|setDeclare (boolean declare)
 specifier|public
 name|void
@@ -2885,7 +2887,7 @@ return|return
 name|channelPoolMaxWait
 return|;
 block|}
-comment|/**      * Set the maximum number of milliseconds to wait for a channel from the pool      */
+comment|/**      * Set the maximum number of milliseconds to wait for a channel from the      * pool      */
 DECL|method|setChannelPoolMaxWait (long channelPoolMaxWait)
 specifier|public
 name|void
@@ -2912,7 +2914,7 @@ return|return
 name|mandatory
 return|;
 block|}
-comment|/**      * This flag tells the server how to react if the message cannot be routed to a queue.      * If this flag is set, the server will return an unroutable message with a Return method.      * If this flag is zero, the server silently drops the message.      *<p/>      * If the header is present rabbitmq.MANDATORY it will override this option.      */
+comment|/**      * This flag tells the server how to react if the message cannot be routed      * to a queue. If this flag is set, the server will return an unroutable      * message with a Return method. If this flag is zero, the server silently      * drops the message.      *<p/>      * If the header is present rabbitmq.MANDATORY it will override this option.      */
 DECL|method|setMandatory (boolean mandatory)
 specifier|public
 name|void
@@ -2939,7 +2941,7 @@ return|return
 name|immediate
 return|;
 block|}
-comment|/**      * This flag tells the server how to react if the message cannot be routed to a queue consumer immediately.      * If this flag is set, the server will return an undeliverable message with a Return method.      * If this flag is zero, the server will queue the message, but with no guarantee that it will ever be consumed.      *<p/>      * If the header is present rabbitmq.IMMEDIATE it will override this option.      */
+comment|/**      * This flag tells the server how to react if the message cannot be routed      * to a queue consumer immediately. If this flag is set, the server will      * return an undeliverable message with a Return method. If this flag is      * zero, the server will queue the message, but with no guarantee that it      * will ever be consumed.      *<p/>      * If the header is present rabbitmq.IMMEDIATE it will override this option.      */
 DECL|method|setImmediate (boolean immediate)
 specifier|public
 name|void
@@ -2956,7 +2958,7 @@ operator|=
 name|immediate
 expr_stmt|;
 block|}
-comment|/**      * Specify arguments for configuring the different RabbitMQ concepts, a different prefix is      * required for each:      *<ul>      *<li>Exchange: arg.exchange.</li>      *<li>Queue: arg.queue.</li>      *<li>Binding: arg.binding.</li>      *</ul>      * For example to declare a queue with message ttl argument:      *      * http://localhost:5672/exchange/queue?args=arg.queue.x-message-ttl=60000      *      */
+comment|/**      * Specify arguments for configuring the different RabbitMQ concepts, a      * different prefix is required for each:      *<ul>      *<li>Exchange: arg.exchange.</li>      *<li>Queue: arg.queue.</li>      *<li>Binding: arg.binding.</li>      *</ul>      * For example to declare a queue with message ttl argument:      * http://localhost:5672/exchange/queue?args=arg.queue.x-message-ttl=60000      */
 DECL|method|setArgs (Map<String, Object> args)
 specifier|public
 name|void
@@ -3069,7 +3071,7 @@ return|return
 name|queueArgs
 return|;
 block|}
-comment|/**      * Key/value args for configuring the queue binding parameters when declare=true      *      * @Deprecated Use args instead e.g arg.binding.foo=bar      */
+comment|/**      * Key/value args for configuring the queue binding parameters when      * declare=true      *      * @Deprecated Use args instead e.g arg.binding.foo=bar      */
 DECL|method|setBindingArgs (Map<String, Object> bindingArgs)
 specifier|public
 name|void
@@ -3143,7 +3145,7 @@ return|return
 name|exchangeArgsConfigurer
 return|;
 block|}
-comment|/**      * Set the configurer for setting the exchange args in Channel.exchangeDeclare      *      * @Deprecated Use args instead e.g arg.exchange.x-message-ttl=1000      */
+comment|/**      * Set the configurer for setting the exchange args in      * Channel.exchangeDeclare      *      * @Deprecated Use args instead e.g arg.exchange.x-message-ttl=1000      */
 DECL|method|setExchangeArgsConfigurer (ArgsConfigurer exchangeArgsConfigurer)
 specifier|public
 name|void
@@ -3160,7 +3162,7 @@ operator|=
 name|exchangeArgsConfigurer
 expr_stmt|;
 block|}
-comment|/**      * Set timeout for waiting for a reply when using the InOut Exchange Pattern (in milliseconds)      */
+comment|/**      * Set timeout for waiting for a reply when using the InOut Exchange Pattern      * (in milliseconds)      */
 DECL|method|setRequestTimeout (long requestTimeout)
 specifier|public
 name|void
@@ -3225,7 +3227,7 @@ return|return
 name|useMessageIDAsCorrelationID
 return|;
 block|}
-comment|/**      * When true and an inOut Exchange failed on the consumer side send the caused Exception back in the response      */
+comment|/**      * When true and an inOut Exchange failed on the consumer side send the      * caused Exception back in the response      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
@@ -3252,7 +3254,7 @@ return|return
 name|transferException
 return|;
 block|}
-comment|/**      * When true, the message will be published with<a href="https://www.rabbitmq.com/confirms.html">publisher acknowledgements</a> turned on      */
+comment|/**      * When true, the message will be published with      *<a href="https://www.rabbitmq.com/confirms.html">publisher      * acknowledgements</a> turned on      */
 DECL|method|isPublisherAcknowledgements ()
 specifier|public
 name|boolean
@@ -3280,7 +3282,7 @@ operator|=
 name|publisherAcknowledgements
 expr_stmt|;
 block|}
-comment|/**      * The amount of time in milliseconds to wait for a basic.ack response from RabbitMQ server      */
+comment|/**      * The amount of time in milliseconds to wait for a basic.ack response from      * RabbitMQ server      */
 DECL|method|getPublisherAcknowledgementsTimeout ()
 specifier|public
 name|long
@@ -3308,7 +3310,7 @@ operator|=
 name|publisherAcknowledgementsTimeout
 expr_stmt|;
 block|}
-comment|/**      * When true, an exception will be thrown when the message cannot be delivered (basic.return) and the message is      * marked as mandatory.      * PublisherAcknowledgement will also be activated in this case      *      * See also<a href=https://www.rabbitmq.com/confirms.html">publisher acknowledgements</a> - When will messages be      * confirmed?      */
+comment|/**      * When true, an exception will be thrown when the message cannot be      * delivered (basic.return) and the message is marked as mandatory.      * PublisherAcknowledgement will also be activated in this case See also<a      * href=https://www.rabbitmq.com/confirms.html">publisher      * acknowledgements</a> - When will messages be confirmed?      */
 DECL|method|isGuaranteedDeliveries ()
 specifier|public
 name|boolean
@@ -3367,7 +3369,7 @@ return|return
 name|exclusive
 return|;
 block|}
-comment|/**      * Exclusive queues may only be accessed by the current connection, and are deleted when that connection closes.      */
+comment|/**      * Exclusive queues may only be accessed by the current connection, and are      * deleted when that connection closes.      */
 DECL|method|setExclusive (boolean exclusive)
 specifier|public
 name|void
