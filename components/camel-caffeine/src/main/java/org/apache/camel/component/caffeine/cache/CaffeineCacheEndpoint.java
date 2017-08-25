@@ -468,7 +468,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|expireAfterAccess
+name|expireAfterWrite
 argument_list|(
 name|configuration
 operator|.
