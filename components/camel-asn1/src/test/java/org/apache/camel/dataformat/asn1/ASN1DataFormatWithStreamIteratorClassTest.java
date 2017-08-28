@@ -126,7 +126,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Test
+name|Ignore
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|Test
 import|;
 end_import
 
