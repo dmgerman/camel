@@ -62,7 +62,7 @@ name|caffeine
 operator|.
 name|cache
 operator|.
-name|Expiry
+name|RemovalListener
 import|;
 end_import
 
@@ -335,6 +335,18 @@ name|int
 name|expireAfterWriteTime
 init|=
 literal|300
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|removalListener
+specifier|private
+name|RemovalListener
+name|removalListener
 decl_stmt|;
 DECL|method|CaffeineConfiguration ()
 specifier|public
@@ -660,7 +672,7 @@ return|return
 name|expireAfterAccessTime
 return|;
 block|}
-comment|/**      * Set the expire After Access Time in case of time based Eviction (in seconds)      */
+comment|/**      * Set the expire After Access Time in case of time based Eviction (in      * seconds)      */
 DECL|method|setExpireAfterAccessTime (int expireAfterAccessTime)
 specifier|public
 name|void
@@ -687,7 +699,7 @@ return|return
 name|expireAfterWriteTime
 return|;
 block|}
-comment|/**      * Set the expire After Access Write in case of time based Eviction (in seconds)      */
+comment|/**      * Set the expire After Access Write in case of time based Eviction (in      * seconds)      */
 DECL|method|setExpireAfterWriteTime (int expireAfterWriteTime)
 specifier|public
 name|void
@@ -702,6 +714,33 @@ operator|.
 name|expireAfterWriteTime
 operator|=
 name|expireAfterWriteTime
+expr_stmt|;
+block|}
+DECL|method|getRemovalListener ()
+specifier|public
+name|RemovalListener
+name|getRemovalListener
+parameter_list|()
+block|{
+return|return
+name|removalListener
+return|;
+block|}
+comment|/**      * Set a specific removal Listener for the cache      */
+DECL|method|setRemovalListener (RemovalListener removalListener)
+specifier|public
+name|void
+name|setRemovalListener
+parameter_list|(
+name|RemovalListener
+name|removalListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|removalListener
+operator|=
+name|removalListener
 expr_stmt|;
 block|}
 comment|// ****************************

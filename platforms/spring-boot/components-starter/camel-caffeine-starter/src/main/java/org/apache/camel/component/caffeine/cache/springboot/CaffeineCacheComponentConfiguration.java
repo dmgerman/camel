@@ -66,6 +66,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|github
+operator|.
+name|benmanes
+operator|.
+name|caffeine
+operator|.
+name|cache
+operator|.
+name|RemovalListener
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -344,6 +360,12 @@ name|Integer
 name|expireAfterWriteTime
 init|=
 literal|300
+decl_stmt|;
+comment|/**          * Set a specific removal Listener for the cache          */
+DECL|field|removalListener
+specifier|private
+name|RemovalListener
+name|removalListener
 decl_stmt|;
 DECL|method|getCreateCacheIfNotExist ()
 specifier|public
@@ -681,6 +703,32 @@ operator|.
 name|expireAfterWriteTime
 operator|=
 name|expireAfterWriteTime
+expr_stmt|;
+block|}
+DECL|method|getRemovalListener ()
+specifier|public
+name|RemovalListener
+name|getRemovalListener
+parameter_list|()
+block|{
+return|return
+name|removalListener
+return|;
+block|}
+DECL|method|setRemovalListener (RemovalListener removalListener)
+specifier|public
+name|void
+name|setRemovalListener
+parameter_list|(
+name|RemovalListener
+name|removalListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|removalListener
+operator|=
+name|removalListener
 expr_stmt|;
 block|}
 block|}
