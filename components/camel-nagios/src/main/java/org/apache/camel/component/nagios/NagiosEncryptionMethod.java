@@ -19,10 +19,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Encryption methods supported by nagios.  */
+comment|/**  * Encryption methods supported by nagios.  * @deprecated use {@link com.googlecode.jsendnsca.encryption.Encryption} instead.  */
 end_comment
 
 begin_enum
+annotation|@
+name|Deprecated
 DECL|enum|NagiosEncryptionMethod
 specifier|public
 enum|enum

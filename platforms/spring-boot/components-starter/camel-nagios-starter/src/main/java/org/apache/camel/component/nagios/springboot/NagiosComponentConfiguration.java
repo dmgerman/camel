@@ -294,7 +294,7 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**          * To specify an encryption method.          */
+comment|/**          * To specify an encryption method.          *           * @deprecated use the {@link #encryption} query parameter instead.          */
 annotation|@
 name|Deprecated
 DECL|field|encryptionMethod

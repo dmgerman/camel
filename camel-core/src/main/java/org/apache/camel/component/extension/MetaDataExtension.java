@@ -115,7 +115,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**          * @return a red-only list of attributes.          */
+comment|/**          * @return a read-only list of attributes.          */
 DECL|method|getAttributes ()
 name|Map
 argument_list|<

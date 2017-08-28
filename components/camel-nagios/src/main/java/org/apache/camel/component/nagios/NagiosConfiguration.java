@@ -610,7 +610,9 @@ return|return
 name|encryptionMethod
 return|;
 block|}
-comment|/**      * To specify an encryption method.      */
+comment|/**      * To specify an encryption method.      * @deprecated use the {@link #encryption} query parameter instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
 specifier|public
 name|void

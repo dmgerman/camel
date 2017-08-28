@@ -806,10 +806,6 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"Currently XMPPTCPConnectionConfiguration is only supported (XMPP over TCP) but not BOSHConfiguration (XMPP over HTTP)."
 argument_list|)
 DECL|field|connectionConfig
 specifier|private
@@ -2048,7 +2044,7 @@ return|return
 name|connectionConfig
 return|;
 block|}
-comment|/**      * To use an existing connection configuration      */
+comment|/**      * To use an existing connection configuration. Currently {@link org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration} is only supported (XMPP over TCP).      */
 DECL|method|setConnectionConfig (ConnectionConfiguration connectionConfig)
 specifier|public
 name|void
