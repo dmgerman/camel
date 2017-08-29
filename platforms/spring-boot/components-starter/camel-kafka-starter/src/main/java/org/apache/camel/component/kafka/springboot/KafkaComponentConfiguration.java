@@ -674,7 +674,7 @@ name|saslMechanism
 init|=
 literal|"GSSAPI"
 decl_stmt|;
-comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username=\"USERNAME\" password=\"PASSWORD\";          */
+comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username="USERNAME" password="PASSWORD";          */
 DECL|field|saslJaasConfig
 specifier|private
 name|String

@@ -4753,7 +4753,7 @@ return|return
 name|saslJaasConfig
 return|;
 block|}
-comment|/**      * Expose the kafka sasl.jaas.config parameter      *       * Example:      * org.apache.kafka.common.security.plain.PlainLoginModule required username=\"USERNAME\" password=\"PASSWORD\";      */
+comment|/**      * Expose the kafka sasl.jaas.config parameter      *       * Example:      * org.apache.kafka.common.security.plain.PlainLoginModule required username="USERNAME" password="PASSWORD";      */
 DECL|method|setSaslJaasConfig (String saslMechanism)
 specifier|public
 name|void
