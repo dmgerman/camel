@@ -36,6 +36,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
+name|model
+operator|.
+name|EncryptionMaterials
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -329,6 +345,34 @@ name|autocloseBody
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
+DECL|field|encryptionMaterials
+specifier|private
+name|EncryptionMaterials
+name|encryptionMaterials
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useEncryption
+specifier|private
+name|boolean
+name|useEncryption
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|long
@@ -339,7 +383,7 @@ return|return
 name|partSize
 return|;
 block|}
-comment|/**      * *Camel 2.15.0*: Setup the partSize which is used in multi part upload, the default size is 25M.      */
+comment|/**      * *Camel 2.15.0*: Setup the partSize which is used in multi part upload,      * the default size is 25M.      */
 DECL|method|setPartSize (long partSize)
 specifier|public
 name|void
@@ -366,7 +410,7 @@ return|return
 name|multiPartUpload
 return|;
 block|}
-comment|/**      * *Camel 2.15.0*: If it is true, camel will upload the file with multi part format, the part size is decided by the option of `partSize`      */
+comment|/**      * *Camel 2.15.0*: If it is true, camel will upload the file with multi part      * format, the part size is decided by the option of `partSize`      */
 DECL|method|setMultiPartUpload (boolean multiPartUpload)
 specifier|public
 name|void
@@ -474,7 +518,7 @@ return|return
 name|amazonS3Client
 return|;
 block|}
-comment|/**      * Reference to a `com.amazonaws.services.sqs.AmazonS3` in the link:registry.html[Registry].      */
+comment|/**      * Reference to a `com.amazonaws.services.sqs.AmazonS3` in the      * link:registry.html[Registry].      */
 DECL|method|setAmazonS3Client (AmazonS3 amazonS3Client)
 specifier|public
 name|void
@@ -501,7 +545,7 @@ return|return
 name|prefix
 return|;
 block|}
-comment|/**      * *Camel 2.10.1*: The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest      * to only consume objects we are interested in.      */
+comment|/**      * *Camel 2.10.1*: The prefix which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
 DECL|method|setPrefix (String prefix)
 specifier|public
 name|void
@@ -528,7 +572,7 @@ return|return
 name|bucketName
 return|;
 block|}
-comment|/**      * Name of the bucket. The bucket will be created if it don't already exists.      */
+comment|/**      * Name of the bucket. The bucket will be created if it don't already      * exists.      */
 DECL|method|setBucketName (String bucketName)
 specifier|public
 name|void
@@ -599,7 +643,7 @@ operator|=
 name|region
 expr_stmt|;
 block|}
-comment|/**      * If it is true, the exchange body will be set to a stream to the contents of the file.      * If false, the headers will be set with the S3 object metadata, but the body will be null.       * This option is strongly related to autocloseBody option. In case of setting includeBody to true and autocloseBody to false, it       * will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.      */
+comment|/**      * If it is true, the exchange body will be set to a stream to the contents      * of the file. If false, the headers will be set with the S3 object      * metadata, but the body will be null. This option is strongly related to      * autocloseBody option. In case of setting includeBody to true and      * autocloseBody to false, it will be up to the caller to close the S3Object      * stream. Setting autocloseBody to true, will close the S3Object stream      * automatically.      */
 DECL|method|setIncludeBody (boolean includeBody)
 specifier|public
 name|void
@@ -636,7 +680,7 @@ return|return
 name|deleteAfterRead
 return|;
 block|}
-comment|/**      * Delete objects from S3 after they have been retrieved.  The delete is only performed if the Exchange is committed.      * If a rollback occurs, the object is not deleted.      *<p/>      * If this option is false, then the same objects will be retrieve over and over again on the polls. Therefore you      * need to use the Idempotent Consumer EIP in the route to filter out duplicates. You can filter using the      * {@link S3Constants#BUCKET_NAME} and {@link S3Constants#KEY} headers, or only the {@link S3Constants#KEY} header.      */
+comment|/**      * Delete objects from S3 after they have been retrieved. The delete is only      * performed if the Exchange is committed. If a rollback occurs, the object      * is not deleted.      *<p/>      * If this option is false, then the same objects will be retrieve over and      * over again on the polls. Therefore you need to use the Idempotent      * Consumer EIP in the route to filter out duplicates. You can filter using      * the {@link S3Constants#BUCKET_NAME} and {@link S3Constants#KEY} headers,      * or only the {@link S3Constants#KEY} header.      */
 DECL|method|setDeleteAfterRead (boolean deleteAfterRead)
 specifier|public
 name|void
@@ -690,7 +734,7 @@ return|return
 name|policy
 return|;
 block|}
-comment|/**      * *Camel 2.8.4*: The policy for this queue to set in the `com.amazonaws.services.s3.AmazonS3#setBucketPolicy()` method.      */
+comment|/**      * *Camel 2.8.4*: The policy for this queue to set in the      * `com.amazonaws.services.s3.AmazonS3#setBucketPolicy()` method.      */
 DECL|method|setPolicy (String policy)
 specifier|public
 name|void
@@ -717,7 +761,7 @@ return|return
 name|storageClass
 return|;
 block|}
-comment|/**      * *Camel 2.8.4*: The storage class to set in the `com.amazonaws.services.s3.model.PutObjectRequest` request.      */
+comment|/**      * *Camel 2.8.4*: The storage class to set in the      * `com.amazonaws.services.s3.model.PutObjectRequest` request.      */
 DECL|method|setStorageClass (String storageClass)
 specifier|public
 name|void
@@ -744,7 +788,7 @@ return|return
 name|serverSideEncryption
 return|;
 block|}
-comment|/**      * *Camel 2.16*: Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys.      * For example use<tt>AES256</tt>.      */
+comment|/**      * *Camel 2.16*: Sets the server-side encryption algorithm when encrypting      * the object using AWS-managed keys. For example use<tt>AES256</tt>.      */
 DECL|method|setServerSideEncryption (String serverSideEncryption)
 specifier|public
 name|void
@@ -798,7 +842,7 @@ return|return
 name|proxyPort
 return|;
 block|}
-comment|/**      * *Camel 2.16*: Specify a proxy port to be used inside the client definition.      */
+comment|/**      * *Camel 2.16*: Specify a proxy port to be used inside the client      * definition.      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void
@@ -853,7 +897,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * *Camel 2.18*: The operation to do in case the user don't want to do only an upload      */
+comment|/**      * *Camel 2.18*: The operation to do in case the user don't want to do only      * an upload      */
 DECL|method|setOperation (S3Operations operation)
 specifier|public
 name|void
@@ -880,7 +924,7 @@ return|return
 name|autocloseBody
 return|;
 block|}
-comment|/**      * If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion      * This option is strongly related to includeBody option. In case of setting includeBody to true and autocloseBody to false, it       * will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.      */
+comment|/**      * If this option is true and includeBody is true, then the S3Object.close()      * method will be called on exchange completion This option is strongly      * related to includeBody option. In case of setting includeBody to true and      * autocloseBody to false, it will be up to the caller to close the S3Object      * stream. Setting autocloseBody to true, will close the S3Object stream      * automatically.      */
 DECL|method|setAutocloseBody (boolean autocloseBody)
 specifier|public
 name|void
@@ -895,6 +939,60 @@ operator|.
 name|autocloseBody
 operator|=
 name|autocloseBody
+expr_stmt|;
+block|}
+DECL|method|getEncryptionMaterials ()
+specifier|public
+name|EncryptionMaterials
+name|getEncryptionMaterials
+parameter_list|()
+block|{
+return|return
+name|encryptionMaterials
+return|;
+block|}
+comment|/**      * The encryption materials to use in case of Symmetric/Asymmetric client      * usage      */
+DECL|method|setEncryptionMaterials (EncryptionMaterials encryptionMaterials)
+specifier|public
+name|void
+name|setEncryptionMaterials
+parameter_list|(
+name|EncryptionMaterials
+name|encryptionMaterials
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptionMaterials
+operator|=
+name|encryptionMaterials
+expr_stmt|;
+block|}
+DECL|method|isUseEncryption ()
+specifier|public
+name|boolean
+name|isUseEncryption
+parameter_list|()
+block|{
+return|return
+name|useEncryption
+return|;
+block|}
+comment|/**      * Define if encryption must be used or not      */
+DECL|method|setUseEncryption (boolean useEncryption)
+specifier|public
+name|void
+name|setUseEncryption
+parameter_list|(
+name|boolean
+name|useEncryption
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useEncryption
+operator|=
+name|useEncryption
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
