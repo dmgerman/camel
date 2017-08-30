@@ -710,6 +710,9 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|//set proxy if necessary
+comment|//this.getContext().getGlobalOptions().put("http.proxyHost", "...");
+comment|//this.getContext().getGlobalOptions().put("http.proxyPort", "...");
 comment|// test route for delete
 name|from
 argument_list|(
