@@ -126,7 +126,7 @@ argument_list|()
 decl_stmt|;
 name|from
 argument_list|(
-literal|"timer://foo?period=10000&repeatCount=1"
+literal|"timer://foo?period=10000&repeatCount=5"
 argument_list|)
 operator|.
 name|process
