@@ -631,7 +631,7 @@ name|S3Constants
 operator|.
 name|CONTENT_LENGTH
 argument_list|,
-literal|2L
+literal|26L
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -796,7 +796,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|26L
 argument_list|,
 name|putObjectRequest
 operator|.
