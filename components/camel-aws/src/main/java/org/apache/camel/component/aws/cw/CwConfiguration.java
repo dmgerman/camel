@@ -525,48 +525,6 @@ operator|=
 name|region
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"CwConfiguration[name="
-operator|+
-name|name
-operator|+
-literal|", amazonCwClient="
-operator|+
-name|amazonCwClient
-operator|+
-literal|", accessKey="
-operator|+
-name|accessKey
-operator|+
-literal|", secretKey=xxxxxxxxxxxxxxx"
-operator|+
-literal|", value="
-operator|+
-name|value
-operator|+
-literal|", unit="
-operator|+
-name|unit
-operator|+
-literal|", proxyHost="
-operator|+
-name|proxyHost
-operator|+
-literal|", proxyPort="
-operator|+
-name|proxyPort
-operator|+
-literal|"]"
-return|;
-block|}
 block|}
 end_class
 

@@ -478,56 +478,6 @@ operator|=
 name|region
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"SnsConfiguration[topicName="
-operator|+
-name|topicName
-operator|+
-literal|", amazonSNSClient="
-operator|+
-name|amazonSNSClient
-operator|+
-literal|", accessKey="
-operator|+
-name|accessKey
-operator|+
-literal|", secretKey=xxxxxxxxxxxxxxx"
-operator|+
-literal|", subject="
-operator|+
-name|subject
-operator|+
-literal|", topicArn="
-operator|+
-name|topicArn
-operator|+
-literal|", policy="
-operator|+
-name|policy
-operator|+
-literal|", messageStructure="
-operator|+
-name|messageStructure
-operator|+
-literal|", proxyHost="
-operator|+
-name|proxyHost
-operator|+
-literal|", proxyPort="
-operator|+
-name|proxyPort
-operator|+
-literal|"]"
-return|;
-block|}
 block|}
 end_class
 
