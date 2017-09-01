@@ -154,6 +154,20 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|connectorOptions
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|ConnectorOptionModel
+argument_list|>
+name|connectorOptions
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
 DECL|method|getKind ()
 specifier|public
 name|String
@@ -623,6 +637,36 @@ name|option
 parameter_list|)
 block|{
 name|endpointOptions
+operator|.
+name|add
+argument_list|(
+name|option
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getConnectorOptions ()
+specifier|public
+name|List
+argument_list|<
+name|ConnectorOptionModel
+argument_list|>
+name|getConnectorOptions
+parameter_list|()
+block|{
+return|return
+name|connectorOptions
+return|;
+block|}
+DECL|method|addConnectorOption (ConnectorOptionModel option)
+specifier|public
+name|void
+name|addConnectorOption
+parameter_list|(
+name|ConnectorOptionModel
+name|option
+parameter_list|)
+block|{
+name|connectorOptions
 operator|.
 name|add
 argument_list|(

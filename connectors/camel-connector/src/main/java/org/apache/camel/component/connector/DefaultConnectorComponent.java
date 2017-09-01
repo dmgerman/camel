@@ -621,13 +621,13 @@ name|getComponentVerifierExtension
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addConnectorOption (Map<String, T> options, String name, T value)
+DECL|method|doAddOption (Map<String, T> options, String name, T value)
 specifier|protected
 parameter_list|<
 name|T
 parameter_list|>
 name|void
-name|addConnectorOption
+name|doAddOption
 parameter_list|(
 name|Map
 argument_list|<
@@ -1049,7 +1049,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setOptions (Map<String, Object> baseComponentOptions)
+DECL|method|setOptions (Map<String, Object> options)
 specifier|public
 name|void
 name|setOptions
@@ -1060,7 +1060,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|baseComponentOptions
+name|options
 parameter_list|)
 block|{
 name|this
@@ -1076,7 +1076,7 @@ name|options
 operator|.
 name|putAll
 argument_list|(
-name|baseComponentOptions
+name|options
 argument_list|)
 expr_stmt|;
 block|}
@@ -1094,7 +1094,7 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|addConnectorOption
+name|doAddOption
 argument_list|(
 name|this
 operator|.
@@ -1132,7 +1132,7 @@ parameter_list|,
 name|value
 parameter_list|)
 lambda|->
-name|addConnectorOption
+name|doAddOption
 argument_list|(
 name|this
 operator|.
@@ -1954,6 +1954,17 @@ operator|.
 name|getEndpointOptions
 argument_list|()
 decl_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|connectorOptions
+init|=
+name|model
+operator|.
+name|getConnectorOptions
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -1972,11 +1983,22 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// Only set options that are not targeting the endpoint
+comment|// Only set options that are targeting the component
 if|if
 condition|(
 operator|!
 name|endpointOptions
+operator|.
+name|contains
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+operator|&&
+operator|!
+name|connectorOptions
 operator|.
 name|contains
 argument_list|(
@@ -2362,7 +2384,7 @@ name|value
 argument_list|)
 condition|)
 block|{
-name|addConnectorOption
+name|doAddOption
 argument_list|(
 name|options
 argument_list|,
@@ -2436,7 +2458,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|addConnectorOption
+name|doAddOption
 argument_list|(
 name|options
 argument_list|,
@@ -2524,7 +2546,7 @@ name|value
 argument_list|)
 condition|)
 block|{
-name|addConnectorOption
+name|doAddOption
 argument_list|(
 name|options
 argument_list|,
@@ -2601,7 +2623,7 @@ name|value
 argument_list|)
 condition|)
 block|{
-name|addConnectorOption
+name|doAddOption
 argument_list|(
 name|options
 argument_list|,
