@@ -184,6 +184,13 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|region
+specifier|private
+name|String
+name|region
+decl_stmt|;
 comment|/**      * The region with which the AWS-SDB client wants to work with.      */
 DECL|method|setAmazonSdbEndpoint (String amazonSdbEndpoint)
 specifier|public
@@ -400,7 +407,7 @@ operator|=
 name|consistentRead
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy host when instantiating the SQS client      */
+comment|/**      * To define a proxy host when instantiating the SDB client      */
 DECL|method|getProxyHost ()
 specifier|public
 name|String
@@ -427,7 +434,7 @@ operator|=
 name|proxyHost
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy port when instantiating the SQS client      */
+comment|/**      * To define a proxy port when instantiating the SDB client      */
 DECL|method|getProxyPort ()
 specifier|public
 name|Integer
@@ -452,6 +459,33 @@ operator|.
 name|proxyPort
 operator|=
 name|proxyPort
+expr_stmt|;
+block|}
+comment|/**      * The region in which SDB client needs to work      */
+DECL|method|getRegion ()
+specifier|public
+name|String
+name|getRegion
+parameter_list|()
+block|{
+return|return
+name|region
+return|;
+block|}
+DECL|method|setRegion (String region)
+specifier|public
+name|void
+name|setRegion
+parameter_list|(
+name|String
+name|region
+parameter_list|)
+block|{
+name|this
+operator|.
+name|region
+operator|=
+name|region
 expr_stmt|;
 block|}
 block|}
