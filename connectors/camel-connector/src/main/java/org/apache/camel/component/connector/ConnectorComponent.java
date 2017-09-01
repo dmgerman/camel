@@ -88,24 +88,30 @@ name|ConnectorComponent
 extends|extends
 name|Component
 block|{
-comment|/**      * Adds a new option to the existing map of options      *      * @param options  the existing options      * @param name     the name of the option      * @param value    the value of the option      */
-DECL|method|addConnectorOption (Map<String, String> options, String name, String value)
+comment|/**      * Adds a new option to the connector's options.      *      * @param name     the name of the option      * @param value    the value of the option      */
+DECL|method|addOption (String name, Object value)
 name|void
-name|addConnectorOption
+name|addOption
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+function_decl|;
+comment|/**      * Adds options to the connector's options.      *      * @param options  the options      */
+DECL|method|addOptions (Map<String, Object> options)
+name|void
+name|addOptions
 parameter_list|(
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|options
-parameter_list|,
-name|String
-name|name
-parameter_list|,
-name|String
-name|value
 parameter_list|)
 function_decl|;
 comment|/**      * Creates the endpoint uri based on the options from the connector.      *      * @param scheme  the component name      * @param options the options to use for creating the endpoint      * @return the endpoint uri      * @throws URISyntaxException is thrown if error creating the endpoint uri.      */
