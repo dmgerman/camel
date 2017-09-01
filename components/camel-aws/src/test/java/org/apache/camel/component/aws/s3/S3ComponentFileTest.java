@@ -334,6 +334,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|"file"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|FileWriter
