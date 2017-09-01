@@ -621,7 +621,7 @@ expr_stmt|;
 comment|// check the setting of AmazonSNSEndpoint
 name|assertEquals
 argument_list|(
-literal|"sns.ap-southeast-2.amazonaws.com"
+literal|"https://sns.us-east-1.amazonaws.com"
 argument_list|,
 name|mock
 operator|.

@@ -147,6 +147,13 @@ specifier|private
 name|String
 name|messageStructure
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|region
+specifier|private
+name|String
+name|region
+decl_stmt|;
 comment|/**      * The region with which the AWS-SNS client wants to work with.      */
 DECL|method|setAmazonSNSEndpoint (String awsSNSEndpoint)
 specifier|public
@@ -390,7 +397,7 @@ operator|=
 name|messageStructure
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy host when instantiating the SQS client      */
+comment|/**      * To define a proxy host when instantiating the SNS client      */
 DECL|method|getProxyHost ()
 specifier|public
 name|String
@@ -417,7 +424,7 @@ operator|=
 name|proxyHost
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy port when instantiating the SQS client      */
+comment|/**      * To define a proxy port when instantiating the SNS client      */
 DECL|method|getProxyPort ()
 specifier|public
 name|Integer
@@ -442,6 +449,33 @@ operator|.
 name|proxyPort
 operator|=
 name|proxyPort
+expr_stmt|;
+block|}
+comment|/**      * The region in which SNS client needs to work      */
+DECL|method|getRegion ()
+specifier|public
+name|String
+name|getRegion
+parameter_list|()
+block|{
+return|return
+name|region
+return|;
+block|}
+DECL|method|setRegion (String region)
+specifier|public
+name|void
+name|setRegion
+parameter_list|(
+name|String
+name|region
+parameter_list|)
+block|{
+name|this
+operator|.
+name|region
+operator|=
+name|region
 expr_stmt|;
 block|}
 annotation|@
