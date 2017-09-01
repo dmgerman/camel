@@ -216,6 +216,13 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|region
+specifier|private
+name|String
+name|region
+decl_stmt|;
 DECL|method|getAmazonEc2Client ()
 specifier|public
 name|AmazonEC2Client
@@ -403,6 +410,33 @@ operator|.
 name|proxyPort
 operator|=
 name|proxyPort
+expr_stmt|;
+block|}
+comment|/**      * The region in which EC2 client needs to work      */
+DECL|method|getRegion ()
+specifier|public
+name|String
+name|getRegion
+parameter_list|()
+block|{
+return|return
+name|region
+return|;
+block|}
+DECL|method|setRegion (String region)
+specifier|public
+name|void
+name|setRegion
+parameter_list|(
+name|String
+name|region
+parameter_list|)
+block|{
+name|this
+operator|.
+name|region
+operator|=
+name|region
 expr_stmt|;
 block|}
 block|}
