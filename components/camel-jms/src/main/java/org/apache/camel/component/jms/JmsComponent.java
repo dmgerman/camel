@@ -3328,6 +3328,40 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * This option is used to allow additional headers which may have values that are invalid according to JMS specification.      + For example some message systems such as WMQ do this vith headers JMS_IBM_MQMD_* that contains byte[] or other invalid types.      + You can specify multiple header names separated by comma, and use * as suffix for wildcard matching.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"This option is used to allow additional headers which may have values that are invalid according to JMS specification."
+operator|+
+literal|" For example some message systems such as WMQ do this vith headers JMS_IBM_MQMD_* that contains byte[] or other invalid types."
+operator|+
+literal|" You can specify multiple header names separated by comma, and use * as suffix for wildcard matching."
+argument_list|)
+DECL|method|setAllowAdditionalHeaders (String allowAdditionalHeaders)
+specifier|public
+name|void
+name|setAllowAdditionalHeaders
+parameter_list|(
+name|String
+name|allowAdditionalHeaders
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAllowAdditionalHeaders
+argument_list|(
+name|allowAdditionalHeaders
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Sets the Spring ApplicationContext to use      */
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public

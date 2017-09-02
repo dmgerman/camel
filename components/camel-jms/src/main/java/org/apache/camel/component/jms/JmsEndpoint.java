@@ -5101,6 +5101,40 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getAllowAdditionalHeaders ()
+specifier|public
+name|String
+name|getAllowAdditionalHeaders
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getAllowAdditionalHeaders
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setAllowAdditionalHeaders (String AllowAdditionalHeaders)
+specifier|public
+name|void
+name|setAllowAdditionalHeaders
+parameter_list|(
+name|String
+name|AllowAdditionalHeaders
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setAllowAdditionalHeaders
+argument_list|(
+name|AllowAdditionalHeaders
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getMessageListenerContainerFactory ()
 specifier|public
 name|MessageListenerContainerFactory

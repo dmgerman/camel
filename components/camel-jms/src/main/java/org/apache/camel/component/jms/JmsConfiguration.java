@@ -2294,6 +2294,26 @@ specifier|private
 name|String
 name|correlationProperty
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"This option is used to allow additional headers which may have values that are invalid according to JMS specification."
+operator|+
+literal|" For example some message systems such as WMQ do this vith headers JMS_IBM_MQMD_* that contains byte[] or other invalid types."
+operator|+
+literal|" You can specify multiple header names separated by comma, and use * as suffix for wildcard matching."
+argument_list|)
+DECL|field|allowAdditionalHeaders
+specifier|private
+name|String
+name|allowAdditionalHeaders
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -7051,6 +7071,33 @@ block|{
 return|return
 name|correlationProperty
 return|;
+block|}
+DECL|method|getAllowAdditionalHeaders ()
+specifier|public
+name|String
+name|getAllowAdditionalHeaders
+parameter_list|()
+block|{
+return|return
+name|allowAdditionalHeaders
+return|;
+block|}
+comment|/**      * This option is used to allow additional headers which may have values that are invalid according to JMS specification.      + For example some message systems such as WMQ do this vith headers JMS_IBM_MQMD_* that contains byte[] or other invalid types.      + You can specify multiple header names separated by comma, and use * as suffix for wildcard matching.      */
+DECL|method|setAllowAdditionalHeaders (String allowAdditionalHeaders)
+specifier|public
+name|void
+name|setAllowAdditionalHeaders
+parameter_list|(
+name|String
+name|allowAdditionalHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowAdditionalHeaders
+operator|=
+name|allowAdditionalHeaders
+expr_stmt|;
 block|}
 block|}
 end_class
