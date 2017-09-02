@@ -5118,20 +5118,20 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|setAllowAdditionalHeaders (String AllowAdditionalHeaders)
+DECL|method|setAllowAdditionalHeaders (String allowAdditionalHeaders)
 specifier|public
 name|void
 name|setAllowAdditionalHeaders
 parameter_list|(
 name|String
-name|AllowAdditionalHeaders
+name|allowAdditionalHeaders
 parameter_list|)
 block|{
 name|configuration
 operator|.
 name|setAllowAdditionalHeaders
 argument_list|(
-name|AllowAdditionalHeaders
+name|allowAdditionalHeaders
 argument_list|)
 expr_stmt|;
 block|}
