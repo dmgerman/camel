@@ -281,7 +281,7 @@ return|return
 name|knownHostsFile
 return|;
 block|}
-comment|/**      * Sets the known_hosts file, so that the jsch endpoint can do host key verification.      */
+comment|/**      * Sets the known_hosts file, so that the jsch endpoint can do host key verification.      * You can prefix with classpath: to load the file from classpath instead of file system.      */
 DECL|method|setKnownHostsFile (String knownHostsFile)
 specifier|public
 name|void
@@ -335,7 +335,7 @@ return|return
 name|privateKeyFile
 return|;
 block|}
-comment|/**      * Set the private key file to that the endpoint can do private key verification.      */
+comment|/**      * Set the private key file to that the endpoint can do private key verification.      * You can prefix with classpath: to load the file from classpath instead of file system.      */
 DECL|method|setPrivateKeyFile (String privateKeyFile)
 specifier|public
 name|void
