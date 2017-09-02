@@ -335,7 +335,7 @@ return|return
 name|privateKeyFile
 return|;
 block|}
-comment|/**      * Set the private key file to that the SFTP endpoint can do private key verification.      */
+comment|/**      * Set the private key file to that the endpoint can do private key verification.      */
 DECL|method|setPrivateKeyFile (String privateKeyFile)
 specifier|public
 name|void
@@ -362,7 +362,7 @@ return|return
 name|privateKeyFilePassphrase
 return|;
 block|}
-comment|/**      * Set the private key file passphrase to that the SFTP endpoint can do private key verification.      */
+comment|/**      * Set the private key file passphrase to that the endpoint can do private key verification.      */
 DECL|method|setPrivateKeyFilePassphrase (String privateKeyFilePassphrase)
 specifier|public
 name|void
