@@ -232,13 +232,8 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|runModuleUnitTestsIfEnabled
-argument_list|(
-name|config
-argument_list|)
-expr_stmt|;
+comment|// unit tests is too complex to run
+comment|// this.runModuleUnitTestsIfEnabled(config);
 block|}
 block|}
 end_class
