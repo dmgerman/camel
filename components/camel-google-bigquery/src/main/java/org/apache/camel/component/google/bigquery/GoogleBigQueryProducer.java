@@ -617,7 +617,7 @@ else|:
 operator|(
 name|tableId
 operator|+
-literal|"?"
+literal|"$"
 operator|+
 name|partitionDecorator
 operator|)
