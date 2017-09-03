@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -421,7 +431,7 @@ return|return
 name|dirContextName
 return|;
 block|}
-comment|/**      * Name of {@link javax.naming.directory.DirContext} bean to lookup in the registry.      */
+comment|/**      * Name of either a {@link javax.naming.directory.DirContext}, or {@link java.util.Hashtable}, or {@link Map} bean to lookup in the registry.      * If the bean is either a Hashtable or Map then a new {@link javax.naming.directory.DirContext} instance is created for each use. If the bean      * is a {@link javax.naming.directory.DirContext} then the bean is used as given. The latter may not be possible in all situations where      * the {@link javax.naming.directory.DirContext} must not be shared, and in those situations it can be better to use {@link java.util.Hashtable} or {@link Map} instead.      */
 DECL|method|setDirContextName (String dirContextName)
 specifier|public
 name|void
