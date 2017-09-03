@@ -190,9 +190,11 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|runModuleUnitTestsIfEnabled
+name|runComponentTest
 argument_list|(
 name|config
+argument_list|,
+literal|"milo-server"
 argument_list|)
 expr_stmt|;
 block|}
