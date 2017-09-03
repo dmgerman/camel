@@ -143,10 +143,6 @@ name|Id
 operator|=
 literal|null
 expr_stmt|;
-name|OwnerId
-operator|=
-literal|null
-expr_stmt|;
 name|IsDeleted
 operator|=
 literal|null
