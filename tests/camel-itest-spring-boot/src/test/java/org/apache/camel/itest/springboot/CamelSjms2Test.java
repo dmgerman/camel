@@ -112,10 +112,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelSjmsTest
+DECL|class|CamelSjms2Test
 specifier|public
 class|class
-name|CamelSjmsTest
+name|CamelSjms2Test
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
@@ -159,7 +159,7 @@ name|module
 argument_list|(
 name|inferModuleName
 argument_list|(
-name|CamelSjmsTest
+name|CamelSjms2Test
 operator|.
 name|class
 argument_list|)

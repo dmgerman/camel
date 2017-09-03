@@ -112,10 +112,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelSjmsTest
+DECL|class|CamelRestSwaggerTest
 specifier|public
 class|class
-name|CamelSjmsTest
+name|CamelRestSwaggerTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
@@ -159,22 +159,11 @@ name|module
 argument_list|(
 name|inferModuleName
 argument_list|(
-name|CamelSjmsTest
+name|CamelRestSwaggerTest
 operator|.
 name|class
 argument_list|)
 argument_list|)
-operator|.
-name|exclusion
-argument_list|(
-literal|"com.atomikos:transactions-jta"
-argument_list|)
-comment|//                // to run unit tests
-comment|//                .dependency("com.atomikos:transactions-jdbc:3.9.3")
-comment|//                .dependency("com.atomikos:transactions-jms:3.9.3")
-comment|//                .dependency("com.atomikos:transactions-api:3.9.3")
-comment|//                .dependency("javax.transaction:javax.transaction-api:1.2")
-comment|//                .disableJmx("org.apache.activemq:*")
 operator|.
 name|build
 argument_list|()
@@ -197,8 +186,13 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-comment|// Unit tests can be enabled if required
-comment|//this.runModuleUnitTestsIfEnabled(config);
+name|this
+operator|.
+name|runModuleUnitTestsIfEnabled
+argument_list|(
+name|config
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
