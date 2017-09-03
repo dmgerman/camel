@@ -881,6 +881,12 @@ specifier|private
 name|JmsKeyFormatStrategy
 name|jmsKeyFormatStrategy
 decl_stmt|;
+comment|/**      * This option is used to allow additional headers which may have values      * that are invalid according to JMS specification. For example some message      * systems such as WMQ do this vith headers JMS_IBM_MQMD_ that contains byte      * or other invalid types. You can specify multiple header names separated      * by comma and use as suffix for wildcard matching.      */
+DECL|field|allowAdditionalHeaders
+specifier|private
+name|String
+name|allowAdditionalHeaders
+decl_stmt|;
 comment|/**      * To use a custom QueueBrowseStrategy when browsing queues      */
 annotation|@
 name|NestedConfigurationProperty
@@ -2707,6 +2713,32 @@ operator|.
 name|jmsKeyFormatStrategy
 operator|=
 name|jmsKeyFormatStrategy
+expr_stmt|;
+block|}
+DECL|method|getAllowAdditionalHeaders ()
+specifier|public
+name|String
+name|getAllowAdditionalHeaders
+parameter_list|()
+block|{
+return|return
+name|allowAdditionalHeaders
+return|;
+block|}
+DECL|method|setAllowAdditionalHeaders (String allowAdditionalHeaders)
+specifier|public
+name|void
+name|setAllowAdditionalHeaders
+parameter_list|(
+name|String
+name|allowAdditionalHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowAdditionalHeaders
+operator|=
+name|allowAdditionalHeaders
 expr_stmt|;
 block|}
 DECL|method|getQueueBrowseStrategy ()
