@@ -3537,6 +3537,13 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
+literal|"org.apache.camel.spring.boot.util.CamelPropertiesHelper"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
 literal|"org.apache.camel.CamelContext"
 argument_list|)
 expr_stmt|;
@@ -3711,11 +3718,27 @@ literal|"Map<String, Object> properties = new HashMap<>();\n"
 operator|+
 literal|"IntrospectionSupport.getProperties(config, properties, null, false);\n"
 operator|+
+literal|"// These options is configured specially further below, so remove them first\n"
+operator|+
+literal|"properties.remove(\"enableCors\");\n"
+operator|+
+literal|"properties.remove(\"apiProperty\");\n"
+operator|+
+literal|"properties.remove(\"componentProperty\");\n"
+operator|+
+literal|"properties.remove(\"consumerProperty\");\n"
+operator|+
+literal|"properties.remove(\"dataFormatProperty\");\n"
+operator|+
+literal|"properties.remove(\"endpointProperty\");\n"
+operator|+
+literal|"properties.remove(\"corsHeaders\");\n"
+operator|+
 literal|"\n"
 operator|+
 literal|"RestConfiguration definition = new RestConfiguration();\n"
 operator|+
-literal|"IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), definition, properties);\n"
+literal|"CamelPropertiesHelper.setCamelProperties(camelContext, definition, properties, true);\n"
 operator|+
 literal|"\n"
 operator|+
@@ -9010,6 +9033,13 @@ name|javaClass
 operator|.
 name|addImport
 argument_list|(
+literal|"org.apache.camel.spring.boot.util.CamelPropertiesHelper"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
 literal|"org.apache.camel.spring.boot.util.ConditionalOnCamelContextAndAutoConfigurationBeans"
 argument_list|)
 expr_stmt|;
@@ -9744,6 +9774,13 @@ operator|.
 name|addImport
 argument_list|(
 literal|"org.apache.camel.spring.boot.DataFormatConfigurationProperties"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.spring.boot.util.CamelPropertiesHelper"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -10511,6 +10548,13 @@ operator|.
 name|addImport
 argument_list|(
 literal|"org.apache.camel.spring.boot.LanguageConfigurationProperties"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.spring.boot.util.CamelPropertiesHelper"
 argument_list|)
 expr_stmt|;
 name|javaClass
@@ -11309,7 +11353,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"            IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), nestedProperty, nestedParameters);\n"
+literal|"            CamelPropertiesHelper.setCamelProperties(camelContext, nestedProperty, nestedParameters, false);\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -11358,7 +11402,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), component, parameters);\n"
+literal|"CamelPropertiesHelper.setCamelProperties(camelContext, component, parameters, false);\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -11716,7 +11760,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"            IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), dataformat, parameters);\n"
+literal|"            CamelPropertiesHelper.setCamelProperties(camelContext, dataformat, parameters, false);\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -12076,7 +12120,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"IntrospectionSupport.setProperties(camelContext, camelContext.getTypeConverter(), language, parameters);\n"
+literal|"CamelPropertiesHelper.setCamelProperties(camelContext, language, parameters, false);\n"
 argument_list|)
 expr_stmt|;
 name|sb
