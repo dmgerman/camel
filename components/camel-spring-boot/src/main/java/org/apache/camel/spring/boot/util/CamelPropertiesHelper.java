@@ -112,8 +112,8 @@ specifier|private
 name|CamelPropertiesHelper
 parameter_list|()
 block|{     }
-comment|/**      * Sets the properties on the target bean.      *<p/>      * This implementation sets the properties using the following algorithm:      *<ul>      *<li>Value as reference lookup - If the value uses Camel reference syntax, eg #beanId then the bean is looked up from Registry and set on the target</li>      *<li>Value as-is - The value is attempted to be converted to the class type of the bean setter method; this is for regular types like String, numbers etc</li>      *<li>Value as lookup - the bean is looked up from Registry and if there is a bean then its set on the target</li>      *</ul>      * When an option has been set on the target bean, then its removed from the given properties map. If all the options has been set, then the map will be empty.      *      * @param context        the CamelContext      * @param target         the target bean      * @param properties     the properties      * @param failOnNotSet   whether to fail if an option cannot be set on the target bean.      * @return<tt>true</tt> if at least one option was configured      * @throws IllegalArgumentException is thrown if an option cannot be configured on the bean because there is no suitable setter method and failOnNoSet is true.      * @throws Exception for any other kind of error      */
-DECL|method|setCamelProperties (CamelContext context, Object target, Map<String, Object> properties, boolean failOnNotSet)
+comment|/**      * Sets the properties on the target bean.      *<p/>      * This implementation sets the properties using the following algorithm:      *<ul>      *<li>Value as reference lookup - If the value uses Camel reference syntax, eg #beanId then the bean is looked up from Registry and set on the target</li>      *<li>Value as-is - The value is attempted to be converted to the class type of the bean setter method; this is for regular types like String, numbers etc</li>      *<li>Value as lookup - the bean is looked up from Registry and if there is a bean then its set on the target</li>      *</ul>      * When an option has been set on the target bean, then its removed from the given properties map. If all the options has been set, then the map will be empty.      *      * @param context        the CamelContext      * @param target         the target bean      * @param properties     the properties      * @param failIfNotSet   whether to fail if an option either does not exists on the target bean or if the option cannot be due no suitable setter methods with the given type      * @return<tt>true</tt> if at least one option was configured      * @throws IllegalArgumentException is thrown if an option cannot be configured on the bean because there is no suitable setter method and failOnNoSet is true.      * @throws Exception for any other kind of error      */
+DECL|method|setCamelProperties (CamelContext context, Object target, Map<String, Object> properties, boolean failIfNotSet)
 specifier|public
 specifier|static
 name|boolean
@@ -134,7 +134,7 @@ argument_list|>
 name|properties
 parameter_list|,
 name|boolean
-name|failOnNotSet
+name|failIfNotSet
 parameter_list|)
 throws|throws
 name|Exception
@@ -373,7 +373,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|failOnNotSet
+name|failIfNotSet
 condition|)
 block|{
 throw|throw
