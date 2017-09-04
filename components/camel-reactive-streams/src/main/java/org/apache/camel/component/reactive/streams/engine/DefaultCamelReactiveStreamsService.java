@@ -685,6 +685,10 @@ operator|::
 operator|new
 argument_list|)
 expr_stmt|;
+comment|// must initialize the worker pool as early as possible
+name|init
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -700,15 +704,20 @@ operator|.
 name|DEFAULT_SERVICE_NAME
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
+DECL|method|init ()
+specifier|private
 name|void
-name|doStart
+name|init
 parameter_list|()
-throws|throws
-name|Exception
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|workerPool
+operator|==
+literal|null
+condition|)
 block|{
 name|this
 operator|.
@@ -739,6 +748,19 @@ name|getThreadPoolMaxSize
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override
