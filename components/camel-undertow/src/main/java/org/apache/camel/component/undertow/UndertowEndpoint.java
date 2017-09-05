@@ -1148,7 +1148,7 @@ return|return
 name|transferException
 return|;
 block|}
-comment|/**      * Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
+comment|/**      * If enabled and an Exchange failed processing on the consumer side and if the caused Exception       * was send back serialized in the response as a application/x-java-serialized-object content type.       * On the producer side the exception will be deserialized and thrown as is instead of the HttpOperationFailedException. The caused exception is required to be serialized.       * This is by default turned off. If you enable this       * then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.      *       */
 DECL|method|setTransferException (Boolean transferException)
 specifier|public
 name|void
