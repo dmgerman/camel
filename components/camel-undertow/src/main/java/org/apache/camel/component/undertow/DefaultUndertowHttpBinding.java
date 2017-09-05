@@ -2152,9 +2152,6 @@ operator|.
 name|writeObject
 argument_list|(
 name|exception
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|oos
