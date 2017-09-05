@@ -167,7 +167,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"grpc://grpc-server:80/org.apache.camel.examples.CamelHello?method=sayHelloToCamel&synchronous=true"
+literal|"grpc://grpc-server:8080/org.apache.camel.examples.CamelHello?method=sayHelloToCamel&synchronous=true"
 argument_list|)
 operator|.
 name|log
