@@ -72,6 +72,12 @@ name|HEADER_QUERY
 init|=
 literal|"CamelDropboxQuery"
 decl_stmt|;
+DECL|field|HEADER_PUT_FILE_NAME
+name|String
+name|HEADER_PUT_FILE_NAME
+init|=
+literal|"CamelDropboxPutFileName"
+decl_stmt|;
 block|}
 end_interface
 

@@ -346,7 +346,7 @@ return|return
 name|localPath
 return|;
 block|}
-comment|/**      * Folder or file to upload on Dropbox from the local filesystem.      */
+comment|/**      * Optional folder or file to upload on Dropbox from the local filesystem.      * If this option has not been configured then the message body is used as the content to upload.      */
 DECL|method|setLocalPath (String localPath)
 specifier|public
 name|void
