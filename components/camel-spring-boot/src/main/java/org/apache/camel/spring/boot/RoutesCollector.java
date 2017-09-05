@@ -1342,16 +1342,20 @@ name|getOrder
 parameter_list|()
 block|{
 comment|// RoutesCollector implements Ordered so that it's the
-comment|// second to last in ApplicationListener to receive events,
+comment|// first Camel ApplicationListener to receive events,
 comment|// SpringCamelContext should be the last one,
-comment|// CamelContextFactoryBean should be on par with
-comment|// RoutesCollector this is important for startup as we want
+comment|// CamelContextFactoryBean should be second to last and then
+comment|// RoutesCollector. This is important for startup as we want
 comment|// all resources to be ready and all routes added to the
-comment|// context
+comment|// context before we start CamelContext.
+comment|// So the order should be:
+comment|// 1. RoutesCollector (LOWEST_PRECEDENCE - 2)
+comment|// 2. CamelContextFactoryBean (LOWEST_PRECEDENCE -1)
+comment|// 3. SpringCamelContext (LOWEST_PRECEDENCE)
 return|return
 name|LOWEST_PRECEDENCE
 operator|-
-literal|1
+literal|2
 return|;
 block|}
 comment|// Helpers
