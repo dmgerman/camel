@@ -124,6 +124,20 @@ name|DropboxUploadMode
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_class
 DECL|class|DropboxConfigurationValidator
 specifier|public
@@ -379,26 +393,14 @@ name|DropboxException
 block|{
 if|if
 condition|(
-name|localPath
-operator|==
-literal|null
-operator|||
-name|localPath
+name|ObjectHelper
 operator|.
-name|equals
+name|isNotEmpty
 argument_list|(
-literal|""
+name|localPath
 argument_list|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|DropboxException
-argument_list|(
-literal|"option<localPath> is not present or not valid!"
-argument_list|)
-throw|;
-block|}
 name|File
 name|file
 init|=
@@ -424,6 +426,7 @@ argument_list|(
 literal|"option<localPath> is not an existing file or directory!"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 DECL|method|validateRemotePath (String remotePath)
