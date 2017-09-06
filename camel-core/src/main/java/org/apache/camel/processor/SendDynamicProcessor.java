@@ -574,6 +574,41 @@ argument_list|,
 name|recipient
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Send dynamic evaluated as null so cannot send to any endpoint"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// no endpoint to send to, so ignore
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 name|destinationExchangePattern
 operator|=
 name|EndpointHelper
@@ -804,7 +839,13 @@ operator|)
 name|recipient
 return|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|recipient
+operator|!=
+literal|null
+condition|)
 block|{
 comment|// convert to a string type we can work with
 name|recipient
@@ -829,6 +870,13 @@ name|recipient
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|recipient
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|ExchangeHelper
 operator|.
@@ -839,6 +887,13 @@ argument_list|,
 name|recipient
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|configureExchange (Exchange exchange, ExchangePattern pattern, ExchangePattern destinationExchangePattern, Endpoint endpoint)
 specifier|protected
