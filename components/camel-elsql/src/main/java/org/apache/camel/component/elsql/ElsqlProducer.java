@@ -1314,7 +1314,7 @@ comment|// if we are here, there isResultSet is false. This can happen only if w
 comment|// we can simply add the updateCount in this case.
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setHeader
