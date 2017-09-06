@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -226,6 +238,18 @@ name|SpringRunner
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
+import|;
+end_import
+
 begin_class
 annotation|@
 name|DirtiesContext
@@ -293,10 +317,10 @@ name|context
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|test ()
+DECL|method|testRouteRestart ()
 specifier|public
 name|void
-name|test
+name|testRouteRestart
 parameter_list|()
 throws|throws
 name|Exception
@@ -339,13 +363,24 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// Wait for the controller to start the routes
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|2500
+literal|3
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
-expr_stmt|;
+operator|.
+name|untilAsserted
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+comment|// now its suspended by the policy
 name|Assert
 operator|.
 name|assertEquals
@@ -394,14 +429,10 @@ literal|"dummy"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Wait a little
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|250
+block|}
 argument_list|)
 expr_stmt|;
+comment|// restart the dummy route which should fail on first attempt
 name|controller
 operator|.
 name|stopRoute
@@ -427,7 +458,6 @@ name|getRouteController
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// dummy will fail on first restart
 try|try
 block|{
 name|controller
@@ -519,13 +549,24 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// Wait for wile to give time to the controller to start the route
-name|Thread
+name|await
+argument_list|()
 operator|.
-name|sleep
+name|atMost
 argument_list|(
-literal|1500
+literal|2
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
-expr_stmt|;
+operator|.
+name|untilAsserted
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+comment|// now its suspended by the policy
 name|Assert
 operator|.
 name|assertEquals
@@ -573,6 +614,9 @@ argument_list|)
 operator|.
 name|isPresent
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
