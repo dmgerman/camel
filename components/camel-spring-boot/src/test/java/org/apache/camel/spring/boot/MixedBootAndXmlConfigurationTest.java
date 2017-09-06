@@ -46,16 +46,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -193,6 +183,8 @@ name|properties
 operator|=
 block|{
 literal|"camel.springboot.name = camel-spring-boot"
+block|,
+literal|"camel.springboot.shutdownTimeout = 5"
 block|}
 argument_list|)
 DECL|class|MixedBootAndXmlConfigurationTest
@@ -208,16 +200,11 @@ name|CamelContext
 name|camel
 decl_stmt|;
 annotation|@
-name|Ignore
-argument_list|(
-literal|"See https://issues.apache.org/jira/browse/CAMEL-11752"
-argument_list|)
-annotation|@
 name|Test
-DECL|method|thereShouldBeTwoRoutesConfigured ()
+DECL|method|thereShouldBeAutoConfiguredFromSpringBoot ()
 specifier|public
 name|void
-name|thereShouldBeTwoRoutesConfigured
+name|thereShouldBeAutoConfiguredFromSpringBoot
 parameter_list|()
 block|{
 name|Assert
@@ -229,6 +216,21 @@ argument_list|,
 name|camel
 operator|.
 name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|camel
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;

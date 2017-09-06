@@ -554,6 +554,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spring
+operator|.
+name|spi
+operator|.
+name|XmlCamelContextConfigurer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -776,6 +792,26 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * Allows to do custom configuration when running XML based Camel in Spring Boot      */
+comment|// must be named xmlCamelContextConfigurer
+annotation|@
+name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"xmlCamelContextConfigurer"
+argument_list|)
+DECL|method|springBootCamelContextConfigurer ()
+name|XmlCamelContextConfigurer
+name|springBootCamelContextConfigurer
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SpringBootXmlCamelContextConfigurer
+argument_list|()
+return|;
+block|}
 comment|/**      * Spring-aware Camel context for the application. Auto-detects and loads all routes available in the Spring context.      */
 comment|// We explicitly declare the destroyMethod to be "" as the Spring @Bean
 comment|// annotation defaults to AbstractBeanDefinition.INFER_METHOD otherwise
@@ -803,6 +839,43 @@ name|camelContext
 parameter_list|(
 name|ApplicationContext
 name|applicationContext
+parameter_list|,
+name|CamelConfigurationProperties
+name|config
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|CamelContext
+name|camelContext
+init|=
+operator|new
+name|SpringCamelContext
+argument_list|(
+name|applicationContext
+argument_list|)
+decl_stmt|;
+return|return
+name|doConfigureCamelContext
+argument_list|(
+name|applicationContext
+argument_list|,
+name|camelContext
+argument_list|,
+name|config
+argument_list|)
+return|;
+block|}
+DECL|method|doConfigureCamelContext (ApplicationContext applicationContext, CamelContext camelContext, CamelConfigurationProperties config)
+specifier|static
+name|CamelContext
+name|doConfigureCamelContext
+parameter_list|(
+name|ApplicationContext
+name|applicationContext
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|CamelConfigurationProperties
 name|config
@@ -891,15 +964,6 @@ block|}
 block|}
 block|}
 block|}
-name|CamelContext
-name|camelContext
-init|=
-operator|new
-name|SpringCamelContext
-argument_list|(
-name|applicationContext
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2101,6 +2165,7 @@ return|;
 block|}
 comment|/**      * Performs additional configuration to lookup beans of Camel types to configure      * advanced configurations.      *<p/>      * Similar code in camel-core-xml module in class org.apache.camel.core.xml.AbstractCamelContextFactoryBean.      */
 DECL|method|afterPropertiesSet (ApplicationContext applicationContext, CamelContext camelContext)
+specifier|static
 name|void
 name|afterPropertiesSet
 parameter_list|(
@@ -3197,6 +3262,7 @@ expr_stmt|;
 block|}
 DECL|method|initThreadPoolProfiles (ApplicationContext applicationContext, CamelContext camelContext)
 specifier|private
+specifier|static
 name|void
 name|initThreadPoolProfiles
 parameter_list|(
@@ -3367,6 +3433,7 @@ block|}
 block|}
 DECL|method|getSingleBeanOfType (ApplicationContext applicationContext, Class<T> type)
 specifier|private
+specifier|static
 parameter_list|<
 name|T
 parameter_list|>
