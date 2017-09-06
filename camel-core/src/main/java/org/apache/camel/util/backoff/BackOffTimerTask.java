@@ -856,6 +856,44 @@ return|return
 name|currentDelay
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"BackOffTimerTask["
+operator|+
+literal|"status="
+operator|+
+name|status
+operator|+
+literal|", currentAttempts="
+operator|+
+name|currentAttempts
+operator|+
+literal|", currentDelay="
+operator|+
+name|currentDelay
+operator|+
+literal|", currentElapsedTime="
+operator|+
+name|currentElapsedTime
+operator|+
+literal|", lastAttemptTime="
+operator|+
+name|lastAttemptTime
+operator|+
+literal|", nextAttemptTime="
+operator|+
+name|nextAttemptTime
+operator|+
+literal|']'
+return|;
+block|}
 block|}
 end_class
 
