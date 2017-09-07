@@ -2110,7 +2110,9 @@ argument_list|(
 name|xml
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Document
@@ -2352,7 +2354,9 @@ argument_list|(
 name|xml
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Document
