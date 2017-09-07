@@ -217,7 +217,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The caffeine-loadcache component is used for integration with Caffeine Load Cache.  */
+comment|/**  * The caffeine-loadcache component is used for integration with Caffeine Load  * Cache.  */
 end_comment
 
 begin_class
@@ -492,11 +492,40 @@ name|isStatsEnabled
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getStatsCounter
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|builder
 operator|.
 name|recordStats
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|builder
+operator|.
+name|recordStats
+argument_list|(
+parameter_list|()
+lambda|->
+name|configuration
+operator|.
+name|getStatsCounter
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

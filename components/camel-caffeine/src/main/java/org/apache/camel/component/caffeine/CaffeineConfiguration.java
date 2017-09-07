@@ -68,6 +68,24 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|github
+operator|.
+name|benmanes
+operator|.
+name|caffeine
+operator|.
+name|cache
+operator|.
+name|stats
+operator|.
+name|StatsCounter
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -347,6 +365,18 @@ DECL|field|removalListener
 specifier|private
 name|RemovalListener
 name|removalListener
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|statsCounter
+specifier|private
+name|StatsCounter
+name|statsCounter
 decl_stmt|;
 DECL|method|CaffeineConfiguration ()
 specifier|public
@@ -741,6 +771,33 @@ operator|.
 name|removalListener
 operator|=
 name|removalListener
+expr_stmt|;
+block|}
+DECL|method|getStatsCounter ()
+specifier|public
+name|StatsCounter
+name|getStatsCounter
+parameter_list|()
+block|{
+return|return
+name|statsCounter
+return|;
+block|}
+comment|/**      * Set a specific Stats Counter for the cache stats      */
+DECL|method|setStatsCounter (StatsCounter statsCounter)
+specifier|public
+name|void
+name|setStatsCounter
+parameter_list|(
+name|StatsCounter
+name|statsCounter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|statsCounter
+operator|=
+name|statsCounter
 expr_stmt|;
 block|}
 comment|// ****************************
