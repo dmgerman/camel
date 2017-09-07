@@ -252,10 +252,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|current
-operator|!=
-literal|null
-operator|&&
-name|current
 operator|.
 name|hasNext
 argument_list|()

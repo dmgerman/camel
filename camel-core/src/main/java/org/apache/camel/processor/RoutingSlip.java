@@ -984,7 +984,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|doRoutingSlipWithExpression (final Exchange exchange, final Expression expression, final AsyncCallback callback)
+DECL|method|doRoutingSlipWithExpression (final Exchange exchange, final Expression expression, final AsyncCallback originalCallback)
 specifier|private
 name|boolean
 name|doRoutingSlipWithExpression
@@ -999,7 +999,7 @@ name|expression
 parameter_list|,
 specifier|final
 name|AsyncCallback
-name|callback
+name|originalCallback
 parameter_list|)
 block|{
 name|Exchange
@@ -1035,7 +1035,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|callback
+name|originalCallback
 operator|.
 name|done
 argument_list|(
@@ -1130,7 +1130,7 @@ name|current
 argument_list|,
 name|exchange
 argument_list|,
-name|callback
+name|originalCallback
 argument_list|,
 name|iter
 argument_list|)
@@ -1282,7 +1282,9 @@ argument_list|,
 name|current
 argument_list|)
 expr_stmt|;
-name|callback
+comment|// okay we are completely done with the routing slip
+comment|// so we need to signal done on the original callback so it can continue
+name|originalCallback
 operator|.
 name|done
 argument_list|(
@@ -1554,7 +1556,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|processExchange (final Endpoint endpoint, final Exchange exchange, final Exchange original, final AsyncCallback callback, final RoutingSlipIterator iter)
+DECL|method|processExchange (final Endpoint endpoint, final Exchange exchange, final Exchange original, final AsyncCallback originalCallback, final RoutingSlipIterator iter)
 specifier|protected
 name|boolean
 name|processExchange
@@ -1573,7 +1575,7 @@ name|original
 parameter_list|,
 specifier|final
 name|AsyncCallback
-name|callback
+name|originalCallback
 parameter_list|,
 specifier|final
 name|RoutingSlipIterator
@@ -1595,6 +1597,44 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// routing slip callback which are used when
+comment|// - routing slip was routed asynchronously
+comment|// - and we are completely done with the routing slip
+comment|// so we need to signal done on the original callback so it can continue
+name|AsyncCallback
+name|callback
+init|=
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|doneSync
+condition|)
+block|{
+name|originalCallback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+decl_stmt|;
 name|boolean
 name|sync
 init|=
@@ -1731,11 +1771,13 @@ name|callback
 operator|.
 name|done
 argument_list|(
-name|doneSync
+literal|true
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
+try|try
+block|{
 comment|// continue processing the routing slip asynchronously
 name|Exchange
 name|current
@@ -1993,7 +2035,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|callback
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// okay we are completely done with the routing slip
+comment|// so we need to signal done on the original callback so it can continue
+name|originalCallback
 operator|.
 name|done
 argument_list|(
