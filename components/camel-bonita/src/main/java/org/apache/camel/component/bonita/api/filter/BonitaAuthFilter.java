@@ -530,7 +530,7 @@ name|add
 argument_list|(
 name|cookie
 operator|.
-name|toCookie
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
