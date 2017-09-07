@@ -275,12 +275,21 @@ parameter_list|)
 block|{
 comment|// if the answer is 0 then this task is ready to be taken
 return|return
+name|unit
+operator|.
+name|convert
+argument_list|(
 name|id
 operator|-
 name|index
 operator|.
 name|get
 argument_list|()
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 return|;
 block|}
 annotation|@
