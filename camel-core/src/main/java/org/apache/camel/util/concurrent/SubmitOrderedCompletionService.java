@@ -288,7 +288,7 @@ argument_list|()
 argument_list|,
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MILLISECONDS
 argument_list|)
 return|;
 block|}
