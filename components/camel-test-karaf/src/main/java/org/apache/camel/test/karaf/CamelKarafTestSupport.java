@@ -298,6 +298,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|felix
 operator|.
 name|service
@@ -1773,6 +1787,8 @@ name|String
 name|featureName
 parameter_list|)
 block|{
+try|try
+block|{
 name|Feature
 index|[]
 name|features
@@ -1816,6 +1832,22 @@ literal|" should be installed but is not"
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|assertFeatureInstalled (String featureName, String featureVersion)
 specifier|public
 name|void
@@ -1827,6 +1859,8 @@ parameter_list|,
 name|String
 name|featureVersion
 parameter_list|)
+block|{
+try|try
 block|{
 name|Feature
 index|[]
@@ -1884,6 +1918,22 @@ operator|+
 literal|" should be installed but is not"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|installAndAssertFeature (String feature)
 specifier|protected
@@ -2144,6 +2194,8 @@ argument_list|>
 name|featuresBefore
 parameter_list|)
 block|{
+try|try
+block|{
 name|Feature
 index|[]
 name|features
@@ -2213,6 +2265,22 @@ block|{
 comment|// ignore
 block|}
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
