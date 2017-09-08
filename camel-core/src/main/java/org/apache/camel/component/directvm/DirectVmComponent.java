@@ -217,6 +217,13 @@ name|timeout
 init|=
 literal|30000L
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy

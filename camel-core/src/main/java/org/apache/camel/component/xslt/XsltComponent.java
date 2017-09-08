@@ -140,20 +140,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|UriParam
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -240,10 +226,6 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"To use a custom UriResolver. Should not be used together with the option 'uriResolverFactory'."
 argument_list|)
 DECL|field|uriResolver
 specifier|private
@@ -256,10 +238,6 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"To use a custom UriResolver which depends on a dynamic endpoint resource URI. Should not be used together with the option 'uriResolver'."
 argument_list|)
 DECL|field|uriResolverFactory
 specifier|private
@@ -268,13 +246,6 @@ name|uriResolverFactory
 decl_stmt|;
 annotation|@
 name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-annotation|@
-name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -308,7 +279,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
-name|UriParam
+name|Metadata
 argument_list|(
 name|label
 operator|=
@@ -326,6 +297,13 @@ name|Object
 argument_list|>
 name|saxonExtensionFunctions
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|contentCache
 specifier|private
 name|boolean
@@ -388,7 +366,7 @@ return|return
 name|uriResolverFactory
 return|;
 block|}
-comment|/**      * To use a custom javax.xml.transform.URIResolver which depends on a dynamic endpoint resource URI or which is a subclass of {@link XsltUriResolver}.      *  Do not use in combination with uriResolver.      * See also {@link #setUriResolver(URIResolver)}.      */
+comment|/**      * To use a custom UriResolver which depends on a dynamic endpoint resource URI. Should not be used together with the option 'uriResolver'.      */
 DECL|method|setUriResolverFactory (XsltUriResolverFactory uriResolverFactory)
 specifier|public
 name|void
@@ -415,7 +393,7 @@ return|return
 name|uriResolver
 return|;
 block|}
-comment|/**      * To use a custom javax.xml.transform.URIResolver. Do not use in combination with uriResolverFactory.      * See also {@link #setUriResolverFactory(XsltUriResolverFactory)}.      */
+comment|/**      * To use a custom UriResolver. Should not be used together with the option 'uriResolverFactory'.      */
 DECL|method|setUriResolver (URIResolver uriResolver)
 specifier|public
 name|void

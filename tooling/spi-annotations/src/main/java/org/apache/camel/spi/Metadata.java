@@ -177,6 +177,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * To re-associate the preferred Java type of this parameter.      *<p/>      * This is used for parameters which are of a specialized type but can be configured by another Java type, such as from a String.      */
+DECL|method|javaType ()
+name|String
+name|javaType
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * The first version this functionality was added to Apache Camel.      */
 DECL|method|firstVersion ()
 name|String

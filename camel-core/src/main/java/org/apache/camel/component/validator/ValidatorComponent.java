@@ -86,10 +86,6 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI"
 argument_list|)
 DECL|field|resourceResolverFactory
 specifier|private
@@ -126,32 +122,6 @@ name|super
 argument_list|(
 name|endpointClass
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getResourceResolverFactory ()
-specifier|public
-name|ValidatorResourceResolverFactory
-name|getResourceResolverFactory
-parameter_list|()
-block|{
-return|return
-name|resourceResolverFactory
-return|;
-block|}
-DECL|method|setResourceResolverFactory (ValidatorResourceResolverFactory resourceResolverFactory)
-specifier|public
-name|void
-name|setResourceResolverFactory
-parameter_list|(
-name|ValidatorResourceResolverFactory
-name|resourceResolverFactory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|resourceResolverFactory
-operator|=
-name|resourceResolverFactory
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -250,6 +220,33 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+DECL|method|getResourceResolverFactory ()
+specifier|public
+name|ValidatorResourceResolverFactory
+name|getResourceResolverFactory
+parameter_list|()
+block|{
+return|return
+name|resourceResolverFactory
+return|;
+block|}
+comment|/**      * To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI      */
+DECL|method|setResourceResolverFactory (ValidatorResourceResolverFactory resourceResolverFactory)
+specifier|public
+name|void
+name|setResourceResolverFactory
+parameter_list|(
+name|ValidatorResourceResolverFactory
+name|resourceResolverFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resourceResolverFactory
+operator|=
+name|resourceResolverFactory
+expr_stmt|;
 block|}
 block|}
 end_class

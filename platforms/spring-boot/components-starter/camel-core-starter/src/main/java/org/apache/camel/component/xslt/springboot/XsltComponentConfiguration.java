@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -180,7 +170,7 @@ specifier|private
 name|XmlConverterNestedConfiguration
 name|xmlConverter
 decl_stmt|;
-comment|/**      * To use a custom javax.xml.transform.URIResolver which depends on a      * dynamic endpoint resource URI or which is a subclass of XsltUriResolver.      * Do not use in combination with uriResolver. See also link      * setUriResolver(URIResolver).      */
+comment|/**      * To use a custom UriResolver which depends on a dynamic endpoint resource      * URI. Should not be used together with the option 'uriResolver'.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|uriResolverFactory
@@ -188,7 +178,7 @@ specifier|private
 name|XsltUriResolverFactory
 name|uriResolverFactory
 decl_stmt|;
-comment|/**      * To use a custom javax.xml.transform.URIResolver. Do not use in      * combination with uriResolverFactory. See also link      * setUriResolverFactory(XsltUriResolverFactory).      */
+comment|/**      * To use a custom UriResolver. Should not be used together with the option      * 'uriResolverFactory'.      */
 DECL|field|uriResolver
 specifier|private
 name|URIResolver
@@ -200,7 +190,7 @@ specifier|private
 name|Boolean
 name|contentCache
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * Whether to use Saxon as the transformerFactoryClass. If enabled then the      * class net.sf.saxon.TransformerFactoryImpl. You would need to add Saxon to      * the classpath.      */
 DECL|field|saxon
@@ -213,10 +203,7 @@ decl_stmt|;
 comment|/**      * Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition.      * You would need to add camel-saxon to the classpath. The function is      * looked up in the registry where you can comma to separate multiple values      * to lookup.      */
 DECL|field|saxonExtensionFunctions
 specifier|private
-name|List
-argument_list|<
-name|Object
-argument_list|>
+name|String
 name|saxonExtensionFunctions
 decl_stmt|;
 comment|/**      * To use a custom Saxon configuration      */
@@ -376,10 +363,7 @@ expr_stmt|;
 block|}
 DECL|method|getSaxonExtensionFunctions ()
 specifier|public
-name|List
-argument_list|<
-name|Object
-argument_list|>
+name|String
 name|getSaxonExtensionFunctions
 parameter_list|()
 block|{
@@ -387,15 +371,12 @@ return|return
 name|saxonExtensionFunctions
 return|;
 block|}
-DECL|method|setSaxonExtensionFunctions (List<Object> saxonExtensionFunctions)
+DECL|method|setSaxonExtensionFunctions (String saxonExtensionFunctions)
 specifier|public
 name|void
 name|setSaxonExtensionFunctions
 parameter_list|(
-name|List
-argument_list|<
-name|Object
-argument_list|>
+name|String
 name|saxonExtensionFunctions
 parameter_list|)
 block|{
