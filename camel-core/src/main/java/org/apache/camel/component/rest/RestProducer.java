@@ -74,6 +74,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -1059,8 +1069,7 @@ comment|// when chaining RestConsumer with RestProducer, the
 comment|// HTTP_PATH header will be present, we remove it here
 comment|// as the REST_HTTP_URI contains the full URI for the
 comment|// request and every other HTTP producer will concatenate
-comment|// REST_HTTP_URI with HTTP_PATH resulting in incorrect
-comment|// URIs
+comment|// REST_HTTP_URI with HTTP_PATH resulting in incorrect URIs
 name|inMessage
 operator|.
 name|removeHeader
@@ -1088,6 +1097,19 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// the method should be in upper case
+name|String
+name|upper
+init|=
+name|method
+operator|.
+name|toUpperCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+decl_stmt|;
 name|inMessage
 operator|.
 name|setHeader
@@ -1096,7 +1118,7 @@ name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
-name|method
+name|upper
 argument_list|)
 expr_stmt|;
 block|}
