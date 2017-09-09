@@ -78,12 +78,7 @@ specifier|final
 name|String
 name|COMPONENT
 init|=
-name|extractName
-argument_list|(
-name|CamelASN1Test
-operator|.
-name|class
-argument_list|)
+literal|"asn1"
 decl_stmt|;
 annotation|@
 name|Test
@@ -97,7 +92,7 @@ name|Exception
 block|{
 name|testDataFormat
 argument_list|(
-literal|"asn1"
+name|COMPONENT
 argument_list|)
 expr_stmt|;
 block|}
