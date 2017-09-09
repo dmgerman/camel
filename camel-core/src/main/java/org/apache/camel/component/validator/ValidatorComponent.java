@@ -86,6 +86,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI"
 argument_list|)
 DECL|field|resourceResolverFactory
 specifier|private
