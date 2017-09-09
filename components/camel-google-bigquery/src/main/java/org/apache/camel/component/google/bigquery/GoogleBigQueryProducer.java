@@ -217,7 +217,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-comment|/**      * The method converts a single incoming message into a List      *      * @param exchange      * @return      */
+comment|/**      * The method converts a single incoming message into a List      */
 DECL|method|prepareExchangeList (Exchange exchange)
 specifier|private
 specifier|static
@@ -828,7 +828,7 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
@@ -899,7 +899,7 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
@@ -922,6 +922,14 @@ name|partitionDecorator
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -939,6 +947,7 @@ argument_list|,
 name|exchangeId
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|apiRequestData
 operator|.

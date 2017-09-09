@@ -140,15 +140,15 @@ literal|"2.20.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"bigquery"
+literal|"google-bigquery"
 argument_list|,
 name|title
 operator|=
-literal|"BigQuery"
+literal|"Google BigQuery"
 argument_list|,
 name|syntax
 operator|=
-literal|"bigquery:projectId:datasetId:tableName"
+literal|"google-bigquery:projectId:datasetId:tableName"
 argument_list|,
 name|label
 operator|=

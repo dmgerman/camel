@@ -32,90 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|client
-operator|.
-name|http
-operator|.
-name|HttpTransport
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|client
-operator|.
-name|http
-operator|.
-name|javanet
-operator|.
-name|NetHttpTransport
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|client
-operator|.
-name|json
-operator|.
-name|JsonFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|client
-operator|.
-name|json
-operator|.
-name|jackson2
-operator|.
-name|JacksonFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|services
-operator|.
-name|bigquery
-operator|.
-name|Bigquery
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -303,6 +219,17 @@ name|configuration
 argument_list|)
 return|;
 block|}
+DECL|method|getProjectId ()
+specifier|public
+name|String
+name|getProjectId
+parameter_list|()
+block|{
+return|return
+name|projectId
+return|;
+block|}
+comment|/**      * Google Cloud Project Id      */
 DECL|method|setProjectId (String projectId)
 specifier|public
 name|void
@@ -319,6 +246,17 @@ operator|=
 name|projectId
 expr_stmt|;
 block|}
+DECL|method|getDatasetId ()
+specifier|public
+name|String
+name|getDatasetId
+parameter_list|()
+block|{
+return|return
+name|datasetId
+return|;
+block|}
+comment|/**      * BigQuery Dataset Id      */
 DECL|method|setDatasetId (String datasetId)
 specifier|public
 name|void
@@ -335,27 +273,6 @@ operator|=
 name|datasetId
 expr_stmt|;
 block|}
-DECL|method|getProjectId ()
-specifier|public
-name|String
-name|getProjectId
-parameter_list|()
-block|{
-return|return
-name|projectId
-return|;
-block|}
-DECL|method|getDatasetId ()
-specifier|public
-name|String
-name|getDatasetId
-parameter_list|()
-block|{
-return|return
-name|datasetId
-return|;
-block|}
-comment|/**      * Sets the connection factory to use:      * provides the ability to explicitly manage connection credentials:      * - the path to the key file      * - the Service Account Key / Email pair      */
 DECL|method|getConnectionFactory ()
 specifier|public
 name|GoogleBigQueryConnectionFactory
@@ -380,6 +297,7 @@ return|return
 name|connectionFactory
 return|;
 block|}
+comment|/**      * ConnectionFactory to obtain connection to Bigquery Service. If non provided the default one will be used      */
 DECL|method|setConnectionFactory (GoogleBigQueryConnectionFactory connectionFactory)
 specifier|public
 name|void

@@ -87,10 +87,6 @@ block|{
 annotation|@
 name|UriParam
 argument_list|(
-name|name
-operator|=
-literal|"connectionFactory"
-argument_list|,
 name|description
 operator|=
 literal|"ConnectionFactory to obtain connection to Bigquery Service. If non provided the default one will be used"
@@ -103,10 +99,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|name
-operator|=
-literal|"useAsInsertId"
-argument_list|,
 name|description
 operator|=
 literal|"Field name to use as insert id"
