@@ -477,11 +477,6 @@ name|class
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
-argument_list|(
-name|name
-operator|=
-literal|"twitter-mention-component"
-argument_list|)
 DECL|method|configureTwitterMentionComponent ()
 specifier|public
 name|TwitterMentionComponent

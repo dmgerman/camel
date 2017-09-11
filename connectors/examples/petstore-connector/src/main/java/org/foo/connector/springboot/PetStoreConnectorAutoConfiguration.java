@@ -477,11 +477,6 @@ name|class
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
-argument_list|(
-name|name
-operator|=
-literal|"petstore-component"
-argument_list|)
 DECL|method|configurePetStoreComponent ()
 specifier|public
 name|PetStoreComponent

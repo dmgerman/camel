@@ -477,11 +477,6 @@ name|class
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
-argument_list|(
-name|name
-operator|=
-literal|"twitter-search-component"
-argument_list|)
 DECL|method|configureTwitterSearchComponent ()
 specifier|public
 name|TwitterSearchComponent

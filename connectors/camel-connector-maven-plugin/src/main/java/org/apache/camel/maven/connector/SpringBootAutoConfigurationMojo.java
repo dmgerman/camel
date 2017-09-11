@@ -2618,13 +2618,6 @@ name|ConditionalOnMissingBean
 operator|.
 name|class
 argument_list|)
-operator|.
-name|setStringValue
-argument_list|(
-literal|"name"
-argument_list|,
-name|beanName
-argument_list|)
 expr_stmt|;
 name|MethodSource
 argument_list|<

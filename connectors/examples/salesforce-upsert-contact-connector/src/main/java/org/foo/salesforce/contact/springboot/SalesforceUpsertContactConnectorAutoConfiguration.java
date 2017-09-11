@@ -481,11 +481,6 @@ name|class
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
-argument_list|(
-name|name
-operator|=
-literal|"salesforce-upsert-contact-component"
-argument_list|)
 DECL|method|configureSalesforceUpsertContactComponent ()
 specifier|public
 name|SalesforceUpsertContactComponent
