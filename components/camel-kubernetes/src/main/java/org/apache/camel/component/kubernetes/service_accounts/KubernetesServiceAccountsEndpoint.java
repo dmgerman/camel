@@ -136,15 +136,15 @@ literal|"2.17.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"kubernetes-service-account"
+literal|"kubernetes-service-accounts"
 argument_list|,
 name|title
 operator|=
-literal|"Kubernetes Servkce Account"
+literal|"Kubernetes Service Account"
 argument_list|,
 name|syntax
 operator|=
-literal|"kubernetes-service-account:masterUrl"
+literal|"kubernetes-service-accounts:masterUrl"
 argument_list|,
 name|producerOnly
 operator|=
