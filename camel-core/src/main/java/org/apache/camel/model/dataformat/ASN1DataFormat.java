@@ -327,7 +327,7 @@ return|return
 name|clazzName
 return|;
 block|}
-comment|/**      * Name of class to use when unarmshalling      */
+comment|/**      * Name of class to use when unmarshalling      */
 DECL|method|setClazzName (String clazzName)
 specifier|public
 name|void
