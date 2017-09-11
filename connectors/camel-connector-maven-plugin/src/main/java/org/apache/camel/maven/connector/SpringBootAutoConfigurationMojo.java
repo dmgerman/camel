@@ -2364,6 +2364,13 @@ argument_list|)
 expr_stmt|;
 name|javaClass
 operator|.
+name|addImport
+argument_list|(
+literal|"org.apache.camel.util.IntrospectionSupport"
+argument_list|)
+expr_stmt|;
+name|javaClass
+operator|.
 name|addField
 argument_list|()
 operator|.
@@ -2983,6 +2990,13 @@ name|sb
 operator|.
 name|append
 argument_list|(
+literal|"IntrospectionSupport.getProperties(configuration, parameters, null, false);\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
 literal|"CamelPropertiesHelper.setCamelProperties(camelContext, connector, parameters, false);\n"
 argument_list|)
 expr_stmt|;
@@ -3288,6 +3302,13 @@ operator|.
 name|append
 argument_list|(
 literal|"try {\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"IntrospectionSupport.getProperties(entry.getValue(), parameters, null, false);\n"
 argument_list|)
 expr_stmt|;
 name|sb
