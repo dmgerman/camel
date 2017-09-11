@@ -94,7 +94,7 @@ name|usingIterator
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Name of class to use when unarmshalling      */
+comment|/**      * Name of class to use when unmarshalling      */
 DECL|field|clazzName
 specifier|private
 name|String
