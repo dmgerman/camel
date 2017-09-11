@@ -146,20 +146,6 @@ name|UriPath
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * The Twitter Search component consumes search results.  */
 end_comment
@@ -303,6 +289,16 @@ argument_list|,
 name|keywords
 argument_list|)
 argument_list|)
+return|;
+block|}
+DECL|method|getKeywords ()
+specifier|public
+name|String
+name|getKeywords
+parameter_list|()
+block|{
+return|return
+name|keywords
 return|;
 block|}
 block|}
