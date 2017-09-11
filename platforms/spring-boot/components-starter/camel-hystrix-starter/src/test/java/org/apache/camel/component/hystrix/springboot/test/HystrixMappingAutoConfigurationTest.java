@@ -156,11 +156,13 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|boot
+name|beans
 operator|.
-name|autoconfigure
+name|factory
 operator|.
-name|SpringBootApplication
+name|annotation
+operator|.
+name|Value
 import|;
 end_import
 
@@ -172,11 +174,9 @@ name|springframework
 operator|.
 name|boot
 operator|.
-name|context
+name|autoconfigure
 operator|.
-name|embedded
-operator|.
-name|LocalServerPort
+name|SpringBootApplication
 import|;
 end_import
 
@@ -310,7 +310,10 @@ name|class
 argument_list|)
 decl_stmt|;
 annotation|@
-name|LocalServerPort
+name|Value
+argument_list|(
+literal|"${local.server.port}"
+argument_list|)
 DECL|field|serverPort
 specifier|private
 name|int
