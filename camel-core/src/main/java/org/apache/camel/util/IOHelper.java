@@ -276,6 +276,29 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
+comment|// allows to turn on backwards compatible to turn off regarding the first read byte with value zero (0b0) as EOL.
+comment|// See more at CAMEL-11672
+DECL|field|ZERO_BYTE_EOL_ENABLED
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|ZERO_BYTE_EOL_ENABLED
+init|=
+literal|"true"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"camel.zeroByteEOLEnabled"
+argument_list|,
+literal|"true"
+argument_list|)
+argument_list|)
+decl_stmt|;
 DECL|method|IOHelper ()
 specifier|private
 name|IOHelper
@@ -773,6 +796,11 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+name|total
+init|=
+literal|0
+decl_stmt|;
 specifier|final
 name|byte
 index|[]
@@ -794,11 +822,38 @@ argument_list|(
 name|buffer
 argument_list|)
 decl_stmt|;
-name|int
-name|total
-init|=
-literal|0
+name|boolean
+name|hasData
 decl_stmt|;
+if|if
+condition|(
+name|ZERO_BYTE_EOL_ENABLED
+condition|)
+block|{
+comment|// workaround issue on some application servers which can return 0 (instead of -1)
+comment|// as first byte to indicate end of stream (CAMEL-11672)
+name|hasData
+operator|=
+name|n
+operator|>
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+name|hasData
+operator|=
+name|n
+operator|>
+operator|-
+literal|1
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|hasData
+condition|)
+block|{
 while|while
 condition|(
 operator|-
@@ -842,6 +897,7 @@ argument_list|(
 name|buffer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
