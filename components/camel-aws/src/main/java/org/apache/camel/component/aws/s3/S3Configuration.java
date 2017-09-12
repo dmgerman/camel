@@ -332,7 +332,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -383,7 +383,7 @@ return|return
 name|partSize
 return|;
 block|}
-comment|/**      * *Camel 2.15.0*: Setup the partSize which is used in multi part upload,      * the default size is 25M.      */
+comment|/**      * Setup the partSize which is used in multi part upload,      * the default size is 25M.      */
 DECL|method|setPartSize (long partSize)
 specifier|public
 name|void
@@ -410,7 +410,7 @@ return|return
 name|multiPartUpload
 return|;
 block|}
-comment|/**      * *Camel 2.15.0*: If it is true, camel will upload the file with multi part      * format, the part size is decided by the option of `partSize`      */
+comment|/**      * If it is true, camel will upload the file with multi part      * format, the part size is decided by the option of `partSize`      */
 DECL|method|setMultiPartUpload (boolean multiPartUpload)
 specifier|public
 name|void
@@ -545,7 +545,7 @@ return|return
 name|prefix
 return|;
 block|}
-comment|/**      * *Camel 2.10.1*: The prefix which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
+comment|/**      * The prefix which is used in the      * com.amazonaws.services.s3.model.ListObjectsRequest to only consume      * objects we are interested in.      */
 DECL|method|setPrefix (String prefix)
 specifier|public
 name|void
@@ -707,7 +707,7 @@ return|return
 name|deleteAfterWrite
 return|;
 block|}
-comment|/**      * *Camel 2.11.0*: Delete file object after the S3 file has been uploaded      */
+comment|/**      * Delete file object after the S3 file has been uploaded      */
 DECL|method|setDeleteAfterWrite (boolean deleteAfterWrite)
 specifier|public
 name|void
@@ -734,7 +734,7 @@ return|return
 name|policy
 return|;
 block|}
-comment|/**      * *Camel 2.8.4*: The policy for this queue to set in the      * `com.amazonaws.services.s3.AmazonS3#setBucketPolicy()` method.      */
+comment|/**      * The policy for this queue to set in the      * `com.amazonaws.services.s3.AmazonS3#setBucketPolicy()` method.      */
 DECL|method|setPolicy (String policy)
 specifier|public
 name|void
@@ -761,7 +761,7 @@ return|return
 name|storageClass
 return|;
 block|}
-comment|/**      * *Camel 2.8.4*: The storage class to set in the      * `com.amazonaws.services.s3.model.PutObjectRequest` request.      */
+comment|/**      * The storage class to set in the      * `com.amazonaws.services.s3.model.PutObjectRequest` request.      */
 DECL|method|setStorageClass (String storageClass)
 specifier|public
 name|void
@@ -788,7 +788,7 @@ return|return
 name|serverSideEncryption
 return|;
 block|}
-comment|/**      * *Camel 2.16*: Sets the server-side encryption algorithm when encrypting      * the object using AWS-managed keys. For example use<tt>AES256</tt>.      */
+comment|/**      * Sets the server-side encryption algorithm when encrypting      * the object using AWS-managed keys. For example use<tt>AES256</tt>.      */
 DECL|method|setServerSideEncryption (String serverSideEncryption)
 specifier|public
 name|void
@@ -815,7 +815,7 @@ return|return
 name|proxyHost
 return|;
 block|}
-comment|/**      * *Camel 2.16*: To define a proxy host when instantiating the SQS client      */
+comment|/**      * To define a proxy host when instantiating the SQS client      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -842,7 +842,7 @@ return|return
 name|proxyPort
 return|;
 block|}
-comment|/**      * *Camel 2.16*: Specify a proxy port to be used inside the client      * definition.      */
+comment|/**      * Specify a proxy port to be used inside the client definition.      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void
@@ -897,7 +897,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * *Camel 2.18*: The operation to do in case the user don't want to do only      * an upload      */
+comment|/**      * The operation to do in case the user don't want to do only an upload      */
 DECL|method|setOperation (S3Operations operation)
 specifier|public
 name|void
@@ -924,7 +924,7 @@ return|return
 name|autocloseBody
 return|;
 block|}
-comment|/**      * If this option is true and includeBody is true, then the S3Object.close()      * method will be called on exchange completion This option is strongly      * related to includeBody option. In case of setting includeBody to true and      * autocloseBody to false, it will be up to the caller to close the S3Object      * stream. Setting autocloseBody to true, will close the S3Object stream      * automatically.      */
+comment|/**      * If this option is true and includeBody is true, then the S3Object.close()      * method will be called on exchange completion. This option is strongly      * related to includeBody option. In case of setting includeBody to true and      * autocloseBody to false, it will be up to the caller to close the S3Object      * stream. Setting autocloseBody to true, will close the S3Object stream      * automatically.      */
 DECL|method|setAutocloseBody (boolean autocloseBody)
 specifier|public
 name|void
