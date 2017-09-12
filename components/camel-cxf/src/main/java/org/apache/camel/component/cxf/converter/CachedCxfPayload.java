@@ -136,6 +136,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|stream
+operator|.
+name|StreamResult
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -501,51 +515,74 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// this worked so continue
+continue|continue;
 block|}
 catch|catch
 parameter_list|(
-name|XMLStreamException
+name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
+comment|// fallback to trying to read the reader using another way
+name|StreamResult
+name|sr
+init|=
+operator|new
+name|StreamResult
 argument_list|(
-literal|"Transformation failed "
-argument_list|,
-name|e
+name|cos
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
+decl_stmt|;
+try|try
 block|{
-name|LOG
+name|xml
 operator|.
-name|error
+name|toResult
 argument_list|(
-literal|"Cannot Create StreamSourceCache "
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-operator|!
-operator|(
 name|source
-operator|instanceof
-name|DOMSource
-operator|)
-condition|)
+argument_list|,
+name|sr
+argument_list|)
+expr_stmt|;
+name|li
+operator|.
+name|set
+argument_list|(
+operator|new
+name|StreamSourceCache
+argument_list|(
+name|cos
+operator|.
+name|newStreamCache
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// this worked so continue
+continue|continue;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e2
+parameter_list|)
 block|{
+comment|// ignore did not work so we will fallback to DOM mode
+comment|// this can happens in some rare cases such as reported by CAMEL-11681
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error during parsing XMLStreamReader from StaxSource/StAXSource. Will fallback to using DOM mode. This exception is ignored"
+argument_list|,
+name|e2
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|// fallback to using DOM
 name|DOMSource
 name|document
 init|=
@@ -557,7 +594,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|DOMSource
 operator|.
@@ -582,7 +619,6 @@ argument_list|(
 name|document
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
