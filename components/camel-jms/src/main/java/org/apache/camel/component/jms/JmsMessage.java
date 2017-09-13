@@ -984,9 +984,9 @@ else|else
 block|{
 name|id
 operator|=
-name|super
+name|jmsMessage
 operator|.
-name|createMessageId
+name|getJMSMessageID
 argument_list|()
 expr_stmt|;
 block|}
