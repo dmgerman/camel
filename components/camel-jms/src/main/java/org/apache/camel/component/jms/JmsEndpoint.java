@@ -583,7 +583,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The jms component allows messages to be sent to (or consumed from) a JMS Queue or Topic.  *  * This component uses Spring JMS.  */
+comment|/**  * The jms component allows messages to be sent to (or consumed from) a JMS Queue or Topic.  *  * This component uses Spring JMS and supports JMS 1.1 and 2.0 API.  */
 end_comment
 
 begin_class
