@@ -142,6 +142,21 @@ argument_list|(
 name|queue
 argument_list|)
 expr_stmt|;
+name|when
+argument_list|(
+name|transactionContext
+operator|.
+name|getQueue
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+operator|.
+name|thenReturn
+argument_list|(
+name|tqueue
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|verifyHazelcastInstance (HazelcastInstance hazelcastInstance)
 specifier|protected
@@ -155,6 +170,11 @@ block|{
 name|verify
 argument_list|(
 name|hazelcastInstance
+argument_list|,
+name|times
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 operator|.
 name|getQueue
