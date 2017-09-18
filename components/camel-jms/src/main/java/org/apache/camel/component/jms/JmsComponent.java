@@ -2327,27 +2327,6 @@ name|recoveryInterval
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Deprecated: Enabled by default, if you specify a durableSubscriptionName and a clientId.      */
-annotation|@
-name|Deprecated
-DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
-specifier|public
-name|void
-name|setSubscriptionDurable
-parameter_list|(
-name|boolean
-name|subscriptionDurable
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setSubscriptionDurable
-argument_list|(
-name|subscriptionDurable
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Allows you to specify a custom task executor for consuming messages.      */
 annotation|@
 name|Metadata
@@ -3583,6 +3562,182 @@ operator|.
 name|setCorrelationProperty
 argument_list|(
 name|correlationProperty
+argument_list|)
+expr_stmt|;
+block|}
+comment|// JMS 2.0 API
+comment|// -------------------------------------------------------------------------
+DECL|method|isSubscriptionDurable ()
+specifier|public
+name|boolean
+name|isSubscriptionDurable
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isSubscriptionDurable
+argument_list|()
+return|;
+block|}
+comment|/**      * Set whether to make the subscription durable. The durable subscription name      * to be used can be specified through the "subscriptionName" property.      *<p>Default is "false". Set this to "true" to register a durable subscription,      * typically in combination with a "subscriptionName" value (unless      * your message listener class name is good enough as subscription name).      *<p>Only makes sense when listening to a topic (pub-sub domain),      * therefore this method switches the "pubSubDomain" flag as well.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Set whether to make the subscription durable. The durable subscription name"
+operator|+
+literal|" to be used can be specified through the subscriptionName property."
+operator|+
+literal|" Default is false. Set this to true to register a durable subscription,"
+operator|+
+literal|" typically in combination with a subscriptionName value (unless"
+operator|+
+literal|" your message listener class name is good enough as subscription name)."
+operator|+
+literal|" Only makes sense when listening to a topic (pub-sub domain),"
+operator|+
+literal|" therefore this method switches the pubSubDomain flag as well."
+argument_list|)
+DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
+specifier|public
+name|void
+name|setSubscriptionDurable
+parameter_list|(
+name|boolean
+name|subscriptionDurable
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSubscriptionDurable
+argument_list|(
+name|subscriptionDurable
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isSubscriptionShared ()
+specifier|public
+name|boolean
+name|isSubscriptionShared
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isSubscriptionShared
+argument_list|()
+return|;
+block|}
+comment|/**      * Set whether to make the subscription shared. The shared subscription name      * to be used can be specified through the "subscriptionName" property.      *<p>Default is "false". Set this to "true" to register a shared subscription,      * typically in combination with a "subscriptionName" value (unless      * your message listener class name is good enough as subscription name).      * Note that shared subscriptions may also be durable, so this flag can      * (and often will) be combined with "subscriptionDurable" as well.      *<p>Only makes sense when listening to a topic (pub-sub domain),      * therefore this method switches the "pubSubDomain" flag as well.      *<p><b>Requires a JMS 2.0 compatible message broker.</b>      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Set whether to make the subscription shared. The shared subscription name"
+operator|+
+literal|" to be used can be specified through the subscriptionName property."
+operator|+
+literal|" Default is false. Set this to true to register a shared subscription,"
+operator|+
+literal|" typically in combination with a subscriptionName value (unless"
+operator|+
+literal|" your message listener class name is good enough as subscription name)."
+operator|+
+literal|" Note that shared subscriptions may also be durable, so this flag can"
+operator|+
+literal|" (and often will) be combined with subscriptionDurable as well."
+operator|+
+literal|" Only makes sense when listening to a topic (pub-sub domain),"
+operator|+
+literal|" therefore this method switches the pubSubDomain flag as well."
+operator|+
+literal|" Requires a JMS 2.0 compatible message broker."
+argument_list|)
+DECL|method|setSubscriptionShared (boolean subscriptionShared)
+specifier|public
+name|void
+name|setSubscriptionShared
+parameter_list|(
+name|boolean
+name|subscriptionShared
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSubscriptionShared
+argument_list|(
+name|subscriptionShared
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getSubscriptionName ()
+specifier|public
+name|String
+name|getSubscriptionName
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSubscriptionName
+argument_list|()
+return|;
+block|}
+comment|/**      * Set the name of a subscription to create. To be applied in case      * of a topic (pub-sub domain) with a shared or durable subscription.      *<p>The subscription name needs to be unique within this client's      * JMS client id. Default is the class name of the specified message listener.      *<p>Note: Only 1 concurrent consumer (which is the default of this      * message listener container) is allowed for each subscription,      * except for a shared subscription (which requires JMS 2.0).      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Set the name of a subscription to create. To be applied in case"
+operator|+
+literal|" of a topic (pub-sub domain) with a shared or durable subscription."
+operator|+
+literal|" The subscription name needs to be unique within this client's"
+operator|+
+literal|" JMS client id. Default is the class name of the specified message listener."
+operator|+
+literal|" Note: Only 1 concurrent consumer (which is the default of this"
+operator|+
+literal|" message listener container) is allowed for each subscription,"
+operator|+
+literal|" except for a shared subscription (which requires JMS 2.0)."
+argument_list|)
+DECL|method|setSubscriptionName (String subscriptionName)
+specifier|public
+name|void
+name|setSubscriptionName
+parameter_list|(
+name|String
+name|subscriptionName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSubscriptionName
+argument_list|(
+name|subscriptionName
 argument_list|)
 expr_stmt|;
 block|}

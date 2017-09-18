@@ -810,13 +810,6 @@ name|String
 name|durableSubscriptionName
 decl_stmt|;
 annotation|@
-name|Deprecated
-DECL|field|subscriptionDurable
-specifier|private
-name|boolean
-name|subscriptionDurable
-decl_stmt|;
-annotation|@
 name|UriParam
 argument_list|(
 name|label
@@ -2313,6 +2306,97 @@ DECL|field|allowAdditionalHeaders
 specifier|private
 name|String
 name|allowAdditionalHeaders
+decl_stmt|;
+comment|// JMS 2.0 API
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Set the name of a subscription to create. To be applied in case"
+operator|+
+literal|" of a topic (pub-sub domain) with a shared or durable subscription."
+operator|+
+literal|" The subscription name needs to be unique within this client's"
+operator|+
+literal|" JMS client id. Default is the class name of the specified message listener."
+operator|+
+literal|" Note: Only 1 concurrent consumer (which is the default of this"
+operator|+
+literal|" message listener container) is allowed for each subscription,"
+operator|+
+literal|" except for a shared subscription (which requires JMS 2.0)."
+argument_list|)
+DECL|field|subscriptionName
+specifier|private
+name|String
+name|subscriptionName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Set whether to make the subscription durable. The durable subscription name"
+operator|+
+literal|" to be used can be specified through the subscriptionName property."
+operator|+
+literal|" Default is false. Set this to true to register a durable subscription,"
+operator|+
+literal|" typically in combination with a subscriptionName value (unless"
+operator|+
+literal|" your message listener class name is good enough as subscription name)."
+operator|+
+literal|" Only makes sense when listening to a topic (pub-sub domain),"
+operator|+
+literal|" therefore this method switches the pubSubDomain flag as well."
+argument_list|)
+DECL|field|subscriptionDurable
+specifier|private
+name|boolean
+name|subscriptionDurable
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Set whether to make the subscription shared. The shared subscription name"
+operator|+
+literal|" to be used can be specified through the subscriptionName property."
+operator|+
+literal|" Default is false. Set this to true to register a shared subscription,"
+operator|+
+literal|" typically in combination with a subscriptionName value (unless"
+operator|+
+literal|" your message listener class name is good enough as subscription name)."
+operator|+
+literal|" Note that shared subscriptions may also be durable, so this flag can"
+operator|+
+literal|" (and often will) be combined with subscriptionDurable as well."
+operator|+
+literal|" Only makes sense when listening to a topic (pub-sub domain),"
+operator|+
+literal|" therefore this method switches the pubSubDomain flag as well."
+operator|+
+literal|" Requires a JMS 2.0 compatible message broker."
+argument_list|)
+DECL|field|subscriptionShared
+specifier|private
+name|boolean
+name|subscriptionShared
 decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
@@ -4022,36 +4106,6 @@ operator|.
 name|errorHandlerLogStackTrace
 operator|=
 name|errorHandlerLogStackTrace
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|isSubscriptionDurable ()
-specifier|public
-name|boolean
-name|isSubscriptionDurable
-parameter_list|()
-block|{
-return|return
-name|subscriptionDurable
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
-specifier|public
-name|void
-name|setSubscriptionDurable
-parameter_list|(
-name|boolean
-name|subscriptionDurable
-parameter_list|)
-block|{
-name|this
-operator|.
-name|subscriptionDurable
-operator|=
-name|subscriptionDurable
 expr_stmt|;
 block|}
 DECL|method|getAcknowledgementModeName ()
@@ -7097,6 +7151,87 @@ operator|.
 name|allowAdditionalHeaders
 operator|=
 name|allowAdditionalHeaders
+expr_stmt|;
+block|}
+DECL|method|isSubscriptionDurable ()
+specifier|public
+name|boolean
+name|isSubscriptionDurable
+parameter_list|()
+block|{
+return|return
+name|subscriptionDurable
+return|;
+block|}
+comment|/**      * Set whether to make the subscription durable. The durable subscription name      * to be used can be specified through the "subscriptionName" property.      *<p>Default is "false". Set this to "true" to register a durable subscription,      * typically in combination with a "subscriptionName" value (unless      * your message listener class name is good enough as subscription name).      *<p>Only makes sense when listening to a topic (pub-sub domain),      * therefore this method switches the "pubSubDomain" flag as well.      */
+DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
+specifier|public
+name|void
+name|setSubscriptionDurable
+parameter_list|(
+name|boolean
+name|subscriptionDurable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscriptionDurable
+operator|=
+name|subscriptionDurable
+expr_stmt|;
+block|}
+DECL|method|isSubscriptionShared ()
+specifier|public
+name|boolean
+name|isSubscriptionShared
+parameter_list|()
+block|{
+return|return
+name|subscriptionShared
+return|;
+block|}
+comment|/**      * Set whether to make the subscription shared. The shared subscription name      * to be used can be specified through the "subscriptionName" property.      *<p>Default is "false". Set this to "true" to register a shared subscription,      * typically in combination with a "subscriptionName" value (unless      * your message listener class name is good enough as subscription name).      * Note that shared subscriptions may also be durable, so this flag can      * (and often will) be combined with "subscriptionDurable" as well.      *<p>Only makes sense when listening to a topic (pub-sub domain),      * therefore this method switches the "pubSubDomain" flag as well.      *<p><b>Requires a JMS 2.0 compatible message broker.</b>      */
+DECL|method|setSubscriptionShared (boolean subscriptionShared)
+specifier|public
+name|void
+name|setSubscriptionShared
+parameter_list|(
+name|boolean
+name|subscriptionShared
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscriptionShared
+operator|=
+name|subscriptionShared
+expr_stmt|;
+block|}
+DECL|method|getSubscriptionName ()
+specifier|public
+name|String
+name|getSubscriptionName
+parameter_list|()
+block|{
+return|return
+name|subscriptionName
+return|;
+block|}
+comment|/**      * Set the name of a subscription to create. To be applied in case      * of a topic (pub-sub domain) with a shared or durable subscription.      *<p>The subscription name needs to be unique within this client's      * JMS client id. Default is the class name of the specified message listener.      *<p>Note: Only 1 concurrent consumer (which is the default of this      * message listener container) is allowed for each subscription,      * except for a shared subscription (which requires JMS 2.0).      */
+DECL|method|setSubscriptionName (String subscriptionName)
+specifier|public
+name|void
+name|setSubscriptionName
+parameter_list|(
+name|String
+name|subscriptionName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscriptionName
+operator|=
+name|subscriptionName
 expr_stmt|;
 block|}
 block|}
