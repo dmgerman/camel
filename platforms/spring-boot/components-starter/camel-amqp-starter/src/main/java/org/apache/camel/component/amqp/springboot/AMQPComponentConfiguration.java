@@ -232,22 +232,6 @@ name|context
 operator|.
 name|properties
 operator|.
-name|DeprecatedConfigurationProperty
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
 name|NestedConfigurationProperty
 import|;
 end_import
@@ -667,16 +651,6 @@ name|recoveryInterval
 init|=
 literal|5000L
 decl_stmt|;
-comment|/**      * Deprecated: Enabled by default if you specify a durableSubscriptionName      * and a clientId.      */
-annotation|@
-name|Deprecated
-DECL|field|subscriptionDurable
-specifier|private
-name|Boolean
-name|subscriptionDurable
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * Allows you to specify a custom task executor for consuming messages.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -924,6 +898,28 @@ DECL|field|correlationProperty
 specifier|private
 name|String
 name|correlationProperty
+decl_stmt|;
+comment|/**      * Set whether to make the subscription durable. The durable subscription      * name to be used can be specified through the subscriptionName property.      * Default is false. Set this to true to register a durable subscription      * typically in combination with a subscriptionName value (unless your      * message listener class name is good enough as subscription name). Only      * makes sense when listening to a topic (pub-sub domain) therefore this      * method switches the pubSubDomain flag as well.      */
+DECL|field|subscriptionDurable
+specifier|private
+name|Boolean
+name|subscriptionDurable
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Set whether to make the subscription shared. The shared subscription name      * to be used can be specified through the subscriptionName property.      * Default is false. Set this to true to register a shared subscription      * typically in combination with a subscriptionName value (unless your      * message listener class name is good enough as subscription name). Note      * that shared subscriptions may also be durable so this flag can (and often      * will) be combined with subscriptionDurable as well. Only makes sense when      * listening to a topic (pub-sub domain) therefore this method switches the      * pubSubDomain flag as well. Requires a JMS 2.0 compatible message broker.      */
+DECL|field|subscriptionShared
+specifier|private
+name|Boolean
+name|subscriptionShared
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Set the name of a subscription to create. To be applied in case of a      * topic (pub-sub domain) with a shared or durable subscription. The      * subscription name needs to be unique within this client's JMS client id.      * Default is the class name of the specified message listener. Note: Only 1      * concurrent consumer (which is the default of this message listener      * container) is allowed for each subscription except for a shared      * subscription (which requires JMS 2.0).      */
+DECL|field|subscriptionName
+specifier|private
+name|String
+name|subscriptionName
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
@@ -2007,38 +2003,6 @@ operator|=
 name|recoveryInterval
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-annotation|@
-name|DeprecatedConfigurationProperty
-DECL|method|getSubscriptionDurable ()
-specifier|public
-name|Boolean
-name|getSubscriptionDurable
-parameter_list|()
-block|{
-return|return
-name|subscriptionDurable
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setSubscriptionDurable (Boolean subscriptionDurable)
-specifier|public
-name|void
-name|setSubscriptionDurable
-parameter_list|(
-name|Boolean
-name|subscriptionDurable
-parameter_list|)
-block|{
-name|this
-operator|.
-name|subscriptionDurable
-operator|=
-name|subscriptionDurable
-expr_stmt|;
-block|}
 DECL|method|getTaskExecutor ()
 specifier|public
 name|TaskExecutor
@@ -2869,6 +2833,84 @@ operator|.
 name|correlationProperty
 operator|=
 name|correlationProperty
+expr_stmt|;
+block|}
+DECL|method|getSubscriptionDurable ()
+specifier|public
+name|Boolean
+name|getSubscriptionDurable
+parameter_list|()
+block|{
+return|return
+name|subscriptionDurable
+return|;
+block|}
+DECL|method|setSubscriptionDurable (Boolean subscriptionDurable)
+specifier|public
+name|void
+name|setSubscriptionDurable
+parameter_list|(
+name|Boolean
+name|subscriptionDurable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscriptionDurable
+operator|=
+name|subscriptionDurable
+expr_stmt|;
+block|}
+DECL|method|getSubscriptionShared ()
+specifier|public
+name|Boolean
+name|getSubscriptionShared
+parameter_list|()
+block|{
+return|return
+name|subscriptionShared
+return|;
+block|}
+DECL|method|setSubscriptionShared (Boolean subscriptionShared)
+specifier|public
+name|void
+name|setSubscriptionShared
+parameter_list|(
+name|Boolean
+name|subscriptionShared
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscriptionShared
+operator|=
+name|subscriptionShared
+expr_stmt|;
+block|}
+DECL|method|getSubscriptionName ()
+specifier|public
+name|String
+name|getSubscriptionName
+parameter_list|()
+block|{
+return|return
+name|subscriptionName
+return|;
+block|}
+DECL|method|setSubscriptionName (String subscriptionName)
+specifier|public
+name|void
+name|setSubscriptionName
+parameter_list|(
+name|String
+name|subscriptionName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscriptionName
+operator|=
+name|subscriptionName
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
