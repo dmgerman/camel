@@ -58,6 +58,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// only mock:start gets the message as a fault body stops routing
+name|getMockEndpoint
+argument_list|(
+literal|"mock:start"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -70,7 +81,27 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
+literal|"mock:catch-a"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
 literal|"mock:b"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:catch-b"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -122,6 +153,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"mock:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
@@ -162,6 +198,7 @@ name|Exception
 operator|.
 name|class
 argument_list|)
+comment|// fault will not throw an exception
 operator|.
 name|to
 argument_list|(
@@ -193,10 +230,11 @@ name|Exception
 operator|.
 name|class
 argument_list|)
+comment|// fault will not throw an exception
 operator|.
 name|to
 argument_list|(
-literal|"mock:catch-a"
+literal|"mock:catch-b"
 argument_list|)
 operator|.
 name|end
