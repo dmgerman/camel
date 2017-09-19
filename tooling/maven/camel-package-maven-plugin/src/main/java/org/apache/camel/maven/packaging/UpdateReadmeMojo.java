@@ -2195,7 +2195,7 @@ comment|// first line is the title to make the text less noisy we use level 2
 name|String
 name|newLine
 init|=
-literal|"## "
+literal|"== "
 operator|+
 name|title
 decl_stmt|;
@@ -2253,9 +2253,9 @@ argument_list|(
 literal|"+++"
 argument_list|)
 condition|?
-literal|"####"
+literal|"===="
 else|:
-literal|"###"
+literal|"==="
 decl_stmt|;
 comment|// transform legacy heading into new style
 name|int
@@ -2557,6 +2557,16 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"##"
+argument_list|)
+operator|||
+name|lines
+index|[
+literal|0
+index|]
+operator|.
+name|startsWith
+argument_list|(
+literal|"=="
 argument_list|)
 decl_stmt|;
 name|boolean
