@@ -1530,6 +1530,45 @@ name|resultType
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+DECL|method|jsonpath (String text, boolean suppressExceptions, Class<?> resultType, String headerName)
+specifier|public
+name|T
+name|jsonpath
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|boolean
+name|suppressExceptions
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|jsonpath
+argument_list|(
+name|text
+argument_list|,
+name|suppressExceptions
+argument_list|,
+literal|true
+argument_list|,
+name|resultType
+argument_list|,
+name|headerName
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpathWriteAsString (String text)
 specifier|public
@@ -1570,6 +1609,37 @@ argument_list|(
 name|text
 argument_list|,
 name|suppressExceptions
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+DECL|method|jsonpathWriteAsString (String text, boolean suppressExceptions, String headerName)
+specifier|public
+name|T
+name|jsonpathWriteAsString
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|boolean
+name|suppressExceptions
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|jsonpathWriteAsString
+argument_list|(
+name|text
+argument_list|,
+name|suppressExceptions
+argument_list|,
+literal|true
+argument_list|,
+name|headerName
 argument_list|)
 return|;
 block|}

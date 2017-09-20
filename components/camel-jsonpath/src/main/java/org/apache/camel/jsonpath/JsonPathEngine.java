@@ -359,6 +359,12 @@ specifier|final
 name|boolean
 name|writeAsString
 decl_stmt|;
+DECL|field|headerName
+specifier|private
+specifier|final
+name|String
+name|headerName
+decl_stmt|;
 DECL|field|path
 specifier|private
 specifier|final
@@ -382,6 +388,8 @@ specifier|volatile
 name|boolean
 name|initJsonAdapter
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|JsonPathEngine (String expression)
 specifier|public
 name|JsonPathEngine
@@ -401,10 +409,12 @@ argument_list|,
 literal|true
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|JsonPathEngine (String expression, boolean writeAsString, boolean suppressExceptions, boolean allowSimple, Option[] options)
+DECL|method|JsonPathEngine (String expression, boolean writeAsString, boolean suppressExceptions, boolean allowSimple, String headerName, Option[] options)
 specifier|public
 name|JsonPathEngine
 parameter_list|(
@@ -419,6 +429,9 @@ name|suppressExceptions
 parameter_list|,
 name|boolean
 name|allowSimple
+parameter_list|,
+name|String
+name|headerName
 parameter_list|,
 name|Option
 index|[]
@@ -436,6 +449,12 @@ operator|.
 name|writeAsString
 operator|=
 name|writeAsString
+expr_stmt|;
+name|this
+operator|.
+name|headerName
+operator|=
+name|headerName
 expr_stmt|;
 name|Defaults
 name|defaults
@@ -611,6 +630,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|read (Exchange exchange)
 specifier|public
 name|Object
@@ -897,13 +921,6 @@ return|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|adapter
-operator|!=
-literal|null
-condition|)
-block|{
 name|String
 name|json
 init|=
@@ -926,7 +943,6 @@ block|{
 return|return
 name|json
 return|;
-block|}
 block|}
 block|}
 block|}
@@ -953,6 +969,20 @@ block|{
 name|Object
 name|json
 init|=
+name|headerName
+operator|!=
+literal|null
+condition|?
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|)
+else|:
 name|exchange
 operator|.
 name|getIn
@@ -989,7 +1019,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"JSonPath: {} is read as generic file from message body: {}"
+literal|"JSonPath: {} is read as generic file: {}"
 argument_list|,
 name|path
 argument_list|,
@@ -1064,7 +1094,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"JSonPath: {} is read as String from message body: {}"
+literal|"JSonPath: {} is read as String: {}"
 argument_list|,
 name|path
 argument_list|,
@@ -1102,7 +1132,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"JSonPath: {} is read as Map from message body: {}"
+literal|"JSonPath: {} is read as Map: {}"
 argument_list|,
 name|path
 argument_list|,
@@ -1140,7 +1170,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"JSonPath: {} is read as List from message body: {}"
+literal|"JSonPath: {} is read as List: {}"
 argument_list|,
 name|path
 argument_list|,
@@ -1168,7 +1198,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// can we find an adapter which can read the message body
+comment|// can we find an adapter which can read the message body/header
 name|Object
 name|answer
 init|=
@@ -1251,6 +1281,29 @@ return|;
 block|}
 block|}
 comment|// okay it was not then lets throw a failure
+if|if
+condition|(
+name|headerName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Cannot read message header "
+operator|+
+name|headerName
+operator|+
+literal|" as supported JSon value"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|CamelExchangeException
@@ -1260,6 +1313,7 @@ argument_list|,
 name|exchange
 argument_list|)
 throw|;
+block|}
 block|}
 DECL|method|readWithInputStream (JsonPath path, Exchange exchange)
 specifier|private
@@ -1278,6 +1332,20 @@ block|{
 name|Object
 name|json
 init|=
+name|headerName
+operator|!=
+literal|null
+condition|?
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|)
+else|:
 name|exchange
 operator|.
 name|getIn
@@ -1290,7 +1358,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"JSonPath: {} is read as InputStream from message body: {}"
+literal|"JSonPath: {} is read as InputStream: {}"
 argument_list|,
 name|path
 argument_list|,
@@ -1418,6 +1486,20 @@ block|{
 name|Object
 name|json
 init|=
+name|headerName
+operator|!=
+literal|null
+condition|?
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|)
+else|:
 name|exchange
 operator|.
 name|getIn
@@ -1430,7 +1512,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"JSonPath: {} is read with adapter from message body: {}"
+literal|"JSonPath: {} is read with adapter: {}"
 argument_list|,
 name|path
 argument_list|,
@@ -1489,7 +1571,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"JacksonJsonAdapter converted message body from: {} to: java.util.Map"
+literal|"JacksonJsonAdapter converted object from: {} to: java.util.Map"
 argument_list|,
 name|ObjectHelper
 operator|.

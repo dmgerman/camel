@@ -271,6 +271,13 @@ specifier|private
 name|Boolean
 name|writeAsString
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|headerName
+specifier|private
+name|String
+name|headerName
+decl_stmt|;
 DECL|method|JsonPathExpression ()
 specifier|public
 name|JsonPathExpression
@@ -458,6 +465,33 @@ operator|=
 name|writeAsString
 expr_stmt|;
 block|}
+DECL|method|getHeaderName ()
+specifier|public
+name|String
+name|getHeaderName
+parameter_list|()
+block|{
+return|return
+name|headerName
+return|;
+block|}
+comment|/**      * Name of header to use as input, instead of the message body      */
+DECL|method|setHeaderName (String headerName)
+specifier|public
+name|void
+name|setHeaderName
+parameter_list|(
+name|String
+name|headerName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerName
+operator|=
+name|headerName
+expr_stmt|;
+block|}
 DECL|method|getLanguage ()
 specifier|public
 name|String
@@ -629,6 +663,23 @@ name|writeAsString
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|headerName
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|expression
+argument_list|,
+literal|"headerName"
+argument_list|,
+name|headerName
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|configureExpression
@@ -735,6 +786,23 @@ argument_list|,
 literal|"writeAsString"
 argument_list|,
 name|writeAsString
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|headerName
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|predicate
+argument_list|,
+literal|"headerName"
+argument_list|,
+name|headerName
 argument_list|)
 expr_stmt|;
 block|}
