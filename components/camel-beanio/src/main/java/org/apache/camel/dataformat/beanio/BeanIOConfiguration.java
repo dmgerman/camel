@@ -110,6 +110,11 @@ specifier|private
 name|String
 name|beanReaderErrorHandlerType
 decl_stmt|;
+DECL|field|unmarshalSingleObject
+specifier|private
+name|boolean
+name|unmarshalSingleObject
+decl_stmt|;
 DECL|method|getMapping ()
 specifier|public
 name|String
@@ -364,6 +369,32 @@ name|beanReaderErrorHandlerType
 operator|.
 name|getName
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|isUnmarshalSingleObject ()
+specifier|public
+name|boolean
+name|isUnmarshalSingleObject
+parameter_list|()
+block|{
+return|return
+name|unmarshalSingleObject
+return|;
+block|}
+DECL|method|setUnmarshalSingleObject (boolean unmarshalSingleObject)
+specifier|public
+name|void
+name|setUnmarshalSingleObject
+parameter_list|(
+name|boolean
+name|unmarshalSingleObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|unmarshalSingleObject
+operator|=
+name|unmarshalSingleObject
 expr_stmt|;
 block|}
 block|}

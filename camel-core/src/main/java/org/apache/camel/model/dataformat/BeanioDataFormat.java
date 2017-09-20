@@ -228,6 +228,13 @@ specifier|private
 name|String
 name|beanReaderErrorHandlerType
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|unmarshalSingleObject
+specifier|private
+name|Boolean
+name|unmarshalSingleObject
+decl_stmt|;
 DECL|method|BeanioDataFormat ()
 specifier|public
 name|BeanioDataFormat
@@ -367,6 +374,25 @@ argument_list|,
 literal|"beanReaderErrorHandlerType"
 argument_list|,
 name|beanReaderErrorHandlerType
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|unmarshalSingleObject
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"unmarshalSingleObject"
+argument_list|,
+name|unmarshalSingleObject
 argument_list|)
 expr_stmt|;
 block|}
@@ -558,6 +584,33 @@ operator|.
 name|beanReaderErrorHandlerType
 operator|=
 name|beanReaderErrorHandlerType
+expr_stmt|;
+block|}
+DECL|method|getUnmarshalSingleObject ()
+specifier|public
+name|Boolean
+name|getUnmarshalSingleObject
+parameter_list|()
+block|{
+return|return
+name|unmarshalSingleObject
+return|;
+block|}
+comment|/**      * This options controls whether to unmarshal as a list of objects or as a single object only. The former is the default mode, and the latter      * is only intended in special use-cases where beanio maps the Camel message to a single POJO bean.      */
+DECL|method|setUnmarshalSingleObject (Boolean unmarshalSingleObject)
+specifier|public
+name|void
+name|setUnmarshalSingleObject
+parameter_list|(
+name|Boolean
+name|unmarshalSingleObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|unmarshalSingleObject
+operator|=
+name|unmarshalSingleObject
 expr_stmt|;
 block|}
 block|}

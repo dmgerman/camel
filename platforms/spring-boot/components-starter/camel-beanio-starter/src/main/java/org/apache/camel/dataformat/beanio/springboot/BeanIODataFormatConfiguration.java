@@ -134,6 +134,14 @@ specifier|private
 name|String
 name|beanReaderErrorHandlerType
 decl_stmt|;
+comment|/**      * This options controls whether to unmarshal as a list of objects or as a      * single object only. The former is the default mode and the latter is only      * intended in special use-cases where beanio maps the Camel message to a      * single POJO bean.      */
+DECL|field|unmarshalSingleObject
+specifier|private
+name|Boolean
+name|unmarshalSingleObject
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -322,6 +330,32 @@ operator|.
 name|beanReaderErrorHandlerType
 operator|=
 name|beanReaderErrorHandlerType
+expr_stmt|;
+block|}
+DECL|method|getUnmarshalSingleObject ()
+specifier|public
+name|Boolean
+name|getUnmarshalSingleObject
+parameter_list|()
+block|{
+return|return
+name|unmarshalSingleObject
+return|;
+block|}
+DECL|method|setUnmarshalSingleObject (Boolean unmarshalSingleObject)
+specifier|public
+name|void
+name|setUnmarshalSingleObject
+parameter_list|(
+name|Boolean
+name|unmarshalSingleObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|unmarshalSingleObject
+operator|=
+name|unmarshalSingleObject
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()
