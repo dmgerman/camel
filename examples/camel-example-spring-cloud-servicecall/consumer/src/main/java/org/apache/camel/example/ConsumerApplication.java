@@ -149,6 +149,11 @@ argument_list|(
 literal|null
 argument_list|)
 operator|.
+name|removeHeaders
+argument_list|(
+literal|"CamelHttp*"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"log:service-call?level=INFO&showAll=true&multiline=true"
@@ -175,6 +180,18 @@ argument_list|(
 literal|"service-1"
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"service-1 : ${body}"
+argument_list|)
+operator|.
 name|when
 argument_list|(
 name|header
@@ -191,6 +208,18 @@ operator|.
 name|serviceCall
 argument_list|(
 literal|"service-2"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"service-1 : ${body}"
 argument_list|)
 expr_stmt|;
 block|}
