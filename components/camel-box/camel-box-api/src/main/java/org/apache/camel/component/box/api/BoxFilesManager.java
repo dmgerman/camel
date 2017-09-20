@@ -811,10 +811,6 @@ condition|(
 name|fileSize
 operator|!=
 literal|null
-operator|&&
-name|listener
-operator|!=
-literal|null
 condition|)
 block|{
 name|file
@@ -840,6 +836,10 @@ argument_list|(
 name|fileContent
 argument_list|,
 name|modified
+argument_list|,
+literal|0
+argument_list|,
+name|listener
 argument_list|)
 expr_stmt|;
 block|}
