@@ -498,7 +498,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultConnectorComponent (String componentName, Class<?> className)
+DECL|method|DefaultConnectorComponent (String componentName, Class<?> componentClass)
 specifier|protected
 name|DefaultConnectorComponent
 parameter_list|(
@@ -509,7 +509,7 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|className
+name|componentClass
 parameter_list|)
 block|{
 name|this
@@ -521,7 +521,7 @@ name|ConnectorModel
 argument_list|(
 name|componentName
 argument_list|,
-name|className
+name|componentClass
 argument_list|)
 expr_stmt|;
 name|this
@@ -567,7 +567,7 @@ name|addComponent
 argument_list|(
 name|componentName
 argument_list|,
-name|className
+name|componentClass
 operator|.
 name|getName
 argument_list|()
