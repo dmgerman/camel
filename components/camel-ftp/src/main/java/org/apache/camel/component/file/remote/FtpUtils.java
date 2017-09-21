@@ -138,6 +138,63 @@ specifier|private
 name|FtpUtils
 parameter_list|()
 block|{     }
+DECL|method|extractDirNameFromAbsolutePath (String path)
+specifier|public
+specifier|static
+name|String
+name|extractDirNameFromAbsolutePath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+comment|// default is unix so try with '/'
+comment|// otherwise force File.separator
+if|if
+condition|(
+name|path
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+operator|||
+name|path
+operator|.
+name|endsWith
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+condition|)
+block|{
+name|path
+operator|=
+name|path
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|path
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|FileUtil
+operator|.
+name|stripPath
+argument_list|(
+name|path
+argument_list|)
+return|;
+block|}
 comment|/**      * Compacts a path by stacking it and reducing<tt>..</tt>,      * and uses OS specific file separators (eg {@link java.io.File#separator}).      *<p/>      *<b>Important:</b> This implementation works for the camel-ftp component      * for various FTP clients and FTP servers using different platforms and whatnot.      * This implementation has been working for many Camel releases, and is included here      * to restore patch compatibility with the Camel releases.      */
 DECL|method|compactPath (String path)
 specifier|public

@@ -121,6 +121,18 @@ specifier|private
 name|String
 name|chmod
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|handleDirectoryParserAbsoluteResult
+specifier|private
+name|boolean
+name|handleDirectoryParserAbsoluteResult
+decl_stmt|;
 DECL|method|FtpConfiguration ()
 specifier|public
 name|FtpConfiguration
@@ -240,6 +252,33 @@ block|{
 return|return
 name|chmod
 return|;
+block|}
+DECL|method|isHandleDirectoryParserAbsoluteResult ()
+specifier|public
+name|boolean
+name|isHandleDirectoryParserAbsoluteResult
+parameter_list|()
+block|{
+return|return
+name|handleDirectoryParserAbsoluteResult
+return|;
+block|}
+comment|/**      * Allows you to set how the consumer will handle subfolders and files      * in the path if the directory parser results in with absolute paths      * The reason for this is that some FTP servers may return file names       * with absolute paths, and if so then the FTP component needs to handle      * this by converting the returned path into a relative path.      */
+DECL|method|setHandleDirectoryParserAbsoluteResult (boolean handleDirectoryParserAbsoluteResult)
+specifier|public
+name|void
+name|setHandleDirectoryParserAbsoluteResult
+parameter_list|(
+name|boolean
+name|handleDirectoryParserAbsoluteResult
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handleDirectoryParserAbsoluteResult
+operator|=
+name|handleDirectoryParserAbsoluteResult
+expr_stmt|;
 block|}
 block|}
 end_class
