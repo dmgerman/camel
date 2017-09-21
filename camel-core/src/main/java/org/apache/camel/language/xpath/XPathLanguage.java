@@ -128,6 +128,11 @@ specifier|private
 name|String
 name|objectModelUri
 decl_stmt|;
+DECL|field|threadSafety
+specifier|private
+name|Boolean
+name|threadSafety
+decl_stmt|;
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -316,6 +321,32 @@ operator|=
 name|objectModelUri
 expr_stmt|;
 block|}
+DECL|method|getThreadSafety ()
+specifier|public
+name|Boolean
+name|getThreadSafety
+parameter_list|()
+block|{
+return|return
+name|threadSafety
+return|;
+block|}
+DECL|method|setThreadSafety (Boolean threadSafety)
+specifier|public
+name|void
+name|setThreadSafety
+parameter_list|(
+name|Boolean
+name|threadSafety
+parameter_list|)
+block|{
+name|this
+operator|.
+name|threadSafety
+operator|=
+name|threadSafety
+expr_stmt|;
+block|}
 DECL|method|configureBuilder (XPathBuilder builder)
 specifier|protected
 name|void
@@ -325,6 +356,21 @@ name|XPathBuilder
 name|builder
 parameter_list|)
 block|{
+if|if
+condition|(
+name|threadSafety
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|setThreadSafety
+argument_list|(
+name|threadSafety
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|resultType
