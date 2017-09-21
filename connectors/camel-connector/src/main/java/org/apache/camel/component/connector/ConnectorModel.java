@@ -449,14 +449,17 @@ name|String
 argument_list|>
 name|connectorOptions
 decl_stmt|;
-DECL|method|ConnectorModel (String componentName, String className)
+DECL|method|ConnectorModel (String componentName, Class<?> componentClass)
 name|ConnectorModel
 parameter_list|(
 name|String
 name|componentName
 parameter_list|,
-name|String
-name|className
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|componentClass
 parameter_list|)
 block|{
 name|this
@@ -469,7 +472,10 @@ name|this
 operator|.
 name|className
 operator|=
-name|className
+name|componentClass
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -482,7 +488,9 @@ argument_list|(
 parameter_list|()
 lambda|->
 name|findCamelConnectorJSonSchema
-argument_list|()
+argument_list|(
+name|componentClass
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -933,14 +941,20 @@ block|}
 comment|// ***************************************
 comment|// Helpers
 comment|// ***************************************
-DECL|method|findCamelConnectorJSonSchema ()
+DECL|method|findCamelConnectorJSonSchema (Class<?> componentClass)
 specifier|private
 name|List
 argument_list|<
 name|String
 argument_list|>
 name|findCamelConnectorJSonSchema
-parameter_list|()
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|componentClass
+parameter_list|)
 block|{
 name|LOGGER
 operator|.
@@ -961,9 +975,7 @@ try|try
 block|{
 name|urls
 operator|=
-name|ConnectorModel
-operator|.
-name|class
+name|componentClass
 operator|.
 name|getClassLoader
 argument_list|()
