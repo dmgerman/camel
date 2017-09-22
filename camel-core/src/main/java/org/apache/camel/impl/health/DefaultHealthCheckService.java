@@ -1304,7 +1304,7 @@ block|{
 return|return
 name|LockHelper
 operator|.
-name|suppliWithWriteLock
+name|supplyWithWriteLock
 argument_list|(
 name|lock
 argument_list|,

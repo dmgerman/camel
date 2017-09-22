@@ -239,14 +239,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|suppliWithReadLock (StampedLock lock, Supplier<R> task)
+DECL|method|supplyWithReadLock (StampedLock lock, Supplier<R> task)
 specifier|public
 specifier|static
 parameter_list|<
 name|R
 parameter_list|>
 name|R
-name|suppliWithReadLock
+name|supplyWithReadLock
 parameter_list|(
 name|StampedLock
 name|lock
@@ -286,7 +286,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|suppliWithReadLockT (StampedLock lock, ThrowingSupplier<R, T> task)
+DECL|method|supplyWithReadLockT (StampedLock lock, ThrowingSupplier<R, T> task)
 specifier|public
 specifier|static
 parameter_list|<
@@ -297,7 +297,7 @@ extends|extends
 name|Throwable
 parameter_list|>
 name|R
-name|suppliWithReadLockT
+name|supplyWithReadLockT
 parameter_list|(
 name|StampedLock
 name|lock
@@ -430,14 +430,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|suppliWithWriteLock (StampedLock lock, Supplier<R> task)
+DECL|method|supplyWithWriteLock (StampedLock lock, Supplier<R> task)
 specifier|public
 specifier|static
 parameter_list|<
 name|R
 parameter_list|>
 name|R
-name|suppliWithWriteLock
+name|supplyWithWriteLock
 parameter_list|(
 name|StampedLock
 name|lock
@@ -527,7 +527,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|suppliWithWriteLockT (StampedLock lock, ThrowingSupplier<R, T> task)
+DECL|method|supplyWithWriteLockT (StampedLock lock, ThrowingSupplier<R, T> task)
 specifier|public
 specifier|static
 parameter_list|<
@@ -538,7 +538,7 @@ extends|extends
 name|Throwable
 parameter_list|>
 name|R
-name|suppliWithWriteLockT
+name|supplyWithWriteLockT
 parameter_list|(
 name|StampedLock
 name|lock

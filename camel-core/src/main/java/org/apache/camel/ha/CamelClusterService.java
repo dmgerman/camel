@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -66,7 +76,7 @@ name|CamelContextAware
 extends|,
 name|IdAware
 block|{
-comment|/**      * Get a view of the cluster bound to a namespace creating it if needed.      *      * Multiple calls to this method with the same namespace should return the      * same instance.      *      * @param namespace the namespace the view refer to.      * @return the view.      * @throws Exception if the view can't be created.      */
+comment|/**      * Get a view of the cluster bound to a namespace creating it if needed. Multiple      * calls to this method with the same namespace should return the same instance.      * The instance is automatically started the first time it is instantiated and      * if the cluster service is ready.      *      * @param namespace the namespace the view refer to.      * @return the view.      * @throws Exception if the view can't be created.      */
 DECL|method|getView (String namespace)
 name|CamelClusterView
 name|getView
@@ -84,6 +94,37 @@ name|releaseView
 parameter_list|(
 name|CamelClusterView
 name|view
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Return the namespaces handled by this service.      */
+DECL|method|getNamespaces ()
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|getNamespaces
+parameter_list|()
+function_decl|;
+comment|/**      * Force start of the view associated to the give namespace.      */
+DECL|method|startView (String namespace)
+name|void
+name|startView
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Force stop of the view associated to the give namespace.      */
+DECL|method|stopView (String namespace)
+name|void
+name|stopView
+parameter_list|(
+name|String
+name|namespace
 parameter_list|)
 throws|throws
 name|Exception
