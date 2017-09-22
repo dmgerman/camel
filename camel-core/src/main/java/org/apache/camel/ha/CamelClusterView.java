@@ -133,6 +133,8 @@ DECL|method|unwrap (Class<T> clazz)
 specifier|default
 parameter_list|<
 name|T
+extends|extends
+name|CamelClusterView
 parameter_list|>
 name|T
 name|unwrap

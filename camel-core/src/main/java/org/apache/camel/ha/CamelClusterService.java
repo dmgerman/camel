@@ -77,11 +77,24 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Release a view if it has no references.      *      * @param view the view.      * @throws Exception      */
+DECL|method|releaseView (CamelClusterView view)
+name|void
+name|releaseView
+parameter_list|(
+name|CamelClusterView
+name|view
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Access the underlying concrete CamelClusterService implementation to      * provide access to further features.      *      * @param clazz the proprietary class or interface of the underlying concrete CamelClusterService.      * @return an instance of the underlying concrete CamelClusterService as the required type.      */
 DECL|method|unwrap (Class<T> clazz)
 specifier|default
 parameter_list|<
 name|T
+extends|extends
+name|CamelClusterService
 parameter_list|>
 name|T
 name|unwrap

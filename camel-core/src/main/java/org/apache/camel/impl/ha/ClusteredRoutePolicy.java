@@ -590,6 +590,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+try|try
+block|{
+comment|// Remove event listener
 name|clusterView
 operator|.
 name|removeEventListener
@@ -597,11 +600,41 @@ argument_list|(
 name|leadershipEventListener
 argument_list|)
 expr_stmt|;
+comment|// If all the routes have been shut down then the view and its
+comment|// resources can eventually be released.
+name|clusterView
+operator|.
+name|getClusterService
+argument_list|()
+operator|.
+name|releaseView
+argument_list|(
+name|clusterView
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+finally|finally
+block|{
 name|setLeader
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
