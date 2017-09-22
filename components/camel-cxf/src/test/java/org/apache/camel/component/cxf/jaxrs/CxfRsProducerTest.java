@@ -545,11 +545,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|setupDestinationURL
-argument_list|(
-name|inMessage
-argument_list|)
-expr_stmt|;
 comment|// set the operation name
 name|inMessage
 operator|.
@@ -637,29 +632,24 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
+literal|123
+argument_list|,
 name|response
 operator|.
 name|getId
 argument_list|()
-argument_list|)
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"John"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"John"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -748,11 +738,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|setupDestinationURL
-argument_list|(
-name|inMessage
-argument_list|)
-expr_stmt|;
 comment|// set the operation name
 name|inMessage
 operator|.
@@ -930,11 +915,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|setupDestinationURL
-argument_list|(
-name|inMessage
-argument_list|)
-expr_stmt|;
 comment|// using the http central client API
 name|inMessage
 operator|.
@@ -1035,29 +1015,24 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
+literal|123
+argument_list|,
 name|response
 operator|.
 name|getId
 argument_list|()
-argument_list|)
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"John"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"John"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1239,6 +1214,8 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong http status code."
 argument_list|,
+literal|406
+argument_list|,
 name|result
 operator|.
 name|getHeader
@@ -1247,8 +1224,6 @@ name|Exchange
 operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|)
-argument_list|,
-literal|406
 argument_list|)
 expr_stmt|;
 block|}
@@ -1542,29 +1517,24 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
+literal|123
+argument_list|,
 name|response
 operator|.
 name|getId
 argument_list|()
-argument_list|)
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"John"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"John"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1741,29 +1711,24 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
+literal|123
+argument_list|,
 name|response
 operator|.
 name|getId
 argument_list|()
-argument_list|)
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"John"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"John"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2018,11 +1983,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|setupDestinationURL
-argument_list|(
-name|inMessage
-argument_list|)
-expr_stmt|;
 comment|// set the operation name
 name|inMessage
 operator|.
@@ -2319,12 +2279,12 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"Willem"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"Willem"
 argument_list|)
 expr_stmt|;
 name|assertEquals

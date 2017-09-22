@@ -663,29 +663,24 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
+literal|123
+argument_list|,
 name|response
 operator|.
 name|getId
 argument_list|()
-argument_list|)
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"John"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"John"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1231,29 +1226,24 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
+literal|123
+argument_list|,
 name|response
 operator|.
 name|getId
 argument_list|()
-argument_list|)
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"John"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"John"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1422,6 +1412,8 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong http status code."
 argument_list|,
+literal|406
+argument_list|,
 name|result
 operator|.
 name|getHeader
@@ -1430,8 +1422,6 @@ name|Exchange
 operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|)
-argument_list|,
-literal|406
 argument_list|)
 expr_stmt|;
 block|}
@@ -1701,29 +1691,24 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
+literal|123
+argument_list|,
 name|response
 operator|.
 name|getId
 argument_list|()
-argument_list|)
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"John"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"John"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1900,17 +1885,12 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer id "
 argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
+literal|123
+argument_list|,
 name|response
 operator|.
 name|getId
 argument_list|()
-argument_list|)
-argument_list|,
-literal|"123"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -1920,12 +1900,12 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"John"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"John"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -2475,12 +2455,12 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong customer name"
 argument_list|,
+literal|"Willem"
+argument_list|,
 name|response
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|"Willem"
 argument_list|)
 expr_stmt|;
 name|assertEquals
