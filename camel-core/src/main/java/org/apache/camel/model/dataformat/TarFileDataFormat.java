@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TAR file data format  */
+comment|/**  * The Tar File data format is a message compression and de-compression format of tar files.  */
 end_comment
 
 begin_class

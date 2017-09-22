@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PGP data format  */
+comment|/**  * PGP data format is used for encrypting and decrypting of messages using Java Cryptographic Extension and PGP.  */
 end_comment
 
 begin_class

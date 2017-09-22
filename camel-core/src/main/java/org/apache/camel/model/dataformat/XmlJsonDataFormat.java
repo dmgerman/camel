@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XML-JSon data format  *  * @version   */
+comment|/**  * XML JSon data format can convert from XML to JSON and vice-versa directly, without stepping through intermediate POJOs.  *  * @version   */
 end_comment
 
 begin_class

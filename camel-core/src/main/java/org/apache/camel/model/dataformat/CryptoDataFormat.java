@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Crypto data format  *  * @version  */
+comment|/**  * Crypto data format is used for encrypting and decrypting of messages using Java Cryptographic Extension.  *  * @version  */
 end_comment
 
 begin_class

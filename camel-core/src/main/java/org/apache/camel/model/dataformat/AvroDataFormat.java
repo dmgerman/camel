@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Avro data format  *  * @version   */
+comment|/**  * The Avro data format is used for serialization and deserialization of messages using Apache Avro binary dataformat.  *  * @version   */
 end_comment
 
 begin_class

@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Boon data format  */
+comment|/**  * Boon data format is used for unmarshal a JSon payload to POJO or to marshal POJO back to JSon payload.  */
 end_comment
 
 begin_class

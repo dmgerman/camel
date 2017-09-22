@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JiBX data format  */
+comment|/**  * JiBX data format is used for unmarshal a XML payload to POJO or to marshal POJO back to XML payload.  */
 end_comment
 
 begin_class

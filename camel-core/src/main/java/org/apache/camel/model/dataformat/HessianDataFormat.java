@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Hessian data format  */
+comment|/**  * Hessian data format is used for marshalling and unmarshalling messages using Cauchoâs Hessian format.  */
 end_comment
 
 begin_class
@@ -122,6 +122,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|HessianDataFormat
 specifier|public
 class|class

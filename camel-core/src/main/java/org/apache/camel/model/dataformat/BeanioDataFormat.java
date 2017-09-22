@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BeanIO data format  *  * @version   */
+comment|/**  * The BeanIO data format is used for working with flat payloads (such as CSV, delimited, or fixed length formats).  *  * @version   */
 end_comment
 
 begin_class

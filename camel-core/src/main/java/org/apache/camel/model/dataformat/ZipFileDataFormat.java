@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Zip-file data format  */
+comment|/**  * The Zip File data format is a message compression and de-compression format of zip files.  */
 end_comment
 
 begin_class

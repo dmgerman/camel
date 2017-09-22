@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Java Object Serialization data format  *  * @version   */
+comment|/**  * Serialization is a data format which uses the standard Java Serialization mechanism  * to unmarshal a binary payload into Java objects or to marshal Java objects into a binary blob.  *  * @version   */
 end_comment
 
 begin_class

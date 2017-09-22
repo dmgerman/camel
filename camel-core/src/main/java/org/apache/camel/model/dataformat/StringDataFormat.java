@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * String (text based) data format  *  * @version   */
+comment|/**  * String data format is a textual based format that supports character encoding.  *  * @version   */
 end_comment
 
 begin_class

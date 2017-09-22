@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XML-RPC data format  */
+comment|/**  * The XML RPC data format is used for working with the XML RPC protocol.  */
 end_comment
 
 begin_class

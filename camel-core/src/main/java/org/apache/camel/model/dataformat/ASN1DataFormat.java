@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ASN.1 data format  */
+comment|/**  * The ASN.1 data format is used for file transfer with telecommunications protocols.  */
 end_comment
 
 begin_class

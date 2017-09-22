@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XML-Security data format  */
+comment|/**  * The XML Security data format facilitates encryption and decryption of XML payloads.  */
 end_comment
 
 begin_class

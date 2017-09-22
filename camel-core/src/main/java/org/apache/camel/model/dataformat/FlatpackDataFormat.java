@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Flatpack data format  */
+comment|/**  * The Flatpack data format is used for working with flat payloads (such as CSV, delimited, or fixed length formats).  */
 end_comment
 
 begin_class

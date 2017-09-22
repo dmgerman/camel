@@ -321,7 +321,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XStream data format  *  * @version   */
+comment|/**  * XSTream data format is used for unmarshal a XML payload to POJO or to marshal POJO back to XML payload.  *  * @version   */
 end_comment
 
 begin_class

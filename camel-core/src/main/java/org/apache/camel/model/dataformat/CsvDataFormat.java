@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CSV data format  */
+comment|/**  * The CSV data format is used for handling CSV payloads.  */
 end_comment
 
 begin_class

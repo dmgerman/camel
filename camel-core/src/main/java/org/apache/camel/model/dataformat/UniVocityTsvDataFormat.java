@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * UniVocity TSV data format  */
+comment|/**  * The uniVocity TSV data format is used for working with TSV (Tabular Separated Values) flat payloads.  */
 end_comment
 
 begin_class

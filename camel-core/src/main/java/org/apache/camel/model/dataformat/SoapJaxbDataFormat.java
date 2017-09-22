@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SOAP data format  */
+comment|/**  * SOAP is a data format which uses JAXB2 and JAX-WS annotations to marshal and unmarshal SOAP payloads.  */
 end_comment
 
 begin_class

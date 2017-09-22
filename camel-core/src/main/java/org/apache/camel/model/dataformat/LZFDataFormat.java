@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LZF compression data format  */
+comment|/**  * The LZF data format is a message compression and de-compression format (uses the LZF deflate algorithm).  */
 end_comment
 
 begin_class

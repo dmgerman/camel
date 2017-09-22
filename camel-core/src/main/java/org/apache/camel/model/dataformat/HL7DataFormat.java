@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * HL7 data format  *  * @version   */
+comment|/**  * The HL7 data format can be used to marshal or unmarshal HL7 (Health Care) model objects.  *  * @version   */
 end_comment
 
 begin_class

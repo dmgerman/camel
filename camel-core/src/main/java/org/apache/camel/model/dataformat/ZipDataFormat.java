@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Zip compression data format (not for zip files)  */
+comment|/**  * Zip Deflate Compression data format is a message compression and de-compression format (not zip files).  */
 end_comment
 
 begin_class

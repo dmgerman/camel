@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tidymark (wellformed HTML) data format  */
+comment|/**  * TidyMarkup data format is used for parsing HTML and return it as pretty well-formed HTML.  */
 end_comment
 
 begin_class

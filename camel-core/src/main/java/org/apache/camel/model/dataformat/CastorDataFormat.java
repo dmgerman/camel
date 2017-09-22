@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Castor data format  *  * @version   */
+comment|/**  * Castor data format is used for unmarshal a XML payload to POJO or to marshal POJO back to XML payload.  *  * @version   */
 end_comment
 
 begin_class

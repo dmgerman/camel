@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * iCal data format  *  * @version   */
+comment|/**  * The iCal dataformat is used for working with iCalendar messages.  */
 end_comment
 
 begin_class
