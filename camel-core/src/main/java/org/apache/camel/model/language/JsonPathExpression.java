@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For JSonPath expressions and predicates  *  * @version   */
+comment|/**  * To use JSonPath in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

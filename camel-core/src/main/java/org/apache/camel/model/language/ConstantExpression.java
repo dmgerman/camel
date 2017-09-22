@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using a constant  */
+comment|/**  * To use a constant value in Camel expressions or predicates.  */
 end_comment
 
 begin_class

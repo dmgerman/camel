@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For OGNL expressions and predicates  *  * @version   */
+comment|/**  * To use OGNL scripts in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

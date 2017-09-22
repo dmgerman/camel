@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For Ruby expressions and predicates  *  * @version   */
+comment|/**  * To use Ruby scripts in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For XPath expressions and predicates  */
+comment|/**  * To use XPath (XML) in Camel expressions or predicates.  */
 end_comment
 
 begin_class
@@ -265,6 +265,13 @@ name|saxon
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|factoryRef
 specifier|private
 name|String
@@ -272,6 +279,13 @@ name|factoryRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|objectModel
 specifier|private
 name|String
@@ -320,6 +334,13 @@ name|xpathFactory
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|threadSafety
 specifier|private
 name|Boolean

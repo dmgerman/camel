@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For JavaScript expressions and predicates  *  * @version   */
+comment|/**  * To use JavaScript in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

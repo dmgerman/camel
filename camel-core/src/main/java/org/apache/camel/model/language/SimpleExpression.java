@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using the simple language  *  * @version   */
+comment|/**  * To use Camels built-in Simple language in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

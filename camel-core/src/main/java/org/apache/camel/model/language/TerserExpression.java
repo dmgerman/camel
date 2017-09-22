@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For HL7 terser expressions and predicates  *  * @version   */
+comment|/**  * To use HL7 terser scripts in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

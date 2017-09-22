@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An expression which extracts the named exchange header  *  * @version   */
+comment|/**  * To use a Camel Message header in expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

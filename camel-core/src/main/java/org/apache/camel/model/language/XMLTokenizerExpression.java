@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using a body or header XML tokenizer  *  * @see XMLTokenizeLanguage  */
+comment|/**  * To use Camel message body or header with a XML tokenizer in Camel expressions or predicates.  *  * @see XMLTokenizeLanguage  */
 end_comment
 
 begin_class

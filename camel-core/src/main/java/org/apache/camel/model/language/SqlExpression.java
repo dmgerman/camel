@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For SQL expressions and predicates  *  * @version   */
+comment|/**  * To use SQL (on Java beans) in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

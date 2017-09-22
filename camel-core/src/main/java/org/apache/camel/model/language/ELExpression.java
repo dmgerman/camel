@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For EL expressions and predicates  *  * @version   */
+comment|/**  * To use EL scripts in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

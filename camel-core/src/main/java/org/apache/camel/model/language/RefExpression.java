@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For using a custom expression or predicate  */
+comment|/**  * Reference to an existing Camel expression or predicate, which is looked up from the Camel registry.  */
 end_comment
 
 begin_class

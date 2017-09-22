@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a parameterised language expression which can support any language  * at runtime using the language attribute.  *  * @version   */
+comment|/**  * To use the specified language in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class

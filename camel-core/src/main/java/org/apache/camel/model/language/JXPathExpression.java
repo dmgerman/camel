@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For JXPath expressions and predicates  *  * @version   */
+comment|/**  * To use JXPath in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class
@@ -169,6 +169,13 @@ name|ExpressionDefinition
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|lenient
 specifier|private
 name|Boolean
