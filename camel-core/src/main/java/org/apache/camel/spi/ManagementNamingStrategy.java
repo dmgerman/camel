@@ -168,6 +168,20 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ha
+operator|.
+name|CamelClusterService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Strategy for computing {@link ObjectName} names for the various beans that Camel register for management.  *  * @version   */
 end_comment
@@ -347,6 +361,19 @@ name|CamelContext
 name|context
 parameter_list|,
 name|Service
+name|service
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
+DECL|method|getObjectNameForClusterService (CamelContext context, CamelClusterService service)
+name|ObjectName
+name|getObjectNameForClusterService
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|CamelClusterService
 name|service
 parameter_list|)
 throws|throws
