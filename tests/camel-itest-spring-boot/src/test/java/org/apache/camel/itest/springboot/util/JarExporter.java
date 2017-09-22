@@ -126,14 +126,7 @@ argument_list|()
 operator|.
 name|module
 argument_list|(
-literal|"camel-cache"
-argument_list|)
-operator|.
-name|resource
-argument_list|(
-literal|"components/cache-ehcache.xml"
-argument_list|,
-literal|"ehcache.xml"
+literal|"camel-ahc"
 argument_list|)
 operator|.
 name|build

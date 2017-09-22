@@ -2151,6 +2151,13 @@ name|ignore
 operator|.
 name|add
 argument_list|(
+literal|"io.netty:netty-tcnative-boringssl-static"
+argument_list|)
+expr_stmt|;
+name|ignore
+operator|.
+name|add
+argument_list|(
 literal|"io.swagger:swagger-parser"
 argument_list|)
 expr_stmt|;
@@ -2290,6 +2297,14 @@ literal|"net.sourceforge.htmlunit:htmlunit-core-js"
 argument_list|)
 expr_stmt|;
 comment|// v 2.21 does not exist
+name|ignore
+operator|.
+name|add
+argument_list|(
+literal|"org.springframework.cloud"
+argument_list|)
+expr_stmt|;
+comment|// too many different versions
 name|ignore
 operator|.
 name|add
