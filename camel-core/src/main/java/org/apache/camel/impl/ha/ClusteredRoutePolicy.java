@@ -54,6 +54,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -1308,7 +1318,7 @@ name|Leadership
 block|{
 annotation|@
 name|Override
-DECL|method|leadershipChanged (CamelClusterView view, CamelClusterMember leader)
+DECL|method|leadershipChanged (CamelClusterView view, Optional<CamelClusterMember> leader)
 specifier|public
 name|void
 name|leadershipChanged
@@ -1316,7 +1326,10 @@ parameter_list|(
 name|CamelClusterView
 name|view
 parameter_list|,
+name|Optional
+argument_list|<
 name|CamelClusterMember
+argument_list|>
 name|leader
 parameter_list|)
 block|{

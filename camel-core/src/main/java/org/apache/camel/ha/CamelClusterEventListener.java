@@ -16,6 +16,16 @@ name|ha
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Marker interface for cluster events  */
 end_comment
@@ -32,15 +42,18 @@ name|Leadership
 extends|extends
 name|CamelClusterEventListener
 block|{
-comment|/**          * Notify a change in the leadership for a particular cluster.          *          * @param view the cluster view          * @param leader the new leader or null (when there are no active leaders)          */
-DECL|method|leadershipChanged (CamelClusterView view, CamelClusterMember leader)
+comment|/**          * Notify a change in the leadership for a particular cluster.          *          * @param view the cluster view          * @param leader the optional new leader          */
+DECL|method|leadershipChanged (CamelClusterView view, Optional<CamelClusterMember> leader)
 name|void
 name|leadershipChanged
 parameter_list|(
 name|CamelClusterView
 name|view
 parameter_list|,
+name|Optional
+argument_list|<
 name|CamelClusterMember
+argument_list|>
 name|leader
 parameter_list|)
 function_decl|;

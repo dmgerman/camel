@@ -127,7 +127,7 @@ name|configMapName
 init|=
 name|DEFAULT_CONFIGMAP_NAME
 decl_stmt|;
-comment|/**      * Name of the lock group (or namespace according to the Camel cluster convention) within the chosen ConfgMap.      */
+comment|/**      * Name of the lock group (or namespace according to the Camel cluster convention) within the chosen ConfigMap.      */
 DECL|field|groupName
 specifier|private
 name|String

@@ -80,7 +80,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.clustered.service.atomix"
+literal|"camel.component.atomix.cluster.service"
 argument_list|)
 DECL|class|AtomixClusterServiceConfiguration
 specifier|public

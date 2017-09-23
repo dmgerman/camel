@@ -259,7 +259,7 @@ name|ConditionalOnProperty
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.clustered.service.zookeeper"
+literal|"camel.component.zookeeper.cluster.service"
 argument_list|,
 name|name
 operator|=

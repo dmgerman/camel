@@ -68,6 +68,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
@@ -215,7 +225,7 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|leadershipChanged (CamelClusterView view, CamelClusterMember leader)
+DECL|method|leadershipChanged (CamelClusterView view, Optional<CamelClusterMember> leader)
 specifier|public
 name|void
 name|leadershipChanged
@@ -223,7 +233,10 @@ parameter_list|(
 name|CamelClusterView
 name|view
 parameter_list|,
+name|Optional
+argument_list|<
 name|CamelClusterMember
+argument_list|>
 name|leader
 parameter_list|)
 block|{
@@ -251,15 +264,18 @@ operator|new
 name|LeadershipInfo
 argument_list|(
 name|leader
-operator|!=
-literal|null
-condition|?
-name|leader
 operator|.
+name|map
+argument_list|(
+name|CamelClusterMember
+operator|::
 name|getId
-argument_list|()
-else|:
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
 literal|null
+argument_list|)
 argument_list|,
 name|System
 operator|.

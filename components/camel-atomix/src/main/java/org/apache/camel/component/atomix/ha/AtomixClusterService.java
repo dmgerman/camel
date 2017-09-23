@@ -610,14 +610,14 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Shutdown atomix replica {}"
+literal|"Leaving atomix cluster replica {}"
 argument_list|,
 name|atomix
 argument_list|)
 expr_stmt|;
 name|atomix
 operator|.
-name|shutdown
+name|leave
 argument_list|()
 operator|.
 name|join

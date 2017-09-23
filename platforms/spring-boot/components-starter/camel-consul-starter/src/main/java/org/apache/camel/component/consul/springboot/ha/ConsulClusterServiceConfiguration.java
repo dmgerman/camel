@@ -62,7 +62,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.clustered.service.consul"
+literal|"camel.component.consul.cluster.service"
 argument_list|)
 DECL|class|ConsulClusterServiceConfiguration
 specifier|public

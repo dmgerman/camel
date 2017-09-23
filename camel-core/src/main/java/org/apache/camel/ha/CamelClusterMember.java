@@ -44,6 +44,12 @@ name|boolean
 name|isLeader
 parameter_list|()
 function_decl|;
+comment|/**      * @return true if this member is local.      */
+DECL|method|isLocal ()
+name|boolean
+name|isLocal
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

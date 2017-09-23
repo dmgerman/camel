@@ -44,6 +44,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|locks
@@ -455,12 +465,15 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|fireLeadershipChangedEvent (CamelClusterMember leader)
+DECL|method|fireLeadershipChangedEvent (Optional<CamelClusterMember> leader)
 specifier|protected
 name|void
 name|fireLeadershipChangedEvent
 parameter_list|(
+name|Optional
+argument_list|<
 name|CamelClusterMember
+argument_list|>
 name|leader
 parameter_list|)
 block|{
