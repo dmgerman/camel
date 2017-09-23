@@ -373,10 +373,10 @@ name|havingValue
 operator|=
 literal|"node"
 argument_list|)
-DECL|method|clusterNode ()
+DECL|method|atomixClusterService ()
 specifier|public
 name|CamelClusterService
-name|clusterNode
+name|atomixClusterService
 parameter_list|()
 block|{
 name|AtomixClusterService
@@ -535,10 +535,10 @@ name|havingValue
 operator|=
 literal|"client"
 argument_list|)
-DECL|method|clusterClient ()
+DECL|method|atomixClusterClientService ()
 specifier|public
 name|CamelClusterService
-name|clusterClient
+name|atomixClusterClientService
 parameter_list|()
 block|{
 name|AtomixClusterClientService
