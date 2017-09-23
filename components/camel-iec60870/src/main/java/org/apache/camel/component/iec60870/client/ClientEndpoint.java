@@ -128,6 +128,10 @@ name|UriEndpoint
 import|;
 end_import
 
+begin_comment
+comment|/**  * IEC 60870 component used for telecontrol (supervisory control and data acquisition)  * such as controlling electric power transmission grids and other geographically widespread control systems.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
