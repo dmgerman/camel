@@ -742,6 +742,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 name|path
 operator|=
@@ -797,6 +800,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 name|path
 operator|=
@@ -852,6 +858,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 return|return
 name|answer
