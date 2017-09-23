@@ -147,9 +147,15 @@ end_import
 begin_class
 DECL|class|AtomixClientClusteredRoutePolicyMain
 specifier|public
+specifier|final
 class|class
 name|AtomixClientClusteredRoutePolicyMain
 block|{
+DECL|method|AtomixClientClusteredRoutePolicyMain ()
+specifier|private
+name|AtomixClientClusteredRoutePolicyMain
+parameter_list|()
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

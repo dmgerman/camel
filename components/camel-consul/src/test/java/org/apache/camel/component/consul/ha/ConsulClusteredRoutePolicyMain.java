@@ -117,9 +117,15 @@ end_import
 begin_class
 DECL|class|ConsulClusteredRoutePolicyMain
 specifier|public
+specifier|final
 class|class
 name|ConsulClusteredRoutePolicyMain
 block|{
+DECL|method|ConsulClusteredRoutePolicyMain ()
+specifier|private
+name|ConsulClusteredRoutePolicyMain
+parameter_list|()
+block|{             }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

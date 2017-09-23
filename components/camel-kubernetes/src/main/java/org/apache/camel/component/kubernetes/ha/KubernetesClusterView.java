@@ -846,10 +846,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isMaster ()
+DECL|method|isLeader ()
 specifier|public
 name|boolean
-name|isMaster
+name|isLeader
 parameter_list|()
 block|{
 return|return

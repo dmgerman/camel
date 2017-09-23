@@ -129,6 +129,15 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Check if the service is the leader on the given namespace.      *      * @param namespace the namespace.      * @return      */
+DECL|method|isLeader (String namespace)
+name|boolean
+name|isLeader
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+function_decl|;
 comment|/**      * Access the underlying concrete CamelClusterService implementation to      * provide access to further features.      *      * @param clazz the proprietary class or interface of the underlying concrete CamelClusterService.      * @return an instance of the underlying concrete CamelClusterService as the required type.      */
 DECL|method|unwrap (Class<T> clazz)
 specifier|default

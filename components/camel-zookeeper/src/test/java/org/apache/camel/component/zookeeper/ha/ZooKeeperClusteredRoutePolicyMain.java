@@ -121,6 +121,11 @@ specifier|final
 class|class
 name|ZooKeeperClusteredRoutePolicyMain
 block|{
+DECL|method|ZooKeeperClusteredRoutePolicyMain ()
+specifier|private
+name|ZooKeeperClusteredRoutePolicyMain
+parameter_list|()
+block|{             }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

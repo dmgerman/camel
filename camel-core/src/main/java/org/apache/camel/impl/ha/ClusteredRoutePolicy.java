@@ -1289,7 +1289,7 @@ operator|.
 name|getLocalMember
 argument_list|()
 operator|.
-name|isMaster
+name|isLeader
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1327,7 +1327,7 @@ operator|.
 name|getLocalMember
 argument_list|()
 operator|.
-name|isMaster
+name|isLeader
 argument_list|()
 argument_list|)
 expr_stmt|;

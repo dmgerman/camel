@@ -39,9 +39,9 @@ extends|extends
 name|HasId
 block|{
 comment|/**      * @return true if this member is the master.      */
-DECL|method|isMaster ()
+DECL|method|isLeader ()
 name|boolean
-name|isMaster
+name|isLeader
 parameter_list|()
 function_decl|;
 block|}

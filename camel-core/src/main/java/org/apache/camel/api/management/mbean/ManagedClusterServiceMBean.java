@@ -169,6 +169,21 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"If the local view is leader"
+argument_list|)
+DECL|method|isLeader (String namespace)
+name|boolean
+name|isLeader
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
