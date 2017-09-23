@@ -24,16 +24,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStreamReader
 import|;
 end_import
@@ -145,6 +135,34 @@ operator|.
 name|impl
 operator|.
 name|DefaultProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -266,10 +284,6 @@ name|LdapConnection
 import|;
 end_import
 
-begin_comment
-comment|/**  * LDIF Producer. This is the main processor that reads LDIF data/URLs and  * executes them against an LdapConnection.  *  * @version $  */
-end_comment
-
 begin_class
 DECL|class|LdifProducer
 specifier|public
@@ -294,7 +308,6 @@ specifier|private
 name|String
 name|ldapConnectionName
 decl_stmt|;
-comment|/**      * @param endpoint      * @throws Exception      */
 DECL|method|LdifProducer (LdifEndpoint endpoint, String ldapConnectionName)
 specifier|public
 name|LdifProducer
@@ -320,7 +333,7 @@ operator|=
 name|ldapConnectionName
 expr_stmt|;
 block|}
-comment|/**      * Process the body. There are two options:      *<ol>      *<li>A String body that is the LDIF content. This needs to start with      * "version: 1".</li>      *<li>A String body that is a URL to ready the LDIF content from</li>      *</ol>      *      * @see org.apache.camel.impl.DefaultProducer#process(Exchange)      */
+comment|/**      * Process the body. There are two options:      *<ol>      *<li>A String body that is the LDIF content. This needs to start with      * "version: 1".</li>      *<li>A String body that is a URL to ready the LDIF content from</li>      *</ol>      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -369,13 +382,9 @@ expr_stmt|;
 comment|// If nothing to do, then return an empty body
 if|if
 condition|(
-literal|null
-operator|==
-name|body
-operator|||
-literal|""
+name|ObjectHelper
 operator|.
-name|equals
+name|isEmpty
 argument_list|(
 name|body
 argument_list|)
@@ -403,22 +412,13 @@ name|LDIF_HEADER
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"reading from LDIF body"
+literal|"Reading from LDIF body"
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|processLdif
@@ -435,8 +435,6 @@ else|else
 block|{
 name|URL
 name|loc
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -448,24 +446,15 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"reading from URL: "
-operator|+
+literal|"Reading from URL: {}"
+argument_list|,
 name|loc
 argument_list|)
 expr_stmt|;
-block|}
 name|result
 operator|=
 name|processLdif
@@ -557,7 +546,7 @@ name|ldapConnectionName
 argument_list|)
 return|;
 block|}
-comment|/**      * Process an LDIF file from a reader.      *      * @param ldifReader      * @return      */
+comment|/**      * Process an LDIF file from a reader.      */
 DECL|method|processLdif (Reader reader)
 specifier|private
 name|List
@@ -580,8 +569,6 @@ argument_list|()
 decl_stmt|;
 name|LdifReader
 name|ldifReader
-init|=
-literal|null
 decl_stmt|;
 name|List
 argument_list|<
@@ -646,78 +633,22 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Cleanup
-try|try
-block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
 name|conn
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"failed to close the LDAP connection"
 argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-try|try
-block|{
 name|ldifReader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"failed to close LDIF reader"
 argument_list|,
-name|e
+name|reader
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 return|return
 name|results
 return|;
 block|}
-comment|/**      * Figure out the change is and what to do about it.      *      * @param conn      * @param ldifEntry      * @return A success/failure message      */
+comment|/**      * Figure out the change is and what to do about it.      *      * @return A success/failure message      */
 DECL|method|processLdifEntry (LdapConnection conn, LdifEntry ldifEntry)
 specifier|private
 name|String
@@ -979,14 +910,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -994,7 +917,6 @@ argument_list|(
 literal|"ldif success"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|"success"
 return|;
@@ -1005,14 +927,6 @@ name|LdapException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -1022,7 +936,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|getRootCause
 argument_list|(
@@ -1031,7 +944,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Get the root cause of an exception      *      * @param e      * @return      */
+comment|/**      * Get the root cause of an exception      */
 DECL|method|getRootCause (LdapException e)
 specifier|private
 name|String

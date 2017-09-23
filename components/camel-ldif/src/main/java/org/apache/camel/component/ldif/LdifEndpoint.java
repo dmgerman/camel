@@ -72,18 +72,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -133,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The ldif component allows you to process an LDIF body content on an LDAP  * servers.  */
+comment|/**  * The ldif component allows you to do updates on an LDAP server from a LDIF body content.  */
 end_comment
 
 begin_class
@@ -142,7 +130,7 @@ name|UriEndpoint
 argument_list|(
 name|firstVersion
 operator|=
-literal|"1.0.0"
+literal|"2.20.0"
 argument_list|,
 name|scheme
 operator|=
@@ -162,7 +150,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"ldif"
+literal|"ldap"
 argument_list|)
 DECL|class|LdifEndpoint
 specifier|public
@@ -230,7 +218,7 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|UnsupportedOperationException
 argument_list|(
 literal|"An LDIF Consumer would be the LDAP server itself! No such support here"
 argument_list|)
@@ -278,7 +266,7 @@ return|return
 name|ldapConnectionName
 return|;
 block|}
-comment|/**      * The name of the LdapConnection bean to pull from the registry. Note that      * this must be of scope "prototype" to avoid it being shared among threads      * or using a connection that has timed out.      *      * @param ldapConnectionName      */
+comment|/**      * The name of the LdapConnection bean to pull from the registry. Note that      * this must be of scope "prototype" to avoid it being shared among threads      * or using a connection that has timed out.      */
 DECL|method|setLdapConnectionName (String ldapConnectionName)
 specifier|public
 name|void

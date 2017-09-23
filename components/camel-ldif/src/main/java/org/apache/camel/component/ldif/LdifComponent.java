@@ -54,10 +54,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link LdifEndpoint}(s).  *  * @version  */
-end_comment
-
 begin_class
 DECL|class|LdifComponent
 specifier|public
