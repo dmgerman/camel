@@ -164,7 +164,7 @@ literal|"iec60870-server:endpointUri"
 argument_list|,
 name|title
 operator|=
-literal|"IEC 60870-5-104 Server"
+literal|"IEC 60870 Server"
 argument_list|,
 name|consumerClass
 operator|=
