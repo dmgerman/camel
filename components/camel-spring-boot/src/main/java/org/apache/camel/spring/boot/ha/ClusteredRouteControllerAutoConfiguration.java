@@ -393,13 +393,6 @@ name|ClusteredRouteControllerAutoConfiguration
 block|{
 annotation|@
 name|Autowired
-DECL|field|configuration
-specifier|private
-name|ClusteredRouteControllerConfiguration
-name|configuration
-decl_stmt|;
-annotation|@
-name|Autowired
 argument_list|(
 name|required
 operator|=
@@ -436,11 +429,14 @@ name|CamelClusterService
 operator|.
 name|class
 argument_list|)
-DECL|method|routeController ()
+DECL|method|routeController (ClusteredRouteControllerConfiguration configuration)
 specifier|public
 name|RouteController
 name|routeController
-parameter_list|()
+parameter_list|(
+name|ClusteredRouteControllerConfiguration
+name|configuration
+parameter_list|)
 block|{
 name|ClusteredRouteController
 name|controller

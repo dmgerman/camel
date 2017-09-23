@@ -154,22 +154,6 @@ name|beans
 operator|.
 name|factory
 operator|.
-name|annotation
-operator|.
-name|Autowired
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
 name|config
 operator|.
 name|ConfigurableBeanFactory
@@ -326,13 +310,6 @@ class|class
 name|HealthCheckServiceAutoConfiguration
 block|{
 annotation|@
-name|Autowired
-DECL|field|configuration
-specifier|private
-name|HealthCheckServiceConfiguration
-name|configuration
-decl_stmt|;
-annotation|@
 name|Bean
 annotation|@
 name|Scope
@@ -350,11 +327,14 @@ name|class
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
-DECL|method|healthCheckService ()
+DECL|method|healthCheckService (HealthCheckServiceConfiguration configuration)
 specifier|public
 name|HealthCheckService
 name|healthCheckService
-parameter_list|()
+parameter_list|(
+name|HealthCheckServiceConfiguration
+name|configuration
+parameter_list|)
 block|{
 specifier|final
 name|DefaultHealthCheckService
