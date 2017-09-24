@@ -152,18 +152,19 @@ name|answer
 return|;
 block|}
 comment|// convert into a List<Map<String, String>> structure which is expected as output from this parser
+try|try
+block|{
 name|JsonObject
 name|output
 init|=
+operator|(
+name|JsonObject
+operator|)
 name|Jsoner
 operator|.
 name|deserialize
 argument_list|(
 name|json
-argument_list|,
-operator|new
-name|JsonObject
-argument_list|()
 argument_list|)
 decl_stmt|;
 for|for
@@ -361,6 +362,24 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// wrap parsing exceptions as runtime
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Cannot parse json"
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 return|return
 name|answer

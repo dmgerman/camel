@@ -112,7 +112,7 @@ specifier|private
 name|JSonSchemaHelper
 parameter_list|()
 block|{     }
-comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param group the group to parse from such as<tt>component</tt>,<tt>componentProperties</tt>, or<tt>properties</tt>.      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      */
+comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param group the group to parse from such as<tt>component</tt>,<tt>componentProperties</tt>, or<tt>properties</tt>.      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      * @throws RuntimeException is thrown if error parsing the json data      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -170,18 +170,19 @@ name|answer
 return|;
 block|}
 comment|// convert into a List<Map<String, String>> structure which is expected as output from this parser
+try|try
+block|{
 name|JsonObject
 name|output
 init|=
+operator|(
+name|JsonObject
+operator|)
 name|Jsoner
 operator|.
 name|deserialize
 argument_list|(
 name|json
-argument_list|,
-operator|new
-name|JsonObject
-argument_list|()
 argument_list|)
 decl_stmt|;
 for|for
@@ -379,6 +380,24 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// wrap parsing exceptions as runtime
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Cannot parse json"
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 return|return
 name|answer
