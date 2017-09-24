@@ -41,17 +41,17 @@ specifier|public
 class|class
 name|TwitterMentionConnectorConfigurationCommon
 block|{
+comment|/**      * The consumer secret      */
+DECL|field|consumerSecret
+specifier|private
+name|String
+name|consumerSecret
+decl_stmt|;
 comment|/**      * The access token      */
 DECL|field|accessToken
 specifier|private
 name|String
 name|accessToken
-decl_stmt|;
-comment|/**      * The access token secret      */
-DECL|field|accessTokenSecret
-specifier|private
-name|String
-name|accessTokenSecret
 decl_stmt|;
 comment|/**      * The consumer key      */
 DECL|field|consumerKey
@@ -59,12 +59,38 @@ specifier|private
 name|String
 name|consumerKey
 decl_stmt|;
-comment|/**      * The consumer secret      */
-DECL|field|consumerSecret
+comment|/**      * The access token secret      */
+DECL|field|accessTokenSecret
 specifier|private
 name|String
-name|consumerSecret
+name|accessTokenSecret
 decl_stmt|;
+DECL|method|getConsumerSecret ()
+specifier|public
+name|String
+name|getConsumerSecret
+parameter_list|()
+block|{
+return|return
+name|consumerSecret
+return|;
+block|}
+DECL|method|setConsumerSecret (String consumerSecret)
+specifier|public
+name|void
+name|setConsumerSecret
+parameter_list|(
+name|String
+name|consumerSecret
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerSecret
+operator|=
+name|consumerSecret
+expr_stmt|;
+block|}
 DECL|method|getAccessToken ()
 specifier|public
 name|String
@@ -89,32 +115,6 @@ operator|.
 name|accessToken
 operator|=
 name|accessToken
-expr_stmt|;
-block|}
-DECL|method|getAccessTokenSecret ()
-specifier|public
-name|String
-name|getAccessTokenSecret
-parameter_list|()
-block|{
-return|return
-name|accessTokenSecret
-return|;
-block|}
-DECL|method|setAccessTokenSecret (String accessTokenSecret)
-specifier|public
-name|void
-name|setAccessTokenSecret
-parameter_list|(
-name|String
-name|accessTokenSecret
-parameter_list|)
-block|{
-name|this
-operator|.
-name|accessTokenSecret
-operator|=
-name|accessTokenSecret
 expr_stmt|;
 block|}
 DECL|method|getConsumerKey ()
@@ -143,30 +143,30 @@ operator|=
 name|consumerKey
 expr_stmt|;
 block|}
-DECL|method|getConsumerSecret ()
+DECL|method|getAccessTokenSecret ()
 specifier|public
 name|String
-name|getConsumerSecret
+name|getAccessTokenSecret
 parameter_list|()
 block|{
 return|return
-name|consumerSecret
+name|accessTokenSecret
 return|;
 block|}
-DECL|method|setConsumerSecret (String consumerSecret)
+DECL|method|setAccessTokenSecret (String accessTokenSecret)
 specifier|public
 name|void
-name|setConsumerSecret
+name|setAccessTokenSecret
 parameter_list|(
 name|String
-name|consumerSecret
+name|accessTokenSecret
 parameter_list|)
 block|{
 name|this
 operator|.
-name|consumerSecret
+name|accessTokenSecret
 operator|=
-name|consumerSecret
+name|accessTokenSecret
 expr_stmt|;
 block|}
 block|}

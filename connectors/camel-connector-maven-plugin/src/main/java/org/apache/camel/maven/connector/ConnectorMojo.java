@@ -410,6 +410,26 @@ name|AbstractJarMojo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|connector
+operator|.
+name|util
+operator|.
+name|JSonSchemaHelper
+operator|.
+name|prettyPrint
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Mojo
@@ -986,11 +1006,20 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// output as pretty print
+name|String
+name|pretty
+init|=
+name|prettyPrint
+argument_list|(
+name|newJson
+argument_list|)
+decl_stmt|;
 name|fos
 operator|.
 name|write
 argument_list|(
-name|newJson
+name|pretty
 operator|.
 name|getBytes
 argument_list|()
@@ -1026,7 +1055,7 @@ name|fos
 operator|.
 name|write
 argument_list|(
-name|newJson
+name|pretty
 operator|.
 name|getBytes
 argument_list|()

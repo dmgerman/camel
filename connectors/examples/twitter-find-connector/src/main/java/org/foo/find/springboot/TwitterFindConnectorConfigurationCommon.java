@@ -41,17 +41,17 @@ specifier|public
 class|class
 name|TwitterFindConnectorConfigurationCommon
 block|{
+comment|/**      * The consumer secret      */
+DECL|field|consumerSecret
+specifier|private
+name|String
+name|consumerSecret
+decl_stmt|;
 comment|/**      * The access token      */
 DECL|field|accessToken
 specifier|private
 name|String
 name|accessToken
-decl_stmt|;
-comment|/**      * The access token secret      */
-DECL|field|accessTokenSecret
-specifier|private
-name|String
-name|accessTokenSecret
 decl_stmt|;
 comment|/**      * The consumer key      */
 DECL|field|consumerKey
@@ -59,25 +59,11 @@ specifier|private
 name|String
 name|consumerKey
 decl_stmt|;
-comment|/**      * The consumer secret      */
-DECL|field|consumerSecret
+comment|/**      * The access token secret      */
+DECL|field|accessTokenSecret
 specifier|private
 name|String
-name|consumerSecret
-decl_stmt|;
-comment|/**      * Filter out old tweets that has previously been polled. This state is      * stored in memory only and based on last tweet id.      */
-DECL|field|filterOld
-specifier|private
-name|boolean
-name|filterOld
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * Can be used for search and streaming/filter. Multiple values can be      * separated with comma.      */
-DECL|field|keywords
-specifier|private
-name|String
-name|keywords
+name|accessTokenSecret
 decl_stmt|;
 comment|/**      * Milliseconds before the next poll.      */
 DECL|field|delay
@@ -87,12 +73,52 @@ name|delay
 init|=
 literal|5000L
 decl_stmt|;
+comment|/**      * Can be used for search and streaming/filter. Multiple values can be      * separated with comma.      */
+DECL|field|keywords
+specifier|private
+name|String
+name|keywords
+decl_stmt|;
+comment|/**      * Filter out old tweets that has previously been polled. This state is      * stored in memory only and based on last tweet id.      */
+DECL|field|filterOld
+specifier|private
+name|boolean
+name|filterOld
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * A prefix      */
 DECL|field|prefix
 specifier|private
 name|String
 name|prefix
 decl_stmt|;
+DECL|method|getConsumerSecret ()
+specifier|public
+name|String
+name|getConsumerSecret
+parameter_list|()
+block|{
+return|return
+name|consumerSecret
+return|;
+block|}
+DECL|method|setConsumerSecret (String consumerSecret)
+specifier|public
+name|void
+name|setConsumerSecret
+parameter_list|(
+name|String
+name|consumerSecret
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerSecret
+operator|=
+name|consumerSecret
+expr_stmt|;
+block|}
 DECL|method|getAccessToken ()
 specifier|public
 name|String
@@ -117,32 +143,6 @@ operator|.
 name|accessToken
 operator|=
 name|accessToken
-expr_stmt|;
-block|}
-DECL|method|getAccessTokenSecret ()
-specifier|public
-name|String
-name|getAccessTokenSecret
-parameter_list|()
-block|{
-return|return
-name|accessTokenSecret
-return|;
-block|}
-DECL|method|setAccessTokenSecret (String accessTokenSecret)
-specifier|public
-name|void
-name|setAccessTokenSecret
-parameter_list|(
-name|String
-name|accessTokenSecret
-parameter_list|)
-block|{
-name|this
-operator|.
-name|accessTokenSecret
-operator|=
-name|accessTokenSecret
 expr_stmt|;
 block|}
 DECL|method|getConsumerKey ()
@@ -171,56 +171,56 @@ operator|=
 name|consumerKey
 expr_stmt|;
 block|}
-DECL|method|getConsumerSecret ()
+DECL|method|getAccessTokenSecret ()
 specifier|public
 name|String
-name|getConsumerSecret
+name|getAccessTokenSecret
 parameter_list|()
 block|{
 return|return
-name|consumerSecret
+name|accessTokenSecret
 return|;
 block|}
-DECL|method|setConsumerSecret (String consumerSecret)
+DECL|method|setAccessTokenSecret (String accessTokenSecret)
 specifier|public
 name|void
-name|setConsumerSecret
+name|setAccessTokenSecret
 parameter_list|(
 name|String
-name|consumerSecret
+name|accessTokenSecret
 parameter_list|)
 block|{
 name|this
 operator|.
-name|consumerSecret
+name|accessTokenSecret
 operator|=
-name|consumerSecret
+name|accessTokenSecret
 expr_stmt|;
 block|}
-DECL|method|isFilterOld ()
+DECL|method|getDelay ()
 specifier|public
-name|boolean
-name|isFilterOld
+name|long
+name|getDelay
 parameter_list|()
 block|{
 return|return
-name|filterOld
+name|delay
 return|;
 block|}
-DECL|method|setFilterOld (boolean filterOld)
+DECL|method|setDelay (long delay)
 specifier|public
 name|void
-name|setFilterOld
+name|setDelay
 parameter_list|(
-name|boolean
-name|filterOld
+name|long
+name|delay
 parameter_list|)
 block|{
 name|this
 operator|.
-name|filterOld
+name|delay
 operator|=
-name|filterOld
+name|delay
 expr_stmt|;
 block|}
 DECL|method|getKeywords ()
@@ -249,30 +249,30 @@ operator|=
 name|keywords
 expr_stmt|;
 block|}
-DECL|method|getDelay ()
+DECL|method|isFilterOld ()
 specifier|public
-name|long
-name|getDelay
+name|boolean
+name|isFilterOld
 parameter_list|()
 block|{
 return|return
-name|delay
+name|filterOld
 return|;
 block|}
-DECL|method|setDelay (long delay)
+DECL|method|setFilterOld (boolean filterOld)
 specifier|public
 name|void
-name|setDelay
+name|setFilterOld
 parameter_list|(
-name|long
-name|delay
+name|boolean
+name|filterOld
 parameter_list|)
 block|{
 name|this
 operator|.
-name|delay
+name|filterOld
 operator|=
-name|delay
+name|filterOld
 expr_stmt|;
 block|}
 DECL|method|getPrefix ()
