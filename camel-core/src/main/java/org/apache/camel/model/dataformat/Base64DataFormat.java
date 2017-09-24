@@ -185,13 +185,6 @@ name|lineLength
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"\\r\\n"
-argument_list|)
 DECL|field|lineSeparator
 specifier|private
 name|String
@@ -340,7 +333,7 @@ return|return
 name|lineSeparator
 return|;
 block|}
-comment|/**      * The line separators to use.      *<p/>      * Uses new line characters by default.      */
+comment|/**      * The line separators to use.      *<p/>      * Uses new line characters (CRLF) by default.      */
 DECL|method|setLineSeparator (String lineSeparator)
 specifier|public
 name|void

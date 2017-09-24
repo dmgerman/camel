@@ -2282,12 +2282,31 @@ name|String
 name|value
 parameter_list|)
 block|{
+comment|// need to safe encode \r as \\r so its escaped
+comment|// need to safe encode \n as \\n so its escaped
+comment|// need to safe encode \t as \\t so its escaped
 return|return
-name|Jsoner
-operator|.
-name|escape
-argument_list|(
 name|value
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\r"
+argument_list|,
+literal|"\\\\\\r"
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\n"
+argument_list|,
+literal|"\\\\\\n"
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\t"
+argument_list|,
+literal|"\\\\\\t"
 argument_list|)
 return|;
 block|}

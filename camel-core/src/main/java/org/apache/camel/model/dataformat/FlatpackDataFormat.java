@@ -248,13 +248,6 @@ name|ignoreFirstRecord
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"\""
-argument_list|)
 DECL|field|textQualifier
 specifier|private
 name|String
@@ -417,7 +410,7 @@ return|return
 name|textQualifier
 return|;
 block|}
-comment|/**      * If the text is qualified with a char such as double quote character      */
+comment|/**      * If the text is qualified with a character.      *<p/>      * Uses quote character by default.      */
 DECL|method|setTextQualifier (String textQualifier)
 specifier|public
 name|void

@@ -5,7 +5,6 @@ end_comment
 
 begin_package
 DECL|package|org.apache.camel.catalog
-DECL|package|org.apache.camel.catalog
 package|package
 name|org
 operator|.
@@ -103,13 +102,11 @@ end_import
 
 begin_class
 DECL|class|JSonSchemaHelper
-DECL|class|JSonSchemaHelper
 specifier|public
 specifier|final
 class|class
 name|JSonSchemaHelper
 block|{
-DECL|method|JSonSchemaHelper ()
 DECL|method|JSonSchemaHelper ()
 specifier|private
 name|JSonSchemaHelper
@@ -121,7 +118,6 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|parseJsonSchema (String group, String json, boolean parseProperties)
 DECL|method|parseJsonSchema (String group, String json, boolean parseProperties)
 specifier|public
 specifier|static
@@ -389,7 +385,6 @@ name|answer
 return|;
 block|}
 DECL|method|transformMap (Map jsonMap)
-DECL|method|transformMap (Map jsonMap)
 specifier|private
 specifier|static
 name|Map
@@ -498,6 +493,18 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+comment|// ensure value is escaped
+name|String
+name|value
+init|=
+name|escapeJson
+argument_list|(
+name|newValue
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|answer
 operator|.
 name|put
@@ -510,10 +517,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|newValue
-operator|.
-name|toString
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -521,38 +525,44 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|decodeJson (String value)
-DECL|method|decodeJson (String value)
+DECL|method|escapeJson (String value)
 specifier|private
 specifier|static
 name|String
-name|decodeJson
+name|escapeJson
 parameter_list|(
 name|String
 name|value
 parameter_list|)
 block|{
-comment|// json encodes a \ as \\ so we need to decode from \\ back to \
-if|if
-condition|(
-literal|"\\\\"
-operator|.
-name|equals
-argument_list|(
-name|value
-argument_list|)
-condition|)
-block|{
-name|value
-operator|=
-literal|"\\"
-expr_stmt|;
-block|}
+comment|// need to safe encode \r as \\r so its escaped
+comment|// need to safe encode \n as \\n so its escaped
+comment|// need to safe encode \t as \\t so its escaped
 return|return
 name|value
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\r"
+argument_list|,
+literal|"\\\\\\r"
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\n"
+argument_list|,
+literal|"\\\\\\n"
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\t"
+argument_list|,
+literal|"\\\\\\t"
+argument_list|)
 return|;
 block|}
-DECL|method|isComponentLenientProperties (List<Map<String, String>> rows)
 DECL|method|isComponentLenientProperties (List<Map<String, String>> rows)
 specifier|public
 specifier|static
@@ -614,7 +624,6 @@ literal|false
 return|;
 block|}
 DECL|method|isComponentConsumerOnly (List<Map<String, String>> rows)
-DECL|method|isComponentConsumerOnly (List<Map<String, String>> rows)
 specifier|public
 specifier|static
 name|boolean
@@ -675,7 +684,6 @@ literal|false
 return|;
 block|}
 DECL|method|isComponentProducerOnly (List<Map<String, String>> rows)
-DECL|method|isComponentProducerOnly (List<Map<String, String>> rows)
 specifier|public
 specifier|static
 name|boolean
@@ -735,7 +743,6 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|isPropertyConsumerOnly (List<Map<String, String>> rows, String name)
 DECL|method|isPropertyConsumerOnly (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
@@ -849,7 +856,6 @@ literal|false
 return|;
 block|}
 DECL|method|isPropertyProducerOnly (List<Map<String, String>> rows, String name)
-DECL|method|isPropertyProducerOnly (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|boolean
@@ -962,7 +968,6 @@ literal|false
 return|;
 block|}
 DECL|method|isPropertyRequired (List<Map<String, String>> rows, String name)
-DECL|method|isPropertyRequired (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|boolean
@@ -1071,7 +1076,6 @@ literal|false
 return|;
 block|}
 DECL|method|getPropertyKind (List<Map<String, String>> rows, String name)
-DECL|method|getPropertyKind (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|String
@@ -1174,7 +1178,6 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|isPropertyBoolean (List<Map<String, String>> rows, String name)
 DECL|method|isPropertyBoolean (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
@@ -1284,7 +1287,6 @@ literal|false
 return|;
 block|}
 DECL|method|isPropertyInteger (List<Map<String, String>> rows, String name)
-DECL|method|isPropertyInteger (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|boolean
@@ -1392,7 +1394,6 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|isPropertyNumber (List<Map<String, String>> rows, String name)
 DECL|method|isPropertyNumber (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
@@ -1502,7 +1503,6 @@ literal|false
 return|;
 block|}
 DECL|method|isPropertyObject (List<Map<String, String>> rows, String name)
-DECL|method|isPropertyObject (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|boolean
@@ -1611,7 +1611,6 @@ literal|false
 return|;
 block|}
 DECL|method|getPropertyDefaultValue (List<Map<String, String>> rows, String name)
-DECL|method|getPropertyDefaultValue (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|String
@@ -1714,7 +1713,6 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|stripOptionalPrefixFromName (List<Map<String, String>> rows, String name)
 DECL|method|stripOptionalPrefixFromName (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
@@ -1858,7 +1856,6 @@ name|name
 return|;
 block|}
 DECL|method|getPropertyEnum (List<Map<String, String>> rows, String name)
-DECL|method|getPropertyEnum (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|String
@@ -1962,7 +1959,6 @@ literal|null
 return|;
 block|}
 DECL|method|getPropertyPrefix (List<Map<String, String>> rows, String name)
-DECL|method|getPropertyPrefix (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|String
@@ -2065,7 +2061,6 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|isPropertyMultiValue (List<Map<String, String>> rows, String name)
 DECL|method|isPropertyMultiValue (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
@@ -2175,7 +2170,6 @@ literal|false
 return|;
 block|}
 DECL|method|getPropertyNameFromNameWithPrefix (List<Map<String, String>> rows, String name)
-DECL|method|getPropertyNameFromNameWithPrefix (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|String
@@ -2284,7 +2278,6 @@ literal|null
 return|;
 block|}
 DECL|method|getRow (List<Map<String, String>> rows, String key)
-DECL|method|getRow (List<Map<String, String>> rows, String key)
 specifier|public
 specifier|static
 name|Map
@@ -2347,7 +2340,6 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|getNames (List<Map<String, String>> rows)
 DECL|method|getNames (List<Map<String, String>> rows)
 specifier|public
 specifier|static
