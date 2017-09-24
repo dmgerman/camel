@@ -290,7 +290,7 @@ return|return
 name|token
 return|;
 block|}
-comment|/**      * The (start) token to use as tokenizer, for example \n for a new line token.      * You can use simple language as the token to support dynamic tokens.      */
+comment|/**      * The (start) token to use as tokenizer, for example you can use the new line token.      * You can use simple language as the token to support dynamic tokens.      */
 DECL|method|setToken (String token)
 specifier|public
 name|void

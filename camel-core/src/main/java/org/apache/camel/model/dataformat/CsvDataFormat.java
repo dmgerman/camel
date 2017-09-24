@@ -1558,7 +1558,7 @@ return|return
 name|recordSeparator
 return|;
 block|}
-comment|/**      * Sets the record separator (aka new line) which by default is \r\n (CRLF)      */
+comment|/**      * Sets the record separator (aka new line) which by default is new line characters (CRLF)      */
 DECL|method|setRecordSeparator (String recordSeparator)
 specifier|public
 name|void

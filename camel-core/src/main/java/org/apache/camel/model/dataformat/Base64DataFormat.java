@@ -340,7 +340,7 @@ return|return
 name|lineSeparator
 return|;
 block|}
-comment|/**      * The line separators to use.      *<p/>      * By default \r\n is used.      */
+comment|/**      * The line separators to use.      *<p/>      * Uses new line characters by default.      */
 DECL|method|setLineSeparator (String lineSeparator)
 specifier|public
 name|void

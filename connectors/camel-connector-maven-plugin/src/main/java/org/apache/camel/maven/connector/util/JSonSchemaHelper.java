@@ -78,8 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|org
-operator|.
 name|json
 operator|.
 name|simple

@@ -979,7 +979,7 @@ return|return
 name|siteCommand
 return|;
 block|}
-comment|/**      * Sets optional site command(s) to be executed after successful login.      *<p/>      * Multiple site commands can be separated using a new line character (\n).      *      * @param siteCommand the site command(s).      */
+comment|/**      * Sets optional site command(s) to be executed after successful login.      *<p/>      * Multiple site commands can be separated using a new line character.      */
 DECL|method|setSiteCommand (String siteCommand)
 specifier|public
 name|void

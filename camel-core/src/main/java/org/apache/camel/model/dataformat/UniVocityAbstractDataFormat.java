@@ -622,7 +622,7 @@ return|return
 name|normalizedLineSeparator
 return|;
 block|}
-comment|/**      * The normalized line separator of the files      *<p/>      * The default value is \n      */
+comment|/**      * The normalized line separator of the files      *<p/>      * The default value is a new line character.      */
 DECL|method|setNormalizedLineSeparator (String normalizedLineSeparator)
 specifier|public
 name|void

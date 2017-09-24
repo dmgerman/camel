@@ -5,7 +5,6 @@ end_comment
 
 begin_package
 DECL|package|org.apache.camel.tools.apt.helper
-DECL|package|org.apache.camel.tools.apt.helper
 package|package
 name|org
 operator|.
@@ -141,13 +140,11 @@ end_comment
 
 begin_class
 DECL|class|JsonSchemaHelper
-DECL|class|JsonSchemaHelper
 specifier|public
 specifier|final
 class|class
 name|JsonSchemaHelper
 block|{
-DECL|field|VALID_CHARS
 DECL|field|VALID_CHARS
 specifier|private
 specifier|static
@@ -158,12 +155,10 @@ init|=
 literal|".-='/\\!&():;"
 decl_stmt|;
 DECL|method|JsonSchemaHelper ()
-DECL|method|JsonSchemaHelper ()
 specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String displayName, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String deprecationNote, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue)
 DECL|method|toJson (String name, String displayName, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String deprecationNote, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue)
 specifier|public
 specifier|static
@@ -1029,7 +1024,6 @@ return|;
 block|}
 comment|/**      * Gets the JSon schema type.      *      * @param   type the java type      * @return  the json schema type, is never null, but returns<tt>object</tt> as the generic type      */
 DECL|method|getType (String type, boolean enumType)
-DECL|method|getType (String type, boolean enumType)
 specifier|public
 specifier|static
 name|String
@@ -1197,7 +1191,6 @@ literal|"object"
 return|;
 block|}
 comment|/**      * Gets the JSon schema primitive type.      *      * @param   name the java type      * @return  the json schema primitive type, or<tt>null</tt> if not a primitive      */
-DECL|method|getPrimitiveType (String name)
 DECL|method|getPrimitiveType (String name)
 specifier|public
 specifier|static
@@ -1556,7 +1549,6 @@ return|;
 block|}
 comment|/**      * Sanitizes the javadoc to removed invalid characters so it can be used as json description      *      * @param javadoc  the javadoc      * @return the text that is valid as json      */
 DECL|method|sanitizeDescription (String javadoc, boolean summary)
-DECL|method|sanitizeDescription (String javadoc, boolean summary)
 specifier|public
 specifier|static
 name|String
@@ -1874,7 +1866,6 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|parseJsonSchema (String group, String json, boolean parseProperties)
-DECL|method|parseJsonSchema (String group, String json, boolean parseProperties)
 specifier|public
 specifier|static
 name|List
@@ -2141,7 +2132,6 @@ name|answer
 return|;
 block|}
 DECL|method|transformMap (Map jsonMap)
-DECL|method|transformMap (Map jsonMap)
 specifier|private
 specifier|static
 name|Map
@@ -2250,6 +2240,18 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+comment|// ensure value is escaped
+name|String
+name|value
+init|=
+name|escapeJson
+argument_list|(
+name|newValue
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|answer
 operator|.
 name|put
@@ -2262,10 +2264,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|newValue
-operator|.
-name|toString
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -2273,39 +2272,26 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|decodeJson (String value)
-DECL|method|decodeJson (String value)
+DECL|method|escapeJson (String value)
 specifier|private
 specifier|static
 name|String
-name|decodeJson
+name|escapeJson
 parameter_list|(
 name|String
 name|value
 parameter_list|)
 block|{
-comment|// json encodes a \ as \\ so we need to decode from \\ back to \
-if|if
-condition|(
-literal|"\\\\"
+return|return
+name|Jsoner
 operator|.
-name|equals
+name|escape
 argument_list|(
 name|value
 argument_list|)
-condition|)
-block|{
-name|value
-operator|=
-literal|"\\"
-expr_stmt|;
-block|}
-return|return
-name|value
 return|;
 block|}
 comment|/**      * The default value may need to be escaped to be safe for json      */
-DECL|method|safeDefaultValue (String value)
 DECL|method|safeDefaultValue (String value)
 specifier|private
 specifier|static

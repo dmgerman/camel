@@ -475,6 +475,18 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+comment|// ensure value is escaped
+name|String
+name|value
+init|=
+name|escapeJson
+argument_list|(
+name|newValue
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|answer
 operator|.
 name|put
@@ -487,15 +499,31 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|newValue
-operator|.
-name|toString
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+DECL|method|escapeJson (String value)
+specifier|private
+specifier|static
+name|String
+name|escapeJson
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+return|return
+name|Jsoner
+operator|.
+name|escape
+argument_list|(
+name|value
+argument_list|)
 return|;
 block|}
 comment|/**      * Gets the value with the key in a safe way, eg returning an empty string if there was no value for the key.      */

@@ -171,13 +171,6 @@ name|recordEndsOnNewline
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|" "
-argument_list|)
 DECL|field|padding
 specifier|protected
 name|String
