@@ -315,7 +315,7 @@ name|contains
 argument_list|(
 literal|"\"textQualifier\": { \"kind\": \"attribute\", \"displayName\": \"Text Qualifier\", \"required\": false, \"type\": \"string\""
 operator|+
-literal|", \"javaType\": \"java.lang.String\", \"deprecated\": false, \"secret\": false, \"defaultValue\": \"\\\"\""
+literal|", \"javaType\": \"java.lang.String\", \"deprecated\": false, \"secret\": false"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -487,19 +487,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"\""
-argument_list|,
-name|found
-operator|.
-name|get
-argument_list|(
-literal|"defaultValue"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"If the text is qualified with a char such as \""
+literal|"If the text is qualified with a character. Uses quote character by default."
 argument_list|,
 name|found
 operator|.
