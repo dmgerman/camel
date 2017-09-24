@@ -163,9 +163,7 @@ name|path
 operator|.
 name|endsWith
 argument_list|(
-name|File
-operator|.
-name|separator
+literal|"\\"
 argument_list|)
 condition|)
 block|{
