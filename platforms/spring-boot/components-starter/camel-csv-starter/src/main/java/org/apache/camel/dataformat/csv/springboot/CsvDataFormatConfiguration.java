@@ -217,7 +217,7 @@ specifier|private
 name|String
 name|recordSeparatorDisabled
 decl_stmt|;
-comment|/**      * Sets the record separator (aka new line) which by default is \r\n (CRLF)      */
+comment|/**      * Sets the record separator (aka new line) which by default is new line      * characters (CRLF)      */
 DECL|field|recordSeparator
 specifier|private
 name|String

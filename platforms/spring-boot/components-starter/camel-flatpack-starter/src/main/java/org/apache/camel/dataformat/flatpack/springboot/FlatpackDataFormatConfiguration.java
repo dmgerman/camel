@@ -86,12 +86,6 @@ name|FlatpackDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
-comment|/**      * References to a custom parser factory to lookup in the registry      */
-DECL|field|parserFactoryRef
-specifier|private
-name|String
-name|parserFactoryRef
-decl_stmt|;
 comment|/**      * The flatpack pzmap configuration file. Can be omitted in simpler      * situations but its preferred to use the pzmap.      */
 DECL|field|definition
 specifier|private
@@ -114,13 +108,11 @@ name|ignoreFirstRecord
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * If the text is qualified with a char such as "      */
+comment|/**      * If the text is qualified with a character. Uses quote character by      * default.      */
 DECL|field|textQualifier
 specifier|private
 name|String
 name|textQualifier
-init|=
-literal|"\""
 decl_stmt|;
 comment|/**      * The delimiter char (could be ; or similar)      */
 DECL|field|delimiter
@@ -146,6 +138,12 @@ name|ignoreExtraColumns
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * References to a custom parser factory to lookup in the registry      */
+DECL|field|parserFactoryRef
+specifier|private
+name|String
+name|parserFactoryRef
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -154,32 +152,6 @@ name|contentTypeHeader
 init|=
 literal|false
 decl_stmt|;
-DECL|method|getParserFactoryRef ()
-specifier|public
-name|String
-name|getParserFactoryRef
-parameter_list|()
-block|{
-return|return
-name|parserFactoryRef
-return|;
-block|}
-DECL|method|setParserFactoryRef (String parserFactoryRef)
-specifier|public
-name|void
-name|setParserFactoryRef
-parameter_list|(
-name|String
-name|parserFactoryRef
-parameter_list|)
-block|{
-name|this
-operator|.
-name|parserFactoryRef
-operator|=
-name|parserFactoryRef
-expr_stmt|;
-block|}
 DECL|method|getDefinition ()
 specifier|public
 name|String
@@ -360,6 +332,32 @@ operator|.
 name|ignoreExtraColumns
 operator|=
 name|ignoreExtraColumns
+expr_stmt|;
+block|}
+DECL|method|getParserFactoryRef ()
+specifier|public
+name|String
+name|getParserFactoryRef
+parameter_list|()
+block|{
+return|return
+name|parserFactoryRef
+return|;
+block|}
+DECL|method|setParserFactoryRef (String parserFactoryRef)
+specifier|public
+name|void
+name|setParserFactoryRef
+parameter_list|(
+name|String
+name|parserFactoryRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parserFactoryRef
+operator|=
+name|parserFactoryRef
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()

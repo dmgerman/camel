@@ -165,7 +165,7 @@ operator|=
 literal|"\\"
 argument_list|)
 DECL|field|escapeChar
-specifier|protected
+specifier|private
 name|String
 name|escapeChar
 decl_stmt|;

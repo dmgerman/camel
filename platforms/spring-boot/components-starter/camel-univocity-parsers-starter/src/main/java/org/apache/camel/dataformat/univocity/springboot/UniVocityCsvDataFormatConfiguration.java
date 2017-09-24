@@ -182,13 +182,11 @@ specifier|private
 name|String
 name|lineSeparator
 decl_stmt|;
-comment|/**      * The normalized line separator of the files The default value is \n      */
+comment|/**      * The normalized line separator of the files The default value is a new      * line character.      */
 DECL|field|normalizedLineSeparator
 specifier|private
 name|String
 name|normalizedLineSeparator
-init|=
-literal|"\\n"
 decl_stmt|;
 comment|/**      * The comment symbol. The default value is      */
 DECL|field|comment

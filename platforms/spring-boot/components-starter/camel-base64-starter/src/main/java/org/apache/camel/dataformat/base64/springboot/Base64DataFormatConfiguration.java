@@ -94,13 +94,11 @@ name|lineLength
 init|=
 literal|76
 decl_stmt|;
-comment|/**      * The line separators to use. By default \r\n is used.      */
+comment|/**      * The line separators to use. Uses new line characters (CRLF) by default.      */
 DECL|field|lineSeparator
 specifier|private
 name|String
 name|lineSeparator
-init|=
-literal|"\\r\\n"
 decl_stmt|;
 comment|/**      * Instead of emitting '' and '/' we emit '-' and '_' respectively. urlSafe      * is only applied to encode operations. Decoding seamlessly handles both      * modes. Is by default false.      */
 DECL|field|urlSafe

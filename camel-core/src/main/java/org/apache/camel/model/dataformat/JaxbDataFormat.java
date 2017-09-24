@@ -311,6 +311,13 @@ name|namespacePrefixRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|xmlStreamWriterWrapper
 specifier|private
 name|String
@@ -332,6 +339,13 @@ name|noNamespaceSchemaLocation
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|jaxbProviderProperties
 specifier|private
 name|String

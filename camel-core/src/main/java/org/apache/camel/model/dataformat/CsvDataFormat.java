@@ -224,6 +224,13 @@ block|{
 comment|// Format options
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|formatRef
 specifier|private
 name|String
@@ -231,6 +238,13 @@ name|formatRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|enums
+operator|=
+literal|"DEFAULT,EXCEL,INFORMIX_UNLOAD,INFORMIX_UNLOAD_CSV,MYSQL,RFC4180"
+argument_list|)
 DECL|field|formatName
 specifier|private
 name|String

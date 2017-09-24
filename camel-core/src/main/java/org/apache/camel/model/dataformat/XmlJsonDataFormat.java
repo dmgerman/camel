@@ -395,6 +395,13 @@ annotation|@
 name|XmlAttribute
 annotation|@
 name|XmlList
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|expandableProperties
 specifier|private
 name|List

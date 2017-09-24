@@ -213,13 +213,6 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
-DECL|field|parserFactoryRef
-specifier|private
-name|String
-name|parserFactoryRef
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|definition
 specifier|private
 name|String
@@ -281,6 +274,20 @@ specifier|private
 name|Boolean
 name|ignoreExtraColumns
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|parserFactoryRef
+specifier|private
+name|String
+name|parserFactoryRef
+decl_stmt|;
 DECL|method|FlatpackDataFormat ()
 specifier|public
 name|FlatpackDataFormat
@@ -290,33 +297,6 @@ name|super
 argument_list|(
 literal|"flatpack"
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getParserFactoryRef ()
-specifier|public
-name|String
-name|getParserFactoryRef
-parameter_list|()
-block|{
-return|return
-name|parserFactoryRef
-return|;
-block|}
-comment|/**      * References to a custom parser factory to lookup in the registry      */
-DECL|method|setParserFactoryRef (String parserFactoryRef)
-specifier|public
-name|void
-name|setParserFactoryRef
-parameter_list|(
-name|String
-name|parserFactoryRef
-parameter_list|)
-block|{
-name|this
-operator|.
-name|parserFactoryRef
-operator|=
-name|parserFactoryRef
 expr_stmt|;
 block|}
 DECL|method|getDefinition ()
@@ -506,6 +486,33 @@ operator|.
 name|ignoreExtraColumns
 operator|=
 name|ignoreExtraColumns
+expr_stmt|;
+block|}
+DECL|method|getParserFactoryRef ()
+specifier|public
+name|String
+name|getParserFactoryRef
+parameter_list|()
+block|{
+return|return
+name|parserFactoryRef
+return|;
+block|}
+comment|/**      * References to a custom parser factory to lookup in the registry      */
+DECL|method|setParserFactoryRef (String parserFactoryRef)
+specifier|public
+name|void
+name|setParserFactoryRef
+parameter_list|(
+name|String
+name|parserFactoryRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parserFactoryRef
+operator|=
+name|parserFactoryRef
 expr_stmt|;
 block|}
 annotation|@

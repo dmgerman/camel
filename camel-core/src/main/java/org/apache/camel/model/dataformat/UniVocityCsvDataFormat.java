@@ -158,7 +158,7 @@ block|{
 annotation|@
 name|XmlAttribute
 DECL|field|quoteAllFields
-specifier|protected
+specifier|private
 name|Boolean
 name|quoteAllFields
 decl_stmt|;
@@ -172,7 +172,7 @@ operator|=
 literal|"\""
 argument_list|)
 DECL|field|quote
-specifier|protected
+specifier|private
 name|String
 name|quote
 decl_stmt|;
@@ -186,7 +186,7 @@ operator|=
 literal|"\""
 argument_list|)
 DECL|field|quoteEscape
-specifier|protected
+specifier|private
 name|String
 name|quoteEscape
 decl_stmt|;
@@ -200,7 +200,7 @@ operator|=
 literal|","
 argument_list|)
 DECL|field|delimiter
-specifier|protected
+specifier|private
 name|String
 name|delimiter
 decl_stmt|;

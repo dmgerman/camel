@@ -223,6 +223,13 @@ name|encoding
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|beanReaderErrorHandlerType
 specifier|private
 name|String
@@ -230,6 +237,13 @@ name|beanReaderErrorHandlerType
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|unmarshalSingleObject
 specifier|private
 name|Boolean
