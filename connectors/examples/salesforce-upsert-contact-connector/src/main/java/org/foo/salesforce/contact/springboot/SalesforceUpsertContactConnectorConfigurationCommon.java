@@ -43,12 +43,6 @@ specifier|public
 class|class
 name|SalesforceUpsertContactConnectorConfigurationCommon
 block|{
-comment|/**      * OAuth Consumer Key of the connected app configured in the Salesforce      * instance setup. Typically a connected app needs to be configured but one      * can be provided by installing a package.      */
-DECL|field|clientId
-specifier|private
-name|String
-name|clientId
-decl_stmt|;
 comment|/**      * URL of the Salesforce instance used for authentication by default set to      * https://login.salesforce.com      */
 DECL|field|loginUrl
 specifier|private
@@ -56,6 +50,12 @@ name|String
 name|loginUrl
 init|=
 literal|"https://login.salesforce.com"
+decl_stmt|;
+comment|/**      * OAuth Consumer Key of the connected app configured in the Salesforce      * instance setup. Typically a connected app needs to be configured but one      * can be provided by installing a package.      */
+DECL|field|clientId
+specifier|private
+name|String
+name|clientId
 decl_stmt|;
 comment|/**      * OAuth Consumer Secret of the connected app configured in the Salesforce      * instance setup.      */
 DECL|field|clientSecret
@@ -69,44 +69,18 @@ specifier|private
 name|String
 name|refreshToken
 decl_stmt|;
-comment|/**      * SObject external ID field value      */
-DECL|field|sObjectIdValue
-specifier|private
-name|String
-name|sObjectIdValue
-decl_stmt|;
 comment|/**      * SObject external ID field name      */
 DECL|field|sObjectIdName
 specifier|private
 name|String
 name|sObjectIdName
 decl_stmt|;
-DECL|method|getClientId ()
-specifier|public
+comment|/**      * SObject external ID field value      */
+DECL|field|sObjectIdValue
+specifier|private
 name|String
-name|getClientId
-parameter_list|()
-block|{
-return|return
-name|clientId
-return|;
-block|}
-DECL|method|setClientId (String clientId)
-specifier|public
-name|void
-name|setClientId
-parameter_list|(
-name|String
-name|clientId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|clientId
-operator|=
-name|clientId
-expr_stmt|;
-block|}
+name|sObjectIdValue
+decl_stmt|;
 DECL|method|getLoginUrl ()
 specifier|public
 name|String
@@ -131,6 +105,32 @@ operator|.
 name|loginUrl
 operator|=
 name|loginUrl
+expr_stmt|;
+block|}
+DECL|method|getClientId ()
+specifier|public
+name|String
+name|getClientId
+parameter_list|()
+block|{
+return|return
+name|clientId
+return|;
+block|}
+DECL|method|setClientId (String clientId)
+specifier|public
+name|void
+name|setClientId
+parameter_list|(
+name|String
+name|clientId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientId
+operator|=
+name|clientId
 expr_stmt|;
 block|}
 DECL|method|getClientSecret ()
@@ -185,32 +185,6 @@ operator|=
 name|refreshToken
 expr_stmt|;
 block|}
-DECL|method|getSObjectIdValue ()
-specifier|public
-name|String
-name|getSObjectIdValue
-parameter_list|()
-block|{
-return|return
-name|sObjectIdValue
-return|;
-block|}
-DECL|method|setSObjectIdValue (String sObjectIdValue)
-specifier|public
-name|void
-name|setSObjectIdValue
-parameter_list|(
-name|String
-name|sObjectIdValue
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sObjectIdValue
-operator|=
-name|sObjectIdValue
-expr_stmt|;
-block|}
 DECL|method|getSObjectIdName ()
 specifier|public
 name|String
@@ -235,6 +209,32 @@ operator|.
 name|sObjectIdName
 operator|=
 name|sObjectIdName
+expr_stmt|;
+block|}
+DECL|method|getSObjectIdValue ()
+specifier|public
+name|String
+name|getSObjectIdValue
+parameter_list|()
+block|{
+return|return
+name|sObjectIdValue
+return|;
+block|}
+DECL|method|setSObjectIdValue (String sObjectIdValue)
+specifier|public
+name|void
+name|setSObjectIdValue
+parameter_list|(
+name|String
+name|sObjectIdValue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sObjectIdValue
+operator|=
+name|sObjectIdValue
 expr_stmt|;
 block|}
 block|}
