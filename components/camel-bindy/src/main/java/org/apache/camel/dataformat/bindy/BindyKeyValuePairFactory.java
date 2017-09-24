@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|dataformat
 operator|.
 name|bindy
@@ -610,11 +622,14 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|bind (List<String> data, Map<String, Object> model, int line)
+DECL|method|bind (CamelContext camelContext, List<String> data, Map<String, Object> model, int line)
 specifier|public
 name|void
 name|bind
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|List
 argument_list|<
 name|String
@@ -661,6 +676,8 @@ argument_list|()
 decl_stmt|;
 name|bind
 argument_list|(
+name|camelContext
+argument_list|,
 name|data
 argument_list|,
 name|model
@@ -671,11 +688,14 @@ name|lists
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|bind (List<String> data, Map<String, Object> model, int line, Map<String, List<Object>> lists)
+DECL|method|bind (CamelContext camelContext, List<String> data, Map<String, Object> model, int line, Map<String, List<Object>> lists)
 specifier|public
 name|void
 name|bind
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|List
 argument_list|<
 name|String
@@ -1985,11 +2005,14 @@ block|}
 comment|/**      *      */
 annotation|@
 name|Override
-DECL|method|unbind (Map<String, Object> model)
+DECL|method|unbind (CamelContext camelContext, Map<String, Object> model)
 specifier|public
 name|String
 name|unbind
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Map
 argument_list|<
 name|String

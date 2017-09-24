@@ -38,6 +38,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * The bindy factory is a factory used to create the POJO models and bind or  * unbind the data to and from the record (CSV, ...)  */
 end_comment
@@ -57,10 +69,13 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * The bind allow to read the content of a record (expressed as a      * List<String>) and map it to the model classes.      *       * @param data List<String> represents the csv, ... data to transform      * @param model Map<String, object> is a collection of objects used to bind      *            data. String is the the key name of the class link to POJO      *            objects      * @param line is the position of the record into the file      * @throws Exception can be thrown      */
-DECL|method|bind (List<String> data, Map<String, Object> model, int line)
+DECL|method|bind (CamelContext camelContext, List<String> data, Map<String, Object> model, int line)
 name|void
 name|bind
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|List
 argument_list|<
 name|String
@@ -82,10 +97,13 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * The unbind is used to transform the content of the classes model objects      * into a string. The string represents a record of a CSV file      *       * @return String represents a csv record created      * @param model Map<String, Object> is a collection of objects used to      *            create csv, ... records. String is the the key name of the      *            class link to POJO objects      * @throws Exception can be thrown      */
-DECL|method|unbind (Map<String, Object> model)
+DECL|method|unbind (CamelContext camelContext, Map<String, Object> model)
 name|String
 name|unbind
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Map
 argument_list|<
 name|String

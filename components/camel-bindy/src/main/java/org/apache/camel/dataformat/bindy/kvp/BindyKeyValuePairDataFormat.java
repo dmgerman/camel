@@ -503,6 +503,9 @@ name|factory
 operator|.
 name|unbind
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|row
 argument_list|)
 decl_stmt|;
@@ -776,6 +779,9 @@ name|factory
 operator|.
 name|bind
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|result
 argument_list|,
 name|model

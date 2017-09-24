@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|dataformat
 operator|.
 name|bindy
@@ -456,12 +468,15 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|bind (List<String> data, Map<String, Object> model, int line)
+DECL|method|bind (CamelContext camelContext, List<String> data, Map<String, Object> model, int line)
 specifier|public
 specifier|abstract
 name|void
 name|bind
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|List
 argument_list|<
 name|String
@@ -482,12 +497,15 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|unbind (Map<String, Object> model)
+DECL|method|unbind (CamelContext camelContext, Map<String, Object> model)
 specifier|public
 specifier|abstract
 name|String
 name|unbind
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Map
 argument_list|<
 name|String

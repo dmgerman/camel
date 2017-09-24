@@ -750,6 +750,9 @@ name|headerFactory
 operator|.
 name|unbind
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|model
 argument_list|)
 expr_stmt|;
@@ -819,6 +822,9 @@ name|footerFactory
 operator|.
 name|unbind
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|model
 argument_list|)
 expr_stmt|;
@@ -839,6 +845,9 @@ name|factory
 operator|.
 name|unbind
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|model
 argument_list|)
 expr_stmt|;
@@ -1623,6 +1632,9 @@ name|factory
 operator|.
 name|bind
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|myLine
 argument_list|,
 name|model
