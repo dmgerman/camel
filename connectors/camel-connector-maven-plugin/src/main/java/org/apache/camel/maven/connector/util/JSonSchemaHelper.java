@@ -931,18 +931,14 @@ argument_list|(
 literal|" }"
 argument_list|)
 expr_stmt|;
-comment|// output in pretty print
 return|return
-name|prettyPrint
-argument_list|(
 name|sb
 operator|.
 name|toString
 argument_list|()
-argument_list|)
 return|;
 block|}
-comment|/**      * Pretty print the json      * @param json existing json      * @return output in pretty printed format      */
+comment|/**      * Pretty print the json.      *      * @param json existing json      * @return output in pretty printed format      */
 DECL|method|prettyPrint (String json)
 specifier|public
 specifier|static

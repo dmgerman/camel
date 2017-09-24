@@ -508,6 +508,19 @@ specifier|private
 name|boolean
 name|includeGitUrl
 decl_stmt|;
+comment|/**      * Whether to output JSon connector schema files in pretty print mode or not      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|prettyPrint
+specifier|private
+name|boolean
+name|prettyPrint
+decl_stmt|;
 DECL|field|catalog
 specifier|private
 name|CamelCatalog
@@ -1007,19 +1020,22 @@ literal|false
 argument_list|)
 decl_stmt|;
 comment|// output as pretty print
-name|String
-name|pretty
-init|=
+name|newJson
+operator|=
+name|prettyPrint
+condition|?
 name|prettyPrint
 argument_list|(
 name|newJson
 argument_list|)
-decl_stmt|;
+else|:
+name|newJson
+expr_stmt|;
 name|fos
 operator|.
 name|write
 argument_list|(
-name|pretty
+name|newJson
 operator|.
 name|getBytes
 argument_list|()
@@ -1055,7 +1071,7 @@ name|fos
 operator|.
 name|write
 argument_list|(
-name|pretty
+name|newJson
 operator|.
 name|getBytes
 argument_list|()
