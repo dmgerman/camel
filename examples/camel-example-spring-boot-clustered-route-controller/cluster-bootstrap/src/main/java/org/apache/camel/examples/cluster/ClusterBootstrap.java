@@ -49,7 +49,7 @@ comment|//CHECKSTYLE:OFF
 end_comment
 
 begin_comment
-comment|/**  * A sample Spring Boot application that starts the Atomix boostsrap node.  */
+comment|/**  * A sample Spring Boot application that starts the Atomix bootstrap node.  */
 end_comment
 
 begin_class
