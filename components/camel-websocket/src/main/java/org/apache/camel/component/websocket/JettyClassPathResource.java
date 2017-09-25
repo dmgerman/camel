@@ -301,7 +301,8 @@ name|length
 parameter_list|()
 block|{
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 annotation|@
@@ -450,8 +451,6 @@ name|path
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|MalformedURLException
 block|{
 return|return
 operator|new
