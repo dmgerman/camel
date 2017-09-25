@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utililty to export a spring-boot jar and check the content.  */
+comment|/**  * Utility to export a spring-boot jar and check the content.  */
 end_comment
 
 begin_class
@@ -126,7 +126,7 @@ argument_list|()
 operator|.
 name|module
 argument_list|(
-literal|"camel-ahc"
+literal|"camel-websocket"
 argument_list|)
 operator|.
 name|build

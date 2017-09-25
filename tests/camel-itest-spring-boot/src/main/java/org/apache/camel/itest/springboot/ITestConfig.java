@@ -207,6 +207,11 @@ name|String
 argument_list|>
 name|testLibraryVersions
 decl_stmt|;
+DECL|field|springBootVersion
+specifier|private
+name|String
+name|springBootVersion
+decl_stmt|;
 DECL|method|ITestConfig ()
 specifier|public
 name|ITestConfig
@@ -838,6 +843,54 @@ operator|=
 name|testLibraryVersions
 expr_stmt|;
 block|}
+DECL|method|getSpringBootVersion ()
+specifier|public
+name|String
+name|getSpringBootVersion
+parameter_list|()
+block|{
+return|return
+name|springBootVersion
+return|;
+block|}
+DECL|method|getSpringBootMajorVersion ()
+specifier|public
+name|Integer
+name|getSpringBootMajorVersion
+parameter_list|()
+block|{
+return|return
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|springBootVersion
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|setSpringBootVersion (String springBootVersion)
+specifier|public
+name|void
+name|setSpringBootVersion
+parameter_list|(
+name|String
+name|springBootVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|springBootVersion
+operator|=
+name|springBootVersion
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -846,332 +899,118 @@ name|String
 name|toString
 parameter_list|()
 block|{
-specifier|final
-name|StringBuilder
-name|sb
-init|=
-operator|new
-name|StringBuilder
-argument_list|(
-literal|"ITestConfig{"
-argument_list|)
-decl_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|"moduleName='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|moduleName
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", mavenGroup='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|mavenGroup
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", mavenVersion='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|mavenVersion
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", mavenOfflineResolution="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|mavenOfflineResolution
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", modulesPath='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|modulesPath
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", moduleBasePath='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|moduleBasePath
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", includeTestDependencies="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|includeTestDependencies
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", includeProvidedDependencies="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|includeProvidedDependencies
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", unitTestEnabled="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|unitTestEnabled
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", unitTestInclusionPattern='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|unitTestInclusionPattern
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", unitTestExclusionPattern='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|unitTestExclusionPattern
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", unitTestBasePackage='"
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|unitTestBasePackage
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|'\''
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", unitTestsExpectedNumber="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|unitTestsExpectedNumber
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", resources="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|resources
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", additionalDependencies="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|additionalDependencies
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", mavenExclusions="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|mavenExclusions
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", autoStartComponent="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|autoStartComponent
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", jmxDisabledNames="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|jmxDisabledNames
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", systemProperties="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|systemProperties
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", useCustomLog="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|useCustomLog
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", ignoreLibraryMismatch="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|ignoreLibraryMismatch
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", testLibraryVersions="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|testLibraryVersions
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|'}'
-argument_list|)
-expr_stmt|;
 return|return
-name|sb
-operator|.
-name|toString
-argument_list|()
+literal|"ITestConfig{"
+operator|+
+literal|"moduleName='"
+operator|+
+name|moduleName
+operator|+
+literal|'\''
+operator|+
+literal|", mavenGroup='"
+operator|+
+name|mavenGroup
+operator|+
+literal|'\''
+operator|+
+literal|", mavenVersion='"
+operator|+
+name|mavenVersion
+operator|+
+literal|'\''
+operator|+
+literal|", mavenOfflineResolution="
+operator|+
+name|mavenOfflineResolution
+operator|+
+literal|", modulesPath='"
+operator|+
+name|modulesPath
+operator|+
+literal|'\''
+operator|+
+literal|", moduleBasePath='"
+operator|+
+name|moduleBasePath
+operator|+
+literal|'\''
+operator|+
+literal|", includeTestDependencies="
+operator|+
+name|includeTestDependencies
+operator|+
+literal|", includeProvidedDependencies="
+operator|+
+name|includeProvidedDependencies
+operator|+
+literal|", unitTestEnabled="
+operator|+
+name|unitTestEnabled
+operator|+
+literal|", unitTestInclusionPattern='"
+operator|+
+name|unitTestInclusionPattern
+operator|+
+literal|'\''
+operator|+
+literal|", unitTestExclusionPattern='"
+operator|+
+name|unitTestExclusionPattern
+operator|+
+literal|'\''
+operator|+
+literal|", unitTestBasePackage='"
+operator|+
+name|unitTestBasePackage
+operator|+
+literal|'\''
+operator|+
+literal|", unitTestsExpectedNumber="
+operator|+
+name|unitTestsExpectedNumber
+operator|+
+literal|", resources="
+operator|+
+name|resources
+operator|+
+literal|", additionalDependencies="
+operator|+
+name|additionalDependencies
+operator|+
+literal|", mavenExclusions="
+operator|+
+name|mavenExclusions
+operator|+
+literal|", autoStartComponent="
+operator|+
+name|autoStartComponent
+operator|+
+literal|", jmxDisabledNames="
+operator|+
+name|jmxDisabledNames
+operator|+
+literal|", systemProperties="
+operator|+
+name|systemProperties
+operator|+
+literal|", useCustomLog="
+operator|+
+name|useCustomLog
+operator|+
+literal|", ignoreLibraryMismatch="
+operator|+
+name|ignoreLibraryMismatch
+operator|+
+literal|", testLibraryVersions="
+operator|+
+name|testLibraryVersions
+operator|+
+literal|", springBootVersion="
+operator|+
+name|springBootVersion
+operator|+
+literal|'}'
 return|;
 block|}
 block|}

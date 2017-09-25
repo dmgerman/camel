@@ -183,27 +183,10 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
-name|dependency
-argument_list|(
-literal|"io.netty:netty-all:"
-operator|+
-name|DependencyResolver
-operator|.
-name|resolveParentProperty
-argument_list|(
-literal|"${cassandra-netty-version-testing}"
-argument_list|)
-argument_list|)
-comment|//.dependency(DependencyResolver.withVersion("io.netty:netty-all"))
-comment|//                .dependency(DependencyResolver.withVersion("io.dropwizard.metrics:metrics-core"))
-comment|//                .exclusion("com.codahale.metrics:*")
-operator|.
 name|unitTestExclusionPattern
 argument_list|(
 literal|".*(\\.integration\\..*|IntegrationTest$|CassandraComponentProducerTest$|CassandraComponentBeanRefTest$|CassandraComponentConsumerTest$)"
 argument_list|)
-comment|//.unitTestInclusionPattern(".*NamedCassandraAggregationRepositoryTest$")
-comment|// excluded tests have been checked manually (they need to run on their own JVM)
 operator|.
 name|build
 argument_list|()
