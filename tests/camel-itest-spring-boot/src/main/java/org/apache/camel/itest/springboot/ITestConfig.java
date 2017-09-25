@@ -60,6 +60,15 @@ name|ITestConfig
 implements|implements
 name|Serializable
 block|{
+DECL|field|DEFAULT_SPRING_BOOT_MAJOR_VERSION
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_SPRING_BOOT_MAJOR_VERSION
+init|=
+literal|1
+decl_stmt|;
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
@@ -859,6 +868,13 @@ name|Integer
 name|getSpringBootMajorVersion
 parameter_list|()
 block|{
+if|if
+condition|(
+name|springBootVersion
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|Integer
 operator|.
@@ -874,6 +890,13 @@ literal|1
 argument_list|)
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+name|DEFAULT_SPRING_BOOT_MAJOR_VERSION
+return|;
+block|}
 block|}
 DECL|method|setSpringBootVersion (String springBootVersion)
 specifier|public
