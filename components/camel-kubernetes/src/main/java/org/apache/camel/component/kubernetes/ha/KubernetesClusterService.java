@@ -42,20 +42,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|fabric8
-operator|.
-name|kubernetes
-operator|.
-name|client
-operator|.
-name|KubernetesClient
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -722,10 +708,10 @@ name|masterUrl
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getConnectionTimeout ()
+DECL|method|getConnectionTimeoutMillis ()
 specifier|public
 name|Integer
-name|getConnectionTimeout
+name|getConnectionTimeoutMillis
 parameter_list|()
 block|{
 return|return
@@ -736,10 +722,10 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Connection timeout in milliseconds to use when making requests to the Kubernetes API server.      */
-DECL|method|setConnectionTimeout (Integer connectionTimeout)
+DECL|method|setConnectionTimeoutMillis (Integer connectionTimeout)
 specifier|public
 name|void
-name|setConnectionTimeout
+name|setConnectionTimeoutMillis
 parameter_list|(
 name|Integer
 name|connectionTimeout
@@ -920,55 +906,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getKubernetesResourcesNamespace ()
-specifier|public
-name|String
-name|getKubernetesResourcesNamespace
-parameter_list|()
-block|{
-return|return
-name|lockConfiguration
-operator|.
-name|getKubernetesResourcesNamespace
-argument_list|()
-return|;
-block|}
-comment|/**      * Kubernetes namespace containing the pods and the ConfigMap used for locking.      */
-DECL|method|setKubernetesResourcesNamespace (String kubernetesResourcesNamespace)
-specifier|public
-name|void
-name|setKubernetesResourcesNamespace
-parameter_list|(
-name|String
-name|kubernetesResourcesNamespace
-parameter_list|)
-block|{
-name|lockConfiguration
-operator|.
-name|setKubernetesResourcesNamespace
-argument_list|(
-name|kubernetesResourcesNamespace
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getKubernetesResourcesNamespaceOrDefault (KubernetesClient kubernetesClient)
-specifier|public
-name|String
-name|getKubernetesResourcesNamespaceOrDefault
-parameter_list|(
-name|KubernetesClient
-name|kubernetesClient
-parameter_list|)
-block|{
-return|return
-name|lockConfiguration
-operator|.
-name|getKubernetesResourcesNamespaceOrDefault
-argument_list|(
-name|kubernetesClient
-argument_list|)
-return|;
 block|}
 DECL|method|getJitterFactor ()
 specifier|public
