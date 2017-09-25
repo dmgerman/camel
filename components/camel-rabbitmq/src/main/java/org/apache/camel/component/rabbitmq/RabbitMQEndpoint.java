@@ -895,6 +895,8 @@ DECL|field|networkRecoveryInterval
 specifier|private
 name|Integer
 name|networkRecoveryInterval
+init|=
+literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam

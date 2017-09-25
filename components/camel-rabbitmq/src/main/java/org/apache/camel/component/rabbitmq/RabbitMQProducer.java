@@ -454,11 +454,21 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Got a closed channel from the pool"
+literal|"Got a closed channel from the pool. Invalidating and borrowing a new one from the pool."
+argument_list|)
+expr_stmt|;
+name|channelPool
+operator|.
+name|invalidateObject
+argument_list|(
+name|channel
 argument_list|)
 expr_stmt|;
 comment|// Reconnect if another thread hasn't yet
 name|checkConnectionAndChannelPool
+argument_list|()
+expr_stmt|;
+name|attemptDeclaration
 argument_list|()
 expr_stmt|;
 name|channel
@@ -569,6 +579,19 @@ name|getChannelPoolMaxWait
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|attemptDeclaration
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|attemptDeclaration ()
+specifier|private
+specifier|synchronized
+name|void
+name|attemptDeclaration
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 if|if
 condition|(
 name|getEndpoint

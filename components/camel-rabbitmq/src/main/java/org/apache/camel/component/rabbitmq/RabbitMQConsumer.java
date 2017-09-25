@@ -306,14 +306,35 @@ condition|(
 name|this
 operator|.
 name|conn
-operator|!=
+operator|==
 literal|null
-operator|&&
+condition|)
+block|{
+name|openConnection
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+operator|.
+name|conn
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
 name|this
 operator|.
 name|conn
 operator|.
 name|isOpen
+argument_list|()
+operator|&&
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getAutomaticRecoveryEnabled
 argument_list|()
 condition|)
 block|{
@@ -323,6 +344,8 @@ operator|.
 name|conn
 return|;
 block|}
+else|else
+block|{
 name|log
 operator|.
 name|debug
@@ -338,6 +361,7 @@ name|this
 operator|.
 name|conn
 return|;
+block|}
 block|}
 comment|/**      * Add a consumer thread for given channel      */
 DECL|method|startConsumers ()

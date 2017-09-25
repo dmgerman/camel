@@ -1160,13 +1160,47 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// no work to do
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Received cancel signal on the rabbitMQ channel"
+literal|"Received cancel signal on the rabbitMQ channel."
 argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|channel
+operator|.
+name|basicCancel
+argument_list|(
+name|tag
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|//no-op
+block|}
+name|this
+operator|.
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|declareExchangeAndQueue
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * No-op implementation of {@link Consumer#handleShutdownSignal}.      */
@@ -1334,6 +1368,48 @@ block|{
 comment|// The connection is good, so nothing to do
 return|return;
 block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|isChannelOpen
+argument_list|()
+operator|&&
+name|this
+operator|.
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getAutomaticRecoveryEnabled
+argument_list|()
+condition|)
+block|{
+comment|// Still need to wait for channel to re-open
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Waiting for channel to re-open."
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|this
+operator|.
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getAutomaticRecoveryEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|info
@@ -1360,6 +1436,7 @@ comment|// Register the channel to the tag
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|isChannelOpen ()
 specifier|private
