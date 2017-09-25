@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|CamelContext
+name|Optional
 import|;
 end_import
 
@@ -255,13 +253,13 @@ name|MasterConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|field|LOGER
+DECL|field|LOGGER
 specifier|private
 specifier|static
 specifier|final
 specifier|transient
 name|Logger
-name|LOGER
+name|LOGGER
 init|=
 name|LoggerFactory
 operator|.
@@ -271,6 +269,12 @@ name|MasterConsumer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|clusterService
+specifier|private
+specifier|final
+name|CamelClusterService
+name|clusterService
 decl_stmt|;
 DECL|field|masterEndpoint
 specifier|private
@@ -303,17 +307,13 @@ specifier|private
 name|Consumer
 name|delegatedConsumer
 decl_stmt|;
-DECL|field|service
-specifier|private
-name|CamelClusterService
-name|service
-decl_stmt|;
 DECL|field|view
 specifier|private
+specifier|volatile
 name|CamelClusterView
 name|view
 decl_stmt|;
-DECL|method|MasterConsumer (MasterEndpoint masterEndpoint, Processor processor)
+DECL|method|MasterConsumer (MasterEndpoint masterEndpoint, Processor processor, CamelClusterService clusterService)
 specifier|public
 name|MasterConsumer
 parameter_list|(
@@ -322,6 +322,9 @@ name|masterEndpoint
 parameter_list|,
 name|Processor
 name|processor
+parameter_list|,
+name|CamelClusterService
+name|clusterService
 parameter_list|)
 block|{
 name|super
@@ -330,6 +333,12 @@ name|masterEndpoint
 argument_list|,
 name|processor
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|clusterService
+operator|=
+name|clusterService
 expr_stmt|;
 name|this
 operator|.
@@ -376,46 +385,31 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|CamelContext
-name|context
-init|=
-name|super
+name|LOGGER
 operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-decl_stmt|;
-name|service
-operator|=
-name|context
-operator|.
-name|hasService
+name|debug
 argument_list|(
-name|CamelClusterService
+literal|"Using ClusterService instance {} (id={}, type={})"
+argument_list|,
+name|clusterService
+argument_list|,
+name|clusterService
 operator|.
-name|class
+name|getId
+argument_list|()
+argument_list|,
+name|clusterService
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|service
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"No cluster service found"
-argument_list|)
-throw|;
-block|}
 name|view
 operator|=
-name|service
+name|clusterService
 operator|.
 name|getView
 argument_list|(
@@ -471,6 +465,17 @@ name|removeEventListener
 argument_list|(
 name|leadershipListener
 argument_list|)
+expr_stmt|;
+name|clusterService
+operator|.
+name|releaseView
+argument_list|(
+name|view
+argument_list|)
+expr_stmt|;
+name|view
+operator|=
+literal|null
 expr_stmt|;
 block|}
 name|ServiceHelper
@@ -591,7 +596,7 @@ operator|.
 name|getLocalMember
 argument_list|()
 operator|.
-name|isMaster
+name|isLeader
 argument_list|()
 else|:
 literal|false
@@ -672,7 +677,7 @@ argument_list|(
 name|delegatedConsumer
 argument_list|)
 expr_stmt|;
-name|LOGER
+name|LOGGER
 operator|.
 name|info
 argument_list|(
@@ -709,7 +714,7 @@ name|delegatedConsumer
 operator|=
 literal|null
 expr_stmt|;
-name|LOGER
+name|LOGGER
 operator|.
 name|info
 argument_list|(
@@ -734,7 +739,7 @@ name|Leadership
 block|{
 annotation|@
 name|Override
-DECL|method|leadershipChanged (CamelClusterView view, CamelClusterMember leader)
+DECL|method|leadershipChanged (CamelClusterView view, Optional<CamelClusterMember> leader)
 specifier|public
 name|void
 name|leadershipChanged
@@ -742,7 +747,10 @@ parameter_list|(
 name|CamelClusterView
 name|view
 parameter_list|,
+name|Optional
+argument_list|<
 name|CamelClusterMember
+argument_list|>
 name|leader
 parameter_list|)
 block|{
@@ -764,7 +772,7 @@ operator|.
 name|getLocalMember
 argument_list|()
 operator|.
-name|isMaster
+name|isLeader
 argument_list|()
 condition|)
 block|{

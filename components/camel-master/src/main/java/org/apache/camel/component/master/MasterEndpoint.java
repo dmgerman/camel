@@ -118,6 +118,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ha
+operator|.
+name|CamelClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -266,7 +280,13 @@ specifier|final
 name|String
 name|delegateUri
 decl_stmt|;
-DECL|method|MasterEndpoint (String uri, MasterComponent component, String namespace, String delegateUri)
+DECL|field|clusterService
+specifier|private
+specifier|final
+name|CamelClusterService
+name|clusterService
+decl_stmt|;
+DECL|method|MasterEndpoint (String uri, MasterComponent component, CamelClusterService clusterService, String namespace, String delegateUri)
 specifier|public
 name|MasterEndpoint
 parameter_list|(
@@ -275,6 +295,9 @@ name|uri
 parameter_list|,
 name|MasterComponent
 name|component
+parameter_list|,
+name|CamelClusterService
+name|clusterService
 parameter_list|,
 name|String
 name|namespace
@@ -289,6 +312,12 @@ name|uri
 argument_list|,
 name|component
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|clusterService
+operator|=
+name|clusterService
 expr_stmt|;
 name|this
 operator|.
@@ -325,6 +354,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|getComponent
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -353,6 +385,8 @@ argument_list|(
 name|this
 argument_list|,
 name|processor
+argument_list|,
+name|clusterService
 argument_list|)
 return|;
 block|}
