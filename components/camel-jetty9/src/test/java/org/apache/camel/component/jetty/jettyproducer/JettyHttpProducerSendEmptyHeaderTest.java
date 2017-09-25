@@ -116,12 +116,7 @@ expr_stmt|;
 name|String
 name|expectedValue
 init|=
-name|isJetty8
-argument_list|()
-condition|?
 literal|""
-else|:
-literal|null
 decl_stmt|;
 name|mock
 operator|.
