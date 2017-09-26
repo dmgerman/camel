@@ -220,6 +220,22 @@ name|autoconfigure
 operator|.
 name|condition
 operator|.
+name|ConditionalOnMissingBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|autoconfigure
+operator|.
+name|condition
+operator|.
 name|ConditionalOnProperty
 import|;
 end_import
@@ -373,6 +389,8 @@ name|havingValue
 operator|=
 literal|"node"
 argument_list|)
+annotation|@
+name|ConditionalOnMissingBean
 DECL|method|atomixClusterService ()
 specifier|public
 name|CamelClusterService
@@ -535,6 +553,8 @@ name|havingValue
 operator|=
 literal|"client"
 argument_list|)
+annotation|@
+name|ConditionalOnMissingBean
 DECL|method|atomixClusterClientService ()
 specifier|public
 name|CamelClusterService
