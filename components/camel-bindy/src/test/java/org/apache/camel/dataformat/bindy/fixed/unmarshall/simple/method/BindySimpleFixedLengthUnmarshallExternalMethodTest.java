@@ -522,7 +522,7 @@ literal|9
 argument_list|,
 name|method
 operator|=
-literal|"org.apache.camel.dataformat.bindy.fixed.unmarshall.simple.function.BindySimpleFixedLengthUnmarshallExternalMethodTest.replaceToBar"
+literal|"org.apache.camel.dataformat.bindy.fixed.unmarshall.simple.method.BindySimpleFixedLengthUnmarshallExternalMethodTest.replaceToBar"
 argument_list|)
 DECL|field|firstName
 specifier|private
