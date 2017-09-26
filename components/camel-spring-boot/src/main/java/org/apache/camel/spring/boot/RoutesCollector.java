@@ -154,6 +154,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StartupListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|main
 operator|.
 name|MainDurationEventNotifier
@@ -1077,7 +1089,39 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// controller will start Camel
+name|camelContext
+operator|.
+name|addStartupListener
+argument_list|(
+operator|new
+name|StartupListener
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onCamelContextStarted
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|boolean
+name|alreadyStarted
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// run the CamelMainRunController after the context has been started
+comment|// this way we ensure that NO_START flag is honoured as it's set as
+comment|// a thread local variable of the thread CamelMainRunController is
+comment|// not running on
+if|if
+condition|(
+operator|!
+name|alreadyStarted
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -1089,6 +1133,11 @@ name|controller
 operator|.
 name|start
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 else|else
