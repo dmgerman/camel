@@ -30,6 +30,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStreamReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -53,20 +73,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|collections
-operator|.
-name|ExtendedProperties
 import|;
 end_import
 
@@ -102,6 +108,20 @@ name|ClasspathResourceLoader
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|velocity
+operator|.
+name|util
+operator|.
+name|ExtProperties
+import|;
+end_import
+
 begin_comment
 comment|/**  * Camel specific {@link ClasspathResourceLoader} that loads resources using the  * Camel {@link ClassResolver} used by the Velocity.  */
 end_comment
@@ -121,12 +141,12 @@ name|resolver
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|init (ExtendedProperties configuration)
+DECL|method|init (ExtProperties configuration)
 specifier|public
 name|void
 name|init
 parameter_list|(
-name|ExtendedProperties
+name|ExtProperties
 name|configuration
 parameter_list|)
 block|{
@@ -163,13 +183,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getResourceStream (String name)
+DECL|method|getResourceReader (String name, String encoding)
 specifier|public
-name|InputStream
-name|getResourceStream
+name|Reader
+name|getResourceReader
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|String
+name|encoding
 parameter_list|)
 throws|throws
 name|ResourceNotFoundException
@@ -194,16 +217,22 @@ block|{
 return|return
 name|super
 operator|.
-name|getResourceStream
+name|getResourceReader
 argument_list|(
 name|name
+argument_list|,
+name|encoding
 argument_list|)
 return|;
 block|}
 else|else
 block|{
 return|return
+operator|new
+name|InputStreamReader
+argument_list|(
 name|is
+argument_list|)
 return|;
 block|}
 block|}
