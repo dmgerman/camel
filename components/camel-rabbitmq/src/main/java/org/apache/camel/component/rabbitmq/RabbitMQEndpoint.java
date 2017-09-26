@@ -578,10 +578,6 @@ argument_list|(
 name|label
 operator|=
 literal|"common"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|exclusive
 specifier|private
@@ -594,10 +590,6 @@ argument_list|(
 name|label
 operator|=
 literal|"common"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|passive
 specifier|private
@@ -890,6 +882,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"5000"
 argument_list|)
 DECL|field|networkRecoveryInterval
 specifier|private
@@ -1239,6 +1235,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"20000"
 argument_list|)
 DECL|field|requestTimeout
 specifier|private
@@ -1253,6 +1253,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1000"
 argument_list|)
 DECL|field|requestTimeoutCheckerInterval
 specifier|private
