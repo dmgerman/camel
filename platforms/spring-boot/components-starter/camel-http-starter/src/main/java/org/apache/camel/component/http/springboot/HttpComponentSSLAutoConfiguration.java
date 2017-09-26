@@ -292,6 +292,7 @@ annotation|@
 name|Bean
 DECL|method|cacheAutoConfigurationValidatorPostProcessor (CamelContext context, HttpComponentConfiguration config)
 specifier|public
+specifier|static
 name|HttpSSLPostProcessor
 name|cacheAutoConfigurationValidatorPostProcessor
 parameter_list|(
@@ -311,6 +312,14 @@ argument_list|,
 name|config
 argument_list|)
 return|;
+block|}
+DECL|method|dummy ()
+specifier|private
+name|void
+name|dummy
+parameter_list|()
+block|{
+comment|// checkstyle issue
 block|}
 DECL|class|HttpSSLPostProcessor
 specifier|static
