@@ -113,7 +113,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"fail (foo)"
+literal|"This is a forced exception to have health check monitor this failure (route=foo)"
 argument_list|)
 throw|;
 block|}
@@ -138,7 +138,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"fail (bar)"
+literal|"This is a forced exception to have health check monitor this failure (route=bar)"
 argument_list|)
 throw|;
 block|}
