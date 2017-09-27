@@ -417,7 +417,10 @@ name|Boolean
 name|isCollectionCapped
 parameter_list|()
 block|{
-return|return
+comment|// A non-capped collection does not return a "capped" key/value, so we have to deal with null here
+name|Boolean
+name|result
+init|=
 name|endpoint
 operator|.
 name|getMongoDatabase
@@ -433,6 +436,17 @@ name|getBoolean
 argument_list|(
 name|CAPPED_KEY
 argument_list|)
+decl_stmt|;
+return|return
+operator|(
+name|result
+operator|!=
+literal|null
+condition|?
+name|result
+else|:
+literal|false
+operator|)
 return|;
 block|}
 DECL|method|createCollStatsCommand ()
