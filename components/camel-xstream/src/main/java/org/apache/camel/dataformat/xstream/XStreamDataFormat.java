@@ -369,6 +369,8 @@ block|}
 block|}
 block|}
 comment|/**      * A factory method which takes a collection of types to be annotated      */
+annotation|@
+name|Deprecated
 DECL|method|processAnnotations (ClassResolver resolver, Iterable<Class<?>> types)
 specifier|public
 specifier|static
@@ -429,6 +431,8 @@ name|answer
 return|;
 block|}
 comment|/**      * A factory method which takes a number of types to be annotated      */
+annotation|@
+name|Deprecated
 DECL|method|processAnnotations (ClassResolver resolver, Class<?>... types)
 specifier|public
 specifier|static

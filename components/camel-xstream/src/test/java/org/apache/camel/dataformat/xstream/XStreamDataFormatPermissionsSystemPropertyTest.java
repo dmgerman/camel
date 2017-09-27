@@ -83,7 +83,7 @@ name|XStreamTestUtils
 operator|.
 name|setPermissionSystemProperty
 argument_list|(
-literal|""
+literal|"*"
 argument_list|)
 expr_stmt|;
 block|}
