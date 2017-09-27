@@ -438,7 +438,6 @@ name|CAPPED_KEY
 argument_list|)
 decl_stmt|;
 return|return
-operator|(
 name|result
 operator|!=
 literal|null
@@ -446,7 +445,6 @@ condition|?
 name|result
 else|:
 literal|false
-operator|)
 return|;
 block|}
 DECL|method|createCollStatsCommand ()
