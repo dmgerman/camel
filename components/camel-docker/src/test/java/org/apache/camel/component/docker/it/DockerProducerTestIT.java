@@ -155,7 +155,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"docker://imagelist"
+literal|"docker://imagelist?maxTotalConnections=10"
 argument_list|)
 operator|.
 name|log

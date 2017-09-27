@@ -294,16 +294,6 @@ argument_list|(
 name|operation
 argument_list|)
 expr_stmt|;
-comment|// Validate URI Parameters
-name|DockerHelper
-operator|.
-name|validateParameters
-argument_list|(
-name|operation
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 name|Endpoint
 name|endpoint
 init|=
