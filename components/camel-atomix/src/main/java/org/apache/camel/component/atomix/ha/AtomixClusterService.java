@@ -574,10 +574,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// instantiate a new atomix replica
-name|getOrCreateReplica
-argument_list|()
-expr_stmt|;
 name|super
 operator|.
 name|doStart

@@ -160,22 +160,6 @@ name|autoconfigure
 operator|.
 name|condition
 operator|.
-name|ConditionalOnMissingBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|autoconfigure
-operator|.
-name|condition
-operator|.
 name|ConditionalOnProperty
 import|;
 end_import
@@ -287,13 +271,9 @@ decl_stmt|;
 annotation|@
 name|Bean
 argument_list|(
-name|initMethod
+name|name
 operator|=
-literal|"start"
-argument_list|,
-name|destroyMethod
-operator|=
-literal|"stop"
+literal|"kubernetes-cluster-service"
 argument_list|)
 annotation|@
 name|Scope
@@ -302,8 +282,6 @@ name|ConfigurableBeanFactory
 operator|.
 name|SCOPE_SINGLETON
 argument_list|)
-annotation|@
-name|ConditionalOnMissingBean
 DECL|method|kubernetesClusterService ()
 specifier|public
 name|CamelClusterService

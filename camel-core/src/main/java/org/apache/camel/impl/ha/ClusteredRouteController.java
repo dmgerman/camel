@@ -370,6 +370,13 @@ specifier|private
 name|CamelClusterService
 name|clusterService
 decl_stmt|;
+DECL|field|clusterServiceSelector
+specifier|private
+name|CamelClusterService
+operator|.
+name|Selector
+name|clusterServiceSelector
+decl_stmt|;
 DECL|method|ClusteredRouteController ()
 specifier|public
 name|ClusteredRouteController
@@ -401,6 +408,14 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|clusterServiceSelector
+operator|=
+name|ClusterServiceSelectors
+operator|.
+name|DEFAULT_SELECTOR
 expr_stmt|;
 name|this
 operator|.
@@ -661,6 +676,7 @@ return|return
 name|clusterService
 return|;
 block|}
+comment|/**      * Set the cluster service to use.      */
 DECL|method|setClusterService (CamelClusterService clusterService)
 specifier|public
 name|void
@@ -670,35 +686,60 @@ name|CamelClusterService
 name|clusterService
 parameter_list|)
 block|{
-comment|// prevent replacing the service
-if|if
-condition|(
-name|this
+name|ObjectHelper
 operator|.
-name|clusterService
-operator|!=
-literal|null
-operator|&&
-name|this
-operator|.
-name|clusterService
-operator|!=
-name|clusterService
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|notNull
 argument_list|(
-literal|"CamelClusterService is already set"
+name|clusterService
+argument_list|,
+literal|"CamelClusterService"
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 name|this
 operator|.
 name|clusterService
 operator|=
 name|clusterService
+expr_stmt|;
+block|}
+DECL|method|getClusterServiceSelector ()
+specifier|public
+name|CamelClusterService
+operator|.
+name|Selector
+name|getClusterServiceSelector
+parameter_list|()
+block|{
+return|return
+name|clusterServiceSelector
+return|;
+block|}
+comment|/**      * Set the selector strategy to look-up a {@link CamelClusterService}      */
+DECL|method|setClusterServiceSelector (CamelClusterService.Selector clusterServiceSelector)
+specifier|public
+name|void
+name|setClusterServiceSelector
+parameter_list|(
+name|CamelClusterService
+operator|.
+name|Selector
+name|clusterServiceSelector
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|clusterService
+argument_list|,
+literal|"CamelClusterService.Selector"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|clusterServiceSelector
+operator|=
+name|clusterServiceSelector
 expr_stmt|;
 block|}
 comment|// *******************************
@@ -808,23 +849,36 @@ block|{
 comment|// Finally try to grab it from the camel context.
 name|clusterService
 operator|=
-name|context
+name|ClusterServiceHelper
 operator|.
-name|hasService
+name|mandatoryLookupService
 argument_list|(
-name|CamelClusterService
-operator|.
-name|class
+name|context
+argument_list|,
+name|clusterServiceSelector
 argument_list|)
 expr_stmt|;
 block|}
-name|ObjectHelper
+name|LOGGER
 operator|.
-name|notNull
+name|debug
 argument_list|(
+literal|"Using ClusterService instance {} (id={}, type={})"
+argument_list|,
 name|clusterService
 argument_list|,
-literal|"clusterService"
+name|clusterService
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|clusterService
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1346,8 +1400,9 @@ decl_stmt|;
 name|ClusteredRoutePolicy
 name|policy
 init|=
-operator|new
 name|ClusteredRoutePolicy
+operator|.
+name|forView
 argument_list|(
 name|clusterService
 operator|.

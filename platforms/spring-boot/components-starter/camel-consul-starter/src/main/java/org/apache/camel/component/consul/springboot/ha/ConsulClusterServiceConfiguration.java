@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -83,6 +93,23 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
+comment|/**      * Custom service attributes.      */
+DECL|field|attributes
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|attributes
+decl_stmt|;
+comment|/**      * Service lookup order/priority.      */
+DECL|field|order
+specifier|private
+name|Integer
+name|order
+decl_stmt|;
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -133,6 +160,68 @@ operator|.
 name|id
 operator|=
 name|id
+expr_stmt|;
+block|}
+DECL|method|getAttributes ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getAttributes
+parameter_list|()
+block|{
+return|return
+name|attributes
+return|;
+block|}
+DECL|method|setAttributes (Map<String, Object> attributes)
+specifier|public
+name|void
+name|setAttributes
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|attributes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|attributes
+operator|=
+name|attributes
+expr_stmt|;
+block|}
+DECL|method|getOrder ()
+specifier|public
+name|Integer
+name|getOrder
+parameter_list|()
+block|{
+return|return
+name|order
+return|;
+block|}
+DECL|method|setOrder (Integer order)
+specifier|public
+name|void
+name|setOrder
+parameter_list|(
+name|Integer
+name|order
+parameter_list|)
+block|{
+name|this
+operator|.
+name|order
+operator|=
+name|order
 expr_stmt|;
 block|}
 block|}

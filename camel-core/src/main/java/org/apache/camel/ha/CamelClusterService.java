@@ -28,6 +28,36 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -35,6 +65,18 @@ operator|.
 name|camel
 operator|.
 name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Ordered
 import|;
 end_import
 
@@ -75,7 +117,23 @@ extends|,
 name|CamelContextAware
 extends|,
 name|IdAware
+extends|,
+name|Ordered
 block|{
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|default
+name|int
+name|getOrder
+parameter_list|()
+block|{
+return|return
+name|Ordered
+operator|.
+name|LOWEST
+return|;
+block|}
 comment|/**      * Get a view of the cluster bound to a namespace creating it if needed. Multiple      * calls to this method with the same namespace should return the same instance.      * The instance is automatically started the first time it is instantiated and      * if the cluster service is ready.      *      * @param namespace the namespace the view refer to.      * @return the view.      * @throws Exception if the view can't be created.      */
 DECL|method|getView (String namespace)
 name|CamelClusterView
@@ -138,6 +196,25 @@ name|String
 name|namespace
 parameter_list|)
 function_decl|;
+comment|/**      * Attributes associated to the service.      */
+DECL|method|getAttributes ()
+specifier|default
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getAttributes
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+return|;
+block|}
 comment|/**      * Access the underlying concrete CamelClusterService implementation to      * provide access to further features.      *      * @param clazz the proprietary class or interface of the underlying concrete CamelClusterService.      * @return an instance of the underlying concrete CamelClusterService as the required type.      */
 DECL|method|unwrap (Class<T> clazz)
 specifier|default
@@ -193,6 +270,26 @@ operator|+
 literal|")"
 argument_list|)
 throw|;
+block|}
+DECL|interface|Selector
+interface|interface
+name|Selector
+block|{
+comment|/**          * Select a specific CamelClusterService instance among a collection.          */
+DECL|method|select (Collection<CamelClusterService> services)
+name|Optional
+argument_list|<
+name|CamelClusterService
+argument_list|>
+name|select
+parameter_list|(
+name|Collection
+argument_list|<
+name|CamelClusterService
+argument_list|>
+name|services
+parameter_list|)
+function_decl|;
 block|}
 block|}
 end_interface

@@ -124,9 +124,11 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
 name|ha
 operator|.
-name|CamelClusterServiceHelper
+name|ClusterServiceHelper
 import|;
 end_import
 
@@ -364,7 +366,7 @@ name|getNamespaces
 parameter_list|()
 block|{
 return|return
-name|CamelClusterServiceHelper
+name|ClusterServiceHelper
 operator|.
 name|lookupService
 argument_list|(
@@ -405,7 +407,7 @@ name|CamelClusterService
 argument_list|>
 name|service
 init|=
-name|CamelClusterServiceHelper
+name|ClusterServiceHelper
 operator|.
 name|lookupService
 argument_list|(
@@ -451,7 +453,7 @@ name|CamelClusterService
 argument_list|>
 name|service
 init|=
-name|CamelClusterServiceHelper
+name|ClusterServiceHelper
 operator|.
 name|lookupService
 argument_list|(
@@ -490,7 +492,7 @@ name|namespace
 parameter_list|)
 block|{
 return|return
-name|CamelClusterServiceHelper
+name|ClusterServiceHelper
 operator|.
 name|lookupService
 argument_list|(

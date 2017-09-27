@@ -99,10 +99,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelClusterServiceTest
+DECL|class|ClusterServiceViewTest
 specifier|public
 class|class
-name|CamelClusterServiceTest
+name|ClusterServiceViewTest
 block|{
 annotation|@
 name|Test
