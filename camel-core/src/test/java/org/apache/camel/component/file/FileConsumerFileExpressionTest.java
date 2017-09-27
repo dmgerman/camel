@@ -268,11 +268,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 comment|// we should only get one as we only poll a single file using the file expression
 name|MockEndpoint
 name|mock
@@ -288,6 +283,11 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"Goodday World"
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -391,11 +391,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 comment|// we should only get one as we only poll a single file using the file expression
 name|MockEndpoint
 name|mock
@@ -411,6 +406,11 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"Goodday World"
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()

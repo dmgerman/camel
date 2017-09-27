@@ -128,11 +128,6 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|startAllRoutes
-argument_list|()
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -171,6 +166,11 @@ name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
