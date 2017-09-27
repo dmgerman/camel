@@ -528,7 +528,7 @@ name|getServiceReference
 argument_list|(
 name|any
 argument_list|(
-name|Class
+name|String
 operator|.
 name|class
 argument_list|)
@@ -597,7 +597,7 @@ name|getServiceReference
 argument_list|(
 name|any
 argument_list|(
-name|Class
+name|String
 operator|.
 name|class
 argument_list|)

@@ -686,6 +686,9 @@ operator|.
 name|getServiceReference
 argument_list|(
 name|serviceType
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -729,6 +732,9 @@ operator|.
 name|getServiceReference
 argument_list|(
 name|serviceType
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
