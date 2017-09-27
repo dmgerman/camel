@@ -128,11 +128,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
+name|Mockito
 operator|.
-name|createMock
+name|mock
 import|;
 end_import
 
@@ -140,21 +140,9 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
-operator|.
-name|replay
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
+name|Mockito
 operator|.
 name|verify
 import|;
@@ -197,29 +185,16 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-comment|// create our mock and record expected behavior = that worker timeout should be set to 0
 name|SocketConnector
 name|mockConnector
 init|=
-name|createMock
+name|mock
 argument_list|(
 name|SocketConnector
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|mockConnector
-operator|.
-name|setWorkerTimeout
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|mockConnector
-argument_list|)
-expr_stmt|;
 comment|// normal camel code to get a producer
 name|Endpoint
 name|endpoint
@@ -309,6 +284,11 @@ expr_stmt|;
 name|verify
 argument_list|(
 name|mockConnector
+argument_list|)
+operator|.
+name|setWorkerTimeout
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
