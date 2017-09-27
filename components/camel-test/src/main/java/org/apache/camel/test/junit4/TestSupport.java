@@ -2261,7 +2261,7 @@ decl_stmt|;
 return|return
 name|osName
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|platform
 operator|.
@@ -2272,9 +2272,6 @@ operator|.
 name|US
 argument_list|)
 argument_list|)
-operator|>
-operator|-
-literal|1
 return|;
 block|}
 comment|/**      * Is this Java by the given vendor.      *<p/>      * Uses<tt>java.vendor</tt> from the system properties to determine the vendor.      *      * @param vendor such as IBM      * @return<tt>true</tt> if its that vendor.      */
@@ -2308,7 +2305,7 @@ decl_stmt|;
 return|return
 name|javaVendor
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|vendor
 operator|.
@@ -2319,12 +2316,9 @@ operator|.
 name|US
 argument_list|)
 argument_list|)
-operator|>
-operator|-
-literal|1
 return|;
 block|}
-comment|/**      * Is this Java 1.5      *      * @return<tt>true</tt> if its Java 1.5,<tt>false</tt> if its not (for example Java 1.6 or better)      * @deprecated will be removed in the near future as Camel now requires JDK1.6+      */
+comment|/**      * Is this Java 1.5      *      * @return<tt>true</tt> if its Java 1.5,<tt>false</tt> if its not (for example Java 1.6 or better)      * @deprecated will be removed in the future as Camel requires JDK1.8+      */
 annotation|@
 name|Deprecated
 DECL|method|isJava15 ()
@@ -2341,7 +2335,9 @@ operator|==
 literal|5
 return|;
 block|}
-comment|/**      * Is this Java 1.6      *      * @return<tt>true</tt> if its Java 1.6,<tt>false</tt> if its not (for example Java 1.7 or better)      */
+comment|/**      * Is this Java 1.6      *      * @return<tt>true</tt> if its Java 1.6,<tt>false</tt> if its not (for example Java 1.7 or better)      * @deprecated will be removed in the future as Camel requires JDK1.8+      */
+annotation|@
+name|Deprecated
 DECL|method|isJava16 ()
 specifier|public
 specifier|static
@@ -2356,7 +2352,9 @@ operator|==
 literal|6
 return|;
 block|}
-comment|/**      * Is this Java 1.7      *      * @return<tt>true</tt> if its Java 1.7,<tt>false</tt> if its not (for example Java 1.6 or older)      */
+comment|/**      * Is this Java 1.7      *      * @return<tt>true</tt> if its Java 1.7,<tt>false</tt> if its not (for example Java 1.6 or older)      * @deprecated will be removed in the future as Camel requires JDK1.8+      */
+annotation|@
+name|Deprecated
 DECL|method|isJava17 ()
 specifier|public
 specifier|static
@@ -2384,6 +2382,21 @@ name|getJavaMajorVersion
 argument_list|()
 operator|==
 literal|8
+return|;
+block|}
+comment|/**      * Is this Java 1.9      *      * @return<tt>true</tt> if its Java 1.9,<tt>false</tt> if its not (for example Java 1.8 or older)      */
+DECL|method|isJava19 ()
+specifier|public
+specifier|static
+name|boolean
+name|isJava19
+parameter_list|()
+block|{
+return|return
+name|getJavaMajorVersion
+argument_list|()
+operator|==
+literal|9
 return|;
 block|}
 comment|/**      * Returns the current major Java version e.g 8.      *<p/>      * Uses<tt>java.specification.version</tt> from the system properties to determine the major version.       * @return the current major Java version.      */
