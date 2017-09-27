@@ -718,6 +718,25 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
+name|stringEscape
+operator|.
+name|unescapeJava
+argument_list|(
+literal|"\tHeadersMapFactory: "
+operator|+
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"headersMapFactory"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|printStatistics
 argument_list|(
 name|camelController

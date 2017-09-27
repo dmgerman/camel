@@ -281,6 +281,18 @@ name|getApplicationContextClassName
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"HeadersMapFactory class name"
+argument_list|)
+DECL|method|getHeadersMapFactoryClassName ()
+name|String
+name|getHeadersMapFactoryClassName
+parameter_list|()
+function_decl|;
+annotation|@
 name|Deprecated
 annotation|@
 name|ManagedOperation
