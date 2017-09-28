@@ -60,6 +60,20 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|JndiRegistry
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -72,6 +86,37 @@ name|SedaConcurrentConsumersTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|jndi
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"count"
+argument_list|,
+literal|"5"
+argument_list|)
+expr_stmt|;
+return|return
+name|jndi
+return|;
+block|}
 DECL|method|testSendToSeda ()
 specifier|public
 name|void
@@ -134,7 +179,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo?concurrentConsumers=5"
+literal|"seda:foo?concurrentConsumers=#count"
 argument_list|)
 operator|.
 name|to
