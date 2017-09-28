@@ -1598,20 +1598,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// override description for camel-core, as otherwise its too generic
-if|if
-condition|(
-literal|"camel-core"
-operator|.
-name|equals
-argument_list|(
-name|project
-operator|.
-name|getArtifactId
-argument_list|()
-argument_list|)
-condition|)
-block|{
+comment|// favor description from the model schema
 if|if
 condition|(
 name|row
@@ -1634,7 +1621,6 @@ literal|"description"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// first version special for json
