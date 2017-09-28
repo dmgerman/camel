@@ -821,7 +821,7 @@ throw|throw
 operator|new
 name|MojoExecutionException
 argument_list|(
-literal|"Error loading language model from camel-core. Reason: "
+literal|"Error loading other model. Reason: "
 operator|+
 name|e
 argument_list|,
