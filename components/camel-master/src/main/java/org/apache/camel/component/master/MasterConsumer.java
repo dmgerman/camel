@@ -238,6 +238,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * A consumer which is only really active when the {@link CamelClusterView} has  * the leadership.  */
+end_comment
+
 begin_class
 annotation|@
 name|ManagedResource

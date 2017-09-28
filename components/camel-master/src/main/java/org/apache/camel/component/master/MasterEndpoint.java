@@ -132,6 +132,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ha
+operator|.
+name|CamelClusterView
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -179,6 +193,10 @@ operator|.
 name|UriPath
 import|;
 end_import
+
+begin_comment
+comment|/**  * Represents an endpoint which only becomes active when the {@link CamelClusterView}  * has the leadership.  */
+end_comment
 
 begin_class
 annotation|@

@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The master camel component ensures that only a single endpoint in a cluster is  * active at any point in time with all other JVMs being hot standbys which wait  * until the master JVM dies before taking over to provide high availability of  * a single consumer.  */
+comment|/**  * The master camel component provides a way to ensures that only a single endpoint  * in a cluster is active at any point in time with automatic failover if the  * JVM dies or the leadership is lot for any reason.  *<p>  * This feature is useful if you need to consume from a backend that does not  * support concurrent consumption.  */
 end_comment
 
 begin_class
