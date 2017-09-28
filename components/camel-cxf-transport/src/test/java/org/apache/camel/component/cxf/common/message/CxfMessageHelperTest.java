@@ -815,7 +815,7 @@ argument_list|)
 operator|.
 name|replaceAll
 argument_list|(
-literal|"\\n"
+literal|"(\\r)?\\n"
 argument_list|,
 literal|""
 argument_list|)
