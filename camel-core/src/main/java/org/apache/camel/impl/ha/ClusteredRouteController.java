@@ -1402,14 +1402,11 @@ name|policy
 init|=
 name|ClusteredRoutePolicy
 operator|.
-name|forView
+name|forNamespace
 argument_list|(
 name|clusterService
-operator|.
-name|getView
-argument_list|(
+argument_list|,
 name|namespace
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|policy

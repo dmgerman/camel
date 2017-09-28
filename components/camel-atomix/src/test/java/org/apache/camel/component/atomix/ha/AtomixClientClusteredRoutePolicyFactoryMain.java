@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.consul.ha
+DECL|package|org.apache.camel.component.atomix.ha
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|consul
+name|atomix
 operator|.
 name|ha
 package|;
@@ -27,6 +27,36 @@ operator|.
 name|util
 operator|.
 name|UUID
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|atomix
+operator|.
+name|catalyst
+operator|.
+name|transport
+operator|.
+name|Address
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|atomix
+operator|.
+name|copycat
+operator|.
+name|server
+operator|.
+name|storage
+operator|.
+name|StorageLevel
 import|;
 end_import
 
@@ -115,17 +145,17 @@ import|;
 end_import
 
 begin_class
-DECL|class|ConsulClusteredRoutePolicyMain
+DECL|class|AtomixClientClusteredRoutePolicyFactoryMain
 specifier|public
 specifier|final
 class|class
-name|ConsulClusteredRoutePolicyMain
+name|AtomixClientClusteredRoutePolicyFactoryMain
 block|{
-DECL|method|ConsulClusteredRoutePolicyMain ()
+DECL|method|AtomixClientClusteredRoutePolicyFactoryMain ()
 specifier|private
-name|ConsulClusteredRoutePolicyMain
+name|AtomixClientClusteredRoutePolicyFactoryMain
 parameter_list|()
-block|{             }
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -178,11 +208,11 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|ConsulClusterService
+name|AtomixClusterService
 name|service
 init|=
 operator|new
-name|ConsulClusterService
+name|AtomixClusterService
 argument_list|()
 decl_stmt|;
 name|service
@@ -196,8 +226,42 @@ argument_list|)
 expr_stmt|;
 name|service
 operator|.
-name|setUrl
+name|setStorageLevel
 argument_list|(
+name|StorageLevel
+operator|.
+name|MEMORY
+argument_list|)
+expr_stmt|;
+name|service
+operator|.
+name|setAddress
+argument_list|(
+operator|new
+name|Address
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|service
+operator|.
+name|setNodes
+argument_list|(
+name|args
+operator|.
+name|length
+operator|>
+literal|1
+condition|?
+name|args
+index|[
+literal|1
+index|]
+else|:
 name|args
 index|[
 literal|0

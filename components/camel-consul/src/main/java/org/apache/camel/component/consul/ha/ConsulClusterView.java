@@ -1539,6 +1539,16 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sessionId
+operator|.
+name|get
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// Refresh session
 name|sessionClient
 operator|.
@@ -1550,6 +1560,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

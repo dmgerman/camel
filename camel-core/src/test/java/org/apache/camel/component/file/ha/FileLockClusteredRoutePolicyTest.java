@@ -164,7 +164,7 @@ name|impl
 operator|.
 name|ha
 operator|.
-name|ClusteredRoutePolicyFactory
+name|ClusteredRoutePolicy
 import|;
 end_import
 
@@ -505,18 +505,6 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|addRoutePolicyFactory
-argument_list|(
-name|ClusteredRoutePolicyFactory
-operator|.
-name|forNamespace
-argument_list|(
-literal|"my-ns"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
 name|addRoutes
 argument_list|(
 operator|new
@@ -542,6 +530,16 @@ argument_list|(
 literal|"route-"
 operator|+
 name|id
+argument_list|)
+operator|.
+name|routePolicy
+argument_list|(
+name|ClusteredRoutePolicy
+operator|.
+name|forNamespace
+argument_list|(
+literal|"my-ns"
+argument_list|)
 argument_list|)
 operator|.
 name|log

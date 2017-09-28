@@ -115,17 +115,17 @@ import|;
 end_import
 
 begin_class
-DECL|class|ZooKeeperClusteredRoutePolicyMain
+DECL|class|ZooKeeperClusteredRoutePolicyFactoryMain
 specifier|public
 specifier|final
 class|class
-name|ZooKeeperClusteredRoutePolicyMain
+name|ZooKeeperClusteredRoutePolicyFactoryMain
 block|{
-DECL|method|ZooKeeperClusteredRoutePolicyMain ()
+DECL|method|ZooKeeperClusteredRoutePolicyFactoryMain ()
 specifier|private
-name|ZooKeeperClusteredRoutePolicyMain
+name|ZooKeeperClusteredRoutePolicyFactoryMain
 parameter_list|()
-block|{             }
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

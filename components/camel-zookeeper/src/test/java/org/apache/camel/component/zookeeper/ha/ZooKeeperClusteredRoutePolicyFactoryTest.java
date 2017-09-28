@@ -198,7 +198,7 @@ name|impl
 operator|.
 name|ha
 operator|.
-name|ClusteredRoutePolicy
+name|ClusteredRoutePolicyFactory
 import|;
 end_import
 
@@ -257,11 +257,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|ZooKeeperClusteredRoutePolicyTest
+DECL|class|ZooKeeperClusteredRoutePolicyFactoryTest
 specifier|public
 specifier|final
 class|class
-name|ZooKeeperClusteredRoutePolicyTest
+name|ZooKeeperClusteredRoutePolicyFactoryTest
 block|{
 DECL|field|PORT
 specifier|private
@@ -286,7 +286,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|ZooKeeperClusteredRoutePolicyTest
+name|ZooKeeperClusteredRoutePolicyFactoryTest
 operator|.
 name|class
 argument_list|)
@@ -599,6 +599,18 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|addRoutePolicyFactory
+argument_list|(
+name|ClusteredRoutePolicyFactory
+operator|.
+name|forNamespace
+argument_list|(
+literal|"my-ns"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
 name|addRoutes
 argument_list|(
 operator|new
@@ -624,16 +636,6 @@ argument_list|(
 literal|"route-"
 operator|+
 name|id
-argument_list|)
-operator|.
-name|routePolicy
-argument_list|(
-name|ClusteredRoutePolicy
-operator|.
-name|forNamespace
-argument_list|(
-literal|"my-ns"
-argument_list|)
 argument_list|)
 operator|.
 name|log
