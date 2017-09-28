@@ -1178,7 +1178,7 @@ block|{
 return|return
 name|CamelContextHelper
 operator|.
-name|mandatoryLookup
+name|mandatoryLookupAndConvert
 argument_list|(
 name|context
 argument_list|,
@@ -1193,7 +1193,7 @@ block|{
 return|return
 name|CamelContextHelper
 operator|.
-name|lookup
+name|lookupAndConvert
 argument_list|(
 name|context
 argument_list|,
