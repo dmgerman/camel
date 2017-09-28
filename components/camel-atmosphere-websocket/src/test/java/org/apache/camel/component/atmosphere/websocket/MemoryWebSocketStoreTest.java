@@ -46,16 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -69,6 +59,16 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
 import|;
 end_import
 
@@ -100,9 +100,9 @@ decl_stmt|;
 name|WebSocket
 name|webSocket1
 init|=
-name|EasyMock
+name|Mockito
 operator|.
-name|createMock
+name|mock
 argument_list|(
 name|WebSocket
 operator|.
@@ -112,9 +112,9 @@ decl_stmt|;
 name|WebSocket
 name|webSocket2
 init|=
-name|EasyMock
+name|Mockito
 operator|.
-name|createMock
+name|mock
 argument_list|(
 name|WebSocket
 operator|.
