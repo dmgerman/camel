@@ -42,18 +42,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|TransformerException
-import|;
-end_import
-
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -63,12 +51,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
+name|Matchers
+operator|.
+name|anyObject
 import|;
 end_import
 
@@ -76,11 +66,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
+name|Mockito
 operator|.
-name|createMock
+name|atLeastOnce
 import|;
 end_import
 
@@ -88,11 +78,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
+name|Mockito
 operator|.
-name|expectLastCall
+name|mock
 import|;
 end_import
 
@@ -100,21 +90,9 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
-operator|.
-name|replay
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
+name|Mockito
 operator|.
 name|verify
 import|;
@@ -142,7 +120,7 @@ specifier|private
 name|ErrorListener
 name|errorListener
 init|=
-name|createMock
+name|mock
 argument_list|(
 name|ErrorListener
 operator|.
@@ -182,49 +160,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|errorListener
-operator|.
-name|error
-argument_list|(
-name|EasyMock
-operator|.
-expr|<
-name|TransformerException
-operator|>
-name|anyObject
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|expectLastCall
-argument_list|()
-operator|.
-name|atLeastOnce
-argument_list|()
-expr_stmt|;
-name|errorListener
-operator|.
-name|fatalError
-argument_list|(
-name|EasyMock
-operator|.
-expr|<
-name|TransformerException
-operator|>
-name|anyObject
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|expectLastCall
-argument_list|()
-operator|.
-name|once
-argument_list|()
-expr_stmt|;
-name|replay
-argument_list|(
-name|errorListener
-argument_list|)
-expr_stmt|;
 name|URL
 name|styleSheet
 init|=
@@ -269,6 +204,26 @@ block|}
 name|verify
 argument_list|(
 name|errorListener
+argument_list|,
+name|atLeastOnce
+argument_list|()
+argument_list|)
+operator|.
+name|error
+argument_list|(
+name|anyObject
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|verify
+argument_list|(
+name|errorListener
+argument_list|)
+operator|.
+name|fatalError
+argument_list|(
+name|anyObject
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

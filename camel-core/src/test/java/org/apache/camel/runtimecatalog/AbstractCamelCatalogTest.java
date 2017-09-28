@@ -70,11 +70,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|junit
 operator|.
-name|EasyMock
+name|Assert
 operator|.
-name|expect
+name|assertEquals
 import|;
 end_import
 
@@ -82,9 +82,9 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
+name|Mockito
 operator|.
 name|mock
 import|;
@@ -94,23 +94,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
+name|mockito
 operator|.
-name|EasyMock
+name|Mockito
 operator|.
-name|replay
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
+name|when
 import|;
 end_import
 
@@ -168,7 +156,7 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-name|expect
+name|when
 argument_list|(
 name|resolver
 operator|.
@@ -178,7 +166,7 @@ literal|"comp"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|"{\n"
 comment|//
@@ -193,11 +181,6 @@ literal|"  }\n"
 comment|//
 operator|+
 literal|"}"
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|resolver
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -276,7 +259,7 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-name|expect
+name|when
 argument_list|(
 name|resolver
 operator|.
@@ -286,7 +269,7 @@ literal|"comp"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|"{\n"
 comment|//
@@ -301,11 +284,6 @@ literal|"  }\n"
 comment|//
 operator|+
 literal|"}"
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|resolver
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -384,7 +362,7 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-name|expect
+name|when
 argument_list|(
 name|resolver
 operator|.
@@ -394,7 +372,7 @@ literal|"comp"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|"{\n"
 comment|//
@@ -409,11 +387,6 @@ literal|"  }\n"
 comment|//
 operator|+
 literal|"}"
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|resolver
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -492,7 +465,7 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-name|expect
+name|when
 argument_list|(
 name|resolver
 operator|.
@@ -502,7 +475,7 @@ literal|"comp"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|"{\n"
 comment|//
@@ -517,11 +490,6 @@ literal|"  }\n"
 comment|//
 operator|+
 literal|"}"
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|resolver
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -591,7 +559,7 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-name|expect
+name|when
 argument_list|(
 name|resolver
 operator|.
@@ -601,7 +569,7 @@ literal|"comp"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|"{\n"
 comment|//
@@ -616,11 +584,6 @@ literal|"  }\n"
 comment|//
 operator|+
 literal|"}"
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|resolver
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -672,7 +635,7 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-name|expect
+name|when
 argument_list|(
 name|resolver
 operator|.
@@ -682,7 +645,7 @@ literal|"comp"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|"{\n"
 comment|//
@@ -697,11 +660,6 @@ literal|"  }\n"
 comment|//
 operator|+
 literal|"}"
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|resolver
 argument_list|)
 expr_stmt|;
 specifier|final
