@@ -2035,6 +2035,8 @@ argument_list|,
 name|resourcePath
 argument_list|,
 name|queryOptions
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|execute
@@ -2176,6 +2178,8 @@ argument_list|,
 name|resourcePath
 argument_list|,
 name|queryOptions
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|execute
@@ -2353,6 +2357,8 @@ argument_list|,
 name|resourcePath
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|writeContent
@@ -2430,6 +2436,8 @@ argument_list|,
 name|resourcePath
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|writeContent
@@ -2606,6 +2614,8 @@ argument_list|,
 name|resourcePath
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|writeContent
@@ -2683,6 +2693,8 @@ argument_list|,
 name|resourcePath
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|writeContent
@@ -2761,6 +2773,8 @@ name|getValue
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|writeContent
@@ -4521,6 +4535,8 @@ operator|.
 name|getQueryParams
 argument_list|()
 argument_list|)
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|batchRequestHeaderOutputStream
@@ -4735,6 +4751,8 @@ name|getResourcePath
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 if|if
@@ -5388,6 +5406,8 @@ name|getResourcePath
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 if|if
@@ -5615,6 +5635,8 @@ literal|""
 operator|)
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 decl_stmt|;
 name|content
@@ -6319,7 +6341,7 @@ literal|"%20"
 argument_list|)
 return|;
 block|}
-DECL|method|parseUri (Edm edm, String resourcePath, String queryOptions)
+DECL|method|parseUri (Edm edm, String resourcePath, String queryOptions, String serviceUri)
 specifier|private
 specifier|static
 name|UriInfo
@@ -6333,6 +6355,9 @@ name|resourcePath
 parameter_list|,
 name|String
 name|queryOptions
+parameter_list|,
+name|String
+name|serviceUri
 parameter_list|)
 block|{
 name|Parser
@@ -6365,6 +6390,8 @@ argument_list|,
 name|queryOptions
 argument_list|,
 literal|null
+argument_list|,
+name|serviceUri
 argument_list|)
 expr_stmt|;
 block|}
