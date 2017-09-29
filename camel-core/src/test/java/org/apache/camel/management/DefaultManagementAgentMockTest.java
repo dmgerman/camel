@@ -110,66 +110,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|createStrictMock
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|expect
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|replay
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|reset
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|verify
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -187,6 +127,42 @@ operator|.
 name|Assert
 operator|.
 name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|reset
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 
@@ -213,7 +189,7 @@ block|{
 name|MBeanServer
 name|mbeanServer
 init|=
-name|createStrictMock
+name|mock
 argument_list|(
 name|MBeanServer
 operator|.
@@ -223,7 +199,7 @@ decl_stmt|;
 name|ObjectInstance
 name|instance
 init|=
-name|createStrictMock
+name|mock
 argument_list|(
 name|ObjectInstance
 operator|.
@@ -276,7 +252,7 @@ literal|"otherValue"
 argument_list|)
 decl_stmt|;
 comment|// Register MBean and return different ObjectName
-name|expect
+name|when
 argument_list|(
 name|mbeanServer
 operator|.
@@ -286,12 +262,12 @@ name|sourceObjectName
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|mbeanServer
 operator|.
@@ -303,12 +279,12 @@ name|sourceObjectName
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|instance
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|instance
 operator|.
@@ -316,12 +292,12 @@ name|getObjectName
 argument_list|()
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|registeredObjectName
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|mbeanServer
 operator|.
@@ -331,16 +307,9 @@ name|registeredObjectName
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|true
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|mbeanServer
-argument_list|,
-name|instance
 argument_list|)
 expr_stmt|;
 name|agent
@@ -362,13 +331,6 @@ name|sourceObjectName
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|verify
-argument_list|(
-name|mbeanServer
-argument_list|,
-name|instance
-argument_list|)
-expr_stmt|;
 name|reset
 argument_list|(
 name|mbeanServer
@@ -377,7 +339,7 @@ name|instance
 argument_list|)
 expr_stmt|;
 comment|// ... and unregister it again
-name|expect
+name|when
 argument_list|(
 name|mbeanServer
 operator|.
@@ -387,7 +349,7 @@ name|registeredObjectName
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|true
 argument_list|)
@@ -399,7 +361,7 @@ argument_list|(
 name|registeredObjectName
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|mbeanServer
 operator|.
@@ -409,14 +371,9 @@ name|sourceObjectName
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|false
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|mbeanServer
 argument_list|)
 expr_stmt|;
 name|agent
@@ -434,11 +391,6 @@ name|isRegistered
 argument_list|(
 name|sourceObjectName
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|verify
-argument_list|(
-name|mbeanServer
 argument_list|)
 expr_stmt|;
 block|}

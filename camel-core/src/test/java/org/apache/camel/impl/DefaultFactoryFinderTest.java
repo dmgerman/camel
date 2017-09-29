@@ -110,66 +110,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|createMock
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|expect
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|mock
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|replay
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|verify
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -251,6 +191,42 @@ operator|.
 name|Assert
 operator|.
 name|fail
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|verify
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 
@@ -339,7 +315,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|classResolver
 operator|.
@@ -349,7 +325,7 @@ literal|"/org/apache/camel/impl/TestImplA"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 operator|new
 name|ByteArrayInputStream
@@ -361,7 +337,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|classResolver
 operator|.
@@ -376,14 +352,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 literal|null
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|classResolver
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -422,11 +393,6 @@ name|ClassNotFoundException
 name|e
 parameter_list|)
 block|{
-name|verify
-argument_list|(
-name|classResolver
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 name|TestImplA
@@ -460,7 +426,7 @@ specifier|final
 name|Injector
 name|injector
 init|=
-name|createMock
+name|mock
 argument_list|(
 name|Injector
 operator|.
@@ -475,7 +441,7 @@ operator|new
 name|TestImplA
 argument_list|()
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|injector
 operator|.
@@ -487,14 +453,9 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|expected
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|injector
 argument_list|)
 expr_stmt|;
 try|try
@@ -690,7 +651,7 @@ specifier|final
 name|Injector
 name|injector
 init|=
-name|createMock
+name|mock
 argument_list|(
 name|Injector
 operator|.
@@ -705,7 +666,7 @@ operator|new
 name|TestImplA
 argument_list|()
 decl_stmt|;
-name|expect
+name|when
 argument_list|(
 name|injector
 operator|.
@@ -717,14 +678,9 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 name|expected
-argument_list|)
-expr_stmt|;
-name|replay
-argument_list|(
-name|injector
 argument_list|)
 expr_stmt|;
 specifier|final
