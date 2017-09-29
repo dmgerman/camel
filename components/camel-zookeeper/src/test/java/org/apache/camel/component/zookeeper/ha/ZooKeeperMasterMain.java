@@ -117,6 +117,11 @@ specifier|final
 class|class
 name|ZooKeeperMasterMain
 block|{
+DECL|method|ZooKeeperMasterMain ()
+specifier|private
+name|ZooKeeperMasterMain
+parameter_list|()
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
