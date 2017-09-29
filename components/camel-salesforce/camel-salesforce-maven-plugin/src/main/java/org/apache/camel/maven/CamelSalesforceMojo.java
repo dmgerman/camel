@@ -1010,16 +1010,6 @@ name|SslContextFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Goal to generate DTOs for Salesforce SObjects  */
 end_comment
