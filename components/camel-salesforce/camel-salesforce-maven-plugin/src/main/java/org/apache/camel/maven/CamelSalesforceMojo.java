@@ -714,7 +714,7 @@ name|commons
 operator|.
 name|lang3
 operator|.
-name|StringUtils
+name|StringEscapeUtils
 import|;
 end_import
 
@@ -728,7 +728,7 @@ name|commons
 operator|.
 name|lang3
 operator|.
-name|StringEscapeUtils
+name|StringUtils
 import|;
 end_import
 
