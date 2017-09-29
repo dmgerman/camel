@@ -214,16 +214,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -237,6 +227,16 @@ operator|.
 name|junit
 operator|.
 name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
 import|;
 end_import
 
@@ -429,9 +429,9 @@ else|else
 block|{
 name|target
 operator|=
-name|EasyMock
+name|Mockito
 operator|.
-name|createMock
+name|mock
 argument_list|(
 name|EndpointReferenceType
 operator|.
