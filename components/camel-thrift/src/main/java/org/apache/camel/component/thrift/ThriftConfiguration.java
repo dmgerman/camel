@@ -152,6 +152,82 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|defaultValue
+operator|=
+literal|"BINARY"
+argument_list|)
+DECL|field|exchangeProtocol
+specifier|private
+name|ThriftExchangeProtocol
+name|exchangeProtocol
+init|=
+name|ThriftExchangeProtocol
+operator|.
+name|BINARY
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"PLAINTEXT"
+argument_list|)
+DECL|field|negotiationType
+specifier|private
+name|ThriftNegotiationType
+name|negotiationType
+init|=
+name|ThriftNegotiationType
+operator|.
+name|PLAINTEXT
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|sslConfiguration
+specifier|private
+name|ThriftSSLConfiguration
+name|sslConfiguration
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"NONE"
+argument_list|)
+DECL|field|compressionType
+specifier|private
+name|ThriftCompressionType
+name|compressionType
+init|=
+name|ThriftCompressionType
+operator|.
+name|NONE
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|clientTimeout
+specifier|private
+name|int
+name|clientTimeout
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|label
 operator|=
 literal|"consumer"
@@ -197,7 +273,7 @@ name|ThriftConstants
 operator|.
 name|THRIFT_CONSUMER_MAX_POOL_SIZE
 decl_stmt|;
-comment|/**      * Fully qualified service name from the protocol buffer descriptor file      * (package dot service definition name)      */
+comment|/**      * Fully qualified service name from the thrift descriptor file      * (package dot service definition name)      */
 DECL|method|getService ()
 specifier|public
 name|String
@@ -251,7 +327,115 @@ operator|=
 name|method
 expr_stmt|;
 block|}
-comment|/**      * The Thrift server host name. This is localhost or 0.0.0.0 (if not      * defined) when being a consumer or remote server hostname when using      * producer.      */
+comment|/**      * Exchange protocol serialization type      */
+DECL|method|getExchangeProtocol ()
+specifier|public
+name|ThriftExchangeProtocol
+name|getExchangeProtocol
+parameter_list|()
+block|{
+return|return
+name|exchangeProtocol
+return|;
+block|}
+DECL|method|setExchangeProtocol (ThriftExchangeProtocol exchangeProtocol)
+specifier|public
+name|void
+name|setExchangeProtocol
+parameter_list|(
+name|ThriftExchangeProtocol
+name|exchangeProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchangeProtocol
+operator|=
+name|exchangeProtocol
+expr_stmt|;
+block|}
+comment|/**      * Security negotiation type      */
+DECL|method|getNegotiationType ()
+specifier|public
+name|ThriftNegotiationType
+name|getNegotiationType
+parameter_list|()
+block|{
+return|return
+name|negotiationType
+return|;
+block|}
+DECL|method|setNegotiationType (ThriftNegotiationType negotiationType)
+specifier|public
+name|void
+name|setNegotiationType
+parameter_list|(
+name|ThriftNegotiationType
+name|negotiationType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|negotiationType
+operator|=
+name|negotiationType
+expr_stmt|;
+block|}
+comment|/**      * Configuration parameters for SSL/TLS security negotiation      */
+DECL|method|getSslConfiguration ()
+specifier|public
+name|ThriftSSLConfiguration
+name|getSslConfiguration
+parameter_list|()
+block|{
+return|return
+name|sslConfiguration
+return|;
+block|}
+DECL|method|setSslConfiguration (ThriftSSLConfiguration sslConfiguration)
+specifier|public
+name|void
+name|setSslConfiguration
+parameter_list|(
+name|ThriftSSLConfiguration
+name|sslConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslConfiguration
+operator|=
+name|sslConfiguration
+expr_stmt|;
+block|}
+comment|/**      * Protocol compression mechanism type      */
+DECL|method|getCompressionType ()
+specifier|public
+name|ThriftCompressionType
+name|getCompressionType
+parameter_list|()
+block|{
+return|return
+name|compressionType
+return|;
+block|}
+DECL|method|setCompressionType (ThriftCompressionType compressionType)
+specifier|public
+name|void
+name|setCompressionType
+parameter_list|(
+name|ThriftCompressionType
+name|compressionType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compressionType
+operator|=
+name|compressionType
+expr_stmt|;
+block|}
+comment|/**      * The Thrift server host name. This is localhost or 0.0.0.0 (if not      * defined) when being a consumer or remote server host name when using      * producer.      */
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -303,6 +487,33 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+comment|/**      * Client timeout for consumers      */
+DECL|method|getClientTimeout ()
+specifier|public
+name|int
+name|getClientTimeout
+parameter_list|()
+block|{
+return|return
+name|clientTimeout
+return|;
+block|}
+DECL|method|setClientTimeout (int clientTimeout)
+specifier|public
+name|void
+name|setClientTimeout
+parameter_list|(
+name|int
+name|clientTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientTimeout
+operator|=
+name|clientTimeout
 expr_stmt|;
 block|}
 comment|/**      * The Thrift server consumer initial thread pool size      */

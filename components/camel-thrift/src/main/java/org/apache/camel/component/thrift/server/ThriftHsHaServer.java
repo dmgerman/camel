@@ -172,16 +172,6 @@ name|transport
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getExecutorService ()
-specifier|public
-name|ExecutorService
-name|getExecutorService
-parameter_list|()
-block|{
-return|return
-name|executorService
-return|;
-block|}
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|Args
@@ -201,16 +191,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getStartThreadPool ()
-specifier|public
-name|ExecutorService
-name|getStartThreadPool
-parameter_list|()
-block|{
-return|return
-name|startThreadPool
-return|;
-block|}
 DECL|method|startThreadPool (ExecutorService startThreadPool)
 specifier|public
 name|Args
@@ -228,16 +208,6 @@ name|startThreadPool
 expr_stmt|;
 return|return
 name|this
-return|;
-block|}
-DECL|method|getContext ()
-specifier|public
-name|CamelContext
-name|getContext
-parameter_list|()
-block|{
-return|return
-name|context
 return|;
 block|}
 DECL|method|context (CamelContext context)
