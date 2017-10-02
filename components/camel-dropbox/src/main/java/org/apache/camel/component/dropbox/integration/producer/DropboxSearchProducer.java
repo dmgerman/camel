@@ -30,7 +30,11 @@ name|dropbox
 operator|.
 name|core
 operator|.
-name|DbxEntry
+name|v2
+operator|.
+name|files
+operator|.
+name|SearchMatch
 import|;
 end_import
 
@@ -269,7 +273,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|DbxEntry
+name|SearchMatch
 name|entry
 range|:
 name|result
@@ -284,7 +288,11 @@ name|append
 argument_list|(
 name|entry
 operator|.
-name|name
+name|getMetadata
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|.
 name|append
@@ -296,7 +304,11 @@ name|append
 argument_list|(
 name|entry
 operator|.
-name|path
+name|getMetadata
+argument_list|()
+operator|.
+name|getPathDisplay
+argument_list|()
 argument_list|)
 operator|.
 name|append

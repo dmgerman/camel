@@ -36,7 +36,7 @@ name|dropbox
 operator|.
 name|core
 operator|.
-name|DbxClient
+name|DbxRequestConfig
 import|;
 end_import
 
@@ -48,7 +48,9 @@ name|dropbox
 operator|.
 name|core
 operator|.
-name|DbxRequestConfig
+name|v2
+operator|.
+name|DbxClientV2
 import|;
 end_import
 
@@ -242,16 +244,16 @@ annotation|@
 name|UriParam
 DECL|field|client
 specifier|private
-name|DbxClient
+name|DbxClientV2
 name|client
 decl_stmt|;
 comment|/**      * To use an existing DbxClient instance as DropBox client.      */
-DECL|method|setClient (DbxClient client)
+DECL|method|setClient (DbxClientV2 client)
 specifier|public
 name|void
 name|setClient
 parameter_list|(
-name|DbxClient
+name|DbxClientV2
 name|client
 parameter_list|)
 block|{
@@ -264,7 +266,7 @@ expr_stmt|;
 block|}
 DECL|method|getClient ()
 specifier|public
-name|DbxClient
+name|DbxClientV2
 name|getClient
 parameter_list|()
 block|{
@@ -301,7 +303,7 @@ operator|.
 name|client
 operator|=
 operator|new
-name|DbxClient
+name|DbxClientV2
 argument_list|(
 name|config
 argument_list|,

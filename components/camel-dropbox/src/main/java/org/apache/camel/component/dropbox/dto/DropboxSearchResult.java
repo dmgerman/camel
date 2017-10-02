@@ -58,7 +58,11 @@ name|dropbox
 operator|.
 name|core
 operator|.
-name|DbxEntry
+name|v2
+operator|.
+name|files
+operator|.
+name|SearchMatch
 import|;
 end_import
 
@@ -73,17 +77,17 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|DbxEntry
+name|SearchMatch
 argument_list|>
 name|found
 decl_stmt|;
-DECL|method|DropboxSearchResult (List<DbxEntry> found)
+DECL|method|DropboxSearchResult (List<SearchMatch> found)
 specifier|public
 name|DropboxSearchResult
 parameter_list|(
 name|List
 argument_list|<
-name|DbxEntry
+name|SearchMatch
 argument_list|>
 name|found
 parameter_list|)
@@ -104,7 +108,7 @@ DECL|method|getFound ()
 specifier|public
 name|List
 argument_list|<
-name|DbxEntry
+name|SearchMatch
 argument_list|>
 name|getFound
 parameter_list|()
