@@ -113,6 +113,13 @@ name|testComponent
 argument_list|(
 name|COMPONENT
 argument_list|,
+literal|"aws-ddbstream"
+argument_list|)
+expr_stmt|;
+name|testComponent
+argument_list|(
+name|COMPONENT
+argument_list|,
 literal|"aws-ec2"
 argument_list|)
 expr_stmt|;
@@ -128,6 +135,13 @@ argument_list|(
 name|COMPONENT
 argument_list|,
 literal|"aws-kinesis-firehose"
+argument_list|)
+expr_stmt|;
+name|testComponent
+argument_list|(
+name|COMPONENT
+argument_list|,
+literal|"aws-lambda"
 argument_list|)
 expr_stmt|;
 name|testComponent
