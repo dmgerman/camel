@@ -953,6 +953,8 @@ operator|.
 name|prettyPrint
 argument_list|(
 name|json
+argument_list|,
+literal|2
 argument_list|)
 return|;
 block|}
