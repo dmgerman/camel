@@ -84,7 +84,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 
@@ -286,8 +286,6 @@ argument_list|(
 literal|"id"
 argument_list|,
 literal|"MA147LL/A"
-argument_list|,
-literal|1.0f
 argument_list|)
 expr_stmt|;
 name|String
@@ -376,8 +374,6 @@ argument_list|(
 literal|"id"
 argument_list|,
 literal|"MA147LL/A"
-argument_list|,
-literal|1.0f
 argument_list|)
 expr_stmt|;
 name|String
@@ -470,8 +466,6 @@ argument_list|(
 literal|"id"
 argument_list|,
 literal|"MA147LL/A"
-argument_list|,
-literal|1.0f
 argument_list|)
 expr_stmt|;
 name|template
@@ -563,8 +557,6 @@ argument_list|(
 literal|"id"
 argument_list|,
 literal|"MA147LL/A"
-argument_list|,
-literal|1.0f
 argument_list|)
 expr_stmt|;
 name|docList
@@ -587,8 +579,6 @@ argument_list|(
 literal|"id"
 argument_list|,
 literal|"KP147LL/A"
-argument_list|,
-literal|1.0f
 argument_list|)
 expr_stmt|;
 name|docList
@@ -956,7 +946,7 @@ expr_stmt|;
 comment|//noinspection ThrowableResultOfMethodCallIgnored
 name|assertEquals
 argument_list|(
-name|HttpSolrServer
+name|HttpSolrClient
 operator|.
 name|RemoteSolrException
 operator|.
