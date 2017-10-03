@@ -94,6 +94,22 @@ name|UriPath
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriParams
@@ -192,10 +208,10 @@ name|label
 operator|=
 literal|"security"
 argument_list|)
-DECL|field|sslConfiguration
+DECL|field|sslParameters
 specifier|private
-name|ThriftSSLConfiguration
-name|sslConfiguration
+name|SSLContextParameters
+name|sslParameters
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -382,30 +398,30 @@ name|negotiationType
 expr_stmt|;
 block|}
 comment|/**      * Configuration parameters for SSL/TLS security negotiation      */
-DECL|method|getSslConfiguration ()
+DECL|method|getSslParameters ()
 specifier|public
-name|ThriftSSLConfiguration
-name|getSslConfiguration
+name|SSLContextParameters
+name|getSslParameters
 parameter_list|()
 block|{
 return|return
-name|sslConfiguration
+name|sslParameters
 return|;
 block|}
-DECL|method|setSslConfiguration (ThriftSSLConfiguration sslConfiguration)
+DECL|method|setSslParameters (SSLContextParameters sslParameters)
 specifier|public
 name|void
-name|setSslConfiguration
+name|setSslParameters
 parameter_list|(
-name|ThriftSSLConfiguration
-name|sslConfiguration
+name|SSLContextParameters
+name|sslParameters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sslConfiguration
+name|sslParameters
 operator|=
-name|sslConfiguration
+name|sslParameters
 expr_stmt|;
 block|}
 comment|/**      * Protocol compression mechanism type      */
