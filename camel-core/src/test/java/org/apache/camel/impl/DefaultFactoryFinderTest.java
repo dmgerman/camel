@@ -214,18 +214,6 @@ name|mockito
 operator|.
 name|Mockito
 operator|.
-name|verify
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
 name|when
 import|;
 end_import
@@ -703,11 +691,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|verify
-argument_list|(
-name|injector
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1

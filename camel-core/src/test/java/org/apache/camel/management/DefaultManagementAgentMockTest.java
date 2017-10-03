@@ -102,16 +102,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -181,11 +171,6 @@ comment|/**  * Tests proper behavior of DefaultManagementAgent when  * {@link MB
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Is flaky with mockito"
-argument_list|)
 DECL|class|DefaultManagementAgentMockTest
 specifier|public
 class|class
