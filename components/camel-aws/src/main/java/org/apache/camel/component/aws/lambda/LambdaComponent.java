@@ -26,7 +26,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Map
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -88,21 +88,13 @@ specifier|public
 class|class
 name|LambdaComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|LambdaComponent ()
 specifier|public
 name|LambdaComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|LambdaEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|LambdaComponent (CamelContext context)
 specifier|public
 name|LambdaComponent
@@ -114,10 +106,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|LambdaEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

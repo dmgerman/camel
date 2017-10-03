@@ -152,7 +152,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ScheduledPollEndpoint
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -208,7 +208,7 @@ name|UriEndpoint
 argument_list|(
 name|firstVersion
 operator|=
-literal|"2.21.0"
+literal|"2.20.0"
 argument_list|,
 name|scheme
 operator|=
@@ -220,7 +220,7 @@ literal|"AWS Lambda"
 argument_list|,
 name|syntax
 operator|=
-literal|"aws-lambda:functionName"
+literal|"aws-lambda:function"
 argument_list|,
 name|producerOnly
 operator|=
@@ -235,7 +235,7 @@ specifier|public
 class|class
 name|LambdaEndpoint
 extends|extends
-name|ScheduledPollEndpoint
+name|DefaultEndpoint
 block|{
 DECL|field|awsLambdaClient
 specifier|private

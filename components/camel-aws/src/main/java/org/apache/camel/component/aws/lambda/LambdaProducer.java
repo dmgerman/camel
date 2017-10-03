@@ -26,7 +26,17 @@ name|java
 operator|.
 name|io
 operator|.
-name|*
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileInputStream
 import|;
 end_import
 
@@ -36,7 +46,7 @@ name|java
 operator|.
 name|nio
 operator|.
-name|*
+name|ByteBuffer
 import|;
 end_import
 
@@ -58,7 +68,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -2114,25 +2134,6 @@ name|AmazonServiceException
 name|ase
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|ase
-operator|.
-name|getErrorCode
-argument_list|()
-operator|+
-literal|" - "
-operator|+
-name|ase
-operator|.
-name|getErrorMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|LOG
 operator|.
 name|trace
