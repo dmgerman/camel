@@ -5017,6 +5017,17 @@ argument_list|,
 name|directory
 argument_list|)
 expr_stmt|;
+comment|// while creating directory string if directory results in
+comment|// trailing slash, remove it not necessary
+name|directory
+operator|=
+name|FileUtil
+operator|.
+name|stripTrailingSeparator
+argument_list|(
+name|directory
+argument_list|)
+expr_stmt|;
 name|success
 operator|=
 name|client
