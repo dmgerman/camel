@@ -224,10 +224,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|schema
+DECL|field|schemaReader
 specifier|private
-name|Schema
-name|schema
+name|JsonSchemaReader
+name|schemaReader
 decl_stmt|;
 DECL|field|errorHandler
 specifier|private
@@ -262,19 +262,19 @@ specifier|public
 name|JsonValidatingProcessor
 parameter_list|()
 block|{              }
-DECL|method|JsonValidatingProcessor (Schema schema)
+DECL|method|JsonValidatingProcessor (JsonSchemaReader schemaReader)
 specifier|public
 name|JsonValidatingProcessor
 parameter_list|(
-name|Schema
-name|schema
+name|JsonSchemaReader
+name|schemaReader
 parameter_list|)
 block|{
 name|this
 operator|.
-name|schema
+name|schemaReader
 operator|=
-name|schema
+name|schemaReader
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -364,6 +364,11 @@ name|is
 init|=
 literal|null
 decl_stmt|;
+name|Schema
+name|schema
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 name|is
@@ -432,6 +437,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|schema
+operator|=
+name|this
+operator|.
+name|schemaReader
+operator|.
+name|getSchema
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|schema

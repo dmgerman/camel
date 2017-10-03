@@ -24,9 +24,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|Map
+name|IOException
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|CamelContext
 import|;
 end_import
 
@@ -46,76 +46,37 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|everit
 operator|.
-name|camel
+name|json
 operator|.
-name|impl
+name|schema
 operator|.
-name|DefaultComponent
+name|Schema
 import|;
 end_import
 
-begin_comment
-comment|/**  * The JSON Schema Validator Component is for validating JSON against a schema.  *  * @version  */
-end_comment
-
-begin_class
-DECL|class|JsonSchemaValidatorComponent
+begin_interface
+DECL|interface|JsonSchemaLoader
 specifier|public
-class|class
-name|JsonSchemaValidatorComponent
-extends|extends
-name|DefaultComponent
+interface|interface
+name|JsonSchemaLoader
 block|{
-DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
-specifier|protected
-name|Endpoint
-name|createEndpoint
+DECL|method|createSchema (CamelContext camelContext, String resourceUri)
+name|Schema
+name|createSchema
 parameter_list|(
-name|String
-name|uri
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|String
-name|remaining
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
+name|resourceUri
 parameter_list|)
 throws|throws
-name|Exception
-block|{
-name|JsonSchemaValidatorEndpoint
-name|endpoint
-init|=
-operator|new
-name|JsonSchemaValidatorEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|this
-argument_list|,
-name|remaining
-argument_list|)
-decl_stmt|;
-name|setProperties
-argument_list|(
-name|endpoint
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
-name|endpoint
-return|;
+name|IOException
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
