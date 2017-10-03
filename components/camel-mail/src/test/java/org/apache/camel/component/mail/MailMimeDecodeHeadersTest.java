@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|internet
+operator|.
+name|MimeUtility
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -83,18 +95,6 @@ operator|.
 name|mock_javamail
 operator|.
 name|Mailbox
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|internet
-operator|.
-name|MimeUtility
 import|;
 end_import
 

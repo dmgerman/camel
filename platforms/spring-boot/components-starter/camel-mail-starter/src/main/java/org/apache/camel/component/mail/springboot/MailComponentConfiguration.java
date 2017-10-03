@@ -604,6 +604,14 @@ specifier|private
 name|AttachmentsContentTransferEncodingResolver
 name|attachmentsContentTransferEncodingResolver
 decl_stmt|;
+comment|/**          * This option enables transparent MIME decoding and unfolding for mail          * headers.          */
+DECL|field|mimeDecodeHeaders
+specifier|private
+name|Boolean
+name|mimeDecodeHeaders
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getJavaMailSender ()
 specifier|public
 name|JavaMailSender
@@ -1538,6 +1546,32 @@ operator|.
 name|attachmentsContentTransferEncodingResolver
 operator|=
 name|attachmentsContentTransferEncodingResolver
+expr_stmt|;
+block|}
+DECL|method|getMimeDecodeHeaders ()
+specifier|public
+name|Boolean
+name|getMimeDecodeHeaders
+parameter_list|()
+block|{
+return|return
+name|mimeDecodeHeaders
+return|;
+block|}
+DECL|method|setMimeDecodeHeaders (Boolean mimeDecodeHeaders)
+specifier|public
+name|void
+name|setMimeDecodeHeaders
+parameter_list|(
+name|Boolean
+name|mimeDecodeHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mimeDecodeHeaders
+operator|=
+name|mimeDecodeHeaders
 expr_stmt|;
 block|}
 block|}
