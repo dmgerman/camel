@@ -604,9 +604,13 @@ name|placeholder
 init|=
 name|invocation
 operator|.
-name|getArgument
+name|getArgumentAt
 argument_list|(
 literal|0
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// we receive the argument and check if the method should return a
