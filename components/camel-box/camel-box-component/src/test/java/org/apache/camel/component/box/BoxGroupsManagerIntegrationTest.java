@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for {@link BoxGroupsManager}  * APIs.  */
+comment|/**  * Test class for {@link BoxGroupsManager} APIs.  */
 end_comment
 
 begin_class
