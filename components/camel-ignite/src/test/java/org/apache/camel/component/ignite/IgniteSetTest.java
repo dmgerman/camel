@@ -1266,7 +1266,7 @@ name|setCacheMode
 argument_list|(
 name|CacheMode
 operator|.
-name|LOCAL
+name|PARTITIONED
 argument_list|)
 expr_stmt|;
 name|context

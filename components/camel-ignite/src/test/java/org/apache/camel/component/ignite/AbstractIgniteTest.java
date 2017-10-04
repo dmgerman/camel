@@ -256,7 +256,7 @@ argument_list|()
 decl_stmt|;
 name|config
 operator|.
-name|setGridName
+name|setIgniteInstanceName
 argument_list|(
 name|UUID
 operator|.
