@@ -82,6 +82,26 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|grpc
+operator|.
+name|auth
+operator|.
+name|jwt
+operator|.
+name|JwtAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -238,11 +258,19 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"HMAC256"
 argument_list|)
-DECL|field|serviceAccountResource
+DECL|field|jwtAlgorithm
 specifier|private
-name|String
-name|serviceAccountResource
+name|JwtAlgorithm
+name|jwtAlgorithm
+init|=
+name|JwtAlgorithm
+operator|.
+name|HMAC256
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -283,6 +311,18 @@ DECL|field|jwtSubject
 specifier|private
 name|String
 name|jwtSubject
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|serviceAccountResource
+specifier|private
+name|String
+name|serviceAccountResource
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -658,31 +698,31 @@ operator|=
 name|authenticationType
 expr_stmt|;
 block|}
-comment|/**      * Service Account key file in JSON format resource link supported by the Google Cloud SDK      */
-DECL|method|getServiceAccountResource ()
+comment|/**      * JSON Web Token sign algorithm      */
+DECL|method|getJwtAlgorithm ()
 specifier|public
-name|String
-name|getServiceAccountResource
+name|JwtAlgorithm
+name|getJwtAlgorithm
 parameter_list|()
 block|{
 return|return
-name|serviceAccountResource
+name|jwtAlgorithm
 return|;
 block|}
-DECL|method|setServiceAccountResource (String serviceAccountResource)
+DECL|method|setJwtAlgorithm (JwtAlgorithm jwtAlgorithm)
 specifier|public
 name|void
-name|setServiceAccountResource
+name|setJwtAlgorithm
 parameter_list|(
-name|String
-name|serviceAccountResource
+name|JwtAlgorithm
+name|jwtAlgorithm
 parameter_list|)
 block|{
 name|this
 operator|.
-name|serviceAccountResource
+name|jwtAlgorithm
 operator|=
-name|serviceAccountResource
+name|jwtAlgorithm
 expr_stmt|;
 block|}
 comment|/**      * JSON Web Token secret      */
@@ -764,6 +804,33 @@ operator|.
 name|jwtSubject
 operator|=
 name|jwtSubject
+expr_stmt|;
+block|}
+comment|/**      * Service Account key file in JSON format resource link supported by the Google Cloud SDK      */
+DECL|method|getServiceAccountResource ()
+specifier|public
+name|String
+name|getServiceAccountResource
+parameter_list|()
+block|{
+return|return
+name|serviceAccountResource
+return|;
+block|}
+DECL|method|setServiceAccountResource (String serviceAccountResource)
+specifier|public
+name|void
+name|setServiceAccountResource
+parameter_list|(
+name|String
+name|serviceAccountResource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceAccountResource
+operator|=
+name|serviceAccountResource
 expr_stmt|;
 block|}
 comment|/**      * The X.509 certificate chain file resource in PEM format link       */

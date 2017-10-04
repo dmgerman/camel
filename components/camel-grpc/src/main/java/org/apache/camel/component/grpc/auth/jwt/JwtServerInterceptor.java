@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.grpc.server.auth.jwt
+DECL|package|org.apache.camel.component.grpc.auth.jwt
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|grpc
-operator|.
-name|server
 operator|.
 name|auth
 operator|.
@@ -273,10 +271,13 @@ specifier|final
 name|JWTVerifier
 name|verifier
 decl_stmt|;
-DECL|method|JwtServerInterceptor (String secret, String issuer, String subject)
+DECL|method|JwtServerInterceptor (JwtAlgorithm algorithm, String secret, String issuer, String subject)
 specifier|public
 name|JwtServerInterceptor
 parameter_list|(
+name|JwtAlgorithm
+name|algorithm
+parameter_list|,
 name|String
 name|secret
 parameter_list|,
@@ -289,10 +290,10 @@ parameter_list|)
 block|{
 name|verifier
 operator|=
-name|JwtHelper
-operator|.
 name|prepareJwtVerifier
 argument_list|(
+name|algorithm
+argument_list|,
 name|secret
 argument_list|,
 name|issuer
@@ -489,25 +490,15 @@ name|serverCallHandler
 argument_list|)
 return|;
 block|}
-comment|/**      * JSON Web Token credentials validator helper      */
-DECL|class|JwtHelper
-specifier|public
-specifier|static
-specifier|final
-class|class
-name|JwtHelper
-block|{
-DECL|method|JwtHelper ()
-specifier|private
-name|JwtHelper
-parameter_list|()
-block|{         }
-DECL|method|prepareJwtVerifier (String secret, String issuer, String subject)
+DECL|method|prepareJwtVerifier (JwtAlgorithm algorithmName, String secret, String issuer, String subject)
 specifier|public
 specifier|static
 name|JWTVerifier
 name|prepareJwtVerifier
 parameter_list|(
+name|JwtAlgorithm
+name|algorithmName
+parameter_list|,
 name|String
 name|secret
 parameter_list|,
@@ -523,10 +514,12 @@ block|{
 name|Algorithm
 name|algorithm
 init|=
-name|Algorithm
+name|JwtHelper
 operator|.
-name|HMAC256
+name|selectAlgorithm
 argument_list|(
+name|algorithmName
+argument_list|,
 name|secret
 argument_list|)
 decl_stmt|;
@@ -583,7 +576,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 block|}

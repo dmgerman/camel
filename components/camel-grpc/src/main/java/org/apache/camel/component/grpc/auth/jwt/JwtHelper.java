@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.grpc.client.auth.jwt
+DECL|package|org.apache.camel.component.grpc.auth.jwt
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|grpc
-operator|.
-name|client
 operator|.
 name|auth
 operator|.
@@ -90,12 +88,15 @@ specifier|private
 name|JwtHelper
 parameter_list|()
 block|{     }
-DECL|method|createJwtToken (String secret, String issuer, String subject)
+DECL|method|createJwtToken (JwtAlgorithm algorithmName, String secret, String issuer, String subject)
 specifier|public
 specifier|static
 name|String
 name|createJwtToken
 parameter_list|(
+name|JwtAlgorithm
+name|algorithmName
+parameter_list|,
 name|String
 name|secret
 parameter_list|,
@@ -111,10 +112,10 @@ block|{
 name|Algorithm
 name|algorithm
 init|=
-name|Algorithm
-operator|.
-name|HMAC256
+name|selectAlgorithm
 argument_list|(
+name|algorithmName
+argument_list|,
 name|secret
 argument_list|)
 decl_stmt|;
@@ -174,6 +175,75 @@ argument_list|(
 literal|"UTF-8 encoding not supported during JWT token creation"
 argument_list|,
 name|e
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|selectAlgorithm (JwtAlgorithm algorithmName, String secret)
+specifier|public
+specifier|static
+name|Algorithm
+name|selectAlgorithm
+parameter_list|(
+name|JwtAlgorithm
+name|algorithmName
+parameter_list|,
+name|String
+name|secret
+parameter_list|)
+throws|throws
+name|IllegalArgumentException
+throws|,
+name|UnsupportedEncodingException
+block|{
+switch|switch
+condition|(
+name|algorithmName
+condition|)
+block|{
+case|case
+name|HMAC256
+case|:
+return|return
+name|Algorithm
+operator|.
+name|HMAC256
+argument_list|(
+name|secret
+argument_list|)
+return|;
+case|case
+name|HMAC384
+case|:
+return|return
+name|Algorithm
+operator|.
+name|HMAC384
+argument_list|(
+name|secret
+argument_list|)
+return|;
+case|case
+name|HMAC512
+case|:
+return|return
+name|Algorithm
+operator|.
+name|HMAC512
+argument_list|(
+name|secret
+argument_list|)
+return|;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"JWT algorithm "
+operator|+
+name|algorithmName
+operator|+
+literal|" not implemented"
 argument_list|)
 throw|;
 block|}

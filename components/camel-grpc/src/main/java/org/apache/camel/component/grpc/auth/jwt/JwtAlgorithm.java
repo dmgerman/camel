@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.grpc
+DECL|package|org.apache.camel.component.grpc.auth.jwt
 package|package
 name|org
 operator|.
@@ -15,30 +15,34 @@ operator|.
 name|component
 operator|.
 name|grpc
+operator|.
+name|auth
+operator|.
+name|jwt
 package|;
 end_package
 
 begin_comment
-comment|/**  * Authentication method types list in advance to the SSL/TLS negotiation  */
+comment|/**  * Implemented JSON Web Token secret signing algorithms  */
 end_comment
 
 begin_enum
-DECL|enum|GrpcAuthType
+DECL|enum|JwtAlgorithm
 specifier|public
 enum|enum
-name|GrpcAuthType
+name|JwtAlgorithm
 block|{
-comment|/**      * No advanced authentication method      */
-DECL|enumConstant|NONE
-name|NONE
+comment|/**      * HmacSHA256 algorithm      */
+DECL|enumConstant|HMAC256
+name|HMAC256
 block|,
-comment|/**      * Google OAuth2 token auth. Valid for producer interacting with Google      * public services with gRPC support only      */
-DECL|enumConstant|GOOGLE
-name|GOOGLE
+comment|/**      * HmacSHA384 algorithm      */
+DECL|enumConstant|HMAC384
+name|HMAC384
 block|,
-comment|/**      * Custom JSON Web Token with HmacSHA algorithms implementation      */
-DECL|enumConstant|JWT
-name|JWT
+comment|/**      * HmacSHA512 algorithm      */
+DECL|enumConstant|HMAC512
+name|HMAC512
 block|}
 end_enum
 
