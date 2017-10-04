@@ -278,7 +278,7 @@ name|StompFrame
 operator|.
 name|encodeHeader
 argument_list|(
-literal|"/queue/test"
+literal|"test"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -353,7 +353,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"stomp:queue:test"
+literal|"stomp:test"
 argument_list|)
 operator|.
 name|transform

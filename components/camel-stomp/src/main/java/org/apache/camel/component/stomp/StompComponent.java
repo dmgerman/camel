@@ -249,20 +249,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|destination
-init|=
-literal|"/"
-operator|+
-name|remaining
-operator|.
-name|replaceAll
-argument_list|(
-literal|":"
-argument_list|,
-literal|"/"
-argument_list|)
-decl_stmt|;
 comment|// must copy config so we do not have side effects
 name|StompConfiguration
 name|config
@@ -293,7 +279,7 @@ name|this
 argument_list|,
 name|config
 argument_list|,
-name|destination
+name|remaining
 argument_list|)
 decl_stmt|;
 comment|// set header filter strategy and then call set properties

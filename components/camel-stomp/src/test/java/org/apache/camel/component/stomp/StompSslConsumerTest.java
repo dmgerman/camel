@@ -72,7 +72,7 @@ parameter_list|()
 block|{
 name|fromF
 argument_list|(
-literal|"stomp:queue:test?brokerURL=ssl://localhost:%d&sslContextParameters=#sslContextParameters"
+literal|"stomp:test?brokerURL=ssl://localhost:%d&sslContextParameters=#sslContextParameters"
 argument_list|,
 name|getPort
 argument_list|()

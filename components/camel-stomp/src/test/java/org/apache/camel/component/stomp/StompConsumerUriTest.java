@@ -278,7 +278,7 @@ name|StompFrame
 operator|.
 name|encodeHeader
 argument_list|(
-literal|"/queue/test"
+literal|"test"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -353,7 +353,7 @@ parameter_list|()
 block|{
 name|fromF
 argument_list|(
-literal|"stomp:queue:test?brokerURL=tcp://localhost:%d"
+literal|"stomp:test?brokerURL=tcp://localhost:%d"
 argument_list|,
 name|getPort
 argument_list|()
