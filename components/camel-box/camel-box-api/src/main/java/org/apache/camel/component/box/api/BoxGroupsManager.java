@@ -262,14 +262,29 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Create a new group with a specified name.      *       * @param name      *            - the name of the new group.      * @return The newly created group.      */
-DECL|method|createGroup (String name)
+comment|/**      * Create a new group with a specified name and optional additional parameters.      * Optional parameters may be null.      *       * @param name      *            - the name of the new group.      * @param provenance      *            - the provenance of the new group.      * @param externalSyncIdentifier      *            - the external_sync_identifier of the new group.      * @param description      *            - the description of the new group.      * @param invitabilityLevel      *            - the invitibility_level of the new group.      * @param memberViewabilityLevel      *            - the member_viewability_level of the new group.      * @return The newly created group.      */
+DECL|method|createGroup (String name, String provenance, String externalSyncIdentifier, String description, String invitabilityLevel, String memberViewabilityLevel)
 specifier|public
 name|BoxGroup
 name|createGroup
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|String
+name|provenance
+parameter_list|,
+name|String
+name|externalSyncIdentifier
+parameter_list|,
+name|String
+name|description
+parameter_list|,
+name|String
+name|invitabilityLevel
+parameter_list|,
+name|String
+name|memberViewabilityLevel
 parameter_list|)
 block|{
 try|try
@@ -306,6 +321,16 @@ argument_list|(
 name|boxConnection
 argument_list|,
 name|name
+argument_list|,
+name|provenance
+argument_list|,
+name|externalSyncIdentifier
+argument_list|,
+name|description
+argument_list|,
+name|invitabilityLevel
+argument_list|,
+name|memberViewabilityLevel
 argument_list|)
 operator|.
 name|getResource
