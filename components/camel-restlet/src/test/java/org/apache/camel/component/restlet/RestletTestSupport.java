@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Level
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -168,6 +180,18 @@ name|BeforeClass
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|bridge
+operator|.
+name|SLF4JBridgeHandler
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * @version   */
 end_comment
@@ -196,6 +220,36 @@ name|void
 name|initializePortNum
 parameter_list|()
 block|{
+comment|// restlet uses the JUL logger which is a pain to configure/install
+comment|// we should not see WARN logs
+name|SLF4JBridgeHandler
+operator|.
+name|install
+argument_list|()
+expr_stmt|;
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|LogManager
+operator|.
+name|getLogManager
+argument_list|()
+operator|.
+name|getLogger
+argument_list|(
+literal|""
+argument_list|)
+operator|.
+name|setLevel
+argument_list|(
+name|Level
+operator|.
+name|INFO
+argument_list|)
+expr_stmt|;
 name|portNum
 operator|=
 name|AvailablePortFinder
