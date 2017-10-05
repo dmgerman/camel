@@ -2302,7 +2302,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Detected {} extension headers"
+literal|"Detected {} request extension headers"
 argument_list|,
 name|extensionHeaders
 operator|.
@@ -2317,7 +2317,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Detected {} standard headers"
+literal|"Detected {} request standard headers"
 argument_list|,
 name|standardHeaders
 operator|.
@@ -2469,6 +2469,40 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+comment|// ignore these headers
+if|if
+condition|(
+literal|"Server"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+operator|||
+literal|"Set-Cookie"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+operator|||
+literal|"Expires"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+operator|||
+literal|"Connection"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 literal|"Authorization"
@@ -2759,7 +2793,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Addition of the standard header \"{}\" is not allowed. Please use the equivalent property in the Restlet API."
+literal|"Addition of the standard request header \"{}\" is not allowed. Please use the equivalent property in the Restlet API."
 argument_list|,
 name|key
 argument_list|)
@@ -2825,6 +2859,54 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+comment|// ignore these headers
+if|if
+condition|(
+literal|"Host"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+operator|||
+literal|"Accept"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+operator|||
+literal|"Accept-encoding"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+operator|||
+literal|"User-Agent"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+operator|||
+literal|"Referer"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+operator|||
+literal|"Connection"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 literal|"Content-Type"
@@ -2999,6 +3081,55 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+literal|"Date"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+name|Date
+name|d
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|tryConvertTo
+argument_list|(
+name|Date
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|value
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|d
+operator|!=
+literal|null
+condition|)
+block|{
+name|response
+operator|.
+name|setDate
+argument_list|(
+name|d
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 else|else
 block|{
 comment|// TODO: implement all the other restlet standard headers
@@ -3006,7 +3137,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Addition of the standard header \"{}\" is not allowed. Please use the equivalent property in the Restlet API."
+literal|"Addition of the standard response header \"{}\" is not allowed. Please use the equivalent property in the Restlet API."
 argument_list|,
 name|key
 argument_list|)
@@ -3791,7 +3922,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Detected {} extension headers"
+literal|"Detected {} response extension headers"
 argument_list|,
 name|extensionHeaders
 operator|.
@@ -3806,7 +3937,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Detected {} standard headers"
+literal|"Detected {} response standard headers"
 argument_list|,
 name|standardHeaders
 operator|.
