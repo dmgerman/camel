@@ -2184,6 +2184,10 @@ comment|// destroy http client if it was created by the component
 if|if
 condition|(
 name|config
+operator|!=
+literal|null
+operator|&&
+name|config
 operator|.
 name|getHttpClient
 argument_list|()
