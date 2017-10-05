@@ -464,7 +464,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dropbox://put?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&uploadMode=add&localPath=/XXX&remotePath=/XXX"
+literal|"dropbox://put?accessToken={{accessToken}}&uploadMode=add&localPath=/XXX&remotePath=/XXX"
 argument_list|)
 operator|.
 name|to
@@ -517,7 +517,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dropbox://put?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}"
+literal|"dropbox://put?accessToken={{accessToken}}"
 argument_list|)
 operator|.
 name|to

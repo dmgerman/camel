@@ -446,7 +446,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dropbox://search?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/XXX&query=XXX"
+literal|"dropbox://search?accessToken={{accessToken}}&remotePath=/XXX&query=XXX"
 argument_list|)
 operator|.
 name|to
@@ -485,7 +485,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dropbox://search?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}"
+literal|"dropbox://search?accessToken={{accessToken}}"
 argument_list|)
 operator|.
 name|to

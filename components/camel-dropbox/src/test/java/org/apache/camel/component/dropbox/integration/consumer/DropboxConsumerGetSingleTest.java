@@ -246,7 +246,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=XXX"
+literal|"dropbox://get?accessToken={{accessToken}}&remotePath=XXX"
 argument_list|)
 operator|.
 name|to

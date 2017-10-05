@@ -446,7 +446,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dropbox://move?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/XXX&newRemotePath=/XXX"
+literal|"dropbox://move?accessToken={{accessToken}}&remotePath=/XXX&newRemotePath=/XXX"
 argument_list|)
 operator|.
 name|to
@@ -485,7 +485,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dropbox://move?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}"
+literal|"dropbox://move?accessToken={{accessToken}}"
 argument_list|)
 operator|.
 name|to

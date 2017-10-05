@@ -155,7 +155,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/path"
+literal|"dropbox://get?accessToken={{accessToken}}&remotePath=/path"
 argument_list|)
 operator|.
 name|to
@@ -165,7 +165,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/path with spaces/file"
+literal|"dropbox://get?accessToken={{accessToken}}&remotePath=/path with spaces/file"
 argument_list|)
 operator|.
 name|to
@@ -195,7 +195,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/path"
+literal|"dropbox://get?accessToken={{accessToken}}&remotePath=/path"
 argument_list|)
 decl_stmt|;
 comment|// When
@@ -227,7 +227,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/path with spaces/file"
+literal|"dropbox://get?accessToken={{accessToken}}&remotePath=/path with spaces/file"
 argument_list|)
 decl_stmt|;
 comment|// When
