@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Messaging client for Google Cloud Platform PubSub Service:  * https://cloud.google.com/pubsub/  *  * Built on top of the Service API libraries (v1).  */
+comment|/**  * Messaging client for Google Cloud Platform PubSub Service  *<p/>  * Built on top of the Service API libraries (v1).  */
 end_comment
 
 begin_class
