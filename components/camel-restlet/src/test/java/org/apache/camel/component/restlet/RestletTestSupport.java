@@ -292,6 +292,16 @@ argument_list|(
 name|method
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|response
+operator|.
+name|getEntity
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|response
 operator|.
 name|setEntity
@@ -306,6 +316,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|response
 return|;

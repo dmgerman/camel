@@ -243,7 +243,7 @@ name|assertHttpResponse
 argument_list|(
 name|response
 argument_list|,
-literal|200
+literal|204
 argument_list|,
 literal|"text/plain"
 argument_list|)
@@ -316,7 +316,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|200
+literal|204
 argument_list|,
 name|ex
 operator|.
