@@ -1275,6 +1275,11 @@ argument_list|()
 argument_list|,
 name|service
 operator|.
+name|getMetadata
+argument_list|()
+argument_list|,
+name|service
+operator|.
 name|getHealth
 argument_list|()
 argument_list|)
