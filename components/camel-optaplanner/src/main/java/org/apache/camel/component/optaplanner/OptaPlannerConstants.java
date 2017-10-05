@@ -72,6 +72,12 @@ name|IS_EVERY_PROBLEM_FACT_CHANGE_PROCESSED
 init|=
 literal|"CamelOptaPlannerIsEveryProblemFactChangeProcessed"
 decl_stmt|;
+DECL|field|IS_EVERY_PROBLEM_FACT_CHANGE_DELAY
+name|long
+name|IS_EVERY_PROBLEM_FACT_CHANGE_DELAY
+init|=
+literal|100
+decl_stmt|;
 block|}
 end_interface
 

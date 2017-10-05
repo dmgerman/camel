@@ -173,6 +173,9 @@ DECL|field|listener
 specifier|private
 specifier|final
 name|SolverEventListener
+argument_list|<
+name|Object
+argument_list|>
 name|listener
 decl_stmt|;
 DECL|method|OptaPlannerConsumer (OptaPlannerEndpoint endpoint, Processor processor, OptaPlannerConfiguration configuration)
@@ -212,6 +215,9 @@ name|listener
 operator|=
 operator|new
 name|SolverEventListener
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 annotation|@
@@ -221,6 +227,9 @@ name|void
 name|bestSolutionChanged
 parameter_list|(
 name|BestSolutionChangedEvent
+argument_list|<
+name|Object
+argument_list|>
 name|event
 parameter_list|)
 block|{
@@ -233,7 +242,10 @@ argument_list|()
 operator|&&
 name|event
 operator|.
-name|isNewBestSolutionInitialized
+name|getNewBestScore
+argument_list|()
+operator|.
+name|isSolutionInitialized
 argument_list|()
 condition|)
 block|{
@@ -247,12 +259,15 @@ block|}
 block|}
 expr_stmt|;
 block|}
-DECL|method|processEvent (BestSolutionChangedEvent event)
+DECL|method|processEvent (BestSolutionChangedEvent<Object> event)
 specifier|public
 name|void
 name|processEvent
 parameter_list|(
 name|BestSolutionChangedEvent
+argument_list|<
+name|Object
+argument_list|>
 name|event
 parameter_list|)
 block|{
@@ -321,6 +336,9 @@ throws|throws
 name|Exception
 block|{
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 init|=
 name|endpoint
@@ -357,6 +375,9 @@ throws|throws
 name|Exception
 block|{
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 init|=
 name|endpoint

@@ -204,6 +204,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 name|SOLVERS
 init|=
@@ -213,6 +216,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -226,6 +232,9 @@ decl_stmt|;
 DECL|field|solverFactory
 specifier|private
 name|SolverFactory
+argument_list|<
+name|Object
+argument_list|>
 name|solverFactory
 decl_stmt|;
 DECL|method|OptaPlannerEndpoint ()
@@ -287,6 +296,9 @@ block|}
 DECL|method|getOrCreateSolver (String solverId)
 specifier|protected
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|getOrCreateSolver
 parameter_list|(
 name|String
@@ -301,6 +313,9 @@ name|SOLVERS
 init|)
 block|{
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 init|=
 name|SOLVERS
@@ -340,6 +355,9 @@ block|}
 DECL|method|createSolver ()
 specifier|protected
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|createSolver
 parameter_list|()
 block|{
@@ -353,6 +371,9 @@ block|}
 DECL|method|getSolver (String solverId)
 specifier|protected
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|getSolver
 parameter_list|(
 name|String
@@ -449,6 +470,9 @@ block|{
 for|for
 control|(
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 range|:
 name|SOLVERS

@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -81,20 +91,6 @@ operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang3
-operator|.
-name|ObjectUtils
 import|;
 end_import
 
@@ -432,6 +428,9 @@ class|class
 name|RemoveComputerChange
 implements|implements
 name|ProblemFactChange
+argument_list|<
+name|Object
+argument_list|>
 block|{
 DECL|field|removingComputer
 specifier|private
@@ -455,12 +454,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doChange (ScoreDirector scoreDirector)
+DECL|method|doChange (ScoreDirector<Object> scoreDirector)
 specifier|public
 name|void
 name|doChange
 parameter_list|(
 name|ScoreDirector
+argument_list|<
+name|Object
+argument_list|>
 name|scoreDirector
 parameter_list|)
 block|{
@@ -488,7 +490,7 @@ control|)
 block|{
 if|if
 condition|(
-name|ObjectUtils
+name|Objects
 operator|.
 name|equals
 argument_list|(
@@ -578,7 +580,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|ObjectUtils
+name|Objects
 operator|.
 name|equals
 argument_list|(

@@ -70,6 +70,24 @@ name|domain
 operator|.
 name|solution
 operator|.
+name|PlanningSolution
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|optaplanner
+operator|.
+name|core
+operator|.
+name|api
+operator|.
+name|domain
+operator|.
+name|solution
+operator|.
 name|Solution
 import|;
 end_import
@@ -289,6 +307,11 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -323,8 +346,21 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+comment|/*          * Keep for backward compatibility untill optaplanner version 8.0.0 not          * released After that the code '|| body instanceof Solution' need to be          * removed          */
 if|if
 condition|(
+name|body
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isAnnotationPresent
+argument_list|(
+name|PlanningSolution
+operator|.
+name|class
+argument_list|)
+operator|||
 name|body
 operator|instanceof
 name|Solution
@@ -351,6 +387,9 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 init|=
 name|endpoint
@@ -381,9 +420,6 @@ name|solver
 operator|.
 name|solve
 argument_list|(
-operator|(
-name|Solution
-operator|)
 name|body
 argument_list|)
 expr_stmt|;
@@ -425,6 +461,9 @@ name|solverId
 argument_list|)
 expr_stmt|;
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 init|=
 name|endpoint
@@ -453,9 +492,6 @@ name|solver
 operator|.
 name|solve
 argument_list|(
-operator|(
-name|Solution
-operator|)
 name|body
 argument_list|)
 expr_stmt|;
@@ -488,6 +524,9 @@ name|solverId
 argument_list|)
 expr_stmt|;
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 init|=
 name|endpoint
@@ -503,6 +542,9 @@ name|addProblemFactChange
 argument_list|(
 operator|(
 name|ProblemFactChange
+argument_list|<
+name|Object
+argument_list|>
 operator|)
 name|body
 argument_list|)
@@ -529,7 +571,9 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+name|OptaPlannerConstants
+operator|.
+name|IS_EVERY_PROBLEM_FACT_CHANGE_DELAY
 argument_list|)
 expr_stmt|;
 block|}
@@ -554,6 +598,9 @@ name|solverId
 argument_list|)
 expr_stmt|;
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 init|=
 name|endpoint
@@ -589,7 +636,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|populateResult (Exchange exchange, Solver solver)
+DECL|method|populateResult (Exchange exchange, Solver<Object> solver)
 specifier|private
 name|void
 name|populateResult
@@ -598,6 +645,9 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Solver
+argument_list|<
+name|Object
+argument_list|>
 name|solver
 parameter_list|)
 block|{
