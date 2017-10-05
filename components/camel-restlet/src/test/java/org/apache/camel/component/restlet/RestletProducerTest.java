@@ -189,7 +189,7 @@ literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
-literal|"/users/123/basic"
+literal|"/users/{id}/basic"
 argument_list|)
 operator|.
 name|to
@@ -208,7 +208,7 @@ literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
-literal|"/users/123/basic?restletMethod=DELETE"
+literal|"/users/{id}/basic?restletMethod=DELETE"
 argument_list|)
 expr_stmt|;
 name|from
