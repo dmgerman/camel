@@ -2175,8 +2175,9 @@ throws|throws
 name|Exception
 block|{
 return|return
-operator|new
 name|Pipeline
+operator|.
+name|newInstance
 argument_list|(
 name|routeContext
 operator|.
