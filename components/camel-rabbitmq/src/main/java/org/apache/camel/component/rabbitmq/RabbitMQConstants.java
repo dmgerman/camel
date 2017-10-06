@@ -242,12 +242,12 @@ name|RABBITMQ_DIRECT_REPLY_ROUTING_KEY
 init|=
 literal|"amq.rabbitmq.reply-to"
 decl_stmt|;
-DECL|field|RABBITMQ_QUEUE_LENGHT_LIMIT_KEY
+DECL|field|RABBITMQ_QUEUE_LENGTH_LIMIT_KEY
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|RABBITMQ_QUEUE_LENGHT_LIMIT_KEY
+name|RABBITMQ_QUEUE_LENGTH_LIMIT_KEY
 init|=
 literal|"x-max-length"
 decl_stmt|;

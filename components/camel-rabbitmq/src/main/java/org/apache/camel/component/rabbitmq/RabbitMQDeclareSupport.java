@@ -336,6 +336,7 @@ argument_list|>
 name|queueArgs
 parameter_list|)
 block|{
+comment|// some arguments must be in numeric values so we need to fix this
 name|Object
 name|queueLengthLimit
 init|=
@@ -345,7 +346,7 @@ name|get
 argument_list|(
 name|RabbitMQConstants
 operator|.
-name|RABBITMQ_QUEUE_LENGHT_LIMIT_KEY
+name|RABBITMQ_QUEUE_LENGTH_LIMIT_KEY
 argument_list|)
 decl_stmt|;
 if|if
@@ -365,7 +366,7 @@ name|put
 argument_list|(
 name|RabbitMQConstants
 operator|.
-name|RABBITMQ_QUEUE_LENGHT_LIMIT_KEY
+name|RABBITMQ_QUEUE_LENGTH_LIMIT_KEY
 argument_list|,
 name|Long
 operator|.
@@ -468,12 +469,7 @@ block|}
 block|}
 DECL|method|populateQueueArgumentsFromDeadLetterExchange (final Map<String, Object> queueArgs)
 specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|void
 name|populateQueueArgumentsFromDeadLetterExchange
 parameter_list|(
 specifier|final
@@ -525,9 +521,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|queueArgs
-return|;
 block|}
 DECL|method|resolvedExchangeArguments ()
 specifier|private
