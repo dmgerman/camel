@@ -52,20 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ResourceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|everit
 operator|.
 name|json
@@ -140,7 +126,7 @@ name|JsonSchemaLoader
 block|{
 annotation|@
 name|Override
-DECL|method|createSchema (CamelContext camelContext, String resourceUri)
+DECL|method|createSchema (CamelContext camelContext, InputStream schemaInputStream)
 specifier|public
 name|Schema
 name|createSchema
@@ -148,8 +134,8 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|String
-name|resourceUri
+name|InputStream
+name|schemaInputStream
 parameter_list|)
 throws|throws
 name|IOException
@@ -170,14 +156,7 @@ init|(
 name|InputStream
 name|inputStream
 init|=
-name|ResourceHelper
-operator|.
-name|resolveMandatoryResourceAsInputStream
-argument_list|(
-name|camelContext
-argument_list|,
-name|resourceUri
-argument_list|)
+name|schemaInputStream
 init|)
 block|{
 name|JSONObject

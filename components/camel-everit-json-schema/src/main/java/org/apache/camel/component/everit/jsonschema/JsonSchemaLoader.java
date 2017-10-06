@@ -26,7 +26,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|InputStream
 import|;
 end_import
 
@@ -52,9 +52,27 @@ name|json
 operator|.
 name|schema
 operator|.
+name|FormatValidator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|everit
+operator|.
+name|json
+operator|.
+name|schema
+operator|.
 name|Schema
 import|;
 end_import
+
+begin_comment
+comment|/**  * Can be used to create custom schema for the JSON validator endpoint.  * This interface is useful to add custom {@link FormatValidator} to the {@link Schema}  *   * For more information see   *<a href="https://github.com/everit-org/json-schema#format-validators">Format Validators</a>  * in the Everit JSON Schema documentation.   */
+end_comment
 
 begin_interface
 DECL|interface|JsonSchemaLoader
@@ -62,18 +80,19 @@ specifier|public
 interface|interface
 name|JsonSchemaLoader
 block|{
-DECL|method|createSchema (CamelContext camelContext, String resourceUri)
+comment|/**      * Create a new Schema based on the schema input stream.      * @param camelContext camel context      * @param schemaInputStream the resource input stream      * @return a Schema to be used when validating incoming requests      * @throws Exception if       */
+DECL|method|createSchema (CamelContext camelContext, InputStream schemaInputStream)
 name|Schema
 name|createSchema
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|String
-name|resourceUri
+name|InputStream
+name|schemaInputStream
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 function_decl|;
 block|}
 end_interface
