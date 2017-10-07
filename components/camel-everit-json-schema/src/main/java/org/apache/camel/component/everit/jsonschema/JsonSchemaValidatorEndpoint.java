@@ -241,7 +241,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validates the payload of a message using XML Schema and JAXP Validation.  */
+comment|/**  * Validates the payload of a message using Everit JSON schema validator.  */
 end_comment
 
 begin_class
