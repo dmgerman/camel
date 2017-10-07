@@ -86,11 +86,7 @@ name|users
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Integer
-argument_list|,
-name|User
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|UserServiceImpl ()
