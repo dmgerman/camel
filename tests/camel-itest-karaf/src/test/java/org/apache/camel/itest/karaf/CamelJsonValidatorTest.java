@@ -64,10 +64,10 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelEveritJsonSchemaTest
+DECL|class|CamelJsonValidatorTest
 specifier|public
 class|class
-name|CamelEveritJsonSchemaTest
+name|CamelJsonValidatorTest
 extends|extends
 name|BaseKarafTest
 block|{
@@ -78,7 +78,12 @@ specifier|final
 name|String
 name|COMPONENT
 init|=
-literal|"json-validator"
+name|extractName
+argument_list|(
+name|CamelJsonValidatorTest
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
@@ -92,8 +97,6 @@ name|Exception
 block|{
 name|testComponent
 argument_list|(
-literal|"camel-everit-json-schema"
-argument_list|,
 name|COMPONENT
 argument_list|)
 expr_stmt|;
