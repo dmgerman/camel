@@ -257,6 +257,10 @@ name|scheme
 operator|=
 literal|"json-validator"
 argument_list|,
+name|firstVersion
+operator|=
+literal|"2.20.0"
+argument_list|,
 name|title
 operator|=
 literal|"JSON Schema Validator"
@@ -271,7 +275,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"validation,json"
+literal|"validation"
 argument_list|)
 DECL|class|JsonValidatorEndpoint
 specifier|public
