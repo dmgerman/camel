@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception found if no JSON body is available on the inbound message  *  * @version   */
+comment|/**  * An exception found if no JSON body is available on the inbound message  */
 end_comment
 
 begin_class

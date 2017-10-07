@@ -80,7 +80,7 @@ specifier|public
 interface|interface
 name|JsonSchemaLoader
 block|{
-comment|/**      * Create a new Schema based on the schema input stream.      * @param camelContext camel context      * @param schemaInputStream the resource input stream      * @return a Schema to be used when validating incoming requests      * @throws Exception if       */
+comment|/**      * Create a new Schema based on the schema input stream.      *      * @param camelContext camel context      * @param schemaInputStream the resource input stream      * @return a Schema to be used when validating incoming requests      */
 DECL|method|createSchema (CamelContext camelContext, InputStream schemaInputStream)
 name|Schema
 name|createSchema

@@ -26,16 +26,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -260,7 +250,7 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed JSON ValidatorEndpoint"
+literal|"Managed JsonSchemaValidatorEndpoint"
 argument_list|)
 annotation|@
 name|UriEndpoint
@@ -283,7 +273,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"core,validation"
+literal|"validation,json"
 argument_list|)
 DECL|class|JsonSchemaValidatorEndpoint
 specifier|public
@@ -308,47 +298,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"To use a custom org.apache.camel.component.everit.jsonschema.JsonValidatorErrorHandler. "
-operator|+
-literal|"The default error handler captures the errors and throws an exception."
-argument_list|)
-DECL|field|errorHandler
+DECL|field|schema
 specifier|private
-name|JsonValidatorErrorHandler
-name|errorHandler
-init|=
-operator|new
-name|DefaultJsonValidationErrorHandler
-argument_list|()
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"To use a custom schema loader allowing for adding custom format validation. See the Everit JSON Schema documentation."
-argument_list|)
-DECL|field|schemaLoader
-specifier|private
-name|JsonSchemaLoader
-name|schemaLoader
-init|=
-operator|new
-name|DefaultJsonSchemaLoader
-argument_list|()
+specifier|volatile
+name|Schema
+name|schema
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -356,10 +310,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"Whether to fail if no body exists."
 argument_list|)
 DECL|field|failOnNullBody
 specifier|private
@@ -374,10 +324,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"Whether to fail if no header exists when validating against a header."
 argument_list|)
 DECL|field|failOnNullHeader
 specifier|private
@@ -398,10 +344,37 @@ specifier|private
 name|String
 name|headerName
 decl_stmt|;
-DECL|field|schema
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|errorHandler
 specifier|private
-name|Schema
-name|schema
+name|JsonValidatorErrorHandler
+name|errorHandler
+init|=
+operator|new
+name|DefaultJsonValidationErrorHandler
+argument_list|()
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|schemaLoader
+specifier|private
+name|JsonSchemaLoader
+name|schemaLoader
+init|=
+operator|new
+name|DefaultJsonSchemaLoader
+argument_list|()
 decl_stmt|;
 DECL|method|JsonSchemaValidatorEndpoint (String endpointUri, Component component, String resourceUri)
 specifier|public
@@ -476,8 +449,6 @@ name|Exception
 block|{
 name|Object
 name|jsonPayload
-init|=
-literal|null
 decl_stmt|;
 name|InputStream
 name|is
@@ -628,25 +599,7 @@ block|}
 catch|catch
 parameter_list|(
 name|ValidationException
-name|e
-parameter_list|)
-block|{
-name|this
-operator|.
-name|errorHandler
-operator|.
-name|handleErrors
-argument_list|(
-name|exchange
-argument_list|,
-name|schema
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|JSONException
 name|e
 parameter_list|)
@@ -741,7 +694,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Synchronized method to create a schema if is does not already exist.      *       * @return The currently loaded schema      * @throws IOException      */
+comment|/**      * Synchronized method to create a schema if is does not already exist.      *       * @return The currently loaded schema      */
 DECL|method|getOrCreateSchema ()
 specifier|private
 name|Schema
@@ -816,7 +769,7 @@ return|return
 name|errorHandler
 return|;
 block|}
-comment|/**      * To use a custom org.apache.camel.processor.validation.ValidatorErrorHandler.      *<p/>      * The default error handler captures the errors and throws an exception.      */
+comment|/**      * To use a custom ValidatorErrorHandler.      *<p/>      * The default error handler captures the errors and throws an exception.      */
 DECL|method|setErrorHandler (JsonValidatorErrorHandler errorHandler)
 specifier|public
 name|void
@@ -843,7 +796,7 @@ return|return
 name|schemaLoader
 return|;
 block|}
-comment|/**      * To use a custom schema loader allowing for adding custom format validation. See the Everit JSON Schema documentation.      * The default implementation will create a schema loader builder with draft v6 support.      */
+comment|/**      * To use a custom schema loader allowing for adding custom format validation. See Everit JSON Schema documentation.      * The default implementation will create a schema loader builder with draft v6 support.      */
 DECL|method|setSchemaLoader (JsonSchemaLoader schemaLoader)
 specifier|public
 name|void

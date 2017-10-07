@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The JSON Schema Validator Component is for validating JSON against a schema.  *  * @version  */
+comment|/**  * The JSON Schema Validator Component is for validating JSON against a schema.  */
 end_comment
 
 begin_class
