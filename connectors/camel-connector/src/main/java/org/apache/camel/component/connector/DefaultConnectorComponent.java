@@ -1907,7 +1907,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|defaultOptions
 init|=
@@ -1933,7 +1933,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|entry
 range|:
@@ -1951,7 +1951,7 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-name|String
+name|Object
 name|value
 init|=
 name|entry
@@ -1975,6 +1975,9 @@ operator|.
 name|resolvePropertyPlaceholders
 argument_list|(
 name|value
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|log
@@ -2031,9 +2034,11 @@ operator|.
 name|getEndpointOptions
 argument_list|()
 decl_stmt|;
-name|List
+name|Map
 argument_list|<
 name|String
+argument_list|,
+name|Object
 argument_list|>
 name|connectorOptions
 init|=
@@ -2077,7 +2082,7 @@ operator|&&
 operator|!
 name|connectorOptions
 operator|.
-name|contains
+name|containsKey
 argument_list|(
 name|entry
 operator|.
@@ -2407,7 +2412,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|defaultOptions
 init|=
@@ -2461,13 +2466,21 @@ name|value
 argument_list|)
 condition|)
 block|{
+name|String
+name|text
+init|=
+name|value
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|doAddOption
 argument_list|(
 name|options
 argument_list|,
 name|key
 argument_list|,
-name|value
+name|text
 argument_list|)
 expr_stmt|;
 block|}
@@ -2719,7 +2732,7 @@ return|return
 name|options
 return|;
 block|}
-DECL|method|isValidConnectionOption (String key, String value)
+DECL|method|isValidConnectionOption (String key, Object value)
 specifier|private
 name|boolean
 name|isValidConnectionOption
@@ -2727,7 +2740,7 @@ parameter_list|(
 name|String
 name|key
 parameter_list|,
-name|String
+name|Object
 name|value
 parameter_list|)
 block|{
