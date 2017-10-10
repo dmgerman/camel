@@ -184,6 +184,13 @@ specifier|private
 name|Boolean
 name|allowEmptyDirectory
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|preservePathElements
+specifier|private
+name|Boolean
+name|preservePathElements
+decl_stmt|;
 DECL|method|ZipFileDataFormat ()
 specifier|public
 name|ZipFileDataFormat
@@ -247,6 +254,25 @@ name|allowEmptyDirectory
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|preservePathElements
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"preservePathElements"
+argument_list|,
+name|preservePathElements
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getUsingIterator ()
 specifier|public
@@ -266,6 +292,16 @@ parameter_list|()
 block|{
 return|return
 name|allowEmptyDirectory
+return|;
+block|}
+DECL|method|getPreservePathElements ()
+specifier|public
+name|Boolean
+name|getPreservePathElements
+parameter_list|()
+block|{
+return|return
+name|preservePathElements
 return|;
 block|}
 comment|/**      * If the zip file has more then one entry, the setting this option to true, allows to work with the splitter EIP,      * to split the data using an iterator in a streaming mode.      */
@@ -300,6 +336,23 @@ operator|.
 name|allowEmptyDirectory
 operator|=
 name|allowEmptyDirectory
+expr_stmt|;
+block|}
+comment|/**      * If the file name contains path elements, setting this option to true, allows the path to be maintained      * in the zip file.      */
+DECL|method|setPreservePathElements (Boolean preservePathElements)
+specifier|public
+name|void
+name|setPreservePathElements
+parameter_list|(
+name|Boolean
+name|preservePathElements
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preservePathElements
+operator|=
+name|preservePathElements
 expr_stmt|;
 block|}
 block|}
