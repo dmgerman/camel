@@ -154,54 +154,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|createMock
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|expect
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|replay
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
-name|EasyMock
-operator|.
-name|verify
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -219,6 +171,30 @@ operator|.
 name|Assert
 operator|.
 name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 
@@ -253,7 +229,7 @@ parameter_list|()
 block|{
 name|session
 operator|=
-name|createMock
+name|mock
 argument_list|(
 name|SMPPSession
 operator|.
@@ -330,7 +306,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -350,7 +326,7 @@ literal|"1616"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 operator|new
 name|QuerySmResult
@@ -368,21 +344,11 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|replay
-argument_list|(
-name|session
-argument_list|)
-expr_stmt|;
 name|command
 operator|.
 name|execute
 argument_list|(
 name|exchange
-argument_list|)
-expr_stmt|;
-name|verify
-argument_list|(
-name|session
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -560,7 +526,7 @@ argument_list|,
 literal|"1818"
 argument_list|)
 expr_stmt|;
-name|expect
+name|when
 argument_list|(
 name|session
 operator|.
@@ -580,7 +546,7 @@ literal|"1818"
 argument_list|)
 argument_list|)
 operator|.
-name|andReturn
+name|thenReturn
 argument_list|(
 operator|new
 name|QuerySmResult
@@ -598,21 +564,11 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|replay
-argument_list|(
-name|session
-argument_list|)
-expr_stmt|;
 name|command
 operator|.
 name|execute
 argument_list|(
 name|exchange
-argument_list|)
-expr_stmt|;
-name|verify
-argument_list|(
-name|session
 argument_list|)
 expr_stmt|;
 name|assertEquals
