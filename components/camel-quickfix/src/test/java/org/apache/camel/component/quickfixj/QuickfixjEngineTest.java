@@ -3536,7 +3536,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|2
+literal|6
 argument_list|)
 argument_list|)
 expr_stmt|;
