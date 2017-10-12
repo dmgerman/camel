@@ -345,6 +345,13 @@ name|getLeader
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
+name|localMember
+operator|.
+name|isLeader
+argument_list|()
+condition|?
 name|Optional
 operator|.
 name|of
@@ -353,6 +360,11 @@ name|this
 operator|.
 name|localMember
 argument_list|)
+else|:
+name|Optional
+operator|.
+name|empty
+argument_list|()
 return|;
 block|}
 annotation|@
