@@ -949,8 +949,8 @@ decl_stmt|;
 if|if
 condition|(
 name|object
-operator|instanceof
-name|AbstractSObjectBase
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
