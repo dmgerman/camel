@@ -1428,17 +1428,6 @@ argument_list|(
 name|leadershipEventListener
 argument_list|)
 expr_stmt|;
-name|setLeader
-argument_list|(
-name|clusterView
-operator|.
-name|getLocalMember
-argument_list|()
-operator|.
-name|isLeader
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 comment|// ****************************************************
 comment|// Event handling

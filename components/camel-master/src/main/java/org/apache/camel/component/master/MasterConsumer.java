@@ -430,16 +430,6 @@ argument_list|(
 name|leadershipListener
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isMaster
-argument_list|()
-condition|)
-block|{
-name|onLeadershipTaken
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
