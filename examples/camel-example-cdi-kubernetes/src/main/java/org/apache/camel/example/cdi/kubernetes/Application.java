@@ -463,9 +463,6 @@ argument_list|()
 operator|.
 name|getStartTime
 argument_list|()
-operator|.
-name|getTime
-argument_list|()
 argument_list|)
 argument_list|,
 name|ZonedDateTime
