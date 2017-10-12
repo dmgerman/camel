@@ -1037,10 +1037,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|port
-operator|<=
-literal|0
-operator|&&
 name|this
 operator|.
 name|port
