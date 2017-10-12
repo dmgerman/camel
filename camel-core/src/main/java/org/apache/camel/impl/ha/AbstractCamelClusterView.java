@@ -434,7 +434,7 @@ name|listeners
 operator|.
 name|get
 argument_list|(
-literal|0
+name|i
 argument_list|)
 decl_stmt|;
 if|if
