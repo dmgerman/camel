@@ -3333,7 +3333,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      *      * @return      */
+comment|/**      * Gets the type of the header record.      *      * @return The type of the header record if any, otherwise      *<code>void.class</code>.      */
 DECL|method|header ()
 specifier|public
 name|Class
@@ -3358,7 +3358,7 @@ return|return
 name|hasHeader
 return|;
 block|}
-comment|/**      *      * @return      */
+comment|/**      * Gets the type of the footer record.      *      * @return The type of the footer record if any, otherwise      *<code>void.class</code>.      */
 DECL|method|footer ()
 specifier|public
 name|Class
