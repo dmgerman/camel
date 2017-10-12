@@ -387,7 +387,7 @@ name|leadershipChanged
 argument_list|(
 name|this
 argument_list|,
-name|getMaster
+name|getLeader
 argument_list|()
 argument_list|)
 expr_stmt|;

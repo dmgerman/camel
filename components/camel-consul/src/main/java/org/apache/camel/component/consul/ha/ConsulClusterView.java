@@ -430,13 +430,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getMaster ()
+DECL|method|getLeader ()
 specifier|public
 name|Optional
 argument_list|<
 name|CamelClusterMember
 argument_list|>
-name|getMaster
+name|getLeader
 parameter_list|()
 block|{
 if|if
@@ -937,7 +937,7 @@ argument_list|)
 expr_stmt|;
 name|fireLeadershipChangedEvent
 argument_list|(
-name|getMaster
+name|getLeader
 argument_list|()
 argument_list|)
 expr_stmt|;

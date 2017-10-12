@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -96,13 +86,30 @@ name|String
 name|getNamespace
 parameter_list|()
 function_decl|;
-comment|/**      * Provides the master member if elected.      *      * @return the master member.      */
+comment|/**      * Provides the master member if elected.      *      * @return the master member.      * @deprecated use {@link #getLeader()}      */
+annotation|@
+name|Deprecated
 DECL|method|getMaster ()
+specifier|default
 name|Optional
 argument_list|<
 name|CamelClusterMember
 argument_list|>
 name|getMaster
+parameter_list|()
+block|{
+return|return
+name|getLeader
+argument_list|()
+return|;
+block|}
+comment|/**      * Provides the leader member if elected.      *      * @return the leader member.      */
+DECL|method|getLeader ()
+name|Optional
+argument_list|<
+name|CamelClusterMember
+argument_list|>
+name|getLeader
 parameter_list|()
 function_decl|;
 comment|/**      * Provides the local member.      *      * @return the local member.      */
