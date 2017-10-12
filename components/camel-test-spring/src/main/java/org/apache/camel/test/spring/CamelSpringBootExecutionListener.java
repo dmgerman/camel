@@ -147,7 +147,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"@RunWith(CamelSpringBootJUnit4ClassRunner.class) preparing: {}"
+literal|"@RunWith(CamelSpringBootRunner.class) preparing: {}"
 argument_list|,
 name|testContext
 operator|.
@@ -278,7 +278,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"@RunWith(CamelSpringBootJUnit4ClassRunner.class) before: {}.{}"
+literal|"@RunWith(CamelSpringBootRunner.class) before: {}.{}"
 argument_list|,
 name|testContext
 operator|.
@@ -305,6 +305,17 @@ operator|.
 name|getTestClass
 argument_list|()
 decl_stmt|;
+name|String
+name|testName
+init|=
+name|testContext
+operator|.
+name|getTestMethod
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 name|ConfigurableApplicationContext
 name|context
 init|=
@@ -324,11 +335,27 @@ argument_list|(
 literal|"skipStartingCamelContext"
 argument_list|)
 expr_stmt|;
+comment|// route coverage need to know the test method
+name|CamelAnnotationsHandler
+operator|.
+name|handleRouteCoverage
+argument_list|(
+name|context
+argument_list|,
+name|testClass
+argument_list|,
+parameter_list|(
+name|String
+parameter_list|)
+lambda|->
+name|testName
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Initialized CamelSpringBootJUnit4ClassRunner now ready to start CamelContext"
+literal|"Initialized CamelSpringBootRunner now ready to start CamelContext"
 argument_list|)
 expr_stmt|;
 name|CamelAnnotationsHandler

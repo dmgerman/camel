@@ -88,6 +88,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -164,13 +174,20 @@ operator|=
 name|SampleCamelApplication
 operator|.
 name|class
+argument_list|,
+name|properties
+operator|=
+literal|"greeting = Hello foo"
 argument_list|)
 annotation|@
 name|EnableRouteCoverage
-DECL|class|SampleCamelApplicationTest
+annotation|@
+name|Ignore
+comment|// enable me to run this test as well so we can cover testing the route completely
+DECL|class|FooApplicationTest
 specifier|public
 class|class
-name|SampleCamelApplicationTest
+name|FooApplicationTest
 block|{
 annotation|@
 name|Autowired
@@ -181,10 +198,10 @@ name|camelContext
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|shouldProduceMessages ()
+DECL|method|shouldSayFoo ()
 specifier|public
 name|void
-name|shouldProduceMessages
+name|shouldSayFoo
 parameter_list|()
 throws|throws
 name|Exception

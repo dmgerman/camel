@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -320,6 +332,25 @@ expr_stmt|;
 comment|// Post CamelContext(s) instantiation but pre CamelContext(s) start setup
 name|CamelAnnotationsHandler
 operator|.
+name|handleRouteCoverage
+argument_list|(
+name|context
+argument_list|,
+name|testClass
+argument_list|,
+parameter_list|(
+name|String
+parameter_list|)
+lambda|->
+name|getTestMethod
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|CamelAnnotationsHandler
+operator|.
 name|handleProvidesBreakpoint
 argument_list|(
 name|context
@@ -462,6 +493,20 @@ return|return
 name|CamelSpringTestHelper
 operator|.
 name|getTestClass
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns the test method under test.      *      * @return the method that is being executed      * @see CamelSpringTestHelper      */
+DECL|method|getTestMethod ()
+specifier|protected
+name|Method
+name|getTestMethod
+parameter_list|()
+block|{
+return|return
+name|CamelSpringTestHelper
+operator|.
+name|getTestMethod
 argument_list|()
 return|;
 block|}

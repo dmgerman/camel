@@ -16,13 +16,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|boot
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|SpringApplication
 import|;
 end_import
 
@@ -32,80 +30,80 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|stereotype
+name|boot
 operator|.
-name|Component
+name|autoconfigure
+operator|.
+name|SpringBootApplication
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|ImportResource
 import|;
 end_import
 
 begin_comment
-comment|/**  * A simple Camel route that triggers from a timer and calls a bean and prints to system out.  *<p/>  * Use<tt>@Component</tt> to make Camel auto detect this route when starting.  */
+comment|//CHECKSTYLE:OFF
+end_comment
+
+begin_comment
+comment|/**  * A sample Spring Boot application that starts the Camel routes.  */
 end_comment
 
 begin_class
 annotation|@
-name|Component
-DECL|class|SampleCamelRouter
+name|SpringBootApplication
+comment|// load the spring xml file from classpath
+annotation|@
+name|ImportResource
+argument_list|(
+literal|"classpath:my-camel.xml"
+argument_list|)
+DECL|class|SampleCamelApplication
 specifier|public
 class|class
-name|SampleCamelRouter
-extends|extends
-name|RouteBuilder
+name|SampleCamelApplication
 block|{
-annotation|@
-name|Override
-DECL|method|configure ()
+comment|/**      * A main method to start this application.      */
+DECL|method|main (String[] args)
 specifier|public
+specifier|static
 name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
+name|main
+parameter_list|(
+name|String
+index|[]
+name|args
+parameter_list|)
 block|{
-name|from
-argument_list|(
-literal|"timer:hello?period={{timer.period}}"
-argument_list|)
+name|SpringApplication
 operator|.
-name|routeId
+name|run
 argument_list|(
-literal|"hello"
-argument_list|)
+name|SampleCamelApplication
 operator|.
-name|transform
-argument_list|()
-operator|.
-name|method
-argument_list|(
-literal|"myBean"
+name|class
 argument_list|,
-literal|"saySomething"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
-name|simple
-argument_list|(
-literal|"${body} contains 'foo'"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"log:foo"
-argument_list|)
-operator|.
-name|end
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"stream:out"
+name|args
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 

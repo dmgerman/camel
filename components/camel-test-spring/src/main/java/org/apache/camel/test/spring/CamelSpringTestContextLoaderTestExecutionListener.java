@@ -111,6 +111,13 @@ name|getTestClass
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|CamelSpringTestHelper
+operator|.
+name|setTestContext
+argument_list|(
+name|testContext
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
