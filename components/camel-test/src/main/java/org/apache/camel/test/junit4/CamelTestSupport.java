@@ -821,6 +821,16 @@ name|CamelTestSupport
 extends|extends
 name|TestSupport
 block|{
+comment|/**      * JVM system property which can be set to true to turn on dumping route coverage statistics.      */
+DECL|field|ROUTE_COVERAGE_ENABLED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ROUTE_COVERAGE_ENABLED
+init|=
+literal|"CamelTestRouteCoverage"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -1052,7 +1062,7 @@ operator|=
 name|useRouteBuilder
 expr_stmt|;
 block|}
-comment|/**      * Whether to dump route coverage stats at the end of the test.      *<p/>      * This allows tooling or manual inspection of the stats, so you can generate a route trace diagram of which EIPs      * have been in use and which have not. Similar concepts as a code coverage report.      *      * @return<tt>true</tt> to write route coverage status in an xml file in the<tt>target/camel-route-coverage</tt> directory after the test has finished.      */
+comment|/**      * Whether to dump route coverage stats at the end of the test.      *<p/>      * This allows tooling or manual inspection of the stats, so you can generate a route trace diagram of which EIPs      * have been in use and which have not. Similar concepts as a code coverage report.      *<p/>      * You can also turn on route coverage globally via setting JVM system property<tt>CamelTestRouteCoverage=true</tt>.      *      * @return<tt>true</tt> to write route coverage status in an xml file in the<tt>target/camel-route-coverage</tt> directory after the test has finished.      */
 DECL|method|isDumpRouteCoverage ()
 specifier|public
 name|boolean
@@ -1373,7 +1383,7 @@ init|=
 name|useJmx
 argument_list|()
 operator|||
-name|isDumpRouteCoverage
+name|isRouteCoverageEnabled
 argument_list|()
 decl_stmt|;
 if|if
@@ -1856,6 +1866,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|isRouteCoverageEnabled ()
+specifier|private
+name|boolean
+name|isRouteCoverageEnabled
+parameter_list|()
+block|{
+return|return
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|ROUTE_COVERAGE_ENABLED
+argument_list|,
+literal|"false"
+argument_list|)
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"true"
+argument_list|)
+operator|||
+name|isDumpRouteCoverage
+argument_list|()
+return|;
+block|}
 annotation|@
 name|After
 DECL|method|tearDown ()
@@ -1922,29 +1957,10 @@ literal|" millis)"
 argument_list|)
 expr_stmt|;
 comment|// if we should dump route stats, then write that to a file
-name|boolean
-name|coverage
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"CamelTestRouteCoverage"
-argument_list|,
-literal|"false"
-argument_list|)
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-literal|"true"
-argument_list|)
-operator|||
-name|isDumpRouteCoverage
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|coverage
+name|isRouteCoverageEnabled
+argument_list|()
 condition|)
 block|{
 name|String
@@ -2054,8 +2070,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Dumping route coverage to file: "
-operator|+
+literal|"Dumping route coverage to file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;

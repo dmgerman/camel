@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enables dumping route coverage statistic.  * The route coverage status is written as xml files in the<tt>target/camel-route-coverage</tt> directory after the test has finished.  *<p/>  * This allows tooling or manual inspection of the stats, so you can generate a route trace diagram of which EIPs  * have been in use and which have not. Similar concepts as a code coverage report.  */
+comment|/**  * Enables dumping route coverage statistic.  * The route coverage status is written as xml files in the<tt>target/camel-route-coverage</tt> directory after the test has finished.  *<p/>  * This allows tooling or manual inspection of the stats, so you can generate a route trace diagram of which EIPs  * have been in use and which have not. Similar concepts as a code coverage report.  *<p/>  * You can also turn on route coverage globally via setting JVM system property<tt>CamelTestRouteCoverage=true</tt>.  */
 end_comment
 
 begin_annotation_defn
