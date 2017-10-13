@@ -33,10 +33,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|VelocityLetterWithPaserTest
+DECL|class|VelocityLetterWithParserTest
 specifier|public
 class|class
-name|VelocityLetterWithPaserTest
+name|VelocityLetterWithParserTest
 extends|extends
 name|VelocityLetterTest
 block|{
