@@ -1219,7 +1219,7 @@ name|setMaxMessageSize
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 operator|(
 name|String
@@ -1325,7 +1325,7 @@ name|setMaxForwards
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 operator|(
 name|String
@@ -1354,7 +1354,7 @@ name|setReceiveTimeoutMillis
 argument_list|(
 name|Long
 operator|.
-name|valueOf
+name|parseLong
 argument_list|(
 operator|(
 name|String
@@ -1460,7 +1460,7 @@ name|setMsgExpiration
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 operator|(
 name|String
@@ -1572,7 +1572,7 @@ name|setFromPort
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 operator|(
 name|String
@@ -1706,7 +1706,7 @@ name|setToPort
 argument_list|(
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 operator|(
 name|String
