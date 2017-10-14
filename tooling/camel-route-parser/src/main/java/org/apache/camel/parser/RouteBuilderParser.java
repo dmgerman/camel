@@ -88,7 +88,7 @@ name|parser
 operator|.
 name|helper
 operator|.
-name|CamelJavaTreeParserHelper
+name|CamelJavaParserHelper
 import|;
 end_import
 
@@ -104,7 +104,7 @@ name|parser
 operator|.
 name|helper
 operator|.
-name|CamelJavaParserHelper
+name|CamelJavaTreeParserHelper
 import|;
 end_import
 
