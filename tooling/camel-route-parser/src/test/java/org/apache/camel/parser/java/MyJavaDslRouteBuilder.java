@@ -50,6 +50,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// setProperty is also a model name but this should not be parsed as part of a Camel route
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"ENV"
+argument_list|,
+literal|"src/test/resources/"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
