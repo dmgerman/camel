@@ -261,6 +261,8 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Bye Paris"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -274,6 +276,19 @@ argument_list|,
 literal|"name"
 argument_list|,
 literal|"Paris"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:a"
+argument_list|,
+literal|"Body"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"World"
 argument_list|)
 expr_stmt|;
 name|mock
