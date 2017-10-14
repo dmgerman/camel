@@ -141,6 +141,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|routeId
+argument_list|(
+literal|"myRoute"
+argument_list|)
+operator|.
 name|process
 argument_list|(
 operator|new

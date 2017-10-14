@@ -50,6 +50,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1594,6 +1606,39 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|parseCamelRouteIds (MethodSource<JavaClassSource> method)
+specifier|public
+specifier|static
+name|List
+argument_list|<
+name|ParserResult
+argument_list|>
+name|parseCamelRouteIds
+parameter_list|(
+name|MethodSource
+argument_list|<
+name|JavaClassSource
+argument_list|>
+name|method
+parameter_list|)
+block|{
+return|return
+name|doParseCamelUris
+argument_list|(
+name|method
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 DECL|method|parseCamelConsumerUris (MethodSource<JavaClassSource> method, boolean strings, boolean fields)
 specifier|public
 specifier|static
@@ -1628,6 +1673,8 @@ argument_list|,
 name|strings
 argument_list|,
 name|fields
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -1665,10 +1712,12 @@ argument_list|,
 name|strings
 argument_list|,
 name|fields
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
-DECL|method|doParseCamelUris (MethodSource<JavaClassSource> method, boolean consumers, boolean producers, boolean strings, boolean fields)
+DECL|method|doParseCamelUris (MethodSource<JavaClassSource> method, boolean consumers, boolean producers, boolean strings, boolean fields, boolean routeIdsOnly)
 specifier|private
 specifier|static
 name|List
@@ -1694,6 +1743,9 @@ name|strings
 parameter_list|,
 name|boolean
 name|fields
+parameter_list|,
+name|boolean
+name|routeIdsOnly
 parameter_list|)
 block|{
 name|List
@@ -1813,6 +1865,8 @@ argument_list|,
 name|strings
 argument_list|,
 name|fields
+argument_list|,
+name|routeIdsOnly
 argument_list|)
 expr_stmt|;
 if|if
@@ -1848,7 +1902,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|parseExpression (JavaClassSource clazz, Block block, Expression exp, List<ParserResult> uris, boolean consumers, boolean producers, boolean strings, boolean fields)
+DECL|method|parseExpression (JavaClassSource clazz, Block block, Expression exp, List<ParserResult> uris, boolean consumers, boolean producers, boolean strings, boolean fields, boolean routeIdsOnly)
 specifier|private
 specifier|static
 name|void
@@ -1880,6 +1934,9 @@ name|strings
 parameter_list|,
 name|boolean
 name|fields
+parameter_list|,
+name|boolean
+name|routeIdsOnly
 parameter_list|)
 block|{
 if|if
@@ -1923,6 +1980,8 @@ argument_list|,
 name|strings
 argument_list|,
 name|fields
+argument_list|,
+name|routeIdsOnly
 argument_list|)
 expr_stmt|;
 comment|// if the method was called on another method, then recursive
@@ -1950,11 +2009,13 @@ argument_list|,
 name|strings
 argument_list|,
 name|fields
+argument_list|,
+name|routeIdsOnly
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|doParseCamelUris (JavaClassSource clazz, Block block, MethodInvocation mi, List<ParserResult> uris, boolean consumers, boolean producers, boolean strings, boolean fields)
+DECL|method|doParseCamelUris (JavaClassSource clazz, Block block, MethodInvocation mi, List<ParserResult> uris, boolean consumers, boolean producers, boolean strings, boolean fields, boolean routeIdsOnly)
 specifier|private
 specifier|static
 name|void
@@ -1986,6 +2047,9 @@ name|strings
 parameter_list|,
 name|boolean
 name|fields
+parameter_list|,
+name|boolean
+name|routeIdsOnly
 parameter_list|)
 block|{
 name|String
@@ -2001,7 +2065,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|consumers
+name|routeIdsOnly
 condition|)
 block|{
 comment|// include route id for consumers
@@ -2107,6 +2171,14 @@ block|}
 block|}
 block|}
 block|}
+comment|// we only want route ids so return here
+return|return;
+block|}
+if|if
+condition|(
+name|consumers
+condition|)
+block|{
 if|if
 condition|(
 literal|"from"
