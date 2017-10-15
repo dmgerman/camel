@@ -1123,16 +1123,6 @@ name|isShutdownLogInflightExchangesOnTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|config
-operator|.
-name|getLogDebugMaxChars
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
 name|camelContext
 operator|.
 name|getGlobalOptions
@@ -1152,7 +1142,6 @@ name|getLogDebugMaxChars
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// stream caching
 name|camelContext
 operator|.
