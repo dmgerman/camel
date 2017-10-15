@@ -344,9 +344,7 @@ name|context
 argument_list|,
 name|testClass
 argument_list|,
-parameter_list|(
-name|String
-parameter_list|)
+name|s
 lambda|->
 name|testName
 argument_list|)

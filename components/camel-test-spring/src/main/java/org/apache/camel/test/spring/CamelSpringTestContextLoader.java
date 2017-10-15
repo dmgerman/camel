@@ -1428,9 +1428,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-parameter_list|(
-name|String
-parameter_list|)
+name|s
 lambda|->
 name|getTestMethod
 argument_list|()
