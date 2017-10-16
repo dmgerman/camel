@@ -214,7 +214,7 @@ specifier|private
 name|boolean
 name|includeNonSingletons
 decl_stmt|;
-comment|/**      * Is used to limit the maximum length of the logging Camel message bodies. If the message body      * is longer than the limit, the log message is clipped. Use a value of 0 or negative to have unlimited length.      * Use for example 1000 to log at at most 1000 chars.      */
+comment|/**      * Is used to limit the maximum length of the logging Camel message bodies. If the message body      * is longer than the limit, the log message is clipped. Use -1 to have unlimited length.      * Use for example 1000 to log at most 1000 characters.      */
 DECL|field|logDebugMaxChars
 specifier|private
 name|int
