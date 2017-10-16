@@ -102,6 +102,14 @@ name|allowEmptyDirectory
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * If the file name contains path elements setting this option to true      * allows the path to be maintained in the tar file.      */
+DECL|field|preservePathElements
+specifier|private
+name|Boolean
+name|preservePathElements
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -160,6 +168,32 @@ operator|.
 name|allowEmptyDirectory
 operator|=
 name|allowEmptyDirectory
+expr_stmt|;
+block|}
+DECL|method|getPreservePathElements ()
+specifier|public
+name|Boolean
+name|getPreservePathElements
+parameter_list|()
+block|{
+return|return
+name|preservePathElements
+return|;
+block|}
+DECL|method|setPreservePathElements (Boolean preservePathElements)
+specifier|public
+name|void
+name|setPreservePathElements
+parameter_list|(
+name|Boolean
+name|preservePathElements
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preservePathElements
+operator|=
+name|preservePathElements
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()
