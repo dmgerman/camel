@@ -252,7 +252,35 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|HeaderFilterStrategyComponent
+name|DefaultComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategyAware
 import|;
 end_import
 
@@ -568,7 +596,7 @@ specifier|public
 class|class
 name|RestletComponent
 extends|extends
-name|HeaderFilterStrategyComponent
+name|DefaultComponent
 implements|implements
 name|RestConsumerFactory
 implements|,
@@ -577,6 +605,8 @@ implements|,
 name|RestProducerFactory
 implements|,
 name|SSLContextParametersAware
+implements|,
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -899,6 +929,22 @@ specifier|private
 name|boolean
 name|useGlobalSslContextParameters
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"filter"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message."
+argument_list|)
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
 DECL|method|RestletComponent ()
 specifier|public
 name|RestletComponent
@@ -923,11 +969,7 @@ block|{
 comment|// Allow the Component to be injected, so that the RestletServlet may be
 comment|// configured within a webapp
 name|super
-argument_list|(
-name|RestletEndpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -3503,6 +3545,35 @@ operator|=
 name|controllerSleepTimeMs
 expr_stmt|;
 block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|headerFilterStrategy
+return|;
+block|}
+comment|/**      * Custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.      */
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|strategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|strategy
+expr_stmt|;
+block|}
 DECL|method|getInboundBufferSize ()
 specifier|public
 name|Integer
@@ -4955,6 +5026,44 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+DECL|method|setEndpointHeaderFilterStrategy (Endpoint endpoint)
+specifier|public
+name|void
+name|setEndpointHeaderFilterStrategy
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|headerFilterStrategy
+operator|!=
+literal|null
+operator|&&
+name|endpoint
+operator|instanceof
+name|HeaderFilterStrategyAware
+condition|)
+block|{
+operator|(
+operator|(
+name|HeaderFilterStrategyAware
+operator|)
+name|endpoint
+operator|)
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|this
+operator|.
+name|headerFilterStrategy
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
