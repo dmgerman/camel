@@ -1001,6 +1001,13 @@ name|route
 operator|.
 name|getOutputs
 argument_list|()
+operator|==
+literal|null
+operator|||
+name|route
+operator|.
+name|getOutputs
+argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
