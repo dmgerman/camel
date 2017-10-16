@@ -138,6 +138,14 @@ specifier|private
 name|Integer
 name|controllerSleepTimeMs
 decl_stmt|;
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
 comment|/**      * The size of the buffer when reading messages.      */
 DECL|field|inboundBufferSize
 specifier|private
@@ -253,14 +261,6 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
-annotation|@
-name|NestedConfigurationProperty
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -319,6 +319,32 @@ operator|.
 name|controllerSleepTimeMs
 operator|=
 name|controllerSleepTimeMs
+expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
 expr_stmt|;
 block|}
 DECL|method|getInboundBufferSize ()
@@ -793,32 +819,6 @@ operator|.
 name|useGlobalSslContextParameters
 operator|=
 name|useGlobalSslContextParameters
-expr_stmt|;
-block|}
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|headerFilterStrategy
-return|;
-block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
-specifier|public
-name|void
-name|setHeaderFilterStrategy
-parameter_list|(
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|headerFilterStrategy
-operator|=
-name|headerFilterStrategy
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()

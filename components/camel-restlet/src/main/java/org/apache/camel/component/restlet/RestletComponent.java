@@ -3557,7 +3557,7 @@ operator|.
 name|headerFilterStrategy
 return|;
 block|}
-comment|/**      * Custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.      */
+comment|/**      * To use a custom {@link org.apache.camel.spi.HeaderFilterStrategy} to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
