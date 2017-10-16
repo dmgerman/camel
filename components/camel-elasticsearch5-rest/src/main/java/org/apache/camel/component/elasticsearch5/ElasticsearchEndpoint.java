@@ -126,7 +126,7 @@ literal|"elasticsearch5-rest"
 argument_list|,
 name|title
 operator|=
-literal|"Elastichsearch Rest or Elasticsearch 5 Rest"
+literal|"Elastichsearch5 Rest"
 argument_list|,
 name|syntax
 operator|=
@@ -150,7 +150,7 @@ block|{
 annotation|@
 name|UriParam
 DECL|field|configuration
-specifier|protected
+specifier|private
 specifier|final
 name|ElasticsearchConfiguration
 name|configuration
