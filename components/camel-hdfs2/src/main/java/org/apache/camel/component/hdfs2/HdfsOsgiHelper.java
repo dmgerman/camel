@@ -155,6 +155,14 @@ operator|new
 name|Configuration
 argument_list|()
 decl_stmt|;
+comment|// set that as the hdfs configuration's classloader
+name|conf
+operator|.
+name|setClassLoader
+argument_list|(
+name|cl
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -209,6 +217,20 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Successfully loaded class: {}"
+argument_list|,
+name|fileSystems
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|FileSystem
 operator|.
 name|get
@@ -216,6 +238,15 @@ argument_list|(
 name|uri
 argument_list|,
 name|conf
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Successfully got uri: {} from FileSystem Object"
+argument_list|,
+name|uri
 argument_list|)
 expr_stmt|;
 block|}
@@ -234,6 +265,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
