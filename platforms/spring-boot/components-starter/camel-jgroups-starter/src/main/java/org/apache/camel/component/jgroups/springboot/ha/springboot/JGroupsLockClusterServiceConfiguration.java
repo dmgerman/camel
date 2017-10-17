@@ -71,6 +71,84 @@ specifier|private
 name|String
 name|jgroupsClusterName
 decl_stmt|;
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+DECL|method|setId (String id)
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
+block|}
+DECL|method|getJgroupsConfig ()
+specifier|public
+name|String
+name|getJgroupsConfig
+parameter_list|()
+block|{
+return|return
+name|jgroupsConfig
+return|;
+block|}
+DECL|method|setJgroupsConfig (String jgroupsConfig)
+specifier|public
+name|void
+name|setJgroupsConfig
+parameter_list|(
+name|String
+name|jgroupsConfig
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jgroupsConfig
+operator|=
+name|jgroupsConfig
+expr_stmt|;
+block|}
+DECL|method|getJgroupsClusterName ()
+specifier|public
+name|String
+name|getJgroupsClusterName
+parameter_list|()
+block|{
+return|return
+name|jgroupsClusterName
+return|;
+block|}
+DECL|method|setJgroupsClusterName (String jgroupsClusterName)
+specifier|public
+name|void
+name|setJgroupsClusterName
+parameter_list|(
+name|String
+name|jgroupsClusterName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jgroupsClusterName
+operator|=
+name|jgroupsClusterName
+expr_stmt|;
+block|}
 block|}
 end_class
 
