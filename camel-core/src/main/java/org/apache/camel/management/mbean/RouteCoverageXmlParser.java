@@ -90,6 +90,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -711,7 +739,18 @@ block|{
 comment|// ignore
 block|}
 block|}
-comment|// we do not want customId in output
+comment|// we do not want customId in output of the EIPs
+if|if
+condition|(
+operator|!
+literal|"route"
+operator|.
+name|equals
+argument_list|(
+name|qName
+argument_list|)
+condition|)
+block|{
 name|el
 operator|.
 name|removeAttribute
@@ -719,6 +758,7 @@ argument_list|(
 literal|"customId"
 argument_list|)
 expr_stmt|;
+block|}
 name|elementStack
 operator|.
 name|push

@@ -206,6 +206,16 @@ literal|"exchangesTotal=\"2\""
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml
+operator|.
+name|contains
+argument_list|(
+literal|"customId=\"true\""
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// should be valid XML
 name|Document
 name|doc
