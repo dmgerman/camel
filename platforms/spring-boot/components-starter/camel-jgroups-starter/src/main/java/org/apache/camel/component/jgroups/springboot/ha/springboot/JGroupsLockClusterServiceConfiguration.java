@@ -53,6 +53,12 @@ specifier|public
 class|class
 name|JGroupsLockClusterServiceConfiguration
 block|{
+comment|/**      * Sets if the jgroups lock cluster service should be enabled or not, default is false.      */
+DECL|field|enabled
+specifier|private
+name|boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Cluster Service ID      */
 DECL|field|id
 specifier|private
@@ -71,6 +77,32 @@ specifier|private
 name|String
 name|jgroupsClusterName
 decl_stmt|;
+DECL|method|isEnabled ()
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
+block|}
+DECL|method|setEnabled (boolean enabled)
+specifier|public
+name|void
+name|setEnabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enabled
+operator|=
+name|enabled
+expr_stmt|;
+block|}
 DECL|method|getId ()
 specifier|public
 name|String
