@@ -1042,11 +1042,7 @@ argument_list|(
 name|message
 operator|.
 name|getBody
-argument_list|(
-name|Map
-operator|.
-name|class
-argument_list|)
+argument_list|()
 argument_list|,
 name|exchange
 argument_list|)

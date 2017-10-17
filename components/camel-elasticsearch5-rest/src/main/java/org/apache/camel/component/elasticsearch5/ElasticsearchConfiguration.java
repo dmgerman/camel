@@ -253,6 +253,18 @@ specifier|private
 name|boolean
 name|disconnect
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|enableSSL
+specifier|private
+name|boolean
+name|enableSSL
+decl_stmt|;
 DECL|field|user
 specifier|private
 name|String
@@ -262,11 +274,6 @@ DECL|field|password
 specifier|private
 name|String
 name|password
-decl_stmt|;
-DECL|field|enableSSL
-specifier|private
-name|boolean
-name|enableSSL
 decl_stmt|;
 comment|//Sniffer parameter.
 DECL|field|enableSniffer
