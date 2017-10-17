@@ -298,6 +298,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|routeId
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
 name|setBody
 argument_list|(
 name|constant
@@ -498,6 +503,11 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
+argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"bar"
 argument_list|)
 operator|.
 name|setBody
@@ -722,6 +732,11 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
+argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"baz"
 argument_list|)
 operator|.
 name|setBody
