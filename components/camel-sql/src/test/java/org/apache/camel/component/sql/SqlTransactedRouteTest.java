@@ -436,6 +436,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|routeId
+argument_list|(
+literal|"commit"
+argument_list|)
+operator|.
 name|transacted
 argument_list|(
 literal|"required"
@@ -684,6 +689,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|routeId
+argument_list|(
+literal|"rollback"
+argument_list|)
+operator|.
 name|transacted
 argument_list|(
 literal|"required"
@@ -839,6 +849,11 @@ block|{
 name|from
 argument_list|(
 literal|"direct:start"
+argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"rollback2"
 argument_list|)
 operator|.
 name|transacted
