@@ -796,11 +796,27 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// only calculate for elements within the route
+comment|// only calculate for elements within the route or children of policy/transaction
 if|if
 condition|(
 operator|!
 literal|"route"
+operator|.
+name|equals
+argument_list|(
+name|key
+argument_list|)
+operator|&&
+operator|!
+literal|"policy"
+operator|.
+name|equals
+argument_list|(
+name|key
+argument_list|)
+operator|&&
+operator|!
+literal|"transacted"
 operator|.
 name|equals
 argument_list|(
