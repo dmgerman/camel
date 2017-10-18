@@ -229,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The pgevent component allows for producing/consuming  PostgreSQL events related to the LISTEN/NOTIFY commands.  *  * This requires using PostgreSQL 8.3 or newer.  */
+comment|/**  * The pgevent component allows for producing/consuming PostgreSQL events related to the listen/notify commands.  *<p/>  * This requires using PostgreSQL 8.3 or newer.  */
 end_comment
 
 begin_class
