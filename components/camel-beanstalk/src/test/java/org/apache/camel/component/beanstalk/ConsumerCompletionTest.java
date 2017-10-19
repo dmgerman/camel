@@ -138,7 +138,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyLong
 import|;
@@ -386,7 +386,7 @@ name|client
 operator|.
 name|statsJob
 argument_list|(
-name|anyInt
+name|anyLong
 argument_list|()
 argument_list|)
 argument_list|)
@@ -484,7 +484,7 @@ argument_list|)
 operator|.
 name|statsJob
 argument_list|(
-name|anyInt
+name|anyLong
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -611,7 +611,7 @@ name|client
 operator|.
 name|statsJob
 argument_list|(
-name|anyInt
+name|anyLong
 argument_list|()
 argument_list|)
 argument_list|)
@@ -720,7 +720,7 @@ argument_list|)
 operator|.
 name|statsJob
 argument_list|(
-name|anyInt
+name|anyLong
 argument_list|()
 argument_list|)
 expr_stmt|;
