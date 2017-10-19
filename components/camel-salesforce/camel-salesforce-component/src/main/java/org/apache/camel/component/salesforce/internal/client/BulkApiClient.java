@@ -44,6 +44,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -141,12 +151,20 @@ specifier|public
 interface|interface
 name|JobInfoResponseCallback
 block|{
-DECL|method|onResponse (JobInfo jobInfo, SalesforceException ex)
+DECL|method|onResponse (JobInfo jobInfo, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
 name|JobInfo
 name|jobInfo
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -158,12 +176,20 @@ specifier|public
 interface|interface
 name|BatchInfoResponseCallback
 block|{
-DECL|method|onResponse (BatchInfo batchInfo, SalesforceException ex)
+DECL|method|onResponse (BatchInfo batchInfo, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
 name|BatchInfo
 name|batchInfo
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -175,7 +201,7 @@ specifier|public
 interface|interface
 name|BatchInfoListResponseCallback
 block|{
-DECL|method|onResponse (List<BatchInfo> batchInfoList, SalesforceException ex)
+DECL|method|onResponse (List<BatchInfo> batchInfoList, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
@@ -184,6 +210,14 @@ argument_list|<
 name|BatchInfo
 argument_list|>
 name|batchInfoList
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -195,12 +229,20 @@ specifier|public
 interface|interface
 name|StreamResponseCallback
 block|{
-DECL|method|onResponse (InputStream inputStream, SalesforceException ex)
+DECL|method|onResponse (InputStream inputStream, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
 name|InputStream
 name|inputStream
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -212,7 +254,7 @@ specifier|public
 interface|interface
 name|QueryResultIdsCallback
 block|{
-DECL|method|onResponse (List<String> ids, SalesforceException ex)
+DECL|method|onResponse (List<String> ids, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
@@ -222,57 +264,109 @@ name|String
 argument_list|>
 name|ids
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+parameter_list|,
 name|SalesforceException
 name|ex
 parameter_list|)
 function_decl|;
 block|}
 comment|/**      * Creates a Bulk Job      *      * @param jobInfo  {@link JobInfo} with required fields      * @param callback {@link JobInfoResponseCallback} to be invoked on response or error      */
-DECL|method|createJob (JobInfo jobInfo, JobInfoResponseCallback callback)
+DECL|method|createJob (JobInfo jobInfo, Map<String, List<String>> header, JobInfoResponseCallback callback)
 name|void
 name|createJob
 parameter_list|(
 name|JobInfo
 name|jobInfo
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|JobInfoResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getJob (String jobId, JobInfoResponseCallback callback)
+DECL|method|getJob (String jobId, Map<String, List<String>> header, JobInfoResponseCallback callback)
 name|void
 name|getJob
 parameter_list|(
 name|String
 name|jobId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|JobInfoResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|closeJob (String jobId, JobInfoResponseCallback callback)
+DECL|method|closeJob (String jobId, Map<String, List<String>> header, JobInfoResponseCallback callback)
 name|void
 name|closeJob
 parameter_list|(
 name|String
 name|jobId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|JobInfoResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|abortJob (String jobId, JobInfoResponseCallback callback)
+DECL|method|abortJob (String jobId, Map<String, List<String>> header, JobInfoResponseCallback callback)
 name|void
 name|abortJob
 parameter_list|(
 name|String
 name|jobId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|JobInfoResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|createBatch (InputStream batchStream, String jobId, ContentType contentTypeEnum, BatchInfoResponseCallback callback)
+DECL|method|createBatch (InputStream batchStream, String jobId, ContentType contentTypeEnum, Map<String, List<String>> header, BatchInfoResponseCallback callback)
 name|void
 name|createBatch
 parameter_list|(
@@ -285,11 +379,22 @@ parameter_list|,
 name|ContentType
 name|contentTypeEnum
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|BatchInfoResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getBatch (String jobId, String batchId, BatchInfoResponseCallback callback)
+DECL|method|getBatch (String jobId, String batchId, Map<String, List<String>> header, BatchInfoResponseCallback callback)
 name|void
 name|getBatch
 parameter_list|(
@@ -299,22 +404,44 @@ parameter_list|,
 name|String
 name|batchId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|BatchInfoResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getAllBatches (String jobId, BatchInfoListResponseCallback callback)
+DECL|method|getAllBatches (String jobId, Map<String, List<String>> header, BatchInfoListResponseCallback callback)
 name|void
 name|getAllBatches
 parameter_list|(
 name|String
 name|jobId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|BatchInfoListResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getRequest (String jobId, String batchId, StreamResponseCallback callback)
+DECL|method|getRequest (String jobId, String batchId, Map<String, List<String>> header, StreamResponseCallback callback)
 name|void
 name|getRequest
 parameter_list|(
@@ -324,11 +451,22 @@ parameter_list|,
 name|String
 name|batchId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|StreamResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getResults (String jobId, String batchId, StreamResponseCallback callback)
+DECL|method|getResults (String jobId, String batchId, Map<String, List<String>> header, StreamResponseCallback callback)
 name|void
 name|getResults
 parameter_list|(
@@ -338,11 +476,22 @@ parameter_list|,
 name|String
 name|batchId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|StreamResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|createBatchQuery (String jobId, String soqlQuery, ContentType jobContentType, BatchInfoResponseCallback callback)
+DECL|method|createBatchQuery (String jobId, String soqlQuery, ContentType jobContentType, Map<String, List<String>> header, BatchInfoResponseCallback callback)
 name|void
 name|createBatchQuery
 parameter_list|(
@@ -355,11 +504,22 @@ parameter_list|,
 name|ContentType
 name|jobContentType
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|BatchInfoResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getQueryResultIds (String jobId, String batchId, QueryResultIdsCallback callback)
+DECL|method|getQueryResultIds (String jobId, String batchId, Map<String, List<String>> header, QueryResultIdsCallback callback)
 name|void
 name|getQueryResultIds
 parameter_list|(
@@ -369,11 +529,22 @@ parameter_list|,
 name|String
 name|batchId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
+parameter_list|,
 name|QueryResultIdsCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getQueryResult (String jobId, String batchId, String resultId, StreamResponseCallback callback)
+DECL|method|getQueryResult (String jobId, String batchId, String resultId, Map<String, List<String>> header, StreamResponseCallback callback)
 name|void
 name|getQueryResult
 parameter_list|(
@@ -385,6 +556,17 @@ name|batchId
 parameter_list|,
 name|String
 name|resultId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|header
 parameter_list|,
 name|StreamResponseCallback
 name|callback

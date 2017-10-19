@@ -94,6 +94,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|thoughtworks
@@ -1287,7 +1297,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|processResponse (final Exchange exchange, final InputStream responseEntity, final SalesforceException exception, final AsyncCallback callback)
+DECL|method|processResponse (final Exchange exchange, final InputStream responseEntity, final Map<String, String> headers, final SalesforceException exception, final AsyncCallback callback)
 specifier|protected
 name|void
 name|processResponse
@@ -1299,6 +1309,15 @@ parameter_list|,
 specifier|final
 name|InputStream
 name|responseEntity
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|SalesforceException
@@ -1345,6 +1364,16 @@ argument_list|(
 name|in
 argument_list|,
 literal|null
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|headers
 argument_list|)
 expr_stmt|;
 if|if

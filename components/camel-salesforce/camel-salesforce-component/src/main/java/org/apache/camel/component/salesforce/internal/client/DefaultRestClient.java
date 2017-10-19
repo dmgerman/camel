@@ -78,6 +78,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -969,7 +979,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|approval (final InputStream request, final ResponseCallback callback)
+DECL|method|approval (final InputStream request, Map<String, List<String>> headers, final ResponseCallback callback)
 specifier|public
 name|void
 name|approval
@@ -977,6 +987,17 @@ parameter_list|(
 specifier|final
 name|InputStream
 name|request
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ResponseCallback
@@ -997,6 +1018,8 @@ name|versionUrl
 argument_list|()
 operator|+
 literal|"process/approvals/"
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// authorization
@@ -1053,11 +1076,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|approvals (final ResponseCallback callback)
+DECL|method|approvals (Map<String, List<String>> headers, final ResponseCallback callback)
 specifier|public
 name|void
 name|approvals
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 specifier|final
 name|ResponseCallback
 name|callback
@@ -1077,6 +1111,8 @@ name|versionUrl
 argument_list|()
 operator|+
 literal|"process/approvals/"
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 name|doHttpRequest
@@ -1093,11 +1129,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getVersions (final ResponseCallback callback)
+DECL|method|getVersions (Map<String, List<String>> headers, final ResponseCallback callback)
 specifier|public
 name|void
 name|getVersions
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 specifier|final
 name|ResponseCallback
 name|callback
@@ -1114,6 +1161,8 @@ name|GET
 argument_list|,
 name|servicesDataUrl
 argument_list|()
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// does not require authorization token
@@ -1131,11 +1180,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getResources (ResponseCallback callback)
+DECL|method|getResources (Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|getResources
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 name|ResponseCallback
 name|callback
 parameter_list|)
@@ -1151,6 +1211,8 @@ name|GET
 argument_list|,
 name|versionUrl
 argument_list|()
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1173,11 +1235,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getGlobalObjects (ResponseCallback callback)
+DECL|method|getGlobalObjects (Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|getGlobalObjects
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 name|ResponseCallback
 name|callback
 parameter_list|)
@@ -1195,6 +1268,8 @@ name|sobjectsUrl
 argument_list|(
 literal|""
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1217,13 +1292,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getBasicInfo (String sObjectName, ResponseCallback callback)
+DECL|method|getBasicInfo (String sObjectName, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|getBasicInfo
 parameter_list|(
 name|String
 name|sObjectName
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1244,6 +1330,8 @@ name|sObjectName
 operator|+
 literal|"/"
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1266,13 +1354,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getDescription (String sObjectName, ResponseCallback callback)
+DECL|method|getDescription (String sObjectName, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|getDescription
 parameter_list|(
 name|String
 name|sObjectName
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1293,6 +1392,8 @@ name|sObjectName
 operator|+
 literal|"/describe/"
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1315,7 +1416,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getSObject (String sObjectName, String id, String[] fields, ResponseCallback callback)
+DECL|method|getSObject (String sObjectName, String id, String[] fields, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|getSObject
@@ -1329,6 +1430,17 @@ parameter_list|,
 name|String
 index|[]
 name|fields
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1438,6 +1550,8 @@ name|id
 operator|+
 name|params
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1460,7 +1574,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createSObject (String sObjectName, InputStream sObject, ResponseCallback callback)
+DECL|method|createSObject (String sObjectName, InputStream sObject, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|createSObject
@@ -1470,6 +1584,17 @@ name|sObjectName
 parameter_list|,
 name|InputStream
 name|sObject
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1490,6 +1615,8 @@ name|sobjectsUrl
 argument_list|(
 name|sObjectName
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// authorization
@@ -1546,7 +1673,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateSObject (String sObjectName, String id, InputStream sObject, ResponseCallback callback)
+DECL|method|updateSObject (String sObjectName, String id, InputStream sObject, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|updateSObject
@@ -1559,6 +1686,17 @@ name|id
 parameter_list|,
 name|InputStream
 name|sObject
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1580,6 +1718,8 @@ literal|"/"
 operator|+
 name|id
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1636,7 +1776,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteSObject (String sObjectName, String id, ResponseCallback callback)
+DECL|method|deleteSObject (String sObjectName, String id, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|deleteSObject
@@ -1646,6 +1786,17 @@ name|sObjectName
 parameter_list|,
 name|String
 name|id
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1669,6 +1820,8 @@ literal|"/"
 operator|+
 name|id
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1691,7 +1844,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getSObjectWithId (String sObjectName, String fieldName, String fieldValue, ResponseCallback callback)
+DECL|method|getSObjectWithId (String sObjectName, String fieldName, String fieldValue, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|getSObjectWithId
@@ -1704,6 +1857,17 @@ name|fieldName
 parameter_list|,
 name|String
 name|fieldValue
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1727,6 +1891,8 @@ name|fieldName
 argument_list|,
 name|fieldValue
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1749,7 +1915,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|upsertSObject (String sObjectName, String fieldName, String fieldValue, InputStream sObject, ResponseCallback callback)
+DECL|method|upsertSObject (String sObjectName, String fieldName, String fieldValue, Map<String, List<String>> headers, InputStream sObject, ResponseCallback callback)
 specifier|public
 name|void
 name|upsertSObject
@@ -1762,6 +1928,17 @@ name|fieldName
 parameter_list|,
 name|String
 name|fieldValue
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|InputStream
 name|sObject
@@ -1786,6 +1963,8 @@ name|fieldName
 argument_list|,
 name|fieldValue
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1843,7 +2022,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteSObjectWithId (String sObjectName, String fieldName, String fieldValue, ResponseCallback callback)
+DECL|method|deleteSObjectWithId (String sObjectName, String fieldName, String fieldValue, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|deleteSObjectWithId
@@ -1856,6 +2035,17 @@ name|fieldName
 parameter_list|,
 name|String
 name|fieldValue
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1879,6 +2069,8 @@ name|fieldName
 argument_list|,
 name|fieldValue
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -1901,7 +2093,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getBlobField (String sObjectName, String id, String blobFieldName, ResponseCallback callback)
+DECL|method|getBlobField (String sObjectName, String id, String blobFieldName, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|getBlobField
@@ -1914,6 +2106,17 @@ name|id
 parameter_list|,
 name|String
 name|blobFieldName
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -1941,6 +2144,8 @@ literal|"/"
 operator|+
 name|blobFieldName
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// TODO this doesn't seem to be required, the response is always the content binary stream
@@ -1965,13 +2170,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|query (String soqlQuery, ResponseCallback callback)
+DECL|method|query (String soqlQuery, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|query
 parameter_list|(
 name|String
 name|soqlQuery
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -2003,6 +2219,8 @@ operator|+
 literal|"query/?q="
 operator|+
 name|encodedQuery
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -2045,6 +2263,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 operator|new
 name|SalesforceException
 argument_list|(
@@ -2058,13 +2281,24 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|queryMore (String nextRecordsUrl, ResponseCallback callback)
+DECL|method|queryMore (String nextRecordsUrl, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|queryMore
 parameter_list|(
 name|String
 name|nextRecordsUrl
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -2083,6 +2317,8 @@ argument_list|,
 name|instanceUrl
 operator|+
 name|nextRecordsUrl
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -2105,13 +2341,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|queryAll (String soqlQuery, ResponseCallback callback)
+DECL|method|queryAll (String soqlQuery, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|queryAll
 parameter_list|(
 name|String
 name|soqlQuery
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -2143,6 +2390,8 @@ operator|+
 literal|"queryAll/?q="
 operator|+
 name|encodedQuery
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -2185,6 +2434,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 operator|new
 name|SalesforceException
 argument_list|(
@@ -2198,13 +2452,24 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|search (String soslQuery, ResponseCallback callback)
+DECL|method|search (String soslQuery, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|search
 parameter_list|(
 name|String
 name|soslQuery
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -2236,6 +2501,8 @@ operator|+
 literal|"search/?q="
 operator|+
 name|encodedQuery
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -2278,6 +2545,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 operator|new
 name|SalesforceException
 argument_list|(
@@ -2291,7 +2563,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|apexCall (String httpMethod, String apexUrl, Map<String, Object> queryParams, InputStream requestDto, ResponseCallback callback)
+DECL|method|apexCall (String httpMethod, String apexUrl, Map<String, Object> queryParams, InputStream requestDto, Map<String, List<String>> headers, ResponseCallback callback)
 specifier|public
 name|void
 name|apexCall
@@ -2312,6 +2584,17 @@ name|queryParams
 parameter_list|,
 name|InputStream
 name|requestDto
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 name|callback
@@ -2336,6 +2619,8 @@ name|apexUrl
 argument_list|,
 name|queryParams
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 expr_stmt|;
 comment|// set request SObject and content type
@@ -2442,6 +2727,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 operator|new
 name|SalesforceException
 argument_list|(
@@ -2473,6 +2763,11 @@ operator|.
 name|onResponse
 argument_list|(
 literal|null
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 operator|new
 name|SalesforceException
@@ -2541,7 +2836,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|recent (final Integer limit, final ResponseCallback responseCallback)
+DECL|method|recent (final Integer limit, Map<String, List<String>> headers, final ResponseCallback responseCallback)
 specifier|public
 name|void
 name|recent
@@ -2549,6 +2844,17 @@ parameter_list|(
 specifier|final
 name|Integer
 name|limit
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ResponseCallback
@@ -2596,6 +2902,8 @@ operator|+
 literal|"recent/"
 operator|+
 name|param
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -2618,11 +2926,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|limits (final ResponseCallback responseCallback)
+DECL|method|limits (Map<String, List<String>> headers, final ResponseCallback responseCallback)
 specifier|public
 name|void
 name|limits
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 specifier|final
 name|ResponseCallback
 name|responseCallback
@@ -2642,6 +2961,8 @@ name|versionUrl
 argument_list|()
 operator|+
 literal|"limits/"
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// requires authorization token
@@ -2909,13 +3230,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onResponse (InputStream response, SalesforceException ex)
+DECL|method|onResponse (InputStream response, Map<String, String> headers, SalesforceException ex)
 specifier|public
 name|void
 name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -2926,6 +3255,8 @@ operator|.
 name|onResponse
 argument_list|(
 name|response
+argument_list|,
+name|headers
 argument_list|,
 name|ex
 argument_list|)

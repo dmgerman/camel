@@ -58,6 +58,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -69,6 +79,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -568,11 +588,23 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getRecentReports (final RecentReportsResponseCallback callback)
+DECL|method|getRecentReports (final Map<String, List<String>> headers, final RecentReportsResponseCallback callback)
 specifier|public
 name|void
 name|getRecentReports
 parameter_list|(
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 specifier|final
 name|RecentReportsResponseCallback
 name|callback
@@ -590,6 +622,8 @@ name|GET
 argument_list|,
 name|reportsUrl
 argument_list|()
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 name|doHttpRequest
@@ -608,6 +642,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -662,6 +704,8 @@ name|onResponse
 argument_list|(
 name|recentReports
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -672,13 +716,25 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getReportDescription (String reportId, final ReportDescriptionResponseCallback callback)
+DECL|method|getReportDescription (String reportId, final Map<String, List<String>> headers, final ReportDescriptionResponseCallback callback)
 specifier|public
 name|void
 name|getReportDescription
 parameter_list|(
 name|String
 name|reportId
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ReportDescriptionResponseCallback
@@ -699,6 +755,8 @@ name|reportsDescribeUrl
 argument_list|(
 name|reportId
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 name|doHttpRequest
@@ -717,6 +775,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -760,6 +826,8 @@ name|onResponse
 argument_list|(
 name|reportDescription
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -770,7 +838,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|executeSyncReport (String reportId, Boolean includeDetails, ReportMetadata reportMetadata, final ReportResultsResponseCallback callback)
+DECL|method|executeSyncReport (String reportId, Boolean includeDetails, ReportMetadata reportMetadata, final Map<String, List<String>> headers, final ReportResultsResponseCallback callback)
 specifier|public
 name|void
 name|executeSyncReport
@@ -783,6 +851,18 @@ name|includeDetails
 parameter_list|,
 name|ReportMetadata
 name|reportMetadata
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ReportResultsResponseCallback
@@ -819,6 +899,8 @@ name|reportId
 argument_list|,
 name|includeDetails
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// set POST data
@@ -878,6 +960,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -900,6 +987,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -943,6 +1038,8 @@ name|onResponse
 argument_list|(
 name|reportResults
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -953,7 +1050,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|executeAsyncReport (String reportId, Boolean includeDetails, ReportMetadata reportMetadata, final ReportInstanceResponseCallback callback)
+DECL|method|executeAsyncReport (String reportId, Boolean includeDetails, ReportMetadata reportMetadata, final Map<String, List<String>> headers, final ReportInstanceResponseCallback callback)
 specifier|public
 name|void
 name|executeAsyncReport
@@ -966,6 +1063,18 @@ name|includeDetails
 parameter_list|,
 name|ReportMetadata
 name|reportMetadata
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ReportInstanceResponseCallback
@@ -988,6 +1097,8 @@ name|reportId
 argument_list|,
 name|includeDetails
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// set POST data
@@ -1048,6 +1159,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -1070,6 +1186,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -1113,6 +1237,8 @@ name|onResponse
 argument_list|(
 name|reportInstance
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1123,13 +1249,25 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getReportInstances (String reportId, final ReportInstanceListResponseCallback callback)
+DECL|method|getReportInstances (String reportId, final Map<String, List<String>> headers, final ReportInstanceListResponseCallback callback)
 specifier|public
 name|void
 name|getReportInstances
 parameter_list|(
 name|String
 name|reportId
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ReportInstanceListResponseCallback
@@ -1150,6 +1288,8 @@ name|reportInstancesUrl
 argument_list|(
 name|reportId
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 name|doHttpRequest
@@ -1168,6 +1308,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -1222,6 +1370,8 @@ name|onResponse
 argument_list|(
 name|reportInstances
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1232,7 +1382,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getReportResults (String reportId, String instanceId, final ReportResultsResponseCallback callback)
+DECL|method|getReportResults (String reportId, String instanceId, final Map<String, List<String>> headers, final ReportResultsResponseCallback callback)
 specifier|public
 name|void
 name|getReportResults
@@ -1242,6 +1392,18 @@ name|reportId
 parameter_list|,
 name|String
 name|instanceId
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ReportResultsResponseCallback
@@ -1264,6 +1426,8 @@ name|reportId
 argument_list|,
 name|instanceId
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 name|doHttpRequest
@@ -1282,6 +1446,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -1324,6 +1496,8 @@ operator|.
 name|onResponse
 argument_list|(
 name|reportResults
+argument_list|,
+name|headers
 argument_list|,
 name|ex
 argument_list|)

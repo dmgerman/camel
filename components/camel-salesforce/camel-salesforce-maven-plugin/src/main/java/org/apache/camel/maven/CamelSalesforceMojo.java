@@ -1874,6 +1874,11 @@ name|restClient
 operator|.
 name|getGlobalObjects
 argument_list|(
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 name|callback
 argument_list|)
 expr_stmt|;
@@ -2100,6 +2105,11 @@ operator|.
 name|getDescription
 argument_list|(
 name|name
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 name|callback
 argument_list|)

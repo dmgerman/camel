@@ -34,6 +34,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -186,7 +196,7 @@ specifier|public
 interface|interface
 name|RecentReportsResponseCallback
 block|{
-DECL|method|onResponse (List<RecentReport> reportDescription, SalesforceException ex)
+DECL|method|onResponse (List<RecentReport> reportDescription, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
@@ -195,6 +205,14 @@ argument_list|<
 name|RecentReport
 argument_list|>
 name|reportDescription
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -206,12 +224,20 @@ specifier|public
 interface|interface
 name|ReportDescriptionResponseCallback
 block|{
-DECL|method|onResponse (ReportDescription reportDescription, SalesforceException ex)
+DECL|method|onResponse (ReportDescription reportDescription, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
 name|ReportDescription
 name|reportDescription
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -223,12 +249,20 @@ specifier|public
 interface|interface
 name|ReportResultsResponseCallback
 block|{
-DECL|method|onResponse (AbstractReportResultsBase reportResults, SalesforceException ex)
+DECL|method|onResponse (AbstractReportResultsBase reportResults, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
 name|AbstractReportResultsBase
 name|reportResults
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -240,12 +274,20 @@ specifier|public
 interface|interface
 name|ReportInstanceResponseCallback
 block|{
-DECL|method|onResponse (ReportInstance reportInstance, SalesforceException ex)
+DECL|method|onResponse (ReportInstance reportInstance, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
 name|ReportInstance
 name|reportInstance
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -257,7 +299,7 @@ specifier|public
 interface|interface
 name|ReportInstanceListResponseCallback
 block|{
-DECL|method|onResponse (List<ReportInstance> reportInstances, SalesforceException ex)
+DECL|method|onResponse (List<ReportInstance> reportInstances, Map<String, String> headers, SalesforceException ex)
 name|void
 name|onResponse
 parameter_list|(
@@ -267,31 +309,61 @@ name|ReportInstance
 argument_list|>
 name|reportInstances
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+parameter_list|,
 name|SalesforceException
 name|ex
 parameter_list|)
 function_decl|;
 block|}
-DECL|method|getRecentReports (RecentReportsResponseCallback callback)
+DECL|method|getRecentReports (Map<String, List<String>> headers, RecentReportsResponseCallback callback)
 name|void
 name|getRecentReports
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 name|RecentReportsResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getReportDescription (String reportId, ReportDescriptionResponseCallback callback)
+DECL|method|getReportDescription (String reportId, Map<String, List<String>> headers, ReportDescriptionResponseCallback callback)
 name|void
 name|getReportDescription
 parameter_list|(
 name|String
 name|reportId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 name|ReportDescriptionResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|executeSyncReport (String reportId, Boolean includeDetails, ReportMetadata reportFilter, ReportResultsResponseCallback callback)
+DECL|method|executeSyncReport (String reportId, Boolean includeDetails, ReportMetadata reportFilter, Map<String, List<String>> headers, ReportResultsResponseCallback callback)
 name|void
 name|executeSyncReport
 parameter_list|(
@@ -304,11 +376,22 @@ parameter_list|,
 name|ReportMetadata
 name|reportFilter
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 name|ReportResultsResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|executeAsyncReport (String reportId, Boolean includeDetails, ReportMetadata reportFilter, ReportInstanceResponseCallback callback)
+DECL|method|executeAsyncReport (String reportId, Boolean includeDetails, ReportMetadata reportFilter, Map<String, List<String>> headers, ReportInstanceResponseCallback callback)
 name|void
 name|executeAsyncReport
 parameter_list|(
@@ -321,22 +404,44 @@ parameter_list|,
 name|ReportMetadata
 name|reportFilter
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 name|ReportInstanceResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getReportInstances (String reportId, ReportInstanceListResponseCallback callback)
+DECL|method|getReportInstances (String reportId, Map<String, List<String>> headers, ReportInstanceListResponseCallback callback)
 name|void
 name|getReportInstances
 parameter_list|(
 name|String
 name|reportId
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
+parameter_list|,
 name|ReportInstanceListResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getReportResults (String reportId, String instanceId, ReportResultsResponseCallback callback)
+DECL|method|getReportResults (String reportId, String instanceId, Map<String, List<String>> headers, ReportResultsResponseCallback callback)
 name|void
 name|getReportResults
 parameter_list|(
@@ -345,6 +450,17 @@ name|reportId
 parameter_list|,
 name|String
 name|instanceId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ReportResultsResponseCallback
 name|callback

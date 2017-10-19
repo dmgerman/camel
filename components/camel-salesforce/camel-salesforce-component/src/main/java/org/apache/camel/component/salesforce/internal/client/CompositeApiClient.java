@@ -28,6 +28,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Optional
 import|;
 end_import
@@ -155,12 +175,23 @@ parameter_list|,
 name|R
 parameter_list|>
 block|{
-DECL|method|submit (T body, ResponseCallback<R> callback)
+DECL|method|submit (T body, Map<String, List<String>> headers, ResponseCallback<R> callback)
 name|void
 name|submit
 parameter_list|(
 name|T
 name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 argument_list|<
@@ -182,7 +213,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-DECL|method|onResponse (Optional<T> body, SalesforceException exception)
+DECL|method|onResponse (Optional<T> body, Map<String, String> headers, SalesforceException exception)
 name|void
 name|onResponse
 parameter_list|(
@@ -192,17 +223,36 @@ name|T
 argument_list|>
 name|body
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+parameter_list|,
 name|SalesforceException
 name|exception
 parameter_list|)
 function_decl|;
 block|}
-DECL|method|submitCompositeBatch (SObjectBatch batch, ResponseCallback<SObjectBatchResponse> callback)
+DECL|method|submitCompositeBatch (SObjectBatch batch, Map<String, List<String>> headers, ResponseCallback<SObjectBatchResponse> callback)
 name|void
 name|submitCompositeBatch
 parameter_list|(
 name|SObjectBatch
 name|batch
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 argument_list|<
@@ -213,13 +263,24 @@ parameter_list|)
 throws|throws
 name|SalesforceException
 function_decl|;
-comment|/**      * Submits given nodes (records) of SObjects and their children as a tree in a single request. And updates the      *<code>Id</code> parameter of each object to the value returned from the API call.      *      * @param tree      *            SObject tree to submit      * @param callback      *            {@link ResponseCallback} to handle response or exception      */
-DECL|method|submitCompositeTree (SObjectTree tree, ResponseCallback<SObjectTreeResponse> callback)
+comment|/**      * Submits given nodes (records) of SObjects and their children as a tree in      * a single request. And updates the<code>Id</code> parameter of each      * object to the value returned from the API call.      *      * @param tree SObject tree to submit      * @param callback {@link ResponseCallback} to handle response or exception      */
+DECL|method|submitCompositeTree (SObjectTree tree, Map<String, List<String>> headers, ResponseCallback<SObjectTreeResponse> callback)
 name|void
 name|submitCompositeTree
 parameter_list|(
 name|SObjectTree
 name|tree
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 name|ResponseCallback
 argument_list|<

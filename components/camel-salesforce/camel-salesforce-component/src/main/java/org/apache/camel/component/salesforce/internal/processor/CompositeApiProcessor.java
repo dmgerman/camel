@@ -38,6 +38,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Optional
 import|;
 end_import
@@ -340,7 +350,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-DECL|method|handleResponse (Exchange exchange, Optional<T> body, SalesforceException exception, AsyncCallback callback)
+DECL|method|handleResponse (Exchange exchange, Optional<T> body, Map<String, String> headers, SalesforceException exception, AsyncCallback callback)
 name|void
 name|handleResponse
 parameter_list|(
@@ -352,6 +362,14 @@ argument_list|<
 name|T
 argument_list|>
 name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|exception
@@ -651,7 +669,7 @@ name|compositeClient
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|processCompositeBatchResponse (final Exchange exchange, final Optional<SObjectBatchResponse> responseBody, final SalesforceException exception, final AsyncCallback callback)
+DECL|method|processCompositeBatchResponse (final Exchange exchange, final Optional<SObjectBatchResponse> responseBody, final Map<String, String> headers, final SalesforceException exception, final AsyncCallback callback)
 name|void
 name|processCompositeBatchResponse
 parameter_list|(
@@ -665,6 +683,15 @@ argument_list|<
 name|SObjectBatchResponse
 argument_list|>
 name|responseBody
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|SalesforceException
@@ -732,6 +759,16 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|headers
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 finally|finally
@@ -746,7 +783,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|processCompositeTreeResponse (final Exchange exchange, final Optional<SObjectTreeResponse> responseBody, final SalesforceException exception, final AsyncCallback callback)
+DECL|method|processCompositeTreeResponse (final Exchange exchange, final Optional<SObjectTreeResponse> responseBody, final Map<String, String> headers, final SalesforceException exception, final AsyncCallback callback)
 name|void
 name|processCompositeTreeResponse
 parameter_list|(
@@ -760,6 +797,15 @@ argument_list|<
 name|SObjectTreeResponse
 argument_list|>
 name|responseBody
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|SalesforceException
@@ -931,6 +977,16 @@ argument_list|,
 name|tree
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|headers
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 finally|finally
@@ -1071,8 +1127,15 @@ name|submit
 argument_list|(
 name|body
 argument_list|,
+name|determineHeaders
+argument_list|(
+name|exchange
+argument_list|)
+argument_list|,
 parameter_list|(
 name|response
+parameter_list|,
+name|responseHeaders
 parameter_list|,
 name|exception
 parameter_list|)
@@ -1084,6 +1147,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|response
+argument_list|,
+name|responseHeaders
 argument_list|,
 name|exception
 argument_list|,

@@ -38,6 +38,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
@@ -75,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Thin wrapper to handle callbacks for {@link RestClient.ResponseCallback} and allow waiting for results  */
+comment|/**  * Thin wrapper to handle callback for {@link RestClient.ResponseCallback} and allow waiting for results  */
 end_comment
 
 begin_class
@@ -98,6 +108,16 @@ specifier|private
 name|SalesforceException
 name|exception
 decl_stmt|;
+DECL|field|headers
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+decl_stmt|;
 DECL|field|latch
 specifier|private
 name|CountDownLatch
@@ -111,13 +131,21 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|onResponse (InputStream response, SalesforceException exception)
+DECL|method|onResponse (InputStream response, Map<String, String> headers, SalesforceException exception)
 specifier|public
 name|void
 name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|exception
@@ -128,6 +156,12 @@ operator|.
 name|response
 operator|=
 name|response
+expr_stmt|;
+name|this
+operator|.
+name|headers
+operator|=
+name|headers
 expr_stmt|;
 name|this
 operator|.
@@ -199,6 +233,21 @@ parameter_list|()
 block|{
 return|return
 name|exception
+return|;
+block|}
+DECL|method|getHeaders ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getHeaders
+parameter_list|()
+block|{
+return|return
+name|headers
 return|;
 block|}
 block|}

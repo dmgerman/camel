@@ -76,6 +76,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -920,7 +930,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|processResponse (Exchange exchange, InputStream responseEntity, SalesforceException ex, AsyncCallback callback)
+DECL|method|processResponse (Exchange exchange, InputStream responseEntity, Map<String, String> headers, SalesforceException ex, AsyncCallback callback)
 specifier|protected
 name|void
 name|processResponse
@@ -930,6 +940,14 @@ name|exchange
 parameter_list|,
 name|InputStream
 name|responseEntity
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -966,6 +984,16 @@ argument_list|(
 name|in
 argument_list|,
 literal|null
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|headers
 argument_list|)
 expr_stmt|;
 if|if

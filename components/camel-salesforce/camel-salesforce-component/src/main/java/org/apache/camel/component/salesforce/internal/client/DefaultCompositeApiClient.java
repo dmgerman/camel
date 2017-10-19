@@ -1064,7 +1064,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|submitCompositeBatch (final SObjectBatch batch, final ResponseCallback<SObjectBatchResponse> callback)
+DECL|method|submitCompositeBatch (final SObjectBatch batch, final Map<String, List<String>> headers, final ResponseCallback<SObjectBatchResponse> callback)
 specifier|public
 name|void
 name|submitCompositeBatch
@@ -1072,6 +1072,18 @@ parameter_list|(
 specifier|final
 name|SObjectBatch
 name|batch
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ResponseCallback
@@ -1113,6 +1125,8 @@ operator|.
 name|POST
 argument_list|,
 name|url
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1143,6 +1157,8 @@ argument_list|,
 parameter_list|(
 name|response
 parameter_list|,
+name|responseHeaders
+parameter_list|,
 name|exception
 parameter_list|)
 lambda|->
@@ -1159,6 +1175,8 @@ argument_list|,
 name|response
 argument_list|)
 argument_list|,
+name|responseHeaders
+argument_list|,
 name|exception
 argument_list|)
 argument_list|)
@@ -1166,7 +1184,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|submitCompositeTree (final SObjectTree tree, final ResponseCallback<SObjectTreeResponse> callback)
+DECL|method|submitCompositeTree (final SObjectTree tree, final Map<String, List<String>> headers, final ResponseCallback<SObjectTreeResponse> callback)
 specifier|public
 name|void
 name|submitCompositeTree
@@ -1174,6 +1192,18 @@ parameter_list|(
 specifier|final
 name|SObjectTree
 name|tree
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|ResponseCallback
@@ -1210,6 +1240,8 @@ operator|.
 name|POST
 argument_list|,
 name|url
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1240,6 +1272,8 @@ argument_list|,
 parameter_list|(
 name|response
 parameter_list|,
+name|responseHeaders
+parameter_list|,
 name|exception
 parameter_list|)
 lambda|->
@@ -1255,6 +1289,8 @@ name|class
 argument_list|,
 name|response
 argument_list|)
+argument_list|,
+name|responseHeaders
 argument_list|,
 name|exception
 argument_list|)
@@ -1311,7 +1347,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createRequest (final HttpMethod method, final String url)
+DECL|method|createRequest (final HttpMethod method, final String url, Map<String, List<String>> headers)
 name|Request
 name|createRequest
 parameter_list|(
@@ -1322,6 +1358,17 @@ parameter_list|,
 specifier|final
 name|String
 name|url
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|)
 block|{
 specifier|final
@@ -1333,6 +1380,8 @@ argument_list|(
 name|method
 argument_list|,
 name|url
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// setup authorization

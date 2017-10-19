@@ -74,6 +74,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -628,13 +648,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createJob (JobInfo request, final JobInfoResponseCallback callback)
+DECL|method|createJob (JobInfo request, Map<String, List<String>> headers, final JobInfoResponseCallback callback)
 specifier|public
 name|void
 name|createJob
 parameter_list|(
 name|JobInfo
 name|request
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|JobInfoResponseCallback
@@ -661,6 +692,8 @@ name|jobUrl
 argument_list|(
 literal|null
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 try|try
@@ -692,6 +725,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -714,6 +752,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -764,6 +810,8 @@ operator|.
 name|onResponse
 argument_list|(
 name|value
+argument_list|,
+name|headers
 argument_list|,
 name|ex
 argument_list|)
@@ -905,13 +953,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getJob (String jobId, final JobInfoResponseCallback callback)
+DECL|method|getJob (String jobId, Map<String, List<String>> headers, final JobInfoResponseCallback callback)
 specifier|public
 name|void
 name|getJob
 parameter_list|(
 name|String
 name|jobId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|JobInfoResponseCallback
@@ -932,6 +991,8 @@ name|jobUrl
 argument_list|(
 name|jobId
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// make the call and parse the result
@@ -951,6 +1012,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -994,6 +1063,8 @@ name|onResponse
 argument_list|(
 name|value
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1004,13 +1075,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|closeJob (String jobId, final JobInfoResponseCallback callback)
+DECL|method|closeJob (String jobId, Map<String, List<String>> headers, final JobInfoResponseCallback callback)
 specifier|public
 name|void
 name|closeJob
 parameter_list|(
 name|String
 name|jobId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|JobInfoResponseCallback
@@ -1048,6 +1130,8 @@ name|jobUrl
 argument_list|(
 name|jobId
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 try|try
@@ -1079,6 +1163,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -1101,6 +1190,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -1144,6 +1241,8 @@ name|onResponse
 argument_list|(
 name|value
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1154,13 +1253,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|abortJob (String jobId, final JobInfoResponseCallback callback)
+DECL|method|abortJob (String jobId, Map<String, List<String>> headers, final JobInfoResponseCallback callback)
 specifier|public
 name|void
 name|abortJob
 parameter_list|(
 name|String
 name|jobId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|JobInfoResponseCallback
@@ -1198,6 +1308,8 @@ name|jobUrl
 argument_list|(
 name|jobId
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 try|try
@@ -1229,6 +1341,11 @@ name|onResponse
 argument_list|(
 literal|null
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -1251,6 +1368,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -1294,6 +1419,8 @@ name|onResponse
 argument_list|(
 name|value
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1304,7 +1431,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createBatch (InputStream batchStream, String jobId, ContentType contentTypeEnum, final BatchInfoResponseCallback callback)
+DECL|method|createBatch (InputStream batchStream, String jobId, ContentType contentTypeEnum, Map<String, List<String>> headers, final BatchInfoResponseCallback callback)
 specifier|public
 name|void
 name|createBatch
@@ -1317,6 +1444,17 @@ name|jobId
 parameter_list|,
 name|ContentType
 name|contentTypeEnum
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|BatchInfoResponseCallback
@@ -1339,6 +1477,8 @@ name|jobId
 argument_list|,
 literal|null
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 name|post
@@ -1390,6 +1530,14 @@ parameter_list|(
 name|InputStream
 name|response
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+parameter_list|,
 name|SalesforceException
 name|ex
 parameter_list|)
@@ -1432,6 +1580,8 @@ name|onResponse
 argument_list|(
 name|value
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1442,7 +1592,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getBatch (String jobId, String batchId, final BatchInfoResponseCallback callback)
+DECL|method|getBatch (String jobId, String batchId, Map<String, List<String>> headers, final BatchInfoResponseCallback callback)
 specifier|public
 name|void
 name|getBatch
@@ -1452,6 +1602,17 @@ name|jobId
 parameter_list|,
 name|String
 name|batchId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|BatchInfoResponseCallback
@@ -1474,6 +1635,8 @@ name|jobId
 argument_list|,
 name|batchId
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// make the call and parse the result
@@ -1493,6 +1656,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -1536,6 +1707,8 @@ name|onResponse
 argument_list|(
 name|value
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1546,13 +1719,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getAllBatches (String jobId, final BatchInfoListResponseCallback callback)
+DECL|method|getAllBatches (String jobId, Map<String, List<String>> headers, final BatchInfoListResponseCallback callback)
 specifier|public
 name|void
 name|getAllBatches
 parameter_list|(
 name|String
 name|jobId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|BatchInfoListResponseCallback
@@ -1575,6 +1759,8 @@ name|jobId
 argument_list|,
 literal|null
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// make the call and parse the result
@@ -1594,6 +1780,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -1646,6 +1840,8 @@ argument_list|()
 else|:
 literal|null
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1656,7 +1852,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getRequest (String jobId, String batchId, final StreamResponseCallback callback)
+DECL|method|getRequest (String jobId, String batchId, Map<String, List<String>> headers, final StreamResponseCallback callback)
 specifier|public
 name|void
 name|getRequest
@@ -1666,6 +1862,17 @@ name|jobId
 parameter_list|,
 name|String
 name|batchId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|StreamResponseCallback
@@ -1690,6 +1897,8 @@ name|batchId
 argument_list|,
 literal|null
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// make the call and parse the result
@@ -1710,6 +1919,14 @@ parameter_list|(
 name|InputStream
 name|response
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+parameter_list|,
 name|SalesforceException
 name|ex
 parameter_list|)
@@ -1719,6 +1936,8 @@ operator|.
 name|onResponse
 argument_list|(
 name|response
+argument_list|,
+name|headers
 argument_list|,
 name|ex
 argument_list|)
@@ -1730,7 +1949,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getResults (String jobId, String batchId, final StreamResponseCallback callback)
+DECL|method|getResults (String jobId, String batchId, Map<String, List<String>> headers, final StreamResponseCallback callback)
 specifier|public
 name|void
 name|getResults
@@ -1740,6 +1959,17 @@ name|jobId
 parameter_list|,
 name|String
 name|batchId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|StreamResponseCallback
@@ -1764,6 +1994,8 @@ name|batchId
 argument_list|,
 literal|null
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// make the call and return the result
@@ -1784,6 +2016,14 @@ parameter_list|(
 name|InputStream
 name|response
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+parameter_list|,
 name|SalesforceException
 name|ex
 parameter_list|)
@@ -1793,6 +2033,8 @@ operator|.
 name|onResponse
 argument_list|(
 name|response
+argument_list|,
+name|headers
 argument_list|,
 name|ex
 argument_list|)
@@ -1804,7 +2046,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createBatchQuery (String jobId, String soqlQuery, ContentType jobContentType, final BatchInfoResponseCallback callback)
+DECL|method|createBatchQuery (String jobId, String soqlQuery, ContentType jobContentType, Map<String, List<String>> headers, final BatchInfoResponseCallback callback)
 specifier|public
 name|void
 name|createBatchQuery
@@ -1817,6 +2059,17 @@ name|soqlQuery
 parameter_list|,
 name|ContentType
 name|jobContentType
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|BatchInfoResponseCallback
@@ -1839,6 +2092,8 @@ name|jobId
 argument_list|,
 literal|null
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1871,6 +2126,11 @@ operator|.
 name|onResponse
 argument_list|(
 literal|null
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 operator|new
 name|SalesforceException
@@ -1937,6 +2197,14 @@ parameter_list|(
 name|InputStream
 name|response
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+parameter_list|,
 name|SalesforceException
 name|ex
 parameter_list|)
@@ -1979,6 +2247,8 @@ name|onResponse
 argument_list|(
 name|value
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -1989,7 +2259,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getQueryResultIds (String jobId, String batchId, final QueryResultIdsCallback callback)
+DECL|method|getQueryResultIds (String jobId, String batchId, Map<String, List<String>> headers, final QueryResultIdsCallback callback)
 specifier|public
 name|void
 name|getQueryResultIds
@@ -1999,6 +2269,17 @@ name|jobId
 parameter_list|,
 name|String
 name|batchId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|QueryResultIdsCallback
@@ -2023,6 +2304,8 @@ name|batchId
 argument_list|,
 literal|null
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// make the call and parse the result
@@ -2042,6 +2325,14 @@ name|onResponse
 parameter_list|(
 name|InputStream
 name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 name|SalesforceException
 name|ex
@@ -2099,6 +2390,8 @@ argument_list|)
 else|:
 literal|null
 argument_list|,
+name|headers
+argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
@@ -2109,7 +2402,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getQueryResult (String jobId, String batchId, String resultId, final StreamResponseCallback callback)
+DECL|method|getQueryResult (String jobId, String batchId, String resultId, Map<String, List<String>> headers, final StreamResponseCallback callback)
 specifier|public
 name|void
 name|getQueryResult
@@ -2122,6 +2415,17 @@ name|batchId
 parameter_list|,
 name|String
 name|resultId
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|StreamResponseCallback
@@ -2146,6 +2450,8 @@ name|batchId
 argument_list|,
 name|resultId
 argument_list|)
+argument_list|,
+name|headers
 argument_list|)
 decl_stmt|;
 comment|// make the call and parse the result
@@ -2166,6 +2472,14 @@ parameter_list|(
 name|InputStream
 name|response
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
+parameter_list|,
 name|SalesforceException
 name|ex
 parameter_list|)
@@ -2175,6 +2489,8 @@ operator|.
 name|onResponse
 argument_list|(
 name|response
+argument_list|,
+name|headers
 argument_list|,
 name|ex
 argument_list|)

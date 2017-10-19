@@ -557,7 +557,7 @@ name|SalesforceException
 block|{         }
 annotation|@
 name|Override
-DECL|method|processResponse (final Exchange exchange, final InputStream responseEntity, final SalesforceException ex, final AsyncCallback callback)
+DECL|method|processResponse (final Exchange exchange, final InputStream responseEntity, final Map<String, String> headers, final SalesforceException ex, final AsyncCallback callback)
 specifier|protected
 name|void
 name|processResponse
@@ -569,6 +569,15 @@ parameter_list|,
 specifier|final
 name|InputStream
 name|responseEntity
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|,
 specifier|final
 name|SalesforceException
