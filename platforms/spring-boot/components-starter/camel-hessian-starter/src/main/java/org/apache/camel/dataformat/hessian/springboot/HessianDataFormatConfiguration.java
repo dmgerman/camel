@@ -86,6 +86,26 @@ name|HessianDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Define if Whitelist feature is enabled or not      */
+DECL|field|whitelistEnabled
+specifier|private
+name|Boolean
+name|whitelistEnabled
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Define the allowed objects to be unmarshalled      */
+DECL|field|allowedUnmarshallObjects
+specifier|private
+name|String
+name|allowedUnmarshallObjects
+decl_stmt|;
+comment|/**      * Define the denied objects to be unmarshalled      */
+DECL|field|deniedUnmarshallObjects
+specifier|private
+name|String
+name|deniedUnmarshallObjects
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -94,6 +114,84 @@ name|contentTypeHeader
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getWhitelistEnabled ()
+specifier|public
+name|Boolean
+name|getWhitelistEnabled
+parameter_list|()
+block|{
+return|return
+name|whitelistEnabled
+return|;
+block|}
+DECL|method|setWhitelistEnabled (Boolean whitelistEnabled)
+specifier|public
+name|void
+name|setWhitelistEnabled
+parameter_list|(
+name|Boolean
+name|whitelistEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|whitelistEnabled
+operator|=
+name|whitelistEnabled
+expr_stmt|;
+block|}
+DECL|method|getAllowedUnmarshallObjects ()
+specifier|public
+name|String
+name|getAllowedUnmarshallObjects
+parameter_list|()
+block|{
+return|return
+name|allowedUnmarshallObjects
+return|;
+block|}
+DECL|method|setAllowedUnmarshallObjects (String allowedUnmarshallObjects)
+specifier|public
+name|void
+name|setAllowedUnmarshallObjects
+parameter_list|(
+name|String
+name|allowedUnmarshallObjects
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowedUnmarshallObjects
+operator|=
+name|allowedUnmarshallObjects
+expr_stmt|;
+block|}
+DECL|method|getDeniedUnmarshallObjects ()
+specifier|public
+name|String
+name|getDeniedUnmarshallObjects
+parameter_list|()
+block|{
+return|return
+name|deniedUnmarshallObjects
+return|;
+block|}
+DECL|method|setDeniedUnmarshallObjects (String deniedUnmarshallObjects)
+specifier|public
+name|void
+name|setDeniedUnmarshallObjects
+parameter_list|(
+name|String
+name|deniedUnmarshallObjects
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deniedUnmarshallObjects
+operator|=
+name|deniedUnmarshallObjects
+expr_stmt|;
+block|}
 DECL|method|getContentTypeHeader ()
 specifier|public
 name|Boolean
