@@ -147,6 +147,13 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|whitelistEnabled
 specifier|private
 name|Boolean

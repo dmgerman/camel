@@ -92,7 +92,7 @@ specifier|private
 name|Boolean
 name|whitelistEnabled
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * Define the allowed objects to be unmarshalled      */
 DECL|field|allowedUnmarshallObjects
