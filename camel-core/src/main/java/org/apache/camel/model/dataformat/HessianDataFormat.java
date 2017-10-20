@@ -151,6 +151,8 @@ DECL|field|whitelistEnabled
 specifier|private
 name|Boolean
 name|whitelistEnabled
+init|=
+literal|true
 decl_stmt|;
 annotation|@
 name|XmlAttribute

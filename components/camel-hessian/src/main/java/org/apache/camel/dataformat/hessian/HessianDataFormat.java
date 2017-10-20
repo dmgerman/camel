@@ -187,6 +187,8 @@ DECL|field|whitelistEnabled
 specifier|private
 name|boolean
 name|whitelistEnabled
+init|=
+literal|true
 decl_stmt|;
 DECL|field|allowedUnmarshallObjects
 specifier|private
