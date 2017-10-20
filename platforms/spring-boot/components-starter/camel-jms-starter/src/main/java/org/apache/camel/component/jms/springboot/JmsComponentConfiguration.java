@@ -983,6 +983,14 @@ specifier|private
 name|String
 name|subscriptionName
 decl_stmt|;
+comment|/**      * Sets whether StreamMessage type is enabled or not. Message payloads of      * streaming kind such as files InputStream etc will either by sent as      * BytesMessage or StreamMessage. This option controls which kind will be      * used. By default BytesMessage is used which enforces the entire message      * payload to be read into memory. By enabling this option the message      * payload is read into memory in chunks and each chunk is then written to      * the StreamMessage until no more data.      */
+DECL|field|streamMessageTypeEnabled
+specifier|private
+name|Boolean
+name|streamMessageTypeEnabled
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -2975,6 +2983,32 @@ operator|=
 name|subscriptionName
 expr_stmt|;
 block|}
+DECL|method|getStreamMessageTypeEnabled ()
+specifier|public
+name|Boolean
+name|getStreamMessageTypeEnabled
+parameter_list|()
+block|{
+return|return
+name|streamMessageTypeEnabled
+return|;
+block|}
+DECL|method|setStreamMessageTypeEnabled (Boolean streamMessageTypeEnabled)
+specifier|public
+name|void
+name|setStreamMessageTypeEnabled
+parameter_list|(
+name|Boolean
+name|streamMessageTypeEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamMessageTypeEnabled
+operator|=
+name|streamMessageTypeEnabled
+expr_stmt|;
+block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -3708,6 +3742,14 @@ DECL|field|subscriptionName
 specifier|private
 name|String
 name|subscriptionName
+decl_stmt|;
+comment|/**          * Sets whether StreamMessage type is enabled or not. Message payloads          * of streaming kind such as files, InputStream, etc will either by sent          * as BytesMessage or StreamMessage. This option controls which kind          * will be used. By default BytesMessage is used which enforces the          * entire message payload to be read into memory. By enabling this          * option the message payload is read into memory in chunks and each          * chunk is then written to the StreamMessage until no more data.          */
+DECL|field|streamMessageTypeEnabled
+specifier|private
+name|Boolean
+name|streamMessageTypeEnabled
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getConsumerType ()
 specifier|public
@@ -6053,6 +6095,32 @@ operator|.
 name|subscriptionName
 operator|=
 name|subscriptionName
+expr_stmt|;
+block|}
+DECL|method|getStreamMessageTypeEnabled ()
+specifier|public
+name|Boolean
+name|getStreamMessageTypeEnabled
+parameter_list|()
+block|{
+return|return
+name|streamMessageTypeEnabled
+return|;
+block|}
+DECL|method|setStreamMessageTypeEnabled (Boolean streamMessageTypeEnabled)
+specifier|public
+name|void
+name|setStreamMessageTypeEnabled
+parameter_list|(
+name|Boolean
+name|streamMessageTypeEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamMessageTypeEnabled
+operator|=
+name|streamMessageTypeEnabled
 expr_stmt|;
 block|}
 block|}

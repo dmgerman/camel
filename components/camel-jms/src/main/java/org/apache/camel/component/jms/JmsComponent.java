@@ -3741,6 +3741,56 @@ name|subscriptionName
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isStreamMessageTypeEnabled ()
+specifier|public
+name|boolean
+name|isStreamMessageTypeEnabled
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isStreamMessageTypeEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets whether StreamMessage type is enabled or not.      * Message payloads of streaming kind such as files, InputStream, etc will either by sent as BytesMessage or StreamMessage.      * This option controls which kind will be used. By default BytesMessage is used which enforces the entire message payload to be read into memory.      * By enabling this option the message payload is read into memory in chunks and each chunk is then written to the StreamMessage until no more data.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether StreamMessage type is enabled or not."
+operator|+
+literal|" Message payloads of streaming kind such as files, InputStream, etc will either by sent as BytesMessage or StreamMessage."
+operator|+
+literal|" This option controls which kind will be used. By default BytesMessage is used which enforces the entire message payload to be read into memory."
+operator|+
+literal|" By enabling this option the message payload is read into memory in chunks and each chunk is then written to the StreamMessage until no more data."
+argument_list|)
+DECL|method|setStreamMessageTypeEnabled (boolean streamMessageTypeEnabled)
+specifier|public
+name|void
+name|setStreamMessageTypeEnabled
+parameter_list|(
+name|boolean
+name|streamMessageTypeEnabled
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setStreamMessageTypeEnabled
+argument_list|(
+name|streamMessageTypeEnabled
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@

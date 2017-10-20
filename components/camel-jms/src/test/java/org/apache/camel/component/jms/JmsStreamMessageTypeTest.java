@@ -132,10 +132,6 @@ name|jmsComponentAutoAcknowledge
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|JmsStreamMessageTypeTest
 specifier|public
@@ -189,16 +185,29 @@ operator|.
 name|createConnectionFactory
 argument_list|()
 decl_stmt|;
+name|JmsComponent
+name|jms
+init|=
+name|jmsComponentAutoAcknowledge
+argument_list|(
+name|connectionFactory
+argument_list|)
+decl_stmt|;
+name|jms
+operator|.
+name|setStreamMessageTypeEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// turn on streaming
 name|camelContext
 operator|.
 name|addComponent
 argument_list|(
 literal|"jms"
 argument_list|,
-name|jmsComponentAutoAcknowledge
-argument_list|(
-name|connectionFactory
-argument_list|)
+name|jms
 argument_list|)
 expr_stmt|;
 return|return
@@ -335,7 +344,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jms:queue:foo?jmsMessageType=Stream"
+literal|"jms:queue:foo"
 argument_list|)
 expr_stmt|;
 name|from
