@@ -92,6 +92,26 @@ specifier|private
 name|String
 name|mappingFile
 decl_stmt|;
+comment|/**      * Define if Whitelist feature is enabled or not      */
+DECL|field|whitelistEnabled
+specifier|private
+name|Boolean
+name|whitelistEnabled
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Define the allowed objects to be unmarshalled. You can specify the FQN      * class name of allowed objects and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelpermatchPattern(String String). Denied      * objects takes precedence over allowed objects.      */
+DECL|field|allowedUnmarshallObjects
+specifier|private
+name|String
+name|allowedUnmarshallObjects
+decl_stmt|;
+comment|/**      * Define the denied objects to be unmarshalled. You can specify the FQN      * class name of deined objects and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelpermatchPattern(String String). Denied      * objects takes precedence over allowed objects.      */
+DECL|field|deniedUnmarshallObjects
+specifier|private
+name|String
+name|deniedUnmarshallObjects
+decl_stmt|;
 comment|/**      * Whether validation is turned on or off. Is by default true.      */
 DECL|field|validation
 specifier|private
@@ -154,6 +174,84 @@ operator|.
 name|mappingFile
 operator|=
 name|mappingFile
+expr_stmt|;
+block|}
+DECL|method|getWhitelistEnabled ()
+specifier|public
+name|Boolean
+name|getWhitelistEnabled
+parameter_list|()
+block|{
+return|return
+name|whitelistEnabled
+return|;
+block|}
+DECL|method|setWhitelistEnabled (Boolean whitelistEnabled)
+specifier|public
+name|void
+name|setWhitelistEnabled
+parameter_list|(
+name|Boolean
+name|whitelistEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|whitelistEnabled
+operator|=
+name|whitelistEnabled
+expr_stmt|;
+block|}
+DECL|method|getAllowedUnmarshallObjects ()
+specifier|public
+name|String
+name|getAllowedUnmarshallObjects
+parameter_list|()
+block|{
+return|return
+name|allowedUnmarshallObjects
+return|;
+block|}
+DECL|method|setAllowedUnmarshallObjects (String allowedUnmarshallObjects)
+specifier|public
+name|void
+name|setAllowedUnmarshallObjects
+parameter_list|(
+name|String
+name|allowedUnmarshallObjects
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowedUnmarshallObjects
+operator|=
+name|allowedUnmarshallObjects
+expr_stmt|;
+block|}
+DECL|method|getDeniedUnmarshallObjects ()
+specifier|public
+name|String
+name|getDeniedUnmarshallObjects
+parameter_list|()
+block|{
+return|return
+name|deniedUnmarshallObjects
+return|;
+block|}
+DECL|method|setDeniedUnmarshallObjects (String deniedUnmarshallObjects)
+specifier|public
+name|void
+name|setDeniedUnmarshallObjects
+parameter_list|(
+name|String
+name|deniedUnmarshallObjects
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deniedUnmarshallObjects
+operator|=
+name|deniedUnmarshallObjects
 expr_stmt|;
 block|}
 DECL|method|getValidation ()

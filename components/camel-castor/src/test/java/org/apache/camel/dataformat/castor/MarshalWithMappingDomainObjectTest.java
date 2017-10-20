@@ -315,6 +315,15 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|myformat
+operator|.
+name|setAllowClasses
+argument_list|(
+name|Student
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:marshal"
