@@ -70,6 +70,15 @@ name|OFFSET
 init|=
 literal|"kafka.OFFSET"
 decl_stmt|;
+DECL|field|HEADERS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADERS
+init|=
+literal|"kafka.HEADERS"
+decl_stmt|;
 DECL|field|LAST_RECORD_BEFORE_COMMIT
 specifier|public
 specifier|static
