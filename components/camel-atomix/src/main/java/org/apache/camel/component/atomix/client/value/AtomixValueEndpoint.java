@@ -126,7 +126,7 @@ literal|"Atomix Value"
 argument_list|,
 name|syntax
 operator|=
-literal|"atomix-value:valueName"
+literal|"atomix-value:resourceName"
 argument_list|,
 name|consumerClass
 operator|=

@@ -126,7 +126,7 @@ literal|"Atomix Messaging"
 argument_list|,
 name|syntax
 operator|=
-literal|"atomix-messaging:group"
+literal|"atomix-messaging:resourceName"
 argument_list|,
 name|consumerClass
 operator|=

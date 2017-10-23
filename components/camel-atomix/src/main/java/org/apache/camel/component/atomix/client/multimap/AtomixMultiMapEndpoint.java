@@ -102,7 +102,7 @@ literal|"Atomix MultiMap"
 argument_list|,
 name|syntax
 operator|=
-literal|"atomix-multimap:multiMapName"
+literal|"atomix-multimap:resourceName"
 argument_list|,
 name|consumerOnly
 operator|=

@@ -126,7 +126,7 @@ literal|"Atomix Set"
 argument_list|,
 name|syntax
 operator|=
-literal|"atomix-set:setName"
+literal|"atomix-set:resourceName"
 argument_list|,
 name|consumerClass
 operator|=

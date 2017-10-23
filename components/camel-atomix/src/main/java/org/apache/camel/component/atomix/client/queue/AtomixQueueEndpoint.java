@@ -126,7 +126,7 @@ literal|"Atomix Queue"
 argument_list|,
 name|syntax
 operator|=
-literal|"atomix-queue:queueName"
+literal|"atomix-queue:resourceName"
 argument_list|,
 name|consumerClass
 operator|=

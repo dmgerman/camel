@@ -126,7 +126,7 @@ literal|"Atomix Map"
 argument_list|,
 name|syntax
 operator|=
-literal|"atomix-map:mapName"
+literal|"atomix-map:resourceName"
 argument_list|,
 name|consumerClass
 operator|=
