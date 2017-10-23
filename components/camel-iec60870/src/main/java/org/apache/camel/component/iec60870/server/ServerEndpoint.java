@@ -160,7 +160,7 @@ literal|"iec60870-server"
 argument_list|,
 name|syntax
 operator|=
-literal|"iec60870-server:endpointUri"
+literal|"iec60870-server:uriPath"
 argument_list|,
 name|title
 operator|=

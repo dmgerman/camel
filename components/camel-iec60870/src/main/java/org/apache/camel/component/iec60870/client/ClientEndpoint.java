@@ -146,7 +146,7 @@ literal|"iec60870-client"
 argument_list|,
 name|syntax
 operator|=
-literal|"iec60870-client:endpointUri"
+literal|"iec60870-client:uriPath"
 argument_list|,
 name|title
 operator|=
