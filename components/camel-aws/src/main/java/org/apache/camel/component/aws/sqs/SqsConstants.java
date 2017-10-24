@@ -66,9 +66,9 @@ name|DELAY_HEADER
 init|=
 literal|"CamelAwsSqsDelaySeconds"
 decl_stmt|;
-DECL|field|MESSAGE_GROUP_ID_HEADER
+DECL|field|MESSAGE_GROUP_ID_PROPERTY
 name|String
-name|MESSAGE_GROUP_ID_HEADER
+name|MESSAGE_GROUP_ID_PROPERTY
 init|=
 literal|"CamelAwsMessageGroupId"
 decl_stmt|;

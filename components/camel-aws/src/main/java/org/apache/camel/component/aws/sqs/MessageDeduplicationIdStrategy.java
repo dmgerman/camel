@@ -32,34 +32,22 @@ name|Exchange
 import|;
 end_import
 
-begin_class
-DECL|class|ExchangeIdStrategy
+begin_interface
+DECL|interface|MessageDeduplicationIdStrategy
 specifier|public
-class|class
-name|ExchangeIdStrategy
-implements|implements
-name|StringValueFromExchangeStrategy
+interface|interface
+name|MessageDeduplicationIdStrategy
 block|{
-annotation|@
-name|Override
-DECL|method|value (Exchange exchange)
-specifier|public
+DECL|method|getMessageDeduplicationId (Exchange exchange)
 name|String
-name|value
+name|getMessageDeduplicationId
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-block|{
-return|return
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

@@ -328,7 +328,7 @@ literal|"producer"
 argument_list|)
 DECL|field|messageGroupIdStrategy
 specifier|private
-name|StringValueFromExchangeStrategy
+name|MessageGroupIdStrategy
 name|messageGroupIdStrategy
 decl_stmt|;
 annotation|@
@@ -344,11 +344,11 @@ literal|"useExchangeId"
 argument_list|)
 DECL|field|messageDeduplicationIdStrategy
 specifier|private
-name|StringValueFromExchangeStrategy
+name|MessageDeduplicationIdStrategy
 name|messageDeduplicationIdStrategy
 init|=
 operator|new
-name|ExchangeIdStrategy
+name|ExchangeIdMessageDeduplicationIdStrategy
 argument_list|()
 decl_stmt|;
 comment|// queue properties
@@ -415,7 +415,6 @@ name|redrivePolicy
 decl_stmt|;
 comment|/**      *  Whether or not the queue is a FIFO queue      */
 DECL|method|isFifoQueue ()
-specifier|public
 name|boolean
 name|isFifoQueue
 parameter_list|()
@@ -1117,7 +1116,7 @@ operator|=
 name|proxyPort
 expr_stmt|;
 block|}
-comment|/**      * Since *Camel 2.20*. Only for FIFO queues. Strategy for setting the messageGroupId on the message.      * Can be one of the following options: *useConstant*, *useExchangeId*, *useHeaderValue*.      * For the *useHeaderValue* option, the value of header "CamelAwsMessageGroupId" will be used.      */
+comment|/**      * Since *Camel 2.20*. Only for FIFO queues. Strategy for setting the messageGroupId on the message.      * Can be one of the following options: *useConstant*, *useExchangeId*, *usePropertyValue*.      * For the *usePropertyValue* option, the value of property "CamelAwsMessageGroupId" will be used.      */
 DECL|method|setMessageGroupIdStrategy (String strategy)
 specifier|public
 name|void
@@ -1158,14 +1157,14 @@ block|{
 name|messageGroupIdStrategy
 operator|=
 operator|new
-name|ExchangeIdStrategy
+name|ExchangeIdMessageGroupIdStrategy
 argument_list|()
 expr_stmt|;
 block|}
 elseif|else
 if|if
 condition|(
-literal|"useHeaderValue"
+literal|"usePropertyValue"
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -1176,7 +1175,7 @@ block|{
 name|messageGroupIdStrategy
 operator|=
 operator|new
-name|HeaderValueStrategy
+name|PropertyValueMessageGroupIdStrategy
 argument_list|()
 expr_stmt|;
 block|}
@@ -1195,7 +1194,7 @@ block|}
 block|}
 DECL|method|getMessageGroupIdStrategy ()
 specifier|public
-name|StringValueFromExchangeStrategy
+name|MessageGroupIdStrategy
 name|getMessageGroupIdStrategy
 parameter_list|()
 block|{
@@ -1205,7 +1204,7 @@ return|;
 block|}
 DECL|method|getMessageDeduplicationIdStrategy ()
 specifier|public
-name|StringValueFromExchangeStrategy
+name|MessageDeduplicationIdStrategy
 name|getMessageDeduplicationIdStrategy
 parameter_list|()
 block|{
@@ -1236,7 +1235,7 @@ block|{
 name|messageDeduplicationIdStrategy
 operator|=
 operator|new
-name|ExchangeIdStrategy
+name|ExchangeIdMessageDeduplicationIdStrategy
 argument_list|()
 expr_stmt|;
 block|}
@@ -1254,7 +1253,7 @@ block|{
 name|messageDeduplicationIdStrategy
 operator|=
 operator|new
-name|NullStrategy
+name|NullMessageDeduplicationIdStrategy
 argument_list|()
 expr_stmt|;
 block|}

@@ -33,10 +33,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ConstantMessageGroupIdStrategy
+DECL|class|ExchangeIdMessageGroupIdStrategy
 specifier|public
 class|class
-name|ConstantMessageGroupIdStrategy
+name|ExchangeIdMessageGroupIdStrategy
 implements|implements
 name|MessageGroupIdStrategy
 block|{
@@ -52,7 +52,10 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-literal|"CamelSingleMessageGroup"
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 return|;
 block|}
 block|}

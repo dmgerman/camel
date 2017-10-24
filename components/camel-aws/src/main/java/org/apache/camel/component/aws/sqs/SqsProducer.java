@@ -455,7 +455,7 @@ argument_list|()
 condition|)
 block|{
 comment|// use strategies
-name|StringValueFromExchangeStrategy
+name|MessageGroupIdStrategy
 name|messageGroupIdStrategy
 init|=
 name|getEndpoint
@@ -472,7 +472,7 @@ name|messageGroupId
 init|=
 name|messageGroupIdStrategy
 operator|.
-name|value
+name|getMessageGroupId
 argument_list|(
 name|exchange
 argument_list|)
@@ -484,7 +484,7 @@ argument_list|(
 name|messageGroupId
 argument_list|)
 expr_stmt|;
-name|StringValueFromExchangeStrategy
+name|MessageDeduplicationIdStrategy
 name|messageDeduplicationIdStrategy
 init|=
 name|getEndpoint
@@ -501,7 +501,7 @@ name|messageDeduplicationId
 init|=
 name|messageDeduplicationIdStrategy
 operator|.
-name|value
+name|getMessageDeduplicationId
 argument_list|(
 name|exchange
 argument_list|)

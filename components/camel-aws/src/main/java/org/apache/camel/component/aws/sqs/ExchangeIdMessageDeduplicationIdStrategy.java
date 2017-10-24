@@ -33,19 +33,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|HeaderValueStrategy
+DECL|class|ExchangeIdMessageDeduplicationIdStrategy
 specifier|public
 class|class
-name|HeaderValueStrategy
+name|ExchangeIdMessageDeduplicationIdStrategy
 implements|implements
-name|StringValueFromExchangeStrategy
+name|MessageDeduplicationIdStrategy
 block|{
 annotation|@
 name|Override
-DECL|method|value (Exchange exchange)
+DECL|method|getMessageDeduplicationId (Exchange exchange)
 specifier|public
 name|String
-name|value
+name|getMessageDeduplicationId
 parameter_list|(
 name|Exchange
 name|exchange
@@ -54,19 +54,8 @@ block|{
 return|return
 name|exchange
 operator|.
-name|getIn
+name|getExchangeId
 argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|SqsConstants
-operator|.
-name|MESSAGE_GROUP_ID_HEADER
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
 return|;
 block|}
 block|}

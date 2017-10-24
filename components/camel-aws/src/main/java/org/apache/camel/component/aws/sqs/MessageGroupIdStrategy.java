@@ -32,31 +32,22 @@ name|Exchange
 import|;
 end_import
 
-begin_class
-DECL|class|ConstantMessageGroupIdStrategy
+begin_interface
+DECL|interface|MessageGroupIdStrategy
 specifier|public
-class|class
-name|ConstantMessageGroupIdStrategy
-implements|implements
+interface|interface
 name|MessageGroupIdStrategy
 block|{
-annotation|@
-name|Override
 DECL|method|getMessageGroupId (Exchange exchange)
-specifier|public
 name|String
 name|getMessageGroupId
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-block|{
-return|return
-literal|"CamelSingleMessageGroup"
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
