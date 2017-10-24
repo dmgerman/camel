@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointInject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -109,6 +121,18 @@ extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"atmos:foo/get?remotePath=/path&fullTokenId=fakeToken&secretKey=fakeSecret&uri=https://fake/uri"
+argument_list|)
+DECL|field|atmosEndpoint
+specifier|private
+name|AtmosEndpoint
+name|atmosEndpoint
+decl_stmt|;
+annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -134,7 +158,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atmos:foo/get?remotePath=/path"
+name|atmosEndpoint
 argument_list|)
 operator|.
 name|to
@@ -156,22 +180,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Given
-name|AtmosEndpoint
-name|atmosEndpoint
-init|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"atmos:foo/get?remotePath=/path"
-argument_list|,
-name|AtmosEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-comment|// When
 name|Consumer
 name|consumer
 init|=
@@ -182,7 +190,6 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-comment|// Then
 name|Assert
 operator|.
 name|assertTrue

@@ -86,6 +86,32 @@ name|AtmosComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * The token id to pass to the Atmos client      */
+DECL|field|fullTokenId
+specifier|private
+name|String
+name|fullTokenId
+decl_stmt|;
+comment|/**      * The secret key to pass to the Atmos client      */
+DECL|field|secretKey
+specifier|private
+name|String
+name|secretKey
+decl_stmt|;
+comment|/**      * The URI of the server for the Atmos client to connect to      */
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+decl_stmt|;
+comment|/**      * Whether the Atmos client should perform SSL validation      */
+DECL|field|sslValidation
+specifier|private
+name|Boolean
+name|sslValidation
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -94,6 +120,110 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getFullTokenId ()
+specifier|public
+name|String
+name|getFullTokenId
+parameter_list|()
+block|{
+return|return
+name|fullTokenId
+return|;
+block|}
+DECL|method|setFullTokenId (String fullTokenId)
+specifier|public
+name|void
+name|setFullTokenId
+parameter_list|(
+name|String
+name|fullTokenId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fullTokenId
+operator|=
+name|fullTokenId
+expr_stmt|;
+block|}
+DECL|method|getSecretKey ()
+specifier|public
+name|String
+name|getSecretKey
+parameter_list|()
+block|{
+return|return
+name|secretKey
+return|;
+block|}
+DECL|method|setSecretKey (String secretKey)
+specifier|public
+name|void
+name|setSecretKey
+parameter_list|(
+name|String
+name|secretKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secretKey
+operator|=
+name|secretKey
+expr_stmt|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
+DECL|method|getSslValidation ()
+specifier|public
+name|Boolean
+name|getSslValidation
+parameter_list|()
+block|{
+return|return
+name|sslValidation
+return|;
+block|}
+DECL|method|setSslValidation (Boolean sslValidation)
+specifier|public
+name|void
+name|setSslValidation
+parameter_list|(
+name|Boolean
+name|sslValidation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslValidation
+operator|=
+name|sslValidation
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean
