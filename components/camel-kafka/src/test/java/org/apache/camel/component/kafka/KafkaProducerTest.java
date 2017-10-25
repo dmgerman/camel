@@ -292,16 +292,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mockito
 import|;
 end_import
@@ -327,6 +317,42 @@ operator|.
 name|Assert
 operator|.
 name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|isA
 import|;
 end_import
 
@@ -605,8 +631,6 @@ name|kp
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ProducerRecord
@@ -831,8 +855,6 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ProducerRecord
@@ -906,8 +928,6 @@ name|kp
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ProducerRecord
@@ -1058,8 +1078,6 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ProducerRecord
@@ -1191,8 +1209,6 @@ name|kp
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ProducerRecord
@@ -1200,8 +1216,6 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|Callback
@@ -1265,8 +1279,6 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ProducerRecord
@@ -1289,8 +1301,6 @@ argument_list|)
 operator|.
 name|setException
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|ApiException
@@ -1308,8 +1318,6 @@ argument_list|)
 operator|.
 name|done
 argument_list|(
-name|Matchers
-operator|.
 name|eq
 argument_list|(
 literal|true
