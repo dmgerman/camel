@@ -576,6 +576,16 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+name|verify
+argument_list|(
+name|camelContextConfiguration
+argument_list|)
+operator|.
+name|afterApplicationStart
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

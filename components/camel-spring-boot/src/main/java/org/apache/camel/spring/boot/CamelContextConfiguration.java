@@ -30,12 +30,17 @@ name|CamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Callback that allows custom logic during starting up {@link CamelContext} and just after  * {@link CamelContext} has been fully started.  */
+end_comment
+
 begin_interface
 DECL|interface|CamelContextConfiguration
 specifier|public
 interface|interface
 name|CamelContextConfiguration
 block|{
+comment|/**      * Called during Spring Boot is starting up and is starting up {@link CamelContext}.      */
 DECL|method|beforeApplicationStart (CamelContext camelContext)
 name|void
 name|beforeApplicationStart
@@ -44,6 +49,7 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 function_decl|;
+comment|/**      * Called after Spring Boot and {@link CamelContext} has just been started up.      * This means there Camel routes may already be active and have started processing incoming messages.      */
 DECL|method|afterApplicationStart (CamelContext camelContext)
 name|void
 name|afterApplicationStart
