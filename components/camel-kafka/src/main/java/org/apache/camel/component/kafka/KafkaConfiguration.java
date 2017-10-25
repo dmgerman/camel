@@ -417,6 +417,18 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|)
+DECL|field|topicIsPattern
+specifier|private
+name|boolean
+name|topicIsPattern
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|groupId
 specifier|private
 name|String
@@ -3631,6 +3643,33 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|isTopicIsPattern ()
+specifier|public
+name|boolean
+name|isTopicIsPattern
+parameter_list|()
+block|{
+return|return
+name|topicIsPattern
+return|;
+block|}
+comment|/**      * Whether the topic is a pattern (regular expression).      * This can be used to subscribe to dynamic number of topics matching the pattern.      */
+DECL|method|setTopicIsPattern (boolean topicIsPattern)
+specifier|public
+name|void
+name|setTopicIsPattern
+parameter_list|(
+name|boolean
+name|topicIsPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|topicIsPattern
+operator|=
+name|topicIsPattern
+expr_stmt|;
 block|}
 DECL|method|getGroupId ()
 specifier|public

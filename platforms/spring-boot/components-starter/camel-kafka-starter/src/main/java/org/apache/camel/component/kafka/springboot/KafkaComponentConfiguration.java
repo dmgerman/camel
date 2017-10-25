@@ -453,6 +453,14 @@ name|KafkaConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * Whether the topic is a pattern (regular expression). This can be used          * to subscribe to dynamic number of topics matching the pattern.          */
+DECL|field|topicIsPattern
+specifier|private
+name|Boolean
+name|topicIsPattern
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * A string that uniquely identifies the group of consumer processes to          * which this consumer belongs. By setting the same group id multiple          * processes indicate that they are all part of the same consumer group.          * This option is required for consumers.          */
 DECL|field|groupId
 specifier|private
@@ -1078,6 +1086,32 @@ name|enableIdempotence
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getTopicIsPattern ()
+specifier|public
+name|Boolean
+name|getTopicIsPattern
+parameter_list|()
+block|{
+return|return
+name|topicIsPattern
+return|;
+block|}
+DECL|method|setTopicIsPattern (Boolean topicIsPattern)
+specifier|public
+name|void
+name|setTopicIsPattern
+parameter_list|(
+name|Boolean
+name|topicIsPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|topicIsPattern
+operator|=
+name|topicIsPattern
+expr_stmt|;
+block|}
 DECL|method|getGroupId ()
 specifier|public
 name|String
