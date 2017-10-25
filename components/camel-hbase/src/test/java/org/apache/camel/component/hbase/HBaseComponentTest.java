@@ -147,7 +147,11 @@ name|component
 init|=
 operator|new
 name|HBaseComponent
+argument_list|(
+operator|new
+name|DefaultCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|component
 operator|.
@@ -223,7 +227,11 @@ name|component
 init|=
 operator|new
 name|HBaseComponent
+argument_list|(
+operator|new
+name|DefaultCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|component
 operator|.
@@ -299,7 +307,11 @@ name|component
 init|=
 operator|new
 name|HBaseComponent
+argument_list|(
+operator|new
+name|DefaultCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|component
 operator|.
