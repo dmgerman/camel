@@ -155,6 +155,15 @@ name|KAFKA_RECORDMETA
 init|=
 literal|"org.apache.kafka.clients.producer.RecordMetadata"
 decl_stmt|;
+DECL|field|MANUAL_COMMIT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MANUAL_COMMIT
+init|=
+literal|"CamelKafkaManualCommit"
+decl_stmt|;
 DECL|method|KafkaConstants ()
 specifier|private
 name|KafkaConstants
