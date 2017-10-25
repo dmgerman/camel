@@ -813,6 +813,18 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|)
+DECL|field|allowManualCommit
+specifier|private
+name|boolean
+name|allowManualCommit
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
@@ -3867,6 +3879,33 @@ operator|.
 name|autoCommitEnable
 operator|=
 name|autoCommitEnable
+expr_stmt|;
+block|}
+DECL|method|isAllowManualCommit ()
+specifier|public
+name|boolean
+name|isAllowManualCommit
+parameter_list|()
+block|{
+return|return
+name|allowManualCommit
+return|;
+block|}
+comment|/**      * Whether to allow doing manual commits via {@link KafkaManualCommit}.      *<p/>      * If this option is enabled then an instance of {@link KafkaManualCommit} is stored on the {@link Exchange} message header,      * which allows end users to access this API and perform manual offset commits via the Kafka consumer.      */
+DECL|method|setAllowManualCommit (boolean allowManualCommit)
+specifier|public
+name|void
+name|setAllowManualCommit
+parameter_list|(
+name|boolean
+name|allowManualCommit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowManualCommit
+operator|=
+name|allowManualCommit
 expr_stmt|;
 block|}
 DECL|method|getOffsetRepository ()

@@ -188,7 +188,7 @@ literal|"kafka:"
 operator|+
 name|TOPIC
 operator|+
-literal|"?groupId=group1&sessionTimeoutMs=30000&autoCommitEnable=false&interceptorClasses=org.apache.camel.component.kafka.MockConsumerInterceptor"
+literal|"?groupId=group1&sessionTimeoutMs=30000&autoCommitEnable=false&allowManualCommit=true&interceptorClasses=org.apache.camel.component.kafka.MockConsumerInterceptor"
 argument_list|)
 DECL|field|from
 specifier|private

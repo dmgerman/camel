@@ -50,6 +50,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|kafka
+operator|.
+name|KafkaManualCommitFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|StateRepository
@@ -177,6 +193,22 @@ name|Boolean
 name|breakOnFirstError
 init|=
 literal|false
+decl_stmt|;
+comment|/**      * Whether to allow doing manual commits via KafkaManualCommit. If this      * option is enabled then an instance of KafkaManualCommit is stored on the      * Exchange message header which allows end users to access this API and      * perform manual offset commits via the Kafka consumer.      */
+DECL|field|allowManualCommit
+specifier|private
+name|Boolean
+name|allowManualCommit
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Factory to use for creating KafkaManualCommit instances. This allows to      * plugin a custom factory to create custom KafkaManualCommit instances in      * case special logic is needed when doing manual commits that deviates from      * the default implementation that comes out of the box.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|kafkaManualCommitFactory
+specifier|private
+name|KafkaManualCommitFactory
+name|kafkaManualCommitFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
@@ -316,6 +348,58 @@ operator|=
 name|breakOnFirstError
 expr_stmt|;
 block|}
+DECL|method|getAllowManualCommit ()
+specifier|public
+name|Boolean
+name|getAllowManualCommit
+parameter_list|()
+block|{
+return|return
+name|allowManualCommit
+return|;
+block|}
+DECL|method|setAllowManualCommit (Boolean allowManualCommit)
+specifier|public
+name|void
+name|setAllowManualCommit
+parameter_list|(
+name|Boolean
+name|allowManualCommit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowManualCommit
+operator|=
+name|allowManualCommit
+expr_stmt|;
+block|}
+DECL|method|getKafkaManualCommitFactory ()
+specifier|public
+name|KafkaManualCommitFactory
+name|getKafkaManualCommitFactory
+parameter_list|()
+block|{
+return|return
+name|kafkaManualCommitFactory
+return|;
+block|}
+DECL|method|setKafkaManualCommitFactory ( KafkaManualCommitFactory kafkaManualCommitFactory)
+specifier|public
+name|void
+name|setKafkaManualCommitFactory
+parameter_list|(
+name|KafkaManualCommitFactory
+name|kafkaManualCommitFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|kafkaManualCommitFactory
+operator|=
+name|kafkaManualCommitFactory
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean
@@ -434,6 +518,14 @@ name|Boolean
 name|autoCommitEnable
 init|=
 literal|true
+decl_stmt|;
+comment|/**          * Whether to allow doing manual commits via {@link KafkaManualCommit} .          *<p/>          * If this option is enabled then an instance of          * {@link KafkaManualCommit} is stored on the {@link Exchange} message          * header, which allows end users to access this API and perform manual          * offset commits via the Kafka consumer.          */
+DECL|field|allowManualCommit
+specifier|private
+name|Boolean
+name|allowManualCommit
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * The offset repository to use in order to locally store the offset of          * each partition of the topic. Defining one will disable the          * autocommit.          */
 DECL|field|offsetRepository
@@ -1218,6 +1310,32 @@ operator|.
 name|autoCommitEnable
 operator|=
 name|autoCommitEnable
+expr_stmt|;
+block|}
+DECL|method|getAllowManualCommit ()
+specifier|public
+name|Boolean
+name|getAllowManualCommit
+parameter_list|()
+block|{
+return|return
+name|allowManualCommit
+return|;
+block|}
+DECL|method|setAllowManualCommit (Boolean allowManualCommit)
+specifier|public
+name|void
+name|setAllowManualCommit
+parameter_list|(
+name|Boolean
+name|allowManualCommit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowManualCommit
+operator|=
+name|allowManualCommit
 expr_stmt|;
 block|}
 DECL|method|getOffsetRepository ()
