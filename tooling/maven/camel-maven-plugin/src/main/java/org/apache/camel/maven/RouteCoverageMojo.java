@@ -477,8 +477,6 @@ DECL|field|anonymousRoutes
 specifier|private
 name|boolean
 name|anonymousRoutes
-init|=
-literal|false
 decl_stmt|;
 comment|// CHECKSTYLE:OFF
 annotation|@
