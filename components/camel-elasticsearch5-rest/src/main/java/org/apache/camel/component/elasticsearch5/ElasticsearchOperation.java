@@ -87,6 +87,12 @@ name|Exists
 argument_list|(
 literal|"Exists"
 argument_list|)
+block|,
+DECL|enumConstant|Ping
+name|Ping
+argument_list|(
+literal|"Ping"
+argument_list|)
 block|;
 DECL|field|text
 specifier|private
