@@ -402,6 +402,16 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
+DECL|method|getWhitelistEnabled ()
+specifier|public
+name|Boolean
+name|getWhitelistEnabled
+parameter_list|()
+block|{
+return|return
+name|whitelistEnabled
+return|;
+block|}
 comment|/**      * Define if Whitelist feature is enabled or not      */
 DECL|method|setWhitelistEnabled (Boolean whitelistEnabled)
 specifier|public
