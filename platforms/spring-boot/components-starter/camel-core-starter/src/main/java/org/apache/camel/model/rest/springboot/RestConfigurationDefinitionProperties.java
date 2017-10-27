@@ -192,13 +192,13 @@ name|apiContextListing
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether vendor extension is enabled in the Rest APIs. If enabled then      * Camel will include additional information as vendor extension (eg keys      * starting with x-) such as route ids class names etc. Some API tooling may      * not support vendor extensions and this option can then be turned off.      */
+comment|/**      * Whether vendor extension is enabled in the Rest APIs. If enabled then      * Camel will include additional information as vendor extension (eg keys      * starting with x-) such as route ids class names etc. Not all 3rd party      * API gateways and tools supports vendor-extensions when importing your API      * docs.      */
 DECL|field|apiVendorExtension
 specifier|private
 name|Boolean
 name|apiVendorExtension
 init|=
-literal|true
+literal|false
 decl_stmt|;
 comment|/**      * If no hostname has been explicit configured then this resolver is used to      * compute the hostname the REST service will be using.      */
 DECL|field|hostNameResolver

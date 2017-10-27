@@ -175,8 +175,6 @@ DECL|field|apiVendorExtension
 specifier|private
 name|boolean
 name|apiVendorExtension
-init|=
-literal|true
 decl_stmt|;
 DECL|field|restHostNameResolver
 specifier|private
@@ -647,7 +645,7 @@ return|return
 name|apiVendorExtension
 return|;
 block|}
-comment|/**      * Whether vendor extension is enabled in the Rest APIs. If enabled then Camel will include additional information      * as vendor extension (eg keys starting with x-) such as route ids, class names etc.      * Some API tooling may not support vendor extensions and this option can then be turned off.      */
+comment|/**      * Whether vendor extension is enabled in the Rest APIs. If enabled then Camel will include additional information      * as vendor extension (eg keys starting with x-) such as route ids, class names etc.      * Not all 3rd party API gateways and tools supports vendor-extensions when importing your API docs.      */
 DECL|method|setApiVendorExtension (boolean apiVendorExtension)
 specifier|public
 name|void

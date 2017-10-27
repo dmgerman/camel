@@ -168,27 +168,11 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|swagger
-operator|.
-name|SwaggerHelper
-operator|.
-name|clearVendorExtensions
-import|;
-end_import
-
 begin_class
-DECL|class|RestSwaggerReaderDisableVendorExtensionTest
+DECL|class|RestSwaggerReaderEnableVendorExtensionTest
 specifier|public
 class|class
-name|RestSwaggerReaderDisableVendorExtensionTest
+name|RestSwaggerReaderEnableVendorExtensionTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -249,6 +233,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// enable vendor extensions
+name|restConfiguration
+argument_list|()
+operator|.
+name|apiVendorExtension
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// this user REST service is json only
 name|rest
 argument_list|(
@@ -418,10 +411,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDisableVendorExtension ()
+DECL|method|testEnableVendorExtension ()
 specifier|public
 name|void
-name|testDisableVendorExtension
+name|testEnableVendorExtension
 parameter_list|()
 throws|throws
 name|Exception
@@ -518,11 +511,6 @@ argument_list|(
 name|swagger
 argument_list|)
 expr_stmt|;
-name|clearVendorExtensions
-argument_list|(
-name|swagger
-argument_list|)
-expr_stmt|;
 name|ObjectMapper
 name|mapper
 init|=
@@ -567,6 +555,30 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
+name|String
+name|camelId
+init|=
+name|context
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+name|String
+name|routeId
+init|=
+name|context
+operator|.
+name|getRouteDefinitions
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
 name|assertTrue
 argument_list|(
 name|json
@@ -607,23 +619,31 @@ literal|"\"enum\""
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"x-camelContextId\" : \"camel-1\""
+literal|"\"x-camelContextId\" : \""
+operator|+
+name|camelId
+operator|+
+literal|"\""
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"x-routeId\" : \"route1\""
+literal|"\"x-routeId\" : \""
+operator|+
+name|routeId
+operator|+
+literal|"\""
 argument_list|)
 argument_list|)
 expr_stmt|;
