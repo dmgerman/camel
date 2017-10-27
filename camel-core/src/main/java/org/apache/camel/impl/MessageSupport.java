@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for implementation inheritance providing the core  * {@link Message} body handling features but letting the derived class deal  * with headers.  *  * Unless a specific provider wishes to do something particularly clever with  * headers you probably want to just derive from {@link DefaultMessage}  *  * @version   */
+comment|/**  * A base class for implementation inheritance providing the core  * {@link Message} body handling features but letting the derived class deal  * with headers.  *  * Unless a specific provider wishes to do something particularly clever with  * headers you probably want to just derive from {@link DefaultMessage}  *  * @version  */
 end_comment
 
 begin_class
@@ -184,6 +184,8 @@ name|messageId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBody ()
 specifier|public
 name|Object
@@ -207,6 +209,8 @@ return|return
 name|body
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBody (Class<T> type)
 specifier|public
 parameter_list|<
@@ -232,6 +236,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMandatoryBody ()
 specifier|public
 name|Object
@@ -394,6 +400,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMandatoryBody (Class<T> type)
 specifier|public
 parameter_list|<
@@ -505,6 +513,8 @@ name|this
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBody (Object body)
 specifier|public
 name|void
@@ -524,6 +534,10 @@ comment|// set data type if in use
 if|if
 condition|(
 name|body
+operator|!=
+literal|null
+operator|&&
+name|camelContext
 operator|!=
 literal|null
 operator|&&
@@ -548,6 +562,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setBody (Object value, Class<T> type)
 specifier|public
 parameter_list|<
@@ -691,6 +707,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy ()
 specifier|public
 name|Message
@@ -736,6 +754,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copyFrom (Message that)
 specifier|public
 name|void
@@ -819,6 +839,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|copyFromWithNewBody (Message that, Object newBody)
 specifier|public
 name|void
@@ -963,6 +985,8 @@ name|that
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchange ()
 specifier|public
 name|Exchange
@@ -989,6 +1013,8 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -999,6 +1025,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -1015,6 +1043,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|copyAttachments (Message that)
 specifier|public
 name|void
@@ -1116,6 +1146,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageId ()
 specifier|public
 name|String
@@ -1141,6 +1173,8 @@ operator|.
 name|messageId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageId (String messageId)
 specifier|public
 name|void
