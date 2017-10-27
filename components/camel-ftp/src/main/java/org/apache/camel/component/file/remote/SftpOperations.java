@@ -2717,6 +2717,19 @@ block|{
 name|reconnectIfNecessary
 argument_list|()
 expr_stmt|;
+comment|//make use of the '/' separator because JSch expects this
+comment|// as the file separator even on Windows
+name|to
+operator|=
+name|FileUtil
+operator|.
+name|compactPath
+argument_list|(
+name|to
+argument_list|,
+literal|'/'
+argument_list|)
+expr_stmt|;
 name|channel
 operator|.
 name|rename
