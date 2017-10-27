@@ -325,6 +325,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"useConstant,useExchangeId,usePropertyValue"
 argument_list|)
 DECL|field|messageGroupIdStrategy
 specifier|private
@@ -341,6 +345,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"useExchangeId"
+argument_list|,
+name|enums
+operator|=
+literal|"useExchangeId,useContentBasedDeduplication"
 argument_list|)
 DECL|field|messageDeduplicationIdStrategy
 specifier|private
@@ -1116,7 +1124,7 @@ operator|=
 name|proxyPort
 expr_stmt|;
 block|}
-comment|/**      * Since *Camel 2.20*. Only for FIFO queues. Strategy for setting the messageGroupId on the message.      * Can be one of the following options: *useConstant*, *useExchangeId*, *usePropertyValue*.      * For the *usePropertyValue* option, the value of property "CamelAwsMessageGroupId" will be used.      */
+comment|/**      * Only for FIFO queues. Strategy for setting the messageGroupId on the message.      * Can be one of the following options: *useConstant*, *useExchangeId*, *usePropertyValue*.      * For the *usePropertyValue* option, the value of property "CamelAwsMessageGroupId" will be used.      */
 DECL|method|setMessageGroupIdStrategy (String strategy)
 specifier|public
 name|void
@@ -1212,7 +1220,7 @@ return|return
 name|messageDeduplicationIdStrategy
 return|;
 block|}
-comment|/**      * Since *Camel 2.20*. Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message.      * Can be one of the following options: *useExchangeId*, *useContentBasedDeduplication*.      * For the *useContentBasedDeduplication* option, no messageDeduplicationId will be set on the message.      */
+comment|/**      * Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message.      * Can be one of the following options: *useExchangeId*, *useContentBasedDeduplication*.      * For the *useContentBasedDeduplication* option, no messageDeduplicationId will be set on the message.      */
 DECL|method|setMessageDeduplicationIdStrategy (String strategy)
 specifier|public
 name|void
