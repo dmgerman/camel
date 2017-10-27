@@ -1035,7 +1035,7 @@ argument_list|)
 decl_stmt|;
 comment|// resolvePropertyPlaceholders is an option which only make sense to use if the component has other options
 name|boolean
-name|hasOptions
+name|hasComponentOptions
 init|=
 name|model
 operator|.
@@ -1060,6 +1060,18 @@ argument_list|(
 literal|"resolvePropertyPlaceholders"
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|boolean
+name|hasConnectorOptions
+init|=
+operator|!
+name|model
+operator|.
+name|getConnectorOptions
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 decl_stmt|;
 comment|// use springboot as sub package name so the code is not in normal
 comment|// package so the Spring Boot JARs can be optional at runtime
@@ -1090,7 +1102,9 @@ decl_stmt|;
 comment|// we only create spring boot auto configuration if there is options to configure
 if|if
 condition|(
-name|hasOptions
+name|hasComponentOptions
+operator|||
+name|hasConnectorOptions
 condition|)
 block|{
 name|getLog
@@ -1125,7 +1139,9 @@ name|createConnectorAutoConfigurationSource
 argument_list|(
 name|pkg
 argument_list|,
-name|hasOptions
+name|hasComponentOptions
+operator|||
+name|hasConnectorOptions
 argument_list|,
 name|javaType
 argument_list|,
