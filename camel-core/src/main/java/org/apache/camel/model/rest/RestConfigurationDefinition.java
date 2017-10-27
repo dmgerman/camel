@@ -372,6 +372,24 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|apiVendorExtension
+specifier|private
+name|Boolean
+name|apiVendorExtension
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|hostNameResolver
 specifier|private
@@ -929,6 +947,33 @@ operator|.
 name|apiContextListing
 operator|=
 name|apiContextListing
+expr_stmt|;
+block|}
+DECL|method|getApiVendorExtension ()
+specifier|public
+name|Boolean
+name|getApiVendorExtension
+parameter_list|()
+block|{
+return|return
+name|apiVendorExtension
+return|;
+block|}
+comment|/**      * Whether vendor extension is enabled in the Rest APIs. If enabled then Camel will include additional information      * as vendor extension (eg keys starting with x-) such as route ids, class names etc.      * Some API tooling may not support vendor extensions and this option can then be turned off.      */
+DECL|method|setApiVendorExtension (Boolean apiVendorExtension)
+specifier|public
+name|void
+name|setApiVendorExtension
+parameter_list|(
+name|Boolean
+name|apiVendorExtension
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiVendorExtension
+operator|=
+name|apiVendorExtension
 expr_stmt|;
 block|}
 DECL|method|getHostNameResolver ()
@@ -1536,6 +1581,25 @@ block|{
 name|setApiContextListing
 argument_list|(
 name|listing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether vendor extension is enabled in the Rest APIs. If enabled then Camel will include additional information      * as vendor extension (eg keys starting with x-) such as route ids, class names etc.      * Some API tooling may not support vendor extensions and this option can then be turned off.      */
+DECL|method|apiVendorExtension (boolean vendorExtension)
+specifier|public
+name|RestConfigurationDefinition
+name|apiVendorExtension
+parameter_list|(
+name|boolean
+name|vendorExtension
+parameter_list|)
+block|{
+name|setApiVendorExtension
+argument_list|(
+name|vendorExtension
 argument_list|)
 expr_stmt|;
 return|return
@@ -2275,6 +2339,21 @@ operator|.
 name|setApiContextListing
 argument_list|(
 name|apiContextListing
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|apiVendorExtension
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setApiVendorExtension
+argument_list|(
+name|apiVendorExtension
 argument_list|)
 expr_stmt|;
 block|}

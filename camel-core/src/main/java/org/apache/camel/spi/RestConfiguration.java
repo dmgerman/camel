@@ -171,6 +171,13 @@ specifier|private
 name|boolean
 name|apiContextListing
 decl_stmt|;
+DECL|field|apiVendorExtension
+specifier|private
+name|boolean
+name|apiVendorExtension
+init|=
+literal|true
+decl_stmt|;
 DECL|field|restHostNameResolver
 specifier|private
 name|RestHostNameResolver
@@ -628,6 +635,33 @@ operator|.
 name|apiContextListing
 operator|=
 name|apiContextListing
+expr_stmt|;
+block|}
+DECL|method|isApiVendorExtension ()
+specifier|public
+name|boolean
+name|isApiVendorExtension
+parameter_list|()
+block|{
+return|return
+name|apiVendorExtension
+return|;
+block|}
+comment|/**      * Whether vendor extension is enabled in the Rest APIs. If enabled then Camel will include additional information      * as vendor extension (eg keys starting with x-) such as route ids, class names etc.      * Some API tooling may not support vendor extensions and this option can then be turned off.      */
+DECL|method|setApiVendorExtension (boolean apiVendorExtension)
+specifier|public
+name|void
+name|setApiVendorExtension
+parameter_list|(
+name|boolean
+name|apiVendorExtension
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiVendorExtension
+operator|=
+name|apiVendorExtension
 expr_stmt|;
 block|}
 comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      */
