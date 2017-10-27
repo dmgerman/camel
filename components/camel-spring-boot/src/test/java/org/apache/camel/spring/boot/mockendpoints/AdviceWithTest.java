@@ -176,6 +176,18 @@ name|SpringBootTest
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertFalse
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
@@ -224,6 +236,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// context should not be started because we enabled @UseAdviceWith
+name|assertFalse
+argument_list|(
+name|camelContext
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|camelContext
 operator|.
 name|getRouteDefinitions
@@ -268,6 +292,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// manual start camel
 name|camelContext
 operator|.
 name|start
