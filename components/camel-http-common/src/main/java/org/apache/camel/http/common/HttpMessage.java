@@ -118,20 +118,31 @@ name|DefaultMessage
 block|{
 DECL|field|request
 specifier|private
+specifier|final
 name|HttpServletRequest
 name|request
 decl_stmt|;
 DECL|field|response
 specifier|private
+specifier|final
 name|HttpServletResponse
 name|response
 decl_stmt|;
-DECL|method|HttpMessage (Exchange exchange, HttpServletRequest request, HttpServletResponse response)
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|HttpCommonEndpoint
+name|endpoint
+decl_stmt|;
+DECL|method|HttpMessage (Exchange exchange, HttpCommonEndpoint endpoint, HttpServletRequest request, HttpServletResponse response)
 specifier|public
 name|HttpMessage
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|HttpCommonEndpoint
+name|endpoint
 parameter_list|,
 name|HttpServletRequest
 name|request
@@ -152,6 +163,12 @@ operator|.
 name|getContext
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -230,8 +247,7 @@ expr_stmt|;
 block|}
 comment|// use binding to read the request allowing end users to use their
 comment|// implementation of the binding
-name|getEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getHttpBinding
 argument_list|()
@@ -244,7 +260,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpMessage (HttpServletRequest request, HttpServletResponse response, Exchange exchange)
+DECL|method|HttpMessage (HttpServletRequest request, HttpServletResponse response, Exchange exchange, HttpCommonEndpoint endpoint)
 specifier|private
 name|HttpMessage
 parameter_list|(
@@ -256,6 +272,9 @@ name|response
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|HttpCommonEndpoint
+name|endpoint
 parameter_list|)
 block|{
 name|this
@@ -275,6 +294,12 @@ argument_list|(
 name|getExchange
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
 expr_stmt|;
 name|setCamelContext
 argument_list|(
@@ -316,8 +341,7 @@ block|{
 try|try
 block|{
 return|return
-name|getEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getHttpBinding
 argument_list|()
@@ -361,24 +385,9 @@ name|response
 argument_list|,
 name|getExchange
 argument_list|()
+argument_list|,
+name|endpoint
 argument_list|)
-return|;
-block|}
-DECL|method|getEndpoint ()
-specifier|private
-name|HttpCommonEndpoint
-name|getEndpoint
-parameter_list|()
-block|{
-return|return
-operator|(
-name|HttpCommonEndpoint
-operator|)
-name|getExchange
-argument_list|()
-operator|.
-name|getFromEndpoint
-argument_list|()
 return|;
 block|}
 annotation|@
