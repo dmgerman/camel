@@ -339,7 +339,14 @@ argument_list|)
 operator|.
 name|message
 argument_list|(
-literal|"A reply message"
+literal|"A reply number"
+argument_list|)
+operator|.
+name|responseModel
+argument_list|(
+name|float
+operator|.
+name|class
 argument_list|)
 operator|.
 name|endResponseMessage
@@ -589,6 +596,26 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"/hello/hi/{name}\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"type\" : \"number\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"format\" : \"float\""
 argument_list|)
 argument_list|)
 expr_stmt|;
