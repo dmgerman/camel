@@ -72,7 +72,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 import|;
 end_import
 
@@ -208,7 +208,7 @@ name|ringbuffer
 operator|.
 name|readOne
 argument_list|(
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyLong
 argument_list|()
@@ -260,7 +260,7 @@ name|ringbuffer
 operator|.
 name|readOne
 argument_list|(
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyLong
 argument_list|()
@@ -312,7 +312,7 @@ name|ringbuffer
 operator|.
 name|add
 argument_list|(
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyLong
 argument_list|()
