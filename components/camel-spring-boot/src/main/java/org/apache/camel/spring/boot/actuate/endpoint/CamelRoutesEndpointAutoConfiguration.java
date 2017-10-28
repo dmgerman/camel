@@ -118,6 +118,22 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|boot
+operator|.
+name|autoconfigure
+operator|.
+name|condition
+operator|.
+name|ConditionalOnWebApplication
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|context
 operator|.
 name|annotation
@@ -214,6 +230,8 @@ name|class
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
+annotation|@
+name|ConditionalOnWebApplication
 DECL|method|camelMvcEndpoint (CamelRoutesEndpoint delegate)
 specifier|public
 name|CamelRoutesMvcEndpoint
