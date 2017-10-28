@@ -539,6 +539,15 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|json
