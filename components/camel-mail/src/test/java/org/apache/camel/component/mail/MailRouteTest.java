@@ -267,15 +267,6 @@ argument_list|(
 literal|"route-test-james@localhost"
 argument_list|)
 expr_stmt|;
-comment|// lets sleep to check that the mail poll does not redeliver duplicate
-comment|// mails
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
 comment|// lets test the receive worked
 name|resultEndpoint
 operator|.
@@ -619,7 +610,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pop3://route-test-james@localhost?consumer.delay=1000"
+literal|"pop3://route-test-james@localhost?consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to
@@ -656,7 +647,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://route-test-result@localhost?consumer.delay=1000"
+literal|"pop3://route-test-result@localhost?consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|convertBodyTo

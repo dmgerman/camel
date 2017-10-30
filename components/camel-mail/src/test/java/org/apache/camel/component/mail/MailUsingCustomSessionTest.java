@@ -449,7 +449,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://james@localhost?session=#myCustomMailSession&consumer.delay=1000"
+literal|"pop3://james@localhost?session=#myCustomMailSession&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to

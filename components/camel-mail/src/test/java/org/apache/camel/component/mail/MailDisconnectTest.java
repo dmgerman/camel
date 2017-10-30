@@ -162,7 +162,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|500
 argument_list|)
 expr_stmt|;
 name|template
@@ -182,7 +182,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1500
+literal|500
 argument_list|)
 expr_stmt|;
 name|template
@@ -224,7 +224,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret&disconnect=true&delay=1000"
+literal|"pop3://jones@localhost?password=secret&disconnect=true&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to

@@ -309,14 +309,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
-comment|// need some time for the mail to arrive on the inbox (consumed and sent to the mock)
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -332,6 +324,11 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 name|Exchange
 name|out
 init|=
@@ -342,11 +339,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
 comment|// plain text
 name|assertEquals
 argument_list|(
@@ -515,7 +507,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://james@mymailserver.com?password=secret&consumer.delay=1000"
+literal|"pop3://james@mymailserver.com?password=secret&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to

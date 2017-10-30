@@ -362,14 +362,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// need some time for the mail to arrive on the inbox (consumed and sent to the mock)
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -606,7 +598,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://ryan@mymailserver.com?password=secret&consumer.delay=1000"
+literal|"pop3://ryan@mymailserver.com?password=secret&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to

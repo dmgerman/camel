@@ -186,7 +186,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret&delay=1000&ignoreUnsupportedCharset=true"
+literal|"pop3://jones@localhost?password=secret&consumer.initialDelay=100&consumer.delay=100&ignoreUnsupportedCharset=true"
 argument_list|)
 operator|.
 name|to
@@ -355,7 +355,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret&delay=1000&ignoreUnsupportedCharset=false"
+literal|"pop3://jones@localhost?password=secret&consumer.initialDelay=100&consumer.delay=100&ignoreUnsupportedCharset=false"
 argument_list|)
 operator|.
 name|to

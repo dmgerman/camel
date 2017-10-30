@@ -265,12 +265,12 @@ argument_list|,
 literal|"Message 3"
 argument_list|)
 expr_stmt|;
-comment|// should be done within 5 (delay) + 1 seconds (polling)
+comment|// should be done within 2 (delay) + 1 seconds (polling)
 name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|7000L
+literal|3000L
 argument_list|)
 expr_stmt|;
 name|mock
@@ -496,7 +496,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret&fetchSize=2&consumer.delay=5000"
+literal|"pop3://jones@localhost?password=secret&fetchSize=2&consumer.delay=2000"
 operator|+
 literal|"&delete=true"
 argument_list|)

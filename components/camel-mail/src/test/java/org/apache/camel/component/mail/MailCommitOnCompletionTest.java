@@ -246,7 +246,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -435,7 +435,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret&delete=true"
+literal|"pop3://jones@localhost?password=secret&delete=true&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|process

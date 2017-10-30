@@ -184,7 +184,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pop3://james@localhost?password=foo&delay=50&sendEmptyMessageWhenIdle=true"
+literal|"pop3://james@localhost?password=foo&consumer.initialDelay=100&consumer.delay=100&sendEmptyMessageWhenIdle=true"
 argument_list|)
 operator|.
 name|to

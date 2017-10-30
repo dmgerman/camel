@@ -480,7 +480,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"imap://localhost?username=claus&password=secret&unseen=true&consumer.delay=1000"
+literal|"imap://localhost?username=claus&password=secret&unseen=true&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to

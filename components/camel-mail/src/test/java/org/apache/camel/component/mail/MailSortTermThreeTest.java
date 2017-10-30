@@ -639,7 +639,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"imap://bill@localhost?password=secret&sortTerm=#sortDescendingDate"
+literal|"imap://bill@localhost?password=secret&sortTerm=#sortDescendingDate&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to

@@ -623,7 +623,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret&consumer.delay=5000"
+literal|"pop3://jones@localhost?password=secret&consumer.initialDelay=100&consumer.delay=100"
 operator|+
 literal|"&delete=true"
 argument_list|)

@@ -637,7 +637,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://bill@localhost?password=secret&searchTerm=#searchTerm&sortTerm=#sortAscendingDate"
+literal|"pop3://bill@localhost?password=secret&searchTerm=#searchTerm&sortTerm=#sortAscendingDate&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to

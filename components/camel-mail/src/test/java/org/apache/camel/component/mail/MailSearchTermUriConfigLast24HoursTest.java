@@ -868,7 +868,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://bill@localhost?password=secret&searchTerm.fromSentDate=now-24h"
+literal|"pop3://bill@localhost?password=secret&searchTerm.fromSentDate=now-24h&consumer.initialDelay=100&consumer.delay=100"
 argument_list|)
 operator|.
 name|to
