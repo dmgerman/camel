@@ -132,11 +132,11 @@ specifier|final
 name|YqlEndpoint
 name|endpoint
 decl_stmt|;
-DECL|field|yahooClient
+DECL|field|yqlClient
 specifier|private
 specifier|final
 name|YqlClient
-name|yahooClient
+name|yqlClient
 decl_stmt|;
 DECL|method|YqlProducer (final YqlEndpoint endpoint)
 name|YqlProducer
@@ -159,11 +159,16 @@ name|endpoint
 expr_stmt|;
 name|this
 operator|.
-name|yahooClient
+name|yqlClient
 operator|=
 operator|new
 name|YqlClient
+argument_list|(
+name|endpoint
+operator|.
+name|getHttpClient
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -193,7 +198,7 @@ specifier|final
 name|YqlResponse
 name|yqlResponse
 init|=
-name|yahooClient
+name|yqlClient
 operator|.
 name|get
 argument_list|(
