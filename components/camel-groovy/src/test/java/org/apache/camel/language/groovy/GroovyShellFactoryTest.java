@@ -126,9 +126,9 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|BDDMockito
+name|ArgumentMatchers
 operator|.
-name|given
+name|any
 import|;
 end_import
 
@@ -138,9 +138,9 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|BDDMockito
 operator|.
-name|any
+name|given
 import|;
 end_import
 
