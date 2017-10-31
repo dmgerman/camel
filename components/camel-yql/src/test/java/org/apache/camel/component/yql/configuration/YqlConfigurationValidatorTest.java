@@ -260,56 +260,6 @@ comment|// no exception
 block|}
 annotation|@
 name|Test
-DECL|method|testEmptyFormat ()
-specifier|public
-name|void
-name|testEmptyFormat
-parameter_list|()
-block|{
-comment|// then
-name|thrown
-operator|.
-name|expect
-argument_list|(
-name|YqlException
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|thrown
-operator|.
-name|expectMessage
-argument_list|(
-literal|"<format> is not valid!"
-argument_list|)
-expr_stmt|;
-comment|// given
-specifier|final
-name|YqlConfiguration
-name|yqlConfiguration
-init|=
-operator|new
-name|YqlConfiguration
-argument_list|()
-decl_stmt|;
-name|yqlConfiguration
-operator|.
-name|setQuery
-argument_list|(
-literal|"query"
-argument_list|)
-expr_stmt|;
-comment|// when
-name|YqlConfigurationValidator
-operator|.
-name|validateProperties
-argument_list|(
-name|yqlConfiguration
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testWrongFormat ()
 specifier|public
 name|void

@@ -104,6 +104,8 @@ DECL|field|format
 specifier|private
 name|String
 name|format
+init|=
+literal|"json"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -111,6 +113,8 @@ DECL|field|diagnostics
 specifier|private
 name|boolean
 name|diagnostics
+init|=
+literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -118,6 +122,8 @@ DECL|field|callback
 specifier|private
 name|String
 name|callback
+init|=
+literal|""
 decl_stmt|;
 DECL|method|getQuery ()
 specifier|public
