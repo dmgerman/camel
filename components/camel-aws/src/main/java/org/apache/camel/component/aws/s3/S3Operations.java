@@ -29,6 +29,9 @@ block|{
 DECL|enumConstant|copyObject
 name|copyObject
 block|,
+DECL|enumConstant|deleteObject
+name|deleteObject
+block|,
 DECL|enumConstant|deleteBucket
 name|deleteBucket
 block|,

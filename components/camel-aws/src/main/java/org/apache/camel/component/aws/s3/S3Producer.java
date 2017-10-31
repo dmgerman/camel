@@ -306,6 +306,22 @@ name|s3
 operator|.
 name|model
 operator|.
+name|DeleteObjectRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
+name|model
+operator|.
 name|InitiateMultipartUploadRequest
 import|;
 end_import
@@ -595,7 +611,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Storage Service<a  * href="http://aws.amazon.com/s3/">AWS S3</a>  */
+comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Storage  * Service<a href="http://aws.amazon.com/s3/">AWS S3</a>  */
 end_comment
 
 begin_class
@@ -710,6 +726,21 @@ case|case
 name|copyObject
 case|:
 name|copyObject
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getS3Client
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|deleteObject
+case|:
+name|deleteObject
 argument_list|(
 name|getEndpoint
 argument_list|()
@@ -993,7 +1024,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// note: if cannedacl and acl are both specified the last one will be used. refer to
+comment|// note: if cannedacl and acl are both specified the last one will
+comment|// be used. refer to
 comment|// PutObjectRequest#setAccessControlList for more details
 name|initRequest
 operator|.
@@ -1583,7 +1615,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// note: if cannedacl and acl are both specified the last one will be used. refer to
+comment|// note: if cannedacl and acl are both specified the last one will
+comment|// be used. refer to
 comment|// PutObjectRequest#setAccessControlList for more details
 name|putObjectRequest
 operator|.
@@ -2026,6 +2059,151 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|deleteObject (AmazonS3 s3Client, Exchange exchange)
+specifier|private
+name|void
+name|deleteObject
+parameter_list|(
+name|AmazonS3
+name|s3Client
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|String
+name|sourceKey
+decl_stmt|;
+name|String
+name|bucketName
+decl_stmt|;
+name|bucketName
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|S3Constants
+operator|.
+name|BUCKET_NAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|bucketName
+argument_list|)
+condition|)
+block|{
+name|bucketName
+operator|=
+name|getConfiguration
+argument_list|()
+operator|.
+name|getBucketName
+argument_list|()
+expr_stmt|;
+block|}
+name|sourceKey
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|S3Constants
+operator|.
+name|KEY
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|bucketName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Bucket Name must be specified for deleteObject Operation"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|sourceKey
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Source Key must be specified for deleteObject Operation"
+argument_list|)
+throw|;
+block|}
+name|DeleteObjectRequest
+name|deleteObjectRequest
+decl_stmt|;
+name|deleteObjectRequest
+operator|=
+operator|new
+name|DeleteObjectRequest
+argument_list|(
+name|bucketName
+argument_list|,
+name|sourceKey
+argument_list|)
+expr_stmt|;
+name|s3Client
+operator|.
+name|deleteObject
+argument_list|(
+name|deleteObjectRequest
+argument_list|)
+expr_stmt|;
+name|Message
+name|message
+init|=
+name|getMessageForResponse
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|message
+operator|.
+name|setBody
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|listBuckets (AmazonS3 s3Client, Exchange exchange)
 specifier|private

@@ -2345,11 +2345,7 @@ name|AmazonClientException
 throws|,
 name|AmazonServiceException
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
+comment|// noop
 block|}
 annotation|@
 name|Override
