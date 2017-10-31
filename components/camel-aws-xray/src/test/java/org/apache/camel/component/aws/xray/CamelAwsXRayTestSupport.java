@@ -178,14 +178,6 @@ name|CamelAwsXRayTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|testData
-specifier|private
-name|List
-argument_list|<
-name|TestTrace
-argument_list|>
-name|testData
-decl_stmt|;
 annotation|@
 name|Rule
 DECL|field|socketListener
@@ -196,6 +188,14 @@ init|=
 operator|new
 name|FakeAWSDaemon
 argument_list|()
+decl_stmt|;
+DECL|field|testData
+specifier|private
+name|List
+argument_list|<
+name|TestTrace
+argument_list|>
+name|testData
 decl_stmt|;
 DECL|method|CamelAwsXRayTestSupport (TestTrace... testData)
 specifier|public

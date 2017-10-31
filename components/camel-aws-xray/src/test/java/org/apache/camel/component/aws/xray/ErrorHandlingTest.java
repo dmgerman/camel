@@ -237,7 +237,7 @@ argument_list|(
 literal|"TraceBean"
 argument_list|)
 argument_list|)
-comment|//                .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
+comment|//                      .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
 operator|.
 name|withSubsegment
 argument_list|(
@@ -248,7 +248,7 @@ argument_list|(
 literal|"TraceBean"
 argument_list|)
 argument_list|)
-comment|//                .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
+comment|//                      .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
 operator|.
 name|withSubsegment
 argument_list|(
@@ -259,7 +259,7 @@ argument_list|(
 literal|"TraceBean"
 argument_list|)
 argument_list|)
-comment|//                .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
+comment|//                      .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
 operator|.
 name|withSubsegment
 argument_list|(
@@ -529,13 +529,11 @@ specifier|static
 class|class
 name|TraceBean
 block|{
-DECL|field|COUNTER
+DECL|field|counter
 specifier|private
 specifier|static
 name|int
-name|COUNTER
-init|=
-literal|0
+name|counter
 decl_stmt|;
 annotation|@
 name|Handler
@@ -562,12 +560,12 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|COUNTER
+name|counter
 operator|<
 literal|3
 condition|)
 block|{
-name|COUNTER
+name|counter
 operator|++
 expr_stmt|;
 throw|throw

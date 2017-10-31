@@ -506,6 +506,7 @@ block|}
 DECL|class|UDPSocketListener
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|UDPSocketListener
 implements|implements
@@ -535,8 +536,6 @@ DECL|field|serverSocket
 specifier|private
 name|DatagramSocket
 name|serverSocket
-init|=
-literal|null
 decl_stmt|;
 DECL|field|receivedTraces
 specifier|private
@@ -553,8 +552,6 @@ specifier|private
 specifier|volatile
 name|boolean
 name|done
-init|=
-literal|false
 decl_stmt|;
 DECL|method|UDPSocketListener (Map<String, TestTrace> receivedTraces)
 specifier|private
@@ -666,7 +663,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|String
-name|_segment
+name|locSegment
 init|=
 literal|null
 decl_stmt|;
@@ -699,7 +696,7 @@ range|:
 name|segments
 control|)
 block|{
-name|_segment
+name|locSegment
 operator|=
 name|segment
 expr_stmt|;
@@ -892,7 +889,7 @@ name|warn
 argument_list|(
 literal|"Could not convert segment "
 operator|+
-name|_segment
+name|locSegment
 operator|+
 literal|" to a Java object"
 argument_list|,
@@ -1384,7 +1381,7 @@ name|JSONObject
 name|json
 parameter_list|)
 block|{
-comment|/*        "annotations" : {           "test2" : 1,           "test3" : true,           "test1" : "test"        }        */
+comment|/*              "annotations" : {                 "test2" : 1,                 "test3" : true,                 "test1" : "test"              }              */
 name|Map
 argument_list|<
 name|String
@@ -1455,7 +1452,7 @@ name|JSONObject
 name|json
 parameter_list|)
 block|{
-comment|/*        "metadata" : {           "default" : {               "meta1" : "meta1"           },           "customNamespace" : {               "meta2" : "meta2"           }        }        */
+comment|/*              "metadata" : {                 "default" : {                     "meta1" : "meta1"                 },                 "customNamespace" : {                     "meta2" : "meta2"                 }              }              */
 name|Map
 argument_list|<
 name|String

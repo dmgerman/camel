@@ -91,9 +91,15 @@ literal|"unchecked"
 block|}
 argument_list|)
 DECL|class|TestDataBuilder
+specifier|final
 class|class
 name|TestDataBuilder
 block|{
+DECL|method|TestDataBuilder ()
+specifier|private
+name|TestDataBuilder
+parameter_list|()
+block|{      }
 DECL|class|TestTrace
 specifier|static
 class|class
@@ -103,8 +109,6 @@ DECL|field|randomOrder
 specifier|private
 name|boolean
 name|randomOrder
-init|=
-literal|false
 decl_stmt|;
 DECL|field|segments
 specifier|private
@@ -258,8 +262,8 @@ block|}
 block|}
 DECL|class|TestEntity
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|TestEntity
 parameter_list|<
@@ -323,8 +327,6 @@ DECL|field|randomOrder
 specifier|protected
 name|boolean
 name|randomOrder
-init|=
-literal|false
 decl_stmt|;
 DECL|method|TestEntity (String name)
 specifier|protected

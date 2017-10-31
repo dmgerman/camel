@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|invoke
+operator|.
+name|MethodHandles
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|amazonaws
@@ -43,18 +55,6 @@ operator|.
 name|entities
 operator|.
 name|Subsegment
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|invoke
-operator|.
-name|MethodHandles
 import|;
 end_import
 

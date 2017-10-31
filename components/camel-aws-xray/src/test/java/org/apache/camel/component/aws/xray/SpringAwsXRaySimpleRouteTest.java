@@ -181,7 +181,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"/org/apache/camel/aws/xray/AwsXRaySimpleRouteTest.xml"
+literal|"org/apache/camel/aws/xray/AwsXRaySimpleRouteTest.xml"
 argument_list|)
 return|;
 block|}
