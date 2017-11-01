@@ -240,6 +240,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Set the connection manager.      */
 DECL|method|setConnectionManager (final HttpClientConnectionManager connectionManager)
 specifier|public
 name|void

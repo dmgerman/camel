@@ -86,6 +86,15 @@ name|YqlConfiguration
 block|{
 annotation|@
 name|UriPath
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"The YQL query to be sent."
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -100,6 +109,23 @@ name|query
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"json,xml"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"json"
+argument_list|,
+name|description
+operator|=
+literal|"The expected format. Can only be json or xml."
+argument_list|)
 DECL|field|format
 specifier|private
 name|String
@@ -109,6 +135,19 @@ literal|"json"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"If true, the option will be included in the HTTP request to YQL and the response will contain some diagnostics data."
+argument_list|)
 DECL|field|diagnostics
 specifier|private
 name|boolean
@@ -118,12 +157,47 @@ literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"If specified, the option will be included in the HTTP request to YQL. If the format is json, then the response will contain a JSONP callback method. "
+operator|+
+literal|"If the format is xml, then the response will contain a JSONP-X callback method. More information: https://developer.yahoo.com/yql/guide/response.html"
+argument_list|)
 DECL|field|callback
 specifier|private
 name|String
 name|callback
 init|=
 literal|""
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Option to disable throwing the YqlHttpException in case of failed responses from the remote server. "
+operator|+
+literal|"This allows you to get all responses regardless of the HTTP status code."
+argument_list|)
+DECL|field|throwExceptionOnFailure
+specifier|private
+name|boolean
+name|throwExceptionOnFailure
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getQuery ()
 specifier|public
@@ -135,7 +209,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * Set the YQL query      */
+comment|/**      * The YQL query to be sent.      */
 DECL|method|setQuery (final String query)
 specifier|public
 name|void
@@ -163,7 +237,7 @@ return|return
 name|format
 return|;
 block|}
-comment|/**      * Set the YQL format, xml or json      */
+comment|/**      * The expected format. Can only be json or xml.      */
 DECL|method|setFormat (final String format)
 specifier|public
 name|void
@@ -191,7 +265,7 @@ return|return
 name|diagnostics
 return|;
 block|}
-comment|/**      * Set if diagnostics should be included in the query      */
+comment|/**      * If true, the option will be included in the HTTP request to YQL and the response will contain some diagnostics data.      */
 DECL|method|setDiagnostics (final boolean diagnostics)
 specifier|public
 name|void
@@ -219,7 +293,7 @@ return|return
 name|callback
 return|;
 block|}
-comment|/**      * Set the callback function      */
+comment|/**      * If specified, the option will be included in the HTTP request to YQL. If the format is json, then the response will contain a JSONP callback method.      * If the format is xml, then the response will contain a JSONP-X callback method. More information: https://developer.yahoo.com/yql/guide/response.html      */
 DECL|method|setCallback (final String callback)
 specifier|public
 name|void
@@ -235,6 +309,34 @@ operator|.
 name|callback
 operator|=
 name|callback
+expr_stmt|;
+block|}
+DECL|method|isThrowExceptionOnFailure ()
+specifier|public
+name|boolean
+name|isThrowExceptionOnFailure
+parameter_list|()
+block|{
+return|return
+name|throwExceptionOnFailure
+return|;
+block|}
+comment|/**      * Option to disable throwing the YqlHttpException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
+DECL|method|setThrowExceptionOnFailure (final boolean throwExceptionOnFailure)
+specifier|public
+name|void
+name|setThrowExceptionOnFailure
+parameter_list|(
+specifier|final
+name|boolean
+name|throwExceptionOnFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|throwExceptionOnFailure
+operator|=
+name|throwExceptionOnFailure
 expr_stmt|;
 block|}
 block|}
