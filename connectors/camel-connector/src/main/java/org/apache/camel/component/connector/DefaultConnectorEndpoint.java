@@ -187,6 +187,26 @@ specifier|final
 name|DataType
 name|outputDataType
 decl_stmt|;
+DECL|field|beforeProducer
+specifier|private
+name|Processor
+name|beforeProducer
+decl_stmt|;
+DECL|field|afterProducer
+specifier|private
+name|Processor
+name|afterProducer
+decl_stmt|;
+DECL|field|beforeConsumer
+specifier|private
+name|Processor
+name|beforeConsumer
+decl_stmt|;
+DECL|field|afterConsumer
+specifier|private
+name|Processor
+name|afterConsumer
+decl_stmt|;
 DECL|method|DefaultConnectorEndpoint (String endpointUri, ConnectorComponent component, Endpoint endpoint, DataType inputDataType, DataType outputDataType)
 specifier|public
 name|DefaultConnectorEndpoint
@@ -256,9 +276,6 @@ specifier|final
 name|Processor
 name|beforeProducer
 init|=
-name|getComponent
-argument_list|()
-operator|.
 name|getBeforeProducer
 argument_list|()
 decl_stmt|;
@@ -266,9 +283,6 @@ specifier|final
 name|Processor
 name|afterProducer
 init|=
-name|getComponent
-argument_list|()
-operator|.
 name|getAfterProducer
 argument_list|()
 decl_stmt|;
@@ -320,9 +334,6 @@ specifier|final
 name|Processor
 name|beforeConsumer
 init|=
-name|getComponent
-argument_list|()
-operator|.
 name|getBeforeConsumer
 argument_list|()
 decl_stmt|;
@@ -330,9 +341,6 @@ specifier|final
 name|Processor
 name|afterConsumer
 init|=
-name|getComponent
-argument_list|()
-operator|.
 name|getAfterConsumer
 argument_list|()
 decl_stmt|;
@@ -475,6 +483,118 @@ block|{
 return|return
 name|outputDataType
 return|;
+block|}
+comment|/**      * Gets the processor used to perform custom processing before the producer is sending the message.      */
+DECL|method|getBeforeProducer ()
+specifier|public
+name|Processor
+name|getBeforeProducer
+parameter_list|()
+block|{
+return|return
+name|beforeProducer
+return|;
+block|}
+comment|/**      * To perform custom processing before the producer is sending the message.      */
+DECL|method|setBeforeProducer (Processor beforeProducer)
+specifier|public
+name|void
+name|setBeforeProducer
+parameter_list|(
+name|Processor
+name|beforeProducer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beforeProducer
+operator|=
+name|beforeProducer
+expr_stmt|;
+block|}
+comment|/**      * Gets the processor used to perform custom processing after the producer has sent the message and received any reply (if InOut).      */
+DECL|method|getAfterProducer ()
+specifier|public
+name|Processor
+name|getAfterProducer
+parameter_list|()
+block|{
+return|return
+name|afterProducer
+return|;
+block|}
+comment|/**      * To perform custom processing after the producer has sent the message and received any reply (if InOut).      */
+DECL|method|setAfterProducer (Processor afterProducer)
+specifier|public
+name|void
+name|setAfterProducer
+parameter_list|(
+name|Processor
+name|afterProducer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|afterProducer
+operator|=
+name|afterProducer
+expr_stmt|;
+block|}
+comment|/**      * Gets the processor used to perform custom processing when the consumer has just received a new incoming message.      */
+DECL|method|getBeforeConsumer ()
+specifier|public
+name|Processor
+name|getBeforeConsumer
+parameter_list|()
+block|{
+return|return
+name|beforeConsumer
+return|;
+block|}
+comment|/**      * To perform custom processing when the consumer has just received a new incoming message.      */
+DECL|method|setBeforeConsumer (Processor beforeConsumer)
+specifier|public
+name|void
+name|setBeforeConsumer
+parameter_list|(
+name|Processor
+name|beforeConsumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beforeConsumer
+operator|=
+name|beforeConsumer
+expr_stmt|;
+block|}
+comment|/**      * Gets the processor used to perform custom processing when the consumer is about to send back a reply message to the caller (if InOut).      */
+DECL|method|getAfterConsumer ()
+specifier|public
+name|Processor
+name|getAfterConsumer
+parameter_list|()
+block|{
+return|return
+name|afterConsumer
+return|;
+block|}
+comment|/**      * To perform custom processing when the consumer is about to send back a reply message to the caller (if InOut).      */
+DECL|method|setAfterConsumer (Processor afterConsumer)
+specifier|public
+name|void
+name|setAfterConsumer
+parameter_list|(
+name|Processor
+name|afterConsumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|afterConsumer
+operator|=
+name|afterConsumer
+expr_stmt|;
 block|}
 annotation|@
 name|Override

@@ -50,6 +50,24 @@ argument_list|,
 literal|"org.foo.connector.FooComponent"
 argument_list|)
 expr_stmt|;
+comment|// show how you can add a fixed header
+name|setBeforeConsumer
+argument_list|(
+name|e
+lambda|->
+name|e
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"whoami"
+argument_list|,
+literal|"I am foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

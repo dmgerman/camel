@@ -922,7 +922,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|Endpoint
+name|DefaultConnectorEndpoint
 name|answer
 decl_stmt|;
 comment|// are we scheduler based?
@@ -999,6 +999,38 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|answer
+operator|.
+name|setBeforeProducer
+argument_list|(
+name|getBeforeProducer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setAfterProducer
+argument_list|(
+name|getAfterProducer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setBeforeConsumer
+argument_list|(
+name|getBeforeConsumer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setAfterConsumer
+argument_list|(
+name|getAfterConsumer
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// clean-up parameters so that validation won't fail later on
 comment|// in DefaultConnectorComponent.validateParameters()
 name|parameters

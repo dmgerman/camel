@@ -53,6 +53,11 @@ argument_list|(
 literal|"foo:ThirstyBear?period=2000"
 argument_list|)
 operator|.
+name|log
+argument_list|(
+literal|"Who is this: ${header.whoami}"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"wine:Wine?amount=2"
@@ -66,6 +71,11 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"foo:Moes?period=5000"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Who is this: ${header.whoami}"
 argument_list|)
 operator|.
 name|to
