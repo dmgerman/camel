@@ -2148,6 +2148,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// clear parameters if its empty
+if|if
+condition|(
+name|op
+operator|.
+name|getParameters
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|op
+operator|.
+name|setParameters
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if we have an out type then set that as response message
 if|if
 condition|(
@@ -3127,6 +3147,29 @@ name|getCode
 argument_list|()
 argument_list|,
 name|response
+argument_list|)
+expr_stmt|;
+block|}
+comment|// must include an empty noop response if none exists
+if|if
+condition|(
+name|op
+operator|.
+name|getResponses
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|op
+operator|.
+name|addResponse
+argument_list|(
+literal|"200"
+argument_list|,
+operator|new
+name|Response
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
