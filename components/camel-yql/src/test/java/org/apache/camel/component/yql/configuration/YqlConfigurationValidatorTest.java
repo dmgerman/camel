@@ -91,10 +91,10 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testGoodQuery ()
+DECL|method|testValidQuery ()
 specifier|public
 name|void
-name|testGoodQuery
+name|testValidQuery
 parameter_list|()
 block|{
 comment|// given
@@ -118,6 +118,20 @@ operator|.
 name|setFormat
 argument_list|(
 literal|"json"
+argument_list|)
+expr_stmt|;
+name|yqlConfiguration
+operator|.
+name|setCrossProduct
+argument_list|(
+literal|"optimized"
+argument_list|)
+expr_stmt|;
+name|yqlConfiguration
+operator|.
+name|setJsonCompat
+argument_list|(
+literal|"new"
 argument_list|)
 expr_stmt|;
 comment|// when
@@ -304,6 +318,141 @@ operator|.
 name|setFormat
 argument_list|(
 literal|"format"
+argument_list|)
+expr_stmt|;
+comment|// when
+name|YqlConfigurationValidator
+operator|.
+name|validateProperties
+argument_list|(
+name|yqlConfiguration
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testWrongCrossProduct ()
+specifier|public
+name|void
+name|testWrongCrossProduct
+parameter_list|()
+block|{
+comment|// then
+name|thrown
+operator|.
+name|expect
+argument_list|(
+name|YqlException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|thrown
+operator|.
+name|expectMessage
+argument_list|(
+literal|"<crossProduct> is not valid!"
+argument_list|)
+expr_stmt|;
+comment|// given
+specifier|final
+name|YqlConfiguration
+name|yqlConfiguration
+init|=
+operator|new
+name|YqlConfiguration
+argument_list|()
+decl_stmt|;
+name|yqlConfiguration
+operator|.
+name|setQuery
+argument_list|(
+literal|"query"
+argument_list|)
+expr_stmt|;
+name|yqlConfiguration
+operator|.
+name|setFormat
+argument_list|(
+literal|"xml"
+argument_list|)
+expr_stmt|;
+name|yqlConfiguration
+operator|.
+name|setCrossProduct
+argument_list|(
+literal|"optimizedddd"
+argument_list|)
+expr_stmt|;
+comment|// when
+name|YqlConfigurationValidator
+operator|.
+name|validateProperties
+argument_list|(
+name|yqlConfiguration
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testWrongJsonCompat ()
+specifier|public
+name|void
+name|testWrongJsonCompat
+parameter_list|()
+block|{
+comment|// then
+name|thrown
+operator|.
+name|expect
+argument_list|(
+name|YqlException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|thrown
+operator|.
+name|expectMessage
+argument_list|(
+literal|"<jsonCompat> is not valid!"
+argument_list|)
+expr_stmt|;
+comment|// given
+specifier|final
+name|YqlConfiguration
+name|yqlConfiguration
+init|=
+operator|new
+name|YqlConfiguration
+argument_list|()
+decl_stmt|;
+name|yqlConfiguration
+operator|.
+name|setQuery
+argument_list|(
+literal|"query"
+argument_list|)
+expr_stmt|;
+name|yqlConfiguration
+operator|.
+name|setFormat
+argument_list|(
+literal|"xml"
+argument_list|)
+expr_stmt|;
+name|yqlConfiguration
+operator|.
+name|setCrossProduct
+argument_list|(
+literal|"optimized"
+argument_list|)
+expr_stmt|;
+name|yqlConfiguration
+operator|.
+name|setJsonCompat
+argument_list|(
+literal|"neww"
 argument_list|)
 expr_stmt|;
 comment|// when

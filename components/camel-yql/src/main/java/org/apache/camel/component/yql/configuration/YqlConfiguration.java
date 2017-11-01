@@ -76,6 +76,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * YQL configuration that should reflect https://developer.yahoo.com/yql/guide/users-overview.html  */
+end_comment
+
 begin_class
 annotation|@
 name|UriParams
@@ -93,7 +97,7 @@ literal|"producer"
 argument_list|,
 name|description
 operator|=
-literal|"The YQL query to be sent."
+literal|"The YQL statement to execute."
 argument_list|)
 annotation|@
 name|Metadata
@@ -124,7 +128,7 @@ literal|"json"
 argument_list|,
 name|description
 operator|=
-literal|"The expected format. Can only be json or xml."
+literal|"The expected format. Allowed values: xml or json."
 argument_list|)
 DECL|field|format
 specifier|private
@@ -140,13 +144,51 @@ name|label
 operator|=
 literal|"producer"
 argument_list|,
+name|description
+operator|=
+literal|"The name of the JavaScript callback function for JSONP format. If callback is set and if format=json, then the response format is JSON. For more "
+operator|+
+literal|"information on using XML instead of JSON, see JSONP-X."
+argument_list|)
+DECL|field|callback
+specifier|private
+name|String
+name|callback
+init|=
+literal|""
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"When given the value optimized, the projected fields in SELECT statements that may be returned in separate item elements in the response are "
+operator|+
+literal|"optimized to be in a single item element instead. The only allowed value is optimized."
+argument_list|)
+DECL|field|crossProduct
+specifier|private
+name|String
+name|crossProduct
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
 argument_list|,
 name|description
 operator|=
-literal|"If true, the option will be included in the HTTP request to YQL and the response will contain some diagnostics data."
+literal|"If true, diagnostic information is returned with the response."
 argument_list|)
 DECL|field|diagnostics
 specifier|private
@@ -162,18 +204,52 @@ name|label
 operator|=
 literal|"producer"
 argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
 name|description
 operator|=
-literal|"If specified, the option will be included in the HTTP request to YQL. If the format is json, then the response will contain a JSONP callback method. "
-operator|+
-literal|"If the format is xml, then the response will contain a JSONP-X callback method. More information: https://developer.yahoo.com/yql/guide/response.html"
+literal|"If true, and if diagnostic is set to true, debug data is returned with the response."
 argument_list|)
-DECL|field|callback
+DECL|field|debug
+specifier|private
+name|boolean
+name|debug
+init|=
+literal|false
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Allows you to use multiple Open Data Tables through a YQL environment file."
+argument_list|)
+DECL|field|env
 specifier|private
 name|String
-name|callback
-init|=
-literal|""
+name|env
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Enables lossless JSON processing. The only allowed value is new."
+argument_list|)
+DECL|field|jsonCompat
+specifier|private
+name|String
+name|jsonCompat
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -199,6 +275,28 @@ name|throwExceptionOnFailure
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Option to use HTTPS to communicate with YQL."
+argument_list|)
+DECL|field|https
+specifier|private
+name|boolean
+name|https
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getQuery ()
 specifier|public
 name|String
@@ -209,7 +307,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * The YQL query to be sent.      */
+comment|/**      * The YQL statement to execute.      */
 DECL|method|setQuery (final String query)
 specifier|public
 name|void
@@ -237,7 +335,7 @@ return|return
 name|format
 return|;
 block|}
-comment|/**      * The expected format. Can only be json or xml.      */
+comment|/**      * The expected format. Allowed values: xml or json.      */
 DECL|method|setFormat (final String format)
 specifier|public
 name|void
@@ -255,6 +353,62 @@ operator|=
 name|format
 expr_stmt|;
 block|}
+DECL|method|getCallback ()
+specifier|public
+name|String
+name|getCallback
+parameter_list|()
+block|{
+return|return
+name|callback
+return|;
+block|}
+comment|/**      * The name of the JavaScript callback function for JSONP format. If callback is set and if format=json, then the response format is JSON. For more      * information on using XML instead of JSON, see JSONP-X. https://developer.yahoo.com/yql/guide/response.html      */
+DECL|method|setCallback (final String callback)
+specifier|public
+name|void
+name|setCallback
+parameter_list|(
+specifier|final
+name|String
+name|callback
+parameter_list|)
+block|{
+name|this
+operator|.
+name|callback
+operator|=
+name|callback
+expr_stmt|;
+block|}
+DECL|method|getCrossProduct ()
+specifier|public
+name|String
+name|getCrossProduct
+parameter_list|()
+block|{
+return|return
+name|crossProduct
+return|;
+block|}
+comment|/**      * When given the value optimized, the projected fields in SELECT statements that may be returned in separate item elements in the response are optimized to be in a single item element instead.      * The only allowed value is optimized. More information https://developer.yahoo.com/yql/guide/response.html#response-optimizing=      */
+DECL|method|setCrossProduct (final String crossProduct)
+specifier|public
+name|void
+name|setCrossProduct
+parameter_list|(
+specifier|final
+name|String
+name|crossProduct
+parameter_list|)
+block|{
+name|this
+operator|.
+name|crossProduct
+operator|=
+name|crossProduct
+expr_stmt|;
+block|}
 DECL|method|isDiagnostics ()
 specifier|public
 name|boolean
@@ -265,7 +419,7 @@ return|return
 name|diagnostics
 return|;
 block|}
-comment|/**      * If true, the option will be included in the HTTP request to YQL and the response will contain some diagnostics data.      */
+comment|/**      * If true, diagnostic information is returned with the response.      */
 DECL|method|setDiagnostics (final boolean diagnostics)
 specifier|public
 name|void
@@ -283,32 +437,88 @@ operator|=
 name|diagnostics
 expr_stmt|;
 block|}
-DECL|method|getCallback ()
+DECL|method|isDebug ()
 specifier|public
-name|String
-name|getCallback
+name|boolean
+name|isDebug
 parameter_list|()
 block|{
 return|return
-name|callback
+name|debug
 return|;
 block|}
-comment|/**      * If specified, the option will be included in the HTTP request to YQL. If the format is json, then the response will contain a JSONP callback method.      * If the format is xml, then the response will contain a JSONP-X callback method. More information: https://developer.yahoo.com/yql/guide/response.html      */
-DECL|method|setCallback (final String callback)
+comment|/**      * If true, and if diagnostic is set to true, debug data is returned with the response.      * More information: https://developer.yahoo.com/yql/guide/dev-external_tables.html#odt-enable-logging=      */
+DECL|method|setDebug (final boolean debug)
 specifier|public
 name|void
-name|setCallback
+name|setDebug
 parameter_list|(
 specifier|final
-name|String
-name|callback
+name|boolean
+name|debug
 parameter_list|)
 block|{
 name|this
 operator|.
-name|callback
+name|debug
 operator|=
-name|callback
+name|debug
+expr_stmt|;
+block|}
+DECL|method|getEnv ()
+specifier|public
+name|String
+name|getEnv
+parameter_list|()
+block|{
+return|return
+name|env
+return|;
+block|}
+comment|/**      * Allows you to use multiple Open Data Tables through a YQL environment file.      * More information https://developer.yahoo.com/yql/guide/yql_storage.html#using-records-env-files=      */
+DECL|method|setEnv (final String env)
+specifier|public
+name|void
+name|setEnv
+parameter_list|(
+specifier|final
+name|String
+name|env
+parameter_list|)
+block|{
+name|this
+operator|.
+name|env
+operator|=
+name|env
+expr_stmt|;
+block|}
+DECL|method|getJsonCompat ()
+specifier|public
+name|String
+name|getJsonCompat
+parameter_list|()
+block|{
+return|return
+name|jsonCompat
+return|;
+block|}
+comment|/**      * Enables lossless JSON processing. The only allowed value is new.      * More information https://developer.yahoo.com/yql/guide/response.html#json-to-json=      */
+DECL|method|setJsonCompat (final String jsonCompat)
+specifier|public
+name|void
+name|setJsonCompat
+parameter_list|(
+specifier|final
+name|String
+name|jsonCompat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jsonCompat
+operator|=
+name|jsonCompat
 expr_stmt|;
 block|}
 DECL|method|isThrowExceptionOnFailure ()
@@ -337,6 +547,34 @@ operator|.
 name|throwExceptionOnFailure
 operator|=
 name|throwExceptionOnFailure
+expr_stmt|;
+block|}
+DECL|method|isHttps ()
+specifier|public
+name|boolean
+name|isHttps
+parameter_list|()
+block|{
+return|return
+name|https
+return|;
+block|}
+comment|/**      * Option to use HTTPS to communicate with YQL.      */
+DECL|method|setHttps (final boolean https)
+specifier|public
+name|void
+name|setHttps
+parameter_list|(
+specifier|final
+name|boolean
+name|https
+parameter_list|)
+block|{
+name|this
+operator|.
+name|https
+operator|=
+name|https
 expr_stmt|;
 block|}
 block|}

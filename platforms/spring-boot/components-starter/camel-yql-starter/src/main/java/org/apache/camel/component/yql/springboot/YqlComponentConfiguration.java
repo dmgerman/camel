@@ -50,6 +50,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|conn
+operator|.
+name|HttpClientConnectionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -59,6 +73,22 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -86,6 +116,14 @@ name|YqlComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Set the connection manager.      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|connectionManager
+specifier|private
+name|HttpClientConnectionManager
+name|connectionManager
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -94,6 +132,32 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getConnectionManager ()
+specifier|public
+name|HttpClientConnectionManager
+name|getConnectionManager
+parameter_list|()
+block|{
+return|return
+name|connectionManager
+return|;
+block|}
+DECL|method|setConnectionManager ( HttpClientConnectionManager connectionManager)
+specifier|public
+name|void
+name|setConnectionManager
+parameter_list|(
+name|HttpClientConnectionManager
+name|connectionManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionManager
+operator|=
+name|connectionManager
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean
