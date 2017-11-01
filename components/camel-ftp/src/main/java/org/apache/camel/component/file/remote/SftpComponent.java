@@ -42,18 +42,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|jcraft
-operator|.
-name|jsch
-operator|.
-name|ChannelSftp
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -92,9 +80,7 @@ name|SftpComponent
 extends|extends
 name|RemoteFileComponent
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 block|{
 DECL|method|SftpComponent ()
@@ -137,9 +123,7 @@ DECL|method|buildFileEndpoint (String uri, String remaining, Map<String, Object>
 specifier|protected
 name|GenericFileEndpoint
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|buildFileEndpoint
 parameter_list|(
@@ -172,13 +156,10 @@ if|if
 condition|(
 name|uri
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 literal|"?"
 argument_list|)
-operator|!=
-operator|-
-literal|1
 condition|)
 block|{
 name|baseUri
@@ -234,16 +215,14 @@ name|config
 argument_list|)
 return|;
 block|}
-DECL|method|afterPropertiesSet (GenericFileEndpoint<ChannelSftp.LsEntry> endpoint)
+DECL|method|afterPropertiesSet (GenericFileEndpoint<SftpRemoteFile> endpoint)
 specifier|protected
 name|void
 name|afterPropertiesSet
 parameter_list|(
 name|GenericFileEndpoint
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|endpoint
 parameter_list|)

@@ -176,9 +176,7 @@ name|SftpConsumer
 extends|extends
 name|RemoteFileConsumer
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 block|{
 DECL|field|endpointPath
@@ -192,15 +190,13 @@ specifier|transient
 name|String
 name|sftpConsumerToString
 decl_stmt|;
-DECL|method|SftpConsumer (RemoteFileEndpoint<ChannelSftp.LsEntry> endpoint, Processor processor, RemoteFileOperations<ChannelSftp.LsEntry> operations)
+DECL|method|SftpConsumer (RemoteFileEndpoint<SftpRemoteFile> endpoint, Processor processor, RemoteFileOperations<SftpRemoteFile> operations)
 specifier|public
 name|SftpConsumer
 parameter_list|(
 name|RemoteFileEndpoint
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|endpoint
 parameter_list|,
@@ -209,9 +205,7 @@ name|processor
 parameter_list|,
 name|RemoteFileOperations
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|operations
 parameter_list|)
@@ -367,7 +361,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|pollDirectory (String fileName, List<GenericFile<ChannelSftp.LsEntry>> fileList, int depth)
+DECL|method|pollDirectory (String fileName, List<GenericFile<SftpRemoteFile>> fileList, int depth)
 specifier|protected
 name|boolean
 name|pollDirectory
@@ -379,9 +373,7 @@ name|List
 argument_list|<
 name|GenericFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 argument_list|>
 name|fileList
@@ -453,7 +445,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|pollSubDirectory (String absolutePath, String dirName, List<GenericFile<ChannelSftp.LsEntry>> fileList, int depth)
+DECL|method|pollSubDirectory (String absolutePath, String dirName, List<GenericFile<SftpRemoteFile>> fileList, int depth)
 specifier|protected
 name|boolean
 name|pollSubDirectory
@@ -468,9 +460,7 @@ name|List
 argument_list|<
 name|GenericFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 argument_list|>
 name|fileList
@@ -510,7 +500,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|doPollDirectory (String absolutePath, String dirName, List<GenericFile<ChannelSftp.LsEntry>> fileList, int depth)
+DECL|method|doPollDirectory (String absolutePath, String dirName, List<GenericFile<SftpRemoteFile>> fileList, int depth)
 specifier|protected
 name|boolean
 name|doPollDirectory
@@ -525,9 +515,7 @@ name|List
 argument_list|<
 name|GenericFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 argument_list|>
 name|fileList
@@ -609,9 +597,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|files
 decl_stmt|;
@@ -687,9 +673,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 name|file
 range|:
 name|files
@@ -725,10 +709,7 @@ argument_list|()
 block|,
 name|file
 operator|.
-name|getAttrs
-argument_list|()
-operator|.
-name|isDir
+name|isDirectory
 argument_list|()
 block|}
 argument_list|)
@@ -752,18 +733,13 @@ if|if
 condition|(
 name|file
 operator|.
-name|getAttrs
-argument_list|()
-operator|.
-name|isDir
+name|isDirectory
 argument_list|()
 condition|)
 block|{
 name|RemoteFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|remote
 init|=
@@ -854,9 +830,7 @@ else|else
 block|{
 name|RemoteFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|remote
 init|=
@@ -909,16 +883,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isMatched (GenericFile<ChannelSftp.LsEntry> file, String doneFileName, List<ChannelSftp.LsEntry> files)
+DECL|method|isMatched (GenericFile<SftpRemoteFile> file, String doneFileName, List<SftpRemoteFile> files)
 specifier|protected
 name|boolean
 name|isMatched
 parameter_list|(
 name|GenericFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|file
 parameter_list|,
@@ -927,9 +899,7 @@ name|doneFileName
 parameter_list|,
 name|List
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|files
 parameter_list|)
@@ -946,9 +916,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 name|f
 range|:
 name|files
@@ -1067,22 +1035,18 @@ name|cause
 argument_list|)
 return|;
 block|}
-DECL|method|asRemoteFile (String absolutePath, ChannelSftp.LsEntry file, String charset)
+DECL|method|asRemoteFile (String absolutePath, SftpRemoteFile file, String charset)
 specifier|private
 name|RemoteFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|asRemoteFile
 parameter_list|(
 name|String
 name|absolutePath
 parameter_list|,
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 name|file
 parameter_list|,
 name|String
@@ -1091,18 +1055,14 @@ parameter_list|)
 block|{
 name|RemoteFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|answer
 init|=
 operator|new
 name|RemoteFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1143,10 +1103,7 @@ name|setFileLength
 argument_list|(
 name|file
 operator|.
-name|getAttrs
-argument_list|()
-operator|.
-name|getSize
+name|getFileLength
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1156,13 +1113,8 @@ name|setLastModified
 argument_list|(
 name|file
 operator|.
-name|getAttrs
+name|getLastModified
 argument_list|()
-operator|.
-name|getMTime
-argument_list|()
-operator|*
-literal|1000L
 argument_list|)
 expr_stmt|;
 name|answer
@@ -1189,10 +1141,7 @@ name|setDirectory
 argument_list|(
 name|file
 operator|.
-name|getAttrs
-argument_list|()
-operator|.
-name|isDir
+name|isDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1309,16 +1258,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateFileHeaders (GenericFile<ChannelSftp.LsEntry> file, Message message)
+DECL|method|updateFileHeaders (GenericFile<SftpRemoteFile> file, Message message)
 specifier|protected
 name|void
 name|updateFileHeaders
 parameter_list|(
 name|GenericFile
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|file
 parameter_list|,
@@ -1326,13 +1273,40 @@ name|Message
 name|message
 parameter_list|)
 block|{
-name|long
-name|length
+name|Object
+name|rf
 init|=
 name|file
 operator|.
 name|getFile
 argument_list|()
+operator|.
+name|getRemoteFile
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|rf
+operator|!=
+literal|null
+condition|)
+block|{
+name|ChannelSftp
+operator|.
+name|LsEntry
+name|e
+init|=
+operator|(
+name|ChannelSftp
+operator|.
+name|LsEntry
+operator|)
+name|rf
+decl_stmt|;
+name|long
+name|length
+init|=
+name|e
 operator|.
 name|getAttrs
 argument_list|()
@@ -1343,10 +1317,7 @@ decl_stmt|;
 name|long
 name|modified
 init|=
-name|file
-operator|.
-name|getFile
-argument_list|()
+name|e
 operator|.
 name|getAttrs
 argument_list|()
@@ -1407,6 +1378,7 @@ argument_list|,
 name|modified
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|isStepwise ()

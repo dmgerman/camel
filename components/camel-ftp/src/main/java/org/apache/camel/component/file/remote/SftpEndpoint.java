@@ -165,9 +165,7 @@ name|SftpEndpoint
 extends|extends
 name|RemoteFileEndpoint
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 block|{
 annotation|@
@@ -288,9 +286,7 @@ DECL|method|buildConsumer (Processor processor)
 specifier|protected
 name|RemoteFileConsumer
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|buildConsumer
 parameter_list|(
@@ -315,9 +311,7 @@ DECL|method|buildProducer ()
 specifier|protected
 name|GenericFileProducer
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|buildProducer
 parameter_list|()
@@ -326,9 +320,7 @@ return|return
 operator|new
 name|RemoteFileProducer
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 argument_list|(
 name|this
@@ -342,9 +334,7 @@ DECL|method|createRemoteFileOperations ()
 specifier|public
 name|RemoteFileOperations
 argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
+name|SftpRemoteFile
 argument_list|>
 name|createRemoteFileOperations
 parameter_list|()
