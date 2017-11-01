@@ -1443,7 +1443,7 @@ condition|)
 block|{
 name|url
 operator|=
-literal|"undertow:%s://%s:%s/%s?httpMethodRestrict=%s"
+literal|"undertow:%s://%s:%s/%s?matchOnUriPrefix=true&httpMethodRestrict=%s"
 expr_stmt|;
 block|}
 else|else
