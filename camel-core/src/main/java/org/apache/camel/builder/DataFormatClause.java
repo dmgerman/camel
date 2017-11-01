@@ -4623,6 +4623,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the xmljson dataformat, based on json-lib      */
+annotation|@
+name|Deprecated
 DECL|method|xmljson ()
 specifier|public
 name|T
@@ -4639,6 +4641,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the xmljson dataformat, based on json-lib, initializing custom options with a Map      */
+annotation|@
+name|Deprecated
 DECL|method|xmljson (Map<String, String> options)
 specifier|public
 name|T

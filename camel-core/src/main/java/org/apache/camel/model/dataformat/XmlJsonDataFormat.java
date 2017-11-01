@@ -206,6 +206,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|XmlJsonDataFormat
 specifier|public
 class|class

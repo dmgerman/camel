@@ -332,6 +332,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|HessianDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|IcalDataFormat
 import|;
 end_import
@@ -829,7 +845,6 @@ name|UnmarshalDefinition
 argument_list|>
 block|{
 comment|// TODO: Camel 3.0, ref attribute should be removed as UnmarshalDataFormat is to be used instead
-comment|// cannot use @XmlElementRef as it doesn't allow optional properties
 annotation|@
 name|XmlElements
 argument_list|(
@@ -1046,6 +1061,24 @@ argument_list|,
 name|type
 operator|=
 name|GzipDataFormat
+operator|.
+name|class
+argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|,
+name|name
+operator|=
+literal|"hessian"
+argument_list|,
+name|type
+operator|=
+name|HessianDataFormat
 operator|.
 name|class
 argument_list|)
@@ -1542,6 +1575,7 @@ specifier|private
 name|DataFormatDefinition
 name|dataFormatType
 decl_stmt|;
+comment|// cannot use @XmlElementRef as it doesn't allow optional properties
 annotation|@
 name|XmlAttribute
 annotation|@
