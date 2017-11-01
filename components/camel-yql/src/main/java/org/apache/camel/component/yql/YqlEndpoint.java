@@ -202,7 +202,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"api,http"
+literal|"yql"
 argument_list|)
 DECL|class|YqlEndpoint
 specifier|public
