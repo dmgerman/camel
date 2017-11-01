@@ -1042,6 +1042,16 @@ name|getHeaderName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|xquery
+operator|.
+name|setModuleURIResolver
+argument_list|(
+name|getModuleURIResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setProcessor
 argument_list|(
 name|xquery
