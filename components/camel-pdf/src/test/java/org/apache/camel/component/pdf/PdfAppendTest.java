@@ -188,9 +188,23 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|edit
-operator|.
 name|PDPageContentStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|PDRectangle
 import|;
 end_import
 
@@ -266,7 +280,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|text
 operator|.
 name|PDFTextStripper
 import|;
@@ -389,9 +403,9 @@ init|=
 operator|new
 name|PDPage
 argument_list|(
-name|PDPage
+name|PDRectangle
 operator|.
-name|PAGE_SIZE_A4
+name|A4
 argument_list|)
 decl_stmt|;
 name|document
@@ -651,9 +665,9 @@ init|=
 operator|new
 name|PDPage
 argument_list|(
-name|PDPage
+name|PDRectangle
 operator|.
-name|PAGE_SIZE_A4
+name|A4
 argument_list|)
 decl_stmt|;
 name|document
@@ -799,6 +813,8 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|)
+argument_list|,
+name|userPass
 argument_list|)
 decl_stmt|;
 name|Map
@@ -925,6 +941,8 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|)
+argument_list|,
+name|userPass
 argument_list|)
 decl_stmt|;
 name|PDFTextStripper

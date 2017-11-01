@@ -184,7 +184,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|util
+name|text
 operator|.
 name|PDFTextStripper
 import|;
@@ -581,6 +581,8 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|)
+argument_list|,
+name|userPass
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -591,13 +593,6 @@ name|doc
 operator|.
 name|isEncrypted
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|doc
-operator|.
-name|decrypt
-argument_list|(
-name|userPass
 argument_list|)
 expr_stmt|;
 name|assertFalse
