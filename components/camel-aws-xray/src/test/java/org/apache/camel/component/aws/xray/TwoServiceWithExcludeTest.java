@@ -114,7 +114,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"SendingTo_direct_ServiceB"
+literal|"direct-ServiceB"
 argument_list|)
 argument_list|)
 argument_list|)

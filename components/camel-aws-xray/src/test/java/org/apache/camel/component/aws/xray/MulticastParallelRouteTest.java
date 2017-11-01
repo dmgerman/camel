@@ -82,7 +82,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"SendingTo_seda_a"
+literal|"seda-a"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -105,7 +105,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"SendingTo_seda_b"
+literal|"seda-b"
 argument_list|)
 argument_list|)
 operator|.
@@ -115,7 +115,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"SendingTo_seda_c"
+literal|"seda-c"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -145,7 +145,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"SendingTo_log_routing%20at%20$%7BrouteId%7D"
+literal|"log-routing%20at%20$%7BrouteId%7D"
 argument_list|)
 argument_list|)
 argument_list|)
