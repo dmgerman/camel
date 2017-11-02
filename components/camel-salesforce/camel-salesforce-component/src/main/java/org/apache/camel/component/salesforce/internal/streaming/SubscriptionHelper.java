@@ -917,7 +917,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Error renewing OAuth token on 401 error: "
 operator|+
@@ -947,7 +947,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Cleaning Session from SalesforceSession before restarting client"
+literal|"Cleaning session (logout) from SalesforceSession before restarting client"
 argument_list|)
 expr_stmt|;
 name|session
@@ -964,9 +964,9 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Error while cleaning session : "
+literal|"Error while cleaning session: "
 operator|+
 name|e
 operator|.
