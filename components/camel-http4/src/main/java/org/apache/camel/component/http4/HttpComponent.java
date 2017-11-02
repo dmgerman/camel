@@ -2582,11 +2582,11 @@ name|host
 operator|=
 name|host
 operator|.
-name|replace
+name|replaceFirst
 argument_list|(
-literal|"http"
+literal|":"
 argument_list|,
-literal|"http4"
+literal|"4:"
 argument_list|)
 expr_stmt|;
 comment|// get the endpoint
