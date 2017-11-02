@@ -108,16 +108,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mockito
 import|;
 end_import
@@ -249,6 +239,18 @@ operator|.
 name|fix42
 operator|.
 name|Email
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|isA
 import|;
 end_import
 
@@ -595,8 +597,6 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|Message
@@ -621,8 +621,6 @@ argument_list|)
 operator|.
 name|setException
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|TestException
@@ -693,8 +691,6 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|Message
@@ -724,8 +720,6 @@ argument_list|)
 operator|.
 name|setException
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|IllegalStateException
@@ -808,8 +802,6 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|Message
@@ -846,8 +838,6 @@ argument_list|)
 operator|.
 name|setException
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|CannotSendException
@@ -1163,8 +1153,6 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|Message
@@ -1194,8 +1182,6 @@ argument_list|)
 operator|.
 name|setException
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|IllegalStateException
@@ -1523,8 +1509,6 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|Message
@@ -1554,8 +1538,6 @@ argument_list|)
 operator|.
 name|setBody
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|Message
@@ -1585,8 +1567,6 @@ argument_list|)
 operator|.
 name|setException
 argument_list|(
-name|Matchers
-operator|.
 name|isA
 argument_list|(
 name|CannotSendException

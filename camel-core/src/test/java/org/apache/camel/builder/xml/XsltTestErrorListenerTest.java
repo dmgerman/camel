@@ -56,9 +56,9 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
-name|anyObject
+name|any
 import|;
 end_import
 
@@ -211,7 +211,7 @@ argument_list|)
 operator|.
 name|error
 argument_list|(
-name|anyObject
+name|any
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ argument_list|)
 operator|.
 name|fatalError
 argument_list|(
-name|anyObject
+name|any
 argument_list|()
 argument_list|)
 expr_stmt|;
