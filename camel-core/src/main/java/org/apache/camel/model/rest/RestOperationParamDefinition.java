@@ -328,6 +328,13 @@ name|String
 name|dataType
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|dataFormat
+specifier|private
+name|String
+name|dataFormat
+decl_stmt|;
+annotation|@
 name|XmlElementWrapper
 argument_list|(
 name|name
@@ -646,6 +653,33 @@ operator|=
 name|dataType
 expr_stmt|;
 block|}
+DECL|method|getDataFormat ()
+specifier|public
+name|String
+name|getDataFormat
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+return|;
+block|}
+comment|/**      * Sets the Swagger Parameter data format.      */
+DECL|method|setDataFormat (String dataFormat)
+specifier|public
+name|void
+name|setDataFormat
+parameter_list|(
+name|String
+name|dataFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataFormat
+operator|=
+name|dataFormat
+expr_stmt|;
+block|}
 DECL|method|getAllowableValues ()
 specifier|public
 name|List
@@ -885,6 +919,25 @@ DECL|method|dataType (String type)
 specifier|public
 name|RestOperationParamDefinition
 name|dataType
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|setDataType
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The data format of the parameter such as<tt>binary</tt>,<tt>date</tt>,<tt>date-time</tt>,<tt>password</tt>.      * The format is usually derived from the dataType alone. However you can set this option for more fine grained control      * of the format in use.      */
+DECL|method|dataFormat (String type)
+specifier|public
+name|RestOperationParamDefinition
+name|dataFormat
 parameter_list|(
 name|String
 name|type

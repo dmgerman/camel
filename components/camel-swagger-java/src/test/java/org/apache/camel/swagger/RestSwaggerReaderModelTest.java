@@ -261,12 +261,12 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"/{id}"
+literal|"/{id}/{date}"
 argument_list|)
 operator|.
 name|description
 argument_list|(
-literal|"Find user by id"
+literal|"Find user by id and date"
 argument_list|)
 operator|.
 name|outType
@@ -307,9 +307,32 @@ argument_list|(
 literal|"The id of the user to get"
 argument_list|)
 operator|.
-name|dataType
+name|endParam
+argument_list|()
+operator|.
+name|param
+argument_list|()
+operator|.
+name|name
 argument_list|(
-literal|"integer"
+literal|"date"
+argument_list|)
+operator|.
+name|type
+argument_list|(
+name|RestParamType
+operator|.
+name|path
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"The date"
+argument_list|)
+operator|.
+name|dataFormat
+argument_list|(
+literal|"date"
 argument_list|)
 operator|.
 name|endParam
@@ -593,6 +616,16 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"format\" : \"org.apache.camel.swagger.User\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"type\" : \"date\""
 argument_list|)
 argument_list|)
 expr_stmt|;
