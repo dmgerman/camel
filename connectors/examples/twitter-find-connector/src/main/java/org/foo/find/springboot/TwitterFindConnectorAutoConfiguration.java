@@ -695,7 +695,12 @@ name|connector
 init|=
 operator|new
 name|TwitterFindComponent
+argument_list|(
+name|entry
+operator|.
+name|getKey
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|connector
 operator|.

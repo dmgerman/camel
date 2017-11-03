@@ -51,6 +51,24 @@ literal|"org.foo.connector.BarComponent"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|BarComponent (String componentScheme)
+specifier|public
+name|BarComponent
+parameter_list|(
+name|String
+name|componentScheme
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"bar"
+argument_list|,
+name|componentScheme
+argument_list|,
+literal|"org.foo.connector.BarComponent"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

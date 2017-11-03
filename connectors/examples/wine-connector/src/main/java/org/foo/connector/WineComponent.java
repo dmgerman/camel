@@ -51,6 +51,24 @@ literal|"org.foo.connector.WineComponent"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|WineComponent (String componentScheme)
+specifier|public
+name|WineComponent
+parameter_list|(
+name|String
+name|componentScheme
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"wine"
+argument_list|,
+name|componentScheme
+argument_list|,
+literal|"org.foo.connector.WineComponent"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

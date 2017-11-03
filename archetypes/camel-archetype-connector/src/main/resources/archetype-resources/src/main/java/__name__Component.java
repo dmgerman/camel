@@ -230,6 +230,26 @@ argument_list|,
 literal|"${package}.${name}Component"
 argument_list|)
 block|;     }
+specifier|public
+name|$
+block|{
+name|name
+block|}
+name|Component
+argument_list|(
+name|String
+name|componentScheme
+argument_list|)
+block|{
+name|super
+argument_list|(
+literal|"${name}"
+argument_list|,
+name|componentScheme
+argument_list|,
+literal|"${package}.${name}Component"
+argument_list|)
+block|;     }
 block|}
 end_expr_stmt
 

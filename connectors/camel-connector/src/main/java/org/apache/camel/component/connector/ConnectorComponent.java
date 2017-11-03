@@ -145,10 +145,16 @@ name|String
 name|getConnectorName
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the connector component name (component scheme)      */
+comment|/**      * Gets the connector component name      */
 DECL|method|getComponentName ()
 name|String
 name|getComponentName
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the connector component scheme      */
+DECL|method|getComponentScheme ()
+name|String
+name|getComponentScheme
 parameter_list|()
 function_decl|;
 comment|/**      * Gets the camel-connector JSon file.      */

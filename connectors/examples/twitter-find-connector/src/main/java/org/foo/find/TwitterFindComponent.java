@@ -55,6 +55,24 @@ literal|"org.foo.find.TwitterFindComponent"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|TwitterFindComponent (String componentScheme)
+specifier|public
+name|TwitterFindComponent
+parameter_list|(
+name|String
+name|componentScheme
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"twitter-find"
+argument_list|,
+name|componentScheme
+argument_list|,
+literal|"org.foo.find.TwitterFindComponent"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

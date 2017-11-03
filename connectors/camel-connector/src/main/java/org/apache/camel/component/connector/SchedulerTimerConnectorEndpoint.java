@@ -242,7 +242,7 @@ init|=
 name|getComponent
 argument_list|()
 operator|.
-name|getComponentName
+name|getComponentScheme
 argument_list|()
 decl_stmt|;
 name|String

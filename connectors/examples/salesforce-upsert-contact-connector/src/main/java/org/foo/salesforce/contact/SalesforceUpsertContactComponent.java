@@ -62,6 +62,29 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|SalesforceUpsertContactComponent (String componentScheme)
+specifier|public
+name|SalesforceUpsertContactComponent
+parameter_list|(
+name|String
+name|componentScheme
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"salesforce-upsert-contact"
+argument_list|,
+name|componentScheme
+argument_list|,
+name|SalesforceUpsertContactComponent
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -65,6 +65,12 @@ specifier|private
 name|String
 name|consumerSecret
 decl_stmt|;
+comment|/**      * The search keywords. Multiple values can be separated with comma.      */
+DECL|field|keywords
+specifier|private
+name|String
+name|keywords
+decl_stmt|;
 comment|/**      * Filter out old tweets that has previously been polled. This state is      * stored in memory only and based on last tweet id.      */
 DECL|field|filterOld
 specifier|private
@@ -72,12 +78,6 @@ name|boolean
 name|filterOld
 init|=
 literal|true
-decl_stmt|;
-comment|/**      * Can be used for search and streaming/filter. Multiple values can be      * separated with comma.      */
-DECL|field|keywords
-specifier|private
-name|String
-name|keywords
 decl_stmt|;
 comment|/**      * Milliseconds before the next poll.      */
 DECL|field|delay
@@ -197,32 +197,6 @@ operator|=
 name|consumerSecret
 expr_stmt|;
 block|}
-DECL|method|isFilterOld ()
-specifier|public
-name|boolean
-name|isFilterOld
-parameter_list|()
-block|{
-return|return
-name|filterOld
-return|;
-block|}
-DECL|method|setFilterOld (boolean filterOld)
-specifier|public
-name|void
-name|setFilterOld
-parameter_list|(
-name|boolean
-name|filterOld
-parameter_list|)
-block|{
-name|this
-operator|.
-name|filterOld
-operator|=
-name|filterOld
-expr_stmt|;
-block|}
 DECL|method|getKeywords ()
 specifier|public
 name|String
@@ -247,6 +221,32 @@ operator|.
 name|keywords
 operator|=
 name|keywords
+expr_stmt|;
+block|}
+DECL|method|isFilterOld ()
+specifier|public
+name|boolean
+name|isFilterOld
+parameter_list|()
+block|{
+return|return
+name|filterOld
+return|;
+block|}
+DECL|method|setFilterOld (boolean filterOld)
+specifier|public
+name|void
+name|setFilterOld
+parameter_list|(
+name|boolean
+name|filterOld
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterOld
+operator|=
+name|filterOld
 expr_stmt|;
 block|}
 DECL|method|getDelay ()
