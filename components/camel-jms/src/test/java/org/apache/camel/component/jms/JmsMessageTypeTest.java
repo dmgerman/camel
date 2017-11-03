@@ -356,6 +356,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// we send an object and force it to use Text type
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -420,7 +421,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// we send an object and fore it to use Text type
+comment|// we send an object and force it to use Text type
 name|template
 operator|.
 name|sendBody
@@ -481,7 +482,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// we send an object and fore it to use Text type
+comment|// we send a string and force it to use Text type
 name|template
 operator|.
 name|sendBody
@@ -541,6 +542,7 @@ operator|.
 expr|class
 argument_list|)
 expr_stmt|;
+comment|// we send an object and force it to use Bytes type
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -608,7 +610,7 @@ operator|.
 expr|class
 argument_list|)
 expr_stmt|;
-comment|// we send an object and fore it to use Bytes type
+comment|// we send an object and force it to use Bytes type
 name|template
 operator|.
 name|sendBody
@@ -672,7 +674,7 @@ operator|.
 expr|class
 argument_list|)
 expr_stmt|;
-comment|// we send an object and fore it to use Text type
+comment|// we send a string and force it to use Bytes type
 name|template
 operator|.
 name|sendBody
@@ -680,9 +682,6 @@ argument_list|(
 literal|"direct:bytes"
 argument_list|,
 literal|"Bye World"
-operator|.
-name|getBytes
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -731,6 +730,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// we send an object and force it to use Map type
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -824,6 +824,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// we send an object and force it to use Map type
 name|template
 operator|.
 name|sendBody
@@ -939,6 +940,7 @@ argument_list|,
 literal|"Claus"
 argument_list|)
 expr_stmt|;
+comment|// we send a Map object and force it to use Map type
 name|template
 operator|.
 name|sendBody
@@ -1007,7 +1009,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// we use Text type then it should be a String
+comment|// we use Object type then it should be a MyFooBean object
 name|mock
 operator|.
 name|message
@@ -1025,7 +1027,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// we send an object and fore it to use Text type
+comment|// we send an object and force it to use Object type
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -1100,7 +1102,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// we use Text type then it should be a String
+comment|// we use Object type then it should be a MyFooBean object
 name|mock
 operator|.
 name|message
@@ -1118,7 +1120,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// we send an object and fore it to use Text type
+comment|// we send an object and force it to use Object type
 name|template
 operator|.
 name|sendBody
