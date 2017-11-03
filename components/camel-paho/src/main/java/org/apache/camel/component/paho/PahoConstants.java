@@ -99,6 +99,17 @@ name|CAMEL_PAHO
 operator|+
 literal|"Retained"
 decl_stmt|;
+DECL|field|CAMEL_PAHO_OVERRIDE_TOPIC
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CAMEL_PAHO_OVERRIDE_TOPIC
+init|=
+name|CAMEL_PAHO
+operator|+
+literal|"OverrideTopic"
+decl_stmt|;
 DECL|method|PahoConstants ()
 specifier|private
 name|PahoConstants
