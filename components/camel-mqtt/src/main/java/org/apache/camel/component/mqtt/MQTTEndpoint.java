@@ -1516,6 +1516,23 @@ name|void
 name|createConnection
 parameter_list|()
 block|{
+if|if
+condition|(
+name|connection
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// In connect(), in the connection.connect() callback, onFailure() doesn't seem to ever be called, so forcing the disconnect here.
+comment|// Without this, the fusesource MQTT client seems to be holding the old connection object, and connection contention can ensue.
+name|connection
+operator|.
+name|disconnect
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 name|connection
 operator|=
 name|configuration
@@ -2046,6 +2063,7 @@ name|Throwable
 name|value
 parameter_list|)
 block|{
+comment|// this doesn't appear to ever be called
 name|LOG
 operator|.
 name|warn
