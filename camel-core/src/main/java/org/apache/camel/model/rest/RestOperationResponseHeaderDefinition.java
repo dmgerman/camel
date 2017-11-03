@@ -712,7 +712,7 @@ name|String
 name|type
 parameter_list|)
 block|{
-name|setDataType
+name|setDataFormat
 argument_list|(
 name|type
 argument_list|)
