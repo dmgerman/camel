@@ -146,7 +146,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -242,6 +242,21 @@ argument_list|<
 name|RestOperationResponseHeaderDefinition
 argument_list|>
 name|headers
+decl_stmt|;
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"examples"
+argument_list|)
+DECL|field|examples
+specifier|private
+name|List
+argument_list|<
+name|RestPropertyDefinition
+argument_list|>
+name|examples
 decl_stmt|;
 DECL|method|RestOperationResponseMsgDefinition (VerbDefinition verb)
 specifier|public
@@ -395,6 +410,38 @@ operator|=
 name|headers
 expr_stmt|;
 block|}
+DECL|method|getExamples ()
+specifier|public
+name|List
+argument_list|<
+name|RestPropertyDefinition
+argument_list|>
+name|getExamples
+parameter_list|()
+block|{
+return|return
+name|examples
+return|;
+block|}
+DECL|method|setExamples (List<RestPropertyDefinition> examples)
+specifier|public
+name|void
+name|setExamples
+parameter_list|(
+name|List
+argument_list|<
+name|RestPropertyDefinition
+argument_list|>
+name|examples
+parameter_list|)
+block|{
+name|this
+operator|.
+name|examples
+operator|=
+name|examples
+expr_stmt|;
+block|}
 comment|/**      * The response code such as a HTTP status code.      */
 DECL|method|code (int code)
 specifier|public
@@ -479,6 +526,51 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds an example      */
+DECL|method|example (String key, String example)
+specifier|public
+name|RestOperationResponseMsgDefinition
+name|example
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|example
+parameter_list|)
+block|{
+if|if
+condition|(
+name|examples
+operator|==
+literal|null
+condition|)
+block|{
+name|examples
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
+block|}
+name|examples
+operator|.
+name|add
+argument_list|(
+operator|new
+name|RestPropertyDefinition
+argument_list|(
+name|key
+argument_list|,
+name|example
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Adds a response header      */
 DECL|method|header (String name)
 specifier|public
@@ -500,9 +592,7 @@ name|headers
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RestOperationResponseHeaderDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -541,7 +631,7 @@ name|endResponseMessage
 parameter_list|()
 block|{
 comment|// code and message is mandatory
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -550,7 +640,7 @@ argument_list|,
 literal|"code"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

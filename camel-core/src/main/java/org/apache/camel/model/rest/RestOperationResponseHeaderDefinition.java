@@ -170,7 +170,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -301,6 +301,13 @@ argument_list|<
 name|String
 argument_list|>
 name|allowableValues
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|example
+specifier|private
+name|String
+name|example
 decl_stmt|;
 DECL|method|RestOperationResponseHeaderDefinition (RestOperationResponseMsgDefinition response)
 specifier|public
@@ -519,6 +526,33 @@ argument_list|>
 argument_list|()
 return|;
 block|}
+DECL|method|getExample ()
+specifier|public
+name|String
+name|getExample
+parameter_list|()
+block|{
+return|return
+name|example
+return|;
+block|}
+comment|/**      * Sets the Swagger example      */
+DECL|method|setExample (String example)
+specifier|public
+name|void
+name|setExample
+parameter_list|(
+name|String
+name|example
+parameter_list|)
+block|{
+name|this
+operator|.
+name|example
+operator|=
+name|example
+expr_stmt|;
+block|}
 comment|/**      * Sets the Swagger Parameter list of allowable values.      */
 DECL|method|setAllowableValues (List<String> allowableValues)
 specifier|public
@@ -681,6 +715,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets an example of this header.      */
+DECL|method|example (String example)
+specifier|public
+name|RestOperationResponseHeaderDefinition
+name|example
+parameter_list|(
+name|String
+name|example
+parameter_list|)
+block|{
+name|setExample
+argument_list|(
+name|example
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Ends the configuration of this header      */
 DECL|method|endHeader ()
 specifier|public
@@ -689,7 +742,7 @@ name|endHeader
 parameter_list|()
 block|{
 comment|// name and type is mandatory
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -698,7 +751,7 @@ argument_list|,
 literal|"name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

@@ -170,7 +170,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -362,6 +362,21 @@ DECL|field|access
 specifier|private
 name|String
 name|access
+decl_stmt|;
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"examples"
+argument_list|)
+DECL|field|examples
+specifier|private
+name|List
+argument_list|<
+name|RestPropertyDefinition
+argument_list|>
+name|examples
 decl_stmt|;
 DECL|method|RestOperationParamDefinition ()
 specifier|public
@@ -718,6 +733,39 @@ operator|=
 name|access
 expr_stmt|;
 block|}
+DECL|method|getExamples ()
+specifier|public
+name|List
+argument_list|<
+name|RestPropertyDefinition
+argument_list|>
+name|getExamples
+parameter_list|()
+block|{
+return|return
+name|examples
+return|;
+block|}
+comment|/**      * Sets the Swagger Parameter examples.      */
+DECL|method|setExamples (List<RestPropertyDefinition> examples)
+specifier|public
+name|void
+name|setExamples
+parameter_list|(
+name|List
+argument_list|<
+name|RestPropertyDefinition
+argument_list|>
+name|examples
+parameter_list|)
+block|{
+name|this
+operator|.
+name|examples
+operator|=
+name|examples
+expr_stmt|;
+block|}
 comment|/**      * Name of the parameter.      *<p/>      * This option is mandatory.      */
 DECL|method|name (String name)
 specifier|public
@@ -938,6 +986,93 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a body example with the given content-type      */
+DECL|method|example (String contentType, String example)
+specifier|public
+name|RestOperationParamDefinition
+name|example
+parameter_list|(
+name|String
+name|contentType
+parameter_list|,
+name|String
+name|example
+parameter_list|)
+block|{
+if|if
+condition|(
+name|examples
+operator|==
+literal|null
+condition|)
+block|{
+name|examples
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
+block|}
+name|examples
+operator|.
+name|add
+argument_list|(
+operator|new
+name|RestPropertyDefinition
+argument_list|(
+name|contentType
+argument_list|,
+name|example
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds a single example      */
+DECL|method|example (String example)
+specifier|public
+name|RestOperationParamDefinition
+name|example
+parameter_list|(
+name|String
+name|example
+parameter_list|)
+block|{
+if|if
+condition|(
+name|examples
+operator|==
+literal|null
+condition|)
+block|{
+name|examples
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
+block|}
+name|examples
+operator|.
+name|add
+argument_list|(
+operator|new
+name|RestPropertyDefinition
+argument_list|(
+literal|""
+argument_list|,
+name|example
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Ends the configuration of this parameter      */
 DECL|method|endParam ()
 specifier|public
@@ -946,7 +1081,7 @@ name|endParam
 parameter_list|()
 block|{
 comment|// name is mandatory
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

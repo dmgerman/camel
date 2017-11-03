@@ -283,6 +283,11 @@ argument_list|(
 literal|"Who is it"
 argument_list|)
 operator|.
+name|example
+argument_list|(
+literal|"Donald Duck"
+argument_list|)
+operator|.
 name|endParam
 argument_list|()
 operator|.
@@ -326,6 +331,11 @@ argument_list|(
 literal|"Who is it"
 argument_list|)
 operator|.
+name|example
+argument_list|(
+literal|"Donald Duck"
+argument_list|)
+operator|.
 name|endParam
 argument_list|()
 operator|.
@@ -347,6 +357,20 @@ argument_list|(
 name|float
 operator|.
 name|class
+argument_list|)
+operator|.
+name|example
+argument_list|(
+literal|"success"
+argument_list|,
+literal|"123"
+argument_list|)
+operator|.
+name|example
+argument_list|(
+literal|"error"
+argument_list|,
+literal|"-1"
 argument_list|)
 operator|.
 name|endResponseMessage
@@ -400,6 +424,13 @@ operator|.
 name|description
 argument_list|(
 literal|"Message to use as greeting"
+argument_list|)
+operator|.
+name|example
+argument_list|(
+literal|"application/xml"
+argument_list|,
+literal|"<hello>Hi</hello>"
 argument_list|)
 operator|.
 name|endParam
@@ -539,15 +570,6 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 name|json
@@ -625,6 +647,46 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"format\" : \"float\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"application/xml\" : \"<hello>Hi</hello>\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"x-example\" : \"Donald Duck\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"success\" : \"123\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"error\" : \"-1\""
 argument_list|)
 argument_list|)
 expr_stmt|;
