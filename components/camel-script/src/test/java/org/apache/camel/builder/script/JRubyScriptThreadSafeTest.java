@@ -287,7 +287,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -302,7 +302,7 @@ expr_stmt|;
 comment|// Now the default the value is not use the compiled script, as it could introduce some concurrent issue
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

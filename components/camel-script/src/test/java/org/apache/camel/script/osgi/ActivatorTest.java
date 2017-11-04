@@ -202,7 +202,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyString
 import|;
@@ -283,6 +283,9 @@ name|thenAnswer
 argument_list|(
 operator|new
 name|Answer
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 annotation|@
