@@ -78,7 +78,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -150,7 +150,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|any
 import|;
@@ -162,7 +162,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyChar
 import|;
@@ -174,7 +174,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyInt
 import|;
@@ -186,7 +186,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyString
 import|;
@@ -198,7 +198,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|eq
 import|;
@@ -629,20 +629,6 @@ name|void
 name|testFilter1ArgNullArg
 parameter_list|()
 block|{
-name|when
-argument_list|(
-name|nonXmlCharFiltererMock
-operator|.
-name|filter
-argument_list|(
-name|anyString
-argument_list|()
-argument_list|)
-argument_list|)
-operator|.
-name|thenCallRealMethod
-argument_list|()
-expr_stmt|;
 name|nonXmlCharFiltererMock
 operator|.
 name|filter

@@ -98,7 +98,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -146,7 +146,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|any
 import|;
@@ -158,7 +158,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyInt
 import|;
@@ -170,7 +170,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|eq
 import|;
@@ -182,7 +182,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|same
 import|;
@@ -329,6 +329,8 @@ parameter_list|)
 throws|throws
 name|Throwable
 block|{
+try|try
+init|(
 name|ConstantReader
 name|reader
 init|=
@@ -346,7 +348,8 @@ block|,
 literal|'c'
 block|}
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|Object
 index|[]
 name|args
@@ -387,6 +390,7 @@ literal|2
 index|]
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 argument_list|)
