@@ -286,7 +286,7 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
-comment|// no more bytes more should be available on the inputstream
+comment|// no more bytes should be available on the inputstream
 name|assertEquals
 argument_list|(
 literal|0
