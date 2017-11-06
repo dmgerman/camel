@@ -324,7 +324,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyString
 import|;
@@ -604,13 +604,9 @@ name|placeholder
 init|=
 name|invocation
 operator|.
-name|getArgumentAt
+name|getArgument
 argument_list|(
 literal|0
-argument_list|,
-name|String
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 comment|// we receive the argument and check if the method should return a
