@@ -272,7 +272,9 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"yql://query?format=xml&callback=yqlCallback&diagnostics=true&debug=true&https=false&throwExceptionOnFailure=false&jsonCompat=new"
+literal|"yql://query?format=xml&callback=yqlCallback&diagnostics=true"
+operator|+
+literal|"&debug=true&https=false&throwExceptionOnFailure=false&jsonCompat=new"
 argument_list|)
 decl_stmt|;
 comment|// when

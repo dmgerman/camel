@@ -90,15 +90,6 @@ name|YqlConfiguration
 block|{
 annotation|@
 name|UriPath
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
-name|description
-operator|=
-literal|"The YQL statement to execute."
-argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -114,10 +105,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
 name|enums
 operator|=
 literal|"json,xml"
@@ -125,10 +112,6 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"json"
-argument_list|,
-name|description
-operator|=
-literal|"The expected format. Allowed values: xml or json."
 argument_list|)
 DECL|field|format
 specifier|private
@@ -139,37 +122,13 @@ literal|"json"
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
-name|description
-operator|=
-literal|"The name of the JavaScript callback function for JSONP format. If callback is set and if format=json, then the response format is JSON. For more "
-operator|+
-literal|"information on using XML instead of JSON, see JSONP-X."
-argument_list|)
 DECL|field|callback
 specifier|private
 name|String
 name|callback
-init|=
-literal|""
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
-name|description
-operator|=
-literal|"When given the value optimized, the projected fields in SELECT statements that may be returned in separate item elements in the response are "
-operator|+
-literal|"optimized to be in a single item element instead. The only allowed value is optimized."
-argument_list|)
 DECL|field|crossProduct
 specifier|private
 name|String
@@ -177,59 +136,20 @@ name|crossProduct
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|,
-name|description
-operator|=
-literal|"If true, diagnostic information is returned with the response."
-argument_list|)
 DECL|field|diagnostics
 specifier|private
 name|boolean
 name|diagnostics
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|,
-name|description
-operator|=
-literal|"If true, and if diagnostic is set to true, debug data is returned with the response."
-argument_list|)
 DECL|field|debug
 specifier|private
 name|boolean
 name|debug
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
-name|description
-operator|=
-literal|"Allows you to use multiple Open Data Tables through a YQL environment file."
-argument_list|)
 DECL|field|env
 specifier|private
 name|String
@@ -237,15 +157,6 @@ name|env
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
-name|description
-operator|=
-literal|"Enables lossless JSON processing. The only allowed value is new."
-argument_list|)
 DECL|field|jsonCompat
 specifier|private
 name|String
@@ -254,19 +165,9 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"Option to disable throwing the YqlHttpException in case of failed responses from the remote server. "
-operator|+
-literal|"This allows you to get all responses regardless of the HTTP status code."
 argument_list|)
 DECL|field|throwExceptionOnFailure
 specifier|private
@@ -280,15 +181,11 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"security"
 argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"Option to use HTTPS to communicate with YQL."
 argument_list|)
 DECL|field|https
 specifier|private
