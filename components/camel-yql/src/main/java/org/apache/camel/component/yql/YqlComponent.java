@@ -96,6 +96,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|http
 operator|.
 name|conn
@@ -128,6 +142,13 @@ name|YqlComponent
 extends|extends
 name|DefaultComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|localConnectionManager
 specifier|private
 name|HttpClientConnectionManager
@@ -234,7 +255,17 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Set the connection manager.      */
+DECL|method|getLocalConnectionManager ()
+specifier|public
+name|HttpClientConnectionManager
+name|getLocalConnectionManager
+parameter_list|()
+block|{
+return|return
+name|localConnectionManager
+return|;
+block|}
+comment|/**      * To use a custom configured HttpClientConnectionManager.      */
 DECL|method|setConnectionManager (final HttpClientConnectionManager connectionManager)
 specifier|public
 name|void

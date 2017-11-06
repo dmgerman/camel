@@ -400,7 +400,7 @@ return|return
 name|jsonCompat
 return|;
 block|}
-comment|/**      * Enables lossless JSON processing. The only allowed value is new.      * More information https://developer.yahoo.com/yql/guide/response.html#json-to-json=      */
+comment|/**      * Enables lossless JSON processing. The only allowed value is new.      * More information https://developer.yahoo.com/yql/guide/response.html#json-to-json      */
 DECL|method|setJsonCompat (final String jsonCompat)
 specifier|public
 name|void

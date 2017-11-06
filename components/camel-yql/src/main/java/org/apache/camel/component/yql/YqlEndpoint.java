@@ -160,21 +160,9 @@ name|HttpClients
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|impl
-operator|.
-name|conn
-operator|.
-name|PoolingHttpClientConnectionManager
-import|;
-end_import
+begin_comment
+comment|/**  * The YQL (Yahoo! Query Language) platform enables you to query, filter, and combine data across the web.  */
+end_comment
 
 begin_class
 annotation|@
@@ -202,7 +190,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"yql"
+literal|"cloud"
 argument_list|)
 DECL|class|YqlEndpoint
 specifier|public
@@ -211,14 +199,6 @@ name|YqlEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-annotation|@
-name|UriParam
-DECL|field|configuration
-specifier|private
-specifier|final
-name|YqlConfiguration
-name|configuration
-decl_stmt|;
 DECL|field|connectionManager
 specifier|private
 specifier|final
@@ -230,22 +210,27 @@ specifier|private
 name|CloseableHttpClient
 name|httpClient
 decl_stmt|;
-DECL|method|YqlEndpoint (final String uri, final YqlComponent component, final YqlConfiguration configuration, final HttpClientConnectionManager connectionManager)
-name|YqlEndpoint
-parameter_list|(
-specifier|final
-name|String
-name|uri
-parameter_list|,
-specifier|final
-name|YqlComponent
-name|component
-parameter_list|,
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|private
 specifier|final
 name|YqlConfiguration
 name|configuration
+decl_stmt|;
+DECL|method|YqlEndpoint (String uri, YqlComponent component, YqlConfiguration configuration, HttpClientConnectionManager connectionManager)
+specifier|public
+name|YqlEndpoint
+parameter_list|(
+name|String
+name|uri
 parameter_list|,
-specifier|final
+name|YqlComponent
+name|component
+parameter_list|,
+name|YqlConfiguration
+name|configuration
+parameter_list|,
 name|HttpClientConnectionManager
 name|connectionManager
 parameter_list|)
@@ -306,10 +291,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Consumer does not supported for YQL component: "
-operator|+
-name|getEndpointUri
-argument_list|()
+literal|"Consumer is not supported for YQL component"
 argument_list|)
 throw|;
 block|}
@@ -346,6 +328,10 @@ name|httpClient
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|httpClient
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
