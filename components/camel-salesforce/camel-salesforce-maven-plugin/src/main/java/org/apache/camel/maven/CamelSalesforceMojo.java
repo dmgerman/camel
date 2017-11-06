@@ -780,6 +780,22 @@ name|apache
 operator|.
 name|maven
 operator|.
+name|plugin
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
 name|plugins
 operator|.
 name|annotations
@@ -2349,6 +2365,9 @@ operator|new
 name|GeneratorUtility
 argument_list|(
 name|useStringsForPicklists
+argument_list|,
+name|getLog
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// should we provide a flag to control timestamp generation?
@@ -4165,8 +4184,6 @@ expr_stmt|;
 block|}
 comment|// create a type map
 comment|// using JAXB mapping, for the most part
-comment|// uses Joda time instead of XmlGregorianCalendar
-comment|// TODO do we need support for commented types???
 specifier|final
 name|String
 index|[]
@@ -4245,7 +4262,6 @@ block|,
 literal|"Byte"
 block|}
 block|,
-comment|//                {"QName", "javax.xml.namespace.QName"},
 block|{
 literal|"dateTime"
 block|,
@@ -4259,7 +4275,6 @@ block|,
 literal|"String"
 block|}
 block|,
-comment|//                {"hexBinary", "byte[]"},
 block|{
 literal|"unsignedInt"
 block|,
@@ -4278,21 +4293,18 @@ block|,
 literal|"Short"
 block|}
 block|,
-comment|//                {"time", "javax.xml.datatype.XMLGregorianCalendar"},
 block|{
 literal|"time"
 block|,
 literal|"java.time.ZonedDateTime"
 block|}
 block|,
-comment|//                {"date", "javax.xml.datatype.XMLGregorianCalendar"},
 block|{
 literal|"date"
 block|,
 literal|"java.time.ZonedDateTime"
 block|}
 block|,
-comment|//                {"g", "javax.xml.datatype.XMLGregorianCalendar"},
 block|{
 literal|"g"
 block|,
@@ -4306,7 +4318,6 @@ block|,
 literal|"String"
 block|}
 block|,
-comment|/*                 {"anySimpleType", "java.lang.Object"},                 {"anySimpleType", "java.lang.String"},                 {"duration", "javax.xml.datatype.Duration"},                 {"NOTATION", "javax.xml.namespace.QName"} */
 block|{
 literal|"address"
 block|,
@@ -4317,6 +4328,12 @@ block|{
 literal|"location"
 block|,
 literal|"org.apache.camel.component.salesforce.api.dto.GeoLocation"
+block|}
+block|,
+block|{
+literal|"RelationshipReferenceTo"
+block|,
+literal|"String"
 block|}
 block|}
 decl_stmt|;
@@ -4432,14 +4449,29 @@ name|String
 argument_list|>
 name|stack
 decl_stmt|;
-DECL|method|GeneratorUtility (Boolean useStringsForPicklists)
+DECL|field|log
+specifier|private
+specifier|final
+name|Log
+name|log
+decl_stmt|;
+DECL|method|GeneratorUtility (Boolean useStringsForPicklists, Log log)
 specifier|public
 name|GeneratorUtility
 parameter_list|(
 name|Boolean
 name|useStringsForPicklists
+parameter_list|,
+name|Log
+name|log
 parameter_list|)
 block|{
+name|this
+operator|.
+name|log
+operator|=
+name|log
+expr_stmt|;
 name|this
 operator|.
 name|useStringsForPicklists
@@ -4660,15 +4692,15 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|MojoExecutionException
+name|log
+operator|.
+name|warn
 argument_list|(
 name|String
 operator|.
 name|format
 argument_list|(
-literal|"Unsupported type %s for field %s"
+literal|"Unsupported field type %s in field %s of object %s"
 argument_list|,
 name|soapType
 argument_list|,
@@ -4676,9 +4708,14 @@ name|field
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+name|description
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 return|return
 name|type
