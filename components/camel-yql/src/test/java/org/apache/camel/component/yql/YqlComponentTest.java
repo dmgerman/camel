@@ -122,32 +122,6 @@ name|ExpectedException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|text
-operator|.
-name|IsEmptyString
-operator|.
-name|emptyString
-import|;
-end_import
-
 begin_class
 DECL|class|YqlComponentTest
 specifier|public
@@ -415,18 +389,12 @@ name|getFormat
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNull
 argument_list|(
 name|yqlConfiguration
 operator|.
 name|getCallback
 argument_list|()
-argument_list|,
-name|is
-argument_list|(
-name|emptyString
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertNull
