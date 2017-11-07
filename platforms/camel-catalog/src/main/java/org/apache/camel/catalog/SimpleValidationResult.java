@@ -17,12 +17,10 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Kept to be backwards compatible,  * @deprecated Please use {@link LanguageValidationResult} instead.  */
+comment|/**  * To be backwards compatible, but favor using {@link LanguageValidationResult} instead.  */
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
 DECL|class|SimpleValidationResult
 specifier|public
 class|class
