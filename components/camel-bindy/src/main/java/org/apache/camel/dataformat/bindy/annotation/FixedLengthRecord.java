@@ -83,13 +83,21 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Character to be used to add a carriage return after each record      * (optional) Three values can be used : WINDOWS, UNIX or MAC      *       * @return String      */
+comment|/**      * Character to be used to add a carriage return after each record      * (optional) Three values can be used : WINDOWS, UNIX or MAC      * This option is used only during marshalling, whereas unmarshalling      * uses system default JDK provided line delimiter unless eol is customized      * @return String      */
 DECL|method|crlf ()
 name|String
 name|crlf
 parameter_list|()
 default|default
 literal|"WINDOWS"
+function_decl|;
+comment|/**      * Character to be used to process considering end of line        * after each record while unmarshalling (optional - default = ""       * which help default JDK provided line delimiter to be used       * unless any other line delimiter provided)      * This option is used only during unmarshalling, where marshalling      * uses system default provided line delimiter as "WINDOWS" unless      * any other value is provided      * @return String      */
+DECL|method|eol ()
+name|String
+name|eol
+parameter_list|()
+default|default
+literal|""
 function_decl|;
 comment|/**      * The char to pad with.      * @return the char to pad with if the record is set to a fixed length;      */
 DECL|method|paddingChar ()

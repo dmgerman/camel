@@ -3047,6 +3047,22 @@ argument_list|,
 name|crlf
 argument_list|)
 expr_stmt|;
+name|eol
+operator|=
+name|record
+operator|.
+name|eol
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"EOL(end-of-line) defined for the CSV: {}"
+argument_list|,
+name|crlf
+argument_list|)
+expr_stmt|;
 comment|// Get header parameter
 name|header
 operator|=

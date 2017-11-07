@@ -248,6 +248,11 @@ specifier|protected
 name|String
 name|crlf
 decl_stmt|;
+DECL|field|eol
+specifier|protected
+name|String
+name|eol
+decl_stmt|;
 DECL|field|locale
 specifier|private
 name|String
@@ -996,6 +1001,17 @@ parameter_list|()
 block|{
 return|return
 name|crlf
+return|;
+block|}
+comment|/**      * Find the carriage return set      */
+DECL|method|getEndOfLine ()
+specifier|public
+name|String
+name|getEndOfLine
+parameter_list|()
+block|{
+return|return
+name|eol
 return|;
 block|}
 comment|/**      * Format the object into a string according to the format rule defined      */
