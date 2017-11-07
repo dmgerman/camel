@@ -395,6 +395,7 @@ block|}
 block|}
 DECL|method|isBulkOperation (OperationName operationName)
 specifier|private
+specifier|static
 name|boolean
 name|isBulkOperation
 parameter_list|(
@@ -454,6 +455,7 @@ block|}
 block|}
 DECL|method|isAnalyticsOperation (OperationName operationName)
 specifier|private
+specifier|static
 name|boolean
 name|isAnalyticsOperation
 parameter_list|(
@@ -495,6 +497,7 @@ block|}
 block|}
 DECL|method|isCompositeOperation (OperationName operationName)
 specifier|private
+specifier|static
 name|boolean
 name|isCompositeOperation
 parameter_list|(
@@ -512,6 +515,9 @@ name|COMPOSITE_TREE
 case|:
 case|case
 name|COMPOSITE_BATCH
+case|:
+case|case
+name|COMPOSITE
 case|:
 return|return
 literal|true

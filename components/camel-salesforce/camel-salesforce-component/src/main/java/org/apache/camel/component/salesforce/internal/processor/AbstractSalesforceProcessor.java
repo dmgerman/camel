@@ -304,10 +304,11 @@ specifier|final
 name|boolean
 name|rawPayload
 decl_stmt|;
-DECL|method|AbstractSalesforceProcessor (SalesforceEndpoint endpoint)
+DECL|method|AbstractSalesforceProcessor (final SalesforceEndpoint endpoint)
 specifier|public
 name|AbstractSalesforceProcessor
 parameter_list|(
+specifier|final
 name|SalesforceEndpoint
 name|endpoint
 parameter_list|)
@@ -318,8 +319,6 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
-name|this
-operator|.
 name|operationName
 operator|=
 name|endpoint
@@ -327,8 +326,6 @@ operator|.
 name|getOperationName
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
 name|endpointConfigMap
 operator|=
 name|endpoint
@@ -348,8 +345,6 @@ operator|.
 name|getComponent
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
 name|session
 operator|=
 name|component
@@ -357,8 +352,6 @@ operator|.
 name|getSession
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
 name|httpClient
 operator|=
 name|endpoint
@@ -369,8 +362,6 @@ operator|.
 name|getHttpClient
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
 name|rawPayload
 operator|=
 name|endpoint
@@ -397,22 +388,26 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Gets String value for a parameter from header, endpoint config, or exchange body (optional).      *      * @param exchange          exchange to inspect      * @param convertInBody     converts In body to String value if true      * @param propName          name of property      * @param optional          if {@code true} returns null, otherwise throws RestException      * @return value of property, or {@code null} for optional parameters if not found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException      *          if the property can't be found or on conversion errors.      */
-DECL|method|getParameter (String propName, Exchange exchange, boolean convertInBody, boolean optional)
+comment|/**      * Gets String value for a parameter from header, endpoint config, or      * exchange body (optional).      *      * @param exchange          exchange to inspect      * @param convertInBody     converts In body to String value if true      * @param propName          name of property      * @param optional          if {@code true} returns null, otherwise throws RestException      * @return value of property, or {@code null} for optional parameters if not found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException      *          if the property can't be found or on conversion errors.      */
+DECL|method|getParameter (final String propName, final Exchange exchange, final boolean convertInBody, final boolean optional)
 specifier|protected
 specifier|final
 name|String
 name|getParameter
 parameter_list|(
+specifier|final
 name|String
 name|propName
 parameter_list|,
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|boolean
 name|convertInBody
 parameter_list|,
+specifier|final
 name|boolean
 name|optional
 parameter_list|)
@@ -437,7 +432,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Gets value for a parameter from header, endpoint config, or exchange body (optional).      *      * @param exchange          exchange to inspect      * @param convertInBody     converts In body to parameterClass value if true      * @param propName          name of property      * @param optional          if {@code true} returns null, otherwise throws RestException      * @param parameterClass    parameter type      * @return value of property, or {@code null} for optional parameters if not found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException      *          if the property can't be found or on conversion errors.      */
-DECL|method|getParameter (String propName, Exchange exchange, boolean convertInBody, boolean optional, Class<T> parameterClass)
+DECL|method|getParameter (final String propName, final Exchange exchange, final boolean convertInBody, final boolean optional, final Class<T> parameterClass)
 specifier|protected
 specifier|final
 parameter_list|<
@@ -446,18 +441,23 @@ parameter_list|>
 name|T
 name|getParameter
 parameter_list|(
+specifier|final
 name|String
 name|propName
 parameter_list|,
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|boolean
 name|convertInBody
 parameter_list|,
+specifier|final
 name|boolean
 name|optional
 parameter_list|,
+specifier|final
 name|Class
 argument_list|<
 name|T
@@ -584,6 +584,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|NoTypeConversionAvailableException
 name|e
 parameter_list|)
@@ -600,13 +601,11 @@ block|}
 block|}
 name|propValue
 operator|=
-operator|(
 name|propValue
 operator|==
 literal|null
 operator|&&
 name|convertInBody
-operator|)
 condition|?
 name|in
 operator|.
@@ -628,6 +627,7 @@ operator|!
 name|optional
 condition|)
 block|{
+specifier|final
 name|String
 name|msg
 init|=

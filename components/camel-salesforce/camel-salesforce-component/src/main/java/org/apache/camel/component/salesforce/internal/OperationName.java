@@ -283,6 +283,12 @@ name|COMPOSITE_BATCH
 argument_list|(
 literal|"composite-batch"
 argument_list|)
+block|,
+DECL|enumConstant|COMPOSITE
+name|COMPOSITE
+argument_list|(
+literal|"composite"
+argument_list|)
 block|;
 DECL|field|value
 specifier|private

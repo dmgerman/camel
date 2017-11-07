@@ -278,7 +278,7 @@ literal|"createBatchQuery,getQueryResultIds,getQueryResult,getRecentReports,getR
 operator|+
 literal|"executeAsyncReport,getReportInstances,getReportResults,limits,approval,approvals,composite-tree,"
 operator|+
-literal|"composite-batch"
+literal|"composite-batch,composite"
 argument_list|)
 DECL|field|operationName
 specifier|private

@@ -769,6 +769,7 @@ name|batch
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The XML format fails, as Salesforce API wrongly includes whitespaces      * inside tag names. E.g.<Ant Migration Tool>      * https://www.w3.org/TR/2008/REC-xml-20081126/#NT-NameChar      */
 annotation|@
 name|Test
 DECL|method|shouldSupportLimits ()
