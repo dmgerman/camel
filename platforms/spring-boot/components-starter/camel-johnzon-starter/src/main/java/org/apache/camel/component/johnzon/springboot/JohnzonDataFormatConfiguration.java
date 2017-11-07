@@ -228,6 +228,12 @@ name|allowUnmarshallType
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * If set then Jackson will use the Timezone when marshalling/unmarshalling.      * This option will have no effect on the others Json DataFormat like gson      * fastjson and xstream.      */
+DECL|field|timezone
+specifier|private
+name|String
+name|timezone
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -650,6 +656,32 @@ operator|.
 name|allowUnmarshallType
 operator|=
 name|allowUnmarshallType
+expr_stmt|;
+block|}
+DECL|method|getTimezone ()
+specifier|public
+name|String
+name|getTimezone
+parameter_list|()
+block|{
+return|return
+name|timezone
+return|;
+block|}
+DECL|method|setTimezone (String timezone)
+specifier|public
+name|void
+name|setTimezone
+parameter_list|(
+name|String
+name|timezone
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timezone
+operator|=
+name|timezone
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()
