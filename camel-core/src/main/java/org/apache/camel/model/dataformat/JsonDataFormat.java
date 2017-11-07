@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|text
+operator|.
+name|DateFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -185,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JSon data format is used for unmarshal a JSon payload to POJO or to marshal POJO back to JSon payload.  *  * @version   */
+comment|/**  * JSon data format is used for unmarshal a JSon payload to POJO or to marshal  * POJO back to JSon payload.  *  * @version  */
 end_comment
 
 begin_class
@@ -367,6 +387,13 @@ specifier|private
 name|Boolean
 name|allowUnmarshallType
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|timezone
+specifier|private
+name|String
+name|timezone
+decl_stmt|;
 DECL|method|JsonDataFormat ()
 specifier|public
 name|JsonDataFormat
@@ -403,7 +430,7 @@ return|return
 name|objectMapper
 return|;
 block|}
-comment|/**      * Lookup and use the existing ObjectMapper with the given id when using Jackson.      */
+comment|/**      * Lookup and use the existing ObjectMapper with the given id when using      * Jackson.      */
 DECL|method|setObjectMapper (String objectMapper)
 specifier|public
 name|void
@@ -547,7 +574,7 @@ return|return
 name|jsonView
 return|;
 block|}
-comment|/**      * When marshalling a POJO to JSON you might want to exclude certain fields from the JSON output.      * With Jackson you can use JSON views to accomplish this. This option is to refer to the class      * which has @JsonView annotations      */
+comment|/**      * When marshalling a POJO to JSON you might want to exclude certain fields      * from the JSON output. With Jackson you can use JSON views to accomplish      * this. This option is to refer to the class which has @JsonView      * annotations      */
 DECL|method|setJsonView (Class<?> jsonView)
 specifier|public
 name|void
@@ -577,7 +604,7 @@ return|return
 name|include
 return|;
 block|}
-comment|/**      * If you want to marshal a pojo to JSON, and the pojo has some fields with null values.      * And you want to skip these null values, you can set this option to<tt>NOT_NULL</tt>      */
+comment|/**      * If you want to marshal a pojo to JSON, and the pojo has some fields with      * null values. And you want to skip these null values, you can set this      * option to<tt>NOT_NULL</tt>      */
 DECL|method|setInclude (String include)
 specifier|public
 name|void
@@ -604,7 +631,7 @@ return|return
 name|allowJmsType
 return|;
 block|}
-comment|/**      * Used for JMS users to allow the JMSType header from the JMS spec to specify a FQN classname      * to use to unmarshal to.      */
+comment|/**      * Used for JMS users to allow the JMSType header from the JMS spec to      * specify a FQN classname to use to unmarshal to.      */
 DECL|method|setAllowJmsType (Boolean allowJmsType)
 specifier|public
 name|void
@@ -631,7 +658,7 @@ return|return
 name|collectionTypeName
 return|;
 block|}
-comment|/**      * Refers to a custom collection type to lookup in the registry to use. This option should rarely be used, but allows      * to use different collection types than java.util.Collection based as default.      */
+comment|/**      * Refers to a custom collection type to lookup in the registry to use. This      * option should rarely be used, but allows to use different collection      * types than java.util.Collection based as default.      */
 DECL|method|setCollectionTypeName (String collectionTypeName)
 specifier|public
 name|void
@@ -685,7 +712,7 @@ return|return
 name|enableJaxbAnnotationModule
 return|;
 block|}
-comment|/**      * Whether to enable the JAXB annotations module when using jackson. When enabled then JAXB annotations      * can be used by Jackson.      */
+comment|/**      * Whether to enable the JAXB annotations module when using jackson. When      * enabled then JAXB annotations can be used by Jackson.      */
 DECL|method|setEnableJaxbAnnotationModule (Boolean enableJaxbAnnotationModule)
 specifier|public
 name|void
@@ -712,7 +739,7 @@ return|return
 name|moduleClassNames
 return|;
 block|}
-comment|/**      * To use custom Jackson modules com.fasterxml.jackson.databind.Module specified as a String with FQN class names.      * Multiple classes can be separated by comma.      */
+comment|/**      * To use custom Jackson modules com.fasterxml.jackson.databind.Module      * specified as a String with FQN class names. Multiple classes can be      * separated by comma.      */
 DECL|method|setModuleClassNames (String moduleClassNames)
 specifier|public
 name|void
@@ -739,7 +766,7 @@ return|return
 name|moduleRefs
 return|;
 block|}
-comment|/**      * To use custom Jackson modules referred from the Camel registry.      * Multiple modules can be separated by comma.      */
+comment|/**      * To use custom Jackson modules referred from the Camel registry. Multiple      * modules can be separated by comma.      */
 DECL|method|setModuleRefs (String moduleRefs)
 specifier|public
 name|void
@@ -766,7 +793,7 @@ return|return
 name|enableFeatures
 return|;
 block|}
-comment|/**      * Set of features to enable on the Jackson<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      *<p/>      * Multiple features can be separated by comma      */
+comment|/**      * Set of features to enable on the Jackson      *<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from      *<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or      *<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      *<p/>      * Multiple features can be separated by comma      */
 DECL|method|setEnableFeatures (String enableFeatures)
 specifier|public
 name|void
@@ -793,7 +820,7 @@ return|return
 name|disableFeatures
 return|;
 block|}
-comment|/**      * Set of features to disable on the Jackson<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      *<p/>      * Multiple features can be separated by comma      */
+comment|/**      * Set of features to disable on the Jackson      *<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from      *<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or      *<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      *<p/>      * Multiple features can be separated by comma      */
 DECL|method|setDisableFeatures (String disableFeatures)
 specifier|public
 name|void
@@ -820,7 +847,7 @@ return|return
 name|permissions
 return|;
 block|}
-comment|/**      * Adds permissions that controls which Java packages and classes XStream is allowed to use during      * unmarshal from xml/json to Java beans.      *<p/>      * A permission must be configured either here or globally using a JVM system property. The permission      * can be specified in a syntax where a plus sign is allow, and minus sign is deny.      *<br/>      * Wildcards is supported by using<tt>.*</tt> as prefix. For example to allow<tt>com.foo</tt> and all subpackages      * then specfy<tt>+com.foo.*</tt>. Multiple permissions can be configured separated by comma, such as      *<tt>+com.foo.*,-com.foo.bar.MySecretBean</tt>.      *<br/>      * The following default permission is always included:<tt>"-*,java.lang.*,java.util.*"</tt> unless      * its overridden by specifying a JVM system property with they key<tt>org.apache.camel.xstream.permissions</tt>.      */
+comment|/**      * Adds permissions that controls which Java packages and classes XStream is      * allowed to use during unmarshal from xml/json to Java beans.      *<p/>      * A permission must be configured either here or globally using a JVM      * system property. The permission can be specified in a syntax where a plus      * sign is allow, and minus sign is deny.<br/>      * Wildcards is supported by using<tt>.*</tt> as prefix. For example to      * allow<tt>com.foo</tt> and all subpackages then specfy      *<tt>+com.foo.*</tt>. Multiple permissions can be configured separated by      * comma, such as<tt>+com.foo.*,-com.foo.bar.MySecretBean</tt>.<br/>      * The following default permission is always included:      *<tt>"-*,java.lang.*,java.util.*"</tt> unless its overridden by specifying      * a JVM system property with they key      *<tt>org.apache.camel.xstream.permissions</tt>.      */
 DECL|method|setPermissions (String permissions)
 specifier|public
 name|void
@@ -837,7 +864,7 @@ operator|=
 name|permissions
 expr_stmt|;
 block|}
-comment|/**      * To add permission for the given pojo classes.      * @param type the pojo class(es) xstream should use as allowed permission      * @see #setPermissions(String)      */
+comment|/**      * To add permission for the given pojo classes.      *       * @param type the pojo class(es) xstream should use as allowed permission      * @see #setPermissions(String)      */
 DECL|method|setPermissions (Class<?>.... type)
 specifier|public
 name|void
@@ -908,7 +935,7 @@ return|return
 name|allowUnmarshallType
 return|;
 block|}
-comment|/**      * If enabled then Jackson is allowed to attempt to use the CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
+comment|/**      * If enabled then Jackson is allowed to attempt to use the      * CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
 DECL|method|setAllowUnmarshallType (Boolean allowUnmarshallType)
 specifier|public
 name|void
@@ -923,6 +950,33 @@ operator|.
 name|allowUnmarshallType
 operator|=
 name|allowUnmarshallType
+expr_stmt|;
+block|}
+DECL|method|getTimezone ()
+specifier|public
+name|String
+name|getTimezone
+parameter_list|()
+block|{
+return|return
+name|timezone
+return|;
+block|}
+comment|/**      * If set then Jackson will use the Timezone when marshalling/unmarshalling.      * This option will have no effect on the others Json DataFormat, like gson,      * fastjson and xstream.      */
+DECL|method|setTimezone (String timezone)
+specifier|public
+name|void
+name|setTimezone
+parameter_list|(
+name|String
+name|timezone
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timezone
+operator|=
+name|timezone
 expr_stmt|;
 block|}
 annotation|@
@@ -1488,7 +1542,8 @@ name|allowUnmarshallType
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if we have the unmarshal type, but no permission set, then use it to be allowed
+comment|// if we have the unmarshal type, but no permission set, then use it to
+comment|// be allowed
 if|if
 condition|(
 name|permissions

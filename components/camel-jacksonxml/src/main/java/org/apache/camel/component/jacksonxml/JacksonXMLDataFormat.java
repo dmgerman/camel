@@ -100,6 +100,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -343,7 +353,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> ({@link DataFormat})  * using<a href="http://jackson.codehaus.org/">Jackson</a> to marshal to and from XML.  */
+comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) using<a href="http://jackson.codehaus.org/">Jackson</a>  * to marshal to and from XML.  */
 end_comment
 
 begin_class
@@ -482,6 +492,11 @@ name|contentTypeHeader
 init|=
 literal|true
 decl_stmt|;
+DECL|field|timezone
+specifier|private
+name|TimeZone
+name|timezone
+decl_stmt|;
 comment|/**      * Use the default Jackson {@link XmlMapper} and {@link Map}      */
 DECL|method|JacksonXMLDataFormat ()
 specifier|public
@@ -496,7 +511,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use the default Jackson {@link XmlMapper} and with a custom      * unmarshal type      *      * @param unmarshalType the custom unmarshal type      */
+comment|/**      * Use the default Jackson {@link XmlMapper} and with a custom unmarshal      * type      *      * @param unmarshalType the custom unmarshal type      */
 DECL|method|JacksonXMLDataFormat (Class<?> unmarshalType)
 specifier|public
 name|JacksonXMLDataFormat
@@ -516,7 +531,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use the default Jackson {@link XmlMapper} and with a custom      * unmarshal type and JSON view      *      * @param unmarshalType the custom unmarshal type      * @param jsonView      marker class to specify properties to be included during marshalling.      *                      See also http://wiki.fasterxml.com/JacksonJsonViews      */
+comment|/**      * Use the default Jackson {@link XmlMapper} and with a custom unmarshal      * type and JSON view      *      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specify properties to be included during      *            marshalling. See also      *            http://wiki.fasterxml.com/JacksonJsonViews      */
 DECL|method|JacksonXMLDataFormat (Class<?> unmarshalType, Class<?> jsonView)
 specifier|public
 name|JacksonXMLDataFormat
@@ -544,7 +559,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use the default Jackson {@link XmlMapper} and with a custom      * unmarshal type and JSON view      *      * @param unmarshalType              the custom unmarshal type      * @param jsonView                   marker class to specify properties to be included during marshalling.      *                                   See also http://wiki.fasterxml.com/JacksonJsonViews      * @param enableJaxbAnnotationModule if it is true, will enable the JaxbAnnotationModule.      */
+comment|/**      * Use the default Jackson {@link XmlMapper} and with a custom unmarshal      * type and JSON view      *      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specify properties to be included during      *            marshalling. See also      *            http://wiki.fasterxml.com/JacksonJsonViews      * @param enableJaxbAnnotationModule if it is true, will enable the      *            JaxbAnnotationModule.      */
 DECL|method|JacksonXMLDataFormat (Class<?> unmarshalType, Class<?> jsonView, boolean enableJaxbAnnotationModule)
 specifier|public
 name|JacksonXMLDataFormat
@@ -584,7 +599,7 @@ operator|=
 name|enableJaxbAnnotationModule
 expr_stmt|;
 block|}
-comment|/**      * Use a custom Jackson mapper and and unmarshal type      *      * @param mapper        the custom mapper      * @param unmarshalType the custom unmarshal type      */
+comment|/**      * Use a custom Jackson mapper and and unmarshal type      *      * @param mapper the custom mapper      * @param unmarshalType the custom unmarshal type      */
 DECL|method|JacksonXMLDataFormat (XmlMapper mapper, Class<?> unmarshalType)
 specifier|public
 name|JacksonXMLDataFormat
@@ -609,7 +624,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use a custom Jackson mapper, unmarshal type and JSON view      *      * @param mapper        the custom mapper      * @param unmarshalType the custom unmarshal type      * @param jsonView      marker class to specify properties to be included during marshalling.      *                      See also http://wiki.fasterxml.com/JacksonJsonViews      */
+comment|/**      * Use a custom Jackson mapper, unmarshal type and JSON view      *      * @param mapper the custom mapper      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specify properties to be included during      *            marshalling. See also      *            http://wiki.fasterxml.com/JacksonJsonViews      */
 DECL|method|JacksonXMLDataFormat (XmlMapper mapper, Class<?> unmarshalType, Class<?> jsonView)
 specifier|public
 name|JacksonXMLDataFormat
@@ -1250,7 +1265,7 @@ name|module
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To use custom Jackson {@link Module}s specified as a String with FQN class names.      * Multiple classes can be separated by comma.      */
+comment|/**      * To use custom Jackson {@link Module}s specified as a String with FQN      * class names. Multiple classes can be separated by comma.      */
 DECL|method|setModuleClassNames (String moduleClassNames)
 specifier|public
 name|void
@@ -1277,7 +1292,7 @@ return|return
 name|moduleRefs
 return|;
 block|}
-comment|/**      * To use custom Jackson modules referred from the Camel registry.      * Multiple modules can be separated by comma.      */
+comment|/**      * To use custom Jackson modules referred from the Camel registry. Multiple      * modules can be separated by comma.      */
 DECL|method|setModuleRefs (String moduleRefs)
 specifier|public
 name|void
@@ -1329,7 +1344,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows jackson to use the<tt>JMSType</tt> header as an indicator what the classname is for unmarshaling XML content to POJO      *<p/>      * By default this option is<tt>false</tt>.      */
+comment|/**      * Allows jackson to use the<tt>JMSType</tt> header as an indicator what      * the classname is for unmarshaling XML content to POJO      *<p/>      * By default this option is<tt>false</tt>.      */
 DECL|method|setAllowJmsType (boolean allowJmsType)
 specifier|public
 name|void
@@ -1356,7 +1371,7 @@ return|return
 name|enableJacksonTypeConverter
 return|;
 block|}
-comment|/**      * If enabled then Jackson is allowed to attempt to be used during Camels<a href="https://camel.apache.org/type-converter.html">type converter</a>      * as a {@link org.apache.camel.FallbackConverter} that attempts to convert POJOs to/from {@link Map}/{@link List} types.      *<p/>      * This should only be enabled when desired to be used.      */
+comment|/**      * If enabled then Jackson is allowed to attempt to be used during Camels      *<a href="https://camel.apache.org/type-converter.html">type converter</a>      * as a {@link org.apache.camel.FallbackConverter} that attempts to convert      * POJOs to/from {@link Map}/{@link List} types.      *<p/>      * This should only be enabled when desired to be used.      */
 DECL|method|setEnableJacksonTypeConverter (boolean enableJacksonTypeConverter)
 specifier|public
 name|void
@@ -1383,7 +1398,7 @@ return|return
 name|allowUnmarshallType
 return|;
 block|}
-comment|/**      * If enabled then Jackson is allowed to attempt to use the CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
+comment|/**      * If enabled then Jackson is allowed to attempt to use the      * CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
 DECL|method|setAllowUnmarshallType (boolean allowJacksonUnmarshallType)
 specifier|public
 name|void
@@ -1410,7 +1425,7 @@ return|return
 name|contentTypeHeader
 return|;
 block|}
-comment|/**      * If enabled then Jackson will set the Content-Type header to<tt>application/xml</tt> when marshalling.      */
+comment|/**      * If enabled then Jackson will set the Content-Type header to      *<tt>application/xml</tt> when marshalling.      */
 DECL|method|setContentTypeHeader (boolean contentTypeHeader)
 specifier|public
 name|void
@@ -1427,6 +1442,33 @@ operator|=
 name|contentTypeHeader
 expr_stmt|;
 block|}
+DECL|method|getTimezone ()
+specifier|public
+name|TimeZone
+name|getTimezone
+parameter_list|()
+block|{
+return|return
+name|timezone
+return|;
+block|}
+comment|/**      * If set then Jackson will use the Timezone when marshalling/unmarshalling.      */
+DECL|method|setTimezone (TimeZone timezone)
+specifier|public
+name|void
+name|setTimezone
+parameter_list|(
+name|TimeZone
+name|timezone
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timezone
+operator|=
+name|timezone
+expr_stmt|;
+block|}
 DECL|method|getEnableFeatures ()
 specifier|public
 name|String
@@ -1437,7 +1479,7 @@ return|return
 name|enableFeatures
 return|;
 block|}
-comment|/**      * Set of features to enable on the Jackson {@link XmlMapper}.      * The features should be a name that matches a enum from {@link SerializationFeature}, {@link DeserializationFeature}, or {@link MapperFeature}.      */
+comment|/**      * Set of features to enable on the Jackson {@link XmlMapper}. The features      * should be a name that matches a enum from {@link SerializationFeature},      * {@link DeserializationFeature}, or {@link MapperFeature}.      */
 DECL|method|setEnableFeatures (String enableFeatures)
 specifier|public
 name|void
@@ -1464,7 +1506,7 @@ return|return
 name|disableFeatures
 return|;
 block|}
-comment|/**      * Set of features to disable on the Jackson {@link XmlMapper}.      * The features should be a name that matches a enum from {@link SerializationFeature}, {@link DeserializationFeature}, or {@link MapperFeature}.      */
+comment|/**      * Set of features to disable on the Jackson {@link XmlMapper}. The features      * should be a name that matches a enum from {@link SerializationFeature},      * {@link DeserializationFeature}, or {@link MapperFeature}.      */
 DECL|method|setDisableFeatures (String disableFeatures)
 specifier|public
 name|void
@@ -2345,6 +2387,33 @@ name|module
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|timezone
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Setting timezone to XML Mapper: {}"
+argument_list|,
+name|timezone
+argument_list|)
+expr_stmt|;
+name|xmlMapper
+operator|.
+name|setTimeZone
+argument_list|(
+name|timezone
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
