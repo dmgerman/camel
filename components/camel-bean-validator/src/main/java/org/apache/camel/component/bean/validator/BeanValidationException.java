@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bean validation exception occurred  *   * @version   */
+comment|/**  * A bean validation exception occurred  */
 end_comment
 
 begin_class

@@ -54,6 +54,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|validation
+operator|.
+name|spi
+operator|.
+name|ValidationProvider
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -197,6 +209,12 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|ValidationProvider
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|validationProviders
 init|=
 name|asList

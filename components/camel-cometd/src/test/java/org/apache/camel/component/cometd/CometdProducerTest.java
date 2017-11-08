@@ -100,6 +100,16 @@ name|org
 operator|.
 name|mockito
 operator|.
+name|ArgumentMatchers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
 name|Mock
 import|;
 end_import
@@ -110,7 +120,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -125,18 +135,6 @@ operator|.
 name|Assert
 operator|.
 name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-operator|.
-name|anyString
 import|;
 end_import
 
@@ -205,7 +203,9 @@ name|bayeuxServerImpl
 operator|.
 name|newLocalSession
 argument_list|(
-name|anyString
+name|ArgumentMatchers
+operator|.
+name|isNull
 argument_list|()
 argument_list|)
 argument_list|)
