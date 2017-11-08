@@ -592,8 +592,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Processing "
-operator|+
+literal|"Processing {}"
+argument_list|,
 name|signature
 argument_list|)
 expr_stmt|;

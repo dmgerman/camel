@@ -4294,8 +4294,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot find class: "
-operator|+
+literal|"Cannot find class: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
@@ -4306,8 +4306,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot find class: "
-operator|+
+literal|"Cannot find class: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;

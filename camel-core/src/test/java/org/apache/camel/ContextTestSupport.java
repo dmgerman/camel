@@ -429,8 +429,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using created route builder: "
-operator|+
+literal|"Using created route builder: {}"
+argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
@@ -471,8 +471,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"tearDown test: "
-operator|+
+literal|"tearDown test: {}"
+argument_list|,
 name|getName
 argument_list|()
 argument_list|)

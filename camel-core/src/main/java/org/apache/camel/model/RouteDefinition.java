@@ -1469,8 +1469,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"AdviceWith route after: "
-operator|+
+literal|"AdviceWith route after: {}"
+argument_list|,
 name|merged
 argument_list|)
 expr_stmt|;

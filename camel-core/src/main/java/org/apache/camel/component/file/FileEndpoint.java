@@ -660,8 +660,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Using default memory based idempotent repository with cache max size: "
-operator|+
+literal|"Using default memory based idempotent repository with cache max size: {}"
+argument_list|,
 name|DEFAULT_IDEMPOTENT_CACHE_SIZE
 argument_list|)
 expr_stmt|;

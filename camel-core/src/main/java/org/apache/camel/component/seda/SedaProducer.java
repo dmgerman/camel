@@ -1020,8 +1020,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Discard message as no active consumers on endpoint: "
-operator|+
+literal|"Discard message as no active consumers on endpoint: {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;

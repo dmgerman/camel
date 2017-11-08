@@ -184,8 +184,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"message ignored, no consumers available on endpoint: "
-operator|+
+literal|"message ignored, no consumers available on endpoint: {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;

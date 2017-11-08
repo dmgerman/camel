@@ -521,8 +521,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing "
-operator|+
+literal|"Processing {}"
+argument_list|,
 name|apiMethodEnum
 operator|.
 name|getName

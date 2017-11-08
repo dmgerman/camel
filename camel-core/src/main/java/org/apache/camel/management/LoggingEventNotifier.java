@@ -106,8 +106,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Event: "
-operator|+
+literal|"Event: {}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;

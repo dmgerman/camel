@@ -876,8 +876,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"This consumer is stopping, so cancelling scheduled task: "
-operator|+
+literal|"This consumer is stopping, so cancelling scheduled task: {}"
+argument_list|,
 name|futures
 argument_list|)
 expr_stmt|;

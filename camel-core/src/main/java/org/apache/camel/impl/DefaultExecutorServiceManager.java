@@ -776,8 +776,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom DefaultThreadPoolProfile: "
-operator|+
+literal|"Using custom DefaultThreadPoolProfile: {}"
+argument_list|,
 name|defaultThreadPoolProfile
 argument_list|)
 expr_stmt|;

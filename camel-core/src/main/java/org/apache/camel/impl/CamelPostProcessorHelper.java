@@ -538,8 +538,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating a consumer for: "
-operator|+
+literal|"Creating a consumer for: {}"
+argument_list|,
 name|consume
 argument_list|)
 expr_stmt|;

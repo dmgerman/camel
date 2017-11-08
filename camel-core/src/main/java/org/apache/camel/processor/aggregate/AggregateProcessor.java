@@ -6268,8 +6268,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using ClosedCorrelationKeys with a LRUCache with a capacity of "
-operator|+
+literal|"Using ClosedCorrelationKeys with a LRUCache with a capacity of {}"
+argument_list|,
 name|getCloseCorrelationKeyOnCompletion
 argument_list|()
 argument_list|)
