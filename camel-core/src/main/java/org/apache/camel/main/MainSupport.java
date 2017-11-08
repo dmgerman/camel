@@ -1907,12 +1907,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Waiting for: "
-operator|+
+literal|"Waiting for: {} {}"
+argument_list|,
 name|duration
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|unit
 argument_list|)
 expr_stmt|;
@@ -1960,12 +1958,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Waiting to be idle for: "
-operator|+
+literal|"Waiting to be idle for: {} {}"
+argument_list|,
 name|duration
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|unit
 argument_list|)
 expr_stmt|;
@@ -2003,11 +1999,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Waiting until: "
-operator|+
+literal|"Waiting until: {} messages has been processed"
+argument_list|,
 name|durationMaxMessages
-operator|+
-literal|" messages has been processed"
 argument_list|)
 expr_stmt|;
 name|exitCode

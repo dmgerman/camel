@@ -303,15 +303,13 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Found component "
-operator|+
+literal|"Found component {} with properties: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" with properties: "
-operator|+
+argument_list|,
 name|entry
 operator|.
 name|getValue

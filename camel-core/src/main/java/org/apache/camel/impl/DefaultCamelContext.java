@@ -17328,17 +17328,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel "
-operator|+
+literal|"Apache Camel {} (CamelContext: {}) is suspending"
+argument_list|,
 name|getVersion
 argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|") is suspending"
 argument_list|)
 expr_stmt|;
 name|StopWatch
@@ -17563,18 +17559,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel "
-operator|+
+literal|"Apache Camel {} (CamelContext: {}) is suspended in {}"
+argument_list|,
 name|getVersion
 argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|") is suspended in "
-operator|+
+argument_list|,
 name|TimeUtils
 operator|.
 name|printDuration
@@ -17618,17 +17610,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel "
-operator|+
+literal|"Apache Camel {} (CamelContext: {}) is resuming"
+argument_list|,
 name|getVersion
 argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|") is resuming"
 argument_list|)
 expr_stmt|;
 name|StopWatch
@@ -17702,32 +17690,26 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Resumed "
-operator|+
+literal|"Resumed {} routes"
+argument_list|,
 name|suspendedRouteServices
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" routes"
 argument_list|)
 expr_stmt|;
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel "
-operator|+
+literal|"Apache Camel {} (CamelContext: {}) resumed in {}"
+argument_list|,
 name|getVersion
 argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|") resumed in "
-operator|+
+argument_list|,
 name|TimeUtils
 operator|.
 name|printDuration
@@ -17816,17 +17798,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel "
-operator|+
+literal|"Apache Camel {} (CamelContext: {}) is starting"
+argument_list|,
 name|getVersion
 argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|") is starting"
 argument_list|)
 expr_stmt|;
 comment|// Note: This is done on context start as we want to avoid doing it during object construction
@@ -18076,18 +18054,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel "
-operator|+
+literal|"Apache Camel {} (CamelContext: {}) started in {}"
+argument_list|,
 name|getVersion
 argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|") started in "
-operator|+
+argument_list|,
 name|TimeUtils
 operator|.
 name|printDuration
@@ -19517,17 +19491,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel "
-operator|+
+literal|"Apache Camel {} (CamelContext: {}) is shutting down"
+argument_list|,
 name|getVersion
 argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|") is shutting down"
 argument_list|)
 expr_stmt|;
 name|EventHelper
@@ -19879,18 +19849,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Apache Camel "
-operator|+
+literal|"Apache Camel {} (CamelContext: {}) is shutdown in {}"
+argument_list|,
 name|getVersion
 argument_list|()
-operator|+
-literal|" (CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|") is shutdown in "
-operator|+
+argument_list|,
 name|TimeUtils
 operator|.
 name|printDuration
@@ -21739,14 +21705,12 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Skipping starting of route "
-operator|+
+literal|"Skipping starting of route {} as its configured with autoStartup=false"
+argument_list|,
 name|routeService
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" as its configured with autoStartup=false"
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -21991,15 +21955,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {} resumed and consuming from: {}"
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" resumed and consuming from: "
-operator|+
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
@@ -22071,15 +22033,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Route: "
-operator|+
+literal|"Route: {} started and consuming from: {}"
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" started and consuming from: "
-operator|+
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;

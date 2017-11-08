@@ -545,14 +545,12 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot add ContextClassLoader from current thread due "
-operator|+
+literal|"Cannot add ContextClassLoader from current thread due {}. This exception will be ignored."
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|". This exception will be ignored."
 argument_list|)
 expr_stmt|;
 block|}

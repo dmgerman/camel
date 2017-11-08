@@ -638,14 +638,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loaded "
-operator|+
+literal|"Loaded {} @Converter classes"
+argument_list|,
 name|classes
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" @Converter classes"
 argument_list|)
 expr_stmt|;
 block|}
@@ -719,20 +717,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} packages with {} @Converter classes to load"
+argument_list|,
 name|packageNames
 operator|.
 name|length
-operator|+
-literal|" packages with "
-operator|+
+argument_list|,
 name|scannedClasses
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" @Converter classes to load"
 argument_list|)
 expr_stmt|;
 name|classes

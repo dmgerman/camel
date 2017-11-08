@@ -227,12 +227,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|">>>> "
-operator|+
+literal|">>>> {} has: {}"
+argument_list|,
 name|endpoint
-operator|+
-literal|" has: "
-operator|+
+argument_list|,
 name|exchanges
 argument_list|)
 expr_stmt|;

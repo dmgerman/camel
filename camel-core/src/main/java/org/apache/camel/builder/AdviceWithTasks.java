@@ -1023,22 +1023,16 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"AdviceWith ("
-operator|+
+literal|"AdviceWith ({}) : [{}] --> replace [{}]"
+argument_list|,
 name|matchBy
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|") : ["
-operator|+
+argument_list|,
 name|old
-operator|+
-literal|"] --> replace ["
-operator|+
+argument_list|,
 name|replace
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1468,18 +1462,14 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"AdviceWith ("
-operator|+
+literal|"AdviceWith ({}) : [{}] --> remove"
+argument_list|,
 name|matchBy
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|") : ["
-operator|+
+argument_list|,
 name|old
-operator|+
-literal|"] --> remove"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1972,22 +1962,16 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"AdviceWith ("
-operator|+
+literal|"AdviceWith ({}) : [{}] --> before [{}]"
+argument_list|,
 name|matchBy
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|") : ["
-operator|+
+argument_list|,
 name|existing
-operator|+
-literal|"] --> before ["
-operator|+
+argument_list|,
 name|before
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2482,22 +2466,16 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"AdviceWith ("
-operator|+
+literal|"AdviceWith ({}) : [{}] --> after [{}]"
+argument_list|,
 name|matchBy
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|") : ["
-operator|+
+argument_list|,
 name|existing
-operator|+
-literal|"] --> after ["
-operator|+
+argument_list|,
 name|after
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

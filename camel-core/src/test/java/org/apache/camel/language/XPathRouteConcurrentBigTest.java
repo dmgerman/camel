@@ -311,12 +311,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Sent "
-operator|+
+literal|"Sent {} messages in {} ms"
+argument_list|,
 name|messageCount
-operator|+
-literal|" messages in "
-operator|+
+argument_list|,
 operator|(
 name|System
 operator|.
@@ -325,8 +323,6 @@ argument_list|()
 operator|-
 name|now
 operator|)
-operator|+
-literal|" ms"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -336,12 +332,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Processed "
-operator|+
+literal|"Processed {} messages in {} ms"
+argument_list|,
 name|messageCount
-operator|+
-literal|" messages in "
-operator|+
+argument_list|,
 operator|(
 name|System
 operator|.
@@ -350,8 +344,6 @@ argument_list|()
 operator|-
 name|now
 operator|)
-operator|+
-literal|" ms"
 argument_list|)
 expr_stmt|;
 block|}

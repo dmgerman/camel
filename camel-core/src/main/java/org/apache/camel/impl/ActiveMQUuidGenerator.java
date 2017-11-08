@@ -443,12 +443,10 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot generate unique stub by using DNS and binding to local port: "
-operator|+
+literal|"Cannot generate unique stub by using DNS and binding to local port: {} due {}"
+argument_list|,
 name|idGeneratorPort
-operator|+
-literal|" due "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage

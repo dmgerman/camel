@@ -324,12 +324,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Processed file with "
-operator|+
+literal|"Processed file with {} elements in: {}"
+argument_list|,
 name|size
-operator|+
-literal|" elements in: "
-operator|+
+argument_list|,
 name|TimeUtils
 operator|.
 name|printDuration
@@ -707,12 +705,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Processed "
-operator|+
+literal|"Processed {} small messages: {}"
+argument_list|,
 name|num
-operator|+
-literal|" small messages: "
-operator|+
+argument_list|,
 name|xml
 argument_list|)
 expr_stmt|;

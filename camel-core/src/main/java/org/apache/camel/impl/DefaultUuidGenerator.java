@@ -274,14 +274,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot generate unique stub by using DNS due "
-operator|+
+literal|"Cannot generate unique stub by using DNS due {}. This exception is ignored."
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|". This exception is ignored."
 argument_list|)
 expr_stmt|;
 block|}

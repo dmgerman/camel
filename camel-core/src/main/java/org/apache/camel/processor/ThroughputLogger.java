@@ -886,11 +886,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Scheduling throughput log to run every "
-operator|+
+literal|"Scheduling throughput log to run every {} millis."
+argument_list|,
 name|groupInterval
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
 comment|// must use fixed rate to have it trigger at every X interval

@@ -791,12 +791,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received response: "
-operator|+
+literal|"Received response: {} with in: {}"
+argument_list|,
 name|exchange
-operator|+
-literal|" with in: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getIn
@@ -892,12 +890,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received response: "
-operator|+
+literal|"Received response: {} with out: {}"
+argument_list|,
 name|exchange
-operator|+
-literal|" with out: "
-operator|+
+argument_list|,
 name|exchange
 operator|.
 name|getOut
@@ -1057,16 +1053,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Evaluated expression: "
-operator|+
+literal|"Evaluated expression: {} on exchange: {} result: {}"
+argument_list|,
 name|expression
-operator|+
-literal|" on exchange: "
-operator|+
+argument_list|,
 name|exchange
-operator|+
-literal|" result: "
-operator|+
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
@@ -1216,16 +1208,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Evaluated predicate: "
-operator|+
+literal|"Evaluated predicate: {} on exchange: {} result: {}"
+argument_list|,
 name|predicate
-operator|+
-literal|" on exchange: "
-operator|+
+argument_list|,
 name|exchange
-operator|+
-literal|" result: "
-operator|+
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;

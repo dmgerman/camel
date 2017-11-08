@@ -985,19 +985,15 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting to graceful suspend "
-operator|+
+literal|"Starting to graceful suspend {} routes (timeout {} {})"
+argument_list|,
 name|routesOrdered
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" routes (timeout "
-operator|+
+argument_list|,
 name|timeout
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|timeUnit
 operator|.
 name|toString
@@ -1009,8 +1005,6 @@ name|Locale
 operator|.
 name|ENGLISH
 argument_list|)
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1020,19 +1014,15 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting to graceful shutdown "
-operator|+
+literal|"Starting to graceful shutdown {} routes (timeout {} {})"
+argument_list|,
 name|routesOrdered
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" routes (timeout "
-operator|+
+argument_list|,
 name|timeout
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|timeUnit
 operator|.
 name|toString
@@ -1044,8 +1034,6 @@ name|Locale
 operator|.
 name|ENGLISH
 argument_list|)
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1308,18 +1296,14 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Graceful shutdown of "
-operator|+
+literal|"Graceful shutdown of {} routes completed in {} seconds"
+argument_list|,
 name|routesOrdered
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" routes completed in "
-operator|+
+argument_list|,
 name|seconds
-operator|+
-literal|" seconds"
 argument_list|)
 expr_stmt|;
 return|return

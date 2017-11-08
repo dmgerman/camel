@@ -532,12 +532,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Index: "
-operator|+
+literal|"Index: {}. Total so far: {}"
+argument_list|,
 name|newIndex
-operator|+
-literal|". Total so far: "
-operator|+
+argument_list|,
 name|total
 argument_list|)
 expr_stmt|;

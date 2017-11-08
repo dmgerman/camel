@@ -596,25 +596,19 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Error occurred during poll directory: "
-operator|+
+literal|"Error occurred during poll directory: {} due {}. Removing {} files marked as in-progress."
+argument_list|,
 name|name
-operator|+
-literal|" due "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|". Removing "
-operator|+
+argument_list|,
 name|files
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" files marked as in-progress."
 argument_list|)
 expr_stmt|;
 name|removeExcessiveInProgressFiles

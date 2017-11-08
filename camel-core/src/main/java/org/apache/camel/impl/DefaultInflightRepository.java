@@ -965,11 +965,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Shutting down while there are still "
-operator|+
+literal|"Shutting down while there are still {} inflight exchanges."
+argument_list|,
 name|count
-operator|+
-literal|" inflight exchanges."
 argument_list|)
 expr_stmt|;
 block|}

@@ -278,12 +278,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Processing at attempt "
-operator|+
+literal|"Processing at attempt {} {}"
+argument_list|,
 name|attempt
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -352,12 +350,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Processing at attempt "
-operator|+
+literal|"Processing at attempt {} complete {}"
+argument_list|,
 name|attempt
-operator|+
-literal|" complete "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

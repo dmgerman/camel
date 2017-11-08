@@ -245,18 +245,14 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|" + "
-operator|+
+literal|" + {} ObjectNames registered in domain \"{}\""
+argument_list|,
 name|s
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" ObjectNames registered in domain \""
-operator|+
+argument_list|,
 name|d
-operator|+
-literal|"\""
 argument_list|)
 expr_stmt|;
 for|for

@@ -102,15 +102,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Took "
-operator|+
+literal|"Took {} millis to send to: {}"
+argument_list|,
 name|sent
 operator|.
 name|getTimeTaken
 argument_list|()
-operator|+
-literal|" millis to send to: "
-operator|+
+argument_list|,
 name|sent
 operator|.
 name|getEndpoint

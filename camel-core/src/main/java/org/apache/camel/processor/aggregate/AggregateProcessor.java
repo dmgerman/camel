@@ -6451,11 +6451,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using RecoverableAggregationRepository by scheduling recover checker to run every "
-operator|+
+literal|"Using RecoverableAggregationRepository by scheduling recover checker to run every {} millis."
+argument_list|,
 name|interval
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
 comment|// use fixed delay so there is X interval between each run
@@ -6513,12 +6511,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"After "
-operator|+
+literal|"After {} failed redelivery attempts Exchanges will be moved to deadLetterUri: {}"
+argument_list|,
 name|max
-operator|+
-literal|" failed redelivery attempts Exchanges will be moved to deadLetterUri: "
-operator|+
+argument_list|,
 name|recoverable
 operator|.
 name|getDeadLetterUri
@@ -6600,12 +6596,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using CompletionInterval to run every "
-operator|+
+literal|"Using CompletionInterval to run every {} millis."
+argument_list|,
 name|getCompletionInterval
 argument_list|()
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
 if|if
@@ -6678,12 +6672,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using CompletionTimeout to trigger after "
-operator|+
+literal|"Using CompletionTimeout to trigger after {} millis of inactivity."
+argument_list|,
 name|getCompletionTimeout
 argument_list|()
-operator|+
-literal|" millis of inactivity."
 argument_list|)
 expr_stmt|;
 if|if

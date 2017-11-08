@@ -591,12 +591,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Rollback file strategy: "
-operator|+
+literal|"Rollback file strategy: {} for file: {}"
+argument_list|,
 name|processStrategy
-operator|+
-literal|" for file: "
-operator|+
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
@@ -771,11 +769,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Done file: "
-operator|+
+literal|"Done file: {} could not be deleted"
+argument_list|,
 name|doneFileName
-operator|+
-literal|" could not be deleted"
 argument_list|)
 expr_stmt|;
 block|}

@@ -333,16 +333,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Evaluated expression: "
-operator|+
+literal|"Evaluated expression: {} on exchange: {} result: {}"
+argument_list|,
 name|expression
-operator|+
-literal|" on exchange: "
-operator|+
+argument_list|,
 name|exchange
-operator|+
-literal|" result: "
-operator|+
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;

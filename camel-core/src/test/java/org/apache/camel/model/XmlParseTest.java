@@ -2517,16 +2517,12 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Testing: "
-operator|+
+literal|"Testing: {} is equal to: {} for processor: {}"
+argument_list|,
 name|text
-operator|+
-literal|" is equal to: "
-operator|+
+argument_list|,
 name|uri
-operator|+
-literal|" for processor: "
-operator|+
+argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
@@ -2584,16 +2580,12 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Testing: "
-operator|+
+literal|"Testing: {} is equal to: {} for processor: {}"
+argument_list|,
 name|text
-operator|+
-literal|" is equal to: "
-operator|+
+argument_list|,
 name|uri
-operator|+
-literal|" for processor: "
-operator|+
+argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;

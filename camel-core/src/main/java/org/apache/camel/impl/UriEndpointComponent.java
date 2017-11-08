@@ -540,12 +540,10 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Duplicate property name "
-operator|+
+literal|"Duplicate property name {} defined on field {}"
+argument_list|,
 name|propertyName
-operator|+
-literal|" defined on field "
-operator|+
+argument_list|,
 name|field
 argument_list|)
 expr_stmt|;

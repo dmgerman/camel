@@ -1791,11 +1791,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Asserting: "
-operator|+
+literal|"Asserting: {} is satisfied"
+argument_list|,
 name|this
-operator|+
-literal|" is satisfied"
 argument_list|)
 expr_stmt|;
 name|doAssertIsSatisfied
@@ -1822,15 +1820,11 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Re-asserting: "
-operator|+
+literal|"Re-asserting: {} is satisfied after {} millis"
+argument_list|,
 name|this
-operator|+
-literal|" is satisfied after "
-operator|+
+argument_list|,
 name|assertPeriod
-operator|+
-literal|" millis"
 argument_list|)
 expr_stmt|;
 comment|// do not use timeout when we re-assert
@@ -1870,11 +1864,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sleeping for: "
-operator|+
+literal|"Sleeping for: {} millis to check there really are no messages received"
+argument_list|,
 name|timeoutForEmptyEndpoints
-operator|+
-literal|" millis to check there really are no messages received"
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -5922,11 +5914,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Waiting on the latch for: "
-operator|+
+literal|"Waiting on the latch for: {} millis"
+argument_list|,
 name|timeout
-operator|+
-literal|" millis"
 argument_list|)
 expr_stmt|;
 name|latch

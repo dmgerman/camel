@@ -442,16 +442,12 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Component "
-operator|+
+literal|"Component {} with '{}' Returned: {}"
+argument_list|,
 name|componentName
-operator|+
-literal|" with '"
-operator|+
+argument_list|,
 name|completionText
-operator|+
-literal|"' Returned: "
-operator|+
+argument_list|,
 name|completions
 argument_list|)
 expr_stmt|;
@@ -525,12 +521,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Component "
-operator|+
+literal|"Component {} returned JSON: {}"
+argument_list|,
 name|componentName
-operator|+
-literal|" returned JSON: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;

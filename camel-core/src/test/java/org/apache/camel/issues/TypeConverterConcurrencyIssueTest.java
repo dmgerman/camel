@@ -313,18 +313,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Took "
-operator|+
+literal|"Took {} millis to convert {} objects"
+argument_list|,
 name|watch
 operator|.
 name|taken
 argument_list|()
-operator|+
-literal|" millis to convert "
-operator|+
+argument_list|,
 name|size
-operator|+
-literal|" objects"
 argument_list|)
 expr_stmt|;
 block|}

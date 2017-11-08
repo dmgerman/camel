@@ -532,13 +532,11 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Using class: "
-operator|+
+literal|"Using class: {} for tracing event messages"
+argument_list|,
 name|this
 operator|.
 name|jpaTraceEventMessageClassName
-operator|+
-literal|" for tracing event messages"
 argument_list|)
 expr_stmt|;
 block|}

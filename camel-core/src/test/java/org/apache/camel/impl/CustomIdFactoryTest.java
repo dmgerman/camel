@@ -527,22 +527,18 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Debugging at: "
-operator|+
+literal|"Debugging at: {} with id: {} with exchange: {}"
+argument_list|,
 name|definition
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|" with id: "
-operator|+
+argument_list|,
 name|definition
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" with exchange: "
-operator|+
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

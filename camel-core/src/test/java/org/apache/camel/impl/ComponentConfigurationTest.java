@@ -1082,12 +1082,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Created endpoint "
-operator|+
+literal|"Created endpoint {} on URI {}"
+argument_list|,
 name|endpoint
-operator|+
-literal|" on URI "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri

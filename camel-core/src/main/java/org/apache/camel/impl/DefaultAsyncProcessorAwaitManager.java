@@ -1058,11 +1058,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Shutting down while there are still "
-operator|+
+literal|"Shutting down while there are still {} inflight threads currently blocked."
+argument_list|,
 name|count
-operator|+
-literal|" inflight threads currently blocked."
 argument_list|)
 expr_stmt|;
 name|StringBuilder

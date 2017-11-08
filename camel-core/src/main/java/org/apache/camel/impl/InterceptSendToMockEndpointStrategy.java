@@ -337,15 +337,11 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Adviced endpoint ["
-operator|+
+literal|"Adviced endpoint [{}] with mock endpoint [{}]"
+argument_list|,
 name|uri
-operator|+
-literal|"] with mock endpoint ["
-operator|+
+argument_list|,
 name|key
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint

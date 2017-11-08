@@ -1036,12 +1036,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Method: "
-operator|+
+literal|"Method: {} has pattern: {}"
+argument_list|,
 name|method
-operator|+
-literal|" has pattern: "
-operator|+
+argument_list|,
 name|actualPattern
 argument_list|)
 expr_stmt|;

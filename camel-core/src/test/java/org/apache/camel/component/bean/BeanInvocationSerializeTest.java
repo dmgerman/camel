@@ -358,12 +358,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Called with a: "
-operator|+
+literal|"Called with a: {} b: {}"
+argument_list|,
 name|a
-operator|+
-literal|" b: "
-operator|+
+argument_list|,
 name|b
 argument_list|)
 expr_stmt|;

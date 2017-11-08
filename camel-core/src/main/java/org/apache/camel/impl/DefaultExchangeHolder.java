@@ -1386,16 +1386,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Exchange "
-operator|+
+literal|"Exchange {} containing object: {} of type: {} cannot be serialized, it will be excluded by the holder."
+argument_list|,
 name|type
-operator|+
-literal|" containing object: "
-operator|+
+argument_list|,
 name|object
-operator|+
-literal|" of type: "
-operator|+
+argument_list|,
 name|object
 operator|.
 name|getClass
@@ -1403,8 +1399,6 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
-operator|+
-literal|" cannot be serialized, it will be excluded by the holder."
 argument_list|)
 expr_stmt|;
 return|return

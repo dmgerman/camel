@@ -463,12 +463,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"read() method on "
-operator|+
+literal|"read() method on {} with body: {}"
+argument_list|,
 name|this
-operator|+
-literal|" with body: "
-operator|+
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;

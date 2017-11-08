@@ -192,15 +192,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"RoutePerformanceCountTest: Sent: "
-operator|+
+literal|"RoutePerformanceCountTest: Sent: {} Took: {} ms"
+argument_list|,
 name|size
-operator|+
-literal|" Took: "
-operator|+
+argument_list|,
 name|delta
-operator|+
-literal|" ms"
 argument_list|)
 expr_stmt|;
 block|}

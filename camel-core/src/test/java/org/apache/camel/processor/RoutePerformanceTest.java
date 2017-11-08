@@ -240,18 +240,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"RoutePerformanceTest: Sent: "
-operator|+
+literal|"RoutePerformanceTest: Sent: {} Took: {} ms"
+argument_list|,
 name|size
-operator|+
-literal|" Took: "
-operator|+
+argument_list|,
 name|watch
 operator|.
 name|taken
 argument_list|()
-operator|+
-literal|" ms"
 argument_list|)
 expr_stmt|;
 block|}

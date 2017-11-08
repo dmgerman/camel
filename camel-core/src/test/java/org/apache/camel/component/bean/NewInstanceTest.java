@@ -391,12 +391,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"read() method called with: "
-operator|+
+literal|"read() method called with: {} on {}"
+argument_list|,
 name|body
-operator|+
-literal|" on "
-operator|+
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;

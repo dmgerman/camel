@@ -3203,15 +3203,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Duplicate pattern annotation: "
-operator|+
+literal|"Duplicate pattern annotation: {} found on annotation: {} which will be ignored"
+argument_list|,
 name|another
-operator|+
-literal|" found on annotation: "
-operator|+
+argument_list|,
 name|annotation
-operator|+
-literal|" which will be ignored"
 argument_list|)
 expr_stmt|;
 block|}

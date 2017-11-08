@@ -1174,15 +1174,11 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Duplicate methods found ["
-operator|+
+literal|"Duplicate methods found [{}], [{}]"
+argument_list|,
 name|model1
-operator|+
-literal|"], ["
-operator|+
+argument_list|,
 name|model2
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 return|return

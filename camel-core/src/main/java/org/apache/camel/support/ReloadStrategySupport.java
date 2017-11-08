@@ -463,11 +463,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot load the resource "
-operator|+
+literal|"Cannot load the resource {} as XML"
+argument_list|,
 name|name
-operator|+
-literal|" as XML"
 argument_list|)
 expr_stmt|;
 return|return;

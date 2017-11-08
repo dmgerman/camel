@@ -370,12 +370,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Called "
-operator|+
+literal|"Called {} with body: {}"
+argument_list|,
 name|this
-operator|+
-literal|" with body: "
-operator|+
+argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
