@@ -293,6 +293,10 @@ begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
+name|firstVersion
+operator|=
+literal|"${version}"
+argument_list|,
 name|scheme
 operator|=
 literal|"${scheme}"
@@ -317,7 +321,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"${name}"
+literal|"custom"
 argument_list|)
 DECL|class|$
 specifier|public
