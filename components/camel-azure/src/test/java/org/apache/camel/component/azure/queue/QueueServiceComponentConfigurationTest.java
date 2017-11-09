@@ -790,7 +790,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"azure-queue://camelazure"
+literal|"azure-queue://camelazure?operation=addMessage"
 argument_list|)
 expr_stmt|;
 name|fail
@@ -805,7 +805,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"The account and queue names must be specified."
+literal|"The queue name must be specified."
 argument_list|,
 name|ex
 operator|.

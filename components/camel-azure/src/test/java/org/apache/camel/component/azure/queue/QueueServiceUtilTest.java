@@ -202,7 +202,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"https://camelazure.queue.core.windows.net/testqueue/messages"
+literal|"https://camelazure.queue.core.windows.net/testqueue"
 argument_list|,
 name|uri
 operator|.
@@ -231,7 +231,7 @@ name|URI
 operator|.
 name|create
 argument_list|(
-literal|"https://camelazure.queue.core.windows.net/testqueue/messages"
+literal|"https://camelazure.queue.core.windows.net/testqueue"
 argument_list|)
 argument_list|,
 name|newAccountKeyCredentials

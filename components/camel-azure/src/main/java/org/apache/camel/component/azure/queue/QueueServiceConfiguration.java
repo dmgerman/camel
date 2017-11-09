@@ -22,22 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|microsoft
-operator|.
-name|azure
-operator|.
-name|storage
-operator|.
-name|queue
-operator|.
-name|CloudQueue
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -79,6 +63,22 @@ operator|.
 name|spi
 operator|.
 name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|microsoft
+operator|.
+name|azure
+operator|.
+name|storage
+operator|.
+name|queue
+operator|.
+name|CloudQueue
 import|;
 end_import
 

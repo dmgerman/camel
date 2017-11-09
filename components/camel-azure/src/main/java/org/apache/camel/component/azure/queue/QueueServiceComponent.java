@@ -206,17 +206,48 @@ name|parts
 operator|.
 name|length
 operator|<
-literal|2
+literal|1
 condition|)
-block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The account and queue names must be specified."
+literal|"The account name must be specified."
 argument_list|)
 throw|;
-block|}
+name|QueueServiceOperations
+name|operation
+init|=
+name|configuration
+operator|.
+name|getOperation
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|operation
+operator|!=
+literal|null
+operator|&&
+name|operation
+operator|!=
+name|QueueServiceOperations
+operator|.
+name|listQueues
+operator|&&
+name|parts
+operator|.
+name|length
+operator|<
+literal|2
+condition|)
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The queue name must be specified."
+argument_list|)
+throw|;
 if|if
 condition|(
 name|parts
@@ -225,7 +256,6 @@ name|length
 operator|>
 literal|2
 condition|)
-block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -233,7 +263,6 @@ argument_list|(
 literal|"Only the account and queue names must be specified."
 argument_list|)
 throw|;
-block|}
 name|configuration
 operator|.
 name|setAccountName
@@ -244,6 +273,14 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|parts
+operator|.
+name|length
+operator|>
+literal|1
+condition|)
 name|configuration
 operator|.
 name|setQueueName
