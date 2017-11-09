@@ -429,10 +429,10 @@ name|TraceBean
 block|{
 annotation|@
 name|Handler
-DECL|method|convertBocyToUpperCase (@ody String body)
+DECL|method|convertBodyToUpperCase (@ody String body)
 specifier|public
 name|String
-name|convertBocyToUpperCase
+name|convertBodyToUpperCase
 parameter_list|(
 annotation|@
 name|Body
