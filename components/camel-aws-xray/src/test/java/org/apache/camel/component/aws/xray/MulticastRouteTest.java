@@ -79,7 +79,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"seda-a"
+literal|"seda:a"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -99,7 +99,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"seda-b"
+literal|"seda:b"
 argument_list|)
 argument_list|)
 operator|.
@@ -109,7 +109,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"seda-c"
+literal|"seda:c"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -132,16 +132,8 @@ name|createSegment
 argument_list|(
 literal|"c"
 argument_list|)
-operator|.
-name|withSubsegment
-argument_list|(
-name|TestDataBuilder
-operator|.
-name|createSubsegment
-argument_list|(
-literal|"log-routing%20at%20$%7BrouteId%7D"
-argument_list|)
-argument_list|)
+comment|// disabled by the LogSegmentDecorator (-> .to("log:..."); .log("...") is still working)
+comment|//.withSubsegment(TestDataBuilder.createSubsegment("log:routing%20at%20$%7BrouteId%7D"))
 argument_list|)
 argument_list|)
 expr_stmt|;

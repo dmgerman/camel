@@ -190,7 +190,7 @@ operator|.
 name|getScheme
 argument_list|()
 operator|+
-literal|"-"
+literal|":"
 operator|+
 name|uri
 operator|.

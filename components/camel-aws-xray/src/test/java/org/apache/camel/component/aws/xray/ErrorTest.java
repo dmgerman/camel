@@ -218,7 +218,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"TraceBean"
+literal|"bean:TraceBean"
 argument_list|)
 argument_list|)
 operator|.
@@ -228,7 +228,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"TraceBean"
+literal|"bean:TraceBean"
 argument_list|)
 argument_list|)
 operator|.
@@ -238,7 +238,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"TraceBean"
+literal|"bean:TraceBean"
 argument_list|)
 argument_list|)
 operator|.
@@ -248,7 +248,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"TraceBean"
+literal|"bean:TraceBean"
 argument_list|)
 argument_list|)
 operator|.
@@ -258,7 +258,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"ExceptionProcessor"
+literal|"process:ExceptionProcessor"
 argument_list|)
 argument_list|)
 argument_list|)

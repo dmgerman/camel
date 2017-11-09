@@ -226,6 +226,26 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|aws
+operator|.
+name|xray
+operator|.
+name|XRayTracer
+operator|.
+name|sanitizeName
+import|;
+end_import
+
 begin_class
 DECL|class|TraceAnnotatedTracingStrategy
 specifier|public
@@ -288,6 +308,14 @@ init|=
 name|processorDefinition
 operator|.
 name|getClass
+argument_list|()
+decl_stmt|;
+name|String
+name|shortName
+init|=
+name|processorDefinition
+operator|.
+name|getShortName
 argument_list|()
 decl_stmt|;
 if|if
@@ -446,6 +474,10 @@ specifier|final
 name|String
 name|name
 init|=
+name|shortName
+operator|+
+literal|":"
+operator|+
 name|metricName
 decl_stmt|;
 return|return
@@ -478,7 +510,10 @@ name|AWSXRay
 operator|.
 name|beginSubsegment
 argument_list|(
+name|sanitizeName
+argument_list|(
 name|name
+argument_list|)
 argument_list|)
 decl_stmt|;
 try|try

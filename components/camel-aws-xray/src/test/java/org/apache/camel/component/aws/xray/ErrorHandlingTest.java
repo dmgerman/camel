@@ -234,7 +234,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"TraceBean"
+literal|"bean:TraceBean"
 argument_list|)
 argument_list|)
 comment|//                      .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
@@ -245,7 +245,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"TraceBean"
+literal|"bean:TraceBean"
 argument_list|)
 argument_list|)
 comment|//                      .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
@@ -256,7 +256,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"TraceBean"
+literal|"bean:TraceBean"
 argument_list|)
 argument_list|)
 comment|//                      .withSubsegment(TestDataBuilder.createSubsegment("ExceptionRetryProcessor"))
@@ -267,7 +267,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"TraceBean"
+literal|"bean:TraceBean"
 argument_list|)
 argument_list|)
 operator|.
@@ -277,7 +277,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"seda-otherRoute"
+literal|"seda:otherRoute"
 argument_list|)
 argument_list|)
 operator|.
@@ -287,7 +287,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"mock-end"
+literal|"mock:end"
 argument_list|)
 argument_list|)
 argument_list|)

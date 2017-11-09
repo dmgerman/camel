@@ -137,7 +137,7 @@ condition|)
 block|{
 name|segment
 operator|.
-name|putMetadata
+name|putSql
 argument_list|(
 literal|"db.statement"
 argument_list|,

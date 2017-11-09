@@ -219,7 +219,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"seda-otherRoute"
+literal|"seda:otherRoute"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -239,7 +239,7 @@ name|TestDataBuilder
 operator|.
 name|createSubsegment
 argument_list|(
-literal|"mock-end"
+literal|"mock:end"
 argument_list|)
 argument_list|)
 argument_list|)

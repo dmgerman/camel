@@ -511,6 +511,18 @@ name|d
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Adding segment decorator {}"
+argument_list|,
+name|d
+operator|.
+name|getComponent
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|decorators
 operator|.
 name|put
@@ -1139,15 +1151,11 @@ name|isPresent
 argument_list|()
 condition|)
 block|{
-comment|//                    // AWS XRay does only allow a certain set of characters to appear within a name
-comment|//                    // Allowed characters: a-z, A-Z, 0-9, _, ., :, /, %,&, #, =, +, \, -, @
-name|Subsegment
-name|subsegment
+comment|// AWS XRay does only allow a certain set of characters to appear within a name
+comment|// Allowed characters: a-z, A-Z, 0-9, _, ., :, /, %,&, #, =, +, \, -, @
+name|String
+name|name
 init|=
-name|AWSXRay
-operator|.
-name|beginSubsegment
-argument_list|(
 name|sd
 operator|.
 name|getOperationName
@@ -1161,6 +1169,40 @@ name|ese
 operator|.
 name|getEndpoint
 argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|sd
+operator|.
+name|getComponent
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|name
+operator|=
+name|sd
+operator|.
+name|getComponent
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|name
+expr_stmt|;
+block|}
+name|Subsegment
+name|subsegment
+init|=
+name|AWSXRay
+operator|.
+name|beginSubsegment
+argument_list|(
+name|sanitizeName
+argument_list|(
+name|name
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1543,10 +1585,13 @@ name|AWSXRay
 operator|.
 name|beginSegment
 argument_list|(
+name|sanitizeName
+argument_list|(
 name|route
 operator|.
 name|getId
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|segment
@@ -1824,6 +1869,30 @@ return|return
 literal|"XRayRoutePolicy"
 return|;
 block|}
+block|}
+comment|/**      * Removes invalid characters from AWS XRay (sub-)segment names and replaces the invalid characters with an      * underscore character.      *      * @param name The name to assign to an AWS XRay (sub-)segment      * @return The sanitized name of the (sub-)segment      */
+DECL|method|sanitizeName (String name)
+specifier|public
+specifier|static
+name|String
+name|sanitizeName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+comment|// Allowed characters: a-z, A-Z, 0-9, _, ., :, /, %,&, #, =, +, \, -, @
+comment|// \w = a-zA-Z0-9_
+return|return
+name|name
+operator|.
+name|replaceAll
+argument_list|(
+literal|"[^\\w.:/%&#=+\\-@]"
+argument_list|,
+literal|"_"
+argument_list|)
+return|;
 block|}
 block|}
 end_class

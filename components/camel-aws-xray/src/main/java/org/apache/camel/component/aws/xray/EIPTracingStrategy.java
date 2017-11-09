@@ -156,6 +156,26 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|aws
+operator|.
+name|xray
+operator|.
+name|XRayTracer
+operator|.
+name|sanitizeName
+import|;
+end_import
+
 begin_class
 DECL|class|EIPTracingStrategy
 specifier|public
@@ -245,7 +265,10 @@ name|AWSXRay
 operator|.
 name|beginSubsegment
 argument_list|(
+name|sanitizeName
+argument_list|(
 name|defName
+argument_list|)
 argument_list|)
 decl_stmt|;
 try|try
