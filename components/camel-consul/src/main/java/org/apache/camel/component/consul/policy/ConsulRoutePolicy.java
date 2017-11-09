@@ -363,7 +363,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @deprecated use {@link org.apache.camel.component.consul.ha.ConsulClusterService} and {@link org.apache.camel.impl.ha.ClusteredRoutePolicy} instead.  */
+comment|/**  * @deprecated use {@link org.apache.camel.component.consul.cluster.ConsulClusterService} and {@link org.apache.camel.impl.cluster.ClusteredRoutePolicy} instead.  */
 end_comment
 
 begin_class

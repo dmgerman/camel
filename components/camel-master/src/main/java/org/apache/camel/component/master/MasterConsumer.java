@@ -128,7 +128,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ha
+name|cluster
 operator|.
 name|CamelClusterEventListener
 import|;
@@ -142,7 +142,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ha
+name|cluster
 operator|.
 name|CamelClusterMember
 import|;
@@ -156,7 +156,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ha
+name|cluster
 operator|.
 name|CamelClusterService
 import|;
@@ -170,7 +170,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ha
+name|cluster
 operator|.
 name|CamelClusterView
 import|;

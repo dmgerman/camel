@@ -224,7 +224,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ha
+name|cluster
 operator|.
 name|CamelClusterService
 import|;
@@ -408,7 +408,7 @@ specifier|final
 name|String
 name|TYPE_ROUTE_CONTROLLER
 init|=
-literal|"routecontroller"
+literal|"routecontrollers"
 decl_stmt|;
 DECL|field|TYPE_HEALTH
 specifier|public
@@ -534,7 +534,7 @@ specifier|final
 name|String
 name|TYPE_HA
 init|=
-literal|"ha"
+literal|"clusterservices"
 decl_stmt|;
 DECL|field|domainName
 specifier|protected

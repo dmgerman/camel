@@ -144,7 +144,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ha
+name|cluster
 operator|.
 name|CamelClusterService
 import|;

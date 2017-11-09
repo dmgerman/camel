@@ -148,7 +148,7 @@ name|component
 operator|.
 name|file
 operator|.
-name|ha
+name|cluster
 operator|.
 name|FileLockClusterService
 import|;
@@ -444,7 +444,7 @@ name|service
 operator|.
 name|setRoot
 argument_list|(
-literal|"target/ha"
+literal|"target/cluster"
 argument_list|)
 expr_stmt|;
 name|service

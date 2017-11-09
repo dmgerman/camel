@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ha
+name|cluster
 operator|.
 name|CamelClusterService
 import|;
@@ -52,7 +52,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ha
+name|cluster
 operator|.
 name|CamelClusterService
 operator|.

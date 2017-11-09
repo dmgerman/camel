@@ -109,7 +109,7 @@ name|sendBody
 argument_list|(
 name|fromQueue
 argument_list|,
-literal|"ha!"
+literal|"cluster!"
 argument_list|)
 expr_stmt|;
 block|}
