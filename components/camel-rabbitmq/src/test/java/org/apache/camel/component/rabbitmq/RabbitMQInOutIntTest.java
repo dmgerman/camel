@@ -1281,9 +1281,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|TestPartiallySerializableObject
-name|reply
-init|=
 name|template
 operator|.
 name|requestBodyAndHeader
@@ -1302,7 +1299,7 @@ name|TestPartiallySerializableObject
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1676,9 +1673,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|String
-name|reply
-init|=
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -1693,7 +1687,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"This should have thrown an exception"

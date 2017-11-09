@@ -92,7 +92,7 @@ name|mockito
 operator|.
 name|Mockito
 operator|.
-name|*
+name|mock
 import|;
 end_import
 

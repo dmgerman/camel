@@ -106,6 +106,16 @@ name|javax
 operator|.
 name|mail
 operator|.
+name|Header
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|mail
+operator|.
 name|Message
 import|;
 end_import
@@ -462,6 +472,9 @@ name|Override
 DECL|method|getAllHeaders ()
 specifier|public
 name|Enumeration
+argument_list|<
+name|Header
+argument_list|>
 name|getAllHeaders
 parameter_list|()
 throws|throws
@@ -476,6 +489,9 @@ name|Override
 DECL|method|getMatchingHeaders (String[] headernames)
 specifier|public
 name|Enumeration
+argument_list|<
+name|Header
+argument_list|>
 name|getMatchingHeaders
 parameter_list|(
 name|String
@@ -494,6 +510,9 @@ name|Override
 DECL|method|getNonMatchingHeaders (String[] headernames)
 specifier|public
 name|Enumeration
+argument_list|<
+name|Header
+argument_list|>
 name|getNonMatchingHeaders
 parameter_list|(
 name|String

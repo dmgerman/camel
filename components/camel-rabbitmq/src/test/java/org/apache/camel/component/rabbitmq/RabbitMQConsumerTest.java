@@ -130,16 +130,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mockito
 import|;
 end_import
@@ -174,7 +164,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|any
 import|;
@@ -186,7 +176,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyBoolean
 import|;
@@ -198,7 +188,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyString
 import|;
@@ -338,8 +328,6 @@ name|endpoint
 operator|.
 name|connect
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ExecutorService
@@ -460,8 +448,6 @@ name|endpoint
 operator|.
 name|connect
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ExecutorService
@@ -592,8 +578,6 @@ name|endpoint
 operator|.
 name|connect
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ExecutorService

@@ -170,7 +170,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -182,7 +182,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|any
 import|;
@@ -344,19 +344,6 @@ operator|.
 name|thenReturn
 argument_list|(
 name|kinesisFirehoseClient
-argument_list|)
-expr_stmt|;
-name|when
-argument_list|(
-name|kinesisFirehoseEndpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|)
-operator|.
-name|thenReturn
-argument_list|(
-literal|"aws-kinesis-firehose://etl"
 argument_list|)
 expr_stmt|;
 name|when

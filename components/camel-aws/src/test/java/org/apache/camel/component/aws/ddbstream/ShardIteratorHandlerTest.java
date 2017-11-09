@@ -274,7 +274,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -346,9 +346,9 @@ specifier|private
 name|ShardIteratorHandler
 name|undertest
 decl_stmt|;
-DECL|field|amazonDynamoDBStreams
 annotation|@
 name|Mock
+DECL|field|amazonDynamoDBStreams
 specifier|private
 name|AmazonDynamoDBStreams
 name|amazonDynamoDBStreams

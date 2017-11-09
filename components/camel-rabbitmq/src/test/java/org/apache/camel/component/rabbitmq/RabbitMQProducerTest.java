@@ -194,16 +194,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mockito
 import|;
 end_import
@@ -241,6 +231,18 @@ operator|.
 name|Assert
 operator|.
 name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|any
 import|;
 end_import
 
@@ -340,8 +342,6 @@ name|endpoint
 operator|.
 name|connect
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ExecutorService
