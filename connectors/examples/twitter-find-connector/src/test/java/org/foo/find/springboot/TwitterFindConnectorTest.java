@@ -337,7 +337,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"twitter-find-component:"
+literal|"twitter-search-twitter-find-component:"
 argument_list|)
 condition|)
 block|{

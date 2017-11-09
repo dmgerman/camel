@@ -4061,8 +4061,22 @@ throw|;
 block|}
 try|try
 block|{
+comment|// Flag used to mark a component of being created.
+specifier|final
+name|AtomicBoolean
+name|created
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
 comment|// atomic operation to get/create a component. Avoid global locks.
-return|return
+specifier|final
+name|Component
+name|component
+init|=
 name|components
 operator|.
 name|computeIfAbsent
@@ -4071,20 +4085,93 @@ name|name
 argument_list|,
 name|comp
 lambda|->
+block|{
+name|created
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
 name|initComponent
 argument_list|(
 name|name
 argument_list|,
 name|autoCreateComponents
-argument_list|,
-name|autoStart
-argument_list|)
 argument_list|)
 return|;
 block|}
+argument_list|)
+decl_stmt|;
+comment|// Start the component after its creation as if it is a component proxy
+comment|// that creates/start a delegated component, we may end up in a deadlock
+if|if
+condition|(
+name|component
+operator|!=
+literal|null
+operator|&&
+name|created
+operator|.
+name|get
+argument_list|()
+operator|&&
+name|autoStart
+operator|&&
+operator|(
+name|isStarted
+argument_list|()
+operator|||
+name|isStarting
+argument_list|()
+operator|)
+condition|)
+block|{
+comment|// If the component is looked up after the context is started,
+comment|// lets start it up.
+if|if
+condition|(
+name|component
+operator|instanceof
+name|Service
+condition|)
+block|{
+name|startService
+argument_list|(
+operator|(
+name|Service
+operator|)
+name|component
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|component
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Cannot auto create component: "
+operator|+
+name|name
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 finally|finally
 block|{
-comment|// cremove the reference to the component being created
+comment|// remove the reference to the component being created
 name|componentsInCreation
 operator|.
 name|get
@@ -4098,7 +4185,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Function to initialize a component and auto start. Returns null if the autoCreateComponents is disabled      */
-DECL|method|initComponent (String name, boolean autoCreateComponents, boolean autoStart)
+DECL|method|initComponent (String name, boolean autoCreateComponents)
 specifier|private
 name|Component
 name|initComponent
@@ -4108,9 +4195,6 @@ name|name
 parameter_list|,
 name|boolean
 name|autoCreateComponents
-parameter_list|,
-name|boolean
-name|autoStart
 parameter_list|)
 block|{
 name|Component
@@ -4218,38 +4302,6 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|autoStart
-operator|&&
-operator|(
-name|isStarted
-argument_list|()
-operator|||
-name|isStarting
-argument_list|()
-operator|)
-condition|)
-block|{
-comment|// If the component is looked up after the context is started,
-comment|// lets start it up.
-if|if
-condition|(
-name|component
-operator|instanceof
-name|Service
-condition|)
-block|{
-name|startService
-argument_list|(
-operator|(
-name|Service
-operator|)
-name|component
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 block|}
 catch|catch
@@ -19086,7 +19138,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// optimised to not include runtimeEndpointRegistry unless its enabled or JMX statistics is in extended mode
+comment|// optimised to not include runtimeEndpointRegistry unlesstartServices its enabled or JMX statistics is in extended mode
 if|if
 condition|(
 name|runtimeEndpointRegistry

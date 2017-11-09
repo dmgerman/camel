@@ -427,12 +427,6 @@ specifier|final
 name|String
 name|baseScheme
 decl_stmt|;
-DECL|field|componentAlias
-specifier|private
-specifier|final
-name|String
-name|componentAlias
-decl_stmt|;
 DECL|field|componentScheme
 specifier|private
 specifier|final
@@ -611,26 +605,16 @@ name|componentScheme
 operator|!=
 literal|null
 condition|?
-name|componentScheme
-else|:
-name|componentName
-operator|+
-literal|"-component"
-expr_stmt|;
-name|this
-operator|.
-name|componentAlias
-operator|=
-name|componentScheme
-operator|!=
-literal|null
-condition|?
 name|baseScheme
 operator|+
 literal|"-"
 operator|+
 name|componentScheme
 else|:
+name|baseScheme
+operator|+
+literal|"-"
+operator|+
 name|componentName
 operator|+
 literal|"-component"
@@ -699,7 +683,9 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|componentAlias
+name|this
+operator|.
+name|componentScheme
 argument_list|)
 condition|)
 block|{
@@ -709,7 +695,9 @@ name|catalog
 operator|.
 name|addComponent
 argument_list|(
-name|componentAlias
+name|this
+operator|.
+name|componentScheme
 argument_list|,
 name|this
 operator|.
@@ -965,7 +953,7 @@ name|delegateUri
 init|=
 name|createEndpointUri
 argument_list|(
-name|componentAlias
+name|componentScheme
 argument_list|,
 name|options
 argument_list|)
@@ -1751,7 +1739,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Register component: {} (type: {}) with scheme: {} and alias: {}"
+literal|"Register component: {} (type: {}) with scheme: {}"
 argument_list|,
 name|this
 operator|.
@@ -1768,10 +1756,6 @@ argument_list|,
 name|this
 operator|.
 name|componentScheme
-argument_list|,
-name|this
-operator|.
-name|componentAlias
 argument_list|)
 expr_stmt|;
 comment|//String delegateComponentScheme =
@@ -1782,7 +1766,7 @@ name|removeComponent
 argument_list|(
 name|this
 operator|.
-name|componentAlias
+name|componentScheme
 argument_list|)
 expr_stmt|;
 comment|// ensure component is started and stopped when Camel shutdown
@@ -1805,7 +1789,7 @@ name|addComponent
 argument_list|(
 name|this
 operator|.
-name|componentAlias
+name|componentScheme
 argument_list|,
 name|component
 argument_list|)
