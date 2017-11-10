@@ -1468,6 +1468,25 @@ specifier|private
 name|boolean
 name|enableIdempotence
 decl_stmt|;
+comment|//reconnect.backoff.max.ms
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
+DECL|field|reconnectBackoffMaxMs
+specifier|private
+name|Integer
+name|reconnectBackoffMaxMs
+init|=
+literal|1000
+decl_stmt|;
 comment|// SSL
 annotation|@
 name|UriParam
@@ -2276,6 +2295,18 @@ name|isEnableIdempotence
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
+name|ProducerConfig
+operator|.
+name|RECONNECT_BACKOFF_MAX_MS_CONFIG
+argument_list|,
+name|getReconnectBackoffMaxMs
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// SSL
 name|applySslConfiguration
 argument_list|(
@@ -2876,6 +2907,18 @@ operator|.
 name|RETRY_BACKOFF_MS_CONFIG
 argument_list|,
 name|getRetryBackoffMs
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
+name|ConsumerConfig
+operator|.
+name|RECONNECT_BACKOFF_MAX_MS_CONFIG
+argument_list|,
+name|getReconnectBackoffMaxMs
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5953,6 +5996,33 @@ operator|.
 name|enableIdempotence
 operator|=
 name|enableIdempotence
+expr_stmt|;
+block|}
+DECL|method|getReconnectBackoffMaxMs ()
+specifier|public
+name|Integer
+name|getReconnectBackoffMaxMs
+parameter_list|()
+block|{
+return|return
+name|reconnectBackoffMaxMs
+return|;
+block|}
+comment|/** 	 *       * The maximum amount of time in milliseconds to wait when reconnecting to a broker that has repeatedly failed to connect.       * If provided, the backoff per host will increase exponentially for each consecutive connection failure, up to this maximum.       * After calculating the backoff increase, 20% random jitter is added to avoid connection storms. 	 */
+DECL|method|setReconnectBackoffMaxMs (Integer reconnectBackoffMaxMs)
+specifier|public
+name|void
+name|setReconnectBackoffMaxMs
+parameter_list|(
+name|Integer
+name|reconnectBackoffMaxMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reconnectBackoffMaxMs
+operator|=
+name|reconnectBackoffMaxMs
 expr_stmt|;
 block|}
 block|}

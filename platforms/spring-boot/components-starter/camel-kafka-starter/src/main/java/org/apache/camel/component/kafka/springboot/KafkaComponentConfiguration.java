@@ -1086,6 +1086,14 @@ name|enableIdempotence
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          */
+DECL|field|reconnectBackoffMaxMs
+specifier|private
+name|Integer
+name|reconnectBackoffMaxMs
+init|=
+literal|1000
+decl_stmt|;
 DECL|method|getTopicIsPattern ()
 specifier|public
 name|Boolean
@@ -3294,6 +3302,32 @@ operator|.
 name|enableIdempotence
 operator|=
 name|enableIdempotence
+expr_stmt|;
+block|}
+DECL|method|getReconnectBackoffMaxMs ()
+specifier|public
+name|Integer
+name|getReconnectBackoffMaxMs
+parameter_list|()
+block|{
+return|return
+name|reconnectBackoffMaxMs
+return|;
+block|}
+DECL|method|setReconnectBackoffMaxMs (Integer reconnectBackoffMaxMs)
+specifier|public
+name|void
+name|setReconnectBackoffMaxMs
+parameter_list|(
+name|Integer
+name|reconnectBackoffMaxMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reconnectBackoffMaxMs
+operator|=
+name|reconnectBackoffMaxMs
 expr_stmt|;
 block|}
 block|}
