@@ -208,6 +208,7 @@ name|length
 operator|<
 literal|1
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -215,6 +216,7 @@ argument_list|(
 literal|"The account name must be specified."
 argument_list|)
 throw|;
+block|}
 name|QueueServiceOperations
 name|operation
 init|=
@@ -241,6 +243,7 @@ name|length
 operator|<
 literal|2
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -248,6 +251,7 @@ argument_list|(
 literal|"The queue name must be specified."
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|parts
@@ -256,6 +260,7 @@ name|length
 operator|>
 literal|2
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -263,6 +268,7 @@ argument_list|(
 literal|"Only the account and queue names must be specified."
 argument_list|)
 throw|;
+block|}
 name|configuration
 operator|.
 name|setAccountName
@@ -281,6 +287,7 @@ name|length
 operator|>
 literal|1
 condition|)
+block|{
 name|configuration
 operator|.
 name|setQueueName
@@ -291,6 +298,7 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 name|checkCredentials
 argument_list|(
 name|configuration

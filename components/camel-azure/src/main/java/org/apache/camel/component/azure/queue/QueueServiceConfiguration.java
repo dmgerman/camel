@@ -22,6 +22,22 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|microsoft
+operator|.
+name|azure
+operator|.
+name|storage
+operator|.
+name|queue
+operator|.
+name|CloudQueue
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -63,22 +79,6 @@ operator|.
 name|spi
 operator|.
 name|UriParams
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|microsoft
-operator|.
-name|azure
-operator|.
-name|storage
-operator|.
-name|queue
-operator|.
-name|CloudQueue
 import|;
 end_import
 
@@ -170,7 +170,7 @@ return|return
 name|queueName
 return|;
 block|}
-comment|/**      * The queue resource name       */
+comment|/**      * The queue resource name      */
 DECL|method|setQueueName (String queueName)
 specifier|public
 name|void
@@ -197,7 +197,7 @@ return|return
 name|azureQueueClient
 return|;
 block|}
-comment|/**      * The queue service client       */
+comment|/**      * The queue service client      */
 DECL|method|setAzureQueueClient (CloudQueue azureQueueClient)
 specifier|public
 name|void
@@ -224,7 +224,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Queue service operation hint to the producer       */
+comment|/**      * Queue service operation hint to the producer      */
 DECL|method|setOperation (QueueServiceOperations operation)
 specifier|public
 name|void
@@ -251,7 +251,7 @@ return|return
 name|messageTimeToLive
 return|;
 block|}
-comment|/**      * Message Time To Live in seconds       */
+comment|/**      * Message Time To Live in seconds      */
 DECL|method|setMessageTimeToLive (int messageTimeToLive)
 specifier|public
 name|void
@@ -278,7 +278,7 @@ return|return
 name|messageVisibilityDelay
 return|;
 block|}
-comment|/**      * Message Visibility Delay in seconds       */
+comment|/**      * Message Visibility Delay in seconds      */
 DECL|method|setMessageVisibilityDelay (int messageVisibilityDelay)
 specifier|public
 name|void
@@ -305,7 +305,7 @@ return|return
 name|queuePrefix
 return|;
 block|}
-comment|/**      * Set a prefix which can be used for listing the queues       */
+comment|/**      * Set a prefix which can be used for listing the queues      */
 DECL|method|setQueuePrefix (String queuePrefix)
 specifier|public
 name|void
