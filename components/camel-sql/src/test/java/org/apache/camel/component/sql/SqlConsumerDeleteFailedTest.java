@@ -450,7 +450,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|500
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -539,7 +539,9 @@ name|from
 argument_list|(
 literal|"sql:select * from projects where license<> 'BAD' order by id"
 operator|+
-literal|"?consumer.onConsume=delete from projects where id = :#id"
+literal|"?consumer.initialDelay=0&consumer.delay=50"
+operator|+
+literal|"&consumer.onConsume=delete from projects where id = :#id"
 operator|+
 literal|"&consumer.onConsumeFailed=update projects set license = 'BAD' where id = :#id"
 argument_list|)

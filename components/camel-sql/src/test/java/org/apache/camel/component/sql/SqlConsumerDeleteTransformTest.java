@@ -292,12 +292,12 @@ name|i
 operator|++
 control|)
 block|{
-comment|// give it a little tine to delete
+comment|// give it a little time to delete
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|200
 argument_list|)
 expr_stmt|;
 name|int
@@ -392,7 +392,7 @@ comment|// even if we transform the exchange we can still do onConsume as we hav
 comment|// the point when onConsume is executed
 name|from
 argument_list|(
-literal|"sql:select * from projects order by id?consumer.onConsume=delete from projects where id = :#id"
+literal|"sql:select * from projects order by id?consumer.initialDelay=0&consumer.delay=50&consumer.onConsume=delete from projects where id = :#id"
 argument_list|)
 operator|.
 name|transform

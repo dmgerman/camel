@@ -170,13 +170,6 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 name|String
 name|exchangeId
 init|=

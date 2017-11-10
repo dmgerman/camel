@@ -323,7 +323,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"sql:select * from projects where id=3?outputType=SelectOne&outputClass=org.apache.camel.component.sql.ProjectModel"
+literal|"sql:select * from projects where id=3?outputType=SelectOne&outputClass=org.apache.camel.component.sql.ProjectModel&consumer.initialDelay=0&consumer.delay=50"
 argument_list|)
 operator|.
 name|to
@@ -496,7 +496,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"sql:select * from projects where id=3?outputType=SelectOne"
+literal|"sql:select * from projects where id=3?outputType=SelectOne&consumer.initialDelay=0&consumer.delay=50"
 argument_list|)
 operator|.
 name|to
@@ -689,7 +689,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"sql:select project from projects where id=3?outputType=SelectOne"
+literal|"sql:select project from projects where id=3?outputType=SelectOne&consumer.initialDelay=0&consumer.delay=50"
 argument_list|)
 operator|.
 name|to
@@ -825,7 +825,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"sql:select count(*) from projects?outputType=SelectOne"
+literal|"sql:select count(*) from projects?outputType=SelectOne&consumer.initialDelay=0&consumer.delay=50"
 argument_list|)
 operator|.
 name|to

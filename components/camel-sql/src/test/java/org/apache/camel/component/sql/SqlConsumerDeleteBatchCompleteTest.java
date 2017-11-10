@@ -288,12 +288,12 @@ name|i
 operator|++
 control|)
 block|{
-comment|// give it a little tine to delete
+comment|// give it a little time to delete
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|200
 argument_list|)
 expr_stmt|;
 name|int
@@ -386,7 +386,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sql:select * from projects order by id?consumer.onConsumeBatchComplete=delete from projects"
+literal|"sql:select * from projects order by id?consumer.initialDelay=0&consumer.delay=50&consumer.onConsumeBatchComplete=delete from projects"
 argument_list|)
 operator|.
 name|to
