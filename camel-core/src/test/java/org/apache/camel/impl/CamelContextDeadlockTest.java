@@ -67,10 +67,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelContextDeadlockText
+DECL|class|CamelContextDeadlockTest
 specifier|public
 class|class
-name|CamelContextDeadlockText
+name|CamelContextDeadlockTest
 block|{
 annotation|@
 name|Test
