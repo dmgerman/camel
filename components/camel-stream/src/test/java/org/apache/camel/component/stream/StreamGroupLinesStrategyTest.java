@@ -313,7 +313,17 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong result."
 argument_list|,
-literal|"A\nB\nC\n"
+literal|"A"
+operator|+
+name|LS
+operator|+
+literal|"B"
+operator|+
+name|LS
+operator|+
+literal|"C"
+operator|+
+name|LS
 argument_list|,
 name|result
 argument_list|)
@@ -341,7 +351,17 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong result."
 argument_list|,
-literal|"D\nE\nF\n"
+literal|"D"
+operator|+
+name|LS
+operator|+
+literal|"E"
+operator|+
+name|LS
+operator|+
+literal|"F"
+operator|+
+name|LS
 argument_list|,
 name|result2
 argument_list|)

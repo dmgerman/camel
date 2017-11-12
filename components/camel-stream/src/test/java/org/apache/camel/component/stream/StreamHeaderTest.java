@@ -129,7 +129,9 @@ expr_stmt|;
 comment|// StreamProducer appends \n in text mode
 name|assertEquals
 argument_list|(
-literal|"Hello\n"
+literal|"Hello"
+operator|+
+name|LS
 argument_list|,
 name|sb
 operator|.
