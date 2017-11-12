@@ -464,7 +464,7 @@ specifier|final
 name|String
 name|key
 init|=
-literal|"optimisticKey"
+literal|"optimisticGetKey"
 decl_stmt|;
 name|Exchange
 name|ex
@@ -791,7 +791,7 @@ specifier|final
 name|String
 name|key
 init|=
-literal|"optimisticKey"
+literal|"optimisticPersistentRemoveKey"
 decl_stmt|;
 name|Exchange
 name|ex
