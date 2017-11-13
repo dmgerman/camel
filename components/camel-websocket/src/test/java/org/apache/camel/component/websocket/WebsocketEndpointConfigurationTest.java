@@ -19,6 +19,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+operator|.
+name|assumeTrue
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -495,6 +507,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+literal|"At lease 18 CPUs available"
+argument_list|,
+literal|1
+operator|+
+name|Runtime
+operator|.
+name|getRuntime
+argument_list|()
+operator|.
+name|availableProcessors
+argument_list|()
+operator|*
+literal|2
+operator|>=
+literal|19
+argument_list|)
+expr_stmt|;
 name|port
 operator|=
 name|AvailablePortFinder
