@@ -811,6 +811,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+comment|// do nothing
+block|}
 comment|// the loop finished, persist the lastValue just in case we are shutting down
 comment|// TODO: perhaps add a functionality to persist every N records
 name|tailTracking
