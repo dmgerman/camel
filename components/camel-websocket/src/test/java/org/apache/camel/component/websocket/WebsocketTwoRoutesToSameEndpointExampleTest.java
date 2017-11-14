@@ -466,7 +466,7 @@ name|websocketComponent
 operator|.
 name|setMaxThreads
 argument_list|(
-literal|20
+literal|25
 argument_list|)
 expr_stmt|;
 name|from
