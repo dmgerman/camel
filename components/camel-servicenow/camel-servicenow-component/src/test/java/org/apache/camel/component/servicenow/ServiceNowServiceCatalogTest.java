@@ -130,6 +130,11 @@ block|{
 name|List
 argument_list|<
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 name|result1
 init|=
@@ -185,6 +190,11 @@ expr_stmt|;
 name|List
 argument_list|<
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 name|result2
 init|=
@@ -288,6 +298,11 @@ block|{
 name|List
 argument_list|<
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 name|result
 init|=
