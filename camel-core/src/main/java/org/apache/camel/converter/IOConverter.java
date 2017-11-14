@@ -1006,6 +1006,37 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
+DECL|method|toReader (byte[] data, Exchange exchange)
+specifier|public
+specifier|static
+name|Reader
+name|toReader
+parameter_list|(
+name|byte
+index|[]
+name|data
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|toReader
+argument_list|(
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|data
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|)
+return|;
+block|}
 comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
