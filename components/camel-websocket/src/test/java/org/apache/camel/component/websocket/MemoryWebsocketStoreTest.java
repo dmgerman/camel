@@ -66,16 +66,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|InOrder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mock
 import|;
 end_import
@@ -149,30 +139,6 @@ operator|.
 name|Assert
 operator|.
 name|fail
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|inOrder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|times
 import|;
 end_import
 
