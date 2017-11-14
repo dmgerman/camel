@@ -19,6 +19,30 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+operator|.
+name|assumeTrue
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -234,6 +258,11 @@ operator|new
 name|JacksonDataFormat
 argument_list|()
 decl_stmt|;
+name|String
+name|timeZoneId
+init|=
+literal|"Africa/Ouagadougou"
+decl_stmt|;
 name|TimeZone
 name|timeZone
 init|=
@@ -241,9 +270,29 @@ name|TimeZone
 operator|.
 name|getTimeZone
 argument_list|(
-literal|"Africa/Ouagadougou"
+name|timeZoneId
 argument_list|)
 decl_stmt|;
+name|assumeTrue
+argument_list|(
+name|format
+argument_list|(
+literal|"TimeZone with id '%s' is available"
+argument_list|,
+name|timeZoneId
+argument_list|)
+argument_list|,
+name|timeZone
+operator|.
+name|getID
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|timeZoneId
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|format
 operator|.
 name|setTimezone
