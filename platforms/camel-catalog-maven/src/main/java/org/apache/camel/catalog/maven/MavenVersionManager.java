@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -118,6 +128,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|MultiThreadedHttpConnectionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|ivy
 operator|.
 name|util
@@ -139,6 +163,8 @@ class|class
 name|MavenVersionManager
 implements|implements
 name|VersionManager
+implements|,
+name|Closeable
 block|{
 DECL|field|classLoader
 specifier|private
@@ -799,6 +825,24 @@ block|}
 return|return
 literal|null
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|close ()
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// the http client uses this MultiThreadedHttpConnectionManager for handling http connections
+comment|// and we should ensure its shutdown to not leak connections/threads
+name|MultiThreadedHttpConnectionManager
+operator|.
+name|shutdownAll
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
