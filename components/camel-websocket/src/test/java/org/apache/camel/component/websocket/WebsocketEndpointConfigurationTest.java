@@ -788,7 +788,7 @@ init|=
 operator|new
 name|QueuedThreadPool
 argument_list|(
-literal|20
+literal|25
 argument_list|,
 literal|1
 argument_list|)
