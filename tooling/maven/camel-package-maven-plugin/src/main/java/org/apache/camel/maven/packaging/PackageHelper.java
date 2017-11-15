@@ -308,6 +308,14 @@ literal|"/"
 operator|+
 name|suffix
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -330,6 +338,7 @@ operator|+
 literal|") has changed."
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|buildContext

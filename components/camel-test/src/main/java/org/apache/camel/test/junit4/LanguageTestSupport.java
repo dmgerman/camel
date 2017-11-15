@@ -308,6 +308,14 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -325,6 +333,7 @@ operator|+
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 name|assertTrue
 argument_list|(
 literal|"Expression: "

@@ -721,6 +721,11 @@ condition|(
 name|cause
 operator|!=
 literal|null
+operator|&&
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
 condition|)
 block|{
 name|log

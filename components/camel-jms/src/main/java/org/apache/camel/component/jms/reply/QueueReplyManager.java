@@ -695,6 +695,14 @@ operator|.
 name|CACHE_CONSUMER
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -715,6 +723,7 @@ operator|+
 name|answer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

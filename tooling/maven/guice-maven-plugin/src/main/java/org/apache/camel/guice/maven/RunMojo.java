@@ -1693,6 +1693,15 @@ argument_list|(
 name|threadsArray
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getLog
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|getLog
 argument_list|()
 operator|.
@@ -1714,6 +1723,7 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

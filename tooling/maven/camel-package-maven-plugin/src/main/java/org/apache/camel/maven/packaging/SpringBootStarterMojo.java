@@ -2284,6 +2284,15 @@ operator|.
 name|getArtifact
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|getLog
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|getLog
 argument_list|()
 operator|.
@@ -2318,6 +2327,7 @@ name|getScope
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!

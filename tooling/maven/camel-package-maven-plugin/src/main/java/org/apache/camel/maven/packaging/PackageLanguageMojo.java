@@ -1265,6 +1265,14 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -1280,6 +1288,7 @@ operator|+
 literal|" language"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
