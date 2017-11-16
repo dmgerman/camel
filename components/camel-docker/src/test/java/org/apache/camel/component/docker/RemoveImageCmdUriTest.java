@@ -102,16 +102,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mock
 import|;
 end_import
@@ -123,6 +113,18 @@ operator|.
 name|mockito
 operator|.
 name|Mockito
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|anyString
 import|;
 end_import
 
@@ -276,8 +278,6 @@ argument_list|(
 name|imageId
 argument_list|)
 expr_stmt|;
-comment|//        Mockito.verify(mockObject, Mockito.times(0)).withNoPrune();
-comment|//        Mockito.verify(mockObject, Mockito.times(1)).withForce();
 block|}
 annotation|@
 name|Override
@@ -295,8 +295,6 @@ name|dockerClient
 operator|.
 name|removeImageCmd
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)

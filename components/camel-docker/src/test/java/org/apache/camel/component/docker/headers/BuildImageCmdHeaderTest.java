@@ -130,16 +130,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mock
 import|;
 end_import
@@ -151,6 +141,30 @@ operator|.
 name|mockito
 operator|.
 name|Mockito
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|anyString
 import|;
 end_import
 
@@ -268,8 +282,6 @@ argument_list|)
 operator|.
 name|buildImageCmd
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|InputStream
@@ -391,8 +403,6 @@ argument_list|)
 operator|.
 name|buildImageCmd
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|File
@@ -494,8 +504,6 @@ name|dockerClient
 operator|.
 name|buildImageCmd
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|InputStream
@@ -518,8 +526,6 @@ name|dockerClient
 operator|.
 name|buildImageCmd
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|File
@@ -542,9 +548,7 @@ name|mockObject
 operator|.
 name|exec
 argument_list|(
-name|Matchers
-operator|.
-name|anyObject
+name|any
 argument_list|()
 argument_list|)
 argument_list|)
@@ -566,8 +570,6 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)

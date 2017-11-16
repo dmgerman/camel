@@ -334,19 +334,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-operator|.
-name|argThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|eq
 import|;
@@ -358,7 +346,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|isNull
 import|;
@@ -385,6 +373,20 @@ operator|.
 name|Mockito
 operator|.
 name|when
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|hamcrest
+operator|.
+name|MockitoHamcrest
+operator|.
+name|argThat
 import|;
 end_import
 

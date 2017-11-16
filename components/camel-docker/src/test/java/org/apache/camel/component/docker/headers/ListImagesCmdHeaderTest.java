@@ -94,16 +94,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mock
 import|;
 end_import
@@ -115,6 +105,18 @@ operator|.
 name|mockito
 operator|.
 name|Mockito
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|eq
 import|;
 end_import
 
@@ -219,7 +221,6 @@ operator|.
 name|listImagesCmd
 argument_list|()
 expr_stmt|;
-comment|//        Mockito.verify(mockObject, Mockito.times(1)).withFilters(Matchers.eq(filter));
 name|Mockito
 operator|.
 name|verify
@@ -236,8 +237,6 @@ argument_list|)
 operator|.
 name|withShowAll
 argument_list|(
-name|Matchers
-operator|.
 name|eq
 argument_list|(
 name|showAll

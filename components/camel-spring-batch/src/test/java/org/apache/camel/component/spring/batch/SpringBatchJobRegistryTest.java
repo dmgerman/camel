@@ -828,6 +828,9 @@ name|Bean
 DECL|method|reader ()
 specifier|protected
 name|ItemReader
+argument_list|<
+name|Object
+argument_list|>
 name|reader
 parameter_list|()
 throws|throws
@@ -836,6 +839,9 @@ block|{
 return|return
 operator|new
 name|CamelItemReader
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|consumerTemplate
 argument_list|,
@@ -848,6 +854,9 @@ name|Bean
 DECL|method|writer ()
 specifier|protected
 name|ItemWriter
+argument_list|<
+name|Object
+argument_list|>
 name|writer
 parameter_list|()
 throws|throws
@@ -856,6 +865,9 @@ block|{
 return|return
 operator|new
 name|CamelItemWriter
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|producerTemplate
 argument_list|,
@@ -868,6 +880,11 @@ name|Bean
 DECL|method|processor ()
 specifier|protected
 name|ItemProcessor
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|processor
 parameter_list|()
 throws|throws
@@ -876,6 +893,11 @@ block|{
 return|return
 operator|new
 name|CamelItemProcessor
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|producerTemplate
 argument_list|,
