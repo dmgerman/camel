@@ -223,9 +223,6 @@ argument_list|,
 literal|"otherCollection"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -236,7 +233,7 @@ name|body
 argument_list|,
 name|headers
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|DBObject
 name|b
 init|=
@@ -267,8 +264,6 @@ name|body
 operator|=
 literal|"{\"_id\": \"testInsertDynamicityDisabledExplicitly\", \"a\" : \"1\"}"
 expr_stmt|;
-name|result
-operator|=
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -431,9 +426,6 @@ argument_list|,
 literal|"otherDB"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -444,7 +436,7 @@ name|body
 argument_list|,
 name|headers
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|MongoCollection
 argument_list|<
 name|BasicDBObject
@@ -650,9 +642,6 @@ argument_list|,
 literal|"otherCollection"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -663,7 +652,7 @@ name|body
 argument_list|,
 name|headers
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|MongoCollection
 argument_list|<
 name|BasicDBObject
@@ -869,9 +858,6 @@ argument_list|,
 literal|"otherCollection"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -882,7 +868,7 @@ name|body
 argument_list|,
 name|headers
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|MongoCollection
 argument_list|<
 name|BasicDBObject

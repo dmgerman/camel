@@ -242,9 +242,6 @@ argument_list|,
 literal|"testInsertMap"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBody
@@ -253,7 +250,7 @@ literal|"direct:insertMap"
 argument_list|,
 name|m1
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|BasicDBObject
 name|b
 init|=
@@ -299,9 +296,6 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBody
@@ -312,7 +306,7 @@ operator|new
 name|MyPojoTest
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|DBObject
 name|b
 init|=
@@ -358,9 +352,6 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBody
@@ -369,8 +360,7 @@ literal|"direct:insertJsonString"
 argument_list|,
 literal|"{\"fruits\": [\"apple\", \"banana\", \"papaya\"], \"veggie\": \"broccoli\", \"_id\": \"testInsertJsonString\"}"
 argument_list|)
-decl_stmt|;
-comment|//assertTrue(result instanceof WriteResult);
+expr_stmt|;
 name|DBObject
 name|b
 init|=
@@ -418,9 +408,6 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBody
@@ -436,7 +423,7 @@ argument_list|,
 literal|null
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|DBObject
 name|b
 init|=
@@ -505,9 +492,6 @@ argument_list|,
 literal|"testInsertBsonString"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBody
@@ -525,7 +509,7 @@ name|bsonObject
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|DBObject
 name|b
 init|=
