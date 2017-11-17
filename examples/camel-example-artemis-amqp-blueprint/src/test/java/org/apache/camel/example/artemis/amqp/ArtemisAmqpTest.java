@@ -98,8 +98,8 @@ parameter_list|()
 block|{
 return|return
 literal|"/OSGI-INF/blueprint/camel-context.xml,"
-operator|+
 comment|//We add the embedded Artemis Broker
+operator|+
 literal|"/OSGI-INF/blueprint/embedded-broker.xml"
 return|;
 block|}
