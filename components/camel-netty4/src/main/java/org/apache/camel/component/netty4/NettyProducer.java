@@ -3351,6 +3351,11 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|releaseChannel
+argument_list|(
+name|future
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 try|try
