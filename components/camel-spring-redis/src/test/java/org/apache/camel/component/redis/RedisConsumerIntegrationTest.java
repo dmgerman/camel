@@ -206,6 +206,7 @@ name|redisTemplate
 operator|=
 operator|new
 name|RedisTemplate
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|redisTemplate

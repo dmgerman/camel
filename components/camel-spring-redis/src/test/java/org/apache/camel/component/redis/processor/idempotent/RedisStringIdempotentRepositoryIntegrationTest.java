@@ -252,6 +252,11 @@ name|Resource
 DECL|field|redisTemplate
 specifier|private
 name|RedisTemplate
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|redisTemplate
 decl_stmt|;
 static|static
@@ -284,6 +289,7 @@ name|redisTemplate
 operator|=
 operator|new
 name|RedisTemplate
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|redisTemplate

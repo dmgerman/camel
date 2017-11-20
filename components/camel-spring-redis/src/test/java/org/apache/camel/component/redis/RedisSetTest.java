@@ -58,7 +58,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|Test
 import|;
 end_import
 
@@ -68,7 +68,31 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Test
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mock
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
+name|junit
+operator|.
+name|MockitoJUnitRunner
 import|;
 end_import
 
@@ -110,9 +134,9 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
-name|anyCollection
+name|any
 import|;
 end_import
 
@@ -122,9 +146,9 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
-name|anyObject
+name|anySet
 import|;
 end_import
 
@@ -134,21 +158,9 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|mock
 import|;
 end_import
 
@@ -177,6 +189,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|RunWith
+argument_list|(
+name|MockitoJUnitRunner
+operator|.
+name|class
+argument_list|)
 DECL|class|RedisSetTest
 specifier|public
 class|class
@@ -184,14 +203,28 @@ name|RedisSetTest
 extends|extends
 name|RedisTestSupport
 block|{
+annotation|@
+name|Mock
 DECL|field|redisTemplate
 specifier|private
 name|RedisTemplate
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|redisTemplate
 decl_stmt|;
+annotation|@
+name|Mock
 DECL|field|setOperations
 specifier|private
 name|SetOperations
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|setOperations
 decl_stmt|;
 annotation|@
@@ -239,40 +272,6 @@ name|registry
 return|;
 block|}
 annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|redisTemplate
-operator|=
-name|mock
-argument_list|(
-name|RedisTemplate
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|setOperations
-operator|=
-name|mock
-argument_list|(
-name|SetOperations
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|Test
 DECL|method|shouldExecuteSADD ()
 specifier|public
@@ -291,7 +290,7 @@ argument_list|(
 name|anyString
 argument_list|()
 argument_list|,
-name|anyObject
+name|any
 argument_list|()
 argument_list|)
 argument_list|)
@@ -451,7 +450,7 @@ argument_list|(
 name|anyString
 argument_list|()
 argument_list|,
-name|anyCollection
+name|anySet
 argument_list|()
 argument_list|)
 argument_list|)
@@ -651,7 +650,7 @@ argument_list|(
 name|anyString
 argument_list|()
 argument_list|,
-name|anyCollection
+name|anySet
 argument_list|()
 argument_list|)
 argument_list|)
@@ -826,7 +825,7 @@ argument_list|(
 name|anyString
 argument_list|()
 argument_list|,
-name|anyObject
+name|any
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1172,7 +1171,7 @@ argument_list|(
 name|anyString
 argument_list|()
 argument_list|,
-name|anyObject
+name|any
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1275,7 +1274,7 @@ argument_list|(
 name|anyString
 argument_list|()
 argument_list|,
-name|anyCollection
+name|anySet
 argument_list|()
 argument_list|)
 argument_list|)
