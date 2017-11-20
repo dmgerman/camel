@@ -1553,6 +1553,20 @@ name|getDeliveryTag
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|message
+operator|.
+name|setHeader
+argument_list|(
+name|RabbitMQConstants
+operator|.
+name|REDELIVERY_TAG
+argument_list|,
+name|envelope
+operator|.
+name|isRedelivery
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|populateMessageHeadersFromRabbitMQHeaders (final Message message, final AMQP.BasicProperties properties)

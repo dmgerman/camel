@@ -71,6 +71,15 @@ name|DELIVERY_TAG
 init|=
 literal|"rabbitmq.DELIVERY_TAG"
 decl_stmt|;
+DECL|field|REDELIVERY_TAG
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REDELIVERY_TAG
+init|=
+literal|"rabbitmq.REDELIVERY_TAG"
+decl_stmt|;
 DECL|field|CORRELATIONID
 specifier|public
 specifier|static
