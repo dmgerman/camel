@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -88,18 +88,16 @@ specifier|public
 class|class
 name|SqsComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|SqsComponent ()
 specifier|public
 name|SqsComponent
 parameter_list|()
 block|{
-name|super
+name|this
 argument_list|(
-name|SqsEndpoint
-operator|.
-name|class
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -114,10 +112,13 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|SqsEndpoint
-operator|.
-name|class
+argument_list|)
+expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|SqsComponentVerifierExtension
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
