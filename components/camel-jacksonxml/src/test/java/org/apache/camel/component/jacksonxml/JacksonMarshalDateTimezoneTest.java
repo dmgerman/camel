@@ -122,6 +122,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|TimeZone
+operator|.
+name|setDefault
+argument_list|(
+name|TimeZone
+operator|.
+name|getTimeZone
+argument_list|(
+literal|"UTC"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|GregorianCalendar
 name|in
 init|=
@@ -185,7 +197,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<Date>1493132410000</Date>"
+literal|"<Date>1493139610000</Date>"
 argument_list|,
 name|marshalledAsString
 argument_list|)
