@@ -342,9 +342,7 @@ name|put
 argument_list|(
 literal|"region"
 argument_list|,
-name|Regions
-operator|.
-name|US_EAST_1
+literal|"us-east-1"
 argument_list|)
 expr_stmt|;
 name|parameters
