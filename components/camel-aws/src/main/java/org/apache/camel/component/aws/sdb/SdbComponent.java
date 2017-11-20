@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -74,18 +74,16 @@ specifier|public
 class|class
 name|SdbComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|SdbComponent ()
 specifier|public
 name|SdbComponent
 parameter_list|()
 block|{
-name|super
+name|this
 argument_list|(
-name|SdbEndpoint
-operator|.
-name|class
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -100,10 +98,13 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|SdbEndpoint
-operator|.
-name|class
+argument_list|)
+expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|SdbComponentVerifierExtension
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
