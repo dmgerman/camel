@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.aws.sdb
+DECL|package|org.apache.camel.component.aws.ses
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|aws
 operator|.
-name|sdb
+name|ses
 package|;
 end_package
 
@@ -105,10 +105,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SdbComponentVerifierExtensionTest
+DECL|class|SesComponentVerifierExtensionTest
 specifier|public
 class|class
-name|SdbComponentVerifierExtensionTest
+name|SesComponentVerifierExtensionTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -145,7 +145,7 @@ argument_list|()
 operator|.
 name|getComponent
 argument_list|(
-literal|"aws-sdb"
+literal|"aws-ses"
 argument_list|)
 decl_stmt|;
 name|ComponentVerifierExtension
@@ -211,9 +211,9 @@ name|parameters
 operator|.
 name|put
 argument_list|(
-literal|"domainName"
+literal|"from"
 argument_list|,
-literal|"domain1"
+literal|"test@test.com"
 argument_list|)
 expr_stmt|;
 name|ComponentVerifierExtension
@@ -271,7 +271,7 @@ argument_list|()
 operator|.
 name|getComponent
 argument_list|(
-literal|"aws-sdb"
+literal|"aws-ses"
 argument_list|)
 decl_stmt|;
 name|ComponentVerifierExtension
@@ -337,9 +337,9 @@ name|parameters
 operator|.
 name|put
 argument_list|(
-literal|"domainName"
+literal|"from"
 argument_list|,
-literal|"domain1"
+literal|"test@test.com"
 argument_list|)
 expr_stmt|;
 name|ComponentVerifierExtension
