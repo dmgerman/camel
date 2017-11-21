@@ -170,6 +170,18 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|)
+DECL|field|region
+specifier|private
+name|String
+name|region
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"proxy"
 argument_list|)
 DECL|field|proxyHost
@@ -307,6 +319,33 @@ operator|.
 name|secretKey
 operator|=
 name|secretKey
+expr_stmt|;
+block|}
+DECL|method|getRegion ()
+specifier|public
+name|String
+name|getRegion
+parameter_list|()
+block|{
+return|return
+name|region
+return|;
+block|}
+comment|/**      * Amazon AWS Region      */
+DECL|method|setRegion (String region)
+specifier|public
+name|void
+name|setRegion
+parameter_list|(
+name|String
+name|region
+parameter_list|)
+block|{
+name|this
+operator|.
+name|region
+operator|=
+name|region
 expr_stmt|;
 block|}
 DECL|method|getAwsLambdaEndpoint ()

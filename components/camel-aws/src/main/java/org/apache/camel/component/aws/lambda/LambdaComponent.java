@@ -94,7 +94,13 @@ DECL|method|LambdaComponent ()
 specifier|public
 name|LambdaComponent
 parameter_list|()
-block|{     }
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|LambdaComponent (CamelContext context)
 specifier|public
 name|LambdaComponent
@@ -106,6 +112,13 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|LambdaComponentVerifierExtension
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
