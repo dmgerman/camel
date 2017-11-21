@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -78,18 +78,16 @@ specifier|public
 class|class
 name|EC2Component
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|EC2Component ()
 specifier|public
 name|EC2Component
 parameter_list|()
 block|{
-name|super
+name|this
 argument_list|(
-name|EC2Endpoint
-operator|.
-name|class
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -104,10 +102,13 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|EC2Endpoint
-operator|.
-name|class
+argument_list|)
+expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|EC2ComponentVerifierExtension
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
