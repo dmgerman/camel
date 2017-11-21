@@ -256,6 +256,18 @@ literal|"START"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
+DECL|field|region
+specifier|private
+name|String
+name|region
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|domainName
 specifier|private
 name|String
@@ -598,6 +610,33 @@ operator|=
 name|secretKey
 expr_stmt|;
 block|}
+DECL|method|getRegion ()
+specifier|public
+name|String
+name|getRegion
+parameter_list|()
+block|{
+return|return
+name|region
+return|;
+block|}
+comment|/**      * Amazon AWS Region.      */
+DECL|method|setRegion (String region)
+specifier|public
+name|void
+name|setRegion
+parameter_list|(
+name|String
+name|region
+parameter_list|)
+block|{
+name|this
+operator|.
+name|region
+operator|=
+name|region
+expr_stmt|;
+block|}
 DECL|method|getDomainName ()
 specifier|public
 name|String
@@ -812,7 +851,7 @@ return|return
 name|sWClientParameters
 return|;
 block|}
-comment|/**      * To configure the AmazonSimpleWorkflowClient using the key/values from the Map.      */
+comment|/**      * To configure the AmazonSimpleWorkflowClient using the key/values from the      * Map.      */
 DECL|method|setSWClientParameters (Map<String, Object> sWClientParameters)
 specifier|public
 name|void
@@ -876,7 +915,7 @@ return|return
 name|startWorkflowOptionsParameters
 return|;
 block|}
-comment|/**      * To configure the StartWorkflowOptions using the key/values from the Map.      * @param startWorkflowOptionsParameters      */
+comment|/**      * To configure the StartWorkflowOptions using the key/values from the Map.      *       * @param startWorkflowOptionsParameters      */
 DECL|method|setStartWorkflowOptionsParameters (Map<String, Object> startWorkflowOptionsParameters)
 specifier|public
 name|void
@@ -1124,7 +1163,7 @@ return|return
 name|dataConverter
 return|;
 block|}
-comment|/**      * An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter to use for serializing/deserializing the data.      */
+comment|/**      * An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter      * to use for serializing/deserializing the data.      */
 DECL|method|setDataConverter (DataConverter dataConverter)
 specifier|public
 name|void
