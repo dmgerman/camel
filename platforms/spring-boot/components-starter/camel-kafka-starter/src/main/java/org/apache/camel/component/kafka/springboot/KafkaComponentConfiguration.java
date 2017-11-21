@@ -996,6 +996,12 @@ name|pollTimeoutMs
 init|=
 literal|5000L
 decl_stmt|;
+comment|/**          * The maximum delay between invocations of poll() when using consumer          * group management. This places an upper bound on the amount of time          * that the consumer can be idle before fetching more records. If poll()          * is not called before expiration of this timeout, then the consumer is          * considered failed and the group will rebalance in order to reassign          * the partitions to another member.          */
+DECL|field|maxPollIntervalMs
+specifier|private
+name|Long
+name|maxPollIntervalMs
+decl_stmt|;
 comment|/**          * The class name of the partition assignment strategy that the client          * will use to distribute partition ownership amongst consumer instances          * when group management is used          */
 DECL|field|partitionAssignor
 specifier|private
@@ -2990,6 +2996,32 @@ operator|.
 name|pollTimeoutMs
 operator|=
 name|pollTimeoutMs
+expr_stmt|;
+block|}
+DECL|method|getMaxPollIntervalMs ()
+specifier|public
+name|Long
+name|getMaxPollIntervalMs
+parameter_list|()
+block|{
+return|return
+name|maxPollIntervalMs
+return|;
+block|}
+DECL|method|setMaxPollIntervalMs (Long maxPollIntervalMs)
+specifier|public
+name|void
+name|setMaxPollIntervalMs
+parameter_list|(
+name|Long
+name|maxPollIntervalMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxPollIntervalMs
+operator|=
+name|maxPollIntervalMs
 expr_stmt|;
 block|}
 DECL|method|getPartitionAssignor ()
