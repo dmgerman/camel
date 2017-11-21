@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -74,18 +74,16 @@ specifier|public
 class|class
 name|KinesisComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|KinesisComponent ()
 specifier|public
 name|KinesisComponent
 parameter_list|()
 block|{
-name|super
+name|this
 argument_list|(
-name|KinesisEndpoint
-operator|.
-name|class
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -100,10 +98,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|KinesisEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

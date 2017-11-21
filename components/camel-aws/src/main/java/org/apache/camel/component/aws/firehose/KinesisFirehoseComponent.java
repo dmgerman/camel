@@ -80,7 +80,13 @@ DECL|method|KinesisFirehoseComponent ()
 specifier|public
 name|KinesisFirehoseComponent
 parameter_list|()
-block|{      }
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|KinesisFirehoseComponent (CamelContext context)
 specifier|public
 name|KinesisFirehoseComponent
