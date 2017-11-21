@@ -1563,7 +1563,7 @@ name|REDELIVERY_TAG
 argument_list|,
 name|envelope
 operator|.
-name|isRedelivery
+name|isRedeliver
 argument_list|()
 argument_list|)
 expr_stmt|;
