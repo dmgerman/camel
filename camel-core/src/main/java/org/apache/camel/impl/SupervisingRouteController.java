@@ -875,7 +875,7 @@ operator|=
 name|initialDelay
 expr_stmt|;
 block|}
-comment|/**      * #see {@link this#setInitialDelay(Duration)}      *      * @param initialDelay the initial delay amount.      * @param initialDelay the initial delay time unit.      */
+comment|/**      * #see {@link this#setInitialDelay(Duration)}      *      * @param initialDelay the initial delay amount.      */
 DECL|method|setInitialDelay (long initialDelay, TimeUnit initialDelayUnit)
 specifier|public
 name|void

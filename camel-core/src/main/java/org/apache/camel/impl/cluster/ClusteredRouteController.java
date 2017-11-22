@@ -178,6 +178,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Experimental
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -301,6 +313,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Experimental
 DECL|class|ClusteredRouteController
 specifier|public
 class|class

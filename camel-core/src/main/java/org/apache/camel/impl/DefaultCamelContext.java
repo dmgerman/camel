@@ -3482,11 +3482,23 @@ DECL|field|routeController
 specifier|private
 name|RouteController
 name|routeController
+init|=
+operator|new
+name|DefaultRouteController
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 DECL|field|healthCheckRegistry
 specifier|private
 name|HealthCheckRegistry
 name|healthCheckRegistry
+init|=
+operator|new
+name|DefaultHealthCheckRegistry
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
 DECL|method|DefaultCamelContext ()
@@ -3611,28 +3623,6 @@ name|managementMBeanAssembler
 operator|=
 name|createManagementMBeanAssembler
 argument_list|()
-expr_stmt|;
-comment|// Route controller
-name|this
-operator|.
-name|routeController
-operator|=
-operator|new
-name|DefaultRouteController
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-comment|// Health check registry
-name|this
-operator|.
-name|healthCheckRegistry
-operator|=
-operator|new
-name|DefaultHealthCheckRegistry
-argument_list|(
-name|this
-argument_list|)
 expr_stmt|;
 comment|// Call all registered trackers with this context
 comment|// Note, this may use a partially constructed object
@@ -18092,6 +18082,12 @@ name|size
 argument_list|()
 argument_list|,
 name|getRouteController
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
