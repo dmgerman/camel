@@ -18076,7 +18076,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Total {} routes, of which {} are started and {} are managed by the route controller ({})"
+literal|"Total {} routes, of which {} are started, and {} are managed by RouteController: {}"
 argument_list|,
 name|getRoutes
 argument_list|()
@@ -18092,12 +18092,6 @@ name|size
 argument_list|()
 argument_list|,
 name|getRouteController
-argument_list|()
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -18126,6 +18120,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// okay the routes has been started so emit event that CamelContext has started (here at the end)
 name|EventHelper
 operator|.
 name|notifyCamelContextStarted
@@ -18133,8 +18128,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// now call the startup listeners where the routes has been warmed up
-comment|// (only the actual route consumer has not yet been started)
+comment|// now call the startup listeners where the routes has been started
 for|for
 control|(
 name|StartupListener

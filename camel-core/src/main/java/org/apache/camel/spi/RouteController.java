@@ -86,6 +86,10 @@ name|Service
 import|;
 end_import
 
+begin_comment
+comment|// TODO: Add javadoc
+end_comment
+
 begin_interface
 annotation|@
 name|Experimental
@@ -98,7 +102,7 @@ name|CamelContextAware
 extends|,
 name|Service
 block|{
-comment|/**      * Return the list of routes controlled by this controller.      *      * @return the list of controlled routes;      */
+comment|/**      * Return the list of routes controlled by this controller.      *      * @return the list of controlled routes      */
 DECL|method|getControlledRoutes ()
 name|Collection
 argument_list|<
