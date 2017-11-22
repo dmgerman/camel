@@ -403,6 +403,29 @@ return|;
 block|}
 if|if
 condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// do not convert if an exception has been thrown as if we attempt to convert and it also fails with a new
+comment|// exception then it will override the existing exception
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
 name|charset
 operator|!=
 literal|null
