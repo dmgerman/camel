@@ -767,6 +767,18 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|preSort
+specifier|protected
+name|boolean
+name|preSort
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"consumer,filter"
 argument_list|)
 DECL|field|maxMessagesPerPoll
@@ -2215,6 +2227,33 @@ block|{
 return|return
 name|antFilter
 return|;
+block|}
+DECL|method|isPreSort ()
+specifier|public
+name|boolean
+name|isPreSort
+parameter_list|()
+block|{
+return|return
+name|preSort
+return|;
+block|}
+comment|/**      * When pre-sort is enabled then the consumer will sort the file and directory names during polling,       * that was retrieved from the file system. You may want to do this in case you need to operate on the files       * in a sorted order. The pre-sort is executed before the consumer starts to filter, and accept files       * to process by Camel. This option is default=false meaning disabled.      */
+DECL|method|setPreSort (boolean preSort)
+specifier|public
+name|void
+name|setPreSort
+parameter_list|(
+name|boolean
+name|preSort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preSort
+operator|=
+name|preSort
+expr_stmt|;
 block|}
 DECL|method|isDelete ()
 specifier|public
