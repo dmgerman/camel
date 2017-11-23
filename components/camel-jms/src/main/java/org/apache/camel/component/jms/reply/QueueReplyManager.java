@@ -695,35 +695,22 @@ operator|.
 name|CACHE_CONSUMER
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using shared queue: "
-operator|+
+literal|"Using shared queue: {} with fixed message selector [{}] as reply listener: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getReplyTo
 argument_list|()
-operator|+
-literal|" with fixed message selector ["
-operator|+
+argument_list|,
 name|fixedMessageSelector
-operator|+
-literal|"] as reply listener: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -761,15 +748,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using shared queue: "
-operator|+
+literal|"Using shared queue: {} with dynamic message selector as reply listener: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getReplyTo
 argument_list|()
-operator|+
-literal|" with dynamic message selector as reply listener: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
@@ -819,15 +804,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using exclusive queue:"
-operator|+
+literal|"Using exclusive queue: {} as reply listener: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getReplyTo
 argument_list|()
-operator|+
-literal|" as reply listener: "
-operator|+
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
@@ -875,8 +858,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Setting the replyCacheLevel to be "
-operator|+
+literal|"Setting the replyCacheLevel to be {}"
+argument_list|,
 name|replyToCacheLevelName
 argument_list|)
 expr_stmt|;
@@ -1197,14 +1180,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -1219,7 +1194,6 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|.
 name|setTaskExecutor
