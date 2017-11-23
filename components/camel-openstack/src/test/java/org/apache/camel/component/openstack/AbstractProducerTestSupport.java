@@ -142,7 +142,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -157,6 +157,8 @@ operator|.
 name|api
 operator|.
 name|OSClient
+operator|.
+name|OSClientV3
 import|;
 end_import
 
@@ -190,8 +192,6 @@ annotation|@
 name|Mock
 DECL|field|client
 specifier|protected
-name|OSClient
-operator|.
 name|OSClientV3
 name|client
 decl_stmt|;

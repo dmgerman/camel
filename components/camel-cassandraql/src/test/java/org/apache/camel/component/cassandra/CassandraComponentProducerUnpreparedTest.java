@@ -354,9 +354,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|response
-init|=
 name|producerTemplate
 operator|.
 name|requestBody
@@ -372,7 +369,7 @@ argument_list|,
 literal|"Jiang"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Cluster
 name|cluster
 init|=
@@ -561,9 +558,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|response
-init|=
 name|producerTemplate
 operator|.
 name|requestBodyAndHeader
@@ -585,7 +579,7 @@ name|CQL_QUERY
 argument_list|,
 literal|"update camel_user set first_name=?, last_name=? where login=?"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Cluster
 name|cluster
 init|=
@@ -717,9 +711,6 @@ literal|"c_ibsen"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Object
-name|response
-init|=
 name|producerTemplate
 operator|.
 name|requestBodyAndHeader
@@ -732,7 +723,7 @@ name|CQL_QUERY
 argument_list|,
 name|update
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Cluster
 name|cluster
 init|=

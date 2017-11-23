@@ -550,7 +550,11 @@ name|key
 argument_list|)
 decl_stmt|;
 comment|// Then
-comment|// assertFalse(result);
+name|assertFalse
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
