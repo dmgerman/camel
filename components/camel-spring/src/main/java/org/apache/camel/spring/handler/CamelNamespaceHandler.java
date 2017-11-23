@@ -811,13 +811,6 @@ name|BeanDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|osgi
-specifier|private
-name|boolean
-name|osgi
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * Prepares the nodes before parsing.      */
 DECL|method|doBeforeParse (Node node)
 specifier|public
@@ -1311,6 +1304,11 @@ name|errorHandlerParser
 argument_list|)
 expr_stmt|;
 comment|// camel context
+name|boolean
+name|osgi
+init|=
+literal|false
+decl_stmt|;
 name|Class
 argument_list|<
 name|?
@@ -4430,12 +4428,6 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-name|osgi
-condition|)
-block|{
 comment|// ups we have already registered it before with same id, but on another camel context
 comment|// this is not good so we need to remove all traces of this auto registering.
 comment|// end user must manually add the needed XML elements and provide unique ids access all camel context himself.
@@ -4465,7 +4457,6 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|registerEndpoint (Element childElement, ParserContext parserContext, String contextId)
