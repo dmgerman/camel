@@ -198,9 +198,17 @@ argument_list|)
 expr_stmt|;
 name|sender
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 literal|"Hello"
+argument_list|,
+name|CoAPConstants
+operator|.
+name|COAP_METHOD
+argument_list|,
+name|CoAPConstants
+operator|.
+name|METHOD_PING
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -237,7 +245,7 @@ literal|"coap://localhost:"
 operator|+
 name|PORT
 operator|+
-literal|"/TestResource?coapMethod=PING"
+literal|"/TestResource"
 argument_list|)
 operator|.
 name|to
@@ -274,7 +282,7 @@ literal|"coap://localhost:"
 operator|+
 name|PORT
 operator|+
-literal|"/TestResource?coapMethod=PING"
+literal|"/TestResource"
 argument_list|)
 operator|.
 name|to

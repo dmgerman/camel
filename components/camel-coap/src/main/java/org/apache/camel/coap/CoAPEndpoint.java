@@ -183,16 +183,14 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
+name|label
 operator|=
-literal|"*"
+literal|"consumer"
 argument_list|)
-DECL|field|coapMethod
+DECL|field|coapMethodRestrict
 specifier|private
 name|String
-name|coapMethod
-init|=
-literal|"*"
+name|coapMethodRestrict
 decl_stmt|;
 DECL|field|component
 specifier|private
@@ -254,29 +252,33 @@ operator|=
 name|component
 expr_stmt|;
 block|}
-DECL|method|setCoapMethod (String m)
+DECL|method|setCoapMethodRestrict (String coapMethodRestrict)
 specifier|public
 name|void
-name|setCoapMethod
+name|setCoapMethodRestrict
 parameter_list|(
 name|String
-name|m
+name|coapMethodRestrict
 parameter_list|)
 block|{
-name|coapMethod
+name|this
+operator|.
+name|coapMethodRestrict
 operator|=
-name|m
+name|coapMethodRestrict
 expr_stmt|;
 block|}
-comment|/**      * The CoAP method this endpoint binds to. Default is to bind to all ("*") but can      * be restricted to GET, POST, PUT, DELETE, PING       * @return      */
-DECL|method|getCoapMethod ()
+comment|/**      * Comma separated list of methods that the CoAP consumer will bind to. The default is to bind to all methods (DELETE, GET, POST, PUT).      */
+DECL|method|getCoapMethodRestrict ()
 specifier|public
 name|String
-name|getCoapMethod
+name|getCoapMethodRestrict
 parameter_list|()
 block|{
 return|return
-name|coapMethod
+name|this
+operator|.
+name|coapMethodRestrict
 return|;
 block|}
 DECL|method|createProducer ()
