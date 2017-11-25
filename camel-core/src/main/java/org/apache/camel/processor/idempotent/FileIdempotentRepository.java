@@ -324,6 +324,7 @@ decl_stmt|;
 comment|// 1mb store file
 DECL|field|init
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|init
 init|=
@@ -1441,7 +1442,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|//CAMEL-12037
 if|if
 condition|(
 name|this
