@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|Collections
 import|;
 end_import
 
@@ -138,9 +138,9 @@ name|setHeader
 argument_list|(
 literal|"Sforce-Limit-Info"
 argument_list|,
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 literal|"api-usage"
 argument_list|)
