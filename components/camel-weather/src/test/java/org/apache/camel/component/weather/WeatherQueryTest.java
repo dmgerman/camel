@@ -102,7 +102,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -232,23 +232,6 @@ operator|.
 name|thenReturn
 argument_list|(
 name|location
-argument_list|)
-expr_stmt|;
-name|when
-argument_list|(
-name|exceptionThrowingGeoLocationProvider
-operator|.
-name|getCurrentGeoLocation
-argument_list|()
-argument_list|)
-operator|.
-name|thenThrow
-argument_list|(
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Error in getting current location"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
