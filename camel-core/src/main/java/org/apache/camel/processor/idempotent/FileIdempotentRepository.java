@@ -1441,6 +1441,16 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+comment|//CAMEL-12037
+if|if
+condition|(
+name|this
+operator|.
+name|cache
+operator|==
+literal|null
+condition|)
+block|{
 comment|// default use a 1st level cache
 name|this
 operator|.
@@ -1453,6 +1463,7 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
+block|}
 comment|// init store if not loaded before
 if|if
 condition|(
