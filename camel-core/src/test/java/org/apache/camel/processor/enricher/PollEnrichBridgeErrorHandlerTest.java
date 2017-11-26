@@ -268,11 +268,30 @@ argument_list|(
 name|caught
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|caught
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Error during poll"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Something went wrong"
 argument_list|,
 name|caught
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()

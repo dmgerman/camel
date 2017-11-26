@@ -138,7 +138,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"test:file:target/testme?noop=true&split=true"
+literal|"test:file:target/testme?noop=true&split=true&timeout=1000"
 argument_list|)
 expr_stmt|;
 block|}

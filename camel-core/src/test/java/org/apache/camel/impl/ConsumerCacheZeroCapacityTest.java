@@ -228,9 +228,9 @@ literal|"target/foo"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Should find file consumer thread"
+literal|"Should not find file consumer thread"
 argument_list|,
 name|found
 argument_list|)

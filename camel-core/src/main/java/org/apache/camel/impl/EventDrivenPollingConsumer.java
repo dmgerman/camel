@@ -977,6 +977,34 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|getConsumer ()
+specifier|protected
+name|Consumer
+name|getConsumer
+parameter_list|()
+block|{
+return|return
+name|consumer
+return|;
+block|}
+DECL|method|createConsumer ()
+specifier|protected
+name|Consumer
+name|createConsumer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|getEndpoint
+argument_list|()
+operator|.
+name|createConsumer
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -988,13 +1016,8 @@ block|{
 comment|// lets add ourselves as a consumer
 name|consumer
 operator|=
-name|getEndpoint
-argument_list|()
-operator|.
 name|createConsumer
-argument_list|(
-name|this
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// if the consumer has a polling strategy then invoke that
 if|if

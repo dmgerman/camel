@@ -462,7 +462,7 @@ expr_stmt|;
 block|}
 comment|/**      * Poll for files      */
 DECL|method|poll ()
-specifier|protected
+specifier|public
 name|int
 name|poll
 parameter_list|()
@@ -2852,6 +2852,48 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onInit ()
+specifier|public
+name|void
+name|onInit
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop as we do a manual on-demand poll with GenericFilePolllingConsumer
+block|}
+annotation|@
+name|Override
+DECL|method|beforePoll (long timeout)
+specifier|public
+name|long
+name|beforePoll
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop as we do a manual on-demand poll with GenericFilePolllingConsumer
+return|return
+name|timeout
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|afterPoll ()
+specifier|public
+name|void
+name|afterPoll
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop as we do a manual on-demand poll with GenericFilePolllingConsumer
 block|}
 block|}
 end_class
