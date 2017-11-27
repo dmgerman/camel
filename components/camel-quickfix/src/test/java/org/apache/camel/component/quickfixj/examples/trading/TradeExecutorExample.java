@@ -58,6 +58,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|time
+operator|.
+name|LocalDateTime
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -812,8 +822,9 @@ argument_list|,
 operator|new
 name|TransactTime
 argument_list|(
-operator|new
-name|Date
+name|LocalDateTime
+operator|.
+name|now
 argument_list|()
 argument_list|)
 argument_list|,
