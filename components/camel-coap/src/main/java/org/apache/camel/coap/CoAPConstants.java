@@ -84,6 +84,12 @@ name|COAP_METHOD
 init|=
 literal|"CamelCoapMethod"
 decl_stmt|;
+DECL|field|COAP_RESPONSE_CODE
+name|String
+name|COAP_RESPONSE_CODE
+init|=
+literal|"CamelCoapResponseCode"
+decl_stmt|;
 DECL|field|COAP_URI
 name|String
 name|COAP_URI
