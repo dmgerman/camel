@@ -78,6 +78,21 @@ specifier|public
 interface|interface
 name|CamelCatalog
 block|{
+comment|/**      * Returns the {@link JSonSchemaResolver} used by this catalog.      *      * @return the resolver      */
+DECL|method|getJSonSchemaResolver ()
+name|JSonSchemaResolver
+name|getJSonSchemaResolver
+parameter_list|()
+function_decl|;
+comment|/**      * To use a custom {@link JSonSchemaResolver} with this catalog.      *      * @param resolver  the custom resolver      */
+DECL|method|setJSonSchemaResolver (JSonSchemaResolver resolver)
+name|void
+name|setJSonSchemaResolver
+parameter_list|(
+name|JSonSchemaResolver
+name|resolver
+parameter_list|)
+function_decl|;
 comment|/**      * To plugin a custom {@link RuntimeProvider} that amends the catalog to only include information that is supported on the runtime.      */
 DECL|method|setRuntimeProvider (RuntimeProvider provider)
 name|void
@@ -87,7 +102,7 @@ name|RuntimeProvider
 name|provider
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the {@link RuntimeProvider} in use.      * @return      */
+comment|/**      * Gets the {@link RuntimeProvider} in use.      */
 DECL|method|getRuntimeProvider ()
 name|RuntimeProvider
 name|getRuntimeProvider
