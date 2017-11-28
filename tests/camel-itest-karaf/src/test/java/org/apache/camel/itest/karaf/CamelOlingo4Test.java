@@ -68,11 +68,6 @@ end_import
 
 begin_class
 annotation|@
-name|Ignore
-argument_list|(
-literal|"https://issues.apache.org/jira/browse/CAMEL-11856"
-argument_list|)
-annotation|@
 name|RunWith
 argument_list|(
 name|PaxExam
