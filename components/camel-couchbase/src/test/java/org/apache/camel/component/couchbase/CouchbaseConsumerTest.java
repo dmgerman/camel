@@ -121,9 +121,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CouchbaseConsumer
-name|couchbaseConsumer
-init|=
 operator|new
 name|CouchbaseConsumer
 argument_list|(
@@ -166,7 +163,7 @@ comment|// Nothing to do
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 end_class

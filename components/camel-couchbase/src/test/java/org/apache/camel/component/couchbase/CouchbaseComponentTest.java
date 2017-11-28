@@ -110,7 +110,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -180,11 +180,7 @@ name|params
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -241,11 +237,7 @@ name|params
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params
@@ -432,11 +424,7 @@ name|params
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -505,11 +493,7 @@ name|params
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params
@@ -549,8 +533,6 @@ argument_list|,
 name|params
 argument_list|)
 decl_stmt|;
-comment|// System.out.print(endpoint.makeBootstrapURI()[0].toString() + " " +
-comment|// endpoint.makeBootstrapURI().length + " ");
 name|URI
 index|[]
 name|endpointArray
@@ -646,11 +628,7 @@ name|params
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params
@@ -690,8 +668,6 @@ argument_list|,
 name|params
 argument_list|)
 decl_stmt|;
-comment|// System.out.print(endpoint.makeBootstrapURI()[0].toString() + " " +
-comment|// endpoint.makeBootstrapURI().length + " ");
 name|URI
 index|[]
 name|endpointArray
@@ -787,11 +763,7 @@ name|params
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params
@@ -898,11 +870,7 @@ name|params
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params
@@ -942,8 +910,6 @@ argument_list|,
 name|params
 argument_list|)
 decl_stmt|;
-comment|// System.out.print(endpoint.makeBootstrapURI()[0].toString() + " " +
-comment|// endpoint.makeBootstrapURI().length + " ");
 name|URI
 index|[]
 name|endpointArray
@@ -983,11 +949,7 @@ name|params
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params
