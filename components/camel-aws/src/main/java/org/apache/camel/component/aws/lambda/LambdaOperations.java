@@ -40,6 +40,9 @@ name|deleteFunction
 block|,
 DECL|enumConstant|invokeFunction
 name|invokeFunction
+block|,
+DECL|enumConstant|updateFunction
+name|updateFunction
 block|}
 end_enum
 
