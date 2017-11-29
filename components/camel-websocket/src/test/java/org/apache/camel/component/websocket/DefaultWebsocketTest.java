@@ -92,7 +92,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -157,10 +157,6 @@ operator|.
 name|times
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 annotation|@
@@ -313,10 +309,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testOnOpen ()
+DECL|method|testOnConnect ()
 specifier|public
 name|void
-name|testOnOpen
+name|testOnConnect
 parameter_list|()
 block|{
 name|defaultWebsocket
@@ -326,7 +322,40 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-comment|/*          * keyCaptor not functional anymore, because addSocket cannot be called with connectionKey          *           * InOrder inOrder = inOrder(connection, consumer, sync); ArgumentCaptor<String> keyCaptor = ArgumentCaptor.forClass(String.class); inOrder.verify(sync,          * times(1)).addSocket((eq(defaultWebsocket))); inOrder.verifyNoMoreInteractions();          */
+name|InOrder
+name|inOrder
+init|=
+name|inOrder
+argument_list|(
+name|session
+argument_list|,
+name|consumer
+argument_list|,
+name|sync
+argument_list|)
+decl_stmt|;
+name|inOrder
+operator|.
+name|verify
+argument_list|(
+name|sync
+argument_list|,
+name|times
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+operator|.
+name|addSocket
+argument_list|(
+name|defaultWebsocket
+argument_list|)
+expr_stmt|;
+name|inOrder
+operator|.
+name|verifyNoMoreInteractions
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|session

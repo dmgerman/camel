@@ -188,7 +188,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -272,7 +272,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|eq
 import|;
@@ -313,10 +313,6 @@ operator|.
 name|when
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 annotation|@
@@ -442,40 +438,12 @@ name|DefaultCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Server : "
-operator|+
-name|server
-operator|.
-name|isStarted
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|server
 operator|=
 name|component
 operator|.
 name|createServer
 argument_list|()
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Server : "
-operator|+
-name|server
-operator|.
-name|isStarted
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|ServerConnector
 name|connector
@@ -754,7 +722,7 @@ operator|.
 name|getServletHandler
 argument_list|()
 operator|.
-name|getHolderEntry
+name|getMappedServlet
 argument_list|(
 literal|"/"
 argument_list|)
@@ -961,7 +929,7 @@ operator|.
 name|getServletHandler
 argument_list|()
 operator|.
-name|getHolderEntry
+name|getMappedServlet
 argument_list|(
 literal|"/"
 argument_list|)

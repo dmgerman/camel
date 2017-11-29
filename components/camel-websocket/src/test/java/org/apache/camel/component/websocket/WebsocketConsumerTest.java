@@ -126,7 +126,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -138,7 +138,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|any
 import|;
@@ -150,7 +150,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|eq
 import|;
@@ -203,10 +203,6 @@ operator|.
 name|when
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 annotation|@
@@ -719,11 +715,7 @@ operator|.
 name|handleException
 argument_list|(
 name|any
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
+argument_list|()
 argument_list|,
 name|eq
 argument_list|(

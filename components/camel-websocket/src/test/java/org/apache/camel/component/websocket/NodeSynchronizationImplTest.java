@@ -66,7 +66,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -119,10 +119,6 @@ operator|.
 name|fail
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 annotation|@
@@ -191,7 +187,6 @@ specifier|private
 name|MemoryWebsocketStore
 name|store1
 decl_stmt|;
-comment|/**      * @throws Exception      */
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -246,8 +241,6 @@ argument_list|(
 name|KEY_2
 argument_list|)
 expr_stmt|;
-comment|// when(websocket1.getConnectionKey()).thenReturn(KEY_1);
-comment|// when(websocket2.getConnectionKey()).thenReturn(KEY_2);
 block|}
 comment|/**      * Test method for {@link org.apache.camel.component.websocket.NodeSynchronization#addSocket(org.apache.camel.component.websocket.DefaultWebsocket)} .      */
 annotation|@

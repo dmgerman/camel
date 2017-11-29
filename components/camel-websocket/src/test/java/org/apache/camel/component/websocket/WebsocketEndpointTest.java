@@ -122,7 +122,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -170,7 +170,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|eq
 import|;
@@ -182,7 +182,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|isNull
 import|;
@@ -211,10 +211,6 @@ operator|.
 name|times
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 annotation|@
@@ -268,7 +264,6 @@ specifier|private
 name|WebsocketEndpoint
 name|websocketEndpoint
 decl_stmt|;
-comment|/**      * @throws Exception      */
 annotation|@
 name|Before
 DECL|method|setUp ()
