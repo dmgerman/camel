@@ -167,6 +167,23 @@ name|secret
 operator|=
 literal|true
 argument_list|)
+DECL|field|privateKeyBytes
+specifier|private
+name|byte
+index|[]
+name|privateKeyBytes
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|privateKeyFilePassphrase
 specifier|private
 name|String
@@ -350,6 +367,35 @@ operator|.
 name|privateKeyFile
 operator|=
 name|privateKeyFile
+expr_stmt|;
+block|}
+DECL|method|getPrivateKeyBytes ()
+specifier|public
+name|byte
+index|[]
+name|getPrivateKeyBytes
+parameter_list|()
+block|{
+return|return
+name|privateKeyBytes
+return|;
+block|}
+comment|/**      * Set the private key bytes to that the endpoint can do private key verification.      * This must be used only if privateKeyFile wasn't set. Otherwise the file will have the priority.      */
+DECL|method|setPrivateKeyBytes (byte[] privateKeyBytes)
+specifier|public
+name|void
+name|setPrivateKeyBytes
+parameter_list|(
+name|byte
+index|[]
+name|privateKeyBytes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|privateKeyBytes
+operator|=
+name|privateKeyBytes
 expr_stmt|;
 block|}
 DECL|method|getPrivateKeyFilePassphrase ()
