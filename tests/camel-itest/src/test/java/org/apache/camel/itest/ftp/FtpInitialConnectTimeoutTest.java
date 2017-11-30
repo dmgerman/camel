@@ -200,16 +200,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Mockito
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|invocation
 operator|.
 name|InvocationOnMock
@@ -234,7 +224,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyInt
 import|;
@@ -261,6 +251,18 @@ operator|.
 name|Mockito
 operator|.
 name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|spy
 import|;
 end_import
 
@@ -322,8 +324,6 @@ specifier|final
 name|Socket
 name|socket
 init|=
-name|Mockito
-operator|.
 name|spy
 argument_list|(
 operator|new
@@ -442,6 +442,9 @@ name|doAnswer
 argument_list|(
 operator|new
 name|Answer
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 annotation|@

@@ -168,7 +168,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|runners
+name|junit
 operator|.
 name|MockitoJUnitRunner
 import|;
@@ -195,18 +195,6 @@ operator|.
 name|Assert
 operator|.
 name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|when
 import|;
 end_import
 
@@ -336,19 +324,6 @@ name|processor
 argument_list|,
 name|exchange
 argument_list|,
-name|in
-argument_list|)
-expr_stmt|;
-name|when
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-argument_list|)
-operator|.
-name|thenReturn
-argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
