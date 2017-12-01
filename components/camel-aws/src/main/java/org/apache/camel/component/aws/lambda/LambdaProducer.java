@@ -2185,7 +2185,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"invokeFunction command returned the error code {}"
+literal|"createFunction command returned the error code {}"
 argument_list|,
 name|ase
 operator|.
