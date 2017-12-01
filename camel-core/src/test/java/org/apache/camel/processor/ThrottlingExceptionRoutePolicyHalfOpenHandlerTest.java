@@ -236,7 +236,7 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"direct:start"
+literal|"direct:start?block=false"
 decl_stmt|;
 DECL|field|result
 specifier|private

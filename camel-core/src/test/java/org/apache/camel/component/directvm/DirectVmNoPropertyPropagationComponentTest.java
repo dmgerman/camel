@@ -100,6 +100,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|directvm
+operator|.
+name|setBlock
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|addComponent

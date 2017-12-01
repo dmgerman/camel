@@ -234,11 +234,17 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|block
 specifier|private
 name|boolean
 name|block
+init|=
+literal|true
 decl_stmt|;
 annotation|@
 name|UriParam

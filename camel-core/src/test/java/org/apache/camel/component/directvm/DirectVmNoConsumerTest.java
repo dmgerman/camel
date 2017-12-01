@@ -328,9 +328,16 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|fail
+name|assertIsInstanceOf
 argument_list|(
-literal|"Should not throw an exception"
+name|DirectVmConsumerNotAvailableException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -611,6 +618,8 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -620,9 +629,31 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
+name|fail
+argument_list|(
+literal|"Should throw an exception"
+argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+name|assertIsInstanceOf
+argument_list|(
+name|DirectVmConsumerNotAvailableException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test

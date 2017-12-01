@@ -130,7 +130,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct-vm:foo.noprops?propagateProperties=false"
+literal|"direct-vm:foo.noprops?propagateProperties=false&block=false"
 argument_list|)
 expr_stmt|;
 name|from

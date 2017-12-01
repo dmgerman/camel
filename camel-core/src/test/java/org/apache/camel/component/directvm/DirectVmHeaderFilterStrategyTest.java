@@ -181,7 +181,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"direct-vm:start.filter?headerFilterStrategy=#headerFilterStrategy"
+literal|"direct-vm:start.filter?headerFilterStrategy=#headerFilterStrategy&block=false"
 argument_list|,
 name|exchange
 lambda|->
