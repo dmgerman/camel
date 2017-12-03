@@ -917,10 +917,6 @@ comment|// in case the POJO is CamelContextAware
 if|if
 condition|(
 name|pojo
-operator|!=
-literal|null
-operator|&&
-name|pojo
 operator|instanceof
 name|CamelContextAware
 condition|)

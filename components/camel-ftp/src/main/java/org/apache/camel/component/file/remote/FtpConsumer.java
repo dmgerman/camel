@@ -1171,10 +1171,6 @@ block|}
 if|if
 condition|(
 name|cause
-operator|!=
-literal|null
-operator|&&
-name|cause
 operator|instanceof
 name|GenericFileOperationFailedException
 condition|)

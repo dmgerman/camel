@@ -4653,10 +4653,6 @@ comment|// we are done so close the pairs iterator
 if|if
 condition|(
 name|pairs
-operator|!=
-literal|null
-operator|&&
-name|pairs
 operator|instanceof
 name|Closeable
 condition|)

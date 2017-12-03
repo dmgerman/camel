@@ -568,10 +568,6 @@ block|}
 if|if
 condition|(
 name|match
-operator|!=
-literal|null
-operator|&&
-name|match
 operator|instanceof
 name|Throwable
 condition|)

@@ -449,10 +449,6 @@ decl_stmt|;
 if|if
 condition|(
 name|ds
-operator|!=
-literal|null
-operator|&&
-name|ds
 operator|instanceof
 name|FileDataSource
 condition|)

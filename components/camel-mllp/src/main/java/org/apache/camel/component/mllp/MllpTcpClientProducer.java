@@ -901,10 +901,6 @@ decl_stmt|;
 if|if
 condition|(
 name|mllpExCause
-operator|!=
-literal|null
-operator|&&
-name|mllpExCause
 operator|instanceof
 name|IOException
 condition|)

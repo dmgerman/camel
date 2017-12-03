@@ -3879,10 +3879,6 @@ expr_stmt|;
 if|if
 condition|(
 name|value
-operator|!=
-literal|null
-operator|&&
-name|value
 operator|instanceof
 name|List
 condition|)
@@ -3905,10 +3901,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|value
-operator|!=
-literal|null
-operator|&&
 name|value
 operator|instanceof
 name|String

@@ -1446,10 +1446,6 @@ block|}
 if|if
 condition|(
 name|exp
-operator|!=
-literal|null
-operator|&&
-name|exp
 operator|instanceof
 name|ClassInstanceCreation
 condition|)
@@ -3697,10 +3693,6 @@ block|}
 block|}
 if|if
 condition|(
-name|parent
-operator|!=
-literal|null
-operator|&&
 name|parent
 operator|instanceof
 name|MethodInvocation

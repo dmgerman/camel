@@ -255,10 +255,6 @@ comment|// must favor expression over predicate
 if|if
 condition|(
 name|lookup
-operator|!=
-literal|null
-operator|&&
-name|lookup
 operator|instanceof
 name|Expression
 condition|)
@@ -274,10 +270,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|lookup
-operator|!=
-literal|null
-operator|&&
 name|lookup
 operator|instanceof
 name|Predicate

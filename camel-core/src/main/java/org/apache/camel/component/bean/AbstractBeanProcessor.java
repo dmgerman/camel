@@ -589,13 +589,6 @@ name|in
 operator|.
 name|getBody
 argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|in
-operator|.
-name|getBody
-argument_list|()
 operator|instanceof
 name|BeanInvocation
 condition|)

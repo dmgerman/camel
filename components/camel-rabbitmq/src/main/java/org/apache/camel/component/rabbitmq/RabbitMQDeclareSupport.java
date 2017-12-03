@@ -352,10 +352,6 @@ decl_stmt|;
 if|if
 condition|(
 name|queueLengthLimit
-operator|!=
-literal|null
-operator|&&
-name|queueLengthLimit
 operator|instanceof
 name|String
 condition|)
@@ -395,10 +391,6 @@ decl_stmt|;
 if|if
 condition|(
 name|queueMessageTtl
-operator|!=
-literal|null
-operator|&&
-name|queueMessageTtl
 operator|instanceof
 name|String
 condition|)
@@ -437,10 +429,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|queueExpiration
-operator|!=
-literal|null
-operator|&&
 name|queueExpiration
 operator|instanceof
 name|String

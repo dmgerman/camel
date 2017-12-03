@@ -825,10 +825,6 @@ block|}
 if|if
 condition|(
 name|strategy
-operator|!=
-literal|null
-operator|&&
-name|strategy
 operator|instanceof
 name|CamelContextAware
 condition|)

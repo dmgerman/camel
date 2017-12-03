@@ -832,10 +832,6 @@ decl_stmt|;
 if|if
 condition|(
 name|jpe
-operator|!=
-literal|null
-operator|&&
-name|jpe
 operator|instanceof
 name|JivePropertiesExtension
 condition|)
@@ -855,10 +851,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|jpe
-operator|!=
-literal|null
-operator|&&
 name|jpe
 operator|instanceof
 name|DefaultExtensionElement

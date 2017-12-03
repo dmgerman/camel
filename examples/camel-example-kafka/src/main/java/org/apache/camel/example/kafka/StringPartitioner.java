@@ -125,10 +125,6 @@ decl_stmt|;
 if|if
 condition|(
 name|key
-operator|!=
-literal|null
-operator|&&
-name|key
 operator|instanceof
 name|String
 condition|)

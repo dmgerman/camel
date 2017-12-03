@@ -470,10 +470,6 @@ decl_stmt|;
 if|if
 condition|(
 name|clone
-operator|!=
-literal|null
-operator|&&
-name|clone
 operator|instanceof
 name|RouteDefinition
 condition|)

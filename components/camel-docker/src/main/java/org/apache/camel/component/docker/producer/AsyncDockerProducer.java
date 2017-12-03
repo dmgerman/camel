@@ -1394,10 +1394,6 @@ decl_stmt|;
 if|if
 condition|(
 name|body
-operator|!=
-literal|null
-operator|&&
-name|body
 operator|instanceof
 name|InputStream
 condition|)
@@ -1418,10 +1414,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|body
-operator|!=
-literal|null
-operator|&&
 name|body
 operator|instanceof
 name|File

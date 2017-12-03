@@ -1308,10 +1308,6 @@ block|}
 if|if
 condition|(
 name|httpClient
-operator|!=
-literal|null
-operator|&&
-name|httpClient
 operator|instanceof
 name|Closeable
 condition|)

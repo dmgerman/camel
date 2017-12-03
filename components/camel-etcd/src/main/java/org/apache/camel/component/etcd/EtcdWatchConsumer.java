@@ -330,10 +330,6 @@ decl_stmt|;
 if|if
 condition|(
 name|throwable
-operator|!=
-literal|null
-operator|&&
-name|throwable
 operator|instanceof
 name|EtcdException
 condition|)

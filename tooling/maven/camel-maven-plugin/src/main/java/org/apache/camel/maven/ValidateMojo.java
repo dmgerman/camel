@@ -1015,10 +1015,6 @@ comment|// we should only parse java classes (not interfaces and enums etc)
 if|if
 condition|(
 name|out
-operator|!=
-literal|null
-operator|&&
-name|out
 operator|instanceof
 name|JavaClassSource
 condition|)

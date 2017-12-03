@@ -6908,10 +6908,6 @@ decl_stmt|;
 if|if
 condition|(
 name|meta
-operator|!=
-literal|null
-operator|&&
-name|meta
 operator|instanceof
 name|BeanMetadata
 condition|)

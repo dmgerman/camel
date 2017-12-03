@@ -2226,10 +2226,6 @@ decl_stmt|;
 if|if
 condition|(
 name|eh
-operator|!=
-literal|null
-operator|&&
-name|eh
 operator|instanceof
 name|Service
 condition|)
@@ -2341,10 +2337,6 @@ decl_stmt|;
 if|if
 condition|(
 name|errorHandler
-operator|!=
-literal|null
-operator|&&
-name|errorHandler
 operator|instanceof
 name|Service
 condition|)
@@ -2401,10 +2393,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|onCompletionProcessor
-operator|!=
-literal|null
-operator|&&
 name|onCompletionProcessor
 operator|instanceof
 name|Service

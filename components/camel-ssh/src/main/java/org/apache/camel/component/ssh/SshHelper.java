@@ -336,10 +336,6 @@ decl_stmt|;
 if|if
 condition|(
 name|userNameHeaderObj
-operator|!=
-literal|null
-operator|&&
-name|userNameHeaderObj
 operator|instanceof
 name|String
 condition|)
@@ -595,10 +591,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|passwordHeaderObj
-operator|!=
-literal|null
-operator|&&
 name|passwordHeaderObj
 operator|instanceof
 name|String

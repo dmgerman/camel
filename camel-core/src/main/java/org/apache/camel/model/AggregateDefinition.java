@@ -1691,10 +1691,6 @@ block|{
 if|if
 condition|(
 name|expression
-operator|!=
-literal|null
-operator|&&
-name|expression
 operator|instanceof
 name|ExpressionClause
 condition|)

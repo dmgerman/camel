@@ -3652,10 +3652,6 @@ block|}
 if|if
 condition|(
 name|answer
-operator|!=
-literal|null
-operator|&&
-name|answer
 operator|instanceof
 name|ManagedService
 condition|)

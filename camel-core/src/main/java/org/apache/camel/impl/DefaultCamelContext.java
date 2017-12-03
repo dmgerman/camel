@@ -23647,10 +23647,6 @@ comment|// inject CamelContext if aware
 if|if
 condition|(
 name|answer
-operator|!=
-literal|null
-operator|&&
-name|answer
 operator|instanceof
 name|CamelContextAware
 condition|)
@@ -23696,10 +23692,6 @@ decl_stmt|;
 comment|// inject CamelContext if aware
 if|if
 condition|(
-name|answer
-operator|!=
-literal|null
-operator|&&
 name|answer
 operator|instanceof
 name|CamelContextAware

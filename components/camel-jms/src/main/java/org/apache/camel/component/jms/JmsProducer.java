@@ -2014,10 +2014,6 @@ comment|// and if needed create the destination using the session if needed to
 if|if
 condition|(
 name|jmsReplyTo
-operator|!=
-literal|null
-operator|&&
-name|jmsReplyTo
 operator|instanceof
 name|String
 condition|)

@@ -529,10 +529,6 @@ decl_stmt|;
 if|if
 condition|(
 name|policy
-operator|!=
-literal|null
-operator|&&
-name|policy
 operator|instanceof
 name|JtaTransactionPolicy
 condition|)
@@ -569,10 +565,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|policy
-operator|!=
-literal|null
-operator|&&
 name|policy
 operator|instanceof
 name|JtaTransactionPolicy

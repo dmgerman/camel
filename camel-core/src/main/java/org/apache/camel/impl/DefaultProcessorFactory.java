@@ -185,10 +185,6 @@ decl_stmt|;
 if|if
 condition|(
 name|object
-operator|!=
-literal|null
-operator|&&
-name|object
 operator|instanceof
 name|ProcessorFactory
 condition|)
@@ -292,10 +288,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|object
-operator|!=
-literal|null
-operator|&&
 name|object
 operator|instanceof
 name|ProcessorFactory

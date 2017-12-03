@@ -1516,10 +1516,6 @@ decl_stmt|;
 if|if
 condition|(
 name|errorHandler
-operator|!=
-literal|null
-operator|&&
-name|errorHandler
 operator|instanceof
 name|Service
 condition|)
@@ -1551,10 +1547,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|next
-operator|!=
-literal|null
-operator|&&
 name|next
 operator|instanceof
 name|Service

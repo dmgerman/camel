@@ -6718,10 +6718,6 @@ decl_stmt|;
 if|if
 condition|(
 name|executorService
-operator|!=
-literal|null
-operator|&&
-name|executorService
 operator|instanceof
 name|ThreadPoolExecutor
 condition|)

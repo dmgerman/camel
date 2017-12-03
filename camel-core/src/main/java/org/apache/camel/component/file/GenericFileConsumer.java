@@ -1713,10 +1713,6 @@ comment|// as in both cases an exception is being thrown
 if|if
 condition|(
 name|cause
-operator|!=
-literal|null
-operator|&&
-name|cause
 operator|instanceof
 name|GenericFileOperationFailedException
 condition|)

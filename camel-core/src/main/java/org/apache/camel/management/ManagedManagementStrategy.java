@@ -1398,10 +1398,6 @@ decl_stmt|;
 if|if
 condition|(
 name|preferedName
-operator|!=
-literal|null
-operator|&&
-name|preferedName
 operator|instanceof
 name|String
 condition|)
@@ -1431,10 +1427,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|preferedName
-operator|!=
-literal|null
-operator|&&
 name|preferedName
 operator|instanceof
 name|ObjectName

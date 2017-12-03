@@ -646,10 +646,6 @@ decl_stmt|;
 if|if
 condition|(
 name|exp
-operator|!=
-literal|null
-operator|&&
-name|exp
 operator|instanceof
 name|NamespaceAware
 condition|)

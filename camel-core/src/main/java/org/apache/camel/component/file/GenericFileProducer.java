@@ -1484,10 +1484,6 @@ decl_stmt|;
 if|if
 condition|(
 name|value
-operator|!=
-literal|null
-operator|&&
-name|value
 operator|instanceof
 name|Expression
 condition|)

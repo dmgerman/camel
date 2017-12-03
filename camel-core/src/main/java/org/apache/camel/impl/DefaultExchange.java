@@ -1601,10 +1601,6 @@ name|out
 operator|=
 operator|(
 name|in
-operator|!=
-literal|null
-operator|&&
-name|in
 operator|instanceof
 name|MessageSupport
 operator|)

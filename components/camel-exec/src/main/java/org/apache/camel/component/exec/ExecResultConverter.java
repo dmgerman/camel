@@ -556,10 +556,6 @@ block|{
 if|if
 condition|(
 name|stream
-operator|!=
-literal|null
-operator|&&
-name|stream
 operator|instanceof
 name|ByteArrayInputStream
 condition|)

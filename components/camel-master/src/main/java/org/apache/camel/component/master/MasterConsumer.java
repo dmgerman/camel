@@ -504,10 +504,6 @@ block|{
 if|if
 condition|(
 name|delegatedConsumer
-operator|!=
-literal|null
-operator|&&
-name|delegatedConsumer
 operator|instanceof
 name|SuspendableService
 condition|)
@@ -541,10 +537,6 @@ name|Exception
 block|{
 if|if
 condition|(
-name|delegatedConsumer
-operator|!=
-literal|null
-operator|&&
 name|delegatedConsumer
 operator|instanceof
 name|SuspendableService

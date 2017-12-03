@@ -3462,10 +3462,6 @@ decl_stmt|;
 if|if
 condition|(
 name|found
-operator|!=
-literal|null
-operator|&&
-name|found
 operator|instanceof
 name|PropertiesComponent
 condition|)

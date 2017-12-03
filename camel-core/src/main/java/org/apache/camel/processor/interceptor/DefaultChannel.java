@@ -1053,10 +1053,6 @@ decl_stmt|;
 if|if
 condition|(
 name|managed
-operator|!=
-literal|null
-operator|&&
-name|managed
 operator|instanceof
 name|InstrumentationInterceptStrategy
 condition|)

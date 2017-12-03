@@ -1262,10 +1262,6 @@ decl_stmt|;
 if|if
 condition|(
 name|comp
-operator|!=
-literal|null
-operator|&&
-name|comp
 operator|instanceof
 name|RestProducerFactory
 condition|)
@@ -1293,10 +1289,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|comp
-operator|!=
-literal|null
-operator|&&
 name|comp
 operator|instanceof
 name|RestProducerFactory
@@ -1396,10 +1388,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|comp
-operator|!=
-literal|null
-operator|&&
 name|comp
 operator|instanceof
 name|RestProducerFactory
@@ -1524,10 +1512,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|comp
-operator|!=
-literal|null
-operator|&&
 name|comp
 operator|instanceof
 name|RestProducerFactory
@@ -1789,10 +1773,6 @@ decl_stmt|;
 if|if
 condition|(
 name|comp
-operator|!=
-literal|null
-operator|&&
-name|comp
 operator|instanceof
 name|RestConsumerFactory
 condition|)
@@ -1820,10 +1800,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|comp
-operator|!=
-literal|null
-operator|&&
 name|comp
 operator|instanceof
 name|RestConsumerFactory
@@ -1923,10 +1899,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|comp
-operator|!=
-literal|null
-operator|&&
 name|comp
 operator|instanceof
 name|RestConsumerFactory
@@ -2042,10 +2014,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|comp
-operator|!=
-literal|null
-operator|&&
 name|comp
 operator|instanceof
 name|RestConsumerFactory

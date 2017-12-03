@@ -836,10 +836,6 @@ block|{
 if|if
 condition|(
 name|v
-operator|!=
-literal|null
-operator|&&
-name|v
 operator|instanceof
 name|String
 condition|)

@@ -1926,13 +1926,6 @@ name|e
 operator|.
 name|getCause
 argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|e
-operator|.
-name|getCause
-argument_list|()
 operator|instanceof
 name|FacebookException
 condition|)

@@ -806,13 +806,6 @@ name|exchange
 operator|.
 name|getFromEndpoint
 argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|exchange
-operator|.
-name|getFromEndpoint
-argument_list|()
 operator|instanceof
 name|DirectEndpoint
 condition|)

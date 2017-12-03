@@ -1040,10 +1040,6 @@ decl_stmt|;
 if|if
 condition|(
 name|comp
-operator|!=
-literal|null
-operator|&&
-name|comp
 operator|instanceof
 name|RestApiConsumerFactory
 condition|)
@@ -1071,10 +1067,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|comp
-operator|!=
-literal|null
-operator|&&
 name|comp
 operator|instanceof
 name|RestApiConsumerFactory
@@ -1174,10 +1166,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|comp
-operator|!=
-literal|null
-operator|&&
 name|comp
 operator|instanceof
 name|RestApiConsumerFactory

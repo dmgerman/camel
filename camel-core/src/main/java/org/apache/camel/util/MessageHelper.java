@@ -495,10 +495,6 @@ decl_stmt|;
 if|if
 condition|(
 name|body
-operator|!=
-literal|null
-operator|&&
-name|body
 operator|instanceof
 name|StreamCache
 condition|)

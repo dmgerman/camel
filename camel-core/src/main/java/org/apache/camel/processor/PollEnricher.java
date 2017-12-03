@@ -918,10 +918,6 @@ decl_stmt|;
 if|if
 condition|(
 name|handler
-operator|!=
-literal|null
-operator|&&
-name|handler
 operator|instanceof
 name|BridgeExceptionHandlerToErrorHandler
 condition|)
