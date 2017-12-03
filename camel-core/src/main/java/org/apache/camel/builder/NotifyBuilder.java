@@ -360,6 +360,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -427,9 +441,7 @@ name|predicates
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EventPredicateHolder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// latch to be used to signal predicates matches
@@ -456,9 +468,7 @@ name|stack
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EventPredicate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|operation
@@ -956,9 +966,7 @@ name|clause
 init|=
 operator|new
 name|ExpressionClauseSupport
-argument_list|<
-name|NotifyBuilder
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|)
@@ -1086,11 +1094,7 @@ name|sentTo
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -3384,9 +3388,7 @@ name|bodyList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|bodyList
@@ -4121,7 +4123,7 @@ expr_stmt|;
 block|}
 comment|// a crude way of skipping the first invisible operation
 return|return
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -4715,7 +4717,7 @@ block|,
 name|or
 block|,
 name|not
-block|;     }
+block|}
 DECL|interface|EventPredicate
 specifier|private
 interface|interface
@@ -5005,9 +5007,7 @@ name|predicates
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EventPredicate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|CompoundEventPredicate (List<EventPredicate> predicates)
@@ -5327,16 +5327,11 @@ name|trace
 argument_list|(
 literal|"onExchangeSent() {} {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|endpoint
-block|,
+argument_list|,
 name|predicate
-block|,
+argument_list|,
 name|answer
-block|}
 argument_list|)
 expr_stmt|;
 if|if
