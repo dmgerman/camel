@@ -308,20 +308,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|EventNotifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|EventNotifierSupport
@@ -426,7 +412,7 @@ comment|// notifier to hook into Camel to listen for events
 DECL|field|eventNotifier
 specifier|private
 specifier|final
-name|EventNotifier
+name|EventNotifierSupport
 name|eventNotifier
 decl_stmt|;
 comment|// the predicates build with this builder
@@ -3790,6 +3776,22 @@ operator|.
 name|and
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|eventNotifier
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"A destroyed NotifyBuilder cannot be re-created."
+argument_list|)
+throw|;
+block|}
 name|created
 operator|=
 literal|true
@@ -3797,6 +3799,53 @@ expr_stmt|;
 return|return
 name|this
 return|;
+block|}
+comment|/**      * De-registers this builder from its {@link CamelContext}.      *<p/>      * Once destroyed, this instance will not function again.      */
+DECL|method|destroy ()
+specifier|public
+name|void
+name|destroy
+parameter_list|()
+block|{
+name|context
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|removeEventNotifier
+argument_list|(
+name|eventNotifier
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|eventNotifier
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+name|created
+operator|=
+literal|false
+expr_stmt|;
 block|}
 comment|/**      * Does all the expression match?      *<p/>      * This operation will return immediately which means it can be used for testing at this very moment.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise      */
 DECL|method|matches ()
