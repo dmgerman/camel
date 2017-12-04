@@ -888,6 +888,26 @@ name|charset
 operator|=
 name|encoding
 expr_stmt|;
+comment|//Propagate the encoding of the exchange
+if|if
+condition|(
+name|charset
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|charset
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
