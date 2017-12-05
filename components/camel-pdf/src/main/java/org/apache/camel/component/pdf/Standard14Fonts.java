@@ -61,6 +61,7 @@ end_comment
 begin_class
 DECL|class|Standard14Fonts
 specifier|public
+specifier|final
 class|class
 name|Standard14Fonts
 block|{
@@ -308,6 +309,11 @@ name|ZAPF_DINGBATS
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|Standard14Fonts ()
+specifier|private
+name|Standard14Fonts
+parameter_list|()
+block|{     }
 comment|/**      * Get one of the 14 standard fonts by base font name.      *      * @param fontName the base font name, such as {@code "Helvetica"} or {@code "Helvetica-Bold"}      * @return the {@link PDType1Font} or null, of the {@code fontName} is not mapped to any font      */
 DECL|method|getByName (String fontName)
 specifier|public

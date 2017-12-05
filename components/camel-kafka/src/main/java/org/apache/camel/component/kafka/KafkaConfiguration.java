@@ -6059,7 +6059,7 @@ return|return
 name|reconnectBackoffMaxMs
 return|;
 block|}
-comment|/** 	 *       * The maximum amount of time in milliseconds to wait when reconnecting to a broker that has repeatedly failed to connect.       * If provided, the backoff per host will increase exponentially for each consecutive connection failure, up to this maximum.       * After calculating the backoff increase, 20% random jitter is added to avoid connection storms. 	 */
+comment|/**      * The maximum amount of time in milliseconds to wait when reconnecting to a      * broker that has repeatedly failed to connect. If provided, the backoff      * per host will increase exponentially for each consecutive connection      * failure, up to this maximum. After calculating the backoff increase, 20%      * random jitter is added to avoid connection storms.      */
 DECL|method|setReconnectBackoffMaxMs (Integer reconnectBackoffMaxMs)
 specifier|public
 name|void

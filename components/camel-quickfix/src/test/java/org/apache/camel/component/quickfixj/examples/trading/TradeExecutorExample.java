@@ -26,9 +26,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|time
 operator|.
-name|Date
+name|LocalDateTime
 import|;
 end_import
 
@@ -53,16 +53,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|time
-operator|.
-name|LocalDateTime
 import|;
 end_import
 
