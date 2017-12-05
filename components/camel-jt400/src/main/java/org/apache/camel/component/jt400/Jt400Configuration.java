@@ -176,6 +176,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang3
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -457,6 +471,18 @@ name|int
 name|readTimeout
 init|=
 literal|30000
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"procedureName"
+argument_list|)
+DECL|field|procedureName
+specifier|private
+name|String
+name|procedureName
 decl_stmt|;
 DECL|method|Jt400Configuration (String endpointUri, AS400ConnectionPool connectionPool)
 specifier|public
@@ -991,6 +1017,33 @@ operator|.
 name|readTimeout
 operator|=
 name|readTimeout
+expr_stmt|;
+block|}
+DECL|method|getProcedureName ()
+specifier|public
+name|String
+name|getProcedureName
+parameter_list|()
+block|{
+return|return
+name|procedureName
+return|;
+block|}
+comment|/**      * Procedure name from a service program to call      */
+DECL|method|setProcedureName (String procedureName)
+specifier|public
+name|void
+name|setProcedureName
+parameter_list|(
+name|String
+name|procedureName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|procedureName
+operator|=
+name|procedureName
 expr_stmt|;
 block|}
 DECL|method|setOutputFieldsIdx (String outputFieldsIdx)

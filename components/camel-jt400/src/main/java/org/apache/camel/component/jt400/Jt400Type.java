@@ -26,9 +26,12 @@ name|Jt400Type
 block|{
 DECL|enumConstant|DTAQ
 DECL|enumConstant|PGM
+DECL|enumConstant|SRVPGM
 name|DTAQ
 block|,
 name|PGM
+block|,
+name|SRVPGM
 block|}
 end_enum
 

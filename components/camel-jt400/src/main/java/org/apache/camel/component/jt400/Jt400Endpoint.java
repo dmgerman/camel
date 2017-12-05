@@ -1062,6 +1062,36 @@ name|readTimeout
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setProcedureName (String procedureName)
+specifier|public
+name|void
+name|setProcedureName
+parameter_list|(
+name|String
+name|procedureName
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setProcedureName
+argument_list|(
+name|procedureName
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getProcedureName ()
+specifier|public
+name|String
+name|getProcedureName
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getProcedureName
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|isMultipleConsumersSupported ()
