@@ -189,7 +189,7 @@ name|DEFAULT_SERVICE_HEALTH
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RibbonServiceDefinition (String name, String host, int port, ServiceHealth healt)
+DECL|method|RibbonServiceDefinition (String name, String host, int port, ServiceHealth health)
 specifier|public
 name|RibbonServiceDefinition
 parameter_list|(
@@ -203,7 +203,7 @@ name|int
 name|port
 parameter_list|,
 name|ServiceHealth
-name|healt
+name|health
 parameter_list|)
 block|{
 name|this
@@ -216,7 +216,7 @@ name|port
 argument_list|,
 literal|null
 argument_list|,
-name|healt
+name|health
 argument_list|)
 expr_stmt|;
 block|}
@@ -256,7 +256,7 @@ name|DEFAULT_SERVICE_HEALTH
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RibbonServiceDefinition (String name, String host, int port, Map<String, String> meta, ServiceHealth healt)
+DECL|method|RibbonServiceDefinition (String name, String host, int port, Map<String, String> meta, ServiceHealth health)
 specifier|public
 name|RibbonServiceDefinition
 parameter_list|(
@@ -278,7 +278,7 @@ argument_list|>
 name|meta
 parameter_list|,
 name|ServiceHealth
-name|healt
+name|health
 parameter_list|)
 block|{
 name|super
@@ -304,7 +304,7 @@ name|this
 operator|.
 name|health
 operator|=
-name|healt
+name|health
 expr_stmt|;
 block|}
 DECL|method|RibbonServiceDefinition (ServiceDefinition definition)
