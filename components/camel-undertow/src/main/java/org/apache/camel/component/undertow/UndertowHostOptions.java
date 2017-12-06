@@ -53,6 +53,12 @@ specifier|private
 name|Boolean
 name|directBuffers
 decl_stmt|;
+comment|/**      * Set if the Undertow host should use http2 protocol.      */
+DECL|field|http2Enabled
+specifier|private
+name|Boolean
+name|http2Enabled
+decl_stmt|;
 DECL|method|UndertowHostOptions ()
 specifier|public
 name|UndertowHostOptions
@@ -162,6 +168,32 @@ operator|=
 name|directBuffers
 expr_stmt|;
 block|}
+DECL|method|getHttp2Enabled ()
+specifier|public
+name|Boolean
+name|getHttp2Enabled
+parameter_list|()
+block|{
+return|return
+name|http2Enabled
+return|;
+block|}
+DECL|method|setHttp2Enabled (Boolean http2Enabled)
+specifier|public
+name|void
+name|setHttp2Enabled
+parameter_list|(
+name|Boolean
+name|http2Enabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|http2Enabled
+operator|=
+name|http2Enabled
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -226,6 +258,18 @@ operator|.
 name|append
 argument_list|(
 name|directBuffers
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", http2Enabled="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|http2Enabled
 argument_list|)
 expr_stmt|;
 name|sb
