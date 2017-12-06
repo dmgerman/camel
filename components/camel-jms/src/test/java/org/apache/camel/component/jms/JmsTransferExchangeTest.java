@@ -283,6 +283,15 @@ argument_list|,
 literal|"cheese"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedPropertyReceived
+argument_list|(
+literal|"bar"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|send
