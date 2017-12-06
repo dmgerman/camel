@@ -572,7 +572,7 @@ return|return
 name|bucketName
 return|;
 block|}
-comment|/**      * Name of the bucket. The bucket will be created if it don't already      * exists.      */
+comment|/**      * Name of the bucket. The bucket will be created if it doesn't already      * exists.      */
 DECL|method|setBucketName (String bucketName)
 specifier|public
 name|void
