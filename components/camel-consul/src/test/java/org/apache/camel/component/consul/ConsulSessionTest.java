@@ -112,7 +112,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulSessionActions
 import|;

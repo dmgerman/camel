@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.consul.enpoint
+DECL|package|org.apache.camel.component.consul.endpoint
 package|package
 name|org
 operator|.
@@ -16,27 +16,27 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 package|;
 end_package
 
 begin_interface
-DECL|interface|ConsulStatusActions
+DECL|interface|ConsulCoordinatesActions
 specifier|public
 interface|interface
-name|ConsulStatusActions
+name|ConsulCoordinatesActions
 block|{
-DECL|field|LEADER
+DECL|field|DATACENTERS
 name|String
-name|LEADER
+name|DATACENTERS
 init|=
-literal|"LEADER"
+literal|"DATACENTERS"
 decl_stmt|;
-DECL|field|PEERS
+DECL|field|NODES
 name|String
-name|PEERS
+name|NODES
 init|=
-literal|"PEERS"
+literal|"NODES"
 decl_stmt|;
 block|}
 end_interface

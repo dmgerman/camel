@@ -144,7 +144,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulHealthActions
 import|;

@@ -86,7 +86,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulAgentProducer
 import|;
@@ -104,7 +104,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulCatalogProducer
 import|;
@@ -122,7 +122,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulCoordinatesProducer
 import|;
@@ -140,7 +140,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulEventConsumer
 import|;
@@ -158,7 +158,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulEventProducer
 import|;
@@ -176,7 +176,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulHealthProducer
 import|;
@@ -194,7 +194,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulKeyValueConsumer
 import|;
@@ -212,7 +212,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulKeyValueProducer
 import|;
@@ -230,7 +230,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulPreparedQueryProducer
 import|;
@@ -248,7 +248,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulSessionProducer
 import|;
@@ -266,7 +266,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 operator|.
 name|ConsulStatusProducer
 import|;

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.consul.enpoint
+DECL|package|org.apache.camel.component.consul.endpoint
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 package|;
 end_package
 
@@ -28,7 +28,7 @@ name|orbitz
 operator|.
 name|consul
 operator|.
-name|AgentClient
+name|Consul
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|orbitz
 operator|.
 name|consul
 operator|.
-name|Consul
+name|StatusClient
 import|;
 end_import
 
@@ -77,20 +77,20 @@ import|;
 end_import
 
 begin_class
-DECL|class|ConsulAgentProducer
+DECL|class|ConsulStatusProducer
 specifier|public
 specifier|final
 class|class
-name|ConsulAgentProducer
+name|ConsulStatusProducer
 extends|extends
 name|AbstractConsulProducer
 argument_list|<
-name|AgentClient
+name|StatusClient
 argument_list|>
 block|{
-DECL|method|ConsulAgentProducer (ConsulEndpoint endpoint, ConsulConfiguration configuration)
+DECL|method|ConsulStatusProducer (ConsulEndpoint endpoint, ConsulConfiguration configuration)
 specifier|public
-name|ConsulAgentProducer
+name|ConsulStatusProducer
 parameter_list|(
 name|ConsulEndpoint
 name|endpoint
@@ -107,14 +107,14 @@ name|configuration
 argument_list|,
 name|Consul
 operator|::
-name|agentClient
+name|statusClient
 argument_list|)
 expr_stmt|;
 name|bind
 argument_list|(
-name|ConsulAgentActions
+name|ConsulStatusActions
 operator|.
-name|CHECKS
+name|LEADER
 argument_list|,
 name|wrap
 argument_list|(
@@ -122,16 +122,16 @@ name|c
 lambda|->
 name|c
 operator|.
-name|getChecks
+name|getLeader
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|bind
 argument_list|(
-name|ConsulAgentActions
+name|ConsulStatusActions
 operator|.
-name|SERVICES
+name|PEERS
 argument_list|,
 name|wrap
 argument_list|(
@@ -139,41 +139,7 @@ name|c
 lambda|->
 name|c
 operator|.
-name|getServices
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|bind
-argument_list|(
-name|ConsulAgentActions
-operator|.
-name|MEMBERS
-argument_list|,
-name|wrap
-argument_list|(
-name|c
-lambda|->
-name|c
-operator|.
-name|getMembers
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|bind
-argument_list|(
-name|ConsulAgentActions
-operator|.
-name|AGENT
-argument_list|,
-name|wrap
-argument_list|(
-name|c
-lambda|->
-name|c
-operator|.
-name|getAgent
+name|getPeers
 argument_list|()
 argument_list|)
 argument_list|)

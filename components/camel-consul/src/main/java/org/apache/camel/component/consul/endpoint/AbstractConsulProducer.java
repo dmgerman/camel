@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.consul.enpoint
+DECL|package|org.apache.camel.component.consul.endpoint
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|enpoint
+name|endpoint
 package|;
 end_package
 
