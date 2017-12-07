@@ -277,15 +277,10 @@ operator|new
 name|AtomicReference
 argument_list|<>
 argument_list|(
-name|BigInteger
-operator|.
-name|valueOf
-argument_list|(
 name|configuration
 operator|.
 name|getFirstIndex
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|this

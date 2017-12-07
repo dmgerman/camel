@@ -24,6 +24,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|math
+operator|.
+name|BigInteger
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -610,7 +620,7 @@ decl_stmt|;
 comment|/**          * The first index for watch for, default 0          */
 DECL|field|firstIndex
 specifier|private
-name|Long
+name|BigInteger
 name|firstIndex
 decl_stmt|;
 comment|/**          * Recursively watch, default false          */
@@ -1121,7 +1131,7 @@ expr_stmt|;
 block|}
 DECL|method|getFirstIndex ()
 specifier|public
-name|Long
+name|BigInteger
 name|getFirstIndex
 parameter_list|()
 block|{
@@ -1129,12 +1139,12 @@ return|return
 name|firstIndex
 return|;
 block|}
-DECL|method|setFirstIndex (Long firstIndex)
+DECL|method|setFirstIndex (BigInteger firstIndex)
 specifier|public
 name|void
 name|setFirstIndex
 parameter_list|(
-name|Long
+name|BigInteger
 name|firstIndex
 parameter_list|)
 block|{
