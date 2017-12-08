@@ -110,11 +110,6 @@ name|LRUCacheFactory
 parameter_list|()
 block|{     }
 comment|/**      * Warm-up the LRUCache to startup Apache Camel faster.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|warmUp ()
 specifier|public
 specifier|static

@@ -1796,11 +1796,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Tests whether the value is<b>not</b><tt>null</tt>, an empty string or an empty collection/map.      *      * @param value  the value, if its a String it will be tested for text length as well      * @return true if<b>not</b> empty      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|isNotEmpty (Object value)
 specifier|public
 specifier|static
