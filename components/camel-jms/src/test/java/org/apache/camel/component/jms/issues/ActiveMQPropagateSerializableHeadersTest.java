@@ -608,6 +608,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: example
+comment|// prevent java.io.NotSerializableException: org.apache.camel.impl.DefaultMessageHistory
+name|camelContext
+operator|.
+name|setMessageHistory
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 return|return
 name|camelContext
 return|;
