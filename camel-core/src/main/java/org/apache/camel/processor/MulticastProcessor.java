@@ -1880,6 +1880,8 @@ argument_list|(
 literal|"Starting to submit parallel tasks"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 while|while
 condition|(
 name|it
@@ -2106,6 +2108,23 @@ name|total
 operator|.
 name|incrementAndGet
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeException
+name|e
+parameter_list|)
+block|{
+comment|// The methods it.hasNext and it.next can throw RuntimeExceptions when custom iterators are implemented.
+comment|// We have to catch the exception here otherwise the aggregator threads would pile up.
+name|executionException
+operator|.
+name|set
+argument_list|(
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 comment|// signal all tasks has been submitted
