@@ -175,14 +175,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Bye World"
+literal|"Hello World"
 argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello World"
+literal|"Bye World"
 argument_list|,
 name|body2
 argument_list|)
