@@ -40,6 +40,24 @@ name|HttpHandler
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|undertow
+operator|.
+name|handlers
+operator|.
+name|CamelWebSocketHandler
+import|;
+end_import
+
 begin_comment
 comment|/**  * An undertow host abstraction  *  */
 end_comment
@@ -59,9 +77,9 @@ name|URI
 name|httpURI
 parameter_list|)
 function_decl|;
-comment|/**      * Register a handler with the given {@link HttpHandlerRegistrationInfo}      */
+comment|/**      * Register a handler with the given {@link HttpHandlerRegistrationInfo}. Note that for some kinds of handlers (most      * notably {@link CamelWebSocketHandler}), it is legal to call this method multiple times with equal      * {@link HttpHandlerRegistrationInfo} and {@link HttpHandler}. In such cases the returned {@link HttpHandler} may      * differ from the passed {@link HttpHandler} and the returned instance is the effectively registered one for the      * given {@link HttpHandlerRegistrationInfo}.      *      * @param registrationInfo      *            the {@link HttpHandlerRegistrationInfo} related to {@code handler}      * @param handler      *            the {@link HttpHandler} to register      * @return the given {@code handler} or a different {@link HttpHandler} that has been registered with the given      *         {@link HttpHandlerRegistrationInfo} earlier.      */
 DECL|method|registerHandler (HttpHandlerRegistrationInfo registrationInfo, HttpHandler handler)
-name|void
+name|HttpHandler
 name|registerHandler
 parameter_list|(
 name|HttpHandlerRegistrationInfo
@@ -71,7 +89,7 @@ name|HttpHandler
 name|handler
 parameter_list|)
 function_decl|;
-comment|/**      * Unregister a handler with the given {@link HttpHandlerRegistrationInfo}      */
+comment|/**      * Unregister a handler with the given {@link HttpHandlerRegistrationInfo}. Note that if      * {@link #registerHandler(HttpHandlerRegistrationInfo, HttpHandler)} was successfully invoked multiple times for an      * equivalent {@link HttpHandlerRegistrationInfo} then {@link #unregisterHandler(HttpHandlerRegistrationInfo)} must      * be called the same number of times to unregister the associated handler completely.      */
 DECL|method|unregisterHandler (HttpHandlerRegistrationInfo registrationInfo)
 name|void
 name|unregisterHandler
