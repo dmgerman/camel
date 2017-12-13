@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use JSonPath in Camel expressions or predicates.  *  * @version   */
+comment|/**  * To use JsonPath in Camel expressions or predicates.  *  * @version   */
 end_comment
 
 begin_class
@@ -170,7 +170,7 @@ literal|"language,json"
 argument_list|,
 name|title
 operator|=
-literal|"JSonPath"
+literal|"JsonPath"
 argument_list|)
 annotation|@
 name|XmlRootElement
@@ -377,7 +377,7 @@ return|return
 name|allowSimple
 return|;
 block|}
-comment|/**      * Whether to allow in inlined simple exceptions in the json path expression      */
+comment|/**      * Whether to allow in inlined simple exceptions in the JsonPath expression      */
 DECL|method|setAllowSimple (Boolean allowSimple)
 specifier|public
 name|void
@@ -448,7 +448,7 @@ return|return
 name|writeAsString
 return|;
 block|}
-comment|/**      * Whether to write the output of each row/element as a JSon String value instead of a Map/POJO value.      */
+comment|/**      * Whether to write the output of each row/element as a JSON String value instead of a Map/POJO value.      */
 DECL|method|setWriteAsString (Boolean writeAsString)
 specifier|public
 name|void

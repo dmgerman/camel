@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation used to inject a<a href="http://commons.apache.org/jsonpath/">JSon Path</a>  * expression into a method parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  *  * @version  */
+comment|/**  * An annotation used to inject a<a href="http://commons.apache.org/jsonpath/">JsonPath</a>  * expression into a method parameter when using  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  *  * @version  */
 end_comment
 
 begin_annotation_defn
@@ -165,7 +165,7 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
-comment|/**      * Whether to allow in inlined simple exceptions in the json path expression      */
+comment|/**      * Whether to allow in inlined simple exceptions in the JsonPath expression      */
 DECL|method|allowSimple ()
 DECL|field|true
 name|boolean
@@ -174,7 +174,7 @@ parameter_list|()
 default|default
 literal|true
 function_decl|;
-comment|/**      * To configure the json path options to use      */
+comment|/**      * To configure the JsonPath options to use      */
 DECL|method|options ()
 name|Option
 index|[]
