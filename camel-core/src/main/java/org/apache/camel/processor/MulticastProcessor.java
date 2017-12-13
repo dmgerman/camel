@@ -2113,19 +2113,45 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|RuntimeException
+name|Throwable
 name|e
 parameter_list|)
 block|{
 comment|// The methods it.hasNext and it.next can throw RuntimeExceptions when custom iterators are implemented.
 comment|// We have to catch the exception here otherwise the aggregator threads would pile up.
+if|if
+condition|(
+name|e
+operator|instanceof
+name|Exception
+condition|)
+block|{
 name|executionException
 operator|.
 name|set
 argument_list|(
+operator|(
+name|Exception
+operator|)
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|executionException
+operator|.
+name|set
+argument_list|(
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// signal all tasks has been submitted
 name|LOG
