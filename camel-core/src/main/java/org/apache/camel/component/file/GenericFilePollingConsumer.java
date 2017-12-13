@@ -231,11 +231,20 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// when using polling consumer we poll only 1 file per poll so we can limit
 name|consumer
 operator|.
 name|setMaxMessagesPerPoll
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+comment|// however do not limit eager as we may sort the files and thus need to do a full scan so we can sort afterwards
+name|consumer
+operator|.
+name|setEagerLimitMaxMessagesPerPoll
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// we only want to poll once so disconnect by default
