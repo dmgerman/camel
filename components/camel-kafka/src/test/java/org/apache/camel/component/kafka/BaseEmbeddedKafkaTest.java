@@ -490,7 +490,9 @@ name|kafka
 init|=
 operator|new
 name|KafkaComponent
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|kafka
 operator|.
