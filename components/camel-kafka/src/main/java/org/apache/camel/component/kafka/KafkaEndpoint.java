@@ -1020,6 +1020,11 @@ name|max
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|createKafkaExchange (ConsumerRecord record)
 specifier|public
 name|Exchange

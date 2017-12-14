@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -124,7 +124,7 @@ specifier|public
 class|class
 name|KafkaComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -209,19 +209,6 @@ operator|new
 name|DefaultKafkaManualCommitFactory
 argument_list|()
 decl_stmt|;
-DECL|method|KafkaComponent ()
-specifier|public
-name|KafkaComponent
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|KafkaEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|KafkaComponent (CamelContext context)
 specifier|public
 name|KafkaComponent
@@ -233,10 +220,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|KafkaEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

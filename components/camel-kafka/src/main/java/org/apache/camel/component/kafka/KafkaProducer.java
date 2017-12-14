@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|ByteBuffer
@@ -146,30 +156,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -197,6 +183,20 @@ operator|.
 name|impl
 operator|.
 name|DefaultAsyncProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
 import|;
 end_import
 
@@ -288,6 +288,11 @@ name|KafkaProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|field|kafkaProducer
 specifier|private
 name|org
@@ -407,6 +412,11 @@ return|return
 name|props
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|getKafkaProducer ()
 specifier|public
 name|org
@@ -428,6 +438,11 @@ name|kafkaProducer
 return|;
 block|}
 comment|/**      * To use a custom {@link org.apache.kafka.clients.producer.KafkaProducer} instance.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|setKafkaProducer (org.apache.kafka.clients.producer.KafkaProducer kafkaProducer)
 specifier|public
 name|void
@@ -482,6 +497,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -657,7 +677,11 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|createRecorder (Exchange exchange)
 specifier|protected
@@ -671,7 +695,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|CamelException
+name|Exception
 block|{
 name|String
 name|topic
@@ -824,15 +848,25 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|CamelExchangeException
+comment|// if topic property was not received from configuration or header parameters take it from the remaining URI
+name|topic
+operator|=
+name|URISupport
+operator|.
+name|extractRemainderPath
 argument_list|(
-literal|"No topic key set"
-argument_list|,
-name|exchange
+operator|new
+name|URI
+argument_list|(
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 argument_list|)
-throw|;
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 comment|// endpoint take precedence over header configuration
 specifier|final
@@ -1249,7 +1283,11 @@ name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 comment|// Camel calls this method if the endpoint isSynchronous(), as the KafkaEndpoint creates a SynchronousDelegateProducer for it
 DECL|method|process (Exchange exchange)
@@ -1447,7 +1485,11 @@ name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
