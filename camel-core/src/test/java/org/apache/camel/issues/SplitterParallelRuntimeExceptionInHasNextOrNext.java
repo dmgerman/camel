@@ -474,8 +474,6 @@ DECL|field|index
 specifier|private
 name|int
 name|index
-init|=
-literal|0
 decl_stmt|;
 DECL|field|request
 specifier|private
