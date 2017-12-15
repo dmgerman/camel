@@ -522,6 +522,11 @@ specifier|private
 name|boolean
 name|quotingEscaped
 decl_stmt|;
+DECL|field|endWithLineBreak
+specifier|private
+name|boolean
+name|endWithLineBreak
+decl_stmt|;
 DECL|method|BindyCsvFactory (Class<?> type)
 specifier|public
 name|BindyCsvFactory
@@ -3386,6 +3391,23 @@ operator|+
 name|quotingEscaped
 argument_list|)
 expr_stmt|;
+comment|// Get endWithLineBreak parameter
+name|endWithLineBreak
+operator|=
+name|record
+operator|.
+name|endWithLineBreak
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"End with line break: {}"
+operator|+
+name|endWithLineBreak
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3678,6 +3700,16 @@ parameter_list|()
 block|{
 return|return
 name|allowEmptyStream
+return|;
+block|}
+DECL|method|isEndWithLineBreak ()
+specifier|public
+name|boolean
+name|isEndWithLineBreak
+parameter_list|()
+block|{
+return|return
+name|endWithLineBreak
 return|;
 block|}
 block|}

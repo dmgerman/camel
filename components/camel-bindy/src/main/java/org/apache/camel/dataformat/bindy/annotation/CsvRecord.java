@@ -168,6 +168,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * The endWithLineBreak parameter flags if the CSV file should end with a line break or not (optional)      */
+DECL|method|endWithLineBreak ()
+DECL|field|true
+name|boolean
+name|endWithLineBreak
+parameter_list|()
+default|default
+literal|true
+function_decl|;
 block|}
 end_annotation_defn
 
