@@ -199,6 +199,16 @@ argument_list|()
 decl_stmt|;
 name|zipkin
 operator|.
+name|setEndpoint
+argument_list|(
+name|config
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|zipkin
+operator|.
 name|setHostName
 argument_list|(
 name|config

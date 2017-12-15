@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.zipkin.scribe
+DECL|package|org.apache.camel.zipkin.http
 package|package
 name|org
 operator|.
@@ -14,25 +14,9 @@ name|camel
 operator|.
 name|zipkin
 operator|.
-name|scribe
+name|http
 package|;
 end_package
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|kristofa
-operator|.
-name|brave
-operator|.
-name|scribe
-operator|.
-name|ScribeSpanCollector
-import|;
-end_import
 
 begin_import
 import|import
@@ -44,7 +28,7 @@ name|camel
 operator|.
 name|zipkin
 operator|.
-name|ZipkinMulticastRouteTest
+name|ZipkinOneRouteTest
 import|;
 end_import
 
@@ -62,17 +46,39 @@ name|ZipkinTracer
 import|;
 end_import
 
+begin_import
+import|import
+name|zipkin2
+operator|.
+name|reporter
+operator|.
+name|AsyncReporter
+import|;
+end_import
+
+begin_import
+import|import
+name|zipkin2
+operator|.
+name|reporter
+operator|.
+name|urlconnection
+operator|.
+name|URLConnectionSender
+import|;
+end_import
+
 begin_comment
-comment|/**  * Integration test requires running Zipkin/Scribe running  *  *<p>The easiest way to run is locally:  *<pre>{@code  * curl -sSL https://zipkin.io/quickstart.sh | bash -s  * SCRIBE_ENABLED=true java -jar zipkin.jar  * }</pre>  */
+comment|/**  * Integration test requires running Zipkin running  *  *<p>The easiest way to run is locally:  *<pre>{@code  * curl -sSL https://zipkin.io/quickstart.sh | bash -s  * java -jar zipkin.jar  * }</pre>  */
 end_comment
 
 begin_class
-DECL|class|ZipkinMulticastRouteScribe
+DECL|class|ZipkinOneRouteHttp
 specifier|public
 class|class
-name|ZipkinMulticastRouteScribe
+name|ZipkinOneRouteHttp
 extends|extends
-name|ZipkinMulticastRouteTest
+name|ZipkinOneRouteTest
 block|{
 DECL|method|setSpanReporter (ZipkinTracer zipkin)
 annotation|@
@@ -87,14 +93,18 @@ parameter_list|)
 block|{
 name|zipkin
 operator|.
-name|setSpanCollector
+name|setSpanReporter
 argument_list|(
-operator|new
-name|ScribeSpanCollector
+name|AsyncReporter
+operator|.
+name|create
 argument_list|(
-literal|"127.0.0.1"
-argument_list|,
-literal|9410
+name|URLConnectionSender
+operator|.
+name|create
+argument_list|(
+literal|"http://locahost:9411/api/v2/spans"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -78,6 +78,24 @@ end_import
 
 begin_import
 import|import
+name|brave
+operator|.
+name|Tracing
+import|;
+end_import
+
+begin_import
+import|import
+name|brave
+operator|.
+name|sampler
+operator|.
+name|Sampler
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|github
@@ -101,20 +119,6 @@ operator|.
 name|brave
 operator|.
 name|ClientSpanThreadBinder
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|kristofa
-operator|.
-name|brave
-operator|.
-name|Sampler
 import|;
 end_import
 
@@ -157,6 +161,20 @@ operator|.
 name|brave
 operator|.
 name|SpanCollector
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|kristofa
+operator|.
+name|brave
+operator|.
+name|TracerAdapter
 import|;
 end_import
 
@@ -581,6 +599,38 @@ import|;
 end_import
 
 begin_import
+import|import
+name|zipkin2
+operator|.
+name|reporter
+operator|.
+name|AsyncReporter
+import|;
+end_import
+
+begin_import
+import|import
+name|zipkin2
+operator|.
+name|reporter
+operator|.
+name|Reporter
+import|;
+end_import
+
+begin_import
+import|import
+name|zipkin2
+operator|.
+name|reporter
+operator|.
+name|urlconnection
+operator|.
+name|URLConnectionSender
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -597,7 +647,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use Zipkin with Camel then setup this {@link ZipkinTracer} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector explicit has been configured, and  * if the hostname and port to the span collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
+comment|/**  * To use Zipkin with Camel then setup this {@link ZipkinTracer} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link Reporter span reporter} one hasn't been explicitly configured,  * and if the hostname and port to a zipkin collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_HOST - The http hostname</li>  *<li>ZIPKIN_COLLECTOR_HTTP_SERVICE_PORT - The port number</li>  *</ul>  * or  *<ul>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_HOST - The Scribe (Thrift RPC) hostname</li>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
 end_comment
 
 begin_class
@@ -636,6 +686,15 @@ name|ZipkinTracer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|ZIPKIN_COLLECTOR_HTTP_SERVICE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ZIPKIN_COLLECTOR_HTTP_SERVICE
+init|=
+literal|"zipkin-collector-http"
 decl_stmt|;
 DECL|field|ZIPKIN_COLLECTOR_THRIFT_SERVICE
 specifier|private
@@ -683,6 +742,11 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|endpoint
+specifier|private
+name|String
+name|endpoint
+decl_stmt|;
 DECL|field|hostName
 specifier|private
 name|String
@@ -704,6 +768,16 @@ DECL|field|spanCollector
 specifier|private
 name|SpanCollector
 name|spanCollector
+decl_stmt|;
+DECL|field|spanReporter
+specifier|private
+name|Reporter
+argument_list|<
+name|zipkin2
+operator|.
+name|Span
+argument_list|>
+name|spanReporter
 decl_stmt|;
 DECL|field|clientServiceMappings
 specifier|private
@@ -878,7 +952,41 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"The hostname for the remote zipkin server to use."
+literal|"The POST URL for zipkin's v2 api."
+argument_list|)
+DECL|method|getEndpoint ()
+specifier|public
+name|String
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
+return|;
+block|}
+comment|/**      * Sets the POST URL for zipkin's<a href="http://zipkin.io/zipkin-api/#/">v2 api</a>, usually      * "http://zipkinhost:9411/api/v2/spans"      */
+DECL|method|setEndpoint (String endpoint)
+specifier|public
+name|void
+name|setEndpoint
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The hostname for the remote zipkin scribe collector."
 argument_list|)
 DECL|method|getHostName ()
 specifier|public
@@ -890,7 +998,7 @@ return|return
 name|hostName
 return|;
 block|}
-comment|/**      * Sets a hostname for the remote zipkin server to use.      */
+comment|/**      * Sets the hostname for the remote zipkin scribe collector.      */
 DECL|method|setHostName (String hostName)
 specifier|public
 name|void
@@ -912,7 +1020,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"The port number for the remote zipkin server to use."
+literal|"The port number for the remote zipkin scribe collector."
 argument_list|)
 DECL|method|getPort ()
 specifier|public
@@ -924,7 +1032,7 @@ return|return
 name|port
 return|;
 block|}
-comment|/**      * Sets the port number for the remote zipkin server to use.      */
+comment|/**      * Sets the port number for the remote zipkin scribe collector.      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -975,6 +1083,9 @@ operator|=
 name|rate
 expr_stmt|;
 block|}
+comment|/**      * Returns the legacy span collector or null if using the reporter      *      * @deprecated use {@link #getSpanReporter()}      */
+annotation|@
+name|Deprecated
 DECL|method|getSpanCollector ()
 specifier|public
 name|SpanCollector
@@ -985,7 +1096,47 @@ return|return
 name|spanCollector
 return|;
 block|}
-comment|/**      * The collector to use for sending zipkin span events to the zipkin server.      */
+comment|/** Sets the reporter used to send timing data (spans) to the zipkin server. */
+DECL|method|setSpanReporter (Reporter<zipkin2.Span> spanReporter)
+specifier|public
+name|void
+name|setSpanReporter
+parameter_list|(
+name|Reporter
+argument_list|<
+name|zipkin2
+operator|.
+name|Span
+argument_list|>
+name|spanReporter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|spanReporter
+operator|=
+name|spanReporter
+expr_stmt|;
+block|}
+comment|/** Returns the reporter used to send timing data (spans) to the zipkin server. */
+DECL|method|getSpanReporter ()
+specifier|public
+name|Reporter
+argument_list|<
+name|zipkin2
+operator|.
+name|Span
+argument_list|>
+name|getSpanReporter
+parameter_list|()
+block|{
+return|return
+name|spanReporter
+return|;
+block|}
+comment|/** @deprecated use {@link #setSpanReporter(Reporter)} */
+annotation|@
+name|Deprecated
 DECL|method|setSpanCollector (SpanCollector spanCollector)
 specifier|public
 name|void
@@ -995,6 +1146,16 @@ name|SpanCollector
 name|spanCollector
 parameter_list|)
 block|{
+name|this
+operator|.
+name|spanReporter
+operator|=
+operator|new
+name|ZipkinLegacyReporterAdapter
+argument_list|(
+name|spanCollector
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|spanCollector
@@ -1351,11 +1512,61 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|spanCollector
+name|spanReporter
 operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|spanCollector
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// possible via setter
+name|spanReporter
+operator|=
+operator|new
+name|ZipkinLegacyReporterAdapter
+argument_list|(
+name|spanCollector
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|endpoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Configuring Zipkin URLConnectionSender using endpoint: {} "
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|spanReporter
+operator|=
+name|AsyncReporter
+operator|.
+name|create
+argument_list|(
+name|URLConnectionSender
+operator|.
+name|create
+argument_list|(
+name|endpoint
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|hostName
@@ -1378,8 +1589,11 @@ argument_list|,
 name|port
 argument_list|)
 expr_stmt|;
-name|spanCollector
+name|spanReporter
 operator|=
+operator|new
+name|ZipkinLegacyReporterAdapter
+argument_list|(
 operator|new
 name|ScribeSpanCollector
 argument_list|(
@@ -1387,11 +1601,12 @@ name|hostName
 argument_list|,
 name|port
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-comment|// is there a zipkin service setup as ENV variable to auto register a scribe span collector
+comment|// is there a zipkin service setup as ENV variable to auto register a span reporter
 name|String
 name|host
 init|=
@@ -1401,7 +1616,7 @@ argument_list|()
 operator|.
 name|apply
 argument_list|(
-name|ZIPKIN_COLLECTOR_THRIFT_SERVICE
+name|ZIPKIN_COLLECTOR_HTTP_SERVICE
 argument_list|)
 decl_stmt|;
 name|String
@@ -1413,9 +1628,106 @@ argument_list|()
 operator|.
 name|apply
 argument_list|(
-name|ZIPKIN_COLLECTOR_THRIFT_SERVICE
+name|ZIPKIN_COLLECTOR_HTTP_SERVICE
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|host
+argument_list|)
+operator|&&
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|port
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Auto-configuring Zipkin URLConnectionSender using host: {} and port: {}"
+argument_list|,
+name|host
+argument_list|,
+name|port
+argument_list|)
+expr_stmt|;
+name|int
+name|num
+init|=
+name|camelContext
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|mandatoryConvertTo
+argument_list|(
+name|Integer
+operator|.
+name|class
+argument_list|,
+name|port
+argument_list|)
+decl_stmt|;
+name|String
+name|implicitEndpoint
+init|=
+literal|"http://"
+operator|+
+name|host
+operator|+
+literal|":"
+operator|+
+name|num
+operator|+
+literal|"/api/v2/spans"
+decl_stmt|;
+name|spanReporter
+operator|=
+name|AsyncReporter
+operator|.
+name|create
+argument_list|(
+name|URLConnectionSender
+operator|.
+name|create
+argument_list|(
+name|implicitEndpoint
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|host
+operator|=
+operator|new
+name|ServiceHostPropertiesFunction
+argument_list|()
+operator|.
+name|apply
+argument_list|(
+name|ZIPKIN_COLLECTOR_THRIFT_SERVICE
+argument_list|)
+expr_stmt|;
+name|port
+operator|=
+operator|new
+name|ServicePortPropertiesFunction
+argument_list|()
+operator|.
+name|apply
+argument_list|(
+name|ZIPKIN_COLLECTOR_THRIFT_SERVICE
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1461,8 +1773,11 @@ argument_list|,
 name|port
 argument_list|)
 decl_stmt|;
-name|spanCollector
+name|spanReporter
 operator|=
+operator|new
+name|ZipkinLegacyReporterAdapter
+argument_list|(
 operator|new
 name|ScribeSpanCollector
 argument_list|(
@@ -1470,23 +1785,25 @@ name|host
 argument_list|,
 name|num
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
 if|if
 condition|(
-name|spanCollector
+name|spanReporter
 operator|==
 literal|null
 condition|)
 block|{
-comment|// Try to lookup the span collector from the registry if only one instance is present
+comment|// Try to lookup the span reporter from the registry if only one instance is present
 name|Set
 argument_list|<
-name|SpanCollector
+name|Reporter
 argument_list|>
-name|collectors
+name|reporters
 init|=
 name|camelContext
 operator|.
@@ -1495,14 +1812,14 @@ argument_list|()
 operator|.
 name|findByType
 argument_list|(
-name|SpanCollector
+name|Reporter
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|collectors
+name|reporters
 operator|.
 name|size
 argument_list|()
@@ -1510,9 +1827,9 @@ operator|==
 literal|1
 condition|)
 block|{
-name|spanCollector
+name|spanReporter
 operator|=
-name|collectors
+name|reporters
 operator|.
 name|iterator
 argument_list|()
@@ -1526,9 +1843,9 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|spanCollector
+name|spanReporter
 argument_list|,
-literal|"SpanCollector"
+literal|"Reporter<zipkin2.Span>"
 argument_list|,
 name|this
 argument_list|)
@@ -1647,7 +1964,7 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
-name|spanCollector
+name|spanReporter
 argument_list|,
 name|eventNotifier
 argument_list|)
@@ -1686,12 +2003,12 @@ name|ServiceHelper
 operator|.
 name|stopAndShutdownService
 argument_list|(
-name|spanCollector
+name|spanReporter
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|spanCollector
+name|spanReporter
 operator|instanceof
 name|Closeable
 condition|)
@@ -1703,7 +2020,7 @@ argument_list|(
 operator|(
 name|Closeable
 operator|)
-name|spanCollector
+name|spanReporter
 argument_list|)
 expr_stmt|;
 block|}
@@ -2290,15 +2607,17 @@ name|serviceName
 argument_list|)
 condition|)
 block|{
-name|Brave
+name|Tracing
 operator|.
 name|Builder
 name|builder
 init|=
-operator|new
-name|Brave
+name|Tracing
 operator|.
-name|Builder
+name|newBuilder
+argument_list|()
+operator|.
+name|localServiceName
 argument_list|(
 name|serviceName
 argument_list|)
@@ -2307,7 +2626,7 @@ name|builder
 operator|=
 name|builder
 operator|.
-name|traceSampler
+name|sampler
 argument_list|(
 name|Sampler
 operator|.
@@ -2319,7 +2638,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|spanCollector
+name|spanReporter
 operator|!=
 literal|null
 condition|)
@@ -2328,18 +2647,26 @@ name|builder
 operator|=
 name|builder
 operator|.
-name|spanCollector
+name|spanReporter
 argument_list|(
-name|spanCollector
+name|spanReporter
 argument_list|)
 expr_stmt|;
 block|}
 name|brave
 operator|=
+name|TracerAdapter
+operator|.
+name|newBrave
+argument_list|(
 name|builder
 operator|.
 name|build
 argument_list|()
+operator|.
+name|tracer
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|braves
 operator|.
@@ -2395,22 +2722,24 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating Brave assigned to serviceName: {}"
+literal|"Creating Tracing assigned to serviceName: {}"
 argument_list|,
 name|serviceName
 operator|+
 literal|" as fallback"
 argument_list|)
 expr_stmt|;
-name|Brave
+name|Tracing
 operator|.
 name|Builder
 name|builder
 init|=
-operator|new
-name|Brave
+name|Tracing
 operator|.
-name|Builder
+name|newBuilder
+argument_list|()
+operator|.
+name|localServiceName
 argument_list|(
 name|serviceName
 argument_list|)
@@ -2419,7 +2748,7 @@ name|builder
 operator|=
 name|builder
 operator|.
-name|traceSampler
+name|sampler
 argument_list|(
 name|Sampler
 operator|.
@@ -2431,7 +2760,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|spanCollector
+name|spanReporter
 operator|!=
 literal|null
 condition|)
@@ -2440,18 +2769,26 @@ name|builder
 operator|=
 name|builder
 operator|.
-name|spanCollector
+name|spanReporter
 argument_list|(
-name|spanCollector
+name|spanReporter
 argument_list|)
 expr_stmt|;
 block|}
 name|brave
 operator|=
+name|TracerAdapter
+operator|.
+name|newBrave
+argument_list|(
 name|builder
 operator|.
 name|build
 argument_list|()
+operator|.
+name|tracer
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|braves
 operator|.

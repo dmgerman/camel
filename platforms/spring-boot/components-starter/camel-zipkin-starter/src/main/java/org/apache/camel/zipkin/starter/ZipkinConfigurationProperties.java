@@ -67,13 +67,19 @@ specifier|public
 class|class
 name|ZipkinConfigurationProperties
 block|{
-comment|/**      * Sets a hostname for the remote zipkin server to use.      */
+comment|/**      * Sets the POST URL for zipkin's<a href="http://zipkin.io/zipkin-api/#/">v2 api</a>, usually      * "http://zipkinhost:9411/api/v2/spans"      */
+DECL|field|endpoint
+specifier|private
+name|String
+name|endpoint
+decl_stmt|;
+comment|/**      * Sets the hostname if sending spans to a remote zipkin scribe (thrift RPC) collector.      */
 DECL|field|hostName
 specifier|private
 name|String
 name|hostName
 decl_stmt|;
-comment|/**      * Sets the port number for the remote zipkin server to use.      */
+comment|/**      * Sets the port if sending spans to a remote zipkin scribe (thrift RPC) collector.      */
 DECL|field|port
 specifier|private
 name|int
@@ -137,6 +143,32 @@ argument_list|>
 name|serverServiceMappings
 decl_stmt|;
 comment|// Getters& setters
+DECL|method|getEndpoint ()
+specifier|public
+name|String
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
+return|;
+block|}
+DECL|method|setEndpoint (String endpoint)
+specifier|public
+name|void
+name|setEndpoint
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+block|}
 DECL|method|getHostName ()
 specifier|public
 name|String

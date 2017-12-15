@@ -106,6 +106,16 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|zipkin2
+operator|.
+name|reporter
+operator|.
+name|Reporter
+import|;
+end_import
+
 begin_class
 DECL|class|ZipkinABCRouteTest
 specifier|public
@@ -119,6 +129,25 @@ specifier|private
 name|ZipkinTracer
 name|zipkin
 decl_stmt|;
+DECL|method|setSpanReporter (ZipkinTracer zipkin)
+specifier|protected
+name|void
+name|setSpanReporter
+parameter_list|(
+name|ZipkinTracer
+name|zipkin
+parameter_list|)
+block|{
+name|zipkin
+operator|.
+name|setSpanReporter
+argument_list|(
+name|Reporter
+operator|.
+name|NOOP
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -197,13 +226,9 @@ argument_list|,
 literal|"c"
 argument_list|)
 expr_stmt|;
-name|zipkin
-operator|.
-name|setSpanCollector
+name|setSpanReporter
 argument_list|(
-operator|new
-name|ZipkinLoggingSpanCollector
-argument_list|()
+name|zipkin
 argument_list|)
 expr_stmt|;
 comment|// attaching ourself to CamelContext
