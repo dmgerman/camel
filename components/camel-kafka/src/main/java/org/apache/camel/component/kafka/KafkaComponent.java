@@ -209,6 +209,11 @@ operator|new
 name|DefaultKafkaManualCommitFactory
 argument_list|()
 decl_stmt|;
+DECL|method|KafkaComponent ()
+specifier|public
+name|KafkaComponent
+parameter_list|()
+block|{     }
 DECL|method|KafkaComponent (CamelContext context)
 specifier|public
 name|KafkaComponent
