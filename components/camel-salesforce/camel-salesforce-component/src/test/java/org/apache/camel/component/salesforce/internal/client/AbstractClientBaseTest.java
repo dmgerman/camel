@@ -587,7 +587,7 @@ name|in
 operator|.
 name|setHeader
 argument_list|(
-literal|"Sforce-Auto-Assign"
+literal|"sforce-auto-assign"
 argument_list|,
 literal|"TRUE"
 argument_list|)
@@ -596,7 +596,7 @@ name|in
 operator|.
 name|setHeader
 argument_list|(
-literal|"Sforce-Call-Options"
+literal|"SFORCE-CALL-OPTIONS"
 argument_list|,
 operator|new
 name|String
@@ -682,7 +682,7 @@ name|containsOnly
 argument_list|(
 name|entry
 argument_list|(
-literal|"Sforce-Auto-Assign"
+literal|"sforce-auto-assign"
 argument_list|,
 name|singletonList
 argument_list|(
@@ -692,7 +692,7 @@ argument_list|)
 argument_list|,
 name|entry
 argument_list|(
-literal|"Sforce-Call-Options"
+literal|"SFORCE-CALL-OPTIONS"
 argument_list|,
 name|asList
 argument_list|(
