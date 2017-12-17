@@ -114,9 +114,9 @@ operator|=
 name|delegate
 expr_stmt|;
 block|}
-DECL|method|report (zipkin2.Span span)
 annotation|@
 name|Override
+DECL|method|report (zipkin2.Span span)
 specifier|public
 name|void
 name|report

@@ -44,7 +44,7 @@ name|camel
 operator|.
 name|zipkin
 operator|.
-name|ZipkinTwoRouteTest
+name|ZipkinTracer
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|camel
 operator|.
 name|zipkin
 operator|.
-name|ZipkinTracer
+name|ZipkinTwoRouteTest
 import|;
 end_import
 
