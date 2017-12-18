@@ -386,6 +386,18 @@ name|org
 operator|.
 name|mockito
 operator|.
+name|ArgumentMatchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
 name|Mockito
 operator|.
 name|any
@@ -448,10 +460,10 @@ name|MockitoJUnitRunner
 operator|.
 name|class
 argument_list|)
-DECL|class|KinesisConsumerTest
+DECL|class|KinesisConsumerClosedShardWithSilentTest
 specifier|public
 class|class
-name|KinesisConsumerTest
+name|KinesisConsumerClosedShardWithSilentTest
 block|{
 annotation|@
 name|Mock
@@ -561,7 +573,7 @@ argument_list|()
 operator|.
 name|withEndingSequenceNumber
 argument_list|(
-literal|null
+literal|"20"
 argument_list|)
 decl_stmt|;
 name|Shard

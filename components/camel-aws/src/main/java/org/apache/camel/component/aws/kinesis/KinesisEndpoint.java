@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-kinesis component is for consuming and producing records from Amazon Kinesis Streams.  */
+comment|/**  * The aws-kinesis component is for consuming and producing records from Amazon  * Kinesis Streams.  */
 end_comment
 
 begin_class
@@ -344,6 +344,32 @@ name|String
 name|sequenceNumber
 init|=
 literal|""
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"ignore"
+argument_list|,
+name|description
+operator|=
+literal|"Define what will be the behavior in case of shard closed. Possible value are ignore, silent and fail."
+operator|+
+literal|"In case of ignore a message will be logged and the consumer will restart from the beginning,"
+operator|+
+literal|"in case of silent there will be no logging and the consumer will start from the beginning,"
+operator|+
+literal|"in case of fail a ReachedClosedStateException will be raised"
+argument_list|)
+DECL|field|shardClosed
+specifier|private
+name|KinesisShardClosedStrategyEnum
+name|shardClosed
 decl_stmt|;
 DECL|method|KinesisEndpoint (String uri, String streamName, KinesisComponent component)
 specifier|public
@@ -743,6 +769,32 @@ operator|.
 name|sequenceNumber
 operator|=
 name|sequenceNumber
+expr_stmt|;
+block|}
+DECL|method|getShardClosed ()
+specifier|public
+name|KinesisShardClosedStrategyEnum
+name|getShardClosed
+parameter_list|()
+block|{
+return|return
+name|shardClosed
+return|;
+block|}
+DECL|method|setShardClosed (KinesisShardClosedStrategyEnum shardClosed)
+specifier|public
+name|void
+name|setShardClosed
+parameter_list|(
+name|KinesisShardClosedStrategyEnum
+name|shardClosed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shardClosed
+operator|=
+name|shardClosed
 expr_stmt|;
 block|}
 block|}
