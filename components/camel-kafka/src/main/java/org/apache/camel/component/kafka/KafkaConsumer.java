@@ -512,6 +512,21 @@ name|getBrokers
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|brokers
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"URL to the Kafka brokers must be configured with the brokers option on either the component or endpoint."
+argument_list|)
+throw|;
+block|}
 name|props
 operator|.
 name|put
