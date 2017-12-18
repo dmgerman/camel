@@ -138,22 +138,6 @@ name|beans
 operator|.
 name|factory
 operator|.
-name|annotation
-operator|.
-name|Autowired
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
 name|config
 operator|.
 name|ConfigurableBeanFactory
@@ -294,13 +278,6 @@ class|class
 name|HealthCheckRoutesAutoConfiguration
 block|{
 annotation|@
-name|Autowired
-DECL|field|configuration
-specifier|private
-name|HealthCheckRoutesConfiguration
-name|configuration
-decl_stmt|;
-annotation|@
 name|Bean
 annotation|@
 name|Scope
@@ -316,11 +293,14 @@ name|RoutesHealthCheckRepository
 operator|.
 name|class
 argument_list|)
-DECL|method|routesHealthCheckRepository ()
+DECL|method|routesHealthCheckRepository (HealthCheckRoutesConfiguration configuration)
 specifier|public
 name|HealthCheckRepository
 name|routesHealthCheckRepository
-parameter_list|()
+parameter_list|(
+name|HealthCheckRoutesConfiguration
+name|configuration
+parameter_list|)
 block|{
 specifier|final
 name|RoutesHealthCheckRepository
