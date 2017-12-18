@@ -301,7 +301,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default Camel swagger servlet to use when exposing the APIs of the rest-dsl using swagger.  *<p/>  * This requires Camel version 2.15 or better at runtime (and JMX to be enabled).  *  * @deprecated do not use this servlet directly but use rest-dsl the regular way with rest-dsl configuration.  */
+comment|/**  * The default Camel swagger servlet to use when exposing the APIs of the rest-dsl using swagger.  *<p/>  * This requires Camel version 2.15 or better at runtime (and JMX to be enabled).  *  * @deprecated do not use this directly but use rest-dsl the regular way with rest-dsl configuration.  */
 end_comment
 
 begin_class

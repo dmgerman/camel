@@ -135,10 +135,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple CORS filter that can used to allow the swagger ui or other API browsers from remote origins to access the  * Rest services exposes by this Camel swagger component.  *<p/>  * You can configure CORS headers in the init parameters to the Servlet Filter using the names:  *<ul>  *<li>Access-Control-Allow-Origin</li>  *<li>Access-Control-Allow-Methods</li>  *<li>Access-Control-Allow-Headers</li>  *<li>Access-Control-Max-Age</li>  *</ul>  * If a parameter is not configured then the default value is used.  * The default values are defined as:  *<ul>  *<li>{@link RestConfiguration#CORS_ACCESS_CONTROL_ALLOW_ORIGIN}</li>  *<li>{@link RestConfiguration#CORS_ACCESS_CONTROL_ALLOW_METHODS}</li>  *<li>{@link RestConfiguration#CORS_ACCESS_CONTROL_ALLOW_HEADERS}</li>  *<li>{@link RestConfiguration#CORS_ACCESS_CONTROL_MAX_AGE}</li>  *</ul>  */
+comment|/**  * A simple CORS filter that can used to allow the swagger ui or other API browsers from remote origins to access the  * Rest services exposes by this Camel swagger component.  *<p/>  * You can configure CORS headers in the init parameters to the Servlet Filter using the names:  *<ul>  *<li>Access-Control-Allow-Origin</li>  *<li>Access-Control-Allow-Methods</li>  *<li>Access-Control-Allow-Headers</li>  *<li>Access-Control-Max-Age</li>  *</ul>  * If a parameter is not configured then the default value is used.  * The default values are defined as:  *<ul>  *<li>{@link RestConfiguration#CORS_ACCESS_CONTROL_ALLOW_ORIGIN}</li>  *<li>{@link RestConfiguration#CORS_ACCESS_CONTROL_ALLOW_METHODS}</li>  *<li>{@link RestConfiguration#CORS_ACCESS_CONTROL_ALLOW_HEADERS}</li>  *<li>{@link RestConfiguration#CORS_ACCESS_CONTROL_MAX_AGE}</li>  *</ul>  *  * @deprecated do not use this directly but use rest-dsl the regular way with rest-dsl configuration.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RestSwaggerCorsFilter
 specifier|public
 class|class

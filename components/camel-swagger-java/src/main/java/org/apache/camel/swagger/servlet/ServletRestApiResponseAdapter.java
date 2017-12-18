@@ -55,6 +55,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ServletRestApiResponseAdapter
 specifier|public
 class|class
