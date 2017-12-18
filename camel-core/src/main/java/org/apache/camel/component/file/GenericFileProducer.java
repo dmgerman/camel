@@ -727,6 +727,15 @@ block|}
 comment|// delete any pre existing temp file
 if|if
 condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|!=
+name|GenericFileExist
+operator|.
+name|TryRename
+operator|&&
 name|operations
 operator|.
 name|existsFile
