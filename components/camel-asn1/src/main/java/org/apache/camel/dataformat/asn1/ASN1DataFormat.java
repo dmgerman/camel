@@ -208,7 +208,7 @@ name|jasn1
 operator|.
 name|ber
 operator|.
-name|BerByteArrayOutputStream
+name|ReverseByteArrayOutputStream
 import|;
 end_import
 
@@ -556,15 +556,15 @@ index|[
 literal|0
 index|]
 operator|=
-name|BerByteArrayOutputStream
+name|OutputStream
 operator|.
 name|class
 expr_stmt|;
-name|BerByteArrayOutputStream
+name|ReverseByteArrayOutputStream
 name|berOut
 init|=
 operator|new
-name|BerByteArrayOutputStream
+name|ReverseByteArrayOutputStream
 argument_list|(
 name|IOHelper
 operator|.
