@@ -176,10 +176,10 @@ specifier|private
 name|boolean
 name|apiVendorExtension
 decl_stmt|;
-DECL|field|restHostNameResolver
+DECL|field|hostNameResolver
 specifier|private
 name|RestHostNameResolver
-name|restHostNameResolver
+name|hostNameResolver
 init|=
 name|RestHostNameResolver
 operator|.
@@ -662,7 +662,9 @@ operator|=
 name|apiVendorExtension
 expr_stmt|;
 block|}
-comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      */
+comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      * @deprecated use getHostNameResolver      */
+annotation|@
+name|Deprecated
 DECL|method|getRestHostNameResolver ()
 specifier|public
 name|RestHostNameResolver
@@ -670,10 +672,13 @@ name|getRestHostNameResolver
 parameter_list|()
 block|{
 return|return
-name|restHostNameResolver
+name|getHostNameResolver
+argument_list|()
 return|;
 block|}
-comment|/**      * Sets the resolver to use for resolving hostname      *      * @param restHostNameResolver the resolver      */
+comment|/**      * Sets the resolver to use for resolving hostname      *      * @param restHostNameResolver the resolver      * @deprecated use setHostNameResolver      */
+annotation|@
+name|Deprecated
 DECL|method|setRestHostNameResolver (RestHostNameResolver restHostNameResolver)
 specifier|public
 name|void
@@ -683,14 +688,15 @@ name|RestHostNameResolver
 name|restHostNameResolver
 parameter_list|)
 block|{
-name|this
-operator|.
+name|setHostNameResolver
+argument_list|(
 name|restHostNameResolver
-operator|=
-name|restHostNameResolver
+argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the resolver to use for resolving hostname      *      * @param restHostNameResolver the resolver      */
+comment|/**      * Sets the resolver to use for resolving hostname      *      * @param restHostNameResolver the resolver      * @deprecated use setHostNameResolver      */
+annotation|@
+name|Deprecated
 DECL|method|setRestHostNameResolver (String restHostNameResolver)
 specifier|public
 name|void
@@ -700,15 +706,59 @@ name|String
 name|restHostNameResolver
 parameter_list|)
 block|{
+name|settHostNameResolver
+argument_list|(
+name|restHostNameResolver
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      */
+DECL|method|getHostNameResolver ()
+specifier|public
+name|RestHostNameResolver
+name|getHostNameResolver
+parameter_list|()
+block|{
+return|return
+name|hostNameResolver
+return|;
+block|}
+comment|/**      * Sets the resolver to use for resolving hostname      *      * @param hostNameResolver the resolver      */
+DECL|method|setHostNameResolver (RestHostNameResolver hostNameResolver)
+specifier|public
+name|void
+name|setHostNameResolver
+parameter_list|(
+name|RestHostNameResolver
+name|hostNameResolver
+parameter_list|)
+block|{
 name|this
 operator|.
-name|restHostNameResolver
+name|hostNameResolver
+operator|=
+name|hostNameResolver
+expr_stmt|;
+block|}
+comment|/**      * Sets the resolver to use for resolving hostname      *      * @param hostNameResolver the resolver      */
+DECL|method|settHostNameResolver (String hostNameResolver)
+specifier|public
+name|void
+name|settHostNameResolver
+parameter_list|(
+name|String
+name|hostNameResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hostNameResolver
 operator|=
 name|RestHostNameResolver
 operator|.
 name|valueOf
 argument_list|(
-name|restHostNameResolver
+name|hostNameResolver
 argument_list|)
 expr_stmt|;
 block|}

@@ -2179,7 +2179,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -2199,7 +2199,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -2222,7 +2222,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
