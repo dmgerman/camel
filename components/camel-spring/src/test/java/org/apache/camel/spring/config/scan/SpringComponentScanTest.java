@@ -248,7 +248,7 @@ argument_list|)
 expr_stmt|;
 name|sendBody
 argument_list|(
-literal|"direct:shouldNeverRecieveExchange"
+literal|"seda:shouldNeverRecieveExchange"
 argument_list|,
 literal|"dropped like a hot rock"
 argument_list|)
