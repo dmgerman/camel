@@ -28,6 +28,16 @@ name|ReachedClosedStatusException
 extends|extends
 name|Exception
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|2701697822726751407L
+decl_stmt|;
 DECL|field|streamName
 specifier|private
 specifier|final
