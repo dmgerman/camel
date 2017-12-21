@@ -290,6 +290,27 @@ name|host
 argument_list|)
 expr_stmt|;
 block|}
+comment|// include scheme if not provided
+if|if
+condition|(
+operator|!
+name|answer
+operator|.
+name|startsWith
+argument_list|(
+name|scheme
+argument_list|)
+condition|)
+block|{
+name|answer
+operator|=
+name|scheme
+operator|+
+literal|":"
+operator|+
+name|answer
+expr_stmt|;
+block|}
 block|}
 name|LOGGER
 operator|.
