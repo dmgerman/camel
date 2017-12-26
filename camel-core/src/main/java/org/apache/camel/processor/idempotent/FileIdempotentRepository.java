@@ -249,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A file based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *<p/>  * Care should be taken to use a suitable underlying {@link java.util.Map} to avoid this class being a  * memory leak.  *  * @version   */
+comment|/**  * A file based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *<p/>  * Care should be taken to use a suitable underlying {@link java.util.Map} to avoid this class being a  * memory leak.  *<p/>  * The default cache used is {@link LRUCache} which keeps the most used entries in the cache.  * When this cache is being used and the state of the cache is stored to file via {@link #trunkStore()}  * then the entries stored are not guaranteed to be in the exact order the entries were added to the cache.  * If you need exact ordering, then you need to provide a custom {@link Map} implementation that does that  *  * @version   */
 end_comment
 
 begin_class
@@ -840,7 +840,7 @@ operator|=
 name|maxFileStoreSize
 expr_stmt|;
 block|}
-comment|/**      * Sets the cache size      */
+comment|/**      * Sets the cache size.      *      * Setting cache size is only possible when using the default {@link LRUCache} cache implementation.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -855,6 +855,28 @@ name|int
 name|size
 parameter_list|)
 block|{
+if|if
+condition|(
+name|cache
+operator|!=
+literal|null
+operator|&&
+operator|!
+operator|(
+name|cache
+operator|instanceof
+name|LRUCache
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Setting cache size is only possible when using the default LRUCache cache implementation"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|cache
