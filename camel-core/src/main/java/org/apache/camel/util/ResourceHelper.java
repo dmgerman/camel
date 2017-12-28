@@ -513,7 +513,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Resolves the mandatory resource.      *<p/>      * The resource uri can refer to the following systems to be loaded from      *<ul>      *<il>file:nameOfFile - to refer to the file system</il>      *<il>classpath:nameOfFile - to refer to the classpath (default)</il>      *<il>http:uri - to load the resource using HTTP</il>      *<il>ref:nameOfBean - to lookup the resource in the {@link org.apache.camel.spi.Registry}</il>      *<il>bean:nameOfBean.methodName - to lookup a bean in the {@link org.apache.camel.spi.Registry} and call the method</il>      *<il><customProtocol>:uri - to lookup the resource using a custom {@link java.net.URLStreamHandler} registered for the<customProtocol>,      *     on how to register it @see java.net.URL#URL(java.lang.String, java.lang.String, int, java.lang.String)</il>      *</ul>      * If no prefix has been given, then the resource is loaded from the classpath      *<p/>      * If possible recommended to use {@link #resolveMandatoryResourceAsUrl(org.apache.camel.spi.ClassResolver, String)}      *      * @param camelContext the Camel Context      * @param uri URI of the resource      * @return the resource as an {@link InputStream}.  Remember to close this stream after usage.      * @throws java.io.IOException is thrown if the resource file could not be found or loaded as {@link InputStream}      */
+comment|/**      * Resolves the mandatory resource.      *<p/>      * The resource uri can refer to the following systems to be loaded from      *<ul>      *<il>file:nameOfFile - to refer to the file system</il>      *<il>classpath:nameOfFile - to refer to the classpath (default)</il>      *<il>http:uri - to load the resource using HTTP</il>      *<il>ref:nameOfBean - to lookup the resource in the {@link org.apache.camel.spi.Registry}</il>      *<il>bean:nameOfBean.methodName or bean:nameOfBean::methodName - to lookup a bean in the {@link org.apache.camel.spi.Registry} and call the method</il>      *<il><customProtocol>:uri - to lookup the resource using a custom {@link java.net.URLStreamHandler} registered for the<customProtocol>,      *     on how to register it @see java.net.URL#URL(java.lang.String, java.lang.String, int, java.lang.String)</il>      *</ul>      * If no prefix has been given, then the resource is loaded from the classpath      *<p/>      * If possible recommended to use {@link #resolveMandatoryResourceAsUrl(org.apache.camel.spi.ClassResolver, String)}      *      * @param camelContext the Camel Context      * @param uri URI of the resource      * @return the resource as an {@link InputStream}.  Remember to close this stream after usage.      * @throws java.io.IOException is thrown if the resource file could not be found or loaded as {@link InputStream}      */
 DECL|method|resolveMandatoryResourceAsInputStream (CamelContext camelContext, String uri)
 specifier|public
 specifier|static
@@ -597,44 +597,6 @@ argument_list|(
 literal|5
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|bean
-operator|.
-name|contains
-argument_list|(
-literal|"."
-argument_list|)
-condition|)
-block|{
-name|String
-name|method
-init|=
-name|StringHelper
-operator|.
-name|after
-argument_list|(
-name|bean
-argument_list|,
-literal|"."
-argument_list|)
-decl_stmt|;
-name|bean
-operator|=
-name|StringHelper
-operator|.
-name|before
-argument_list|(
-name|bean
-argument_list|,
-literal|"."
-argument_list|)
-operator|+
-literal|"?method="
-operator|+
-name|method
-expr_stmt|;
-block|}
 name|Exchange
 name|dummy
 init|=
