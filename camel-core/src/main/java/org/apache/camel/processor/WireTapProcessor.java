@@ -1162,6 +1162,17 @@ operator|.
 name|InOnly
 argument_list|)
 expr_stmt|;
+comment|// remove STREAM_CACHE_UNIT_OF_WORK property because this wire tap will
+comment|// close its own created stream cache(s)
+name|copy
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|STREAM_CACHE_UNIT_OF_WORK
+argument_list|)
+expr_stmt|;
 return|return
 name|copy
 return|;
