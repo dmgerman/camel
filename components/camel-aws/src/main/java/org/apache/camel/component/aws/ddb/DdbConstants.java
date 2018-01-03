@@ -82,6 +82,13 @@ comment|// Removed from DynamoDB v1 to v2
 comment|// String EXACT_COUNT = "CamelAwsDdbExactCount";
 comment|// Removed from DynamoDB v1 to v2
 comment|// String HASH_KEY_VALUE = "CamelAwsDdbHashKeyValue";
+comment|// Added INDEX_NAME for querying secondary indexes
+DECL|field|INDEX_NAME
+name|String
+name|INDEX_NAME
+init|=
+literal|"CamelAwsDdbIndexName"
+decl_stmt|;
 DECL|field|ITEM
 name|String
 name|ITEM
