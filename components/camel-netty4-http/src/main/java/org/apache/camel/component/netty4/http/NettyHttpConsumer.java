@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|netty4
@@ -89,6 +101,8 @@ class|class
 name|NettyHttpConsumer
 extends|extends
 name|NettyConsumer
+implements|implements
+name|Suspendable
 block|{
 DECL|method|NettyHttpConsumer (NettyHttpEndpoint nettyEndpoint, Processor processor, NettyConfiguration configuration)
 specifier|public
@@ -233,10 +247,8 @@ comment|// noop as the server handler will send back 503 when suspended
 block|}
 else|else
 block|{
-comment|// will unbind the acceptor
-name|super
-operator|.
-name|doSuspend
+comment|// will stop the acceptor
+name|doStop
 argument_list|()
 expr_stmt|;
 block|}
@@ -264,10 +276,8 @@ comment|// noop
 block|}
 else|else
 block|{
-comment|// will resume the acceptor
-name|super
-operator|.
-name|doResume
+comment|// will start the acceptor
+name|doStart
 argument_list|()
 expr_stmt|;
 block|}
