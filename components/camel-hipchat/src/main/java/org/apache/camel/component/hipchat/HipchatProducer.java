@@ -19,22 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|UnsafeUriCharactersEncoder
-operator|.
-name|encodeHttpURI
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -61,6 +45,20 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|ObjectMapper
 import|;
 end_import
 
@@ -221,16 +219,18 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
+import|import static
+name|org
 operator|.
-name|fasterxml
+name|apache
 operator|.
-name|jackson
+name|camel
 operator|.
-name|databind
+name|util
 operator|.
-name|ObjectMapper
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encodeHttpURI
 import|;
 end_import
 
