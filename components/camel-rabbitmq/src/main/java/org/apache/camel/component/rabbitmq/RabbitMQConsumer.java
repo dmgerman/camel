@@ -322,6 +322,14 @@ block|}
 elseif|else
 if|if
 condition|(
+name|this
+operator|.
+name|conn
+operator|.
+name|isOpen
+argument_list|()
+operator|||
+operator|(
 operator|!
 name|this
 operator|.
@@ -330,12 +338,9 @@ operator|.
 name|isOpen
 argument_list|()
 operator|&&
-name|this
-operator|.
-name|endpoint
-operator|.
-name|getAutomaticRecoveryEnabled
+name|isAutomaticRecoveryEnabled
 argument_list|()
+operator|)
 condition|)
 block|{
 return|return
@@ -363,11 +368,35 @@ name|conn
 return|;
 block|}
 block|}
-comment|/**      * Add a consumer thread for given channel      */
-DECL|method|startConsumers ()
+DECL|method|isAutomaticRecoveryEnabled ()
+specifier|private
+name|boolean
+name|isAutomaticRecoveryEnabled
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getAutomaticRecoveryEnabled
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getAutomaticRecoveryEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * Create the consumers but don't start yet      */
+DECL|method|createConsumers ()
 specifier|private
 name|void
-name|startConsumers
+name|createConsumers
 parameter_list|()
 throws|throws
 name|IOException
@@ -395,6 +424,14 @@ name|createConsumer
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Start the consumers (already created)      */
+DECL|method|startConsumers ()
+specifier|private
+name|void
+name|startConsumers
+parameter_list|()
+block|{
 comment|// Try starting consumers (which will fail if RabbitMQ can't connect)
 try|try
 block|{
@@ -672,6 +709,9 @@ argument_list|,
 name|executor
 argument_list|)
 expr_stmt|;
+name|createConsumers
+argument_list|()
+expr_stmt|;
 name|startConsumers
 argument_list|()
 expr_stmt|;
@@ -877,16 +917,6 @@ name|connectionRetryInterval
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-operator|!
-name|connectionFailed
-condition|)
-block|{
-name|startConsumers
-argument_list|()
-expr_stmt|;
 block|}
 name|stop
 argument_list|()
