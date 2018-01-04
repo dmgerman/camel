@@ -37,6 +37,9 @@ name|deleteBucket
 block|,
 DECL|enumConstant|listBuckets
 name|listBuckets
+block|,
+DECL|enumConstant|downloadLink
+name|downloadLink
 block|}
 end_enum
 
