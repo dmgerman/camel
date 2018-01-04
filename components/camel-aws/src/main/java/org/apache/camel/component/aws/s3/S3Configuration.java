@@ -320,7 +320,7 @@ literal|"producer"
 argument_list|,
 name|enums
 operator|=
-literal|"copyObject,deleteBucket,listBuckets"
+literal|"copyObject,deleteBucket,listBuckets,downloadLink"
 argument_list|)
 DECL|field|operation
 specifier|private
