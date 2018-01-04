@@ -135,6 +135,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ProducerCache} which is used      * to cache and reuse producers when using this routing slip, when uris are reused.      */
+DECL|method|cacheSize ()
+name|int
+name|cacheSize
+parameter_list|()
+default|default
+literal|0
+function_decl|;
 block|}
 end_annotation_defn
 

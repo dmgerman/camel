@@ -956,6 +956,16 @@ name|ignoreInvalidEndpoints
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|routingSlip
+operator|.
+name|setCacheSize
+argument_list|(
+name|routingSlipAnnotation
+operator|.
+name|cacheSize
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// add created routingSlip as a service so we have its lifecycle managed
 try|try
 block|{
@@ -1056,6 +1066,16 @@ argument_list|(
 name|dynamicRouterAnnotation
 operator|.
 name|ignoreInvalidEndpoints
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|dynamicRouter
+operator|.
+name|setCacheSize
+argument_list|(
+name|dynamicRouterAnnotation
+operator|.
+name|cacheSize
 argument_list|()
 argument_list|)
 expr_stmt|;
