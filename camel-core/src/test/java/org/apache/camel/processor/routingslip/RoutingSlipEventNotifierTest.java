@@ -326,6 +326,15 @@ operator|instanceof
 name|ExchangeSendingEvent
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Sending: {}"
+argument_list|,
+name|event
+argument_list|)
+expr_stmt|;
 name|sending
 operator|++
 expr_stmt|;

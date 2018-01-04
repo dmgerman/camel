@@ -802,6 +802,12 @@ name|SLIP_ENDPOINT
 init|=
 literal|"CamelSlipEndpoint"
 decl_stmt|;
+DECL|field|SLIP_PRODUCER
+name|String
+name|SLIP_PRODUCER
+init|=
+literal|"CamelSlipProducer"
+decl_stmt|;
 DECL|field|SPLIT_INDEX
 name|String
 name|SPLIT_INDEX

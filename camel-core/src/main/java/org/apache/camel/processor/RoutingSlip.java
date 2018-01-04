@@ -482,6 +482,11 @@ specifier|protected
 name|AsyncProcessor
 name|errorHandler
 decl_stmt|;
+DECL|field|sendDynamicProcessor
+specifier|protected
+name|SendDynamicProcessor
+name|sendDynamicProcessor
+decl_stmt|;
 comment|/**      * The iterator to be used for retrieving the next routing slip(s) to be used.      */
 DECL|interface|RoutingSlipIterator
 specifier|protected
@@ -1664,7 +1669,7 @@ argument_list|,
 name|endpoint
 argument_list|)
 decl_stmt|;
-comment|// set property which endpoint we send to
+comment|// set property which endpoint we send to and the producer that can do it
 name|exchange
 operator|.
 name|setProperty
@@ -1693,6 +1698,17 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SLIP_PRODUCER
+argument_list|,
+name|asyncProducer
+argument_list|)
+expr_stmt|;
 name|boolean
 name|answer
 init|=
@@ -1714,6 +1730,16 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
+comment|// cleanup producer after usage
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SLIP_PRODUCER
+argument_list|)
+expr_stmt|;
 comment|// we only have to handle async completion of the routing slip
 if|if
 condition|(
@@ -2226,6 +2252,105 @@ name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Creates the embedded processor to use when wrapping this routing slip in an error handler.      */
+DECL|method|newRoutingSlipProcessorForErrorHandler ()
+specifier|public
+name|AsyncProcessor
+name|newRoutingSlipProcessorForErrorHandler
+parameter_list|()
+block|{
+return|return
+operator|new
+name|RoutingSlipProcessor
+argument_list|()
+return|;
+block|}
+comment|/**      * Embedded processor that routes to the routing slip that has been set via the      * exchange property {@link Exchange#SLIP_PRODUCER}.      */
+DECL|class|RoutingSlipProcessor
+specifier|private
+specifier|final
+class|class
+name|RoutingSlipProcessor
+implements|implements
+name|AsyncProcessor
+block|{
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
+name|AsyncProcessor
+name|producer
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SLIP_PRODUCER
+argument_list|,
+name|AsyncProcessor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+return|return
+name|producer
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RoutingSlipProcessor"
+return|;
+block|}
 block|}
 block|}
 end_class
