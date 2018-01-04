@@ -224,7 +224,7 @@ name|streamCachingStrategy
 operator|.
 name|setSpoolThreshold
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|context
