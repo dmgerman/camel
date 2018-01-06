@@ -96,6 +96,19 @@ specifier|final
 name|boolean
 name|download
 decl_stmt|;
+DECL|field|lastLogActivity
+specifier|private
+name|String
+name|lastLogActivity
+decl_stmt|;
+DECL|field|lastLogActivityTimestamp
+specifier|private
+name|long
+name|lastLogActivityTimestamp
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|FtpCopyStreamListener (CamelLogger logger, String fileName, boolean download)
 specifier|public
 name|FtpCopyStreamListener
@@ -128,6 +141,26 @@ name|download
 operator|=
 name|download
 expr_stmt|;
+block|}
+DECL|method|getLastLogActivity ()
+specifier|public
+name|String
+name|getLastLogActivity
+parameter_list|()
+block|{
+return|return
+name|lastLogActivity
+return|;
+block|}
+DECL|method|getLastLogActivityTimestamp ()
+specifier|public
+name|long
+name|getLastLogActivityTimestamp
+parameter_list|()
+block|{
+return|return
+name|lastLogActivityTimestamp
+return|;
 block|}
 annotation|@
 name|Override
@@ -165,10 +198,8 @@ condition|(
 name|download
 condition|)
 block|{
-name|logger
-operator|.
-name|log
-argument_list|(
+name|lastLogActivity
+operator|=
 literal|"Downloading: "
 operator|+
 name|fileName
@@ -182,15 +213,12 @@ operator|+
 name|totalBytesTransferred
 operator|+
 literal|" bytes)"
-argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|logger
-operator|.
-name|log
-argument_list|(
+name|lastLogActivity
+operator|=
 literal|"Uploading: "
 operator|+
 name|fileName
@@ -204,9 +232,22 @@ operator|+
 name|totalBytesTransferred
 operator|+
 literal|" bytes)"
-argument_list|)
 expr_stmt|;
 block|}
+name|lastLogActivityTimestamp
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|log
+argument_list|(
+name|lastLogActivity
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
