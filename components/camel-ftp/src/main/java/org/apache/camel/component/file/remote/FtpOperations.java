@@ -486,11 +486,10 @@ name|FTPFile
 argument_list|>
 name|endpoint
 decl_stmt|;
-DECL|field|listener
+DECL|field|clientActivityListener
 specifier|protected
-specifier|volatile
 name|FtpClientActivityListener
-name|listener
+name|clientActivityListener
 decl_stmt|;
 DECL|method|FtpOperations (FTPClient client, FTPClientConfig clientConfig)
 specifier|public
@@ -540,6 +539,72 @@ argument_list|>
 operator|)
 name|endpoint
 expr_stmt|;
+comment|// setup download listener/logger when we have the endpoint configured
+name|transferLogger
+operator|.
+name|setLevel
+argument_list|(
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getTransferLoggingLevel
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|clientActivityListener
+operator|=
+operator|new
+name|DefaultFtpClientActivityListener
+argument_list|(
+name|transferLogger
+argument_list|,
+name|this
+operator|.
+name|endpoint
+operator|.
+name|isTransferLoggingVerbose
+argument_list|()
+argument_list|,
+name|this
+operator|.
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|remoteServerInformation
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getClientActivityListener ()
+specifier|public
+name|FtpClientActivityListener
+name|getClientActivityListener
+parameter_list|()
+block|{
+return|return
+name|clientActivityListener
+return|;
+block|}
+DECL|method|setClientActivityListener (FtpClientActivityListener clientActivityListener)
+specifier|public
+name|void
+name|setClientActivityListener
+parameter_list|(
+name|FtpClientActivityListener
+name|clientActivityListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientActivityListener
+operator|=
+name|clientActivityListener
+expr_stmt|;
 block|}
 DECL|method|connect (RemoteFileConfiguration configuration)
 specifier|public
@@ -552,43 +617,11 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// setup download listener/logger when we connect
-name|transferLogger
-operator|.
-name|setLevel
-argument_list|(
-name|endpoint
-operator|.
-name|getTransferLoggingLevel
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|listener
-operator|=
-operator|new
-name|DefaultFtpClientActivityListener
-argument_list|(
-name|transferLogger
-argument_list|,
-name|endpoint
-operator|.
-name|isTransferLoggingVerbose
-argument_list|()
-argument_list|,
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|remoteServerInformation
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|client
 operator|.
 name|setCopyStreamListener
 argument_list|(
-name|listener
+name|clientActivityListener
 argument_list|)
 expr_stmt|;
 try|try
@@ -606,7 +639,7 @@ name|GenericFileOperationFailedException
 name|e
 parameter_list|)
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onGeneralError
 argument_list|(
@@ -781,7 +814,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|listener
+name|clientActivityListener
 operator|.
 name|onConnecting
 argument_list|(
@@ -1001,7 +1034,7 @@ block|}
 block|}
 block|}
 comment|// we are now connected
-name|listener
+name|clientActivityListener
 operator|.
 name|onConnected
 argument_list|(
@@ -1114,7 +1147,7 @@ block|}
 block|}
 try|try
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onLogin
 argument_list|(
@@ -1293,7 +1326,7 @@ operator|.
 name|getReplyCode
 argument_list|()
 decl_stmt|;
-name|listener
+name|clientActivityListener
 operator|.
 name|onLoginFailed
 argument_list|(
@@ -1318,7 +1351,7 @@ name|replyString
 argument_list|)
 throw|;
 block|}
-name|listener
+name|clientActivityListener
 operator|.
 name|onLoginComplete
 argument_list|(
@@ -1529,7 +1562,7 @@ name|GenericFileOperationFailedException
 name|e
 parameter_list|)
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onGeneralError
 argument_list|(
@@ -1561,7 +1594,7 @@ throws|throws
 name|GenericFileOperationFailedException
 block|{
 comment|// logout before disconnecting
-name|listener
+name|clientActivityListener
 operator|.
 name|onDisconnecting
 argument_list|(
@@ -1665,7 +1698,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|listener
+name|clientActivityListener
 operator|.
 name|onDisconnected
 argument_list|(
@@ -2073,14 +2106,14 @@ throws|throws
 name|GenericFileOperationFailedException
 block|{
 comment|// store the name of the file to download on the listener
-name|listener
+name|clientActivityListener
 operator|.
 name|setRemoteFileName
 argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|listener
+name|clientActivityListener
 operator|.
 name|onBeginDownloading
 argument_list|(
@@ -2153,7 +2186,7 @@ name|GenericFileOperationFailedException
 name|e
 parameter_list|)
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onGeneralError
 argument_list|(
@@ -2180,7 +2213,7 @@ condition|(
 name|answer
 condition|)
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onDownloadComplete
 argument_list|(
@@ -3209,14 +3242,14 @@ name|name
 argument_list|)
 expr_stmt|;
 comment|// store the name of the file to upload on the listener
-name|listener
+name|clientActivityListener
 operator|.
 name|setRemoteFileName
 argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|listener
+name|clientActivityListener
 operator|.
 name|onBeginUploading
 argument_list|(
@@ -3322,7 +3355,7 @@ name|GenericFileOperationFailedException
 name|e
 parameter_list|)
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onGeneralError
 argument_list|(
@@ -3366,7 +3399,7 @@ condition|(
 name|answer
 condition|)
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onUploadComplete
 argument_list|(
@@ -4956,7 +4989,7 @@ argument_list|(
 literal|"listFiles()"
 argument_list|)
 expr_stmt|;
-name|listener
+name|clientActivityListener
 operator|.
 name|onScanningForFiles
 argument_list|(
@@ -5024,7 +5057,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onGeneralError
 argument_list|(
@@ -5089,7 +5122,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-name|listener
+name|clientActivityListener
 operator|.
 name|onScanningForFiles
 argument_list|(
@@ -5175,7 +5208,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|listener
+name|clientActivityListener
 operator|.
 name|onGeneralError
 argument_list|(
