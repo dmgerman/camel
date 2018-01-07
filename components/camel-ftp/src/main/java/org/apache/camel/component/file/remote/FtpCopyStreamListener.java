@@ -78,6 +78,8 @@ name|FtpCopyStreamListener
 implements|implements
 name|CopyStreamListener
 block|{
+comment|// TODO: add support for connect / scanning dirs / complete events
+comment|// TODO: add API to operations to include more details than just the name, eg RemoteFile so we can get its size / timestamp etc
 DECL|field|logger
 specifier|private
 specifier|final
