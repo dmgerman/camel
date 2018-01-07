@@ -679,7 +679,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|reconnect
+name|createConsumers
+argument_list|()
+expr_stmt|;
+name|startConsumers
 argument_list|()
 expr_stmt|;
 block|}
