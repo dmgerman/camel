@@ -252,6 +252,32 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|onGeneralError (String host, String errorMessage)
+specifier|public
+name|void
+name|onGeneralError
+parameter_list|(
+name|String
+name|host
+parameter_list|,
+name|String
+name|errorMessage
+parameter_list|)
+block|{
+name|doLogVerbose
+argument_list|(
+literal|"General error when communicating with host: "
+operator|+
+name|host
+operator|+
+literal|" error: "
+operator|+
+name|errorMessage
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|onConnecting (String host)
 specifier|public
 name|void
@@ -325,6 +351,38 @@ operator|+
 name|host
 operator|+
 literal|" complete"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onLoginFailed (int replyCode, String replyMessage)
+specifier|public
+name|void
+name|onLoginFailed
+parameter_list|(
+name|int
+name|replyCode
+parameter_list|,
+name|String
+name|replyMessage
+parameter_list|)
+block|{
+name|doLogVerbose
+argument_list|(
+literal|"Login on host: "
+operator|+
+name|host
+operator|+
+literal|" failed (code: "
+operator|+
+name|replyCode
+operator|+
+literal|", message: "
+operator|+
+name|replyMessage
+operator|+
+literal|")"
 argument_list|)
 expr_stmt|;
 block|}

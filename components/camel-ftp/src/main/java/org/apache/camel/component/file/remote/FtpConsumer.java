@@ -1748,7 +1748,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Description of last FTP download activity"
+literal|"Summary of last FTP activity (download only)"
 argument_list|)
 DECL|method|getLastFtpActivity ()
 specifier|public
@@ -1871,12 +1871,12 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Description of last FTP activity (verbose)"
+literal|"Summary of last FTP activity (all)"
 argument_list|)
-DECL|method|getLastActivityVerbose ()
+DECL|method|getLastFtpActivityVerbose ()
 specifier|public
 name|String
-name|getLastActivityVerbose
+name|getLastFtpActivityVerbose
 parameter_list|()
 block|{
 name|FTPClient

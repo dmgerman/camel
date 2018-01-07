@@ -76,6 +76,17 @@ name|String
 name|fileName
 parameter_list|)
 function_decl|;
+DECL|method|onGeneralError (String host, String errorMessage)
+name|void
+name|onGeneralError
+parameter_list|(
+name|String
+name|host
+parameter_list|,
+name|String
+name|errorMessage
+parameter_list|)
+function_decl|;
 DECL|method|onConnecting (String host)
 name|void
 name|onConnecting
@@ -106,6 +117,17 @@ name|onLoginComplete
 parameter_list|(
 name|String
 name|host
+parameter_list|)
+function_decl|;
+DECL|method|onLoginFailed (int replyCode, String replyMessage)
+name|void
+name|onLoginFailed
+parameter_list|(
+name|int
+name|replyCode
+parameter_list|,
+name|String
+name|replyMessage
 parameter_list|)
 function_decl|;
 DECL|method|onDisconnecting (String host)
