@@ -134,9 +134,19 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"File operation failed: "
+literal|"File operation failed"
+operator|+
+operator|(
+name|reason
+operator|!=
+literal|null
+condition|?
+literal|": "
 operator|+
 name|reason
+else|:
+literal|""
+operator|)
 operator|+
 literal|". Code: "
 operator|+
@@ -172,9 +182,19 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"File operation failed: "
+literal|"File operation failed"
+operator|+
+operator|(
+name|reason
+operator|!=
+literal|null
+condition|?
+literal|": "
 operator|+
 name|reason
+else|:
+literal|""
+operator|)
 operator|+
 literal|". Code: "
 operator|+
