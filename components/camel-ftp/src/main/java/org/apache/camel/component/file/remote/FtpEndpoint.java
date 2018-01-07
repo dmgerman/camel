@@ -192,20 +192,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CamelLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|PlatformHelper
 import|;
 end_import
@@ -425,6 +411,18 @@ init|=
 name|LoggingLevel
 operator|.
 name|DEBUG
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
+DECL|field|transferLoggingVerbose
+specifier|protected
+name|boolean
+name|transferLoggingVerbose
 decl_stmt|;
 DECL|method|FtpEndpoint ()
 specifier|public
@@ -1347,6 +1345,33 @@ operator|.
 name|transferLoggingLevel
 operator|=
 name|transferLoggingLevel
+expr_stmt|;
+block|}
+DECL|method|isTransferLoggingVerbose ()
+specifier|public
+name|boolean
+name|isTransferLoggingVerbose
+parameter_list|()
+block|{
+return|return
+name|transferLoggingVerbose
+return|;
+block|}
+comment|/**      * Configures whether the perform verbose (fine grained) logging of the progress of upload and download operations.      */
+DECL|method|setTransferLoggingVerbose (boolean transferLoggingVerbose)
+specifier|public
+name|void
+name|setTransferLoggingVerbose
+parameter_list|(
+name|boolean
+name|transferLoggingVerbose
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferLoggingVerbose
+operator|=
+name|transferLoggingVerbose
 expr_stmt|;
 block|}
 annotation|@
