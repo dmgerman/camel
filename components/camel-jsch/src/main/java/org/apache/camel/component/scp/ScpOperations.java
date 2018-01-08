@@ -499,7 +499,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|retrieveFile (String name, Exchange exchange)
+DECL|method|retrieveFile (String name, Exchange exchange, long isze)
 specifier|public
 name|boolean
 name|retrieveFile
@@ -509,6 +509,9 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|isze
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
@@ -519,10 +522,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|releaseRetreivedFileResources (Exchange exchange)
+DECL|method|releaseRetrievedFileResources (Exchange exchange)
 specifier|public
 name|void
-name|releaseRetreivedFileResources
+name|releaseRetrievedFileResources
 parameter_list|(
 name|Exchange
 name|exchange
@@ -530,11 +533,11 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// No-op
+comment|// noop
 block|}
 annotation|@
 name|Override
-DECL|method|storeFile (String name, Exchange exchange)
+DECL|method|storeFile (String name, Exchange exchange, long size)
 specifier|public
 name|boolean
 name|storeFile
@@ -544,6 +547,9 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|size
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException

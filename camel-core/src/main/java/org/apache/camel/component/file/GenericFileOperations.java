@@ -111,8 +111,8 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Retrieves the file      *      * @param name     name of the file      * @param exchange stream to write the content of the file into      * @return true if file has been retrieved, false if not      * @throws GenericFileOperationFailedException can be thrown      */
-DECL|method|retrieveFile (String name, Exchange exchange)
+comment|/**      * Retrieves the file      *      * @param name     name of the file      * @param exchange stream to write the content of the file into      * @param size     the total file size to retrieve, if possible to determine      * @return true if file has been retrieved, false if not      * @throws GenericFileOperationFailedException can be thrown      */
+DECL|method|retrieveFile (String name, Exchange exchange, long size)
 name|boolean
 name|retrieveFile
 parameter_list|(
@@ -121,14 +121,17 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|size
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
 comment|/**      * Releases the resources consumed by a retrieved file      *       * @param exchange exchange with the content of the file      * @throws GenericFileOperationFailedException can be thrown      */
-DECL|method|releaseRetreivedFileResources (Exchange exchange)
+DECL|method|releaseRetrievedFileResources (Exchange exchange)
 name|void
-name|releaseRetreivedFileResources
+name|releaseRetrievedFileResources
 parameter_list|(
 name|Exchange
 name|exchange
@@ -136,8 +139,8 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
-comment|/**      * Stores the content as a new remote file (upload)      *      * @param name     name of new file      * @param exchange with the content content of the file      * @return true if the file was stored, false if not      * @throws GenericFileOperationFailedException can be thrown      */
-DECL|method|storeFile (String name, Exchange exchange)
+comment|/**      * Stores the content as a new remote file (upload)      *      * @param name     name of new file      * @param exchange with the content content of the file      * @param size     the total file size to store, if possible to determine      * @return true if the file was stored, false if not      * @throws GenericFileOperationFailedException can be thrown      */
+DECL|method|storeFile (String name, Exchange exchange, long size)
 name|boolean
 name|storeFile
 parameter_list|(
@@ -146,6 +149,9 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|size
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException

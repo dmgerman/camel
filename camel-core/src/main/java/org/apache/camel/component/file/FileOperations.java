@@ -1093,7 +1093,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|retrieveFile (String name, Exchange exchange)
+DECL|method|retrieveFile (String name, Exchange exchange, long size)
 specifier|public
 name|boolean
 name|retrieveFile
@@ -1103,6 +1103,9 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|size
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
@@ -1114,10 +1117,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|releaseRetreivedFileResources (Exchange exchange)
+DECL|method|releaseRetrievedFileResources (Exchange exchange)
 specifier|public
 name|void
-name|releaseRetreivedFileResources
+name|releaseRetrievedFileResources
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1127,7 +1130,7 @@ name|GenericFileOperationFailedException
 block|{
 comment|// noop as we used type converters to read the body content for java.io.File
 block|}
-DECL|method|storeFile (String fileName, Exchange exchange)
+DECL|method|storeFile (String fileName, Exchange exchange, long size)
 specifier|public
 name|boolean
 name|storeFile
@@ -1137,6 +1140,9 @@ name|fileName
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|size
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException

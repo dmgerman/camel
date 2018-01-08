@@ -85,6 +85,14 @@ name|String
 name|fileName
 parameter_list|)
 function_decl|;
+DECL|method|setRemoteFileSize (long size)
+name|void
+name|setRemoteFileSize
+parameter_list|(
+name|long
+name|size
+parameter_list|)
+function_decl|;
 DECL|method|onGeneralError (String host, String errorMessage)
 name|void
 name|onGeneralError

@@ -1478,6 +1478,9 @@ argument_list|(
 name|fileName
 argument_list|,
 name|exchange
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 if|if

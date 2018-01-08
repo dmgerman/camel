@@ -364,7 +364,7 @@ argument_list|)
 expr_stmt|;
 name|operations
 operator|.
-name|releaseRetreivedFileResources
+name|releaseRetrievedFileResources
 argument_list|(
 name|exchange
 argument_list|)
@@ -426,7 +426,7 @@ argument_list|)
 expr_stmt|;
 name|operations
 operator|.
-name|releaseRetreivedFileResources
+name|releaseRetrievedFileResources
 argument_list|(
 name|exchange
 argument_list|)
@@ -488,7 +488,7 @@ argument_list|)
 expr_stmt|;
 name|operations
 operator|.
-name|releaseRetreivedFileResources
+name|releaseRetrievedFileResources
 argument_list|(
 name|exchange
 argument_list|)

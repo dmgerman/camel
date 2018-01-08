@@ -3668,7 +3668,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|retrieveFile (String name, Exchange exchange)
+DECL|method|retrieveFile (String name, Exchange exchange, long size)
 specifier|public
 specifier|synchronized
 name|boolean
@@ -3679,6 +3679,9 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|size
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
@@ -3728,11 +3731,11 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|releaseRetreivedFileResources (Exchange exchange)
+DECL|method|releaseRetrievedFileResources (Exchange exchange)
 specifier|public
 specifier|synchronized
 name|void
-name|releaseRetreivedFileResources
+name|releaseRetrievedFileResources
 parameter_list|(
 name|Exchange
 name|exchange
@@ -4569,7 +4572,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|storeFile (String name, Exchange exchange)
+DECL|method|storeFile (String name, Exchange exchange, long size)
 specifier|public
 specifier|synchronized
 name|boolean
@@ -4580,6 +4583,9 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|long
+name|size
 parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException

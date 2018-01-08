@@ -120,6 +120,11 @@ specifier|private
 name|String
 name|fileName
 decl_stmt|;
+DECL|field|fileSize
+specifier|private
+name|long
+name|fileSize
+decl_stmt|;
 DECL|field|lastLogActivity
 specifier|private
 name|String
@@ -218,6 +223,24 @@ operator|.
 name|fileName
 operator|=
 name|fileName
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setRemoteFileSize (long fileSize)
+specifier|public
+name|void
+name|setRemoteFileSize
+parameter_list|(
+name|long
+name|fileSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileSize
+operator|=
+name|fileSize
 expr_stmt|;
 block|}
 annotation|@
@@ -520,6 +543,22 @@ name|file
 operator|+
 literal|" starting"
 decl_stmt|;
+if|if
+condition|(
+name|fileSize
+operator|>
+literal|0
+condition|)
+block|{
+name|msg
+operator|+=
+literal|" (file-size: "
+operator|+
+name|fileSize
+operator|+
+literal|" bytes)"
+expr_stmt|;
+block|}
 name|doLog
 argument_list|(
 name|msg
@@ -831,6 +870,18 @@ name|long
 name|streamSize
 parameter_list|)
 block|{
+comment|// if stream size is -1 from FTP client then use pre-calculated file size
+name|long
+name|size
+init|=
+name|streamSize
+operator|>
+literal|0
+condition|?
+name|streamSize
+else|:
+name|fileSize
+decl_stmt|;
 if|if
 condition|(
 name|download
@@ -846,7 +897,7 @@ name|bytesTransferred
 argument_list|,
 name|totalBytesTransferred
 argument_list|,
-name|streamSize
+name|size
 argument_list|)
 expr_stmt|;
 block|}
@@ -862,7 +913,7 @@ name|bytesTransferred
 argument_list|,
 name|totalBytesTransferred
 argument_list|,
-name|streamSize
+name|size
 argument_list|)
 expr_stmt|;
 block|}
