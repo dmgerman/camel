@@ -245,6 +245,12 @@ specifier|private
 name|String
 name|privateKey
 decl_stmt|;
+comment|/**          * The access token granted by a merchant to another in order to process          * transactions on their behalf. Used in place of environment, merchant          * id, public key and private key fields.          */
+DECL|field|accessToken
+specifier|private
+name|String
+name|accessToken
+decl_stmt|;
 comment|/**          * The proxy host          */
 DECL|field|proxyHost
 specifier|private
@@ -429,6 +435,32 @@ operator|.
 name|privateKey
 operator|=
 name|privateKey
+expr_stmt|;
+block|}
+DECL|method|getAccessToken ()
+specifier|public
+name|String
+name|getAccessToken
+parameter_list|()
+block|{
+return|return
+name|accessToken
+return|;
+block|}
+DECL|method|setAccessToken (String accessToken)
+specifier|public
+name|void
+name|setAccessToken
+parameter_list|(
+name|String
+name|accessToken
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accessToken
+operator|=
+name|accessToken
 expr_stmt|;
 block|}
 DECL|method|getProxyHost ()

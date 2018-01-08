@@ -305,13 +305,7 @@ specifier|private
 name|Object
 name|apiProxy
 decl_stmt|;
-DECL|field|gateway
-specifier|private
-specifier|final
-name|BraintreeGateway
-name|gateway
-decl_stmt|;
-DECL|method|BraintreeEndpoint (String uri, BraintreeComponent component, BraintreeApiName apiName, String methodName, BraintreeConfiguration configuration, BraintreeGateway gateway)
+DECL|method|BraintreeEndpoint ( String uri, BraintreeComponent component, BraintreeApiName apiName, String methodName, BraintreeConfiguration configuration )
 specifier|public
 name|BraintreeEndpoint
 parameter_list|(
@@ -329,9 +323,6 @@ name|methodName
 parameter_list|,
 name|BraintreeConfiguration
 name|configuration
-parameter_list|,
-name|BraintreeGateway
-name|gateway
 parameter_list|)
 block|{
 name|super
@@ -362,12 +353,6 @@ operator|.
 name|configuration
 operator|=
 name|configuration
-expr_stmt|;
-name|this
-operator|.
-name|gateway
-operator|=
-name|gateway
 expr_stmt|;
 block|}
 annotation|@
@@ -424,6 +409,24 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getComponent ()
+specifier|public
+name|BraintreeComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|BraintreeComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getPropertiesHelper ()
 specifier|protected
 name|ApiMethodPropertiesHelper
@@ -462,6 +465,19 @@ name|void
 name|afterConfigureProperties
 parameter_list|()
 block|{
+name|BraintreeGateway
+name|gateway
+init|=
+name|getComponent
+argument_list|()
+operator|.
+name|getGateway
+argument_list|(
+name|this
+operator|.
+name|configuration
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|Method
