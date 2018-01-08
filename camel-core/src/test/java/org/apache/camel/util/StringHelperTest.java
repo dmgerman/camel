@@ -2107,6 +2107,121 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testHumanReadableBytes ()
+specifier|public
+name|void
+name|testHumanReadableBytes
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"0 B"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"32 B"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|32
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1.0 KB"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|1024
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1.7 KB"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|1730
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"108.0 KB"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|110592
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"6.8 MB"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|7077888
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"432.0 MB"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|452984832
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"27.0 GB"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|28991029248L
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1.7 TB"
+argument_list|,
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+literal|1855425871872L
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

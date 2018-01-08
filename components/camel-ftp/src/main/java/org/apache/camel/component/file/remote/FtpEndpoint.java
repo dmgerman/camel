@@ -96,6 +96,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -411,6 +427,24 @@ init|=
 name|LoggingLevel
 operator|.
 name|DEBUG
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"5"
+argument_list|)
+DECL|field|transferLoggingIntervalSeconds
+specifier|protected
+name|int
+name|transferLoggingIntervalSeconds
+init|=
+literal|5
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1320,6 +1354,8 @@ operator|=
 name|dataTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getTransferLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -1331,6 +1367,13 @@ name|transferLoggingLevel
 return|;
 block|}
 comment|/**      * Configure the logging level to use when logging the progress of upload and download operations.      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Logging level to use when logging the progress of upload and download operations"
+argument_list|)
 DECL|method|setTransferLoggingLevel (LoggingLevel transferLoggingLevel)
 specifier|public
 name|void
@@ -1347,6 +1390,44 @@ operator|=
 name|transferLoggingLevel
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getTransferLoggingIntervalSeconds ()
+specifier|public
+name|int
+name|getTransferLoggingIntervalSeconds
+parameter_list|()
+block|{
+return|return
+name|transferLoggingIntervalSeconds
+return|;
+block|}
+comment|/**      * Configures the interval in seconds to use when logging the progress of upload and download operations that are in-flight.      * This is used for logging progress when operations takes longer time.      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Interval in seconds to use when logging the progress of upload and download operations that are in-flight"
+argument_list|)
+DECL|method|setTransferLoggingIntervalSeconds (int transferLoggingIntervalSeconds)
+specifier|public
+name|void
+name|setTransferLoggingIntervalSeconds
+parameter_list|(
+name|int
+name|transferLoggingIntervalSeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferLoggingIntervalSeconds
+operator|=
+name|transferLoggingIntervalSeconds
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isTransferLoggingVerbose ()
 specifier|public
 name|boolean
@@ -1358,6 +1439,13 @@ name|transferLoggingVerbose
 return|;
 block|}
 comment|/**      * Configures whether the perform verbose (fine grained) logging of the progress of upload and download operations.      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether the perform verbose (fine grained) logging of the progress of upload and download operations"
+argument_list|)
 DECL|method|setTransferLoggingVerbose (boolean transferLoggingVerbose)
 specifier|public
 name|void

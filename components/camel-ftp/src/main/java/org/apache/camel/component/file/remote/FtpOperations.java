@@ -572,6 +572,13 @@ name|this
 operator|.
 name|endpoint
 operator|.
+name|getTransferLoggingIntervalSeconds
+argument_list|()
+argument_list|,
+name|this
+operator|.
+name|endpoint
+operator|.
 name|getConfiguration
 argument_list|()
 operator|.
