@@ -68,6 +68,15 @@ name|long
 name|getLastVerboseLogActivityTimestamp
 parameter_list|()
 function_decl|;
+comment|/**      * Whether in download or upload mode      */
+DECL|method|setDownload (boolean download)
+name|void
+name|setDownload
+parameter_list|(
+name|boolean
+name|download
+parameter_list|)
+function_decl|;
 DECL|method|setRemoteFileName (String fileName)
 name|void
 name|setRemoteFileName

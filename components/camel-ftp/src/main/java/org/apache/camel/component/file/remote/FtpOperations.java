@@ -2108,6 +2108,13 @@ block|{
 comment|// store the name of the file to download on the listener
 name|clientActivityListener
 operator|.
+name|setDownload
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|clientActivityListener
+operator|.
 name|setRemoteFileName
 argument_list|(
 name|name
@@ -3242,6 +3249,13 @@ name|name
 argument_list|)
 expr_stmt|;
 comment|// store the name of the file to upload on the listener
+name|clientActivityListener
+operator|.
+name|setDownload
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|clientActivityListener
 operator|.
 name|setRemoteFileName

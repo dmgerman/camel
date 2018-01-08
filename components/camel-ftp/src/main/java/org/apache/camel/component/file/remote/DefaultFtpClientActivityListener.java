@@ -112,28 +112,26 @@ DECL|field|download
 specifier|private
 name|boolean
 name|download
+init|=
+literal|true
 decl_stmt|;
 DECL|field|fileName
 specifier|private
-specifier|volatile
 name|String
 name|fileName
 decl_stmt|;
 DECL|field|lastLogActivity
 specifier|private
-specifier|volatile
 name|String
 name|lastLogActivity
 decl_stmt|;
 DECL|field|lastVerboseLogActivity
 specifier|private
-specifier|volatile
 name|String
 name|lastVerboseLogActivity
 decl_stmt|;
 DECL|field|lastLogActivityTimestamp
 specifier|private
-specifier|volatile
 name|long
 name|lastLogActivityTimestamp
 init|=
@@ -142,7 +140,6 @@ literal|1
 decl_stmt|;
 DECL|field|lastVerboseLogActivityTimestamp
 specifier|private
-specifier|volatile
 name|long
 name|lastVerboseLogActivityTimestamp
 init|=
@@ -151,7 +148,6 @@ literal|1
 decl_stmt|;
 DECL|field|transferredBytes
 specifier|private
-specifier|volatile
 name|long
 name|transferredBytes
 decl_stmt|;
@@ -190,6 +186,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|setDownload (boolean download)
+specifier|public
+name|void
+name|setDownload
+parameter_list|(
+name|boolean
+name|download
+parameter_list|)
+block|{
+name|this
+operator|.
+name|download
+operator|=
+name|download
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|setRemoteFileName (String fileName)
 specifier|public
 name|void
@@ -206,6 +220,8 @@ operator|=
 name|fileName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastLogActivity ()
 specifier|public
 name|String
@@ -216,6 +232,8 @@ return|return
 name|lastLogActivity
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastLogActivityTimestamp ()
 specifier|public
 name|long
