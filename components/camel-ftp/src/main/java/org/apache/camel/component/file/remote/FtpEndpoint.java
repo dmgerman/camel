@@ -112,6 +112,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -301,6 +317,13 @@ argument_list|,
 name|label
 operator|=
 literal|"file"
+argument_list|)
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed FtpEndpoint"
 argument_list|)
 DECL|class|FtpEndpoint
 specifier|public
@@ -1354,8 +1377,6 @@ operator|=
 name|dataTimeout
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|getTransferLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -1367,13 +1388,6 @@ name|transferLoggingLevel
 return|;
 block|}
 comment|/**      * Configure the logging level to use when logging the progress of upload and download operations.      */
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Logging level to use when logging the progress of upload and download operations"
-argument_list|)
 DECL|method|setTransferLoggingLevel (LoggingLevel transferLoggingLevel)
 specifier|public
 name|void
@@ -1389,6 +1403,57 @@ name|transferLoggingLevel
 operator|=
 name|transferLoggingLevel
 expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Logging level to use when logging the progress of upload and download operations"
+argument_list|)
+DECL|method|setTransferLoggingLevelName (String transferLoggingLevel)
+specifier|public
+name|void
+name|setTransferLoggingLevelName
+parameter_list|(
+name|String
+name|transferLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferLoggingLevel
+operator|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|LoggingLevel
+operator|.
+name|class
+argument_list|,
+name|transferLoggingLevel
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getTransferLoggingLevelName ()
+specifier|public
+name|String
+name|getTransferLoggingLevelName
+parameter_list|()
+block|{
+return|return
+name|transferLoggingLevel
+operator|.
+name|name
+argument_list|()
+return|;
 block|}
 annotation|@
 name|ManagedAttribute

@@ -126,6 +126,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|UriEndpoint
@@ -281,6 +297,13 @@ argument_list|,
 name|label
 operator|=
 literal|"file"
+argument_list|)
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed FtpsEndpoint"
 argument_list|)
 DECL|class|FtpsEndpoint
 specifier|public
