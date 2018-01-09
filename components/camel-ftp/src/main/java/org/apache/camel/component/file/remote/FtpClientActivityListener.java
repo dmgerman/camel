@@ -185,6 +185,20 @@ name|String
 name|file
 parameter_list|)
 function_decl|;
+DECL|method|onResumeDownloading (String host, String file, long position)
+name|void
+name|onResumeDownloading
+parameter_list|(
+name|String
+name|host
+parameter_list|,
+name|String
+name|file
+parameter_list|,
+name|long
+name|position
+parameter_list|)
+function_decl|;
 DECL|method|onDownload (String host, String file, long chunkSize, long totalChunkSize, long fileSize)
 name|void
 name|onDownload

@@ -693,6 +693,85 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|onResumeDownloading (String host, String file, long position)
+specifier|public
+name|void
+name|onResumeDownloading
+parameter_list|(
+name|String
+name|host
+parameter_list|,
+name|String
+name|file
+parameter_list|,
+name|long
+name|position
+parameter_list|)
+block|{
+name|download
+operator|=
+literal|true
+expr_stmt|;
+name|watch
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
+name|interval
+operator|.
+name|restart
+argument_list|()
+expr_stmt|;
+name|String
+name|msg
+init|=
+literal|"Resume downloading from host: "
+operator|+
+name|host
+operator|+
+literal|" file: "
+operator|+
+name|file
+operator|+
+literal|" at position: "
+operator|+
+name|position
+operator|+
+literal|" ("
+operator|+
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+name|position
+argument_list|)
+operator|+
+literal|")"
+decl_stmt|;
+if|if
+condition|(
+name|fileSize
+operator|>
+literal|0
+condition|)
+block|{
+name|msg
+operator|+=
+literal|" (size: "
+operator|+
+name|fileSizeText
+operator|+
+literal|")"
+expr_stmt|;
+block|}
+name|doLog
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|onDownload (String host, String file, long chunkSize, long totalChunkSize, long fileSize)
 specifier|public
 name|void
