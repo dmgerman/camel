@@ -193,6 +193,16 @@ name|download
 init|=
 literal|true
 decl_stmt|;
+DECL|field|resume
+specifier|private
+name|boolean
+name|resume
+decl_stmt|;
+DECL|field|resumeOffset
+specifier|private
+name|long
+name|resumeOffset
+decl_stmt|;
 DECL|field|fileName
 specifier|private
 name|String
@@ -645,6 +655,14 @@ name|download
 operator|=
 literal|true
 expr_stmt|;
+name|resume
+operator|=
+literal|false
+expr_stmt|;
+name|resumeOffset
+operator|=
+literal|0
+expr_stmt|;
 name|watch
 operator|.
 name|restart
@@ -712,6 +730,14 @@ name|download
 operator|=
 literal|true
 expr_stmt|;
+name|resume
+operator|=
+literal|true
+expr_stmt|;
+name|resumeOffset
+operator|=
+name|position
+expr_stmt|;
 name|watch
 operator|.
 name|restart
@@ -737,7 +763,7 @@ literal|" at position: "
 operator|+
 name|position
 operator|+
-literal|" ("
+literal|" bytes/"
 operator|+
 name|StringHelper
 operator|.
@@ -745,8 +771,6 @@ name|humanReadableBytes
 argument_list|(
 name|position
 argument_list|)
-operator|+
-literal|")"
 decl_stmt|;
 if|if
 condition|(
@@ -755,9 +779,42 @@ operator|>
 literal|0
 condition|)
 block|{
+name|float
+name|percent
+init|=
+operator|(
+operator|(
+name|float
+operator|)
+name|resumeOffset
+operator|/
+operator|(
+name|float
+operator|)
+name|fileSize
+operator|)
+operator|*
+literal|100L
+decl_stmt|;
+name|String
+name|num
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%.1f"
+argument_list|,
+name|percent
+argument_list|)
+decl_stmt|;
 name|msg
 operator|+=
-literal|" (size: "
+literal|"/"
+operator|+
+name|num
+operator|+
+literal|"% (size: "
 operator|+
 name|fileSizeText
 operator|+
@@ -793,14 +850,31 @@ name|long
 name|fileSize
 parameter_list|)
 block|{
+name|totalChunkSize
+operator|=
+name|totalChunkSize
+operator|+
+name|resumeOffset
+expr_stmt|;
 name|transferredBytes
 operator|=
 name|totalChunkSize
 expr_stmt|;
 name|String
+name|prefix
+init|=
+name|resume
+condition|?
+literal|"Resume downloading"
+else|:
+literal|"Downloading"
+decl_stmt|;
+name|String
 name|msg
 init|=
-literal|"Downloading from host: "
+name|prefix
+operator|+
+literal|" from host: "
 operator|+
 name|host
 operator|+
@@ -874,9 +948,23 @@ operator|=
 literal|"99.9"
 expr_stmt|;
 block|}
+name|String
+name|size
+init|=
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+name|totalChunkSize
+argument_list|)
+decl_stmt|;
 name|msg
 operator|+=
 literal|" (progress: "
+operator|+
+name|size
+operator|+
+literal|"/"
 operator|+
 name|num
 operator|+
@@ -953,9 +1041,20 @@ name|file
 parameter_list|)
 block|{
 name|String
+name|prefix
+init|=
+name|resume
+condition|?
+literal|"Resume downloading"
+else|:
+literal|"Downloading"
+decl_stmt|;
+name|String
 name|msg
 init|=
-literal|"Downloading from host: "
+name|prefix
+operator|+
+literal|" from host: "
 operator|+
 name|host
 operator|+
@@ -1185,9 +1284,23 @@ operator|=
 literal|"99.9"
 expr_stmt|;
 block|}
+name|String
+name|size
+init|=
+name|StringHelper
+operator|.
+name|humanReadableBytes
+argument_list|(
+name|totalChunkSize
+argument_list|)
+decl_stmt|;
 name|msg
 operator|+=
 literal|" (progress: "
+operator|+
+name|size
+operator|+
+literal|"/"
 operator|+
 name|num
 operator|+
