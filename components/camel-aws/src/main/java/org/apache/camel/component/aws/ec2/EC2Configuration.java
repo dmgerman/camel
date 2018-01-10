@@ -358,7 +358,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy host when instantiating the SQS client      */
+comment|/**      * To define a proxy host when instantiating the EC2 client      */
 DECL|method|getProxyHost ()
 specifier|public
 name|String
@@ -385,7 +385,7 @@ operator|=
 name|proxyHost
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy port when instantiating the SQS client      */
+comment|/**      * To define a proxy port when instantiating the EC2 client      */
 DECL|method|getProxyPort ()
 specifier|public
 name|Integer
