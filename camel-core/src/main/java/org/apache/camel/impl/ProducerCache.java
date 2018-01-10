@@ -2325,7 +2325,24 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
-comment|// add as service which will also start the service
+comment|// add as service to CamelContext so its managed via JMX
+name|boolean
+name|add
+init|=
+name|answer
+operator|.
+name|isSingleton
+argument_list|()
+operator|||
+name|answer
+operator|instanceof
+name|ServicePoolAware
+decl_stmt|;
+if|if
+condition|(
+name|add
+condition|)
+block|{
 comment|// (false => we and handling the lifecycle of the producer in this cache)
 name|getCamelContext
 argument_list|()
@@ -2337,6 +2354,18 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// fallback and start producer manually
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

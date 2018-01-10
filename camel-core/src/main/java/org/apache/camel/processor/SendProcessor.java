@@ -1235,8 +1235,8 @@ name|destination
 argument_list|)
 expr_stmt|;
 comment|// this SendProcessor is used a lot in Camel (eg every .to in the route DSL) and therefore we
-comment|// want to optimize for regular producers, by using the producer directly instead of the ProducerCache
-comment|// Only for pooled and non singleton producers we have to use the ProducerCache as it supports these
+comment|// want to optimize for regular producers, by using the producer directly instead of the ProducerCache.
+comment|// Only for pooled and non-singleton producers we have to use the ProducerCache as it supports these
 comment|// kind of producer better (though these kind of producer should be rare)
 name|Producer
 name|producer
