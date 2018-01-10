@@ -302,7 +302,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * The operation to perform. It can be createAndRunInstances, startInstances, stopInstances, terminateInstances,       * describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances,        * createTags or deleteTags      */
+comment|/**      * The operation to perform. It can be listBrokers,createBroker,deleteBroker      */
 DECL|method|setOperation (MQOperations operation)
 specifier|public
 name|void
@@ -319,7 +319,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy host when instantiating the SQS client      */
+comment|/**      * To define a proxy host when instantiating the MQ client      */
 DECL|method|getProxyHost ()
 specifier|public
 name|String
@@ -346,7 +346,7 @@ operator|=
 name|proxyHost
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy port when instantiating the SQS client      */
+comment|/**      * To define a proxy port when instantiating the MQ client      */
 DECL|method|getProxyPort ()
 specifier|public
 name|Integer
@@ -373,7 +373,7 @@ operator|=
 name|proxyPort
 expr_stmt|;
 block|}
-comment|/**      * The region in which EC2 client needs to work      */
+comment|/**      * The region in which MQ client needs to work      */
 DECL|method|getRegion ()
 specifier|public
 name|String

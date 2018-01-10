@@ -802,7 +802,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|describeConfiguration ( DescribeConfigurationRequest describeConfigurationRequest)
+DECL|method|describeConfiguration (DescribeConfigurationRequest describeConfigurationRequest)
 specifier|public
 name|DescribeConfigurationResult
 name|describeConfiguration
@@ -819,7 +819,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|describeConfigurationRevision ( DescribeConfigurationRevisionRequest describeConfigurationRevisionRequest)
+DECL|method|describeConfigurationRevision (DescribeConfigurationRevisionRequest describeConfigurationRevisionRequest)
 specifier|public
 name|DescribeConfigurationRevisionResult
 name|describeConfigurationRevision
@@ -940,7 +940,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|listConfigurationRevisions ( ListConfigurationRevisionsRequest listConfigurationRevisionsRequest)
+DECL|method|listConfigurationRevisions (ListConfigurationRevisionsRequest listConfigurationRevisionsRequest)
 specifier|public
 name|ListConfigurationRevisionsResult
 name|listConfigurationRevisions
