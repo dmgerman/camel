@@ -595,6 +595,27 @@ literal|"The option localWorkDirectory must be configured when resumeDownload=tr
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|isResumeDownload
+argument_list|()
+operator|&&
+operator|!
+name|getConfiguration
+argument_list|()
+operator|.
+name|isBinary
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The option binary must be enabled when resumeDownload=true"
+argument_list|)
+throw|;
+block|}
 return|return
 name|super
 operator|.
@@ -1610,7 +1631,7 @@ return|return
 name|resumeDownload
 return|;
 block|}
-comment|/**      * Configures whether resume download is enabled. This must be supported by the FTP server (almost all FTP servers support it).      * In addition the option<tt>localWorkDirectory</tt> must be configured so downloaded files are stored in a local directory,      * which is required to support resuming of downloads.      */
+comment|/**      * Configures whether resume download is enabled. This must be supported by the FTP server (almost all FTP servers support it).      * In addition the options<tt>localWorkDirectory</tt> must be configured so downloaded files are stored in a local directory,      * and the option<tt>binary</tt> must be enabled, which is required to support resuming of downloads.      */
 DECL|method|setResumeDownload (boolean resumeDownload)
 specifier|public
 name|void

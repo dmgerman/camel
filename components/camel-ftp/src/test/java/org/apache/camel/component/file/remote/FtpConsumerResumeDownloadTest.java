@@ -142,7 +142,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/myserver/?password=admin&localWorkDirectory=target/lwd&resumeDownload=true"
+literal|"/myserver/?password=admin&localWorkDirectory=target/lwd&resumeDownload=true&binary=true"
 return|;
 block|}
 annotation|@

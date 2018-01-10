@@ -3016,36 +3016,6 @@ argument_list|,
 name|existingSize
 argument_list|)
 expr_stmt|;
-comment|// use binary for resume downloads as FTP servers would expect that
-if|if
-condition|(
-operator|!
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|isBinary
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Resume download requires file type binary mode"
-argument_list|)
-expr_stmt|;
-name|client
-operator|.
-name|setFileType
-argument_list|(
-name|FTP
-operator|.
-name|BINARY_FILE_TYPE
-argument_list|)
-expr_stmt|;
-block|}
 name|client
 operator|.
 name|setRestartOffset
