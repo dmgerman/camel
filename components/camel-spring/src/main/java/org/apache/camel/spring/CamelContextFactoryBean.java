@@ -2956,6 +2956,20 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+name|ctx
+return|;
+block|}
+comment|/**      * Apply additional configuration to the context      */
+DECL|method|configure (SpringCamelContext ctx)
+specifier|protected
+name|void
+name|configure
+parameter_list|(
+name|SpringCamelContext
+name|ctx
+parameter_list|)
+block|{
 try|try
 block|{
 comment|// allow any custom configuration, such as when running in camel-spring-boot
@@ -3018,9 +3032,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-return|return
-name|ctx
-return|;
 block|}
 DECL|method|newCamelContext ()
 specifier|protected
@@ -3059,6 +3070,11 @@ name|context
 operator|=
 name|createContext
 argument_list|()
+expr_stmt|;
+name|configure
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 block|}
 return|return
