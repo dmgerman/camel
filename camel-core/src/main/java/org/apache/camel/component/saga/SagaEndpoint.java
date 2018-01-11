@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default saga endpoint.  */
+comment|/**  * The saga component provides access to advanced options for managing the flow in the Saga EIP.  */
 end_comment
 
 begin_class
@@ -343,7 +343,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 block|}

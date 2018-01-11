@@ -592,7 +592,8 @@ name|LOOP_SIZE
 init|=
 literal|"CamelLoopSize"
 decl_stmt|;
-comment|// Long running action (saga)
+comment|// Long running action (saga): using "Long-Running-Action" as header value allows sagas
+comment|// to be propagated to any remote system supporting the LRA framework
 DECL|field|SAGA_LONG_RUNNING_ACTION
 name|String
 name|SAGA_LONG_RUNNING_ACTION
