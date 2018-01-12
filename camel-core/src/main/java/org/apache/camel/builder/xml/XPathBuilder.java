@@ -5172,6 +5172,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Creating Saxon XPathFactory using class: {})"
+argument_list|,
+name|clazz
+argument_list|)
+expr_stmt|;
 name|xpathFactory
 operator|=
 name|camelContext
@@ -5186,7 +5195,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Created Saxon XPathFactory: {}"
 argument_list|,
@@ -5210,7 +5219,7 @@ literal|"Attempted to create Saxon XPathFactory by creating a new instance of "
 operator|+
 name|SAXON_FACTORY_CLASS_NAME
 operator|+
-literal|" failed. Will fallback and create XPathFactory via JDK API. This exception is ignored (stacktrace in DEBUG logging level)."
+literal|" failed. Will fallback and create XPathFactory using JDK API. This exception is ignored (stacktrace in DEBUG logging level)."
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -5235,7 +5244,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating XPathFactory via JDK API using objectModelUri"
+literal|"Creating XPathFactory from objectModelUri: {}"
 argument_list|,
 name|objectModelUri
 argument_list|)
@@ -5267,20 +5276,18 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using objectModelUri "
-operator|+
-name|objectModelUri
-operator|+
-literal|" when created XPathFactory {}"
+literal|"Created XPathFactory: {} from objectModelUri: {}"
 argument_list|,
 name|xpathFactory
+argument_list|,
+name|objectModelUri
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|xpathFactory
 return|;
