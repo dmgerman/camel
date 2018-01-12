@@ -174,6 +174,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|mllp
+operator|.
+name|Hl7TestMessageGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Rule
@@ -187,24 +203,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|mllp
-operator|.
-name|Hl7MessageGenerator
-operator|.
-name|generateMessage
 import|;
 end_import
 
@@ -238,6 +236,18 @@ DECL|field|result
 name|MockEndpoint
 name|result
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|isUseAdviceWith ()
+specifier|public
+name|boolean
+name|isUseAdviceWith
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -281,18 +291,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|context
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|isUseAdviceWith ()
-specifier|public
-name|boolean
-name|isUseAdviceWith
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 annotation|@
@@ -508,6 +506,8 @@ name|mllpClient
 operator|.
 name|sendMessageAndWaitForAcknowledgement
 argument_list|(
+name|Hl7TestMessageGenerator
+operator|.
 name|generateMessage
 argument_list|()
 argument_list|,

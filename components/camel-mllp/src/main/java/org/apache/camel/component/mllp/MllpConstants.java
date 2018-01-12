@@ -18,6 +18,10 @@ name|mllp
 package|;
 end_package
 
+begin_comment
+comment|/**  * Constants for the MLLP Protocol and the Camel MLLP component.  */
+end_comment
+
 begin_class
 DECL|class|MllpConstants
 specifier|public
@@ -259,7 +263,9 @@ DECL|method|MllpConstants ()
 specifier|private
 name|MllpConstants
 parameter_list|()
-block|{ }
+block|{
+comment|//utility class, never constructed
+block|}
 block|}
 end_class
 

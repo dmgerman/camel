@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|SocketTimeoutException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -188,17 +198,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
+name|hamcrest
 operator|.
-name|camel
+name|CoreMatchers
 operator|.
-name|component
-operator|.
-name|mllp
-operator|.
-name|MllpTcpServerConsumer
-operator|.
-name|SOCKET_STARTUP_TEST_READ_TIMEOUT
+name|anyOf
 import|;
 end_import
 
@@ -206,17 +210,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
+name|hamcrest
 operator|.
-name|camel
+name|CoreMatchers
 operator|.
-name|component
-operator|.
-name|mllp
-operator|.
-name|MllpTcpServerConsumer
-operator|.
-name|SOCKET_STARTUP_TEST_WAIT
+name|instanceOf
 import|;
 end_import
 
@@ -260,6 +258,18 @@ name|result
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doPreSetup ()
 specifier|protected
 name|void
@@ -290,18 +300,6 @@ operator|.
 name|doPreSetup
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 annotation|@
 name|Override
@@ -363,7 +361,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Simulate a Load Balancer Probe      *<p/>      * Load Balancers check the status of a port by establishing and closing a TCP connection periodically.  The time      * between these probes can normally be configured, but it is typically set to about 15-sec.  Since there could be      * a large number of port that are being probed, the logging from the connect/disconnect operations can drown-out      * more useful information.      *<p/>      * Watch the logs when running this test to verify that the log output will be acceptable when a load balancer      * is probing the port.      *<p/>      * TODO:  Need to add a custom Log4j Appender that can verify the logging is acceptable      *      * @throws Exception      */
+comment|/**      * Simulate a Load Balancer Probe      *<p/>      * Load Balancers check the status of a port by establishing and closing a TCP connection periodically.  The time between these probes can normally be configured, but it is typically set to about      * 15-sec.  Since there could be a large number of port that are being probed, the logging from the connect/disconnect operations can drown-out more useful information.      *<p/>      * Watch the logs when running this test to verify that the log output will be acceptable when a load balancer is probing the port.      *<p/>      * TODO:  Need to add a custom Log4j Appender that can verify the logging is acceptable      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testConnectThenCloseWithoutData ()
@@ -395,9 +393,7 @@ name|result
 operator|.
 name|setAssertPeriod
 argument_list|(
-name|SOCKET_STARTUP_TEST_WAIT
-operator|+
-name|SOCKET_STARTUP_TEST_READ_TIMEOUT
+literal|1000
 argument_list|)
 expr_stmt|;
 name|addTestRoute
@@ -449,10 +445,6 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|SOCKET_STARTUP_TEST_WAIT
-operator|+
-name|SOCKET_STARTUP_TEST_READ_TIMEOUT
-operator|+
 literal|1000
 argument_list|)
 expr_stmt|;
@@ -502,9 +494,7 @@ name|result
 operator|.
 name|setAssertPeriod
 argument_list|(
-name|SOCKET_STARTUP_TEST_WAIT
-operator|+
-name|SOCKET_STARTUP_TEST_READ_TIMEOUT
+literal|1000
 argument_list|)
 expr_stmt|;
 name|addTestRoute
@@ -556,10 +546,6 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|SOCKET_STARTUP_TEST_WAIT
-operator|+
-name|SOCKET_STARTUP_TEST_READ_TIMEOUT
-operator|+
 literal|1000
 argument_list|)
 expr_stmt|;
@@ -591,8 +577,10 @@ name|Exception
 block|{
 specifier|final
 name|int
-name|maxReceiveTimeouts
+name|idleTimeout
 init|=
+name|RECEIVE_TIMEOUT
+operator|*
 literal|3
 decl_stmt|;
 name|String
@@ -620,7 +608,7 @@ argument_list|)
 expr_stmt|;
 name|addTestRoute
 argument_list|(
-name|maxReceiveTimeouts
+name|idleTimeout
 argument_list|)
 expr_stmt|;
 name|mllpClient
@@ -639,23 +627,17 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|RECEIVE_TIMEOUT
-operator|*
-operator|(
-name|maxReceiveTimeouts
+name|idleTimeout
 operator|+
-literal|1
-operator|)
+name|RECEIVE_TIMEOUT
 argument_list|)
 expr_stmt|;
 try|try
 block|{
 name|mllpClient
 operator|.
-name|sendMessageAndWaitForAcknowledgement
-argument_list|(
-name|testMessage
-argument_list|)
+name|checkConnection
+argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
@@ -666,24 +648,25 @@ block|}
 catch|catch
 parameter_list|(
 name|MllpJUnitResourceException
-name|ex
+name|expectedEx
 parameter_list|)
 block|{
-name|Throwable
-name|cause
-init|=
-name|ex
+name|assertEquals
+argument_list|(
+literal|"checkConnection failed - read() returned END_OF_STREAM"
+argument_list|,
+name|expectedEx
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|expectedEx
 operator|.
 name|getCause
 argument_list|()
-decl_stmt|;
-name|assertIsInstanceOf
-argument_list|(
-name|SocketException
-operator|.
-name|class
-argument_list|,
-name|cause
 argument_list|)
 expr_stmt|;
 block|}
@@ -697,12 +680,13 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addTestRoute (int maxReceiveTimeouts)
+DECL|method|addTestRoute (final int idleTimeout)
 name|void
 name|addTestRoute
 parameter_list|(
+specifier|final
 name|int
-name|maxReceiveTimeouts
+name|idleTimeout
 parameter_list|)
 throws|throws
 name|Exception
@@ -726,7 +710,7 @@ parameter_list|()
 block|{
 name|fromF
 argument_list|(
-literal|"mllp://%s:%d?receiveTimeout=%d&maxReceiveTimeouts=%d"
+literal|"mllp://%s:%d?receiveTimeout=%d&idleTimeout=%d"
 argument_list|,
 name|mllpClient
 operator|.
@@ -740,7 +724,7 @@ argument_list|()
 argument_list|,
 name|RECEIVE_TIMEOUT
 argument_list|,
-name|maxReceiveTimeouts
+name|idleTimeout
 argument_list|)
 operator|.
 name|log

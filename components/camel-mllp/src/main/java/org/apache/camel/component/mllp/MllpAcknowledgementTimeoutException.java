@@ -230,7 +230,7 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the HL7 acknowledgement payload associated with this exception, if any.      *      * @return If the timeout occurred while attempting to receive an HL7 Message, this will be null.  If the timeout      * occurred while attempting to receive an HL7 Acknowledgement, this will be the HL7 Message.  If the timeout occurred      * while attempting to complete the read of an HL7 message (i.e. part of the message has already been read), this      * will be the partial acknowledgement payload that was read before the timeout.      */
+comment|/**      * Get the HL7 acknowledgement payload associated with this exception, if any.      *      * @return If the timeout occurred while attempting to receive an HL7 Message, this will be null.  If the timeout occurred while attempting to receive an HL7 Acknowledgement, this will be the HL7      * Message.  If the timeout occurred while attempting to complete the read of an HL7 message (i.e. part of the message has already been read), this will be the partial acknowledgement payload that      * was read before the timeout.      */
 DECL|method|getHl7Acknowledgement ()
 specifier|public
 name|byte
@@ -241,7 +241,7 @@ block|{
 return|return
 name|super
 operator|.
-name|getHl7Acknowledgement
+name|getHl7AcknowledgementBytes
 argument_list|()
 return|;
 block|}

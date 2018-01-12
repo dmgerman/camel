@@ -164,6 +164,22 @@ name|test
 operator|.
 name|mllp
 operator|.
+name|Hl7TestMessageGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|mllp
+operator|.
 name|PassthroughProcessor
 import|;
 end_import
@@ -205,24 +221,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|mllp
-operator|.
-name|Hl7MessageGenerator
-operator|.
-name|generateMessage
 import|;
 end_import
 
@@ -284,6 +282,32 @@ name|MockEndpoint
 name|acknowledged
 decl_stmt|;
 annotation|@
+name|BeforeClass
+DECL|method|setUpClass ()
+specifier|public
+specifier|static
+name|void
+name|setUpClass
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assumeTrue
+argument_list|(
+literal|"Skipping test running in CI server - Fails sometimes on CI server with address already in use"
+argument_list|,
+name|System
+operator|.
+name|getenv
+argument_list|(
+literal|"BUILD_ID"
+argument_list|)
+operator|==
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|createCamelContext ()
 specifier|protected
@@ -329,32 +353,6 @@ name|context
 return|;
 block|}
 annotation|@
-name|BeforeClass
-DECL|method|setUpClass ()
-specifier|public
-specifier|static
-name|void
-name|setUpClass
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assumeTrue
-argument_list|(
-literal|"Skipping test running in CI server - Fails sometimes on CI server with address already in use"
-argument_list|,
-name|System
-operator|.
-name|getenv
-argument_list|(
-literal|"BUILD_ID"
-argument_list|)
-operator|==
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
 name|Override
 DECL|method|createRouteBuilders ()
 specifier|protected
@@ -396,11 +394,16 @@ parameter_list|()
 block|{
 name|fromF
 argument_list|(
-literal|"mllp://%s:%d?autoAck=true&readTimeout=1000"
+literal|"mllp://%s:%d?autoAck=true&readTimeout=5000"
 argument_list|,
 name|mllpHost
 argument_list|,
 name|mllpPort
+argument_list|)
+operator|.
+name|id
+argument_list|(
+name|routeId
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -428,7 +431,7 @@ name|log
 argument_list|(
 name|LoggingLevel
 operator|.
-name|INFO
+name|DEBUG
 argument_list|,
 name|routeId
 argument_list|,
@@ -474,7 +477,7 @@ name|log
 argument_list|(
 name|LoggingLevel
 operator|.
-name|INFO
+name|DEBUG
 argument_list|,
 name|routeId
 argument_list|,
@@ -520,6 +523,8 @@ block|{
 name|String
 name|testMessage
 init|=
+name|Hl7TestMessageGenerator
+operator|.
 name|generateMessage
 argument_list|()
 decl_stmt|;
@@ -615,9 +620,20 @@ operator|++
 name|i
 control|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Processing message {}"
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
 name|String
 name|testMessage
 init|=
+name|Hl7TestMessageGenerator
+operator|.
 name|generateMessage
 argument_list|(
 name|i

@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Base class for HL7 Application Acknowledgement Exceptions  */
+comment|/**  * Base Exception for with HL7 Application Acknowledgements  */
 end_comment
 
 begin_class
@@ -42,6 +42,25 @@ block|{
 name|super
 argument_list|(
 name|message
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MllpAcknowledgementException (String message, Throwable cause)
+specifier|public
+name|MllpAcknowledgementException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 block|}

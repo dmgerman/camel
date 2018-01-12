@@ -18,6 +18,10 @@ name|mllp
 package|;
 end_package
 
+begin_comment
+comment|/*  * Exception thrown by the HL7AcknowledgmentGenerator in the event of a failure.  */
+end_comment
+
 begin_class
 DECL|class|Hl7AcknowledgementGenerationException
 specifier|public
