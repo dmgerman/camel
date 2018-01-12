@@ -3283,7 +3283,7 @@ name|SAXSource
 operator|)
 name|document
 decl_stmt|;
-comment|// since its a SAXSource it me not return an NodeList
+comment|// since its a SAXSource it may not return an NodeList (for example if using Saxon)
 name|Object
 name|result
 init|=
