@@ -166,11 +166,6 @@ name|prefix
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|)
 DECL|field|region
 specifier|private
 name|String
