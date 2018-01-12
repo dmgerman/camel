@@ -395,6 +395,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Set the component to log PHI data.      *      * @param logPhi true enables PHI logging; false disables it.      */
 DECL|method|setLogPhi (Boolean logPhi)
 specifier|public
 specifier|static
@@ -512,6 +513,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Set the maximum number of bytes of PHI that will be logged in a log entry.      *      * @param logPhiMaxBytes the maximum number of bytes to log.      */
 DECL|method|setLogPhiMaxBytes (Integer logPhiMaxBytes)
 specifier|public
 specifier|static
@@ -551,6 +553,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * Sets the default configuration to use when creating MLLP endpoints.      *      * @param configuration the default configuration.      */
 DECL|method|setConfiguration (MllpConfiguration configuration)
 specifier|public
 name|void
