@@ -196,6 +196,18 @@ end_import
 
 begin_import
 import|import static
+name|com
+operator|.
+name|mongodb
+operator|.
+name|ServerAddress
+operator|.
+name|defaultHost
+import|;
+end_import
+
+begin_import
+import|import static
 name|de
 operator|.
 name|flapdoodle
@@ -343,7 +355,8 @@ return|return
 operator|new
 name|MongoClient
 argument_list|(
-literal|"0.0.0.0"
+name|defaultHost
+argument_list|()
 argument_list|,
 name|PORT
 argument_list|)
