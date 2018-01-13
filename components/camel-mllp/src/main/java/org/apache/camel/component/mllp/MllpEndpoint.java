@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The MLLP component is designed to handle the MLLP protocol and provide the functionality required by Healthcare providers to communicate with other systems using the MLLP protocol.  *  *<p/>  * NOTE: MLLP payloads are not logged unless the logging level is set to DEBUG or TRACE to avoid introducing PHI into the log files.  Logging of PHI can be globally disabled by setting the  * org.apache.camel.mllp.logPHI system property to false.  *<p/>  */
+comment|/**  * Provides functionality required by Healthcare providers to communicate with other systems using the MLLP protocol.  *  *<p/>  * NOTE: MLLP payloads are not logged unless the logging level is set to DEBUG or TRACE to avoid introducing PHI into the log files.  Logging of PHI can be globally disabled by setting the  * org.apache.camel.mllp.logPHI system property to false.  *<p/>  */
 end_comment
 
 begin_class
@@ -302,6 +302,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"mllp"
+argument_list|,
+name|firstVersion
+operator|=
+literal|"2.17.0"
 argument_list|,
 name|title
 operator|=
