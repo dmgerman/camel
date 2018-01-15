@@ -92,6 +92,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|consumer
+operator|instanceof
+name|RemoteFileConsumer
+condition|)
+block|{
 name|RemoteFileConsumer
 argument_list|<
 name|?
@@ -109,15 +116,7 @@ decl_stmt|;
 comment|// only try to recover if we are allowed to run
 if|if
 condition|(
-operator|(
-operator|(
-name|RemoteFileConsumer
-argument_list|<
-name|?
-argument_list|>
-operator|)
-name|consumer
-operator|)
+name|rfc
 operator|.
 name|isRunAllowed
 argument_list|()
@@ -167,6 +166,7 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

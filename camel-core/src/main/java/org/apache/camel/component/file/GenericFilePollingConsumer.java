@@ -644,7 +644,8 @@ name|pollStrategy
 operator|.
 name|begin
 argument_list|(
-name|this
+name|getConsumer
+argument_list|()
 argument_list|,
 name|getEndpoint
 argument_list|()
@@ -711,7 +712,8 @@ name|pollStrategy
 operator|.
 name|commit
 argument_list|(
-name|this
+name|getConsumer
+argument_list|()
 argument_list|,
 name|getEndpoint
 argument_list|()
@@ -761,7 +763,8 @@ name|pollStrategy
 operator|.
 name|rollback
 argument_list|(
-name|this
+name|getConsumer
+argument_list|()
 argument_list|,
 name|getEndpoint
 argument_list|()
