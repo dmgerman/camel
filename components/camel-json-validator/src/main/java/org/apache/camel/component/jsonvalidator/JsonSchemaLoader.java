@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|networknt
+operator|.
+name|schema
+operator|.
+name|JsonSchema
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -40,36 +52,8 @@ name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|everit
-operator|.
-name|json
-operator|.
-name|schema
-operator|.
-name|FormatValidator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|everit
-operator|.
-name|json
-operator|.
-name|schema
-operator|.
-name|Schema
-import|;
-end_import
-
 begin_comment
-comment|/**  * Can be used to create custom schema for the JSON validator endpoint.  * This interface is useful to add custom {@link FormatValidator} to the {@link Schema}  *   * For more information see   *<a href="https://github.com/everit-org/json-schema#format-validators">Format Validators</a>  * in the Everit JSON Schema documentation.   */
+comment|/**  * Can be used to create custom schema for the JSON validator endpoint.  */
 end_comment
 
 begin_interface
@@ -78,16 +62,16 @@ specifier|public
 interface|interface
 name|JsonSchemaLoader
 block|{
-comment|/**      * Create a new Schema based on the schema input stream.      *      * @param camelContext camel context      * @param schemaInputStream the resource input stream      * @return a Schema to be used when validating incoming requests      */
-DECL|method|createSchema (CamelContext camelContext, InputStream schemaInputStream)
-name|Schema
+comment|/**      * Create a new Schema based on the schema input stream.      *      * @param camelContext camel context      * @param inputStream the resource input stream      * @return a Schema to be used when validating incoming requests      */
+DECL|method|createSchema (CamelContext camelContext, InputStream inputStream)
+name|JsonSchema
 name|createSchema
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
 name|InputStream
-name|schemaInputStream
+name|inputStream
 parameter_list|)
 throws|throws
 name|Exception

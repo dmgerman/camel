@@ -20,6 +20,40 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|networknt
+operator|.
+name|schema
+operator|.
+name|JsonSchema
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|networknt
+operator|.
+name|schema
+operator|.
+name|ValidationMessage
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -48,29 +82,35 @@ specifier|public
 interface|interface
 name|JsonValidatorErrorHandler
 block|{
-comment|/**      * Resets any state within this error handler      */
-DECL|method|reset ()
-name|void
-name|reset
-parameter_list|()
-function_decl|;
-comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange the exchange      * @param schema   the schema      * @param e   the exception triggering the error      * @throws ValidationException is thrown in case of validation errors      */
-DECL|method|handleErrors (Exchange exchange, org.everit.json.schema.Schema schema, Exception e)
+comment|/**      * Process any errors which may have occurred during validation      *      * @param exchange the exchange      * @param schema   the schema      * @param errors   the validation errors      * @throws ValidationException is thrown in case of validation errors      */
+DECL|method|handleErrors (Exchange exchange, JsonSchema schema, Set<ValidationMessage> errors)
 name|void
 name|handleErrors
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|org
-operator|.
-name|everit
-operator|.
-name|json
-operator|.
+name|JsonSchema
 name|schema
-operator|.
-name|Schema
+parameter_list|,
+name|Set
+argument_list|<
+name|ValidationMessage
+argument_list|>
+name|errors
+parameter_list|)
+throws|throws
+name|ValidationException
+function_decl|;
+comment|/**      * Process a general error that happens during valdating      *      * @param exchange the exchange      * @param schema   the schema      * @param e        general error      * @throws ValidationException is thrown in case of validation errors      */
+DECL|method|handleErrors (Exchange exchange, JsonSchema schema, Exception e)
+name|void
+name|handleErrors
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|JsonSchema
 name|schema
 parameter_list|,
 name|Exception
