@@ -657,7 +657,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|waitForShutdown ()
-specifier|public
+specifier|private
 name|void
 name|waitForShutdown
 parameter_list|()
