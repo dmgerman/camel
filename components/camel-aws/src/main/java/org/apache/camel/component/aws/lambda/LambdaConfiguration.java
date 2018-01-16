@@ -372,7 +372,7 @@ return|return
 name|awsLambdaEndpoint
 return|;
 block|}
-comment|/**      * The region with which the AWS-Lambda client wants to work with.      */
+comment|/**      * The AWS-Lambda client to use.      */
 DECL|method|setAwsLambdaEndpoint (String awsLambdaEndpoint)
 specifier|public
 name|void
