@@ -341,7 +341,7 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
-comment|/**          * The region with which the AWS-Lambda client wants to work with.          */
+comment|/**          * The AWS-Lambda client to use.          */
 DECL|field|awsLambdaEndpoint
 specifier|private
 name|String
