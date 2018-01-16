@@ -657,6 +657,14 @@ literal|"privateKey"
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unsupported configuration type"
+argument_list|)
+throw|;
 block|}
 specifier|final
 name|BraintreeConfiguration
