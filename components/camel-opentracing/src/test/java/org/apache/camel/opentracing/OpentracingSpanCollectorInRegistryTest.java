@@ -22,6 +22,8 @@ name|io
 operator|.
 name|opentracing
 operator|.
+name|noop
+operator|.
 name|NoopTracer
 import|;
 end_import
@@ -31,6 +33,8 @@ import|import
 name|io
 operator|.
 name|opentracing
+operator|.
+name|noop
 operator|.
 name|NoopTracerFactory
 import|;

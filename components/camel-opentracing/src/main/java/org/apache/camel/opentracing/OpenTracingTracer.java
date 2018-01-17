@@ -82,16 +82,6 @@ name|io
 operator|.
 name|opentracing
 operator|.
-name|NoopTracerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|opentracing
-operator|.
 name|Span
 import|;
 end_import
@@ -129,6 +119,18 @@ operator|.
 name|tracerresolver
 operator|.
 name|TracerResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|opentracing
+operator|.
+name|noop
+operator|.
+name|NoopTracerFactory
 import|;
 end_import
 
