@@ -1006,7 +1006,7 @@ name|remoteServerInformation
 argument_list|()
 return|;
 block|}
-comment|/**      * Executes doPollDirectory and on exception checks if it can be ignored by calling ignoreCannotRetrieveFile .      *      * @param absolutePath The path of the directory to poll      * @param dirName The name of the directory to poll      * @param fileList current list of files gathered      * @param depth the current depth of the directory      * @return whether or not to continue polling,<tt>false</tt> means the maxMessagesPerPoll limit has been hit      * @throws GenericFileOperationFailedException if the exception during doPollDirectory can not be ignored      */
+comment|/**      * Executes doPollDirectory and on exception checks if it can be ignored by calling ignoreCannotRetrieveFile.      *      * @param absolutePath  the path of the directory to poll      * @param dirName       the name of the directory to poll      * @param fileList      current list of files gathered      * @param depth         the current depth of the directory      * @return whether or not to continue polling,<tt>false</tt> means the maxMessagesPerPoll limit has been hit      * @throws GenericFileOperationFailedException if the exception during doPollDirectory can not be ignored      */
 DECL|method|doSafePollSubDirectory (String absolutePath, String dirName, List<GenericFile<T>> fileList, int depth)
 specifier|protected
 name|boolean
@@ -1068,8 +1068,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Caught exception "
-operator|+
+literal|"Caught exception {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1092,15 +1092,13 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Ignoring file error "
-operator|+
+literal|"Ignoring file error {} for {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|" for "
-operator|+
+argument_list|,
 name|absolutePath
 argument_list|)
 expr_stmt|;
@@ -1115,15 +1113,13 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Not ignoring file error "
-operator|+
+literal|"Not ignoring file error {} for {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|" for "
-operator|+
+argument_list|,
 name|absolutePath
 argument_list|)
 expr_stmt|;
