@@ -1535,6 +1535,20 @@ name|e
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|forceDisconnect ()
+specifier|public
+name|void
+name|forceDisconnect
+parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+name|doDisconnect
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|doDisconnect ()
 specifier|protected
 name|void

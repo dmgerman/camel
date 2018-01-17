@@ -97,6 +97,14 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
+comment|/**      * Forces a hard disconnect from the remote server and cause the client to be re-created on next poll.      *      * @throws GenericFileOperationFailedException can be thrown      */
+DECL|method|forceDisconnect ()
+name|void
+name|forceDisconnect
+parameter_list|()
+throws|throws
+name|GenericFileOperationFailedException
+function_decl|;
 comment|/**      * Sends a noop command to the remote server      *      * @return<tt>true</tt> if the noop was a success,<tt>false</tt> otherwise      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|sendNoop ()
 name|boolean

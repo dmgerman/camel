@@ -127,8 +127,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Trying to recover by disconnecting from remote server forcing a re-connect at next poll: "
-operator|+
+literal|"Trying to recover by force disconnecting from remote server and re-connecting at next poll: {}"
+argument_list|,
 name|rfc
 operator|.
 name|remoteServer
@@ -139,7 +139,7 @@ try|try
 block|{
 name|rfc
 operator|.
-name|disconnect
+name|forceDisconnect
 argument_list|()
 expr_stmt|;
 block|}
@@ -154,7 +154,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Error occurred during disconnect from: "
+literal|"Error occurred during force disconnecting from: "
 operator|+
 name|rfc
 operator|.

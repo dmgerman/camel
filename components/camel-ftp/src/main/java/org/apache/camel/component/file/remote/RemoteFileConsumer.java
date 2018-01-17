@@ -711,6 +711,74 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|forceDisconnect ()
+specifier|protected
+name|void
+name|forceDisconnect
+parameter_list|()
+block|{
+comment|// eager indicate we are no longer logged in
+name|loggedIn
+operator|=
+literal|false
+expr_stmt|;
+comment|// disconnect
+try|try
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Force disconnecting from: {}"
+argument_list|,
+name|remoteServer
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|getOperations
+argument_list|()
+operator|.
+name|forceDisconnect
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|GenericFileOperationFailedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore just log a warning
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error occurred while disconnecting from "
+operator|+
+name|remoteServer
+argument_list|()
+operator|+
+literal|" due: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|recoverableConnectIfNecessary ()
 specifier|protected
 name|void
