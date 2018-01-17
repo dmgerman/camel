@@ -269,7 +269,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A file based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *<p/>  * This implementation provides a 1st-level in-memory {@link LRUCache} for fast check of the most  * frequently used keys. When {@link #add(String)} or {@link #contains(String)} methods are being used  * then in case of 1st-level cache miss, the underlying file is scanned which may cost additional performance.  * So try to find the right balance of the size of the 1st-level cache, the default size is 1000.  * The file store has a maximum capacity of 32mb by default. If the file store grows bigger, then  * the {@link #getDropOldestFileStore()} number of entries from the file store is dropped to reduce  * the file store and make room for newer entries.  *  * @version   */
+comment|/**  * A file based implementation of {@link org.apache.camel.spi.IdempotentRepository}.  *<p/>  * This implementation provides a 1st-level in-memory {@link LRUCache} for fast check of the most  * frequently used keys. When {@link #add(String)} or {@link #contains(String)} methods are being used  * then in case of 1st-level cache miss, the underlying file is scanned which may cost additional performance.  * So try to find the right balance of the size of the 1st-level cache, the default size is 1000.  * The file store has a maximum capacity of 32mb by default (you can turn this off and have unlimited size).  * If the file store grows bigger than the maximum capacity, then the {@link #getDropOldestFileStore()} (is default 1000)  * number of entries from the file store is dropped to reduce the file store and make room for newer entries.  *  * @version   */
 end_comment
 
 begin_class
@@ -609,9 +609,13 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
-comment|// check if we hit maximum capacity and report a warning about this
+comment|// check if we hit maximum capacity (if enabled) and report a warning about this
 if|if
 condition|(
+name|maxFileStoreSize
+operator|>
+literal|0
+operator|&&
 name|fileStore
 operator|.
 name|length
@@ -886,7 +890,7 @@ return|return
 name|maxFileStoreSize
 return|;
 block|}
-comment|/**      * Sets the maximum file size for the file store in bytes.      *<p/>      * The default is 32mb.      */
+comment|/**      * Sets the maximum file size for the file store in bytes.      * You can set the value to 0 or negative to turn this off, and have unlimited file store size.      *<p/>      * The default is 32mb.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
