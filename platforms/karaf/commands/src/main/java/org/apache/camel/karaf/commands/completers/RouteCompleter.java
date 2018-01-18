@@ -184,6 +184,44 @@ argument_list|>
 name|candidates
 parameter_list|)
 block|{
+comment|// grab selected camel context from the first argument
+name|String
+name|contextName
+init|=
+literal|null
+decl_stmt|;
+name|String
+index|[]
+name|args
+init|=
+name|commandLine
+operator|.
+name|getArguments
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|args
+operator|!=
+literal|null
+operator|&&
+name|args
+operator|.
+name|length
+operator|>
+literal|1
+condition|)
+block|{
+comment|// 0 is the command name itself
+comment|// 1 is the first argument which is the camel context name
+name|contextName
+operator|=
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
+block|}
 try|try
 block|{
 name|StringsCompleter
@@ -206,7 +244,7 @@ name|routes
 init|=
 name|getRoutes
 argument_list|(
-literal|null
+name|contextName
 argument_list|)
 decl_stmt|;
 for|for
