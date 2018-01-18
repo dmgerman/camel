@@ -267,6 +267,9 @@ init|=
 name|getEndpoint
 argument_list|()
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getIteratorType
 argument_list|()
 decl_stmt|;
@@ -329,6 +332,9 @@ operator|.
 name|withTableName
 argument_list|(
 name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
 argument_list|()
 operator|.
 name|getTableName
@@ -710,6 +716,9 @@ parameter_list|()
 block|{
 return|return
 name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
 argument_list|()
 operator|.
 name|getClient

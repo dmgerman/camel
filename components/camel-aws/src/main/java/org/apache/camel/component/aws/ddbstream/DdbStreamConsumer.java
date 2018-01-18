@@ -360,6 +360,9 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getMaxResultsPerRequest
 argument_list|()
 argument_list|)
@@ -412,6 +415,9 @@ operator|.
 name|withLimit
 argument_list|(
 name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
 argument_list|()
 operator|.
 name|getMaxResultsPerRequest
@@ -619,6 +625,9 @@ return|return
 name|getEndpoint
 argument_list|()
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getClient
 argument_list|()
 return|;
@@ -709,6 +718,9 @@ condition|(
 name|getEndpoint
 argument_list|()
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getIteratorType
 argument_list|()
 condition|)
@@ -730,6 +742,9 @@ operator|new
 name|BigInteger
 argument_list|(
 name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSequenceNumberProvider
@@ -757,6 +772,9 @@ operator|new
 name|BigInteger
 argument_list|(
 name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSequenceNumberProvider

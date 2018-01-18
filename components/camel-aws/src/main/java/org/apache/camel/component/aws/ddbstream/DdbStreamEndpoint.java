@@ -30,39 +30,9 @@ name|services
 operator|.
 name|dynamodbv2
 operator|.
-name|AmazonDynamoDBStreams
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|dynamodbv2
-operator|.
 name|model
 operator|.
 name|Record
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|dynamodbv2
-operator|.
-name|model
-operator|.
-name|ShardIteratorType
 import|;
 end_import
 
@@ -125,20 +95,6 @@ operator|.
 name|impl
 operator|.
 name|ScheduledPollEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Metadata
 import|;
 end_import
 
@@ -230,131 +186,20 @@ extends|extends
 name|ScheduledPollEndpoint
 block|{
 annotation|@
-name|UriPath
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"Name of the dynamodb table"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|tableName
-specifier|private
-name|String
-name|tableName
-decl_stmt|;
-comment|// For now, always assume that we've been supplied a client in the Camel registry.
-annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"Amazon DynamoDB client to use for all requests for this endpoint"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|amazonDynamoDbStreamsClient
-specifier|private
-name|AmazonDynamoDBStreams
-name|amazonDynamoDbStreamsClient
+DECL|field|configuration
+name|DdbStreamConfiguration
+name|configuration
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"Maximum number of records that will be fetched in each poll"
-argument_list|)
-DECL|field|maxResultsPerRequest
-specifier|private
-name|int
-name|maxResultsPerRequest
-init|=
-literal|100
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"Defines where in the DynaboDB stream"
-operator|+
-literal|" to start getting records. Note that using TRIM_HORIZON can cause a"
-operator|+
-literal|" significant delay before the stream has caught up to real-time."
-operator|+
-literal|" if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider"
-operator|+
-literal|" MUST be supplied."
-argument_list|,
-name|defaultValue
-operator|=
-literal|"LATEST"
-argument_list|)
-DECL|field|iteratorType
-specifier|private
-name|ShardIteratorType
-name|iteratorType
-init|=
-name|ShardIteratorType
-operator|.
-name|LATEST
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"Provider for the sequence number when"
-operator|+
-literal|" using one of the two ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER"
-operator|+
-literal|" iterator types. Can be a registry reference or a literal sequence number."
-argument_list|)
-DECL|field|sequenceNumberProvider
-specifier|private
-name|SequenceNumberProvider
-name|sequenceNumberProvider
-decl_stmt|;
-DECL|method|DdbStreamEndpoint (String uri, String tableName, DdbStreamComponent component)
+DECL|method|DdbStreamEndpoint (String uri, DdbStreamConfiguration configuration, DdbStreamComponent component)
 specifier|public
 name|DdbStreamEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|String
-name|tableName
+name|DdbStreamConfiguration
+name|configuration
 parameter_list|,
 name|DdbStreamComponent
 name|component
@@ -369,9 +214,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|tableName
+name|configuration
 operator|=
-name|tableName
+name|configuration
 expr_stmt|;
 block|}
 annotation|@
@@ -484,6 +329,16 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|DdbStreamConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
 DECL|method|getSequenceNumber ()
 specifier|public
 name|String
@@ -492,6 +347,8 @@ parameter_list|()
 block|{
 switch|switch
 condition|(
+name|configuration
+operator|.
 name|getIteratorType
 argument_list|()
 condition|)
@@ -506,6 +363,8 @@ if|if
 condition|(
 literal|null
 operator|==
+name|configuration
+operator|.
 name|getSequenceNumberProvider
 argument_list|()
 condition|)
@@ -525,6 +384,8 @@ block|}
 else|else
 block|{
 return|return
+name|configuration
+operator|.
 name|getSequenceNumberProvider
 argument_list|()
 operator|.
@@ -551,19 +412,31 @@ literal|"DdbStreamEndpoint{"
 operator|+
 literal|"tableName="
 operator|+
-name|tableName
+name|configuration
+operator|.
+name|getTableName
+argument_list|()
 operator|+
 literal|", amazonDynamoDbStreamsClient=[redacted], maxResultsPerRequest="
 operator|+
-name|maxResultsPerRequest
+name|configuration
+operator|.
+name|getMaxResultsPerRequest
+argument_list|()
 operator|+
 literal|", iteratorType="
 operator|+
-name|iteratorType
+name|configuration
+operator|.
+name|getIteratorType
+argument_list|()
 operator|+
 literal|", sequenceNumberProvider="
 operator|+
-name|sequenceNumberProvider
+name|configuration
+operator|.
+name|getSequenceNumberProvider
+argument_list|()
 operator|+
 literal|", uri="
 operator|+
@@ -572,145 +445,6 @@ argument_list|()
 operator|+
 literal|'}'
 return|;
-block|}
-DECL|method|getClient ()
-name|AmazonDynamoDBStreams
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|amazonDynamoDbStreamsClient
-return|;
-block|}
-DECL|method|getAmazonDynamoDBStreamsClient ()
-specifier|public
-name|AmazonDynamoDBStreams
-name|getAmazonDynamoDBStreamsClient
-parameter_list|()
-block|{
-return|return
-name|amazonDynamoDbStreamsClient
-return|;
-block|}
-DECL|method|setAmazonDynamoDbStreamsClient (AmazonDynamoDBStreams amazonDynamoDbStreamsClient)
-specifier|public
-name|void
-name|setAmazonDynamoDbStreamsClient
-parameter_list|(
-name|AmazonDynamoDBStreams
-name|amazonDynamoDbStreamsClient
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonDynamoDbStreamsClient
-operator|=
-name|amazonDynamoDbStreamsClient
-expr_stmt|;
-block|}
-DECL|method|getMaxResultsPerRequest ()
-specifier|public
-name|int
-name|getMaxResultsPerRequest
-parameter_list|()
-block|{
-return|return
-name|maxResultsPerRequest
-return|;
-block|}
-DECL|method|setMaxResultsPerRequest (int maxResultsPerRequest)
-specifier|public
-name|void
-name|setMaxResultsPerRequest
-parameter_list|(
-name|int
-name|maxResultsPerRequest
-parameter_list|)
-block|{
-name|this
-operator|.
-name|maxResultsPerRequest
-operator|=
-name|maxResultsPerRequest
-expr_stmt|;
-block|}
-DECL|method|getTableName ()
-specifier|public
-name|String
-name|getTableName
-parameter_list|()
-block|{
-return|return
-name|tableName
-return|;
-block|}
-DECL|method|setTableName (String tableName)
-specifier|public
-name|void
-name|setTableName
-parameter_list|(
-name|String
-name|tableName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|tableName
-operator|=
-name|tableName
-expr_stmt|;
-block|}
-DECL|method|getIteratorType ()
-specifier|public
-name|ShardIteratorType
-name|getIteratorType
-parameter_list|()
-block|{
-return|return
-name|iteratorType
-return|;
-block|}
-DECL|method|setIteratorType (ShardIteratorType iteratorType)
-specifier|public
-name|void
-name|setIteratorType
-parameter_list|(
-name|ShardIteratorType
-name|iteratorType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|iteratorType
-operator|=
-name|iteratorType
-expr_stmt|;
-block|}
-DECL|method|getSequenceNumberProvider ()
-specifier|public
-name|SequenceNumberProvider
-name|getSequenceNumberProvider
-parameter_list|()
-block|{
-return|return
-name|sequenceNumberProvider
-return|;
-block|}
-DECL|method|setSequenceNumberProvider (SequenceNumberProvider sequenceNumberProvider)
-specifier|public
-name|void
-name|setSequenceNumberProvider
-parameter_list|(
-name|SequenceNumberProvider
-name|sequenceNumberProvider
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sequenceNumberProvider
-operator|=
-name|sequenceNumberProvider
-expr_stmt|;
 block|}
 block|}
 end_class

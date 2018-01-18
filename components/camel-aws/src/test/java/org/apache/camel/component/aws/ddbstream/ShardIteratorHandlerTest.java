@@ -386,7 +386,9 @@ name|DdbStreamEndpoint
 argument_list|(
 literal|null
 argument_list|,
-literal|"table_name"
+operator|new
+name|DdbStreamConfiguration
+argument_list|()
 argument_list|,
 name|component
 argument_list|)
@@ -402,6 +404,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setAmazonDynamoDbStreamsClient
 argument_list|(
@@ -599,6 +604,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setIteratorType
 argument_list|(
 name|ShardIteratorType
@@ -683,6 +691,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setIteratorType
 argument_list|(
 name|ShardIteratorType
@@ -749,6 +760,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setIteratorType
 argument_list|(
@@ -833,6 +847,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setIteratorType
 argument_list|(
@@ -1014,6 +1031,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setIteratorType
 argument_list|(
 name|ShardIteratorType
@@ -1022,6 +1042,9 @@ name|AT_SEQUENCE_NUMBER
 argument_list|)
 expr_stmt|;
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setSequenceNumberProvider
 argument_list|(
@@ -1109,6 +1132,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setIteratorType
 argument_list|(
 name|ShardIteratorType
@@ -1117,6 +1143,9 @@ name|AFTER_SEQUENCE_NUMBER
 argument_list|)
 expr_stmt|;
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setSequenceNumberProvider
 argument_list|(
@@ -1203,6 +1232,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setIteratorType
 argument_list|(
