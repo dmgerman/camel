@@ -1169,8 +1169,10 @@ expr_stmt|;
 comment|// ensure the CONTENT_TYPE header can be retrieved
 if|if
 condition|(
-literal|null
-operator|==
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
 name|inMessage
 operator|.
 name|getHeader
@@ -1183,9 +1185,12 @@ name|String
 operator|.
 name|class
 argument_list|)
+argument_list|)
 operator|&&
-literal|null
-operator|!=
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|client
 operator|.
 name|getHeaders
@@ -1196,6 +1201,7 @@ argument_list|(
 name|Exchange
 operator|.
 name|CONTENT_TYPE
+argument_list|)
 argument_list|)
 condition|)
 block|{
