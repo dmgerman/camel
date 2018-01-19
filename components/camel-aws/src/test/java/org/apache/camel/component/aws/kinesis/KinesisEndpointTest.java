@@ -278,6 +278,9 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getStreamName
 argument_list|()
 argument_list|,
@@ -290,6 +293,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getIteratorType
 argument_list|()
@@ -306,6 +312,9 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getMaxResultsPerRequest
 argument_list|()
 argument_list|,
@@ -319,6 +328,9 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSequenceNumber
 argument_list|()
 argument_list|,
@@ -331,6 +343,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getShardId
 argument_list|()
@@ -384,6 +399,9 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getStreamName
 argument_list|()
 argument_list|,
@@ -396,6 +414,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getIteratorType
 argument_list|()
@@ -411,6 +432,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getMaxResultsPerRequest
 argument_list|()
@@ -470,6 +494,9 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getStreamName
 argument_list|()
 argument_list|,
@@ -482,6 +509,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getIteratorType
 argument_list|()
@@ -498,6 +528,9 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getShardId
 argument_list|()
 argument_list|,
@@ -510,6 +543,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSequenceNumber
 argument_list|()
@@ -569,6 +605,9 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getStreamName
 argument_list|()
 argument_list|,
@@ -581,6 +620,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getIteratorType
 argument_list|()
@@ -597,6 +639,9 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getShardId
 argument_list|()
 argument_list|,
@@ -609,6 +654,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSequenceNumber
 argument_list|()
