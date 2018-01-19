@@ -265,7 +265,10 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getClient
+name|getConfiguration
+argument_list|()
+operator|.
+name|getAmazonKinesisClient
 argument_list|()
 argument_list|,
 name|is
@@ -386,7 +389,10 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getClient
+name|getConfiguration
+argument_list|()
+operator|.
+name|getAmazonKinesisClient
 argument_list|()
 argument_list|,
 name|is
@@ -481,7 +487,10 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getClient
+name|getConfiguration
+argument_list|()
+operator|.
+name|getAmazonKinesisClient
 argument_list|()
 argument_list|,
 name|is
@@ -592,7 +601,10 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getClient
+name|getConfiguration
+argument_list|()
+operator|.
+name|getAmazonKinesisClient
 argument_list|()
 argument_list|,
 name|is

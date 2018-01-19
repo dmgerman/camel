@@ -482,6 +482,11 @@ argument_list|,
 name|component
 argument_list|)
 decl_stmt|;
+name|endpoint
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|undertest
 operator|=
 operator|new
