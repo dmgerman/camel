@@ -413,6 +413,11 @@ argument_list|(
 name|amazonDynamoDBStreams
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|undertest
 operator|=
 operator|new

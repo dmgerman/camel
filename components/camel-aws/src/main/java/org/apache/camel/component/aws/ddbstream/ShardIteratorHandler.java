@@ -718,10 +718,7 @@ return|return
 name|getEndpoint
 argument_list|()
 operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getAmazonDynamoDbStreamsClient
+name|getClient
 argument_list|()
 return|;
 block|}
