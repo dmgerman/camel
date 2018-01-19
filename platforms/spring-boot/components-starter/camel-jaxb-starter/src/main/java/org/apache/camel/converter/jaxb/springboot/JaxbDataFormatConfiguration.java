@@ -98,6 +98,14 @@ specifier|private
 name|String
 name|schema
 decl_stmt|;
+comment|/**      * Sets the schema severity level to use when validating against a schema.      * This level determines the minimum severity error that triggers JAXB to      * stop continue parsing. The default value of 0 (WARNING) means that any      * error (WARNING ERROR or FATAL ERROR) will trigger JAXB to stop. There are      * the following three levels: 0=WARNING 1=ERROR 2=FATAL ERROR.      */
+DECL|field|schemaSeverityLevel
+specifier|private
+name|Integer
+name|schemaSeverityLevel
+init|=
+literal|0
+decl_stmt|;
 comment|/**      * To enable pretty printing output nicely formatted. Is by default false.      */
 DECL|field|prettyPrint
 specifier|private
@@ -252,6 +260,32 @@ operator|.
 name|schema
 operator|=
 name|schema
+expr_stmt|;
+block|}
+DECL|method|getSchemaSeverityLevel ()
+specifier|public
+name|Integer
+name|getSchemaSeverityLevel
+parameter_list|()
+block|{
+return|return
+name|schemaSeverityLevel
+return|;
+block|}
+DECL|method|setSchemaSeverityLevel (Integer schemaSeverityLevel)
+specifier|public
+name|void
+name|setSchemaSeverityLevel
+parameter_list|(
+name|Integer
+name|schemaSeverityLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schemaSeverityLevel
+operator|=
+name|schemaSeverityLevel
 expr_stmt|;
 block|}
 DECL|method|getPrettyPrint ()

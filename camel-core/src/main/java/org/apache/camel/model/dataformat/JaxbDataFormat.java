@@ -240,6 +240,24 @@ name|schema
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|)
+DECL|field|schemaSeverityLevel
+specifier|private
+name|Integer
+name|schemaSeverityLevel
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|prettyPrint
 specifier|private
 name|Boolean
@@ -431,6 +449,33 @@ operator|.
 name|schema
 operator|=
 name|schema
+expr_stmt|;
+block|}
+DECL|method|getSchemaSeverityLevel ()
+specifier|public
+name|Integer
+name|getSchemaSeverityLevel
+parameter_list|()
+block|{
+return|return
+name|schemaSeverityLevel
+return|;
+block|}
+comment|/**      * Sets the schema severity level to use when validating against a schema.      * This level determines the minimum severity error that triggers JAXB to stop continue parsing.      * The default value of 0 (WARNING) means that any error (WARNING, ERROR or FATAL ERROR) will trigger      * JAXB to stop. There are the following three levels: 0=WARNING, 1=ERROR, 2=FATAL ERROR.      */
+DECL|method|setSchemaSeverityLevel (Integer schemaSeverityLevel)
+specifier|public
+name|void
+name|setSchemaSeverityLevel
+parameter_list|(
+name|Integer
+name|schemaSeverityLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schemaSeverityLevel
+operator|=
+name|schemaSeverityLevel
 expr_stmt|;
 block|}
 DECL|method|getPrettyPrint ()

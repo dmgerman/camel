@@ -282,18 +282,6 @@ name|xml
 operator|.
 name|stream
 operator|.
-name|XMLStreamException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|stream
-operator|.
 name|XMLStreamReader
 import|;
 end_import
@@ -417,18 +405,6 @@ operator|.
 name|camel
 operator|.
 name|InvalidPayloadException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|NoTypeConversionAvailableException
 import|;
 end_import
 
@@ -643,6 +619,12 @@ specifier|private
 name|String
 name|schema
 decl_stmt|;
+DECL|field|schemaSeverityLevel
+specifier|private
+name|int
+name|schemaSeverityLevel
+decl_stmt|;
+comment|// 0 = warning, 1 = error, 2 = fatal
 DECL|field|schemaLocation
 specifier|private
 name|String
@@ -828,8 +810,6 @@ name|stream
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SAXException
 block|{
 try|try
 block|{
@@ -1113,7 +1093,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|marshal
+name|doMarshal
 argument_list|(
 name|exchange
 argument_list|,
@@ -1186,9 +1166,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream, Marshaller marshaller)
+DECL|method|doMarshal (Exchange exchange, Object graph, OutputStream stream, Marshaller marshaller)
 name|void
-name|marshal
+name|doMarshal
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1203,15 +1183,7 @@ name|Marshaller
 name|marshaller
 parameter_list|)
 throws|throws
-name|XMLStreamException
-throws|,
-name|JAXBException
-throws|,
-name|NoTypeConversionAvailableException
-throws|,
-name|IOException
-throws|,
-name|InvalidPayloadException
+name|Exception
 block|{
 name|Object
 name|element
@@ -1738,8 +1710,6 @@ name|stream
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SAXException
 block|{
 try|try
 block|{
@@ -1795,9 +1765,6 @@ block|}
 name|String
 name|partClassFromHeader
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1808,6 +1775,10 @@ argument_list|(
 name|JaxbConstants
 operator|.
 name|JAXB_PART_CLASS
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -2166,6 +2137,32 @@ operator|.
 name|schema
 operator|=
 name|schema
+expr_stmt|;
+block|}
+DECL|method|getSchemaSeverityLevel ()
+specifier|public
+name|int
+name|getSchemaSeverityLevel
+parameter_list|()
+block|{
+return|return
+name|schemaSeverityLevel
+return|;
+block|}
+DECL|method|setSchemaSeverityLevel (int schemaSeverityLevel)
+specifier|public
+name|void
+name|setSchemaSeverityLevel
+parameter_list|(
+name|int
+name|schemaSeverityLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schemaSeverityLevel
+operator|=
+name|schemaSeverityLevel
 expr_stmt|;
 block|}
 DECL|method|isPrettyPrint ()
@@ -2837,12 +2834,6 @@ name|createUnmarshaller
 parameter_list|()
 throws|throws
 name|JAXBException
-throws|,
-name|SAXException
-throws|,
-name|FileNotFoundException
-throws|,
-name|MalformedURLException
 block|{
 name|Unmarshaller
 name|unmarshaller
@@ -2883,17 +2874,15 @@ name|ValidationEvent
 name|event
 parameter_list|)
 block|{
-comment|// stop unmarshalling if the event is an ERROR or FATAL
-comment|// ERROR
+comment|// continue if the severity is lower than the configured level
 return|return
 name|event
 operator|.
 name|getSeverity
 argument_list|()
-operator|==
-name|ValidationEvent
-operator|.
-name|WARNING
+operator|<
+name|getSchemaSeverityLevel
+argument_list|()
 return|;
 block|}
 block|}
@@ -2911,12 +2900,6 @@ name|createMarshaller
 parameter_list|()
 throws|throws
 name|JAXBException
-throws|,
-name|SAXException
-throws|,
-name|FileNotFoundException
-throws|,
-name|MalformedURLException
 block|{
 name|Marshaller
 name|marshaller
@@ -2957,16 +2940,15 @@ name|ValidationEvent
 name|event
 parameter_list|)
 block|{
-comment|// stop marshalling if the event is an ERROR or FATAL ERROR
+comment|// continue if the severity is lower than the configured level
 return|return
 name|event
 operator|.
 name|getSeverity
 argument_list|()
-operator|==
-name|ValidationEvent
-operator|.
-name|WARNING
+operator|<
+name|getSchemaSeverityLevel
+argument_list|()
 return|;
 block|}
 block|}
