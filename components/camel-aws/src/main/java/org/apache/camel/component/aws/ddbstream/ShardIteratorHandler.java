@@ -721,7 +721,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getClient
+name|getAmazonDynamoDbStreamsClient
 argument_list|()
 return|;
 block|}

@@ -137,7 +137,58 @@ specifier|private
 name|String
 name|tableName
 decl_stmt|;
-comment|// For now, always assume that we've been supplied a client in the Camel registry.
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Amazon AWS Access Key"
+argument_list|)
+DECL|field|accessKey
+specifier|private
+name|String
+name|accessKey
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Amazon AWS Secret Key"
+argument_list|)
+DECL|field|secretKey
+specifier|private
+name|String
+name|secretKey
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"The region in which DDBStreams client needs to work"
+argument_list|)
+DECL|field|region
+specifier|private
+name|String
+name|region
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -148,13 +199,6 @@ argument_list|,
 name|description
 operator|=
 literal|"Amazon DynamoDB client to use for all requests for this endpoint"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
 argument_list|)
 DECL|field|amazonDynamoDbStreamsClient
 specifier|private
@@ -231,19 +275,34 @@ specifier|private
 name|SequenceNumberProvider
 name|sequenceNumberProvider
 decl_stmt|;
-DECL|method|getClient ()
-name|AmazonDynamoDBStreams
-name|getClient
-parameter_list|()
-block|{
-return|return
-name|amazonDynamoDbStreamsClient
-return|;
-block|}
-DECL|method|getAmazonDynamoDBStreamsClient ()
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"To define a proxy host when instantiating the DDBStreams client"
+argument_list|)
+DECL|field|proxyHost
+specifier|private
+name|String
+name|proxyHost
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"To define a proxy port when instantiating the DDBStreams client"
+argument_list|)
+DECL|field|proxyPort
+specifier|private
+name|Integer
+name|proxyPort
+decl_stmt|;
+DECL|method|getAmazonDynamoDbStreamsClient ()
 specifier|public
 name|AmazonDynamoDBStreams
-name|getAmazonDynamoDBStreamsClient
+name|getAmazonDynamoDbStreamsClient
 parameter_list|()
 block|{
 return|return
@@ -264,6 +323,84 @@ operator|.
 name|amazonDynamoDbStreamsClient
 operator|=
 name|amazonDynamoDbStreamsClient
+expr_stmt|;
+block|}
+DECL|method|getAccessKey ()
+specifier|public
+name|String
+name|getAccessKey
+parameter_list|()
+block|{
+return|return
+name|accessKey
+return|;
+block|}
+DECL|method|setAccessKey (String accessKey)
+specifier|public
+name|void
+name|setAccessKey
+parameter_list|(
+name|String
+name|accessKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accessKey
+operator|=
+name|accessKey
+expr_stmt|;
+block|}
+DECL|method|getSecretKey ()
+specifier|public
+name|String
+name|getSecretKey
+parameter_list|()
+block|{
+return|return
+name|secretKey
+return|;
+block|}
+DECL|method|setSecretKey (String secretKey)
+specifier|public
+name|void
+name|setSecretKey
+parameter_list|(
+name|String
+name|secretKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secretKey
+operator|=
+name|secretKey
+expr_stmt|;
+block|}
+DECL|method|getRegion ()
+specifier|public
+name|String
+name|getRegion
+parameter_list|()
+block|{
+return|return
+name|region
+return|;
+block|}
+DECL|method|setRegion (String region)
+specifier|public
+name|void
+name|setRegion
+parameter_list|(
+name|String
+name|region
+parameter_list|)
+block|{
+name|this
+operator|.
+name|region
+operator|=
+name|region
 expr_stmt|;
 block|}
 DECL|method|getMaxResultsPerRequest ()
@@ -368,6 +505,58 @@ operator|.
 name|sequenceNumberProvider
 operator|=
 name|sequenceNumberProvider
+expr_stmt|;
+block|}
+DECL|method|getProxyHost ()
+specifier|public
+name|String
+name|getProxyHost
+parameter_list|()
+block|{
+return|return
+name|proxyHost
+return|;
+block|}
+DECL|method|setProxyHost (String proxyHost)
+specifier|public
+name|void
+name|setProxyHost
+parameter_list|(
+name|String
+name|proxyHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyHost
+operator|=
+name|proxyHost
+expr_stmt|;
+block|}
+DECL|method|getProxyPort ()
+specifier|public
+name|Integer
+name|getProxyPort
+parameter_list|()
+block|{
+return|return
+name|proxyPort
+return|;
+block|}
+DECL|method|setProxyPort (Integer proxyPort)
+specifier|public
+name|void
+name|setProxyPort
+parameter_list|(
+name|Integer
+name|proxyPort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyPort
+operator|=
+name|proxyPort
 expr_stmt|;
 block|}
 block|}
