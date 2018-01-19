@@ -198,52 +198,21 @@ extends|extends
 name|DefaultEndpoint
 block|{
 annotation|@
-name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"Name of the stream"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|streamName
-specifier|private
-name|String
-name|streamName
-decl_stmt|;
-annotation|@
 name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"Amazon Kinesis Firehose client to use for all requests for this endpoint"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|amazonKinesisFirehoseClient
+DECL|field|configuration
 specifier|private
-name|AmazonKinesisFirehose
-name|amazonKinesisFirehoseClient
+name|KinesisFirehoseConfiguration
+name|configuration
 decl_stmt|;
-DECL|method|KinesisFirehoseEndpoint (String uri, String streamName, KinesisFirehoseComponent component)
+DECL|method|KinesisFirehoseEndpoint (String uri, KinesisFirehoseConfiguration configuration, KinesisFirehoseComponent component)
 specifier|public
 name|KinesisFirehoseEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|String
-name|streamName
+name|KinesisFirehoseConfiguration
+name|configuration
 parameter_list|,
 name|KinesisFirehoseComponent
 name|component
@@ -258,9 +227,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|streamName
+name|configuration
 operator|=
-name|streamName
+name|configuration
 expr_stmt|;
 block|}
 annotation|@
@@ -314,22 +283,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|setAmazonKinesisFirehoseClient (AmazonKinesisFirehose client)
-specifier|public
-name|void
-name|setAmazonKinesisFirehoseClient
-parameter_list|(
-name|AmazonKinesisFirehose
-name|client
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonKinesisFirehoseClient
-operator|=
-name|client
-expr_stmt|;
-block|}
 DECL|method|getClient ()
 specifier|public
 name|AmazonKinesisFirehose
@@ -337,17 +290,20 @@ name|getClient
 parameter_list|()
 block|{
 return|return
-name|amazonKinesisFirehoseClient
+name|configuration
+operator|.
+name|getAmazonKinesisFirehoseClient
+argument_list|()
 return|;
 block|}
-DECL|method|getStreamName ()
+DECL|method|getConfiguration ()
 specifier|public
-name|String
-name|getStreamName
+name|KinesisFirehoseConfiguration
+name|getConfiguration
 parameter_list|()
 block|{
 return|return
-name|streamName
+name|configuration
 return|;
 block|}
 block|}

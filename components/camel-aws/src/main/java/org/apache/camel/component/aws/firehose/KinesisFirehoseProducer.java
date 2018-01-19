@@ -306,6 +306,9 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getStreamName
 argument_list|()
 argument_list|)
