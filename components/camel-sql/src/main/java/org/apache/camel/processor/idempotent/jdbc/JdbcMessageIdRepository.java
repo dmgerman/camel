@@ -278,7 +278,8 @@ name|jdbcTemplate
 operator|.
 name|execute
 argument_list|(
-name|tableExistsString
+name|getTableExistsString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|log
@@ -313,7 +314,8 @@ name|jdbcTemplate
 operator|.
 name|execute
 argument_list|(
-name|createString
+name|getCreateString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|log
@@ -322,7 +324,8 @@ name|info
 argument_list|(
 literal|"table created with query '{}'"
 argument_list|,
-name|createString
+name|getCreateString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -339,7 +342,8 @@ name|error
 argument_list|(
 literal|"Can't create table for JdbcMessageIdRepository with query '{}' because of: {}. This may be a permissions problem. Please create this table and try again."
 argument_list|,
-name|createString
+name|getCreateString
+argument_list|()
 argument_list|,
 name|e
 operator|.
@@ -385,7 +389,8 @@ name|jdbcTemplate
 operator|.
 name|queryForObject
 argument_list|(
-name|queryString
+name|getQueryString
+argument_list|()
 argument_list|,
 name|Integer
 operator|.
@@ -413,7 +418,8 @@ name|jdbcTemplate
 operator|.
 name|update
 argument_list|(
-name|insertString
+name|getInsertString
+argument_list|()
 argument_list|,
 name|processorName
 argument_list|,
@@ -446,7 +452,8 @@ name|jdbcTemplate
 operator|.
 name|update
 argument_list|(
-name|deleteString
+name|getDeleteString
+argument_list|()
 argument_list|,
 name|processorName
 argument_list|,
@@ -467,7 +474,8 @@ name|jdbcTemplate
 operator|.
 name|update
 argument_list|(
-name|clearString
+name|getClearString
+argument_list|()
 argument_list|,
 name|processorName
 argument_list|)
