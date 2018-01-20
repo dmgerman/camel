@@ -629,6 +629,32 @@ operator|=
 name|deleteString
 expr_stmt|;
 block|}
+DECL|method|getClearString ()
+specifier|public
+name|String
+name|getClearString
+parameter_list|()
+block|{
+return|return
+name|clearString
+return|;
+block|}
+DECL|method|setClearString (String clearString)
+specifier|public
+name|void
+name|setClearString
+parameter_list|(
+name|String
+name|clearString
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clearString
+operator|=
+name|clearString
+expr_stmt|;
+block|}
 block|}
 end_class
 
