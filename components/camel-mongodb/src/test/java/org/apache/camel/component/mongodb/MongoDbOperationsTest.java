@@ -1667,82 +1667,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAggregate ()
-specifier|public
-name|void
-name|testAggregate
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// Test that the collection has 0 documents in it
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|testCollection
-operator|.
-name|count
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|pumpDataIntoTestCollection
-argument_list|()
-expr_stmt|;
-comment|// Repeat ten times, obtain 10 batches of 100 results each time
-name|Object
-name|result
-init|=
-name|template
-operator|.
-name|requestBody
-argument_list|(
-literal|"direct:aggregate"
-argument_list|,
-literal|"[{ $match : {$or : [{\"scientist\" : \"Darwin\"},{\"scientist\" : \"Einstein\"}]}},{ $group: { _id: \"$scientist\", count: { $sum: 1 }} } ]"
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Result is not of type List"
-argument_list|,
-name|result
-operator|instanceof
-name|List
-argument_list|)
-expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-name|List
-argument_list|<
-name|BasicDBObject
-argument_list|>
-name|resultList
-init|=
-operator|(
-name|List
-argument_list|<
-name|BasicDBObject
-argument_list|>
-operator|)
-name|result
-decl_stmt|;
-name|assertListSize
-argument_list|(
-literal|"Result does not contain 2 elements"
-argument_list|,
-name|resultList
-argument_list|,
-literal|2
-argument_list|)
-expr_stmt|;
-comment|// TODO Add more asserts
-block|}
-annotation|@
-name|Test
 DECL|method|testDbStats ()
 specifier|public
 name|void
@@ -2202,16 +2126,6 @@ operator|.
 name|to
 argument_list|(
 literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=remove&writeConcern=SAFE"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"direct:aggregate"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=aggregate&writeConcern=SAFE"
 argument_list|)
 expr_stmt|;
 name|from
