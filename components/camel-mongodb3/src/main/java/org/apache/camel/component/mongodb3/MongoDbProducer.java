@@ -2631,11 +2631,7 @@ operator|=
 name|dbCol
 operator|.
 name|find
-argument_list|(
-operator|new
-name|Document
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -2686,11 +2682,7 @@ operator|=
 name|dbCol
 operator|.
 name|find
-argument_list|(
-operator|new
-name|Document
 argument_list|()
-argument_list|)
 operator|.
 name|projection
 argument_list|(
