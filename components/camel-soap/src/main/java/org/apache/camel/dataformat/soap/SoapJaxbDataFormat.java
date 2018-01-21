@@ -589,7 +589,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Marshal inputObjects to SOAP xml. If the exchange or message has an      * EXCEPTION_CAUGTH property or header then instead of the object the      * exception is marshaled.      *       * To determine the name of the top level xml elements the elementNameStrategy      * is used.      * @throws IOException,SAXException       */
+comment|/**      * Marshal inputObjects to SOAP xml. If the exchange or message has an      * EXCEPTION_CAUGTH property or header then instead of the object the      * exception is marshaled.      *       * To determine the name of the top level xml elements the elementNameStrategy      * is used.      */
 DECL|method|marshal (Exchange exchange, Object inputObject, OutputStream stream)
 specifier|public
 name|void
@@ -606,8 +606,6 @@ name|stream
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SAXException
 block|{
 name|checkElementNameStrategy
 argument_list|(
@@ -1231,7 +1229,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Unmarshal a given SOAP xml stream and return the content of the SOAP body      * @throws IOException,SAXException      */
+comment|/**      * Unmarshal a given SOAP xml stream and return the content of the SOAP body      */
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
 name|Object
@@ -1245,8 +1243,6 @@ name|stream
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SAXException
 block|{
 name|checkElementNameStrategy
 argument_list|(
