@@ -1086,6 +1086,36 @@ name|Message
 name|getIn
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the current message      *      * @return the current message      */
+DECL|method|getMessage ()
+name|Message
+name|getMessage
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the current message as the given type      *      * @param type the given type      * @return the message as the given type or<tt>null</tt> if not possible to covert to given type      */
+DECL|method|getMessage (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getMessage
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Replace the current message instance.      *      * @param message the new message      */
+DECL|method|setMessage (Message message)
+name|void
+name|setMessage
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the inbound request message as the given type      *      * @param type the given type      * @return the message as the given type or<tt>null</tt> if not possible to covert to given type      */
 DECL|method|getIn (Class<T> type)
 parameter_list|<
