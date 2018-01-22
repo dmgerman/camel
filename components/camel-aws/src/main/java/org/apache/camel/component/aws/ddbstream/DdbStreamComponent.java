@@ -345,6 +345,13 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
