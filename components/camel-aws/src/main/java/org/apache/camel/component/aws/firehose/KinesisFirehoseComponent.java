@@ -305,7 +305,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"AmazonKinesisClient or accessKey and secretKey must be specified"
+literal|"AmazonKinesisFirehoseClient or accessKey and secretKey must be specified"
 argument_list|)
 throw|;
 block|}
