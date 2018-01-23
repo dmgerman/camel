@@ -26,26 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -100,30 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -160,20 +116,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|LoggingExceptionHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|ExceptionHandler
@@ -188,9 +130,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|RoutePolicy
+name|LoggingExceptionHandler
 import|;
 end_import
 
@@ -205,20 +147,6 @@ operator|.
 name|support
 operator|.
 name|RoutePolicySupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
 import|;
 end_import
 
@@ -310,8 +238,6 @@ DECL|method|DnsActivationPolicy ()
 specifier|public
 name|DnsActivationPolicy
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|dnsActivation
 operator|=
@@ -579,7 +505,6 @@ argument_list|,
 name|ttl
 argument_list|)
 expr_stmt|;
-comment|// noop
 block|}
 annotation|@
 name|Override
@@ -615,7 +540,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|// noop
 block|}
 DECL|method|getExceptionHandler ()
 specifier|public

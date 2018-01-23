@@ -205,6 +205,7 @@ name|hostname
 decl_stmt|;
 DECL|field|resolvesTo
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -222,8 +223,6 @@ DECL|method|DnsActivation ()
 specifier|public
 name|DnsActivation
 parameter_list|()
-throws|throws
-name|Exception
 block|{     }
 DECL|method|DnsActivation (String hostname, List<String> resolvesTo)
 specifier|public
@@ -238,8 +237,6 @@ name|String
 argument_list|>
 name|resolvesTo
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|this
 operator|.
@@ -368,7 +365,7 @@ operator|+
 name|hostname
 argument_list|)
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -388,7 +385,7 @@ argument_list|(
 name|hostname
 argument_list|)
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
