@@ -1306,6 +1306,13 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+name|mllpBuffer
+operator|.
+name|resetSocket
+argument_list|(
+name|socket
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
