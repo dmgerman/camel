@@ -499,6 +499,20 @@ name|useEncryption
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Define if KMS must be used or not          */
+DECL|field|useAwsKMS
+specifier|private
+name|Boolean
+name|useAwsKMS
+init|=
+literal|false
+decl_stmt|;
+comment|/**          * Define the id of KMS key to use in case KMS is enabled          */
+DECL|field|awsKMSKeyId
+specifier|private
+name|String
+name|awsKMSKeyId
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|Long
@@ -1095,6 +1109,58 @@ operator|.
 name|useEncryption
 operator|=
 name|useEncryption
+expr_stmt|;
+block|}
+DECL|method|getUseAwsKMS ()
+specifier|public
+name|Boolean
+name|getUseAwsKMS
+parameter_list|()
+block|{
+return|return
+name|useAwsKMS
+return|;
+block|}
+DECL|method|setUseAwsKMS (Boolean useAwsKMS)
+specifier|public
+name|void
+name|setUseAwsKMS
+parameter_list|(
+name|Boolean
+name|useAwsKMS
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useAwsKMS
+operator|=
+name|useAwsKMS
+expr_stmt|;
+block|}
+DECL|method|getAwsKMSKeyId ()
+specifier|public
+name|String
+name|getAwsKMSKeyId
+parameter_list|()
+block|{
+return|return
+name|awsKMSKeyId
+return|;
+block|}
+DECL|method|setAwsKMSKeyId (String awsKMSKeyId)
+specifier|public
+name|void
+name|setAwsKMSKeyId
+parameter_list|(
+name|String
+name|awsKMSKeyId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|awsKMSKeyId
+operator|=
+name|awsKMSKeyId
 expr_stmt|;
 block|}
 block|}

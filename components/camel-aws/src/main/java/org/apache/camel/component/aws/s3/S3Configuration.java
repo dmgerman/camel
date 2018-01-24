@@ -398,6 +398,34 @@ specifier|private
 name|boolean
 name|useEncryption
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useAwsKMS
+specifier|private
+name|boolean
+name|useAwsKMS
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|awsKMSKeyId
+specifier|private
+name|String
+name|awsKMSKeyId
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|long
@@ -1018,6 +1046,60 @@ operator|.
 name|useEncryption
 operator|=
 name|useEncryption
+expr_stmt|;
+block|}
+DECL|method|isUseAwsKMS ()
+specifier|public
+name|boolean
+name|isUseAwsKMS
+parameter_list|()
+block|{
+return|return
+name|useAwsKMS
+return|;
+block|}
+comment|/**      * Define if KMS must be used or not      */
+DECL|method|setUseAwsKMS (boolean useAwsKMS)
+specifier|public
+name|void
+name|setUseAwsKMS
+parameter_list|(
+name|boolean
+name|useAwsKMS
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useAwsKMS
+operator|=
+name|useAwsKMS
+expr_stmt|;
+block|}
+DECL|method|getAwsKMSKeyId ()
+specifier|public
+name|String
+name|getAwsKMSKeyId
+parameter_list|()
+block|{
+return|return
+name|awsKMSKeyId
+return|;
+block|}
+comment|/**      * Define the id of KMS key to use in case KMS is enabled      */
+DECL|method|setAwsKMSKeyId (String awsKMSKeyId)
+specifier|public
+name|void
+name|setAwsKMSKeyId
+parameter_list|(
+name|String
+name|awsKMSKeyId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|awsKMSKeyId
+operator|=
+name|awsKMSKeyId
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
