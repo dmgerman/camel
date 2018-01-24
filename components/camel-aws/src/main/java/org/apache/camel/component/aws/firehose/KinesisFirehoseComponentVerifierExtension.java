@@ -495,7 +495,7 @@ argument_list|)
 operator|.
 name|detail
 argument_list|(
-literal|"aws_ddb_exception_message"
+literal|"aws_kinesis_firehose_exception_message"
 argument_list|,
 name|e
 operator|.
