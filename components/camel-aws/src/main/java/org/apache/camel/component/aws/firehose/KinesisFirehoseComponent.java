@@ -169,6 +169,13 @@ operator|new
 name|KinesisFirehoseConfiguration
 argument_list|()
 expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|KinesisFirehoseComponentVerifierExtension
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
