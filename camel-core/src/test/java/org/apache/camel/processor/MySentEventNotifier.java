@@ -76,10 +76,6 @@ name|EventNotifierSupport
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|MySentEventNotifier
 specifier|public
@@ -93,22 +89,20 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|ExchangeSentEvent
+name|EventObject
 argument_list|>
 name|events
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ExchangeSentEvent
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|getEvents ()
 specifier|public
 name|List
 argument_list|<
-name|ExchangeSentEvent
+name|EventObject
 argument_list|>
 name|getEvents
 parameter_list|()
@@ -135,19 +129,11 @@ operator|instanceof
 name|ExchangeSentEvent
 condition|)
 block|{
-name|ExchangeSentEvent
-name|sent
-init|=
-operator|(
-name|ExchangeSentEvent
-operator|)
-name|event
-decl_stmt|;
 name|events
 operator|.
 name|add
 argument_list|(
-name|sent
+name|event
 argument_list|)
 expr_stmt|;
 block|}
@@ -167,6 +153,26 @@ name|event
 operator|instanceof
 name|ExchangeSentEvent
 return|;
+block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class
