@@ -34,6 +34,9 @@ name|createBroker
 block|,
 DECL|enumConstant|deleteBroker
 name|deleteBroker
+block|,
+DECL|enumConstant|rebootBroker
+name|rebootBroker
 block|}
 end_enum
 
