@@ -44,6 +44,20 @@ name|services
 operator|.
 name|s3
 operator|.
+name|S3ClientOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
 name|model
 operator|.
 name|EncryptionMaterials
@@ -397,6 +411,22 @@ DECL|field|useEncryption
 specifier|private
 name|boolean
 name|useEncryption
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common, advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|chunkedEncodingDisabled
+specifier|private
+name|boolean
+name|chunkedEncodingDisabled
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1100,6 +1130,33 @@ operator|.
 name|awsKMSKeyId
 operator|=
 name|awsKMSKeyId
+expr_stmt|;
+block|}
+DECL|method|isChunkedEncodingDisabled ()
+specifier|public
+name|boolean
+name|isChunkedEncodingDisabled
+parameter_list|()
+block|{
+return|return
+name|chunkedEncodingDisabled
+return|;
+block|}
+comment|/**      * Define if disabled Chunked Encoding is true or false      */
+DECL|method|setChunkedEncodingDisabled (boolean chunkedEncodingDisabled)
+specifier|public
+name|void
+name|setChunkedEncodingDisabled
+parameter_list|(
+name|boolean
+name|chunkedEncodingDisabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|chunkedEncodingDisabled
+operator|=
+name|chunkedEncodingDisabled
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
