@@ -513,6 +513,14 @@ specifier|private
 name|String
 name|awsKMSKeyId
 decl_stmt|;
+comment|/**          * Define if disabled Chunked Encoding is true or false          */
+DECL|field|chunkedEncodingDisabled
+specifier|private
+name|Boolean
+name|chunkedEncodingDisabled
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|Long
@@ -1161,6 +1169,32 @@ operator|.
 name|awsKMSKeyId
 operator|=
 name|awsKMSKeyId
+expr_stmt|;
+block|}
+DECL|method|getChunkedEncodingDisabled ()
+specifier|public
+name|Boolean
+name|getChunkedEncodingDisabled
+parameter_list|()
+block|{
+return|return
+name|chunkedEncodingDisabled
+return|;
+block|}
+DECL|method|setChunkedEncodingDisabled (Boolean chunkedEncodingDisabled)
+specifier|public
+name|void
+name|setChunkedEncodingDisabled
+parameter_list|(
+name|Boolean
+name|chunkedEncodingDisabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|chunkedEncodingDisabled
+operator|=
+name|chunkedEncodingDisabled
 expr_stmt|;
 block|}
 block|}
