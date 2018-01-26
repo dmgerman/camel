@@ -728,17 +728,22 @@ specifier|private
 name|String
 name|tailTrackField
 decl_stmt|;
-DECL|field|tailTrackingConfig
-specifier|private
-name|MongoDbTailTrackingConfig
-name|tailTrackingConfig
-decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|outputType
 specifier|private
 name|MongoDbOutputType
 name|outputType
+decl_stmt|;
+DECL|field|tailTrackingConfig
+specifier|private
+name|MongoDbTailTrackingConfig
+name|tailTrackingConfig
 decl_stmt|;
 DECL|field|mongoDatabase
 specifier|private
@@ -2387,7 +2392,7 @@ return|return
 name|outputType
 return|;
 block|}
-comment|/**      * Convert the output of the producer to the selected type : "DocumentList",      * "Document" or "MongoIterable". DocumentList or Document applies to      * findAll. MongoIterable applies to all other operations.      *       * @param outputType      */
+comment|/**      * Convert the output of the producer to the selected type : DocumentList Document or MongoIterable.       * DocumentList or MongoIterable applies to findAll and aggregate. Document applies to all other operations.      * @param outputType      */
 DECL|method|setOutputType (MongoDbOutputType outputType)
 specifier|public
 name|void

@@ -646,17 +646,22 @@ specifier|private
 name|String
 name|tailTrackField
 decl_stmt|;
-DECL|field|tailTrackingConfig
-specifier|private
-name|MongoDbTailTrackingConfig
-name|tailTrackingConfig
-decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|outputType
 specifier|private
 name|MongoDbOutputType
 name|outputType
+decl_stmt|;
+DECL|field|tailTrackingConfig
+specifier|private
+name|MongoDbTailTrackingConfig
+name|tailTrackingConfig
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -2495,7 +2500,7 @@ return|return
 name|outputType
 return|;
 block|}
-comment|/**      * Convert the output of the producer to the selected type : "DBObjectList", "DBObject" or "DBCursor".      * DBObjectList or DBObject applies to findAll.      * DBCursor applies to all other operations.      * @param outputType      */
+comment|/**      * Convert the output of the producer to the selected type : DBObjectList DBObject or DBCursor.       * DBObjectList or DBCursor applies to findAll and aggregate. DBObject applies to all other operations.       * @param outputType      */
 DECL|method|setOutputType (MongoDbOutputType outputType)
 specifier|public
 name|void
