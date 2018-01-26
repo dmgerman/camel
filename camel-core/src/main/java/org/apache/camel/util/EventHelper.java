@@ -3579,7 +3579,7 @@ argument_list|()
 operator|||
 name|notifier
 operator|.
-name|isIgnoreExchangeSentEvents
+name|isIgnoreExchangeSendingEvents
 argument_list|()
 condition|)
 block|{
