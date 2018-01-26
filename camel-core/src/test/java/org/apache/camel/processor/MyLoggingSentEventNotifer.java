@@ -83,6 +83,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// react only when its the sent event
 if|if
 condition|(
 name|event
@@ -126,11 +127,8 @@ name|EventObject
 name|event
 parameter_list|)
 block|{
-comment|// we only want the sent events
 return|return
-name|event
-operator|instanceof
-name|ExchangeSentEvent
+literal|true
 return|;
 block|}
 DECL|method|doStart ()

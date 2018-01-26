@@ -147,11 +147,8 @@ name|EventObject
 name|event
 parameter_list|)
 block|{
-comment|// we only want the sent events
 return|return
-name|event
-operator|instanceof
-name|ExchangeSentEvent
+literal|true
 return|;
 block|}
 DECL|method|doStart ()
