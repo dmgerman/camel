@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Event for<b>after</b> an {@link Exchange} has been sent to an {@link Endpoint}.  *  * @see ExchangeSendingEvent  * @version  */
+comment|/**  * Event for<b>after</b> an {@link Exchange} has been sent to an {@link Endpoint}.  * The {@link ExchangeSentEvent} is an event which is emitted<b>after</b> the sending is done.  *<p/>  * These two events (sending and sent) come in pair, and therefore you need to make sure to return  *<tt>true</tt> for both events in the {@link org.apache.camel.spi.EventNotifier#isEnabled(EventObject)}  * method to receive events for either of them.  *  * @see ExchangeSendingEvent  * @version  */
 end_comment
 
 begin_class
