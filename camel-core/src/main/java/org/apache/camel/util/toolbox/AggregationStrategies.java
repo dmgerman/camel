@@ -207,6 +207,20 @@ name|GroupedExchangeAggregationStrategy
 argument_list|()
 return|;
 block|}
+comment|/**      * Creates a {@link BatchAggregationStrategy} aggregation strategy.      */
+DECL|method|batch ()
+specifier|public
+specifier|static
+name|AggregationStrategy
+name|batch
+parameter_list|()
+block|{
+return|return
+operator|new
+name|BatchAggregationStrategy
+argument_list|()
+return|;
+block|}
 comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
 DECL|method|bean (Object bean)
 specifier|public
