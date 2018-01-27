@@ -389,7 +389,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"common"
+literal|"common,advanced"
 argument_list|)
 DECL|field|encryptionMaterials
 specifier|private
@@ -401,7 +401,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"common"
+literal|"common,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -433,7 +433,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -449,7 +449,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|awsKMSKeyId
 specifier|private
