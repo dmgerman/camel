@@ -518,11 +518,11 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"PAGE_SIZE_A4"
+literal|"A4"
 argument_list|,
 name|enums
 operator|=
-literal|"PAGE_SIZE_A0,PAGE_SIZE_A1,PAGE_SIZE_A2,PAGE_SIZE_A3,PAGE_SIZE_A4,PAGE_SIZE_A5,PAGE_SIZE_A6,PAGE_SIZE_LETTER"
+literal|"LETTER,LEGAL,A0,A1,A2,A3,A4,A5,A6"
 argument_list|)
 DECL|field|pageSize
 specifier|private
