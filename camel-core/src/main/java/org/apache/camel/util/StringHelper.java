@@ -2619,13 +2619,16 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Outputs the bytes in human readable format in units of KB,MB,GB etc.      *      * @param bytes number of bytes      * @return human readable output      */
-DECL|method|humanReadableBytes (long bytes)
+comment|/**      * Outputs the bytes in human readable format in units of KB,MB,GB etc.      *      * @param locale The locale to apply during formatting. If l is {@code null} then no localization is applied.      * @param bytes number of bytes      * @return human readable output      * @see java.lang.String#format(Locale, String, Object...)      */
+DECL|method|humanReadableBytes (Locale locale, long bytes)
 specifier|public
 specifier|static
 name|String
 name|humanReadableBytes
 parameter_list|(
+name|Locale
+name|locale
+parameter_list|,
 name|long
 name|bytes
 parameter_list|)
@@ -2689,6 +2692,8 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|locale
+argument_list|,
 literal|"%.1f %sB"
 argument_list|,
 name|bytes
@@ -2703,6 +2708,29 @@ name|exp
 argument_list|)
 argument_list|,
 name|pre
+argument_list|)
+return|;
+block|}
+comment|/**      * Outputs the bytes in human readable format in units of KB,MB,GB etc.      *      * The locale always used is the one returned by {@link java.util.Locale#getDefault()}.       *      * @param bytes number of bytes      * @return human readable output      * @see org.apache.camel.util.StringHelper#humanReadableBytes(Locale, long)      */
+DECL|method|humanReadableBytes (long bytes)
+specifier|public
+specifier|static
+name|String
+name|humanReadableBytes
+parameter_list|(
+name|long
+name|bytes
+parameter_list|)
+block|{
+return|return
+name|humanReadableBytes
+argument_list|(
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
+argument_list|,
+name|bytes
 argument_list|)
 return|;
 block|}
