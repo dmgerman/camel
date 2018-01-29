@@ -545,6 +545,14 @@ name|payloadSigningEnabled
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Define if Force Global Bucket Access enabled is true or false          */
+DECL|field|forceGlobalBucketAccessEnabled
+specifier|private
+name|Boolean
+name|forceGlobalBucketAccessEnabled
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|Long
@@ -1297,6 +1305,32 @@ operator|.
 name|payloadSigningEnabled
 operator|=
 name|payloadSigningEnabled
+expr_stmt|;
+block|}
+DECL|method|getForceGlobalBucketAccessEnabled ()
+specifier|public
+name|Boolean
+name|getForceGlobalBucketAccessEnabled
+parameter_list|()
+block|{
+return|return
+name|forceGlobalBucketAccessEnabled
+return|;
+block|}
+DECL|method|setForceGlobalBucketAccessEnabled ( Boolean forceGlobalBucketAccessEnabled)
+specifier|public
+name|void
+name|setForceGlobalBucketAccessEnabled
+parameter_list|(
+name|Boolean
+name|forceGlobalBucketAccessEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceGlobalBucketAccessEnabled
+operator|=
+name|forceGlobalBucketAccessEnabled
 expr_stmt|;
 block|}
 block|}

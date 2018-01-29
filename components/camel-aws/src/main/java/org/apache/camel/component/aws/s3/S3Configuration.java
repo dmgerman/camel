@@ -467,6 +467,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"common, advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|forceGlobalBucketAccessEnabled
+specifier|private
+name|boolean
+name|forceGlobalBucketAccessEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer,advanced"
 argument_list|,
 name|defaultValue
@@ -1272,6 +1288,33 @@ operator|.
 name|payloadSigningEnabled
 operator|=
 name|payloadSigningEnabled
+expr_stmt|;
+block|}
+DECL|method|isForceGlobalBucketAccessEnabled ()
+specifier|public
+name|boolean
+name|isForceGlobalBucketAccessEnabled
+parameter_list|()
+block|{
+return|return
+name|forceGlobalBucketAccessEnabled
+return|;
+block|}
+comment|/**      * Define if Force Global Bucket Access enabled is true or false      */
+DECL|method|setForceGlobalBucketAccessEnabled (boolean forceGlobalBucketAccessEnabled)
+specifier|public
+name|void
+name|setForceGlobalBucketAccessEnabled
+parameter_list|(
+name|boolean
+name|forceGlobalBucketAccessEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceGlobalBucketAccessEnabled
+operator|=
+name|forceGlobalBucketAccessEnabled
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
