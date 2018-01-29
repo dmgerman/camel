@@ -143,16 +143,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runnable to handle the ServerSocket.accept requests  */
+comment|/**  * Thread to handle the ServerSocket.accept requests, and submit the sockets to the accept executor for validation.  */
 end_comment
 
 begin_class
-DECL|class|TcpServerAcceptRunnable
+DECL|class|TcpServerAcceptThread
 specifier|public
 class|class
-name|TcpServerAcceptRunnable
-implements|implements
-name|Runnable
+name|TcpServerAcceptThread
+extends|extends
+name|Thread
 block|{
 DECL|field|log
 name|Logger
@@ -180,9 +180,9 @@ DECL|field|running
 name|boolean
 name|running
 decl_stmt|;
-DECL|method|TcpServerAcceptRunnable (MllpTcpServerConsumer consumer, ServerSocket serverSocket)
+DECL|method|TcpServerAcceptThread (MllpTcpServerConsumer consumer, ServerSocket serverSocket)
 specifier|public
-name|TcpServerAcceptRunnable
+name|TcpServerAcceptThread
 parameter_list|(
 name|MllpTcpServerConsumer
 name|consumer
@@ -456,14 +456,6 @@ operator|.
 name|accept
 argument_list|()
 expr_stmt|;
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|updateLastConnectionEstablishedTicks
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -586,7 +578,7 @@ block|{
 comment|// Try and avoid starting client threads for things like security scans and load balancer probes
 name|consumer
 operator|.
-name|startConsumer
+name|validateConsumer
 argument_list|(
 name|socket
 argument_list|)
@@ -676,16 +668,66 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|stop ()
+annotation|@
+name|Override
+DECL|method|interrupt ()
 specifier|public
 name|void
-name|stop
+name|interrupt
 parameter_list|()
 block|{
+name|this
+operator|.
 name|running
 operator|=
 literal|false
 expr_stmt|;
+name|super
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+literal|null
+operator|!=
+name|serverSocket
+condition|)
+block|{
+if|if
+condition|(
+name|serverSocket
+operator|.
+name|isBound
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|serverSocket
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioEx
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Exception encountered closing ServerSocket in interrupt() method - ignoring"
+argument_list|,
+name|ioEx
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 block|}
 end_class

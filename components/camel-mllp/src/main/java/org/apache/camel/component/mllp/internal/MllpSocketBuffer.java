@@ -875,6 +875,48 @@ name|MllpSocketException
 throws|,
 name|SocketTimeoutException
 block|{
+name|readFrom
+argument_list|(
+name|socket
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReceiveTimeout
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReadTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|readFrom (Socket socket, int receiveTimeout, int readTimeout)
+specifier|public
+specifier|synchronized
+name|void
+name|readFrom
+parameter_list|(
+name|Socket
+name|socket
+parameter_list|,
+name|int
+name|receiveTimeout
+parameter_list|,
+name|int
+name|readTimeout
+parameter_list|)
+throws|throws
+name|MllpSocketException
+throws|,
+name|SocketTimeoutException
+block|{
 name|log
 operator|.
 name|trace
@@ -919,13 +961,7 @@ name|socket
 operator|.
 name|setSoTimeout
 argument_list|(
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getReceiveTimeout
-argument_list|()
+name|receiveTimeout
 argument_list|)
 expr_stmt|;
 name|readSocketInputStream
@@ -946,13 +982,7 @@ name|socket
 operator|.
 name|setSoTimeout
 argument_list|(
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getReadTimeout
-argument_list|()
+name|readTimeout
 argument_list|)
 expr_stmt|;
 while|while
@@ -1341,9 +1371,9 @@ DECL|method|toByteArray ()
 specifier|public
 specifier|synchronized
 name|byte
-name|toByteArray
-argument_list|()
 index|[]
+name|toByteArray
+parameter_list|()
 block|{
 if|if
 condition|(
@@ -1367,34 +1397,28 @@ return|return
 literal|null
 return|;
 block|}
-end_class
-
-begin_expr_stmt
 DECL|method|toByteArrayAndReset ()
 specifier|public
 specifier|synchronized
 name|byte
-name|toByteArrayAndReset
-argument_list|()
 index|[]
+name|toByteArrayAndReset
+parameter_list|()
 block|{
 name|byte
 index|[]
 name|answer
-operator|=
+init|=
 name|toByteArray
 argument_list|()
-block|;
+decl_stmt|;
 name|reset
 argument_list|()
-block|;
+expr_stmt|;
 return|return
 name|answer
 return|;
 block|}
-end_expr_stmt
-
-begin_function
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1411,9 +1435,6 @@ name|DEFAULT_CHARSET
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|toString (Charset charset)
 specifier|public
 specifier|synchronized
@@ -1449,9 +1470,6 @@ return|return
 literal|""
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|toString (String charsetName)
 specifier|public
 specifier|synchronized
@@ -1537,13 +1555,52 @@ return|return
 literal|""
 return|;
 block|}
-end_function
-
-begin_comment
+DECL|method|toStringAndReset ()
+specifier|public
+specifier|synchronized
+name|String
+name|toStringAndReset
+parameter_list|()
+block|{
+name|String
+name|answer
+init|=
+name|toString
+argument_list|()
+decl_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+DECL|method|toStringAndReset (String charsetName)
+specifier|public
+specifier|synchronized
+name|String
+name|toStringAndReset
+parameter_list|(
+name|String
+name|charsetName
+parameter_list|)
+block|{
+name|String
+name|answer
+init|=
+name|toString
+argument_list|(
+name|charsetName
+argument_list|)
+decl_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Convert the entire contents of the buffer (including enveloping characters) to a print-friendly      * String representation.      *      * @return print-friendly String      */
-end_comment
-
-begin_function
 DECL|method|toPrintFriendlyString ()
 specifier|public
 specifier|synchronized
@@ -1575,9 +1632,6 @@ return|return
 literal|""
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|toHl7String ()
 specifier|public
 specifier|synchronized
@@ -1599,9 +1653,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|toHl7String (String charsetName)
 specifier|public
 specifier|synchronized
@@ -1724,13 +1775,7 @@ return|return
 name|hl7String
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Convert the enveloped contents of the buffer (excluding enveloping characters) to a print-friendly      * String representation.      *      * @return print-friendly String      */
-end_comment
-
-begin_function
 DECL|method|toPrintFriendlyHl7String ()
 specifier|public
 specifier|synchronized
@@ -1785,9 +1830,6 @@ return|return
 literal|""
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|toMllpPayload ()
 specifier|public
 specifier|synchronized
@@ -1883,9 +1925,6 @@ return|return
 name|mllpPayload
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getMllpPayloadLength ()
 specifier|public
 specifier|synchronized
@@ -1936,9 +1975,6 @@ return|return
 name|answer
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getStartOfBlockIndex ()
 specifier|public
 specifier|synchronized
@@ -1950,9 +1986,6 @@ return|return
 name|startOfBlockIndex
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getEndOfBlockIndex ()
 specifier|public
 specifier|synchronized
@@ -1964,9 +1997,6 @@ return|return
 name|endOfBlockIndex
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|hasCompleteEnvelope ()
 specifier|public
 specifier|synchronized
@@ -2003,9 +2033,6 @@ return|return
 literal|false
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|hasStartOfBlock ()
 specifier|public
 specifier|synchronized
@@ -2025,9 +2052,6 @@ else|:
 literal|false
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|hasEndOfBlock ()
 specifier|public
 specifier|synchronized
@@ -2047,9 +2071,6 @@ else|:
 literal|false
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|hasEndOfData ()
 specifier|public
 specifier|synchronized
@@ -2099,9 +2120,6 @@ return|return
 literal|false
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|hasOutOfBandData ()
 specifier|public
 specifier|synchronized
@@ -2117,9 +2135,6 @@ name|hasTrailingOutOfBandData
 argument_list|()
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|hasLeadingOutOfBandData ()
 specifier|public
 specifier|synchronized
@@ -2155,9 +2170,6 @@ return|return
 literal|false
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|hasTrailingOutOfBandData ()
 specifier|public
 specifier|synchronized
@@ -2227,9 +2239,6 @@ return|return
 literal|false
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getLeadingOutOfBandData ()
 specifier|public
 specifier|synchronized
@@ -2287,9 +2296,6 @@ return|return
 name|outOfBandData
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getTrailingOutOfBandData ()
 specifier|public
 specifier|synchronized
@@ -2360,9 +2366,6 @@ return|return
 name|outOfBandData
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|size ()
 specifier|public
 specifier|synchronized
@@ -2374,9 +2377,6 @@ return|return
 name|availableByteCount
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|capacity ()
 specifier|public
 specifier|synchronized
@@ -2404,9 +2404,6 @@ operator|-
 literal|1
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|bufferSize ()
 specifier|public
 specifier|synchronized
@@ -2432,13 +2429,7 @@ operator|-
 literal|1
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Get the internal buffer.      *      * USE WITH CAUTION!!      *      * @return      */
-end_comment
-
-begin_function
 DECL|method|getBuffer ()
 specifier|public
 name|byte
@@ -2450,9 +2441,6 @@ return|return
 name|buffer
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|ensureCapacity (int requiredAvailableCapacity)
 name|void
 name|ensureCapacity
@@ -2606,9 +2594,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|updateIndexes (int b, int indexOffset)
 name|void
 name|updateIndexes
@@ -2625,7 +2610,10 @@ condition|(
 name|startOfBlockIndex
 operator|<
 literal|0
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|b
 operator|==
 name|MllpProtocolConstants
@@ -2639,6 +2627,7 @@ name|availableByteCount
 operator|+
 name|indexOffset
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -2662,9 +2651,6 @@ name|indexOffset
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|readSocketInputStream (InputStream socketInputStream, Socket socket)
 name|void
 name|readSocketInputStream
@@ -2886,9 +2872,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|closeSocket (Socket socket)
 specifier|public
 name|void
@@ -2908,9 +2891,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|closeSocket (Socket socket, String logMessage)
 specifier|public
 name|void
@@ -2933,9 +2913,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|resetSocket (Socket socket)
 specifier|public
 name|void
@@ -2955,9 +2932,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|resetSocket (Socket socket, String logMessage)
 specifier|public
 name|void
@@ -2980,9 +2954,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|doSocketClose (Socket socket, String logMessage, boolean reset)
 name|void
 name|doSocketClose
@@ -3177,9 +3148,6 @@ comment|// TODO: Maybe log this
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|isConnectionValid (Socket socket)
 specifier|public
 specifier|static
@@ -3207,9 +3175,6 @@ name|isClosed
 argument_list|()
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|formatAddressString (SocketAddress sourceAddress, SocketAddress targetAddress)
 specifier|public
 specifier|static
@@ -3276,8 +3241,8 @@ name|targetAddressString
 argument_list|)
 return|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 

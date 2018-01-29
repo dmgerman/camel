@@ -2116,8 +2116,10 @@ operator|.
 name|END_OF_BLOCK
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
+literal|"START_OF_BLOCK before an END_OF_BLOCK"
+argument_list|,
 name|instance
 operator|.
 name|hasEndOfBlock
@@ -2369,8 +2371,10 @@ operator|.
 name|END_OF_DATA
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
+literal|"Need a START_OF_BLOCK before the END_OF_DATA"
+argument_list|,
 name|instance
 operator|.
 name|hasEndOfData

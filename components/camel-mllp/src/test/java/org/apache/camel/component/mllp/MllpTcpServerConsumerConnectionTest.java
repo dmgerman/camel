@@ -232,6 +232,14 @@ specifier|final
 name|int
 name|RECEIVE_TIMEOUT
 init|=
+literal|1000
+decl_stmt|;
+DECL|field|READ_TIMEOUT
+specifier|static
+specifier|final
+name|int
+name|READ_TIMEOUT
+init|=
 literal|500
 decl_stmt|;
 annotation|@
@@ -328,7 +336,7 @@ parameter_list|()
 block|{
 name|fromF
 argument_list|(
-literal|"mllp://%s:%d?autoAck=false"
+literal|"mllp://%s:%d?receiveTimeout=%d&readTimeout=%d&autoAck=false"
 argument_list|,
 name|mllpClient
 operator|.
@@ -339,6 +347,10 @@ name|mllpClient
 operator|.
 name|getMllpPort
 argument_list|()
+argument_list|,
+name|RECEIVE_TIMEOUT
+argument_list|,
+name|READ_TIMEOUT
 argument_list|)
 operator|.
 name|log

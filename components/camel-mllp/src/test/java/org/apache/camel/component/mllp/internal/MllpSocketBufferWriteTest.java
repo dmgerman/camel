@@ -214,7 +214,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|instance
 operator|.
@@ -536,7 +537,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|4
+operator|-
+literal|1
 argument_list|,
 name|instance
 operator|.
