@@ -350,14 +350,8 @@ name|ClientBuilder
 operator|.
 name|newBuilder
 argument_list|()
-operator|.
-name|executorService
-argument_list|(
-name|sagaService
-operator|.
-name|getExecutorService
-argument_list|()
-argument_list|)
+comment|// CAMEL-12204: disabled for compatibility with JAX-RS 2.0
+comment|//.executorService(sagaService.getExecutorService())
 operator|.
 name|build
 argument_list|()
