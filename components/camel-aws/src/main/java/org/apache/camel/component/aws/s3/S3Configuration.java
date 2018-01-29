@@ -409,10 +409,10 @@ name|defaultValue
 operator|=
 literal|"false"
 argument_list|)
-DECL|field|chunkedEncodingEnabled
+DECL|field|chunkedEncodingDisabled
 specifier|private
 name|boolean
-name|chunkedEncodingEnabled
+name|chunkedEncodingDisabled
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1118,31 +1118,31 @@ operator|=
 name|awsKMSKeyId
 expr_stmt|;
 block|}
-DECL|method|isChunkedEncodingEnabled ()
+DECL|method|isChunkedEncodingDisabled ()
 specifier|public
 name|boolean
-name|isChunkedEncodingEnabled
+name|isChunkedEncodingDisabled
 parameter_list|()
 block|{
 return|return
-name|chunkedEncodingEnabled
+name|chunkedEncodingDisabled
 return|;
 block|}
 comment|/**      * Define if disabled Chunked Encoding is true or false      */
-DECL|method|setChunkedEncodingEnabled (boolean chunkedEncodingEnabled)
+DECL|method|setChunkedEncodingDisabled (boolean chunkedEncodingDisabled)
 specifier|public
 name|void
-name|setChunkedEncodingEnabled
+name|setChunkedEncodingDisabled
 parameter_list|(
 name|boolean
-name|chunkedEncodingEnabled
+name|chunkedEncodingDisabled
 parameter_list|)
 block|{
 name|this
 operator|.
-name|chunkedEncodingEnabled
+name|chunkedEncodingDisabled
 operator|=
-name|chunkedEncodingEnabled
+name|chunkedEncodingDisabled
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
