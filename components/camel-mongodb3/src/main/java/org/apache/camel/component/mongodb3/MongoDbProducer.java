@@ -3414,7 +3414,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|Document
+name|Bson
 name|removeObj
 init|=
 name|exchange
@@ -3424,7 +3424,7 @@ argument_list|()
 operator|.
 name|getMandatoryBody
 argument_list|(
-name|Document
+name|Bson
 operator|.
 name|class
 argument_list|)

@@ -88,6 +88,20 @@ name|mongodb
 operator|.
 name|client
 operator|.
+name|model
+operator|.
+name|Filters
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
 name|result
 operator|.
 name|DeleteResult
@@ -2086,7 +2100,6 @@ init|=
 operator|new
 name|Formatter
 argument_list|()
-init|;
 init|)
 block|{
 if|if
@@ -2157,11 +2170,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Testing the update logic
-name|Document
+name|Bson
 name|extraField
 init|=
-operator|new
-name|Document
+name|Filters
+operator|.
+name|eq
 argument_list|(
 literal|"extraField"
 argument_list|,
