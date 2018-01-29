@@ -514,10 +514,10 @@ name|String
 name|awsKMSKeyId
 decl_stmt|;
 comment|/**          * Define if disabled Chunked Encoding is true or false          */
-DECL|field|chunkedEncodingDisabled
+DECL|field|chunkedEncodingEnabled
 specifier|private
 name|Boolean
-name|chunkedEncodingDisabled
+name|chunkedEncodingEnabled
 init|=
 literal|false
 decl_stmt|;
@@ -1171,30 +1171,30 @@ operator|=
 name|awsKMSKeyId
 expr_stmt|;
 block|}
-DECL|method|getChunkedEncodingDisabled ()
+DECL|method|getChunkedEncodingEnabled ()
 specifier|public
 name|Boolean
-name|getChunkedEncodingDisabled
+name|getChunkedEncodingEnabled
 parameter_list|()
 block|{
 return|return
-name|chunkedEncodingDisabled
+name|chunkedEncodingEnabled
 return|;
 block|}
-DECL|method|setChunkedEncodingDisabled (Boolean chunkedEncodingDisabled)
+DECL|method|setChunkedEncodingEnabled (Boolean chunkedEncodingEnabled)
 specifier|public
 name|void
-name|setChunkedEncodingDisabled
+name|setChunkedEncodingEnabled
 parameter_list|(
 name|Boolean
-name|chunkedEncodingDisabled
+name|chunkedEncodingEnabled
 parameter_list|)
 block|{
 name|this
 operator|.
-name|chunkedEncodingDisabled
+name|chunkedEncodingEnabled
 operator|=
-name|chunkedEncodingDisabled
+name|chunkedEncodingEnabled
 expr_stmt|;
 block|}
 block|}

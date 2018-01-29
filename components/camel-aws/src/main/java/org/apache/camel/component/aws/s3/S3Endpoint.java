@@ -1665,7 +1665,7 @@ name|withChunkedEncodingDisabled
 argument_list|(
 name|configuration
 operator|.
-name|isChunkedEncodingDisabled
+name|isChunkedEncodingEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1730,7 +1730,7 @@ name|withChunkedEncodingDisabled
 argument_list|(
 name|configuration
 operator|.
-name|isChunkedEncodingDisabled
+name|isChunkedEncodingEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1880,7 +1880,7 @@ name|withChunkedEncodingDisabled
 argument_list|(
 name|configuration
 operator|.
-name|isChunkedEncodingDisabled
+name|isChunkedEncodingEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1945,7 +1945,7 @@ name|withChunkedEncodingDisabled
 argument_list|(
 name|configuration
 operator|.
-name|isChunkedEncodingDisabled
+name|isChunkedEncodingEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;

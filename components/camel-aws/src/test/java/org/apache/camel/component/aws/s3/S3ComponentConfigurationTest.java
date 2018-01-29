@@ -1275,7 +1275,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-s3://MyBucket?chunkedEncodingDisabled=true&accessKey=xxx&secretKey=yyy&region=US_WEST_1"
+literal|"aws-s3://MyBucket?chunkedEncodingEnabled=true&accessKey=xxx&secretKey=yyy&region=US_WEST_1"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1324,7 +1324,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|isChunkedEncodingDisabled
+name|isChunkedEncodingEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;
