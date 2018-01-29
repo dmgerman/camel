@@ -529,6 +529,13 @@ name|accelerateModeEnabled
 init|=
 literal|false
 decl_stmt|;
+DECL|field|dualstackEnabled
+specifier|private
+name|Boolean
+name|dualstackEnabled
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|Long
@@ -1229,6 +1236,32 @@ operator|.
 name|accelerateModeEnabled
 operator|=
 name|accelerateModeEnabled
+expr_stmt|;
+block|}
+DECL|method|getDualstackEnabled ()
+specifier|public
+name|Boolean
+name|getDualstackEnabled
+parameter_list|()
+block|{
+return|return
+name|dualstackEnabled
+return|;
+block|}
+DECL|method|setDualstackEnabled (Boolean dualstackEnabled)
+specifier|public
+name|void
+name|setDualstackEnabled
+parameter_list|(
+name|Boolean
+name|dualstackEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dualstackEnabled
+operator|=
+name|dualstackEnabled
 expr_stmt|;
 block|}
 block|}

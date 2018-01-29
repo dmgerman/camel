@@ -44,20 +44,6 @@ name|services
 operator|.
 name|s3
 operator|.
-name|S3ClientOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|s3
-operator|.
 name|model
 operator|.
 name|EncryptionMaterials
@@ -443,6 +429,22 @@ DECL|field|accelerateModeEnabled
 specifier|private
 name|boolean
 name|accelerateModeEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common, advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|dualstackEnabled
+specifier|private
+name|boolean
+name|dualstackEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1200,6 +1202,33 @@ operator|.
 name|accelerateModeEnabled
 operator|=
 name|accelerateModeEnabled
+expr_stmt|;
+block|}
+comment|/**      * Define if Dualstack enabled is true or false      */
+DECL|method|isDualstackEnabled ()
+specifier|public
+name|boolean
+name|isDualstackEnabled
+parameter_list|()
+block|{
+return|return
+name|dualstackEnabled
+return|;
+block|}
+DECL|method|setDualstackEnabled (boolean dualstackEnabled)
+specifier|public
+name|void
+name|setDualstackEnabled
+parameter_list|(
+name|boolean
+name|dualstackEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dualstackEnabled
+operator|=
+name|dualstackEnabled
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
