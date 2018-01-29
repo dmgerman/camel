@@ -451,6 +451,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"common, advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|payloadSigningEnabled
+specifier|private
+name|boolean
+name|payloadSigningEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer,advanced"
 argument_list|,
 name|defaultValue
@@ -1204,7 +1220,6 @@ operator|=
 name|accelerateModeEnabled
 expr_stmt|;
 block|}
-comment|/**      * Define if Dualstack enabled is true or false      */
 DECL|method|isDualstackEnabled ()
 specifier|public
 name|boolean
@@ -1215,6 +1230,7 @@ return|return
 name|dualstackEnabled
 return|;
 block|}
+comment|/**      * Define if Dualstack enabled is true or false      */
 DECL|method|setDualstackEnabled (boolean dualstackEnabled)
 specifier|public
 name|void
@@ -1229,6 +1245,33 @@ operator|.
 name|dualstackEnabled
 operator|=
 name|dualstackEnabled
+expr_stmt|;
+block|}
+DECL|method|isPayloadSigningEnabled ()
+specifier|public
+name|boolean
+name|isPayloadSigningEnabled
+parameter_list|()
+block|{
+return|return
+name|payloadSigningEnabled
+return|;
+block|}
+comment|/**      * Define if Payload Signing enabled is true or false      */
+DECL|method|setPayloadSigningEnabled (boolean payloadSigningEnabled)
+specifier|public
+name|void
+name|setPayloadSigningEnabled
+parameter_list|(
+name|boolean
+name|payloadSigningEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|payloadSigningEnabled
+operator|=
+name|payloadSigningEnabled
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()

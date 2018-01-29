@@ -529,10 +529,19 @@ name|accelerateModeEnabled
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Define if Dualstack enabled is true or false          */
 DECL|field|dualstackEnabled
 specifier|private
 name|Boolean
 name|dualstackEnabled
+init|=
+literal|false
+decl_stmt|;
+comment|/**          * Define if Payload Signing enabled is true or false          */
+DECL|field|payloadSigningEnabled
+specifier|private
+name|Boolean
+name|payloadSigningEnabled
 init|=
 literal|false
 decl_stmt|;
@@ -1262,6 +1271,32 @@ operator|.
 name|dualstackEnabled
 operator|=
 name|dualstackEnabled
+expr_stmt|;
+block|}
+DECL|method|getPayloadSigningEnabled ()
+specifier|public
+name|Boolean
+name|getPayloadSigningEnabled
+parameter_list|()
+block|{
+return|return
+name|payloadSigningEnabled
+return|;
+block|}
+DECL|method|setPayloadSigningEnabled (Boolean payloadSigningEnabled)
+specifier|public
+name|void
+name|setPayloadSigningEnabled
+parameter_list|(
+name|Boolean
+name|payloadSigningEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|payloadSigningEnabled
+operator|=
+name|payloadSigningEnabled
 expr_stmt|;
 block|}
 block|}
