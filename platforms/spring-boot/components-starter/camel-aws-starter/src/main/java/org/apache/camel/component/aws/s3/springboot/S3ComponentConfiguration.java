@@ -521,6 +521,14 @@ name|chunkedEncodingDisabled
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Define if Accelerate Mode enabled is true or false          */
+DECL|field|accelerateModeEnabled
+specifier|private
+name|Boolean
+name|accelerateModeEnabled
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|Long
@@ -1195,6 +1203,32 @@ operator|.
 name|chunkedEncodingDisabled
 operator|=
 name|chunkedEncodingDisabled
+expr_stmt|;
+block|}
+DECL|method|getAccelerateModeEnabled ()
+specifier|public
+name|Boolean
+name|getAccelerateModeEnabled
+parameter_list|()
+block|{
+return|return
+name|accelerateModeEnabled
+return|;
+block|}
+DECL|method|setAccelerateModeEnabled (Boolean accelerateModeEnabled)
+specifier|public
+name|void
+name|setAccelerateModeEnabled
+parameter_list|(
+name|Boolean
+name|accelerateModeEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accelerateModeEnabled
+operator|=
+name|accelerateModeEnabled
 expr_stmt|;
 block|}
 block|}

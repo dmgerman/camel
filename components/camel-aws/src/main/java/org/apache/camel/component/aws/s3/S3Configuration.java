@@ -44,6 +44,20 @@ name|services
 operator|.
 name|s3
 operator|.
+name|S3ClientOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
 name|model
 operator|.
 name|EncryptionMaterials
@@ -413,6 +427,22 @@ DECL|field|chunkedEncodingDisabled
 specifier|private
 name|boolean
 name|chunkedEncodingDisabled
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common, advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|accelerateModeEnabled
+specifier|private
+name|boolean
+name|accelerateModeEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1143,6 +1173,33 @@ operator|.
 name|chunkedEncodingDisabled
 operator|=
 name|chunkedEncodingDisabled
+expr_stmt|;
+block|}
+DECL|method|isAccelerateModeEnabled ()
+specifier|public
+name|boolean
+name|isAccelerateModeEnabled
+parameter_list|()
+block|{
+return|return
+name|accelerateModeEnabled
+return|;
+block|}
+comment|/**      * Define if Accelerate Mode enabled is true or false      */
+DECL|method|setAccelerateModeEnabled (boolean accelerateModeEnabled)
+specifier|public
+name|void
+name|setAccelerateModeEnabled
+parameter_list|(
+name|boolean
+name|accelerateModeEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accelerateModeEnabled
+operator|=
+name|accelerateModeEnabled
 expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
