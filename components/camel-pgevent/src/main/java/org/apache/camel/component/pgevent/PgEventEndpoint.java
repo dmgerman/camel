@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|InvalidClassException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|sql
 operator|.
 name|DriverManager
@@ -61,20 +51,6 @@ operator|.
 name|jdbc
 operator|.
 name|PGConnection
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|impossibl
-operator|.
-name|postgres
-operator|.
-name|jdbc
-operator|.
-name|PGDataSource
 import|;
 end_import
 
@@ -913,8 +889,6 @@ name|void
 name|validateInputs
 parameter_list|()
 throws|throws
-name|InvalidClassException
-throws|,
 name|IllegalArgumentException
 block|{
 if|if
@@ -944,47 +918,9 @@ block|}
 if|if
 condition|(
 name|datasource
-operator|!=
+operator|==
 literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"******Datasource detected*****"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|PGDataSource
-operator|.
-name|class
-operator|.
-name|isInstance
-argument_list|(
-name|datasource
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|InvalidClassException
-argument_list|(
-literal|"The datasource passed to the "
-operator|+
-literal|"pgevent component is NOT a PGDataSource class from the"
-operator|+
-literal|"pgjdbc-ng library. See: https://github.com/impossibl/pgjdbc-ng"
-argument_list|)
-throw|;
-block|}
-block|}
-else|else
-block|{
-if|if
-condition|(
+operator|&&
 name|user
 operator|==
 literal|null
@@ -999,7 +935,6 @@ operator|+
 literal|"not set when creating this Endpoint (pgUser or pgDataSource)"
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 annotation|@
