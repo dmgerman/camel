@@ -1327,6 +1327,23 @@ name|bindRetryInterval
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setLenientBind (boolean lenientBind)
+specifier|public
+name|void
+name|setLenientBind
+parameter_list|(
+name|boolean
+name|lenientBind
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setLenientBind
+argument_list|(
+name|lenientBind
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setAcceptTimeout (int acceptTimeout)
 specifier|public
 name|void

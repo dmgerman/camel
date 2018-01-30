@@ -161,6 +161,21 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"advanced,consumer,tcp"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|lenientBind
+name|boolean
+name|lenientBind
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"advanced,consumer,tcp,timeout"
 argument_list|,
 name|defaultValue
@@ -317,13 +332,13 @@ literal|"advanced,consumer,tcp"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"true"
+literal|"false"
 argument_list|)
 DECL|field|reuseAddress
 name|Boolean
 name|reuseAddress
 init|=
-literal|true
+literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -871,6 +886,33 @@ block|{
 return|return
 name|acceptTimeout
 return|;
+block|}
+DECL|method|isLenientBind ()
+specifier|public
+name|boolean
+name|isLenientBind
+parameter_list|()
+block|{
+return|return
+name|lenientBind
+return|;
+block|}
+comment|/**      * TCP Server Only - Allow the endpoint to start before the TCP ServerSocket is bound.      *      * In some environments, it may be desirable to allow the endpoint to start before the TCP ServerSocket      * is bound.      *      * @param lenientBind if true, the ServerSocket will be bound asynchronously; otherwise the ServerSocket will be bound synchronously.      */
+DECL|method|setLenientBind (boolean lenientBind)
+specifier|public
+name|void
+name|setLenientBind
+parameter_list|(
+name|boolean
+name|lenientBind
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lenientBind
+operator|=
+name|lenientBind
+expr_stmt|;
 block|}
 comment|/**      * Timeout (in milliseconds) while waiting for a TCP connection      *<p/>      * TCP Server Only      *      * @param acceptTimeout timeout in milliseconds      */
 DECL|method|setAcceptTimeout (int acceptTimeout)

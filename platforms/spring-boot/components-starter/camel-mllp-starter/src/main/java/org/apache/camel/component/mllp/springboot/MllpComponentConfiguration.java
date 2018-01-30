@@ -297,6 +297,14 @@ name|acceptTimeout
 init|=
 literal|60000
 decl_stmt|;
+comment|/**          * TCP Server Only - Allow the endpoint to start before the TCP          * ServerSocket is bound. In some environments, it may be desirable to          * allow the endpoint to start before the TCP ServerSocket is bound.          *           * @param lenientBind          *            if true, the ServerSocket will be bound asynchronously;          *            otherwise the ServerSocket will be bound synchronously.          */
+DECL|field|lenientBind
+specifier|private
+name|Boolean
+name|lenientBind
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * Timeout (in milliseconds) for establishing for a TCP connection          *<p/>          * TCP Client only          *           * @param connectTimeout          *            timeout in milliseconds          */
 DECL|field|connectTimeout
 specifier|private
@@ -553,6 +561,32 @@ operator|.
 name|acceptTimeout
 operator|=
 name|acceptTimeout
+expr_stmt|;
+block|}
+DECL|method|getLenientBind ()
+specifier|public
+name|Boolean
+name|getLenientBind
+parameter_list|()
+block|{
+return|return
+name|lenientBind
+return|;
+block|}
+DECL|method|setLenientBind (Boolean lenientBind)
+specifier|public
+name|void
+name|setLenientBind
+parameter_list|(
+name|Boolean
+name|lenientBind
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lenientBind
+operator|=
+name|lenientBind
 expr_stmt|;
 block|}
 DECL|method|getConnectTimeout ()
