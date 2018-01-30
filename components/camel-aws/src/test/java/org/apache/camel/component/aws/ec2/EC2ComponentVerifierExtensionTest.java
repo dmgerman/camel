@@ -344,7 +344,7 @@ name|put
 argument_list|(
 literal|"region"
 argument_list|,
-literal|"us-east-1"
+literal|"US_EAST_1"
 argument_list|)
 expr_stmt|;
 name|parameters
