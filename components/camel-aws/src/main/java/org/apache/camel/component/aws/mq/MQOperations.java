@@ -37,6 +37,9 @@ name|deleteBroker
 block|,
 DECL|enumConstant|rebootBroker
 name|rebootBroker
+block|,
+DECL|enumConstant|updateBroker
+name|updateBroker
 block|}
 end_enum
 

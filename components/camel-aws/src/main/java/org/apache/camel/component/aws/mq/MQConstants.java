@@ -54,6 +54,12 @@ name|BROKER_ID
 init|=
 literal|"CamelAwsMQBrokerID"
 decl_stmt|;
+DECL|field|CONFIGURATION_ID
+name|String
+name|CONFIGURATION_ID
+init|=
+literal|"CamelAwsMQConfigurationID"
+decl_stmt|;
 DECL|field|BROKER_DEPLOYMENT_MODE
 name|String
 name|BROKER_DEPLOYMENT_MODE
