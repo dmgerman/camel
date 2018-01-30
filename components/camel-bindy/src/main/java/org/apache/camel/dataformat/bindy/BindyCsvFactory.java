@@ -298,34 +298,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultClassResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -487,6 +459,11 @@ specifier|private
 name|boolean
 name|skipFirstLine
 decl_stmt|;
+DECL|field|skipField
+specifier|private
+name|boolean
+name|skipField
+decl_stmt|;
 DECL|field|generateHeaderColumnNames
 specifier|private
 name|boolean
@@ -527,11 +504,6 @@ specifier|private
 name|boolean
 name|endWithLineBreak
 decl_stmt|;
-DECL|field|isSkipField
-specifier|private
-name|boolean
-name|isSkipField
-decl_stmt|;
 DECL|method|BindyCsvFactory (Class<?> type)
 specifier|public
 name|BindyCsvFactory
@@ -545,30 +517,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|this
-argument_list|(
-name|type
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|BindyCsvFactory (Class<?> type, boolean isSkipField)
-specifier|public
-name|BindyCsvFactory
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
-parameter_list|,
-name|boolean
-name|isSkipField
-parameter_list|)
-throws|throws
-name|Exception
-block|{
 name|super
 argument_list|(
 name|type
@@ -577,12 +525,6 @@ expr_stmt|;
 comment|// initialize specific parameters of the csv model
 name|initCsvModel
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|isSkipField
-operator|=
-name|isSkipField
 expr_stmt|;
 block|}
 comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields and      * retrieve the separator of the CSV record      *      * @throws Exception      */
@@ -3351,6 +3293,23 @@ operator|+
 name|skipFirstLine
 argument_list|)
 expr_stmt|;
+comment|// Get skipFirstLine parameter
+name|skipField
+operator|=
+name|record
+operator|.
+name|skipField
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skip Field parameter of the CSV: {}"
+operator|+
+name|skipField
+argument_list|)
+expr_stmt|;
 comment|// Get generateHeaderColumnNames parameter
 name|generateHeaderColumnNames
 operator|=
@@ -3786,6 +3745,19 @@ return|return
 name|skipFirstLine
 return|;
 block|}
+comment|/**      *  Indicate if can skip fields      *       * @return boolean      */
+DECL|method|isSkipField ()
+specifier|public
+name|boolean
+name|isSkipField
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|skipField
+return|;
+block|}
 comment|/**      * If last record is to span the rest of the line      */
 DECL|method|getAutospanLine ()
 specifier|public
@@ -3846,19 +3818,6 @@ parameter_list|()
 block|{
 return|return
 name|endWithLineBreak
-return|;
-block|}
-comment|/**      * Indicate if DataField can be ignored      *       * @return boolean      */
-DECL|method|isSkipField ()
-specifier|public
-name|boolean
-name|isSkipField
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|isSkipField
 return|;
 block|}
 block|}

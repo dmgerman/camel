@@ -98,6 +98,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * The skipField parameter will allow to skip fields of a CSV file.       * If some fields are not necessary, they can be skipped.      */
+DECL|method|skipField ()
+DECL|field|false
+name|boolean
+name|skipField
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 comment|/**      * Character to be used to add a carriage return after each record      * (optional) Three values can be used : WINDOWS, UNIX or MAC.      */
 DECL|method|crlf ()
 name|String

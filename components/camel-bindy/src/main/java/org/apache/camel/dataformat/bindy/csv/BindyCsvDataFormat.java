@@ -314,12 +314,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * If isSkipField = true, a CSV file doesn't need to declare all the fields, otherwise, all the fields are mandatory.      */
-DECL|field|isSkipField
-specifier|private
-name|boolean
-name|isSkipField
-decl_stmt|;
 DECL|method|BindyCsvDataFormat ()
 specifier|public
 name|BindyCsvDataFormat
@@ -336,38 +330,10 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-name|this
-argument_list|(
-name|type
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|BindyCsvDataFormat (Class<?> type, boolean isSkipField)
-specifier|public
-name|BindyCsvDataFormat
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
-parameter_list|,
-name|boolean
-name|isSkipField
-parameter_list|)
-block|{
 name|super
 argument_list|(
 name|type
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|isSkipField
-operator|=
-name|isSkipField
 expr_stmt|;
 block|}
 annotation|@
@@ -1553,9 +1519,6 @@ name|BindyCsvFactory
 argument_list|(
 name|getClassType
 argument_list|()
-argument_list|,
-name|isSkipField
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|bindyCsvFactory
@@ -1567,18 +1530,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bindyCsvFactory
-return|;
-block|}
-DECL|method|isSkipField ()
-specifier|private
-name|boolean
-name|isSkipField
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|isSkipField
 return|;
 block|}
 block|}

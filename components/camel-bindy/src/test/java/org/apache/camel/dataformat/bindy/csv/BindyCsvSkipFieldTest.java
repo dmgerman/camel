@@ -315,8 +315,6 @@ argument_list|(
 name|CsvSkipField
 operator|.
 name|class
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 DECL|method|configure ()
@@ -473,6 +471,10 @@ argument_list|(
 name|separator
 operator|=
 literal|","
+argument_list|,
+name|skipField
+operator|=
+literal|true
 argument_list|)
 DECL|class|CsvSkipField
 specifier|public
