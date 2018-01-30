@@ -365,7 +365,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Wordpress endpoint.  */
+comment|/**  * Integrates Camel with Wordpress.  */
 end_comment
 
 begin_class
@@ -374,7 +374,7 @@ name|UriEndpoint
 argument_list|(
 name|firstVersion
 operator|=
-literal|"2.20.1"
+literal|"2.21.0"
 argument_list|,
 name|scheme
 operator|=
@@ -390,7 +390,7 @@ literal|"wordpress:operation"
 argument_list|,
 name|label
 operator|=
-literal|"Wordpress"
+literal|"cms"
 argument_list|)
 DECL|class|WordpressEndpoint
 specifier|public
