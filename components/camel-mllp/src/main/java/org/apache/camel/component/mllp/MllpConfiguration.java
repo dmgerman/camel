@@ -36,6 +36,32 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ExceptionHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|UriParam
@@ -105,6 +131,61 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// URI Parameters overridden from DefaultEndpoint
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|bridgeErrorHandler
+name|boolean
+name|bridgeErrorHandler
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"InOut"
+argument_list|)
+DECL|field|exchangePattern
+name|ExchangePattern
+name|exchangePattern
+init|=
+name|ExchangePattern
+operator|.
+name|InOut
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|synchronous
+name|boolean
+name|synchronous
+init|=
+literal|true
+decl_stmt|;
+comment|// camel-mllp specific URI parameters
 annotation|@
 name|UriParam
 argument_list|(
@@ -530,6 +611,30 @@ else|else
 block|{
 name|target
 operator|.
+name|bridgeErrorHandler
+operator|=
+name|source
+operator|.
+name|bridgeErrorHandler
+expr_stmt|;
+name|target
+operator|.
+name|exchangePattern
+operator|=
+name|source
+operator|.
+name|exchangePattern
+expr_stmt|;
+name|target
+operator|.
+name|synchronous
+operator|=
+name|source
+operator|.
+name|synchronous
+expr_stmt|;
+name|target
+operator|.
 name|backlog
 operator|=
 name|source
@@ -735,6 +840,80 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isBridgeErrorHandler ()
+specifier|public
+name|boolean
+name|isBridgeErrorHandler
+parameter_list|()
+block|{
+return|return
+name|bridgeErrorHandler
+return|;
+block|}
+comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while      * the consumer is trying to receive incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler.      *      * If disabled, the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions by logging them at WARN or ERROR level and ignored.      *      * @param bridgeErrorHandler      */
+DECL|method|setBridgeErrorHandler (boolean bridgeErrorHandler)
+specifier|public
+name|void
+name|setBridgeErrorHandler
+parameter_list|(
+name|boolean
+name|bridgeErrorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bridgeErrorHandler
+operator|=
+name|bridgeErrorHandler
+expr_stmt|;
+block|}
+DECL|method|getExchangePattern ()
+specifier|public
+name|ExchangePattern
+name|getExchangePattern
+parameter_list|()
+block|{
+return|return
+name|exchangePattern
+return|;
+block|}
+comment|/**      * Sets the exchange pattern when the consumer creates an exchange.      *      * @param exchangePattern      */
+DECL|method|setExchangePattern (ExchangePattern exchangePattern)
+specifier|public
+name|void
+name|setExchangePattern
+parameter_list|(
+name|ExchangePattern
+name|exchangePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchangePattern
+operator|=
+name|exchangePattern
+expr_stmt|;
+block|}
+DECL|method|isSynchronous ()
+specifier|public
+name|boolean
+name|isSynchronous
+parameter_list|()
+block|{
+return|return
+name|synchronous
+return|;
+block|}
+comment|/**      * Sets whether synchronous processing should be strictly used (this component only supports synchronous operations).      *      * @param synchronous      */
+DECL|method|setSynchronous (boolean synchronous)
+specifier|public
+name|void
+name|setSynchronous
+parameter_list|(
+name|boolean
+name|synchronous
+parameter_list|)
+block|{     }
 DECL|method|hasCharsetName ()
 specifier|public
 name|boolean
@@ -1224,12 +1403,12 @@ name|reuseAddress
 return|;
 block|}
 comment|/**      * Enable/disable the SO_REUSEADDR socket option.      *      * @param reuseAddress enable SO_REUSEADDR when true; disable SO_REUSEADDR when false; use system default when null      */
-DECL|method|setReuseAddress (boolean reuseAddress)
+DECL|method|setReuseAddress (Boolean reuseAddress)
 specifier|public
 name|void
 name|setReuseAddress
 parameter_list|(
-name|boolean
+name|Boolean
 name|reuseAddress
 parameter_list|)
 block|{
@@ -1401,7 +1580,7 @@ return|return
 name|requireEndOfData
 return|;
 block|}
-comment|/**      * Enable disable strict compliance to the MLLP standard.      *      * The MLLP standard specifies [START_OF_BLOCK]hl7 payload[END_OF_BLOCK][END_OF_DATA], however, some systems do not send      * the final END_OF_DATA byte.  This setting controls whether or not the final END_OF_DATA byte is required or optional.      *      * @param requireEndOfData the trailing END_OF_DATA byte is required if true; optional otherwise      */
+comment|/**      * Enable/Disable strict compliance to the MLLP standard.      *      * The MLLP standard specifies [START_OF_BLOCK]hl7 payload[END_OF_BLOCK][END_OF_DATA], however, some systems do not send      * the final END_OF_DATA byte.  This setting controls whether or not the final END_OF_DATA byte is required or optional.      *      * @param requireEndOfData the trailing END_OF_DATA byte is required if true; optional otherwise      */
 DECL|method|setRequireEndOfData (boolean requireEndOfData)
 specifier|public
 name|void
@@ -1482,7 +1661,7 @@ return|return
 name|bufferWrites
 return|;
 block|}
-comment|/**      * Enable/Disable the validation of HL7 Payloads      *      * @deprecated the parameter will be ignored      *      * @param bufferWrites enabled if true, otherwise disabled      */
+comment|/**      * Enable/Disable the buffering of HL7 payloads before writing to the socket.      *      * @deprecated the parameter will be ignored      *      * @param bufferWrites enabled if true, otherwise disabled      */
 DECL|method|setBufferWrites (boolean bufferWrites)
 specifier|public
 name|void
@@ -1512,6 +1691,12 @@ name|Objects
 operator|.
 name|hash
 argument_list|(
+name|bridgeErrorHandler
+argument_list|,
+name|exchangePattern
+argument_list|,
+name|synchronous
+argument_list|,
 name|backlog
 argument_list|,
 name|bindTimeout
@@ -1603,6 +1788,24 @@ operator|)
 name|o
 decl_stmt|;
 return|return
+name|bridgeErrorHandler
+operator|==
+name|rhs
+operator|.
+name|bridgeErrorHandler
+operator|&&
+name|exchangePattern
+operator|==
+name|rhs
+operator|.
+name|exchangePattern
+operator|&&
+name|synchronous
+operator|==
+name|rhs
+operator|.
+name|synchronous
+operator|&&
 name|bindTimeout
 operator|==
 name|rhs
@@ -1797,7 +2000,19 @@ block|{
 return|return
 literal|"MllpConfiguration{"
 operator|+
-literal|"backlog="
+literal|"bridgeErrorHandler="
+operator|+
+name|bridgeErrorHandler
+operator|+
+literal|", exchangePattern="
+operator|+
+name|exchangePattern
+operator|+
+literal|", synchronous="
+operator|+
+name|synchronous
+operator|+
+literal|", backlog="
 operator|+
 name|backlog
 operator|+

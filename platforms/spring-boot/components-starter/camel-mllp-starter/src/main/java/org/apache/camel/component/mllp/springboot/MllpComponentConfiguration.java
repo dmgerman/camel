@@ -38,6 +38,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mllp
+operator|.
+name|MllpComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|boot
@@ -107,12 +135,16 @@ DECL|field|logPhi
 specifier|private
 name|Boolean
 name|logPhi
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Set the maximum number of bytes of PHI that will be logged in a log      * entry.      */
 DECL|field|logPhiMaxBytes
 specifier|private
 name|Integer
 name|logPhiMaxBytes
+init|=
+literal|5120
 decl_stmt|;
 comment|/**      * Sets the default configuration to use when creating MLLP endpoints.      */
 DECL|field|configuration
@@ -259,6 +291,32 @@ name|MllpConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * receive incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. If disabled, the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions by logging them at WARN or ERROR level and ignored.          *           * @param bridgeErrorHandler          */
+DECL|field|bridgeErrorHandler
+specifier|private
+name|Boolean
+name|bridgeErrorHandler
+init|=
+literal|true
+decl_stmt|;
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * @param exchangePattern          */
+DECL|field|exchangePattern
+specifier|private
+name|ExchangePattern
+name|exchangePattern
+init|=
+name|ExchangePattern
+operator|.
+name|InOut
+decl_stmt|;
+comment|/**          * Sets whether synchronous processing should be strictly used (this          * component only supports synchronous operations).          *           * @param synchronous          */
+DECL|field|synchronous
+specifier|private
+name|Boolean
+name|synchronous
+init|=
+literal|true
+decl_stmt|;
 comment|/**          * Set the CamelCharsetName property on the exchange          *           * @param charsetName          *            the charset          */
 DECL|field|charsetName
 specifier|private
@@ -367,6 +425,14 @@ name|tcpNoDelay
 init|=
 literal|true
 decl_stmt|;
+comment|/**          * Enable/disable the SO_REUSEADDR socket option.          *           * @param reuseAddress          *            enable SO_REUSEADDR when true; disable SO_REUSEADDR when          *            false; use system default when null          */
+DECL|field|reuseAddress
+specifier|private
+name|Boolean
+name|reuseAddress
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * Sets the SO_RCVBUF option to the specified value (in bytes)          *           * @param receiveBufferSize          *            the SO_RCVBUF option value. If null, the system default is          *            used          */
 DECL|field|receiveBufferSize
 specifier|private
@@ -399,7 +465,7 @@ name|hl7Headers
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Enable disable strict compliance to the MLLP standard. The MLLP          * standard specifies [START_OF_BLOCK]hl7          * payload[END_OF_BLOCK][END_OF_DATA], however, some systems do not send          * the final END_OF_DATA byte. This setting controls whether or not the          * final END_OF_DATA byte is required or optional.          *           * @param requireEndOfData          *            the trailing END_OF_DATA byte is required if true;          *            optional otherwise          */
+comment|/**          * Enable/Disable strict compliance to the MLLP standard. The MLLP          * standard specifies [START_OF_BLOCK]hl7          * payload[END_OF_BLOCK][END_OF_DATA], however, some systems do not send          * the final END_OF_DATA byte. This setting controls whether or not the          * final END_OF_DATA byte is required or optional.          *           * @param requireEndOfData          *            the trailing END_OF_DATA byte is required if true;          *            optional otherwise          */
 DECL|field|requireEndOfData
 specifier|private
 name|Boolean
@@ -423,7 +489,7 @@ name|validatePayload
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Enable/Disable the validation of HL7 Payloads          *           * @deprecated the parameter will be ignored          * @param bufferWrites          *            enabled if true, otherwise disabled          */
+comment|/**          * Enable/Disable the buffering of HL7 payloads before writing to the          * socket.          *           * @deprecated the parameter will be ignored          * @param bufferWrites          *            enabled if true, otherwise disabled          */
 annotation|@
 name|Deprecated
 DECL|field|bufferWrites
@@ -433,6 +499,84 @@ name|bufferWrites
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getBridgeErrorHandler ()
+specifier|public
+name|Boolean
+name|getBridgeErrorHandler
+parameter_list|()
+block|{
+return|return
+name|bridgeErrorHandler
+return|;
+block|}
+DECL|method|setBridgeErrorHandler (Boolean bridgeErrorHandler)
+specifier|public
+name|void
+name|setBridgeErrorHandler
+parameter_list|(
+name|Boolean
+name|bridgeErrorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bridgeErrorHandler
+operator|=
+name|bridgeErrorHandler
+expr_stmt|;
+block|}
+DECL|method|getExchangePattern ()
+specifier|public
+name|ExchangePattern
+name|getExchangePattern
+parameter_list|()
+block|{
+return|return
+name|exchangePattern
+return|;
+block|}
+DECL|method|setExchangePattern (ExchangePattern exchangePattern)
+specifier|public
+name|void
+name|setExchangePattern
+parameter_list|(
+name|ExchangePattern
+name|exchangePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchangePattern
+operator|=
+name|exchangePattern
+expr_stmt|;
+block|}
+DECL|method|getSynchronous ()
+specifier|public
+name|Boolean
+name|getSynchronous
+parameter_list|()
+block|{
+return|return
+name|synchronous
+return|;
+block|}
+DECL|method|setSynchronous (Boolean synchronous)
+specifier|public
+name|void
+name|setSynchronous
+parameter_list|(
+name|Boolean
+name|synchronous
+parameter_list|)
+block|{
+name|this
+operator|.
+name|synchronous
+operator|=
+name|synchronous
+expr_stmt|;
+block|}
 DECL|method|getCharsetName ()
 specifier|public
 name|String
@@ -801,6 +945,32 @@ operator|.
 name|tcpNoDelay
 operator|=
 name|tcpNoDelay
+expr_stmt|;
+block|}
+DECL|method|getReuseAddress ()
+specifier|public
+name|Boolean
+name|getReuseAddress
+parameter_list|()
+block|{
+return|return
+name|reuseAddress
+return|;
+block|}
+DECL|method|setReuseAddress (Boolean reuseAddress)
+specifier|public
+name|void
+name|setReuseAddress
+parameter_list|(
+name|Boolean
+name|reuseAddress
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reuseAddress
+operator|=
+name|reuseAddress
 expr_stmt|;
 block|}
 DECL|method|getReceiveBufferSize ()

@@ -252,7 +252,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Do the initial read on the Socket and try to determine if it has HL7 data, junk, or nothing.      */
+comment|/**      * Bind the TCP ServerSocket within the specified timeout.      */
 annotation|@
 name|Override
 DECL|method|run ()
