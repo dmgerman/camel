@@ -3091,6 +3091,8 @@ name|dataObjectFormat
 argument_list|,
 literal|"ObjectReference"
 argument_list|,
+literal|"#"
+operator|+
 name|contentReferenceId
 argument_list|)
 expr_stmt|;
