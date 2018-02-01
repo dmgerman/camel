@@ -228,7 +228,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|QueueSupplier
+name|Queues
 import|;
 end_import
 
@@ -513,7 +513,7 @@ name|flux
 operator|.
 name|onBackpressureBuffer
 argument_list|(
-name|QueueSupplier
+name|Queues
 operator|.
 name|SMALL_BUFFER_SIZE
 argument_list|,
