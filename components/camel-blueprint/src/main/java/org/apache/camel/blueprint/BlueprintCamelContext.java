@@ -685,7 +685,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error removing ServiceListener "
+literal|"Error removing ServiceListener: "
 operator|+
 name|this
 operator|+
@@ -720,7 +720,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error unregistering service registration "
+literal|"Error unregistering service registration: "
 operator|+
 name|registration
 operator|+
@@ -879,7 +879,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received BlueprintEvent[ replay={} type={} bundle={}] %s"
+literal|"Received BlueprintEvent[replay={} type={} bundle={}] %s"
 argument_list|,
 name|event
 operator|.
@@ -949,7 +949,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Attempting to start Camel Context {}"
+literal|"Attempting to start CamelContext: {}"
 argument_list|,
 name|this
 operator|.
@@ -973,7 +973,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error occurred during starting Camel Context  "
+literal|"Error occurred during starting CamelContext: "
 operator|+
 name|this
 operator|.
@@ -1004,7 +1004,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Stopping Camel Context {}"
+literal|"Stopping CamelContext: {}"
 argument_list|,
 name|this
 operator|.
@@ -1028,7 +1028,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error occurred during stopping Camel Context "
+literal|"Error occurred during stopping CamelContext: "
 operator|+
 name|this
 operator|.
@@ -1057,7 +1057,7 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
@@ -1119,11 +1119,12 @@ literal|"UNKNOWN"
 expr_stmt|;
 break|break;
 block|}
+comment|// use trace logging as this is very noisy
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Service {} changed to {}"
+literal|"Service: {} changed to: {}"
 argument_list|,
 name|event
 operator|.
