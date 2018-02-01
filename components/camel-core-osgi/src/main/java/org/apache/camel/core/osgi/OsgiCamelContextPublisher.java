@@ -424,12 +424,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error unregistering CamelContext [{}] from OSGi registry. This exception will be ignored."
-argument_list|,
+literal|"Error unregistering CamelContext ["
+operator|+
 name|context
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|"] from OSGi registry. This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -496,6 +498,68 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// clear and unregister any left-over registration (which should not happen)
+if|if
+condition|(
+operator|!
+name|registrations
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"On shutdown there are {} registrations which was supposed to have been unregistered already. Will unregister these now."
+argument_list|,
+name|registrations
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
+name|reg
+range|:
+name|registrations
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+try|try
+block|{
+name|reg
+operator|.
+name|unregister
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error unregistering from OSGi registry. This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 name|registrations
 operator|.
 name|clear
@@ -631,24 +695,15 @@ name|managementName
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Registering CamelContext [{}] of in OSGi registry"
+literal|"Registering CamelContext [{}] in OSGi registry"
 argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 name|ServiceRegistration
 argument_list|<
 name|?
