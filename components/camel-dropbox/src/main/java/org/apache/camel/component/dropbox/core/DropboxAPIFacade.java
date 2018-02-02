@@ -684,7 +684,9 @@ name|DropboxException
 argument_list|(
 name|dropboxPath
 operator|+
-literal|" does not exist or can't obtain metadata"
+literal|" does not exist or cannot obtain metadata"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -994,7 +996,7 @@ name|DropboxException
 argument_list|(
 name|localPath
 operator|+
-literal|" doesn't contain any files"
+literal|" does not contain any files"
 argument_list|)
 throw|;
 block|}
@@ -1665,7 +1667,9 @@ name|DropboxException
 argument_list|(
 name|remotePath
 operator|+
-literal|" does not exist or can't obtain metadata"
+literal|" does not exist or cannot obtain metadata"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1724,7 +1728,9 @@ name|DropboxException
 argument_list|(
 name|remotePath
 operator|+
-literal|" does not exist or can't obtain metadata"
+literal|" does not exist or cannot obtain metadata"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1767,7 +1773,9 @@ name|DropboxException
 argument_list|(
 name|remotePath
 operator|+
-literal|" does not exist or can't obtain metadata"
+literal|" does not exist or cannot obtain metadata"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1830,7 +1838,9 @@ name|DropboxException
 argument_list|(
 name|remotePath
 operator|+
-literal|" does not exist or can't obtain metadata"
+literal|" does not exist or cannot obtain metadata"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -2162,7 +2172,9 @@ name|DropboxException
 argument_list|(
 name|path
 operator|+
-literal|" does not exist or can't obtain metadata"
+literal|" does not exist or cannot obtain metadata"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -2178,7 +2190,9 @@ name|DropboxException
 argument_list|(
 name|path
 operator|+
-literal|" can't obtain a stream"
+literal|" cannot obtain a stream"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
