@@ -231,7 +231,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Validates the payload of a message using Everit JSON schema validator.  */
+comment|/**  * Validates the payload of a message using NetworkNT JSON Schema library.  */
 end_comment
 
 begin_class
@@ -827,7 +827,7 @@ return|return
 name|schemaLoader
 return|;
 block|}
-comment|/**      * To use a custom schema loader allowing for adding custom format validation. See Everit JSON Schema documentation.      * The default implementation will create a schema loader builder with draft v6 support.      */
+comment|/**      * To use a custom schema loader allowing for adding custom format validation. The default implementation will create a schema loader with draft v4 support.      */
 DECL|method|setSchemaLoader (JsonSchemaLoader schemaLoader)
 specifier|public
 name|void
