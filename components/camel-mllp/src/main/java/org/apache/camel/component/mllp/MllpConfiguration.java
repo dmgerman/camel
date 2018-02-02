@@ -362,13 +362,13 @@ literal|"advanced,tcp,timeout"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"500"
+literal|"5000"
 argument_list|)
 DECL|field|readTimeout
 name|int
 name|readTimeout
 init|=
-literal|500
+literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam
