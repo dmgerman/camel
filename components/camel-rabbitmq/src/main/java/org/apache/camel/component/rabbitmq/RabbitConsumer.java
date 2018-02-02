@@ -369,6 +369,25 @@ name|isOpen
 argument_list|()
 condition|)
 block|{
+comment|// we could not open the channel so release the lock
+if|if
+condition|(
+operator|!
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|isAutoAck
+argument_list|()
+condition|)
+block|{
+name|lock
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
+block|}
 return|return;
 block|}
 try|try
