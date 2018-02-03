@@ -407,7 +407,7 @@ specifier|private
 name|Integer
 name|readTimeout
 init|=
-literal|500
+literal|5000
 decl_stmt|;
 comment|/**          * Enable/disable the SO_KEEPALIVE socket option.          *           * @param keepAlive          *            enable SO_KEEPALIVE when true; disable SO_KEEPALIVE when          *            false; use system default when null          */
 DECL|field|keepAlive
