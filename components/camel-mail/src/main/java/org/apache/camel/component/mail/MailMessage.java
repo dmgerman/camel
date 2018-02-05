@@ -473,26 +473,7 @@ block|}
 catch|catch
 parameter_list|(
 name|MessagingException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Error accessing headers due to: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|IOException
 name|e
 parameter_list|)
