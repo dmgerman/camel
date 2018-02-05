@@ -1991,6 +1991,7 @@ return|;
 block|}
 DECL|class|HighLevelClient
 specifier|private
+specifier|final
 class|class
 name|HighLevelClient
 extends|extends
@@ -2012,7 +2013,7 @@ parameter_list|(
 name|client
 parameter_list|)
 lambda|->
-block|{}
+block|{ }
 argument_list|,
 name|Collections
 operator|.
