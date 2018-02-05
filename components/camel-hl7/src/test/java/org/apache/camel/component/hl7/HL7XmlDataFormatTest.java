@@ -477,22 +477,22 @@ decl_stmt|;
 name|String
 name|line5
 init|=
-literal|"ORC|NW|213||175|REQ||||20080808093202|ahsl^^Administrator||G999999^TestDoctor^GPtests^^^^^^NAT|^^^^^^^^Admin Location | 819600|200808080932||RTH00||ahsl^^Administrator||"
+literal|"ORC|NW|213||175|REQ||||20080808093202|ahsl^^Administrator||G999999^TestDoctor^GPtests^^^^^^NAT|^^^^^^^^Admin Location | 819-6000|200808080932||RTH00||ahsl^^Administrator||"
 decl_stmt|;
 name|String
 name|line6
 init|=
-literal|"OBR|1|213||CCOR^Serum Cortisol ^ JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
+literal|"OBR|1|213||CCOR^Serum Cortisol ^ JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819-6000|ADM162||||||820|||^^^^^R||||||||"
 decl_stmt|;
 name|String
 name|line7
 init|=
-literal|"OBR|2|213||GCU^Serum Copper ^ JRH06 |||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
+literal|"OBR|2|213||GCU^Serum Copper ^ JRH06 |||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819-6000|ADM162||||||820|||^^^^^R||||||||"
 decl_stmt|;
 name|String
 name|line8
 init|=
-literal|"OBR|3|213||THYG^Serum Thyroglobulin ^JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819600|ADM162||||||820|||^^^^^R||||||||"
+literal|"OBR|3|213||THYG^Serum Thyroglobulin ^JRH06|||200808080932||0.100||||||^|G999999^TestDoctor^GPtests^^^^^^NAT|819-6000|ADM162||||||820|||^^^^^R||||||||"
 decl_stmt|;
 name|StringBuilder
 name|body
