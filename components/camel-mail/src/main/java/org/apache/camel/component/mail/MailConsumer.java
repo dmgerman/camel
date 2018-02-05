@@ -2692,8 +2692,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Exchange failed, so rolling back message status: "
-operator|+
+literal|"Exchange failed, so rolling back message status: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

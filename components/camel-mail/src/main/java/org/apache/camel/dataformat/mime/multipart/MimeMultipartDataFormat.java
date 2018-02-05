@@ -1592,11 +1592,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Invalid Content-Type "
-operator|+
+literal|"Invalid Content-Type {} ignored"
+argument_list|,
 name|contentType
-operator|+
-literal|" ignored"
 argument_list|)
 expr_stmt|;
 return|return

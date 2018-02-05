@@ -1217,11 +1217,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Charset: "
-operator|+
+literal|"Charset: {} is not supported and cannot be used as charset in Content-Type header."
+argument_list|,
 name|charset
-operator|+
-literal|" is not supported and cannot be used as charset in Content-Type header."
 argument_list|)
 expr_stmt|;
 return|return
@@ -1554,8 +1552,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unsupported encoding detected: "
-operator|+
+literal|"Unsupported encoding detected: {}"
+argument_list|,
 name|uee
 operator|.
 name|getMessage
@@ -1596,8 +1594,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Trying to extract mail message again with fixed Content-Type: "
-operator|+
+literal|"Trying to extract mail message again with fixed Content-Type: {}"
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
@@ -1745,8 +1743,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"No attachments to extract as content is not Multipart: "
-operator|+
+literal|"No attachments to extract as content is not Multipart: {}"
+argument_list|,
 name|content
 operator|.
 name|getClass
@@ -1818,12 +1816,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Part #"
-operator|+
+literal|"Part #{}: {}"
+argument_list|,
 name|i
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|part
 argument_list|)
 expr_stmt|;
@@ -1841,11 +1837,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Part #"
-operator|+
+literal|"Part #{}: is mimetype: multipart/*"
+argument_list|,
 name|i
-operator|+
-literal|": is mimetype: multipart/*"
 argument_list|)
 expr_stmt|;
 name|extractAttachmentsFromMultipart
@@ -3144,12 +3138,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attachment #"
-operator|+
+literal|"Attachment #{}: ContentType: {}"
+argument_list|,
 name|i
-operator|+
-literal|": ContentType: "
-operator|+
+argument_list|,
 name|messageBodyPart
 operator|.
 name|getContentType
@@ -3177,16 +3169,12 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attachment #"
-operator|+
+literal|"Attachment #{}: Using content type resolver: {} resolved content type as: {}"
+argument_list|,
 name|i
-operator|+
-literal|": Using content type resolver: "
-operator|+
+argument_list|,
 name|contentTypeResolver
-operator|+
-literal|" resolved content type as: "
-operator|+
+argument_list|,
 name|contentType
 argument_list|)
 expr_stmt|;
@@ -3219,12 +3207,10 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Attachment #"
-operator|+
+literal|"Attachment #{}: ContentType: {}"
+argument_list|,
 name|i
-operator|+
-literal|": ContentType: "
-operator|+
+argument_list|,
 name|messageBodyPart
 operator|.
 name|getContentType
@@ -3277,11 +3263,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot add attachment: "
-operator|+
+literal|"Cannot add attachment: {} as DataHandler is null"
+argument_list|,
 name|attachmentFilename
-operator|+
-literal|" as DataHandler is null"
 argument_list|)
 expr_stmt|;
 block|}
