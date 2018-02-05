@@ -373,11 +373,6 @@ name|printDoc
 argument_list|,
 name|config
 operator|.
-name|getCopies
-argument_list|()
-argument_list|,
-name|config
-operator|.
 name|isSendToPrinter
 argument_list|()
 argument_list|,

@@ -397,16 +397,13 @@ name|printRequestAttributeSet
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|print (Doc doc, int copies, boolean sendToPrinter, String mimeType, String jobName)
+DECL|method|print (Doc doc, boolean sendToPrinter, String mimeType, String jobName)
 specifier|public
 name|void
 name|print
 parameter_list|(
 name|Doc
 name|doc
-parameter_list|,
-name|int
-name|copies
 parameter_list|,
 name|boolean
 name|sendToPrinter
@@ -434,32 +431,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"About to print "
-operator|+
-name|copies
-operator|+
-literal|" copy(s)"
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|copies
-condition|;
-name|i
-operator|++
-control|)
-block|{
 if|if
 condition|(
 operator|!
@@ -500,11 +471,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/TestPrintJobNo"
-operator|+
-name|i
-operator|+
-literal|"_"
+literal|"./target/PrintOutput_"
 operator|+
 name|UUID
 operator|.
@@ -531,11 +498,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/TestPrintJobNo"
-operator|+
-name|i
-operator|+
-literal|"_"
+literal|"./target/PrintOutput_"
 operator|+
 name|UUID
 operator|.
@@ -562,11 +525,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/TestPrintJobNo"
-operator|+
-name|i
-operator|+
-literal|"_"
+literal|"./target/PrintOutput_"
 operator|+
 name|UUID
 operator|.
@@ -584,11 +543,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/TestPrintJobNo"
-operator|+
-name|i
-operator|+
-literal|"_"
+literal|"./target/PrintOutput_"
 operator|+
 name|UUID
 operator|.
@@ -681,9 +636,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Issuing Job {} to Printer: {}"
-argument_list|,
-name|i
+literal|"Issuing Job to Printer: {}"
 argument_list|,
 name|this
 operator|.
@@ -701,7 +654,6 @@ argument_list|,
 name|jobName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|print (Doc doc, String jobName)

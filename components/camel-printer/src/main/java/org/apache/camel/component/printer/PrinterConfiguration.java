@@ -166,7 +166,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -445,7 +445,7 @@ argument_list|()
 decl_stmt|;
 name|path
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|removeStartingCharacters
 argument_list|(
@@ -456,7 +456,7 @@ argument_list|)
 expr_stmt|;
 name|path
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|removeStartingCharacters
 argument_list|(
