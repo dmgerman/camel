@@ -441,9 +441,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Print flag is set to false. This job will not be printed until this setting remains in effect."
-operator|+
-literal|" Please set the flag to true or remove the setting."
+literal|"Print flag is set to false. This job will not be printed as long as this setting remains in effect. Please set the flag to true or remove the setting."
 argument_list|)
 expr_stmt|;
 name|File
