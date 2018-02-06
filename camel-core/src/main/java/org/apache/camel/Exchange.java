@@ -226,6 +226,12 @@ name|CREATED_TIMESTAMP
 init|=
 literal|"CamelCreatedTimestamp"
 decl_stmt|;
+DECL|field|CLAIM_CHECK_REPOSITORY
+name|String
+name|CLAIM_CHECK_REPOSITORY
+init|=
+literal|"CamelClaimCheckRepository"
+decl_stmt|;
 DECL|field|CONTENT_ENCODING
 name|String
 name|CONTENT_ENCODING

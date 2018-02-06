@@ -1481,7 +1481,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.      *      * @param source source exchange.      * @param result target exchange.      */
+comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.      *      * @param result target exchange.      * @param source source exchange.      */
 DECL|method|copyResultsPreservePattern (Exchange result, Exchange source)
 specifier|public
 specifier|static
