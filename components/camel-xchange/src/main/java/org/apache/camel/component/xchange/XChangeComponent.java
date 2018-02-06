@@ -62,6 +62,18 @@ name|knowm
 operator|.
 name|xchange
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|knowm
+operator|.
+name|xchange
+operator|.
 name|ExchangeFactory
 import|;
 end_import
@@ -74,9 +86,9 @@ name|knowm
 operator|.
 name|xchange
 operator|.
-name|binance
+name|utils
 operator|.
-name|BinanceExchange
+name|Assert
 import|;
 end_import
 
@@ -112,6 +124,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Init the configuration
 name|XChangeConfiguration
 name|configuration
 init|=
@@ -121,7 +134,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-comment|// and then override from parameters
 name|setProperties
 argument_list|(
 name|configuration
@@ -129,6 +141,43 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// Set the the required name of the exchange
+name|configuration
+operator|.
+name|setName
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
+comment|// Get the XChange implementation
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Exchange
+argument_list|>
+name|exchangeClass
+init|=
+name|configuration
+operator|.
+name|getXChangeClass
+argument_list|()
+decl_stmt|;
+name|Assert
+operator|.
+name|notNull
+argument_list|(
+name|exchangeClass
+argument_list|,
+literal|"XChange not supported: "
+operator|+
+name|configuration
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Create the XChange and associated Endpoint
 name|XChange
 name|exchange
 init|=
@@ -141,9 +190,7 @@ name|INSTANCE
 operator|.
 name|createExchange
 argument_list|(
-name|BinanceExchange
-operator|.
-name|class
+name|exchangeClass
 argument_list|)
 argument_list|)
 decl_stmt|;
