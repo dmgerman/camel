@@ -88,6 +88,15 @@ name|LAST_RECORD_BEFORE_COMMIT
 init|=
 literal|"kafka.LAST_RECORD_BEFORE_COMMIT"
 decl_stmt|;
+DECL|field|TIMESTAMP
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TIMESTAMP
+init|=
+literal|"kafka.TIMESTAMP"
+decl_stmt|;
 annotation|@
 name|Deprecated
 DECL|field|KAFKA_DEFAULT_ENCODER
