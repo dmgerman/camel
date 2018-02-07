@@ -182,18 +182,6 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
-DECL|field|amazonEc2Endpoint
-specifier|private
-name|String
-name|amazonEc2Endpoint
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -316,33 +304,6 @@ operator|.
 name|secretKey
 operator|=
 name|secretKey
-expr_stmt|;
-block|}
-DECL|method|getAmazonEc2Endpoint ()
-specifier|public
-name|String
-name|getAmazonEc2Endpoint
-parameter_list|()
-block|{
-return|return
-name|amazonEc2Endpoint
-return|;
-block|}
-comment|/**      * The region with which the AWS-EC2 client wants to work with.      */
-DECL|method|setAmazonEc2Endpoint (String amazonEc2Endpoint)
-specifier|public
-name|void
-name|setAmazonEc2Endpoint
-parameter_list|(
-name|String
-name|amazonEc2Endpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonEc2Endpoint
-operator|=
-name|amazonEc2Endpoint
 expr_stmt|;
 block|}
 DECL|method|getOperation ()
