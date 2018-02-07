@@ -166,9 +166,11 @@ specifier|public
 class|class
 name|XChangeConfiguration
 block|{
+comment|// Available service
 DECL|enum|XChangeService
 DECL|enumConstant|marketdata
 DECL|enumConstant|metadata
+DECL|enumConstant|account
 specifier|public
 enum|enum
 name|XChangeService
@@ -176,17 +178,30 @@ block|{
 name|marketdata
 block|,
 name|metadata
+block|,
+name|account
 block|}
+comment|// Available methods
 DECL|enum|XChangeMethod
-DECL|enumConstant|currencies
-DECL|enumConstant|currencyMetaData
-DECL|enumConstant|currencyPairs
-DECL|enumConstant|currencyPairMetaData
-DECL|enumConstant|ticker
 specifier|public
 enum|enum
 name|XChangeMethod
 block|{
+comment|// Account service methods
+DECL|enumConstant|balances
+DECL|enumConstant|fundingHistory
+DECL|enumConstant|wallets
+name|balances
+block|,
+name|fundingHistory
+block|,
+name|wallets
+block|,
+comment|// Metadata service methods
+DECL|enumConstant|currencies
+DECL|enumConstant|currencyMetaData
+DECL|enumConstant|currencyPairs
+DECL|enumConstant|currencyPairMetaData
 name|currencies
 block|,
 name|currencyMetaData
@@ -195,6 +210,8 @@ name|currencyPairs
 block|,
 name|currencyPairMetaData
 block|,
+comment|// Marketdata service methods
+DECL|enumConstant|ticker
 name|ticker
 block|}
 DECL|field|HEADER_CURRENCY

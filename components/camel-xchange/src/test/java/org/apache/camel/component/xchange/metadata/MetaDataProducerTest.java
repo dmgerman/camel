@@ -177,10 +177,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MetaDataConsumerTest
+DECL|class|MetaDataProducerTest
 specifier|public
 class|class
-name|MetaDataConsumerTest
+name|MetaDataProducerTest
 extends|extends
 name|CamelTestSupport
 block|{
