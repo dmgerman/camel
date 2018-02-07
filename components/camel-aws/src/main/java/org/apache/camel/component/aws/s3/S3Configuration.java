@@ -261,13 +261,6 @@ literal|1024
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|amazonS3Endpoint
-specifier|private
-name|String
-name|amazonS3Endpoint
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|policy
 specifier|private
 name|String
@@ -559,33 +552,6 @@ name|multiPartUpload
 operator|=
 name|multiPartUpload
 expr_stmt|;
-block|}
-comment|/**      * The region with which the AWS-S3 client wants to work with.      */
-DECL|method|setAmazonS3Endpoint (String amazonS3Endpoint)
-specifier|public
-name|void
-name|setAmazonS3Endpoint
-parameter_list|(
-name|String
-name|amazonS3Endpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonS3Endpoint
-operator|=
-name|amazonS3Endpoint
-expr_stmt|;
-block|}
-DECL|method|getAmazonS3Endpoint ()
-specifier|public
-name|String
-name|getAmazonS3Endpoint
-parameter_list|()
-block|{
-return|return
-name|amazonS3Endpoint
-return|;
 block|}
 DECL|method|getAccessKey ()
 specifier|public
