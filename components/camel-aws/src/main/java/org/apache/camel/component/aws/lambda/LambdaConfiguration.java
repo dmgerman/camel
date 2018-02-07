@@ -142,13 +142,6 @@ name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|awsLambdaEndpoint
-specifier|private
-name|String
-name|awsLambdaEndpoint
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -360,33 +353,6 @@ operator|.
 name|region
 operator|=
 name|region
-expr_stmt|;
-block|}
-DECL|method|getAwsLambdaEndpoint ()
-specifier|public
-name|String
-name|getAwsLambdaEndpoint
-parameter_list|()
-block|{
-return|return
-name|awsLambdaEndpoint
-return|;
-block|}
-comment|/**      * The AWS-Lambda client to use.      */
-DECL|method|setAwsLambdaEndpoint (String awsLambdaEndpoint)
-specifier|public
-name|void
-name|setAwsLambdaEndpoint
-parameter_list|(
-name|String
-name|awsLambdaEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|awsLambdaEndpoint
-operator|=
-name|awsLambdaEndpoint
 expr_stmt|;
 block|}
 DECL|method|getOperation ()
