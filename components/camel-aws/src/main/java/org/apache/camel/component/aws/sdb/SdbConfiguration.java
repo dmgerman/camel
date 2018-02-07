@@ -135,13 +135,6 @@ name|secretKey
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|amazonSdbEndpoint
-specifier|private
-name|String
-name|amazonSdbEndpoint
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|maxNumberOfDomains
 specifier|private
 name|Integer
@@ -191,33 +184,6 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
-comment|/**      * The region with which the AWS-SDB client wants to work with.      */
-DECL|method|setAmazonSdbEndpoint (String amazonSdbEndpoint)
-specifier|public
-name|void
-name|setAmazonSdbEndpoint
-parameter_list|(
-name|String
-name|amazonSdbEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonSdbEndpoint
-operator|=
-name|amazonSdbEndpoint
-expr_stmt|;
-block|}
-DECL|method|getAmazonSdbEndpoint ()
-specifier|public
-name|String
-name|getAmazonSdbEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonSdbEndpoint
-return|;
-block|}
 DECL|method|getAccessKey ()
 specifier|public
 name|String
