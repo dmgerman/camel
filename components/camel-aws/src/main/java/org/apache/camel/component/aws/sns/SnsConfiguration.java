@@ -136,13 +136,6 @@ name|secretKey
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|amazonSNSEndpoint
-specifier|private
-name|String
-name|amazonSNSEndpoint
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|proxyHost
 specifier|private
 name|String
@@ -184,33 +177,6 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
-comment|/**      * The region with which the AWS-SNS client wants to work with.      */
-DECL|method|setAmazonSNSEndpoint (String awsSNSEndpoint)
-specifier|public
-name|void
-name|setAmazonSNSEndpoint
-parameter_list|(
-name|String
-name|awsSNSEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonSNSEndpoint
-operator|=
-name|awsSNSEndpoint
-expr_stmt|;
-block|}
-DECL|method|getAmazonSNSEndpoint ()
-specifier|public
-name|String
-name|getAmazonSNSEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonSNSEndpoint
-return|;
-block|}
 DECL|method|getSubject ()
 specifier|public
 name|String

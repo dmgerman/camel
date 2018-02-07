@@ -293,12 +293,6 @@ name|SnsConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * The region with which the AWS-SNS client wants to work with.          */
-DECL|field|amazonSNSEndpoint
-specifier|private
-name|String
-name|amazonSNSEndpoint
-decl_stmt|;
 comment|/**          * The subject which is used if the message header 'CamelAwsSnsSubject'          * is not present.          */
 DECL|field|subject
 specifier|private
@@ -362,32 +356,6 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
-DECL|method|getAmazonSNSEndpoint ()
-specifier|public
-name|String
-name|getAmazonSNSEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonSNSEndpoint
-return|;
-block|}
-DECL|method|setAmazonSNSEndpoint (String amazonSNSEndpoint)
-specifier|public
-name|void
-name|setAmazonSNSEndpoint
-parameter_list|(
-name|String
-name|amazonSNSEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonSNSEndpoint
-operator|=
-name|amazonSNSEndpoint
-expr_stmt|;
-block|}
 DECL|method|getSubject ()
 specifier|public
 name|String
