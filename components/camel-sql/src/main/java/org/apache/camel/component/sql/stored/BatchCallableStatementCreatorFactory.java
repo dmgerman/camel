@@ -88,7 +88,7 @@ name|template
 operator|.
 name|ast
 operator|.
-name|InputParameter
+name|InParameter
 import|;
 end_import
 
@@ -416,14 +416,14 @@ if|if
 condition|(
 name|parameter
 operator|instanceof
-name|InputParameter
+name|InParameter
 condition|)
 block|{
-name|InputParameter
+name|InParameter
 name|inputParameter
 init|=
 operator|(
-name|InputParameter
+name|InParameter
 operator|)
 name|parameter
 decl_stmt|;

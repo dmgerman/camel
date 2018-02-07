@@ -130,7 +130,7 @@ name|template
 operator|.
 name|ast
 operator|.
-name|InputParameter
+name|InParameter
 import|;
 end_import
 
@@ -569,11 +569,11 @@ name|getParameterList
 argument_list|()
 control|)
 block|{
-name|InputParameter
+name|InParameter
 name|inputParameter
 init|=
 operator|(
-name|InputParameter
+name|InParameter
 operator|)
 name|param
 decl_stmt|;
