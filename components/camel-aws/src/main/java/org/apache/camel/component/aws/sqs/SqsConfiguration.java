@@ -145,13 +145,6 @@ literal|"amazonaws.com"
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|amazonSQSEndpoint
-specifier|private
-name|String
-name|amazonSQSEndpoint
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|secret
 operator|=
@@ -459,33 +452,6 @@ return|;
 block|}
 return|return
 literal|false
-return|;
-block|}
-comment|/**      * The region with which the AWS-SQS client wants to work with.      * Only works if Camel creates the AWS-SQS client, i.e., if you explicitly set amazonSQSClient,      * then this setting will have no effect. You would have to set it on the client you create directly      */
-DECL|method|setAmazonSQSEndpoint (String amazonSQSEndpoint)
-specifier|public
-name|void
-name|setAmazonSQSEndpoint
-parameter_list|(
-name|String
-name|amazonSQSEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonSQSEndpoint
-operator|=
-name|amazonSQSEndpoint
-expr_stmt|;
-block|}
-DECL|method|getAmazonSQSEndpoint ()
-specifier|public
-name|String
-name|getAmazonSQSEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonSQSEndpoint
 return|;
 block|}
 DECL|method|getAmazonAWSHost ()

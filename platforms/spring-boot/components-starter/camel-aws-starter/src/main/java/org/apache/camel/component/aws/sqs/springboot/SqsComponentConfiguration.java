@@ -293,12 +293,6 @@ name|SqsConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * The region with which the AWS-SQS client wants to work with. Only          * works if Camel creates the AWS-SQS client, i.e., if you explicitly          * set amazonSQSClient, then this setting will have no effect. You would          * have to set it on the client you create directly          */
-DECL|field|amazonSQSEndpoint
-specifier|private
-name|String
-name|amazonSQSEndpoint
-decl_stmt|;
 comment|/**          * The hostname of the Amazon AWS cloud.          */
 DECL|field|amazonAWSHost
 specifier|private
@@ -450,32 +444,6 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
-DECL|method|getAmazonSQSEndpoint ()
-specifier|public
-name|String
-name|getAmazonSQSEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonSQSEndpoint
-return|;
-block|}
-DECL|method|setAmazonSQSEndpoint (String amazonSQSEndpoint)
-specifier|public
-name|void
-name|setAmazonSQSEndpoint
-parameter_list|(
-name|String
-name|amazonSQSEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonSQSEndpoint
-operator|=
-name|amazonSQSEndpoint
-expr_stmt|;
-block|}
 DECL|method|getAmazonAWSHost ()
 specifier|public
 name|String
