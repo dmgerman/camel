@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.kubernetes.builds.springboot
+DECL|package|org.apache.camel.component.openshift.builds.springboot
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|builds
 operator|.
@@ -84,11 +84,11 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|builds
 operator|.
-name|KubernetesBuildsComponent
+name|OpenshiftBuildsComponent
 import|;
 end_import
 
@@ -438,7 +438,7 @@ name|ConditionalOnCamelContextAndAutoConfigurationBeans
 operator|.
 name|class
 block|,
-name|KubernetesBuildsComponentAutoConfiguration
+name|OpenshiftBuildsComponentAutoConfiguration
 operator|.
 name|GroupConditions
 operator|.
@@ -460,15 +460,15 @@ name|ComponentConfigurationProperties
 operator|.
 name|class
 block|,
-name|KubernetesBuildsComponentConfiguration
+name|OpenshiftBuildsComponentConfiguration
 operator|.
 name|class
 block|}
 argument_list|)
-DECL|class|KubernetesBuildsComponentAutoConfiguration
+DECL|class|OpenshiftBuildsComponentAutoConfiguration
 specifier|public
 class|class
-name|KubernetesBuildsComponentAutoConfiguration
+name|OpenshiftBuildsComponentAutoConfiguration
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -481,7 +481,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|KubernetesBuildsComponentAutoConfiguration
+name|OpenshiftBuildsComponentAutoConfiguration
 operator|.
 name|class
 argument_list|)
@@ -504,7 +504,7 @@ annotation|@
 name|Autowired
 DECL|field|configuration
 specifier|private
-name|KubernetesBuildsComponentConfiguration
+name|OpenshiftBuildsComponentConfiguration
 name|configuration
 decl_stmt|;
 annotation|@
@@ -520,7 +520,7 @@ name|List
 argument_list|<
 name|ComponentCustomizer
 argument_list|<
-name|KubernetesBuildsComponent
+name|OpenshiftBuildsComponent
 argument_list|>
 argument_list|>
 name|customizers
@@ -541,7 +541,7 @@ name|super
 argument_list|(
 literal|"camel.component"
 argument_list|,
-literal|"camel.component.kubernetes-builds"
+literal|"camel.component.openshift-builds"
 argument_list|)
 expr_stmt|;
 block|}
@@ -553,28 +553,28 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"kubernetes-builds-component"
+literal|"openshift-builds-component"
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
-name|KubernetesBuildsComponent
+name|OpenshiftBuildsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureKubernetesBuildsComponent ()
+DECL|method|configureOpenshiftBuildsComponent ()
 specifier|public
-name|KubernetesBuildsComponent
-name|configureKubernetesBuildsComponent
+name|OpenshiftBuildsComponent
+name|configureOpenshiftBuildsComponent
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|KubernetesBuildsComponent
+name|OpenshiftBuildsComponent
 name|component
 init|=
 operator|new
-name|KubernetesBuildsComponent
+name|OpenshiftBuildsComponent
 argument_list|()
 decl_stmt|;
 name|component
@@ -774,7 +774,7 @@ for|for
 control|(
 name|ComponentCustomizer
 argument_list|<
-name|KubernetesBuildsComponent
+name|OpenshiftBuildsComponent
 argument_list|>
 name|customizer
 range|:
@@ -801,7 +801,7 @@ argument_list|()
 argument_list|,
 literal|"camel.component.customizer"
 argument_list|,
-literal|"camel.component.kubernetes-builds.customizer"
+literal|"camel.component.openshift-builds.customizer"
 argument_list|,
 operator|(
 operator|(
@@ -825,7 +825,7 @@ argument_list|()
 argument_list|,
 literal|"camel.component.customizer"
 argument_list|,
-literal|"camel.component.kubernetes-builds.customizer"
+literal|"camel.component.openshift-builds.customizer"
 argument_list|)
 decl_stmt|;
 if|if

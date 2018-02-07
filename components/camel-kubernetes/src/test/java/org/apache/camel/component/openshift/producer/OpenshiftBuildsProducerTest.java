@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.kubernetes.producer
+DECL|package|org.apache.camel.component.openshift.producer
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|producer
 package|;
@@ -79,6 +79,20 @@ operator|.
 name|model
 operator|.
 name|BuildListBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|fabric8
+operator|.
+name|openshift
+operator|.
+name|client
+operator|.
+name|OpenShiftClient
 import|;
 end_import
 
@@ -205,10 +219,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|KubernetesBuildsProducerTest
+DECL|class|OpenshiftBuildsProducerTest
 specifier|public
 class|class
-name|KubernetesBuildsProducerTest
+name|OpenshiftBuildsProducerTest
 extends|extends
 name|KubernetesTestSupport
 block|{
@@ -251,6 +265,13 @@ name|server
 operator|.
 name|getKubernetesClient
 argument_list|()
+operator|.
+name|adapt
+argument_list|(
+name|OpenShiftClient
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -524,7 +545,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"kubernetes-builds:///?operation=listBuilds&kubernetesClient=#client"
+literal|"openshift-builds:///?operation=listBuilds&kubernetesClient=#client"
 argument_list|)
 expr_stmt|;
 name|from
@@ -534,7 +555,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"kubernetes-builds:///?operation=listBuildsByLabels&kubernetesClient=#client"
+literal|"openshift-builds:///?operation=listBuildsByLabels&kubernetesClient=#client"
 argument_list|)
 expr_stmt|;
 block|}

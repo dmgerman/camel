@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.kubernetes.builds
+DECL|package|org.apache.camel.component.openshift.builds
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|builds
 package|;
@@ -307,10 +307,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|KubernetesBuildsProducer
+DECL|class|OpenshiftBuildsProducer
 specifier|public
 class|class
-name|KubernetesBuildsProducer
+name|OpenshiftBuildsProducer
 extends|extends
 name|DefaultProducer
 block|{
@@ -325,14 +325,14 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|KubernetesBuildsProducer
+name|OpenshiftBuildsProducer
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|KubernetesBuildsProducer (AbstractKubernetesEndpoint endpoint)
+DECL|method|OpenshiftBuildsProducer (AbstractKubernetesEndpoint endpoint)
 specifier|public
-name|KubernetesBuildsProducer
+name|OpenshiftBuildsProducer
 parameter_list|(
 name|AbstractKubernetesEndpoint
 name|endpoint

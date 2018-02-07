@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.kubernetes.builds
+DECL|package|org.apache.camel.component.openshift.builds
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|builds
 package|;
@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Builds component provides a producer to execute kubernetes build operations.  */
+comment|/**  * The Openshift Builds component provides a producer to execute openshift build operations.  */
 end_comment
 
 begin_class
@@ -136,15 +136,15 @@ literal|"2.17.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"kubernetes-builds"
+literal|"openshift-builds"
 argument_list|,
 name|title
 operator|=
-literal|"Kubernetes Builds"
+literal|"Openshift Builds"
 argument_list|,
 name|syntax
 operator|=
-literal|"kubernetes-builds:masterUrl"
+literal|"openshift-builds:masterUrl"
 argument_list|,
 name|producerOnly
 operator|=
@@ -154,10 +154,10 @@ name|label
 operator|=
 literal|"container,cloud,paas"
 argument_list|)
-DECL|class|KubernetesBuildsEndpoint
+DECL|class|OpenshiftBuildsEndpoint
 specifier|public
 class|class
-name|KubernetesBuildsEndpoint
+name|OpenshiftBuildsEndpoint
 extends|extends
 name|AbstractKubernetesEndpoint
 block|{
@@ -172,19 +172,19 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|KubernetesBuildsEndpoint
+name|OpenshiftBuildsEndpoint
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|KubernetesBuildsEndpoint (String uri, KubernetesBuildsComponent component, KubernetesConfiguration config)
+DECL|method|OpenshiftBuildsEndpoint (String uri, OpenshiftBuildsComponent component, KubernetesConfiguration config)
 specifier|public
-name|KubernetesBuildsEndpoint
+name|OpenshiftBuildsEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|KubernetesBuildsComponent
+name|OpenshiftBuildsComponent
 name|component
 parameter_list|,
 name|KubernetesConfiguration
@@ -213,7 +213,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|KubernetesBuildsProducer
+name|OpenshiftBuildsProducer
 argument_list|(
 name|this
 argument_list|)
