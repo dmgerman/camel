@@ -187,13 +187,6 @@ name|secretKey
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|amazonSESEndpoint
-specifier|private
-name|String
-name|amazonSESEndpoint
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|subject
 specifier|private
 name|String
@@ -526,33 +519,6 @@ argument_list|(
 literal|","
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getAmazonSESEndpoint ()
-specifier|public
-name|String
-name|getAmazonSESEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonSESEndpoint
-return|;
-block|}
-comment|/**      * The region with which the AWS-SES client wants to work with.      */
-DECL|method|setAmazonSESEndpoint (String amazonSesEndpoint)
-specifier|public
-name|void
-name|setAmazonSESEndpoint
-parameter_list|(
-name|String
-name|amazonSesEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonSESEndpoint
-operator|=
-name|amazonSesEndpoint
 expr_stmt|;
 block|}
 comment|/**      * To define a proxy host when instantiating the SES client      */

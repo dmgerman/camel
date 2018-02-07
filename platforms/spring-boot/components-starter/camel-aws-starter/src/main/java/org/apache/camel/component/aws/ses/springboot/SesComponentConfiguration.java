@@ -351,12 +351,6 @@ specifier|private
 name|List
 name|replyToAddresses
 decl_stmt|;
-comment|/**          * The region with which the AWS-SES client wants to work with.          */
-DECL|field|amazonSESEndpoint
-specifier|private
-name|String
-name|amazonSESEndpoint
-decl_stmt|;
 DECL|field|proxyHost
 specifier|private
 name|String
@@ -578,32 +572,6 @@ operator|.
 name|replyToAddresses
 operator|=
 name|replyToAddresses
-expr_stmt|;
-block|}
-DECL|method|getAmazonSESEndpoint ()
-specifier|public
-name|String
-name|getAmazonSESEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonSESEndpoint
-return|;
-block|}
-DECL|method|setAmazonSESEndpoint (String amazonSESEndpoint)
-specifier|public
-name|void
-name|setAmazonSESEndpoint
-parameter_list|(
-name|String
-name|amazonSESEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonSESEndpoint
-operator|=
-name|amazonSESEndpoint
 expr_stmt|;
 block|}
 DECL|method|getProxyHost ()
