@@ -167,13 +167,6 @@ name|amazonDDBClient
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|amazonDdbEndpoint
-specifier|private
-name|String
-name|amazonDdbEndpoint
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|consistentRead
 specifier|private
 name|boolean
@@ -244,33 +237,6 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
-comment|/**      * The endpoint with which the AWS-DDB client wants to work with.      */
-DECL|method|setAmazonDdbEndpoint (String amazonDdbEndpoint)
-specifier|public
-name|void
-name|setAmazonDdbEndpoint
-parameter_list|(
-name|String
-name|amazonDdbEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonDdbEndpoint
-operator|=
-name|amazonDdbEndpoint
-expr_stmt|;
-block|}
-DECL|method|getAmazonDdbEndpoint ()
-specifier|public
-name|String
-name|getAmazonDdbEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonDdbEndpoint
-return|;
-block|}
 DECL|method|getAccessKey ()
 specifier|public
 name|String
