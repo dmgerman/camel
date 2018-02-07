@@ -395,7 +395,7 @@ specifier|private
 name|String
 name|fileName
 decl_stmt|;
-comment|/**          * The region where the bucket is located. This option is used in the          * `com.amazonaws.services.s3.model.CreateBucketRequest`.          */
+comment|/**          * The region in which S3 client needs to work          */
 DECL|field|region
 specifier|private
 name|String

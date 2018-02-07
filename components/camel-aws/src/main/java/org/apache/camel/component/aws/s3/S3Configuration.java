@@ -725,7 +725,7 @@ return|return
 name|region
 return|;
 block|}
-comment|/**      * The region where the bucket is located. This option is used in the      * `com.amazonaws.services.s3.model.CreateBucketRequest`.      */
+comment|/**      * The region in which S3 client needs to work      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
