@@ -145,13 +145,6 @@ name|amazonCwClient
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|amazonCwEndpoint
-specifier|private
-name|String
-name|amazonCwEndpoint
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -231,33 +224,6 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
-comment|/**      * The endpoint with which the AWS-CW client wants to work with.      */
-DECL|method|setAmazonCwEndpoint (String amazonCwEndpoint)
-specifier|public
-name|void
-name|setAmazonCwEndpoint
-parameter_list|(
-name|String
-name|amazonCwEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonCwEndpoint
-operator|=
-name|amazonCwEndpoint
-expr_stmt|;
-block|}
-DECL|method|getAmazonCwEndpoint ()
-specifier|public
-name|String
-name|getAmazonCwEndpoint
-parameter_list|()
-block|{
-return|return
-name|amazonCwEndpoint
-return|;
-block|}
 DECL|method|getAccessKey ()
 specifier|public
 name|String
