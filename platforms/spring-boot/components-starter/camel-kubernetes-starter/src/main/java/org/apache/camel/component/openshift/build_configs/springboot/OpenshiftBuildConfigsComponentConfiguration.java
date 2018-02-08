@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.kubernetes.build_configs.springboot
+DECL|package|org.apache.camel.component.openshift.build_configs.springboot
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|build_configs
 operator|.
@@ -79,12 +79,12 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.component.kubernetes-build-configs"
+literal|"camel.component.openshift-build-configs"
 argument_list|)
-DECL|class|KubernetesBuildConfigsComponentConfiguration
+DECL|class|OpenshiftBuildConfigsComponentConfiguration
 specifier|public
 class|class
-name|KubernetesBuildConfigsComponentConfiguration
+name|OpenshiftBuildConfigsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{

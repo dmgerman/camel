@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.kubernetes.build_configs
+DECL|package|org.apache.camel.component.openshift.build_configs
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|build_configs
 package|;
@@ -71,22 +71,6 @@ operator|.
 name|dsl
 operator|.
 name|FilterWatchListMultiDeletable
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|fabric8
-operator|.
-name|kubernetes
-operator|.
-name|client
-operator|.
-name|dsl
-operator|.
-name|MixedOperation
 import|;
 end_import
 
@@ -323,10 +307,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|KubernetesBuildConfigsProducer
+DECL|class|OpenshiftBuildConfigsProducer
 specifier|public
 class|class
-name|KubernetesBuildConfigsProducer
+name|OpenshiftBuildConfigsProducer
 extends|extends
 name|DefaultProducer
 block|{
@@ -341,14 +325,14 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|KubernetesBuildConfigsProducer
+name|OpenshiftBuildConfigsProducer
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|KubernetesBuildConfigsProducer (AbstractKubernetesEndpoint endpoint)
+DECL|method|OpenshiftBuildConfigsProducer (AbstractKubernetesEndpoint endpoint)
 specifier|public
-name|KubernetesBuildConfigsProducer
+name|OpenshiftBuildConfigsProducer
 parameter_list|(
 name|AbstractKubernetesEndpoint
 name|endpoint

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.kubernetes.build_configs
+DECL|package|org.apache.camel.component.openshift.build_configs
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|build_configs
 package|;
@@ -136,15 +136,15 @@ literal|"2.17.0"
 argument_list|,
 name|scheme
 operator|=
-literal|"kubernetes-build-configs"
+literal|"openshift-build-configs"
 argument_list|,
 name|title
 operator|=
-literal|"Kubernetes Build Config"
+literal|"Openshift Build Config"
 argument_list|,
 name|syntax
 operator|=
-literal|"kubernetes-build-configs:masterUrl"
+literal|"openshift-build-configs:masterUrl"
 argument_list|,
 name|producerOnly
 operator|=
@@ -154,10 +154,10 @@ name|label
 operator|=
 literal|"container,cloud,paas"
 argument_list|)
-DECL|class|KubernetesBuildConfigsEndpoint
+DECL|class|OpenshiftBuildConfigsEndpoint
 specifier|public
 class|class
-name|KubernetesBuildConfigsEndpoint
+name|OpenshiftBuildConfigsEndpoint
 extends|extends
 name|AbstractKubernetesEndpoint
 block|{
@@ -172,19 +172,19 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|KubernetesBuildConfigsEndpoint
+name|OpenshiftBuildConfigsEndpoint
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|KubernetesBuildConfigsEndpoint (String uri, KubernetesBuildConfigsComponent component, KubernetesConfiguration config)
+DECL|method|OpenshiftBuildConfigsEndpoint (String uri, OpenshiftBuildConfigsComponent component, KubernetesConfiguration config)
 specifier|public
-name|KubernetesBuildConfigsEndpoint
+name|OpenshiftBuildConfigsEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|KubernetesBuildConfigsComponent
+name|OpenshiftBuildConfigsComponent
 name|component
 parameter_list|,
 name|KubernetesConfiguration
@@ -213,7 +213,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|KubernetesBuildConfigsProducer
+name|OpenshiftBuildConfigsProducer
 argument_list|(
 name|this
 argument_list|)
@@ -236,7 +236,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The kubernetes-build-configs doesn't support consumer"
+literal|"The openshift-build-configs doesn't support consumer"
 argument_list|)
 throw|;
 block|}

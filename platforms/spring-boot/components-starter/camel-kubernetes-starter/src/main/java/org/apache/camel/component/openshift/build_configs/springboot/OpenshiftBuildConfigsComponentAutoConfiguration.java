@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.kubernetes.build_configs.springboot
+DECL|package|org.apache.camel.component.openshift.build_configs.springboot
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|build_configs
 operator|.
@@ -84,11 +84,11 @@ name|camel
 operator|.
 name|component
 operator|.
-name|kubernetes
+name|openshift
 operator|.
 name|build_configs
 operator|.
-name|KubernetesBuildConfigsComponent
+name|OpenshiftBuildConfigsComponent
 import|;
 end_import
 
@@ -438,7 +438,7 @@ name|ConditionalOnCamelContextAndAutoConfigurationBeans
 operator|.
 name|class
 block|,
-name|KubernetesBuildConfigsComponentAutoConfiguration
+name|OpenshiftBuildConfigsComponentAutoConfiguration
 operator|.
 name|GroupConditions
 operator|.
@@ -460,15 +460,15 @@ name|ComponentConfigurationProperties
 operator|.
 name|class
 block|,
-name|KubernetesBuildConfigsComponentConfiguration
+name|OpenshiftBuildConfigsComponentConfiguration
 operator|.
 name|class
 block|}
 argument_list|)
-DECL|class|KubernetesBuildConfigsComponentAutoConfiguration
+DECL|class|OpenshiftBuildConfigsComponentAutoConfiguration
 specifier|public
 class|class
-name|KubernetesBuildConfigsComponentAutoConfiguration
+name|OpenshiftBuildConfigsComponentAutoConfiguration
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -481,7 +481,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|KubernetesBuildConfigsComponentAutoConfiguration
+name|OpenshiftBuildConfigsComponentAutoConfiguration
 operator|.
 name|class
 argument_list|)
@@ -504,7 +504,7 @@ annotation|@
 name|Autowired
 DECL|field|configuration
 specifier|private
-name|KubernetesBuildConfigsComponentConfiguration
+name|OpenshiftBuildConfigsComponentConfiguration
 name|configuration
 decl_stmt|;
 annotation|@
@@ -520,7 +520,7 @@ name|List
 argument_list|<
 name|ComponentCustomizer
 argument_list|<
-name|KubernetesBuildConfigsComponent
+name|OpenshiftBuildConfigsComponent
 argument_list|>
 argument_list|>
 name|customizers
@@ -541,7 +541,7 @@ name|super
 argument_list|(
 literal|"camel.component"
 argument_list|,
-literal|"camel.component.kubernetes-build-configs"
+literal|"camel.component.openshift-build-configs"
 argument_list|)
 expr_stmt|;
 block|}
@@ -553,28 +553,28 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"kubernetes-build-configs-component"
+literal|"openshift-build-configs-component"
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
-name|KubernetesBuildConfigsComponent
+name|OpenshiftBuildConfigsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureKubernetesBuildConfigsComponent ()
+DECL|method|configureOpenshiftBuildConfigsComponent ()
 specifier|public
-name|KubernetesBuildConfigsComponent
-name|configureKubernetesBuildConfigsComponent
+name|OpenshiftBuildConfigsComponent
+name|configureOpenshiftBuildConfigsComponent
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|KubernetesBuildConfigsComponent
+name|OpenshiftBuildConfigsComponent
 name|component
 init|=
 operator|new
-name|KubernetesBuildConfigsComponent
+name|OpenshiftBuildConfigsComponent
 argument_list|()
 decl_stmt|;
 name|component
@@ -774,7 +774,7 @@ for|for
 control|(
 name|ComponentCustomizer
 argument_list|<
-name|KubernetesBuildConfigsComponent
+name|OpenshiftBuildConfigsComponent
 argument_list|>
 name|customizer
 range|:
@@ -801,7 +801,7 @@ argument_list|()
 argument_list|,
 literal|"camel.component.customizer"
 argument_list|,
-literal|"camel.component.kubernetes-build-configs.customizer"
+literal|"camel.component.openshift-build-configs.customizer"
 argument_list|,
 operator|(
 operator|(
@@ -825,7 +825,7 @@ argument_list|()
 argument_list|,
 literal|"camel.component.customizer"
 argument_list|,
-literal|"camel.component.kubernetes-build-configs.customizer"
+literal|"camel.component.openshift-build-configs.customizer"
 argument_list|)
 decl_stmt|;
 if|if
