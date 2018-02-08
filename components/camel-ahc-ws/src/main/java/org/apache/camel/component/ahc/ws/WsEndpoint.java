@@ -168,7 +168,7 @@ name|asynchttpclient
 operator|.
 name|ws
 operator|.
-name|DefaultWebSocketListener
+name|WebSocket
 import|;
 end_import
 
@@ -180,7 +180,7 @@ name|asynchttpclient
 operator|.
 name|ws
 operator|.
-name|WebSocket
+name|WebSocketListener
 import|;
 end_import
 
@@ -670,7 +670,7 @@ argument_list|)
 expr_stmt|;
 name|websocket
 operator|.
-name|close
+name|sendCloseFrame
 argument_list|()
 expr_stmt|;
 name|websocket
@@ -767,8 +767,8 @@ block|}
 DECL|class|WsListener
 class|class
 name|WsListener
-extends|extends
-name|DefaultWebSocketListener
+implements|implements
+name|WebSocketListener
 block|{
 annotation|@
 name|Override
@@ -791,13 +791,19 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onClose (WebSocket websocket)
+DECL|method|onClose (WebSocket websocket, int code, String reason)
 specifier|public
 name|void
 name|onClose
 parameter_list|(
 name|WebSocket
 name|websocket
+parameter_list|,
+name|int
+name|code
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{
 name|LOG
@@ -876,14 +882,20 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|onMessage (byte[] message)
+DECL|method|onBinaryFrame (byte[] message, boolean finalFragment, int rsv)
 specifier|public
 name|void
-name|onMessage
+name|onBinaryFrame
 parameter_list|(
 name|byte
 index|[]
 name|message
+parameter_list|,
+name|boolean
+name|finalFragment
+parameter_list|,
+name|int
+name|rsv
 parameter_list|)
 block|{
 name|LOG
@@ -914,13 +926,19 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|onMessage (String message)
+DECL|method|onTextFrame (String message, boolean finalFragment, int rsv)
 specifier|public
 name|void
-name|onMessage
+name|onTextFrame
 parameter_list|(
 name|String
 name|message
+parameter_list|,
+name|boolean
+name|finalFragment
+parameter_list|,
+name|int
+name|rsv
 parameter_list|)
 block|{
 name|LOG

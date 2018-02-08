@@ -274,7 +274,7 @@ comment|//TODO provide other binding option, for now use the converted string
 name|getWebSocket
 argument_list|()
 operator|.
-name|sendMessage
+name|sendTextFrame
 argument_list|(
 name|in
 operator|.
@@ -338,7 +338,7 @@ condition|)
 block|{
 name|webSocket
 operator|.
-name|stream
+name|sendTextFrame
 argument_list|(
 name|msg
 operator|.
@@ -348,6 +348,8 @@ name|p
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|p
@@ -362,7 +364,7 @@ else|else
 block|{
 name|webSocket
 operator|.
-name|stream
+name|sendTextFrame
 argument_list|(
 name|msg
 operator|.
@@ -374,6 +376,8 @@ name|streamBufferSize
 argument_list|)
 argument_list|,
 literal|false
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|p
@@ -387,7 +391,7 @@ else|else
 block|{
 name|webSocket
 operator|.
-name|sendMessage
+name|sendTextFrame
 argument_list|(
 name|msg
 argument_list|)
@@ -503,15 +507,13 @@ argument_list|)
 expr_stmt|;
 name|webSocket
 operator|.
-name|stream
+name|sendBinaryFrame
 argument_list|(
 name|tmpbuf
 argument_list|,
-literal|0
-argument_list|,
-name|rest
-argument_list|,
 literal|true
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// ends
@@ -543,15 +545,13 @@ argument_list|)
 expr_stmt|;
 name|webSocket
 operator|.
-name|stream
+name|sendBinaryFrame
 argument_list|(
 name|writebuf
 argument_list|,
-literal|0
-argument_list|,
-name|streamBufferSize
-argument_list|,
 literal|false
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// ends
@@ -566,7 +566,7 @@ else|else
 block|{
 name|webSocket
 operator|.
-name|sendMessage
+name|sendBinaryFrame
 argument_list|(
 name|msg
 argument_list|)
@@ -651,17 +651,13 @@ condition|)
 block|{
 name|webSocket
 operator|.
-name|stream
+name|sendBinaryFrame
 argument_list|(
 name|writebuf
 argument_list|,
-literal|0
-argument_list|,
-name|writebuf
-operator|.
-name|length
-argument_list|,
 literal|false
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -728,15 +724,13 @@ block|}
 comment|// ends
 name|webSocket
 operator|.
-name|stream
+name|sendBinaryFrame
 argument_list|(
 name|writebuf
 argument_list|,
-literal|0
-argument_list|,
-name|wn
-argument_list|,
 literal|true
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

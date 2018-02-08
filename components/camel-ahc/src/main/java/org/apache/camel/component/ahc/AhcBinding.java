@@ -46,16 +46,6 @@ name|org
 operator|.
 name|asynchttpclient
 operator|.
-name|HttpResponseHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|asynchttpclient
-operator|.
 name|HttpResponseStatus
 import|;
 end_import
@@ -67,6 +57,22 @@ operator|.
 name|asynchttpclient
 operator|.
 name|Request
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
+name|HttpHeaders
 import|;
 end_import
 
@@ -129,7 +135,7 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Callback from the {@link com.ning.http.client.AsyncHttpClient} when the HTTP headers was received      *      * @param endpoint the endpoint      * @param exchange the exchange      * @param headers  the HTTP headers      * @throws Exception is thrown if error occurred in the callback      */
-DECL|method|onHeadersReceived (AhcEndpoint endpoint, Exchange exchange, HttpResponseHeaders headers)
+DECL|method|onHeadersReceived (AhcEndpoint endpoint, Exchange exchange, HttpHeaders headers)
 name|void
 name|onHeadersReceived
 parameter_list|(
@@ -139,7 +145,7 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|,
-name|HttpResponseHeaders
+name|HttpHeaders
 name|headers
 parameter_list|)
 throws|throws

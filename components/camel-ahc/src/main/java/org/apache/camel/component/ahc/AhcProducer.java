@@ -102,16 +102,6 @@ name|org
 operator|.
 name|asynchttpclient
 operator|.
-name|HttpResponseHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|asynchttpclient
-operator|.
 name|HttpResponseStatus
 import|;
 end_import
@@ -123,6 +113,22 @@ operator|.
 name|asynchttpclient
 operator|.
 name|Request
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
+name|HttpHeaders
 import|;
 end_import
 
@@ -720,12 +726,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|onHeadersReceived (HttpResponseHeaders headers)
+DECL|method|onHeadersReceived (HttpHeaders headers)
 specifier|public
 name|State
 name|onHeadersReceived
 parameter_list|(
-name|HttpResponseHeaders
+name|HttpHeaders
 name|headers
 parameter_list|)
 throws|throws

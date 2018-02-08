@@ -1116,8 +1116,6 @@ condition|)
 block|{
 name|AsyncHttpClientConfig
 name|config
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1189,13 +1187,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|sslContextParameters
-operator|!=
-literal|null
-condition|)
-block|{
 name|DefaultAsyncHttpClientConfig
 operator|.
 name|Builder
@@ -1207,6 +1198,21 @@ operator|.
 name|Builder
 argument_list|()
 decl_stmt|;
+comment|/*                  * Not doing this will always create a cookie handler per endpoint, which is incompatible                  * to prior versions and interferes with the cookie handling in camel                  */
+name|builder
+operator|.
+name|setCookieStore
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|sslContextParameters
+operator|!=
+literal|null
+condition|)
+block|{
 name|SSLContext
 name|sslContext
 init|=
@@ -1240,6 +1246,7 @@ argument_list|(
 name|ssl
 argument_list|)
 expr_stmt|;
+block|}
 name|config
 operator|=
 name|builder
@@ -1247,7 +1254,6 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 name|client
 operator|=
