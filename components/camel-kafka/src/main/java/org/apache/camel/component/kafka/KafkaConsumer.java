@@ -1779,7 +1779,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getComponent
+name|getConfiguration
 argument_list|()
 operator|.
 name|isAllowManualCommit
