@@ -141,6 +141,13 @@ name|testComponent
 argument_list|(
 name|COMPONENT
 argument_list|,
+literal|"aws-kms"
+argument_list|)
+expr_stmt|;
+name|testComponent
+argument_list|(
+name|COMPONENT
+argument_list|,
 literal|"aws-lambda"
 argument_list|)
 expr_stmt|;
