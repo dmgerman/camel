@@ -382,12 +382,6 @@ specifier|private
 name|Long
 name|maxResponseMessageSize
 decl_stmt|;
-comment|/**          * Whether secure channel re-authentication is enabled          */
-DECL|field|secureChannelReauthenticationEnabled
-specifier|private
-name|Boolean
-name|secureChannelReauthenticationEnabled
-decl_stmt|;
 comment|/**          * The key store type          */
 DECL|field|keyStoreType
 specifier|private
@@ -696,32 +690,6 @@ operator|.
 name|maxResponseMessageSize
 operator|=
 name|maxResponseMessageSize
-expr_stmt|;
-block|}
-DECL|method|getSecureChannelReauthenticationEnabled ()
-specifier|public
-name|Boolean
-name|getSecureChannelReauthenticationEnabled
-parameter_list|()
-block|{
-return|return
-name|secureChannelReauthenticationEnabled
-return|;
-block|}
-DECL|method|setSecureChannelReauthenticationEnabled ( Boolean secureChannelReauthenticationEnabled)
-specifier|public
-name|void
-name|setSecureChannelReauthenticationEnabled
-parameter_list|(
-name|Boolean
-name|secureChannelReauthenticationEnabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|secureChannelReauthenticationEnabled
-operator|=
-name|secureChannelReauthenticationEnabled
 expr_stmt|;
 block|}
 DECL|method|getKeyStoreType ()

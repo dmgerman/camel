@@ -885,21 +885,16 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|verifyTrustChain (final X509Certificate certificate, final List<X509Certificate> chain)
+DECL|method|verifyTrustChain (List<X509Certificate> certificateChain)
 specifier|public
 name|void
 name|verifyTrustChain
 parameter_list|(
-specifier|final
-name|X509Certificate
-name|certificate
-parameter_list|,
-specifier|final
 name|List
 argument_list|<
 name|X509Certificate
 argument_list|>
-name|chain
+name|certificateChain
 parameter_list|)
 throws|throws
 name|UaException
@@ -1806,7 +1801,7 @@ name|this
 operator|.
 name|serverConfig
 operator|.
-name|setHostname
+name|setServerName
 argument_list|(
 name|hostname
 argument_list|)

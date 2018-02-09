@@ -266,18 +266,6 @@ name|label
 operator|=
 literal|"client"
 argument_list|)
-DECL|field|secureChannelReauthenticationEnabled
-specifier|private
-name|Boolean
-name|secureChannelReauthenticationEnabled
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"client"
-argument_list|)
 DECL|field|keyStoreUrl
 specifier|private
 name|URL
@@ -725,36 +713,6 @@ return|return
 name|this
 operator|.
 name|maxResponseMessageSize
-return|;
-block|}
-comment|/**      * Whether secure channel re-authentication is enabled      */
-DECL|method|setSecureChannelReauthenticationEnabled (final Boolean secureChannelReauthenticationEnabled)
-specifier|public
-name|void
-name|setSecureChannelReauthenticationEnabled
-parameter_list|(
-specifier|final
-name|Boolean
-name|secureChannelReauthenticationEnabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|secureChannelReauthenticationEnabled
-operator|=
-name|secureChannelReauthenticationEnabled
-expr_stmt|;
-block|}
-DECL|method|getSecureChannelReauthenticationEnabled ()
-specifier|public
-name|Boolean
-name|getSecureChannelReauthenticationEnabled
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|secureChannelReauthenticationEnabled
 return|;
 block|}
 comment|/**      * The URL where the key should be loaded from      */
