@@ -323,6 +323,8 @@ block|,
 literal|"camel.springboot.name=customName"
 block|,
 literal|"camel.springboot.typeConversion=true"
+block|,
+literal|"camel.springboot.threadNamePattern=customThreadName #counter#"
 block|}
 argument_list|)
 DECL|class|CamelAutoConfigurationTest
@@ -704,6 +706,28 @@ name|xmlAutoLoadingMock
 operator|.
 name|assertIsSatisfied
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|shouldChangeThreadNamePattern ()
+specifier|public
+name|void
+name|shouldChangeThreadNamePattern
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|getThreadNamePattern
+argument_list|()
+argument_list|,
+literal|"customThreadName #counter#"
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

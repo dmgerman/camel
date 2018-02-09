@@ -488,6 +488,12 @@ specifier|private
 name|boolean
 name|useMDCLogging
 decl_stmt|;
+comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel (#camelId#) thread ##counter# - #name#</tt>      *<p/>      * Where<tt>#camelId#</tt> is the name of the {@link org.apache.camel.CamelContext}      *<br/>and<tt>#counter#</tt> is a unique incrementing counter.      *<br/>and<tt>#name#</tt> is the regular thread name.      *<br/>You can also use<tt>#longName#</tt> is the long thread name which can includes endpoint parameters etc.      */
+DECL|field|threadNamePattern
+specifier|private
+name|String
+name|threadNamePattern
+decl_stmt|;
 comment|// Getters& setters
 DECL|method|getName ()
 specifier|public
@@ -2103,6 +2109,32 @@ operator|.
 name|useMDCLogging
 operator|=
 name|useMDCLogging
+expr_stmt|;
+block|}
+DECL|method|getThreadNamePattern ()
+specifier|public
+name|String
+name|getThreadNamePattern
+parameter_list|()
+block|{
+return|return
+name|threadNamePattern
+return|;
+block|}
+DECL|method|setThreadNamePattern (String threadNamePattern)
+specifier|public
+name|void
+name|setThreadNamePattern
+parameter_list|(
+name|String
+name|threadNamePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|threadNamePattern
+operator|=
+name|threadNamePattern
 expr_stmt|;
 block|}
 block|}
