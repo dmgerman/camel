@@ -124,7 +124,7 @@ name|asynchttpclient
 operator|.
 name|ws
 operator|.
-name|WebSocketTextListener
+name|WebSocketListener
 import|;
 end_import
 
@@ -226,17 +226,23 @@ operator|.
 name|addWebSocketListener
 argument_list|(
 operator|new
-name|WebSocketTextListener
+name|WebSocketListener
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
 name|void
-name|onMessage
+name|onTextFrame
 parameter_list|(
 name|String
 name|message
+parameter_list|,
+name|boolean
+name|finalFragment
+parameter_list|,
+name|int
+name|rsv
 parameter_list|)
 block|{
 name|received
@@ -279,6 +285,12 @@ name|onClose
 parameter_list|(
 name|WebSocket
 name|websocket
+parameter_list|,
+name|int
+name|code
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{                             }
 annotation|@
@@ -309,7 +321,7 @@ argument_list|()
 decl_stmt|;
 name|websocket
 operator|.
-name|sendMessage
+name|sendTextFrame
 argument_list|(
 literal|"Beer"
 argument_list|)
@@ -361,7 +373,7 @@ argument_list|)
 expr_stmt|;
 name|websocket
 operator|.
-name|close
+name|sendCloseFrame
 argument_list|()
 expr_stmt|;
 name|c
