@@ -797,6 +797,15 @@ name|action
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Starting route: {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 name|getEndpoint
 argument_list|()
 operator|.
@@ -820,6 +829,15 @@ name|action
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Stopping route: {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 name|getEndpoint
 argument_list|()
 operator|.
@@ -843,6 +861,15 @@ name|action
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Suspending route: {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 name|getEndpoint
 argument_list|()
 operator|.
@@ -866,6 +893,15 @@ name|action
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Resuming route: {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 name|getEndpoint
 argument_list|()
 operator|.
@@ -889,6 +925,15 @@ name|action
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Restarting route: {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 name|getEndpoint
 argument_list|()
 operator|.
@@ -909,13 +954,24 @@ operator|.
 name|getRestartDelay
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|delay
+operator|>
+literal|0
+condition|)
+block|{
 try|try
 block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sleeping {} ms before starting route"
+literal|"Sleeping {} ms before starting route: {}"
+argument_list|,
+name|delay
+argument_list|,
+name|id
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -933,6 +989,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+block|}
 block|}
 name|getEndpoint
 argument_list|()
@@ -957,6 +1014,15 @@ name|action
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Route status: {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 name|ServiceStatus
 name|status
 init|=
@@ -998,6 +1064,15 @@ name|action
 argument_list|)
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Route stats: {}"
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 comment|// camel context or per route
 name|String
 name|name

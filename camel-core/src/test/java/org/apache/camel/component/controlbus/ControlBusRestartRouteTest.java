@@ -134,7 +134,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"controlbus:route?routeId=foo&action=restart"
+literal|"controlbus:route?routeId=foo&action=restart&restartDelay=0"
 argument_list|,
 literal|null
 argument_list|)
