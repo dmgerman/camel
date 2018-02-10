@@ -274,12 +274,26 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"start,stop,suspend,resume,status"
+literal|"start,stop,suspend,resume,restart,status,stats"
 argument_list|)
 DECL|field|action
 specifier|private
 name|String
 name|action
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
+DECL|field|restartDelay
+specifier|private
+name|int
+name|restartDelay
+init|=
+literal|1000
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -478,7 +492,7 @@ return|return
 name|action
 return|;
 block|}
-comment|/**      * To denote an action that can be either: start, stop, or status.      *<p/>      * To either start or stop a route, or to get the status of the route as output in the message body.      * You can use suspend and resume from Camel 2.11.1 onwards to either suspend or resume a route.      * And from Camel 2.11.1 onwards you can use stats to get performance statics returned in XML format;      * the routeId option can be used to define which route to get the performance stats for, if routeId is not defined,      * then you get statistics for the entire CamelContext.      */
+comment|/**      * To denote an action that can be either: start, stop, or status.      *<p/>      * To either start or stop a route, or to get the status of the route as output in the message body.      * You can use suspend and resume from Camel 2.11.1 onwards to either suspend or resume a route.      * And from Camel 2.11.1 onwards you can use stats to get performance statics returned in XML format;      * the routeId option can be used to define which route to get the performance stats for, if routeId is not defined,      * then you get statistics for the entire CamelContext. The restart action will restart the route.      */
 DECL|method|setAction (String action)
 specifier|public
 name|void
@@ -493,6 +507,33 @@ operator|.
 name|action
 operator|=
 name|action
+expr_stmt|;
+block|}
+DECL|method|getRestartDelay ()
+specifier|public
+name|int
+name|getRestartDelay
+parameter_list|()
+block|{
+return|return
+name|restartDelay
+return|;
+block|}
+comment|/**      * The delay in millis to use when restarting a route.      */
+DECL|method|setRestartDelay (int restartDelay)
+specifier|public
+name|void
+name|setRestartDelay
+parameter_list|(
+name|int
+name|restartDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|restartDelay
+operator|=
+name|restartDelay
 expr_stmt|;
 block|}
 DECL|method|isAsync ()
