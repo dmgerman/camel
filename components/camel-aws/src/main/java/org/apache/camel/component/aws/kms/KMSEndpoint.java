@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-mq is used for managing Amazon KMS   */
+comment|/**  * The aws-kms is used for managing Amazon KMS  */
 end_comment
 
 begin_class
