@@ -260,11 +260,6 @@ specifier|private
 name|MockEndpoint
 name|result
 decl_stmt|;
-DECL|field|expected
-specifier|private
-name|String
-name|expected
-decl_stmt|;
 annotation|@
 name|Test
 annotation|@

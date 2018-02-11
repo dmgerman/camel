@@ -652,20 +652,6 @@ return|return
 name|id
 return|;
 block|}
-DECL|method|setId (String id)
-specifier|public
-name|void
-name|setId
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-name|id
-operator|=
-name|id
-expr_stmt|;
-block|}
 DECL|method|getProduct ()
 specifier|public
 name|String
@@ -675,22 +661,6 @@ block|{
 return|return
 name|product
 return|;
-block|}
-DECL|method|setProduct (String product)
-specifier|public
-name|void
-name|setProduct
-parameter_list|(
-name|String
-name|product
-parameter_list|)
-block|{
-name|this
-operator|.
-name|product
-operator|=
-name|product
-expr_stmt|;
 block|}
 DECL|method|getQuantity ()
 specifier|public

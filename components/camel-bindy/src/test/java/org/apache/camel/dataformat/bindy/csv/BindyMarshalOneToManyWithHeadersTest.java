@@ -269,11 +269,6 @@ name|URI_DIRECT_START
 init|=
 literal|"direct:start"
 decl_stmt|;
-DECL|field|order
-specifier|private
-name|Order
-name|order
-decl_stmt|;
 DECL|field|expected
 specifier|private
 name|String
