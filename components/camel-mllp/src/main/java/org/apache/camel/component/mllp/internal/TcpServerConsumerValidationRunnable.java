@@ -714,9 +714,28 @@ name|readFrom
 argument_list|(
 name|clientSocket
 argument_list|,
+name|Math
+operator|.
+name|min
+argument_list|(
 literal|500
 argument_list|,
-literal|50
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReceiveTimeout
+argument_list|()
+argument_list|)
+argument_list|,
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReadTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -757,11 +776,16 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Ignoring out-of-band data on initial read: {}"
+literal|"Ignoring out-of-band data on initial read [{} bytes]: {}"
 argument_list|,
 name|mllpBuffer
 operator|.
-name|toStringAndReset
+name|size
+argument_list|()
+argument_list|,
+name|mllpBuffer
+operator|.
+name|toPrintFriendlyStringAndReset
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -794,11 +818,16 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception encountered receiving complete message: "
+literal|"Exception encountered receiving complete initial message [{} bytes]: {}"
 argument_list|,
 name|mllpBuffer
 operator|.
-name|toStringAndReset
+name|size
+argument_list|()
+argument_list|,
+name|mllpBuffer
+operator|.
+name|toPrintFriendlyStringAndReset
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -848,11 +877,16 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout receiving complete message: {}"
+literal|"Timeout receiving complete initial message on read [{} bytes]: {}"
 argument_list|,
 name|mllpBuffer
 operator|.
-name|toStringAndReset
+name|size
+argument_list|()
+argument_list|,
+name|mllpBuffer
+operator|.
+name|toPrintFriendlyStringAndReset
 argument_list|()
 argument_list|)
 expr_stmt|;

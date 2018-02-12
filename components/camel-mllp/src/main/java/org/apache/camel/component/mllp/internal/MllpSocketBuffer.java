@@ -1632,6 +1632,25 @@ return|return
 literal|""
 return|;
 block|}
+DECL|method|toPrintFriendlyStringAndReset ()
+specifier|public
+name|String
+name|toPrintFriendlyStringAndReset
+parameter_list|()
+block|{
+name|String
+name|answer
+init|=
+name|toPrintFriendlyString
+argument_list|()
+decl_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 DECL|method|toHl7String ()
 specifier|public
 specifier|synchronized
@@ -1651,6 +1670,25 @@ operator|.
 name|name
 argument_list|()
 argument_list|)
+return|;
+block|}
+DECL|method|toHl7StringAndReset ()
+specifier|public
+name|String
+name|toHl7StringAndReset
+parameter_list|()
+block|{
+name|String
+name|answer
+init|=
+name|toHl7String
+argument_list|()
+decl_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|toHl7String (String charsetName)
@@ -1775,6 +1813,30 @@ return|return
 name|hl7String
 return|;
 block|}
+DECL|method|toHl7StringAndReset (String charsetName)
+specifier|public
+name|String
+name|toHl7StringAndReset
+parameter_list|(
+name|String
+name|charsetName
+parameter_list|)
+block|{
+name|String
+name|answer
+init|=
+name|toHl7String
+argument_list|(
+name|charsetName
+argument_list|)
+decl_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Convert the enveloped contents of the buffer (excluding enveloping characters) to a print-friendly      * String representation.      *      * @return print-friendly String      */
 DECL|method|toPrintFriendlyHl7String ()
 specifier|public
@@ -1828,6 +1890,25 @@ return|;
 block|}
 return|return
 literal|""
+return|;
+block|}
+DECL|method|toPrintFriendlyHl7StringAndReset ()
+specifier|public
+name|String
+name|toPrintFriendlyHl7StringAndReset
+parameter_list|()
+block|{
+name|String
+name|answer
+init|=
+name|toPrintFriendlyHl7String
+argument_list|()
+decl_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|toMllpPayload ()
@@ -1923,6 +2004,27 @@ block|}
 block|}
 return|return
 name|mllpPayload
+return|;
+block|}
+DECL|method|toMllpPayloadAndReset ()
+specifier|public
+name|byte
+index|[]
+name|toMllpPayloadAndReset
+parameter_list|()
+block|{
+name|byte
+index|[]
+name|answer
+init|=
+name|toMllpPayload
+argument_list|()
+decl_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|getMllpPayloadLength ()
@@ -2777,6 +2879,12 @@ name|availableByteCount
 operator|+=
 name|readCount
 expr_stmt|;
+if|if
+condition|(
+name|hasStartOfBlock
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -2788,6 +2896,23 @@ argument_list|,
 name|availableByteCount
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Ignoring {} bytes received before START_OF_BLOCK"
+argument_list|,
+name|size
+argument_list|()
+argument_list|,
+name|toPrintFriendlyStringAndReset
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch

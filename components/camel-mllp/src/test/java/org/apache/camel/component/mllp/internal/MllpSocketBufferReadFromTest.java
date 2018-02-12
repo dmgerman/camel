@@ -322,13 +322,8 @@ name|SocketTimeoutException
 name|expectedEx
 parameter_list|)
 block|{
-name|assertArrayEquals
+name|assertNull
 argument_list|(
-literal|"FOOBAR"
-operator|.
-name|getBytes
-argument_list|()
-argument_list|,
 name|instance
 operator|.
 name|toByteArray
