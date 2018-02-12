@@ -1234,6 +1234,20 @@ name|getSSEAlgorithm
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|message
+operator|.
+name|setHeader
+argument_list|(
+name|S3Constants
+operator|.
+name|USER_METADATA
+argument_list|,
+name|objectMetadata
+operator|.
+name|getUserMetadata
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|/**          * If includeBody != true, it is safe to close the object here. If          * includeBody == true, the caller is responsible for closing the stream          * and object once the body has been fully consumed. As of 2.17, the          * consumer does not close the stream or object on commit.          */
 if|if
 condition|(

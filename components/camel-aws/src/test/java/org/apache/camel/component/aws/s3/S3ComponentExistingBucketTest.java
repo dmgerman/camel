@@ -1176,7 +1176,7 @@ name|CACHE_CONTROL
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|resultExchange
 operator|.
