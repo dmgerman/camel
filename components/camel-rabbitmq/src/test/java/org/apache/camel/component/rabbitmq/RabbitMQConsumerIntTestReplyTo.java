@@ -190,6 +190,15 @@ name|RabbitMQConsumerIntTestReplyTo
 extends|extends
 name|AbstractRabbitMQIntTest
 block|{
+DECL|field|QUEUE
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|QUEUE
+init|=
+literal|"amq.rabbitmq.reply-to"
+decl_stmt|;
 DECL|field|EXCHANGE
 specifier|private
 specifier|static
@@ -226,14 +235,10 @@ name|REPLY
 init|=
 literal|"Hello world"
 decl_stmt|;
-DECL|field|QUEUE
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|QUEUE
-init|=
-literal|"amq.rabbitmq.reply-to"
+DECL|field|channel
+specifier|protected
+name|Channel
+name|channel
 decl_stmt|;
 annotation|@
 name|EndpointInject
@@ -258,11 +263,6 @@ specifier|private
 name|Connection
 name|connection
 decl_stmt|;
-DECL|field|channel
-specifier|private
-name|Channel
-name|channel
-decl_stmt|;
 annotation|@
 name|Before
 DECL|method|setUpRabbitMQ ()
@@ -285,8 +285,6 @@ operator|.
 name|createChannel
 argument_list|()
 expr_stmt|;
-comment|//        channel.queueDeclare("sammyq", false, false, true, null);
-comment|//        channel.queueBind("sammyq", EXCHANGE, ROUTE);
 block|}
 annotation|@
 name|Override
