@@ -1145,7 +1145,7 @@ try|try
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Validating consumer for Socket {}"
 argument_list|,

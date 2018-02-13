@@ -1009,6 +1009,14 @@ operator|.
 name|toMllpPayload
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -1027,6 +1035,7 @@ name|hl7MessageBytes
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|mllpBuffer
@@ -1035,7 +1044,7 @@ name|hasLeadingOutOfBandData
 argument_list|()
 condition|)
 block|{
-comment|// TODO:  Move the convertion utilities to the MllpSocketBuffer to avoid a byte[] copy
+comment|// TODO:  Move the conversion utilities to the MllpSocketBuffer to avoid a byte[] copy
 name|log
 operator|.
 name|warn
@@ -1346,7 +1355,7 @@ else|else
 block|{
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Ignoring exception encountered checking for data"
 argument_list|,

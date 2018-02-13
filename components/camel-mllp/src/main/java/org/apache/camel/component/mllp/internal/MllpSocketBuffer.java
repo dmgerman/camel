@@ -2807,24 +2807,16 @@ operator|.
 name|END_OF_STREAM
 condition|)
 block|{
-specifier|final
-name|String
-name|exceptionMessage
-init|=
-literal|"END_OF_STREAM returned from SocketInputStream.read(byte[], off, len)"
-decl_stmt|;
 name|resetSocket
 argument_list|(
 name|socket
-argument_list|,
-name|exceptionMessage
 argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
 name|SocketException
 argument_list|(
-name|exceptionMessage
+literal|"END_OF_STREAM returned from SocketInputStream.read(byte[], off, len)"
 argument_list|)
 throw|;
 block|}
@@ -2931,24 +2923,16 @@ name|SocketException
 name|socketEx
 parameter_list|)
 block|{
-specifier|final
-name|String
-name|exceptionMessage
-init|=
-literal|"SocketException encountered in readSocketInputStream"
-decl_stmt|;
 name|resetSocket
 argument_list|(
 name|socket
-argument_list|,
-name|exceptionMessage
 argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
 name|MllpSocketException
 argument_list|(
-name|exceptionMessage
+literal|"SocketException encountered in readSocketInputStream"
 argument_list|,
 name|socketEx
 argument_list|)
@@ -2969,15 +2953,13 @@ decl_stmt|;
 name|resetSocket
 argument_list|(
 name|socket
-argument_list|,
-name|exceptionMessage
 argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
 name|MllpSocketException
 argument_list|(
-name|exceptionMessage
+literal|"IOException thrown from SocketInputStream.read(byte[], off, len)"
 argument_list|,
 name|ioEx
 argument_list|)
@@ -3146,7 +3128,7 @@ else|else
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"{} socket {}"
 argument_list|,
