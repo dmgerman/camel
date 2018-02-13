@@ -1655,7 +1655,7 @@ literal|"consumer,advanced"
 argument_list|,
 name|description
 operator|=
-literal|"Enables eager loading of JMS properties as soon as a message is loaded"
+literal|"Enables eager loading of JMS properties and payload as soon as a message is loaded"
 operator|+
 literal|" which generally is inefficient as the JMS properties may not be required"
 operator|+
@@ -5141,7 +5141,7 @@ return|return
 name|eagerLoadingOfProperties
 return|;
 block|}
-comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      */
+comment|/**      * Enables eager loading of JMS properties and payload as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      */
 DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
 specifier|public
 name|void

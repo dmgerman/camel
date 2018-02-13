@@ -488,6 +488,14 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
+name|getBody
+argument_list|()
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
 name|getHeaders
 argument_list|()
 expr_stmt|;

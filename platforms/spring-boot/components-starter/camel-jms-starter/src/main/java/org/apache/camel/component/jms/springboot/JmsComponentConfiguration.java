@@ -3449,7 +3449,7 @@ name|lazyCreateTransactionManager
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Enables eager loading of JMS properties as soon as a message is          * loaded which generally is inefficient as the JMS properties may not          * be required but sometimes can catch early any issues with the          * underlying JMS provider and the use of JMS properties          */
+comment|/**          * Enables eager loading of JMS properties and payload as soon as a          * message is loaded which generally is inefficient as the JMS          * properties may not be required but sometimes can catch early any          * issues with the underlying JMS provider and the use of JMS properties          */
 DECL|field|eagerLoadingOfProperties
 specifier|private
 name|Boolean
