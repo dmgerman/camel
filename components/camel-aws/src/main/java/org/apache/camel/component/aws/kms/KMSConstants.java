@@ -54,6 +54,12 @@ name|KEY_ID
 init|=
 literal|"CamelAwsKMSKeyId"
 decl_stmt|;
+DECL|field|PENDING_WINDOW_IN_DAYS
+name|String
+name|PENDING_WINDOW_IN_DAYS
+init|=
+literal|"CamelAwsKMSPendingWindowInDays"
+decl_stmt|;
 block|}
 end_interface
 

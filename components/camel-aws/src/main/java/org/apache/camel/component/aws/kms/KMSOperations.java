@@ -34,6 +34,9 @@ name|createKey
 block|,
 DECL|enumConstant|disableKey
 name|disableKey
+block|,
+DECL|enumConstant|scheduleKeyDeletion
+name|scheduleKeyDeletion
 block|}
 end_enum
 
