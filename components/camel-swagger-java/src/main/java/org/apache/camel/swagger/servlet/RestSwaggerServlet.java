@@ -176,18 +176,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultClassResolver
@@ -397,33 +385,6 @@ name|translateContextPath
 init|=
 literal|true
 decl_stmt|;
-DECL|method|isTranslateContextPath ()
-specifier|public
-name|boolean
-name|isTranslateContextPath
-parameter_list|()
-block|{
-return|return
-name|translateContextPath
-return|;
-block|}
-comment|/**      * Sets whether the context path of the request should be translated (true) or used as-is (false)      * Optional, Defaults to true      * @param translateContextPath      */
-DECL|method|setTranslateContextPath (boolean translateContextPath)
-specifier|public
-name|void
-name|setTranslateContextPath
-parameter_list|(
-name|boolean
-name|translateContextPath
-parameter_list|)
-block|{
-name|this
-operator|.
-name|translateContextPath
-operator|=
-name|translateContextPath
-expr_stmt|;
-block|}
 DECL|method|getApiContextIdPattern ()
 specifier|public
 name|String
@@ -476,6 +437,33 @@ operator|.
 name|apiContextIdListing
 operator|=
 name|apiContextIdListing
+expr_stmt|;
+block|}
+DECL|method|isTranslateContextPath ()
+specifier|public
+name|boolean
+name|isTranslateContextPath
+parameter_list|()
+block|{
+return|return
+name|translateContextPath
+return|;
+block|}
+comment|/**      * Sets whether the context path of the request should be translated (true) or used as-is (false)      * Optional, Defaults to true      */
+DECL|method|setTranslateContextPath (boolean translateContextPath)
+specifier|public
+name|void
+name|setTranslateContextPath
+parameter_list|(
+name|boolean
+name|translateContextPath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|translateContextPath
+operator|=
+name|translateContextPath
 expr_stmt|;
 block|}
 annotation|@
