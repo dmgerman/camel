@@ -409,6 +409,37 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Restarts route (1 second delay before starting)"
+argument_list|)
+DECL|method|restart ()
+name|void
+name|restart
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Restarts route (using delay in seconds before starting)"
+argument_list|)
+DECL|method|restart (long delay)
+name|void
+name|restart
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Dumps the route as XML"
 argument_list|)
 DECL|method|dumpRouteAsXml ()
