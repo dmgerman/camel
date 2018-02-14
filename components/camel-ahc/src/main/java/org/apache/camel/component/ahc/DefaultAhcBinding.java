@@ -152,6 +152,22 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
+name|HttpHeaders
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -399,22 +415,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
-name|HttpHeaders
 import|;
 end_import
 
