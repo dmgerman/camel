@@ -138,6 +138,10 @@ name|continueProcessing
 import|;
 end_import
 
+begin_comment
+comment|/**  * {@link org.apache.camel.Processor} used to interceptor and detour the routing  * when using the {@link InterceptSendToEndpoint} functionality.  */
+end_comment
+
 begin_class
 DECL|class|InterceptSendToEndpointProcessor
 specifier|public
@@ -186,7 +190,7 @@ specifier|final
 name|boolean
 name|skip
 decl_stmt|;
-DECL|method|InterceptSendToEndpointProcessor (InterceptSendToEndpoint endpoint, Endpoint delegate, boolean skip)
+DECL|method|InterceptSendToEndpointProcessor (InterceptSendToEndpoint endpoint, Endpoint delegate, Producer producer, boolean skip)
 specifier|public
 name|InterceptSendToEndpointProcessor
 parameter_list|(
@@ -195,6 +199,9 @@ name|endpoint
 parameter_list|,
 name|Endpoint
 name|delegate
+parameter_list|,
+name|Producer
+name|producer
 parameter_list|,
 name|boolean
 name|skip
@@ -223,10 +230,7 @@ name|this
 operator|.
 name|producer
 operator|=
-name|delegate
-operator|.
-name|createProducer
-argument_list|()
+name|producer
 expr_stmt|;
 name|this
 operator|.
