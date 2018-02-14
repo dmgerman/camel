@@ -1061,6 +1061,29 @@ name|Metadata
 argument_list|(
 name|description
 operator|=
+literal|"Used to set any properties that can be configured on the LongPollingTransport used by the"
+operator|+
+literal|" BayeuxClient (CometD) used by the streaming api"
+argument_list|,
+name|label
+operator|=
+literal|"common,advanced"
+argument_list|)
+DECL|field|longPollingTransportProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|longPollingTransportProperties
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
 literal|"SSL parameters to use, see SSLContextParameters class for all available options."
 argument_list|,
 name|label
@@ -2572,6 +2595,42 @@ operator|.
 name|httpClientProperties
 operator|=
 name|httpClientProperties
+expr_stmt|;
+block|}
+DECL|method|getLongPollingTransportProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getLongPollingTransportProperties
+parameter_list|()
+block|{
+return|return
+name|longPollingTransportProperties
+return|;
+block|}
+DECL|method|setLongPollingTransportProperties (Map<String, Object> longPollingTransportProperties)
+specifier|public
+name|void
+name|setLongPollingTransportProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|longPollingTransportProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|longPollingTransportProperties
+operator|=
+name|longPollingTransportProperties
 expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
