@@ -351,6 +351,35 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStop ()
+specifier|public
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|kinesisFirehoseClient
+operator|!=
+literal|null
+condition|)
+block|{
+name|kinesisFirehoseClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
