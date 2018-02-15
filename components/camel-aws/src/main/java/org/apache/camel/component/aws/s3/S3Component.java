@@ -340,6 +340,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|configuration
+operator|.
+name|isUseIAMCredentials
+argument_list|()
+operator|&&
 name|configuration
 operator|.
 name|getAmazonS3Client
@@ -368,7 +374,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"AmazonS3Client or accessKey and secretKey must be specified"
+literal|"useIAMCredentials is set to false, AmazonS3Client or accessKey and secretKey must be specified"
 argument_list|)
 throw|;
 block|}

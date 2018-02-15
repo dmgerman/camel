@@ -499,6 +499,18 @@ specifier|private
 name|String
 name|awsKMSKeyId
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useIAMCredentials
+specifier|private
+name|boolean
+name|useIAMCredentials
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|long
@@ -1283,7 +1295,35 @@ operator|=
 name|forceGlobalBucketAccessEnabled
 expr_stmt|;
 block|}
+comment|/**      * Set whether the S3 client should expect to load credentials on an EC2 instance or to      * expect static credentials to be passed in.      */
+DECL|method|setUseIAMCredentials (Boolean useIAMCredentials)
+specifier|public
+name|void
+name|setUseIAMCredentials
+parameter_list|(
+name|Boolean
+name|useIAMCredentials
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useIAMCredentials
+operator|=
+name|useIAMCredentials
+expr_stmt|;
+block|}
+DECL|method|isUseIAMCredentials ()
+specifier|public
+name|Boolean
+name|isUseIAMCredentials
+parameter_list|()
+block|{
+return|return
+name|useIAMCredentials
+return|;
+block|}
 DECL|method|hasProxyConfiguration ()
+specifier|public
 name|boolean
 name|hasProxyConfiguration
 parameter_list|()
