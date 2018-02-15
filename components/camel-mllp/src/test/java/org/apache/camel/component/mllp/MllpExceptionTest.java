@@ -993,14 +993,14 @@ name|replaceAll
 argument_list|(
 literal|"\r"
 argument_list|,
-literal|"<CR>"
+literal|"<0x0D CR>"
 argument_list|)
 operator|.
 name|replaceAll
 argument_list|(
 literal|"\n"
 argument_list|,
-literal|"<LF>"
+literal|"<0x0A LF>"
 argument_list|)
 argument_list|)
 operator|.
@@ -1045,14 +1045,14 @@ name|replaceAll
 argument_list|(
 literal|"\r"
 argument_list|,
-literal|"<CR>"
+literal|"<0x0D CR>"
 argument_list|)
 operator|.
 name|replaceAll
 argument_list|(
 literal|"\n"
 argument_list|,
-literal|"<LF>"
+literal|"<0x0A LF>"
 argument_list|)
 argument_list|)
 operator|.

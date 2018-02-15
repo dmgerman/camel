@@ -142,17 +142,6 @@ name|byte
 index|[]
 name|PAYLOAD_TERMINATOR
 decl_stmt|;
-DECL|field|DEFAULT_CHARSET
-specifier|public
-specifier|static
-specifier|final
-name|Charset
-name|DEFAULT_CHARSET
-init|=
-name|StandardCharsets
-operator|.
-name|US_ASCII
-decl_stmt|;
 DECL|field|MSH18_VALUES
 specifier|public
 specifier|static
@@ -336,7 +325,7 @@ literal|"ISO-8859-9"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/*       // These are defined in the HL7 Spec, but I don't know how to map them to Java charset names        MSH18_VALUES.put("JAS2020", "????");       MSH18_VALUES.put("JIS X 0202", "????");       MSH18_VALUES.put("JIS X 0201-1976", "????");       MSH18_VALUES.put("JIS X 0208-1990", "????");       MSH18_VALUES.put("JIS X 0212-1990", "????");     */
+comment|/*           // These are defined in the HL7 Spec, but I don't know how to map them to Java charset names            MSH18_VALUES.put("JAS2020", "????");           MSH18_VALUES.put("JIS X 0202", "????");           MSH18_VALUES.put("JIS X 0201-1976", "????");           MSH18_VALUES.put("JIS X 0208-1990", "????");           MSH18_VALUES.put("JIS X 0212-1990", "????");         */
 block|}
 DECL|method|MllpProtocolConstants ()
 specifier|private

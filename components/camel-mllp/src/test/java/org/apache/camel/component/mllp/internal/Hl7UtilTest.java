@@ -223,57 +223,57 @@ name|EXPECTED_MESSAGE
 init|=
 literal|"MSH|^~\\&|ADT|EPIC|JCAPS|CC|20161206193919|RISTECH|ADT^A08|00001|D|2.3^^|||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"EVN|A08|20150107161440||REG_UPDATE_SEND_VISIT_MESSAGES_ON_PATIENT_CHANGES|RISTECH^RADIOLOGY^TECHNOLOGIST^^^^^^UCLA^^^^^RRMC||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"PID|1|2100355^^^MRN^MRN|2100355^^^MRN^MRN||MDCLS9^MC9||19700109|F||U|111 HOVER STREET^^LOS ANGELES^CA^90032^USA^P^^LOS ANGELE|LOS ANGELE|(310)725-6952^P^PH^^^310^7256952"
 operator|+
 literal|"||ENGLISH|U||60000013647|565-33-2222|||U||||||||N||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"PD1|||UCLA HEALTH SYSTEM^^10|10002116^ADAMS^JOHN^D^^^^^EPIC^^^^PROVID||||||||||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"NK1|1|DOE^MC9^^|OTH|^^^^^USA|(310)888-9999^^^^^310^8889999|(310)999-2222^^^^^310^9992222|Emergency Contact 1|||||||||||||||||||||||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"PV1|1|OUTPATIENT|RR CT^^^1000^^^^^^^DEPID|EL|||017511^TOBIAS^JONATHAN^^^^^^EPIC^^^^PROVID|017511^TOBIAS^JONATHAN^^^^^^EPIC^^^^PROVID||||||CLR|||||60000013647|SELF"
 operator|+
 literal|"|||||||||||||||||||||HOV_CONF|^^^1000^^^^^^^||20150107161438||||||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"PV2||||||||20150107161438||||CT BRAIN W WO CONTRAST||||||||||N|||||||||||||||||||||||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"ZPV||||||||||||20150107161438|||||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"AL1|1||33361^NO KNOWN ALLERGIES^^NOTCOMPUTRITION^NO KNOWN ALLERGIES^EXTELG||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"DG1|1|DX|784.0^Headache^DX|Headache||VISIT"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"GT1|1|1000235129|MDCLS9^MC9^^||111 HOVER STREET^^LOS ANGELES^CA^90032^USA^^^LOS ANGELE|(310)725-6952^^^^^310^7256952||19700109|F|P/F|SLF|565-33-2222|||||^^^^^USA|||UNKNOWN"
 operator|+
 literal|"|||||||||||||||||||||||||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 operator|+
 literal|"UB2||||||||"
 operator|+
-literal|"<CR>"
+literal|"<0x0D CR>"
 decl_stmt|;
 comment|// @formatter:on
 DECL|field|MSH_SEGMENT
@@ -2625,7 +2625,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ADT^A08|00001|D|2.3^^|||||||<CR>EVN|A08|2015010716144"
+literal|"ADT^A08|00001|D|2.3^^|||||||<0x0D CR>EVN|A08|2015010716144"
 argument_list|,
 name|Hl7Util
 operator|.
@@ -3801,7 +3801,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ADT^A08|00001|D|2.3^^|||||||<CR>EVN|A08|2015010716144"
+literal|"ADT^A08|00001|D|2.3^^|||||||<0x0D CR>EVN|A08|2015010716144"
 argument_list|,
 name|builder
 operator|.
@@ -3870,9 +3870,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|START_OF_BLOCK_REPLACEMENT_VALUE
+literal|"<0x0B VT>"
 argument_list|,
 name|builder
 operator|.
@@ -3899,9 +3897,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|END_OF_BLOCK_REPLACEMENT_VALUE
+literal|"<0x1C FS>"
 argument_list|,
 name|builder
 operator|.
@@ -3928,9 +3924,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|SEGMENT_DELIMITER_REPLACEMENT_VALUE
+literal|"<0x0D CR>"
 argument_list|,
 name|builder
 operator|.
@@ -3957,9 +3951,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|MESSAGE_TERMINATOR_REPLACEMENT_VALUE
+literal|"<0x0A LF>"
 argument_list|,
 name|builder
 operator|.
@@ -3980,9 +3972,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|START_OF_BLOCK_REPLACEMENT_VALUE
+literal|"<0x0B VT>"
 argument_list|,
 name|Hl7Util
 operator|.
@@ -3996,9 +3986,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|END_OF_BLOCK_REPLACEMENT_VALUE
+literal|"<0x1C FS>"
 argument_list|,
 name|Hl7Util
 operator|.
@@ -4012,9 +4000,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|SEGMENT_DELIMITER_REPLACEMENT_VALUE
+literal|"<0x0D CR>"
 argument_list|,
 name|Hl7Util
 operator|.
@@ -4028,9 +4014,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|MESSAGE_TERMINATOR_REPLACEMENT_VALUE
+literal|"<0x0A LF>"
 argument_list|,
 name|Hl7Util
 operator|.
@@ -4044,9 +4028,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Hl7Util
-operator|.
-name|TAB_REPLACEMENT_VALUE
+literal|"<0x09 TAB>"
 argument_list|,
 name|Hl7Util
 operator|.
@@ -4074,7 +4056,7 @@ name|testMessage
 init|=
 name|MSH_SEGMENT
 operator|+
-literal|"|||||||8859/1"
+literal|"||||||8859/1"
 operator|+
 literal|'\r'
 operator|+
@@ -4113,7 +4095,7 @@ name|testMessage
 init|=
 name|MSH_SEGMENT
 operator|+
-literal|"|||||||8859/1|"
+literal|"||||||8859/1|"
 operator|+
 literal|'\r'
 operator|+
@@ -4152,7 +4134,7 @@ name|testMessage
 init|=
 name|MSH_SEGMENT
 operator|+
-literal|"|||||||"
+literal|"||||||"
 operator|+
 literal|'\r'
 operator|+
@@ -4191,7 +4173,7 @@ name|testMessage
 init|=
 name|MSH_SEGMENT
 operator|+
-literal|"||||||||"
+literal|"|||||||"
 operator|+
 literal|'\r'
 operator|+

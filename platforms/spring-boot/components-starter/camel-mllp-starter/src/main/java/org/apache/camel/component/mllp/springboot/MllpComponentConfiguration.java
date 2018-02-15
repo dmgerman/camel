@@ -146,6 +146,14 @@ name|logPhiMaxBytes
 init|=
 literal|5120
 decl_stmt|;
+comment|/**      * Set the default character set to use for byte to/from String conversions.      */
+DECL|field|defaultCharset
+specifier|private
+name|String
+name|defaultCharset
+init|=
+literal|"ISO-8859-1"
+decl_stmt|;
 comment|/**      * Sets the default configuration to use when creating MLLP endpoints.      */
 DECL|field|configuration
 specifier|private
@@ -210,6 +218,32 @@ operator|.
 name|logPhiMaxBytes
 operator|=
 name|logPhiMaxBytes
+expr_stmt|;
+block|}
+DECL|method|getDefaultCharset ()
+specifier|public
+name|String
+name|getDefaultCharset
+parameter_list|()
+block|{
+return|return
+name|defaultCharset
+return|;
+block|}
+DECL|method|setDefaultCharset (String defaultCharset)
+specifier|public
+name|void
+name|setDefaultCharset
+parameter_list|(
+name|String
+name|defaultCharset
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultCharset
+operator|=
+name|defaultCharset
 expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
@@ -473,7 +507,7 @@ name|requireEndOfData
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Enable/Disable converting the payload to a String. If enabled, HL7          * Payloads received from external systems will be validated converted          * to a String. If the charsetName property is set, that character set          * will be used for the conversion. If the charsetName property is not          * set, the value of MSH-18 will be used to determine th appropriate          * character set. If MSH-18 is not set, then the default ASCII character          * set will be use.          *           * @param stringPayload          *            enabled if true, otherwise disabled          */
+comment|/**          * Enable/Disable converting the payload to a String. If enabled, HL7          * Payloads received from external systems will be validated converted          * to a String. If the charsetName property is set, that character set          * will be used for the conversion. If the charsetName property is not          * set, the value of MSH-18 will be used to determine th appropriate          * character set. If MSH-18 is not set, then the default ISO-8859-1          * character set will be use.          *           * @param stringPayload          *            enabled if true, otherwise disabled          */
 DECL|field|stringPayload
 specifier|private
 name|Boolean
