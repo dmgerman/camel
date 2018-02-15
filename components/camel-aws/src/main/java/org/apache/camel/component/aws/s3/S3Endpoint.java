@@ -940,6 +940,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|public
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|s3Client
+operator|!=
+literal|null
+condition|)
+block|{
+name|s3Client
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|createExchange (S3Object s3Object)
 specifier|public
 name|Exchange
