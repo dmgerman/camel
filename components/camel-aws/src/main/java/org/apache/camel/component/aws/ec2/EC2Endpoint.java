@@ -396,6 +396,35 @@ name|createEc2Client
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|public
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|ec2Client
+operator|!=
+literal|null
+condition|)
+block|{
+name|ec2Client
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|EC2Configuration
