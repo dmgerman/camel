@@ -403,6 +403,35 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|doStop ()
+specifier|public
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|kinesisClient
+operator|!=
+literal|null
+condition|)
+block|{
+name|kinesisClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
