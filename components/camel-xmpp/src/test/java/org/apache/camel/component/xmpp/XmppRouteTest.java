@@ -282,6 +282,11 @@ specifier|protected
 name|ProducerCache
 name|client
 decl_stmt|;
+DECL|field|embeddedXmppTestServer
+specifier|private
+name|EmbeddedXmppTestServer
+name|embeddedXmppTestServer
+decl_stmt|;
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -674,6 +679,12 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|embeddedXmppTestServer
+operator|=
+operator|new
+name|EmbeddedXmppTestServer
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getUriPrefix ()
 specifier|protected
@@ -684,10 +695,7 @@ block|{
 return|return
 literal|"xmpp://localhost:"
 operator|+
-name|EmbeddedXmppTestServer
-operator|.
-name|instance
-argument_list|()
+name|embeddedXmppTestServer
 operator|.
 name|getXmppPort
 argument_list|()
@@ -711,6 +719,11 @@ name|stop
 argument_list|()
 expr_stmt|;
 name|container
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|embeddedXmppTestServer
 operator|.
 name|stop
 argument_list|()

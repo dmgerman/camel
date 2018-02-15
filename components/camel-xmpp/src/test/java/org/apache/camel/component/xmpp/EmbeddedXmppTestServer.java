@@ -385,12 +385,6 @@ specifier|final
 class|class
 name|EmbeddedXmppTestServer
 block|{
-DECL|field|instance
-specifier|private
-specifier|static
-name|EmbeddedXmppTestServer
-name|instance
-decl_stmt|;
 DECL|field|xmppServer
 specifier|private
 name|XMPPServer
@@ -406,41 +400,14 @@ specifier|private
 name|int
 name|port
 decl_stmt|;
-comment|// restricted to singleton
 DECL|method|EmbeddedXmppTestServer ()
-specifier|private
-name|EmbeddedXmppTestServer
-parameter_list|()
-block|{ }
-DECL|method|instance ()
 specifier|public
-specifier|static
 name|EmbeddedXmppTestServer
-name|instance
 parameter_list|()
 block|{
-if|if
-condition|(
-name|instance
-operator|==
-literal|null
-condition|)
-block|{
-name|instance
-operator|=
-operator|new
-name|EmbeddedXmppTestServer
-argument_list|()
-expr_stmt|;
-name|instance
-operator|.
 name|initializeXmppServer
 argument_list|()
 expr_stmt|;
-block|}
-return|return
-name|instance
-return|;
 block|}
 DECL|method|initializeXmppServer ()
 specifier|private
@@ -449,13 +416,6 @@ name|initializeXmppServer
 parameter_list|()
 block|{
 try|try
-block|{
-if|if
-condition|(
-name|xmppServer
-operator|==
-literal|null
-condition|)
 block|{
 name|xmppServer
 operator|=
@@ -551,13 +511,6 @@ argument_list|(
 name|providerRegistry
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|endpoint
-operator|==
-literal|null
-condition|)
-block|{
 name|endpoint
 operator|=
 operator|new
@@ -582,7 +535,6 @@ argument_list|(
 name|port
 argument_list|)
 expr_stmt|;
-block|}
 name|xmppServer
 operator|.
 name|addEndpoint
@@ -693,7 +645,6 @@ name|conference
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -891,6 +842,18 @@ literal|"customConnectionConfig"
 argument_list|,
 name|connectionConfig
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+block|{
+name|xmppServer
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 block|}
