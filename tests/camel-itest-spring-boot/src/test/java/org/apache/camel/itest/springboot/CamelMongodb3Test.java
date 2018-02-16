@@ -179,13 +179,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|this
-operator|.
-name|runComponentTest
-argument_list|(
-name|config
-argument_list|)
-expr_stmt|;
+comment|// no component test
 name|this
 operator|.
 name|runModuleUnitTestsIfEnabled

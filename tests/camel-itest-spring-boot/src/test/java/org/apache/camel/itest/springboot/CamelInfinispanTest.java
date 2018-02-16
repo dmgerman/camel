@@ -187,19 +187,6 @@ name|disableJmx
 argument_list|(
 literal|"org.infinispan:*"
 argument_list|)
-comment|// arquillian fails, but the tests pass
-operator|.
-name|dependency
-argument_list|(
-literal|"org.apache.logging.log4j:log4j-jcl:"
-operator|+
-name|DependencyResolver
-operator|.
-name|resolveParentProperty
-argument_list|(
-literal|"${log4j2-version}"
-argument_list|)
-argument_list|)
 operator|.
 name|build
 argument_list|()

@@ -1786,6 +1786,13 @@ name|loggingImpl
 operator|.
 name|add
 argument_list|(
+literal|"org.apache.logging.log4j:log4j-jcl"
+argument_list|)
+expr_stmt|;
+name|loggingImpl
+operator|.
+name|add
+argument_list|(
 literal|"org.apache.logging.log4j:log4j-core"
 argument_list|)
 expr_stmt|;
