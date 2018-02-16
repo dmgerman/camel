@@ -294,9 +294,9 @@ argument_list|)
 expr_stmt|;
 name|when
 argument_list|(
-name|endpoint
+name|dataSource
 operator|.
-name|initJdbc
+name|getConnection
 argument_list|()
 argument_list|)
 operator|.
@@ -447,9 +447,9 @@ argument_list|)
 expr_stmt|;
 name|when
 argument_list|(
-name|endpoint
+name|dataSource
 operator|.
-name|initJdbc
+name|getConnection
 argument_list|()
 argument_list|)
 operator|.

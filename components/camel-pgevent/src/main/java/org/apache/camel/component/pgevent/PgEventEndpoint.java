@@ -502,9 +502,10 @@ condition|)
 block|{
 name|conn
 operator|=
-operator|(
-name|PGConnection
-operator|)
+name|PgEventHelper
+operator|.
+name|toPGConnection
+argument_list|(
 name|this
 operator|.
 name|getDatasource
@@ -512,6 +513,7 @@ argument_list|()
 operator|.
 name|getConnection
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 else|else
