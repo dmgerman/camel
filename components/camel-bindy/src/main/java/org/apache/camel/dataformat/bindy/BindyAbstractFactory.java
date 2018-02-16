@@ -389,6 +389,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Recursively load model.      *        * @param root      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|loadModels (Class<?> root)
 specifier|private
 name|void
@@ -1125,6 +1130,20 @@ condition|)
 block|{
 return|return
 literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|clazz
+operator|==
+name|String
+operator|.
+name|class
+condition|)
+block|{
+return|return
+literal|""
 return|;
 block|}
 else|else

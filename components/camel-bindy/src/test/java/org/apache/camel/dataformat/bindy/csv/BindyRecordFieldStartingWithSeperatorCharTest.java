@@ -430,7 +430,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|null
+literal|""
 argument_list|,
 name|row
 operator|.
@@ -519,6 +519,11 @@ block|}
 return|;
 block|}
 comment|//from https://issues.apache.org/jira/browse/CAMEL-11065
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"serial"
+argument_list|)
 annotation|@
 name|CsvRecord
 argument_list|(

@@ -132,6 +132,24 @@ name|dataformat
 operator|.
 name|bindy
 operator|.
+name|annotation
+operator|.
+name|DataField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
 name|format
 operator|.
 name|FormatException
@@ -636,7 +654,8 @@ name|orders
 argument_list|)
 expr_stmt|;
 comment|// As the @DataField defines a default value for the firstName, the
-comment|// value might not be empty
+comment|// value might not be empty and equal to defaultValue property
+comment|// inside @DataField annotation
 name|assertFalse
 argument_list|(
 name|orders
@@ -650,6 +669,37 @@ name|getFirstName
 argument_list|()
 operator|.
 name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Joe"
+argument_list|,
+name|orders
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getFirstName
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Check default String value set to empty ("") for the skipped clientNr field
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|orders
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getClientNr
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -1786,6 +1786,11 @@ name|recordLength
 argument_list|()
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|method|rightPad (String myLine, int length)
 specifier|private
 name|String

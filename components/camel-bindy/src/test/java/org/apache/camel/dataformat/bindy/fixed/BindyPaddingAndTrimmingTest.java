@@ -152,20 +152,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|core
-operator|.
-name|IsNull
-operator|.
-name|nullValue
-import|;
-end_import
-
 begin_class
 DECL|class|BindyPaddingAndTrimmingTest
 specifier|public
@@ -329,8 +315,7 @@ name|Is
 operator|.
 name|is
 argument_list|(
-name|nullValue
-argument_list|()
+literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
