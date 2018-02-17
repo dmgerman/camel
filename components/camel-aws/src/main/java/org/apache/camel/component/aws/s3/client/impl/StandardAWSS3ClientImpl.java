@@ -538,7 +538,7 @@ name|withRegion
 argument_list|(
 name|Regions
 operator|.
-name|fromName
+name|valueOf
 argument_list|(
 name|configuration
 operator|.
@@ -591,7 +591,7 @@ name|withRegion
 argument_list|(
 name|Regions
 operator|.
-name|fromName
+name|valueOf
 argument_list|(
 name|configuration
 operator|.
