@@ -150,7 +150,7 @@ name|s3
 operator|.
 name|client
 operator|.
-name|AWSS3Client
+name|S3Client
 import|;
 end_import
 
@@ -193,12 +193,12 @@ comment|/**  * Manage an AWS s3 client for all users to use (enabling temporary 
 end_comment
 
 begin_class
-DECL|class|IAMOptimizedAWSS3ClientImpl
+DECL|class|S3ClientIAMOptimizedImpl
 specifier|public
 class|class
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 implements|implements
-name|AWSS3Client
+name|S3Client
 block|{
 DECL|field|LOG
 specifier|private
@@ -211,7 +211,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 operator|.
 name|class
 argument_list|)
@@ -227,9 +227,9 @@ name|int
 name|maxConnections
 decl_stmt|;
 comment|/**      * Constructor that uses the config file.      */
-DECL|method|IAMOptimizedAWSS3ClientImpl (S3Configuration configuration, int maxConnections)
+DECL|method|S3ClientIAMOptimizedImpl (S3Configuration configuration, int maxConnections)
 specifier|public
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 parameter_list|(
 name|S3Configuration
 name|configuration

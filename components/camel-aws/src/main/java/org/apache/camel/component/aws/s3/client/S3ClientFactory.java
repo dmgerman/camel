@@ -58,7 +58,7 @@ name|client
 operator|.
 name|impl
 operator|.
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|client
 operator|.
 name|impl
 operator|.
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 import|;
 end_import
 
@@ -89,15 +89,15 @@ comment|/**  * Factory class to return the correct type of AWS S3 aws.  */
 end_comment
 
 begin_class
-DECL|class|AWSS3ClientFactory
+DECL|class|S3ClientFactory
 specifier|public
 specifier|final
 class|class
-name|AWSS3ClientFactory
+name|S3ClientFactory
 block|{
-DECL|method|AWSS3ClientFactory ()
+DECL|method|S3ClientFactory ()
 specifier|private
-name|AWSS3ClientFactory
+name|S3ClientFactory
 parameter_list|()
 block|{
 comment|// Prevent instantiation of this factory class.
@@ -115,7 +115,7 @@ comment|/**      * Return the correct aws s3 client (based on remote vs local). 
 DECL|method|getAWSS3Client (S3Configuration configuration, int maxConnections)
 specifier|public
 specifier|static
-name|AWSS3Client
+name|S3Client
 name|getAWSS3Client
 parameter_list|(
 name|S3Configuration
@@ -132,7 +132,7 @@ name|isUseIAMCredentials
 argument_list|()
 condition|?
 operator|new
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 argument_list|(
 name|configuration
 argument_list|,
@@ -140,7 +140,7 @@ name|maxConnections
 argument_list|)
 else|:
 operator|new
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 argument_list|(
 name|configuration
 argument_list|,

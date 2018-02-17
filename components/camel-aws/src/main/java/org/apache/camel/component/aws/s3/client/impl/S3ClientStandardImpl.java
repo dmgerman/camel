@@ -186,7 +186,7 @@ name|s3
 operator|.
 name|client
 operator|.
-name|AWSS3Client
+name|S3Client
 import|;
 end_import
 
@@ -229,12 +229,12 @@ comment|/**  * Manage an AWS s3 client for all users to use.  * This implementat
 end_comment
 
 begin_class
-DECL|class|StandardAWSS3ClientImpl
+DECL|class|S3ClientStandardImpl
 specifier|public
 class|class
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 implements|implements
-name|AWSS3Client
+name|S3Client
 block|{
 DECL|field|LOG
 specifier|private
@@ -247,7 +247,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 operator|.
 name|class
 argument_list|)
@@ -263,9 +263,9 @@ name|int
 name|maxConnections
 decl_stmt|;
 comment|/**      * Constructor that uses the config file.      */
-DECL|method|StandardAWSS3ClientImpl (S3Configuration configuration, int maxConnections)
+DECL|method|S3ClientStandardImpl (S3Configuration configuration, int maxConnections)
 specifier|public
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 parameter_list|(
 name|S3Configuration
 name|configuration

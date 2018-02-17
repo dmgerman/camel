@@ -169,11 +169,11 @@ name|void
 name|standardAWSS3ClientImplNoEncryption
 parameter_list|()
 block|{
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 name|standardAWSS3Client
 init|=
 operator|new
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 argument_list|(
 name|getS3ConfigurationNoEncryption
 argument_list|()
@@ -214,11 +214,11 @@ name|void
 name|standardAWSS3ClientImplUseEncryption
 parameter_list|()
 block|{
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 name|standardAWSS3Client
 init|=
 operator|new
-name|StandardAWSS3ClientImpl
+name|S3ClientStandardImpl
 argument_list|(
 name|getS3ConfigurationUseEncryption
 argument_list|()

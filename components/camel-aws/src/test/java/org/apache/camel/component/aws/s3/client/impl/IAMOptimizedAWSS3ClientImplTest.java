@@ -169,11 +169,11 @@ name|void
 name|iamOptimizedAWSS3ClientImplNoEncryption
 parameter_list|()
 block|{
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 name|iamOptimizedAWSS3Client
 init|=
 operator|new
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 argument_list|(
 name|getS3ConfigurationNoEncryption
 argument_list|()
@@ -214,11 +214,11 @@ name|void
 name|iamOptimizedAWSS3ClientImplUseEncryption
 parameter_list|()
 block|{
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 name|iamOptimizedAWSS3Client
 init|=
 operator|new
-name|IAMOptimizedAWSS3ClientImpl
+name|S3ClientIAMOptimizedImpl
 argument_list|(
 name|getS3ConfigurationUseEncryption
 argument_list|()

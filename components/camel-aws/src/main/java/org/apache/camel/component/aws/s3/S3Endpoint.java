@@ -220,7 +220,7 @@ name|s3
 operator|.
 name|client
 operator|.
-name|AWSS3ClientFactory
+name|S3ClientFactory
 import|;
 end_import
 
@@ -620,7 +620,7 @@ operator|.
 name|getAmazonS3Client
 argument_list|()
 else|:
-name|AWSS3ClientFactory
+name|S3ClientFactory
 operator|.
 name|getAWSS3Client
 argument_list|(

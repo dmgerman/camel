@@ -41,10 +41,10 @@ comment|/**  * Mange the required actions of an s3 client for either local or re
 end_comment
 
 begin_interface
-DECL|interface|AWSS3Client
+DECL|interface|S3Client
 specifier|public
 interface|interface
-name|AWSS3Client
+name|S3Client
 block|{
 comment|/**      * Returns an s3 client after a factory method determines which one to return.      * @return AmazonS3 AmazonS3      */
 DECL|method|getS3Client ()
