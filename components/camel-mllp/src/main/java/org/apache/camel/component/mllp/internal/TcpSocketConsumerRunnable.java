@@ -1259,7 +1259,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Connection idle time {} exceeded idleTimeout {}"
+literal|"Connection idle time %d exceeded idleTimeout %d"
 argument_list|,
 name|idleTime
 argument_list|,
