@@ -152,7 +152,7 @@ specifier|final
 name|String
 name|VALID_CHARS
 init|=
-literal|".-='/\\!&():;"
+literal|".,-='/\\!&%():;"
 decl_stmt|;
 DECL|method|JsonSchemaHelper ()
 specifier|private
