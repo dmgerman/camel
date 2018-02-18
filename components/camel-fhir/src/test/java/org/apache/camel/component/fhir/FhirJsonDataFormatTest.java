@@ -510,7 +510,9 @@ name|marshal
 argument_list|()
 operator|.
 name|fhirJson
-argument_list|()
+argument_list|(
+literal|"DSTU3"
+argument_list|)
 operator|.
 name|to
 argument_list|(

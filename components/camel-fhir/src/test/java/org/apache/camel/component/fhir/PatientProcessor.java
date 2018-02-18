@@ -58,22 +58,6 @@ name|rest
 operator|.
 name|api
 operator|.
-name|MethodOutcome
-import|;
-end_import
-
-begin_import
-import|import
-name|ca
-operator|.
-name|uhn
-operator|.
-name|fhir
-operator|.
-name|rest
-operator|.
-name|api
-operator|.
 name|PreferReturnEnum
 import|;
 end_import
@@ -221,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple Patient precessor that converts the Patient segment of a {@link ORU_R01} message into a FHIR dtsu3 {@link Patient}.  */
+comment|/**  * Simple Patient processor that converts the Patient segment of a {@link ORU_R01} message into a FHIR dtsu3 {@link Patient}.  */
 end_comment
 
 begin_class

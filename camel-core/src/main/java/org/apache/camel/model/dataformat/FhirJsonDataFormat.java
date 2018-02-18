@@ -56,7 +56,35 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
 import|;
 end_import
 
@@ -115,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The FHIR JSON data format is used to marshall/unmarshall to/from FHIR objects to/from JSON.  */
+comment|/**  * The FHIR JSon data format is used to marshall/unmarshall to/from FHIR objects to/from JSON.  */
 end_comment
 
 begin_class
@@ -128,11 +156,11 @@ literal|"2.21.0"
 argument_list|,
 name|label
 operator|=
-literal|"dataformat,transformation,json,hl7"
+literal|"dataformat,transformation,hl7"
 argument_list|,
 name|title
 operator|=
-literal|"FHIR JSON"
+literal|"FHIR JSon"
 argument_list|)
 annotation|@
 name|XmlRootElement
@@ -155,10 +183,37 @@ name|FhirJsonDataFormat
 extends|extends
 name|DataFormatDefinition
 block|{
+annotation|@
+name|XmlTransient
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|fhirContext
 specifier|private
 name|Object
 name|fhirContext
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|enums
+operator|=
+literal|"DSTU2,DSTU2_HL7ORG,DSTU2_1,DSTU3,R4"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"DSTU3"
+argument_list|)
+DECL|field|fhirVersion
+specifier|private
+name|String
+name|fhirVersion
 decl_stmt|;
 DECL|method|FhirJsonDataFormat ()
 specifier|public
@@ -197,6 +252,33 @@ operator|=
 name|fhirContext
 expr_stmt|;
 block|}
+DECL|method|getFhirVersion ()
+specifier|public
+name|String
+name|getFhirVersion
+parameter_list|()
+block|{
+return|return
+name|fhirVersion
+return|;
+block|}
+comment|/**      * The version of FHIR to use. Possible values are: DSTU2,DSTU2_HL7ORG,DSTU2_1,DSTU3,R4      */
+DECL|method|setFhirVersion (String fhirVersion)
+specifier|public
+name|void
+name|setFhirVersion
+parameter_list|(
+name|String
+name|fhirVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fhirVersion
+operator|=
+name|fhirVersion
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
@@ -211,6 +293,27 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+if|if
+condition|(
+name|getContentTypeHeader
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"contentTypeHeader"
+argument_list|,
+name|getContentTypeHeader
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|getFhirContext
@@ -228,6 +331,27 @@ argument_list|,
 literal|"fhirContext"
 argument_list|,
 name|getFhirContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getFhirVersion
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"fhirVersion"
+argument_list|,
+name|getFhirVersion
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -4834,36 +4834,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the FHIR JSON data format      */
-DECL|method|fhirJson (Object fhirContext)
-specifier|public
-name|T
-name|fhirJson
-parameter_list|(
-name|Object
-name|fhirContext
-parameter_list|)
-block|{
-name|FhirJsonDataFormat
-name|jsonDataFormat
-init|=
-operator|new
-name|FhirJsonDataFormat
-argument_list|()
-decl_stmt|;
-name|jsonDataFormat
-operator|.
-name|setFhirContext
-argument_list|(
-name|fhirContext
-argument_list|)
-expr_stmt|;
-return|return
-name|dataFormat
-argument_list|(
-name|jsonDataFormat
-argument_list|)
-return|;
-block|}
 DECL|method|fhirJson ()
 specifier|public
 name|T
@@ -4884,37 +4854,37 @@ name|jsonDataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the FHIR XML data format      */
-DECL|method|fhirXml (Object fhirContext)
+DECL|method|fhirJson (String version)
 specifier|public
 name|T
-name|fhirXml
+name|fhirJson
 parameter_list|(
-name|Object
-name|fhirContext
+name|String
+name|version
 parameter_list|)
 block|{
-name|FhirXmlDataFormat
-name|fhirXmlDataFormat
+name|FhirJsonDataFormat
+name|jsonDataFormat
 init|=
 operator|new
-name|FhirXmlDataFormat
+name|FhirJsonDataFormat
 argument_list|()
 decl_stmt|;
-name|fhirXmlDataFormat
+name|jsonDataFormat
 operator|.
-name|setFhirContext
+name|setFhirVersion
 argument_list|(
-name|fhirContext
+name|version
 argument_list|)
 expr_stmt|;
 return|return
 name|dataFormat
 argument_list|(
-name|fhirXmlDataFormat
+name|jsonDataFormat
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the FHIR XML data format      */
 DECL|method|fhirXml ()
 specifier|public
 name|T
@@ -4928,6 +4898,36 @@ operator|new
 name|FhirXmlDataFormat
 argument_list|()
 decl_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|fhirXmlDataFormat
+argument_list|)
+return|;
+block|}
+DECL|method|fhirXml (String version)
+specifier|public
+name|T
+name|fhirXml
+parameter_list|(
+name|String
+name|version
+parameter_list|)
+block|{
+name|FhirXmlDataFormat
+name|fhirXmlDataFormat
+init|=
+operator|new
+name|FhirXmlDataFormat
+argument_list|()
+decl_stmt|;
+name|fhirXmlDataFormat
+operator|.
+name|setFhirVersion
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
 return|return
 name|dataFormat
 argument_list|(
