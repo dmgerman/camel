@@ -100,11 +100,6 @@ name|XmppRouteChatTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|embeddedXmppTestServer
-specifier|private
-name|EmbeddedXmppTestServer
-name|embeddedXmppTestServer
-decl_stmt|;
 DECL|field|consumerEndpoint
 specifier|protected
 name|MockEndpoint
@@ -128,6 +123,11 @@ name|String
 name|body2
 init|=
 literal|"the second message"
+decl_stmt|;
+DECL|field|embeddedXmppTestServer
+specifier|private
+name|EmbeddedXmppTestServer
+name|embeddedXmppTestServer
 decl_stmt|;
 annotation|@
 name|Override

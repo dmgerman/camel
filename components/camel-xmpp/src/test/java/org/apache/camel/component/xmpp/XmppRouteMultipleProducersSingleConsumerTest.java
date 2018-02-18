@@ -100,11 +100,6 @@ name|XmppRouteMultipleProducersSingleConsumerTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|embeddedXmppTestServer
-specifier|private
-name|EmbeddedXmppTestServer
-name|embeddedXmppTestServer
-decl_stmt|;
 DECL|field|goodEndpoint
 specifier|protected
 name|MockEndpoint
@@ -114,6 +109,11 @@ DECL|field|badEndpoint
 specifier|protected
 name|MockEndpoint
 name|badEndpoint
+decl_stmt|;
+DECL|field|embeddedXmppTestServer
+specifier|private
+name|EmbeddedXmppTestServer
+name|embeddedXmppTestServer
 decl_stmt|;
 annotation|@
 name|Override

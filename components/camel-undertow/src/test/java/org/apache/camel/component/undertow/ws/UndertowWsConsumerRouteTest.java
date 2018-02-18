@@ -300,7 +300,7 @@ name|asynchttpclient
 operator|.
 name|ws
 operator|.
-name|WebSocketListener
+name|WebSocket
 import|;
 end_import
 
@@ -312,7 +312,7 @@ name|asynchttpclient
 operator|.
 name|ws
 operator|.
-name|WebSocket
+name|WebSocketListener
 import|;
 end_import
 

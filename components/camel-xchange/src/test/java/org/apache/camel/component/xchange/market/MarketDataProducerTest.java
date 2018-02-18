@@ -21,24 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|xchange
-operator|.
-name|XChangeConfiguration
-operator|.
-name|HEADER_CURRENCY_PAIR
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -115,6 +97,24 @@ operator|.
 name|marketdata
 operator|.
 name|Ticker
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|xchange
+operator|.
+name|XChangeConfiguration
+operator|.
+name|HEADER_CURRENCY_PAIR
 import|;
 end_import
 

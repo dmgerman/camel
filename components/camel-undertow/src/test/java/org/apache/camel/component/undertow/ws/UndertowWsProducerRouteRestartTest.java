@@ -441,7 +441,7 @@ parameter_list|(
 name|WebSocket
 name|websocket
 parameter_list|)
-block|{                     }
+block|{                 }
 annotation|@
 name|Override
 specifier|public
@@ -457,7 +457,7 @@ parameter_list|,
 name|String
 name|reason
 parameter_list|)
-block|{                     }
+block|{                 }
 annotation|@
 name|Override
 specifier|public
