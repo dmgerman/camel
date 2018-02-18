@@ -116,7 +116,7 @@ name|HazelcastTopicComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * The hazelcast instance reference which can be used for hazelcast      * endpoint. If you don't specify the instance reference camel use the      * default hazelcast instance from the camel-hazelcast instance.      */
+comment|/**      * The hazelcast instance reference which can be used for hazelcast      * endpoint. If you don't specify the instance reference, camel use the      * default hazelcast instance from the camel-hazelcast instance.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|hazelcastInstance
@@ -124,7 +124,7 @@ specifier|private
 name|HazelcastInstance
 name|hazelcastInstance
 decl_stmt|;
-comment|/**      * The hazelcast mode reference which kind of instance should be used. If      * you don't specify the mode then the node mode will be the default.      */
+comment|/**      * The hazelcast mode reference which kind of instance should be used. If      * you don't specify the mode, then the node mode will be the default.      */
 DECL|field|hazelcastMode
 specifier|private
 name|String

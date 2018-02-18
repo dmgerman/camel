@@ -86,7 +86,7 @@ name|TarFileDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
-comment|/**      * If the tar file has more then one entry the setting this option to true      * allows to work with the splitter EIP to split the data using an iterator      * in a streaming mode.      */
+comment|/**      * If the tar file has more then one entry, the setting this option to true,      * allows to work with the splitter EIP, to split the data using an iterator      * in a streaming mode.      */
 DECL|field|usingIterator
 specifier|private
 name|Boolean
@@ -94,7 +94,7 @@ name|usingIterator
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If the tar file has more then one entry setting this option to true      * allows to get the iterator even if the directory is empty      */
+comment|/**      * If the tar file has more then one entry, setting this option to true,      * allows to get the iterator even if the directory is empty      */
 DECL|field|allowEmptyDirectory
 specifier|private
 name|Boolean
@@ -102,7 +102,7 @@ name|allowEmptyDirectory
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If the file name contains path elements setting this option to true      * allows the path to be maintained in the tar file.      */
+comment|/**      * If the file name contains path elements, setting this option to true,      * allows the path to be maintained in the tar file.      */
 DECL|field|preservePathElements
 specifier|private
 name|Boolean
@@ -110,7 +110,7 @@ name|preservePathElements
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean

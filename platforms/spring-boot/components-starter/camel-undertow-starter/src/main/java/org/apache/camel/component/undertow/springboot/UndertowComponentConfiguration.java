@@ -158,7 +158,7 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To configure common options such as thread pools      */
+comment|/**      * To configure common options, such as thread pools      */
 DECL|field|hostOptions
 specifier|private
 name|UndertowHostOptionsNestedConfiguration

@@ -116,7 +116,7 @@ name|LogComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Sets a custom ExchangeFormatter to convert the Exchange to a String      * suitable for logging. If not specified we default to      * DefaultExchangeFormatter.      */
+comment|/**      * Sets a custom ExchangeFormatter to convert the Exchange to a String      * suitable for logging. If not specified, we default to      * DefaultExchangeFormatter.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|exchangeFormatter

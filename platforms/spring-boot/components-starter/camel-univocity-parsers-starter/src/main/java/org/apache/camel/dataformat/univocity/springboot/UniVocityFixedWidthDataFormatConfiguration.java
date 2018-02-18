@@ -138,7 +138,7 @@ name|ignoreLeadingWhitespaces
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Whether or not the headers are disabled. When defined this option      * explicitly sets the headers as null which indicates that there is no      * header. The default value is false      */
+comment|/**      * Whether or not the headers are disabled. When defined, this option      * explicitly sets the headers as null which indicates that there is no      * header. The default value is false      */
 DECL|field|headersDisabled
 specifier|private
 name|Boolean
@@ -202,7 +202,7 @@ name|asMap
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean

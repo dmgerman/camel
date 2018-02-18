@@ -55,7 +55,7 @@ specifier|public
 class|class
 name|KubernetesServiceCallServiceDiscoveryConfigurationCommon
 block|{
-comment|/**      * How to perform service lookup. Possible values: client dns environment.      * When using client then the client queries the kubernetes master to obtain      * a list of active pods that provides the service and then random (or round      * robin) select a pod. When using dns the service name is resolved as      * name.namespace.service.dnsDomain. When using environment then environment      * variables are used to lookup the service. By default environment is used.      */
+comment|/**      * How to perform service lookup. Possible values: client, dns, environment.      * When using client, then the client queries the kubernetes master to      * obtain a list of active pods that provides the service, and then random      * (or round robin) select a pod. When using dns the service name is      * resolved as name.namespace.service.dnsDomain. When using environment then      * environment variables are used to lookup the service. By default      * environment is used.      */
 DECL|field|lookup
 specifier|private
 name|String
@@ -129,7 +129,7 @@ specifier|private
 name|String
 name|clientCertFile
 decl_stmt|;
-comment|/**      * Sets the Client Keystore algorithm such as RSA when using client lookup      */
+comment|/**      * Sets the Client Keystore algorithm, such as RSA when using client lookup      */
 DECL|field|clientKeyAlgo
 specifier|private
 name|String
@@ -161,7 +161,7 @@ name|trustCerts
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
+comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon, then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
 DECL|field|properties
 specifier|private
 name|Map

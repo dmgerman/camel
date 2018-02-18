@@ -160,7 +160,7 @@ name|WebsocketComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Set a resource path for static resources (such as .html files etc). The      * resources can be loaded from classpath if you prefix with classpath:      * otherwise the resources is loaded from file system or from JAR files. For      * example to load from root classpath use classpath:. or      * classpath:WEB-INF/static If not configured (eg null) then no static      * resource is in use.      */
+comment|/**      * Set a resource path for static resources (such as .html files etc). The      * resources can be loaded from classpath, if you prefix with classpath:,      * otherwise the resources is loaded from file system or from JAR files. For      * example to load from root classpath use classpath:., or      * classpath:WEB-INF/static If not configured (eg null) then no static      * resource is in use.      */
 DECL|field|staticResources
 specifier|private
 name|String
@@ -200,7 +200,7 @@ specifier|private
 name|String
 name|sslKeystore
 decl_stmt|;
-comment|/**      * If this option is true Jetty JMX support will be enabled for this      * endpoint. See Jetty JMX support for more details.      */
+comment|/**      * If this option is true, Jetty JMX support will be enabled for this      * endpoint. See Jetty JMX support for more details.      */
 DECL|field|enableJmx
 specifier|private
 name|Boolean

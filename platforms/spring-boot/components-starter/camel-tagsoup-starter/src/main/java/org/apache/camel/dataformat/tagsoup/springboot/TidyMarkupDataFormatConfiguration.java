@@ -86,7 +86,7 @@ name|TidyMarkupDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
-comment|/**      * What data type to unmarshal as can either be org.w3c.dom.Node or      * java.lang.String. Is by default org.w3c.dom.Node      */
+comment|/**      * What data type to unmarshal as, can either be org.w3c.dom.Node or      * java.lang.String. Is by default org.w3c.dom.Node      */
 DECL|field|dataObjectType
 specifier|private
 name|String
@@ -94,7 +94,7 @@ name|dataObjectType
 init|=
 literal|"org.w3c.dom.Node"
 decl_stmt|;
-comment|/**      * When returning a String do we omit the XML declaration in the top.      */
+comment|/**      * When returning a String, do we omit the XML declaration in the top.      */
 DECL|field|omitXmlDeclaration
 specifier|private
 name|Boolean
@@ -102,7 +102,7 @@ name|omitXmlDeclaration
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean

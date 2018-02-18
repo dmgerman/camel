@@ -100,13 +100,13 @@ name|whitelistEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Define the allowed objects to be unmarshalled. You can specify the FQN      * class name of allowed objects and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelpermatchPattern(String String). Denied      * objects takes precedence over allowed objects.      */
+comment|/**      * Define the allowed objects to be unmarshalled. You can specify the FQN      * class name of allowed objects, and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelpermatchPattern(String, String). Denied      * objects takes precedence over allowed objects.      */
 DECL|field|allowedUnmarshallObjects
 specifier|private
 name|String
 name|allowedUnmarshallObjects
 decl_stmt|;
-comment|/**      * Define the denied objects to be unmarshalled. You can specify the FQN      * class name of deined objects and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelpermatchPattern(String String). Denied      * objects takes precedence over allowed objects.      */
+comment|/**      * Define the denied objects to be unmarshalled. You can specify the FQN      * class name of deined objects, and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelpermatchPattern(String, String). Denied      * objects takes precedence over allowed objects.      */
 DECL|field|deniedUnmarshallObjects
 specifier|private
 name|String
@@ -142,7 +142,7 @@ name|String
 index|[]
 name|classes
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean

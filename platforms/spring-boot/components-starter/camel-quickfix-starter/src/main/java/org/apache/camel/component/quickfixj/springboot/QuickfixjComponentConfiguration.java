@@ -187,7 +187,7 @@ name|QuickfixjConfiguration
 argument_list|>
 name|configurations
 decl_stmt|;
-comment|/**      * If set to true the engines will be created and started when needed (when      * first message is send)      */
+comment|/**      * If set to true, the engines will be created and started when needed (when      * first message is send)      */
 DECL|field|lazyCreateEngines
 specifier|private
 name|Boolean

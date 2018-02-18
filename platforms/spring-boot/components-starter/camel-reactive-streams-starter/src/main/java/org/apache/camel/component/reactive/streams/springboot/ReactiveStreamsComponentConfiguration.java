@@ -140,7 +140,7 @@ name|ReactiveStreamsBackpressureStrategy
 operator|.
 name|BUFFER
 decl_stmt|;
-comment|/**      * Set the type of the underlying reactive streams implementation to use.      * The implementation is looked up from the registry or using a      * ServiceLoader the default implementation is      * DefaultCamelReactiveStreamsService      */
+comment|/**      * Set the type of the underlying reactive streams implementation to use.      * The implementation is looked up from the registry or using a      * ServiceLoader, the default implementation is      * DefaultCamelReactiveStreamsService      */
 DECL|field|serviceType
 specifier|private
 name|String

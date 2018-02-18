@@ -250,19 +250,19 @@ name|JettyHttpComponentConfiguration9
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * The key password which is used to access the certificate's key entry in      * the keystore (this is the same password that is supplied to the keystore      * command's -keypass option).      */
+comment|/**      * The key password, which is used to access the certificate's key entry in      * the keystore (this is the same password that is supplied to the keystore      * command's -keypass option).      */
 DECL|field|sslKeyPassword
 specifier|private
 name|String
 name|sslKeyPassword
 decl_stmt|;
-comment|/**      * The ssl password which is required to access the keystore file (this is      * the same password that is supplied to the keystore command's -storepass      * option).      */
+comment|/**      * The ssl password, which is required to access the keystore file (this is      * the same password that is supplied to the keystore command's -storepass      * option).      */
 DECL|field|sslPassword
 specifier|private
 name|String
 name|sslPassword
 decl_stmt|;
-comment|/**      * Specifies the location of the Java keystore file which contains the Jetty      * server's own X.509 certificate in a key entry.      */
+comment|/**      * Specifies the location of the Java keystore file, which contains the      * Jetty server's own X.509 certificate in a key entry.      */
 DECL|field|keystore
 specifier|private
 name|String
@@ -330,7 +330,7 @@ specifier|private
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-comment|/**      * If this option is true Jetty JMX support will be enabled for this      * endpoint.      */
+comment|/**      * If this option is true, Jetty JMX support will be enabled for this      * endpoint.      */
 DECL|field|enableJmx
 specifier|private
 name|Boolean
@@ -338,7 +338,7 @@ name|enableJmx
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding which      * are used to customize how a response should be written for the producer.      */
+comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which      * are used to customize how a response should be written for the producer.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|jettyHttpBinding
@@ -468,7 +468,7 @@ name|useXForwardedForHeader
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If the option is true jetty server will send the date header to the      * client which sends the request. NOTE please make sure there is no any      * other camel-jetty endpoint is share the same port otherwise this option      * may not work as expected.      */
+comment|/**      * If the option is true, jetty server will send the date header to the      * client which sends the request. NOTE please make sure there is no any      * other camel-jetty endpoint is share the same port, otherwise this option      * may not work as expected.      */
 DECL|field|sendServerVersion
 specifier|private
 name|Boolean

@@ -138,7 +138,7 @@ specifier|private
 name|Ignite
 name|ignite
 decl_stmt|;
-comment|/**      * Sets the resource from where to load the configuration. It can be a: URI      * String (URI) or an InputStream.      */
+comment|/**      * Sets the resource from where to load the configuration. It can be a: URI,      * String (URI) or an InputStream.      */
 DECL|field|configurationResource
 specifier|private
 name|Object

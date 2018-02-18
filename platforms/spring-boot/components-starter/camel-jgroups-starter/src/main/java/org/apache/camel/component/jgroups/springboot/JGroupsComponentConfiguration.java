@@ -126,7 +126,7 @@ specifier|private
 name|String
 name|channelProperties
 decl_stmt|;
-comment|/**      * If set to true the consumer endpoint will receive org.jgroups.View      * messages as well (not only org.jgroups.Message instances). By default      * only regular messages are consumed by the endpoint.      */
+comment|/**      * If set to true, the consumer endpoint will receive org.jgroups.View      * messages as well (not only org.jgroups.Message instances). By default      * only regular messages are consumed by the endpoint.      */
 DECL|field|enableViewMessages
 specifier|private
 name|Boolean

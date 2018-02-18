@@ -258,7 +258,7 @@ specifier|private
 name|HttpContext
 name|httpContext
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters. Important: Only one      * instance of org.apache.camel.util.jsse.SSLContextParameters is supported      * per HttpComponent. If you need to use 2 or more different instances you      * need to define a new HttpComponent per instance you need.      */
+comment|/**      * To configure security using SSLContextParameters. Important: Only one      * instance of org.apache.camel.util.jsse.SSLContextParameters is supported      * per HttpComponent. If you need to use 2 or more different instances, you      * need to define a new HttpComponent per instance you need.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|sslContextParameters
@@ -296,7 +296,7 @@ name|connectionsPerRoute
 init|=
 literal|20
 decl_stmt|;
-comment|/**      * The time for connection to live the time unit is millisecond the default      * value is always keep alive.      */
+comment|/**      * The time for connection to live, the time unit is millisecond, the      * default value is always keep alive.      */
 DECL|field|connectionTimeToLive
 specifier|private
 name|Long

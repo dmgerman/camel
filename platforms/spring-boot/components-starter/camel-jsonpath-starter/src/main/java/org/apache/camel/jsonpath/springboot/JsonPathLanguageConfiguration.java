@@ -116,7 +116,7 @@ name|writeAsString
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Name of header to use as input instead of the message body      */
+comment|/**      * Name of header to use as input, instead of the message body      */
 DECL|field|headerName
 specifier|private
 name|String

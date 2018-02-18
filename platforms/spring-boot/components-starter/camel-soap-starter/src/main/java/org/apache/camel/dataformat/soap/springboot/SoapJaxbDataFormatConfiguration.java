@@ -112,19 +112,19 @@ name|version
 init|=
 literal|"1.1"
 decl_stmt|;
-comment|/**      * When marshalling using JAXB or SOAP then the JAXB implementation will      * automatic assign namespace prefixes such as ns2 ns3 ns4 etc. To control      * this mapping Camel allows you to refer to a map which contains the      * desired mapping.      */
+comment|/**      * When marshalling using JAXB or SOAP then the JAXB implementation will      * automatic assign namespace prefixes, such as ns2, ns3, ns4 etc. To      * control this mapping, Camel allows you to refer to a map which contains      * the desired mapping.      */
 DECL|field|namespacePrefixRef
 specifier|private
 name|String
 name|namespacePrefixRef
 decl_stmt|;
-comment|/**      * To validate against an existing schema. Your can use the prefix      * classpath: file: or http: to specify how the resource should by resolved.      * You can separate multiple schema files by using the '' character.      */
+comment|/**      * To validate against an existing schema. Your can use the prefix      * classpath:, file: or http: to specify how the resource should by      * resolved. You can separate multiple schema files by using the ','      * character.      */
 DECL|field|schema
 specifier|private
 name|String
 name|schema
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean

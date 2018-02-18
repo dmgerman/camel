@@ -79,7 +79,7 @@ specifier|private
 name|String
 name|clientName
 decl_stmt|;
-comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
+comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon, then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
 DECL|field|properties
 specifier|private
 name|Map

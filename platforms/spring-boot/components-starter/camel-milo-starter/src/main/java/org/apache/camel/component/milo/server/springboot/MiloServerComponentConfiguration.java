@@ -246,7 +246,7 @@ name|MiloServerComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * The URI of the namespace defaults to urn:org:apache:camel      */
+comment|/**      * The URI of the namespace, defaults to urn:org:apache:camel      */
 DECL|field|namespaceUri
 specifier|private
 name|String
@@ -314,13 +314,13 @@ name|String
 argument_list|>
 name|securityPoliciesById
 decl_stmt|;
-comment|/**      * Set user password combinations in the form of user1:pwd1user2:pwd2      * Usernames and passwords will be URL decoded      */
+comment|/**      * Set user password combinations in the form of user1:pwd1,user2:pwd2      * Usernames and passwords will be URL decoded      */
 DECL|field|userAuthenticationCredentials
 specifier|private
 name|String
 name|userAuthenticationCredentials
 decl_stmt|;
-comment|/**      * Enable anonymous authentication disabled by default      */
+comment|/**      * Enable anonymous authentication, disabled by default      */
 DECL|field|enableAnonymousAuthentication
 specifier|private
 name|Boolean

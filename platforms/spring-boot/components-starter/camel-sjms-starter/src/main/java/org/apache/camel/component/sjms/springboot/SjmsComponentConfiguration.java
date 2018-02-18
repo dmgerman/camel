@@ -244,7 +244,7 @@ specifier|private
 name|JmsKeyFormatStrategy
 name|jmsKeyFormatStrategy
 decl_stmt|;
-comment|/**      * To configure which kind of commit strategy to use. Camel provides two      * implementations out of the box default and batch.      */
+comment|/**      * To configure which kind of commit strategy to use. Camel provides two      * implementations out of the box, default and batch.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|transactionCommitStrategy

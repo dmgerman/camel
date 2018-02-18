@@ -114,7 +114,7 @@ name|ElasticsearchComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use an existing configured Elasticsearch client instead of creating a      * client per endpoint. This allow to customize the client with specific      * settings.      */
+comment|/**      * To use an existing configured Elasticsearch client, instead of creating a      * client per endpoint. This allow to customize the client with specific      * settings.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|client

@@ -120,7 +120,7 @@ name|logNamespaces
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether to enable thread-safety for the returned result of the xpath      * expression. This applies to when using NODESET as the result type and the      * returned set has multiple elements. In this situation there can be      * thread-safety issues if you process the NODESET concurrently such as from      * a Camel Splitter EIP in parallel processing mode. This option prevents      * concurrency issues by doing defensive copies of the nodes. It is      * recommended to turn this option on if you are using camel-saxon or Saxon      * in your application. Saxon has thread-safety issues which can be      * prevented by turning this option on.      */
+comment|/**      * Whether to enable thread-safety for the returned result of the xpath      * expression. This applies to when using NODESET as the result type, and      * the returned set has multiple elements. In this situation there can be      * thread-safety issues if you process the NODESET concurrently such as from      * a Camel Splitter EIP in parallel processing mode. This option prevents      * concurrency issues by doing defensive copies of the nodes. It is      * recommended to turn this option on if you are using camel-saxon or Saxon      * in your application. Saxon has thread-safety issues which can be      * prevented by turning this option on.      */
 DECL|field|threadSafety
 specifier|private
 name|Boolean

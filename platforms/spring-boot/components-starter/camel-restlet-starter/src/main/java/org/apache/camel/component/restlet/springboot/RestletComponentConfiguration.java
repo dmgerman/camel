@@ -218,13 +218,13 @@ specifier|private
 name|Boolean
 name|reuseAddress
 decl_stmt|;
-comment|/**      * Maximum number of calls that can be queued if there aren't any worker      * thread available to service them. If the value is '0' then no queue is      * used and calls are rejected if no worker thread is immediately available.      * If the value is '-1' then an unbounded queue is used and calls are never      * rejected.      */
+comment|/**      * Maximum number of calls that can be queued if there aren't any worker      * thread available to service them. If the value is '0', then no queue is      * used and calls are rejected if no worker thread is immediately available.      * If the value is '-1', then an unbounded queue is used and calls are never      * rejected.      */
 DECL|field|maxQueued
 specifier|private
 name|Integer
 name|maxQueued
 decl_stmt|;
-comment|/**      * Determines whether or not the raw input stream from Restlet is cached or      * not (Camel will read the stream into a in memory/overflow to file Stream      * caching) cache. By default Camel will cache the Restlet input stream to      * support reading it multiple times to ensure Camel can retrieve all data      * from the stream. However you can set this option to true when you for      * example need to access the raw stream such as streaming it directly to a      * file or other persistent store. DefaultRestletBinding will copy the      * request input stream into a stream cache and put it into message body if      * this option is false to support reading the stream multiple times.      */
+comment|/**      * Determines whether or not the raw input stream from Restlet is cached or      * not (Camel will read the stream into a in memory/overflow to file, Stream      * caching) cache. By default Camel will cache the Restlet input stream to      * support reading it multiple times to ensure Camel can retrieve all data      * from the stream. However you can set this option to true when you for      * example need to access the raw stream, such as streaming it directly to a      * file or other persistent store. DefaultRestletBinding will copy the      * request input stream into a stream cache and put it into message body if      * this option is false to support reading the stream multiple times.      */
 DECL|field|disableStreamCache
 specifier|private
 name|Boolean

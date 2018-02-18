@@ -220,7 +220,7 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * The core pool size for the ordered thread pool if its in use. The default      * value is 16.      */
+comment|/**      * The core pool size for the ordered thread pool, if its in use. The      * default value is 16.      */
 DECL|field|maximumPoolSize
 specifier|private
 name|Integer

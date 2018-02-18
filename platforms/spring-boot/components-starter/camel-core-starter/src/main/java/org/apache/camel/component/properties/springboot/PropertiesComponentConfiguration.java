@@ -185,7 +185,7 @@ specifier|private
 name|String
 name|location
 decl_stmt|;
-comment|/**      * Encoding to use when loading properties file from the file system or      * classpath. If no encoding has been set then the properties files is      * loaded using ISO-8859-1 encoding (latin-1) as documented by link      * java.util.Propertiesload(java.io.InputStream)      */
+comment|/**      * Encoding to use when loading properties file from the file system or      * classpath. If no encoding has been set, then the properties files is      * loaded using ISO-8859-1 encoding (latin-1) as documented by link      * java.util.Propertiesload(java.io.InputStream)      */
 DECL|field|encoding
 specifier|private
 name|String
@@ -227,7 +227,7 @@ specifier|private
 name|String
 name|propertySuffix
 decl_stmt|;
-comment|/**      * If true first attempt resolution of property name augmented with      * propertyPrefix and propertySuffix before falling back the plain property      * name specified. If false only the augmented property name is searched.      */
+comment|/**      * If true, first attempt resolution of property name augmented with      * propertyPrefix and propertySuffix before falling back the plain property      * name specified. If false, only the augmented property name is searched.      */
 DECL|field|fallbackToUnaugmentedProperty
 specifier|private
 name|Boolean
@@ -235,7 +235,7 @@ name|fallbackToUnaugmentedProperty
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * If false the component does not attempt to find a default for the key by      * looking after the colon separator.      */
+comment|/**      * If false, the component does not attempt to find a default for the key by      * looking after the colon separator.      */
 DECL|field|defaultFallbackEnabled
 specifier|private
 name|Boolean
@@ -243,7 +243,7 @@ name|defaultFallbackEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Whether to silently ignore if a location cannot be located such as a      * properties file not found.      */
+comment|/**      * Whether to silently ignore if a location cannot be located, such as a      * properties file not found.      */
 DECL|field|ignoreMissingLocation
 specifier|private
 name|Boolean
@@ -273,7 +273,7 @@ specifier|private
 name|Properties
 name|initialProperties
 decl_stmt|;
-comment|/**      * Sets a special list of override properties that take precedence and will      * use first if a property exist.      */
+comment|/**      * Sets a special list of override properties that take precedence and will      * use first, if a property exist.      */
 DECL|field|overrideProperties
 specifier|private
 name|Properties

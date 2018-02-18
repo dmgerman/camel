@@ -376,25 +376,25 @@ name|SalesforceComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Explicit authentication method to be used one of USERNAME_PASSWORD      * REFRESH_TOKEN or JWT. Salesforce component can auto-determine the      * authentication method to use from the properties set set this property to      * eliminate any ambiguity.      */
+comment|/**      * Explicit authentication method to be used, one of USERNAME_PASSWORD,      * REFRESH_TOKEN or JWT. Salesforce component can auto-determine the      * authentication method to use from the properties set, set this property      * to eliminate any ambiguity.      */
 DECL|field|authenticationType
 specifier|private
 name|AuthenticationType
 name|authenticationType
 decl_stmt|;
-comment|/**      * All authentication configuration in one nested bean all properties set      * there can be set directly on the component as well      */
+comment|/**      * All authentication configuration in one nested bean, all properties set      * there can be set directly on the component as well      */
 DECL|field|loginConfig
 specifier|private
 name|SalesforceLoginConfigNestedConfiguration
 name|loginConfig
 decl_stmt|;
-comment|/**      * URL of the Salesforce instance used after authantication by default      * received from Salesforce on successful authentication      */
+comment|/**      * URL of the Salesforce instance used after authantication, by default      * received from Salesforce on successful authentication      */
 DECL|field|instanceUrl
 specifier|private
 name|String
 name|instanceUrl
 decl_stmt|;
-comment|/**      * URL of the Salesforce instance used for authentication by default set to      * https://login.salesforce.com      */
+comment|/**      * URL of the Salesforce instance used for authentication, by default set to      * https://login.salesforce.com      */
 DECL|field|loginUrl
 specifier|private
 name|String
@@ -414,7 +414,7 @@ specifier|private
 name|String
 name|clientSecret
 decl_stmt|;
-comment|/**      * KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain      * only one entry with private key and certificate. Salesforce does not      * verify the certificate chain so this can easily be a selfsigned      * certificate. Make sure that you upload the certificate to the      * corresponding connected app.      */
+comment|/**      * KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain      * only one entry with private key and certificate. Salesforce does not      * verify the certificate chain, so this can easily be a selfsigned      * certificate. Make sure that you upload the certificate to the      * corresponding connected app.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|keystore
@@ -422,19 +422,19 @@ specifier|private
 name|KeyStoreParameters
 name|keystore
 decl_stmt|;
-comment|/**      * Refresh token already obtained in the refresh token OAuth flow. One needs      * to setup a web application and configure a callback URL to receive the      * refresh token or configure using the builtin callback at      * https://login.salesforce.com/services/oauth2/success or      * https://test.salesforce.com/services/oauth2/success and then retrive the      * refresh_token from the URL at the end of the flow. Note that in      * development organizations Salesforce allows hosting the callback web      * application at localhost.      */
+comment|/**      * Refresh token already obtained in the refresh token OAuth flow. One needs      * to setup a web application and configure a callback URL to receive the      * refresh token, or configure using the builtin callback at      * https://login.salesforce.com/services/oauth2/success or      * https://test.salesforce.com/services/oauth2/success and then retrive the      * refresh_token from the URL at the end of the flow. Note that in      * development organizations Salesforce allows hosting the callback web      * application at localhost.      */
 DECL|field|refreshToken
 specifier|private
 name|String
 name|refreshToken
 decl_stmt|;
-comment|/**      * Username used in OAuth flow to gain access to access token. It's easy to      * get started with password OAuth flow but in general one should avoid it      * as it is deemed less secure than other flows.      */
+comment|/**      * Username used in OAuth flow to gain access to access token. It's easy to      * get started with password OAuth flow, but in general one should avoid it      * as it is deemed less secure than other flows.      */
 DECL|field|userName
 specifier|private
 name|String
 name|userName
 decl_stmt|;
-comment|/**      * Password used in OAuth flow to gain access to access token. It's easy to      * get started with password OAuth flow but in general one should avoid it      * as it is deemed less secure than other flows. Make sure that you append      * security token to the end of the password if using one.      */
+comment|/**      * Password used in OAuth flow to gain access to access token. It's easy to      * get started with password OAuth flow, but in general one should avoid it      * as it is deemed less secure than other flows. Make sure that you append      * security token to the end of the password if using one.      */
 DECL|field|password
 specifier|private
 name|String
@@ -476,7 +476,7 @@ name|Object
 argument_list|>
 name|longPollingTransportProperties
 decl_stmt|;
-comment|/**      * SSL parameters to use see SSLContextParameters class for all available      * options.      */
+comment|/**      * SSL parameters to use, see SSLContextParameters class for all available      * options.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|sslContextParameters
@@ -550,19 +550,19 @@ name|String
 argument_list|>
 name|httpProxyExcludedAddresses
 decl_stmt|;
-comment|/**      * Used in authentication against the HTTP proxy server needs to match the      * URI of the proxy server in order for the httpProxyUsername and      * httpProxyPassword to be used for authentication.      */
+comment|/**      * Used in authentication against the HTTP proxy server, needs to match the      * URI of the proxy server in order for the httpProxyUsername and      * httpProxyPassword to be used for authentication.      */
 DECL|field|httpProxyAuthUri
 specifier|private
 name|String
 name|httpProxyAuthUri
 decl_stmt|;
-comment|/**      * Realm of the proxy server used in preemptive Basic/Digest authentication      * methods against the HTTP proxy server.      */
+comment|/**      * Realm of the proxy server, used in preemptive Basic/Digest authentication      * methods against the HTTP proxy server.      */
 DECL|field|httpProxyRealm
 specifier|private
 name|String
 name|httpProxyRealm
 decl_stmt|;
-comment|/**      * If set to true Digest authentication will be used when authenticating to      * the HTTP proxyotherwise Basic authorization method will be used      */
+comment|/**      * If set to true Digest authentication will be used when authenticating to      * the HTTP proxy,otherwise Basic authorization method will be used      */
 DECL|field|httpProxyUseDigestAuth
 specifier|private
 name|Boolean

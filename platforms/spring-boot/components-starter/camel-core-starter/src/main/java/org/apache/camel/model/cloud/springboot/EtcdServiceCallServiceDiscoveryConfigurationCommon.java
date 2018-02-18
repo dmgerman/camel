@@ -87,7 +87,7 @@ name|servicePath
 init|=
 literal|"/services/"
 decl_stmt|;
-comment|/**      * To set the discovery type valid values are on-demand and watch.      */
+comment|/**      * To set the discovery type, valid values are on-demand and watch.      */
 DECL|field|type
 specifier|private
 name|String
@@ -95,7 +95,7 @@ name|type
 init|=
 literal|"on-demand"
 decl_stmt|;
-comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
+comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon, then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
 DECL|field|properties
 specifier|private
 name|Map

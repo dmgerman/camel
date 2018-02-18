@@ -96,13 +96,13 @@ name|CsvDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
-comment|/**      * The reference format to use it will be updated with the other format      * options the default value is CSVFormat.DEFAULT      */
+comment|/**      * The reference format to use, it will be updated with the other format      * options, the default value is CSVFormat.DEFAULT      */
 DECL|field|formatRef
 specifier|private
 name|String
 name|formatRef
 decl_stmt|;
-comment|/**      * The name of the format to use the default value is CSVFormat.DEFAULT      */
+comment|/**      * The name of the format to use, the default value is CSVFormat.DEFAULT      */
 DECL|field|formatName
 specifier|private
 name|String
@@ -122,7 +122,7 @@ specifier|private
 name|String
 name|commentMarker
 decl_stmt|;
-comment|/**      * Sets the delimiter to use. The default value is (comma)      */
+comment|/**      * Sets the delimiter to use. The default value is , (comma)      */
 DECL|field|delimiter
 specifier|private
 name|String
@@ -283,7 +283,7 @@ specifier|private
 name|String
 name|recordConverterRef
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean

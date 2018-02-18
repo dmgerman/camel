@@ -112,7 +112,7 @@ specifier|private
 name|Class
 name|jsonView
 decl_stmt|;
-comment|/**      * If you want to marshal a pojo to JSON and the pojo has some fields with      * null values. And you want to skip these null values you can set this      * option to NOT_NULL      */
+comment|/**      * If you want to marshal a pojo to JSON, and the pojo has some fields with      * null values. And you want to skip these null values, you can set this      * option to NOT_NULL      */
 DECL|field|include
 specifier|private
 name|String
@@ -126,7 +126,7 @@ name|allowJmsType
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Refers to a custom collection type to lookup in the registry to use. This      * option should rarely be used but allows to use different collection types      * than java.util.Collection based as default.      */
+comment|/**      * Refers to a custom collection type to lookup in the registry to use. This      * option should rarely be used, but allows to use different collection      * types than java.util.Collection based as default.      */
 DECL|field|collectionTypeName
 specifier|private
 name|String
@@ -160,13 +160,13 @@ specifier|private
 name|String
 name|moduleRefs
 decl_stmt|;
-comment|/**      * Set of features to enable on the Jackson      * com.fasterxml.jackson.databind.ObjectMapper. The features should be a      * name that matches a enum from      * com.fasterxml.jackson.databind.SerializationFeature      * com.fasterxml.jackson.databind.DeserializationFeature or      * com.fasterxml.jackson.databind.MapperFeature Multiple features can be      * separated by comma      */
+comment|/**      * Set of features to enable on the Jackson      * com.fasterxml.jackson.databind.ObjectMapper. The features should be a      * name that matches a enum from      * com.fasterxml.jackson.databind.SerializationFeature,      * com.fasterxml.jackson.databind.DeserializationFeature, or      * com.fasterxml.jackson.databind.MapperFeature Multiple features can be      * separated by comma      */
 DECL|field|enableFeatures
 specifier|private
 name|String
 name|enableFeatures
 decl_stmt|;
-comment|/**      * Set of features to disable on the Jackson      * com.fasterxml.jackson.databind.ObjectMapper. The features should be a      * name that matches a enum from      * com.fasterxml.jackson.databind.SerializationFeature      * com.fasterxml.jackson.databind.DeserializationFeature or      * com.fasterxml.jackson.databind.MapperFeature Multiple features can be      * separated by comma      */
+comment|/**      * Set of features to disable on the Jackson      * com.fasterxml.jackson.databind.ObjectMapper. The features should be a      * name that matches a enum from      * com.fasterxml.jackson.databind.SerializationFeature,      * com.fasterxml.jackson.databind.DeserializationFeature, or      * com.fasterxml.jackson.databind.MapperFeature Multiple features can be      * separated by comma      */
 DECL|field|disableFeatures
 specifier|private
 name|String
@@ -180,7 +180,7 @@ name|allowUnmarshallType
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean

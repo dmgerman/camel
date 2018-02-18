@@ -86,7 +86,7 @@ name|ASN1DataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
-comment|/**      * If the asn1 file has more then one entry the setting this option to true      * allows to work with the splitter EIP to split the data using an iterator      * in a streaming mode.      */
+comment|/**      * If the asn1 file has more then one entry, the setting this option to      * true, allows to work with the splitter EIP, to split the data using an      * iterator in a streaming mode.      */
 DECL|field|usingIterator
 specifier|private
 name|Boolean
@@ -100,7 +100,7 @@ specifier|private
 name|String
 name|clazzName
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean

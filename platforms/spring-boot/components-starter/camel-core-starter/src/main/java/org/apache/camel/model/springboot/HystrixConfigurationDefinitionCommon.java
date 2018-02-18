@@ -59,7 +59,7 @@ name|threadPoolKey
 init|=
 literal|"CamelHystrix"
 decl_stmt|;
-comment|/**      * Whether to use a HystrixCircuitBreaker or not. If false no      * circuit-breaker logic will be used and all requests permitted. This is      * similar in effect to circuitBreakerForceClosed() except that continues      * tracking metrics and knowing whether it should be open/closed this      * property results in not even instantiating a circuit-breaker.      */
+comment|/**      * Whether to use a HystrixCircuitBreaker or not. If false no      * circuit-breaker logic will be used and all requests permitted. This is      * similar in effect to circuitBreakerForceClosed() except that continues      * tracking metrics and knowing whether it should be open/closed, this      * property results in not even instantiating a circuit-breaker.      */
 DECL|field|circuitBreakerEnabled
 specifier|private
 name|Boolean
@@ -83,7 +83,7 @@ name|circuitBreakerForceClosed
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If true the HystrixCircuitBreaker.allowRequest() will always return false      * causing the circuit to be open (tripped) and reject all requests. This      * property takes precedence over circuitBreakerForceClosed();      */
+comment|/**      * If true the HystrixCircuitBreaker.allowRequest() will always return      * false, causing the circuit to be open (tripped) and reject all requests.      * This property takes precedence over circuitBreakerForceClosed();      */
 DECL|field|circuitBreakerForceOpen
 specifier|private
 name|Boolean
@@ -131,7 +131,7 @@ name|executionIsolationThreadInterruptOnTimeout
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Time in milliseconds at which point the command will timeout and halt      * execution. If link executionIsolationThreadInterruptOnTimeout == true and      * the command is thread-isolated the executing thread will be interrupted.      * If the command is semaphore-isolated and a HystrixObservableCommand that      * command will get unsubscribed.      */
+comment|/**      * Time in milliseconds at which point the command will timeout and halt      * execution. If link executionIsolationThreadInterruptOnTimeout == true and      * the command is thread-isolated, the executing thread will be interrupted.      * If the command is semaphore-isolated and a HystrixObservableCommand, that      * command will get unsubscribed.      */
 DECL|field|executionTimeoutInMilliseconds
 specifier|private
 name|Integer
@@ -203,7 +203,7 @@ name|metricsRollingPercentileWindowBuckets
 init|=
 literal|6
 decl_stmt|;
-comment|/**      * This property sets the duration of the statistical rolling window in      * milliseconds. This is how long metrics are kept for the thread pool. The      * window is divided into buckets and rolls by those increments.      */
+comment|/**      * This property sets the duration of the statistical rolling window, in      * milliseconds. This is how long metrics are kept for the thread pool. The      * window is divided into buckets and rolls by those increments.      */
 DECL|field|metricsRollingStatisticalWindowInMilliseconds
 specifier|private
 name|Integer
@@ -243,7 +243,7 @@ name|maximumSize
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * Keep-alive time in minutes that gets passed to link      * ThreadPoolExecutorsetKeepAliveTime(long TimeUnit)      */
+comment|/**      * Keep-alive time in minutes that gets passed to link      * ThreadPoolExecutorsetKeepAliveTime(long, TimeUnit)      */
 DECL|field|keepAliveTime
 specifier|private
 name|Integer
@@ -251,7 +251,7 @@ name|keepAliveTime
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Max queue size that gets passed to BlockingQueue in      * HystrixConcurrencyStrategy.getBlockingQueue(int) This should only affect      * the instantiation of a threadpool - it is not eliglible to change a queue      * size on the fly. For that use queueSizeRejectionThreshold().      */
+comment|/**      * Max queue size that gets passed to BlockingQueue in      * HystrixConcurrencyStrategy.getBlockingQueue(int) This should only affect      * the instantiation of a threadpool - it is not eliglible to change a queue      * size on the fly. For that, use queueSizeRejectionThreshold().      */
 DECL|field|maxQueueSize
 specifier|private
 name|Integer
@@ -284,7 +284,7 @@ name|threadPoolRollingNumberStatisticalWindowBuckets
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * Allows the configuration for maximumSize to take effect. That value can      * then be equal to or higher than coreSize      */
+comment|/**      * Allows the configuration for maximumSize to take effect. That value can      * then be equal to, or higher, than coreSize      */
 DECL|field|allowMaximumSizeToDivergeFromCoreSize
 specifier|private
 name|Boolean

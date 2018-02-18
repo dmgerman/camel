@@ -130,7 +130,7 @@ name|StubComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Sets the default maximum capacity of the SEDA queue (i.e. the number of      * messages it can hold).      */
+comment|/**      * Sets the default maximum capacity of the SEDA queue (i.e., the number of      * messages it can hold).      */
 DECL|field|queueSize
 specifier|private
 name|Integer

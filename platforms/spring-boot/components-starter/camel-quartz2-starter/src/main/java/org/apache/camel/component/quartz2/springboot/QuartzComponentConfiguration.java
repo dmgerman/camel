@@ -174,7 +174,7 @@ specifier|private
 name|String
 name|propertiesFile
 decl_stmt|;
-comment|/**      * Whether to prefix the Quartz Scheduler instance name with the      * CamelContext name. This is enabled by default to let each CamelContext      * use its own Quartz scheduler instance by default. You can set this option      * to false to reuse Quartz scheduler instances between multiple      * CamelContext's.      */
+comment|/**      * Whether to prefix the Quartz Scheduler instance name with the      * CamelContext name. This is enabled by default, to let each CamelContext      * use its own Quartz scheduler instance by default. You can set this option      * to false to reuse Quartz scheduler instances between multiple      * CamelContext's.      */
 DECL|field|prefixInstanceName
 specifier|private
 name|Boolean
@@ -198,7 +198,7 @@ specifier|private
 name|SchedulerFactory
 name|schedulerFactory
 decl_stmt|;
-comment|/**      * To use the custom configured Quartz scheduler instead of creating a new      * Scheduler.      */
+comment|/**      * To use the custom configured Quartz scheduler, instead of creating a new      * Scheduler.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|scheduler

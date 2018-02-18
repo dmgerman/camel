@@ -138,7 +138,7 @@ specifier|private
 name|PlatformTransactionManager
 name|transactionManager
 decl_stmt|;
-comment|/**      * The camel-jpa component will join transaction by default. You can use      * this option to turn this off for example if you use LOCAL_RESOURCE and      * join transaction doesn't work with your JPA provider. This option can      * also be set globally on the JpaComponent instead of having to set it on      * all endpoints.      */
+comment|/**      * The camel-jpa component will join transaction by default. You can use      * this option to turn this off, for example if you use LOCAL_RESOURCE and      * join transaction doesn't work with your JPA provider. This option can      * also be set globally on the JpaComponent, instead of having to set it on      * all endpoints.      */
 DECL|field|joinTransaction
 specifier|private
 name|Boolean

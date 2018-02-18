@@ -103,7 +103,7 @@ specifier|private
 name|Long
 name|writeTimeoutMillis
 decl_stmt|;
-comment|/**      * The seconds to wait for a watch event default 10 seconds      */
+comment|/**      * The seconds to wait for a watch event, default 10 seconds      */
 DECL|field|blockSeconds
 specifier|private
 name|Integer
@@ -111,7 +111,7 @@ name|blockSeconds
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
+comment|/**      * Set client properties to use. These properties are specific to what      * service call implementation are in use. For example if using ribbon, then      * the client properties are define in      * com.netflix.client.config.CommonClientConfigKey.      */
 DECL|field|properties
 specifier|private
 name|Map

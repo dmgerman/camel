@@ -98,7 +98,7 @@ name|RestSwaggerComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * API basePath for example /v2. Default is unset if set overrides the value      * present in Swagger specification.      */
+comment|/**      * API basePath, for example /v2. Default is unset, if set overrides the      * value present in Swagger specification.      */
 DECL|field|basePath
 specifier|private
 name|String
@@ -110,13 +110,13 @@ specifier|private
 name|String
 name|componentName
 decl_stmt|;
-comment|/**      * What payload type this component capable of consuming. Could be one type      * like application/json or multiple types as application/json      * application/xml; q=0.5 according to the RFC7231. This equates to the      * value of Accept HTTP header. If set overrides any value found in the      * Swagger specification. Can be overriden in endpoint configuration      */
+comment|/**      * What payload type this component capable of consuming. Could be one type,      * like application/json or multiple types as application/json,      * application/xml; q=0.5 according to the RFC7231. This equates to the      * value of Accept HTTP header. If set overrides any value found in the      * Swagger specification. Can be overriden in endpoint configuration      */
 DECL|field|consumes
 specifier|private
 name|String
 name|consumes
 decl_stmt|;
-comment|/**      * Scheme hostname and port to direct the HTTP requests to in the form of      * https://hostname:port. Can be configured at the endpoint component or in      * the correspoding REST configuration in the Camel Context. If you give      * this component a name (e.g. petstore) that REST configuration is      * consulted first rest-swagger next and global configuration last. If set      * overrides any value found in the Swagger specification RestConfiguration.      * Can be overriden in endpoint configuration.      */
+comment|/**      * Scheme hostname and port to direct the HTTP requests to in the form of      * https://hostname:port. Can be configured at the endpoint, component or in      * the correspoding REST configuration in the Camel Context. If you give      * this component a name (e.g. petstore) that REST configuration is      * consulted first, rest-swagger next, and global configuration last. If set      * overrides any value found in the Swagger specification,      * RestConfiguration. Can be overriden in endpoint configuration.      */
 DECL|field|host
 specifier|private
 name|String
@@ -128,7 +128,7 @@ specifier|private
 name|String
 name|produces
 decl_stmt|;
-comment|/**      * Path to the Swagger specification file. The scheme host base path are      * taken from this specification but these can be overriden with properties      * on the component or endpoint level. If not given the component tries to      * load swagger.json resource. Note that the host defined on the component      * and endpoint of this Component should contain the scheme hostname and      * optionally the port in the URI syntax (i.e.      * https://api.example.com:8080). Can be overriden in endpoint      * configuration.      */
+comment|/**      * Path to the Swagger specification file. The scheme, host base path are      * taken from this specification, but these can be overriden with properties      * on the component or endpoint level. If not given the component tries to      * load swagger.json resource. Note that the host defined on the component      * and endpoint of this Component should contain the scheme, hostname and      * optionally the port in the URI syntax (i.e.      * https://api.example.com:8080). Can be overriden in endpoint      * configuration.      */
 DECL|field|specificationUri
 specifier|private
 name|URI

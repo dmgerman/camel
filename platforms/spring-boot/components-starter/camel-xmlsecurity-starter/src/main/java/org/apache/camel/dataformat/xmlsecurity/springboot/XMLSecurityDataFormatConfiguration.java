@@ -94,13 +94,13 @@ name|xmlCipherAlgorithm
 init|=
 literal|"TRIPLEDES"
 decl_stmt|;
-comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. If no passPhrase is specified a default passPhrase is      * used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a Only another 24 Byte key      */
+comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. If no passPhrase is specified, a default passPhrase      * is used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a Only another 24 Byte key      */
 DECL|field|passPhrase
 specifier|private
 name|String
 name|passPhrase
 decl_stmt|;
-comment|/**      * The XPath reference to the XML Element selected for      * encryption/decryption. If no tag is specified the entire payload is      * encrypted/decrypted.      */
+comment|/**      * The XPath reference to the XML Element selected for      * encryption/decryption. If no tag is specified, the entire payload is      * encrypted/decrypted.      */
 DECL|field|secureTag
 specifier|private
 name|String
@@ -128,7 +128,7 @@ specifier|private
 name|String
 name|recipientKeyAlias
 decl_stmt|;
-comment|/**      * Refers to a KeyStore instance to lookup in the registry which is used for      * configuration options for creating and loading a KeyStore instance that      * represents the sender's trustStore or recipient's keyStore.      */
+comment|/**      * Refers to a KeyStore instance to lookup in the registry, which is used      * for configuration options for creating and loading a KeyStore instance      * that represents the sender's trustStore or recipient's keyStore.      */
 DECL|field|keyOrTrustStoreParametersId
 specifier|private
 name|String
@@ -164,7 +164,7 @@ name|addKeyValueForEncryptedKey
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean
