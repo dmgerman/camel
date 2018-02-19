@@ -389,7 +389,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// only convert if the is a body
+comment|// only convert if there is a body
 name|callback
 operator|.
 name|done
