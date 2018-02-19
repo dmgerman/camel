@@ -1625,7 +1625,26 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot load "
+operator|+
+name|JACKSON_JSON_ADAPTER
+operator|+
+literal|" from classpath to enable JacksonJsonAdapter due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". JacksonJsonAdapter is not enabled."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 name|initJsonAdapter
 operator|=
