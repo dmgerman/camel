@@ -86,7 +86,7 @@ name|FhirJsonDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
-comment|/**      * The version of FHIR to use. Possible values are:      * DSTU2DSTU2_HL7ORGDSTU2_1DSTU3R4      */
+comment|/**      * The version of FHIR to use. Possible values are:      * DSTU2,DSTU2_HL7ORG,DSTU2_1,DSTU3,R4      */
 DECL|field|fhirVersion
 specifier|private
 name|String
@@ -94,7 +94,7 @@ name|fhirVersion
 init|=
 literal|"DSTU3"
 decl_stmt|;
-comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML or      * application/json for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
 name|Boolean
