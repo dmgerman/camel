@@ -162,6 +162,18 @@ name|SERVER_SIDE_ENCRYPTION
 init|=
 literal|"CamelAwsS3ServerSideEncryption"
 decl_stmt|;
+DECL|field|EXPIRATION_TIME
+name|String
+name|EXPIRATION_TIME
+init|=
+literal|"CamelAwsS3ExpirationTime"
+decl_stmt|;
+DECL|field|REPLICATION_STATUS
+name|String
+name|REPLICATION_STATUS
+init|=
+literal|"CamelAwsS3ReplicationStatus"
+decl_stmt|;
 block|}
 end_interface
 
