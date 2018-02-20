@@ -424,6 +424,11 @@ return|return
 literal|true
 return|;
 block|}
+name|String
+name|originalCharsetName
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|charset
@@ -431,6 +436,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|originalCharsetName
+operator|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// override existing charset with configured charset as that is what the user
 comment|// have explicit configured and expects to be used
 name|exchange
@@ -555,7 +575,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remove charset when we are done as we should not propagate that,
+comment|// remove or restore charset when we are done as we should not propagate that,
 comment|// as that can lead to double converting later on
 if|if
 condition|(
@@ -563,6 +583,33 @@ name|charset
 operator|!=
 literal|null
 condition|)
+block|{
+if|if
+condition|(
+name|originalCharsetName
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|originalCharsetName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|originalCharsetName
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|exchange
 operator|.
@@ -573,6 +620,7 @@ operator|.
 name|CHARSET_NAME
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|callback
 operator|.
