@@ -521,6 +521,8 @@ argument_list|<>
 argument_list|(
 name|emitter
 argument_list|,
+name|filter
+argument_list|,
 name|destinationGenerator
 argument_list|()
 argument_list|)

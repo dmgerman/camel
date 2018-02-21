@@ -160,6 +160,12 @@ name|destinationGenerator
 decl_stmt|;
 annotation|@
 name|Parameter
+DECL|field|filterOperation
+name|String
+name|filterOperation
+decl_stmt|;
+annotation|@
+name|Parameter
 argument_list|(
 name|defaultValue
 operator|=

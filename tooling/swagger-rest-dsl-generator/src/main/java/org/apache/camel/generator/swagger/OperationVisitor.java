@@ -183,13 +183,19 @@ name|T
 argument_list|>
 name|emitter
 decl_stmt|;
+DECL|field|filter
+specifier|private
+specifier|final
+name|OperationFilter
+name|filter
+decl_stmt|;
 DECL|field|path
 specifier|private
 specifier|final
 name|String
 name|path
 decl_stmt|;
-DECL|method|OperationVisitor (final CodeEmitter<T> emitter, final String path, final DestinationGenerator destinationGenerator)
+DECL|method|OperationVisitor (final CodeEmitter<T> emitter, final OperationFilter filter, final String path, final DestinationGenerator destinationGenerator)
 name|OperationVisitor
 parameter_list|(
 specifier|final
@@ -198,6 +204,10 @@ argument_list|<
 name|T
 argument_list|>
 name|emitter
+parameter_list|,
+specifier|final
+name|OperationFilter
+name|filter
 parameter_list|,
 specifier|final
 name|String
@@ -213,6 +223,12 @@ operator|.
 name|emitter
 operator|=
 name|emitter
+expr_stmt|;
+name|this
+operator|.
+name|filter
+operator|=
+name|filter
 expr_stmt|;
 name|this
 operator|.
@@ -627,6 +643,19 @@ name|Operation
 name|operation
 parameter_list|)
 block|{
+if|if
+condition|(
+name|filter
+operator|.
+name|accept
+argument_list|(
+name|operation
+operator|.
+name|getOperationId
+argument_list|()
+argument_list|)
+condition|)
+block|{
 specifier|final
 name|String
 name|methodName
@@ -720,6 +749,7 @@ name|operation
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

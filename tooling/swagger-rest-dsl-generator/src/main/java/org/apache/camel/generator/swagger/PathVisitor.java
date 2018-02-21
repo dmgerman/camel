@@ -53,7 +53,13 @@ name|T
 argument_list|>
 name|emitter
 decl_stmt|;
-DECL|method|PathVisitor (final CodeEmitter<T> emitter, final DestinationGenerator destinationGenerator)
+DECL|field|filter
+specifier|private
+specifier|final
+name|OperationFilter
+name|filter
+decl_stmt|;
+DECL|method|PathVisitor (final CodeEmitter<T> emitter, OperationFilter filter, final DestinationGenerator destinationGenerator)
 name|PathVisitor
 parameter_list|(
 specifier|final
@@ -62,6 +68,9 @@ argument_list|<
 name|T
 argument_list|>
 name|emitter
+parameter_list|,
+name|OperationFilter
+name|filter
 parameter_list|,
 specifier|final
 name|DestinationGenerator
@@ -73,6 +82,12 @@ operator|.
 name|emitter
 operator|=
 name|emitter
+expr_stmt|;
+name|this
+operator|.
+name|filter
+operator|=
+name|filter
 expr_stmt|;
 name|this
 operator|.
@@ -113,6 +128,8 @@ name|OperationVisitor
 argument_list|<>
 argument_list|(
 name|emitter
+argument_list|,
+name|filter
 argument_list|,
 name|path
 argument_list|,

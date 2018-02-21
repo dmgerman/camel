@@ -153,6 +153,8 @@ argument_list|<>
 argument_list|(
 name|emitter
 argument_list|,
+name|filter
+argument_list|,
 name|destinationGenerator
 argument_list|()
 argument_list|)
@@ -206,6 +208,29 @@ literal|"http://camel.apache.org/schema/blueprint"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// remove all customId attributes as we do not want them in the output
+name|xml
+operator|=
+name|xml
+operator|.
+name|replaceAll
+argument_list|(
+literal|" customId=\"true\""
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|xml
+operator|=
+name|xml
+operator|.
+name|replaceAll
+argument_list|(
+literal|" customId=\"false\""
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
 return|return
 name|xml
 return|;
