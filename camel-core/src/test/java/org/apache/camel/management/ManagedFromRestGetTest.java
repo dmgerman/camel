@@ -439,6 +439,36 @@ literal|"rest=\"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml2
+operator|.
+name|contains
+argument_list|(
+literal|"<to id=\"to1\" uri=\"direct:hello\"/>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml2
+operator|.
+name|contains
+argument_list|(
+literal|"<to id=\"to2\" uri=\"direct:bye\"/>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml2
+operator|.
+name|contains
+argument_list|(
+literal|"<to id=\"to3\" uri=\"mock:update\"/>"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// there should be 3 + 2 routes
 name|assertEquals
 argument_list|(
