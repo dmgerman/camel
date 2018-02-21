@@ -83,6 +83,11 @@ argument_list|<
 name|RestDslXmlGenerator
 argument_list|>
 block|{
+DECL|field|blueprint
+specifier|private
+name|boolean
+name|blueprint
+decl_stmt|;
 DECL|method|RestDslXmlGenerator (final Swagger swagger)
 name|RestDslXmlGenerator
 parameter_list|(
@@ -96,6 +101,22 @@ argument_list|(
 name|swagger
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|withBlueprint ()
+specifier|public
+name|RestDslXmlGenerator
+name|withBlueprint
+parameter_list|()
+block|{
+name|this
+operator|.
+name|blueprint
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|generate (final CamelContext context)
 specifier|public
@@ -168,6 +189,23 @@ argument_list|,
 name|rests
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|blueprint
+condition|)
+block|{
+name|xml
+operator|=
+name|xml
+operator|.
+name|replace
+argument_list|(
+literal|"http://camel.apache.org/schema/spring"
+argument_list|,
+literal|"http://camel.apache.org/schema/blueprint"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|xml
 return|;
