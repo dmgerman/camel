@@ -202,6 +202,10 @@ name|notEmpty
 import|;
 end_import
 
+begin_comment
+comment|/**  * Generates Java source code  */
+end_comment
+
 begin_class
 DECL|class|RestDslSourceCodeGenerator
 specifier|public

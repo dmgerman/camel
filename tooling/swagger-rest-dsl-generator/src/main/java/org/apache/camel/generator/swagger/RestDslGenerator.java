@@ -225,6 +225,25 @@ name|swagger
 argument_list|)
 return|;
 block|}
+DECL|method|toXml (final Swagger swagger)
+specifier|public
+specifier|static
+name|RestDslXmlGenerator
+name|toXml
+parameter_list|(
+specifier|final
+name|Swagger
+name|swagger
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RestDslXmlGenerator
+argument_list|(
+name|swagger
+argument_list|)
+return|;
+block|}
 DECL|method|toFiler (final Swagger swagger)
 specifier|public
 specifier|static
