@@ -1144,6 +1144,26 @@ name|ignoreInvalidRecords
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|setEncoding
+argument_list|(
+name|Charset
+operator|.
+name|forName
+argument_list|(
+name|encoding
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setEncoding (Charset encoding)
 specifier|public
 name|void
@@ -1153,6 +1173,21 @@ name|Charset
 name|encoding
 parameter_list|)
 block|{
+if|if
+condition|(
+name|encoding
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Charset encoding is null"
+argument_list|)
+throw|;
+block|}
 name|configuration
 operator|.
 name|setEncoding
