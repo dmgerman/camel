@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -405,6 +415,12 @@ DECL|field|keyPassword
 specifier|private
 name|String
 name|keyPassword
+decl_stmt|;
+comment|/**          * A set of allowed security policy URIs. Default is to accept all and          * use the highest.          */
+DECL|field|allowedSecurityPolicies
+specifier|private
+name|Set
+name|allowedSecurityPolicies
 decl_stmt|;
 DECL|method|getEndpointUri ()
 specifier|public
@@ -794,6 +810,32 @@ operator|.
 name|keyPassword
 operator|=
 name|keyPassword
+expr_stmt|;
+block|}
+DECL|method|getAllowedSecurityPolicies ()
+specifier|public
+name|Set
+name|getAllowedSecurityPolicies
+parameter_list|()
+block|{
+return|return
+name|allowedSecurityPolicies
+return|;
+block|}
+DECL|method|setAllowedSecurityPolicies (Set allowedSecurityPolicies)
+specifier|public
+name|void
+name|setAllowedSecurityPolicies
+parameter_list|(
+name|Set
+name|allowedSecurityPolicies
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowedSecurityPolicies
+operator|=
+name|allowedSecurityPolicies
 expr_stmt|;
 block|}
 block|}
