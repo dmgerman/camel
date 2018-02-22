@@ -395,6 +395,18 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"client"
+argument_list|)
+DECL|field|overrideHost
+specifier|private
+name|boolean
+name|overrideHost
+decl_stmt|;
 DECL|method|MiloClientConfiguration ()
 specifier|public
 name|MiloClientConfiguration
@@ -467,6 +479,14 @@ name|allowedSecurityPolicies
 argument_list|)
 else|:
 literal|null
+expr_stmt|;
+name|this
+operator|.
+name|overrideHost
+operator|=
+name|other
+operator|.
+name|overrideHost
 expr_stmt|;
 block|}
 DECL|method|setEndpointUri (final String endpointUri)
@@ -1132,7 +1152,36 @@ name|getAllowedSecurityPolicies
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|allowedSecurityPolicies
+return|;
+block|}
+comment|/**      * Override the server reported endpoint host with the host from the      * endpoint URI.      */
+DECL|method|setOverrideHost (boolean overrideHost)
+specifier|public
+name|void
+name|setOverrideHost
+parameter_list|(
+name|boolean
+name|overrideHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|overrideHost
+operator|=
+name|overrideHost
+expr_stmt|;
+block|}
+DECL|method|isOverrideHost ()
+specifier|public
+name|boolean
+name|isOverrideHost
+parameter_list|()
+block|{
+return|return
+name|overrideHost
 return|;
 block|}
 annotation|@

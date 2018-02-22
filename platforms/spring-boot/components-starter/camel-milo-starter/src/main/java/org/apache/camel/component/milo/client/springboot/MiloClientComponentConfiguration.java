@@ -422,6 +422,14 @@ specifier|private
 name|Set
 name|allowedSecurityPolicies
 decl_stmt|;
+comment|/**          * Override the server reported endpoint host with the host from the          * endpoint URI.          */
+DECL|field|overrideHost
+specifier|private
+name|Boolean
+name|overrideHost
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
@@ -836,6 +844,32 @@ operator|.
 name|allowedSecurityPolicies
 operator|=
 name|allowedSecurityPolicies
+expr_stmt|;
+block|}
+DECL|method|getOverrideHost ()
+specifier|public
+name|Boolean
+name|getOverrideHost
+parameter_list|()
+block|{
+return|return
+name|overrideHost
+return|;
+block|}
+DECL|method|setOverrideHost (Boolean overrideHost)
+specifier|public
+name|void
+name|setOverrideHost
+parameter_list|(
+name|Boolean
+name|overrideHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|overrideHost
+operator|=
+name|overrideHost
 expr_stmt|;
 block|}
 block|}
