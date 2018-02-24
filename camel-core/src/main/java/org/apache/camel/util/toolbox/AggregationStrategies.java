@@ -62,6 +62,22 @@ name|processor
 operator|.
 name|aggregate
 operator|.
+name|GroupedBodyAggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
 name|GroupedExchangeAggregationStrategy
 import|;
 end_import
@@ -207,17 +223,17 @@ name|GroupedExchangeAggregationStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a {@link BatchAggregationStrategy} aggregation strategy.      */
-DECL|method|batch ()
+comment|/**      * Creates a {@link GroupedBodyAggregationStrategy} aggregation strategy.      */
+DECL|method|groupedBody ()
 specifier|public
 specifier|static
 name|AggregationStrategy
-name|batch
+name|groupedBody
 parameter_list|()
 block|{
 return|return
 operator|new
-name|BatchAggregationStrategy
+name|GroupedBodyAggregationStrategy
 argument_list|()
 return|;
 block|}
