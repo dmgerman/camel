@@ -417,7 +417,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The linkedin component is uses for retrieving LinkedIn user profiles, connections, companies, groups, posts, etc.  */
+comment|/**  * The linkedin component is used for retrieving LinkedIn user profiles, connections, companies, groups, posts, etc.  */
 end_comment
 
 begin_class
