@@ -472,7 +472,7 @@ name|abortAfterTimeout
 parameter_list|)
 block|{
 return|return
-name|doIfEnabled
+name|doIfEnabledAndNotReadOnly
 argument_list|(
 parameter_list|()
 lambda|->
@@ -575,7 +575,7 @@ name|id
 parameter_list|)
 block|{
 return|return
-name|doIfEnabled
+name|doIfEnabledAndNotReadOnly
 argument_list|(
 parameter_list|()
 lambda|->
@@ -655,7 +655,7 @@ name|id
 parameter_list|)
 block|{
 return|return
-name|doIfEnabled
+name|doIfEnabledAndNotReadOnly
 argument_list|(
 parameter_list|()
 lambda|->
@@ -745,7 +745,7 @@ name|timeout
 parameter_list|)
 block|{
 return|return
-name|doIfEnabled
+name|doIfEnabledAndNotReadOnly
 argument_list|(
 parameter_list|()
 lambda|->
@@ -841,7 +841,7 @@ name|id
 parameter_list|)
 block|{
 return|return
-name|doIfEnabled
+name|doIfEnabledAndNotReadOnly
 argument_list|(
 parameter_list|()
 lambda|->
