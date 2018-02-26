@@ -60,6 +60,23 @@ name|RuntimeCamelCatalog
 extends|extends
 name|StaticService
 block|{
+comment|// configuration
+comment|/**      * Gets the {@link JSonSchemaResolver}.      */
+DECL|method|getJSonSchemaResolver ()
+name|JSonSchemaResolver
+name|getJSonSchemaResolver
+parameter_list|()
+function_decl|;
+comment|/**      * To use a custom {@link JSonSchemaResolver}      */
+DECL|method|setJSonSchemaResolver (JSonSchemaResolver resolver)
+name|void
+name|setJSonSchemaResolver
+parameter_list|(
+name|JSonSchemaResolver
+name|resolver
+parameter_list|)
+function_decl|;
+comment|// functions
 comment|/**      * Returns the component information as JSon format.      *      * @param name the component name      * @return component details in JSon      */
 DECL|method|componentJSonSchema (String name)
 name|String
