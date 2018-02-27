@@ -2412,6 +2412,44 @@ name|newExchange
 argument_list|)
 throw|;
 block|}
+comment|// check for the special exchange property to force completion of all groups
+name|boolean
+name|completeAllGroups
+init|=
+name|answer
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_COMPLETE_ALL_GROUPS
+argument_list|,
+literal|false
+argument_list|,
+name|boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|completeAllGroups
+condition|)
+block|{
+comment|// remove the exchange property so we do not complete again
+name|answer
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_COMPLETE_ALL_GROUPS
+argument_list|)
+expr_stmt|;
+name|forceCompletionOfAllGroups
+argument_list|()
+expr_stmt|;
+block|}
 comment|// special for some repository implementations
 if|if
 condition|(
