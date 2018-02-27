@@ -615,6 +615,17 @@ name|to
 block|}
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|answer
+operator|.
+name|containsValue
+argument_list|(
+name|data
+argument_list|)
+condition|)
+block|{
 name|answer
 operator|.
 name|put
@@ -622,6 +633,7 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|answer
