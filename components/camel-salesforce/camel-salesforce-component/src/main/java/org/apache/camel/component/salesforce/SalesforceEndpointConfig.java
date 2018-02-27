@@ -584,6 +584,15 @@ name|NOT_FOUND_BEHAVIOUR
 init|=
 literal|"notFoundBehaviour"
 decl_stmt|;
+DECL|field|SERIALIZE_NULLS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SERIALIZE_NULLS
+init|=
+literal|"serializeNulls"
+decl_stmt|;
 comment|// general properties
 annotation|@
 name|UriParam
@@ -720,6 +729,18 @@ DECL|field|sObjectSearch
 specifier|private
 name|String
 name|sObjectSearch
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|displayName
+operator|=
+literal|"Serialize NULL values"
+argument_list|)
+DECL|field|serializeNulls
+specifier|private
+name|boolean
+name|serializeNulls
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1298,6 +1319,33 @@ name|sObjectSearch
 operator|=
 name|sObjectSearch
 expr_stmt|;
+block|}
+comment|/**      * Should the NULL values of given DTO be serialized with      * empty (NULL) values. This affects only JSON data format.      */
+DECL|method|setSerializeNulls (boolean serializeNulls)
+specifier|public
+name|void
+name|setSerializeNulls
+parameter_list|(
+name|boolean
+name|serializeNulls
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serializeNulls
+operator|=
+name|serializeNulls
+expr_stmt|;
+block|}
+DECL|method|isSerializeNulls ()
+specifier|public
+name|boolean
+name|isSerializeNulls
+parameter_list|()
+block|{
+return|return
+name|serializeNulls
+return|;
 block|}
 DECL|method|getApexMethod ()
 specifier|public
@@ -2092,6 +2140,15 @@ argument_list|(
 name|SOBJECT_SEARCH
 argument_list|,
 name|sObjectSearch
+argument_list|)
+expr_stmt|;
+name|valueMap
+operator|.
+name|put
+argument_list|(
+name|SERIALIZE_NULLS
+argument_list|,
+name|serializeNulls
 argument_list|)
 expr_stmt|;
 name|valueMap

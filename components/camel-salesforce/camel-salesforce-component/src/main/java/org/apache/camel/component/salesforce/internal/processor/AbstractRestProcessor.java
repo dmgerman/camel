@@ -1682,6 +1682,8 @@ name|request
 init|=
 name|getRequestStream
 argument_list|(
+name|incomingMessage
+argument_list|,
 name|requestsBody
 argument_list|)
 decl_stmt|;
@@ -4873,12 +4875,15 @@ comment|/**      * Returns {@link InputStream} to serialized form of the given o
 end_comment
 
 begin_function_decl
-DECL|method|getRequestStream (Object object)
+DECL|method|getRequestStream (Message in, Object object)
 specifier|protected
 specifier|abstract
 name|InputStream
 name|getRequestStream
 parameter_list|(
+name|Message
+name|in
+parameter_list|,
 name|Object
 name|object
 parameter_list|)

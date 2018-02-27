@@ -1057,6 +1057,8 @@ name|request
 operator|=
 name|getRequestStream
 argument_list|(
+name|in
+argument_list|,
 name|dto
 argument_list|)
 expr_stmt|;
@@ -1197,11 +1199,15 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|getRequestStream (final Object object)
+DECL|method|getRequestStream (final Message in, final Object object)
 specifier|protected
 name|InputStream
 name|getRequestStream
 parameter_list|(
+specifier|final
+name|Message
+name|in
+parameter_list|,
 specifier|final
 name|Object
 name|object
