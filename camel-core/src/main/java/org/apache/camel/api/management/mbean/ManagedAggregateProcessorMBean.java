@@ -197,6 +197,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Complete all previous groups on new incoming correlation group"
+argument_list|)
+DECL|method|isCompletionOnNewCorrelationGroup ()
+name|boolean
+name|isCompletionOnNewCorrelationGroup
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Ignore invalid correlation keys"
 argument_list|)
 DECL|method|isIgnoreInvalidCorrelationKeys ()

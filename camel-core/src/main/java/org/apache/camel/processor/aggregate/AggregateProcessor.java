@@ -1301,6 +1301,11 @@ specifier|private
 name|boolean
 name|completionFromBatchConsumer
 decl_stmt|;
+DECL|field|completionOnNewCorrelationGroup
+specifier|private
+name|boolean
+name|completionOnNewCorrelationGroup
+decl_stmt|;
 DECL|field|batchConsumerCounter
 specifier|private
 name|AtomicInteger
@@ -2446,6 +2451,22 @@ operator|.
 name|AGGREGATION_COMPLETE_ALL_GROUPS
 argument_list|)
 expr_stmt|;
+name|forceCompletionOfAllGroups
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|isCompletionOnNewCorrelationGroup
+argument_list|()
+operator|&&
+name|originalExchange
+operator|==
+literal|null
+condition|)
+block|{
+comment|// its a new group so force complete of all existing groups
 name|forceCompletionOfAllGroups
 argument_list|()
 expr_stmt|;
@@ -4650,6 +4671,32 @@ operator|.
 name|completionFromBatchConsumer
 operator|=
 name|completionFromBatchConsumer
+expr_stmt|;
+block|}
+DECL|method|isCompletionOnNewCorrelationGroup ()
+specifier|public
+name|boolean
+name|isCompletionOnNewCorrelationGroup
+parameter_list|()
+block|{
+return|return
+name|completionOnNewCorrelationGroup
+return|;
+block|}
+DECL|method|setCompletionOnNewCorrelationGroup (boolean completionOnNewCorrelationGroup)
+specifier|public
+name|void
+name|setCompletionOnNewCorrelationGroup
+parameter_list|(
+name|boolean
+name|completionOnNewCorrelationGroup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|completionOnNewCorrelationGroup
+operator|=
+name|completionOnNewCorrelationGroup
 expr_stmt|;
 block|}
 DECL|method|isCompleteAllOnStop ()

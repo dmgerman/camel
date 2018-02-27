@@ -513,6 +513,19 @@ name|isCompletionFromBatchConsumer
 argument_list|()
 return|;
 block|}
+DECL|method|isCompletionOnNewCorrelationGroup ()
+specifier|public
+name|boolean
+name|isCompletionOnNewCorrelationGroup
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|isCompletionOnNewCorrelationGroup
+argument_list|()
+return|;
+block|}
 DECL|method|isIgnoreInvalidCorrelationKeys ()
 specifier|public
 name|boolean

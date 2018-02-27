@@ -713,6 +713,13 @@ name|completionFromBatchConsumer
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|completionOnNewCorrelationGroup
+specifier|private
+name|Boolean
+name|completionOnNewCorrelationGroup
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 annotation|@
 name|Deprecated
 DECL|field|groupExchanges
@@ -1492,6 +1499,23 @@ operator|.
 name|setCompletionFromBatchConsumer
 argument_list|(
 name|getCompletionFromBatchConsumer
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getCompletionOnNewCorrelationGroup
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setCompletionOnNewCorrelationGroup
+argument_list|(
+name|getCompletionOnNewCorrelationGroup
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2492,6 +2516,32 @@ operator|=
 name|completionFromBatchConsumer
 expr_stmt|;
 block|}
+DECL|method|getCompletionOnNewCorrelationGroup ()
+specifier|public
+name|Boolean
+name|getCompletionOnNewCorrelationGroup
+parameter_list|()
+block|{
+return|return
+name|completionOnNewCorrelationGroup
+return|;
+block|}
+DECL|method|setCompletionOnNewCorrelationGroup (Boolean completionOnNewCorrelationGroup)
+specifier|public
+name|void
+name|setCompletionOnNewCorrelationGroup
+parameter_list|(
+name|Boolean
+name|completionOnNewCorrelationGroup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|completionOnNewCorrelationGroup
+operator|=
+name|completionOnNewCorrelationGroup
+expr_stmt|;
+block|}
 DECL|method|getExecutorService ()
 specifier|public
 name|ExecutorService
@@ -2986,6 +3036,22 @@ name|completionFromBatchConsumer
 parameter_list|()
 block|{
 name|setCompletionFromBatchConsumer
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enables completion on all previous groups when a new incoming correlation group. This can for example be used      * to complete groups with same correlation keys when they are in consecutive order.      * Notice when this is enabled then only 1 correlation group can be in progress as when a new correlation group      * starts, then the previous groups is forced completed.      *      * @return builder      */
+DECL|method|completionOnNewCorrelationGroup ()
+specifier|public
+name|AggregateDefinition
+name|completionOnNewCorrelationGroup
+parameter_list|()
+block|{
+name|setCompletionOnNewCorrelationGroup
 argument_list|(
 literal|true
 argument_list|)
