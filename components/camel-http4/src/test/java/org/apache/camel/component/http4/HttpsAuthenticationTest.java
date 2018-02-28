@@ -470,7 +470,7 @@ operator|.
 name|getLocalPort
 argument_list|()
 operator|+
-literal|"/?authUsername=camel&authPassword=password&x509HostnameVerifier=x509HostnameVerifier"
+literal|"/?authUsername=camel&authPassword=password&x509HostnameVerifier=#x509HostnameVerifier"
 argument_list|,
 operator|new
 name|Processor

@@ -408,7 +408,7 @@ operator|.
 name|getLocalPort
 argument_list|()
 operator|+
-literal|"/mail?x509HostnameVerifier=x509HostnameVerifier&sslContextParameters=#sslContextParameters"
+literal|"/mail?x509HostnameVerifier=#x509HostnameVerifier&sslContextParameters=#sslContextParameters"
 argument_list|)
 expr_stmt|;
 name|from
@@ -422,7 +422,7 @@ literal|"http4s-bar://127.0.0.1:"
 operator|+
 name|port2
 operator|+
-literal|"/mail?x509HostnameVerifier=x509HostnameVerifier&sslContextParameters=#sslContextParameters2"
+literal|"/mail?x509HostnameVerifier=#x509HostnameVerifier&sslContextParameters=#sslContextParameters2"
 argument_list|)
 expr_stmt|;
 block|}
