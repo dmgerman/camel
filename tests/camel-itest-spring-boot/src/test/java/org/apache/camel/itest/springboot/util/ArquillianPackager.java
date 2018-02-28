@@ -2179,6 +2179,13 @@ name|ignore
 operator|.
 name|add
 argument_list|(
+literal|"io.opentracing.contrib:opentracing-"
+argument_list|)
+expr_stmt|;
+name|ignore
+operator|.
+name|add
+argument_list|(
 literal|"org.apache.commons"
 argument_list|)
 expr_stmt|;
