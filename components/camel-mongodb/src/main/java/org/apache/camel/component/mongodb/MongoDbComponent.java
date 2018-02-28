@@ -151,6 +151,10 @@ argument_list|,
 name|MongoDbOperation
 operator|.
 name|remove
+argument_list|,
+name|MongoDbOperation
+operator|.
+name|bulkWrite
 argument_list|)
 argument_list|)
 decl_stmt|;
