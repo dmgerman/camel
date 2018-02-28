@@ -1084,6 +1084,15 @@ name|Continuation
 name|continuation
 parameter_list|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"asyncInvoke continuation: {}"
+argument_list|,
+name|continuation
+argument_list|)
+expr_stmt|;
 synchronized|synchronized
 init|(
 name|continuation
