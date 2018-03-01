@@ -2422,6 +2422,22 @@ specifier|private
 name|boolean
 name|streamMessageTypeEnabled
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether JMS date properties should be formatted according to the ISO 8601 standard."
+argument_list|)
+DECL|field|formatDateHeadersToIso8601
+specifier|private
+name|boolean
+name|formatDateHeadersToIso8601
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -7283,6 +7299,34 @@ operator|.
 name|streamMessageTypeEnabled
 operator|=
 name|streamMessageTypeEnabled
+expr_stmt|;
+block|}
+comment|/**      * Gets whether date headers should be formatted according to the ISO 8601      * standard.      */
+DECL|method|isFormatDateHeadersToIso8601 ()
+specifier|public
+name|boolean
+name|isFormatDateHeadersToIso8601
+parameter_list|()
+block|{
+return|return
+name|formatDateHeadersToIso8601
+return|;
+block|}
+comment|/**      * Sets whether date headers should be formatted according to the ISO 8601      * standard.      */
+DECL|method|setFormatDateHeadersToIso8601 (boolean formatDateHeadersToIso8601)
+specifier|public
+name|void
+name|setFormatDateHeadersToIso8601
+parameter_list|(
+name|boolean
+name|formatDateHeadersToIso8601
+parameter_list|)
+block|{
+name|this
+operator|.
+name|formatDateHeadersToIso8601
+operator|=
+name|formatDateHeadersToIso8601
 expr_stmt|;
 block|}
 block|}

@@ -929,6 +929,14 @@ name|streamMessageTypeEnabled
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Sets whether date headers should be formatted according to the ISO 8601      * standard.      */
+DECL|field|formatDateHeadersToIso8601
+specifier|private
+name|Boolean
+name|formatDateHeadersToIso8601
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -2945,6 +2953,32 @@ operator|.
 name|streamMessageTypeEnabled
 operator|=
 name|streamMessageTypeEnabled
+expr_stmt|;
+block|}
+DECL|method|getFormatDateHeadersToIso8601 ()
+specifier|public
+name|Boolean
+name|getFormatDateHeadersToIso8601
+parameter_list|()
+block|{
+return|return
+name|formatDateHeadersToIso8601
+return|;
+block|}
+DECL|method|setFormatDateHeadersToIso8601 (Boolean formatDateHeadersToIso8601)
+specifier|public
+name|void
+name|setFormatDateHeadersToIso8601
+parameter_list|(
+name|Boolean
+name|formatDateHeadersToIso8601
+parameter_list|)
+block|{
+name|this
+operator|.
+name|formatDateHeadersToIso8601
+operator|=
+name|formatDateHeadersToIso8601
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()

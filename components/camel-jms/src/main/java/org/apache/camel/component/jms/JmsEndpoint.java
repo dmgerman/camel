@@ -5496,6 +5496,40 @@ name|sleepingTime
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isFormatDateHeadersToIso8601 ()
+specifier|public
+name|boolean
+name|isFormatDateHeadersToIso8601
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isFormatDateHeadersToIso8601
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setFormatDateHeadersToIso8601 (boolean formatDateHeadersToIso8601)
+specifier|public
+name|void
+name|setFormatDateHeadersToIso8601
+parameter_list|(
+name|boolean
+name|formatDateHeadersToIso8601
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setFormatDateHeadersToIso8601
+argument_list|(
+name|formatDateHeadersToIso8601
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@

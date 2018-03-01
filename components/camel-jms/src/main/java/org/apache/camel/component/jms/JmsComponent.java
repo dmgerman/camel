@@ -3791,6 +3791,51 @@ name|streamMessageTypeEnabled
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Gets whether date headers should be formatted according to the ISO 8601      * standard.      */
+DECL|method|isFormatDateHeadersToIso8601 ()
+specifier|public
+name|boolean
+name|isFormatDateHeadersToIso8601
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isFormatDateHeadersToIso8601
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets whether date headers should be formatted according to the ISO 8601      * standard.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether date headers should be formatted according to the ISO 8601 standard."
+argument_list|)
+DECL|method|setFormatDateHeadersToIso8601 (boolean formatDateHeadersToIso8601)
+specifier|public
+name|void
+name|setFormatDateHeadersToIso8601
+parameter_list|(
+name|boolean
+name|formatDateHeadersToIso8601
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setFormatDateHeadersToIso8601
+argument_list|(
+name|formatDateHeadersToIso8601
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@
