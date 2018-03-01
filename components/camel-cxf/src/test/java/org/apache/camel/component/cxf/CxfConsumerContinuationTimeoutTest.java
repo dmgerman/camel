@@ -425,7 +425,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|50000
+literal|35000
 argument_list|)
 expr_stmt|;
 block|}
@@ -562,7 +562,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
+name|String
 name|out
 init|=
 name|template
@@ -582,7 +582,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// here we should get some kind of timeout exception
+name|assertTrue
+argument_list|(
+name|out
+operator|.
+name|contains
+argument_list|(
+literal|"The OUT message was not received within: 30000 millis."
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
