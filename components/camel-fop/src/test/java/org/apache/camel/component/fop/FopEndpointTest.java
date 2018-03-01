@@ -150,6 +150,37 @@ name|FopEndpointTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|method|canTest ()
+specifier|private
+name|boolean
+name|canTest
+parameter_list|()
+block|{
+try|try
+block|{
+name|context
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"fop:pdf"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|generatePdfFromXslfoWithSpecificText ()
@@ -160,6 +191,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+comment|// cannot run on CI
+return|return;
+block|}
 name|Endpoint
 name|endpoint
 init|=
@@ -246,6 +287,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+comment|// cannot run on CI
+return|return;
+block|}
 name|FopEndpoint
 name|customConfiguredEndpoint
 init|=
@@ -292,6 +343,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+comment|// cannot run on CI
+return|return;
+block|}
 name|FopEndpoint
 name|customConfiguredEndpoint
 init|=
@@ -338,6 +399,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+comment|// cannot run on CI
+return|return;
+block|}
 name|Endpoint
 name|endpoint
 init|=
@@ -440,6 +511,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+comment|// cannot run on CI
+return|return;
+block|}
 name|Endpoint
 name|endpoint
 init|=
@@ -558,6 +639,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+comment|// cannot run on CI
+return|return;
+block|}
 name|String
 name|defaultOutputFormat
 init|=
