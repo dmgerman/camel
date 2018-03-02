@@ -1002,7 +1002,7 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
-name|AWSLambdaClient
+name|AmazonLambdaClientMock
 name|clientMock
 init|=
 operator|new
