@@ -214,6 +214,15 @@ name|DISTINCT_QUERY_FIELD
 init|=
 literal|"CamelMongoDbDistinctQueryField"
 decl_stmt|;
+DECL|field|ALLOW_DISK_USE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ALLOW_DISK_USE
+init|=
+literal|"CamelMongoDbAllowDiskUse"
+decl_stmt|;
 DECL|field|MONGO_ID
 specifier|public
 specifier|static
