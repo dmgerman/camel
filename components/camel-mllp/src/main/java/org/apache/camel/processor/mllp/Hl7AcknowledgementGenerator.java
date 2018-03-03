@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel Processor for generating HL7 Acknowledgements.  */
+comment|/**  * An example of a Camel Processor for generating HL7 Acknowledgements.  */
 end_comment
 
 begin_class
@@ -530,7 +530,7 @@ throw|throw
 operator|new
 name|Hl7AcknowledgementGenerationException
 argument_list|(
-literal|"Failed to find the end of the  MSH Segment while attempting to generate response"
+literal|"Failed to find the end of the MSH Segment while attempting to generate response"
 argument_list|,
 name|hl7MessageBytes
 argument_list|)
@@ -550,7 +550,7 @@ throw|throw
 operator|new
 name|Hl7AcknowledgementGenerationException
 argument_list|(
-literal|"Insufficient number of fields in after MSH-2 in MSH to generate a response - 8 are required but "
+literal|"Insufficient number of fields in MSH to generate a response - 8 are required but "
 operator|+
 name|fieldSeparatorIndexes
 operator|.

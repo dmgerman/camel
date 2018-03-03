@@ -100,10 +100,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|expectedFailedCount
-operator|=
-literal|1
-expr_stmt|;
 name|runNthInvalidMessage
 argument_list|()
 expr_stmt|;
@@ -118,10 +114,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|expectedFailedCount
-operator|=
-literal|1
-expr_stmt|;
 name|runNthInvalidMessage
 argument_list|()
 expr_stmt|;

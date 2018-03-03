@@ -74,6 +74,15 @@ name|MLLP_ACKNOWLEDGEMENT_TYPE
 init|=
 literal|"CamelMllpAcknowledgementType"
 decl_stmt|;
+DECL|field|MLLP_ACKNOWLEDGEMENT_MSA_TEXT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MLLP_ACKNOWLEDGEMENT_MSA_TEXT
+init|=
+literal|"CamelMllpAcknowledgementMsaText"
+decl_stmt|;
 DECL|field|MLLP_ACKNOWLEDGEMENT_EXCEPTION
 specifier|public
 specifier|static
