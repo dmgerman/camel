@@ -1393,6 +1393,18 @@ literal|"You can not advice with error handlers. Remove the error handlers from 
 argument_list|)
 throw|;
 block|}
+name|String
+name|beforeAsXml
+init|=
+name|ModelHelper
+operator|.
+name|dumpModelAsXml
+argument_list|(
+name|camelContext
+argument_list|,
+name|this
+argument_list|)
+decl_stmt|;
 comment|// stop and remove this existing route
 name|camelContext
 operator|.
@@ -1472,6 +1484,29 @@ argument_list|(
 literal|"AdviceWith route after: {}"
 argument_list|,
 name|merged
+argument_list|)
+expr_stmt|;
+name|String
+name|afterAsXml
+init|=
+name|ModelHelper
+operator|.
+name|dumpModelAsXml
+argument_list|(
+name|camelContext
+argument_list|,
+name|merged
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Adviced route before/after as XML:\n{}\n{}"
+argument_list|,
+name|beforeAsXml
+argument_list|,
+name|afterAsXml
 argument_list|)
 expr_stmt|;
 comment|// If the camel context is started then we start the route
