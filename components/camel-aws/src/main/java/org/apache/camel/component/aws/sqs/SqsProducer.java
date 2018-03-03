@@ -701,7 +701,6 @@ name|sqsProducerToString
 return|;
 block|}
 DECL|method|translateAttributes (Map<String, Object> headers, Exchange exchange)
-specifier|private
 name|Map
 argument_list|<
 name|String
@@ -799,6 +798,17 @@ condition|(
 name|value
 operator|instanceof
 name|String
+operator|&&
+operator|!
+operator|(
+operator|(
+name|String
+operator|)
+name|value
+operator|)
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|MessageAttributeValue
