@@ -413,7 +413,7 @@ name|getModifiedCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// 1 updateOne + 100 updateMany
+comment|// 1 deleteOne + 100 deleteMany
 name|assertEquals
 argument_list|(
 literal|"Records deleted should be 101 : "
