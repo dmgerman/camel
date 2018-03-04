@@ -223,6 +223,15 @@ name|ALLOW_DISK_USE
 init|=
 literal|"CamelMongoDbAllowDiskUse"
 decl_stmt|;
+DECL|field|BULK_ORDERED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BULK_ORDERED
+init|=
+literal|"CamelMongoDbBulkOrdered"
+decl_stmt|;
 DECL|field|MONGO_ID
 specifier|public
 specifier|static

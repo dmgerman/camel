@@ -53,6 +53,10 @@ comment|// delete operations
 DECL|enumConstant|remove
 name|remove
 block|,
+comment|//Bulk operations
+DECL|enumConstant|bulkWrite
+name|bulkWrite
+block|,
 comment|// aggregate
 DECL|enumConstant|aggregate
 name|aggregate
