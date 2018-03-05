@@ -32,16 +32,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Locale
@@ -397,7 +387,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The undertow component provides HTTP-based endpoints for consuming and producing HTTP requests.  */
+comment|/**  * The undertow component provides HTTP and WebSocket based endpoints for consuming and producing HTTP/WebSocket requests.  */
 end_comment
 
 begin_class
@@ -428,7 +418,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"http"
+literal|"http,websocket"
 argument_list|,
 name|lenientProperties
 operator|=
@@ -708,10 +698,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off."
 argument_list|)
 DECL|field|optionsEnabled
 specifier|private
@@ -802,8 +788,6 @@ parameter_list|,
 name|UndertowComponent
 name|component
 parameter_list|)
-throws|throws
-name|URISyntaxException
 block|{
 name|super
 argument_list|(
@@ -884,7 +868,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//throw exception as polling consumer is not supported
 throw|throw
 operator|new
 name|UnsupportedOperationException
