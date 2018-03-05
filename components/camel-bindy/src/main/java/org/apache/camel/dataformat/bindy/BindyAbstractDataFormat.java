@@ -372,6 +372,13 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|unwrapSingleInstance
+specifier|private
+name|boolean
+name|unwrapSingleInstance
+init|=
+literal|true
+decl_stmt|;
 DECL|method|BindyAbstractDataFormat ()
 specifier|public
 name|BindyAbstractDataFormat
@@ -451,6 +458,32 @@ operator|.
 name|locale
 operator|=
 name|locale
+expr_stmt|;
+block|}
+DECL|method|isUnwrapSingleInstance ()
+specifier|public
+name|boolean
+name|isUnwrapSingleInstance
+parameter_list|()
+block|{
+return|return
+name|unwrapSingleInstance
+return|;
+block|}
+DECL|method|setUnwrapSingleInstance (boolean unwrapSingleInstance)
+specifier|public
+name|void
+name|setUnwrapSingleInstance
+parameter_list|(
+name|boolean
+name|unwrapSingleInstance
+parameter_list|)
+block|{
+name|this
+operator|.
+name|unwrapSingleInstance
+operator|=
+name|unwrapSingleInstance
 expr_stmt|;
 block|}
 DECL|method|getFactory ()
@@ -1078,6 +1111,9 @@ block|}
 comment|// if there is only 1 then dont return a list
 if|if
 condition|(
+name|isUnwrapSingleInstance
+argument_list|()
+operator|&&
 name|answer
 operator|.
 name|size
