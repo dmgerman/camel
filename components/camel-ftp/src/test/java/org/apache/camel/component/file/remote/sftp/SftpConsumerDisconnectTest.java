@@ -387,6 +387,16 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// moved file after its processed
+name|String
+name|movedFile
+init|=
+name|FTP_ROOT_DIR
+operator|+
+literal|"/.camel/"
+operator|+
+name|SAMPLE_FILE_NAME_2
+decl_stmt|;
 comment|// prepare sample file to be consumed by SFTP consumer
 name|createSampleFile
 argument_list|(
@@ -416,6 +426,14 @@ argument_list|(
 name|SAMPLE_FILE_PAYLOAD
 argument_list|)
 expr_stmt|;
+comment|// use mock to assert that the file will be moved there eventually
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+name|movedFile
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|startRoute
@@ -425,53 +443,6 @@ argument_list|)
 expr_stmt|;
 comment|// Check that expectations are satisfied
 name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// give it a second to move the file
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|// File is moved
-name|assertTrue
-argument_list|(
-name|fileRemovedEventually
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"/"
-operator|+
-name|SAMPLE_FILE_NAME_2
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|FTP_ROOT_DIR
-operator|+
-literal|"/.camel/"
-operator|+
-name|SAMPLE_FILE_NAME_2
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|file
-operator|.
-name|delete
 argument_list|()
 expr_stmt|;
 block|}
