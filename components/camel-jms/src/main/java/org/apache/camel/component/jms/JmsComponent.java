@@ -336,7 +336,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|removeStartingCharacters
 import|;

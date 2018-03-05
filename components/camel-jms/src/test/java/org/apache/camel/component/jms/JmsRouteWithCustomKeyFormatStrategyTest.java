@@ -56,7 +56,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|key
 parameter_list|)
 block|{
 return|return
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|between
 argument_list|(

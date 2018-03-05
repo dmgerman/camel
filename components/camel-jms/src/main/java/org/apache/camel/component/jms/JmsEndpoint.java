@@ -418,7 +418,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -1696,7 +1696,7 @@ block|{
 name|String
 name|remainder
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1723,7 +1723,7 @@ block|{
 comment|// remove parameters
 name|remainder
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
