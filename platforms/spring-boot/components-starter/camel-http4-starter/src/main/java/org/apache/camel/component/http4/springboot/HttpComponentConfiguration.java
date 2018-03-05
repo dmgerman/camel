@@ -310,6 +310,33 @@ specifier|private
 name|CookieStore
 name|cookieStore
 decl_stmt|;
+comment|/**      * The timeout in milliseconds used when requesting a connection from the      * connection manager. A timeout value of zero is interpreted as an infinite      * timeout. A timeout value of zero is interpreted as an infinite timeout. A      * negative value is interpreted as undefined (system default). Default:      * code -1      */
+DECL|field|connectionRequestTimeout
+specifier|private
+name|Integer
+name|connectionRequestTimeout
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|/**      * Determines the timeout in milliseconds until a connection is established.      * A timeout value of zero is interpreted as an infinite timeout. A timeout      * value of zero is interpreted as an infinite timeout. A negative value is      * interpreted as undefined (system default). Default: code -1      */
+DECL|field|connectTimeout
+specifier|private
+name|Integer
+name|connectTimeout
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|/**      * Defines the socket timeout (SO_TIMEOUT) in milliseconds, which is the      * timeout for waiting for data or, put differently, a maximum period      * inactivity between two consecutive data packets). A timeout value of zero      * is interpreted as an infinite timeout. A negative value is interpreted as      * undefined (system default). Default: code -1      */
+DECL|field|socketTimeout
+specifier|private
+name|Integer
+name|socketTimeout
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient.      */
 annotation|@
 name|NestedConfigurationProperty
@@ -608,6 +635,84 @@ operator|.
 name|cookieStore
 operator|=
 name|cookieStore
+expr_stmt|;
+block|}
+DECL|method|getConnectionRequestTimeout ()
+specifier|public
+name|Integer
+name|getConnectionRequestTimeout
+parameter_list|()
+block|{
+return|return
+name|connectionRequestTimeout
+return|;
+block|}
+DECL|method|setConnectionRequestTimeout (Integer connectionRequestTimeout)
+specifier|public
+name|void
+name|setConnectionRequestTimeout
+parameter_list|(
+name|Integer
+name|connectionRequestTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionRequestTimeout
+operator|=
+name|connectionRequestTimeout
+expr_stmt|;
+block|}
+DECL|method|getConnectTimeout ()
+specifier|public
+name|Integer
+name|getConnectTimeout
+parameter_list|()
+block|{
+return|return
+name|connectTimeout
+return|;
+block|}
+DECL|method|setConnectTimeout (Integer connectTimeout)
+specifier|public
+name|void
+name|setConnectTimeout
+parameter_list|(
+name|Integer
+name|connectTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectTimeout
+operator|=
+name|connectTimeout
+expr_stmt|;
+block|}
+DECL|method|getSocketTimeout ()
+specifier|public
+name|Integer
+name|getSocketTimeout
+parameter_list|()
+block|{
+return|return
+name|socketTimeout
+return|;
+block|}
+DECL|method|setSocketTimeout (Integer socketTimeout)
+specifier|public
+name|void
+name|setSocketTimeout
+parameter_list|(
+name|Integer
+name|socketTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|socketTimeout
+operator|=
+name|socketTimeout
 expr_stmt|;
 block|}
 DECL|method|getHttpBinding ()

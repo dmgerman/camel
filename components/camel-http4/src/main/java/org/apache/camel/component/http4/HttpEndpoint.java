@@ -178,6 +178,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -565,6 +579,96 @@ DECL|field|useSystemProperties
 specifier|private
 name|boolean
 name|useSystemProperties
+decl_stmt|;
+comment|// timeout
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"timeout"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|,
+name|description
+operator|=
+literal|"The timeout in milliseconds used when requesting a connection"
+operator|+
+literal|" from the connection manager. A timeout value of zero is interpreted as an infinite timeout."
+operator|+
+literal|" A timeout value of zero is interpreted as an infinite timeout."
+operator|+
+literal|" A negative value is interpreted as undefined (system default)."
+argument_list|)
+DECL|field|connectionRequestTimeout
+specifier|private
+name|int
+name|connectionRequestTimeout
+init|=
+operator|-
+literal|1
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"timeout"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|,
+name|description
+operator|=
+literal|"Determines the timeout in milliseconds until a connection is established."
+operator|+
+literal|" A timeout value of zero is interpreted as an infinite timeout."
+operator|+
+literal|" A timeout value of zero is interpreted as an infinite timeout."
+operator|+
+literal|" A negative value is interpreted as undefined (system default)."
+argument_list|)
+DECL|field|connectTimeout
+specifier|private
+name|int
+name|connectTimeout
+init|=
+operator|-
+literal|1
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"timeout"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|,
+name|description
+operator|=
+literal|"Defines the socket timeout in milliseconds,"
+operator|+
+literal|" which is the timeout for waiting for data  or, put differently,"
+operator|+
+literal|" a maximum period inactivity between two consecutive data packets)."
+operator|+
+literal|" A timeout value of zero is interpreted as an infinite timeout."
+operator|+
+literal|" A negative value is interpreted as undefined (system default)."
+argument_list|)
+DECL|field|socketTimeout
+specifier|private
+name|int
+name|socketTimeout
+init|=
+operator|-
+literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1711,6 +1815,87 @@ operator|.
 name|x509HostnameVerifier
 operator|=
 name|x509HostnameVerifier
+expr_stmt|;
+block|}
+DECL|method|getConnectionRequestTimeout ()
+specifier|public
+name|int
+name|getConnectionRequestTimeout
+parameter_list|()
+block|{
+return|return
+name|connectionRequestTimeout
+return|;
+block|}
+comment|/**      * The timeout in milliseconds used when requesting a connection      * from the connection manager. A timeout value of zero is interpreted      * as an infinite timeout.      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: {@code -1}      *</p>      */
+DECL|method|setConnectionRequestTimeout (int connectionRequestTimeout)
+specifier|public
+name|void
+name|setConnectionRequestTimeout
+parameter_list|(
+name|int
+name|connectionRequestTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionRequestTimeout
+operator|=
+name|connectionRequestTimeout
+expr_stmt|;
+block|}
+DECL|method|getConnectTimeout ()
+specifier|public
+name|int
+name|getConnectTimeout
+parameter_list|()
+block|{
+return|return
+name|connectTimeout
+return|;
+block|}
+comment|/**      * Determines the timeout in milliseconds until a connection is established.      * A timeout value of zero is interpreted as an infinite timeout.      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: {@code -1}      *</p>      */
+DECL|method|setConnectTimeout (int connectTimeout)
+specifier|public
+name|void
+name|setConnectTimeout
+parameter_list|(
+name|int
+name|connectTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectTimeout
+operator|=
+name|connectTimeout
+expr_stmt|;
+block|}
+DECL|method|getSocketTimeout ()
+specifier|public
+name|int
+name|getSocketTimeout
+parameter_list|()
+block|{
+return|return
+name|socketTimeout
+return|;
+block|}
+comment|/**      * Defines the socket timeout ({@code SO_TIMEOUT}) in milliseconds,      * which is the timeout for waiting for data  or, put differently,      * a maximum period inactivity between two consecutive data packets).      *<p>      * A timeout value of zero is interpreted as an infinite timeout.      * A negative value is interpreted as undefined (system default).      *</p>      *<p>      * Default: {@code -1}      *</p>      */
+DECL|method|setSocketTimeout (int socketTimeout)
+specifier|public
+name|void
+name|setSocketTimeout
+parameter_list|(
+name|int
+name|socketTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|socketTimeout
+operator|=
+name|socketTimeout
 expr_stmt|;
 block|}
 block|}
