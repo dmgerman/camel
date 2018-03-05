@@ -7482,11 +7482,14 @@ operator|.
 name|getComponent
 argument_list|(
 name|component
+argument_list|,
+literal|false
 argument_list|)
 operator|==
 literal|null
 condition|)
 block|{
+comment|// component not already in camel-context so resolve an OSGi reference to it
 name|getComponentResolverReference
 argument_list|(
 name|context
