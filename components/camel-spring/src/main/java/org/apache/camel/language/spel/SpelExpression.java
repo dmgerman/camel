@@ -120,6 +120,18 @@ name|springframework
 operator|.
 name|expression
 operator|.
+name|BeanResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|expression
+operator|.
 name|EvaluationContext
 import|;
 end_import
@@ -195,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class responsible for evaluating<a href="http://static.springsource.org  * /spring/docs/current/spring-framework-reference/html/expressions.html">  * Spring Expression Language</a> in the context of Camel.  */
+comment|/**  * Class responsible for evaluating<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions">  * Spring Expression Language (SpEL)</a> in the context of Camel.  */
 end_comment
 
 begin_class
@@ -226,6 +238,12 @@ name|?
 argument_list|>
 name|type
 decl_stmt|;
+DECL|field|beanResolver
+specifier|private
+specifier|final
+name|BeanResolver
+name|beanResolver
+decl_stmt|;
 comment|// SpelExpressionParser is thread-safe according to the docs
 DECL|field|expressionParser
 specifier|private
@@ -248,6 +266,33 @@ name|type
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|expressionString
+argument_list|,
+name|type
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SpelExpression (String expressionString, Class<?> type, BeanResolver beanResolver)
+specifier|public
+name|SpelExpression
+parameter_list|(
+name|String
+name|expressionString
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|BeanResolver
+name|beanResolver
+parameter_list|)
+block|{
+name|this
 operator|.
 name|expressionString
 operator|=
@@ -258,6 +303,12 @@ operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+name|this
+operator|.
+name|beanResolver
+operator|=
+name|beanResolver
 expr_stmt|;
 name|this
 operator|.
@@ -393,6 +444,22 @@ name|exchange
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|beanResolver
+operator|!=
+literal|null
+condition|)
+block|{
+name|evaluationContext
+operator|.
+name|setBeanResolver
+argument_list|(
+name|beanResolver
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|exchange
