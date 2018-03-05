@@ -517,8 +517,10 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|field|restletUriPatterns
 specifier|private
 name|List
@@ -1199,6 +1201,8 @@ name|restletMethods
 return|;
 block|}
 comment|/**      * Specify one ore more URI templates to be serviced by a restlet consumer endpoint, using the # notation to      * reference a List<String> in the Camel Registry.      * If a URI pattern has been defined in the endpoint URI, both the URI pattern defined in the endpoint and the restletUriPatterns option will be honored.      */
+annotation|@
+name|Deprecated
 DECL|method|setRestletUriPatterns (List<String> restletUriPatterns)
 specifier|public
 name|void
@@ -1218,6 +1222,8 @@ operator|=
 name|restletUriPatterns
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getRestletUriPatterns ()
 specifier|public
 name|List
