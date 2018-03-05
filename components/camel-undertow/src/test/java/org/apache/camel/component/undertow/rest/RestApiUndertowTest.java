@@ -72,11 +72,26 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Does not run well on CI due test uses JMX mbeans"
+argument_list|)
 DECL|class|RestApiUndertowTest
 specifier|public
 class|class
