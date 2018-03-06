@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The websocket component provides websocket endpoints for communicating with clients using websocket.  *  * This component uses Jetty as the websocket implementation.  */
+comment|/**  * The websocket component provides websocket endpoints with Jetty for communicating with clients using websocket.  *  * This component uses Jetty as the websocket implementation.  */
 end_comment
 
 begin_class
