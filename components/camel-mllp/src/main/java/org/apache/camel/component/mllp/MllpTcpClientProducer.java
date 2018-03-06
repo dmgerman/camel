@@ -644,6 +644,12 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|getEndpoint
+argument_list|()
+operator|.
+name|updateLastConnectionActivityTicks
+argument_list|()
+expr_stmt|;
 name|Message
 name|message
 init|=
@@ -1508,6 +1514,13 @@ operator|.
 name|setException
 argument_list|(
 name|ioEx
+argument_list|)
+expr_stmt|;
+name|mllpBuffer
+operator|.
+name|resetSocket
+argument_list|(
+name|socket
 argument_list|)
 expr_stmt|;
 block|}
