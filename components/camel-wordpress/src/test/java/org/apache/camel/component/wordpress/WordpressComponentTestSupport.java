@@ -92,11 +92,6 @@ name|WordpressComponentTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|method|WordpressComponentTestSupport ()
-specifier|public
-name|WordpressComponentTestSupport
-parameter_list|()
-block|{      }
 annotation|@
 name|BeforeClass
 DECL|method|beforeClass ()

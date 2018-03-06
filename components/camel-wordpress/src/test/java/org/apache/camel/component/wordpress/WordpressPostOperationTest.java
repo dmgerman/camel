@@ -156,11 +156,6 @@ name|WordpressPostOperationTest
 extends|extends
 name|WordpressComponentTestSupport
 block|{
-DECL|method|WordpressPostOperationTest ()
-specifier|public
-name|WordpressPostOperationTest
-parameter_list|()
-block|{      }
 annotation|@
 name|Test
 DECL|method|testPostSingleRequest ()
@@ -188,10 +183,13 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodyReceived
+name|allMessages
 argument_list|()
 operator|.
 name|body
+argument_list|()
+operator|.
+name|isInstanceOf
 argument_list|(
 name|Post
 operator|.
@@ -229,10 +227,13 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodyReceived
+name|allMessages
 argument_list|()
 operator|.
 name|body
+argument_list|()
+operator|.
+name|isInstanceOf
 argument_list|(
 name|Post
 operator|.
