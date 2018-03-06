@@ -136,6 +136,18 @@ name|ES_QUERY_DSL_PREFIX
 init|=
 literal|"query"
 decl_stmt|;
+DECL|field|ES_QUERY_SIZE
+name|String
+name|ES_QUERY_SIZE
+init|=
+literal|"size"
+decl_stmt|;
+DECL|field|ES_QUERY_FROM
+name|String
+name|ES_QUERY_FROM
+init|=
+literal|"from"
+decl_stmt|;
 block|}
 end_interface
 
