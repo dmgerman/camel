@@ -249,7 +249,7 @@ literal|"rabbitmq:localhost:5672/"
 operator|+
 name|EXCHANGE
 operator|+
-literal|"?routingKey="
+literal|"?username=cameltest&password=cameltest&routingKey="
 operator|+
 name|ROUTING_KEY
 argument_list|)

@@ -83,15 +83,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|RabbitMQIntBasicTest
+DECL|class|RabbitMQBasicIntTest
 specifier|public
 class|class
-name|RabbitMQIntBasicTest
+name|RabbitMQBasicIntTest
 extends|extends
 name|AbstractRabbitMQIntTest
 block|{
-comment|// Startup RabbitMQ via Docker
-comment|// docker run -d -it -p 5672:5672 -e RABBITMQ_DEFAULT_USER=cameltest -e RABBITMQ_DEFAULT_PASS=cameltest --hostname my-rabbit --name some-rabbit rabbitmq:3
+comment|// Startup RabbitMQ via Docker (see readme.txt in camel-rabbitmq folder)
 annotation|@
 name|EndpointInject
 argument_list|(

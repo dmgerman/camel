@@ -144,9 +144,9 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"rabbitmq:localhost:5672/ex4?"
+literal|"rabbitmq:localhost:5672/ex4?username=cameltest&password=cameltest"
 operator|+
-literal|"autoAck=false&queue=q4&routingKey="
+literal|"&autoAck=false&queue=q4&routingKey="
 operator|+
 name|ROUTING_KEY
 argument_list|)
