@@ -2214,7 +2214,7 @@ return|return
 name|antFilterCaseSensitive
 return|;
 block|}
-comment|/**      * Sets case sensitive flag on ant fiter      */
+comment|/**      * Sets case sensitive flag on ant filter      */
 DECL|method|setAntFilterCaseSensitive (boolean antFilterCaseSensitive)
 specifier|public
 name|void
