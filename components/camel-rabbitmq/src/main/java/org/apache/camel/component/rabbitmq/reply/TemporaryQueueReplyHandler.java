@@ -222,9 +222,9 @@ block|{
 comment|// create holder object with the the reply
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"in onReply with correlationId= {}"
+literal|"onReply with correlationId: {}"
 argument_list|,
 name|correlationId
 argument_list|)
@@ -269,9 +269,9 @@ block|{
 comment|// create holder object without the reply which means a timeout occurred
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"in onTimeout with correlationId= {}"
+literal|"onTimeout with correlationId: {}"
 argument_list|,
 name|correlationId
 argument_list|)

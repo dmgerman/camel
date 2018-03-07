@@ -321,7 +321,7 @@ expr_stmt|;
 block|}
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Added correlationID: {} to timeout after: {} millis"
 argument_list|,
@@ -353,9 +353,9 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|trace
 argument_list|(
-literal|"in putIfAbsent with key {}"
+literal|"putIfAbsent with key {}"
 argument_list|,
 name|key
 argument_list|)

@@ -1521,54 +1521,6 @@ name|publish
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Extracts name of the rabbitmq exchange      */
-DECL|method|getExchangeName (Message msg)
-specifier|protected
-name|String
-name|getExchangeName
-parameter_list|(
-name|Message
-name|msg
-parameter_list|)
-block|{
-name|String
-name|exchangeName
-init|=
-name|msg
-operator|.
-name|getHeader
-argument_list|(
-name|RabbitMQConstants
-operator|.
-name|EXCHANGE_NAME
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-comment|// If it is BridgeEndpoint we should ignore the message header of
-comment|// EXCHANGE_NAME
-if|if
-condition|(
-name|exchangeName
-operator|==
-literal|null
-operator|||
-name|isBridgeEndpoint
-argument_list|()
-condition|)
-block|{
-name|exchangeName
-operator|=
-name|getExchangeName
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|exchangeName
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|createConsumer (Processor processor)

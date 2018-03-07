@@ -2003,10 +2003,10 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Starting reply manager service "
-operator|+
+literal|"Staring ReplyManager: {}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;

@@ -379,7 +379,7 @@ name|Exception
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Creating connection"
 argument_list|)
@@ -396,7 +396,7 @@ argument_list|)
 decl_stmt|;
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Creating channel"
 argument_list|)
@@ -450,7 +450,7 @@ argument_list|()
 decl_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Using temporary queue name: {}"
 argument_list|,
