@@ -130,9 +130,9 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|frontend
+name|jaxws
 operator|.
-name|ClientProxyFactoryBean
+name|JaxWsProxyFactoryBean
 import|;
 end_import
 
@@ -314,11 +314,11 @@ name|void
 name|testInvokeProxyService
 parameter_list|()
 block|{
-name|ClientProxyFactoryBean
+name|JaxWsProxyFactoryBean
 name|factory
 init|=
 operator|new
-name|ClientProxyFactoryBean
+name|JaxWsProxyFactoryBean
 argument_list|()
 decl_stmt|;
 name|factory
