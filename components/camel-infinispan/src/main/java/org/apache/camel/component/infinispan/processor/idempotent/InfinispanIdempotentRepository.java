@@ -358,6 +358,23 @@ name|Object
 name|key
 parameter_list|)
 block|{
+comment|// need to check first as put will update the entry lifetime so it can not expire its cache lifespan
+if|if
+condition|(
+name|getCache
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+comment|// there is already an entry so return false
+return|return
+literal|false
+return|;
+block|}
 name|Boolean
 name|put
 init|=
