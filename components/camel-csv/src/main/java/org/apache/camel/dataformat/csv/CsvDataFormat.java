@@ -273,6 +273,11 @@ specifier|private
 name|boolean
 name|useMaps
 decl_stmt|;
+DECL|field|useOrderedMaps
+specifier|private
+name|boolean
+name|useOrderedMaps
+decl_stmt|;
 DECL|field|recordConverter
 specifier|private
 name|CsvRecordConverter
@@ -1600,6 +1605,37 @@ operator|.
 name|useMaps
 operator|=
 name|useMaps
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Indicates whether or not the unmarshalling should produce ordered maps instead of lists.      *      * @return {@code true} for maps, {@code false} for lists      */
+DECL|method|isUseOrderedMaps ()
+specifier|public
+name|boolean
+name|isUseOrderedMaps
+parameter_list|()
+block|{
+return|return
+name|useOrderedMaps
+return|;
+block|}
+comment|/**      * Sets whether or not the unmarshalling should produce ordered maps instead of lists.      *      * @param useOrderedMaps {@code true} for maps, {@code false} for lists      * @return Current {@code CsvDataFormat}, fluent API      */
+DECL|method|setUseOrderedMaps (boolean useOrderedMaps)
+specifier|public
+name|CsvDataFormat
+name|setUseOrderedMaps
+parameter_list|(
+name|boolean
+name|useOrderedMaps
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useOrderedMaps
+operator|=
+name|useOrderedMaps
 expr_stmt|;
 return|return
 name|this

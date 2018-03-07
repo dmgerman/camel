@@ -269,11 +269,19 @@ name|lazyLoad
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether the unmarshalling should produce maps for the lines values      * instead of lists. It requires to have header (either defined or      * collected).      */
+comment|/**      * Whether the unmarshalling should produce maps (HashMap) for the lines      * values instead of lists. It requires to have header (either defined or      * collected).      */
 DECL|field|useMaps
 specifier|private
 name|Boolean
 name|useMaps
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Whether the unmarshalling should produce ordered maps (LinkedHashMap) for      * the lines values instead of lists. It requires to have header (either      * defined or collected).      */
+DECL|field|useOrderedMaps
+specifier|private
+name|Boolean
+name|useOrderedMaps
 init|=
 literal|false
 decl_stmt|;
@@ -945,6 +953,32 @@ operator|.
 name|useMaps
 operator|=
 name|useMaps
+expr_stmt|;
+block|}
+DECL|method|getUseOrderedMaps ()
+specifier|public
+name|Boolean
+name|getUseOrderedMaps
+parameter_list|()
+block|{
+return|return
+name|useOrderedMaps
+return|;
+block|}
+DECL|method|setUseOrderedMaps (Boolean useOrderedMaps)
+specifier|public
+name|void
+name|setUseOrderedMaps
+parameter_list|(
+name|Boolean
+name|useOrderedMaps
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useOrderedMaps
+operator|=
+name|useOrderedMaps
 expr_stmt|;
 block|}
 DECL|method|getRecordConverterRef ()
