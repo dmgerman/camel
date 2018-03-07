@@ -969,12 +969,27 @@ name|void
 name|updateLastConnectionActivityTicks
 parameter_list|()
 block|{
-name|lastConnectionActivityTicks
-operator|=
+name|updateLastConnectionActivityTicks
+argument_list|(
 name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|updateLastConnectionActivityTicks (long epochTicks)
+specifier|public
+name|void
+name|updateLastConnectionActivityTicks
+parameter_list|(
+name|long
+name|epochTicks
+parameter_list|)
+block|{
+name|lastConnectionActivityTicks
+operator|=
+name|epochTicks
 expr_stmt|;
 block|}
 DECL|method|updateLastConnectionEstablishedTicks ()
