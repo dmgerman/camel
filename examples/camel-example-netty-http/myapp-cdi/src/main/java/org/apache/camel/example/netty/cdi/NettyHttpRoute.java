@@ -110,7 +110,7 @@ name|cdi
 operator|.
 name|api
 operator|.
-name|OsgiService
+name|Service
 import|;
 end_import
 
@@ -130,7 +130,7 @@ block|{
 annotation|@
 name|Inject
 annotation|@
-name|OsgiService
+name|Service
 DECL|field|server
 specifier|private
 name|NettySharedHttpServer
