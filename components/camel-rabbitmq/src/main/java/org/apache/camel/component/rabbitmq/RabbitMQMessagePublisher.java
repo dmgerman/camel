@@ -302,7 +302,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Delivery failed for exchange {} and routing key {}; replyCode = {}; replyText = {}"
+literal|"Delivery failed for exchange: {} and routing key: {}; replyCode: {}; replyText: {}"
 argument_list|,
 name|exchange
 argument_list|,
@@ -428,9 +428,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Removing the {} header"
+literal|"Removing header: {}"
 argument_list|,
 name|RabbitMQEndpoint
 operator|.
@@ -473,6 +473,20 @@ argument_list|(
 name|RabbitMQConstants
 operator|.
 name|EXCHANGE_NAME
+argument_list|,
+name|RabbitMQConstants
+operator|.
+name|RABBITMQ_DIRECT_REPLY_EXCHANGE
+argument_list|)
+expr_stmt|;
+comment|// use default exchange for reply-to messages
+name|message
+operator|.
+name|setHeader
+argument_list|(
+name|RabbitMQConstants
+operator|.
+name|EXCHANGE_OVERRIDE_NAME
 argument_list|,
 name|RabbitMQConstants
 operator|.
@@ -639,7 +653,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not convert {} to byte[]"
+literal|"Cannot convert {} to byte[]"
 argument_list|,
 name|message
 operator|.
@@ -745,7 +759,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending message to exchange: {} with CorrelationId = {}"
+literal|"Sending message to exchange: {} with CorrelationId: {}"
 argument_list|,
 name|rabbitExchange
 argument_list|,
@@ -986,8 +1000,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Can not send object "
-operator|+
+literal|"Cannot send object {} via RabbitMQ because it contains non-serializable objects."
+argument_list|,
 name|msg
 operator|.
 name|getBody
@@ -995,8 +1009,6 @@ argument_list|()
 operator|.
 name|getClass
 argument_list|()
-operator|+
-literal|" via RabbitMQ because it contains non-serializable objects."
 argument_list|)
 expr_stmt|;
 throw|throw

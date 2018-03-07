@@ -35,6 +35,15 @@ name|ROUTING_KEY
 init|=
 literal|"rabbitmq.ROUTING_KEY"
 decl_stmt|;
+DECL|field|EXCHANGE_OVERRIDE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|EXCHANGE_OVERRIDE_NAME
+init|=
+literal|"rabbitmq.EXCHANGE_OVERRIDE_NAME"
+decl_stmt|;
 DECL|field|EXCHANGE_NAME
 specifier|public
 specifier|static
