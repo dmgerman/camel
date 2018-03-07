@@ -399,6 +399,13 @@ DECL|field|firstIndex
 specifier|private
 name|BigInteger
 name|firstIndex
+init|=
+name|BigInteger
+operator|.
+name|valueOf
+argument_list|(
+literal|0L
+argument_list|)
 decl_stmt|;
 annotation|@
 name|UriParam

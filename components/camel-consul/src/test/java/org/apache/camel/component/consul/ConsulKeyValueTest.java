@@ -20,13 +20,9 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
+name|util
 operator|.
 name|Optional
 import|;
