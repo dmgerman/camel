@@ -86,6 +86,20 @@ name|RabbitMQComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * The hostname of the running rabbitmq instance or cluster.      */
+DECL|field|hostname
+specifier|private
+name|String
+name|hostname
+decl_stmt|;
+comment|/**      * Port number for the host with the running rabbitmq instance or cluster.      */
+DECL|field|portNumber
+specifier|private
+name|Integer
+name|portNumber
+init|=
+literal|5672
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -94,6 +108,58 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getHostname ()
+specifier|public
+name|String
+name|getHostname
+parameter_list|()
+block|{
+return|return
+name|hostname
+return|;
+block|}
+DECL|method|setHostname (String hostname)
+specifier|public
+name|void
+name|setHostname
+parameter_list|(
+name|String
+name|hostname
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hostname
+operator|=
+name|hostname
+expr_stmt|;
+block|}
+DECL|method|getPortNumber ()
+specifier|public
+name|Integer
+name|getPortNumber
+parameter_list|()
+block|{
+return|return
+name|portNumber
+return|;
+block|}
+DECL|method|setPortNumber (Integer portNumber)
+specifier|public
+name|void
+name|setPortNumber
+parameter_list|(
+name|Integer
+name|portNumber
+parameter_list|)
+block|{
+name|this
+operator|.
+name|portNumber
+operator|=
+name|portNumber
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean
