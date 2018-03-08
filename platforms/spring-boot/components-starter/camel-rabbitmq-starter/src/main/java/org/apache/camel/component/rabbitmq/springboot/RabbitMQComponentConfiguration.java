@@ -100,6 +100,22 @@ name|portNumber
 init|=
 literal|5672
 decl_stmt|;
+comment|/**      * Username in case of authenticated access      */
+DECL|field|username
+specifier|private
+name|String
+name|username
+init|=
+literal|"guest"
+decl_stmt|;
+comment|/**      * Password for authenticated access      */
+DECL|field|password
+specifier|private
+name|String
+name|password
+init|=
+literal|"guest"
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -158,6 +174,58 @@ operator|.
 name|portNumber
 operator|=
 name|portNumber
+expr_stmt|;
+block|}
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|username
+return|;
+block|}
+DECL|method|setUsername (String username)
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|this
+operator|.
+name|username
+operator|=
+name|username
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()

@@ -77,12 +77,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rabbitmq:{{rabbit-host}}:{{rabbit-port}}/foo?username={{rabbit-user}}&password={{rabbit-password}}"
+literal|"rabbitmq:foo"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"rabbitmq:{{rabbit-host}}:{{rabbit-port}}/foo?username={{rabbit-user}}&password={{rabbit-password}}"
+literal|"rabbitmq:foo"
 argument_list|)
 operator|.
 name|log
