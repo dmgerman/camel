@@ -32,16 +32,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashMap
@@ -221,18 +211,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
 import|;
 end_import
 
@@ -1313,8 +1291,7 @@ specifier|private
 name|boolean
 name|guaranteedDeliveries
 decl_stmt|;
-comment|// camel-jms supports this setting but it is not currently configurable in
-comment|// camel-rabbitmq
+comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
 DECL|field|useMessageIDAsCorrelationID
 specifier|private
 name|boolean
@@ -1322,8 +1299,7 @@ name|useMessageIDAsCorrelationID
 init|=
 literal|true
 decl_stmt|;
-comment|// camel-jms supports this setting but it is not currently configurable in
-comment|// camel-rabbitmq
+comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
 DECL|field|replyToType
 specifier|private
 name|String
@@ -1336,8 +1312,7 @@ operator|.
 name|name
 argument_list|()
 decl_stmt|;
-comment|// camel-jms supports this setting but it is not currently configurable in
-comment|// camel-rabbitmq
+comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
 DECL|field|replyTo
 specifier|private
 name|String
@@ -1390,8 +1365,6 @@ parameter_list|,
 name|RabbitMQComponent
 name|component
 parameter_list|)
-throws|throws
-name|URISyntaxException
 block|{
 name|super
 argument_list|(
@@ -1414,8 +1387,6 @@ parameter_list|,
 name|ConnectionFactory
 name|connectionFactory
 parameter_list|)
-throws|throws
-name|URISyntaxException
 block|{
 name|super
 argument_list|(
@@ -3066,6 +3037,8 @@ return|return
 name|bindingArgs
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getQueueArgsConfigurer ()
 specifier|public
 name|ArgsConfigurer
@@ -3076,7 +3049,9 @@ return|return
 name|queueArgsConfigurer
 return|;
 block|}
-comment|/**      * Set the configurer for setting the queue args in Channel.queueDeclare      *      * @Deprecated Use args instead e.g arg.queue.x-message-ttl=1000      */
+comment|/**      * Set the configurer for setting the queue args in Channel.queueDeclare      *      * @deprecated Use args instead e.g arg.queue.x-message-ttl=1000      */
+annotation|@
+name|Deprecated
 DECL|method|setQueueArgsConfigurer (ArgsConfigurer queueArgsConfigurer)
 specifier|public
 name|void
@@ -3093,6 +3068,8 @@ operator|=
 name|queueArgsConfigurer
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getExchangeArgsConfigurer ()
 specifier|public
 name|ArgsConfigurer
@@ -3103,7 +3080,9 @@ return|return
 name|exchangeArgsConfigurer
 return|;
 block|}
-comment|/**      * Set the configurer for setting the exchange args in      * Channel.exchangeDeclare      *      * @Deprecated Use args instead e.g arg.exchange.x-message-ttl=1000      */
+comment|/**      * Set the configurer for setting the exchange args in      * Channel.exchangeDeclare      *      * @deprecated Use args instead e.g arg.exchange.x-message-ttl=1000      */
+annotation|@
+name|Deprecated
 DECL|method|setExchangeArgsConfigurer (ArgsConfigurer exchangeArgsConfigurer)
 specifier|public
 name|void
