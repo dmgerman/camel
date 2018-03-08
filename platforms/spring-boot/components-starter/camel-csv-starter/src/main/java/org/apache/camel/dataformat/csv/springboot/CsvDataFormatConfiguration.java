@@ -269,7 +269,7 @@ name|lazyLoad
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether the unmarshalling should produce maps (HashMap) for the lines      * values instead of lists. It requires to have header (either defined or      * collected).      */
+comment|/**      * Whether the unmarshalling should produce maps (HashMap)for the lines      * values instead of lists. It requires to have header (either defined or      * collected).      */
 DECL|field|useMaps
 specifier|private
 name|Boolean
