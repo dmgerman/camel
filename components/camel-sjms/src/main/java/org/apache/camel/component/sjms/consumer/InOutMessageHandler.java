@@ -530,8 +530,7 @@ name|isSynchronous
 argument_list|()
 condition|)
 block|{
-comment|// must process synchronous if transacted or configured to
-comment|// do so
+comment|// must process synchronous if transacted or configured to do so
 name|log
 operator|.
 name|debug
@@ -592,6 +591,14 @@ block|}
 else|else
 block|{
 comment|// process asynchronous using the async routing engine
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -613,6 +620,7 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|getProcessor
 argument_list|()
 operator|.
@@ -710,12 +718,14 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Cached MessageProducer with key:{} threw an unexpected exception"
-argument_list|,
+literal|"Cached MessageProducer with key: "
+operator|+
 name|entry
 operator|.
 name|getKey
 argument_list|()
+operator|+
+literal|" threw an unexpected exception. This exception is ignored."
 argument_list|,
 name|e
 argument_list|)

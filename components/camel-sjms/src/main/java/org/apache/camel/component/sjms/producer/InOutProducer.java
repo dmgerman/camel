@@ -705,9 +705,9 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Unable to exchange message: {}"
+literal|"Unable to exchange message: {}. This exception is ignored."
 argument_list|,
 name|message
 argument_list|,
@@ -876,7 +876,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"InOut exchange pattern is incompatible with transacted=true as it cuases a deadlock. Please use transacted=false or InOnly exchange pattern."
+literal|"InOut exchange pattern is incompatible with transacted=true as it cause a deadlock. Please use transacted=false or InOnly exchange pattern."
 argument_list|)
 throw|;
 block|}
@@ -895,7 +895,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"No reply to destination is defined.  Using temporary destinations."
+literal|"No reply to destination is defined. Using temporary destinations."
 argument_list|)
 expr_stmt|;
 block|}

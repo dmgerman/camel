@@ -1141,6 +1141,9 @@ if|if
 condition|(
 name|isTransacted
 argument_list|()
+operator|||
+name|isSynchronous
+argument_list|()
 condition|)
 block|{
 name|messageHandler
@@ -1177,6 +1180,9 @@ block|{
 if|if
 condition|(
 name|isTransacted
+argument_list|()
+operator|||
+name|isSynchronous
 argument_list|()
 condition|)
 block|{

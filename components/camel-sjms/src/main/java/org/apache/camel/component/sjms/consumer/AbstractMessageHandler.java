@@ -247,6 +247,7 @@ literal|true
 decl_stmt|;
 DECL|field|synchronization
 specifier|private
+specifier|final
 name|Synchronization
 name|synchronization
 decl_stmt|;
@@ -267,16 +268,13 @@ name|executor
 parameter_list|)
 block|{
 name|this
-operator|.
+argument_list|(
 name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-name|this
-operator|.
+argument_list|,
 name|executor
-operator|=
-name|executor
+argument_list|,
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|AbstractMessageHandler (SjmsEndpoint endpoint, ExecutorService executor, Synchronization synchronization)
@@ -312,7 +310,6 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
-comment|/*      * @see javax.jms.MessageListener#onMessage(javax.jms.Message)      *      * @param message      */
 annotation|@
 name|Override
 DECL|method|onMessage (Message message)
@@ -350,7 +347,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Processing Exchange.id:{}"
+literal|"Processing ExchangeId: {}"
 argument_list|,
 name|exchange
 operator|.

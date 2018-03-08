@@ -202,7 +202,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing failure of Exchange id: {}"
+literal|"Processing failure of ExchangeId: {}"
 argument_list|,
 name|exchange
 operator|.
@@ -240,7 +240,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to rollback the session: {}"
+literal|"Failed to rollback the JMS session: {}"
 argument_list|,
 name|e
 operator|.
@@ -277,7 +277,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing completion of Exchange id: {}"
+literal|"Processing completion of ExchangeId: {}"
 argument_list|,
 name|exchange
 operator|.
@@ -315,7 +315,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to commit the session: {}"
+literal|"Failed to commit the JMS session: {}"
 argument_list|,
 name|e
 operator|.

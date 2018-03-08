@@ -98,7 +98,6 @@ name|InOnlyMessageHandler
 extends|extends
 name|AbstractMessageHandler
 block|{
-comment|/**      * @param endpoint      * @param executor      */
 DECL|method|InOnlyMessageHandler (SjmsEndpoint endpoint, ExecutorService executor)
 specifier|public
 name|InOnlyMessageHandler
@@ -118,7 +117,6 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param endpoint      * @param executor      * @param synchronization      */
 DECL|method|InOnlyMessageHandler (SjmsEndpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
 name|InOnlyMessageHandler
@@ -143,7 +141,6 @@ name|synchronization
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param exchange      */
 annotation|@
 name|Override
 DECL|method|handleMessage (final Exchange exchange)
@@ -205,8 +202,7 @@ name|isSynchronous
 argument_list|()
 condition|)
 block|{
-comment|// must process synchronous if transacted or configured to
-comment|// do so
+comment|// must process synchronous if transacted or configured to do so
 if|if
 condition|(
 name|log
@@ -276,6 +272,14 @@ block|}
 else|else
 block|{
 comment|// process asynchronous using the async routing engine
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -297,6 +301,7 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|getProcessor
 argument_list|()
 operator|.

@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -179,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel Producer that provides the InOnly Exchange pattern..  */
+comment|/**  * A Camel Producer that provides the InOnly Exchange pattern.  */
 end_comment
 
 begin_class
@@ -532,9 +544,11 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|Exception
+name|CamelExchangeException
 argument_list|(
-literal|"Unable to complete sending the message: "
+literal|"Unable to complete sending the JMS message"
+argument_list|,
+name|exchange
 argument_list|,
 name|e
 argument_list|)
