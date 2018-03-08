@@ -14,6 +14,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|springframework
@@ -35,6 +47,20 @@ operator|.
 name|autoconfigure
 operator|.
 name|SpringBootApplication
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Bean
 import|;
 end_import
 
@@ -78,6 +104,7 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* You can also configure the RabbitMQ ConnectionFactory using Java code style     @Bean     public ConnectionFactory rabbitConnectionFactory() {         ConnectionFactory cf = new ConnectionFactory();         cf.setHost("localhost");         cf.setPort(5672);         cf.setUsername("cameltest");         cf.setPassword("cameltest");         return cf;     }     */
 block|}
 end_class
 

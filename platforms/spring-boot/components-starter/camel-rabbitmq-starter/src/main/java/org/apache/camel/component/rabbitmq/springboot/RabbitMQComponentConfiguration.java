@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -59,6 +71,22 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -115,6 +143,22 @@ name|String
 name|password
 init|=
 literal|"guest"
+decl_stmt|;
+comment|/**      * To use a custom RabbitMQ connection factory. When this option is set, all      * connection options (connectionTimeout, requestedChannelMax...) set on URI      * are not used      */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|connectionFactory
+specifier|private
+name|ConnectionFactory
+name|connectionFactory
+decl_stmt|;
+comment|/**      * Whether to auto-detect looking up RabbitMQ connection factory from the      * registry. When enabled and a single instance of the connection factory is      * found then it will be used. An explicit connection factory can be      * configured on the component or endpoint level which takes precedence.      */
+DECL|field|autoDetectConnectionFactory
+specifier|private
+name|Boolean
+name|autoDetectConnectionFactory
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
@@ -226,6 +270,58 @@ operator|.
 name|password
 operator|=
 name|password
+expr_stmt|;
+block|}
+DECL|method|getConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getConnectionFactory
+parameter_list|()
+block|{
+return|return
+name|connectionFactory
+return|;
+block|}
+DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
+specifier|public
+name|void
+name|setConnectionFactory
+parameter_list|(
+name|ConnectionFactory
+name|connectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionFactory
+operator|=
+name|connectionFactory
+expr_stmt|;
+block|}
+DECL|method|getAutoDetectConnectionFactory ()
+specifier|public
+name|Boolean
+name|getAutoDetectConnectionFactory
+parameter_list|()
+block|{
+return|return
+name|autoDetectConnectionFactory
+return|;
+block|}
+DECL|method|setAutoDetectConnectionFactory ( Boolean autoDetectConnectionFactory)
+specifier|public
+name|void
+name|setAutoDetectConnectionFactory
+parameter_list|(
+name|Boolean
+name|autoDetectConnectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoDetectConnectionFactory
+operator|=
+name|autoDetectConnectionFactory
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
