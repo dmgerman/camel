@@ -454,6 +454,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
 name|defaultValue
 operator|=
 name|ConnectionFactory
@@ -692,7 +696,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"advanced"
+literal|"common"
 argument_list|)
 DECL|field|addresses
 specifier|private
@@ -703,6 +707,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -2063,7 +2071,7 @@ return|return
 name|skipQueueDeclare
 return|;
 block|}
-comment|/**      * If true the queue will not be bound to the exchange after declaring it      *       * @return      */
+comment|/**      * If true the queue will not be bound to the exchange after declaring it      */
 DECL|method|isSkipQueueBind ()
 specifier|public
 name|boolean
@@ -2181,6 +2189,24 @@ operator|=
 name|addressArray
 expr_stmt|;
 block|}
+block|}
+comment|/**      * If this option is set, camel-rabbitmq will try to create connection based      * on the setting of option addresses. The addresses value is a string which      * looks like "server1:12345, server2:12345"      */
+DECL|method|setAddresses (Address[] addresses)
+specifier|public
+name|void
+name|setAddresses
+parameter_list|(
+name|Address
+index|[]
+name|addresses
+parameter_list|)
+block|{
+name|this
+operator|.
+name|addresses
+operator|=
+name|addresses
+expr_stmt|;
 block|}
 DECL|method|getAddresses ()
 specifier|public
@@ -2365,7 +2391,7 @@ return|return
 name|trustManager
 return|;
 block|}
-comment|/**      * Configure SSL trust manager, SSL should be enabled for this option to be      * effective      */
+comment|/**      * Configure SSL trust manager, SSL should be enabled for this option to be effective      */
 DECL|method|setTrustManager (TrustManager trustManager)
 specifier|public
 name|void
@@ -2397,7 +2423,7 @@ return|return
 name|clientProperties
 return|;
 block|}
-comment|/**      * Connection client properties (client info used in negotiating with the      * server)      */
+comment|/**      * Connection client properties (client info used in negotiating with the server)      */
 DECL|method|setClientProperties (Map<String, Object> clientProperties)
 specifier|public
 name|void
@@ -3182,7 +3208,7 @@ return|return
 name|transferException
 return|;
 block|}
-comment|/**      * When true, the message will be published with      *<a href="https://www.rabbitmq.com/confirms.html">publisher      * acknowledgements</a> turned on      */
+comment|/**      * When true, the message will be published with      *<a href="https://www.rabbitmq.com/confirms.html">publisher acknowledgements</a> turned on      */
 DECL|method|isPublisherAcknowledgements ()
 specifier|public
 name|boolean
@@ -3238,7 +3264,7 @@ operator|=
 name|publisherAcknowledgementsTimeout
 expr_stmt|;
 block|}
-comment|/**      * When true, an exception will be thrown when the message cannot be      * delivered (basic.return) and the message is marked as mandatory.      * PublisherAcknowledgement will also be activated in this case See also<a      * href=https://www.rabbitmq.com/confirms.html">publisher      * acknowledgements</a> - When will messages be confirmed?      */
+comment|/**      * When true, an exception will be thrown when the message cannot be      * delivered (basic.return) and the message is marked as mandatory.      * PublisherAcknowledgement will also be activated in this case.      * See also<a href=https://www.rabbitmq.com/confirms.html">publisher acknowledgements</a>      * - When will messages be confirmed.      */
 DECL|method|isGuaranteedDeliveries ()
 specifier|public
 name|boolean
