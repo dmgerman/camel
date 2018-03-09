@@ -176,6 +176,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|JsonPathExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -551,6 +567,73 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a JSonPath expression value builder      */
+DECL|method|jsonpath (String value)
+specifier|public
+name|ValueBuilder
+name|jsonpath
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|JsonPathExpression
+name|exp
+init|=
+operator|new
+name|JsonPathExpression
+argument_list|(
+name|value
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|exp
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a JSonPath expression value builder      *      * @param value      The JSonPath expression      * @param resultType The result type that the JSonPath expression will return.      */
+DECL|method|jsonpath (String value, Class<?> resultType)
+specifier|public
+name|ValueBuilder
+name|jsonpath
+parameter_list|(
+name|String
+name|value
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|)
+block|{
+name|JsonPathExpression
+name|exp
+init|=
+operator|new
+name|JsonPathExpression
+argument_list|(
+name|value
+argument_list|)
+decl_stmt|;
+name|exp
+operator|.
+name|setResultType
+argument_list|(
+name|resultType
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|exp
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a language expression value builder      */
 DECL|method|language (String language, String expression)
 specifier|public
@@ -679,7 +762,7 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a xpath expression value builder      * @param value The XPath expression      * @return A new XPathBuilder object      */
+comment|/**      * Returns a xpath expression value builder      *      * @param value the XPath expression      * @return the builder      */
 DECL|method|xpath (String value)
 specifier|public
 name|XPathBuilder
@@ -698,7 +781,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a xpath expression value builder      * @param value The XPath expression      * @param resultType The result type that the XPath expression will return.      * @return A new XPathBuilder object      */
+comment|/**      * Returns a xpath expression value builder      *      * @param value      the XPath expression      * @param resultType the result type that the XPath expression will return.      * @return the builder      */
 DECL|method|xpath (String value, Class<?> resultType)
 specifier|public
 specifier|static
