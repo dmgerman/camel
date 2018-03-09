@@ -482,11 +482,19 @@ name|tracerFormatterMaxChars
 init|=
 literal|10000
 decl_stmt|;
-comment|/**      * To turn on MDC logging      */
+comment|/**      * To turn on MDC logging      *      * @deprecated use useMdcLogging instead      */
+annotation|@
+name|Deprecated
 DECL|field|useMDCLogging
 specifier|private
 name|boolean
 name|useMDCLogging
+decl_stmt|;
+comment|/**      * To turn on MDC logging      */
+DECL|field|useMdcLogging
+specifier|private
+name|boolean
+name|useMdcLogging
 decl_stmt|;
 comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel (#camelId#) thread ##counter# - #name#</tt>      *<p/>      * Where<tt>#camelId#</tt> is the name of the {@link org.apache.camel.CamelContext}      *<br/>and<tt>#counter#</tt> is a unique incrementing counter.      *<br/>and<tt>#name#</tt> is the regular thread name.      *<br/>You can also use<tt>#longName#</tt> is the long thread name which can includes endpoint parameters etc.      */
 DECL|field|threadNamePattern
@@ -2085,6 +2093,8 @@ operator|=
 name|includeNonSingletons
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isUseMDCLogging ()
 specifier|public
 name|boolean
@@ -2092,9 +2102,12 @@ name|isUseMDCLogging
 parameter_list|()
 block|{
 return|return
-name|useMDCLogging
+name|isUseMdcLogging
+argument_list|()
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setUseMDCLogging (boolean useMDCLogging)
 specifier|public
 name|void
@@ -2104,11 +2117,36 @@ name|boolean
 name|useMDCLogging
 parameter_list|)
 block|{
+name|setUseMdcLogging
+argument_list|(
+name|useMDCLogging
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isUseMdcLogging ()
+specifier|public
+name|boolean
+name|isUseMdcLogging
+parameter_list|()
+block|{
+return|return
+name|useMdcLogging
+return|;
+block|}
+DECL|method|setUseMdcLogging (boolean useMdcLogging)
+specifier|public
+name|void
+name|setUseMdcLogging
+parameter_list|(
+name|boolean
+name|useMdcLogging
+parameter_list|)
+block|{
 name|this
 operator|.
-name|useMDCLogging
+name|useMdcLogging
 operator|=
-name|useMDCLogging
+name|useMdcLogging
 expr_stmt|;
 block|}
 DECL|method|getThreadNamePattern ()

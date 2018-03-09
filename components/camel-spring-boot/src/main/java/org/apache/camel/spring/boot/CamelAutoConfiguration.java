@@ -1490,7 +1490,7 @@ name|setUseMDCLogging
 argument_list|(
 name|config
 operator|.
-name|isUseMDCLogging
+name|isUseMdcLogging
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -3030,6 +3030,7 @@ operator|=
 literal|"java.util.Map<java.lang.String, java.lang.Object>"
 expr_stmt|;
 block|}
+comment|// to avoid ugly names such as c-o-r-s
 if|if
 condition|(
 literal|"enableCORS"
