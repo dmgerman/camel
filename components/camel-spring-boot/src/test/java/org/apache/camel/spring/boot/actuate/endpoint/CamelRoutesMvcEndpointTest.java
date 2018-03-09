@@ -457,6 +457,47 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testMvcRouteDump ()
+specifier|public
+name|void
+name|testMvcRouteDump
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Object
+name|result
+init|=
+name|endpoint
+operator|.
+name|dump
+argument_list|(
+literal|"foo-route"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|instanceof
+name|String
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"<from uri=\"timer:foo\"/>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
