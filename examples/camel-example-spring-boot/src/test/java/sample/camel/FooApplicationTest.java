@@ -44,9 +44,37 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointInject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|NotifyBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -79,6 +107,22 @@ operator|.
 name|spring
 operator|.
 name|EnableRouteCoverage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|spring
+operator|.
+name|MockEndpoints
 import|;
 end_import
 
@@ -171,6 +215,12 @@ literal|"greeting = Hello foo"
 argument_list|)
 annotation|@
 name|EnableRouteCoverage
+annotation|@
+name|MockEndpoints
+argument_list|(
+literal|"log:foo"
+argument_list|)
+comment|// mock the log:foo endpoint => mock:log:foo which we then use in the testing
 comment|//@Ignore // enable me to run this test as well so we can cover testing the route completely
 DECL|class|FooApplicationTest
 specifier|public
@@ -185,6 +235,18 @@ name|CamelContext
 name|camelContext
 decl_stmt|;
 annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:log:foo"
+argument_list|)
+DECL|field|mock
+specifier|private
+name|MockEndpoint
+name|mock
+decl_stmt|;
+annotation|@
 name|Test
 DECL|method|shouldSayFoo ()
 specifier|public
@@ -194,6 +256,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello foo"
+argument_list|)
+expr_stmt|;
 comment|// we expect that one or more messages is automatic done by the Camel
 comment|// route as it uses a timer to trigger
 name|NotifyBuilder
@@ -226,6 +295,11 @@ operator|.
 name|SECONDS
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 block|}

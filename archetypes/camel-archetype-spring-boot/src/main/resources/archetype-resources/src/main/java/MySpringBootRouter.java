@@ -277,9 +277,9 @@ operator|.
 name|end
 argument_list|()
 operator|.
-name|log
+name|to
 argument_list|(
-literal|"${body}"
+literal|"stream:out"
 argument_list|)
 expr_stmt|;
 block|}
