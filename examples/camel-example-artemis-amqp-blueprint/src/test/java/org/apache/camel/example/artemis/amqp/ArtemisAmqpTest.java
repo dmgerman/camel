@@ -121,7 +121,9 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|()
+argument_list|(
+literal|8080
+argument_list|)
 decl_stmt|;
 comment|//override the netty port to use
 name|props
