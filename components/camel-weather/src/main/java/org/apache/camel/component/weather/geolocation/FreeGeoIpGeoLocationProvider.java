@@ -191,7 +191,7 @@ init|=
 operator|new
 name|GetMethod
 argument_list|(
-literal|"https://freegeoip.io/json/"
+literal|"https://freegeoip.net/json/"
 argument_list|)
 decl_stmt|;
 try|try
