@@ -66,25 +66,15 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-DECL|class|ArtemisAmqpTest
+DECL|class|ArtemisAmqpIntTest
 specifier|public
 class|class
-name|ArtemisAmqpTest
+name|ArtemisAmqpIntTest
 extends|extends
 name|CamelBlueprintTestSupport
 block|{
@@ -122,9 +112,16 @@ name|AvailablePortFinder
 operator|.
 name|getNextAvailable
 argument_list|(
-literal|8080
+literal|9090
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|port
+operator|!=
+literal|9090
+condition|)
+block|{
 comment|//override the netty port to use
 name|props
 operator|.
@@ -141,6 +138,14 @@ comment|//return the PID of the config-admin we are using in the blueprint xml f
 return|return
 literal|"my-placeholders"
 return|;
+block|}
+else|else
+block|{
+comment|// no update needed
+return|return
+literal|null
+return|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -160,7 +165,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4-http:localhost:{{netty.port}}/message"
+literal|"netty4-http:http://localhost:{{netty.port}}/message"
 argument_list|,
 literal|null
 argument_list|,
