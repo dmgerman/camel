@@ -88,16 +88,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -171,7 +161,7 @@ name|SpringBootTest
 argument_list|(
 name|classes
 operator|=
-name|SampleCamelApplication
+name|MyCamelApplication
 operator|.
 name|class
 argument_list|,

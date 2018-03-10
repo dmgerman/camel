@@ -50,10 +50,10 @@ name|Component
 argument_list|(
 literal|"myBean"
 argument_list|)
-DECL|class|SampleBean
+DECL|class|MyBean
 specifier|public
 class|class
-name|SampleBean
+name|MyBean
 block|{
 annotation|@
 name|Value

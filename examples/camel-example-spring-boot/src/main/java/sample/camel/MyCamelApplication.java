@@ -49,10 +49,10 @@ end_comment
 begin_class
 annotation|@
 name|SpringBootApplication
-DECL|class|SampleCamelApplication
+DECL|class|MyCamelApplication
 specifier|public
 class|class
-name|SampleCamelApplication
+name|MyCamelApplication
 block|{
 comment|/**      * A main method to start this application.      */
 DECL|method|main (String[] args)
@@ -70,7 +70,7 @@ name|SpringApplication
 operator|.
 name|run
 argument_list|(
-name|SampleCamelApplication
+name|MyCamelApplication
 operator|.
 name|class
 argument_list|,

@@ -45,10 +45,10 @@ end_comment
 begin_class
 annotation|@
 name|Component
-DECL|class|SampleCamelRouter
+DECL|class|MyCamelRouter
 specifier|public
 class|class
-name|SampleCamelRouter
+name|MyCamelRouter
 extends|extends
 name|RouteBuilder
 block|{
