@@ -386,6 +386,10 @@ name|Assert
 import|;
 end_import
 
+begin_comment
+comment|/**  * The camel-xchange component provide access to many bitcoin and altcoin exchanges for trading and accessing market data.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -412,7 +416,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"blockchain"
+literal|"bitcoin,blockchain"
 argument_list|)
 DECL|class|XChangeEndpoint
 specifier|public
