@@ -202,7 +202,7 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the original IN {@link Message} this Unit of Work was started with.      *<p/>      * The original message is only returned if the option {@link org.apache.camel.RuntimeConfiguration#isAllowUseOriginalMessage()}      * is enabled. If its disabled, then<tt>null</tt> is returned.      *      * @return the original IN {@link Message}, or<tt>null</tt> if using original message is disabled.      */
+comment|/**      * Gets the original IN {@link Message} this Unit of Work was started with.      *<p/>      * The original message is only returned if the option {@link org.apache.camel.RuntimeConfiguration#isAllowUseOriginalMessage()}      * is enabled. If its disabled an<tt>IllegalStateException</tt> is thrown.      *      * @return the original IN {@link Message}, or<tt>null</tt> if using original message is disabled.      */
 DECL|method|getOriginalInMessage ()
 name|Message
 name|getOriginalInMessage
