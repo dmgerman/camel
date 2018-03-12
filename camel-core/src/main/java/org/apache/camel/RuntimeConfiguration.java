@@ -183,7 +183,7 @@ name|Boolean
 name|allowUseOriginalMessage
 parameter_list|)
 function_decl|;
-comment|/**      * Sets whether to allow access to the original message from Camel's error handler,      * or from {@link org.apache.camel.spi.UnitOfWork#getOriginalInMessage()}.      *<p/>      * Turning this off can optimize performance, as defensive copy of the original message is not needed.      *      * @return the option      */
+comment|/**      * Gets whether access to the original message from Camel's error handler,      * or from {@link org.apache.camel.spi.UnitOfWork#getOriginalInMessage()} is allowed.      *      * @return the option      */
 DECL|method|isAllowUseOriginalMessage ()
 name|Boolean
 name|isAllowUseOriginalMessage
