@@ -3009,14 +3009,14 @@ comment|//
 block|{
 literal|"time"
 block|,
-literal|"java.time.ZonedDateTime"
+literal|"java.time.LocalTime"
 block|}
 block|,
 comment|//
 block|{
 literal|"date"
 block|,
-literal|"java.time.ZonedDateTime"
+literal|"java.time.LocalDate"
 block|}
 block|,
 comment|//
