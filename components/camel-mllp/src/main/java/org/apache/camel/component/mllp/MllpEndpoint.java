@@ -346,16 +346,13 @@ name|description
 operator|=
 literal|"MLLP Endpoint"
 argument_list|)
+comment|// @UriEndpoint(scheme = "mllp", firstVersion = "2.17.0", title = "MLLP", syntax = "mllp:hostname:port", consumerClass = MllpTcpServerConsumer.class, label = "mllp")
 annotation|@
 name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
 literal|"mllp"
-argument_list|,
-name|firstVersion
-operator|=
-literal|"2.17.0"
 argument_list|,
 name|title
 operator|=
@@ -961,6 +958,32 @@ name|lastConnectionTerminatedTicks
 argument_list|)
 else|:
 literal|null
+return|;
+block|}
+DECL|method|hasLastConnectionActivityTicks ()
+specifier|public
+name|boolean
+name|hasLastConnectionActivityTicks
+parameter_list|()
+block|{
+return|return
+name|lastConnectionActivityTicks
+operator|!=
+literal|null
+operator|&&
+name|lastConnectionActivityTicks
+operator|>
+literal|0
+return|;
+block|}
+DECL|method|getLastConnectionActivityTicks ()
+specifier|public
+name|Long
+name|getLastConnectionActivityTicks
+parameter_list|()
+block|{
+return|return
+name|lastConnectionActivityTicks
 return|;
 block|}
 DECL|method|updateLastConnectionActivityTicks ()

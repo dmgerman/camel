@@ -923,13 +923,6 @@ name|MllpSocketException
 throws|,
 name|SocketTimeoutException
 block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Entering readFrom ..."
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|socket
@@ -948,6 +941,15 @@ name|isClosed
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Entering readFrom for {} ..."
+argument_list|,
+name|socket
+argument_list|)
+expr_stmt|;
 name|ensureCapacity
 argument_list|(
 name|MIN_BUFFER_SIZE
@@ -1097,7 +1099,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"readFrom exiting with partial payload "
+literal|"readFrom {} exiting with partial payload {}"
+argument_list|,
+name|socket
 argument_list|,
 name|Hl7Util
 operator|.
@@ -1148,13 +1152,6 @@ parameter_list|)
 throws|throws
 name|MllpSocketException
 block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Entering writeTo ..."
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|socket
@@ -1173,6 +1170,15 @@ name|isClosed
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Entering writeTo for {} ..."
+argument_list|,
+name|socket
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1350,7 +1356,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring call to writeTo(byte[] payload) - MLLP payload is null or empty"
+literal|"Ignoring call to writeTo(byte[] payload) for {} - MLLP payload is null or empty"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 block|}
@@ -2888,7 +2896,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|SocketException
+name|MllpSocketException
 argument_list|(
 literal|"END_OF_STREAM returned from SocketInputStream.read(byte[], off, len)"
 argument_list|)

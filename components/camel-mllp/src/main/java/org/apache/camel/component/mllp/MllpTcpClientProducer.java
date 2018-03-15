@@ -282,6 +282,36 @@ name|DefaultProducer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|MDC
+import|;
+end_import
+
 begin_comment
 comment|/**  * The MLLP producer.  */
 end_comment
@@ -316,13 +346,7 @@ DECL|field|idleTimeoutExecutor
 name|ScheduledExecutorService
 name|idleTimeoutExecutor
 decl_stmt|;
-DECL|field|lastProcessCallTicks
-name|long
-name|lastProcessCallTicks
-init|=
-operator|-
-literal|1
-decl_stmt|;
+comment|// long lastProcessCallTicks = -1;
 DECL|field|cachedLocalAddress
 specifier|private
 name|String
@@ -388,11 +412,11 @@ name|getLastActivityTime
 parameter_list|()
 block|{
 return|return
-operator|new
-name|Date
-argument_list|(
-name|lastProcessCallTicks
-argument_list|)
+name|getEndpoint
+argument_list|()
+operator|.
+name|getLastConnectionActivityTime
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -630,18 +654,20 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|Exception
+name|MllpException
 block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing Exchange {}"
+literal|"Processing Exchange {} for {}"
 argument_list|,
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 name|getEndpoint
@@ -840,14 +866,10 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending message to external system"
+literal|"Sending message to external system {}"
+argument_list|,
+name|socket
 argument_list|)
-expr_stmt|;
-name|getEndpoint
-argument_list|()
-operator|.
-name|updateLastConnectionEstablishedTicks
-argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -877,9 +899,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception encountered reading acknowledgement - attempting reconnect"
+literal|"Exception encountered writing payload to {} - attempting reconnect"
 argument_list|,
 name|writeEx
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 try|try
@@ -891,7 +915,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Reconnected succeeded - resending payload"
+literal|"Reconnected succeeded - resending payload to {}"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 try|try
@@ -910,11 +936,33 @@ name|MllpSocketException
 name|retryWriteEx
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Exception encountered attempting to write payload to {} after reconnect - sending original exception to exchange"
+argument_list|,
+name|socket
+argument_list|,
+name|retryWriteEx
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setException
 argument_list|(
+operator|new
+name|MllpWriteException
+argument_list|(
+literal|"Exception encountered writing payload after reconnect"
+argument_list|,
+name|mllpBuffer
+operator|.
+name|toByteArrayAndReset
+argument_list|()
+argument_list|,
 name|retryWriteEx
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -927,9 +975,9 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"Reconnected failed - sending exception to exchange"
+literal|"Exception encountered attempting to reconnect - sending original exception to exchange"
 argument_list|,
 name|reconnectEx
 argument_list|)
@@ -938,7 +986,25 @@ name|exchange
 operator|.
 name|setException
 argument_list|(
-name|reconnectEx
+operator|new
+name|MllpWriteException
+argument_list|(
+literal|"Exception encountered writing payload"
+argument_list|,
+name|mllpBuffer
+operator|.
+name|toByteArrayAndReset
+argument_list|()
+argument_list|,
+name|writeEx
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|mllpBuffer
+operator|.
+name|resetSocket
+argument_list|(
+name|socket
 argument_list|)
 expr_stmt|;
 block|}
@@ -957,7 +1023,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Reading acknowledgement from external system"
+literal|"Reading acknowledgement from external system {}"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 try|try
@@ -986,7 +1054,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception encountered reading acknowledgement - attempting reconnect"
+literal|"Exception encountered reading acknowledgement from {} - attempting reconnect"
+argument_list|,
+name|socket
 argument_list|,
 name|receiveAckEx
 argument_list|)
@@ -1005,9 +1075,9 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"Reconnected failed - sending original exception to exchange"
+literal|"Exception encountered attempting to reconnect after acknowledgement read failure - sending original acknowledgement exception to exchange"
 argument_list|,
 name|reconnectEx
 argument_list|)
@@ -1027,6 +1097,13 @@ name|receiveAckEx
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|mllpBuffer
+operator|.
+name|resetSocket
+argument_list|(
+name|socket
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1042,7 +1119,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Reconnected succeeded - resending payload"
+literal|"Reconnected succeeded - resending payload to {}"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 try|try
@@ -1068,6 +1147,17 @@ name|MllpSocketException
 name|writeRetryEx
 parameter_list|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Exception encountered attempting to write payload to {} after read failure and successful reconnect - sending original exception to exchange"
+argument_list|,
+name|socket
+argument_list|,
+name|writeRetryEx
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -1075,11 +1165,11 @@ argument_list|(
 operator|new
 name|MllpWriteException
 argument_list|(
-literal|"Failed to write HL7 message to socket"
+literal|"Exception encountered writing payload after read failure and reconnect"
 argument_list|,
 name|hl7MessageBytes
 argument_list|,
-name|writeRetryEx
+name|receiveAckEx
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1098,7 +1188,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Resend succeeded - reading acknowledgement"
+literal|"Resend succeeded - reading acknowledgement from {}"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 try|try
@@ -1130,6 +1222,17 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Exception encountered reading acknowledgement from {} after successful reconnect and resend"
+argument_list|,
+name|socket
+argument_list|,
+name|secondReceiveEx
+argument_list|)
+expr_stmt|;
 name|Exception
 name|exchangeEx
 init|=
@@ -1140,7 +1243,7 @@ literal|"Exception encountered receiving Acknowledgement"
 argument_list|,
 name|hl7MessageBytes
 argument_list|,
-name|secondReceiveEx
+name|receiveAckEx
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -1167,6 +1270,17 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Exception encountered reading a complete acknowledgement from {} after successful reconnect and resend"
+argument_list|,
+name|socket
+argument_list|,
+name|secondReceiveEx
+argument_list|)
+expr_stmt|;
 name|Exception
 name|exchangeEx
 init|=
@@ -1179,7 +1293,7 @@ name|hl7MessageBytes
 argument_list|,
 name|partialAcknowledgment
 argument_list|,
-name|secondReceiveEx
+name|receiveAckEx
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -1190,6 +1304,94 @@ name|exchangeEx
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|SocketTimeoutException
+name|secondReadTimeoutEx
+parameter_list|)
+block|{
+if|if
+condition|(
+name|mllpBuffer
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Timeout receiving HL7 Acknowledgment from {} after successful reconnect"
+argument_list|,
+name|socket
+argument_list|,
+name|secondReadTimeoutEx
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|MllpAcknowledgementTimeoutException
+argument_list|(
+literal|"Timeout receiving HL7 Acknowledgement after successful reconnect"
+argument_list|,
+name|hl7MessageBytes
+argument_list|,
+name|secondReadTimeoutEx
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Timeout receiving complete HL7 Acknowledgment from {} after successful reconnect"
+argument_list|,
+name|socket
+argument_list|,
+name|secondReadTimeoutEx
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|MllpAcknowledgementTimeoutException
+argument_list|(
+literal|"Timeout receiving complete HL7 Acknowledgement after successful reconnect"
+argument_list|,
+name|hl7MessageBytes
+argument_list|,
+name|mllpBuffer
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|,
+name|secondReadTimeoutEx
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|mllpBuffer
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+name|mllpBuffer
+operator|.
+name|resetSocket
+argument_list|(
+name|socket
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -1208,6 +1410,17 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Timeout receiving HL7 Acknowledgment from {}"
+argument_list|,
+name|socket
+argument_list|,
+name|timeoutEx
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -1226,6 +1439,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Timeout receiving complete HL7 Acknowledgment from {}"
+argument_list|,
+name|socket
+argument_list|,
+name|timeoutEx
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -1291,7 +1515,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Populating message headers with the acknowledgement from the external system"
+literal|"Populating message headers with the acknowledgement from the external system {}"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 name|message
@@ -1415,7 +1641,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Processing the acknowledgement from the external system"
+literal|"Processing the acknowledgement from the external system {}"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 try|try
@@ -1509,6 +1737,17 @@ name|IOException
 name|ioEx
 parameter_list|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Exception encountered checking connection {}"
+argument_list|,
+name|socket
+argument_list|,
+name|ioEx
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -1968,12 +2207,69 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
 name|socket
-operator|=
+operator|==
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"checkConnection() - Socket is null - attempting to establish connection"
+argument_list|,
+name|socket
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|socket
+operator|.
+name|isClosed
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"checkConnection() - Socket {} is closed - attempting to establish new connection"
+argument_list|,
+name|socket
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|socket
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"checkConnection() - Socket {} is not connected - attempting to establish new connection"
+argument_list|,
+name|socket
+argument_list|)
+expr_stmt|;
+block|}
+name|Socket
+name|newSocket
+init|=
 operator|new
 name|Socket
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|getConfiguration
@@ -1983,7 +2279,7 @@ name|hasKeepAlive
 argument_list|()
 condition|)
 block|{
-name|socket
+name|newSocket
 operator|.
 name|setKeepAlive
 argument_list|(
@@ -2004,7 +2300,7 @@ name|hasTcpNoDelay
 argument_list|()
 condition|)
 block|{
-name|socket
+name|newSocket
 operator|.
 name|setTcpNoDelay
 argument_list|(
@@ -2025,7 +2321,7 @@ name|hasReceiveBufferSize
 argument_list|()
 condition|)
 block|{
-name|socket
+name|newSocket
 operator|.
 name|setReceiveBufferSize
 argument_list|(
@@ -2046,7 +2342,7 @@ name|hasSendBufferSize
 argument_list|()
 condition|)
 block|{
-name|socket
+name|newSocket
 operator|.
 name|setSendBufferSize
 argument_list|(
@@ -2067,7 +2363,7 @@ name|hasReuseAddress
 argument_list|()
 condition|)
 block|{
-name|socket
+name|newSocket
 operator|.
 name|setReuseAddress
 argument_list|(
@@ -2079,7 +2375,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|socket
+name|newSocket
 operator|.
 name|setSoLinger
 argument_list|(
@@ -2137,7 +2433,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|socket
+name|newSocket
 operator|.
 name|connect
 argument_list|(
@@ -2149,6 +2445,25 @@ operator|.
 name|getConnectTimeout
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"checkConnection() - established new connection {}"
+argument_list|,
+name|newSocket
+argument_list|)
+expr_stmt|;
+name|getEndpoint
+argument_list|()
+operator|.
+name|updateLastConnectionEstablishedTicks
+argument_list|()
+expr_stmt|;
+name|socket
+operator|=
+name|newSocket
 expr_stmt|;
 name|SocketAddress
 name|localSocketAddress
@@ -2207,21 +2522,6 @@ argument_list|,
 name|remoteSocketAddress
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"checkConnection() - established new connection {}"
-argument_list|,
-name|cachedCombinedAddress
-argument_list|)
-expr_stmt|;
-name|getEndpoint
-argument_list|()
-operator|.
-name|updateLastConnectionEstablishedTicks
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|getConfiguration
@@ -2231,6 +2531,22 @@ name|hasIdleTimeout
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Scheduling initial idle producer connection check of {} in {} milliseconds"
+argument_list|,
+name|getConnectionAddress
+argument_list|()
+argument_list|,
+name|getConfiguration
+argument_list|()
+operator|.
+name|getIdleTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|idleTimeoutExecutor
 operator|.
 name|schedule
@@ -2256,7 +2572,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"checkConnection() - Connection is still valid - no new connection required"
+literal|"checkConnection() - Connection {} is still valid - no new connection required"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 block|}
@@ -2300,9 +2618,11 @@ condition|)
 block|{
 if|if
 condition|(
-name|lastProcessCallTicks
-operator|>
-literal|0
+name|getEndpoint
+argument_list|()
+operator|.
+name|hasLastConnectionActivityTicks
+argument_list|()
 condition|)
 block|{
 name|long
@@ -2313,7 +2633,11 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 operator|-
-name|lastProcessCallTicks
+name|getEndpoint
+argument_list|()
+operator|.
+name|getLastConnectionActivityTicks
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2357,7 +2681,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"MLLP Connection idle time of '{}' milliseconds met or exceeded the idle producer timeout of '{}' milliseconds - resetting conection"
+literal|"MLLP Connection idle time of '{}' milliseconds met or exceeded the idle producer timeout of '{}' milliseconds - resetting connection"
 argument_list|,
 name|idleTime
 argument_list|,
@@ -2454,7 +2778,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduling idle producer connection check in {} milliseconds"
+literal|"No activity detected since initial connection - scheduling idle producer connection check in {} milliseconds"
 argument_list|,
 name|getConfiguration
 argument_list|()
