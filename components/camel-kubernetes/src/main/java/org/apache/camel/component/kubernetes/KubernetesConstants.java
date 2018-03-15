@@ -259,6 +259,12 @@ name|KUBERNETES_BUILD_CONFIG_NAME
 init|=
 literal|"CamelKubernetesBuildConfigName"
 decl_stmt|;
+DECL|field|KUBERNETES_DEPLOYMENT_REPLICAS
+name|String
+name|KUBERNETES_DEPLOYMENT_REPLICAS
+init|=
+literal|"CamelKubernetesDeploymentReplicas"
+decl_stmt|;
 comment|// Consumer
 DECL|field|KUBERNETES_EVENT_ACTION
 name|String

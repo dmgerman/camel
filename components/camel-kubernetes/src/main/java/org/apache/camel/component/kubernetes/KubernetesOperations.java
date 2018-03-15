@@ -347,6 +347,12 @@ name|CREATE_DEPLOYMENT
 init|=
 literal|"createDeployment"
 decl_stmt|;
+DECL|field|SCALE_DEPLOYMENT
+name|String
+name|SCALE_DEPLOYMENT
+init|=
+literal|"scaleDeployment"
+decl_stmt|;
 comment|// Config Maps
 DECL|field|LIST_CONFIGMAPS
 name|String
