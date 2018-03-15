@@ -2937,6 +2937,9 @@ operator|.
 name|getenv
 argument_list|(
 name|text
+operator|.
+name|toUpperCase
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
