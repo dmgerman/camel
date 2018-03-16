@@ -1084,6 +1084,54 @@ name|exp
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBodyOgnlExpression ()
+specifier|public
+name|void
+name|testBodyOgnlExpression
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Expression
+name|exp
+init|=
+name|SimpleLanguage
+operator|.
+name|simple
+argument_list|(
+literal|"${body.xxx}"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|exp
+argument_list|)
+expr_stmt|;
+comment|// must start with a dot
+try|try
+block|{
+name|SimpleLanguage
+operator|.
+name|simple
+argument_list|(
+literal|"${bodyxxx}"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SimpleIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+block|}
 DECL|method|testBodyExpressionUsingAlternativeStartToken ()
 specifier|public
 name|void
