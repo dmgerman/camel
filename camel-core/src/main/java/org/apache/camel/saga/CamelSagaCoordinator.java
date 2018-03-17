@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A saga coordinator can be used to register compensators and take the final decision on the saga: compensate or complete (successfully).  */
+comment|/**  * A saga coordinator can be used to register compensator's and  * take the final decision on the saga: compensate or complete (successfully).  */
 end_comment
 
 begin_interface
