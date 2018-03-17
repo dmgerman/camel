@@ -30,35 +30,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|SupervisingRouteController
 import|;
 end_import
 
@@ -94,8 +68,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//        SupervisingRouteController src = new SupervisingRouteController();
-comment|//        src.addFilter(route -> new SupervisingRouteController.FilterResult(true, "Catch all Filter"));
 name|from
 argument_list|(
 literal|"timer:foo"

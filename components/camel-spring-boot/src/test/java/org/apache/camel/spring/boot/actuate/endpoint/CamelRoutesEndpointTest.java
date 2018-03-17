@@ -72,9 +72,13 @@ name|spring
 operator|.
 name|boot
 operator|.
-name|model
+name|actuate
 operator|.
-name|RouteInfo
+name|endpoint
+operator|.
+name|CamelRoutesEndpoint
+operator|.
+name|RouteEndpointInfo
 import|;
 end_import
 
@@ -268,13 +272,13 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|RouteInfo
+name|RouteEndpointInfo
 argument_list|>
 name|routes
 init|=
 name|endpoint
 operator|.
-name|invoke
+name|readRoutes
 argument_list|()
 decl_stmt|;
 name|assertFalse

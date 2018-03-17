@@ -96,7 +96,6 @@ name|AbstractHealthIndicator
 block|{
 DECL|field|camelContext
 specifier|private
-specifier|final
 name|CamelContext
 name|camelContext
 decl_stmt|;
