@@ -100,10 +100,13 @@ block|{
 return|return
 name|orders
 operator|.
-name|findOne
+name|findById
 argument_list|(
 name|id
 argument_list|)
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 block|}

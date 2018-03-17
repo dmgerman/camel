@@ -120,7 +120,7 @@ name|setBook
 argument_list|(
 name|books
 operator|.
-name|findOne
+name|findById
 argument_list|(
 name|amount
 operator|.
@@ -131,6 +131,9 @@ argument_list|)
 operator|+
 literal|1
 argument_list|)
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
