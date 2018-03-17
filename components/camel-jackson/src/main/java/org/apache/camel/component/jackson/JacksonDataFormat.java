@@ -404,6 +404,13 @@ specifier|private
 name|ObjectMapper
 name|objectMapper
 decl_stmt|;
+DECL|field|useDefaultObjectMapper
+specifier|private
+name|boolean
+name|useDefaultObjectMapper
+init|=
+literal|true
+decl_stmt|;
 DECL|field|collectionType
 specifier|private
 name|Class
@@ -971,6 +978,32 @@ operator|.
 name|objectMapper
 operator|=
 name|objectMapper
+expr_stmt|;
+block|}
+DECL|method|isUseDefaultObjectMapper ()
+specifier|public
+name|boolean
+name|isUseDefaultObjectMapper
+parameter_list|()
+block|{
+return|return
+name|useDefaultObjectMapper
+return|;
+block|}
+DECL|method|setUseDefaultObjectMapper (boolean useDefaultObjectMapper)
+specifier|public
+name|void
+name|setUseDefaultObjectMapper
+parameter_list|(
+name|boolean
+name|useDefaultObjectMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useDefaultObjectMapper
+operator|=
+name|useDefaultObjectMapper
 expr_stmt|;
 block|}
 DECL|method|getUnmarshalType ()
@@ -1773,6 +1806,8 @@ block|{
 comment|// lookup if there is a single default mapper we can use
 if|if
 condition|(
+name|useDefaultObjectMapper
+operator|&&
 name|camelContext
 operator|!=
 literal|null
