@@ -124,6 +124,14 @@ specifier|private
 name|String
 name|objectMapper
 decl_stmt|;
+comment|/**      * Whether to lookup and use default Jackson ObjectMapper from the registry.      */
+DECL|field|useDefaultObjectMapper
+specifier|private
+name|Boolean
+name|useDefaultObjectMapper
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * To enable pretty printing output nicely formatted. Is by default false.      */
 DECL|field|prettyPrint
 specifier|private
@@ -266,6 +274,32 @@ operator|.
 name|objectMapper
 operator|=
 name|objectMapper
+expr_stmt|;
+block|}
+DECL|method|getUseDefaultObjectMapper ()
+specifier|public
+name|Boolean
+name|getUseDefaultObjectMapper
+parameter_list|()
+block|{
+return|return
+name|useDefaultObjectMapper
+return|;
+block|}
+DECL|method|setUseDefaultObjectMapper (Boolean useDefaultObjectMapper)
+specifier|public
+name|void
+name|setUseDefaultObjectMapper
+parameter_list|(
+name|Boolean
+name|useDefaultObjectMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useDefaultObjectMapper
+operator|=
+name|useDefaultObjectMapper
 expr_stmt|;
 block|}
 DECL|method|getPrettyPrint ()
