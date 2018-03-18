@@ -82,7 +82,7 @@ name|soap
 operator|.
 name|security
 operator|.
-name|wss4j
+name|wss4j2
 operator|.
 name|Wss4jSecurityInterceptor
 import|;
