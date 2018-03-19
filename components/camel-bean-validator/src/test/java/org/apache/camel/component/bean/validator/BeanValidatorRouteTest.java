@@ -475,7 +475,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"may not be null"
+literal|"must not be null"
 argument_list|,
 name|constraintViolation
 operator|.
@@ -681,7 +681,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"may not be null"
+literal|"must not be null"
 argument_list|,
 name|constraintViolation
 operator|.
@@ -1093,7 +1093,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"may not be null"
+literal|"must not be null"
 argument_list|,
 name|constraintViolation
 operator|.
