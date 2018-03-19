@@ -155,6 +155,11 @@ operator|new
 name|ITestConfigBuilder
 argument_list|()
 operator|.
+name|dependency
+argument_list|(
+literal|"log4j:log4j"
+argument_list|)
+operator|.
 name|module
 argument_list|(
 name|inferModuleName

@@ -172,7 +172,7 @@ argument_list|)
 operator|.
 name|dependency
 argument_list|(
-literal|"org.hibernate:hibernate-validator"
+literal|"org.hibernate.validator:hibernate-validator"
 argument_list|)
 comment|// in JettyHttpContentTypeTest the case of the encoding string is different in Jetty 9.3
 operator|.

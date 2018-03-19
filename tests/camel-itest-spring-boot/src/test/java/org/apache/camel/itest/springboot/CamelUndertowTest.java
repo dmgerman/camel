@@ -164,7 +164,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-comment|//.dependency(DependencyResolver.withVersion("org.hibernate:hibernate-validator"))
+comment|//.dependency(DependencyResolver.withVersion("org.hibernate.validator:hibernate-validator"))
 operator|.
 name|unitTestExclusionPattern
 argument_list|(
@@ -173,7 +173,7 @@ argument_list|)
 operator|.
 name|dependency
 argument_list|(
-literal|"org.hibernate:hibernate-validator"
+literal|"org.hibernate.validator:hibernate-validator"
 argument_list|)
 operator|.
 name|build

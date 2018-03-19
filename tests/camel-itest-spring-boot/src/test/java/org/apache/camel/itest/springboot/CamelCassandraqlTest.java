@@ -188,6 +188,16 @@ argument_list|(
 literal|".*(\\.integration\\..*|IntegrationTest$|CassandraComponentProducerTest$|CassandraComponentBeanRefTest$|CassandraComponentConsumerTest$)"
 argument_list|)
 operator|.
+name|includeTestDependencies
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|unitTestsEnabled
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;

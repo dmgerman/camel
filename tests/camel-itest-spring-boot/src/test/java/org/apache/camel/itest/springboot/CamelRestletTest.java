@@ -202,7 +202,7 @@ argument_list|)
 operator|.
 name|dependency
 argument_list|(
-literal|"org.hibernate:hibernate-validator"
+literal|"org.hibernate.validator:hibernate-validator"
 argument_list|)
 operator|.
 name|build

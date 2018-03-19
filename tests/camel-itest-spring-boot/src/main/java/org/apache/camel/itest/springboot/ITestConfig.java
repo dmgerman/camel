@@ -67,7 +67,7 @@ specifier|final
 name|int
 name|DEFAULT_SPRING_BOOT_MAJOR_VERSION
 init|=
-literal|1
+literal|2
 decl_stmt|;
 DECL|field|serialVersionUID
 specifier|private
