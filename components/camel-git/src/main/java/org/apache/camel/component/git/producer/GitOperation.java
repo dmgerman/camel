@@ -140,6 +140,12 @@ name|CLEAN_OPERATION
 init|=
 literal|"clean"
 decl_stmt|;
+DECL|field|GC_OPERATION
+name|String
+name|GC_OPERATION
+init|=
+literal|"gc"
+decl_stmt|;
 block|}
 end_interface
 
