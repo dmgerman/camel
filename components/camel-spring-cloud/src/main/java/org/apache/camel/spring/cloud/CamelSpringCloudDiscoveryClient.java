@@ -200,7 +200,7 @@ name|description
 return|;
 block|}
 annotation|@
-name|Override
+name|Deprecated
 DECL|method|getLocalServiceInstance ()
 specifier|public
 name|ServiceInstance
