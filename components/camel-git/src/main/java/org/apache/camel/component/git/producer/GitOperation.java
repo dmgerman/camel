@@ -134,6 +134,12 @@ name|REMOTE_LIST_OPERATION
 init|=
 literal|"remoteList"
 decl_stmt|;
+DECL|field|CLEAN_OPERATION
+name|String
+name|CLEAN_OPERATION
+init|=
+literal|"clean"
+decl_stmt|;
 block|}
 end_interface
 
