@@ -361,6 +361,19 @@ name|Exception
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getAmazonKinesisFirehoseClient
+argument_list|()
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 name|kinesisFirehoseClient
 operator|!=
 literal|null
@@ -371,6 +384,7 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|super
 operator|.
