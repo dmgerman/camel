@@ -167,20 +167,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|javax
-operator|.
-name|servlet
-operator|.
-name|http
-operator|.
-name|HttpServletResponse
-operator|.
-name|SC_OK
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.

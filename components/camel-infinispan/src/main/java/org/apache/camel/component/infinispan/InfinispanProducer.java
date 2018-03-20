@@ -150,18 +150,6 @@ name|Query
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|jgroups
-operator|.
-name|util
-operator|.
-name|NotifyingFuture
-import|;
-end_import
-
 begin_class
 DECL|class|InfinispanProducer
 specifier|public

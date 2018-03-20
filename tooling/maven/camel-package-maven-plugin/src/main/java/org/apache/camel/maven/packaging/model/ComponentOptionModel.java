@@ -21,32 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Calendar
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|packaging
-operator|.
-name|StringHelper
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.

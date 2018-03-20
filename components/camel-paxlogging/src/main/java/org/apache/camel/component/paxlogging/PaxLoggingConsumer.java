@@ -152,16 +152,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|MDC
-import|;
-end_import
-
 begin_comment
 comment|/**  * Paxlogging consumer.  * This camel consumer will register a paxlogging appender and will  * receive all logging events and send them into the route.  * To avoid generating new logging events from sending the message,  * an MDC attribute is set in the sending thread, and all log events  * from this thread are ignored.  * Camel exchanges are actually sent from a specific thread to make  * sure the log events are cleanly separated.   */
 end_comment
