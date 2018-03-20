@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot.actuate.health
+DECL|package|org.apache.camel.spring.boot.actuate.info
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|boot
 operator|.
 name|actuate
 operator|.
-name|health
+name|info
 package|;
 end_package
 
@@ -44,9 +44,9 @@ name|boot
 operator|.
 name|actuate
 operator|.
-name|health
+name|info
 operator|.
-name|AbstractHealthIndicator
+name|Info
 import|;
 end_import
 
@@ -60,39 +60,23 @@ name|boot
 operator|.
 name|actuate
 operator|.
-name|health
+name|info
 operator|.
-name|Health
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|actuate
-operator|.
-name|health
-operator|.
-name|HealthIndicator
+name|InfoContributor
 import|;
 end_import
 
 begin_comment
-comment|/**  * Camel {@link HealthIndicator}.  */
+comment|/**  * Camel {@link InfoContributor}  */
 end_comment
 
 begin_class
-DECL|class|CamelHealthIndicator
+DECL|class|CamelInfoContributor
 specifier|public
 class|class
-name|CamelHealthIndicator
-extends|extends
-name|AbstractHealthIndicator
+name|CamelInfoContributor
+implements|implements
+name|InfoContributor
 block|{
 DECL|field|camelContext
 specifier|private
@@ -100,9 +84,9 @@ specifier|final
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|method|CamelHealthIndicator (CamelContext camelContext)
+DECL|method|CamelInfoContributor (CamelContext camelContext)
 specifier|public
-name|CamelHealthIndicator
+name|CamelInfoContributor
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -117,39 +101,29 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doHealthCheck (Health.Builder builder)
-specifier|protected
+DECL|method|contribute (Info.Builder builder)
+specifier|public
 name|void
-name|doHealthCheck
+name|contribute
 parameter_list|(
-name|Health
+name|Info
 operator|.
 name|Builder
 name|builder
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
 name|camelContext
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
 name|builder
 operator|.
-name|unknown
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|builder
-operator|.
 name|withDetail
 argument_list|(
-literal|"name"
+literal|"camel.name"
 argument_list|,
 name|camelContext
 operator|.
@@ -161,7 +135,7 @@ name|builder
 operator|.
 name|withDetail
 argument_list|(
-literal|"version"
+literal|"camel.version"
 argument_list|,
 name|camelContext
 operator|.
@@ -183,7 +157,7 @@ name|builder
 operator|.
 name|withDetail
 argument_list|(
-literal|"uptime"
+literal|"camel.uptime"
 argument_list|,
 name|camelContext
 operator|.
@@ -195,7 +169,7 @@ name|builder
 operator|.
 name|withDetail
 argument_list|(
-literal|"uptimeMillis"
+literal|"camel.uptimeMillis"
 argument_list|,
 name|camelContext
 operator|.
@@ -208,7 +182,7 @@ name|builder
 operator|.
 name|withDetail
 argument_list|(
-literal|"status"
+literal|"camel.status"
 argument_list|,
 name|camelContext
 operator|.
@@ -219,49 +193,6 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|camelContext
-operator|.
-name|getStatus
-argument_list|()
-operator|.
-name|isStarted
-argument_list|()
-condition|)
-block|{
-name|builder
-operator|.
-name|up
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|camelContext
-operator|.
-name|getStatus
-argument_list|()
-operator|.
-name|isStopped
-argument_list|()
-condition|)
-block|{
-name|builder
-operator|.
-name|down
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|builder
-operator|.
-name|unknown
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
