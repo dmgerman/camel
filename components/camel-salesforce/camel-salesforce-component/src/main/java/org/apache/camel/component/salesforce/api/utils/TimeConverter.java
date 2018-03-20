@@ -28,7 +28,7 @@ name|java
 operator|.
 name|time
 operator|.
-name|LocalTime
+name|OffsetTime
 import|;
 end_import
 
@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XStream converter for handling {@link LocalTime} fields.  */
+comment|/**  * XStream converter for handling {@link OffsetTime} fields.  */
 end_comment
 
 begin_class
@@ -145,11 +145,11 @@ name|MarshallingContext
 name|context
 parameter_list|)
 block|{
-name|LocalTime
+name|OffsetTime
 name|time
 init|=
 operator|(
-name|LocalTime
+name|OffsetTime
 operator|)
 name|o
 decl_stmt|;
@@ -208,7 +208,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Error reading LocalTime from value %s: %s"
+literal|"Error reading OffsetTime from value %s: %s"
 argument_list|,
 name|reader
 operator|.
@@ -238,7 +238,7 @@ name|aClass
 parameter_list|)
 block|{
 return|return
-name|LocalTime
+name|OffsetTime
 operator|.
 name|class
 operator|.

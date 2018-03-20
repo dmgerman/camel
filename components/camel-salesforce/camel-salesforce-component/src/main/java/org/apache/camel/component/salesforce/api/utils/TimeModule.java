@@ -28,7 +28,7 @@ name|java
 operator|.
 name|time
 operator|.
-name|LocalTime
+name|OffsetTime
 import|;
 end_import
 
@@ -66,7 +66,7 @@ argument_list|()
 expr_stmt|;
 name|addSerializer
 argument_list|(
-name|LocalTime
+name|OffsetTime
 operator|.
 name|class
 argument_list|,
@@ -77,7 +77,7 @@ argument_list|)
 expr_stmt|;
 name|addDeserializer
 argument_list|(
-name|LocalTime
+name|OffsetTime
 operator|.
 name|class
 argument_list|,

@@ -38,7 +38,7 @@ name|java
 operator|.
 name|time
 operator|.
-name|LocalTime
+name|OffsetTime
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|TimeSerializer
 extends|extends
 name|JsonSerializer
 argument_list|<
-name|LocalTime
+name|OffsetTime
 argument_list|>
 block|{
 DECL|method|TimeSerializer ()
@@ -150,12 +150,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|serialize (LocalTime time, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
+DECL|method|serialize (OffsetTime time, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
 specifier|public
 name|void
 name|serialize
 parameter_list|(
-name|LocalTime
+name|OffsetTime
 name|time
 parameter_list|,
 name|JsonGenerator
@@ -186,13 +186,13 @@ DECL|method|handledType ()
 specifier|public
 name|Class
 argument_list|<
-name|LocalTime
+name|OffsetTime
 argument_list|>
 name|handledType
 parameter_list|()
 block|{
 return|return
-name|LocalTime
+name|OffsetTime
 operator|.
 name|class
 return|;

@@ -38,7 +38,7 @@ name|java
 operator|.
 name|time
 operator|.
-name|LocalTime
+name|OffsetTime
 import|;
 end_import
 
@@ -120,7 +120,7 @@ name|TimeDeserializer
 extends|extends
 name|JsonDeserializer
 argument_list|<
-name|LocalTime
+name|OffsetTime
 argument_list|>
 block|{
 DECL|method|TimeDeserializer ()
@@ -136,7 +136,7 @@ annotation|@
 name|Override
 DECL|method|deserialize (JsonParser jsonParser, DeserializationContext deserializationContext)
 specifier|public
-name|LocalTime
+name|OffsetTime
 name|deserialize
 parameter_list|(
 name|JsonParser
@@ -205,7 +205,7 @@ name|handledType
 parameter_list|()
 block|{
 return|return
-name|LocalTime
+name|OffsetTime
 operator|.
 name|class
 return|;
