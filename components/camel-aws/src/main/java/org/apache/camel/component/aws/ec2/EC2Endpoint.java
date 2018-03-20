@@ -408,6 +408,19 @@ name|Exception
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getAmazonEc2Client
+argument_list|()
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 name|ec2Client
 operator|!=
 literal|null
@@ -418,6 +431,7 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|super
 operator|.
