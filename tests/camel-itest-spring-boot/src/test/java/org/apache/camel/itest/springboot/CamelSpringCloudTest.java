@@ -88,6 +88,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -111,6 +121,11 @@ argument_list|(
 name|Arquillian
 operator|.
 name|class
+argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Spring-Cloud referenced in Spring-Boot 2.0.0.RELEASE is not GA"
 argument_list|)
 DECL|class|CamelSpringCloudTest
 specifier|public
