@@ -278,14 +278,14 @@ name|to
 argument_list|(
 name|simpleEndpointURI
 operator|+
-literal|"&continuationTimeout=30000&dataFormat=MESSAGE"
+literal|"&continuationTimeout=5000&dataFormat=MESSAGE"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
 name|simpleEndpointURI
 operator|+
-literal|"&continuationTimeout=30000&dataFormat=MESSAGE"
+literal|"&continuationTimeout=5000&dataFormat=MESSAGE"
 argument_list|)
 operator|.
 name|process
@@ -408,14 +408,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Sleeping for 50 seconds to simulate slow response"
+literal|"Sleeping for 10 seconds to simulate slow response"
 argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|35000
+literal|10000
 argument_list|)
 expr_stmt|;
 block|}
@@ -573,7 +573,7 @@ name|out
 operator|.
 name|contains
 argument_list|(
-literal|"The OUT message was not received within: 30000 millis."
+literal|"The OUT message was not received within: 5000 millis."
 argument_list|)
 argument_list|)
 expr_stmt|;
