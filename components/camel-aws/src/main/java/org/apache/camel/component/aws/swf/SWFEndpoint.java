@@ -520,6 +520,19 @@ name|Exception
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getAmazonSWClient
+argument_list|()
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 name|amazonSWClient
 operator|!=
 literal|null
@@ -534,6 +547,7 @@ name|amazonSWClient
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 name|super
 operator|.
