@@ -72,6 +72,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Annotation
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -809,7 +821,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class which creates a {@link org.apache.camel.CamelContext} with some routes  * along with a {@link org.apache.camel.ProducerTemplate} for use in the test case  *  * @version  */
+comment|/**  * A useful base class which creates a {@link org.apache.camel.CamelContext} with some routes  * along with a {@link org.apache.camel.ProducerTemplate} for use in the test case  * Do<tt>not</tt> use this class for Spring Boot testing, instead use<code>@RunWith(CamelSpringBootRunner.class)</code>.  */
 end_comment
 
 begin_class
@@ -1298,6 +1310,9 @@ condition|(
 name|first
 condition|)
 block|{
+name|doSpringBootWarning
+argument_list|()
+expr_stmt|;
 name|doPreSetup
 argument_list|()
 expr_stmt|;
@@ -1322,6 +1337,9 @@ block|}
 else|else
 block|{
 comment|// test is per test so always setup
+name|doSpringBootWarning
+argument_list|()
+expr_stmt|;
 name|doPreSetup
 argument_list|()
 expr_stmt|;
@@ -1360,6 +1378,37 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+block|}
+comment|/**      * Detects if this is a Spring-Boot test and reports a warning as these base classes is not intended      * for testing Camel on Spring Boot.      */
+DECL|method|doSpringBootWarning ()
+specifier|protected
+name|void
+name|doSpringBootWarning
+parameter_list|()
+block|{
+name|boolean
+name|springBoot
+init|=
+name|hasClassAnnotation
+argument_list|(
+literal|"org.springframework.boot.test.context.SpringBootTest"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|springBoot
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Spring Boot detected: The CamelTestSupport/CamelSpringTestSupport class is not intended for Camel testing with Spring Boot."
+operator|+
+literal|" Prefer to not extend this class, but use @RunWith(CamelSpringBootRunner.class) instead."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|doSetUp ()
 specifier|private
@@ -3158,7 +3207,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use the default bean post processor from camel-core
+comment|// use the default bean post processor from camel-core if the test class is not dependency injected already by Spring
+name|boolean
+name|spring
+init|=
+name|hasClassAnnotation
+argument_list|(
+literal|"org.springframework.boot.test.context.SpringBootTest"
+argument_list|,
+literal|"org.springframework.context.annotation.ComponentScan"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|spring
+condition|)
+block|{
 name|DefaultCamelBeanPostProcessor
 name|processor
 init|=
@@ -3194,6 +3259,69 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+comment|/**      * Does this test class have any of the following annotations on the class-level.      */
+DECL|method|hasClassAnnotation (String... names)
+specifier|protected
+name|boolean
+name|hasClassAnnotation
+parameter_list|(
+name|String
+modifier|...
+name|names
+parameter_list|)
+block|{
+for|for
+control|(
+name|String
+name|name
+range|:
+name|names
+control|)
+block|{
+for|for
+control|(
+name|Annotation
+name|ann
+range|:
+name|getClass
+argument_list|()
+operator|.
+name|getAnnotations
+argument_list|()
+control|)
+block|{
+name|String
+name|annName
+init|=
+name|ann
+operator|.
+name|annotationType
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|annName
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+block|}
+return|return
+literal|false
+return|;
 block|}
 DECL|method|stopCamelContext ()
 specifier|protected
