@@ -115,7 +115,7 @@ name|Exchange
 operator|.
 name|INTERCEPTED_ENDPOINT
 argument_list|,
-literal|"direct://foo"
+literal|"seda://foo"
 argument_list|)
 expr_stmt|;
 name|template
@@ -149,10 +149,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"file://target/intercept"
-argument_list|,
 name|exchange
 operator|.
 name|getFromEndpoint
@@ -160,6 +158,11 @@ argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"file://target/intercept"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -189,7 +192,7 @@ name|Exception
 block|{
 name|interceptSendToEndpoint
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|)
 operator|.
 name|to
@@ -216,7 +219,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct:foo"
+literal|"seda:foo"
 argument_list|)
 expr_stmt|;
 block|}
