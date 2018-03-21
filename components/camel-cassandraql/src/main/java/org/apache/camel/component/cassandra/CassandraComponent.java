@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -251,7 +251,7 @@ condition|)
 block|{
 name|port
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -262,7 +262,7 @@ argument_list|)
 expr_stmt|;
 name|hosts
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
