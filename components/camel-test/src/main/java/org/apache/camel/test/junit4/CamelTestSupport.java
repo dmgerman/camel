@@ -1310,7 +1310,7 @@ condition|(
 name|first
 condition|)
 block|{
-name|doSpringBootWarning
+name|doSpringBootCheck
 argument_list|()
 expr_stmt|;
 name|doPreSetup
@@ -1337,7 +1337,7 @@ block|}
 else|else
 block|{
 comment|// test is per test so always setup
-name|doSpringBootWarning
+name|doSpringBootCheck
 argument_list|()
 expr_stmt|;
 name|doPreSetup
@@ -1379,11 +1379,11 @@ name|Exception
 block|{
 comment|// noop
 block|}
-comment|/**      * Detects if this is a Spring-Boot test and reports a warning as these base classes is not intended      * for testing Camel on Spring Boot.      */
-DECL|method|doSpringBootWarning ()
+comment|/**      * Detects if this is a Spring-Boot test and throws an exception, as these base classes is not intended      * for testing Camel on Spring Boot.      */
+DECL|method|doSpringBootCheck ()
 specifier|protected
 name|void
-name|doSpringBootWarning
+name|doSpringBootCheck
 parameter_list|()
 block|{
 name|boolean
@@ -1399,15 +1399,15 @@ condition|(
 name|springBoot
 condition|)
 block|{
-name|log
-operator|.
-name|warn
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Spring Boot detected: The CamelTestSupport/CamelSpringTestSupport class is not intended for Camel testing with Spring Boot."
 operator|+
 literal|" Prefer to not extend this class, but use @RunWith(CamelSpringBootRunner.class) instead."
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 DECL|method|doSetUp ()
