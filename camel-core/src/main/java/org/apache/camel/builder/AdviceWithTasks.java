@@ -2866,7 +2866,16 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// if we are in first|last mode then we should
 comment|// skip abstract nodes in the beginning as they are cross cutting functionality such as onException, onCompletion etc
+comment|// and the user want to select first or last outputs in the route (not cross cutting functionality)
+name|boolean
+name|skip
+init|=
+name|selectFirst
+operator|||
+name|selectLast
+decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
@@ -2897,7 +2906,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|skip
+condition|)
 block|{
 name|boolean
 name|invalid
@@ -2926,6 +2939,16 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+name|outputs
+operator|.
+name|add
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@

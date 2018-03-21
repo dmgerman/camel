@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RouteBuilder} which has extended capabilities when using  * the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.  *<p/>  *<b>Important:</b> It is recommended to only advice a given route once (you can of course advice multiple routes).  * If you do it multiple times, then it may not work as expected, especially when any kind of error handling is involved.  * The Camel team plan for Camel 3.0 to support this as internal refactorings in the routing engine is needed to support this properly.  *  * @see org.apache.camel.model.RouteDefinition#adviceWith(org.apache.camel.CamelContext, RouteBuilder)  */
+comment|/**  * A {@link RouteBuilder} which has extended capabilities when using  * the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.  *<p/>  *<b>Important:</b> It is recommended to only advice a given route once (you can of course advice multiple routes).  * If you do it multiple times, then it may not work as expected, especially when any kind of error handling is involved.  *  * @see org.apache.camel.model.RouteDefinition#adviceWith(org.apache.camel.CamelContext, RouteBuilder)  */
 end_comment
 
 begin_class
@@ -138,7 +138,7 @@ name|AdviceWithTask
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Sets the original route which we advice.      *      * @param originalRoute the original route we advice.      */
+comment|/**      * Sets the original route to be adviced.      *      * @param originalRoute the original route.      */
 DECL|method|setOriginalRoute (RouteDefinition originalRoute)
 specifier|public
 name|void
@@ -155,7 +155,7 @@ operator|=
 name|originalRoute
 expr_stmt|;
 block|}
-comment|/**      * Gets the original route we advice.      *      * @return the original route.      */
+comment|/**      * Gets the original route to be adviced.      *      * @return the original route.      */
 DECL|method|getOriginalRoute ()
 specifier|public
 name|RouteDefinition
@@ -180,7 +180,7 @@ return|return
 name|adviceWithTasks
 return|;
 block|}
-comment|/**      * Mock all endpoints in the route.      *      * @throws Exception can be thrown if error occurred      */
+comment|/**      * Mock all endpoints in the route (incl onException etc).      *      * @throws Exception can be thrown if error occurred      */
 DECL|method|mockEndpoints ()
 specifier|public
 name|void
@@ -202,7 +202,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Mock all endpoints in the route (incl onException etc) matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|mockEndpoints (String... pattern)
 specifier|public
 name|void
@@ -348,7 +348,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Weaves by matching id of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching id of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
 DECL|method|weaveById (String pattern)
 specifier|public
 parameter_list|<
@@ -399,7 +399,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by matching the to string representation of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching the to string representation of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
 DECL|method|weaveByToString (String pattern)
 specifier|public
 parameter_list|<
@@ -450,7 +450,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by matching sending to endpoints with the given uri of the nodes in the route.      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching sending to endpoints with the given uri of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchPattern(String, String)      */
 DECL|method|weaveByToUri (String pattern)
 specifier|public
 parameter_list|<
@@ -501,7 +501,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by matching type of the nodes in the route.      *      * @param type the processor type      * @return the builder      */
+comment|/**      * Weaves by matching type of the nodes in the route (incl onException etc).      *      * @param type the processor type      * @return the builder      */
 DECL|method|weaveByType (Class<T> type)
 specifier|public
 parameter_list|<
@@ -555,7 +555,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by adding the nodes to the start of the route.      *      * @return the builder      */
+comment|/**      * Weaves by adding the nodes to the start of the route (excl onException etc).      *      * @return the builder      */
 DECL|method|weaveAddFirst ()
 specifier|public
 parameter_list|<
@@ -609,7 +609,7 @@ name|before
 argument_list|()
 return|;
 block|}
-comment|/**      * Weaves by adding the nodes to the end of the route.      *      * @return the builder      */
+comment|/**      * Weaves by adding the nodes to the end of the route (excl onException etc).      *      * @return the builder      */
 DECL|method|weaveAddLast ()
 specifier|public
 parameter_list|<
