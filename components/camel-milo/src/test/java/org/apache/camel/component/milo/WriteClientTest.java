@@ -610,8 +610,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// assert
-name|this
-operator|.
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -708,8 +706,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// assert
-name|this
-operator|.
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

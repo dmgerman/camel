@@ -173,6 +173,8 @@ name|DEFAULT_NAMESPACE_URI
 argument_list|,
 literal|"items-myitem1"
 argument_list|)
+operator|+
+literal|"&allowedSecurityPolicies=None"
 decl_stmt|;
 DECL|field|MOCK_TEST_1
 specifier|private
@@ -382,8 +384,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// assert
-name|this
-operator|.
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

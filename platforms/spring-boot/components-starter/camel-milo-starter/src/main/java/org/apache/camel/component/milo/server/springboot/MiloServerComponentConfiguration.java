@@ -328,6 +328,12 @@ name|enableAnonymousAuthentication
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Set the UserTokenPolicy used when      */
+DECL|field|usernameSecurityPolicyUri
+specifier|private
+name|SecurityPolicy
+name|usernameSecurityPolicyUri
+decl_stmt|;
 comment|/**      * Set the addresses of the local addresses the server should bind to      */
 DECL|field|bindAddresses
 specifier|private
@@ -703,6 +709,32 @@ operator|.
 name|enableAnonymousAuthentication
 operator|=
 name|enableAnonymousAuthentication
+expr_stmt|;
+block|}
+DECL|method|getUsernameSecurityPolicyUri ()
+specifier|public
+name|SecurityPolicy
+name|getUsernameSecurityPolicyUri
+parameter_list|()
+block|{
+return|return
+name|usernameSecurityPolicyUri
+return|;
+block|}
+DECL|method|setUsernameSecurityPolicyUri ( SecurityPolicy usernameSecurityPolicyUri)
+specifier|public
+name|void
+name|setUsernameSecurityPolicyUri
+parameter_list|(
+name|SecurityPolicy
+name|usernameSecurityPolicyUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usernameSecurityPolicyUri
+operator|=
+name|usernameSecurityPolicyUri
 expr_stmt|;
 block|}
 DECL|method|getBindAddresses ()

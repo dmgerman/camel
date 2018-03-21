@@ -326,6 +326,18 @@ specifier|private
 name|String
 name|endpointUri
 decl_stmt|;
+comment|/**          * An alternative discovery URI          */
+DECL|field|discoveryEndpointUri
+specifier|private
+name|String
+name|discoveryEndpointUri
+decl_stmt|;
+comment|/**          * A suffix for endpoint URI when discovering          */
+DECL|field|discoveryEndpointSuffix
+specifier|private
+name|String
+name|discoveryEndpointSuffix
+decl_stmt|;
 comment|/**          * A virtual client id to force the creation of a new connection          * instance          */
 DECL|field|clientId
 specifier|private
@@ -454,6 +466,58 @@ operator|.
 name|endpointUri
 operator|=
 name|endpointUri
+expr_stmt|;
+block|}
+DECL|method|getDiscoveryEndpointUri ()
+specifier|public
+name|String
+name|getDiscoveryEndpointUri
+parameter_list|()
+block|{
+return|return
+name|discoveryEndpointUri
+return|;
+block|}
+DECL|method|setDiscoveryEndpointUri (String discoveryEndpointUri)
+specifier|public
+name|void
+name|setDiscoveryEndpointUri
+parameter_list|(
+name|String
+name|discoveryEndpointUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|discoveryEndpointUri
+operator|=
+name|discoveryEndpointUri
+expr_stmt|;
+block|}
+DECL|method|getDiscoveryEndpointSuffix ()
+specifier|public
+name|String
+name|getDiscoveryEndpointSuffix
+parameter_list|()
+block|{
+return|return
+name|discoveryEndpointSuffix
+return|;
+block|}
+DECL|method|setDiscoveryEndpointSuffix (String discoveryEndpointSuffix)
+specifier|public
+name|void
+name|setDiscoveryEndpointSuffix
+parameter_list|(
+name|String
+name|discoveryEndpointSuffix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|discoveryEndpointSuffix
+operator|=
+name|discoveryEndpointSuffix
 expr_stmt|;
 block|}
 DECL|method|getClientId ()

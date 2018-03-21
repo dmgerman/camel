@@ -126,6 +126,26 @@ name|stack
 operator|.
 name|core
 operator|.
+name|security
+operator|.
+name|SecurityPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|milo
+operator|.
+name|opcua
+operator|.
+name|stack
+operator|.
+name|core
+operator|.
 name|types
 operator|.
 name|builtin
@@ -183,6 +203,16 @@ return|return
 name|this
 operator|.
 name|serverPort
+return|;
+block|}
+DECL|method|isAddServer ()
+specifier|protected
+name|boolean
+name|isAddServer
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 comment|/**      * Replace the port placeholder with the dynamic server port      *       * @param uri the URI to process      * @return the result, may be {@code null} if the input is {@code null}      */
@@ -418,6 +448,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isAddServer
+argument_list|()
+condition|)
+block|{
 specifier|final
 name|MiloServerComponent
 name|server
@@ -438,6 +474,7 @@ argument_list|(
 name|server
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|configureMiloServer (final MiloServerComponent server)
 specifier|protected
@@ -472,6 +509,22 @@ operator|.
 name|setUserAuthenticationCredentials
 argument_list|(
 literal|"foo:bar,foo2:bar2"
+argument_list|)
+expr_stmt|;
+name|server
+operator|.
+name|setUsernameSecurityPolicyUri
+argument_list|(
+name|SecurityPolicy
+operator|.
+name|None
+argument_list|)
+expr_stmt|;
+name|server
+operator|.
+name|setSecurityPoliciesById
+argument_list|(
+literal|"None"
 argument_list|)
 expr_stmt|;
 block|}

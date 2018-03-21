@@ -55,6 +55,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EnumSet
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -168,6 +178,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|eclipse
+operator|.
+name|milo
+operator|.
+name|opcua
+operator|.
+name|stack
+operator|.
+name|core
+operator|.
+name|security
+operator|.
+name|SecurityPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -225,7 +255,7 @@ argument_list|,
 literal|"items-myitem1"
 argument_list|)
 operator|+
-literal|"&keyStoreUrl=file:src/test/resources/cert/cert.p12&keyStorePassword=pwd1&keyPassword=pwd1"
+literal|"&keyStoreUrl=file:src/test/resources/cert/cert.p12&keyStorePassword=pwd1&keyPassword=pwd1&discoveryEndpointSuffix=/discovery"
 decl_stmt|;
 comment|// with wrong password
 DECL|field|MILO_CLIENT_ITEM_C2_1
@@ -247,6 +277,8 @@ name|DEFAULT_NAMESPACE_URI
 argument_list|,
 literal|"items-myitem1"
 argument_list|)
+operator|+
+literal|"&discoveryEndpointSuffix=/discovery"
 decl_stmt|;
 comment|// without key, clientId=1
 DECL|field|MILO_CLIENT_ITEM_C3_1
@@ -268,6 +300,8 @@ name|DEFAULT_NAMESPACE_URI
 argument_list|,
 literal|"items-myitem1"
 argument_list|)
+operator|+
+literal|"&discoveryEndpointSuffix=/discovery"
 decl_stmt|;
 DECL|field|MOCK_TEST_1
 specifier|private
@@ -433,6 +467,29 @@ name|toFile
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|setSecurityPolicies
+argument_list|(
+name|EnumSet
+operator|.
+name|of
+argument_list|(
+name|SecurityPolicy
+operator|.
+name|Basic256Sha256
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|server
+operator|.
+name|setUsernameSecurityPolicyUri
+argument_list|(
+name|SecurityPolicy
+operator|.
+name|Basic256Sha256
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -590,8 +647,6 @@ literal|"Foo"
 argument_list|)
 expr_stmt|;
 comment|// assert
-name|this
-operator|.
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
