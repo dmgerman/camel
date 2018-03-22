@@ -257,7 +257,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"advance"
+literal|"security"
 argument_list|)
 DECL|field|user
 specifier|private
@@ -269,7 +269,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"advance"
+literal|"security"
 argument_list|,
 name|secret
 operator|=
@@ -285,7 +285,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"advanced"
+literal|"security"
 argument_list|,
 name|defaultValue
 operator|=
