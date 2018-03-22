@@ -361,8 +361,10 @@ specifier|public
 name|ElasticsearchComponent
 parameter_list|()
 block|{
-name|super
-argument_list|()
+name|this
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ElasticsearchComponent (CamelContext context)
@@ -376,6 +378,13 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|ElasticsearchRestComponentVerifierExtension
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
