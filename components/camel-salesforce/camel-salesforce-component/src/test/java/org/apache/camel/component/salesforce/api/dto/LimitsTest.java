@@ -178,6 +178,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|utils
+operator|.
+name|JsonUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -305,8 +325,9 @@ specifier|final
 name|ObjectMapper
 name|mapper
 init|=
-operator|new
-name|ObjectMapper
+name|JsonUtils
+operator|.
+name|createObjectMapper
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -404,27 +425,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|usageShouldBeUnknownIfUnknown ()
-specifier|public
-name|void
-name|usageShouldBeUnknownIfUnknown
-parameter_list|()
-block|{
-name|assertTrue
-argument_list|(
-literal|"Unknown usage must declare itself as such"
-argument_list|,
-name|Usage
-operator|.
-name|UNKNOWN
-operator|.
-name|isUnknown
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|shouldSupportGettingAllDefinedUsages ()
 specifier|public
 name|void
@@ -433,6 +433,7 @@ parameter_list|()
 throws|throws
 name|IntrospectionException
 block|{
+specifier|final
 name|BeanInfo
 name|beanInfo
 init|=
@@ -445,6 +446,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|final
 name|PropertyDescriptor
 index|[]
 name|propertyDescriptors
@@ -454,6 +456,7 @@ operator|.
 name|getPropertyDescriptors
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Set
 argument_list|<
 name|String
@@ -467,6 +470,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|PropertyDescriptor
 name|descriptor
 range|:
@@ -484,6 +488,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|Set
 argument_list|<
 name|String
@@ -546,6 +551,27 @@ operator|.
 name|emptySet
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|usageShouldBeUnknownIfUnknown ()
+specifier|public
+name|void
+name|usageShouldBeUnknownIfUnknown
+parameter_list|()
+block|{
+name|assertTrue
+argument_list|(
+literal|"Unknown usage must declare itself as such"
+argument_list|,
+name|Usage
+operator|.
+name|UNKNOWN
+operator|.
+name|isUnknown
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
