@@ -267,6 +267,10 @@ decl_stmt|;
 annotation|@
 name|Metadata
 argument_list|(
+name|label
+operator|=
+literal|"advance"
+argument_list|,
 name|secret
 operator|=
 literal|true
