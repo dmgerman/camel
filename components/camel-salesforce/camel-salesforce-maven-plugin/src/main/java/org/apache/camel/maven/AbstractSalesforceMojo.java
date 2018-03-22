@@ -777,6 +777,9 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+name|setup
+argument_list|()
+expr_stmt|;
 specifier|final
 name|RestClient
 name|restClient
@@ -1517,6 +1520,12 @@ parameter_list|)
 throws|throws
 name|MojoExecutionException
 function_decl|;
+DECL|method|setup ()
+specifier|protected
+name|void
+name|setup
+parameter_list|()
+block|{     }
 block|}
 end_class
 
