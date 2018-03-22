@@ -58,6 +58,26 @@ name|springframework
 operator|.
 name|boot
 operator|.
+name|actuate
+operator|.
+name|autoconfigure
+operator|.
+name|endpoint
+operator|.
+name|condition
+operator|.
+name|ConditionalOnEnabledEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
 name|autoconfigure
 operator|.
 name|AutoConfigureAfter
@@ -186,6 +206,8 @@ name|class
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean
+annotation|@
+name|ConditionalOnEnabledEndpoint
 DECL|method|routeControllerEndpoint (CamelContext camelContext)
 specifier|public
 name|CamelRouteControllerEndpoint
