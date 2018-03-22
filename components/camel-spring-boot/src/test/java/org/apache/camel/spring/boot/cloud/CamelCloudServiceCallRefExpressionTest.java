@@ -116,16 +116,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -336,11 +326,6 @@ name|SpringBootPropertySourceConfig
 operator|.
 name|class
 block|}
-argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Does not work"
 argument_list|)
 DECL|class|CamelCloudServiceCallRefExpressionTest
 specifier|public
