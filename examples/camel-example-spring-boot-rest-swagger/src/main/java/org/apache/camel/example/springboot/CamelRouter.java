@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple Camel REST DSL route with Swagger API documentation.  *   */
+comment|/**  * A simple Camel REST DSL route with Swagger API documentation.  */
 end_comment
 
 begin_class
@@ -121,6 +121,7 @@ throws|throws
 name|Exception
 block|{
 comment|// @formatter:off
+comment|// this can also be configured in application.properties
 name|restConfiguration
 argument_list|()
 operator|.
@@ -143,6 +144,12 @@ argument_list|,
 literal|"true"
 argument_list|)
 operator|.
+name|enableCORS
+argument_list|(
+literal|true
+argument_list|)
+comment|// turn on swagger api-doc
+operator|.
 name|apiContextPath
 argument_list|(
 literal|"/api-doc"
@@ -160,13 +167,6 @@ argument_list|(
 literal|"api.version"
 argument_list|,
 literal|"1.0.0"
-argument_list|)
-operator|.
-name|apiProperty
-argument_list|(
-literal|"cors"
-argument_list|,
-literal|"true"
 argument_list|)
 expr_stmt|;
 name|rest

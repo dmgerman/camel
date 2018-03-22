@@ -22,22 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|servlet
-operator|.
-name|CamelHttpTransportServlet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -60,35 +44,9 @@ name|SpringBootApplication
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|web
-operator|.
-name|servlet
-operator|.
-name|ServletRegistrationBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|annotation
-operator|.
-name|Bean
-import|;
-end_import
+begin_comment
+comment|// CHECKSTYLE:OFF
+end_comment
 
 begin_class
 annotation|@
@@ -122,40 +80,12 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Bean
-DECL|method|camelServletRegistrationBean ()
-specifier|public
-name|ServletRegistrationBean
-name|camelServletRegistrationBean
-parameter_list|()
-block|{
-name|ServletRegistrationBean
-name|registration
-init|=
-operator|new
-name|ServletRegistrationBean
-argument_list|(
-operator|new
-name|CamelHttpTransportServlet
-argument_list|()
-argument_list|,
-literal|"/camel/*"
-argument_list|)
-decl_stmt|;
-name|registration
-operator|.
-name|setName
-argument_list|(
-literal|"CamelServlet"
-argument_list|)
-expr_stmt|;
-return|return
-name|registration
-return|;
-block|}
 block|}
 end_class
+
+begin_comment
+comment|// CHECKSTYLE:ON
+end_comment
 
 end_unit
 
