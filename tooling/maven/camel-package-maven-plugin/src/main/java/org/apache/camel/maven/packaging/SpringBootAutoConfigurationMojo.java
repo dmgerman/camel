@@ -15796,7 +15796,14 @@ name|parentClass
 operator|.
 name|addImport
 argument_list|(
-literal|"org.apache.camel.spring.boot.util.RelaxedPropertyResolver"
+literal|"org.springframework.boot.context.properties.bind.Bindable"
+argument_list|)
+expr_stmt|;
+name|parentClass
+operator|.
+name|addImport
+argument_list|(
+literal|"org.springframework.boot.context.properties.bind.Binder"
 argument_list|)
 expr_stmt|;
 name|parentClass
@@ -15973,12 +15980,12 @@ argument_list|()
 operator|.
 name|append
 argument_list|(
-literal|"RelaxedPropertyResolver resolver = new RelaxedPropertyResolver(context.getEnvironment(), prefix);\n"
+literal|"String property = prefix.endsWith(\".\") ? prefix + \"enabled\" : prefix + \".enabled\";\n"
 argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"return resolver.getProperty(\"enabled\", Boolean.class, defaultValue);"
+literal|"return Binder.get(context.getEnvironment()).bind(property, Bindable.of(Boolean.class)).orElse(defaultValue);"
 argument_list|)
 operator|.
 name|toString
