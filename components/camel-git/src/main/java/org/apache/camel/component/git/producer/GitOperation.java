@@ -110,6 +110,12 @@ name|PULL_OPERATION
 init|=
 literal|"pull"
 decl_stmt|;
+DECL|field|MERGE_OPERATION
+name|String
+name|MERGE_OPERATION
+init|=
+literal|"merge"
+decl_stmt|;
 DECL|field|SHOW_BRANCHES
 name|String
 name|SHOW_BRANCHES
