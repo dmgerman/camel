@@ -3071,13 +3071,6 @@ literal|"Byte"
 block|}
 block|,
 comment|//
-block|{
-literal|"dateTime"
-block|,
-literal|"java.time.ZonedDateTime"
-block|}
-block|,
-comment|//
 comment|// the blob base64Binary type is mapped to String URL for retrieving
 comment|// the blob
 block|{
@@ -3109,16 +3102,23 @@ block|}
 block|,
 comment|//
 block|{
-literal|"time"
+literal|"dateTime"
 block|,
 literal|"java.time.ZonedDateTime"
 block|}
 block|,
 comment|//
 block|{
+literal|"time"
+block|,
+literal|"java.time.OffsetTime"
+block|}
+block|,
+comment|//
+block|{
 literal|"date"
 block|,
-literal|"java.time.ZonedDateTime"
+literal|"java.time.LocalDate"
 block|}
 block|,
 comment|//
