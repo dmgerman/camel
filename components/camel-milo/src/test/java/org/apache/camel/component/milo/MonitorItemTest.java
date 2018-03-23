@@ -174,7 +174,7 @@ argument_list|,
 literal|"items-myitem1"
 argument_list|)
 operator|+
-literal|"&allowedSecurityPolicies=None"
+literal|"&allowedSecurityPolicies=None&overrideHost=true"
 decl_stmt|;
 DECL|field|MOCK_TEST_1
 specifier|private

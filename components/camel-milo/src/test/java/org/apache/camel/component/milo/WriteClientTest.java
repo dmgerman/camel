@@ -267,6 +267,8 @@ name|DEFAULT_NAMESPACE_URI
 argument_list|,
 literal|"items-myitem1"
 argument_list|)
+operator|+
+literal|"&overrideHost=true"
 decl_stmt|;
 DECL|field|MILO_CLIENT_ITEM_C1_2
 specifier|private
@@ -287,6 +289,8 @@ name|DEFAULT_NAMESPACE_URI
 argument_list|,
 literal|"items-myitem2"
 argument_list|)
+operator|+
+literal|"&overrideHost=true"
 decl_stmt|;
 DECL|field|MILO_CLIENT_ITEM_C2_1
 specifier|private
@@ -307,6 +311,8 @@ name|DEFAULT_NAMESPACE_URI
 argument_list|,
 literal|"items-myitem1"
 argument_list|)
+operator|+
+literal|"&overrideHost=true"
 decl_stmt|;
 DECL|field|MILO_CLIENT_ITEM_C2_2
 specifier|private
@@ -327,6 +333,8 @@ name|DEFAULT_NAMESPACE_URI
 argument_list|,
 literal|"items-myitem2"
 argument_list|)
+operator|+
+literal|"&overrideHost=true"
 decl_stmt|;
 DECL|field|MOCK_TEST_1
 specifier|private

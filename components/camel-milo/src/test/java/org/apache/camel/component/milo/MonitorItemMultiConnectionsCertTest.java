@@ -255,7 +255,7 @@ argument_list|,
 literal|"items-myitem1"
 argument_list|)
 operator|+
-literal|"&keyStoreUrl=file:src/test/resources/cert/cert.p12&keyStorePassword=pwd1&keyPassword=pwd1&discoveryEndpointSuffix=/discovery"
+literal|"&keyStoreUrl=file:src/test/resources/cert/cert.p12&keyStorePassword=pwd1&keyPassword=pwd1&discoveryEndpointSuffix=/discovery&overrideHost=true"
 decl_stmt|;
 comment|// with wrong password
 DECL|field|MILO_CLIENT_ITEM_C2_1
@@ -278,7 +278,7 @@ argument_list|,
 literal|"items-myitem1"
 argument_list|)
 operator|+
-literal|"&discoveryEndpointSuffix=/discovery"
+literal|"&discoveryEndpointSuffix=/discovery&overrideHost=true"
 decl_stmt|;
 comment|// without key, clientId=1
 DECL|field|MILO_CLIENT_ITEM_C3_1
@@ -301,7 +301,7 @@ argument_list|,
 literal|"items-myitem1"
 argument_list|)
 operator|+
-literal|"&discoveryEndpointSuffix=/discovery"
+literal|"&discoveryEndpointSuffix=/discovery&overrideHost=true"
 decl_stmt|;
 DECL|field|MOCK_TEST_1
 specifier|private
