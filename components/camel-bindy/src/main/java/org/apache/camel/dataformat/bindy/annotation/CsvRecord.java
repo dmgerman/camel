@@ -141,7 +141,7 @@ parameter_list|()
 default|default
 literal|"\""
 function_decl|;
-comment|/**      * Indicate if the values must be quoted when marshaling (optional)      */
+comment|/**      * Indicate if the values (and headers) must be quoted when marshaling (optional)      */
 DECL|method|quoting ()
 DECL|field|false
 name|boolean
