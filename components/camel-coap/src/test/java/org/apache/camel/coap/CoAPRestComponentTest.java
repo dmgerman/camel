@@ -225,13 +225,6 @@ operator|+
 literal|"/TestResource/Ducky"
 argument_list|)
 expr_stmt|;
-name|client
-operator|.
-name|setTimeout
-argument_list|(
-literal|1000000
-argument_list|)
-expr_stmt|;
 name|rsp
 operator|=
 name|client
