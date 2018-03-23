@@ -116,9 +116,9 @@ name|MERGE_OPERATION
 init|=
 literal|"merge"
 decl_stmt|;
-DECL|field|SHOW_BRANCHES
+DECL|field|SHOW_BRANCHES_OPERATION
 name|String
-name|SHOW_BRANCHES
+name|SHOW_BRANCHES_OPERATION
 init|=
 literal|"showBranches"
 decl_stmt|;

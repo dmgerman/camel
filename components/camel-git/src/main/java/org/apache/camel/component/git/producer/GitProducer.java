@@ -850,7 +850,7 @@ break|break;
 case|case
 name|GitOperation
 operator|.
-name|SHOW_BRANCHES
+name|SHOW_BRANCHES_OPERATION
 case|:
 name|doShowBranches
 argument_list|(
