@@ -106,6 +106,18 @@ name|assertTrue
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests for the MllpSocketBuffer class.  */
 end_comment
@@ -118,6 +130,49 @@ name|MllpSocketBufferTest
 extends|extends
 name|SocketBufferTestSupport
 block|{
+comment|/**      * Description of test.      *      * @throws Exception in the event of a test error.      */
+annotation|@
+name|Test
+DECL|method|testConstructorWithNullEndpoing ()
+specifier|public
+name|void
+name|testConstructorWithNullEndpoing
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+operator|new
+name|MllpSocketBuffer
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Constructor should have thrown an exception with a null Endpoint argument"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|expectedEx
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"MllpEndpoint cannot be null"
+argument_list|,
+name|expectedEx
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Description of test.      *      * @throws Exception in the event of a test error.      */
 annotation|@
 name|Test

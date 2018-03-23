@@ -481,9 +481,15 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"offset<%d> is less than zero"
+literal|"write(byte[%d], offset[%d], writeCount[%d]) - offset is less than zero"
+argument_list|,
+name|sourceBytes
+operator|.
+name|length
 argument_list|,
 name|offset
+argument_list|,
+name|writeCount
 argument_list|)
 argument_list|)
 throw|;
@@ -505,7 +511,11 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"offset<%d> is greater than write count<%d>"
+literal|"write(byte[%d], offset[%d], writeCount[%d]) - offset is greater than write count"
+argument_list|,
+name|sourceBytes
+operator|.
+name|length
 argument_list|,
 name|offset
 argument_list|,
@@ -529,7 +539,13 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"write count<%d> is less than zero"
+literal|"write(byte[%d], offset[%d], writeCount[%d]) - write count is less than zero"
+argument_list|,
+name|sourceBytes
+operator|.
+name|length
+argument_list|,
+name|offset
 argument_list|,
 name|writeCount
 argument_list|)
@@ -553,13 +569,15 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"write count<%d> is greater than length of the source byte[]<%d>"
-argument_list|,
-name|writeCount
+literal|"write(byte[%d], offset[%d], writeCount[%d]) - write count is greater than length of the source byte[]"
 argument_list|,
 name|sourceBytes
 operator|.
 name|length
+argument_list|,
+name|offset
+argument_list|,
+name|writeCount
 argument_list|)
 argument_list|)
 throw|;
@@ -587,7 +605,11 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"offset<%d> plus write count<%d> is<%d> is greater than length<%d> of the source byte[]"
+literal|"write(byte[%d], offset[%d], writeCount[%d]) - offset plus write count<%d> is greater than length of the source byte[]"
+argument_list|,
+name|sourceBytes
+operator|.
+name|length
 argument_list|,
 name|offset
 argument_list|,
@@ -596,10 +618,6 @@ argument_list|,
 name|offset
 operator|+
 name|writeCount
-argument_list|,
-name|sourceBytes
-operator|.
-name|length
 argument_list|)
 argument_list|)
 throw|;
@@ -773,12 +791,8 @@ operator|.
 name|START_OF_BLOCK
 condition|)
 block|{
-name|write
-argument_list|(
-name|MllpProtocolConstants
-operator|.
-name|START_OF_BLOCK
-argument_list|)
+name|openMllpEnvelope
+argument_list|()
 expr_stmt|;
 block|}
 name|write
@@ -797,30 +811,18 @@ name|hasCompleteEnvelope
 argument_list|()
 condition|)
 block|{
-name|write
-argument_list|(
-name|MllpProtocolConstants
-operator|.
-name|PAYLOAD_TERMINATOR
-argument_list|)
+name|closeMllpEnvelope
+argument_list|()
 expr_stmt|;
 block|}
 block|}
 else|else
 block|{
-name|write
-argument_list|(
-name|MllpProtocolConstants
-operator|.
-name|START_OF_BLOCK
-argument_list|)
+name|openMllpEnvelope
+argument_list|()
 expr_stmt|;
-name|write
-argument_list|(
-name|MllpProtocolConstants
-operator|.
-name|PAYLOAD_TERMINATOR
-argument_list|)
+name|closeMllpEnvelope
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -945,9 +947,13 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Entering readFrom for {} ..."
+literal|"readFrom({}, {}, {}) - entering"
 argument_list|,
 name|socket
+argument_list|,
+name|receiveTimeout
+argument_list|,
+name|readTimeout
 argument_list|)
 expr_stmt|;
 name|ensureCapacity
@@ -1045,7 +1051,18 @@ specifier|final
 name|String
 name|exceptionMessage
 init|=
-literal|"Exception encountered reading Socket"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"readFrom(%s, %d, %d) - IOException encountered"
+argument_list|,
+name|socket
+argument_list|,
+name|receiveTimeout
+argument_list|,
+name|readTimeout
+argument_list|)
 decl_stmt|;
 name|resetSocket
 argument_list|(
@@ -1099,9 +1116,13 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"readFrom {} exiting with partial payload {}"
+literal|"readFrom({}, {}, {}) - exiting with partial payload {}"
 argument_list|,
 name|socket
+argument_list|,
+name|receiveTimeout
+argument_list|,
+name|readTimeout
 argument_list|,
 name|Hl7Util
 operator|.
@@ -1128,7 +1149,13 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Socket is invalid - no data read"
+literal|"readFrom({}, {}, {}) - no data read because Socket is invalid"
+argument_list|,
+name|socket
+argument_list|,
+name|receiveTimeout
+argument_list|,
+name|readTimeout
 argument_list|)
 expr_stmt|;
 block|}
@@ -1136,7 +1163,13 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Exiting readFrom ..."
+literal|"readFrom({}, {}, {}) - exiting"
+argument_list|,
+name|socket
+argument_list|,
+name|receiveTimeout
+argument_list|,
+name|readTimeout
 argument_list|)
 expr_stmt|;
 block|}
@@ -1174,7 +1207,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Entering writeTo for {} ..."
+literal|"writeTo({}) - entering"
 argument_list|,
 name|socket
 argument_list|)
@@ -1330,7 +1363,14 @@ specifier|final
 name|String
 name|exceptionMessage
 init|=
-literal|"Exception encountered writing Socket"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"writeTo({}) - IOException encountered"
+argument_list|,
+name|socket
+argument_list|)
 decl_stmt|;
 name|resetSocket
 argument_list|(
@@ -1356,7 +1396,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring call to writeTo(byte[] payload) for {} - MLLP payload is null or empty"
+literal|"writeTo({}) - no data written because buffer is empty"
 argument_list|,
 name|socket
 argument_list|)
@@ -1369,7 +1409,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Socket is invalid - no data written"
+literal|"writeTo({}) - no data written because Socket is invalid"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 block|}
@@ -1377,7 +1419,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Exiting writeTo ..."
+literal|"writeTo({}) - exiting"
+argument_list|,
+name|socket
 argument_list|)
 expr_stmt|;
 block|}
@@ -1532,7 +1576,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unsupported character set name {} - using the MLLP default character set {}"
+literal|"toString(charsetName[{}]) - unsupported character set name - using the MLLP default character set {}"
 argument_list|,
 name|charsetName
 argument_list|,
@@ -1553,7 +1597,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring exception encountered determining character set for name {} - using the MLLP default character set {}"
+literal|"toString(charsetName[{}]) - ignoring exception encountered determining character set - using the MLLP default character set {}"
 argument_list|,
 name|charsetName
 argument_list|,
@@ -1765,7 +1809,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unsupported character set name {} - using the MLLP default character set {}"
+literal|"toHl7String(charsetName[{}]) - unsupported character set name - using the MLLP default character set {}"
 argument_list|,
 name|charsetName
 argument_list|,
@@ -1786,7 +1830,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring exception encountered determining character set for name {} - using the MLLP default character set {}"
+literal|"toHl7String(charsetName[{}]) - ignoring exception encountered determining character set for name - using the MLLP default character set {}"
 argument_list|,
 name|charsetName
 argument_list|,
@@ -2854,7 +2898,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Entering readSocketInputStream - size = {}"
+literal|"readSocketInputStream(socketInputStream, {}) - entering with initial buffer size = {}"
+argument_list|,
+name|socket
 argument_list|,
 name|size
 argument_list|()
@@ -2889,6 +2935,31 @@ operator|.
 name|END_OF_STREAM
 condition|)
 block|{
+specifier|final
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"readSocketInputStream(socketInputStream, %s) - END_OF_STREAM returned from SocketInputStream.read(byte[%d], %d, %d)"
+argument_list|,
+name|socket
+argument_list|,
+name|buffer
+operator|.
+name|length
+argument_list|,
+name|availableByteCount
+argument_list|,
+name|buffer
+operator|.
+name|length
+operator|-
+name|availableByteCount
+argument_list|)
+decl_stmt|;
 name|resetSocket
 argument_list|(
 name|socket
@@ -2898,7 +2969,7 @@ throw|throw
 operator|new
 name|MllpSocketException
 argument_list|(
-literal|"END_OF_STREAM returned from SocketInputStream.read(byte[], off, len)"
+name|exceptionMessage
 argument_list|)
 throw|;
 block|}
@@ -2963,7 +3034,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Read {} bytes for a total of {} bytes"
+literal|"readSocketInputStream(socketInputStream, {}) - read {} bytes for a total of {} bytes"
+argument_list|,
+name|socket
 argument_list|,
 name|readCount
 argument_list|,
@@ -2977,7 +3050,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring {} bytes received before START_OF_BLOCK"
+literal|"readSocketInputStream(socketInputStream, {}) - ignoring {} bytes received before START_OF_BLOCK"
+argument_list|,
+name|socket
 argument_list|,
 name|size
 argument_list|()
@@ -3001,27 +3076,6 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|SocketException
-name|socketEx
-parameter_list|)
-block|{
-name|resetSocket
-argument_list|(
-name|socket
-argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|MllpSocketException
-argument_list|(
-literal|"SocketException encountered in readSocketInputStream"
-argument_list|,
-name|socketEx
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|IOException
 name|ioEx
 parameter_list|)
@@ -3030,7 +3084,28 @@ specifier|final
 name|String
 name|exceptionMessage
 init|=
-literal|"IOException thrown from SocketInputStream.read(byte[], off, len)"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"readSocketInputStream(socketInputStream, %s) - IOException thrown from SocketInputStream.read(byte[%d], %d, %d) from %s"
+argument_list|,
+name|socket
+argument_list|,
+name|buffer
+operator|.
+name|length
+argument_list|,
+name|availableByteCount
+argument_list|,
+name|buffer
+operator|.
+name|length
+operator|-
+name|availableByteCount
+argument_list|,
+name|socket
+argument_list|)
 decl_stmt|;
 name|resetSocket
 argument_list|(
@@ -3041,7 +3116,7 @@ throw|throw
 operator|new
 name|MllpSocketException
 argument_list|(
-literal|"IOException thrown from SocketInputStream.read(byte[], off, len)"
+name|exceptionMessage
 argument_list|,
 name|ioEx
 argument_list|)
@@ -3053,7 +3128,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Exiting readSocketInputStream - size = {}"
+literal|"readSocketInputStream(socketInputStream, {}) - exiting with buffer size = {}"
+argument_list|,
+name|socket
 argument_list|,
 name|size
 argument_list|()
@@ -3252,7 +3329,21 @@ name|IOException
 name|ignoredEx
 parameter_list|)
 block|{
-comment|// TODO: Maybe log this
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"doSocketClose(socket[{}], logMessage[{}], reset[{}] - ignoring exception raised by Socket.shutdownInput()"
+argument_list|,
+name|socket
+argument_list|,
+name|logMessage
+argument_list|,
+name|reset
+argument_list|,
+name|ignoredEx
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -3278,15 +3369,27 @@ name|IOException
 name|ignoredEx
 parameter_list|)
 block|{
-comment|// TODO: Maybe log this
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"doSocketClose(socket[{}], logMessage[{}], reset[{}] - ignoring exception raised by Socket.shutdownOutput()"
+argument_list|,
+name|socket
+argument_list|,
+name|logMessage
+argument_list|,
+name|reset
+argument_list|,
+name|ignoredEx
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
 condition|(
 name|reset
 condition|)
-block|{
-try|try
 block|{
 specifier|final
 name|boolean
@@ -3300,6 +3403,8 @@ name|linger
 init|=
 literal|0
 decl_stmt|;
+try|try
+block|{
 name|socket
 operator|.
 name|setSoLinger
@@ -3316,7 +3421,25 @@ name|IOException
 name|ignoredEx
 parameter_list|)
 block|{
-comment|// TODO: Maybe log this
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"doSocketClose(socket[{}], logMessage[{}], reset[{}] - ignoring exception raised by Socket.setSoLinger({}, {})"
+argument_list|,
+name|socket
+argument_list|,
+name|logMessage
+argument_list|,
+name|reset
+argument_list|,
+name|on
+argument_list|,
+name|linger
+argument_list|,
+name|ignoredEx
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 try|try
@@ -3334,6 +3457,21 @@ name|ignoredEx
 parameter_list|)
 block|{
 comment|// TODO: Maybe log this
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"doSocketClose(socket[{}], logMessage[{}], reset[{}] - ignoring exception raised by Socket.close()"
+argument_list|,
+name|socket
+argument_list|,
+name|logMessage
+argument_list|,
+name|reset
+argument_list|,
+name|ignoredEx
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

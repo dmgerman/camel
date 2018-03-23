@@ -82,18 +82,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|Charset
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Date
@@ -145,18 +133,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
 import|;
 end_import
 
@@ -302,16 +278,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|MDC
-import|;
-end_import
-
 begin_comment
 comment|/**  * The MLLP producer.  */
 end_comment
@@ -333,20 +299,24 @@ name|DefaultProducer
 implements|implements
 name|Runnable
 block|{
-DECL|field|socket
-name|Socket
-name|socket
+DECL|field|log
+specifier|final
+name|Logger
+name|log
 decl_stmt|;
 DECL|field|mllpBuffer
 specifier|final
 name|MllpSocketBuffer
 name|mllpBuffer
 decl_stmt|;
+DECL|field|socket
+name|Socket
+name|socket
+decl_stmt|;
 DECL|field|idleTimeoutExecutor
 name|ScheduledExecutorService
 name|idleTimeoutExecutor
 decl_stmt|;
-comment|// long lastProcessCallTicks = -1;
 DECL|field|cachedLocalAddress
 specifier|private
 name|String
@@ -375,6 +345,38 @@ block|{
 name|super
 argument_list|(
 name|endpoint
+argument_list|)
+expr_stmt|;
+name|log
+operator|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%s.%s.%d"
+argument_list|,
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getHostname
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|log
@@ -660,7 +662,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Processing Exchange {} for {}"
+literal|"process({}) [{}] - entering"
 argument_list|,
 name|exchange
 operator|.
@@ -772,6 +774,23 @@ operator|==
 literal|null
 condition|)
 block|{
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"process(%s) [%s] - message body is null"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -779,7 +798,7 @@ argument_list|(
 operator|new
 name|MllpInvalidMessageException
 argument_list|(
-literal|"message body is null"
+name|exceptionMessage
 argument_list|,
 name|hl7MessageBytes
 argument_list|)
@@ -866,7 +885,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending message to external system {}"
+literal|"process({}) [{}] - sending message to external system"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|)
@@ -899,11 +923,16 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception encountered writing payload to {} - attempting reconnect"
+literal|"process({}) [{}] - exception encountered writing payload - attempting reconnect"
 argument_list|,
-name|writeEx
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
+argument_list|,
+name|writeEx
 argument_list|)
 expr_stmt|;
 try|try
@@ -915,7 +944,12 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Reconnected succeeded - resending payload to {}"
+literal|"process({}) [{}] - reconnected succeeded - resending payload"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|)
@@ -936,13 +970,28 @@ name|MllpSocketException
 name|retryWriteEx
 parameter_list|)
 block|{
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"process(%s) [%s] - exception encountered attempting to write payload after reconnect"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception encountered attempting to write payload to {} after reconnect - sending original exception to exchange"
-argument_list|,
-name|socket
+name|exceptionMessage
 argument_list|,
 name|retryWriteEx
 argument_list|)
@@ -954,7 +1003,7 @@ argument_list|(
 operator|new
 name|MllpWriteException
 argument_list|(
-literal|"Exception encountered writing payload after reconnect"
+name|exceptionMessage
 argument_list|,
 name|mllpBuffer
 operator|.
@@ -973,11 +1022,28 @@ name|IOException
 name|reconnectEx
 parameter_list|)
 block|{
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"process(%s) [%s] - exception encountered attempting to reconnect"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception encountered attempting to reconnect - sending original exception to exchange"
+name|exceptionMessage
 argument_list|,
 name|reconnectEx
 argument_list|)
@@ -989,7 +1055,7 @@ argument_list|(
 operator|new
 name|MllpWriteException
 argument_list|(
-literal|"Exception encountered writing payload"
+name|exceptionMessage
 argument_list|,
 name|mllpBuffer
 operator|.
@@ -1023,7 +1089,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Reading acknowledgement from external system {}"
+literal|"process({}) [{}] - reading acknowledgement from external system"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|)
@@ -1054,7 +1125,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception encountered reading acknowledgement from {} - attempting reconnect"
+literal|"process({}) [{}] - exception encountered reading acknowledgement - attempting reconnect"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|,
@@ -1073,11 +1149,28 @@ name|IOException
 name|reconnectEx
 parameter_list|)
 block|{
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"process(%s) [%s] - exception encountered attempting to reconnect after acknowledgement read failure"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception encountered attempting to reconnect after acknowledgement read failure - sending original acknowledgement exception to exchange"
+name|exceptionMessage
 argument_list|,
 name|reconnectEx
 argument_list|)
@@ -1089,7 +1182,7 @@ argument_list|(
 operator|new
 name|MllpAcknowledgementReceiveException
 argument_list|(
-literal|"Exception encountered reading acknowledgement"
+name|exceptionMessage
 argument_list|,
 name|hl7MessageBytes
 argument_list|,
@@ -1119,7 +1212,12 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Reconnected succeeded - resending payload to {}"
+literal|"process({}) [{}] - resending payload after successful reconnect"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|)
@@ -1147,13 +1245,28 @@ name|MllpSocketException
 name|writeRetryEx
 parameter_list|)
 block|{
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"process(%s) [%s] - exception encountered attempting to write payload after read failure and successful reconnect"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception encountered attempting to write payload to {} after read failure and successful reconnect - sending original exception to exchange"
-argument_list|,
-name|socket
+name|exceptionMessage
 argument_list|,
 name|writeRetryEx
 argument_list|)
@@ -1165,7 +1278,7 @@ argument_list|(
 operator|new
 name|MllpWriteException
 argument_list|(
-literal|"Exception encountered writing payload after read failure and reconnect"
+name|exceptionMessage
 argument_list|,
 name|hl7MessageBytes
 argument_list|,
@@ -1188,7 +1301,12 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Resend succeeded - reading acknowledgement from {}"
+literal|"process({}) [{}] - resend succeeded - reading acknowledgement from {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|)
@@ -1214,96 +1332,65 @@ name|MllpSocketException
 name|secondReceiveEx
 parameter_list|)
 block|{
-if|if
-condition|(
+name|String
+name|exceptionMessageFormat
+init|=
 name|mllpBuffer
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
+condition|?
+literal|"process(%s) [%s] - exception encountered reading MLLP Acknowledgement after successful reconnect and resend"
+else|:
+literal|"process(%s) [%s] - exception encountered reading complete MLLP Acknowledgement after successful reconnect and resend"
+decl_stmt|;
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|exceptionMessageFormat
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception encountered reading acknowledgement from {} after successful reconnect and resend"
-argument_list|,
-name|socket
+name|exceptionMessage
 argument_list|,
 name|secondReceiveEx
 argument_list|)
 expr_stmt|;
-name|Exception
-name|exchangeEx
-init|=
-operator|new
-name|MllpAcknowledgementReceiveException
-argument_list|(
-literal|"Exception encountered receiving Acknowledgement"
-argument_list|,
-name|hl7MessageBytes
-argument_list|,
-name|receiveAckEx
-argument_list|)
-decl_stmt|;
+comment|// Send the original exception to the exchange
 name|exchange
 operator|.
 name|setException
 argument_list|(
-name|exchangeEx
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|byte
-index|[]
-name|partialAcknowledgment
-init|=
-name|mllpBuffer
-operator|.
-name|toByteArray
-argument_list|()
-decl_stmt|;
-name|mllpBuffer
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Exception encountered reading a complete acknowledgement from {} after successful reconnect and resend"
-argument_list|,
-name|socket
-argument_list|,
-name|secondReceiveEx
-argument_list|)
-expr_stmt|;
-name|Exception
-name|exchangeEx
-init|=
 operator|new
 name|MllpAcknowledgementReceiveException
 argument_list|(
-literal|"Exception encountered receiving complete Acknowledgement"
+name|exceptionMessage
 argument_list|,
 name|hl7MessageBytes
 argument_list|,
-name|partialAcknowledgment
+name|mllpBuffer
+operator|.
+name|toByteArrayAndReset
+argument_list|()
 argument_list|,
 name|receiveAckEx
 argument_list|)
-decl_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|exchangeEx
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1311,25 +1398,45 @@ name|SocketTimeoutException
 name|secondReadTimeoutEx
 parameter_list|)
 block|{
-if|if
-condition|(
+name|String
+name|exceptionMessageFormat
+init|=
 name|mllpBuffer
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
+condition|?
+literal|"process(%s) [%s] - timeout receiving MLLP Acknowledgment after successful reconnect and resend"
+else|:
+literal|"process(%s) [%s] - timeout receiving complete MLLP Acknowledgment after successful reconnect and resend"
+decl_stmt|;
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|exceptionMessageFormat
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout receiving HL7 Acknowledgment from {} after successful reconnect"
-argument_list|,
-name|socket
+name|exceptionMessage
 argument_list|,
 name|secondReadTimeoutEx
 argument_list|)
 expr_stmt|;
+comment|// Send the original exception to the exchange
 name|exchange
 operator|.
 name|setException
@@ -1337,54 +1444,19 @@ argument_list|(
 operator|new
 name|MllpAcknowledgementTimeoutException
 argument_list|(
-literal|"Timeout receiving HL7 Acknowledgement after successful reconnect"
-argument_list|,
-name|hl7MessageBytes
-argument_list|,
-name|secondReadTimeoutEx
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Timeout receiving complete HL7 Acknowledgment from {} after successful reconnect"
-argument_list|,
-name|socket
-argument_list|,
-name|secondReadTimeoutEx
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-operator|new
-name|MllpAcknowledgementTimeoutException
-argument_list|(
-literal|"Timeout receiving complete HL7 Acknowledgement after successful reconnect"
+name|exceptionMessage
 argument_list|,
 name|hl7MessageBytes
 argument_list|,
 name|mllpBuffer
 operator|.
-name|toByteArray
+name|toByteArrayAndReset
 argument_list|()
 argument_list|,
-name|secondReadTimeoutEx
+name|receiveAckEx
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|mllpBuffer
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
 name|mllpBuffer
 operator|.
 name|resetSocket
@@ -1402,21 +1474,40 @@ name|SocketTimeoutException
 name|timeoutEx
 parameter_list|)
 block|{
-if|if
-condition|(
+name|String
+name|exceptionMessageFormat
+init|=
 name|mllpBuffer
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
+condition|?
+literal|"process(%s) [%s] - timeout receiving MLLP Acknowledgment"
+else|:
+literal|"process(%s) [%s] - timeout receiving complete MLLP Acknowledgment"
+decl_stmt|;
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|exceptionMessageFormat
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout receiving HL7 Acknowledgment from {}"
-argument_list|,
-name|socket
+name|exceptionMessage
 argument_list|,
 name|timeoutEx
 argument_list|)
@@ -1428,54 +1519,19 @@ argument_list|(
 operator|new
 name|MllpAcknowledgementTimeoutException
 argument_list|(
-literal|"Timeout receiving HL7 Acknowledgement"
-argument_list|,
-name|hl7MessageBytes
-argument_list|,
-name|timeoutEx
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Timeout receiving complete HL7 Acknowledgment from {}"
-argument_list|,
-name|socket
-argument_list|,
-name|timeoutEx
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-operator|new
-name|MllpAcknowledgementTimeoutException
-argument_list|(
-literal|"Timeout receiving complete HL7 Acknowledgement"
+name|exceptionMessage
 argument_list|,
 name|hl7MessageBytes
 argument_list|,
 name|mllpBuffer
 operator|.
-name|toByteArray
+name|toByteArrayAndReset
 argument_list|()
 argument_list|,
 name|timeoutEx
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|mllpBuffer
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
 name|mllpBuffer
 operator|.
 name|resetSocket
@@ -1515,7 +1571,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Populating message headers with the acknowledgement from the external system {}"
+literal|"process({}) [{}] - populating message headers with the acknowledgement from the external system"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|)
@@ -1641,7 +1702,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Processing the acknowledgement from the external system {}"
+literal|"process({}) [{}] - processing the acknowledgement from the external system"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|)
@@ -1709,6 +1775,23 @@ block|}
 block|}
 else|else
 block|{
+name|String
+name|exceptionMessage
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"process(%s) [%s] - invalid acknowledgement received"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+decl_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -1716,7 +1799,7 @@ argument_list|(
 operator|new
 name|MllpInvalidAcknowledgementException
 argument_list|(
-literal|"Invalid acknowledgement received"
+name|exceptionMessage
 argument_list|,
 name|hl7MessageBytes
 argument_list|,
@@ -1741,7 +1824,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception encountered checking connection {}"
+literal|"process({}) [{}] - IOException encountered checking connection"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|,
 name|socket
 argument_list|,
@@ -1771,6 +1859,20 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"process({}) [{}] - exiting"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|socket
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|processAcknowledgment (byte[] hl7MessageBytes, byte[] hl7AcknowledgementBytes)
 specifier|private
@@ -1970,8 +2072,27 @@ block|{
 name|String
 name|errorMessage
 init|=
-literal|"Unsupported acknowledgement type: "
-operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"processAcknowledgment(hl7MessageBytes[%d], hl7AcknowledgementBytes[%d]) - unsupported acknowledgement type: '%s'"
+argument_list|,
+name|hl7MessageBytes
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
+name|hl7MessageBytes
+operator|.
+name|length
+argument_list|,
+name|hl7AcknowledgementBytes
+operator|.
+name|length
+argument_list|,
 operator|new
 name|String
 argument_list|(
@@ -1982,6 +2103,7 @@ operator|+
 literal|5
 argument_list|,
 literal|2
+argument_list|)
 argument_list|)
 decl_stmt|;
 throw|throw

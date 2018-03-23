@@ -876,7 +876,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"offset<-5> is less than zero"
+literal|"write(byte[4], offset[-5], writeCount[4]) - offset is less than zero"
 argument_list|,
 name|expectedEx
 operator|.
@@ -939,7 +939,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"offset<5> is greater than write count<4>"
+literal|"write(byte[4], offset[5], writeCount[4]) - offset is greater than write count"
 argument_list|,
 name|expectedEx
 operator|.
@@ -991,7 +991,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"write count<-5> is less than zero"
+literal|"write(byte[4], offset[0], writeCount[-5]) - write count is less than zero"
 argument_list|,
 name|expectedEx
 operator|.
@@ -1052,7 +1052,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"write count<5> is greater than length of the source byte[]<4>"
+literal|"write(byte[4], offset[0], writeCount[5]) - write count is greater than length of the source byte[]"
 argument_list|,
 name|expectedEx
 operator|.
@@ -1093,7 +1093,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"offset<1> plus write count<4> is<5> is greater than length<4> of the source byte[]"
+literal|"write(byte[4], offset[1], writeCount[4]) - offset plus write count<5> is greater than length of the source byte[]"
 argument_list|,
 name|expectedEx
 operator|.
@@ -1136,7 +1136,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"offset<2> plus write count<3> is<5> is greater than length<4> of the source byte[]"
+literal|"write(byte[4], offset[2], writeCount[3]) - offset plus write count<5> is greater than length of the source byte[]"
 argument_list|,
 name|expectedEx
 operator|.

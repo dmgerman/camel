@@ -466,6 +466,26 @@ name|IOHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * The MLLP consumer.  */
 end_comment
@@ -485,6 +505,11 @@ name|MllpTcpServerConsumer
 extends|extends
 name|DefaultConsumer
 block|{
+DECL|field|log
+specifier|final
+name|Logger
+name|log
+decl_stmt|;
 DECL|field|validationExecutor
 specifier|final
 name|ExecutorService
@@ -536,10 +561,30 @@ name|processor
 argument_list|)
 expr_stmt|;
 name|log
+operator|=
+name|LoggerFactory
 operator|.
-name|trace
+name|getLogger
 argument_list|(
-literal|"MllpTcpServerConsumer(endpoint, processor)"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%s.%d"
+argument_list|,
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|validationExecutor
@@ -800,7 +845,7 @@ name|Exception
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"doStop()"
 argument_list|)
@@ -1139,7 +1184,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Validating consumer for Socket {}"
+literal|"validateConsumer({}) - submitting client for validation"
 argument_list|,
 name|clientSocket
 argument_list|)
@@ -1162,7 +1207,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot validate consumer - max validations already active"
+literal|"validateConsumer({}) - cannot validate client - max validations already active"
+argument_list|,
+name|clientSocket
 argument_list|)
 expr_stmt|;
 name|mllpBuffer
@@ -1242,7 +1289,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Starting consumer for Socket {}"
+literal|"startConsumer({}) - starting consumer"
 argument_list|,
 name|clientSocket
 argument_list|)
@@ -1271,7 +1318,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot start consumer - max consumers already active"
+literal|"startConsumer({}) - cannot start consumer - max consumers already active"
+argument_list|,
+name|clientSocket
 argument_list|)
 expr_stmt|;
 name|mllpBuffer
@@ -1326,7 +1375,23 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Populating the exchange with received message"
+literal|"processMessage(hl7MessageBytes[{}], {}) - populating the exchange with received payload"
+argument_list|,
+name|hl7MessageBytes
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
+name|hl7MessageBytes
+operator|.
+name|length
+argument_list|,
+name|consumerRunnable
+operator|.
+name|getSocket
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -1591,7 +1656,23 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Calling processor"
+literal|"processMessage(hl7MessageBytes[{}], {}) - calling processor"
+argument_list|,
+name|hl7MessageBytes
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
+name|hl7MessageBytes
+operator|.
+name|length
+argument_list|,
+name|consumerRunnable
+operator|.
+name|getSocket
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -1623,7 +1704,7 @@ block|{
 name|String
 name|resetMessage
 init|=
-literal|"Unexpected exception processing exchange"
+literal|"processMessage(byte[], TcpSocketConsumerRunnable) - Unexpected exception processing exchange"
 decl_stmt|;
 name|consumerRunnable
 operator|.
@@ -1657,7 +1738,7 @@ argument_list|()
 operator|.
 name|handleException
 argument_list|(
-literal|"Unexpected exception creating Unit of Work"
+literal|"processMessage(byte[], TcpSocketConsumerRunnable) - Unexpected exception creating Unit of Work"
 argument_list|,
 name|exchange
 argument_list|,
@@ -2228,7 +2309,28 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"entering sendAcknowledgement(byte[], Exchange)"
+literal|"sendAcknowledgement(originalHl7MessageBytes[{}], Exchange[{}], {}) - entering"
+argument_list|,
+name|originalHl7MessageBytes
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
+name|originalHl7MessageBytes
+operator|.
+name|length
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|consumerRunnable
+operator|.
+name|getSocket
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getEndpoint
@@ -3051,6 +3153,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+comment|// TODO:  re-evaluate this - it seems that the MLLP buffer should be populated by now
 if|if
 condition|(
 name|consumerRunnable
@@ -3112,7 +3215,28 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending Acknowledgement: {}"
+literal|"sendAcknowledgement(originalHl7MessageBytes[{}], Exchange[{}], {}) - Sending Acknowledgement: {}"
+argument_list|,
+name|originalHl7MessageBytes
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
+name|originalHl7MessageBytes
+operator|.
+name|length
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|consumerRunnable
+operator|.
+name|getSocket
+argument_list|()
 argument_list|,
 name|consumerRunnable
 operator|.
@@ -3252,7 +3376,28 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending Acknowledgement: {}"
+literal|"sendAcknowledgement(originalHl7MessageBytes[{}], Exchange[{}], {}) - Sending Acknowledgement: {}"
+argument_list|,
+name|originalHl7MessageBytes
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
+name|originalHl7MessageBytes
+operator|.
+name|length
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|consumerRunnable
+operator|.
+name|getSocket
+argument_list|()
 argument_list|,
 name|Hl7Util
 operator|.

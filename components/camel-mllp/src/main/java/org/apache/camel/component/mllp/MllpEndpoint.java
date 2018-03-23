@@ -346,13 +346,16 @@ name|description
 operator|=
 literal|"MLLP Endpoint"
 argument_list|)
-comment|// @UriEndpoint(scheme = "mllp", firstVersion = "2.17.0", title = "MLLP", syntax = "mllp:hostname:port", consumerClass = MllpTcpServerConsumer.class, label = "mllp")
 annotation|@
 name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
 literal|"mllp"
+argument_list|,
+name|firstVersion
+operator|=
+literal|"2.17.0"
 argument_list|,
 name|title
 operator|=
