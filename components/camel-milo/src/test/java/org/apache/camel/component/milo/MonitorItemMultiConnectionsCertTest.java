@@ -255,7 +255,9 @@ argument_list|,
 literal|"items-myitem1"
 argument_list|)
 operator|+
-literal|"&keyStoreUrl=file:src/test/resources/cert/cert.p12&keyStorePassword=pwd1&keyPassword=pwd1&discoveryEndpointSuffix=/discovery&overrideHost=true"
+literal|"&keyStoreUrl=file:src/test/resources/cert/cert.p12&keyStorePassword=pwd1&keyPassword=pwd1"
+operator|+
+literal|"&discoveryEndpointSuffix=/discovery&overrideHost=true"
 decl_stmt|;
 comment|// with wrong password
 DECL|field|MILO_CLIENT_ITEM_C2_1
