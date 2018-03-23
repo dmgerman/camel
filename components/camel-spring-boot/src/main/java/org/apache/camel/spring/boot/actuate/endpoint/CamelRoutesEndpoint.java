@@ -641,7 +641,7 @@ throw|;
 block|}
 block|}
 annotation|@
-name|ReadOperation
+name|WriteOperation
 DECL|method|getRouteDump (@elector String id)
 specifier|public
 name|String
@@ -653,6 +653,22 @@ name|String
 name|id
 parameter_list|)
 block|{
+if|if
+condition|(
+name|this
+operator|.
+name|isReadOnly
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Read only: route dump is not permitted in read-only mode"
+argument_list|)
+throw|;
+block|}
 name|RouteDefinition
 name|route
 init|=
