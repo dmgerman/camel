@@ -122,6 +122,12 @@ name|SHOW_BRANCHES_OPERATION
 init|=
 literal|"showBranches"
 decl_stmt|;
+DECL|field|SHOW_TAGS_OPERATION
+name|String
+name|SHOW_TAGS_OPERATION
+init|=
+literal|"showTags"
+decl_stmt|;
 DECL|field|CHERRYPICK_OPERATION
 name|String
 name|CHERRYPICK_OPERATION
