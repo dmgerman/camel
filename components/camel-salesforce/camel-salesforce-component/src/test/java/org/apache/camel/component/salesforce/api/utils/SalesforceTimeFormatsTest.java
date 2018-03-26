@@ -888,7 +888,7 @@ name|DateTimeFormatter
 operator|.
 name|ofPattern
 argument_list|(
-literal|"xx"
+literal|"XX"
 argument_list|)
 operator|.
 name|format
@@ -1074,7 +1074,7 @@ name|DateTimeFormatter
 operator|.
 name|ofPattern
 argument_list|(
-literal|"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+literal|"yyyy-MM-dd'T'HH:mm:ss.SSSXX"
 argument_list|)
 argument_list|)
 argument_list|)
