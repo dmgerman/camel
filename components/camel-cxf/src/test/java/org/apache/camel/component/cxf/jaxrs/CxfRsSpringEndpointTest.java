@@ -473,6 +473,14 @@ if|if
 condition|(
 name|version
 operator|.
+name|startsWith
+argument_list|(
+literal|"2"
+argument_list|)
+operator|&&
+operator|(
+name|version
+operator|.
 name|contains
 argument_list|(
 literal|"2.5"
@@ -484,6 +492,7 @@ name|contains
 argument_list|(
 literal|"2.4"
 argument_list|)
+operator|)
 condition|)
 block|{
 return|return
