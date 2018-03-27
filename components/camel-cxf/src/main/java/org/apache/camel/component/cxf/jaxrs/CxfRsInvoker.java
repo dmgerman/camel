@@ -751,12 +751,6 @@ return|;
 block|}
 if|if
 condition|(
-operator|!
-name|continuation
-operator|.
-name|isTimeout
-argument_list|()
-operator|&&
 name|continuation
 operator|.
 name|isResumed
@@ -830,11 +824,6 @@ else|else
 block|{
 if|if
 condition|(
-name|continuation
-operator|.
-name|isTimeout
-argument_list|()
-operator|||
 operator|!
 name|continuation
 operator|.
