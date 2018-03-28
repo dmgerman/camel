@@ -308,7 +308,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createConnection ()
-specifier|private
+specifier|protected
 name|Connection
 name|createConnection
 parameter_list|()

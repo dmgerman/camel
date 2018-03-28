@@ -56,6 +56,20 @@ name|ibatis
 operator|.
 name|annotations
 operator|.
+name|Insert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|ibatis
+operator|.
+name|annotations
+operator|.
 name|Param
 import|;
 end_import
@@ -131,6 +145,21 @@ name|Account
 argument_list|>
 name|selectBeanAllAccounts
 parameter_list|()
+function_decl|;
+annotation|@
+name|Insert
+argument_list|(
+literal|"insert into ACCOUNT (ACC_ID,ACC_FIRST_NAME,ACC_LAST_NAME,ACC_EMAIL)"
+operator|+
+literal|" values (#{id}, #{firstName}, #{lastName}, #{emailAddress})"
+argument_list|)
+DECL|method|insertBeanAccount (Account account)
+name|void
+name|insertBeanAccount
+parameter_list|(
+name|Account
+name|account
+parameter_list|)
 function_decl|;
 block|}
 end_interface
