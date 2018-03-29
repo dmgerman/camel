@@ -79,6 +79,11 @@ specifier|private
 name|XMLStreamWriter
 name|writer
 decl_stmt|;
+DECL|field|encoding
+specifier|private
+name|String
+name|encoding
+decl_stmt|;
 comment|/**      * @param writer      *            target writer to wrap.      */
 DECL|method|FilteringXmlStreamWriter (XMLStreamWriter writer)
 specifier|public
@@ -93,6 +98,31 @@ operator|.
 name|writer
 operator|=
 name|writer
+expr_stmt|;
+block|}
+comment|/**      * @param writer      *            target writer to wrap.      * @param encoding      *            the encoding to write in the xml prolog.      *      */
+DECL|method|FilteringXmlStreamWriter (XMLStreamWriter writer, String encoding)
+specifier|public
+name|FilteringXmlStreamWriter
+parameter_list|(
+name|XMLStreamWriter
+name|writer
+parameter_list|,
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writer
+operator|=
+name|writer
+expr_stmt|;
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
 expr_stmt|;
 block|}
 comment|/**      * This method applies filtering before delegating call to {@link #writer}.      */
@@ -722,11 +752,31 @@ parameter_list|()
 throws|throws
 name|XMLStreamException
 block|{
+if|if
+condition|(
+name|encoding
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|writeStartDocument
+argument_list|(
+name|encoding
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|writer
 operator|.
 name|writeStartDocument
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|writeStartDocument (String encoding, String version)
 specifier|public
@@ -763,6 +813,25 @@ parameter_list|)
 throws|throws
 name|XMLStreamException
 block|{
+if|if
+condition|(
+name|encoding
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|writeStartDocument
+argument_list|(
+name|encoding
+argument_list|,
+name|version
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|writer
 operator|.
 name|writeStartDocument
@@ -770,6 +839,7 @@ argument_list|(
 name|version
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|writeStartElement (String prefix, String localName, String namespaceURI)
 specifier|public

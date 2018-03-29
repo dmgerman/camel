@@ -1102,6 +1102,8 @@ argument_list|,
 name|stream
 argument_list|,
 name|marshaller
+argument_list|,
+name|charset
 argument_list|)
 expr_stmt|;
 if|if
@@ -1166,7 +1168,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|doMarshal (Exchange exchange, Object graph, OutputStream stream, Marshaller marshaller)
+DECL|method|doMarshal (Exchange exchange, Object graph, OutputStream stream, Marshaller marshaller, String charset)
 name|void
 name|doMarshal
 parameter_list|(
@@ -1181,6 +1183,9 @@ name|stream
 parameter_list|,
 name|Marshaller
 name|marshaller
+parameter_list|,
+name|String
+name|charset
 parameter_list|)
 throws|throws
 name|Exception
@@ -1361,6 +1366,8 @@ name|XMLStreamWriter
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
@@ -1378,6 +1385,8 @@ operator|new
 name|FilteringXmlStreamWriter
 argument_list|(
 name|writer
+argument_list|,
+name|charset
 argument_list|)
 expr_stmt|;
 block|}
@@ -1505,6 +1514,8 @@ name|XMLStreamWriter
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
@@ -1522,6 +1533,8 @@ operator|new
 name|FilteringXmlStreamWriter
 argument_list|(
 name|writer
+argument_list|,
+name|charset
 argument_list|)
 expr_stmt|;
 block|}
