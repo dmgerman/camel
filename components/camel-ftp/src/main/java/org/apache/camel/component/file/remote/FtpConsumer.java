@@ -168,6 +168,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileProcessStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FileUtil
@@ -295,7 +311,7 @@ specifier|transient
 name|String
 name|ftpConsumerToString
 decl_stmt|;
-DECL|method|FtpConsumer (RemoteFileEndpoint<FTPFile> endpoint, Processor processor, RemoteFileOperations<FTPFile> fileOperations)
+DECL|method|FtpConsumer (RemoteFileEndpoint<FTPFile> endpoint, Processor processor, RemoteFileOperations<FTPFile> fileOperations, GenericFileProcessStrategy processStrategy)
 specifier|public
 name|FtpConsumer
 parameter_list|(
@@ -313,6 +329,9 @@ argument_list|<
 name|FTPFile
 argument_list|>
 name|fileOperations
+parameter_list|,
+name|GenericFileProcessStrategy
+name|processStrategy
 parameter_list|)
 block|{
 name|super
@@ -322,6 +341,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|fileOperations
+argument_list|,
+name|processStrategy
 argument_list|)
 expr_stmt|;
 name|this

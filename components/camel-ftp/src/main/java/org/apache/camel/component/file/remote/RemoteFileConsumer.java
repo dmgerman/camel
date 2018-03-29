@@ -132,6 +132,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileProcessStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|SynchronizationAdapter
@@ -169,7 +185,7 @@ specifier|transient
 name|boolean
 name|loggedInWarning
 decl_stmt|;
-DECL|method|RemoteFileConsumer (RemoteFileEndpoint<T> endpoint, Processor processor, RemoteFileOperations<T> operations)
+DECL|method|RemoteFileConsumer (RemoteFileEndpoint<T> endpoint, Processor processor, RemoteFileOperations<T> operations, GenericFileProcessStrategy processStrategy)
 specifier|public
 name|RemoteFileConsumer
 parameter_list|(
@@ -187,6 +203,9 @@ argument_list|<
 name|T
 argument_list|>
 name|operations
+parameter_list|,
+name|GenericFileProcessStrategy
+name|processStrategy
 parameter_list|)
 block|{
 name|super
@@ -196,6 +215,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|operations
+argument_list|,
+name|processStrategy
 argument_list|)
 expr_stmt|;
 name|this

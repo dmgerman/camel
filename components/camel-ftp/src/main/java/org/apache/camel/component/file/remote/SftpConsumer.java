@@ -162,6 +162,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileProcessStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FileUtil
@@ -238,7 +254,7 @@ specifier|transient
 name|String
 name|sftpConsumerToString
 decl_stmt|;
-DECL|method|SftpConsumer (RemoteFileEndpoint<SftpRemoteFile> endpoint, Processor processor, RemoteFileOperations<SftpRemoteFile> operations)
+DECL|method|SftpConsumer (RemoteFileEndpoint<SftpRemoteFile> endpoint, Processor processor, RemoteFileOperations<SftpRemoteFile> operations, GenericFileProcessStrategy<SftpRemoteFile> processStrategy)
 specifier|public
 name|SftpConsumer
 parameter_list|(
@@ -256,6 +272,12 @@ argument_list|<
 name|SftpRemoteFile
 argument_list|>
 name|operations
+parameter_list|,
+name|GenericFileProcessStrategy
+argument_list|<
+name|SftpRemoteFile
+argument_list|>
+name|processStrategy
 parameter_list|)
 block|{
 name|super
@@ -265,6 +287,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|operations
+argument_list|,
+name|processStrategy
 argument_list|)
 expr_stmt|;
 name|this

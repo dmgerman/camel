@@ -331,6 +331,10 @@ argument_list|,
 name|label
 operator|=
 literal|"file"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"readLockIdempotentReleaseAsync,readLockIdempotentReleaseAsyncPoolSize,readLockIdempotentReleaseDelay,readLockIdempotentReleaseExecutorService"
 argument_list|)
 annotation|@
 name|ManagedResource
@@ -650,6 +654,9 @@ argument_list|,
 name|processor
 argument_list|,
 name|createRemoteFileOperations
+argument_list|()
+argument_list|,
+name|createGenericFileStrategy
 argument_list|()
 argument_list|)
 return|;

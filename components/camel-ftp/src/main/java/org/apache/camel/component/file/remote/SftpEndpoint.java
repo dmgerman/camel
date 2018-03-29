@@ -292,6 +292,9 @@ name|processor
 argument_list|,
 name|createRemoteFileOperations
 argument_list|()
+argument_list|,
+name|createGenericFileStrategy
+argument_list|()
 argument_list|)
 return|;
 block|}
