@@ -309,11 +309,6 @@ operator|.
 name|class
 block|}
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Does not work"
-argument_list|)
 DECL|class|CamelCloudServiceCallSimpleExpressionTest
 specifier|public
 class|class
@@ -543,7 +538,7 @@ name|put
 argument_list|(
 literal|"camel.cloud.service-call.expression"
 argument_list|,
-literal|"${header.CamelServiceCallScheme}:http://${header.CamelServiceCallServiceHost}:${header.CamelServiceCallServicePort}/hello"
+literal|"$simple{header.CamelServiceCallScheme}:http://$simple{header.CamelServiceCallServiceHost}:$simple{header.CamelServiceCallServicePort}/hello"
 argument_list|)
 expr_stmt|;
 name|prop
