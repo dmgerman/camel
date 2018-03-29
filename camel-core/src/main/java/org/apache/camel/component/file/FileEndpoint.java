@@ -1059,6 +1059,15 @@ argument_list|,
 name|processor
 argument_list|,
 name|operations
+argument_list|,
+name|processStrategy
+operator|!=
+literal|null
+condition|?
+name|processStrategy
+else|:
+name|createGenericFileStrategy
+argument_list|()
 argument_list|)
 return|;
 block|}

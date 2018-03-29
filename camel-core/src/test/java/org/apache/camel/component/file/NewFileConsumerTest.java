@@ -316,6 +316,9 @@ argument_list|,
 name|processor
 argument_list|,
 name|operations
+argument_list|,
+name|createGenericFileStrategy
+argument_list|()
 argument_list|)
 block|{
 annotation|@

@@ -152,6 +152,14 @@ name|T
 argument_list|>
 name|operations
 decl_stmt|;
+DECL|field|processStrategy
+specifier|private
+name|GenericFileProcessStrategy
+argument_list|<
+name|T
+argument_list|>
+name|processStrategy
+decl_stmt|;
 DECL|field|exceptionHandler
 specifier|private
 name|ExceptionHandler
@@ -170,7 +178,7 @@ specifier|private
 name|String
 name|absoluteFileName
 decl_stmt|;
-DECL|method|GenericFileOnCompletion (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations, GenericFile<T> file, String absoluteFileName)
+DECL|method|GenericFileOnCompletion (GenericFileEndpoint<T> endpoint, GenericFileOperations<T> operations, GenericFileProcessStrategy processStrategy, GenericFile<T> file, String absoluteFileName)
 specifier|public
 name|GenericFileOnCompletion
 parameter_list|(
@@ -185,6 +193,9 @@ argument_list|<
 name|T
 argument_list|>
 name|operations
+parameter_list|,
+name|GenericFileProcessStrategy
+name|processStrategy
 parameter_list|,
 name|GenericFile
 argument_list|<
@@ -207,6 +218,12 @@ operator|.
 name|operations
 operator|=
 name|operations
+expr_stmt|;
+name|this
+operator|.
+name|processStrategy
+operator|=
+name|processStrategy
 expr_stmt|;
 name|this
 operator|.
@@ -321,17 +338,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|GenericFileProcessStrategy
-argument_list|<
-name|T
-argument_list|>
-name|processStrategy
-init|=
-name|endpoint
-operator|.
-name|getGenericFileProcessStrategy
-argument_list|()
-decl_stmt|;
 name|log
 operator|.
 name|debug

@@ -1383,16 +1383,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// ensure the idempotent repository is added as a service so CamelContext will stop the repo when it shutdown itself
-name|camelContext
-operator|.
-name|addService
-argument_list|(
-name|idempotentRepository
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

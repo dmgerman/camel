@@ -98,18 +98,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ExecutorService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -1539,41 +1527,6 @@ operator|.
 name|getMessageId
 argument_list|()
 argument_list|)
-return|;
-block|}
-DECL|method|getGenericFileProcessStrategy ()
-specifier|public
-name|GenericFileProcessStrategy
-argument_list|<
-name|T
-argument_list|>
-name|getGenericFileProcessStrategy
-parameter_list|()
-block|{
-if|if
-condition|(
-name|processStrategy
-operator|==
-literal|null
-condition|)
-block|{
-name|processStrategy
-operator|=
-name|createGenericFileStrategy
-argument_list|()
-expr_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Using Generic file process strategy: {}"
-argument_list|,
-name|processStrategy
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|processStrategy
 return|;
 block|}
 comment|/**      * This implementation will<b>not</b> load the file content.      * Any file locking is neither in use by this implementation..      */
@@ -3550,7 +3503,7 @@ return|return
 name|readLockRemoveOnCommit
 return|;
 block|}
-comment|/**      * This option applied only for readLock=idempotent.      * This option allows to specify whether to remove the file name entry from the idempotent repository      * when processing the file is succeeded and a commit happens.      *<p/>      * By default the file is not removed which ensures that any race-condition do not occur so another active      * node may attempt to grab the file. Instead the idempotent repository may support eviction strategies      * that you can configure to evict the file name entry after X minutes - this ensures no problems with race conditions.      */
+comment|/**      * This option applied only for readLock=idempotent.      * This option allows to specify whether to remove the file name entry from the idempotent repository      * when processing the file is succeeded and a commit happens.      *<p/>      * By default the file is not removed which ensures that any race-condition do not occur so another active      * node may attempt to grab the file. Instead the idempotent repository may support eviction strategies      * that you can configure to evict the file name entry after X minutes - this ensures no problems with race conditions.      *<p/>      * See more details at the readLockIdempotentReleaseDelay option.      */
 DECL|method|setReadLockRemoveOnCommit (boolean readLockRemoveOnCommit)
 specifier|public
 name|void
@@ -3567,7 +3520,7 @@ operator|=
 name|readLockRemoveOnCommit
 expr_stmt|;
 block|}
-comment|/**      * Whether to delay the release task for a period of millis.      */
+comment|/**      * Whether to delay the release task for a period of millis.      *<p/>      * This can be used to delay the release tasks to expand the window when a file is regarded as read-locked,      * in an active/active cluster scenario with a shared idempotent repository, to ensure other nodes cannot potentially scan and acquire      * the same file, due to race-conditions. By expanding the time-window of the release tasks helps prevents these situations.      * Note delaying is only needed if you have configured readLockRemoveOnCommit to true.      */
 DECL|method|setReadLockIdempotentReleaseDelay (int readLockIdempotentReleaseDelay)
 specifier|public
 name|void
@@ -3594,7 +3547,7 @@ return|return
 name|readLockIdempotentReleaseAsync
 return|;
 block|}
-comment|/**      * Whether the delayed release task should be synchronous or asynchronous.      */
+comment|/**      * Whether the delayed release task should be synchronous or asynchronous.      *<p/>      * See more details at the readLockIdempotentReleaseDelay option.      */
 DECL|method|setReadLockIdempotentReleaseAsync (boolean readLockIdempotentReleaseAsync)
 specifier|public
 name|void
@@ -3621,7 +3574,7 @@ return|return
 name|readLockIdempotentReleaseAsyncPoolSize
 return|;
 block|}
-comment|/**      * The number of threads in the scheduled thread pool when using asynchronous release tasks.      */
+comment|/**      * The number of threads in the scheduled thread pool when using asynchronous release tasks.      * Using a default of 1 core threads should be sufficient in almost all use-cases, only set this to a higher value      * if either updating the idempotent repository is slow, or there are a lot of files to process.      * This option is not in-use if you use a shared thread pool by configuring the readLockIdempotentReleaseExecutorService option.      *<p/>      * See more details at the readLockIdempotentReleaseDelay option.      */
 DECL|method|setReadLockIdempotentReleaseAsyncPoolSize (int readLockIdempotentReleaseAsyncPoolSize)
 specifier|public
 name|void
@@ -3648,7 +3601,7 @@ return|return
 name|readLockIdempotentReleaseExecutorService
 return|;
 block|}
-comment|/**      * To use a custom and shared thread pool for asynchronous release tasks.      */
+comment|/**      * To use a custom and shared thread pool for asynchronous release tasks.      *<p/>      * See more details at the readLockIdempotentReleaseDelay option.      */
 DECL|method|setReadLockIdempotentReleaseExecutorService (ScheduledExecutorService readLockIdempotentReleaseExecutorService)
 specifier|public
 name|void
@@ -4661,6 +4614,13 @@ argument_list|,
 name|readLockRemoveOnCommit
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|readLockIdempotentReleaseDelay
+operator|>
+literal|0
+condition|)
+block|{
 name|params
 operator|.
 name|put
@@ -4670,6 +4630,7 @@ argument_list|,
 name|readLockIdempotentReleaseDelay
 argument_list|)
 expr_stmt|;
+block|}
 name|params
 operator|.
 name|put
@@ -4679,6 +4640,13 @@ argument_list|,
 name|readLockIdempotentReleaseAsync
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|readLockIdempotentReleaseAsyncPoolSize
+operator|>
+literal|0
+condition|)
+block|{
 name|params
 operator|.
 name|put
@@ -4688,6 +4656,14 @@ argument_list|,
 name|readLockIdempotentReleaseAsyncPoolSize
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|readLockIdempotentReleaseExecutorService
+operator|!=
+literal|null
+condition|)
+block|{
 name|params
 operator|.
 name|put
@@ -4697,6 +4673,7 @@ argument_list|,
 name|readLockIdempotentReleaseExecutorService
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|params
 return|;

@@ -224,7 +224,7 @@ name|String
 argument_list|>
 name|extendedAttributes
 decl_stmt|;
-DECL|method|FileConsumer (FileEndpoint endpoint, Processor processor, GenericFileOperations<File> operations)
+DECL|method|FileConsumer (FileEndpoint endpoint, Processor processor, GenericFileOperations<File> operations, GenericFileProcessStrategy<File> processStrategy)
 specifier|public
 name|FileConsumer
 parameter_list|(
@@ -239,6 +239,12 @@ argument_list|<
 name|File
 argument_list|>
 name|operations
+parameter_list|,
+name|GenericFileProcessStrategy
+argument_list|<
+name|File
+argument_list|>
+name|processStrategy
 parameter_list|)
 block|{
 name|super
@@ -248,6 +254,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|operations
+argument_list|,
+name|processStrategy
 argument_list|)
 expr_stmt|;
 name|this
