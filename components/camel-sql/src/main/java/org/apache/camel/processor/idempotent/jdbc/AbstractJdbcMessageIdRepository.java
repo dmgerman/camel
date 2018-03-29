@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for JDBC-based idempotent repositories that allows the schema to be changed.  *<p/>  * Subclasses need only implement theses methods:  *<ul>  *<li>{@link #queryForInt(Object key) queryForInt(T key)}</li>  *<li>{@link #insert(Object key) insert(T key)}</li>  *<li>{@link #delete(Object key) delete(T key)}</li>  *</ul>  *<p/>  * These methods should perform the named database operation.  */
+comment|/**  * Base class for JDBC-based idempotent repositories that allows the schema to be changed.  *<p/>  * Subclasses need only implement theses methods:  *<ul>  *<li>{@link #queryForInt(Object key) queryForInt(T key)}</li>  *<li>{@link #insert(Object key) insert(T key)}</li>  *<li>{@link #delete(Object key) delete(T key)}</li>  *</ul>  *<p/>  * These methods should perform the named database operation.  *<p/>  *<b>Important:</b> Implementations of this should use<tt>String</tt> as the generic type as that is  * what is required by Camel to allow using the idempotent repository with the Idempotent Consumer EIP  * and also as file consumer read-lock. It was a mistake to make {@link IdempotentRepository} parameterized,  * as it should have been a pre-configured to use a<tt>String</tt> type.  */
 end_comment
 
 begin_class
