@@ -22,46 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|fasterxml
@@ -85,6 +45,36 @@ operator|.
 name|databind
 operator|.
 name|ObjectMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -181,20 +171,6 @@ operator|.
 name|index
 operator|.
 name|IndexRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|MultiSearchRequest
 import|;
 end_import
 
@@ -317,6 +293,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Converter
 DECL|class|ElasticsearchActionRequestConverter
 specifier|public
 specifier|final
@@ -804,6 +782,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
 DECL|method|toIndexRequest (Object document, Exchange exchange)
 specifier|public
 specifier|static
@@ -845,6 +825,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
 DECL|method|toUpdateRequest (Object document, Exchange exchange)
 specifier|public
 specifier|static
@@ -886,6 +868,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
 DECL|method|toGetRequest (Object document, Exchange exchange)
 specifier|public
 specifier|static
@@ -962,6 +946,8 @@ name|document
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
 DECL|method|toDeleteRequest (Object document, Exchange exchange)
 specifier|public
 specifier|static
@@ -1059,6 +1045,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Converter
 DECL|method|toSearchRequest (Object queryObject, Exchange exchange)
 specifier|public
 specifier|static
@@ -1341,6 +1329,8 @@ block|}
 end_class
 
 begin_function
+annotation|@
+name|Converter
 DECL|method|toBulkRequest (Object documents, Exchange exchange)
 specifier|public
 specifier|static
