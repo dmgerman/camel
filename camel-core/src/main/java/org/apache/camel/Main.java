@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @deprecated use org.apache.camel.main.Main instead  */
+comment|/**  * @deprecated use {@link org.apache.camel.main.Main org.apache.camel.main.Main} instead  */
 end_comment
 
 begin_class
