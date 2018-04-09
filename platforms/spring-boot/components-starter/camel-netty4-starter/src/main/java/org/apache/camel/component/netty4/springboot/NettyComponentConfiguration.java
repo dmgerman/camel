@@ -166,6 +166,22 @@ name|component
 operator|.
 name|netty4
 operator|.
+name|NettyCamelStateCorrelationManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|netty4
+operator|.
 name|NettyComponent
 import|;
 end_import
@@ -777,6 +793,12 @@ name|Boolean
 name|reuseChannel
 init|=
 literal|false
+decl_stmt|;
+comment|/**          * To use a custom correlation manager to manage how request and reply          * messages are mapped when using request/reply with the netty producer.          * This should only be used if you have a way to map requests together          * with replies such as if there is correlation ids in both the request          * and reply messages. This can be used if you want to multiplex          * concurrent messages on the same channel (aka connection) in netty.          * When doing this you must have a way to correlate the request and          * reply messages so you can store the right reply on the inflight Camel          * Exchange before its continued routed.          */
+DECL|field|correlationManager
+specifier|private
+name|NettyCamelStateCorrelationManager
+name|correlationManager
 decl_stmt|;
 comment|/**          * The protocol to use which can be tcp or udp.          */
 DECL|field|protocol
@@ -1918,6 +1940,32 @@ operator|.
 name|reuseChannel
 operator|=
 name|reuseChannel
+expr_stmt|;
+block|}
+DECL|method|getCorrelationManager ()
+specifier|public
+name|NettyCamelStateCorrelationManager
+name|getCorrelationManager
+parameter_list|()
+block|{
+return|return
+name|correlationManager
+return|;
+block|}
+DECL|method|setCorrelationManager ( NettyCamelStateCorrelationManager correlationManager)
+specifier|public
+name|void
+name|setCorrelationManager
+parameter_list|(
+name|NettyCamelStateCorrelationManager
+name|correlationManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|correlationManager
+operator|=
+name|correlationManager
 expr_stmt|;
 block|}
 DECL|method|getProtocol ()

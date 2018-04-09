@@ -838,6 +838,18 @@ specifier|private
 name|boolean
 name|reuseChannel
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|)
+DECL|field|correlationManager
+specifier|private
+name|NettyCamelStateCorrelationManager
+name|correlationManager
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -2835,6 +2847,33 @@ operator|.
 name|reuseChannel
 operator|=
 name|reuseChannel
+expr_stmt|;
+block|}
+DECL|method|getCorrelationManager ()
+specifier|public
+name|NettyCamelStateCorrelationManager
+name|getCorrelationManager
+parameter_list|()
+block|{
+return|return
+name|correlationManager
+return|;
+block|}
+comment|/**      * To use a custom correlation manager to manage how request and reply messages are mapped when using request/reply with the netty producer.      * This should only be used if you have a way to map requests together with replies such as if there is correlation ids in both the request      * and reply messages. This can be used if you want to multiplex concurrent messages on the same channel (aka connection) in netty. When doing      * this you must have a way to correlate the request and reply messages so you can store the right reply on the inflight Camel Exchange before      * its continued routed.      */
+DECL|method|setCorrelationManager (NettyCamelStateCorrelationManager correlationManager)
+specifier|public
+name|void
+name|setCorrelationManager
+parameter_list|(
+name|NettyCamelStateCorrelationManager
+name|correlationManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|correlationManager
+operator|=
+name|correlationManager
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)

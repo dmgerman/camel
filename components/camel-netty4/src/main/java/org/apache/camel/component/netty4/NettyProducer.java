@@ -44,28 +44,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|RejectedExecutionException
@@ -554,24 +532,10 @@ name|ChannelFuture
 argument_list|>
 name|pool
 decl_stmt|;
-DECL|field|nettyCamelStatesMap
+DECL|field|correlationManager
 specifier|private
-name|Map
-argument_list|<
-name|Channel
-argument_list|,
-name|NettyCamelState
-argument_list|>
-name|nettyCamelStatesMap
-init|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|Channel
-argument_list|,
-name|NettyCamelState
-argument_list|>
-argument_list|()
+name|NettyCamelStateCorrelationManager
+name|correlationManager
 decl_stmt|;
 DECL|method|NettyProducer (NettyEndpoint nettyEndpoint, NettyConfiguration configuration)
 specifier|public
@@ -663,6 +627,16 @@ return|return
 name|context
 return|;
 block|}
+DECL|method|getCorrelationManager ()
+specifier|public
+name|NettyCamelStateCorrelationManager
+name|getCorrelationManager
+parameter_list|()
+block|{
+return|return
+name|correlationManager
+return|;
+block|}
 DECL|method|isTcp ()
 specifier|protected
 name|boolean
@@ -696,6 +670,33 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|getCorrelationManager
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|correlationManager
+operator|=
+name|configuration
+operator|.
+name|getCorrelationManager
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|correlationManager
+operator|=
+operator|new
+name|DefaultNettyCamelStateCorrelationManager
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|configuration
@@ -1827,6 +1828,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// setup state as attachment on the channel, so we can access the state later when needed
+name|correlationManager
+operator|.
 name|putState
 argument_list|(
 name|channel
@@ -2145,66 +2148,6 @@ return|return
 name|body
 return|;
 block|}
-comment|/**      * To get the {@link NettyCamelState} from the given channel.      */
-DECL|method|getState (Channel channel)
-specifier|public
-name|NettyCamelState
-name|getState
-parameter_list|(
-name|Channel
-name|channel
-parameter_list|)
-block|{
-return|return
-name|nettyCamelStatesMap
-operator|.
-name|get
-argument_list|(
-name|channel
-argument_list|)
-return|;
-block|}
-comment|/**      * To remove the {@link NettyCamelState} stored on the channel,      * when no longer needed      */
-DECL|method|removeState (Channel channel)
-specifier|public
-name|void
-name|removeState
-parameter_list|(
-name|Channel
-name|channel
-parameter_list|)
-block|{
-name|nettyCamelStatesMap
-operator|.
-name|remove
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Put the {@link NettyCamelState} into the map use the given channel as the key      */
-DECL|method|putState (Channel channel, NettyCamelState state)
-specifier|public
-name|void
-name|putState
-parameter_list|(
-name|Channel
-name|channel
-parameter_list|,
-name|NettyCamelState
-name|state
-parameter_list|)
-block|{
-name|nettyCamelStatesMap
-operator|.
-name|put
-argument_list|(
-name|channel
-argument_list|,
-name|state
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getWorkerGroup ()
 specifier|protected
 name|EventLoopGroup
@@ -2355,7 +2298,7 @@ name|getConnectTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//TODO need to check it later
+comment|//TODO need to check it later;
 comment|// set any additional netty options
 comment|/*             if (configuration.getOptions() != null) {                 for (Map.Entry<String, Object> entry : configuration.getOptions().entrySet()) {                     clientBootstrap.setOption(entry.getKey(), entry.getValue());                 }             }*/
 comment|// set the pipeline factory, which creates the pipeline for each newly created channels
@@ -3395,7 +3338,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This class is used to release body in case when some error occured and body was not handed over      * to netty      */
+comment|/**      * This class is used to release body in case when some error occurred and body was not handed over to netty      */
 DECL|class|BodyReleaseCallback
 specifier|private
 specifier|static
