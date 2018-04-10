@@ -300,7 +300,7 @@ name|body
 operator|.
 name|setSecondField
 argument_list|(
-literal|"\"\"foo\"\""
+literal|"\"foo\""
 argument_list|)
 expr_stmt|;
 name|body
@@ -361,7 +361,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"\"\"bar\"\""
+literal|"\"bar\""
 argument_list|,
 name|model
 operator|.
@@ -485,6 +485,15 @@ name|BindyCsvRowFormat7621
 implements|implements
 name|Serializable
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 annotation|@
 name|DataField
 argument_list|(

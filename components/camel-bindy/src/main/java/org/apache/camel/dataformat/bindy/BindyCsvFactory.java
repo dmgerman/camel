@@ -368,6 +368,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|DOUBLE_QUOTES_SYMBOL
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DOUBLE_QUOTES_SYMBOL
+init|=
+literal|"\""
+decl_stmt|;
 DECL|field|isOneToMany
 name|boolean
 name|isOneToMany
@@ -540,7 +549,7 @@ comment|// Find annotated Datafields declared in the Model classes
 name|initAnnotatedFields
 argument_list|()
 expr_stmt|;
-comment|// initialize Csv parameter(s)
+comment|// initialize CSV parameter(s)
 comment|// separator and skip first line from @CSVrecord annotation
 name|initCsvRecordParameters
 argument_list|()
@@ -1344,6 +1353,54 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|quote
+operator|!=
+literal|null
+operator|&&
+name|quote
+operator|.
+name|equals
+argument_list|(
+name|DOUBLE_QUOTES_SYMBOL
+argument_list|)
+operator|&&
+name|data
+operator|.
+name|contains
+argument_list|(
+name|DOUBLE_QUOTES_SYMBOL
+operator|+
+name|DOUBLE_QUOTES_SYMBOL
+argument_list|)
+operator|&&
+operator|!
+name|quotingEscaped
+condition|)
+block|{
+comment|// If double-quotes are used to enclose fields, the two double
+comment|// quotes character must be replaced with one according to RFC 4180 section 2.7
+name|value
+operator|=
+name|format
+operator|.
+name|parse
+argument_list|(
+name|data
+operator|.
+name|replaceAll
+argument_list|(
+name|DOUBLE_QUOTES_SYMBOL
+operator|+
+name|DOUBLE_QUOTES_SYMBOL
+argument_list|,
+name|DOUBLE_QUOTES_SYMBOL
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 block|{
 name|value
@@ -2068,7 +2125,7 @@ name|quote
 argument_list|)
 expr_stmt|;
 block|}
-comment|// CAMEL-7519 - improvoment escape the token itself by prepending escape char
+comment|// CAMEL-7519 - improvement escape the token itself by prepending escape char
 if|if
 condition|(
 name|quoting
@@ -2113,6 +2170,53 @@ argument_list|,
 literal|"\\\\"
 operator|+
 name|quote
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|quoting
+operator|&&
+name|quote
+operator|!=
+literal|null
+operator|&&
+name|quote
+operator|.
+name|equals
+argument_list|(
+name|DOUBLE_QUOTES_SYMBOL
+argument_list|)
+operator|&&
+name|res
+operator|.
+name|contains
+argument_list|(
+name|quote
+argument_list|)
+operator|&&
+operator|!
+name|quotingEscaped
+condition|)
+block|{
+comment|// If double-quotes are used to enclose fields, then a double-quote
+comment|// appearing inside a field must be escaped by preceding it with another
+comment|// double quote according to RFC 4180 section 2.7
+name|buffer
+operator|.
+name|append
+argument_list|(
+name|res
+operator|.
+name|replaceAll
+argument_list|(
+name|DOUBLE_QUOTES_SYMBOL
+argument_list|,
+name|DOUBLE_QUOTES_SYMBOL
+operator|+
+name|DOUBLE_QUOTES_SYMBOL
 argument_list|)
 argument_list|)
 expr_stmt|;
