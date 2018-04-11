@@ -70,6 +70,42 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
+import|;
+end_import
+
 begin_class
 DECL|class|Route2ConcurrentTest
 specifier|public
@@ -279,17 +315,27 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
-name|assertTrue
+name|assertThat
 argument_list|(
+literal|"Not all exchanges were fully processed"
+argument_list|,
 name|notify
 operator|.
 name|matches
 argument_list|(
-literal|30
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
+argument_list|)
+argument_list|,
+name|is
+argument_list|(
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

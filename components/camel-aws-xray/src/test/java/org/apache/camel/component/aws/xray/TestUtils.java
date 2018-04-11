@@ -52,6 +52,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -294,7 +306,59 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Incorrect number of segment for trace"
+literal|"Incorrect number of segment for trace. Expected traces: "
+operator|+
+name|expected
+operator|.
+name|getSegments
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|s
+lambda|->
+name|s
+operator|.
+name|name
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|()
+argument_list|)
+operator|+
+literal|" but found "
+operator|+
+name|actual
+operator|.
+name|getSegments
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|s
+lambda|->
+name|s
+operator|.
+name|name
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|()
+argument_list|)
 argument_list|,
 name|actual
 operator|.
@@ -492,7 +556,19 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Incorrect name of segment"
+literal|"Incorrect name of segment. Expected segment name: "
+operator|+
+name|expected
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" but found: "
+operator|+
+name|actual
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|actual
 operator|.
@@ -716,7 +792,19 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Incorrect name of subsegment"
+literal|"Incorrect name of subsegment. Expected "
+operator|+
+name|actual
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" but found: "
+operator|+
+name|actual
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|actual
 operator|.
@@ -776,6 +864,35 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|assertThat
+argument_list|(
+literal|"Incorrect number of subsegments found in "
+operator|+
+name|actual
+argument_list|,
+name|actual
+operator|.
+name|getSubsegments
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+name|equalTo
+argument_list|(
+name|expected
+operator|.
+name|getSubsegments
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
