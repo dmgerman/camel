@@ -163,7 +163,7 @@ name|delay
 argument_list|(
 name|simple
 argument_list|(
-literal|"${random(2000,4000)}"
+literal|"${random(1000,9000)}"
 argument_list|)
 argument_list|)
 operator|.

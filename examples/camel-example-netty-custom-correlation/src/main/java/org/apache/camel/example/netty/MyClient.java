@@ -36,6 +36,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangeTimedOutException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -101,6 +125,32 @@ name|MyRouteBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// setup correlation manager and its timeout (when a request has not received a response within the given time millis)
+name|MyCorrelationManager
+name|manager
+init|=
+operator|new
+name|MyCorrelationManager
+argument_list|()
+decl_stmt|;
+comment|// set timeout for each request message that did not receive a reply message
+name|manager
+operator|.
+name|setTimeout
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
+comment|// set the logging level when a timeout was hit, ny default its DEBUG
+name|manager
+operator|.
+name|setTimeoutLoggingLevel
+argument_list|(
+name|LoggingLevel
+operator|.
+name|INFO
+argument_list|)
+expr_stmt|;
 name|main
 operator|.
 name|bind
@@ -129,9 +179,7 @@ name|bind
 argument_list|(
 literal|"myManager"
 argument_list|,
-operator|new
-name|MyCorrelationManager
-argument_list|()
+name|manager
 argument_list|)
 expr_stmt|;
 name|main
@@ -204,7 +252,9 @@ argument_list|()
 operator|.
 name|nextInt
 argument_list|(
-literal|6
+name|words
+operator|.
+name|length
 argument_list|)
 decl_stmt|;
 return|return
@@ -224,6 +274,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// lets build a special custom error message for timeout
+name|onException
+argument_list|(
+name|ExchangeTimedOutException
+operator|.
+name|class
+argument_list|)
+comment|// here we tell Camel to continue routing
+operator|.
+name|continued
+argument_list|(
+literal|true
+argument_list|)
+comment|// after it has built this special timeout error message body
+operator|.
+name|setBody
+argument_list|(
+name|simple
+argument_list|(
+literal|"#${header.corId}:${header.word}-Time out error!!!"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"timer:trigger"
