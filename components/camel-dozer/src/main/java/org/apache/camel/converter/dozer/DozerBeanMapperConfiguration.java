@@ -40,26 +40,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|org
-operator|.
-name|apache
-operator|.
-name|xpath
-operator|.
-name|internal
-operator|.
-name|operations
-operator|.
-name|Bool
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|dozer
