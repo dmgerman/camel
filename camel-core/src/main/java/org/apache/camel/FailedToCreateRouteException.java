@@ -14,6 +14,20 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Exception when failing to create a {@link org.apache.camel.Route}.  *  * @version   */
 end_comment
@@ -196,6 +210,16 @@ name|String
 name|route
 parameter_list|)
 block|{
+comment|// ensure to sanitize uri's in the route so we do not show sensitive information such as passwords
+name|route
+operator|=
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
 comment|// cut the route after 60 chars so it won't be too big in the message
 comment|// users just need to be able to identify the route so they know where to look
 if|if
