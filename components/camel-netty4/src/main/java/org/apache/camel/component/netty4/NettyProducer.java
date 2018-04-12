@@ -1343,8 +1343,6 @@ block|}
 comment|// get a channel from the pool
 name|ChannelFuture
 name|channelFuture
-init|=
-literal|null
 decl_stmt|;
 name|Channel
 name|channel

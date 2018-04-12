@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|netty
@@ -76,7 +86,7 @@ name|Channel
 name|channel
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the state when a response message has been received.      *      * @param ctx netty channel handler context      * @param channel the channel      * @param msg the response message      */
+comment|/**      * Gets the state when a response message has been received.      *<p/>      * If the implementation stores the state temporary in for example a {@link Map} instance      * then this method should remove the state from the map as its no longer needed. In other      * words use the {@link Map#remove(Object)} to get and remove the state.      *      * @param ctx netty channel handler context      * @param channel the channel      * @param msg the response message      */
 DECL|method|getState (ChannelHandlerContext ctx, Channel channel, Object msg)
 name|NettyCamelState
 name|getState
@@ -91,7 +101,7 @@ name|Object
 name|msg
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the state when some error occurred.      *      * @param ctx netty channel handler context      * @param channel the channel      * @param cause the error      */
+comment|/**      * Gets the state when some internal error occurred.      *      * @param ctx netty channel handler context      * @param channel the channel      * @param cause the error      */
 DECL|method|getState (ChannelHandlerContext ctx, Channel channel, Throwable cause)
 name|NettyCamelState
 name|getState
