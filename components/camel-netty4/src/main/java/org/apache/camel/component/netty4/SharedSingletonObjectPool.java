@@ -56,6 +56,26 @@ name|PoolableObjectFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * An {@link org.apache.commons.pool.ObjectPool} that uses a single shared instance.  *<p/>  * This implementation will always return<tt>1</tt> in {@link #getNumActive()} and  * return<tt>0</tt> in {@link #getNumIdle()}.  */
 end_comment
@@ -74,6 +94,22 @@ argument_list|<
 name|T
 argument_list|>
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|SharedSingletonObjectPool
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|factory
 specifier|private
 specifier|final
@@ -143,6 +179,15 @@ condition|)
 block|{
 name|invalidateObject
 argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Recreating new connection as current connection is invalid: {}"
+argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
