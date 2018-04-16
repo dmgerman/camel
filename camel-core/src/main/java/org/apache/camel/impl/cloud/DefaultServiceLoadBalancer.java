@@ -626,6 +626,13 @@ name|service
 operator|=
 name|services
 operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|null
+else|:
+name|services
+operator|.
 name|size
 argument_list|()
 operator|>
