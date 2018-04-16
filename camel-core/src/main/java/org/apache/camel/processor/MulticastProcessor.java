@@ -2152,6 +2152,36 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// and because of the exception we must signal we are done so the latch can open and let the other thread continue processing
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Signaling we are done aggregating on the fly for exchangeId: {}"
+argument_list|,
+name|original
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Aggregate on the fly task done for exchangeId: {}"
+argument_list|,
+name|original
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|aggregationOnTheFlyDone
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 block|}
 comment|// signal all tasks has been submitted
 name|LOG
