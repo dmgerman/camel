@@ -44,7 +44,6 @@ name|AggregationStrategy
 block|{
 DECL|field|original
 specifier|private
-specifier|final
 name|Exchange
 name|original
 decl_stmt|;
@@ -215,6 +214,32 @@ name|getException
 argument_list|()
 return|;
 block|}
+block|}
+DECL|method|getOriginal ()
+specifier|public
+name|Exchange
+name|getOriginal
+parameter_list|()
+block|{
+return|return
+name|original
+return|;
+block|}
+DECL|method|setOriginal (Exchange original)
+specifier|public
+name|void
+name|setOriginal
+parameter_list|(
+name|Exchange
+name|original
+parameter_list|)
+block|{
+name|this
+operator|.
+name|original
+operator|=
+name|original
+expr_stmt|;
 block|}
 annotation|@
 name|Override

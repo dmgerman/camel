@@ -724,6 +724,41 @@ init|=
 name|getAggregationStrategy
 argument_list|()
 decl_stmt|;
+comment|// set original exchange if not already pre-configured
+if|if
+condition|(
+name|strategy
+operator|instanceof
+name|UseOriginalAggregationStrategy
+condition|)
+block|{
+name|UseOriginalAggregationStrategy
+name|original
+init|=
+operator|(
+name|UseOriginalAggregationStrategy
+operator|)
+name|strategy
+decl_stmt|;
+if|if
+condition|(
+name|original
+operator|.
+name|getOriginal
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|original
+operator|.
+name|setOriginal
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// if no custom aggregation strategy is being used then fallback to keep the original
 comment|// and propagate exceptions which is done by a per exchange specific aggregation strategy
 comment|// to ensure it supports async routing

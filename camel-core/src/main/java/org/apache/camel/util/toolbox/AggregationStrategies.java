@@ -209,6 +209,27 @@ name|UseOriginalAggregationStrategy
 argument_list|()
 return|;
 block|}
+comment|/**      * Use the original exchange.      *      * @param propagateException whether to propgate exception if errors was thrown during processing splitted messages.      *      * @see org.apache.camel.processor.aggregate.UseOriginalAggregationStrategy      */
+DECL|method|useOriginal (boolean propagateException)
+specifier|public
+specifier|static
+name|AggregationStrategy
+name|useOriginal
+parameter_list|(
+name|boolean
+name|propagateException
+parameter_list|)
+block|{
+return|return
+operator|new
+name|UseOriginalAggregationStrategy
+argument_list|(
+literal|null
+argument_list|,
+name|propagateException
+argument_list|)
+return|;
+block|}
 comment|/**      * Creates a {@link GroupedExchangeAggregationStrategy} aggregation strategy.      */
 DECL|method|groupedExchange ()
 specifier|public
