@@ -758,6 +758,13 @@ condition|)
 block|{
 try|try
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Configuring SchemaFactory to not allow access to external DTD/Schema"
+argument_list|)
+expr_stmt|;
 name|factory
 operator|.
 name|setProperty
