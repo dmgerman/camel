@@ -404,6 +404,9 @@ block|,
 DECL|enumConstant|MassEmail
 name|MassEmail
 block|,
+DECL|enumConstant|PermissionSets
+name|PermissionSets
+block|,
 DECL|enumConstant|SingleEmail
 name|SingleEmail
 block|,
@@ -1101,6 +1104,22 @@ argument_list|(
 name|Operation
 operator|.
 name|MassEmail
+argument_list|)
+return|;
+block|}
+comment|/**      * Usage of permission sets.      */
+DECL|method|getPermissionSets ()
+specifier|public
+name|Usage
+name|getPermissionSets
+parameter_list|()
+block|{
+return|return
+name|forOperation
+argument_list|(
+name|Operation
+operator|.
+name|PermissionSets
 argument_list|)
 return|;
 block|}
