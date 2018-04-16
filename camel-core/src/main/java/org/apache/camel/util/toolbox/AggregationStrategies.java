@@ -224,8 +224,6 @@ return|return
 operator|new
 name|UseOriginalAggregationStrategy
 argument_list|(
-literal|null
-argument_list|,
 name|propagateException
 argument_list|)
 return|;

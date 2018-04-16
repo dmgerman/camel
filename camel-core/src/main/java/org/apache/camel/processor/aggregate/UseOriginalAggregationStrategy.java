@@ -66,6 +66,21 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|UseOriginalAggregationStrategy (boolean propagateException)
+specifier|public
+name|UseOriginalAggregationStrategy
+parameter_list|(
+name|boolean
+name|propagateException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propagateException
+operator|=
+name|propagateException
+expr_stmt|;
+block|}
 DECL|method|UseOriginalAggregationStrategy (Exchange original, boolean propagateException)
 specifier|public
 name|UseOriginalAggregationStrategy
