@@ -344,6 +344,11 @@ argument_list|<
 name|String
 argument_list|>
 block|{
+DECL|field|count
+specifier|private
+name|int
+name|count
+decl_stmt|;
 DECL|method|MyIterator (int count)
 specifier|public
 name|MyIterator
@@ -359,11 +364,6 @@ operator|=
 name|count
 expr_stmt|;
 block|}
-DECL|field|count
-specifier|private
-name|int
-name|count
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|hasNext ()
