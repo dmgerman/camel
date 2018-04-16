@@ -252,12 +252,7 @@ name|serviceReferenceQueue
 init|=
 operator|new
 name|ConcurrentLinkedQueue
-argument_list|<
-name|ServiceReference
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|OsgiServiceRegistry (BundleContext bc)
@@ -576,11 +571,7 @@ name|result
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -777,9 +768,7 @@ decl_stmt|;
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 operator|.

@@ -1503,9 +1503,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RoutesBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -6632,9 +6630,7 @@ name|defaultIds
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// lookup and use custom profiles from the registry
@@ -7054,9 +7050,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// lets add RoutesBuilder's added from references
@@ -7549,9 +7543,7 @@ name|packages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -282,14 +282,7 @@ name|registrations
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|CamelContext
-argument_list|,
-name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|OsgiCamelContextPublisher (BundleContext bundleContext)
@@ -644,11 +637,7 @@ name|props
 init|=
 operator|new
 name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|props

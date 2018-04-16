@@ -473,11 +473,7 @@ name|tracker
 operator|=
 operator|new
 name|ServiceTracker
-argument_list|<
-name|TypeConverterLoader
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|bundleContext
 argument_list|,
@@ -1364,12 +1360,7 @@ name|servicesList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ServiceReference
-argument_list|<
-name|TypeConverterLoader
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.

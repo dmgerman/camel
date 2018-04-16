@@ -307,9 +307,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -333,9 +331,7 @@ block|}
 return|return
 operator|new
 name|ListEnumeration
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|list
 argument_list|)
@@ -505,9 +501,7 @@ name|urls
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|URL
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|URL
@@ -554,9 +548,7 @@ expr_stmt|;
 return|return
 operator|new
 name|ListEnumeration
-argument_list|<
-name|URL
-argument_list|>
+argument_list|<>
 argument_list|(
 name|urls
 argument_list|)
