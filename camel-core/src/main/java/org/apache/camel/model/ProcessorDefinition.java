@@ -2350,6 +2350,12 @@ name|?
 argument_list|>
 name|me
 init|=
+operator|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+operator|)
 name|output
 decl_stmt|;
 if|if
@@ -2701,6 +2707,12 @@ name|?
 argument_list|>
 name|me
 init|=
+operator|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+operator|)
 name|this
 decl_stmt|;
 if|if
