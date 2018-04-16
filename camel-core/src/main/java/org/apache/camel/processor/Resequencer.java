@@ -462,9 +462,7 @@ block|}
 return|return
 operator|new
 name|TreeSet
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|answer
 argument_list|)

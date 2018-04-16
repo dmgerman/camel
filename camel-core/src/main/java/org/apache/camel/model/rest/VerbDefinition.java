@@ -275,9 +275,7 @@ name|params
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RestOperationParamDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -292,9 +290,7 @@ name|responseMsgs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RestOperationResponseMsgDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

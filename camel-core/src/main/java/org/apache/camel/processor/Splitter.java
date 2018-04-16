@@ -1406,9 +1406,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProcessorExchangePair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// reuse iterable and add it to the result list

@@ -1048,9 +1048,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProcessorExchangePair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// at first we must lookup the endpoint and acquire the producer which can send to the endpoint

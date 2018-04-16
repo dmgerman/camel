@@ -81,9 +81,7 @@ name|filters
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|PackageScanFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -104,9 +102,7 @@ name|filters
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|PackageScanFilter
-argument_list|>
+argument_list|<>
 argument_list|(
 name|filters
 argument_list|)

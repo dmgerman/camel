@@ -336,9 +336,7 @@ name|queue
 init|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|BacklogTracerEventMessage
-argument_list|>
+argument_list|<>
 argument_list|(
 name|MAX_BACKLOG_SIZE
 argument_list|)
@@ -1169,9 +1167,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BacklogTracerEventMessage
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1354,9 +1350,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BacklogTracerEventMessage
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|answer

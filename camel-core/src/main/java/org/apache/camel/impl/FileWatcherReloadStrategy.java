@@ -742,11 +742,7 @@ name|folderKeys
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|WatchKey
-argument_list|,
-name|Path
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|registerRecursive

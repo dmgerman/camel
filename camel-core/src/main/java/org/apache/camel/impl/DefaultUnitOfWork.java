@@ -1040,9 +1040,7 @@ name|synchronizations
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Synchronization
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2139,9 +2137,7 @@ name|transactedBy
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

@@ -95,9 +95,7 @@ name|set
 operator|=
 operator|new
 name|Sequence
-argument_list|<
-name|TestObject
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|TestComparator

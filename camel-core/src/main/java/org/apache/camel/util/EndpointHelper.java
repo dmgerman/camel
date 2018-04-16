@@ -1249,9 +1249,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}
@@ -1331,9 +1329,7 @@ name|singleElementList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|singleElementList
@@ -1364,9 +1360,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|elements
 operator|.

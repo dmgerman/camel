@@ -527,9 +527,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Pair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Check all occurrences
@@ -718,9 +716,7 @@ name|rawPairs
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Pair
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

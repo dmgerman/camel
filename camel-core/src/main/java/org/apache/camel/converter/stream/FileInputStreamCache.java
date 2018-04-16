@@ -889,9 +889,7 @@ name|fileInputStreamCaches
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FileInputStreamCache
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|3
 argument_list|)

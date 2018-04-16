@@ -208,9 +208,7 @@ name|routes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -225,9 +223,7 @@ name|intercepts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InterceptDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -242,9 +238,7 @@ name|interceptFroms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InterceptFromDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -259,9 +253,7 @@ name|interceptSendTos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InterceptSendToEndpointDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -276,9 +268,7 @@ name|onExceptions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|OnExceptionDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -293,9 +283,7 @@ name|onCompletions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|OnCompletionDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

@@ -168,9 +168,7 @@ name|warnings
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SAXParseException
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|errors
@@ -183,9 +181,7 @@ name|errors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SAXParseException
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|fatalErrors
@@ -198,9 +194,7 @@ name|fatalErrors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SAXParseException
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|warning (SAXParseException e)

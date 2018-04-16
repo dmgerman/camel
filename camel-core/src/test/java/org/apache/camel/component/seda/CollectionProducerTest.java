@@ -160,9 +160,7 @@ name|queue
 init|=
 operator|new
 name|ArrayBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|10
 argument_list|)

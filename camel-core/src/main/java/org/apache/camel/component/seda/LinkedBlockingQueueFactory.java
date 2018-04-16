@@ -62,9 +62,7 @@ block|{
 return|return
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|E
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}
@@ -85,9 +83,7 @@ block|{
 return|return
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|E
-argument_list|>
+argument_list|<>
 argument_list|(
 name|capacity
 argument_list|)

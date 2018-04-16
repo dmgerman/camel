@@ -111,9 +111,7 @@ name|classLoaders
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|ClassLoader
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|converters
@@ -130,12 +128,7 @@ name|converters
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|TypeConvertersPackageScanClassResolver (Class<?> clazz)
@@ -212,9 +205,7 @@ name|unmodifiableSet
 argument_list|(
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|ClassLoader
-argument_list|>
+argument_list|<>
 argument_list|(
 name|classLoaders
 argument_list|)

@@ -115,11 +115,7 @@ name|MAP
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ExchangePattern
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Returns the WSDL URI for this message exchange pattern      */

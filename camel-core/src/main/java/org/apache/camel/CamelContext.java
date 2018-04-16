@@ -2473,6 +2473,8 @@ name|getGlobalOptions
 parameter_list|()
 function_decl|;
 comment|/**      * @deprecated use {@link #getGlobalOption(String)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|getProperty (String key)
 name|String
 name|getProperty

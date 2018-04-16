@@ -245,9 +245,7 @@ name|sentExchanges
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|sendExchangesThroughDroppingThrottler
@@ -333,9 +331,7 @@ name|sentExchanges
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// send a burst of 5 exchanges, expecting only one to get through

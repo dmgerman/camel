@@ -683,11 +683,7 @@ block|}
 return|return
 operator|new
 name|KeyValueHolder
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|key
 argument_list|,
@@ -721,9 +717,7 @@ name|methods
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// return an empty list if ognl is empty

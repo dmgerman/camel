@@ -293,9 +293,7 @@ name|answer
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -535,9 +533,7 @@ name|customIds
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -778,9 +774,7 @@ name|routesIds
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// gather all ids for the existing route, but only include custom ids, and no abstract ids
@@ -827,9 +821,7 @@ name|targetIds
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ProcessorDefinitionHelper
@@ -1256,12 +1248,7 @@ name|abstracts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// upper is the cross cutting concerns such as interceptors, error handlers etc
@@ -1276,12 +1263,7 @@ name|upper
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// lower is the regular route
@@ -1296,12 +1278,7 @@ name|lower
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|RouteDefinitionHelper
@@ -2043,9 +2020,7 @@ name|interceptSendToEndpointDefinitions
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InterceptSendToEndpointDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2079,9 +2054,7 @@ name|interceptFromDefinitions
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InterceptFromDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2115,9 +2088,7 @@ name|intercepts
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InterceptDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2564,9 +2535,7 @@ name|completions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|OnCompletionDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find the route scoped onCompletions

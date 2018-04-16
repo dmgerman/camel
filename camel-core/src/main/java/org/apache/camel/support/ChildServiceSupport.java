@@ -522,9 +522,7 @@ name|childServices
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

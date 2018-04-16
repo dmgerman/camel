@@ -407,9 +407,7 @@ name|EXCLUDED_METHODS
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Method
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|executorService
@@ -1227,9 +1225,7 @@ name|task
 init|=
 operator|new
 name|FutureTask
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|Callable

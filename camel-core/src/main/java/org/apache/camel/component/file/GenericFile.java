@@ -617,9 +617,7 @@ name|msg
 init|=
 operator|new
 name|GenericFileMessage
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|)
@@ -1721,9 +1719,7 @@ name|binding
 operator|=
 operator|new
 name|GenericFileDefaultBinding
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

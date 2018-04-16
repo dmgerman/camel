@@ -357,6 +357,13 @@ argument_list|,
 name|found5
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should find removeProperty mbean"
+argument_list|,
+name|found6
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

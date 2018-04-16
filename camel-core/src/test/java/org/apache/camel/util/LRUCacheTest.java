@@ -75,11 +75,7 @@ name|cache
 operator|=
 operator|new
 name|LRUCache
-argument_list|<
-name|String
-argument_list|,
-name|Service
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|10
 argument_list|,

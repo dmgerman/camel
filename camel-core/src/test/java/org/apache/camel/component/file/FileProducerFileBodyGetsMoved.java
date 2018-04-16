@@ -264,9 +264,7 @@ name|body
 init|=
 operator|new
 name|GenericFile
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|body

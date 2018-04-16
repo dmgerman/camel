@@ -125,9 +125,7 @@ name|message
 init|=
 operator|new
 name|GenericFileMessage
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 name|camelContext
 argument_list|)
@@ -150,9 +148,7 @@ name|file
 init|=
 operator|new
 name|GenericFile
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|true
 argument_list|)
@@ -179,9 +175,7 @@ name|message
 operator|=
 operator|new
 name|GenericFileMessage
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 name|camelContext
 argument_list|,
@@ -222,9 +216,7 @@ name|file
 init|=
 operator|new
 name|GenericFile
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|true
 argument_list|)
@@ -262,9 +254,7 @@ name|message
 init|=
 operator|new
 name|GenericFileMessage
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 name|camelContext
 argument_list|,

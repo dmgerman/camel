@@ -209,9 +209,7 @@ name|processors
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|id
@@ -289,9 +287,7 @@ block|}
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|(
 name|processors
 argument_list|)

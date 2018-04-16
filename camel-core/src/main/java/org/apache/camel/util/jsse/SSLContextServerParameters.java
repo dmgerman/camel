@@ -312,12 +312,7 @@ name|sslEngineConfigurers
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Configurer
-argument_list|<
-name|SSLEngine
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

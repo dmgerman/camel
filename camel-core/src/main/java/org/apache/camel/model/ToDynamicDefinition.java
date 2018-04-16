@@ -464,9 +464,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Expression
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -916,9 +914,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Pair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Check all occurrences

@@ -132,9 +132,7 @@ name|KNOWN_TOKENS
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|SimpleTokenType
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// optimise to be able to quick check for start functions

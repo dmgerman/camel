@@ -62,9 +62,7 @@ name|distributionRatioList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|runtimeRatios
@@ -77,9 +75,7 @@ name|runtimeRatios
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DistributionRatio
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|WeightedLoadBalancer (List<Integer> distributionRatios)

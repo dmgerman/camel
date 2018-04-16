@@ -226,12 +226,7 @@ name|futures
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|task

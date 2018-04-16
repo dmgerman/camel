@@ -449,9 +449,7 @@ name|verbs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|VerbDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -2599,9 +2597,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -2758,9 +2754,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|addRouteDefinition
@@ -2793,9 +2787,7 @@ name|paths
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2900,11 +2892,7 @@ name|options
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -3492,11 +3480,7 @@ name|options
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// verb takes precedence over configuration on rest

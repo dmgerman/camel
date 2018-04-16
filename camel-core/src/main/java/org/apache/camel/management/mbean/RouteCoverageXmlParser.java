@@ -308,9 +308,7 @@ name|elementStack
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|Element
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final

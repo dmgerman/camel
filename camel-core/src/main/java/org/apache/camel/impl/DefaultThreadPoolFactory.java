@@ -419,9 +419,7 @@ name|workQueue
 operator|=
 operator|new
 name|SynchronousQueue
-argument_list|<
-name|Runnable
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// and force 1 as pool size to be able to create the thread pool by the JDK
@@ -447,9 +445,7 @@ name|workQueue
 operator|=
 operator|new
 name|SynchronousQueue
-argument_list|<
-name|Runnable
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -460,9 +456,7 @@ name|workQueue
 operator|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Runnable
-argument_list|>
+argument_list|<>
 argument_list|(
 name|maxQueueSize
 argument_list|)

@@ -275,9 +275,7 @@ name|CURRENT_RESTORE_ACTION
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|RestoreAction
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|ProcessorDefinitionHelper ()
@@ -366,9 +364,7 @@ name|found
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|doFindType
@@ -423,9 +419,7 @@ name|found
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|doFindType
@@ -831,9 +825,7 @@ name|set
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2345,9 +2337,7 @@ name|actions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Runnable
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|RestoreAction (RestoreAction prevChange)
@@ -2690,11 +2680,7 @@ name|properties
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|IntrospectionSupport
@@ -2918,11 +2904,7 @@ name|changedProperties
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -3143,11 +3125,7 @@ name|properties
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|IntrospectionSupport
@@ -3171,11 +3149,7 @@ name|changedProperties
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

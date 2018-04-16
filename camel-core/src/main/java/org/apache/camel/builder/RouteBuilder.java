@@ -549,11 +549,7 @@ name|restConfigurations
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|RestConfigurationDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2000,9 +1996,7 @@ name|routes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

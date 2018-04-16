@@ -536,11 +536,7 @@ name|parameters
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|converter
@@ -1225,9 +1221,7 @@ name|transformers
 operator|=
 operator|new
 name|ArrayBlockingQueue
-argument_list|<
-name|Transformer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numberToCache
 argument_list|)

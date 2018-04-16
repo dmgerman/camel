@@ -189,7 +189,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|CHECK_ENABLED
 argument_list|)
@@ -252,7 +252,7 @@ argument_list|()
 operator|.
 name|containsKey
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|CHECK_ENABLED
 argument_list|)
@@ -382,7 +382,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_TIME
 argument_list|)
@@ -394,7 +394,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_TIME
 argument_list|)
@@ -411,7 +411,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_COUNT
 argument_list|)
@@ -423,7 +423,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_COUNT
 argument_list|)
@@ -440,7 +440,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_ATTEMPT_TIME
 argument_list|)
@@ -452,7 +452,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_TIME
 argument_list|)
@@ -502,7 +502,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_TIME
 argument_list|)
@@ -514,7 +514,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_TIME
 argument_list|)
@@ -531,7 +531,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_COUNT
 argument_list|)
@@ -543,7 +543,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_COUNT
 argument_list|)
@@ -560,7 +560,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_ATTEMPT_TIME
 argument_list|)
@@ -572,7 +572,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_TIME
 argument_list|)
@@ -691,7 +691,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_COUNT
 argument_list|)
@@ -712,7 +712,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|FAILURE_COUNT
 argument_list|)
@@ -853,7 +853,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_COUNT
 argument_list|)
@@ -870,7 +870,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|FAILURE_COUNT
 argument_list|)
@@ -949,7 +949,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|INVOCATION_COUNT
 argument_list|)
@@ -968,7 +968,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|MyHealthCheck
+name|AbstractHealthCheck
 operator|.
 name|FAILURE_COUNT
 argument_list|)

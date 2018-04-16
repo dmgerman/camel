@@ -302,9 +302,7 @@ name|eventNotifiers
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|EventNotifier
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|eventFactory

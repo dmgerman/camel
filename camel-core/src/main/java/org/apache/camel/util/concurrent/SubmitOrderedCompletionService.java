@@ -166,9 +166,7 @@ name|completionQueue
 init|=
 operator|new
 name|DelayQueue
-argument_list|<
-name|SubmitOrderFutureTask
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// id is the unique id that determines the order in which tasks was submitted (incrementing)

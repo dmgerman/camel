@@ -258,9 +258,7 @@ name|tokens
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SimpleToken
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|nodes
@@ -274,9 +272,7 @@ name|nodes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SimpleNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|token
@@ -534,9 +530,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SimpleNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Deque

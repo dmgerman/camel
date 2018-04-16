@@ -180,11 +180,7 @@ name|CONSUMERS
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|DirectVmConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -285,9 +281,7 @@ name|endpoints
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Endpoint
-argument_list|>
+argument_list|<>
 argument_list|(
 name|CONSUMERS
 operator|.

@@ -209,9 +209,7 @@ name|predicates
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Predicate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|previous
@@ -352,9 +350,7 @@ name|clause
 init|=
 operator|new
 name|ExpressionClause
-argument_list|<
-name|AssertionClause
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|)

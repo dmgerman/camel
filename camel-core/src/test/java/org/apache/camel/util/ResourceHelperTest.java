@@ -1461,9 +1461,6 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|URL
-name|url
-init|=
 name|ResourceHelper
 operator|.
 name|resolveResourceAsUrl
@@ -1475,7 +1472,7 @@ argument_list|()
 argument_list|,
 literal|"custom://hello"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1646,11 +1643,7 @@ name|params
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params

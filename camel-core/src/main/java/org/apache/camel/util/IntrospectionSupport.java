@@ -385,9 +385,7 @@ name|EXCLUDED_METHODS
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Method
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// use a cache to speedup introspecting for known classes during startup
@@ -503,12 +501,7 @@ name|PRIMITIVE_CLASSES
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 static|static
@@ -1619,9 +1612,7 @@ name|found
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MethodInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Method
@@ -2615,11 +2606,7 @@ name|rc
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -2777,11 +2764,7 @@ name|rc
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|properties
 operator|.
@@ -4081,9 +4064,7 @@ name|candidates
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Method
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Build the method name.
@@ -4395,9 +4376,7 @@ name|answer
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Method
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -4408,9 +4387,7 @@ name|primitives
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Method
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set

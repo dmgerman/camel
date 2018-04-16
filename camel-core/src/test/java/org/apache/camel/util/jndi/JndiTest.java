@@ -174,11 +174,7 @@ name|InitialContext
 argument_list|(
 operator|new
 name|Hashtable
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|properties
 argument_list|)

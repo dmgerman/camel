@@ -167,9 +167,7 @@ name|task1
 init|=
 operator|new
 name|MockCallable
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -217,9 +215,7 @@ name|task3
 init|=
 operator|new
 name|MockCallable
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -323,9 +319,7 @@ name|task2
 init|=
 operator|new
 name|MockRejectableCallable
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -373,9 +367,7 @@ name|task4
 init|=
 operator|new
 name|MockRejectableCallable
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final

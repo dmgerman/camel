@@ -203,14 +203,7 @@ name|pool
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Key
-argument_list|,
-name|BlockingQueue
-argument_list|<
-name|Service
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|capacity
@@ -341,9 +334,7 @@ name|entry
 operator|=
 operator|new
 name|ArrayBlockingQueue
-argument_list|<
-name|Service
-argument_list|>
+argument_list|<>
 argument_list|(
 name|capacity
 argument_list|)
@@ -585,9 +576,7 @@ name|values
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Service
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|entry

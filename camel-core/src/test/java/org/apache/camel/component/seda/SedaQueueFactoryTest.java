@@ -141,9 +141,7 @@ name|arrayQueueFactory
 init|=
 operator|new
 name|ArrayBlockingQueueFactory
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

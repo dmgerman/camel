@@ -285,9 +285,7 @@ name|list
 operator|=
 operator|new
 name|GroupedExchangeList
-argument_list|<
-name|V
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|exchange

@@ -325,9 +325,7 @@ name|traceHandlers
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|TraceEventHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|jpaTraceEventMessageClassName

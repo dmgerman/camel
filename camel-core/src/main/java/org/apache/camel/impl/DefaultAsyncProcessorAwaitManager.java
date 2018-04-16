@@ -357,11 +357,7 @@ name|inflight
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Exchange
-argument_list|,
-name|AwaitThread
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|exchangeFormatter

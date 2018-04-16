@@ -151,14 +151,7 @@ name|interfaceAddressMap
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Set
-argument_list|<
-name|InetAddress
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -291,9 +284,7 @@ name|addresses
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|InetAddress
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -349,9 +340,7 @@ name|allAddresses
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|InetAddress
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map

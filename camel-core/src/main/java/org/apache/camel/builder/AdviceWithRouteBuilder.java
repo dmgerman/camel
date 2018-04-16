@@ -133,9 +133,7 @@ name|adviceWithTasks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AdviceWithTask
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Sets the original route to be adviced.      *      * @param originalRoute the original route.      */
@@ -383,9 +381,7 @@ expr_stmt|;
 return|return
 operator|new
 name|AdviceWithBuilder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -434,9 +430,7 @@ expr_stmt|;
 return|return
 operator|new
 name|AdviceWithBuilder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -485,9 +479,7 @@ expr_stmt|;
 return|return
 operator|new
 name|AdviceWithBuilder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -539,9 +531,7 @@ expr_stmt|;
 return|return
 operator|new
 name|AdviceWithBuilder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,

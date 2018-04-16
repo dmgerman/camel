@@ -153,9 +153,7 @@ literal|"mySorter"
 argument_list|,
 operator|new
 name|MyFileSorter
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;

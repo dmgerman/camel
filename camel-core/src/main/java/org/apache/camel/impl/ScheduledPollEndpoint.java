@@ -985,11 +985,7 @@ name|copy
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getConsumerProperties
 argument_list|()
@@ -1005,11 +1001,7 @@ name|throwaway
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// filter out unwanted options which is intended for the scheduled poll consumer

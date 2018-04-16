@@ -443,11 +443,7 @@ name|answer
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -563,9 +559,7 @@ name|answer
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -841,11 +835,7 @@ name|properties
 init|=
 operator|new
 name|Hashtable
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|System
 operator|.

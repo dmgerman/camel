@@ -149,9 +149,7 @@ name|services
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|Service
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|addService (Service service)

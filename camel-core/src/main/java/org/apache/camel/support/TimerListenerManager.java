@@ -199,9 +199,7 @@ name|listeners
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|TimerListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|camelContext

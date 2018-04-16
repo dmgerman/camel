@@ -441,12 +441,7 @@ name|visitedClasses
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|visitedURIs
@@ -459,9 +454,7 @@ name|visitedURIs
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|AnnotationTypeConverterLoader (PackageScanClassResolver resolver)
@@ -606,12 +599,7 @@ name|classes
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|packageNames
@@ -858,9 +846,7 @@ name|packages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// try to load it as a class first
@@ -1009,9 +995,7 @@ name|packages
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ClassLoader
@@ -1833,9 +1817,7 @@ name|injector
 operator|=
 operator|new
 name|CachingInjector
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|registry
 argument_list|,
@@ -2068,9 +2050,7 @@ name|injector
 operator|=
 operator|new
 name|CachingInjector
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|registry
 argument_list|,
@@ -2391,9 +2371,7 @@ name|packages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

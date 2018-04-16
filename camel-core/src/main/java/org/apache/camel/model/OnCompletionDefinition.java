@@ -404,12 +404,7 @@ name|outputs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -442,11 +437,7 @@ name|onCompletions
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|OnCompletionDefinition ()

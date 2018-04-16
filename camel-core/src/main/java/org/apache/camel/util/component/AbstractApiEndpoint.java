@@ -278,11 +278,7 @@ name|executorServiceMap
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|ExecutorService
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// logger
@@ -584,11 +580,7 @@ name|properties
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|getPropertiesHelper

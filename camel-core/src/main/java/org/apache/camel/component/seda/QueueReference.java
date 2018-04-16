@@ -102,9 +102,7 @@ name|endpoints
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|SedaEndpoint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|QueueReference (BlockingQueue<Exchange> queue, Integer size, Boolean multipleConsumers)

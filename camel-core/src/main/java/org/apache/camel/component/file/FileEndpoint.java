@@ -985,9 +985,7 @@ block|}
 return|return
 operator|new
 name|GenericFileProducer
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -1458,9 +1456,7 @@ name|permissions
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|PosixFilePermission
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1816,9 +1812,7 @@ name|permissions
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|PosixFilePermission
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

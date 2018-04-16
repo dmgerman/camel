@@ -477,9 +477,7 @@ name|producers
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|SedaProducer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|consumers
@@ -493,9 +491,7 @@ name|consumers
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|SedaConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|consumerMulticastProcessor
@@ -740,9 +736,7 @@ name|queueFactory
 operator|=
 operator|new
 name|LinkedBlockingQueueFactory
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -831,9 +825,7 @@ name|queueFactory
 operator|=
 operator|new
 name|LinkedBlockingQueueFactory
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|getComponent
@@ -1469,9 +1461,7 @@ name|processors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -1938,9 +1928,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getQueue
 argument_list|()
@@ -2019,9 +2007,7 @@ block|{
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|SedaProducer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|producers
 argument_list|)

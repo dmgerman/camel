@@ -132,9 +132,7 @@ name|trackers
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|CamelContextTracker
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|CamelContextTrackerRegistry ()

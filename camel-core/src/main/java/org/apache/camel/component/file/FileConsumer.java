@@ -1138,9 +1138,7 @@ name|answer
 init|=
 operator|new
 name|GenericFile
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 name|probeContentType
 argument_list|)

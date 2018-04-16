@@ -374,9 +374,7 @@ name|listeners
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MainListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|options
@@ -390,9 +388,7 @@ name|options
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Option
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|latch
@@ -476,9 +472,7 @@ name|routeBuilders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|routeBuilderClasses
@@ -507,9 +501,7 @@ name|camelContexts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CamelContext
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|camelTemplate
@@ -1446,9 +1438,7 @@ name|args
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -2170,9 +2160,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

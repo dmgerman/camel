@@ -108,9 +108,7 @@ name|eventMessages
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|StringBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this

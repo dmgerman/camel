@@ -220,9 +220,7 @@ name|failedExceptions
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Exception
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

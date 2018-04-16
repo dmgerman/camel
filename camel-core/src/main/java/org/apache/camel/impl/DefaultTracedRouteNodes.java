@@ -170,12 +170,7 @@ name|routeNodes
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|List
-argument_list|<
-name|RouteNode
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|nodeCounter
@@ -194,14 +189,7 @@ name|nodeCounter
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-argument_list|,
-name|AtomicInteger
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|DefaultTracedRouteNodes ()
@@ -261,9 +249,7 @@ name|list
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteNode
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|routeNodes
@@ -414,9 +400,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

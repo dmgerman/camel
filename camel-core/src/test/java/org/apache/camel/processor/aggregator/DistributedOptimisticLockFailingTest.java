@@ -583,12 +583,7 @@ name|tasks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Callable
-argument_list|<
-name|Object
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

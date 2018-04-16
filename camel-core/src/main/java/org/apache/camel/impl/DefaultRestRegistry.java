@@ -322,11 +322,7 @@ name|registry
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|Consumer
-argument_list|,
-name|RestService
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|apiProducer
@@ -451,9 +447,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|RestService
-argument_list|>
+argument_list|<>
 argument_list|(
 name|registry
 operator|.

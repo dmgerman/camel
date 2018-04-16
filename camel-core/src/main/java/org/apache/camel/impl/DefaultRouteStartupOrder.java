@@ -206,9 +206,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Consumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -264,9 +262,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Service
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Collection

@@ -174,11 +174,7 @@ name|QUEUES
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|QueueReference
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|ENDPOINTS
@@ -195,11 +191,7 @@ name|ENDPOINTS
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|VmEndpoint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|START_COUNTER

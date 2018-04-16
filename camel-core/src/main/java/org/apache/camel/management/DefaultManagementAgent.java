@@ -521,11 +521,7 @@ name|mbeansRegistered
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|ObjectName
-argument_list|,
-name|ObjectName
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|cs
@@ -696,11 +692,7 @@ name|values
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

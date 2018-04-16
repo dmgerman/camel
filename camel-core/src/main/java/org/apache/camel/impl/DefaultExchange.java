@@ -2322,9 +2322,7 @@ name|onCompletions
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Synchronization
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2480,9 +2478,7 @@ name|answer
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Synchronization
-argument_list|>
+argument_list|<>
 argument_list|(
 name|onCompletions
 argument_list|)

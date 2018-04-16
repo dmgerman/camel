@@ -214,11 +214,7 @@ name|candidates
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Integer
-argument_list|,
-name|OnExceptionDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -231,11 +227,7 @@ name|routeScoped
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|ExceptionPolicyKey
-argument_list|,
-name|OnExceptionDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -248,11 +240,7 @@ name|contextScoped
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|ExceptionPolicyKey
-argument_list|,
-name|OnExceptionDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// split policies into route and context scoped

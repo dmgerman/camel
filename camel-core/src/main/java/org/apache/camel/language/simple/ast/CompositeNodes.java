@@ -107,9 +107,7 @@ name|children
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SimpleNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|CompositeNodes (SimpleToken token)
@@ -255,9 +253,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Expression
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

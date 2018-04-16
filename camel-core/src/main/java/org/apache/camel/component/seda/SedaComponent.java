@@ -215,9 +215,7 @@ name|defaultQueueFactory
 init|=
 operator|new
 name|LinkedBlockingQueueFactory
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|queues
@@ -233,11 +231,7 @@ name|queues
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|QueueReference
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|SedaComponent ()

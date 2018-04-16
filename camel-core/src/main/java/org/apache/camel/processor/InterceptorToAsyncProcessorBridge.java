@@ -143,9 +143,7 @@ name|callback
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|AsyncCallback
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|interceptorDone
@@ -159,9 +157,7 @@ name|interceptorDone
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructs the bridge      *      * @param interceptor the interceptor to bridge      */

@@ -195,9 +195,7 @@ name|delegate
 operator|=
 operator|new
 name|ExpressionClauseSupport
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|result
 argument_list|)
@@ -229,9 +227,7 @@ name|clause
 init|=
 operator|new
 name|ExpressionClause
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|result
 argument_list|)

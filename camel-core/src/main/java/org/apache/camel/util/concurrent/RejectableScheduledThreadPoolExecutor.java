@@ -208,9 +208,7 @@ block|{
 return|return
 operator|new
 name|RejectableFutureTask
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|runnable
 argument_list|,
@@ -262,9 +260,7 @@ block|{
 return|return
 operator|new
 name|RejectableFutureTask
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|callable
 argument_list|)

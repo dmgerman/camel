@@ -648,11 +648,7 @@ block|}
 return|return
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|ParameterConfiguration
-argument_list|>
+argument_list|<>
 argument_list|(
 name|propertyMap
 argument_list|)

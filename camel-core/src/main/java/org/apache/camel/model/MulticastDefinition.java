@@ -521,9 +521,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)

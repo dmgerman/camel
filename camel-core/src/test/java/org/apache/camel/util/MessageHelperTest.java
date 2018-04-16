@@ -263,9 +263,7 @@ name|reset
 init|=
 operator|new
 name|ValueHolder
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Boolean
 operator|.

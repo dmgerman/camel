@@ -177,7 +177,7 @@ name|this
 operator|.
 name|status
 operator|=
-name|scope
+name|Optional
 operator|.
 name|empty
 argument_list|()

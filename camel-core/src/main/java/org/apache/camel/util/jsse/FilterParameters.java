@@ -135,9 +135,7 @@ name|include
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -168,9 +166,7 @@ name|exclude
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -271,9 +267,7 @@ name|patterns
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Pattern
-argument_list|>
+argument_list|<>
 argument_list|(
 name|patternStrings
 operator|.
@@ -363,9 +357,7 @@ name|unmodifiableList
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|Pattern
-argument_list|>
+argument_list|<>
 argument_list|(
 name|includes
 argument_list|)
@@ -381,9 +373,7 @@ name|unmodifiableList
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|Pattern
-argument_list|>
+argument_list|<>
 argument_list|(
 name|excludes
 argument_list|)

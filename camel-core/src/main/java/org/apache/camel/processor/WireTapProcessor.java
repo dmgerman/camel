@@ -1279,9 +1279,7 @@ name|newExchangeProcessors
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

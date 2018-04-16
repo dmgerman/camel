@@ -1527,9 +1527,7 @@ name|endpoints
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|(
 name|multicastProcessor
 operator|.
@@ -1787,9 +1785,7 @@ name|processors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|(
 name|line
 operator|.

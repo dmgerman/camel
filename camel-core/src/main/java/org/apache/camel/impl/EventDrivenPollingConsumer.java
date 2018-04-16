@@ -342,9 +342,7 @@ name|queue
 operator|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -356,9 +354,7 @@ name|queue
 operator|=
 operator|new
 name|ArrayBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|queueSize
 argument_list|)

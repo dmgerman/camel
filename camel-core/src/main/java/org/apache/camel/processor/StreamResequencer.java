@@ -510,9 +510,7 @@ name|engine
 operator|=
 operator|new
 name|ResequencerEngine
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|comparator
 argument_list|)
@@ -1040,9 +1038,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Processor
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)

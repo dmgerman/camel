@@ -302,9 +302,7 @@ name|whenClauses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|WhenDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -761,9 +759,7 @@ name|filters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FilterProcessor
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -974,9 +970,7 @@ name|clause
 init|=
 operator|new
 name|ExpressionClause
-argument_list|<
-name|ChoiceDefinition
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|)

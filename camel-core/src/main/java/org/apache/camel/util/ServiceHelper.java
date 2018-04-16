@@ -1395,9 +1395,7 @@ name|answer
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Service
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|doGetChildServices

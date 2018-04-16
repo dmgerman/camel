@@ -589,11 +589,7 @@ name|attributes
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|ManagedAttributeInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -604,9 +600,7 @@ name|operations
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|ManagedOperationInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -617,9 +611,7 @@ name|mBeanAttributes
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|ModelMBeanAttributeInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -630,9 +622,7 @@ name|mBeanOperations
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|ModelMBeanOperationInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -643,9 +633,7 @@ name|mBeanNotifications
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|ModelMBeanNotificationInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// extract details from default managed bean
@@ -927,11 +915,7 @@ name|attributes
 operator|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|ManagedAttributeInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 name|attributes
 argument_list|)
@@ -942,9 +926,7 @@ name|operations
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|ManagedOperationInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 name|operations
 argument_list|)

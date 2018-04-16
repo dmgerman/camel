@@ -339,9 +339,7 @@ name|copy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Synchronization
-argument_list|>
+argument_list|<>
 argument_list|(
 name|synchronizations
 argument_list|)
@@ -486,9 +484,7 @@ name|copy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Synchronization
-argument_list|>
+argument_list|<>
 argument_list|(
 name|synchronizations
 argument_list|)
@@ -621,9 +617,7 @@ name|copy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Synchronization
-argument_list|>
+argument_list|<>
 argument_list|(
 name|synchronizations
 argument_list|)

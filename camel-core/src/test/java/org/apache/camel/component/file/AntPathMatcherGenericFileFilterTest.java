@@ -147,9 +147,7 @@ name|filterNotCaseSensitive
 init|=
 operator|new
 name|AntPathMatcherGenericFileFilter
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"**/c*"
 argument_list|)

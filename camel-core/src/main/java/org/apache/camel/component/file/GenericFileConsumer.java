@@ -582,12 +582,7 @@ name|files
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -744,9 +739,7 @@ name|exchanges
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1821,9 +1814,7 @@ name|addOnCompletion
 argument_list|(
 operator|new
 name|GenericFileOnCompletion
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|endpoint
 argument_list|,

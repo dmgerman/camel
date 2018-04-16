@@ -439,9 +439,7 @@ name|breakpoints
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|BreakpointConditions
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|maxConcurrentSingleSteps
@@ -465,11 +463,7 @@ name|singleSteps
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Breakpoint
-argument_list|>
+argument_list|<>
 argument_list|(
 name|maxConcurrentSingleSteps
 argument_list|)
@@ -1087,9 +1081,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Breakpoint
-argument_list|>
+argument_list|<>
 argument_list|(
 name|breakpoints
 operator|.

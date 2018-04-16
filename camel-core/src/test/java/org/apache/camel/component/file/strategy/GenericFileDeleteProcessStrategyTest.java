@@ -448,9 +448,7 @@ name|file
 init|=
 operator|new
 name|GenericFile
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|file
@@ -468,9 +466,7 @@ name|strategy
 init|=
 operator|new
 name|GenericFileDeleteProcessStrategy
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|strategy
@@ -561,9 +557,7 @@ name|file
 init|=
 operator|new
 name|GenericFile
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|file
@@ -581,9 +575,7 @@ name|strategy
 init|=
 operator|new
 name|GenericFileDeleteProcessStrategy
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try

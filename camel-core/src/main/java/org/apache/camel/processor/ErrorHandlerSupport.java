@@ -250,11 +250,7 @@ name|exceptionPolicies
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|ExceptionPolicyKey
-argument_list|,
-name|OnExceptionDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|exceptionPolicy

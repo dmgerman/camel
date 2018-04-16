@@ -428,9 +428,7 @@ name|INPUT_FACTORY_POOL
 operator|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|XMLInputFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 name|i
 argument_list|)
@@ -439,9 +437,7 @@ name|OUTPUT_FACTORY_POOL
 operator|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|XMLOutputFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 name|i
 argument_list|)

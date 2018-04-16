@@ -166,11 +166,7 @@ name|handlers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|RouteContext
-argument_list|,
-name|ErrorHandlerBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|supportTransacted
