@@ -75,14 +75,7 @@ name|DOCKER_DEFAULT_PARAMETERS
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Endpoint configuration defaults      */

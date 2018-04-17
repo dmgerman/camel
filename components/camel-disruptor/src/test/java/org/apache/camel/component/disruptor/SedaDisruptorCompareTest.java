@@ -475,9 +475,7 @@ name|endpointSizeQueue
 init|=
 operator|new
 name|ConcurrentLinkedQueue
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|SedaDisruptorCompareTest (final String componentName, final String endpointUri, final int amountProducers, final int amountConsumers, final int concurrentConsumerThreads, final long[] sizeHistogramBounds)
@@ -836,10 +834,7 @@ name|parameters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// This parameter set can be compared to the next and shows the impact of a 'long' endpoint name
@@ -1945,9 +1940,7 @@ name|latencyQueue
 init|=
 operator|new
 name|ConcurrentLinkedQueue
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|ExchangeAwaiter (final int count)
@@ -1975,9 +1968,7 @@ name|latencyQueue
 operator|=
 operator|new
 name|ConcurrentLinkedQueue
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|latch

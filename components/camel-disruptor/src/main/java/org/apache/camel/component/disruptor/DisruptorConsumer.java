@@ -505,9 +505,7 @@ name|eventHandlers
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|LifecycleAwareExchangeEventHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

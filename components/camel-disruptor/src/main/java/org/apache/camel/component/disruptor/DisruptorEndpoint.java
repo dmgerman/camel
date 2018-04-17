@@ -398,9 +398,7 @@ name|producers
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|DisruptorProducer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|consumers
@@ -414,9 +412,7 @@ name|consumers
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|DisruptorConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|disruptorReference
@@ -1414,14 +1410,7 @@ name|result
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|DisruptorConsumer
-argument_list|,
-name|Collection
-argument_list|<
-name|LifecycleAwareExchangeEventHandler
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

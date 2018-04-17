@@ -126,24 +126,6 @@ name|dozer
 operator|.
 name|DozerTestArtifactsFactory
 operator|.
-name|createMapper
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|dozer
-operator|.
-name|DozerTestArtifactsFactory
-operator|.
 name|createServiceCustomer
 import|;
 end_import

@@ -44,16 +44,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|UnknownHostException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -87,16 +77,6 @@ operator|.
 name|naming
 operator|.
 name|NamingEnumeration
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|NamingException
 import|;
 end_import
 
@@ -214,9 +194,7 @@ name|resolvesTo
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|DnsActivation ()
@@ -373,9 +351,7 @@ name|hostnames
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|hostnames
@@ -393,9 +369,7 @@ name|resolved
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while
@@ -655,9 +629,7 @@ name|localIps
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Enumeration

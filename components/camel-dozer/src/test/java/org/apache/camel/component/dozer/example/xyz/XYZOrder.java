@@ -176,9 +176,7 @@ name|lineItems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LineItem
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      *       * @return      *     The custId      */

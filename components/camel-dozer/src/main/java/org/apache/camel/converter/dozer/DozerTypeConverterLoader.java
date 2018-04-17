@@ -892,11 +892,7 @@ block|{
 return|return
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Mapper
-argument_list|>
+argument_list|<>
 argument_list|(
 name|camelContext
 operator|.
@@ -927,11 +923,7 @@ block|{
 return|return
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|DozerBeanMapperConfiguration
-argument_list|>
+argument_list|<>
 argument_list|(
 name|camelContext
 operator|.
