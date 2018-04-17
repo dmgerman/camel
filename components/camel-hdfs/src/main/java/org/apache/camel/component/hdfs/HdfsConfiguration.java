@@ -1204,11 +1204,7 @@ name|strategies
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|HdfsProducer
-operator|.
-name|SplitStrategy
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

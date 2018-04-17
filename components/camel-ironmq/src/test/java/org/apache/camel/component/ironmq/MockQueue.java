@@ -248,11 +248,7 @@ name|messages
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Message
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|MockQueue (Client client, String name)
@@ -499,9 +495,7 @@ name|Messages
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|Message
-argument_list|>
+argument_list|<>
 argument_list|(
 name|messages
 operator|.
@@ -799,9 +793,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Message
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while

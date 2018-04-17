@@ -893,9 +893,7 @@ name|key
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Holder
@@ -906,9 +904,7 @@ name|value
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while

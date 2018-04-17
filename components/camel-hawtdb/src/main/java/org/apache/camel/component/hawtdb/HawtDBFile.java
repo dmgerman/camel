@@ -253,11 +253,7 @@ name|ROOT_INDEXES_FACTORY
 init|=
 operator|new
 name|BTreeIndexFactory
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// the real indexes where we store persisted data in buffers
@@ -275,11 +271,7 @@ name|INDEX_FACTORY
 init|=
 operator|new
 name|BTreeIndexFactory
-argument_list|<
-name|Buffer
-argument_list|,
-name|Buffer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|pageFile

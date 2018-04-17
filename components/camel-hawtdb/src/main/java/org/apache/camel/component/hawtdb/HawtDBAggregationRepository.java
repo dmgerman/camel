@@ -1343,9 +1343,7 @@ name|keys
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|hawtDBFile
@@ -1568,9 +1566,7 @@ name|answer
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|hawtDBFile

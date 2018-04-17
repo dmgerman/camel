@@ -77,9 +77,7 @@ name|rows
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|HBaseRow
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|HBaseData ()

@@ -73,9 +73,7 @@ name|configurers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|HttpClientConfigurer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|addConfigurer (HttpClientConfigurer configurer)

@@ -360,9 +360,7 @@ name|msg
 init|=
 operator|new
 name|Message
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"foo"
 argument_list|,

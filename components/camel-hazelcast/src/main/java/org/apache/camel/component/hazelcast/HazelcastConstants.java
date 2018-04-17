@@ -273,6 +273,8 @@ init|=
 literal|"CamelHazelcastOperationType"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#PUT}      */
+annotation|@
+name|Deprecated
 DECL|field|PUT_OPERATION
 specifier|public
 specifier|static
@@ -283,6 +285,8 @@ init|=
 literal|"put"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#DELETE}      */
+annotation|@
+name|Deprecated
 DECL|field|DELETE_OPERATION
 specifier|public
 specifier|static
@@ -293,6 +297,8 @@ init|=
 literal|"delete"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#GET}      */
+annotation|@
+name|Deprecated
 DECL|field|GET_OPERATION
 specifier|public
 specifier|static
@@ -303,6 +309,8 @@ init|=
 literal|"get"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#UPDATE}      */
+annotation|@
+name|Deprecated
 DECL|field|UPDATE_OPERATION
 specifier|public
 specifier|static
@@ -313,6 +321,8 @@ init|=
 literal|"update"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#QUERY}      */
+annotation|@
+name|Deprecated
 DECL|field|QUERY_OPERATION
 specifier|public
 specifier|static
@@ -323,6 +333,8 @@ init|=
 literal|"query"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#GET_ALL}      */
+annotation|@
+name|Deprecated
 DECL|field|GET_ALL_OPERATION
 specifier|public
 specifier|static
@@ -333,6 +345,8 @@ init|=
 literal|"getAll"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#CLEAR}      */
+annotation|@
+name|Deprecated
 DECL|field|CLEAR_OPERATION
 specifier|public
 specifier|static
@@ -343,6 +357,8 @@ init|=
 literal|"clear"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#PUT_IF_ABSENT}      */
+annotation|@
+name|Deprecated
 DECL|field|PUT_IF_ABSENT_OPERATION
 specifier|public
 specifier|static
@@ -353,6 +369,8 @@ init|=
 literal|"putIfAbsent"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#ADD_ALL}      */
+annotation|@
+name|Deprecated
 DECL|field|ADD_ALL_OPERATION
 specifier|public
 specifier|static
@@ -363,6 +381,8 @@ init|=
 literal|"addAll"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#REMOVE_ALL}      */
+annotation|@
+name|Deprecated
 DECL|field|REMOVE_ALL_OPERATION
 specifier|public
 specifier|static
@@ -373,6 +393,8 @@ init|=
 literal|"removeAll"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#RETAIN_ALL}      */
+annotation|@
+name|Deprecated
 DECL|field|RETAIN_ALL_OPERATION
 specifier|public
 specifier|static
@@ -383,6 +405,8 @@ init|=
 literal|"retailAll"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#EVICT}      */
+annotation|@
+name|Deprecated
 DECL|field|EVICT_OPERATION
 specifier|public
 specifier|static
@@ -393,6 +417,8 @@ init|=
 literal|"evict"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#EVICT_ALL}      */
+annotation|@
+name|Deprecated
 DECL|field|EVICT_ALL_OPERATION
 specifier|public
 specifier|static
@@ -403,6 +429,8 @@ init|=
 literal|"evictAll"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#VALUE_COUNT}      */
+annotation|@
+name|Deprecated
 DECL|field|VALUE_COUNT_OPERATION
 specifier|public
 specifier|static
@@ -413,6 +441,8 @@ init|=
 literal|"valueCount"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#CONTAINS_KEY}      */
+annotation|@
+name|Deprecated
 DECL|field|CONTAINS_KEY_OPERATION
 specifier|public
 specifier|static
@@ -423,6 +453,8 @@ init|=
 literal|"containsKey"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#CONTAINS_VALUE}      */
+annotation|@
+name|Deprecated
 DECL|field|CONTAINS_VALUE_OPERATION
 specifier|public
 specifier|static
@@ -433,6 +465,8 @@ init|=
 literal|"containsValue"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#GET_KEYS}      */
+annotation|@
+name|Deprecated
 DECL|field|GET_KEYS_OPERATION
 specifier|public
 specifier|static
@@ -444,6 +478,8 @@ literal|"keySet"
 decl_stmt|;
 comment|// multimap
 comment|/**      * @deprecated      * use {@link HazelcastOperation#REMOVE_VALUE}      */
+annotation|@
+name|Deprecated
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
 specifier|static
@@ -455,6 +491,8 @@ literal|"removevalue"
 decl_stmt|;
 comment|// atomic numbers
 comment|/**      * @deprecated      * use {@link HazelcastOperation#INCREMENT}      */
+annotation|@
+name|Deprecated
 DECL|field|INCREMENT_OPERATION
 specifier|public
 specifier|static
@@ -465,6 +503,8 @@ init|=
 literal|"increment"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#DECREMENT}      */
+annotation|@
+name|Deprecated
 DECL|field|DECREMENT_OPERATION
 specifier|public
 specifier|static
@@ -475,6 +515,8 @@ init|=
 literal|"decrement"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#SET_VALUE}      */
+annotation|@
+name|Deprecated
 DECL|field|SETVALUE_OPERATION
 specifier|public
 specifier|static
@@ -485,6 +527,8 @@ init|=
 literal|"setvalue"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#DESTROY}      */
+annotation|@
+name|Deprecated
 DECL|field|DESTROY_OPERATION
 specifier|public
 specifier|static
@@ -495,6 +539,8 @@ init|=
 literal|"destroy"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#COMPARE_AND_SET}      */
+annotation|@
+name|Deprecated
 DECL|field|COMPARE_AND_SET_OPERATION
 specifier|public
 specifier|static
@@ -505,6 +551,8 @@ init|=
 literal|"compareAndSet"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#GET_AND_ADD}      */
+annotation|@
+name|Deprecated
 DECL|field|GET_AND_ADD_OPERATION
 specifier|public
 specifier|static
@@ -516,6 +564,8 @@ literal|"getAndAdd"
 decl_stmt|;
 comment|// queue
 comment|/**      * @deprecated      * use {@link HazelcastOperation#ADD}      */
+annotation|@
+name|Deprecated
 DECL|field|ADD_OPERATION
 specifier|public
 specifier|static
@@ -526,6 +576,8 @@ init|=
 literal|"add"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#OFFER}      */
+annotation|@
+name|Deprecated
 DECL|field|OFFER_OPERATION
 specifier|public
 specifier|static
@@ -536,6 +588,8 @@ init|=
 literal|"offer"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#PEEK}      */
+annotation|@
+name|Deprecated
 DECL|field|PEEK_OPERATION
 specifier|public
 specifier|static
@@ -546,6 +600,8 @@ init|=
 literal|"peek"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#POLL}      */
+annotation|@
+name|Deprecated
 DECL|field|POLL_OPERATION
 specifier|public
 specifier|static
@@ -556,6 +612,8 @@ init|=
 literal|"poll"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#REMAINING_CAPACITY}      */
+annotation|@
+name|Deprecated
 DECL|field|REMAINING_CAPACITY_OPERATION
 specifier|public
 specifier|static
@@ -566,6 +624,8 @@ init|=
 literal|"remainingCapacity"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#DRAIN_TO}      */
+annotation|@
+name|Deprecated
 DECL|field|DRAIN_TO_OPERATION
 specifier|public
 specifier|static
@@ -577,6 +637,8 @@ literal|"drainTo"
 decl_stmt|;
 comment|// topic
 comment|/**      * @deprecated      * use {@link HazelcastOperation#PUBLISH}      */
+annotation|@
+name|Deprecated
 DECL|field|PUBLISH_OPERATION
 specifier|public
 specifier|static
@@ -588,6 +650,8 @@ literal|"publish"
 decl_stmt|;
 comment|// ring_buffer
 comment|/**      * @deprecated      * use {@link HazelcastOperation#READ_ONCE_HEAD}      */
+annotation|@
+name|Deprecated
 DECL|field|READ_ONCE_HEAD_OPERATION
 specifier|public
 specifier|static
@@ -598,6 +662,8 @@ init|=
 literal|"readOnceHead"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#READ_ONCE_TAIL}      */
+annotation|@
+name|Deprecated
 DECL|field|READ_ONCE_TAIL_OPERATION
 specifier|public
 specifier|static
@@ -608,6 +674,8 @@ init|=
 literal|"readOnceTail"
 decl_stmt|;
 comment|/**      * @deprecated      * use {@link HazelcastOperation#CAPACITY}      */
+annotation|@
+name|Deprecated
 DECL|field|GET_CAPACITY_OPERATION
 specifier|public
 specifier|static

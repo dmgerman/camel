@@ -983,9 +983,7 @@ name|values
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// if its a multi value then check each value if we can add it and for multi values they
@@ -1524,14 +1522,7 @@ name|m
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1823,14 +1814,7 @@ name|m
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2139,11 +2123,7 @@ name|answer
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

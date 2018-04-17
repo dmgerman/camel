@@ -399,9 +399,7 @@ name|event
 init|=
 operator|new
 name|ItemEvent
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -511,9 +509,7 @@ name|event
 init|=
 operator|new
 name|ItemEvent
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"foo"
 argument_list|,

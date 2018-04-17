@@ -3877,9 +3877,6 @@ name|DefaultHapiContext
 argument_list|(
 name|parserConfiguration
 argument_list|,
-operator|(
-name|ValidationContext
-operator|)
 name|ValidationContextFactory
 operator|.
 name|noValidation

@@ -214,11 +214,7 @@ name|connectionCache
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|IRCConnection
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -823,11 +819,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|IRCConnection
-argument_list|>
+argument_list|<>
 argument_list|(
 name|connectionCache
 argument_list|)

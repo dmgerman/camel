@@ -881,11 +881,7 @@ name|query
 init|=
 operator|new
 name|ScanQuery
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|IgniteBiPredicate

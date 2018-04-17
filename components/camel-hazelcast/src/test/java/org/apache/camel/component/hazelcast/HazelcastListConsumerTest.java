@@ -363,9 +363,7 @@ name|event
 init|=
 operator|new
 name|ItemEvent
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"mm"
 argument_list|,
@@ -475,9 +473,7 @@ name|event
 init|=
 operator|new
 name|ItemEvent
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"mm"
 argument_list|,

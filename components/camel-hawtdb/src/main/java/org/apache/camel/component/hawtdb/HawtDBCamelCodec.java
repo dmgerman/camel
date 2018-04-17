@@ -203,9 +203,7 @@ name|exchangeCodec
 init|=
 operator|new
 name|ObjectCodec
-argument_list|<
-name|DefaultExchangeHolder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|marshallKey (String key)
