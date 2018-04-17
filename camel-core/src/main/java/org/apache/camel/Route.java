@@ -96,6 +96,12 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the route group      *      * @return the route group      */
+DECL|method|getGroup ()
+name|String
+name|getGroup
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the uptime in a human readable format      *      * @return the uptime in days/hours/minutes      */
 DECL|method|getUptime ()
 name|String

@@ -302,6 +302,26 @@ name|ID_PROPERTY
 argument_list|)
 return|;
 block|}
+DECL|method|getGroup ()
+specifier|public
+name|String
+name|getGroup
+parameter_list|()
+block|{
+return|return
+operator|(
+name|String
+operator|)
+name|properties
+operator|.
+name|get
+argument_list|(
+name|Route
+operator|.
+name|GROUP_PROPERTY
+argument_list|)
+return|;
+block|}
 DECL|method|getUptime ()
 specifier|public
 name|String

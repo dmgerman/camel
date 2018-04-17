@@ -1686,6 +1686,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the route group for this route      *      * @param group the route group      * @return the builder      */
+DECL|method|routeGroup (String group)
+specifier|public
+name|RouteDefinition
+name|routeGroup
+parameter_list|(
+name|String
+name|group
+parameter_list|)
+block|{
+name|setGroup
+argument_list|(
+name|group
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Set the route id for this route      *      * @param id the route id      * @return the builder      */
 DECL|method|routeId (String id)
 specifier|public
