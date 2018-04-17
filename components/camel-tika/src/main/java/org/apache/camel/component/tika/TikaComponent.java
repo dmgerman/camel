@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -84,7 +84,7 @@ specifier|public
 class|class
 name|TikaComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|TIKA_CONFIG
 specifier|private
@@ -95,19 +95,6 @@ name|TIKA_CONFIG
 init|=
 literal|"tikaConfig"
 decl_stmt|;
-DECL|method|TikaComponent ()
-specifier|public
-name|TikaComponent
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|TikaEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
