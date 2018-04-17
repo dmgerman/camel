@@ -273,11 +273,7 @@ name|result
 operator|=
 operator|new
 name|SerializableObjectStore
-argument_list|<
-name|K
-argument_list|,
-name|V
-argument_list|>
+argument_list|<>
 argument_list|(
 name|dynamicDataStore
 argument_list|,

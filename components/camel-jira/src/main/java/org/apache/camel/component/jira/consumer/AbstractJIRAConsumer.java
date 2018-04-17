@@ -444,9 +444,7 @@ name|issues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BasicIssue
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while

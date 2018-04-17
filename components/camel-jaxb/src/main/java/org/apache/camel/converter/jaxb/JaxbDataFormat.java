@@ -584,9 +584,7 @@ name|SCHEMA_FACTORY_POOL
 init|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|SchemaFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|schemaFactory
@@ -1324,9 +1322,7 @@ name|element
 operator|=
 operator|new
 name|JAXBElement
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|partNamespaceOnDataFormat
 argument_list|,

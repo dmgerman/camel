@@ -282,9 +282,7 @@ name|queue
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Iterator

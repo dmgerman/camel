@@ -264,16 +264,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Map
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|registry
 operator|.

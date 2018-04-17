@@ -141,9 +141,7 @@ name|strategy
 init|=
 operator|new
 name|GenericFileNoOpProcessStrategy
-argument_list|<
-name|LsEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|strategy

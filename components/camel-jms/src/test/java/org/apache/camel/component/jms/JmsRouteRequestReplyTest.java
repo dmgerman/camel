@@ -482,11 +482,7 @@ name|contextBuilders
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ContextBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|routeBuilders
@@ -502,11 +498,7 @@ name|routeBuilders
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|RouteBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|interface|ContextBuilder
@@ -2465,9 +2457,7 @@ name|completionService
 init|=
 operator|new
 name|ExecutorCompletionService
-argument_list|<
-name|Task
-argument_list|>
+argument_list|<>
 argument_list|(
 name|executor
 argument_list|)

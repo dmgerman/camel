@@ -203,9 +203,7 @@ name|commentIds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|NewCommentConsumer (JIRAEndpoint endpoint, Processor processor)
@@ -326,9 +324,7 @@ name|newComments
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|Comment
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List

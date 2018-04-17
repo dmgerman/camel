@@ -142,9 +142,7 @@ block|{
 return|return
 operator|new
 name|JAXBElement
-argument_list|<
-name|PersonType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|personQNAME
 argument_list|,

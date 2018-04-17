@@ -344,12 +344,7 @@ name|tasks
 init|=
 operator|new
 name|Vector
-argument_list|<
-name|FutureTask
-argument_list|<
-name|Reply
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Endpoint
@@ -433,9 +428,7 @@ name|task
 init|=
 operator|new
 name|FutureTask
-argument_list|<
-name|Reply
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|PojoCallable

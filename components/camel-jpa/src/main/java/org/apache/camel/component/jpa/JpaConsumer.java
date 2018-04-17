@@ -448,11 +448,7 @@ name|NOWAIT
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|NOWAIT
@@ -653,9 +649,7 @@ name|answer
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|DataHolder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Query

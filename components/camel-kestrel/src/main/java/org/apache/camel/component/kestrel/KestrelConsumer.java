@@ -208,12 +208,7 @@ name|exchangerQueue
 init|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Exchanger
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|pollerExecutor
@@ -1080,9 +1075,7 @@ name|exchanger
 init|=
 operator|new
 name|Exchanger
-argument_list|<
-name|Handler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|run ()

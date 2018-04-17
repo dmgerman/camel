@@ -1249,9 +1249,7 @@ name|modules
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Module
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

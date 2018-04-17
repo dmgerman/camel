@@ -239,11 +239,7 @@ name|msgsPerThread
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|AtomicInteger
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|connectionFactory

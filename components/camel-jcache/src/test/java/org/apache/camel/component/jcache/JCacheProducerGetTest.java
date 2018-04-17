@@ -752,13 +752,6 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|String
-name|val
-init|=
-name|randomString
-argument_list|()
-decl_stmt|;
-specifier|final
-name|String
 name|val2
 init|=
 name|randomString

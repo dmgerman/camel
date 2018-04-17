@@ -396,11 +396,7 @@ name|labels
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|labels
@@ -469,9 +465,7 @@ name|containerPort
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ContainerPort
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ContainerPort
@@ -524,9 +518,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Container
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|list

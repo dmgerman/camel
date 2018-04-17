@@ -123,9 +123,7 @@ name|mRejected
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Notification
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

@@ -1338,12 +1338,7 @@ name|futures
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Future
-argument_list|<
-name|RecordMetadata
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -1354,9 +1349,7 @@ name|recordMetadatas
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RecordMetadata
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

@@ -244,11 +244,7 @@ operator|.
 name|producer
 operator|.
 name|KafkaProducer
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|props
 argument_list|)
@@ -415,11 +411,7 @@ name|data
 init|=
 operator|new
 name|ProducerRecord
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TOPIC
 argument_list|,

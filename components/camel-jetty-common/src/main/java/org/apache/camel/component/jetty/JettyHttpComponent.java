@@ -1104,11 +1104,7 @@ name|CONNECTORS
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ConnectorRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|LOG
@@ -2152,9 +2148,7 @@ name|filters
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Filter
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -5430,11 +5424,7 @@ name|socketConnectorProperties
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -5471,11 +5461,7 @@ name|sslSocketConnectorProperties
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -6413,11 +6399,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// build query string, and append any endpoint configuration properties

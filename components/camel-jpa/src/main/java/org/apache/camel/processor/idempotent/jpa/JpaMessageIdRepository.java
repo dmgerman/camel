@@ -1247,9 +1247,6 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|Boolean
-name|rc
-init|=
 name|transactionTemplate
 operator|.
 name|execute
@@ -1406,7 +1403,7 @@ block|}
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|LOG
 operator|.
 name|debug

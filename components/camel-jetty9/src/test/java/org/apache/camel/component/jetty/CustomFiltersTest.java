@@ -516,9 +516,7 @@ name|filters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Filter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|filters

@@ -212,9 +212,7 @@ name|newIssues
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|BasicIssue
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|getNewIssues
