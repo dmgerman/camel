@@ -4569,11 +4569,6 @@ name|defaultValue
 argument_list|()
 expr_stmt|;
 block|}
-name|path
-operator|.
-name|defaultValueNote
-argument_list|()
-expr_stmt|;
 name|String
 name|required
 init|=
