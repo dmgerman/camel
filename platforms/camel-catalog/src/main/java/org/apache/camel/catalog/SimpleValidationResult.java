@@ -21,6 +21,8 @@ comment|/**  * Kept to be backwards compatible,  * @deprecated Please use {@link
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SimpleValidationResult
 specifier|public
 class|class
