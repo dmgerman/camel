@@ -211,9 +211,6 @@ specifier|final
 name|WickedHeaderWithCommaCsv
 name|row2000
 init|=
-operator|(
-name|WickedHeaderWithCommaCsv
-operator|)
 name|wickedHeaderWithCommaCsvs
 operator|.
 name|get

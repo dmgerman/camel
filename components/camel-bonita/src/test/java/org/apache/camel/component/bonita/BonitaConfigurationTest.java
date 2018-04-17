@@ -246,9 +246,6 @@ name|void
 name|testBonitaConfigurationWrongOperation
 parameter_list|()
 block|{
-name|BonitaEndpoint
-name|bonitaEndpoint
-init|=
 name|context
 operator|.
 name|getEndpoint
@@ -259,7 +256,7 @@ name|BonitaEndpoint
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 end_class

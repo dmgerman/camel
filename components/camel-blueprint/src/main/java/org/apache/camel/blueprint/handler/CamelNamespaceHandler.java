@@ -1754,9 +1754,7 @@ block|{
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -2177,9 +2175,7 @@ name|setObject
 argument_list|(
 operator|new
 name|PassThroughCallable
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|value
 argument_list|)

@@ -142,11 +142,7 @@ name|in
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|in
@@ -396,9 +392,7 @@ name|in
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|in
@@ -554,11 +548,7 @@ name|map
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|TestPojo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|map

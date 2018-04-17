@@ -417,9 +417,7 @@ decl_stmt|;
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 operator|.
@@ -589,11 +587,7 @@ name|objects
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set

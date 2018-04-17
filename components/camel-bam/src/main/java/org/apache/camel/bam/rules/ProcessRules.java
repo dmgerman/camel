@@ -155,9 +155,7 @@ name|activities
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|ActivityRules
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|processExpired (ActivityState activityState)

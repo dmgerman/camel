@@ -368,9 +368,6 @@ name|fileId
 argument_list|)
 decl_stmt|;
 return|return
-operator|(
-name|BoxTask
-operator|)
 name|fileToAddTaskOn
 operator|.
 name|addTask

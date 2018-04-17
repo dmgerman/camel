@@ -26,7 +26,7 @@ name|java
 operator|.
 name|text
 operator|.
-name|SimpleDateFormat
+name|DateFormat
 import|;
 end_import
 
@@ -548,11 +548,7 @@ name|folderItems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BoxItem
-operator|.
-name|Info
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Iterable
@@ -1772,7 +1768,7 @@ literal|""
 else|:
 literal|" unsharedDate="
 operator|+
-name|SimpleDateFormat
+name|DateFormat
 operator|.
 name|getDateTimeInstance
 argument_list|()

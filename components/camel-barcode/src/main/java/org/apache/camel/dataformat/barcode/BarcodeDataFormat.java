@@ -395,11 +395,7 @@ name|writerHintMap
 init|=
 operator|new
 name|EnumMap
-argument_list|<
-name|EncodeHintType
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|EncodeHintType
 operator|.
@@ -420,11 +416,7 @@ name|readerHintMap
 init|=
 operator|new
 name|EnumMap
-argument_list|<
-name|DecodeHintType
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|DecodeHintType
 operator|.

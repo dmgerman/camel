@@ -56,7 +56,7 @@ name|java
 operator|.
 name|text
 operator|.
-name|SimpleDateFormat
+name|DateFormat
 import|;
 end_import
 
@@ -2218,7 +2218,7 @@ literal|""
 else|:
 literal|" unsharedDate="
 operator|+
-name|SimpleDateFormat
+name|DateFormat
 operator|.
 name|getDateTimeInstance
 argument_list|()

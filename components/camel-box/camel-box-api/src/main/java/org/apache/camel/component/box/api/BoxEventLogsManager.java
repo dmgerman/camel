@@ -26,7 +26,7 @@ name|java
 operator|.
 name|text
 operator|.
-name|SimpleDateFormat
+name|DateFormat
 import|;
 end_import
 
@@ -216,7 +216,7 @@ literal|null
 condition|?
 name|after
 else|:
-name|SimpleDateFormat
+name|DateFormat
 operator|.
 name|getDateTimeInstance
 argument_list|()
@@ -236,7 +236,7 @@ literal|null
 condition|?
 name|before
 else|:
-name|SimpleDateFormat
+name|DateFormat
 operator|.
 name|getDateTimeInstance
 argument_list|()
@@ -336,9 +336,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BoxEvent
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

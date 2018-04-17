@@ -496,14 +496,7 @@ name|models
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// the body is not a prepared list of map that bindy expects so help a bit here and create one for us
@@ -582,11 +575,7 @@ name|row
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -828,14 +817,7 @@ name|models
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Pojos of the model
@@ -1029,9 +1011,7 @@ name|separators
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Retrieve separators for each match
@@ -1344,9 +1324,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int

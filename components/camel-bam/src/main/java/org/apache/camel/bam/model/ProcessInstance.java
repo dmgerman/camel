@@ -200,9 +200,7 @@ name|activityStates
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|ActivityState
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|correlationKey

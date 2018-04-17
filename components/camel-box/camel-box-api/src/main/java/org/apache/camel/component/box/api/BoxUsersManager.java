@@ -287,11 +287,7 @@ name|users
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BoxUser
-operator|.
-name|Info
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Iterable
