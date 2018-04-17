@@ -171,7 +171,7 @@ name|error
 operator|.
 name|append
 argument_list|(
-literal|"The signature value could not be validated by the public key. Either the message has been tampered or the public key is not correct."
+literal|"The signature value could not be validated by the public key. Either the message has been tampered with or the public key is not correct."
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -207,7 +207,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"The calculated digest value of the document  %s is not equal to the value specified in the XML signature. The document may have been tampered."
+literal|"The calculated digest value of the document  %s is not equal to the value specified in the XML signature. The document may have been tampered with."
 argument_list|,
 name|getReferenceUriOrId
 argument_list|(
@@ -249,7 +249,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"The calculated digest value of the manifest  %s is not equal to the value specified in the XML signature. The document may have been tampered."
+literal|"The calculated digest value of the manifest  %s is not equal to the value specified in the XML signature. The document may have been tampered with."
 argument_list|,
 name|getReferenceUriOrId
 argument_list|(
