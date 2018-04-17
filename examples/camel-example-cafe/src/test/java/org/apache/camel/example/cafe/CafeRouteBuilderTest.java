@@ -450,9 +450,7 @@ name|drinks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Drink
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Order

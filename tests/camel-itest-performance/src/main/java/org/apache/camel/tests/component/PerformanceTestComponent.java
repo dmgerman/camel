@@ -678,9 +678,7 @@ name|tasks
 init|=
 operator|new
 name|ExecutorCompletionService
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|executor
 argument_list|)

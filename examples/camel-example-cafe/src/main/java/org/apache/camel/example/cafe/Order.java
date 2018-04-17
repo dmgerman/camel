@@ -54,9 +54,7 @@ name|orderItems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|OrderItem
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|number

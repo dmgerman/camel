@@ -196,9 +196,7 @@ name|receivedHeaders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getMessageCount
 argument_list|()
@@ -214,9 +212,7 @@ name|receivedMessages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getMessageCount
 argument_list|()
@@ -381,9 +377,7 @@ name|expectedHeaders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getMessageCount
 argument_list|()
@@ -421,9 +415,7 @@ name|expectedMessages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getMessageCount
 argument_list|()

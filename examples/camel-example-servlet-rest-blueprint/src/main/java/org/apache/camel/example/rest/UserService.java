@@ -72,11 +72,7 @@ name|users
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|User
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|UserService ()

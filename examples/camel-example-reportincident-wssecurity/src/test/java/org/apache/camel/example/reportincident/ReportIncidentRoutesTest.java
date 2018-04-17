@@ -382,14 +382,7 @@ name|outInterceptors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Interceptor
-argument_list|<
-name|?
-extends|extends
-name|Message
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Define WSS4j properties for flow outgoing
@@ -403,11 +396,7 @@ name|outProps
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|outProps

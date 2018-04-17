@@ -14,18 +14,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|springframework
@@ -47,20 +35,6 @@ operator|.
 name|autoconfigure
 operator|.
 name|SpringBootApplication
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|annotation
-operator|.
-name|Bean
 import|;
 end_import
 
