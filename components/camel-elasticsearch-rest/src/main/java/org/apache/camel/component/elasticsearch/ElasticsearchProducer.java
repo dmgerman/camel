@@ -590,10 +590,7 @@ name|BulkIndex
 condition|)
 block|{
 return|return
-name|configuration
-operator|.
-name|getOperation
-argument_list|()
+name|ElasticsearchOperation
 operator|.
 name|BulkIndex
 return|;
@@ -601,10 +598,7 @@ block|}
 else|else
 block|{
 return|return
-name|configuration
-operator|.
-name|getOperation
-argument_list|()
+name|ElasticsearchOperation
 operator|.
 name|Bulk
 return|;

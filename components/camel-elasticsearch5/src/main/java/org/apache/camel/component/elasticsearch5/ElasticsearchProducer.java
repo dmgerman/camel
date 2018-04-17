@@ -1063,9 +1063,7 @@ name|indexedIds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1520,9 +1518,7 @@ name|addresses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TransportAddress
-argument_list|>
+argument_list|<>
 argument_list|(
 name|configuration
 operator|.

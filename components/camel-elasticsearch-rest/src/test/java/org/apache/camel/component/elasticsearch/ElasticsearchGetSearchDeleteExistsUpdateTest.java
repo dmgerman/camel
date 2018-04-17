@@ -1082,9 +1082,6 @@ argument_list|,
 literal|"tweet"
 argument_list|)
 expr_stmt|;
-name|String
-name|indexId
-init|=
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -1099,7 +1096,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//now, verify GET
 name|headers
 operator|.
@@ -1228,9 +1225,6 @@ argument_list|,
 literal|"tweet"
 argument_list|)
 expr_stmt|;
-name|String
-name|indexId
-init|=
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -1245,7 +1239,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//now, verify GET
 name|headers
 operator|.

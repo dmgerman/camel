@@ -231,11 +231,7 @@ name|tracker
 operator|=
 operator|new
 name|ServiceTracker
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|endpoint
 operator|.
@@ -607,11 +603,7 @@ name|dict
 init|=
 operator|new
 name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

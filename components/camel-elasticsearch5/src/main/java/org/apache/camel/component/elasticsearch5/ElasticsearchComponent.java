@@ -351,9 +351,7 @@ name|addressesTrAd
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InetSocketTransportAddress
-argument_list|>
+argument_list|<>
 argument_list|(
 name|addressesStr
 operator|.
