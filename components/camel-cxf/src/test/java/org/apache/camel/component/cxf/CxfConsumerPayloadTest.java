@@ -401,9 +401,7 @@ name|outElements
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Source
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// You can use a customer toStringConverter to turn a CxfPayLoad message into String as you want
@@ -548,9 +546,7 @@ name|responsePayload
 init|=
 operator|new
 name|CxfPayload
-argument_list|<
-name|SoapHeader
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|null
 argument_list|,

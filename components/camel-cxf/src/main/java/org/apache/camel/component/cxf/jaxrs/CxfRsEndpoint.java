@@ -821,9 +821,7 @@ name|providers
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|providersRef
@@ -853,9 +851,7 @@ name|features
 init|=
 operator|new
 name|ModCountCopyOnWriteArrayList
-argument_list|<
-name|Feature
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -2327,12 +2323,7 @@ name|resourceClasses
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

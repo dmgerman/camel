@@ -582,9 +582,7 @@ operator|.
 name|ws
 operator|.
 name|Holder
-argument_list|<
-name|InE
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|javax
@@ -607,9 +605,7 @@ operator|.
 name|ws
 operator|.
 name|Holder
-argument_list|<
-name|InE
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|multiPartClient

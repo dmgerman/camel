@@ -983,9 +983,7 @@ name|signers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SignerInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 name|aliases
 operator|.

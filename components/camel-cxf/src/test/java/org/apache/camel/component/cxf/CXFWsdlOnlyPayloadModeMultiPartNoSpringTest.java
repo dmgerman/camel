@@ -481,9 +481,7 @@ name|ssn
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ssn
@@ -500,9 +498,7 @@ name|name
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|name

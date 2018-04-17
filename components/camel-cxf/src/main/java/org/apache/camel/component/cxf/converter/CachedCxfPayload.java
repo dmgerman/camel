@@ -342,9 +342,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|Source
-argument_list|>
+argument_list|<>
 argument_list|(
 name|orig
 operator|.
@@ -647,9 +645,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|Source
-argument_list|>
+argument_list|<>
 argument_list|(
 name|orig
 operator|.
@@ -928,9 +924,7 @@ block|{
 return|return
 operator|new
 name|CachedCxfPayload
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,

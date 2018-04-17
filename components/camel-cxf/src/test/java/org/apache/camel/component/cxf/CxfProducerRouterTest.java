@@ -568,9 +568,7 @@ name|params
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Prepare the request message for the camel-cxf procedure
@@ -728,9 +726,7 @@ name|params
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Prepare the request message for the camel-cxf procedure

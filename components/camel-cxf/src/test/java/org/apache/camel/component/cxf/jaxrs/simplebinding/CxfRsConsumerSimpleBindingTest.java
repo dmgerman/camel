@@ -1013,9 +1013,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Customer
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

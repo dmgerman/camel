@@ -2206,9 +2206,7 @@ name|hostList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|hostList
@@ -2238,9 +2236,7 @@ name|hostSet
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|hostList
 argument_list|)

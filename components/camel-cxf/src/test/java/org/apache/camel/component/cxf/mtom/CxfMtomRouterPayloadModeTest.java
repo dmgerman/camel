@@ -426,10 +426,7 @@ name|photo
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|MtomTestHelper
 operator|.
@@ -444,9 +441,7 @@ name|image
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|Image
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getImage
 argument_list|(

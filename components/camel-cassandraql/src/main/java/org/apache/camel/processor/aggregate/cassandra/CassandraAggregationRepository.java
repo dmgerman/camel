@@ -1516,9 +1516,7 @@ name|keys
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|rows
 operator|.
@@ -1589,9 +1587,7 @@ name|exchangeIds
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|rows
 operator|.

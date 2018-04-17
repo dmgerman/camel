@@ -405,9 +405,7 @@ name|body
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Source
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|body
@@ -432,9 +430,7 @@ name|staxbody
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Source
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|staxbody
@@ -463,10 +459,7 @@ name|payload
 operator|=
 operator|new
 name|CxfPayload
-argument_list|<
-name|String
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|ArrayList
@@ -485,10 +478,7 @@ name|emptyPayload
 operator|=
 operator|new
 name|CxfPayload
-argument_list|<
-name|String
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|ArrayList
@@ -512,10 +502,7 @@ name|staxpayload
 operator|=
 operator|new
 name|CxfPayload
-argument_list|<
-name|String
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|ArrayList

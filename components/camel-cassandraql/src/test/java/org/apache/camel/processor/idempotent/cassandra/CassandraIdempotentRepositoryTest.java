@@ -212,9 +212,7 @@ name|idempotentRepository
 operator|=
 operator|new
 name|CassandraIdempotentRepository
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|session
 argument_list|)

@@ -1405,9 +1405,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PGPPublicKey
-argument_list|>
+argument_list|<>
 argument_list|(
 name|useridParts
 operator|.
@@ -2699,9 +2697,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PGPSecretKeyAndPrivateKeyAndUserId
-argument_list|>
+argument_list|<>
 argument_list|(
 name|sigKeyUserId2Password
 operator|.
@@ -2768,9 +2764,7 @@ name|useridParts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|sigKeyUserId2Password
 operator|.

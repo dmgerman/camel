@@ -440,12 +440,7 @@ name|REMOVING_IN_INTERCEPTORS
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|REMOVING_IN_INTERCEPTORS
@@ -470,12 +465,7 @@ name|REMOVING_OUT_INTERCEPTORS
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|REMOVING_OUT_INTERCEPTORS

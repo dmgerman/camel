@@ -353,14 +353,7 @@ name|SUPPORTED_ENCRYPTION_ALGORITHMS
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|Integer
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|7
 argument_list|)
@@ -584,9 +577,7 @@ name|recipient
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RecipientInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|3
 argument_list|)

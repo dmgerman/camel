@@ -677,9 +677,7 @@ name|personId
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|personId
@@ -696,9 +694,7 @@ name|ssn
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Holder
@@ -709,9 +705,7 @@ name|name
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|client
@@ -855,9 +849,7 @@ name|personId
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|personId
@@ -874,9 +866,7 @@ name|ssn
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Holder
@@ -887,9 +877,7 @@ name|name
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Throwable

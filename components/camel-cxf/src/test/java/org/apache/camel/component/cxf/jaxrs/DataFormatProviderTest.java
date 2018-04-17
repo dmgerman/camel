@@ -200,9 +200,7 @@ name|p
 init|=
 operator|new
 name|DataFormatProvider
-argument_list|<
-name|Book
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|p
@@ -283,9 +281,7 @@ name|p
 init|=
 operator|new
 name|DataFormatProvider
-argument_list|<
-name|Book
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|p
@@ -372,9 +368,7 @@ name|p
 init|=
 operator|new
 name|DataFormatProvider
-argument_list|<
-name|Book
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|p
@@ -453,9 +447,7 @@ name|p
 init|=
 operator|new
 name|DataFormatProvider
-argument_list|<
-name|Book
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|p
@@ -538,9 +530,7 @@ name|p
 init|=
 operator|new
 name|DataFormatProvider
-argument_list|<
-name|Book
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|p
@@ -631,9 +621,7 @@ name|p
 init|=
 operator|new
 name|DataFormatProvider
-argument_list|<
-name|Book
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|p

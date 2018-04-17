@@ -209,9 +209,7 @@ name|params
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params
@@ -305,9 +303,7 @@ name|params
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params
@@ -392,9 +388,7 @@ name|para1
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|para1
@@ -413,9 +407,7 @@ name|para2
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|para2
@@ -436,12 +428,7 @@ name|parameters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|parameters

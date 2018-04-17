@@ -196,12 +196,7 @@ name|REMOVING_FAULT_IN_INTERCEPTORS
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|REMOVING_FAULT_IN_INTERCEPTORS
@@ -225,9 +220,7 @@ name|inInterceptorNames
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|outInterceptorNames
@@ -240,9 +233,7 @@ name|outInterceptorNames
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|getLogger ()

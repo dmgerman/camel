@@ -489,9 +489,7 @@ name|elements
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Source
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|elements
@@ -527,9 +525,7 @@ name|body
 init|=
 operator|new
 name|CxfPayload
-argument_list|<
-name|SoapHeader
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|ArrayList

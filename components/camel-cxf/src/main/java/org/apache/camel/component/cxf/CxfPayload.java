@@ -270,9 +270,7 @@ name|body
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Source
-argument_list|>
+argument_list|<>
 argument_list|(
 name|body
 operator|.

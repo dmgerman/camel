@@ -800,9 +800,7 @@ name|userids
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)
@@ -843,9 +841,7 @@ name|userids
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)
@@ -1181,11 +1177,7 @@ name|headers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// add signature user id which does not have a passphrase
@@ -3440,9 +3432,7 @@ name|signerUserIds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|signerUserIds
@@ -3476,11 +3466,7 @@ name|userId2Passphrase
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|userId2Passphrase
@@ -3564,9 +3550,7 @@ name|expectedSigUserIds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|expectedSigUserIds

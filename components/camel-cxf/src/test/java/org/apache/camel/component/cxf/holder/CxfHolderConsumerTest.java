@@ -247,9 +247,7 @@ name|strPart
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|strPart
@@ -266,9 +264,7 @@ name|strCustomer
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|strCustomer
@@ -383,9 +379,7 @@ name|header
 init|=
 operator|new
 name|Holder
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|header
