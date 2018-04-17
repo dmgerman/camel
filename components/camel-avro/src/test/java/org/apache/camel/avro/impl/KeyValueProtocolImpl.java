@@ -118,11 +118,7 @@ name|store
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Key
-argument_list|,
-name|Value
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

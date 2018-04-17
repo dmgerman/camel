@@ -366,9 +366,6 @@ else|else
 block|{
 try|try
 block|{
-name|URI
-name|uri
-init|=
 operator|new
 name|URI
 argument_list|(
@@ -377,7 +374,7 @@ operator|.
 name|getUri
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

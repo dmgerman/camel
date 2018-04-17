@@ -238,11 +238,7 @@ name|attributeMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|AttributeValue
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|AttributeValue
@@ -287,11 +283,7 @@ name|expectedAttributeValueMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ExpectedAttributeValue
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|expectedAttributeValueMap

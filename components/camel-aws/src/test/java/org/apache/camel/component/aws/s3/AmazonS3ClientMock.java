@@ -915,9 +915,7 @@ name|objects
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|S3Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|putObjectRequests
@@ -929,9 +927,7 @@ name|putObjectRequests
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|PutObjectRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|nonExistingBucketCreated
@@ -1367,9 +1363,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Bucket

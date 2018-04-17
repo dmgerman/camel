@@ -280,11 +280,7 @@ name|scanFilter
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Condition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Condition
@@ -354,11 +350,7 @@ name|mapAssert
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|AttributeValue
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|mapAssert

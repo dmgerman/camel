@@ -323,9 +323,7 @@ name|inactiveDeviceList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InactiveDevice
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

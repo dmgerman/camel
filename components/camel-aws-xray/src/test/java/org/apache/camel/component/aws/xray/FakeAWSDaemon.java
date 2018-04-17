@@ -1391,9 +1391,6 @@ name|entity
 operator|.
 name|withAnnotation
 argument_list|(
-operator|(
-name|String
-operator|)
 name|key
 argument_list|,
 name|annotations

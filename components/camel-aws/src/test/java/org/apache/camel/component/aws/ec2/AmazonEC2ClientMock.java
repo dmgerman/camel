@@ -1054,9 +1054,7 @@ name|coll
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InstanceStateChange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|InstanceStateChange
@@ -1206,9 +1204,7 @@ name|coll
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InstanceStateChange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|InstanceStateChange
@@ -1353,9 +1349,7 @@ name|coll
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InstanceStateChange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|InstanceStateChange
@@ -1498,9 +1492,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Reservation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Reservation
@@ -1661,9 +1653,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Reservation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Reservation
@@ -2076,9 +2066,6 @@ block|{
 name|String
 name|id
 init|=
-operator|(
-name|String
-operator|)
 name|it
 operator|.
 name|next
@@ -2207,9 +2194,6 @@ block|{
 name|String
 name|id
 init|=
-operator|(
-name|String
-operator|)
 name|it
 operator|.
 name|next

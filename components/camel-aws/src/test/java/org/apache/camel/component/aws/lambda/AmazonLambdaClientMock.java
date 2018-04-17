@@ -1748,11 +1748,7 @@ name|payload
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -1927,9 +1923,7 @@ name|listFunctions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FunctionConfiguration
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|FunctionConfiguration

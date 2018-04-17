@@ -391,9 +391,7 @@ name|result
 init|=
 operator|new
 name|Settable
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -408,12 +406,7 @@ name|methodResult
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|Promise
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 operator|new
@@ -523,9 +516,7 @@ name|set
 argument_list|(
 operator|new
 name|Settable
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|r
 argument_list|)

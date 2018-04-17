@@ -232,9 +232,7 @@ name|deletableItems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|deletableItems
@@ -316,9 +314,7 @@ name|deletableItems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|deletableItems

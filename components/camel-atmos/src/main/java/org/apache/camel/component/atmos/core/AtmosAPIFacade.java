@@ -597,11 +597,7 @@ name|resultEntries
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|AtmosResultCode
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -768,11 +764,7 @@ name|resultEntries
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|AtmosResultCode
-argument_list|>
+argument_list|<>
 argument_list|(
 name|listFiles
 operator|.
@@ -1165,11 +1157,7 @@ name|resultEntries
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ByteArrayOutputStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|//iterate from the remotePath

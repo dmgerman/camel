@@ -258,11 +258,7 @@ name|consumerRegistry
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|AvroConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|defaultConsumer

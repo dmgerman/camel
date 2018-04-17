@@ -734,9 +734,7 @@ name|datum
 init|=
 operator|new
 name|SpecificDatumWriter
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|useSchema
 argument_list|)
@@ -852,9 +850,7 @@ name|reader
 init|=
 operator|new
 name|SpecificDatumReader
-argument_list|<
-name|GenericRecord
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|null
 argument_list|,

@@ -232,18 +232,6 @@ name|greaterThan
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertThat
-import|;
-end_import
-
 begin_comment
 comment|/**  * This test uses a custom component that will trigger a long-running backing task for certain  * specific states. The task is forwarded via an asynchronous send to a Camel route which then  * performs the task, such as an upload or a computation.  *<p>  * AWS XRay does monitor the subsegment count per segment and only emits the segment to the local  * XRay daemon once the segment is closed and its internal count reaches 0. If the segment is closed  * before the counter reached 0 the segment is not emitted till the last subsegments belonging to  * that segment got closed.  *<p>  * Due to the asynchronous nature of the backing {@link ProcessingCamelBean processing camel bean},  * the first request is still in progress when the second request is triggered. As those tasks  * aren't executed in parallel, AWS XRay does not take notice of the seconds processing Camel bean  * invocation yet which leads to a premature emit of that segment and thus missing subsegments  * for the route and bean invocation. This is possible as the count of the segment reached 0 when  * the segment got closed as Camel has not had a chance yet to create the subsegments for the  * asynchronously executed route and its bean invocation.  */
 end_comment

@@ -289,9 +289,7 @@ name|consumers
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|WsConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|listener

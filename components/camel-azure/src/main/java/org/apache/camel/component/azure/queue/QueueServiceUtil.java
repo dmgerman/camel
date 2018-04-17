@@ -224,9 +224,6 @@ block|{
 name|CloudQueue
 name|client
 init|=
-operator|(
-name|CloudQueue
-operator|)
 name|getConfiguredClient
 argument_list|(
 name|cfg

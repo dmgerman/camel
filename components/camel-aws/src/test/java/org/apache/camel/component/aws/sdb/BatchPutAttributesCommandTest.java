@@ -232,9 +232,7 @@ name|replaceableItems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ReplaceableItem
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|replaceableItems
@@ -318,9 +316,7 @@ name|replaceableItems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ReplaceableItem
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|replaceableItems

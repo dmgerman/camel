@@ -170,6 +170,16 @@ name|org
 operator|.
 name|mockito
 operator|.
+name|ArgumentMatchers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
 name|Mockito
 import|;
 end_import
@@ -456,7 +466,7 @@ name|amazonSQSClient
 operator|.
 name|createQueue
 argument_list|(
-name|Mockito
+name|ArgumentMatchers
 operator|.
 name|any
 argument_list|(
@@ -572,7 +582,7 @@ name|amazonSQSClient
 operator|.
 name|createQueue
 argument_list|(
-name|Mockito
+name|ArgumentMatchers
 operator|.
 name|any
 argument_list|(
@@ -764,7 +774,7 @@ name|amazonSQSClient
 operator|.
 name|createQueue
 argument_list|(
-name|Mockito
+name|ArgumentMatchers
 operator|.
 name|any
 argument_list|(
