@@ -146,9 +146,7 @@ name|inList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TestPojo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|TestPojo

@@ -827,9 +827,7 @@ name|files
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FTPFile
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -1405,9 +1403,7 @@ name|answer
 init|=
 operator|new
 name|RemoteFile
-argument_list|<
-name|FTPFile
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|answer

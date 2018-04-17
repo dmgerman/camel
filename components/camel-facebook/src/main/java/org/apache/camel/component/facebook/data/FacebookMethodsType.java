@@ -10769,9 +10769,7 @@ name|argNames
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|nArgs
 argument_list|)
@@ -10782,12 +10780,7 @@ name|argTypes
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|nArgs
 argument_list|)

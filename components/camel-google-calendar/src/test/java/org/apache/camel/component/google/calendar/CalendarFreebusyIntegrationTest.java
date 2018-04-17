@@ -265,9 +265,7 @@ name|items
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FreeBusyRequestItem
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|items

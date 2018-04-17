@@ -161,9 +161,7 @@ name|tagNames
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|TagConsumer (GitHubEndpoint endpoint, Processor processor)
@@ -262,9 +260,7 @@ name|newTags
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|RepositoryTag
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

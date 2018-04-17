@@ -212,9 +212,7 @@ name|COMPONENT_CONFIG_FIELDS
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|LOG
@@ -245,9 +243,7 @@ name|ENDPOINT_CONFIG_FIELDS
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 static|static
@@ -725,11 +721,7 @@ name|properties
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|getEndpointProperties

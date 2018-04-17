@@ -214,9 +214,7 @@ name|commitHashes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|CommitConsumer (GitHubEndpoint endpoint, Processor processor, String branchName)
@@ -387,9 +385,7 @@ name|newCommits
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|RepositoryCommit
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

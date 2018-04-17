@@ -52,18 +52,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|jcraft
@@ -209,22 +197,6 @@ operator|.
 name|util
 operator|.
 name|URISupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|net
-operator|.
-name|ftp
-operator|.
-name|FTPFile
 import|;
 end_import
 
@@ -741,9 +713,7 @@ name|files
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SftpRemoteFile
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -1263,9 +1233,7 @@ name|answer
 init|=
 operator|new
 name|RemoteFile
-argument_list|<
-name|SftpRemoteFile
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|answer

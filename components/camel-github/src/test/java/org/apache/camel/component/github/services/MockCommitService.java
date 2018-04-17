@@ -220,9 +220,7 @@ name|commitsList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryCommit
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|fakeSha
@@ -251,11 +249,7 @@ name|commitStatus
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|CommitStatus
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|addRepositoryCommit ()

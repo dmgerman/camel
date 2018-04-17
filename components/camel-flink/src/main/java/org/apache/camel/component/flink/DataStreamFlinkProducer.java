@@ -218,14 +218,6 @@ operator|instanceof
 name|DataStream
 condition|)
 block|{
-name|DataStream
-name|dsResults
-init|=
-operator|(
-name|DataStream
-operator|)
-name|result
-decl_stmt|;
 if|if
 condition|(
 name|getEndpoint

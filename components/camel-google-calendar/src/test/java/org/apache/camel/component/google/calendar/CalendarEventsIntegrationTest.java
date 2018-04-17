@@ -313,9 +313,7 @@ name|attendees
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EventAttendee
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|attendees
@@ -431,11 +429,7 @@ name|headers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// parameter type is String
@@ -528,11 +522,7 @@ name|headers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// parameter type is String
@@ -653,11 +643,7 @@ name|headers
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// parameter type is String
@@ -750,11 +736,7 @@ name|headers
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// parameter type is String

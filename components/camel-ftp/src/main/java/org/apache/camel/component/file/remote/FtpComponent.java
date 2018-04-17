@@ -214,9 +214,7 @@ name|answer
 init|=
 operator|new
 name|FtpEndpoint
-argument_list|<
-name|FTPFile
-argument_list|>
+argument_list|<>
 argument_list|(
 name|uri
 argument_list|,

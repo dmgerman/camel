@@ -760,12 +760,6 @@ return|return
 literal|0
 return|;
 block|}
-name|GoogleBigQueryEndpoint
-name|endpoint
-init|=
-name|getEndpoint
-argument_list|()
-decl_stmt|;
 name|TableDataInsertAllRequest
 name|apiRequestData
 init|=

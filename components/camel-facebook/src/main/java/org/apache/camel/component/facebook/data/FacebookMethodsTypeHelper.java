@@ -233,14 +233,7 @@ name|METHOD_MAP
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|FacebookMethodsType
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// maps method name to method arguments of the form Class type1, String name1, Class type2, String name2,...
@@ -261,14 +254,7 @@ name|ARGUMENTS_MAP
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|Object
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// maps argument name to argument type
@@ -289,14 +275,7 @@ name|VALID_ARGUMENTS
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 static|static
@@ -354,9 +333,7 @@ name|overloads
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FacebookMethodsType
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|METHOD_MAP
@@ -404,9 +381,7 @@ name|arguments
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|ARGUMENTS_MAP
@@ -836,9 +811,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FacebookMethodsType
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -850,9 +823,7 @@ name|extraArgs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FacebookMethodsType
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1137,9 +1108,7 @@ name|arguments
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|arguments
@@ -1224,9 +1193,7 @@ name|missingArgs
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

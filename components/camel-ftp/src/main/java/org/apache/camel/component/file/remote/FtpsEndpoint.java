@@ -1075,11 +1075,7 @@ name|localParameters
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ftpClientParameters
 argument_list|)
@@ -1195,11 +1191,7 @@ name|localConfigParameters
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ftpClientConfigParameters
 argument_list|)

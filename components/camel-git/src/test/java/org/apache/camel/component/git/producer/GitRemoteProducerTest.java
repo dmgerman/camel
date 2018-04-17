@@ -350,12 +350,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|Iterable
-argument_list|<
-name|PushResult
-argument_list|>
-name|result
-init|=
 name|template
 operator|.
 name|requestBody
@@ -368,7 +362,7 @@ name|Iterable
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|repository
 operator|.
 name|close

@@ -357,11 +357,7 @@ name|headers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// parameter type is com.google.api.services.drive.model.File
@@ -608,11 +604,7 @@ name|options
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -813,9 +805,6 @@ throws|throws
 name|CamelExecutionException
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|template
 argument_list|()
 operator|.

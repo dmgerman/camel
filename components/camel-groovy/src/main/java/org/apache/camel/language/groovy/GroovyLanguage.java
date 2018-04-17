@@ -108,11 +108,7 @@ name|scriptCache
 init|=
 operator|new
 name|LRUSoftCache
-argument_list|<
-name|String
-argument_list|,
-name|GroovyClassService
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|16
 argument_list|,

@@ -325,9 +325,7 @@ block|{
 return|return
 operator|new
 name|MyFileFilter
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}
@@ -433,11 +431,7 @@ name|env
 init|=
 operator|new
 name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|env

@@ -263,11 +263,7 @@ name|injectors
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Object
-argument_list|,
-name|Injector
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|initializeCounter

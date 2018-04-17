@@ -289,9 +289,7 @@ name|commentIds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|PullRequestCommentConsumer (GitHubEndpoint endpoint, Processor processor)
@@ -552,11 +550,7 @@ name|commentIdToPullRequest
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|PullRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -584,9 +578,7 @@ name|newComments
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|Comment
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

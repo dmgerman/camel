@@ -368,9 +368,7 @@ name|newPullRequests
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|PullRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -131,14 +131,7 @@ name|routes
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|RoutesBuilder
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

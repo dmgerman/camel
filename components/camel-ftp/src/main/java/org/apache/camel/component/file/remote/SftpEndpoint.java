@@ -310,9 +310,7 @@ block|{
 return|return
 operator|new
 name|RemoteFileProducer
-argument_list|<
-name|SftpRemoteFile
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
