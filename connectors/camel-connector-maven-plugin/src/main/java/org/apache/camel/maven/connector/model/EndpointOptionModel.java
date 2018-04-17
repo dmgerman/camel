@@ -193,12 +193,6 @@ name|watermark
 parameter_list|)
 block|{
 name|String
-name|group
-init|=
-name|getGroup
-argument_list|()
-decl_stmt|;
-name|String
 name|type
 init|=
 name|getType

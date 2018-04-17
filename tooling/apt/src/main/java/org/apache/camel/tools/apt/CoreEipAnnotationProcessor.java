@@ -973,9 +973,7 @@ name|eipOptions
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|EipOption
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|EipOptionComparator
@@ -2528,9 +2526,7 @@ name|enums
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -3285,9 +3281,7 @@ name|enums
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -3459,9 +3453,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -3535,9 +3527,7 @@ name|children
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|TypeElement
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|findTypeElementChildren
@@ -3860,9 +3850,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -4697,9 +4685,7 @@ name|enums
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|enums
@@ -4779,9 +4765,7 @@ name|enums
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|enums
@@ -4865,9 +4849,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|oneOfTypes
@@ -4941,9 +4923,7 @@ name|oneOfTypes
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// find all classes that has that superClassName
@@ -4955,9 +4935,7 @@ name|children
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|TypeElement
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -5380,9 +5358,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|oneOfTypes
@@ -5501,9 +5477,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|oneOfTypes
@@ -5670,9 +5644,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all classes that has that superClassName
@@ -5684,9 +5656,7 @@ name|children
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|TypeElement
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -6010,9 +5980,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all classes that has that superClassName
@@ -6024,9 +5992,7 @@ name|children
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|TypeElement
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -6404,9 +6370,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -6449,9 +6413,7 @@ name|children
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|TypeElement
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|findTypeElementChildren
@@ -6755,9 +6717,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|oneOfTypes

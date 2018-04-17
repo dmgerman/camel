@@ -228,11 +228,7 @@ name|customers
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Long
-argument_list|,
-name|Customer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|orders
@@ -248,11 +244,7 @@ name|orders
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Long
-argument_list|,
-name|Order
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|CustomerService ()
@@ -383,9 +375,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Customer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|customers
 operator|.

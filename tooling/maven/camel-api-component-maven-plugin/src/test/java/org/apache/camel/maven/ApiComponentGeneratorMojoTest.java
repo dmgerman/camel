@@ -342,9 +342,7 @@ name|aliases
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ApiMethodAlias
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|aliases

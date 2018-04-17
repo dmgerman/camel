@@ -30,24 +30,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|tools
-operator|.
-name|apt
-operator|.
-name|helper
-operator|.
-name|CollectionStringBuffer
-import|;
-end_import
-
 begin_class
 DECL|class|EndpointPath
 specifier|public

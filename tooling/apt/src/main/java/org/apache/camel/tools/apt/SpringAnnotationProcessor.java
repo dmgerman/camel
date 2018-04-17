@@ -826,9 +826,7 @@ name|eipOptions
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|EipOption
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|EipOptionComparator
@@ -2042,9 +2040,7 @@ name|enums
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -2353,9 +2349,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|oneOfTypes
@@ -2463,9 +2457,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|oneOfTypes
@@ -2757,9 +2749,7 @@ name|enums
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -3350,9 +3340,7 @@ name|oneOfTypes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

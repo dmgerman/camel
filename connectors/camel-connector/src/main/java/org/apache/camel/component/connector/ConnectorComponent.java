@@ -194,6 +194,8 @@ name|getOptions
 parameter_list|()
 function_decl|;
 comment|/**      * A set of additional component/endpoint options to use for the base component when creating connector endpoints.      *      * @deprecated use {@link #setOptions(Map)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|setComponentOptions (Map<String, Object> options)
 specifier|default
 name|void

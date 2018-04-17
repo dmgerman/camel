@@ -70,22 +70,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|json
-operator|.
-name|simple
-operator|.
-name|Jsoner
-import|;
-end_import
-
 begin_comment
 comment|/**  * A helper class for<a href="http://json-schema.org/">JSON schema</a>.  */
 end_comment
