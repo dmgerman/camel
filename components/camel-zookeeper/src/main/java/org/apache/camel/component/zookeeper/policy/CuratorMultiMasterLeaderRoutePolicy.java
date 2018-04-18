@@ -215,9 +215,7 @@ name|suspendedRoutes
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|Route
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|shouldProcessExchanges

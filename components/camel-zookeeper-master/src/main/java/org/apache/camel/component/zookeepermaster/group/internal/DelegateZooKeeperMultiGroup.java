@@ -157,9 +157,7 @@ block|{
 return|return
 operator|new
 name|ZooKeeperMultiGroup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|client
 argument_list|,

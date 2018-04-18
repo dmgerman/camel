@@ -412,9 +412,7 @@ name|certList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|X509Certificate
-argument_list|>
+argument_list|<>
 argument_list|(
 name|certs
 operator|.

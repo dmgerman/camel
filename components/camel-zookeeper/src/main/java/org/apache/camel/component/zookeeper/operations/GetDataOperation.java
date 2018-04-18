@@ -162,10 +162,7 @@ block|}
 return|return
 operator|new
 name|OperationResult
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|connection
 operator|.
@@ -191,10 +188,7 @@ block|{
 return|return
 operator|new
 name|OperationResult
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|e
 argument_list|)

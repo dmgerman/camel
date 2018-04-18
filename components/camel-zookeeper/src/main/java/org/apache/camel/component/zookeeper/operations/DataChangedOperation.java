@@ -291,10 +291,7 @@ name|answer
 operator|=
 operator|new
 name|OperationResult
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|(
 name|byte

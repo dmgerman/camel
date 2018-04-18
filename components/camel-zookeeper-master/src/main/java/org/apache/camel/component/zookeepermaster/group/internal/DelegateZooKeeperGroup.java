@@ -255,12 +255,7 @@ name|listeners
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|GroupListener
-argument_list|<
-name|T
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this
@@ -398,9 +393,7 @@ block|{
 return|return
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|client
 argument_list|,

@@ -213,10 +213,7 @@ block|}
 return|return
 operator|new
 name|OperationResult
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|data
 argument_list|,
@@ -233,10 +230,7 @@ block|{
 return|return
 operator|new
 name|OperationResult
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|e
 argument_list|)

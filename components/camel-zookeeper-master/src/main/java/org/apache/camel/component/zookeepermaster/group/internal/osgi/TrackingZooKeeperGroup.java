@@ -197,11 +197,7 @@ name|tracker
 operator|=
 operator|new
 name|ServiceTracker
-argument_list|<
-name|CuratorFramework
-argument_list|,
-name|CuratorFramework
-argument_list|>
+argument_list|<>
 argument_list|(
 name|bundleContext
 argument_list|,

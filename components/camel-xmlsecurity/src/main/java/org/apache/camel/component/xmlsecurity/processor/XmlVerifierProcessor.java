@@ -871,9 +871,7 @@ name|collectedObjects
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XMLObject
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|3
 argument_list|)
@@ -886,9 +884,7 @@ name|collectedReferences
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Reference
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|3
 argument_list|)

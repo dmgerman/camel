@@ -309,9 +309,7 @@ name|operations
 init|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|ZooKeeperOperation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|executor

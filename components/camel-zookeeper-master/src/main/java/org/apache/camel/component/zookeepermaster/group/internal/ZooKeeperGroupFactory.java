@@ -162,9 +162,7 @@ block|{
 return|return
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,
@@ -205,9 +203,7 @@ block|{
 return|return
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,
@@ -247,9 +243,7 @@ block|{
 return|return
 operator|new
 name|ZooKeeperMultiGroup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,
@@ -290,9 +284,7 @@ block|{
 return|return
 operator|new
 name|ZooKeeperMultiGroup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,

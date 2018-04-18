@@ -1050,11 +1050,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XmlSignatureHelper
-operator|.
-name|XPathAndFilter
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -1199,9 +1195,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XPathType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|xpathAndFilterList
 operator|.
@@ -1664,9 +1658,7 @@ name|result
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Node
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|NodeList

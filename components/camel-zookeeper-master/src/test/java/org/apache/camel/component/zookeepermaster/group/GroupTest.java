@@ -636,9 +636,7 @@ name|members
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ZooKeeperGroup
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -664,9 +662,7 @@ name|group
 init|=
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|NodeState
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,
@@ -899,9 +895,7 @@ name|group
 init|=
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|NodeState
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,
@@ -1101,9 +1095,7 @@ name|group
 init|=
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|NodeState
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,
@@ -1303,9 +1295,7 @@ name|group
 init|=
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|NodeState
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,
@@ -1654,9 +1644,7 @@ name|group
 init|=
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|NodeState
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,
@@ -1882,9 +1870,7 @@ name|group
 init|=
 operator|new
 name|ZooKeeperGroup
-argument_list|<
-name|NodeState
-argument_list|>
+argument_list|<>
 argument_list|(
 name|curator
 argument_list|,

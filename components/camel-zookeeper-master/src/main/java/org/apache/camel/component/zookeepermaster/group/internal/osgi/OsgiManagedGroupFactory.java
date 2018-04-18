@@ -503,12 +503,7 @@ name|groups
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DelegateZooKeeperGroup
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|OsgiTrackingManagedGroupFactory (ClassLoader loader)
@@ -546,11 +541,7 @@ name|tracker
 operator|=
 operator|new
 name|ServiceTracker
-argument_list|<
-name|CuratorFramework
-argument_list|,
-name|CuratorFramework
-argument_list|>
+argument_list|<>
 argument_list|(
 name|bundleContext
 argument_list|,

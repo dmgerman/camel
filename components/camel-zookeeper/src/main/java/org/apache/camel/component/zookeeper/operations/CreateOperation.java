@@ -262,9 +262,7 @@ comment|// for consistency with other operations return an empty stats set.
 return|return
 operator|new
 name|OperationResult
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|created
 argument_list|,
@@ -283,9 +281,7 @@ block|{
 return|return
 operator|new
 name|OperationResult
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|e
 argument_list|)

@@ -181,9 +181,7 @@ name|waitingThreads
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|Thread
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|result
