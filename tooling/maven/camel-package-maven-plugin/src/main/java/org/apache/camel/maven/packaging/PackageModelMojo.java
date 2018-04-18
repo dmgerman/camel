@@ -357,9 +357,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all json files in camel-core
@@ -410,9 +408,7 @@ name|models
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names

@@ -733,9 +733,7 @@ name|javaFiles
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -746,9 +744,7 @@ name|xmlFiles
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all java route builder classes

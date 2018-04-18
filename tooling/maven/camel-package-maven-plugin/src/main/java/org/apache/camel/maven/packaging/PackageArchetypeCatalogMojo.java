@@ -376,9 +376,7 @@ name|models
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ArchetypeModel
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -898,9 +896,7 @@ name|includes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|includes

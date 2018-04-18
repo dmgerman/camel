@@ -901,9 +901,7 @@ name|args
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1986,9 +1984,7 @@ name|uncooperativeThreads
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Thread
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// these were not responsive
@@ -2325,9 +2321,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Thread
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numThreads
 argument_list|)
@@ -2655,9 +2649,7 @@ name|classpathURLs
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|URL
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// project classpath must be first
@@ -2944,9 +2936,7 @@ name|artifacts
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Artifact
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 operator|.
@@ -3315,9 +3305,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Artifact
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -3379,9 +3367,7 @@ name|artifacts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Artifact
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -3587,9 +3573,7 @@ name|exclusions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -3695,9 +3679,7 @@ name|relevantDependencies
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|Artifact
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 operator|.

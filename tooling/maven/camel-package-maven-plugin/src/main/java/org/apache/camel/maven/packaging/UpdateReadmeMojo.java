@@ -566,9 +566,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|PackageHelper
@@ -981,9 +979,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|PackageHelper
@@ -1358,9 +1354,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|PackageHelper
@@ -1660,9 +1654,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all json files in camel-core
@@ -7442,9 +7434,7 @@ name|componentNames
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -7610,9 +7600,7 @@ name|dataFormatNames
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -7778,9 +7766,7 @@ name|languageNames
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

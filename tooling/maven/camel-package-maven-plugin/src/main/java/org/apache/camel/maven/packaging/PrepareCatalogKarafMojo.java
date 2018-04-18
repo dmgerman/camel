@@ -461,9 +461,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -474,9 +472,7 @@ name|componentFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all json files in components and camel-core
@@ -728,17 +724,6 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|alternativeSchemes
-init|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|File
@@ -835,9 +820,7 @@ name|components
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
@@ -978,9 +961,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -991,9 +972,7 @@ name|dataFormatFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all data formats from the components directory
@@ -1266,9 +1245,7 @@ name|dataFormats
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
@@ -1409,9 +1386,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1422,9 +1397,7 @@ name|languageFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all languages from the components directory
@@ -1697,9 +1670,7 @@ name|languages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
@@ -1840,9 +1811,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1853,9 +1822,7 @@ name|otherFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all languages from the components directory
@@ -2218,9 +2185,7 @@ name|others
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names

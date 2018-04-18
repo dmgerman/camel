@@ -166,9 +166,7 @@ name|componentOptions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ComponentOptionModel
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|endpointPathOptions
@@ -182,9 +180,7 @@ name|endpointPathOptions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EndpointOptionModel
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|endpointOptions
@@ -198,9 +194,7 @@ name|endpointOptions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EndpointOptionModel
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|ComponentModel (boolean coreOnly)

@@ -268,9 +268,7 @@ name|details
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CamelEndpointDetails
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|RouteBuilderParser

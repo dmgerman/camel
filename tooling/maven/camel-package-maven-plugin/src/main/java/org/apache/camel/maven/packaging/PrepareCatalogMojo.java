@@ -587,9 +587,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -600,9 +598,7 @@ name|duplicateJsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -613,9 +609,7 @@ name|missingLabels
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -626,9 +620,7 @@ name|missingJavaDoc
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -644,14 +636,7 @@ name|usedLabels
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Set
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all json files in camel-core
@@ -977,9 +962,7 @@ name|models
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|usedLabels
@@ -1151,9 +1134,7 @@ name|models
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
@@ -1305,9 +1286,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1318,9 +1297,7 @@ name|duplicateJsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1331,9 +1308,7 @@ name|componentFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1344,9 +1319,7 @@ name|missingComponents
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -1362,14 +1335,7 @@ name|usedComponentLabels
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Set
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1380,9 +1346,7 @@ name|usedOptionLabels
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1393,9 +1357,7 @@ name|unlabeledOptions
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1406,9 +1368,7 @@ name|missingFirstVersions
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all json files in components and camel-core
@@ -2006,9 +1966,7 @@ name|components
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|usedComponentLabels
@@ -2439,9 +2397,7 @@ name|components
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
@@ -2648,9 +2604,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -2661,9 +2615,7 @@ name|duplicateJsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -2674,9 +2626,7 @@ name|dataFormatFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -2692,14 +2642,7 @@ name|usedLabels
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Set
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -2710,9 +2653,7 @@ name|missingFirstVersions
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all data formats from the components directory
@@ -3047,9 +2988,7 @@ name|dataFormats
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|usedLabels
@@ -3212,9 +3151,7 @@ name|dataFormats
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
@@ -3374,9 +3311,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -3387,9 +3322,7 @@ name|duplicateJsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -3400,9 +3333,7 @@ name|languageFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -3418,14 +3349,7 @@ name|usedLabels
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Set
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -3436,9 +3360,7 @@ name|missingFirstVersions
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all languages from the components directory
@@ -3773,9 +3695,7 @@ name|languages
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|usedLabels
@@ -3938,9 +3858,7 @@ name|languages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
@@ -4098,9 +4016,7 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -4111,9 +4027,7 @@ name|duplicateJsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -4124,9 +4038,7 @@ name|otherFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -4142,14 +4054,7 @@ name|usedLabels
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Set
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -4160,9 +4065,7 @@ name|missingFirstVersions
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all others from the components directory
@@ -4588,9 +4491,7 @@ name|others
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|usedLabels
@@ -4753,9 +4654,7 @@ name|others
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
@@ -5198,9 +5097,7 @@ name|adocFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -5211,9 +5108,7 @@ name|missingAdocFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -5224,9 +5119,7 @@ name|duplicateAdocFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// find all camel maven modules
@@ -5915,9 +5808,7 @@ name|documents
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// sort the names
