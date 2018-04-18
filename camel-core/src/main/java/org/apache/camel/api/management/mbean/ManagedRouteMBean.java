@@ -103,6 +103,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Route Group"
+argument_list|)
+DECL|method|getRouteGroup ()
+name|String
+name|getRouteGroup
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Route Description"
 argument_list|)
 DECL|method|getDescription ()

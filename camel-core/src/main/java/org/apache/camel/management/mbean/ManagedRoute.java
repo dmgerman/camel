@@ -682,6 +682,19 @@ return|return
 name|id
 return|;
 block|}
+DECL|method|getRouteGroup ()
+specifier|public
+name|String
+name|getRouteGroup
+parameter_list|()
+block|{
+return|return
+name|route
+operator|.
+name|getGroup
+argument_list|()
+return|;
+block|}
 DECL|method|getDescription ()
 specifier|public
 name|String
