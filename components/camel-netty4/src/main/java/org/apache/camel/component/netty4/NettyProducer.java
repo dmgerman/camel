@@ -884,9 +884,7 @@ name|pool
 operator|=
 operator|new
 name|GenericObjectPool
-argument_list|<
-name|ChannelFuture
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|NettyProducerPoolableObjectFactory
@@ -941,9 +939,7 @@ name|pool
 operator|=
 operator|new
 name|SharedSingletonObjectPool
-argument_list|<
-name|ChannelFuture
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|NettyProducerPoolableObjectFactory

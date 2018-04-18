@@ -896,9 +896,6 @@ decl_stmt|;
 name|MockSpan
 name|span
 init|=
-operator|(
-name|MockSpan
-operator|)
 name|tracer
 operator|.
 name|buildSpan
@@ -1565,9 +1562,6 @@ decl_stmt|;
 name|MockSpan
 name|span
 init|=
-operator|(
-name|MockSpan
-operator|)
 name|tracer
 operator|.
 name|buildSpan

@@ -330,9 +330,7 @@ block|{
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}
@@ -647,9 +645,6 @@ name|URI
 operator|.
 name|create
 argument_list|(
-operator|(
-name|String
-operator|)
 name|td
 operator|.
 name|getUri
@@ -962,14 +957,7 @@ name|traces
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|List
-argument_list|<
-name|Span
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Sort spans into separate traces
@@ -1034,9 +1022,7 @@ name|spans
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Span
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|traces

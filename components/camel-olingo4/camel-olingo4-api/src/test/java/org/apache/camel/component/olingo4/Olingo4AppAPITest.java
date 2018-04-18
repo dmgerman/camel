@@ -54,7 +54,7 @@ name|java
 operator|.
 name|text
 operator|.
-name|SimpleDateFormat
+name|DateFormat
 import|;
 end_import
 
@@ -1158,9 +1158,7 @@ name|responseHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|Edm
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -1345,9 +1343,7 @@ name|responseHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|ClientServiceDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -1429,9 +1425,7 @@ name|responseHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|ClientEntitySet
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -1510,9 +1504,7 @@ name|responseHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|InputStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -1606,9 +1598,7 @@ name|responseHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|ClientEntity
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -1737,11 +1727,7 @@ name|queryParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|queryParams
@@ -1813,9 +1799,7 @@ name|responseHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|InputStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -1974,11 +1958,7 @@ name|queryParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|queryParams
@@ -2061,9 +2041,7 @@ name|propertyHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|ClientPrimitiveValue
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -2084,9 +2062,6 @@ expr_stmt|;
 name|ClientPrimitiveValue
 name|name
 init|=
-operator|(
-name|ClientPrimitiveValue
-operator|)
 name|propertyHandler
 operator|.
 name|await
@@ -2126,9 +2101,7 @@ name|valueHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|ClientPrimitiveValue
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -2184,9 +2157,7 @@ name|statusHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|HttpStatusCode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// All properties updates (simple and complex) are performing through
@@ -2280,9 +2251,7 @@ name|responseHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|ClientEntity
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -2358,9 +2327,7 @@ name|countHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -2428,9 +2395,7 @@ name|entryHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|ClientEntity
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -2478,9 +2443,7 @@ name|statusHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|HttpStatusCode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ClientEntity
@@ -2749,9 +2712,7 @@ name|batchParts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Olingo4BatchRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// 1. Edm query
@@ -2831,11 +2792,7 @@ name|queryParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|queryParams
@@ -3046,12 +3003,7 @@ name|responseHandler
 init|=
 operator|new
 name|TestOlingo4ResponseHandler
-argument_list|<
-name|List
-argument_list|<
-name|Olingo4BatchResponse
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|olingoApp
@@ -3654,7 +3606,7 @@ name|value
 decl_stmt|;
 name|value
 operator|=
-name|SimpleDateFormat
+name|DateFormat
 operator|.
 name|getInstance
 argument_list|()

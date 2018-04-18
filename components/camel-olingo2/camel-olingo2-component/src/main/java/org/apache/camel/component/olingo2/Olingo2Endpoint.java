@@ -464,9 +464,7 @@ name|endpointPropertyNames
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getPropertiesHelper
 argument_list|()
@@ -998,11 +996,7 @@ name|queryParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

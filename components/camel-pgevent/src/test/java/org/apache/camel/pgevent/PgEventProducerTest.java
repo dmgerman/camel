@@ -176,7 +176,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Mockito
+name|ArgumentMatchers
 import|;
 end_import
 
@@ -812,7 +812,7 @@ name|connection
 operator|.
 name|prepareCall
 argument_list|(
-name|Mockito
+name|ArgumentMatchers
 operator|.
 name|anyString
 argument_list|()

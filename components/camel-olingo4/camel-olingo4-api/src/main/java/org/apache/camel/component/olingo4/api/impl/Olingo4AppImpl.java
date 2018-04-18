@@ -5348,9 +5348,6 @@ specifier|final
 name|Olingo4BatchRequest
 name|batchPartRequest
 init|=
-operator|(
-name|Olingo4BatchRequest
-operator|)
 name|batchRequest
 operator|.
 name|get

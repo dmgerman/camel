@@ -468,11 +468,7 @@ name|multiplexChannelHandlers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|HttpServerConsumerChannelFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|bootstrapFactories
@@ -488,11 +484,7 @@ name|bootstrapFactories
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|HttpServerBootstrapFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -685,11 +677,7 @@ name|options
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -2208,11 +2196,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// build query string, and append any endpoint configuration properties

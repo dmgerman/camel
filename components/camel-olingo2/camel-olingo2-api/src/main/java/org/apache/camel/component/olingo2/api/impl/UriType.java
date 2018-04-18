@@ -369,9 +369,7 @@ name|whiteList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SystemQueryOption
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 end_decl_stmt

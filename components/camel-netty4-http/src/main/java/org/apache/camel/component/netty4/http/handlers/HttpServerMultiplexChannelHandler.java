@@ -410,9 +410,7 @@ name|consumers
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|HttpServerChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|port
@@ -966,11 +964,7 @@ name|paths
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RestConsumerContextPathMatcher
-operator|.
-name|ConsumerPath
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

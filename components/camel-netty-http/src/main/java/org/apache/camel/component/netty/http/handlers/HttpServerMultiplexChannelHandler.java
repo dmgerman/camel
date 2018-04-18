@@ -448,11 +448,7 @@ name|consumers
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|ContextPathMatcher
-argument_list|,
-name|HttpServerChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|port
@@ -1139,16 +1135,7 @@ name|candidates
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|ContextPathMatcher
-argument_list|,
-name|HttpServerChannelHandler
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// first match by http method
@@ -1225,9 +1212,7 @@ name|directMatches
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|HttpServerChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1863,9 +1848,7 @@ name|handlersWithOptions
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|HttpServerChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

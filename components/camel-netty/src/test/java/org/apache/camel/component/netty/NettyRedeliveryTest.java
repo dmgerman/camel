@@ -354,12 +354,7 @@ name|tasks
 init|=
 operator|new
 name|LinkedBlockingDeque
-argument_list|<
-name|Callable
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|port

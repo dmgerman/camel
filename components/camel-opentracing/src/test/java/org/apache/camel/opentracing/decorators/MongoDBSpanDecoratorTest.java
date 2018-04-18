@@ -222,7 +222,7 @@ name|String
 argument_list|>
 name|params
 init|=
-name|MongoDBSpanDecorator
+name|AbstractSpanDecorator
 operator|.
 name|toQueryParameters
 argument_list|(
@@ -328,9 +328,6 @@ decl_stmt|;
 name|MockSpan
 name|span
 init|=
-operator|(
-name|MockSpan
-operator|)
 name|tracer
 operator|.
 name|buildSpan

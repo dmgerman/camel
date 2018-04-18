@@ -284,9 +284,7 @@ name|decoders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|decoders
@@ -311,9 +309,7 @@ name|encoders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|encoders

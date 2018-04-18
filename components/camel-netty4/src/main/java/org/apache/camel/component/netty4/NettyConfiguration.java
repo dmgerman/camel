@@ -455,9 +455,7 @@ name|encoders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -499,9 +497,7 @@ name|decoders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -877,9 +873,7 @@ name|encodersCopy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|encoders
 argument_list|)
@@ -899,9 +893,7 @@ name|decodersCopy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|decoders
 argument_list|)

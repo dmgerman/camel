@@ -555,11 +555,7 @@ name|headers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Read metadata ($metadata) object
@@ -1484,9 +1480,7 @@ name|batchParts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Olingo4BatchRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// 1. Edm query
@@ -1566,11 +1560,7 @@ name|queryParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|queryParams
@@ -2130,11 +2120,7 @@ name|headers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -2232,11 +2218,7 @@ name|endpointHttpHeaders
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|endpointHttpHeaders

@@ -455,9 +455,7 @@ name|encodersCopy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getEncoders
 argument_list|()
@@ -478,9 +476,7 @@ name|decodersCopy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getDecoders
 argument_list|()

@@ -156,9 +156,6 @@ expr_stmt|;
 name|String
 name|messageId
 init|=
-operator|(
-name|String
-operator|)
 name|getMessageId
 argument_list|(
 name|exchange

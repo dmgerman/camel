@@ -278,11 +278,7 @@ name|addressedEnvelop
 init|=
 operator|new
 name|DefaultAddressedEnvelope
-argument_list|<
-name|Object
-argument_list|,
-name|InetSocketAddress
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ByteBufUtil
 operator|.

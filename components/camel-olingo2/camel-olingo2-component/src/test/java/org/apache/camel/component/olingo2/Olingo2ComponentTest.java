@@ -660,11 +660,7 @@ name|headers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// read ServiceDocument
@@ -726,11 +722,7 @@ name|queryParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|queryParams
@@ -1117,11 +1109,7 @@ name|data
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|data
@@ -1163,11 +1151,7 @@ name|address
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|address
@@ -1238,9 +1222,7 @@ name|batchParts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Olingo2BatchRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// 1. Edm query
@@ -1305,11 +1287,7 @@ name|queryParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|queryParams
@@ -1403,11 +1381,7 @@ name|updateData
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|data
 argument_list|)

@@ -150,11 +150,7 @@ name|unmodifiableMap
 argument_list|(
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|headers
 argument_list|)

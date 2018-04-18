@@ -131,9 +131,6 @@ name|Exception
 block|{
 try|try
 block|{
-name|String
-name|out
-init|=
 name|template
 argument_list|()
 operator|.
@@ -147,7 +144,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw an exception"

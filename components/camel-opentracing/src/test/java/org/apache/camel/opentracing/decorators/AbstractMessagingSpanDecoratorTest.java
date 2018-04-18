@@ -265,9 +265,6 @@ decl_stmt|;
 name|MockSpan
 name|span
 init|=
-operator|(
-name|MockSpan
-operator|)
 name|tracer
 operator|.
 name|buildSpan
@@ -406,9 +403,6 @@ decl_stmt|;
 name|MockSpan
 name|span
 init|=
-operator|(
-name|MockSpan
-operator|)
 name|tracer
 operator|.
 name|buildSpan
@@ -441,7 +435,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|AwsSqsSpanDecorator
+name|AbstractMessagingSpanDecorator
 operator|.
 name|MESSAGE_BUS_ID
 argument_list|)
