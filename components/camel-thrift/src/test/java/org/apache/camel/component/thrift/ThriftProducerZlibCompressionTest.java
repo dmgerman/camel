@@ -490,9 +490,6 @@ name|args
 operator|.
 name|processor
 argument_list|(
-operator|(
-name|TProcessor
-operator|)
 name|processor
 argument_list|)
 expr_stmt|;
@@ -511,9 +508,6 @@ name|args
 operator|.
 name|transportFactory
 argument_list|(
-operator|(
-name|TTransportFactory
-operator|)
 operator|new
 name|TZlibTransport
 operator|.
@@ -642,9 +636,6 @@ name|requestBody
 operator|.
 name|add
 argument_list|(
-operator|(
-name|int
-operator|)
 literal|1
 argument_list|)
 expr_stmt|;

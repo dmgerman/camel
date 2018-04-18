@@ -850,9 +850,7 @@ name|commandFuture
 operator|=
 operator|new
 name|FutureTask
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|commandCallable
 argument_list|)
@@ -865,9 +863,7 @@ name|commandFuture
 operator|=
 operator|new
 name|FutureTask
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|Callable
@@ -2009,9 +2005,7 @@ name|featuresBefore
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Feature
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -2070,9 +2064,7 @@ name|featuresBefore
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Feature
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -2133,9 +2125,7 @@ name|featuresBefore
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Feature
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.

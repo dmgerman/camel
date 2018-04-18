@@ -246,9 +246,7 @@ name|threadAppContext
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|AbstractApplicationContext
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|lock
@@ -714,12 +712,7 @@ name|setExcludedClasses
 argument_list|(
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|excluded
 argument_list|)

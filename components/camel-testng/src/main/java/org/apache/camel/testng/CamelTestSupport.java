@@ -543,9 +543,7 @@ name|INIT
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|threadCamelContext
@@ -559,9 +557,7 @@ name|threadCamelContext
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|ModelCamelContext
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|threadTemplate
@@ -575,9 +571,7 @@ name|threadTemplate
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|ProducerTemplate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|threadConsumer
@@ -591,9 +585,7 @@ name|threadConsumer
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|ConsumerTemplate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|threadService
@@ -607,9 +599,7 @@ name|threadService
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|Service
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|context
@@ -1913,11 +1903,7 @@ name|InitialContext
 argument_list|(
 operator|new
 name|Hashtable
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|properties
 argument_list|)

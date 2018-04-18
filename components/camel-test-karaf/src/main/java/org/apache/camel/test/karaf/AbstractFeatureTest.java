@@ -2865,9 +2865,7 @@ literal|null
 condition|?
 operator|new
 name|ArrayList
-argument_list|<
-name|ServiceReference
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)

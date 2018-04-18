@@ -662,11 +662,6 @@ name|void
 name|waitForShutdown
 parameter_list|()
 block|{
-name|int
-name|failureCount
-init|=
-literal|0
-decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -916,9 +911,6 @@ operator|!
 name|stopped_
 condition|)
 block|{
-operator|++
-name|failureCount
-expr_stmt|;
 name|LOGGER
 operator|.
 name|warn

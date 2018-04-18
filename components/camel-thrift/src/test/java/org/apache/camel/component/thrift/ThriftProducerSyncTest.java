@@ -239,9 +239,6 @@ name|requestBody
 operator|.
 name|add
 argument_list|(
-operator|(
-name|int
-operator|)
 literal|1
 argument_list|)
 expr_stmt|;
@@ -333,9 +330,6 @@ name|requestBody
 operator|.
 name|add
 argument_list|(
-operator|(
-name|int
-operator|)
 name|THRIFT_TEST_NUM1
 argument_list|)
 expr_stmt|;
@@ -343,9 +337,6 @@ name|requestBody
 operator|.
 name|add
 argument_list|(
-operator|(
-name|int
-operator|)
 name|THRIFT_TEST_NUM2
 argument_list|)
 expr_stmt|;
@@ -420,9 +411,6 @@ name|requestBody
 operator|.
 name|add
 argument_list|(
-operator|(
-name|int
-operator|)
 literal|1
 argument_list|)
 expr_stmt|;
@@ -606,9 +594,6 @@ name|requestBody
 operator|.
 name|add
 argument_list|(
-operator|(
-name|boolean
-operator|)
 literal|true
 argument_list|)
 expr_stmt|;
@@ -636,9 +621,6 @@ name|requestBody
 operator|.
 name|add
 argument_list|(
-operator|(
-name|int
-operator|)
 name|THRIFT_TEST_NUM1
 argument_list|)
 expr_stmt|;

@@ -158,11 +158,6 @@ name|answer
 init|=
 literal|"http://api.openweathermap.org/data/2.5/"
 decl_stmt|;
-name|boolean
-name|point
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|weatherConfiguration
@@ -198,10 +193,6 @@ name|location
 operator|=
 name|createLatLonQueryString
 argument_list|()
-expr_stmt|;
-name|point
-operator|=
-literal|true
 expr_stmt|;
 block|}
 elseif|else

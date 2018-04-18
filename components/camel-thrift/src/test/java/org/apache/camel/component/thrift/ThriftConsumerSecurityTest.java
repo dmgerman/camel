@@ -806,12 +806,7 @@ name|assertEquals
 argument_list|(
 name|THRIFT_TEST_NUM1
 argument_list|,
-operator|(
-operator|(
-name|Work
-operator|)
 name|echoResult
-operator|)
 operator|.
 name|num1
 argument_list|)
@@ -822,12 +817,7 @@ name|Operation
 operator|.
 name|MULTIPLY
 argument_list|,
-operator|(
-operator|(
-name|Work
-operator|)
 name|echoResult
-operator|)
 operator|.
 name|op
 argument_list|)

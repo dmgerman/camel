@@ -759,9 +759,6 @@ name|asyncClientGetter
 argument_list|,
 name|factoryInstance
 argument_list|,
-operator|(
-name|TNonblockingTransport
-operator|)
 name|transport
 argument_list|)
 expr_stmt|;

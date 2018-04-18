@@ -18,36 +18,6 @@ name|twitter
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|data
-operator|.
-name|EndpointType
-import|;
-end_import
-
 begin_comment
 comment|/**  * @deprecated This has been introduced to just keep deprecated endpoints working as is.  * Remove this once Endpoint{Direct,Event,Polling} is removed.  */
 end_comment

@@ -154,9 +154,7 @@ name|originalJmxDisabledValue
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|testClazz
@@ -173,12 +171,7 @@ name|testClazz
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|testContext
@@ -192,9 +185,7 @@ name|testContext
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|TestContext
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|CamelSpringTestHelper ()
@@ -332,9 +323,7 @@ name|methods
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Method
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Class

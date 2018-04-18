@@ -603,9 +603,7 @@ name|breakpoints
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Breakpoint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1301,9 +1299,7 @@ name|properties
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Properties
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -519,9 +519,6 @@ name|args
 operator|.
 name|processor
 argument_list|(
-operator|(
-name|TProcessor
-operator|)
 name|processor
 argument_list|)
 expr_stmt|;

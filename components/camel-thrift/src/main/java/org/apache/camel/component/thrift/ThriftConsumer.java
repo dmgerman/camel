@@ -688,9 +688,6 @@ argument_list|()
 expr_stmt|;
 name|serverImplementationInstance
 operator|=
-operator|(
-name|Object
-operator|)
 name|serverImplementationClass
 operator|.
 name|getConstructor

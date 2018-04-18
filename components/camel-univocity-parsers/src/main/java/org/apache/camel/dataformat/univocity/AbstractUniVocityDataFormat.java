@@ -473,9 +473,7 @@ name|marshaller
 operator|=
 operator|new
 name|Marshaller
-argument_list|<
-name|W
-argument_list|>
+argument_list|<>
 argument_list|(
 name|headers
 argument_list|,
@@ -592,9 +590,7 @@ name|unmarshaller
 operator|=
 operator|new
 name|Unmarshaller
-argument_list|<
-name|P
-argument_list|>
+argument_list|<>
 argument_list|(
 name|lazyLoad
 argument_list|,

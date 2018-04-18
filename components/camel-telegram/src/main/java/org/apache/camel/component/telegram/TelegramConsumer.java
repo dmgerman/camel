@@ -189,17 +189,6 @@ operator|.
 name|getConfiguration
 argument_list|()
 decl_stmt|;
-name|Long
-name|realOffset
-init|=
-name|offset
-operator|!=
-literal|null
-condition|?
-name|offset
-else|:
-literal|0L
-decl_stmt|;
 name|TelegramService
 name|service
 init|=

@@ -110,6 +110,18 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|TransformerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|sax
 operator|.
 name|SAXTransformerFactory
@@ -967,7 +979,7 @@ init|=
 operator|(
 name|SAXTransformerFactory
 operator|)
-name|SAXTransformerFactory
+name|TransformerFactory
 operator|.
 name|newInstance
 argument_list|()

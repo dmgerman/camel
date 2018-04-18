@@ -30,18 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|undertow
@@ -74,18 +62,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|undertow
-operator|.
-name|websockets
-operator|.
-name|WebSocketProtocolHandshakeHandler
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -99,24 +75,6 @@ operator|.
 name|handlers
 operator|.
 name|CamelRootHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|undertow
-operator|.
-name|handlers
-operator|.
-name|CamelWebSocketHandler
 import|;
 end_import
 

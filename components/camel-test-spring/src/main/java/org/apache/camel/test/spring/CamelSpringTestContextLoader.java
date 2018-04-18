@@ -1128,12 +1128,7 @@ name|setExcludedClasses
 argument_list|(
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|excluded
 argument_list|)
@@ -1500,9 +1495,7 @@ name|breakpoints
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Breakpoint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2194,9 +2187,7 @@ name|properties
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Properties
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
