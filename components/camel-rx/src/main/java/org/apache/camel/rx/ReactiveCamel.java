@@ -394,9 +394,7 @@ name|endpoint
 argument_list|,
 operator|new
 name|ExchangeToBodyFunc1
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|bodyType
 argument_list|)
@@ -462,9 +460,7 @@ name|observer
 init|=
 operator|new
 name|ObserverSender
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|endpoint
 argument_list|)
@@ -613,9 +609,7 @@ name|func
 init|=
 operator|new
 name|EndpointSubscribeFunc
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|workerPool
 argument_list|,
@@ -627,9 +621,7 @@ decl_stmt|;
 return|return
 operator|new
 name|EndpointObservable
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|endpoint
 argument_list|,
@@ -654,9 +646,7 @@ block|{
 return|return
 operator|new
 name|EndpointObservable
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|endpoint
 argument_list|,

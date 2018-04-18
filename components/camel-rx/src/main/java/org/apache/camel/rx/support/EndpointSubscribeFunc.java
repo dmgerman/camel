@@ -179,9 +179,7 @@ name|add
 argument_list|(
 operator|new
 name|EndpointSubscription
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|workerPool
 argument_list|,

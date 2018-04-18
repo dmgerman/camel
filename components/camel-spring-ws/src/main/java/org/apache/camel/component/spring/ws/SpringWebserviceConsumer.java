@@ -735,9 +735,6 @@ decl_stmt|;
 name|String
 name|breadcrumbId
 init|=
-operator|(
-name|String
-operator|)
 name|obj
 operator|.
 name|getHeader

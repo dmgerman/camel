@@ -1040,11 +1040,7 @@ name|answer
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|CamelContext
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1108,9 +1104,7 @@ name|locations
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|findLocations

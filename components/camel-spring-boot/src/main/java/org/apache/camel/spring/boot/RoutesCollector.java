@@ -508,9 +508,7 @@ name|camelContextConfigurations
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CamelContextConfiguration
-argument_list|>
+argument_list|<>
 argument_list|(
 name|camelContextConfigurations
 argument_list|)

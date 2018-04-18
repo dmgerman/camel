@@ -407,9 +407,7 @@ name|headerKeySet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|headers
 operator|.
@@ -601,9 +599,7 @@ name|keySet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|attachments
 operator|.

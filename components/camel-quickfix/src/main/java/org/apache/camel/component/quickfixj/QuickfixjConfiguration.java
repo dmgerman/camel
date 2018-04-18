@@ -216,16 +216,7 @@ name|sessionSettings
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|SessionID
-argument_list|,
-name|Map
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

@@ -219,11 +219,7 @@ name|servers
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|SolrEndpoint
-argument_list|,
-name|SolrServerReference
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|class|SolrServerReference

@@ -476,14 +476,7 @@ name|resolvers
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Long
-argument_list|,
-name|List
-argument_list|<
-name|BundleScriptEngineResolver
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|getBundleContext ()
@@ -634,9 +627,7 @@ name|r
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BundleScriptEngineResolver
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|registerScriptEngines
@@ -791,9 +782,7 @@ name|names
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|String
 operator|.

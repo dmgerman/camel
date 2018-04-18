@@ -282,14 +282,7 @@ name|JAX_CONTEXTS
 init|=
 operator|new
 name|LRUSoftCache
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|,
-name|JAXBContext
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1000
 argument_list|)
@@ -729,9 +722,7 @@ block|{
 return|return
 operator|new
 name|StAXJAXBIterator
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|clazz
 argument_list|,

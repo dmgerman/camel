@@ -317,9 +317,7 @@ name|producers
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|RouteboxProducer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|consumers
@@ -333,9 +331,7 @@ name|consumers
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|RouteboxConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|RouteboxSedaEndpoint (String endpointUri, RouteboxComponent component, RouteboxConfiguration config)
@@ -550,9 +546,7 @@ block|{
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|RouteboxConsumer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|consumers
 argument_list|)
@@ -570,9 +564,7 @@ block|{
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|RouteboxProducer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|producers
 argument_list|)
@@ -654,9 +646,7 @@ name|queue
 operator|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getConfig
 argument_list|()
@@ -672,9 +662,7 @@ name|queue
 operator|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -705,9 +693,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getQueue
 argument_list|()

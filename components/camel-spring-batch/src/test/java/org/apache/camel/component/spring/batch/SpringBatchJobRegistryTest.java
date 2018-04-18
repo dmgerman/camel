@@ -839,9 +839,7 @@ block|{
 return|return
 operator|new
 name|CamelItemReader
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|consumerTemplate
 argument_list|,
@@ -865,9 +863,7 @@ block|{
 return|return
 operator|new
 name|CamelItemWriter
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|producerTemplate
 argument_list|,
@@ -893,11 +889,7 @@ block|{
 return|return
 operator|new
 name|CamelItemProcessor
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|producerTemplate
 argument_list|,

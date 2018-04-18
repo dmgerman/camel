@@ -140,11 +140,7 @@ name|PRIM_CLASSES
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Class
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|8
 argument_list|,

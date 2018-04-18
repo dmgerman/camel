@@ -317,9 +317,7 @@ name|optParams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|OptionalParameter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -587,9 +585,7 @@ name|optParams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|OptionalParameter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -652,9 +648,7 @@ name|ancestorClasses
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

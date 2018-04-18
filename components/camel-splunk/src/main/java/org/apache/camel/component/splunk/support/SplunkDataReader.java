@@ -1525,9 +1525,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SplunkEvent
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|HashMap

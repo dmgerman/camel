@@ -2047,14 +2047,11 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|long
-name|time
-init|=
 name|stopWatch
 operator|.
 name|stop
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 block|}
 DECL|method|assertFirstMessageBodyOfLength (MockEndpoint mockEndpoint, int expectedLength)
 specifier|private

@@ -763,9 +763,7 @@ name|parserElementNames
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|parserMap
@@ -780,11 +778,7 @@ name|parserMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|BeanDefinitionParser
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|jaxbContext
@@ -804,11 +798,7 @@ name|autoRegisterMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|BeanDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Prepares the nodes before parsing.      */

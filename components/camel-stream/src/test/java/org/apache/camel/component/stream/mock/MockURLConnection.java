@@ -80,9 +80,7 @@ name|THREAD_OUTPUT_STREAM
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|OutputStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|MockURLConnection (URL url)

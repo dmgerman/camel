@@ -85,9 +85,7 @@ name|camelItemReader
 operator|=
 operator|new
 name|CamelItemReader
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|consumer
 argument_list|()

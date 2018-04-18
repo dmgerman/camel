@@ -800,9 +800,7 @@ name|listeners
 operator|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|SalesforceSessionListener
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -1814,9 +1812,7 @@ name|errors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RestError
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|errors

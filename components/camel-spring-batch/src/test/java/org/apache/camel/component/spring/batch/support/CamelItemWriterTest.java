@@ -95,9 +95,7 @@ name|camelItemWriter
 operator|=
 operator|new
 name|CamelItemWriter
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|template
 argument_list|()

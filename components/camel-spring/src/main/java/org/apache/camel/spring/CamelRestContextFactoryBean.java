@@ -212,9 +212,7 @@ name|rests
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RestDefinition
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|getObject ()

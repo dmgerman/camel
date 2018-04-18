@@ -298,11 +298,7 @@ name|endpoints
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|EndpointMappingKey
-argument_list|,
-name|MessageEndpoint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|outputActionSuffix

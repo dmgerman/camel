@@ -201,9 +201,7 @@ name|consumers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RabbitConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|RabbitMQConsumer (RabbitMQEndpoint endpoint, Processor processor)

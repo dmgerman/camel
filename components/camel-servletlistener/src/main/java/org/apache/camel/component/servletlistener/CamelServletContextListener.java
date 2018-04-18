@@ -1334,11 +1334,7 @@ name|map
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Enumeration
@@ -2383,9 +2379,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -2396,9 +2390,7 @@ name|names
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2681,9 +2673,7 @@ name|builders
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|RouteBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|target

@@ -502,9 +502,7 @@ name|managedObjName
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ObjectName
-argument_list|>
+argument_list|<>
 argument_list|(
 name|objNameSet
 argument_list|)

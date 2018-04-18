@@ -239,11 +239,7 @@ name|maps
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|maps
@@ -265,9 +261,7 @@ name|message
 init|=
 operator|new
 name|GenericMessage
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|MESSAGE_BODY
 argument_list|,

@@ -272,9 +272,7 @@ decl_stmt|;
 return|return
 operator|new
 name|GenericMessage
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|camelMessage
 operator|.

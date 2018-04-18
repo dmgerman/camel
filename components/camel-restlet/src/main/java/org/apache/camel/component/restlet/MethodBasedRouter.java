@@ -172,11 +172,7 @@ name|routes
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Method
-argument_list|,
-name|Restlet
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|hasBeenAttachedFlag

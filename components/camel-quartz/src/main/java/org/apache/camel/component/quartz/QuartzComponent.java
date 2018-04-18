@@ -348,9 +348,7 @@ name|jobsToAdd
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|JobToAdd
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

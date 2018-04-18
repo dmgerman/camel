@@ -94,14 +94,7 @@ name|TAG_NAMES
 init|=
 operator|new
 name|LRUSoftCache
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1000
 argument_list|)

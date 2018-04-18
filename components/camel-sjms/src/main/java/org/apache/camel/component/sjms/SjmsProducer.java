@@ -421,9 +421,7 @@ name|setProducers
 argument_list|(
 operator|new
 name|GenericObjectPool
-argument_list|<
-name|MessageProducerResources
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|MessageProducerResourcesFactory

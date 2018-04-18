@@ -113,11 +113,7 @@ name|camelItemProcessor
 operator|=
 operator|new
 name|CamelItemProcessor
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|template
 argument_list|()

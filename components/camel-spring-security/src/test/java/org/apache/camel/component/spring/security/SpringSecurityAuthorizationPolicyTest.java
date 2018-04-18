@@ -536,9 +536,7 @@ name|authorities
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|GrantedAuthority
-argument_list|>
+argument_list|<>
 argument_list|(
 name|roles
 operator|.

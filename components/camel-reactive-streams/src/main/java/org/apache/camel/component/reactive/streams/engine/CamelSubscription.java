@@ -677,9 +677,6 @@ name|min
 argument_list|(
 name|requested
 argument_list|,
-operator|(
-name|long
-operator|)
 name|buffer
 operator|.
 name|size

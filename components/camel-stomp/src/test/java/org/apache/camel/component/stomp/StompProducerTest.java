@@ -312,16 +312,13 @@ name|nextId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|StompFrame
-name|response
-init|=
 name|subscribeConnection
 operator|.
 name|request
 argument_list|(
 name|frame
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 specifier|final
 name|CountDownLatch
 name|latch

@@ -142,12 +142,7 @@ name|headerCriteria
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Field
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|bodyCriteria
@@ -164,12 +159,7 @@ name|bodyCriteria
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Field
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|MessagePredicate (SessionID requestingSessionID, String msgType)
@@ -392,9 +382,7 @@ name|add
 argument_list|(
 operator|new
 name|Field
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|tag
 argument_list|,
@@ -424,9 +412,7 @@ name|add
 argument_list|(
 operator|new
 name|Field
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|tag
 argument_list|,
@@ -453,9 +439,7 @@ name|add
 argument_list|(
 operator|new
 name|Field
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|MsgType
 operator|.

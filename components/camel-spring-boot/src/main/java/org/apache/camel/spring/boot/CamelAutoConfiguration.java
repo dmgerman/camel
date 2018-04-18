@@ -1951,9 +1951,7 @@ name|applicationContext
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|CamelContextConfiguration
-argument_list|>
+argument_list|<>
 argument_list|(
 name|configurations
 argument_list|)
@@ -3696,9 +3694,7 @@ name|defaultIds
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// lookup and use custom profiles from the registry

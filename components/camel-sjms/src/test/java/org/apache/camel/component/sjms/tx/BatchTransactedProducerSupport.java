@@ -303,12 +303,7 @@ name|messages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BatchMessage
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -341,9 +336,7 @@ name|message
 init|=
 operator|new
 name|BatchMessage
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|body
 argument_list|,

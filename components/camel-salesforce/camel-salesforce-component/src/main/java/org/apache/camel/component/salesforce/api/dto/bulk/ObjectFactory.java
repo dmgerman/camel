@@ -356,9 +356,7 @@ block|{
 return|return
 operator|new
 name|JAXBElement
-argument_list|<
-name|JobInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 name|JOB_INFO_QNAME
 argument_list|,
@@ -399,9 +397,7 @@ block|{
 return|return
 operator|new
 name|JAXBElement
-argument_list|<
-name|BatchInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 name|BATCH_INFO_QNAME
 argument_list|,
@@ -442,9 +438,7 @@ block|{
 return|return
 operator|new
 name|JAXBElement
-argument_list|<
-name|Error
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ERROR_QNAME
 argument_list|,
@@ -485,9 +479,7 @@ block|{
 return|return
 operator|new
 name|JAXBElement
-argument_list|<
-name|BatchResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|RESULTS_QNAME
 argument_list|,
@@ -528,9 +520,7 @@ block|{
 return|return
 operator|new
 name|JAXBElement
-argument_list|<
-name|QueryResultList
-argument_list|>
+argument_list|<>
 argument_list|(
 name|RESULT_LIST_QNAME
 argument_list|,
@@ -571,9 +561,7 @@ block|{
 return|return
 operator|new
 name|JAXBElement
-argument_list|<
-name|BatchInfoList
-argument_list|>
+argument_list|<>
 argument_list|(
 name|BATCH_INFO_LIST_QNAME
 argument_list|,
@@ -614,9 +602,7 @@ block|{
 return|return
 operator|new
 name|JAXBElement
-argument_list|<
-name|QueryResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|QUERY_RESULT_QNAME
 argument_list|,

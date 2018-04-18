@@ -479,9 +479,7 @@ name|keys
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|KeyPair
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 operator|.

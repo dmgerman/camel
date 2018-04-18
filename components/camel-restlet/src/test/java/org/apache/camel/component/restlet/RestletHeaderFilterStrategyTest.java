@@ -159,9 +159,6 @@ argument_list|,
 literal|"any value"
 argument_list|)
 expr_stmt|;
-name|String
-name|out
-init|=
 name|template
 operator|.
 name|requestBodyAndHeader
@@ -178,7 +175,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -228,23 +225,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|notValidHeader
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|notAcceptedHeaderKey
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|Map
 argument_list|<
 name|String

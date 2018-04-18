@@ -353,9 +353,7 @@ decl_stmt|;
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 operator|.

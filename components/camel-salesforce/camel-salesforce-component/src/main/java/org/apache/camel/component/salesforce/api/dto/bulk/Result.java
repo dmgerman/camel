@@ -166,9 +166,7 @@ name|errors
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ResultError
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

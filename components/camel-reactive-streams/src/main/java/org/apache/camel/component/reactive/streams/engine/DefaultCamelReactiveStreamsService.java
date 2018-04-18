@@ -880,9 +880,7 @@ block|}
 return|return
 operator|new
 name|ConvertingPublisher
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fromStream
 argument_list|(
@@ -975,9 +973,7 @@ block|}
 return|return
 operator|new
 name|ConvertingSubscriber
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|streamSubscriber
 argument_list|(
@@ -1483,9 +1479,7 @@ block|{
 return|return
 operator|new
 name|ConvertingPublisher
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|from
 argument_list|(
@@ -1608,9 +1602,7 @@ block|{
 return|return
 operator|new
 name|ConvertingSubscriber
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|subscriber
 argument_list|(
@@ -2011,9 +2003,7 @@ name|apply
 argument_list|(
 operator|new
 name|ConvertingPublisher
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|exPub
 argument_list|,

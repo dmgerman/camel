@@ -571,9 +571,7 @@ name|eventListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|QuickfixjEventListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|uri
@@ -1775,9 +1773,7 @@ name|impliedMessageStoreFactories
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|MessageStoreFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|isJdbcStore
@@ -2019,9 +2015,7 @@ name|impliedLogFactories
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|LogFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|isFileLog

@@ -576,9 +576,7 @@ name|consumers
 operator|=
 operator|new
 name|GenericObjectPool
-argument_list|<
-name|MessageConsumerResources
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|MessageConsumerResourcesFactory

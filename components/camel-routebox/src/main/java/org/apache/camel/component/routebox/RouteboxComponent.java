@@ -187,14 +187,7 @@ name|queues
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|BlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|RouteboxComponent ()
@@ -434,9 +427,7 @@ name|queue
 operator|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -448,9 +439,7 @@ name|queue
 operator|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

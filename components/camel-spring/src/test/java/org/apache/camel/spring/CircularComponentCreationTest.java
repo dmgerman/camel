@@ -194,11 +194,6 @@ name|applicationContext
 init|=
 literal|null
 decl_stmt|;
-name|CamelContext
-name|camelContext
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
 name|applicationContext
@@ -209,8 +204,6 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-name|camelContext
-operator|=
 operator|new
 name|SpringCamelContext
 argument_list|(

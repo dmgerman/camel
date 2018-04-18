@@ -350,9 +350,6 @@ argument_list|(
 literal|"GOOG"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|request
@@ -406,7 +403,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override

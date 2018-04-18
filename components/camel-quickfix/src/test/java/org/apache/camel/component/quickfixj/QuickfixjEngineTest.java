@@ -2795,9 +2795,7 @@ name|events
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EventRecord
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3117,9 +3115,7 @@ name|events
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EventRecord
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3415,9 +3411,7 @@ name|events
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EventRecord
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final

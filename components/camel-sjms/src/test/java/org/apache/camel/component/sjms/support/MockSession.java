@@ -271,10 +271,6 @@ name|checkClosed
 argument_list|()
 expr_stmt|;
 return|return
-call|(
-name|Queue
-call|)
-argument_list|(
 name|queueName
 operator|.
 name|startsWith
@@ -292,7 +288,6 @@ operator|new
 name|ActiveMQQueue
 argument_list|(
 name|queueName
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -360,11 +355,6 @@ name|connection
 operator|.
 name|getPrefetchPolicy
 argument_list|()
-decl_stmt|;
-name|boolean
-name|prefetch
-init|=
-literal|false
 decl_stmt|;
 name|int
 name|prefetch1

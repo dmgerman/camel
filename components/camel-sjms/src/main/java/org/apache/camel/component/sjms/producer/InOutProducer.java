@@ -395,14 +395,7 @@ name|EXCHANGERS
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Exchanger
-argument_list|<
-name|Object
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|GENERATED_CORRELATION_ID_PREFIX
@@ -943,9 +936,7 @@ name|consumers
 operator|=
 operator|new
 name|GenericObjectPool
-argument_list|<
-name|MessageConsumerResources
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|MessageConsumerResourcesFactory
@@ -1124,9 +1115,7 @@ name|messageExchanger
 init|=
 operator|new
 name|Exchanger
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|JmsMessageHelper

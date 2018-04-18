@@ -365,9 +365,7 @@ name|connections
 operator|=
 operator|new
 name|GenericObjectPool
-argument_list|<
-name|Connection
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|)

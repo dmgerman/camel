@@ -245,11 +245,7 @@ name|scheduledRouteDetailsMap
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|ScheduledRouteDetails
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|scheduler

@@ -152,9 +152,7 @@ decl_stmt|;
 return|return
 operator|new
 name|GenericMessage
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|message
 operator|.
@@ -193,9 +191,7 @@ block|{
 return|return
 operator|new
 name|GenericMessage
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|message
 operator|.

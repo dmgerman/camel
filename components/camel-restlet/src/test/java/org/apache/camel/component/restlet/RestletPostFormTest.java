@@ -335,9 +335,7 @@ name|urlParameters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|NameValuePair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|urlParameters

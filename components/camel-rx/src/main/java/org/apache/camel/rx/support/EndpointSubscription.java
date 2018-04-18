@@ -306,9 +306,7 @@ name|processor
 init|=
 operator|new
 name|ProcessorToObserver
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|func
 argument_list|,

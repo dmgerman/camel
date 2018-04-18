@@ -492,12 +492,7 @@ name|setExcludedClasses
 argument_list|(
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|excluded
 argument_list|)

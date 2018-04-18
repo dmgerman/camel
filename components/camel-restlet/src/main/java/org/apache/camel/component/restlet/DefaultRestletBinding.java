@@ -1745,9 +1745,7 @@ name|restletHeaders
 operator|=
 operator|new
 name|Series
-argument_list|<
-name|Header
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Header
 operator|.
@@ -2438,9 +2436,7 @@ name|add
 argument_list|(
 operator|new
 name|Preference
-argument_list|<
-name|MediaType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|acceptedMediaType
 argument_list|)
@@ -2653,9 +2649,7 @@ name|add
 argument_list|(
 operator|new
 name|Preference
-argument_list|<
-name|MediaType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|acceptedMediaType
 argument_list|)
@@ -3566,9 +3560,7 @@ name|series
 init|=
 operator|new
 name|Series
-argument_list|<
-name|Header
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Header
 operator|.
@@ -4535,9 +4527,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CacheDirective
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// set the cache control value directive

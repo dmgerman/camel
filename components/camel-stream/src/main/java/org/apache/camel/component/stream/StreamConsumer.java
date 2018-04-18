@@ -371,9 +371,7 @@ name|lines
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|StreamConsumer (StreamEndpoint endpoint, Processor processor, String uri)
@@ -1059,9 +1057,7 @@ name|copy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|lines
 argument_list|)

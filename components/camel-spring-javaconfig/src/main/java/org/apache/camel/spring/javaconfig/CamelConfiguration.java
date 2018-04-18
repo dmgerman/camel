@@ -813,9 +813,7 @@ name|routeBuilders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RouteBuilder
-argument_list|>
+argument_list|<>
 argument_list|(
 name|routeBuildersMap
 operator|.
