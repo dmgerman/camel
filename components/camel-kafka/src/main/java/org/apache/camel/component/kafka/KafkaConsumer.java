@@ -2330,17 +2330,6 @@ argument_list|()
 operator|.
 name|isAutoCommitEnable
 argument_list|()
-operator|!=
-literal|null
-operator|&&
-operator|!
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|isAutoCommitEnable
-argument_list|()
 condition|)
 block|{
 name|log
