@@ -628,9 +628,7 @@ name|replyToAddresses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternetAddress
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -3653,11 +3651,7 @@ name|answer
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|String
 operator|.
@@ -3970,9 +3964,7 @@ name|recipientsAddresses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternetAddress
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

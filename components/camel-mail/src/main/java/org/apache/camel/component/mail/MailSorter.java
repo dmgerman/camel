@@ -193,9 +193,7 @@ name|sortTermsWithDescending
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SortTermWithDescending
-argument_list|>
+argument_list|<>
 argument_list|(
 name|sortTerm
 operator|.

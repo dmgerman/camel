@@ -1159,7 +1159,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-name|instance
+name|MllpSocketBuffer
 operator|.
 name|MIN_BUFFER_SIZE
 argument_list|,
@@ -1179,7 +1179,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|instance
+name|MllpSocketBuffer
 operator|.
 name|MIN_BUFFER_SIZE
 argument_list|,
@@ -1203,7 +1203,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-name|instance
+name|MllpSocketBuffer
 operator|.
 name|MIN_BUFFER_SIZE
 argument_list|,
@@ -1260,7 +1260,7 @@ name|instance
 operator|.
 name|ensureCapacity
 argument_list|(
-name|instance
+name|MllpSocketBuffer
 operator|.
 name|MAX_BUFFER_SIZE
 operator|+
@@ -1313,7 +1313,7 @@ name|instance
 operator|.
 name|ensureCapacity
 argument_list|(
-name|instance
+name|MllpSocketBuffer
 operator|.
 name|MAX_BUFFER_SIZE
 argument_list|)
@@ -1362,7 +1362,7 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-name|instance
+name|MllpSocketBuffer
 operator|.
 name|MIN_BUFFER_SIZE
 argument_list|,
@@ -1376,7 +1376,7 @@ name|instance
 operator|.
 name|ensureCapacity
 argument_list|(
-name|instance
+name|MllpSocketBuffer
 operator|.
 name|MAX_BUFFER_SIZE
 argument_list|)
@@ -1387,7 +1387,7 @@ name|instance
 operator|.
 name|ensureCapacity
 argument_list|(
-name|instance
+name|MllpSocketBuffer
 operator|.
 name|MAX_BUFFER_SIZE
 operator|+

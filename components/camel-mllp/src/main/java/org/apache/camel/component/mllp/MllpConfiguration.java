@@ -92,20 +92,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExceptionHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|UriParam
 import|;
 end_import
@@ -1740,6 +1726,8 @@ name|maxConcurrentConsumers
 expr_stmt|;
 block|}
 comment|/**      * Determine if the maxReceiveTimeouts URI parameter has been set      *      * @return true if the parameter has been set; false otherwise      *      * @deprecated Use the idleTimeout URI parameter      */
+annotation|@
+name|Deprecated
 DECL|method|hasMaxReceiveTimeouts ()
 specifier|public
 name|boolean
@@ -1753,6 +1741,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Retrieve the value of the maxReceiveTimeouts URI parameter.      *      * @return the maximum number of receive timeouts before the TCP Socket is reset      *      * @deprecated Use the idleTimeout URI parameter      */
+annotation|@
+name|Deprecated
 DECL|method|getMaxReceiveTimeouts ()
 specifier|public
 name|Integer
@@ -1764,6 +1754,8 @@ name|maxReceiveTimeouts
 return|;
 block|}
 comment|/**      * The maximum number of timeouts (specified by receiveTimeout) allowed before the TCP Connection will be reset.      *      * @param maxReceiveTimeouts maximum number of receiveTimeouts      *      * @deprecated Use the idleTimeout URI parameter.  For backward compibility, setting this parameter will result in an      * idle timeout of maxReceiveTimeouts * receiveTimeout.  If idleTimeout is also specified, this parameter will be ignored.      */
+annotation|@
+name|Deprecated
 DECL|method|setMaxReceiveTimeouts (Integer maxReceiveTimeouts)
 specifier|public
 name|void
@@ -2210,6 +2202,8 @@ name|bufferWrites
 return|;
 block|}
 comment|/**      * Enable/Disable the buffering of HL7 payloads before writing to the socket.      *      * @deprecated the parameter will be ignored      *      * @param bufferWrites enabled if true, otherwise disabled      */
+annotation|@
+name|Deprecated
 DECL|method|setBufferWrites (boolean bufferWrites)
 specifier|public
 name|void

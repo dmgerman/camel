@@ -2113,9 +2113,6 @@ name|acknowledgementCode
 argument_list|)
 throw|;
 block|}
-name|String
-name|messageControlId
-decl_stmt|;
 name|int
 name|endOfMshSegment
 init|=

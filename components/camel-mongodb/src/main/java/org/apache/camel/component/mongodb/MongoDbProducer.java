@@ -1321,9 +1321,7 @@ name|dbObjectList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DBObject
-argument_list|>
+argument_list|<>
 argument_list|(
 name|insertList
 operator|.

@@ -128,9 +128,7 @@ name|WRITE_OPERATIONS
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|MongoDbOperation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.

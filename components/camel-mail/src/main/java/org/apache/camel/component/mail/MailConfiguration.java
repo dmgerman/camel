@@ -238,13 +238,7 @@ name|recipients
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Message
-operator|.
-name|RecipientType
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// protocol is implied by component name so it should not be in UriPath
@@ -851,13 +845,7 @@ name|recipients
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Message
-operator|.
-name|RecipientType
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|copy

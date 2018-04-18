@@ -1314,9 +1314,6 @@ argument_list|(
 literal|"Sending third message"
 argument_list|)
 expr_stmt|;
-name|String
-name|acknowledgement
-init|=
 name|mllpClient
 operator|.
 name|sendMessageAndWaitForAcknowledgement
@@ -1328,7 +1325,7 @@ argument_list|(
 literal|10003
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 annotation|@
 name|Test

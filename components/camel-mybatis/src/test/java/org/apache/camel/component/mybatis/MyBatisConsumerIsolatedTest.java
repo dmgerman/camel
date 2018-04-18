@@ -168,9 +168,7 @@ name|emptyMessageQueue
 init|=
 operator|new
 name|ArrayDeque
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

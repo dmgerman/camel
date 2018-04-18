@@ -3029,15 +3029,10 @@ name|getConfiguration
 parameter_list|()
 block|{
 return|return
-operator|(
-operator|(
-name|MllpEndpoint
-operator|)
 name|this
 operator|.
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getConfiguration
 argument_list|()

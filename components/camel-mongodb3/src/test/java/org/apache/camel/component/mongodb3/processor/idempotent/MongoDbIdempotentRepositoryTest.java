@@ -152,9 +152,6 @@ operator|new
 name|MongoDbIdempotentRepository
 argument_list|<>
 argument_list|(
-operator|(
-name|MongoClient
-operator|)
 name|mongo
 argument_list|,
 name|testCollectionName

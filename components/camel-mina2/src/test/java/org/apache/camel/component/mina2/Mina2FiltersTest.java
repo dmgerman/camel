@@ -429,9 +429,7 @@ name|myFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IoFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|myFilters

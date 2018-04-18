@@ -373,9 +373,6 @@ block|,
 literal|"{\"_id\":\"testSave2\", \"scientist\":\"Copernicus\"}"
 block|}
 decl_stmt|;
-name|Object
-name|result
-init|=
 name|template
 operator|.
 name|requestBody
@@ -384,7 +381,7 @@ literal|"direct:insert"
 argument_list|,
 name|req
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//assertTrue(result instanceof WriteResult);
 name|assertEquals
 argument_list|(

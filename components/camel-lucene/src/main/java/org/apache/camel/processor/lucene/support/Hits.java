@@ -126,9 +126,7 @@ name|hit
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Hit
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

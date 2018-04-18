@@ -1046,9 +1046,7 @@ name|keys
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// interval task could potentially be running while we are shutting down so check for that
@@ -1218,9 +1216,7 @@ name|answer
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

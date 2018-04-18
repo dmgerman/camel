@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|junit
@@ -319,7 +299,7 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|instance
+name|MllpComponent
 operator|.
 name|logPhi
 argument_list|)
@@ -337,7 +317,7 @@ name|Boolean
 operator|.
 name|TRUE
 argument_list|,
-name|instance
+name|MllpComponent
 operator|.
 name|logPhi
 argument_list|)
@@ -355,7 +335,7 @@ name|Boolean
 operator|.
 name|FALSE
 argument_list|,
-name|instance
+name|MllpComponent
 operator|.
 name|logPhi
 argument_list|)
@@ -512,7 +492,7 @@ name|assertEquals
 argument_list|(
 name|expected
 argument_list|,
-name|instance
+name|MllpComponent
 operator|.
 name|logPhiMaxBytes
 argument_list|)
@@ -533,7 +513,7 @@ name|assertEquals
 argument_list|(
 name|expected
 argument_list|,
-name|instance
+name|MllpComponent
 operator|.
 name|logPhiMaxBytes
 argument_list|)
@@ -553,7 +533,7 @@ name|assertEquals
 argument_list|(
 name|expected
 argument_list|,
-name|instance
+name|MllpComponent
 operator|.
 name|logPhiMaxBytes
 argument_list|)

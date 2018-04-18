@@ -634,9 +634,7 @@ name|consumers
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|MQTTConsumer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -1909,9 +1907,7 @@ name|promise
 init|=
 operator|new
 name|Promise
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|connection

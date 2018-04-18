@@ -698,9 +698,7 @@ name|data
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SearchResult
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|NamingEnumeration
@@ -772,9 +770,7 @@ name|data
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SearchResult
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|log

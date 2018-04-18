@@ -1479,9 +1479,7 @@ name|msgs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Message
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Note that message * numbers start at 1, not 0
@@ -1748,9 +1746,7 @@ name|answer
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Exchange
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int

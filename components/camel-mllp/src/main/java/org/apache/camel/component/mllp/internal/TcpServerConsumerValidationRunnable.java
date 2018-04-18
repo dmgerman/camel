@@ -36,16 +36,6 @@ name|java
 operator|.
 name|net
 operator|.
-name|ServerSocket
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
 name|Socket
 import|;
 end_import
@@ -57,16 +47,6 @@ operator|.
 name|net
 operator|.
 name|SocketAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|SocketException
 import|;
 end_import
 

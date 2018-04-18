@@ -36,18 +36,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -107,26 +95,6 @@ operator|.
 name|mllp
 operator|.
 name|MllpClientResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|rule
-operator|.
-name|mllp
-operator|.
-name|MllpJUnitResourceException
 import|;
 end_import
 

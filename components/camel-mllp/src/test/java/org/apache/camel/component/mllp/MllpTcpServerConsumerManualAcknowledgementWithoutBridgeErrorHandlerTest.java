@@ -40,30 +40,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|endsWith
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|startsWith
-import|;
-end_import
-
 begin_class
 DECL|class|MllpTcpServerConsumerManualAcknowledgementWithoutBridgeErrorHandlerTest
 specifier|public
