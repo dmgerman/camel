@@ -450,6 +450,18 @@ specifier|private
 name|String
 name|distanceMetric
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|extendedMode
+specifier|private
+name|Boolean
+name|extendedMode
+decl_stmt|;
 comment|/**      * Singleton, on demand instances of Twitter4J's Twitter& TwitterStream.      * This should not be created by an endpoint's doStart(), etc., since      * instances of twitter and/or twitterStream can be supplied by the route      * itself.  Further, as an example, we don't want to initialize twitter      * if we only need twitterStream.      */
 DECL|field|twitter
 specifier|private
@@ -568,6 +580,14 @@ operator|.
 name|setOAuthAccessTokenSecret
 argument_list|(
 name|accessTokenSecret
+argument_list|)
+expr_stmt|;
+name|confBuilder
+operator|.
+name|setTweetModeExtended
+argument_list|(
+name|getExtendedMode
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1312,6 +1332,33 @@ name|distanceMetric
 operator|=
 name|distanceMetric
 expr_stmt|;
+block|}
+comment|/**      * Used for enabling full text from twitter.      *<p/>      */
+DECL|method|setExtendedMode (Boolean extendedMode)
+specifier|public
+name|void
+name|setExtendedMode
+parameter_list|(
+name|Boolean
+name|extendedMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|radius
+operator|=
+name|radius
+expr_stmt|;
+block|}
+DECL|method|getExtendedMode ()
+specifier|public
+name|Boolean
+name|getExtendedMode
+parameter_list|()
+block|{
+return|return
+name|extendedMode
+return|;
 block|}
 block|}
 end_class
