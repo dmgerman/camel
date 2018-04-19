@@ -250,7 +250,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/oldlock?initialDelay=0&delay=10&readLockDeleteOrphanLockFiles=false&recursive=true"
+literal|"file:target/oldlock?initialDelay=0&delay=10&readLock=markerFile&readLockDeleteOrphanLockFiles=false&recursive=true"
 argument_list|)
 operator|.
 name|routeId

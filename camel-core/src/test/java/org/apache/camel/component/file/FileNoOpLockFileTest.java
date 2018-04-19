@@ -430,7 +430,7 @@ block|{
 comment|// for locks
 name|from
 argument_list|(
-literal|"file://target/reports/locked/?initialDelay=0&delay=10&noop=true"
+literal|"file://target/reports/locked/?initialDelay=0&delay=10&noop=true&readLock=markerFile"
 argument_list|)
 operator|.
 name|process

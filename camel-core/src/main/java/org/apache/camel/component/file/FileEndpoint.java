@@ -456,15 +456,7 @@ DECL|method|FileEndpoint ()
 specifier|public
 name|FileEndpoint
 parameter_list|()
-block|{
-comment|// use marker file as default exclusive read locks
-name|this
-operator|.
-name|readLock
-operator|=
-literal|"markerFile"
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|FileEndpoint (String endpointUri, Component component)
 specifier|public
 name|FileEndpoint
@@ -482,13 +474,6 @@ name|endpointUri
 argument_list|,
 name|component
 argument_list|)
-expr_stmt|;
-comment|// use marker file as default exclusive read locks
-name|this
-operator|.
-name|readLock
-operator|=
-literal|"markerFile"
 expr_stmt|;
 block|}
 DECL|method|createConsumer (Processor processor)
