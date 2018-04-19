@@ -34,16 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|MongoClient
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache

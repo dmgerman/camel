@@ -1139,9 +1139,6 @@ block|{
 name|Token
 name|t
 decl_stmt|;
-name|Token
-name|scaleToken
-decl_stmt|;
 switch|switch
 condition|(
 operator|(
@@ -2181,10 +2178,7 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-argument_list|<
-name|int
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|jj_expentry

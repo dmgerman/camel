@@ -144,14 +144,6 @@ name|mimeFoldingLimit
 init|=
 literal|76
 decl_stmt|;
-name|int
-name|headerLength
-init|=
-literal|"subject: "
-operator|.
-name|length
-argument_list|()
-decl_stmt|;
 while|while
 condition|(
 name|sb
