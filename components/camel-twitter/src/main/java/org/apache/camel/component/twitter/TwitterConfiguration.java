@@ -623,7 +623,7 @@ condition|)
 block|{
 name|confBuilder
 operator|.
-name|setHttpProxyHost
+name|setHttpProxyUser
 argument_list|(
 name|getHttpProxyUser
 argument_list|()
@@ -640,7 +640,7 @@ condition|)
 block|{
 name|confBuilder
 operator|.
-name|setHttpProxyHost
+name|setHttpProxyPassword
 argument_list|(
 name|getHttpProxyPassword
 argument_list|()
