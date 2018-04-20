@@ -112,6 +112,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Synchronization
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|spring
@@ -250,6 +264,12 @@ specifier|static
 name|boolean
 name|bindingDone
 decl_stmt|;
+DECL|field|onCompeletedCalled
+specifier|private
+specifier|static
+name|boolean
+name|onCompeletedCalled
+decl_stmt|;
 annotation|@
 name|Before
 DECL|method|setup ()
@@ -263,6 +283,10 @@ operator|=
 literal|null
 expr_stmt|;
 name|bindingDone
+operator|=
+literal|false
+expr_stmt|;
+name|onCompeletedCalled
 operator|=
 literal|false
 expr_stmt|;
@@ -411,6 +435,13 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"UnitOfWork done should be called"
+argument_list|,
+name|onCompeletedCalled
+argument_list|)
+expr_stmt|;
 name|assertNull
 argument_list|(
 literal|"exception occured: "
@@ -524,6 +555,48 @@ name|bos
 operator|.
 name|toByteArray
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// add compliation
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|.
+name|addSynchronization
+argument_list|(
+operator|new
+name|Synchronization
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onComplete
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|onCompeletedCalled
+operator|=
+literal|true
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// do nothing here
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
