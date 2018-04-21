@@ -54,7 +54,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|Before
 import|;
 end_import
 
@@ -68,15 +68,13 @@ name|CamelTestSupport
 block|{
 DECL|field|testPort
 specifier|private
-specifier|static
 name|int
 name|testPort
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|Before
 DECL|method|setup ()
 specifier|public
-specifier|static
 name|void
 name|setup
 parameter_list|()
