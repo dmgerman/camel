@@ -218,6 +218,18 @@ name|LinkedBlockingQueueFactory
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|defaultBlockWhenFull
+specifier|private
+name|boolean
+name|defaultBlockWhenFull
+decl_stmt|;
 DECL|field|queues
 specifier|private
 specifier|final
@@ -347,6 +359,33 @@ operator|.
 name|defaultQueueFactory
 operator|=
 name|defaultQueueFactory
+expr_stmt|;
+block|}
+DECL|method|isDefaultBlockWhenFull ()
+specifier|public
+name|boolean
+name|isDefaultBlockWhenFull
+parameter_list|()
+block|{
+return|return
+name|defaultBlockWhenFull
+return|;
+block|}
+comment|/**      * Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted.      * By default, an exception will be thrown stating that the queue is full.      * By enabling this option, the calling thread will instead block and wait until the message can be accepted.      */
+DECL|method|setDefaultBlockWhenFull (boolean defaultBlockWhenFull)
+specifier|public
+name|void
+name|setDefaultBlockWhenFull
+parameter_list|(
+name|boolean
+name|defaultBlockWhenFull
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultBlockWhenFull
+operator|=
+name|defaultBlockWhenFull
 expr_stmt|;
 block|}
 comment|/**      * @deprecated use      */
@@ -958,6 +997,30 @@ name|consumers
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if blockWhenFull is set on endpoint, defaultBlockWhenFull is ignored.
+name|boolean
+name|blockWhenFull
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"blockWhenFull"
+argument_list|,
+name|boolean
+operator|.
+name|class
+argument_list|,
+name|defaultBlockWhenFull
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setBlockWhenFull
+argument_list|(
+name|blockWhenFull
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|configureProperties

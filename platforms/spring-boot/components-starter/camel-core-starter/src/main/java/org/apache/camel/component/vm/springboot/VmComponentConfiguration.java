@@ -155,6 +155,14 @@ name|Exchange
 argument_list|>
 name|defaultQueueFactory
 decl_stmt|;
+comment|/**      * Whether a thread that sends messages to a full SEDA queue will block      * until the queue's capacity is no longer exhausted. By default, an      * exception will be thrown stating that the queue is full. By enabling this      * option, the calling thread will instead block and wait until the message      * can be accepted.      */
+DECL|field|defaultBlockWhenFull
+specifier|private
+name|Boolean
+name|defaultBlockWhenFull
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -245,6 +253,32 @@ operator|.
 name|defaultQueueFactory
 operator|=
 name|defaultQueueFactory
+expr_stmt|;
+block|}
+DECL|method|getDefaultBlockWhenFull ()
+specifier|public
+name|Boolean
+name|getDefaultBlockWhenFull
+parameter_list|()
+block|{
+return|return
+name|defaultBlockWhenFull
+return|;
+block|}
+DECL|method|setDefaultBlockWhenFull (Boolean defaultBlockWhenFull)
+specifier|public
+name|void
+name|setDefaultBlockWhenFull
+parameter_list|(
+name|Boolean
+name|defaultBlockWhenFull
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultBlockWhenFull
+operator|=
+name|defaultBlockWhenFull
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
