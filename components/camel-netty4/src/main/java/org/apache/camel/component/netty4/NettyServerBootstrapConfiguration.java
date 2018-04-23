@@ -756,7 +756,7 @@ return|return
 name|host
 return|;
 block|}
-comment|/**      * The hostname.      *<p/>      * For the consumer the hostname is localhost or 0.0.0.0      * For the producer the hostname is the remote host to connect to      */
+comment|/**      * The hostname.      *<p/>      * For the consumer the hostname is localhost or 0.0.0.0.       * For the producer the hostname is the remote host to connect to      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -918,7 +918,7 @@ return|return
 name|workerCount
 return|;
 block|}
-comment|/**      * When netty works on nio mode, it uses default workerCount parameter from Netty, which is cpu_core_threads*2.      * User can use this operation to override the default workerCount from Netty      */
+comment|/**      * When netty works on nio mode, it uses default workerCount parameter from Netty, which is cpu_core_threads x 2.      * User can use this operation to override the default workerCount from Netty.      */
 DECL|method|setWorkerCount (int workerCount)
 specifier|public
 name|void
@@ -1053,7 +1053,7 @@ return|return
 name|connectTimeout
 return|;
 block|}
-comment|/**      * Time to wait for a socket connection to be available. Value is in millis.      */
+comment|/**      * Time to wait for a socket connection to be available. Value is in milliseconds.      */
 DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void

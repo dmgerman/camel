@@ -583,7 +583,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-comment|/**      * To use the given EventExecutorGroup      */
+comment|/**      * To use the given EventExecutorGroup.      */
 DECL|method|setExecutorService (EventExecutorGroup executorService)
 specifier|public
 name|void

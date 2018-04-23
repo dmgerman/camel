@@ -352,7 +352,7 @@ specifier|private
 name|NettyConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * To use the given EventExecutorGroup      */
+comment|/**      * To use the given EventExecutorGroup.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|executorService
@@ -786,7 +786,7 @@ name|udpByteArrayCodec
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty {@link Channel} for the lifecycle of processing the          * {@link Exchange} . This is useful if you need to call a server          * multiple times in a Camel route and want to use the same network          * connection. When using this the channel is not returned to the          * connection pool until the {@link Exchange} is done; or disconnected          * if the disconnect option is set to true.          *<p/>          * The reused {@link Channel} is stored on the {@link Exchange} as an          * exchange property with the key {@link NettyConstants#NETTY_CHANNEL}          * which allows you to obtain the channel during routing and use it as          * well.          */
+comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty {@link Channel} for the lifecycle of processing the          * {@link Exchange} . This is useful if you need to call a server          * multiple times in a Camel route and want to use the same network          * connection. When using this, the channel is not returned to the          * connection pool until the {@link Exchange} is done; or disconnected          * if the disconnect option is set to true.          *<p/>          * The reused {@link Channel} is stored on the {@link Exchange} as an          * exchange property with the key {@link NettyConstants#NETTY_CHANNEL}          * which allows you to obtain the channel during routing and use it as          * well.          */
 DECL|field|reuseChannel
 specifier|private
 name|Boolean
@@ -806,7 +806,7 @@ specifier|private
 name|String
 name|protocol
 decl_stmt|;
-comment|/**          * The hostname.          *<p/>          * For the consumer the hostname is localhost or 0.0.0.0 For the          * producer the hostname is the remote host to connect to          */
+comment|/**          * The hostname.          *<p/>          * For the consumer the hostname is localhost or 0.0.0.0. For the          * producer the hostname is the remote host to connect to          */
 DECL|field|host
 specifier|private
 name|String
@@ -848,7 +848,7 @@ specifier|private
 name|Integer
 name|receiveBufferSizePredictor
 decl_stmt|;
-comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads*2. User can use this operation          * to override the default workerCount from Netty          */
+comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads x 2. User can use this          * operation to override the default workerCount from Netty.          */
 DECL|field|workerCount
 specifier|private
 name|Integer
@@ -886,7 +886,7 @@ name|reuseAddress
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Time to wait for a socket connection to be available. Value is in          * millis.          */
+comment|/**          * Time to wait for a socket connection to be available. Value is in          * milliseconds.          */
 DECL|field|connectTimeout
 specifier|private
 name|Integer
