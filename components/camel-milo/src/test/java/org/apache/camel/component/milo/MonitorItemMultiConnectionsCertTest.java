@@ -200,16 +200,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -219,11 +209,6 @@ comment|/**  * Testing monitoring items over multiple connections  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"This test always fails on builds.apache.org"
-argument_list|)
 DECL|class|MonitorItemMultiConnectionsCertTest
 specifier|public
 class|class
