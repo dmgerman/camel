@@ -242,7 +242,7 @@ name|maximumPoolSize
 init|=
 literal|16
 decl_stmt|;
-comment|/**      * To use the given EventExecutorGroup      */
+comment|/**      * To use the given EventExecutorGroup.      */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|executorService
