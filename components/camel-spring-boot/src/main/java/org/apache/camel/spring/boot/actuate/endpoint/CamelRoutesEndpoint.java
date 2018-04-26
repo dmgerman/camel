@@ -328,6 +328,18 @@ name|ConfigurationProperties
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|lang
+operator|.
+name|Nullable
+import|;
+end_import
+
 begin_comment
 comment|/**  * {@link Endpoint} to expose {@link org.apache.camel.Route} information.  */
 end_comment
@@ -344,11 +356,6 @@ name|enableByDefault
 operator|=
 literal|true
 argument_list|)
-annotation|@
-name|ConfigurationProperties
-argument_list|(
-literal|"management.endpoint.camelroutes"
-argument_list|)
 DECL|class|CamelRoutesEndpoint
 specifier|public
 class|class
@@ -359,19 +366,20 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|readOnly
+DECL|field|properties
 specifier|private
-name|boolean
-name|readOnly
-init|=
-literal|true
+name|CamelRoutesEndpointProperties
+name|properties
 decl_stmt|;
-DECL|method|CamelRoutesEndpoint (CamelContext camelContext)
+DECL|method|CamelRoutesEndpoint (CamelContext camelContext, CamelRoutesEndpointProperties properties)
 specifier|public
 name|CamelRoutesEndpoint
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|CamelRoutesEndpointProperties
+name|properties
 parameter_list|)
 block|{
 name|this
@@ -379,6 +387,12 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
+expr_stmt|;
+name|this
+operator|.
+name|properties
+operator|=
+name|properties
 expr_stmt|;
 block|}
 annotation|@
@@ -452,7 +466,7 @@ block|}
 block|}
 annotation|@
 name|WriteOperation
-DECL|method|doWriteAction (@elector String id, @Selector WriteAction action, TimeInfo timeInfo)
+DECL|method|doWriteAction (@elector String id, @Selector WriteAction action, @Nullable TimeInfo timeInfo)
 specifier|public
 name|void
 name|doWriteAction
@@ -467,6 +481,8 @@ name|Selector
 name|WriteAction
 name|action
 parameter_list|,
+annotation|@
+name|Nullable
 name|TimeInfo
 name|timeInfo
 parameter_list|)
@@ -474,6 +490,8 @@ block|{
 if|if
 condition|(
 name|this
+operator|.
+name|properties
 operator|.
 name|isReadOnly
 argument_list|()
@@ -657,6 +675,8 @@ if|if
 condition|(
 name|this
 operator|.
+name|properties
+operator|.
 name|isReadOnly
 argument_list|()
 condition|)
@@ -718,32 +738,6 @@ block|}
 return|return
 literal|null
 return|;
-block|}
-DECL|method|isReadOnly ()
-specifier|public
-name|boolean
-name|isReadOnly
-parameter_list|()
-block|{
-return|return
-name|readOnly
-return|;
-block|}
-DECL|method|setReadOnly (boolean readOnly)
-specifier|public
-name|void
-name|setReadOnly
-parameter_list|(
-name|boolean
-name|readOnly
-parameter_list|)
-block|{
-name|this
-operator|.
-name|readOnly
-operator|=
-name|readOnly
-expr_stmt|;
 block|}
 DECL|method|getRouteInfo (String id)
 specifier|private
