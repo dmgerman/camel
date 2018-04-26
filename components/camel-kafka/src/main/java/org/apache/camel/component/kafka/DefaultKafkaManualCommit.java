@@ -167,13 +167,13 @@ specifier|final
 name|TopicPartition
 name|partition
 decl_stmt|;
-DECL|field|partitionLastOffset
+DECL|field|recordOffset
 specifier|private
 specifier|final
 name|long
-name|partitionLastOffset
+name|recordOffset
 decl_stmt|;
-DECL|method|DefaultKafkaManualCommit (KafkaConsumer consumer, String topicName, String threadId, StateRepository<String, String> offsetRepository, TopicPartition partition, long partitionLastOffset)
+DECL|method|DefaultKafkaManualCommit (KafkaConsumer consumer, String topicName, String threadId, StateRepository<String, String> offsetRepository, TopicPartition partition, long recordOffset)
 specifier|public
 name|DefaultKafkaManualCommit
 parameter_list|(
@@ -198,7 +198,7 @@ name|TopicPartition
 name|partition
 parameter_list|,
 name|long
-name|partitionLastOffset
+name|recordOffset
 parameter_list|)
 block|{
 name|this
@@ -233,9 +233,9 @@ name|partition
 expr_stmt|;
 name|this
 operator|.
-name|partitionLastOffset
+name|recordOffset
 operator|=
-name|partitionLastOffset
+name|recordOffset
 expr_stmt|;
 block|}
 annotation|@
@@ -252,11 +252,11 @@ name|offsetRepository
 argument_list|,
 name|partition
 argument_list|,
-name|partitionLastOffset
+name|recordOffset
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|commitOffset (StateRepository<String, String> offsetRepository, TopicPartition partition, long partitionLastOffset)
+DECL|method|commitOffset (StateRepository<String, String> offsetRepository, TopicPartition partition, long recordOffset)
 specifier|protected
 name|void
 name|commitOffset
@@ -273,12 +273,12 @@ name|TopicPartition
 name|partition
 parameter_list|,
 name|long
-name|partitionLastOffset
+name|recordOffset
 parameter_list|)
 block|{
 if|if
 condition|(
-name|partitionLastOffset
+name|recordOffset
 operator|!=
 operator|-
 literal|1
@@ -302,7 +302,7 @@ argument_list|)
 argument_list|,
 name|serializeOffsetValue
 argument_list|(
-name|partitionLastOffset
+name|recordOffset
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -319,7 +319,7 @@ name|threadId
 argument_list|,
 name|topicName
 argument_list|,
-name|partitionLastOffset
+name|recordOffset
 argument_list|)
 expr_stmt|;
 name|consumer
@@ -335,7 +335,7 @@ argument_list|,
 operator|new
 name|OffsetAndMetadata
 argument_list|(
-name|partitionLastOffset
+name|recordOffset
 operator|+
 literal|1
 argument_list|)
@@ -441,14 +441,14 @@ return|return
 name|partition
 return|;
 block|}
-DECL|method|getPartitionLastOffset ()
+DECL|method|getRecordOffset ()
 specifier|public
 name|long
-name|getPartitionLastOffset
+name|getRecordOffset
 parameter_list|()
 block|{
 return|return
-name|partitionLastOffset
+name|recordOffset
 return|;
 block|}
 block|}

@@ -84,7 +84,7 @@ name|KafkaManualCommitFactory
 block|{
 annotation|@
 name|Override
-DECL|method|newInstance (Exchange exchange, KafkaConsumer consumer, String topicName, String threadId, StateRepository<String, String> offsetRepository, TopicPartition partition, long partitionLastOffset)
+DECL|method|newInstance (Exchange exchange, KafkaConsumer consumer, String topicName, String threadId, StateRepository<String, String> offsetRepository, TopicPartition partition, long recordOffset)
 specifier|public
 name|KafkaManualCommit
 name|newInstance
@@ -113,7 +113,7 @@ name|TopicPartition
 name|partition
 parameter_list|,
 name|long
-name|partitionLastOffset
+name|recordOffset
 parameter_list|)
 block|{
 return|return
@@ -130,7 +130,7 @@ name|offsetRepository
 argument_list|,
 name|partition
 argument_list|,
-name|partitionLastOffset
+name|recordOffset
 argument_list|)
 return|;
 block|}

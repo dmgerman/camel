@@ -85,7 +85,7 @@ interface|interface
 name|KafkaManualCommitFactory
 block|{
 comment|/**      * Creates a new instance      */
-DECL|method|newInstance (Exchange exchange, KafkaConsumer consumer, String topicName, String threadId, StateRepository<String, String> offsetRepository, TopicPartition partition, long partitionLastOffset)
+DECL|method|newInstance (Exchange exchange, KafkaConsumer consumer, String topicName, String threadId, StateRepository<String, String> offsetRepository, TopicPartition partition, long recordOffset)
 name|KafkaManualCommit
 name|newInstance
 parameter_list|(
@@ -113,7 +113,7 @@ name|TopicPartition
 name|partition
 parameter_list|,
 name|long
-name|partitionLastOffset
+name|recordOffset
 parameter_list|)
 function_decl|;
 block|}
