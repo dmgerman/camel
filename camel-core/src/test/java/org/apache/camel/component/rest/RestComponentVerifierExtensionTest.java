@@ -766,7 +766,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProducer ( CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String queryParameters, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createProducer ( CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String queryParameters, String consumes, String produces, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Producer
 name|createProducer
@@ -794,6 +794,9 @@ name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<

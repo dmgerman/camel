@@ -100,6 +100,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RestProducerFactory
 import|;
 end_import
@@ -128,7 +142,7 @@ name|RestProducerFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, final String uriTemplate, String queryParameters, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, final String uriTemplate, String queryParameters, String consumes, String produces, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Producer
 name|createProducer
@@ -157,6 +171,9 @@ name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<

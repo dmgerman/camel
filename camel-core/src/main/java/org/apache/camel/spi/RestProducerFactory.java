@@ -60,8 +60,8 @@ specifier|public
 interface|interface
 name|RestProducerFactory
 block|{
-comment|/**      * Creates a new REST producer.      *      * @param camelContext        the camel context      * @param host                host in the syntax scheme:hostname:port, such as http:myserver:8080      * @param verb                HTTP verb such as GET, POST      * @param basePath            base path      * @param uriTemplate         uri template      * @param queryParameters     uri query parameters      * @param consumes            media-types for what the REST service consume as input (accept-type), is<tt>null</tt> or<tt>&#42;/&#42;</tt> for anything      * @param produces            media-types for what the REST service produces as output, can be<tt>null</tt>      * @param parameters          additional parameters      * @return a newly created REST producer      * @throws Exception can be thrown      */
-DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String queryParameters, String consumes, String produces, Map<String, Object> parameters)
+comment|/**      * Creates a new REST producer.      *      * @param camelContext        the camel context      * @param host                host in the syntax scheme:hostname:port, such as http:myserver:8080      * @param verb                HTTP verb such as GET, POST      * @param basePath            base path      * @param uriTemplate         uri template      * @param queryParameters     uri query parameters      * @param consumes            media-types for what the REST service consume as input (accept-type), is<tt>null</tt> or<tt>&#42;/&#42;</tt> for anything      * @param produces            media-types for what the REST service produces as output, can be<tt>null</tt>      * @param configuration       REST configuration      * @param parameters          additional parameters      * @return a newly created REST producer      * @throws Exception can be thrown      */
+DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String queryParameters, String consumes, String produces, RestConfiguration configuration, Map<String, Object> parameters)
 name|Producer
 name|createProducer
 parameter_list|(
@@ -88,6 +88,9 @@ name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<
