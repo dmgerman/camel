@@ -1812,7 +1812,10 @@ name|offsetRepository
 argument_list|,
 name|partition
 argument_list|,
-name|partitionLastOffset
+name|record
+operator|.
+name|offset
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|exchange
