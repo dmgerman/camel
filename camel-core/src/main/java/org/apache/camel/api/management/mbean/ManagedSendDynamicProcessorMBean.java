@@ -127,6 +127,30 @@ name|isIgnoreInvalidEndpoint
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to allow components to optimise toD if they are SendDynamicAware"
+argument_list|)
+DECL|method|isAllowOptimisedComponents ()
+name|Boolean
+name|isAllowOptimisedComponents
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether an optimised component (SendDynamicAware) is in use"
+argument_list|)
+DECL|method|isOptimised ()
+name|Boolean
+name|isOptimised
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

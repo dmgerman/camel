@@ -337,9 +337,17 @@ operator|.
 name|SC_OK
 argument_list|)
 expr_stmt|;
+name|String
+name|content
+init|=
+name|buildResponse
+argument_list|(
+name|request
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|responseContent
+name|content
 operator|!=
 literal|null
 condition|)
@@ -363,10 +371,23 @@ name|out
 operator|.
 name|print
 argument_list|(
-name|responseContent
+name|content
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|buildResponse (HttpServletRequest request)
+specifier|protected
+name|String
+name|buildResponse
+parameter_list|(
+name|HttpServletRequest
+name|request
+parameter_list|)
+block|{
+return|return
+name|responseContent
+return|;
 block|}
 DECL|method|validateQuery (HttpServletRequest request)
 specifier|protected

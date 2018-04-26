@@ -434,6 +434,12 @@ specifier|final
 name|String
 name|uri
 decl_stmt|;
+DECL|field|dynamicUri
+specifier|private
+specifier|final
+name|boolean
+name|dynamicUri
+decl_stmt|;
 DECL|field|processor
 specifier|private
 specifier|final
@@ -493,7 +499,7 @@ specifier|private
 name|Processor
 name|onPrepare
 decl_stmt|;
-DECL|method|WireTapProcessor (SendDynamicProcessor dynamicProcessor, Processor processor, ExchangePattern exchangePattern, ExecutorService executorService, boolean shutdownExecutorService)
+DECL|method|WireTapProcessor (SendDynamicProcessor dynamicProcessor, Processor processor, ExchangePattern exchangePattern, ExecutorService executorService, boolean shutdownExecutorService, boolean dynamicUri)
 specifier|public
 name|WireTapProcessor
 parameter_list|(
@@ -511,6 +517,9 @@ name|executorService
 parameter_list|,
 name|boolean
 name|shutdownExecutorService
+parameter_list|,
+name|boolean
+name|dynamicUri
 parameter_list|)
 block|{
 name|this
@@ -560,6 +569,12 @@ operator|.
 name|shutdownExecutorService
 operator|=
 name|shutdownExecutorService
+expr_stmt|;
+name|this
+operator|.
+name|dynamicUri
+operator|=
+name|dynamicUri
 expr_stmt|;
 block|}
 annotation|@
@@ -1377,6 +1392,16 @@ name|dynamicProcessor
 operator|.
 name|isIgnoreInvalidEndpoint
 argument_list|()
+return|;
+block|}
+DECL|method|isDynamicUri ()
+specifier|public
+name|boolean
+name|isDynamicUri
+parameter_list|()
+block|{
+return|return
+name|dynamicUri
 return|;
 block|}
 annotation|@

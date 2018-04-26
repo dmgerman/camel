@@ -131,6 +131,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Whether the uri is dynamic or static"
+argument_list|)
+DECL|method|isDynamicUri ()
+name|Boolean
+name|isDynamicUri
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Current size of inflight wire tapped exchanges."
 argument_list|)
 DECL|method|getTaskSize ()

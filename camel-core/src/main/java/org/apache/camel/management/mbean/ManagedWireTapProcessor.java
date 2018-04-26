@@ -477,6 +477,19 @@ name|isCopy
 argument_list|()
 return|;
 block|}
+DECL|method|isDynamicUri ()
+specifier|public
+name|Boolean
+name|isDynamicUri
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|isDynamicUri
+argument_list|()
+return|;
+block|}
 DECL|method|getTaskSize ()
 specifier|public
 name|Integer

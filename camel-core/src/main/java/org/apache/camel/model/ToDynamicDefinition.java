@@ -333,6 +333,20 @@ specifier|private
 name|Boolean
 name|ignoreInvalidEndpoint
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|allowOptimisedComponents
+specifier|private
+name|Boolean
+name|allowOptimisedComponents
+decl_stmt|;
 DECL|method|ToDynamicDefinition ()
 specifier|public
 name|ToDynamicDefinition
@@ -736,6 +750,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to allow components to optimise toD if they are {@link org.apache.camel.spi.SendDynamicAware}.      *      * @return the builder      */
+DECL|method|allowOptimisedComponents (boolean allowOptimisedComponents)
+specifier|public
+name|ToDynamicDefinition
+name|allowOptimisedComponents
+parameter_list|(
+name|boolean
+name|allowOptimisedComponents
+parameter_list|)
+block|{
+name|setAllowOptimisedComponents
+argument_list|(
+name|allowOptimisedComponents
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getUri ()
@@ -841,6 +874,32 @@ operator|.
 name|ignoreInvalidEndpoint
 operator|=
 name|ignoreInvalidEndpoint
+expr_stmt|;
+block|}
+DECL|method|getAllowOptimisedComponents ()
+specifier|public
+name|Boolean
+name|getAllowOptimisedComponents
+parameter_list|()
+block|{
+return|return
+name|allowOptimisedComponents
+return|;
+block|}
+DECL|method|setAllowOptimisedComponents (Boolean allowOptimisedComponents)
+specifier|public
+name|void
+name|setAllowOptimisedComponents
+parameter_list|(
+name|Boolean
+name|allowOptimisedComponents
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowOptimisedComponents
+operator|=
+name|allowOptimisedComponents
 expr_stmt|;
 block|}
 comment|// Utilities

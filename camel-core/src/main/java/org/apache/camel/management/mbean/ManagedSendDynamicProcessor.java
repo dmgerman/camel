@@ -499,6 +499,34 @@ name|isIgnoreInvalidEndpoint
 argument_list|()
 return|;
 block|}
+DECL|method|isAllowOptimisedComponents ()
+specifier|public
+name|Boolean
+name|isAllowOptimisedComponents
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|isAllowOptimisedComponents
+argument_list|()
+return|;
+block|}
+DECL|method|isOptimised ()
+specifier|public
+name|Boolean
+name|isOptimised
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|getDynamicAware
+argument_list|()
+operator|!=
+literal|null
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|extendedInformation ()
