@@ -325,6 +325,10 @@ comment|// TODO: should it say web3j compliant content repository. Should it not
 end_comment
 
 begin_comment
+comment|// TODO: label should be bitcoin,blockchain   (web3j is already in the JAR name)
+end_comment
+
+begin_comment
 comment|/**  * The web3j component uses the Web3j client API and allows you to add/read nodes to/from a web3j compliant content repositories.  */
 end_comment
 
