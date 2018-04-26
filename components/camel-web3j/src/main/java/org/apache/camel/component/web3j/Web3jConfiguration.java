@@ -128,6 +128,7 @@ name|Web3jConfiguration
 implements|implements
 name|Cloneable
 block|{
+comment|// TODO: Add javadoc for setter for documentation and add @UriParam to each option
 annotation|@
 name|UriParam
 argument_list|(
@@ -151,6 +152,7 @@ operator|.
 name|toLowerCase
 argument_list|()
 decl_stmt|;
+comment|// TODO: Make this an enum
 DECL|field|fromBlock
 specifier|private
 name|DefaultBlockParameter
@@ -1227,6 +1229,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * Operation to use.      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void

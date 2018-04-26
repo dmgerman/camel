@@ -351,10 +351,13 @@ specifier|private
 name|Boolean
 name|fullTransactionObjects
 decl_stmt|;
+comment|/**          * Operation to use.          */
 DECL|field|operation
 specifier|private
 name|String
 name|operation
+init|=
+literal|"transaction"
 decl_stmt|;
 DECL|method|getWeb3j ()
 specifier|public

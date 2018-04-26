@@ -116,6 +116,34 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -293,6 +321,10 @@ import|;
 end_import
 
 begin_comment
+comment|// TODO: should it say web3j compliant content repository. Should it not say something about blockchain,bitcoin
+end_comment
+
+begin_comment
 comment|/**  * The web3j component uses the Web3j client API and allows you to add/read nodes to/from a web3j compliant content repositories.  */
 end_comment
 
@@ -302,7 +334,7 @@ name|UriEndpoint
 argument_list|(
 name|firstVersion
 operator|=
-literal|"2.20.0"
+literal|"2.22.0"
 argument_list|,
 name|scheme
 operator|=
@@ -369,6 +401,8 @@ specifier|final
 name|Web3j
 name|web3j
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|Web3jConfiguration
