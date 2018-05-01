@@ -67,6 +67,11 @@ init|=
 operator|-
 literal|5958829164103569292L
 decl_stmt|;
+annotation|@
+name|JsonProperty
+argument_list|(
+literal|"chat_id"
+argument_list|)
 DECL|field|chatId
 specifier|protected
 name|String

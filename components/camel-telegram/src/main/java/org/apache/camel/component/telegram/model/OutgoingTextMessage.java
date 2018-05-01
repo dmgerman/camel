@@ -81,6 +81,16 @@ specifier|private
 name|Boolean
 name|disableWebPagePreview
 decl_stmt|;
+annotation|@
+name|JsonProperty
+argument_list|(
+literal|"reply_markup"
+argument_list|)
+DECL|field|replyKeyboardMarkup
+specifier|private
+name|ReplyKeyboardMarkup
+name|replyKeyboardMarkup
+decl_stmt|;
 DECL|method|OutgoingTextMessage ()
 specifier|public
 name|OutgoingTextMessage
@@ -164,6 +174,32 @@ operator|=
 name|disableWebPagePreview
 expr_stmt|;
 block|}
+DECL|method|getReplyKeyboardMarkup ()
+specifier|public
+name|ReplyKeyboardMarkup
+name|getReplyKeyboardMarkup
+parameter_list|()
+block|{
+return|return
+name|replyKeyboardMarkup
+return|;
+block|}
+DECL|method|setReplyKeyboardMarkup (ReplyKeyboardMarkup replyKeyboardMarkup)
+specifier|public
+name|void
+name|setReplyKeyboardMarkup
+parameter_list|(
+name|ReplyKeyboardMarkup
+name|replyKeyboardMarkup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyKeyboardMarkup
+operator|=
+name|replyKeyboardMarkup
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -226,6 +262,23 @@ operator|.
 name|append
 argument_list|(
 name|disableWebPagePreview
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'\''
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", replyKeyboardMarkup="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|replyKeyboardMarkup
 argument_list|)
 expr_stmt|;
 name|sb
