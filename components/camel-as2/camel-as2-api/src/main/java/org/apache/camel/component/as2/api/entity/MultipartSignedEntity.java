@@ -379,8 +379,8 @@ name|boolean
 name|isValid
 parameter_list|()
 block|{
-name|ApplicationEDIEntity
-name|applicationEDIEntity
+name|MimeEntity
+name|signedEntity
 init|=
 name|getSignedDataEntity
 argument_list|()
@@ -393,7 +393,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|applicationEDIEntity
+name|signedEntity
 operator|==
 literal|null
 operator|||
@@ -415,7 +415,7 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-name|applicationEDIEntity
+name|signedEntity
 operator|.
 name|writeTo
 argument_list|(
@@ -587,7 +587,7 @@ return|;
 block|}
 DECL|method|getSignedDataEntity ()
 specifier|public
-name|ApplicationEDIEntity
+name|MimeEntity
 name|getSignedDataEntity
 parameter_list|()
 block|{
@@ -597,19 +597,9 @@ name|getPartCount
 argument_list|()
 operator|>
 literal|0
-operator|&&
-name|getPart
-argument_list|(
-literal|0
-argument_list|)
-operator|instanceof
-name|ApplicationEDIEntity
 condition|)
 block|{
 return|return
-operator|(
-name|ApplicationEDIEntity
-operator|)
 name|getPart
 argument_list|(
 literal|0

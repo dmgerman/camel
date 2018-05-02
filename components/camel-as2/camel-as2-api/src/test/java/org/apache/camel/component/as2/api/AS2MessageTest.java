@@ -21,6 +21,54 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -171,6 +219,26 @@ operator|.
 name|entity
 operator|.
 name|ApplicationPkcs7SignatureEntity
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
+name|api
+operator|.
+name|entity
+operator|.
+name|MimeEntity
 import|;
 end_import
 
@@ -533,54 +601,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
 import|;
 end_import
 
@@ -2566,20 +2586,37 @@ name|MultipartSignedEntity
 argument_list|)
 expr_stmt|;
 name|MultipartSignedEntity
-name|signedEntity
+name|multipartSignedEntity
 init|=
 operator|(
 name|MultipartSignedEntity
 operator|)
 name|entity
 decl_stmt|;
-name|ApplicationEDIEntity
-name|ediMessageEntity
-init|=
+name|MimeEntity
 name|signedEntity
+init|=
+name|multipartSignedEntity
 operator|.
 name|getSignedDataEntity
 argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Signed entity wrong type"
+argument_list|,
+name|signedEntity
+operator|instanceof
+name|ApplicationEDIEntity
+argument_list|)
+expr_stmt|;
+name|ApplicationEDIEntity
+name|ediMessageEntity
+init|=
+operator|(
+name|ApplicationEDIEntity
+operator|)
+name|signedEntity
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -2591,7 +2628,7 @@ expr_stmt|;
 name|ApplicationPkcs7SignatureEntity
 name|signatureEntity
 init|=
-name|signedEntity
+name|multipartSignedEntity
 operator|.
 name|getSignatureEntity
 argument_list|()
@@ -2608,7 +2645,7 @@ name|assertTrue
 argument_list|(
 literal|"Signature is invalid"
 argument_list|,
-name|signedEntity
+name|multipartSignedEntity
 operator|.
 name|isValid
 argument_list|()
