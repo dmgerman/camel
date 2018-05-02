@@ -350,8 +350,6 @@ specifier|public
 name|void
 name|setUp
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|component
 operator|=
@@ -428,13 +426,13 @@ name|String
 operator|.
 name|class
 argument_list|,
-literal|"key:value"
+literal|"key=value"
 argument_list|)
 argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-literal|"key:value"
+literal|"key=value"
 argument_list|)
 expr_stmt|;
 name|when
@@ -477,7 +475,7 @@ name|put
 argument_list|(
 literal|"tags"
 argument_list|,
-literal|"key:value"
+literal|"key=value"
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -631,7 +629,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-literal|"key:value"
+literal|"key=value"
 argument_list|)
 expr_stmt|;
 name|inOrder
@@ -662,8 +660,6 @@ specifier|public
 name|void
 name|testCreateNewEndpointForCounter
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Endpoint
 name|endpoint
@@ -723,8 +719,6 @@ specifier|public
 name|void
 name|testCreateNewEndpointForGauge
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|MicrometerEndpoint
 name|endpoint
@@ -784,8 +778,6 @@ specifier|public
 name|void
 name|testCreateNewEndpointForHistogram
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Endpoint
 name|endpoint
@@ -845,8 +837,6 @@ specifier|public
 name|void
 name|testCreateNewEndpointForTimer
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Endpoint
 name|endpoint
@@ -906,8 +896,6 @@ specifier|public
 name|void
 name|testGetMetricsType
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 for|for
 control|(
@@ -953,8 +941,6 @@ specifier|public
 name|void
 name|testGetMetricsTypeNotSet
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(
@@ -988,8 +974,6 @@ specifier|public
 name|void
 name|testGetMetricsTypeNotFound
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|component
 operator|.
@@ -1006,8 +990,6 @@ specifier|public
 name|void
 name|testGetOrCreateMetricRegistryFoundInCamelRegistry
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|when
 argument_list|(
@@ -1084,8 +1066,6 @@ specifier|public
 name|void
 name|testGetOrCreateMetricRegistryFoundInCamelRegistryByType
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|when
 argument_list|(
@@ -1203,8 +1183,6 @@ specifier|public
 name|void
 name|testGetOrCreateMetricRegistryNotFoundInCamelRegistry
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|when
 argument_list|(
@@ -1337,8 +1315,6 @@ specifier|public
 name|void
 name|testGetMetricRegistryFromCamelRegistry
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|when
 argument_list|(
@@ -1415,8 +1391,6 @@ specifier|public
 name|void
 name|testCreateMetricRegistry
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|MeterRegistry
 name|registry

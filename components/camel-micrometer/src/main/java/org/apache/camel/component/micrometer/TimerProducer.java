@@ -62,22 +62,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|micrometer
-operator|.
-name|core
-operator|.
-name|instrument
-operator|.
-name|search
-operator|.
-name|Search
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -117,16 +101,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -203,26 +177,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|search ()
-specifier|protected
-name|Function
-argument_list|<
-name|Search
-argument_list|,
-name|Timer
-argument_list|>
-name|search
-parameter_list|()
-block|{
-return|return
-name|Search
-operator|::
-name|timer
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|register (String name, List<Tag> tags)
+DECL|method|registrar (String name, Iterable<Tag> tags)
 specifier|protected
 name|Function
 argument_list|<
@@ -230,12 +185,12 @@ name|MeterRegistry
 argument_list|,
 name|Timer
 argument_list|>
-name|register
+name|registrar
 parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -315,7 +270,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doProcess (Exchange exchange, String metricsName, List<Tag> tags)
+DECL|method|doProcess (Exchange exchange, String metricsName, Iterable<Tag> tags)
 specifier|protected
 name|void
 name|doProcess
@@ -326,7 +281,7 @@ parameter_list|,
 name|String
 name|metricsName
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -404,6 +359,47 @@ operator|.
 name|stop
 condition|)
 block|{
+name|handleStop
+argument_list|(
+name|exchange
+argument_list|,
+name|metricsName
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"No action provided for timer \"{}\""
+argument_list|,
+name|metricsName
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|handleStop (Exchange exchange, String metricsName, Iterable<Tag> tags)
+specifier|private
+name|void
+name|handleStop
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|metricsName
+parameter_list|,
+name|Iterable
+argument_list|<
+name|Tag
+argument_list|>
+name|tags
+parameter_list|)
+block|{
 if|if
 condition|(
 name|getTimerSampleFromExchange
@@ -432,19 +428,6 @@ name|metricsName
 argument_list|,
 name|tags
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No action provided for timer \"{}\""
-argument_list|,
-name|metricsName
 argument_list|)
 expr_stmt|;
 block|}

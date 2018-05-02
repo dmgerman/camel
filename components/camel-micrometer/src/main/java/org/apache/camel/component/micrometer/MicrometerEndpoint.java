@@ -128,16 +128,6 @@ name|UriPath
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * To collect various metrics directly from Camel routes using the DropWizard metrics library.  */
 end_comment
@@ -232,7 +222,7 @@ argument_list|)
 DECL|field|tags
 specifier|protected
 specifier|final
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -286,7 +276,7 @@ specifier|private
 name|Double
 name|decrement
 decl_stmt|;
-DECL|method|MicrometerEndpoint (String uri, Component component, MeterRegistry registry, MetricsType metricsType, String metricsName, List<Tag> tags)
+DECL|method|MicrometerEndpoint (String uri, Component component, MeterRegistry registry, MetricsType metricsType, String metricsName, Iterable<Tag> tags)
 specifier|public
 name|MicrometerEndpoint
 parameter_list|(
@@ -305,7 +295,7 @@ parameter_list|,
 name|String
 name|metricsName
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -488,7 +478,7 @@ return|;
 block|}
 DECL|method|getTags ()
 specifier|public
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>

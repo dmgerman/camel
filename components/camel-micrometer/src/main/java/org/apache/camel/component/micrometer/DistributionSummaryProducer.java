@@ -62,22 +62,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|micrometer
-operator|.
-name|core
-operator|.
-name|instrument
-operator|.
-name|search
-operator|.
-name|Search
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -85,18 +69,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
 import|;
 end_import
 
@@ -117,26 +89,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
 import|;
 end_import
 
@@ -213,26 +165,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|search ()
-specifier|protected
-name|Function
-argument_list|<
-name|Search
-argument_list|,
-name|DistributionSummary
-argument_list|>
-name|search
-parameter_list|()
-block|{
-return|return
-name|Search
-operator|::
-name|summary
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|register (String name, List<Tag> tags)
+DECL|method|registrar (String name, Iterable<Tag> tags)
 specifier|protected
 name|Function
 argument_list|<
@@ -240,12 +173,12 @@ name|MeterRegistry
 argument_list|,
 name|DistributionSummary
 argument_list|>
-name|register
+name|registrar
 parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>

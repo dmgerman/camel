@@ -154,16 +154,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Optional
 import|;
 end_import
@@ -330,7 +320,7 @@ argument_list|,
 name|defaultMetricsName
 argument_list|)
 decl_stmt|;
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -342,7 +332,7 @@ operator|.
 name|getTags
 argument_list|()
 decl_stmt|;
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -390,19 +380,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|search ()
-specifier|protected
-specifier|abstract
-name|Function
-argument_list|<
-name|Search
-argument_list|,
-name|T
-argument_list|>
-name|search
-parameter_list|()
-function_decl|;
-DECL|method|register (String name, List<Tag> tags)
+DECL|method|registrar (String name, Iterable<Tag> tags)
 specifier|protected
 specifier|abstract
 name|Function
@@ -411,19 +389,19 @@ name|MeterRegistry
 argument_list|,
 name|T
 argument_list|>
-name|register
+name|registrar
 parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
 name|tags
 parameter_list|)
 function_decl|;
-DECL|method|doProcess (Exchange exchange, String name, List<Tag> tags)
+DECL|method|doProcess (Exchange exchange, String name, Iterable<Tag> tags)
 specifier|protected
 name|void
 name|doProcess
@@ -434,7 +412,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -490,7 +468,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getMeter (String name, List<Tag> tags)
+DECL|method|getMeter (String name, Iterable<Tag> tags)
 specifier|protected
 name|T
 name|getMeter
@@ -498,7 +476,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -515,29 +493,7 @@ name|getRegistry
 argument_list|()
 decl_stmt|;
 return|return
-name|Optional
-operator|.
-name|ofNullable
-argument_list|(
-name|search
-argument_list|()
-operator|.
-name|apply
-argument_list|(
-name|registry
-operator|.
-name|find
-argument_list|(
-name|name
-argument_list|)
-argument_list|)
-argument_list|)
-operator|.
-name|orElseGet
-argument_list|(
-parameter_list|()
-lambda|->
-name|register
+name|registrar
 argument_list|(
 name|name
 argument_list|,
@@ -547,7 +503,6 @@ operator|.
 name|apply
 argument_list|(
 name|registry
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -592,9 +547,9 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-DECL|method|getTags (Message in, List<Tag> defaultTags)
+DECL|method|getTags (Message in, Iterable<Tag> defaultTags)
 specifier|public
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -603,7 +558,7 @@ parameter_list|(
 name|Message
 name|in
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -725,9 +680,9 @@ name|class
 argument_list|)
 return|;
 block|}
-DECL|method|getTagHeader (Message in, String header, List<Tag> defaultTags)
+DECL|method|getTagHeader (Message in, String header, Iterable<Tag> defaultTags)
 specifier|public
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -739,7 +694,7 @@ parameter_list|,
 name|String
 name|header
 parameter_list|,
-name|List
+name|Iterable
 argument_list|<
 name|Tag
 argument_list|>
@@ -755,7 +710,7 @@ name|header
 argument_list|,
 name|defaultTags
 argument_list|,
-name|List
+name|Iterable
 operator|.
 name|class
 argument_list|)

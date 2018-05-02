@@ -244,8 +244,6 @@ specifier|public
 name|void
 name|setUp
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|endpoint
 operator|=
@@ -287,8 +285,6 @@ specifier|public
 name|void
 name|tearDown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|inOrder
 operator|.
@@ -303,8 +299,6 @@ specifier|public
 name|void
 name|testTimerEndpoint
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(
@@ -396,8 +390,6 @@ specifier|public
 name|void
 name|testGetAction
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(
@@ -421,8 +413,6 @@ specifier|public
 name|void
 name|testSetAction
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(
