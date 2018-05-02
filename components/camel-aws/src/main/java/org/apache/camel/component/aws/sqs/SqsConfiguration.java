@@ -313,6 +313,13 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|queueUrl
+specifier|private
+name|String
+name|queueUrl
+decl_stmt|;
 comment|// producer properties
 annotation|@
 name|UriParam
@@ -1048,6 +1055,33 @@ operator|.
 name|concurrentConsumers
 operator|=
 name|concurrentConsumers
+expr_stmt|;
+block|}
+comment|/**      *  To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored.      */
+DECL|method|getQueueUrl ()
+specifier|public
+name|String
+name|getQueueUrl
+parameter_list|()
+block|{
+return|return
+name|queueUrl
+return|;
+block|}
+DECL|method|setQueueUrl (String queueUrl)
+specifier|public
+name|void
+name|setQueueUrl
+parameter_list|(
+name|String
+name|queueUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queueUrl
+operator|=
+name|queueUrl
 expr_stmt|;
 block|}
 comment|/**      * To define a proxy host when instantiating the SQS client      */
