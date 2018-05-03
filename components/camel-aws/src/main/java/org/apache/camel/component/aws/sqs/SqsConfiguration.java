@@ -315,6 +315,11 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|queueUrl
 specifier|private
 name|String
@@ -1057,7 +1062,7 @@ operator|=
 name|concurrentConsumers
 expr_stmt|;
 block|}
-comment|/**      *  To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored.      */
+comment|/**      *  To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored.      *  This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes.      */
 DECL|method|getQueueUrl ()
 specifier|public
 name|String
