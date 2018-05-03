@@ -434,6 +434,11 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
+DECL|field|queueUrl
+specifier|private
+name|String
+name|queueUrl
+decl_stmt|;
 DECL|field|proxyHost
 specifier|private
 name|String
@@ -1014,6 +1019,32 @@ operator|.
 name|concurrentConsumers
 operator|=
 name|concurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getQueueUrl ()
+specifier|public
+name|String
+name|getQueueUrl
+parameter_list|()
+block|{
+return|return
+name|queueUrl
+return|;
+block|}
+DECL|method|setQueueUrl (String queueUrl)
+specifier|public
+name|void
+name|setQueueUrl
+parameter_list|(
+name|String
+name|queueUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queueUrl
+operator|=
+name|queueUrl
 expr_stmt|;
 block|}
 DECL|method|getProxyHost ()

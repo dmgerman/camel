@@ -52,16 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|mockito
-operator|.
-name|Mockito
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -85,6 +75,16 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
 import|;
 end_import
 
