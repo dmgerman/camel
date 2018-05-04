@@ -88,6 +88,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Exception when a Netty HTTP operation failed.  */
 end_comment
@@ -166,11 +180,17 @@ name|HttpContent
 name|content
 parameter_list|)
 block|{
+comment|// sanitize uri so we do not show sensitive information such as passwords
 name|super
 argument_list|(
 literal|"Netty HTTP operation failed invoking "
 operator|+
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 operator|+
 literal|" with statusCode: "
 operator|+
@@ -193,7 +213,12 @@ name|this
 operator|.
 name|uri
 operator|=
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
