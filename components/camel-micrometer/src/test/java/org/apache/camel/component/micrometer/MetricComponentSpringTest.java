@@ -62,22 +62,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|micrometer
-operator|.
-name|core
-operator|.
-name|instrument
-operator|.
-name|search
-operator|.
-name|Search
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -403,8 +387,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|from
 argument_list|(
@@ -432,7 +414,7 @@ name|name
 operator|=
 name|MicrometerComponent
 operator|.
-name|METRICS_REGISTRY
+name|METRICS_REGISTRY_NAME
 argument_list|)
 DECL|method|getMetricRegistry ()
 specifier|public
@@ -477,7 +459,7 @@ name|lookupByNameAndType
 argument_list|(
 name|MicrometerComponent
 operator|.
-name|METRICS_REGISTRY
+name|METRICS_REGISTRY_NAME
 argument_list|,
 name|MeterRegistry
 operator|.

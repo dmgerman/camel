@@ -74,20 +74,6 @@ name|core
 operator|.
 name|instrument
 operator|.
-name|Metrics
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|micrometer
-operator|.
-name|core
-operator|.
-name|instrument
-operator|.
 name|simple
 operator|.
 name|SimpleMeterRegistry
@@ -261,7 +247,7 @@ name|bind
 argument_list|(
 name|MicrometerComponent
 operator|.
-name|METRICS_REGISTRY
+name|METRICS_REGISTRY_NAME
 argument_list|,
 name|registry
 argument_list|)
@@ -656,8 +642,6 @@ specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 operator|new
@@ -670,8 +654,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|from
 argument_list|(

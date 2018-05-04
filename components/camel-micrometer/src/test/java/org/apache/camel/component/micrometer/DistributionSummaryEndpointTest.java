@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|micrometer
@@ -129,12 +139,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|hamcrest
 operator|.
-name|Collections
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
@@ -146,7 +158,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -227,8 +263,6 @@ specifier|public
 name|void
 name|setUp
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|endpoint
 operator|=
@@ -270,8 +304,6 @@ specifier|public
 name|void
 name|tearDown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|inOrder
 operator|.
@@ -286,8 +318,6 @@ specifier|public
 name|void
 name|testHistogramEndpoint
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(
@@ -379,8 +409,6 @@ specifier|public
 name|void
 name|testGetValue
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(
@@ -404,8 +432,6 @@ specifier|public
 name|void
 name|testSetValue
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(

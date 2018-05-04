@@ -443,7 +443,7 @@ name|lookupByNameAndType
 argument_list|(
 name|MicrometerComponent
 operator|.
-name|METRICS_REGISTRY
+name|METRICS_REGISTRY_NAME
 argument_list|,
 name|MeterRegistry
 operator|.
@@ -589,7 +589,7 @@ name|lookupByNameAndType
 argument_list|(
 name|MicrometerComponent
 operator|.
-name|METRICS_REGISTRY
+name|METRICS_REGISTRY_NAME
 argument_list|,
 name|MeterRegistry
 operator|.
@@ -1219,9 +1219,6 @@ name|thenReturn
 argument_list|(
 name|Collections
 operator|.
-expr|<
-name|MeterRegistry
-operator|>
 name|emptySet
 argument_list|()
 argument_list|)

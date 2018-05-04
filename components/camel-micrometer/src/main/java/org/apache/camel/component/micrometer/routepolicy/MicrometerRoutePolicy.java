@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,30 @@ operator|.
 name|routepolicy
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Matcher
+import|;
+end_import
 
 begin_import
 import|import
@@ -154,30 +178,6 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Matcher
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link org.apache.camel.spi.RoutePolicy} which gathers statistics and reports them using {@link MeterRegistry}.  *<p/>  * The metrics is reported in JMX by default, but this can be configured.  */
 end_comment
@@ -196,11 +196,6 @@ DECL|field|meterRegistry
 specifier|private
 name|MeterRegistry
 name|meterRegistry
-decl_stmt|;
-DECL|field|registryService
-specifier|private
-name|MicrometerRegistryService
-name|registryService
 decl_stmt|;
 DECL|field|prettyPrint
 specifier|private
@@ -249,6 +244,15 @@ specifier|final
 class|class
 name|MetricsStatistics
 block|{
+DECL|field|MICROMETER_ROUTE_POLICY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|MICROMETER_ROUTE_POLICY
+init|=
+literal|"MicrometerRoutePolicy-"
+decl_stmt|;
 DECL|field|meterRegistry
 specifier|private
 specifier|final
@@ -325,7 +329,7 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-literal|"MicrometerRoutePolicy-"
+name|MICROMETER_ROUTE_POLICY
 operator|+
 name|route
 operator|.
@@ -359,7 +363,7 @@ name|exchange
 operator|.
 name|removeProperty
 argument_list|(
-literal|"MicrometerRoutePolicy-"
+name|MICROMETER_ROUTE_POLICY
 operator|+
 name|route
 operator|.
@@ -407,6 +411,21 @@ name|route
 operator|.
 name|getId
 argument_list|()
+argument_list|)
+operator|.
+name|tag
+argument_list|(
+literal|"failed"
+argument_list|,
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|exchange
+operator|.
+name|isFailed
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|register
@@ -579,6 +598,9 @@ name|route
 operator|=
 name|route
 expr_stmt|;
+name|MicrometerRegistryService
+name|registryService
+decl_stmt|;
 try|try
 block|{
 name|registryService

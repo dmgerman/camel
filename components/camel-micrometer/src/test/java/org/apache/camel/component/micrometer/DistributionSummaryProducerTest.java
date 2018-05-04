@@ -62,22 +62,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|micrometer
-operator|.
-name|core
-operator|.
-name|instrument
-operator|.
-name|search
-operator|.
-name|Search
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -171,16 +155,6 @@ operator|.
 name|junit
 operator|.
 name|MockitoJUnitRunner
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -373,8 +347,6 @@ specifier|public
 name|void
 name|setUp
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|endpoint
 operator|=
@@ -464,8 +436,6 @@ specifier|public
 name|void
 name|testHistogramProducer
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(
@@ -493,8 +463,6 @@ specifier|public
 name|void
 name|testProcessValueSet
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|when
 argument_list|(
@@ -681,8 +649,6 @@ specifier|public
 name|void
 name|testProcessValueNotSet
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Object
 name|action
@@ -836,8 +802,6 @@ specifier|public
 name|void
 name|testProcessOverrideValue
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|when
 argument_list|(
