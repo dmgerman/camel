@@ -1939,7 +1939,7 @@ name|time
 init|=
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 decl_stmt|;
 name|log
@@ -2028,9 +2028,15 @@ name|ManagedCamelContextMBean
 name|managedCamelContext
 init|=
 name|context
+operator|!=
+literal|null
+condition|?
+name|context
 operator|.
 name|getManagedCamelContext
 argument_list|()
+else|:
+literal|null
 decl_stmt|;
 if|if
 condition|(
