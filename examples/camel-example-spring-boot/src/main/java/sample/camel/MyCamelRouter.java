@@ -72,6 +72,11 @@ argument_list|(
 literal|"hello"
 argument_list|)
 operator|.
+name|routeGroup
+argument_list|(
+literal|"hello-group"
+argument_list|)
+operator|.
 name|transform
 argument_list|()
 operator|.

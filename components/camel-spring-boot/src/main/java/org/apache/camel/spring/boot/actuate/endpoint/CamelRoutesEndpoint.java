@@ -318,22 +318,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|lang
 operator|.
 name|Nullable
@@ -1173,6 +1157,8 @@ argument_list|(
 block|{
 literal|"id"
 block|,
+literal|"group"
+block|,
 literal|"description"
 block|,
 literal|"uptime"
@@ -1200,6 +1186,12 @@ specifier|private
 specifier|final
 name|String
 name|id
+decl_stmt|;
+DECL|field|group
+specifier|private
+specifier|final
+name|String
+name|group
 decl_stmt|;
 DECL|field|description
 specifier|private
@@ -1240,6 +1232,15 @@ operator|=
 name|route
 operator|.
 name|getId
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|group
+operator|=
+name|route
+operator|.
+name|getGroup
 argument_list|()
 expr_stmt|;
 name|this
@@ -1312,6 +1313,16 @@ parameter_list|()
 block|{
 return|return
 name|id
+return|;
+block|}
+DECL|method|getGroup ()
+specifier|public
+name|String
+name|getGroup
+parameter_list|()
+block|{
+return|return
+name|group
 return|;
 block|}
 DECL|method|getDescription ()

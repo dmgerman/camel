@@ -78,6 +78,11 @@ argument_list|(
 literal|"foo-route"
 argument_list|)
 operator|.
+name|routeGroup
+argument_list|(
+literal|"foo-route-group"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"log:foo"
