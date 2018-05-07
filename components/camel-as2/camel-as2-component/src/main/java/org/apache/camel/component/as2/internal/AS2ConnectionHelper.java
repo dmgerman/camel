@@ -149,7 +149,7 @@ specifier|private
 name|AS2ConnectionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Create an AS2 client connection.      *       * @param configuration - configuration used to configure connection.      * @return The AS2 client connection.      * @throws UnknownHostException Failed to establish connection due to unknown host.      * @throws IOException - Failed to establish connection.      */
+comment|/**      * Create an AS2 client connection.      *      * @param configuration - configuration used to configure connection.      * @return The AS2 client connection.      * @throws UnknownHostException Failed to establish connection due to unknown host.      * @throws IOException - Failed to establish connection.      */
 DECL|method|createAS2ClientConnection (AS2Configuration configuration)
 specifier|public
 specifier|static
@@ -195,7 +195,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Create an AS2 server connection.      *       * @param configuration - configuration used to configure connection.      * @return The AS2 server connection.      * @throws IOException       */
+comment|/**      * Create an AS2 server connection.      *      * @param configuration - configuration used to configure connection.      * @return The AS2 server connection.      * @throws IOException      */
 DECL|method|createAS2ServerConnection (AS2Configuration configuration)
 specifier|public
 specifier|static

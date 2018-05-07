@@ -54,7 +54,7 @@ specifier|final
 name|int
 name|index
 decl_stmt|;
-comment|/**      * Constructs an<code>InvalidAS2NameException</code> for the      * specified name and index.      *       * @param name - the AS2 name that is invalid.      * @param index - the index in the<code>name</code> of the invalid character       */
+comment|/**      * Constructs an<code>InvalidAS2NameException</code> for the      * specified name and index.      *      * @param name - the AS2 name that is invalid.      * @param index - the index in the<code>name</code> of the invalid character      */
 DECL|method|InvalidAS2NameException (String name, int index)
 specifier|public
 name|InvalidAS2NameException
@@ -143,7 +143,7 @@ operator|+
 name|index
 return|;
 block|}
-comment|/**      * Returns the invalid AS2 name      *       * @return the invalid AS2 name      */
+comment|/**      * Returns the invalid AS2 name      *      * @return the invalid AS2 name      */
 DECL|method|getName ()
 specifier|public
 name|String
@@ -154,7 +154,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Returns the index of the invalid character in<code>name</code>      *       * @return the index of the invalid character in<code>name</code>      */
+comment|/**      * Returns the index of the invalid character in<code>name</code>      *      * @return the index of the invalid character in<code>name</code>      */
 DECL|method|getIndex ()
 specifier|public
 name|int

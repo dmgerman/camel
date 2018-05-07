@@ -356,7 +356,7 @@ specifier|private
 name|Util
 parameter_list|()
 block|{     }
-comment|/**      * Validates if the given<code>name</code> is a valid AS2 Name      *       * @param name - the name to validate.      * @throws InvalidAS2NameException       */
+comment|/**      * Validates if the given<code>name</code> is a valid AS2 Name      *      * @param name - the name to validate.      * @throws InvalidAS2NameException      */
 DECL|method|validateAS2Name (String name)
 specifier|public
 specifier|static
@@ -683,7 +683,7 @@ name|content
 return|;
 block|}
 block|}
-comment|/**      * Prints the contents of request to given print stream.      *       * @param out      *            - the stream printed to.      * @param request      *            - the request printed.      * @throws IOException      */
+comment|/**      * Prints the contents of request to given print stream.      *      * @param out      *            - the stream printed to.      * @param request      *            - the request printed.      * @throws IOException      */
 DECL|method|printRequest (PrintStream out, HttpRequest request)
 specifier|public
 specifier|static
@@ -824,7 +824,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Prints the contents of an Http Message to given print stream.      *       * @param out - the stream printed to.      * @param message - the request printed.      * @throws IOException      */
+comment|/**      * Prints the contents of an Http Message to given print stream.      *      * @param out - the stream printed to.      * @param message - the request printed.      * @throws IOException      */
 DECL|method|printMessage (PrintStream out, HttpMessage message)
 specifier|public
 specifier|static

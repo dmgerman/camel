@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AS2 Server Manager   *   *<p>Receives EDI Messages over HTTP    *  */
+comment|/**  * AS2 Server Manager  *  *<p>Receives EDI Messages over HTTP  *  */
 end_comment
 
 begin_class

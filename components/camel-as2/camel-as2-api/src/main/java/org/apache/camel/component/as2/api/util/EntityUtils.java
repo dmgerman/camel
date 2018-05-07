@@ -420,7 +420,7 @@ specifier|private
 name|EntityUtils
 parameter_list|()
 block|{     }
-comment|/**      * Generated a unique value for a Multipart boundary string.      *<p>      * The boundary string is composed of the components:      * "----=_Part_&lt;global_part_number&gt;_&lt;newly_created_object's_hashcode&gt;.&lt;current_time&gt;"      *<p>      * The generated string contains only US-ASCII characters and hence is safe      * for use in RFC822 headers.      *       * @return The generated boundary string.      */
+comment|/**      * Generated a unique value for a Multipart boundary string.      *<p>      * The boundary string is composed of the components:      * "----=_Part_&lt;global_part_number&gt;_&lt;newly_created_object's_hashcode&gt;.&lt;current_time&gt;"      *<p>      * The generated string contains only US-ASCII characters and hence is safe      * for use in RFC822 headers.      *      * @return The generated boundary string.      */
 DECL|method|createBoundaryValue ()
 specifier|public
 specifier|static

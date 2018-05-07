@@ -388,7 +388,7 @@ specifier|public
 name|AS2SignedDataGenerator
 parameter_list|()
 block|{     }
-comment|/**      * Creates a<code>multipart/signed</code> content type containing the algorithms used by this generator.      *       * @return A<code>multipart/signed</code> content type      */
+comment|/**      * Creates a<code>multipart/signed</code> content type containing the algorithms used by this generator.      *      * @return A<code>multipart/signed</code> content type      */
 DECL|method|createMultipartSignedContentType (String boundary)
 specifier|public
 name|ContentType

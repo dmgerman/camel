@@ -359,7 +359,7 @@ name|String
 index|[]
 name|signedReceiptMicAlgorithms
 decl_stmt|;
-comment|/**      * What kind of operation to perform      *       * @return the API Name      */
+comment|/**      * What kind of operation to perform      *      * @return the API Name      */
 DECL|method|getApiName ()
 specifier|public
 name|AS2ApiName
@@ -370,7 +370,7 @@ return|return
 name|apiName
 return|;
 block|}
-comment|/**      * What kind of operation to perform      *       * @param apiName -      *            the API Name to set      */
+comment|/**      * What kind of operation to perform      *      * @param apiName -      *            the API Name to set      */
 DECL|method|setApiName (AS2ApiName apiName)
 specifier|public
 name|void
@@ -387,7 +387,7 @@ operator|=
 name|apiName
 expr_stmt|;
 block|}
-comment|/**      * What sub operation to use for the selected operation      *       * @return The methodName      */
+comment|/**      * What sub operation to use for the selected operation      *      * @return The methodName      */
 DECL|method|getMethodName ()
 specifier|public
 name|String
@@ -398,7 +398,7 @@ return|return
 name|methodName
 return|;
 block|}
-comment|/**      * What sub operation to use for the selected operation      *       * @param methodName -      *            the methodName to set      */
+comment|/**      * What sub operation to use for the selected operation      *      * @param methodName -      *            the methodName to set      */
 DECL|method|setMethodName (String methodName)
 specifier|public
 name|void
@@ -415,7 +415,7 @@ operator|=
 name|methodName
 expr_stmt|;
 block|}
-comment|/**      * The version of the AS2 protocol.      *       * @return The version of the AS2 protocol.      */
+comment|/**      * The version of the AS2 protocol.      *      * @return The version of the AS2 protocol.      */
 DECL|method|getAs2Version ()
 specifier|public
 name|String
@@ -426,7 +426,7 @@ return|return
 name|as2Version
 return|;
 block|}
-comment|/**      * The version of the AS2 protocol.      *       * @param as2Version - the version of the AS2 protocol.      */
+comment|/**      * The version of the AS2 protocol.      *      * @param as2Version - the version of the AS2 protocol.      */
 DECL|method|setAs2Version (String as2Version)
 specifier|public
 name|void
@@ -477,7 +477,7 @@ operator|=
 name|as2Version
 expr_stmt|;
 block|}
-comment|/**      * The value included in the<code>User-Agent</code>      * message header identifying the AS2 user agent.      *       * @return AS2 user agent identification string.      */
+comment|/**      * The value included in the<code>User-Agent</code>      * message header identifying the AS2 user agent.      *      * @return AS2 user agent identification string.      */
 DECL|method|getUserAgent ()
 specifier|public
 name|String
@@ -488,7 +488,7 @@ return|return
 name|userAgent
 return|;
 block|}
-comment|/**      * The value included in the<code>User-Agent</code>      * message header identifying the AS2 user agent.      *       * @param userAgent - AS2 user agent identification string.      */
+comment|/**      * The value included in the<code>User-Agent</code>      * message header identifying the AS2 user agent.      *      * @param userAgent - AS2 user agent identification string.      */
 DECL|method|setUserAgent (String userAgent)
 specifier|public
 name|void
@@ -505,7 +505,7 @@ operator|=
 name|userAgent
 expr_stmt|;
 block|}
-comment|/**      * The value included in the<code>Server</code>       * message header identifying the AS2 Server.      *       * @return AS2 server identification string.      */
+comment|/**      * The value included in the<code>Server</code>      * message header identifying the AS2 Server.      *      * @return AS2 server identification string.      */
 DECL|method|getServer ()
 specifier|public
 name|String
@@ -516,7 +516,7 @@ return|return
 name|server
 return|;
 block|}
-comment|/**      * The value included in the<code>Server</code>       * message header identifying the AS2 Server.      *       * @param server - AS2 server identification string.      */
+comment|/**      * The value included in the<code>Server</code>      * message header identifying the AS2 Server.      *      * @param server - AS2 server identification string.      */
 DECL|method|setServer (String server)
 specifier|public
 name|void
@@ -533,7 +533,7 @@ operator|=
 name|server
 expr_stmt|;
 block|}
-comment|/**      * The Server Fully Qualified Domain Name (FQDN).       *       *<p> Used in message ids sent by endpoint.      *       * @return The FQDN of client.      */
+comment|/**      * The Server Fully Qualified Domain Name (FQDN).      *      *<p> Used in message ids sent by endpoint.      *      * @return The FQDN of client.      */
 DECL|method|getServerFqdn ()
 specifier|public
 name|String
@@ -544,7 +544,7 @@ return|return
 name|serverFqdn
 return|;
 block|}
-comment|/**      * The Server Fully Qualified Domain Name (FQDN).       *       *<p> Used in message ids sent by endpoint.      *       * @param clientFqdn - the FQDN of client.      */
+comment|/**      * The Server Fully Qualified Domain Name (FQDN).      *      *<p> Used in message ids sent by endpoint.      *      * @param clientFqdn - the FQDN of client.      */
 DECL|method|setServerFqdn (String serverFqdn)
 specifier|public
 name|void
@@ -576,7 +576,7 @@ operator|=
 name|serverFqdn
 expr_stmt|;
 block|}
-comment|/**      * The host name (IP or DNS) of target host.      *       * @return The target host name (IP or DNS name).      */
+comment|/**      * The host name (IP or DNS) of target host.      *      * @return The target host name (IP or DNS name).      */
 DECL|method|getTargetHostname ()
 specifier|public
 name|String
@@ -587,7 +587,7 @@ return|return
 name|targetHostname
 return|;
 block|}
-comment|/**      * The host name (IP or DNS name) of target host.      *       * @param targetHostname - the target host name (IP or DNS name).      */
+comment|/**      * The host name (IP or DNS name) of target host.      *      * @param targetHostname - the target host name (IP or DNS name).      */
 DECL|method|setTargetHostname (String targetHostname)
 specifier|public
 name|void
@@ -604,7 +604,7 @@ operator|=
 name|targetHostname
 expr_stmt|;
 block|}
-comment|/**      * The port number of target host.      *       * @return The target port number. -1 indicates the scheme default port.      */
+comment|/**      * The port number of target host.      *      * @return The target port number. -1 indicates the scheme default port.      */
 DECL|method|getTargetPortNumber ()
 specifier|public
 name|int
@@ -615,7 +615,7 @@ return|return
 name|targetPortNumber
 return|;
 block|}
-comment|/**      * The port number of target host.      *       * @param targetPortNumber - the target port number. -1 indicates the scheme default port.      */
+comment|/**      * The port number of target host.      *      * @param targetPortNumber - the target port number. -1 indicates the scheme default port.      */
 DECL|method|setTargetPortNumber (String targetPortNumber)
 specifier|public
 name|void
@@ -661,7 +661,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The Client Fully Qualified Domain Name (FQDN).       *       *<p> Used in message ids sent by endpoint.      *       * @return The FQDN of client.      */
+comment|/**      * The Client Fully Qualified Domain Name (FQDN).      *      *<p> Used in message ids sent by endpoint.      *      * @return The FQDN of client.      */
 DECL|method|getClientFqdn ()
 specifier|public
 name|String
@@ -672,7 +672,7 @@ return|return
 name|clientFqdn
 return|;
 block|}
-comment|/**      * The Client Fully Qualified Domain Name (FQDN).       *       *<p> Used in message ids sent by endpoint.      *       * @param clientFqdn - the FQDN of client.      */
+comment|/**      * The Client Fully Qualified Domain Name (FQDN).      *      *<p> Used in message ids sent by endpoint.      *      * @param clientFqdn - the FQDN of client.      */
 DECL|method|setClientFqdn (String clientFqdn)
 specifier|public
 name|void
@@ -704,7 +704,7 @@ operator|=
 name|clientFqdn
 expr_stmt|;
 block|}
-comment|/**      * The port number of server.      *       * @return The server port number.      */
+comment|/**      * The port number of server.      *      * @return The server port number.      */
 DECL|method|getServerPortNumber ()
 specifier|public
 name|Integer
@@ -715,7 +715,7 @@ return|return
 name|serverPortNumber
 return|;
 block|}
-comment|/**      * The port number of server.      *       * @param serverPortNumber - the server port number.      */
+comment|/**      * The port number of server.      *      * @param serverPortNumber - the server port number.      */
 DECL|method|setServerPortNumber (String serverPortNumber)
 specifier|public
 name|void
