@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy to create thread pools.  *<p/>  * This manager is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a JEE server.  *<p/>  * You may want to just implement a custom {@link ThreadPoolFactory} and rely on the  * {@link org.apache.camel.impl.DefaultExecutorServiceManager}, if that is sufficient. The {@link ThreadPoolFactory}  * is always used for creating the actual thread pools. You can implement a custom {@link ThreadPoolFactory}  * to leverage the WorkManager for a JEE server.  *<p/>  * The {@link ThreadPoolFactory} has pure JDK API, where as this {@link ExecutorServiceManager} has Camel API  * concepts such as {@link ThreadPoolProfile}. Therefore it may be easier to only implement a custom  * {@link ThreadPoolFactory}.  *<p/>  * This manager has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * If you use the<tt>newXXX</tt> methods to create thread pools, then Camel will by default take care of  * shutting down those created pools when {@link org.apache.camel.CamelContext} is shutting down.  *<p/>  * For more information about shutting down thread pools see the {@link #shutdown(java.util.concurrent.ExecutorService)}  * and {@link #shutdownNow(java.util.concurrent.ExecutorService)}, and {@link #getShutdownAwaitTermination()} methods.  * Notice the details about using a graceful shutdown at fist, and then falling back to aggressive shutdown in case  * of await termination timeout occurred.  *  * @see ThreadPoolFactory  */
+comment|/**  * Strategy to create thread pools.  *<p/>  * This manager is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a JEE server.  *<p/>  * You may want to just implement a custom {@link ThreadPoolFactory} and rely on the  * {@link org.apache.camel.impl.DefaultExecutorServiceManager}, if that is sufficient. The {@link ThreadPoolFactory}  * is always used for creating the actual thread pools. You can implement a custom {@link ThreadPoolFactory}  * to leverage the WorkManager for a JEE server.  *<p/>  * The {@link ThreadPoolFactory} has pure JDK API, where as this {@link ExecutorServiceManager} has Camel API  * concepts such as {@link ThreadPoolProfile}. Therefore it may be easier to only implement a custom  * {@link ThreadPoolFactory}.  *<p/>  * This manager has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * If you use the<tt>newXXX</tt> methods to create thread pools, then Camel will by default take care of  * shutting down those created pools when {@link org.apache.camel.CamelContext} is shutting down.  *<p/>  * For more information about shutting down thread pools see the {@link #shutdown(java.util.concurrent.ExecutorService)}  * and {@link #shutdownNow(java.util.concurrent.ExecutorService)}, and {@link #getShutdownAwaitTermination()} methods.  * Notice the details about using a graceful shutdown at first, and then falling back to aggressive shutdown in case  * of await termination timeout occurred.  *  * @see ThreadPoolFactory  */
 end_comment
 
 begin_interface
@@ -145,7 +145,7 @@ name|ThreadPoolProfile
 name|getDefaultThreadPoolProfile
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel (#camelId#) thread ##counter# - #name#</tt>      *<p/>      * Where<tt>#camelId#</tt> is the name of the {@link org.apache.camel.CamelContext}      *<br/>and<tt>#counter#</tt> is a unique incrementing counter.      *<br/>and<tt>#name#</tt> is the regular thread name.      *<br/>You can also use<tt>#longName#</tt> is the long thread name which can includes endpoint parameters etc.      *      * @param pattern the pattern      * @throws IllegalArgumentException if the pattern is invalid.      */
+comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel (#camelId#) thread ##counter# - #name#</tt>      *<p/>      * Where<tt>#camelId#</tt> is the name of the {@link org.apache.camel.CamelContext}      *<br/>and<tt>#counter#</tt> is a unique incrementing counter.      *<br/>and<tt>#name#</tt> is the regular thread name.      *<br/>You can also use<tt>#longName#</tt> is the long thread name which can include endpoint parameters etc.      *      * @param pattern the pattern      * @throws IllegalArgumentException if the pattern is invalid.      */
 DECL|method|setThreadNamePattern (String pattern)
 name|void
 name|setThreadNamePattern
@@ -156,7 +156,7 @@ parameter_list|)
 throws|throws
 name|IllegalArgumentException
 function_decl|;
-comment|/**      * Gets the thread name patter to use      *      * @return the pattern      */
+comment|/**      * Gets the thread name pattern to use      *      * @return the pattern      */
 DECL|method|getThreadNamePattern ()
 name|String
 name|getThreadNamePattern
