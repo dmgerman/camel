@@ -66,6 +66,20 @@ end_import
 
 begin_import
 import|import
+name|hu
+operator|.
+name|akarnokd
+operator|.
+name|rxjava2
+operator|.
+name|processors
+operator|.
+name|MulticastProcessor
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|reactivex
@@ -91,18 +105,6 @@ operator|.
 name|reactivex
 operator|.
 name|FlowableEmitter
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|reactivex
-operator|.
-name|processors
-operator|.
-name|BehaviorProcessor
 import|;
 end_import
 
@@ -312,11 +314,14 @@ name|this
 operator|.
 name|publisher
 operator|=
-name|BehaviorProcessor
+name|MulticastProcessor
 operator|.
 name|create
-argument_list|()
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
+comment|// Buffered downstream if needed
 block|}
 annotation|@
 name|Override
