@@ -74,6 +74,20 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|micrometer
+operator|.
+name|core
+operator|.
+name|instrument
+operator|.
+name|Tags
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -441,7 +455,7 @@ name|camelRegistry
 operator|.
 name|lookupByNameAndType
 argument_list|(
-name|MicrometerComponent
+name|MicrometerConstants
 operator|.
 name|METRICS_REGISTRY_NAME
 argument_list|,
@@ -535,12 +549,6 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-name|MicrometerConstants
-operator|.
-name|HEADER_PREFIX
-operator|+
-literal|"."
-operator|+
 literal|"counter"
 argument_list|)
 argument_list|)
@@ -587,7 +595,7 @@ argument_list|)
 operator|.
 name|lookupByNameAndType
 argument_list|(
-name|MicrometerComponent
+name|MicrometerConstants
 operator|.
 name|METRICS_REGISTRY_NAME
 argument_list|,
@@ -679,9 +687,9 @@ name|COUNTER
 argument_list|,
 literal|"a name"
 argument_list|,
-name|Collections
+name|Tags
 operator|.
-name|emptyList
+name|empty
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -738,9 +746,9 @@ name|GAUGE
 argument_list|,
 literal|"a name"
 argument_list|,
-name|Collections
+name|Tags
 operator|.
-name|emptyList
+name|empty
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -797,9 +805,9 @@ name|DISTRIBUTION_SUMMARY
 argument_list|,
 literal|"a name"
 argument_list|,
-name|Collections
+name|Tags
 operator|.
-name|emptyList
+name|empty
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -856,9 +864,9 @@ name|TIMER
 argument_list|,
 literal|"a name"
 argument_list|,
-name|Collections
+name|Tags
 operator|.
-name|emptyList
+name|empty
 argument_list|()
 argument_list|)
 decl_stmt|;

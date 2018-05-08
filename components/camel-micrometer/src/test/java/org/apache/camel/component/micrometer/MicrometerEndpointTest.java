@@ -20,11 +20,15 @@ end_package
 
 begin_import
 import|import
-name|java
+name|io
 operator|.
-name|util
+name|micrometer
 operator|.
-name|Collections
+name|core
+operator|.
+name|instrument
+operator|.
+name|MeterRegistry
 import|;
 end_import
 
@@ -38,7 +42,7 @@ name|core
 operator|.
 name|instrument
 operator|.
-name|MeterRegistry
+name|Tags
 import|;
 end_import
 
@@ -295,9 +299,9 @@ name|COUNTER
 argument_list|,
 name|METRICS_NAME
 argument_list|,
-name|Collections
+name|Tags
 operator|.
-name|emptyList
+name|empty
 argument_list|()
 argument_list|)
 block|{
@@ -404,8 +408,6 @@ specifier|public
 name|void
 name|testCreateConsumer
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|endpoint
 operator|.

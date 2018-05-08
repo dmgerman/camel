@@ -348,7 +348,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"foo.history"
+literal|"\"nodeId\" : \"foo\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -358,7 +358,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"bar.history"
+literal|"\"nodeId\" : \"bar\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -368,7 +368,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"exception.history"
+literal|"\"nodeId\" : \"exception\""
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -220,15 +220,6 @@ name|MicrometerComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-DECL|field|METRICS_REGISTRY_NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|METRICS_REGISTRY_NAME
-init|=
-literal|"metricsRegistry"
-decl_stmt|;
 DECL|field|DEFAULT_METER_TYPE
 specifier|public
 specifier|static
@@ -267,18 +258,6 @@ DECL|field|metricsRegistry
 specifier|private
 name|MeterRegistry
 name|metricsRegistry
-decl_stmt|;
-annotation|@
-name|Metadata
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|prefix
-specifier|private
-name|String
-name|prefix
 decl_stmt|;
 DECL|method|MicrometerComponent ()
 specifier|public
@@ -339,22 +318,10 @@ name|getOrCreateMeterRegistry
 argument_list|(
 name|camelRegistry
 argument_list|,
-name|METRICS_REGISTRY_NAME
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|prefix
-operator|==
-literal|null
-condition|)
-block|{
-name|prefix
-operator|=
 name|MicrometerConstants
 operator|.
-name|HEADER_PREFIX
+name|METRICS_REGISTRY_NAME
+argument_list|)
 expr_stmt|;
 block|}
 name|String
@@ -363,8 +330,6 @@ init|=
 name|getMetricsName
 argument_list|(
 name|remaining
-argument_list|,
-name|prefix
 argument_list|)
 decl_stmt|;
 name|MetricsType
@@ -429,15 +394,12 @@ return|return
 name|endpoint
 return|;
 block|}
-DECL|method|getMetricsName (String remaining, String prefix)
+DECL|method|getMetricsName (String remaining)
 name|String
 name|getMetricsName
 parameter_list|(
 name|String
 name|remaining
-parameter_list|,
-name|String
-name|prefix
 parameter_list|)
 block|{
 name|String
@@ -453,11 +415,6 @@ literal|":"
 argument_list|)
 decl_stmt|;
 return|return
-name|prefix
-operator|+
-literal|"."
-operator|+
-operator|(
 name|name
 operator|==
 literal|null
@@ -465,7 +422,6 @@ condition|?
 name|remaining
 else|:
 name|name
-operator|)
 return|;
 block|}
 DECL|method|getMetricsType (String remaining)

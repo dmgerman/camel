@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.micrometer.routepolicy
+DECL|package|org.apache.camel.component.micrometer
 package|package
 name|org
 operator|.
@@ -15,59 +15,86 @@ operator|.
 name|component
 operator|.
 name|micrometer
-operator|.
-name|routepolicy
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|io
 operator|.
-name|apache
+name|micrometer
 operator|.
-name|camel
+name|jmx
 operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
+name|JmxConfig
 import|;
 end_import
 
-begin_interface
-DECL|interface|MicrometerRegistryMBean
+begin_comment
+comment|/**  * JmxConfig with a custom domain name  */
+end_comment
+
+begin_class
+DECL|class|CamelJmxConfig
 specifier|public
-interface|interface
-name|MicrometerRegistryMBean
+specifier|final
+class|class
+name|CamelJmxConfig
+implements|implements
+name|JmxConfig
 block|{
+DECL|field|DEFAULT
+specifier|public
+specifier|static
+specifier|final
+name|CamelJmxConfig
+name|DEFAULT
+init|=
+operator|new
+name|CamelJmxConfig
+argument_list|()
+decl_stmt|;
 annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Dumps the statistics as json"
-argument_list|)
-DECL|method|dumpStatisticsAsJson ()
+name|Override
+DECL|method|get (String key)
+specifier|public
 name|String
-name|dumpStatisticsAsJson
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Dumps the statistics as json using seconds for time units"
-argument_list|)
-DECL|method|dumpStatisticsAsJsonTimeUnitSeconds ()
+name|get
+parameter_list|(
 name|String
-name|dumpStatisticsAsJsonTimeUnitSeconds
-parameter_list|()
-function_decl|;
+name|key
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
 block|}
-end_interface
+annotation|@
+name|Override
+DECL|method|prefix ()
+specifier|public
+name|String
+name|prefix
+parameter_list|()
+block|{
+return|return
+literal|"jmx"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|domain ()
+specifier|public
+name|String
+name|domain
+parameter_list|()
+block|{
+return|return
+literal|"org.apache.camel.micrometer"
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

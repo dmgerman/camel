@@ -281,11 +281,11 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Action when using timer type"
+literal|"Action expression when using timer type"
 argument_list|)
 DECL|field|action
 specifier|private
-name|MicrometerTimerAction
+name|String
 name|action
 decl_stmt|;
 annotation|@
@@ -293,11 +293,11 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Value value when using histogram type"
+literal|"Value expression when using histogram type"
 argument_list|)
 DECL|field|value
 specifier|private
-name|Double
+name|String
 name|value
 decl_stmt|;
 annotation|@
@@ -305,11 +305,11 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Increment value when using counter type"
+literal|"Increment value expression when using counter type"
 argument_list|)
 DECL|field|increment
 specifier|private
-name|Double
+name|String
 name|increment
 decl_stmt|;
 annotation|@
@@ -317,11 +317,11 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Decrement value when using counter type"
+literal|"Decrement value expression when using counter type"
 argument_list|)
 DECL|field|decrement
 specifier|private
-name|Double
+name|String
 name|decrement
 decl_stmt|;
 DECL|method|MicrometerEndpoint (String uri, Component component, MeterRegistry registry, MetricsType metricsType, String metricsName, Iterable<Tag> tags)
@@ -545,7 +545,7 @@ return|;
 block|}
 DECL|method|getAction ()
 specifier|public
-name|MicrometerTimerAction
+name|String
 name|getAction
 parameter_list|()
 block|{
@@ -553,12 +553,12 @@ return|return
 name|action
 return|;
 block|}
-DECL|method|setAction (MicrometerTimerAction action)
+DECL|method|setAction (String action)
 specifier|public
 name|void
 name|setAction
 parameter_list|(
-name|MicrometerTimerAction
+name|String
 name|action
 parameter_list|)
 block|{
@@ -571,7 +571,7 @@ expr_stmt|;
 block|}
 DECL|method|getValue ()
 specifier|public
-name|Double
+name|String
 name|getValue
 parameter_list|()
 block|{
@@ -579,12 +579,12 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|setValue (Double value)
+DECL|method|setValue (String value)
 specifier|public
 name|void
 name|setValue
 parameter_list|(
-name|Double
+name|String
 name|value
 parameter_list|)
 block|{
@@ -597,7 +597,7 @@ expr_stmt|;
 block|}
 DECL|method|getIncrement ()
 specifier|public
-name|Double
+name|String
 name|getIncrement
 parameter_list|()
 block|{
@@ -605,12 +605,12 @@ return|return
 name|increment
 return|;
 block|}
-DECL|method|setIncrement (Double increment)
+DECL|method|setIncrement (String increment)
 specifier|public
 name|void
 name|setIncrement
 parameter_list|(
-name|Double
+name|String
 name|increment
 parameter_list|)
 block|{
@@ -623,7 +623,7 @@ expr_stmt|;
 block|}
 DECL|method|getDecrement ()
 specifier|public
-name|Double
+name|String
 name|getDecrement
 parameter_list|()
 block|{
@@ -631,12 +631,12 @@ return|return
 name|decrement
 return|;
 block|}
-DECL|method|setDecrement (Double decrement)
+DECL|method|setDecrement (String decrement)
 specifier|public
 name|void
 name|setDecrement
 parameter_list|(
-name|Double
+name|String
 name|decrement
 parameter_list|)
 block|{

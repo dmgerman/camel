@@ -20,11 +20,15 @@ end_package
 
 begin_import
 import|import
-name|java
+name|io
 operator|.
-name|util
+name|micrometer
 operator|.
-name|Collections
+name|core
+operator|.
+name|instrument
+operator|.
+name|MeterRegistry
 import|;
 end_import
 
@@ -38,7 +42,7 @@ name|core
 operator|.
 name|instrument
 operator|.
-name|MeterRegistry
+name|Tags
 import|;
 end_import
 
@@ -281,9 +285,9 @@ name|DISTRIBUTION_SUMMARY
 argument_list|,
 name|METRICS_NAME
 argument_list|,
-name|Collections
+name|Tags
 operator|.
-name|emptyList
+name|empty
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -364,8 +368,6 @@ specifier|public
 name|void
 name|testCreateProducer
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Producer
 name|producer
@@ -452,14 +454,22 @@ operator|.
 name|setValue
 argument_list|(
 name|VALUE
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertThat
+argument_list|(
+name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|endpoint
 operator|.
 name|getValue
 argument_list|()
+argument_list|)
 argument_list|,
 name|is
 argument_list|(

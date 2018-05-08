@@ -100,6 +100,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|int
+name|count
+init|=
+literal|10
+decl_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"
@@ -107,7 +112,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+name|count
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -117,9 +122,24 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+name|count
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|count
+condition|;
+name|i
+operator|++
+control|)
+block|{
 name|template
 operator|.
 name|sendBody
@@ -129,6 +149,7 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -139,7 +160,7 @@ name|Meter
 argument_list|>
 name|meters
 init|=
-name|registry
+name|meterRegistry
 operator|.
 name|getMeters
 argument_list|()

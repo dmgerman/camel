@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filter for adding common distribution statistics for all Timers and Histograms.  * Configure and add this to the {@link io.micrometer.core.instrument.MeterRegistry}  * if desired.  */
+comment|/**  * Example filter for adding common distribution statistics for all Timers and Distribution  * Summaries.  * Configure and add this to the {@link io.micrometer.core.instrument.MeterRegistry}  * if desired.  */
 end_comment
 
 begin_class
@@ -86,15 +86,6 @@ name|DistributionStatisticConfigFilter
 implements|implements
 name|MeterFilter
 block|{
-DECL|field|prefix
-specifier|private
-name|String
-name|prefix
-init|=
-name|MicrometerConstants
-operator|.
-name|HEADER_PREFIX
-decl_stmt|;
 DECL|field|maximumExpectedValue
 specifier|private
 name|Long
@@ -167,13 +158,14 @@ if|if
 condition|(
 name|id
 operator|.
-name|getName
-argument_list|()
-operator|.
-name|startsWith
+name|getTag
 argument_list|(
-name|prefix
+name|MicrometerConstants
+operator|.
+name|CAMEL_CONTEXT_TAG
 argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -229,22 +221,6 @@ block|}
 return|return
 name|config
 return|;
-block|}
-DECL|method|setPrefix (String prefix)
-specifier|public
-name|void
-name|setPrefix
-parameter_list|(
-name|String
-name|prefix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|prefix
-operator|=
-name|prefix
-expr_stmt|;
 block|}
 DECL|method|setMaximumExpectedValue (Long maximumExpectedValue)
 specifier|public

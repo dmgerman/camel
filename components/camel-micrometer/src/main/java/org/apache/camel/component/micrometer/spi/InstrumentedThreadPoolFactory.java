@@ -197,11 +197,13 @@ argument_list|()
 decl_stmt|;
 DECL|field|meterRegistry
 specifier|private
+specifier|final
 name|MeterRegistry
 name|meterRegistry
 decl_stmt|;
 DECL|field|threadPoolFactory
 specifier|private
+specifier|final
 name|ThreadPoolFactory
 name|threadPoolFactory
 decl_stmt|;
