@@ -867,6 +867,8 @@ operator|.
 name|getRegion
 argument_list|()
 operator|+
+literal|"."
+operator|+
 name|host
 operator|+
 literal|"/"
