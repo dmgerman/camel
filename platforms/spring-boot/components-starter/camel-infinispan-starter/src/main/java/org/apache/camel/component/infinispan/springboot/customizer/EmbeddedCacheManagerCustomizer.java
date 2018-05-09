@@ -166,9 +166,9 @@ name|boot
 operator|.
 name|autoconfigure
 operator|.
-name|condition
+name|cache
 operator|.
-name|AllNestedConditions
+name|CacheAutoConfiguration
 import|;
 end_import
 
@@ -214,20 +214,6 @@ name|context
 operator|.
 name|annotation
 operator|.
-name|Conditional
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|annotation
-operator|.
 name|Configuration
 import|;
 end_import
@@ -255,20 +241,30 @@ argument_list|)
 annotation|@
 name|Configuration
 annotation|@
-name|Conditional
+name|ConditionalOnBean
 argument_list|(
-name|EmbeddedCacheManagerCustomizer
-operator|.
-name|Conditions
+block|{
+name|EmbeddedCacheManager
 operator|.
 name|class
+block|,
+name|CamelAutoConfiguration
+operator|.
+name|class
+block|}
 argument_list|)
 annotation|@
 name|AutoConfigureAfter
 argument_list|(
+block|{
 name|CamelAutoConfiguration
 operator|.
 name|class
+block|,
+name|CacheAutoConfiguration
+operator|.
+name|class
+block|}
 argument_list|)
 annotation|@
 name|AutoConfigureBefore
@@ -358,62 +354,6 @@ block|{
 return|return
 literal|"camel.component.infinispan.customizer.embedded-cache-manager"
 return|;
-block|}
-comment|// *************************************************************************
-comment|// By default ConditionalOnBean works using an OR operation so if you list
-comment|// a number of classes, the condition succeeds if a single instance of the
-comment|// classes is found.
-comment|//
-comment|// A workaround is to use AllNestedConditions and creates some dummy classes
-comment|// annotated @ConditionalOnBean
-comment|//
-comment|// This should be fixed in spring-boot 2.0 where ConditionalOnBean uses and
-comment|// AND operation instead of the OR as it does today.
-comment|// *************************************************************************
-DECL|class|Conditions
-specifier|static
-class|class
-name|Conditions
-extends|extends
-name|AllNestedConditions
-block|{
-DECL|method|Conditions ()
-specifier|public
-name|Conditions
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|ConfigurationPhase
-operator|.
-name|REGISTER_BEAN
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|ConditionalOnBean
-argument_list|(
-name|EmbeddedCacheManager
-operator|.
-name|class
-argument_list|)
-DECL|class|OnCacheManager
-specifier|static
-class|class
-name|OnCacheManager
-block|{         }
-annotation|@
-name|ConditionalOnBean
-argument_list|(
-name|CamelAutoConfiguration
-operator|.
-name|class
-argument_list|)
-DECL|class|OnCamelAutoConfiguration
-specifier|static
-class|class
-name|OnCamelAutoConfiguration
-block|{         }
 block|}
 block|}
 end_class
