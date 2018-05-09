@@ -98,6 +98,11 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 name|registerExtension
 argument_list|(
 operator|new
