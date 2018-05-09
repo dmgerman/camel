@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -50,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -94,7 +106,7 @@ specifier|public
 class|class
 name|PahoComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|brokerUrl
 specifier|private
@@ -123,15 +135,33 @@ specifier|public
 name|PahoComponent
 parameter_list|()
 block|{
-name|super
+name|this
 argument_list|(
-name|PahoEndpoint
-operator|.
-name|class
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Overridden
+DECL|method|PahoComponent (CamelContext context)
+specifier|public
+name|PahoComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|PahoComponentVerifierExtension
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
