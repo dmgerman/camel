@@ -243,9 +243,9 @@ literal|"camel.component.kubernetes.cluster.service.config-map-name=cm"
 block|,
 literal|"camel.component.kubernetes.cluster.service.pod-name=mypod1"
 block|,
-literal|"camel.component.kubernetes.cluster.service.cluster-labels['app']=myapp"
+literal|"camel.component.kubernetes.cluster.service.cluster-labels.app=myapp"
 block|,
-literal|"camel.component.kubernetes.cluster.service.cluster-labels['provider']=myprovider"
+literal|"camel.component.kubernetes.cluster.service.cluster-labels.provider=myprovider"
 block|,
 literal|"camel.component.kubernetes.cluster.service.lease-duration-millis=10000"
 block|,
