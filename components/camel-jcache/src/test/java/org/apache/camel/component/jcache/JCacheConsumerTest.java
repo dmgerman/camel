@@ -511,11 +511,8 @@ name|String
 operator|.
 name|class
 argument_list|)
-operator|.
-name|equals
-argument_list|(
-name|val2
-argument_list|)
+operator|==
+literal|null
 return|;
 block|}
 block|}
