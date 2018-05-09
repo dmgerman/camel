@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -50,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -60,7 +72,7 @@ specifier|public
 class|class
 name|SlackComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|webhookUrl
 specifier|private
@@ -72,11 +84,25 @@ specifier|public
 name|SlackComponent
 parameter_list|()
 block|{
-name|super
+name|this
 argument_list|(
-name|SlackEndpoint
-operator|.
-name|class
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SlackComponent (CamelContext context)
+specifier|public
+name|SlackComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|registerExtension
+argument_list|(
+operator|new
+name|SlackComponentVerifierExtension
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
