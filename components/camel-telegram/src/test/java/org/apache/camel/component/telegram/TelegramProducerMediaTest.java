@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|ArgumentMatchers
-operator|.
-name|eq
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -245,6 +233,18 @@ operator|.
 name|mockito
 operator|.
 name|Mockito
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|eq
 import|;
 end_import
 

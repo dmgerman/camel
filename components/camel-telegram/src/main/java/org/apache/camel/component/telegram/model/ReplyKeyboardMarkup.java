@@ -483,7 +483,7 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|addRow (List<InlineKeyboardButton> InlineKeyboardButtons)
+DECL|method|addRow (List<InlineKeyboardButton> inlineKeyboardButtons)
 specifier|public
 name|KeyboardBuilder
 name|addRow
@@ -492,21 +492,21 @@ name|List
 argument_list|<
 name|InlineKeyboardButton
 argument_list|>
-name|InlineKeyboardButtons
+name|inlineKeyboardButtons
 parameter_list|)
 block|{
 name|keyboard
 operator|.
 name|add
 argument_list|(
-name|InlineKeyboardButtons
+name|inlineKeyboardButtons
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-DECL|method|addOneRowByEachButton (List<InlineKeyboardButton> InlineKeyboardButtons)
+DECL|method|addOneRowByEachButton (List<InlineKeyboardButton> inlineKeyboardButtons)
 specifier|public
 name|KeyboardBuilder
 name|addOneRowByEachButton
@@ -515,7 +515,7 @@ name|List
 argument_list|<
 name|InlineKeyboardButton
 argument_list|>
-name|InlineKeyboardButtons
+name|inlineKeyboardButtons
 parameter_list|)
 block|{
 for|for
@@ -526,7 +526,7 @@ name|InlineKeyboardButton
 argument_list|>
 name|iterator
 init|=
-name|InlineKeyboardButtons
+name|inlineKeyboardButtons
 operator|.
 name|iterator
 argument_list|()
