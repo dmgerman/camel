@@ -106,6 +106,34 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategyAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -365,6 +393,8 @@ class|class
 name|KafkaConfiguration
 implements|implements
 name|Cloneable
+implements|,
+name|HeaderFilterStrategyAware
 block|{
 comment|//Common configuration properties
 annotation|@
@@ -409,6 +439,26 @@ DECL|field|clientId
 specifier|private
 name|String
 name|clientId
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom HeaderFilterStrategy to filter header to and from Camel message."
+argument_list|)
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+init|=
+operator|new
+name|KafkaHeaderFilterStrategy
+argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -4898,7 +4948,7 @@ return|return
 name|saslJaasConfig
 return|;
 block|}
-comment|/**      * Expose the kafka sasl.jaas.config parameter      *       * Example:      * org.apache.kafka.common.security.plain.PlainLoginModule required username="USERNAME" password="PASSWORD";      */
+comment|/**      * Expose the kafka sasl.jaas.config parameter      *      * Example:      * org.apache.kafka.common.security.plain.PlainLoginModule required username="USERNAME" password="PASSWORD";      */
 DECL|method|setSaslJaasConfig (String saslMechanism)
 specifier|public
 name|void
@@ -5870,7 +5920,7 @@ return|return
 name|seekTo
 return|;
 block|}
-comment|/**      * Set if KafkaConsumer will read from beginning or end on startup:      * beginning : read from beginning      * end : read from end      *       * This is replacing the earlier property seekToBeginning      */
+comment|/**      * Set if KafkaConsumer will read from beginning or end on startup:      * beginning : read from beginning      * end : read from end      *      * This is replacing the earlier property seekToBeginning      */
 DECL|method|setSeekTo (String seekTo)
 specifier|public
 name|void
@@ -6074,6 +6124,33 @@ operator|.
 name|reconnectBackoffMaxMs
 operator|=
 name|reconnectBackoffMaxMs
+expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
 expr_stmt|;
 block|}
 block|}
