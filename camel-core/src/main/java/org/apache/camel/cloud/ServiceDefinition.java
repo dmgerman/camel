@@ -50,7 +50,25 @@ specifier|public
 interface|interface
 name|ServiceDefinition
 block|{
+DECL|field|SERVICE_META_PREFIX
+name|String
+name|SERVICE_META_PREFIX
+init|=
+literal|"service."
+decl_stmt|;
 comment|// default service meta-data keys
+DECL|field|SERVICE_META_ID
+name|String
+name|SERVICE_META_ID
+init|=
+literal|"service.id"
+decl_stmt|;
+DECL|field|SERVICE_META_NAME
+name|String
+name|SERVICE_META_NAME
+init|=
+literal|"service.name"
+decl_stmt|;
 DECL|field|SERVICE_META_PORT
 name|String
 name|SERVICE_META_PORT
