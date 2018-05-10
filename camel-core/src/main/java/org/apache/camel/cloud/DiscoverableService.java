@@ -16,16 +16,31 @@ name|cloud
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_interface
 DECL|interface|DiscoverableService
 specifier|public
 interface|interface
 name|DiscoverableService
 block|{
-comment|/**      * Get the service definition.      */
-DECL|method|getServiceDefinition ()
-name|ServiceDefinition
-name|getServiceDefinition
+comment|/**      * Get the service properties.      */
+DECL|method|getServiceProperties ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getServiceProperties
 parameter_list|()
 function_decl|;
 block|}

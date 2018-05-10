@@ -558,12 +558,17 @@ operator|)
 name|endpoint
 decl_stmt|;
 specifier|final
-name|ServiceDefinition
-name|definition
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
 init|=
 name|service
 operator|.
-name|getServiceDefinition
+name|getServiceProperties
 argument_list|()
 decl_stmt|;
 comment|// try to get the service id from route properties
@@ -626,10 +631,17 @@ block|{
 comment|// finally get the id from the DiscoverableService
 name|serviceId
 operator|=
-name|definition
+operator|(
+name|String
+operator|)
+name|properties
 operator|.
-name|getId
-argument_list|()
+name|get
+argument_list|(
+name|ServiceDefinition
+operator|.
+name|SERVICE_META_ID
+argument_list|)
 expr_stmt|;
 block|}
 comment|// try to get the service name from route properties
@@ -677,10 +689,17 @@ block|{
 comment|// finally get the name from the DiscoverableService
 name|serviceName
 operator|=
-name|definition
+operator|(
+name|String
+operator|)
+name|properties
 operator|.
-name|getName
-argument_list|()
+name|get
+argument_list|(
+name|ServiceDefinition
+operator|.
+name|SERVICE_META_NAME
+argument_list|)
 expr_stmt|;
 block|}
 name|ObjectHelper
@@ -715,7 +734,7 @@ argument_list|()
 operator|.
 name|from
 argument_list|(
-name|definition
+name|properties
 argument_list|)
 operator|.
 name|withId

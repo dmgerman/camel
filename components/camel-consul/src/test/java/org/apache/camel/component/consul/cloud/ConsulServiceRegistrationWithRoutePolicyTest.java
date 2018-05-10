@@ -96,7 +96,7 @@ name|Exception
 block|{
 name|fromF
 argument_list|(
-literal|"jetty:http://0.0.0.0:%d/service/endpoint/"
+literal|"jetty:http://0.0.0.0:%d/service/endpoint"
 argument_list|,
 name|SERVICE_PORT
 argument_list|)
