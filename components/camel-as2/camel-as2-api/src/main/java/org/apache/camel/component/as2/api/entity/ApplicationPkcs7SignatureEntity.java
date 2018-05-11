@@ -620,7 +620,7 @@ decl_stmt|;
 try|try
 init|(
 name|OutputStream
-name|trasnsferEncodedStream
+name|transferEncodedStream
 init|=
 name|EntityUtils
 operator|.
@@ -632,7 +632,7 @@ name|transferEncoding
 argument_list|)
 init|)
 block|{
-name|trasnsferEncodedStream
+name|transferEncodedStream
 operator|.
 name|write
 argument_list|(
