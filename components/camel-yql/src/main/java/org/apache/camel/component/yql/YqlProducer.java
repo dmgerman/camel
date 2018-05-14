@@ -141,6 +141,7 @@ extends|extends
 name|DefaultProducer
 block|{
 DECL|field|CAMEL_YQL_HTTP_STATUS
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -149,6 +150,7 @@ init|=
 literal|"CamelYqlHttpStatus"
 decl_stmt|;
 DECL|field|CAMEL_YQL_HTTP_REQUEST
+specifier|public
 specifier|static
 specifier|final
 name|String
