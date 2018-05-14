@@ -557,7 +557,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Obtains the Content-Transfer-Encoding header.      * The default implementation returns the value of the      * {@link #contentEncoding contentTransferEncoding} attribute.      *      * @return  the Content-Transfer-Encoding header, or {@code null}      */
+comment|/**      * Obtains the Content-Transfer-Encoding header.      * The default implementation returns the value of the      * {@link #contentEncoding contentEncoding} attribute.      *      * @return  the Content-Transfer-Encoding header, or {@code null}      */
 DECL|method|getContentTransferEncoding ()
 specifier|public
 name|Header
@@ -570,11 +570,11 @@ operator|.
 name|contentTransferEncoding
 return|;
 block|}
-comment|/**      * Specifies the Content-Transfer-Encoding header.      * The default implementation sets the value of the      * {@link #contentTranferEncoding contentTransferEncoding} attribute.      *      * @param contentTransferEncoding   the new Content-Transfer-Encoding header, or      *                          {@code null} to unset      */
-DECL|method|setContentTranserEncoding (final Header contentTransferEncoding)
+comment|/**      * Specifies the Content-Transfer-Encoding header.      * The default implementation sets the value of the      * {@link #contentTransferEncoding contentTransferEncoding} attribute.      *      * @param contentTransferEncoding   the new Content-Transfer-Encoding header, or      *                          {@code null} to unset      */
+DECL|method|setContentTransferEncoding (final Header contentTransferEncoding)
 specifier|public
 name|void
-name|setContentTranserEncoding
+name|setContentTransferEncoding
 parameter_list|(
 specifier|final
 name|Header
@@ -611,7 +611,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Specifies the Content-Transfer-Encoding header, as a string.      * The default implementation calls      * {@link #setContentTransferEncoding(Header) setContentEncoding(Header)}.      *      * @param ceString     the new Content-Transfer-Encoding header, or      *                     {@code null} to unset      */
+comment|/**      * Specifies the Content-Transfer-Encoding header, as a string.      * The default implementation calls      * {@link #setContentTransferEncoding(Header) setContentTransferEncoding(Header)}.      *      * @param contentTranserEncoding - the new Content-Transfer-Encoding header, or      *                     {@code null} to unset      */
 DECL|method|setContentTransferEncoding (final String contentTranserEncoding)
 specifier|public
 name|void
@@ -647,7 +647,7 @@ name|contentTranserEncoding
 argument_list|)
 expr_stmt|;
 block|}
-name|setContentTranserEncoding
+name|setContentTransferEncoding
 argument_list|(
 name|h
 argument_list|)
