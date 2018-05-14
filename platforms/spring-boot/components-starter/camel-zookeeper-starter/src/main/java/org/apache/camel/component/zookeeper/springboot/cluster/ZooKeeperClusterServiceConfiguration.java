@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.zookeeper.cluster.springboot
+DECL|package|org.apache.camel.component.zookeeper.springboot.cluster
 package|package
 name|org
 operator|.
@@ -16,9 +16,9 @@ name|component
 operator|.
 name|zookeeper
 operator|.
-name|cluster
-operator|.
 name|springboot
+operator|.
+name|cluster
 package|;
 end_package
 

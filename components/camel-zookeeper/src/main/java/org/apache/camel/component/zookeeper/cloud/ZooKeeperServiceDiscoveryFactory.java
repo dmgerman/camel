@@ -686,19 +686,6 @@ name|connectionTimeoutUnit
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|copy ()
-specifier|public
-name|ZooKeeperCuratorConfiguration
-name|copy
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|copy
-argument_list|()
-return|;
-block|}
 DECL|method|getAuthInfoList ()
 specifier|public
 name|List

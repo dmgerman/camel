@@ -1040,9 +1040,9 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|// *********************************************
-comment|//
-comment|// *********************************************
+comment|// ****************
+comment|// Registry
+comment|// ****************
 annotation|@
 name|Override
 DECL|method|register (ServiceDefinition definition)
@@ -1423,6 +1423,17 @@ name|agentClient
 argument_list|()
 operator|.
 name|deregister
+argument_list|(
+name|definition
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|//remove the serviceId to the list of known server
+name|serviceList
+operator|.
+name|remove
 argument_list|(
 name|definition
 operator|.

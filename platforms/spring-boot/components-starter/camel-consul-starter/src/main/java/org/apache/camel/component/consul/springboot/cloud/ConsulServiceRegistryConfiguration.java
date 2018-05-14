@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.consul.springboot.cluster
+DECL|package|org.apache.camel.component.consul.springboot.cloud
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|consul
 operator|.
 name|springboot
 operator|.
-name|cluster
+name|cloud
 package|;
 end_package
 
@@ -29,24 +29,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|consul
-operator|.
-name|cluster
-operator|.
-name|ConsulClusterConfiguration
 import|;
 end_import
 
@@ -72,22 +54,34 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.component.consul.cluster.service"
+literal|"camel.component.consul.service-registry"
 argument_list|)
-DECL|class|ConsulClusterServiceConfiguration
+DECL|class|ConsulServiceRegistryConfiguration
 specifier|public
 class|class
-name|ConsulClusterServiceConfiguration
+name|ConsulServiceRegistryConfiguration
 extends|extends
-name|ConsulClusterConfiguration
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|consul
+operator|.
+name|cloud
+operator|.
+name|ConsulServiceRegistryConfiguration
 block|{
-comment|/**      * Sets if the consul cluster service should be enabled or not, default is false.      */
+comment|/**      * Sets if the consul service registry should be enabled or not, default is false.      */
 DECL|field|enabled
 specifier|private
 name|boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Cluster Service ID      */
+comment|/**      * Service Registry ID      */
 DECL|field|id
 specifier|private
 name|String

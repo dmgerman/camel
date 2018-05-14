@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.consul.springboot.cluster
+DECL|package|org.apache.camel.component.zookeeper.cloud
 package|package
 name|org
 operator|.
@@ -14,21 +14,21 @@ name|camel
 operator|.
 name|component
 operator|.
-name|consul
+name|zookeeper
 operator|.
-name|springboot
-operator|.
-name|cluster
+name|cloud
 package|;
 end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -42,187 +42,160 @@ name|camel
 operator|.
 name|component
 operator|.
-name|consul
+name|zookeeper
 operator|.
-name|cluster
-operator|.
-name|ConsulClusterConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|ConfigurationProperties
+name|ZooKeeperCuratorConfiguration
 import|;
 end_import
 
 begin_class
-annotation|@
-name|ConfigurationProperties
-argument_list|(
-name|prefix
-operator|=
-literal|"camel.component.consul.cluster.service"
-argument_list|)
-DECL|class|ConsulClusterServiceConfiguration
+DECL|class|ZooKeeperServiceRegistryConfiguration
 specifier|public
 class|class
-name|ConsulClusterServiceConfiguration
+name|ZooKeeperServiceRegistryConfiguration
 extends|extends
-name|ConsulClusterConfiguration
+name|ZooKeeperCuratorConfiguration
 block|{
-comment|/**      * Sets if the consul cluster service should be enabled or not, default is false.      */
-DECL|field|enabled
+comment|/**      * Should we remove all the registered services know by this registry on stop?      */
+DECL|field|deregisterServicesOnStop
 specifier|private
 name|boolean
-name|enabled
+name|deregisterServicesOnStop
+init|=
+literal|true
 decl_stmt|;
-comment|/**      * Cluster Service ID      */
-DECL|field|id
+comment|/**      * Should we override the service host if given ?      */
+DECL|field|overrideServiceHost
+specifier|private
+name|boolean
+name|overrideServiceHost
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Service host.      */
+DECL|field|serviceHost
 specifier|private
 name|String
-name|id
+name|serviceHost
 decl_stmt|;
-comment|/**      * Custom service attributes.      */
-DECL|field|attributes
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|attributes
-decl_stmt|;
-comment|/**      * Service lookup order/priority.      */
-DECL|field|order
-specifier|private
-name|Integer
-name|order
-decl_stmt|;
-DECL|method|isEnabled ()
+comment|// ***********************************************
+comment|// Properties
+comment|// ***********************************************
+DECL|method|isDeregisterServicesOnStop ()
 specifier|public
 name|boolean
-name|isEnabled
+name|isDeregisterServicesOnStop
 parameter_list|()
 block|{
 return|return
-name|enabled
+name|deregisterServicesOnStop
 return|;
 block|}
-DECL|method|setEnabled (boolean enabled)
+DECL|method|setDeregisterServicesOnStop (boolean deregisterServicesOnStop)
 specifier|public
 name|void
-name|setEnabled
+name|setDeregisterServicesOnStop
 parameter_list|(
 name|boolean
-name|enabled
+name|deregisterServicesOnStop
 parameter_list|)
 block|{
 name|this
 operator|.
-name|enabled
+name|deregisterServicesOnStop
 operator|=
-name|enabled
+name|deregisterServicesOnStop
 expr_stmt|;
 block|}
-DECL|method|getId ()
+DECL|method|isOverrideServiceHost ()
 specifier|public
-name|String
-name|getId
+name|boolean
+name|isOverrideServiceHost
 parameter_list|()
 block|{
 return|return
-name|id
+name|overrideServiceHost
 return|;
 block|}
-DECL|method|setId (String id)
+DECL|method|setOverrideServiceHost (boolean overrideServiceHost)
 specifier|public
 name|void
-name|setId
+name|setOverrideServiceHost
 parameter_list|(
-name|String
-name|id
+name|boolean
+name|overrideServiceHost
 parameter_list|)
 block|{
 name|this
 operator|.
-name|id
+name|overrideServiceHost
 operator|=
-name|id
+name|overrideServiceHost
 expr_stmt|;
 block|}
-DECL|method|getAttributes ()
+DECL|method|getServiceHost ()
 specifier|public
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
-name|getAttributes
+name|getServiceHost
 parameter_list|()
 block|{
 return|return
-name|attributes
+name|serviceHost
 return|;
 block|}
-DECL|method|setAttributes (Map<String, Object> attributes)
+DECL|method|setServiceHost (String serviceHost)
 specifier|public
 name|void
-name|setAttributes
+name|setServiceHost
 parameter_list|(
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
-name|attributes
+name|serviceHost
 parameter_list|)
 block|{
 name|this
 operator|.
-name|attributes
+name|serviceHost
 operator|=
-name|attributes
+name|serviceHost
 expr_stmt|;
 block|}
-DECL|method|getOrder ()
+comment|// ***********************************************
+comment|//
+comment|// ***********************************************
+annotation|@
+name|Override
+DECL|method|copy ()
 specifier|public
-name|Integer
-name|getOrder
+name|ZooKeeperServiceRegistryConfiguration
+name|copy
 parameter_list|()
 block|{
+try|try
+block|{
 return|return
-name|order
+operator|(
+name|ZooKeeperServiceRegistryConfiguration
+operator|)
+name|super
+operator|.
+name|clone
+argument_list|()
 return|;
 block|}
-DECL|method|setOrder (Integer order)
-specifier|public
-name|void
-name|setOrder
+catch|catch
 parameter_list|(
-name|Integer
-name|order
+name|CloneNotSupportedException
+name|e
 parameter_list|)
 block|{
-name|this
-operator|.
-name|order
-operator|=
-name|order
-expr_stmt|;
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

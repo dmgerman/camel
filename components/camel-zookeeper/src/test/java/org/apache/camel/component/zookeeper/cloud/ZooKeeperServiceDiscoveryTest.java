@@ -574,7 +574,9 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"service_id"
+name|ServiceDefinition
+operator|.
+name|SERVICE_META_ID
 argument_list|)
 argument_list|)
 operator|&&

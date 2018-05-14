@@ -347,7 +347,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"jetty:http://%s:%d/service/path"
+literal|"undertow:http://%s:%d/service/path"
 argument_list|,
 name|SERVICE_HOST
 argument_list|,
@@ -525,7 +525,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"jetty:http://%s:%d/service/path"
+literal|"undertow:http://%s:%d/service/path"
 argument_list|,
 name|SERVICE_HOST
 argument_list|,
