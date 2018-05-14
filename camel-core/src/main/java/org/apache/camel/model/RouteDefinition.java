@@ -122,6 +122,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlElementRef
 import|;
 end_import
@@ -578,6 +592,8 @@ block|,
 literal|"outputType"
 block|,
 literal|"outputs"
+block|,
+literal|"routeProperties"
 block|}
 argument_list|)
 annotation|@
@@ -750,6 +766,14 @@ DECL|field|outputType
 specifier|private
 name|OutputTypeDefinition
 name|outputType
+decl_stmt|;
+DECL|field|routeProperties
+specifier|private
+name|List
+argument_list|<
+name|PropertyDefinition
+argument_list|>
+name|routeProperties
 decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
@@ -2491,6 +2515,66 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a custom property on the route.      */
+DECL|method|routeProperty (String key, String value)
+specifier|public
+name|RouteDefinition
+name|routeProperty
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|routeProperties
+operator|==
+literal|null
+condition|)
+block|{
+name|routeProperties
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
+block|}
+name|PropertyDefinition
+name|prop
+init|=
+operator|new
+name|PropertyDefinition
+argument_list|()
+decl_stmt|;
+name|prop
+operator|.
+name|setKey
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+name|prop
+operator|.
+name|setValue
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+name|routeProperties
+operator|.
+name|add
+argument_list|(
+name|prop
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getInputs ()
@@ -3413,6 +3497,53 @@ name|this
 operator|.
 name|outputType
 return|;
+block|}
+DECL|method|getRouteProperties ()
+specifier|public
+name|List
+argument_list|<
+name|PropertyDefinition
+argument_list|>
+name|getRouteProperties
+parameter_list|()
+block|{
+return|return
+name|routeProperties
+return|;
+block|}
+comment|/**      * To set metadata as properties on the route.      */
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"routeProperty"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|method|setRouteProperties (List<PropertyDefinition> routeProperties)
+specifier|public
+name|void
+name|setRouteProperties
+parameter_list|(
+name|List
+argument_list|<
+name|PropertyDefinition
+argument_list|>
+name|routeProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeProperties
+operator|=
+name|routeProperties
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
