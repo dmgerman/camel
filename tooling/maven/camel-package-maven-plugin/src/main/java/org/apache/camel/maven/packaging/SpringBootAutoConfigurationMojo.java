@@ -5566,6 +5566,9 @@ name|boolean
 name|anEnum
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|optionClass
 decl_stmt|;
 if|if
@@ -6471,6 +6474,9 @@ comment|// try loading class, looking for inner classes if needed
 DECL|method|loadClass (ClassLoader projectClassLoader, String loadClassName)
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|loadClass
 parameter_list|(
 name|ClassLoader
@@ -6483,6 +6489,9 @@ throws|throws
 name|MojoFailureException
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|optionClass
 decl_stmt|;
 while|while
@@ -6679,6 +6688,9 @@ name|MojoFailureException
 block|{
 specifier|final
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|classpathElements
 decl_stmt|;
 try|try
@@ -6740,6 +6752,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|classpathElements
@@ -12309,13 +12324,16 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|sortImports (Importer importer)
+DECL|method|sortImports (Importer<JavaClassSource> importer)
 specifier|private
 specifier|static
 name|void
 name|sortImports
 parameter_list|(
 name|Importer
+argument_list|<
+name|JavaClassSource
+argument_list|>
 name|importer
 parameter_list|)
 block|{

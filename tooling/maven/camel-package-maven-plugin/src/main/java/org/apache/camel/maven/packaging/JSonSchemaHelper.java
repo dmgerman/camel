@@ -95,11 +95,6 @@ name|JSonSchemaHelper
 parameter_list|()
 block|{     }
 comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param group the group to parse from such as<tt>component</tt>,<tt>componentProperties</tt>, or<tt>properties</tt>.      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parseJsonSchema (String group, String json, boolean parseProperties)
 specifier|public
 specifier|static
@@ -179,6 +174,11 @@ argument_list|()
 control|)
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|row
 init|=
 name|output
@@ -218,12 +218,22 @@ block|{
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|entry
 init|=
 operator|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|obj
 decl_stmt|;
@@ -237,6 +247,7 @@ name|newRow
 init|=
 operator|new
 name|LinkedHashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|newRow
@@ -255,12 +266,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|newData
 init|=
 name|transformMap
 argument_list|(
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|entry
 operator|.
@@ -288,6 +309,11 @@ else|else
 block|{
 comment|// flattern each entry in the row as a list of single Map<key, value> elements
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|newData
 init|=
 name|transformMap
@@ -309,12 +335,22 @@ block|{
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|entry
 init|=
 operator|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|obj
 decl_stmt|;
@@ -385,7 +421,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|transformMap (Map jsonMap)
+DECL|method|transformMap (Map<?, ?> jsonMap)
 specifier|private
 specifier|static
 name|Map
@@ -397,6 +433,11 @@ argument_list|>
 name|transformMap
 parameter_list|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|jsonMap
 parameter_list|)
 block|{
@@ -427,12 +468,22 @@ block|{
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|rowEntry
 init|=
 operator|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|rowObj
 decl_stmt|;
@@ -454,10 +505,16 @@ name|List
 condition|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 operator|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|newValue
 decl_stmt|;

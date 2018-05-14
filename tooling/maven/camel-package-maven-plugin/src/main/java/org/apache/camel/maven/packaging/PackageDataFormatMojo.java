@@ -692,7 +692,8 @@ name|getGroupId
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// find camel-core and grab the data format model from there, and enrich this model with information from this artifact
+comment|// find camel-core and grab the data format model from there, and enrich
+comment|// this model with information from this artifact
 comment|// and create json schema model file for this data format
 try|try
 block|{
@@ -751,6 +752,8 @@ name|getAbsolutePath
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|URLClassLoader
 name|loader
 init|=
@@ -764,7 +767,8 @@ block|{
 name|url
 block|}
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 for|for
 control|(
 name|Map
@@ -828,7 +832,9 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// use file input stream if we build camel-core itself, and thus do not have a JAR which can be loaded by URLClassLoader
+comment|// use file input stream if we build
+comment|// camel-core itself, and thus do not have a
+comment|// JAR which can be loaded by URLClassLoader
 name|is
 operator|=
 operator|new
@@ -1014,6 +1020,7 @@ operator|+
 literal|" data format"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -2483,6 +2490,9 @@ return|;
 block|}
 comment|// or its a component which has a dependency to camel-core
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|project
