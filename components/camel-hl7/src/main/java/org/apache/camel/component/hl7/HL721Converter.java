@@ -913,6 +913,11 @@ end_comment
 begin_class
 annotation|@
 name|Converter
+argument_list|(
+name|ignoreOnLoadError
+operator|=
+literal|true
+argument_list|)
 DECL|class|HL721Converter
 specifier|public
 specifier|final

@@ -4081,6 +4081,11 @@ end_comment
 begin_class
 annotation|@
 name|Converter
+argument_list|(
+name|ignoreOnLoadError
+operator|=
+literal|true
+argument_list|)
 DECL|class|HL726Converter
 specifier|public
 specifier|final
