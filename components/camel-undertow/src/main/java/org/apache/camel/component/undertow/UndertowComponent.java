@@ -1087,7 +1087,8 @@ name|camelContext
 operator|.
 name|getRestConfiguration
 argument_list|(
-literal|"undertow"
+name|getComponentName
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -1313,7 +1314,8 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"undertow"
+name|getComponentName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1450,14 +1452,20 @@ condition|)
 block|{
 name|url
 operator|=
-literal|"undertow:%s://%s:%s/%s?matchOnUriPrefix=true&httpMethodRestrict=%s"
+name|getComponentName
+argument_list|()
+operator|+
+literal|":%s://%s:%s/%s?matchOnUriPrefix=true&httpMethodRestrict=%s"
 expr_stmt|;
 block|}
 else|else
 block|{
 name|url
 operator|=
-literal|"undertow:%s://%s:%s/%s?matchOnUriPrefix=false&httpMethodRestrict=%s"
+name|getComponentName
+argument_list|()
+operator|+
+literal|":%s://%s:%s/%s?matchOnUriPrefix=false&httpMethodRestrict=%s"
 expr_stmt|;
 block|}
 comment|// get the endpoint
@@ -1658,7 +1666,10 @@ comment|// get the endpoint
 name|String
 name|url
 init|=
-literal|"undertow:"
+name|getComponentName
+argument_list|()
+operator|+
+literal|":"
 operator|+
 name|host
 decl_stmt|;
@@ -1716,7 +1727,8 @@ name|camelContext
 operator|.
 name|getRestConfiguration
 argument_list|(
-literal|"undertow"
+name|getComponentName
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -1752,7 +1764,8 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"undertow"
+name|getComponentName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1916,7 +1929,8 @@ argument_list|()
 operator|.
 name|getRestConfiguration
 argument_list|(
-literal|"undertow"
+name|getComponentName
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -2261,6 +2275,16 @@ name|scope
 argument_list|,
 name|parameters
 argument_list|)
+return|;
+block|}
+DECL|method|getComponentName ()
+specifier|protected
+name|String
+name|getComponentName
+parameter_list|()
+block|{
+return|return
+literal|"undertow"
 return|;
 block|}
 block|}
