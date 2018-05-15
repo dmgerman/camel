@@ -58,6 +58,18 @@ name|UriParams
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|orbitz
+operator|.
+name|consul
+operator|.
+name|Consul
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriParams
@@ -74,6 +86,18 @@ DECL|field|key
 specifier|private
 name|String
 name|key
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
+DECL|field|consulClient
+specifier|private
+name|Consul
+name|consulClient
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -187,6 +211,33 @@ operator|.
 name|key
 operator|=
 name|key
+expr_stmt|;
+block|}
+DECL|method|getConsulClient ()
+specifier|public
+name|Consul
+name|getConsulClient
+parameter_list|()
+block|{
+return|return
+name|consulClient
+return|;
+block|}
+comment|/**      * Reference to a `com.orbitz.consul.Consul` in the      * registry.      */
+DECL|method|setConsulClient (Consul consulClient)
+specifier|public
+name|void
+name|setConsulClient
+parameter_list|(
+name|Consul
+name|consulClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consulClient
+operator|=
+name|consulClient
 expr_stmt|;
 block|}
 comment|// ****************************************

@@ -68,6 +68,18 @@ name|orbitz
 operator|.
 name|consul
 operator|.
+name|Consul
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|orbitz
+operator|.
+name|consul
+operator|.
 name|option
 operator|.
 name|ConsistencyMode
@@ -517,6 +529,14 @@ specifier|private
 name|String
 name|key
 decl_stmt|;
+comment|/**          * Reference to a `com.orbitz.consul.Consul` in the registry.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|consulClient
+specifier|private
+name|Consul
+name|consulClient
+decl_stmt|;
 comment|/**          * The Consul agent URL          */
 DECL|field|url
 specifier|private
@@ -705,6 +725,32 @@ operator|.
 name|key
 operator|=
 name|key
+expr_stmt|;
+block|}
+DECL|method|getConsulClient ()
+specifier|public
+name|Consul
+name|getConsulClient
+parameter_list|()
+block|{
+return|return
+name|consulClient
+return|;
+block|}
+DECL|method|setConsulClient (Consul consulClient)
+specifier|public
+name|void
+name|setConsulClient
+parameter_list|(
+name|Consul
+name|consulClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consulClient
+operator|=
+name|consulClient
 expr_stmt|;
 block|}
 DECL|method|getUrl ()
