@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.micrometer.routepolicy
+DECL|package|org.apache.camel.component.micrometer.eventnotifier
 package|package
 name|org
 operator|.
@@ -16,47 +16,9 @@ name|component
 operator|.
 name|micrometer
 operator|.
-name|routepolicy
+name|eventnotifier
 package|;
 end_package
-
-begin_import
-import|import
-name|io
-operator|.
-name|micrometer
-operator|.
-name|core
-operator|.
-name|instrument
-operator|.
-name|MeterRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|StaticService
-import|;
-end_import
 
 begin_import
 import|import
@@ -70,55 +32,42 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|ManagedOperation
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|micrometer
-operator|.
-name|json
-operator|.
-name|AbstractMicrometerService
-import|;
-end_import
-
-begin_comment
-comment|/**  * Service holding the {@link MeterRegistry} which registers all metrics.  */
-end_comment
-
-begin_class
+begin_interface
+DECL|interface|MicrometerEventNotifierMBean
+specifier|public
+interface|interface
+name|MicrometerEventNotifierMBean
+block|{
 annotation|@
-name|ManagedResource
+name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"MicrometerRoutePolicy"
+literal|"Dumps the statistics as json"
 argument_list|)
-DECL|class|MicrometerRoutePolicyService
-specifier|public
-specifier|final
-class|class
-name|MicrometerRoutePolicyService
-extends|extends
-name|AbstractMicrometerService
-implements|implements
-name|CamelContextAware
-implements|,
-name|StaticService
-implements|,
-name|MicrometerRoutePolicyMBean
-block|{ }
-end_class
+DECL|method|dumpStatisticsAsJson ()
+name|String
+name|dumpStatisticsAsJson
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the statistics as json using seconds for time units"
+argument_list|)
+DECL|method|dumpStatisticsAsJsonTimeUnitSeconds ()
+name|String
+name|dumpStatisticsAsJsonTimeUnitSeconds
+parameter_list|()
+function_decl|;
+block|}
+end_interface
 
 end_unit
 

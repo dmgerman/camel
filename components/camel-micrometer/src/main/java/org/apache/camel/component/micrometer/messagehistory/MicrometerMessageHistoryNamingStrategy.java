@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.micrometer.routepolicy
+DECL|package|org.apache.camel.component.micrometer.messagehistory
 package|package
 name|org
 operator|.
@@ -16,21 +16,19 @@ name|component
 operator|.
 name|micrometer
 operator|.
-name|routepolicy
+name|messagehistory
 package|;
 end_package
 
 begin_import
 import|import
-name|io
+name|org
 operator|.
-name|micrometer
+name|apache
 operator|.
-name|core
+name|camel
 operator|.
-name|instrument
-operator|.
-name|MeterRegistry
+name|NamedNode
 import|;
 end_import
 
@@ -42,40 +40,12 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
+name|Route
 import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|StaticService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedResource
-import|;
-end_import
-
-begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -86,39 +56,47 @@ name|component
 operator|.
 name|micrometer
 operator|.
-name|json
+name|MicrometerConstants
 operator|.
-name|AbstractMicrometerService
+name|DEFAULT_CAMEL_MESSAGE_HISTORY_METER_NAME
 import|;
 end_import
 
 begin_comment
-comment|/**  * Service holding the {@link MeterRegistry} which registers all metrics.  */
+comment|/**  * Provides a strategy to derive a meter name from the route and node  */
 end_comment
 
-begin_class
-annotation|@
-name|ManagedResource
-argument_list|(
-name|description
-operator|=
-literal|"MicrometerRoutePolicy"
-argument_list|)
-DECL|class|MicrometerRoutePolicyService
+begin_interface
+DECL|interface|MicrometerMessageHistoryNamingStrategy
 specifier|public
-specifier|final
-class|class
-name|MicrometerRoutePolicyService
-extends|extends
-name|AbstractMicrometerService
-implements|implements
-name|CamelContextAware
-implements|,
-name|StaticService
-implements|,
-name|MicrometerRoutePolicyMBean
-block|{ }
-end_class
+interface|interface
+name|MicrometerMessageHistoryNamingStrategy
+block|{
+DECL|field|DEFAULT
+name|MicrometerMessageHistoryNamingStrategy
+name|DEFAULT
+init|=
+parameter_list|(
+name|route
+parameter_list|,
+name|node
+parameter_list|)
+lambda|->
+name|DEFAULT_CAMEL_MESSAGE_HISTORY_METER_NAME
+decl_stmt|;
+DECL|method|getName (Route route, NamedNode node)
+name|String
+name|getName
+parameter_list|(
+name|Route
+name|route
+parameter_list|,
+name|NamedNode
+name|node
+parameter_list|)
+function_decl|;
+block|}
+end_interface
 
 end_unit
 

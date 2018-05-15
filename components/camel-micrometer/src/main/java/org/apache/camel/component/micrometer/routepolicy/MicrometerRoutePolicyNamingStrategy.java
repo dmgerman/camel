@@ -22,60 +22,18 @@ end_package
 
 begin_import
 import|import
-name|io
-operator|.
-name|micrometer
-operator|.
-name|core
-operator|.
-name|instrument
-operator|.
-name|MeterRegistry
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
+name|Route
 import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|StaticService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedResource
-import|;
-end_import
-
-begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -86,39 +44,40 @@ name|component
 operator|.
 name|micrometer
 operator|.
-name|json
+name|MicrometerConstants
 operator|.
-name|AbstractMicrometerService
+name|DEFAULT_CAMEL_ROUTE_POLICY_METER_NAME
 import|;
 end_import
 
 begin_comment
-comment|/**  * Service holding the {@link MeterRegistry} which registers all metrics.  */
+comment|/**  * Provides a strategy to derive a meter name from the route  */
 end_comment
 
-begin_class
-annotation|@
-name|ManagedResource
-argument_list|(
-name|description
-operator|=
-literal|"MicrometerRoutePolicy"
-argument_list|)
-DECL|class|MicrometerRoutePolicyService
+begin_interface
+DECL|interface|MicrometerRoutePolicyNamingStrategy
 specifier|public
-specifier|final
-class|class
-name|MicrometerRoutePolicyService
-extends|extends
-name|AbstractMicrometerService
-implements|implements
-name|CamelContextAware
-implements|,
-name|StaticService
-implements|,
-name|MicrometerRoutePolicyMBean
-block|{ }
-end_class
+interface|interface
+name|MicrometerRoutePolicyNamingStrategy
+block|{
+DECL|field|DEFAULT
+name|MicrometerRoutePolicyNamingStrategy
+name|DEFAULT
+init|=
+name|route
+lambda|->
+name|DEFAULT_CAMEL_ROUTE_POLICY_METER_NAME
+decl_stmt|;
+DECL|method|getName (Route route)
+name|String
+name|getName
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+function_decl|;
+block|}
+end_interface
 
 end_unit
 

@@ -64,6 +64,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -147,10 +163,15 @@ name|count
 init|=
 literal|10
 decl_stmt|;
+name|MockEndpoint
+name|mockEndpoint
+init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
+decl_stmt|;
+name|mockEndpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -185,7 +206,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|,
 literal|"Hello "
 operator|+
@@ -199,7 +220,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:bar"
+literal|"direct:bar"
 argument_list|,
 literal|"Hello "
 operator|+
@@ -390,7 +411,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 operator|.
 name|routeId
@@ -410,7 +431,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:bar"
+literal|"direct:bar"
 argument_list|)
 operator|.
 name|routeId

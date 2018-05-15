@@ -133,10 +133,14 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 decl_stmt|;
-DECL|field|name
+DECL|field|namingStrategy
 specifier|private
-name|String
-name|name
+name|MicrometerRoutePolicyNamingStrategy
+name|namingStrategy
+init|=
+name|MicrometerRoutePolicyNamingStrategy
+operator|.
+name|DEFAULT
 decl_stmt|;
 comment|/**      * To use a specific {@link io.micrometer.core.instrument.MeterRegistry} instance.      *<p/>      * If no instance has been configured, then Camel will create a shared instance to be used.      */
 DECL|method|setMeterRegistry (MeterRegistry meterRegistry)
@@ -220,6 +224,32 @@ operator|=
 name|durationUnit
 expr_stmt|;
 block|}
+DECL|method|getNamingStrategy ()
+specifier|public
+name|MicrometerRoutePolicyNamingStrategy
+name|getNamingStrategy
+parameter_list|()
+block|{
+return|return
+name|namingStrategy
+return|;
+block|}
+DECL|method|setNamingStrategy (MicrometerRoutePolicyNamingStrategy namingStrategy)
+specifier|public
+name|void
+name|setNamingStrategy
+parameter_list|(
+name|MicrometerRoutePolicyNamingStrategy
+name|namingStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|namingStrategy
+operator|=
+name|namingStrategy
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, RouteDefinition routeDefinition)
@@ -265,6 +295,14 @@ operator|.
 name|setDurationUnit
 argument_list|(
 name|getDurationUnit
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setNamingStrategy
+argument_list|(
+name|getNamingStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;

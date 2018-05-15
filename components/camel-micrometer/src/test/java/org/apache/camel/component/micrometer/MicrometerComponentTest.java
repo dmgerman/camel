@@ -1021,7 +1021,7 @@ expr_stmt|;
 name|MeterRegistry
 name|result
 init|=
-name|component
+name|MicrometerUtils
 operator|.
 name|getOrCreateMeterRegistry
 argument_list|(
@@ -1119,7 +1119,7 @@ expr_stmt|;
 name|MeterRegistry
 name|result
 init|=
-name|component
+name|MicrometerUtils
 operator|.
 name|getOrCreateMeterRegistry
 argument_list|(
@@ -1234,7 +1234,7 @@ expr_stmt|;
 name|MeterRegistry
 name|result
 init|=
-name|component
+name|MicrometerUtils
 operator|.
 name|getOrCreateMeterRegistry
 argument_list|(
@@ -1343,7 +1343,7 @@ expr_stmt|;
 name|MeterRegistry
 name|result
 init|=
-name|component
+name|MicrometerUtils
 operator|.
 name|getMeterRegistryFromCamelRegistry
 argument_list|(
@@ -1400,7 +1400,7 @@ block|{
 name|MeterRegistry
 name|registry
 init|=
-name|component
+name|MicrometerUtils
 operator|.
 name|createMeterRegistry
 argument_list|()

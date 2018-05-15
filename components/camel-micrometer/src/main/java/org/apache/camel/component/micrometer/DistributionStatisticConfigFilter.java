@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Example filter for adding common distribution statistics for all Timers and Distribution  * Summaries.  * Configure and add this to the {@link io.micrometer.core.instrument.MeterRegistry}  * if desired.  */
+comment|/**  * Example filter for adding common distribution statistics for all Timers and Distribution  * Summaries.  * Configure and add this to the {@link io.micrometer.core.instrument.MeterRegistry}  * if desired:  *  *<pre>  *     DistributionStatisticConfigFilter filter = new DistributionStatisticConfigFilter()  *     // filter.set...  *     meterRegistry.config().meterFilter(filter)  *</pre>  */
 end_comment
 
 begin_class
