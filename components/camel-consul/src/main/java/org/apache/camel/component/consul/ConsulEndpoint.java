@@ -181,8 +181,8 @@ name|ConsulEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-comment|//@UriParam(description = "The consul configuration")
-comment|//@Metadata
+comment|// @UriParam(description = "The consul configuration")
+comment|// @Metadata
 DECL|field|configuration
 specifier|private
 specifier|final
@@ -236,7 +236,7 @@ specifier|private
 name|Consul
 name|consul
 decl_stmt|;
-DECL|method|ConsulEndpoint ( String apiEndpoint, String uri, ConsulComponent component, ConsulConfiguration configuration, Optional<ConsulFactories.ProducerFactory> producerFactory, Optional<ConsulFactories.ConsumerFactory> consumerFactory)
+DECL|method|ConsulEndpoint (String apiEndpoint, String uri, ConsulComponent component, ConsulConfiguration configuration, Optional<ConsulFactories.ProducerFactory> producerFactory, Optional<ConsulFactories.ConsumerFactory> consumerFactory)
 specifier|public
 name|ConsulEndpoint
 parameter_list|(

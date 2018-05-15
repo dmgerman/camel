@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|orbitz
+operator|.
+name|consul
+operator|.
+name|Consul
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,18 +67,6 @@ operator|.
 name|spi
 operator|.
 name|UriParams
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|orbitz
-operator|.
-name|consul
-operator|.
-name|Consul
 import|;
 end_import
 
@@ -223,7 +223,7 @@ return|return
 name|consulClient
 return|;
 block|}
-comment|/**      * Reference to a `com.orbitz.consul.Consul` in the      * registry.      */
+comment|/**      * Reference to a `com.orbitz.consul.Consul` in the registry.      */
 DECL|method|setConsulClient (Consul consulClient)
 specifier|public
 name|void
