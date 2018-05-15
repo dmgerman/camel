@@ -338,11 +338,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|scheduledExecutorService
@@ -357,6 +352,11 @@ name|this
 argument_list|,
 literal|"ConsulEventConsumer"
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
