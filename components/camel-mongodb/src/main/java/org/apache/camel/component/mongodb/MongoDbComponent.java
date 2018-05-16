@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -80,7 +92,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -114,7 +126,7 @@ specifier|public
 class|class
 name|MongoDbComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|WRITE_OPERATIONS
 specifier|public
@@ -177,11 +189,23 @@ specifier|public
 name|MongoDbComponent
 parameter_list|()
 block|{
+name|this
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MongoDbComponent (CamelContext context)
+specifier|public
+name|MongoDbComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
 name|super
 argument_list|(
-name|MongoDbEndpoint
-operator|.
-name|class
+name|context
 argument_list|)
 expr_stmt|;
 block|}
