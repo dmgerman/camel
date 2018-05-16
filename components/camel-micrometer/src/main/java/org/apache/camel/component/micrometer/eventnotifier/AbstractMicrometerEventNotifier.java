@@ -529,23 +529,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-try|try
-block|{          }
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 end_class

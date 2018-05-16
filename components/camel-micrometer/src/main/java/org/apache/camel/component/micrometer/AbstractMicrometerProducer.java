@@ -609,12 +609,12 @@ name|T
 name|meter
 parameter_list|)
 function_decl|;
-DECL|method|simple (Exchange exchange, String expression, Class<T> clazz)
+DECL|method|simple (Exchange exchange, String expression, Class<C> clazz)
 specifier|protected
 parameter_list|<
-name|T
+name|C
 parameter_list|>
-name|T
+name|C
 name|simple
 parameter_list|(
 name|Exchange
@@ -625,7 +625,7 @@ name|expression
 parameter_list|,
 name|Class
 argument_list|<
-name|T
+name|C
 argument_list|>
 name|clazz
 parameter_list|)

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *       http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  *  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,16 @@ operator|.
 name|micrometer
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|time
+operator|.
+name|Duration
+import|;
+end_import
 
 begin_import
 import|import
@@ -202,27 +212,9 @@ name|component
 operator|.
 name|micrometer
 operator|.
-name|eventnotifier
+name|messagehistory
 operator|.
-name|MicrometerExchangeEventNotifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|micrometer
-operator|.
-name|eventnotifier
-operator|.
-name|MicrometerRouteEventNotifier
+name|MicrometerMessageHistoryFactory
 import|;
 end_import
 
@@ -318,8 +310,66 @@ name|Configuration
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|micrometer
+operator|.
+name|MicrometerConstants
+operator|.
+name|DISTRIBUTION_SUMMARIES
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|micrometer
+operator|.
+name|messagehistory
+operator|.
+name|MicrometerMessageHistoryNamingStrategy
+operator|.
+name|MESSAGE_HISTORIES
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|micrometer
+operator|.
+name|routepolicy
+operator|.
+name|MicrometerRoutePolicyNamingStrategy
+operator|.
+name|ROUTE_POLICIES
+import|;
+end_import
+
 begin_comment
-comment|//START SNIPPET: RouteConfig
+comment|//START SNIPPET: CamelPrometheusExample
 end_comment
 
 begin_class
@@ -392,29 +442,15 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|addEventNotifier
+name|setMessageHistoryFactory
 argument_list|(
 operator|new
-name|MicrometerRouteEventNotifier
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|camelContext
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|addEventNotifier
-argument_list|(
-operator|new
-name|MicrometerExchangeEventNotifier
+name|MicrometerMessageHistoryFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set up registry. When using Spring Boot, this is provided for you, and you have to provide      * a bean of type MeterRegistryCustomizer in order to apply common tags, filters, etc.      */
 annotation|@
 name|Bean
 argument_list|(
@@ -430,7 +466,6 @@ name|PrometheusMeterRegistry
 name|meterRegistry
 parameter_list|()
 block|{
-comment|// Register the meter registry and some standard meters
 name|PrometheusMeterRegistry
 name|meterRegistry
 init|=
@@ -442,11 +477,80 @@ operator|.
 name|DEFAULT
 argument_list|)
 decl_stmt|;
-comment|// Configure meter registry to expose
+name|DistributionStatisticConfigFilter
+name|timerMeterFilter
+init|=
+operator|new
+name|DistributionStatisticConfigFilter
+argument_list|()
+operator|.
+name|andAppliesTo
+argument_list|(
+name|ROUTE_POLICIES
+argument_list|)
+operator|.
+name|orAppliesTo
+argument_list|(
+name|MESSAGE_HISTORIES
+argument_list|)
+operator|.
+name|setPublishPercentileHistogram
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setMinimumExpectedDuration
+argument_list|(
+name|Duration
+operator|.
+name|ofMillis
+argument_list|(
+literal|1L
+argument_list|)
+argument_list|)
+operator|.
+name|setMaximumExpectedDuration
+argument_list|(
+name|Duration
+operator|.
+name|ofMillis
+argument_list|(
+literal|150L
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|DistributionStatisticConfigFilter
+name|summaryMeterFilter
+init|=
+operator|new
+name|DistributionStatisticConfigFilter
+argument_list|()
+operator|.
+name|andAppliesTo
+argument_list|(
+name|DISTRIBUTION_SUMMARIES
+argument_list|)
+operator|.
+name|setPublishPercentileHistogram
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setMinimumExpectedValue
+argument_list|(
+literal|1L
+argument_list|)
+operator|.
+name|setMaximumExpectedValue
+argument_list|(
+literal|100L
+argument_list|)
+decl_stmt|;
 name|meterRegistry
 operator|.
 name|config
 argument_list|()
+comment|// Application name. Required by Grafana JVM Dashboard 4701.
 operator|.
 name|commonTags
 argument_list|(
@@ -462,11 +566,15 @@ argument_list|)
 operator|.
 name|meterFilter
 argument_list|(
-operator|new
-name|DistributionStatisticConfigFilter
-argument_list|()
+name|timerMeterFilter
+argument_list|)
+operator|.
+name|meterFilter
+argument_list|(
+name|summaryMeterFilter
 argument_list|)
 expr_stmt|;
+comment|// Add JVM metrics. Using Spring Boot, these are added automatically
 operator|new
 name|ClassLoaderMetrics
 argument_list|()
@@ -520,7 +628,7 @@ block|}
 end_class
 
 begin_comment
-comment|//END SNIPPET: RouteConfig
+comment|//END SNIPPET: CamelPrometheusExample
 end_comment
 
 end_unit

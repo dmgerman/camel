@@ -28,6 +28,20 @@ name|core
 operator|.
 name|instrument
 operator|.
+name|Meter
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|micrometer
+operator|.
+name|core
+operator|.
+name|instrument
+operator|.
 name|MeterRegistry
 import|;
 end_import
@@ -237,7 +251,9 @@ argument_list|)
 DECL|field|metricsType
 specifier|protected
 specifier|final
-name|MetricsType
+name|Meter
+operator|.
+name|Type
 name|metricsType
 decl_stmt|;
 annotation|@
@@ -324,7 +340,7 @@ specifier|private
 name|String
 name|decrement
 decl_stmt|;
-DECL|method|MicrometerEndpoint (String uri, Component component, MeterRegistry registry, MetricsType metricsType, String metricsName, Iterable<Tag> tags)
+DECL|method|MicrometerEndpoint (String uri, Component component, MeterRegistry registry, Meter.Type metricsType, String metricsName, Iterable<Tag> tags)
 specifier|public
 name|MicrometerEndpoint
 parameter_list|(
@@ -337,7 +353,9 @@ parameter_list|,
 name|MeterRegistry
 name|registry
 parameter_list|,
-name|MetricsType
+name|Meter
+operator|.
+name|Type
 name|metricsType
 parameter_list|,
 name|String
@@ -424,7 +442,9 @@ if|if
 condition|(
 name|metricsType
 operator|==
-name|MetricsType
+name|Meter
+operator|.
+name|Type
 operator|.
 name|COUNTER
 condition|)
@@ -442,7 +462,9 @@ if|if
 condition|(
 name|metricsType
 operator|==
-name|MetricsType
+name|Meter
+operator|.
+name|Type
 operator|.
 name|DISTRIBUTION_SUMMARY
 condition|)
@@ -460,7 +482,9 @@ if|if
 condition|(
 name|metricsType
 operator|==
-name|MetricsType
+name|Meter
+operator|.
+name|Type
 operator|.
 name|TIMER
 condition|)
@@ -535,7 +559,9 @@ return|;
 block|}
 DECL|method|getMetricsType ()
 specifier|public
-name|MetricsType
+name|Meter
+operator|.
+name|Type
 name|getMetricsType
 parameter_list|()
 block|{

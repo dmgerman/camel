@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *       http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  *  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -25,6 +25,18 @@ operator|.
 name|util
 operator|.
 name|Random
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|LoggingLevel
 import|;
 end_import
 
@@ -64,6 +76,14 @@ name|ScheduledRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+DECL|field|TIMER_ROUTE_ID
+specifier|static
+specifier|final
+name|String
+name|TIMER_ROUTE_ID
+init|=
+literal|"timer:foo"
+decl_stmt|;
 DECL|field|random
 specifier|private
 name|Random
@@ -90,12 +110,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:foo?period=10s&fixedRate=true"
+literal|"timer:foo?period=1s&fixedRate=true"
 argument_list|)
 operator|.
 name|routeId
 argument_list|(
-literal|"timer:foo"
+name|TIMER_ROUTE_ID
 argument_list|)
 operator|.
 name|setHeader
@@ -115,6 +135,15 @@ literal|100
 argument_list|)
 argument_list|)
 operator|.
+name|log
+argument_list|(
+name|LoggingLevel
+operator|.
+name|INFO
+argument_list|,
+literal|"Delay is ${header.random}"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"direct:bar"
@@ -132,7 +161,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"micrometer:summary:histo?value=${header.random}"
+literal|"micrometer:summary:summary?value=${header.random}"
 argument_list|)
 operator|.
 name|to

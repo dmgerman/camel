@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.micrometer.messagehistory
+DECL|package|org.apache.camel.component.micrometer.eventnotifier
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|micrometer
 operator|.
-name|messagehistory
+name|eventnotifier
 package|;
 end_package
 
@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NamedNode
+name|CamelContext
 import|;
 end_import
 
@@ -80,7 +80,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|management
+operator|.
+name|event
+operator|.
+name|AbstractRouteEvent
 import|;
 end_import
 
@@ -116,7 +120,7 @@ name|micrometer
 operator|.
 name|MicrometerConstants
 operator|.
-name|DEFAULT_CAMEL_MESSAGE_HISTORY_METER_NAME
+name|DEFAULT_CAMEL_ROUTES_ADDED
 import|;
 end_import
 
@@ -134,7 +138,7 @@ name|micrometer
 operator|.
 name|MicrometerConstants
 operator|.
-name|NODE_ID_TAG
+name|DEFAULT_CAMEL_ROUTES_RUNNING
 import|;
 end_import
 
@@ -152,7 +156,7 @@ name|micrometer
 operator|.
 name|MicrometerConstants
 operator|.
-name|ROUTE_ID_TAG
+name|EVENT_TYPE_TAG
 import|;
 end_import
 
@@ -174,28 +178,24 @@ name|SERVICE_NAME
 import|;
 end_import
 
-begin_comment
-comment|/**  * Provides a strategy to derive a meter name from the route and node  */
-end_comment
-
 begin_interface
-DECL|interface|MicrometerMessageHistoryNamingStrategy
+DECL|interface|MicrometerRouteEventNotifierNamingStrategy
 specifier|public
 interface|interface
-name|MicrometerMessageHistoryNamingStrategy
+name|MicrometerRouteEventNotifierNamingStrategy
 block|{
-DECL|field|MESSAGE_HISTORIES
+DECL|field|EVENT_NOTIFIERS
 name|Predicate
 argument_list|<
 name|Meter
 operator|.
 name|Id
 argument_list|>
-name|MESSAGE_HISTORIES
+name|EVENT_NOTIFIERS
 init|=
 name|id
 lambda|->
-name|MicrometerMessageHistoryService
+name|MicrometerEventNotifierService
 operator|.
 name|class
 operator|.
@@ -213,38 +213,54 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT
-name|MicrometerMessageHistoryNamingStrategy
+name|MicrometerRouteEventNotifierNamingStrategy
 name|DEFAULT
 init|=
-parameter_list|(
-name|route
-parameter_list|,
-name|node
-parameter_list|)
-lambda|->
-name|DEFAULT_CAMEL_MESSAGE_HISTORY_METER_NAME
-decl_stmt|;
-DECL|method|getName (Route route, NamedNode node)
+operator|new
+name|MicrometerRouteEventNotifierNamingStrategy
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
 name|String
-name|getName
-parameter_list|(
-name|Route
-name|route
-parameter_list|,
-name|NamedNode
-name|node
-parameter_list|)
+name|getRouteAddedName
+parameter_list|()
+block|{
+return|return
+name|DEFAULT_CAMEL_ROUTES_ADDED
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getRouteRunningName
+parameter_list|()
+block|{
+return|return
+name|DEFAULT_CAMEL_ROUTES_RUNNING
+return|;
+block|}
+block|}
+decl_stmt|;
+DECL|method|getRouteAddedName ()
+name|String
+name|getRouteAddedName
+parameter_list|()
 function_decl|;
-DECL|method|getTags (Route route, NamedNode node)
+DECL|method|getRouteRunningName ()
+name|String
+name|getRouteRunningName
+parameter_list|()
+function_decl|;
+DECL|method|getTags (CamelContext camelContext)
 specifier|default
 name|Tags
 name|getTags
 parameter_list|(
-name|Route
-name|route
-parameter_list|,
-name|NamedNode
-name|node
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 return|return
@@ -252,40 +268,29 @@ name|Tags
 operator|.
 name|of
 argument_list|(
-name|CAMEL_CONTEXT_TAG
-argument_list|,
-name|route
-operator|.
-name|getRouteContext
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|,
 name|SERVICE_NAME
 argument_list|,
-name|MicrometerMessageHistoryService
+name|MicrometerEventNotifierService
 operator|.
 name|class
 operator|.
 name|getSimpleName
 argument_list|()
 argument_list|,
-name|ROUTE_ID_TAG
+name|CAMEL_CONTEXT_TAG
 argument_list|,
-name|route
+name|camelContext
 operator|.
-name|getId
+name|getName
 argument_list|()
 argument_list|,
-name|NODE_ID_TAG
+name|EVENT_TYPE_TAG
 argument_list|,
-name|node
+name|AbstractRouteEvent
 operator|.
-name|getId
+name|class
+operator|.
+name|getSimpleName
 argument_list|()
 argument_list|)
 return|;
