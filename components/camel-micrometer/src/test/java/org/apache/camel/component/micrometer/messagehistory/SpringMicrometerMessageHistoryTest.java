@@ -241,7 +241,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|,
 literal|"Hello "
 operator|+
@@ -255,7 +255,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:bar"
+literal|"direct:bar"
 argument_list|,
 literal|"Hello "
 operator|+

@@ -298,7 +298,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|,
 literal|"Hello "
 operator|+
@@ -312,7 +312,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:bar"
+literal|"direct:bar"
 argument_list|,
 literal|"Hello "
 operator|+
@@ -525,7 +525,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 operator|.
 name|to
@@ -540,7 +540,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:bar"
+literal|"direct:bar"
 argument_list|)
 operator|.
 name|to
