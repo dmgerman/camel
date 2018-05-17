@@ -594,6 +594,22 @@ operator|new
 name|OIDList
 argument_list|()
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|treeList
+specifier|private
+name|boolean
+name|treeList
+decl_stmt|;
 comment|/**      * creates a snmp endpoint      *      * @param uri       the endpoint uri      * @param component the component      */
 DECL|method|SnmpEndpoint (String uri, SnmpComponent component)
 specifier|public
@@ -1443,6 +1459,33 @@ operator|.
 name|snmpContextEngineId
 operator|=
 name|snmpContextEngineId
+expr_stmt|;
+block|}
+DECL|method|isTreeList ()
+specifier|public
+name|boolean
+name|isTreeList
+parameter_list|()
+block|{
+return|return
+name|treeList
+return|;
+block|}
+comment|/**      * Sets the flag whether the scoped PDU will be displayed as the list      * if it has child elements in its tree      */
+DECL|method|setTreeList (boolean treeList)
+specifier|public
+name|void
+name|setTreeList
+parameter_list|(
+name|boolean
+name|treeList
+parameter_list|)
+block|{
+name|this
+operator|.
+name|treeList
+operator|=
+name|treeList
 expr_stmt|;
 block|}
 annotation|@
