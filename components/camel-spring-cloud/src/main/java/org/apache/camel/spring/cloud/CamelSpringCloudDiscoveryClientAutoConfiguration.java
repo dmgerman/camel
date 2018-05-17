@@ -315,7 +315,7 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"load-balancer-discovery-client"
+literal|"service-discovery-client"
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean

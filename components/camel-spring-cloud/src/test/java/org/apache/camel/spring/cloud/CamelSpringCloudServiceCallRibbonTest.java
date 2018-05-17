@@ -250,13 +250,13 @@ argument_list|,
 name|properties
 operator|=
 block|{
+literal|"spring.main.banner-mode=off"
+block|,
 literal|"ribbon.eureka.enabled=false"
 block|,
 literal|"ribbon.listOfServers=localhost:9090,localhost:9092"
 block|,
 literal|"ribbon.ServerListRefreshInterval=15000"
-block|,
-literal|"debug=false"
 block|}
 argument_list|)
 DECL|class|CamelSpringCloudServiceCallRibbonTest
@@ -367,6 +367,9 @@ name|name
 argument_list|(
 literal|"custom-svc-list/hello"
 argument_list|)
+operator|.
+name|end
+argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
