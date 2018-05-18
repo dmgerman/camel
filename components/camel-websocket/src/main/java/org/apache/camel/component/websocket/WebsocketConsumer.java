@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|InetSocketAddress
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -178,7 +188,7 @@ name|getPath
 argument_list|()
 return|;
 block|}
-DECL|method|sendMessage (final String connectionKey, final String message)
+DECL|method|sendMessage ( final String connectionKey, final String message, final InetSocketAddress remote)
 specifier|public
 name|void
 name|sendMessage
@@ -190,6 +200,10 @@ parameter_list|,
 specifier|final
 name|String
 name|message
+parameter_list|,
+specifier|final
+name|InetSocketAddress
+name|remote
 parameter_list|)
 block|{
 name|sendMessage
@@ -200,10 +214,12 @@ operator|(
 name|Object
 operator|)
 name|message
+argument_list|,
+name|remote
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sendMessage (final String connectionKey, final Object message)
+DECL|method|sendMessage ( final String connectionKey, final Object message, final InetSocketAddress remote)
 specifier|public
 name|void
 name|sendMessage
@@ -215,6 +231,10 @@ parameter_list|,
 specifier|final
 name|Object
 name|message
+parameter_list|,
+specifier|final
+name|InetSocketAddress
+name|remote
 parameter_list|)
 block|{
 specifier|final
@@ -228,6 +248,20 @@ name|createExchange
 argument_list|()
 decl_stmt|;
 comment|// set header and body
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|WebsocketConstants
+operator|.
+name|REMOTE_ADDRESS
+argument_list|,
+name|remote
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getIn

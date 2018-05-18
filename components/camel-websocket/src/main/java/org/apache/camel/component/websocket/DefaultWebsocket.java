@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|InetSocketAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|UUID
@@ -360,6 +370,9 @@ operator|.
 name|connectionKey
 argument_list|,
 name|message
+argument_list|,
+name|getRemoteAddress
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -446,6 +459,9 @@ operator|.
 name|connectionKey
 argument_list|,
 name|message
+argument_list|,
+name|getRemoteAddress
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -459,6 +475,30 @@ literal|"No consumer to handle message received: byte[]"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getRemoteAddress ()
+specifier|private
+name|InetSocketAddress
+name|getRemoteAddress
+parameter_list|()
+block|{
+name|Session
+name|current
+init|=
+name|session
+decl_stmt|;
+return|return
+name|current
+operator|!=
+literal|null
+condition|?
+name|current
+operator|.
+name|getRemoteAddress
+argument_list|()
+else|:
+literal|null
+return|;
 block|}
 DECL|method|getSession ()
 specifier|public

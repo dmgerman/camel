@@ -61,6 +61,15 @@ name|SEND_TO_ALL
 init|=
 literal|"websocket.sendToAll"
 decl_stmt|;
+DECL|field|REMOTE_ADDRESS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REMOTE_ADDRESS
+init|=
+literal|"websocket.remoteAddress"
+decl_stmt|;
 DECL|field|WS_PROTOCOL
 specifier|public
 specifier|static

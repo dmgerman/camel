@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|InetSocketAddress
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -235,6 +245,22 @@ name|MESSAGE
 init|=
 literal|"message"
 decl_stmt|;
+DECL|field|ADDRESS
+specifier|private
+specifier|static
+specifier|final
+name|InetSocketAddress
+name|ADDRESS
+init|=
+name|InetSocketAddress
+operator|.
+name|createUnresolved
+argument_list|(
+literal|"127.0.0.1"
+argument_list|,
+literal|12345
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Mock
 DECL|field|endpoint
@@ -357,6 +383,8 @@ argument_list|(
 name|CONNECTION_KEY
 argument_list|,
 name|MESSAGE
+argument_list|,
+name|ADDRESS
 argument_list|)
 expr_stmt|;
 name|InOrder
@@ -567,6 +595,8 @@ argument_list|(
 name|CONNECTION_KEY
 argument_list|,
 name|MESSAGE
+argument_list|,
+name|ADDRESS
 argument_list|)
 expr_stmt|;
 name|InOrder
@@ -805,6 +835,8 @@ argument_list|(
 name|CONNECTION_KEY
 argument_list|,
 name|MESSAGE
+argument_list|,
+name|ADDRESS
 argument_list|)
 expr_stmt|;
 name|InOrder
