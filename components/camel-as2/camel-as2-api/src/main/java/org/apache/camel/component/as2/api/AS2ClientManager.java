@@ -253,7 +253,7 @@ specifier|final
 name|String
 name|CAMEL_AS2_CLIENT_PREFIX
 init|=
-literal|"camel-as2.client"
+literal|"camel-as2.client."
 decl_stmt|;
 comment|/**      * The HTTP Context Attribute indicating the AS2 message structure to be sent.      */
 DECL|field|AS2_MESSAGE_STRUCTURE
@@ -815,6 +815,13 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+name|multipartSignedEntity
+operator|.
+name|setMainBody
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|EntityUtils
 operator|.
 name|setMessageEntity

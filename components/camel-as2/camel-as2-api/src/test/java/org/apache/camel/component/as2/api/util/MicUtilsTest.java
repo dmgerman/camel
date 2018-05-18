@@ -413,7 +413,7 @@ specifier|final
 name|String
 name|EXPECTED_ENCODED_MESSAGE_DIGEST
 init|=
-literal|"PaQyByOuBL7XiYyts4Sdmvl1WME="
+literal|"XUt+ug5GEDD0X9+Nv8DGYZZThOQ="
 decl_stmt|;
 annotation|@
 name|Before

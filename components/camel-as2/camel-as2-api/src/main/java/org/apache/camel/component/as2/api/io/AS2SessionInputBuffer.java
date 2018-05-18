@@ -306,6 +306,11 @@ specifier|private
 name|CharBuffer
 name|cbuf
 decl_stmt|;
+DECL|field|lastLineReadTerminatedByLineFeed
+specifier|private
+name|boolean
+name|lastLineReadTerminatedByLineFeed
+decl_stmt|;
 DECL|method|AS2SessionInputBuffer (final HttpTransportMetricsImpl metrics, final int buffersize, final int minChunkLimit, MessageConstraints constraints)
 specifier|public
 name|AS2SessionInputBuffer
@@ -1045,6 +1050,12 @@ name|retry
 init|=
 literal|true
 decl_stmt|;
+name|this
+operator|.
+name|lastLineReadTerminatedByLineFeed
+operator|=
+literal|false
+expr_stmt|;
 while|while
 condition|(
 name|retry
@@ -1093,6 +1104,12 @@ block|{
 name|pos
 operator|=
 name|i
+expr_stmt|;
+name|this
+operator|.
+name|lastLineReadTerminatedByLineFeed
+operator|=
+literal|true
 expr_stmt|;
 break|break;
 block|}
@@ -1214,6 +1231,7 @@ operator|-
 literal|1
 condition|)
 block|{
+comment|// end of stream reached.
 name|retry
 operator|=
 literal|false
@@ -1236,7 +1254,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// indicate the end of stream
+comment|// end of stream reached with no further data in line buffer
 return|return
 operator|-
 literal|1
@@ -1299,6 +1317,16 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+DECL|method|isLastLineReadTerminatedByLineFeed ()
+specifier|public
+name|boolean
+name|isLastLineReadTerminatedByLineFeed
+parameter_list|()
+block|{
+return|return
+name|lastLineReadTerminatedByLineFeed
+return|;
 block|}
 annotation|@
 name|Override
@@ -1945,6 +1973,14 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|pos
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 name|this
 operator|.
 name|bufferpos
@@ -1953,6 +1989,18 @@ name|pos
 operator|+
 literal|1
 expr_stmt|;
+block|}
+else|else
+block|{
+name|this
+operator|.
+name|bufferpos
+operator|=
+name|this
+operator|.
+name|bufferlen
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
