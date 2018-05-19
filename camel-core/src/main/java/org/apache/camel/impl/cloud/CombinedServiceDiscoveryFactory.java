@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot.cloud
+DECL|package|org.apache.camel.impl.cloud
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|boot
+name|impl
 operator|.
 name|cloud
 package|;
@@ -32,27 +30,13 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|cloud
-operator|.
-name|ServiceDefinition
+name|CamelContext
 import|;
 end_import
 
@@ -78,11 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
 name|cloud
 operator|.
-name|CachingServiceDiscovery
+name|ServiceDiscoveryFactory
 import|;
 end_import
 
@@ -94,34 +76,54 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|cloud
-operator|.
-name|CombinedServiceDiscovery
+name|ObjectHelper
 import|;
 end_import
 
 begin_class
-DECL|class|CamelCloudServiceDiscovery
+DECL|class|CombinedServiceDiscoveryFactory
 specifier|public
 class|class
-name|CamelCloudServiceDiscovery
+name|CombinedServiceDiscoveryFactory
 implements|implements
-name|ServiceDiscovery
+name|ServiceDiscoveryFactory
 block|{
-DECL|field|delegate
+DECL|field|serviceDiscoveryList
 specifier|private
+name|List
+argument_list|<
 name|ServiceDiscovery
-name|delegate
+argument_list|>
+name|serviceDiscoveryList
 decl_stmt|;
-DECL|method|CamelCloudServiceDiscovery (Long timeout, List<ServiceDiscovery> serviceDiscoveryList)
+DECL|method|CombinedServiceDiscoveryFactory ()
 specifier|public
-name|CamelCloudServiceDiscovery
+name|CombinedServiceDiscoveryFactory
+parameter_list|()
+block|{     }
+comment|// *************************************************************************
+comment|// Properties
+comment|// *************************************************************************
+DECL|method|getServiceDiscoveryList ()
+specifier|public
+name|List
+argument_list|<
+name|ServiceDiscovery
+argument_list|>
+name|getServiceDiscoveryList
+parameter_list|()
+block|{
+return|return
+name|serviceDiscoveryList
+return|;
+block|}
+DECL|method|setServiceDiscoveryList (List<ServiceDiscovery> serviceDiscoveryList)
+specifier|public
+name|void
+name|setServiceDiscoveryList
 parameter_list|(
-name|Long
-name|timeout
-parameter_list|,
 name|List
 argument_list|<
 name|ServiceDiscovery
@@ -129,73 +131,43 @@ argument_list|>
 name|serviceDiscoveryList
 parameter_list|)
 block|{
-comment|// Created a chained service discovery that collects services from multiple
-comment|// ServiceDiscovery
 name|this
 operator|.
-name|delegate
+name|serviceDiscoveryList
 operator|=
+name|serviceDiscoveryList
+expr_stmt|;
+block|}
+comment|// *************************************************************************
+comment|// Factory
+comment|// *************************************************************************
+annotation|@
+name|Override
+DECL|method|newInstance (CamelContext camelContext)
+specifier|public
+name|ServiceDiscovery
+name|newInstance
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|serviceDiscoveryList
+argument_list|,
+literal|"ServiceDiscovery list"
+argument_list|)
+expr_stmt|;
+return|return
 operator|new
 name|CombinedServiceDiscovery
 argument_list|(
 name|serviceDiscoveryList
-argument_list|)
-expr_stmt|;
-comment|// If a timeout is provided, wrap the serviceDiscovery with a caching
-comment|// strategy so the discovery implementations are not queried for each
-comment|// discovery request
-if|if
-condition|(
-name|timeout
-operator|!=
-literal|null
-operator|&&
-name|timeout
-operator|>
-literal|0
-condition|)
-block|{
-name|this
-operator|.
-name|delegate
-operator|=
-name|CachingServiceDiscovery
-operator|.
-name|wrap
-argument_list|(
-name|this
-operator|.
-name|delegate
-argument_list|,
-name|timeout
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-DECL|method|getServices (String name)
-specifier|public
-name|List
-argument_list|<
-name|ServiceDefinition
-argument_list|>
-name|getServices
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|getServices
-argument_list|(
-name|name
 argument_list|)
 return|;
 block|}

@@ -760,6 +760,20 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
+literal|"combinedServiceDiscovery"
+argument_list|,
+name|type
+operator|=
+name|CombinedServiceCallServiceDiscoveryConfiguration
+operator|.
+name|class
+argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
 literal|"consulServiceDiscovery"
 argument_list|,
 name|type
@@ -2371,6 +2385,9 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated use {@see combinedServiceDiscovery()}      */
+annotation|@
+name|Deprecated
 DECL|method|multiServiceDiscovery ()
 specifier|public
 name|AggregatingServiceCallServiceDiscoveryConfiguration
@@ -2382,6 +2399,30 @@ name|conf
 init|=
 operator|new
 name|AggregatingServiceCallServiceDiscoveryConfiguration
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|setServiceDiscoveryConfiguration
+argument_list|(
+name|conf
+argument_list|)
+expr_stmt|;
+return|return
+name|conf
+return|;
+block|}
+DECL|method|combinedServiceDiscovery ()
+specifier|public
+name|CombinedServiceCallServiceDiscoveryConfiguration
+name|combinedServiceDiscovery
+parameter_list|()
+block|{
+name|CombinedServiceCallServiceDiscoveryConfiguration
+name|conf
+init|=
+operator|new
+name|CombinedServiceCallServiceDiscoveryConfiguration
 argument_list|(
 name|this
 argument_list|)
@@ -2538,6 +2579,9 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated use {@see combinedFiler()}      */
+annotation|@
+name|Deprecated
 DECL|method|multiFilter ()
 specifier|public
 name|ChainedServiceCallServiceFilterConfiguration

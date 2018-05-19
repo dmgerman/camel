@@ -408,6 +408,20 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
+literal|"combinedServiceDiscovery"
+argument_list|,
+name|type
+operator|=
+name|CombinedServiceCallServiceDiscoveryConfiguration
+operator|.
+name|class
+argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
 literal|"consulServiceDiscovery"
 argument_list|,
 name|type
@@ -1760,6 +1774,9 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated use {@see combinedServiceDiscovery()}      */
+annotation|@
+name|Deprecated
 DECL|method|multiServiceDiscovery ()
 specifier|public
 name|AggregatingServiceCallServiceDiscoveryConfiguration
@@ -1782,12 +1799,55 @@ return|return
 name|conf
 return|;
 block|}
+comment|/**      * @deprecated use {@see combinedServiceDiscovery(AggregatingServiceCallServiceDiscoveryConfiguration)}      */
+annotation|@
+name|Deprecated
 DECL|method|multiServiceDiscovery (AggregatingServiceCallServiceDiscoveryConfiguration conf)
 specifier|public
 name|ServiceCallConfigurationDefinition
 name|multiServiceDiscovery
 parameter_list|(
 name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|conf
+parameter_list|)
+block|{
+name|setServiceDiscoveryConfiguration
+argument_list|(
+name|conf
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|combinedServiceDiscovery ()
+specifier|public
+name|CombinedServiceCallServiceDiscoveryConfiguration
+name|combinedServiceDiscovery
+parameter_list|()
+block|{
+name|CombinedServiceCallServiceDiscoveryConfiguration
+name|conf
+init|=
+operator|new
+name|CombinedServiceCallServiceDiscoveryConfiguration
+argument_list|()
+decl_stmt|;
+name|setServiceDiscoveryConfiguration
+argument_list|(
+name|conf
+argument_list|)
+expr_stmt|;
+return|return
+name|conf
+return|;
+block|}
+DECL|method|combinedServiceDiscovery (CombinedServiceCallServiceDiscoveryConfiguration conf)
+specifier|public
+name|ServiceCallConfigurationDefinition
+name|combinedServiceDiscovery
+parameter_list|(
+name|CombinedServiceCallServiceDiscoveryConfiguration
 name|conf
 parameter_list|)
 block|{

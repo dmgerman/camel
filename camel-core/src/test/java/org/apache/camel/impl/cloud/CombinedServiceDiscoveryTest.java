@@ -52,7 +52,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 import|;
 end_import
 
@@ -93,19 +93,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|AggregatingServiceDiscoveryTest
+DECL|class|CombinedServiceDiscoveryTest
 specifier|public
 class|class
-name|AggregatingServiceDiscoveryTest
+name|CombinedServiceDiscoveryTest
 extends|extends
 name|ContextTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testMultiServiceDiscovery ()
+DECL|method|testCombinedServiceDiscovery ()
 specifier|public
 name|void
-name|testMultiServiceDiscovery
+name|testCombinedServiceDiscovery
 parameter_list|()
 throws|throws
 name|Exception
@@ -184,10 +184,10 @@ literal|1114
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|AggregatingServiceDiscovery
+name|CombinedServiceDiscovery
 name|discovery
 init|=
-name|AggregatingServiceDiscovery
+name|CombinedServiceDiscovery
 operator|.
 name|wrap
 argument_list|(
@@ -233,10 +233,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testMultiServiceDiscoveryConfiguration ()
+DECL|method|testCombinedServiceDiscoveryConfiguration ()
 specifier|public
 name|void
-name|testMultiServiceDiscoveryConfiguration
+name|testCombinedServiceDiscoveryConfiguration
 parameter_list|()
 throws|throws
 name|Exception
@@ -283,11 +283,11 @@ literal|"discovery2@localhost:1114"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 name|multiConf
 init|=
 operator|new
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|multiConf
@@ -304,11 +304,11 @@ name|staticConf2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|AggregatingServiceDiscovery
+name|CombinedServiceDiscovery
 name|discovery
 init|=
 operator|(
-name|AggregatingServiceDiscovery
+name|CombinedServiceDiscovery
 operator|)
 name|multiConf
 operator|.
@@ -369,19 +369,19 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testMultiServiceDiscoveryConfigurationDsl ()
+DECL|method|testCombinedServiceDiscoveryConfigurationDsl ()
 specifier|public
 name|void
-name|testMultiServiceDiscoveryConfigurationDsl
+name|testCombinedServiceDiscoveryConfigurationDsl
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 name|multiConf
 init|=
 operator|new
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|multiConf
@@ -418,11 +418,11 @@ literal|"discovery2@localhost:1114"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|AggregatingServiceDiscovery
+name|CombinedServiceDiscovery
 name|discovery
 init|=
 operator|(
-name|AggregatingServiceDiscovery
+name|CombinedServiceDiscovery
 operator|)
 name|multiConf
 operator|.
@@ -483,10 +483,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testMultiServiceDiscoveryConfigurationWithPlaceholders ()
+DECL|method|testCombinedServiceDiscoveryConfigurationWithPlaceholders ()
 specifier|public
 name|void
-name|testMultiServiceDiscoveryConfigurationWithPlaceholders
+name|testCombinedServiceDiscoveryConfigurationWithPlaceholders
 parameter_list|()
 throws|throws
 name|Exception
@@ -509,11 +509,11 @@ argument_list|,
 literal|"discovery1@localhost:1113,discovery2@localhost:1114"
 argument_list|)
 expr_stmt|;
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 name|multiConf
 init|=
 operator|new
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|multiConf
@@ -536,11 +536,11 @@ argument_list|(
 literal|"{{svc-list-2}}"
 argument_list|)
 expr_stmt|;
-name|AggregatingServiceDiscovery
+name|CombinedServiceDiscovery
 name|discovery
 init|=
 operator|(
-name|AggregatingServiceDiscovery
+name|CombinedServiceDiscovery
 operator|)
 name|multiConf
 operator|.

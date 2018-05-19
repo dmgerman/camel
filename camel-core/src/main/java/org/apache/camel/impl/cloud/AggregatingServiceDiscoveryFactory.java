@@ -18,160 +18,20 @@ name|cloud
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|ServiceDiscovery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|ServiceDiscoveryFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
+begin_comment
+comment|/**  * @deprecated use {@link CombinedServiceDiscoveryFactory}  */
+end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|AggregatingServiceDiscoveryFactory
 specifier|public
 class|class
 name|AggregatingServiceDiscoveryFactory
-implements|implements
-name|ServiceDiscoveryFactory
-block|{
-DECL|field|serviceDiscoveryList
-specifier|private
-name|List
-argument_list|<
-name|ServiceDiscovery
-argument_list|>
-name|serviceDiscoveryList
-decl_stmt|;
-DECL|method|AggregatingServiceDiscoveryFactory ()
-specifier|public
-name|AggregatingServiceDiscoveryFactory
-parameter_list|()
-block|{     }
-comment|// *************************************************************************
-comment|// Properties
-comment|// *************************************************************************
-DECL|method|getServiceDiscoveryList ()
-specifier|public
-name|List
-argument_list|<
-name|ServiceDiscovery
-argument_list|>
-name|getServiceDiscoveryList
-parameter_list|()
-block|{
-return|return
-name|serviceDiscoveryList
-return|;
-block|}
-DECL|method|setServiceDiscoveryList (List<ServiceDiscovery> serviceDiscoveryList)
-specifier|public
-name|void
-name|setServiceDiscoveryList
-parameter_list|(
-name|List
-argument_list|<
-name|ServiceDiscovery
-argument_list|>
-name|serviceDiscoveryList
-parameter_list|)
-block|{
-name|this
-operator|.
-name|serviceDiscoveryList
-operator|=
-name|serviceDiscoveryList
-expr_stmt|;
-block|}
-comment|// *************************************************************************
-comment|// Factory
-comment|// *************************************************************************
-annotation|@
-name|Override
-DECL|method|newInstance (CamelContext camelContext)
-specifier|public
-name|ServiceDiscovery
-name|newInstance
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|serviceDiscoveryList
-argument_list|,
-literal|"ServiceDiscovery list"
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|AggregatingServiceDiscovery
-argument_list|(
-name|serviceDiscoveryList
-argument_list|)
-return|;
-block|}
-block|}
+extends|extends
+name|CombinedServiceDiscoveryFactory
+block|{ }
 end_class
 
 end_unit
