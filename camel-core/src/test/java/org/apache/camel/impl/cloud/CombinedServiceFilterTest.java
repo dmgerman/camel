@@ -88,7 +88,7 @@ name|model
 operator|.
 name|cloud
 operator|.
-name|ChainedServiceCallServiceFilterConfiguration
+name|CombinedServiceCallServiceFilterConfiguration
 import|;
 end_import
 
@@ -113,10 +113,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ChainedServiceFilterTest
+DECL|class|CombinedServiceFilterTest
 specifier|public
 class|class
-name|ChainedServiceFilterTest
+name|CombinedServiceFilterTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -130,11 +130,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ChainedServiceCallServiceFilterConfiguration
+name|CombinedServiceCallServiceFilterConfiguration
 name|conf
 init|=
 operator|new
-name|ChainedServiceCallServiceFilterConfiguration
+name|CombinedServiceCallServiceFilterConfiguration
 argument_list|()
 operator|.
 name|healthy
@@ -143,11 +143,11 @@ operator|.
 name|passThrough
 argument_list|()
 decl_stmt|;
-name|ChainedServiceFilter
+name|CombinedServiceFilter
 name|filter
 init|=
 operator|(
-name|ChainedServiceFilter
+name|CombinedServiceFilter
 operator|)
 name|conf
 operator|.
@@ -216,11 +216,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ChainedServiceCallServiceFilterConfiguration
+name|CombinedServiceCallServiceFilterConfiguration
 name|conf
 init|=
 operator|new
-name|ChainedServiceCallServiceFilterConfiguration
+name|CombinedServiceCallServiceFilterConfiguration
 argument_list|()
 operator|.
 name|healthy

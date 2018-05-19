@@ -18,160 +18,20 @@ name|cloud
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|ServiceFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|ServiceFilterFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
+begin_comment
+comment|/**  * @deprecated use {@link CombinedServiceFilterFactory}  */
+end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ChainedServiceFilterFactory
 specifier|public
 class|class
 name|ChainedServiceFilterFactory
-implements|implements
-name|ServiceFilterFactory
-block|{
-DECL|field|serviceFilterList
-specifier|private
-name|List
-argument_list|<
-name|ServiceFilter
-argument_list|>
-name|serviceFilterList
-decl_stmt|;
-DECL|method|ChainedServiceFilterFactory ()
-specifier|public
-name|ChainedServiceFilterFactory
-parameter_list|()
-block|{     }
-comment|// *************************************************************************
-comment|// Properties
-comment|// *************************************************************************
-DECL|method|getServiceFilterList ()
-specifier|public
-name|List
-argument_list|<
-name|ServiceFilter
-argument_list|>
-name|getServiceFilterList
-parameter_list|()
-block|{
-return|return
-name|serviceFilterList
-return|;
-block|}
-DECL|method|setServiceFilterList (List<ServiceFilter> serviceFilterList)
-specifier|public
-name|void
-name|setServiceFilterList
-parameter_list|(
-name|List
-argument_list|<
-name|ServiceFilter
-argument_list|>
-name|serviceFilterList
-parameter_list|)
-block|{
-name|this
-operator|.
-name|serviceFilterList
-operator|=
-name|serviceFilterList
-expr_stmt|;
-block|}
-comment|// *************************************************************************
-comment|// Factory
-comment|// *************************************************************************
-annotation|@
-name|Override
-DECL|method|newInstance (CamelContext camelContext)
-specifier|public
-name|ServiceFilter
-name|newInstance
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|serviceFilterList
-argument_list|,
-literal|"ServiceFilter list"
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|ChainedServiceFilter
-argument_list|(
-name|serviceFilterList
-argument_list|)
-return|;
-block|}
-block|}
+extends|extends
+name|CombinedServiceFilterFactory
+block|{ }
 end_class
 
 end_unit

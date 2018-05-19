@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot.cloud
+DECL|package|org.apache.camel.impl.cloud
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|boot
+name|impl
 operator|.
 name|cloud
 package|;
@@ -38,9 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cloud
-operator|.
-name|ServiceDefinition
+name|CamelContext
 import|;
 end_import
 
@@ -66,31 +62,67 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
 name|cloud
 operator|.
-name|CombinedServiceFilter
+name|ServiceFilterFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
 begin_class
-DECL|class|CamelCloudServiceFilter
+DECL|class|CombinedServiceFilterFactory
 specifier|public
 class|class
-name|CamelCloudServiceFilter
+name|CombinedServiceFilterFactory
 implements|implements
-name|ServiceFilter
+name|ServiceFilterFactory
 block|{
-DECL|field|serviceFilter
+DECL|field|serviceFilterList
 specifier|private
-specifier|final
-name|CombinedServiceFilter
-name|serviceFilter
+name|List
+argument_list|<
+name|ServiceFilter
+argument_list|>
+name|serviceFilterList
 decl_stmt|;
-DECL|method|CamelCloudServiceFilter (List<ServiceFilter> serviceFilterList)
+DECL|method|CombinedServiceFilterFactory ()
 specifier|public
-name|CamelCloudServiceFilter
+name|CombinedServiceFilterFactory
+parameter_list|()
+block|{     }
+comment|// *************************************************************************
+comment|// Properties
+comment|// *************************************************************************
+DECL|method|getServiceFilterList ()
+specifier|public
+name|List
+argument_list|<
+name|ServiceFilter
+argument_list|>
+name|getServiceFilterList
+parameter_list|()
+block|{
+return|return
+name|serviceFilterList
+return|;
+block|}
+DECL|method|setServiceFilterList (List<ServiceFilter> serviceFilterList)
+specifier|public
+name|void
+name|setServiceFilterList
 parameter_list|(
 name|List
 argument_list|<
@@ -101,40 +133,41 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|serviceFilter
+name|serviceFilterList
 operator|=
+name|serviceFilterList
+expr_stmt|;
+block|}
+comment|// *************************************************************************
+comment|// Factory
+comment|// *************************************************************************
+annotation|@
+name|Override
+DECL|method|newInstance (CamelContext camelContext)
+specifier|public
+name|ServiceFilter
+name|newInstance
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|serviceFilterList
+argument_list|,
+literal|"ServiceFilter list"
+argument_list|)
+expr_stmt|;
+return|return
 operator|new
 name|CombinedServiceFilter
 argument_list|(
 name|serviceFilterList
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|apply (List<ServiceDefinition> serviceDefinitionList)
-specifier|public
-name|List
-argument_list|<
-name|ServiceDefinition
-argument_list|>
-name|apply
-parameter_list|(
-name|List
-argument_list|<
-name|ServiceDefinition
-argument_list|>
-name|serviceDefinitionList
-parameter_list|)
-block|{
-return|return
-name|this
-operator|.
-name|serviceFilter
-operator|.
-name|apply
-argument_list|(
-name|serviceDefinitionList
 argument_list|)
 return|;
 block|}
