@@ -1774,7 +1774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @deprecated use {@see combinedServiceDiscovery()}      */
+comment|/**      * @deprecated As of version 2.22.0, replaced by {@link #combinedServiceDiscovery()}      */
 annotation|@
 name|Deprecated
 DECL|method|multiServiceDiscovery ()
@@ -1799,7 +1799,7 @@ return|return
 name|conf
 return|;
 block|}
-comment|/**      * @deprecated use {@see combinedServiceDiscovery(AggregatingServiceCallServiceDiscoveryConfiguration)}      */
+comment|/**      * @deprecated As of version 2.22.0, replaced by {@link #combinedServiceDiscovery(CombinedServiceCallServiceDiscoveryConfiguration)}      */
 annotation|@
 name|Deprecated
 DECL|method|multiServiceDiscovery (AggregatingServiceCallServiceDiscoveryConfiguration conf)
@@ -2011,6 +2011,9 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated As of version 2.22.0, replaced by {@link #combinedFilter()}      */
+annotation|@
+name|Deprecated
 DECL|method|multiFilter ()
 specifier|public
 name|ChainedServiceCallServiceFilterConfiguration

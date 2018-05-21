@@ -307,7 +307,7 @@ name|super
 argument_list|(
 name|parent
 argument_list|,
-literal|"aggregating-service-discovery"
+literal|"combined-service-discovery"
 argument_list|)
 expr_stmt|;
 block|}
@@ -526,31 +526,6 @@ name|conf
 init|=
 operator|new
 name|KubernetesServiceCallServiceDiscoveryConfiguration
-argument_list|()
-decl_stmt|;
-name|addServiceDiscoveryConfigurations
-argument_list|(
-name|conf
-argument_list|)
-expr_stmt|;
-return|return
-name|conf
-return|;
-block|}
-comment|/**      * @deprecated use {@see combinedServiceDiscovery()}      */
-annotation|@
-name|Deprecated
-DECL|method|multiServiceDiscovery ()
-specifier|public
-name|AggregatingServiceCallServiceDiscoveryConfiguration
-name|multiServiceDiscovery
-parameter_list|()
-block|{
-name|AggregatingServiceCallServiceDiscoveryConfiguration
-name|conf
-init|=
-operator|new
-name|AggregatingServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|addServiceDiscoveryConfigurations

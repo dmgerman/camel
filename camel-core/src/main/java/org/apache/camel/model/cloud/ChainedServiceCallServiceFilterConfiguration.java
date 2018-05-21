@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @deprecated use {@link CombinedServiceCallServiceFilterConfiguration}  */
+comment|/**  * @deprecated As of version 2.22.0, replaced by {@link CombinedServiceCallServiceFilterConfiguration}  */
 end_comment
 
 begin_class
