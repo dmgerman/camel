@@ -294,6 +294,8 @@ specifier|public
 name|boolean
 name|isActive
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -329,9 +331,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 name|LOG
@@ -565,6 +567,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+throw|throw
+name|e
+throw|;
 block|}
 finally|finally
 block|{
