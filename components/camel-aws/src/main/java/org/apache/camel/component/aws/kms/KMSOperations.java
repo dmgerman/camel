@@ -40,6 +40,9 @@ name|scheduleKeyDeletion
 block|,
 DECL|enumConstant|describeKey
 name|describeKey
+block|,
+DECL|enumConstant|enableKey
+name|enableKey
 block|}
 end_enum
 
