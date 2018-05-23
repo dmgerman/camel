@@ -984,6 +984,13 @@ argument_list|(
 name|text
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|resultType
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|setResultType
@@ -991,6 +998,7 @@ argument_list|(
 name|resultType
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|builder
 return|;

@@ -773,18 +773,17 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|XPathBuilder
-operator|.
 name|xpath
 argument_list|(
 name|value
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
 comment|/**      * Returns a xpath expression value builder      *      * @param value      the XPath expression      * @param resultType the result type that the XPath expression will return.      * @return the builder      */
 DECL|method|xpath (String value, Class<?> resultType)
 specifier|public
-specifier|static
 name|XPathBuilder
 name|xpath
 parameter_list|(
@@ -798,6 +797,35 @@ argument_list|>
 name|resultType
 parameter_list|)
 block|{
+comment|// the value may contain property placeholders as it may be used directly from Java DSL
+try|try
+block|{
+name|value
+operator|=
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 return|return
 name|XPathBuilder
 operator|.
