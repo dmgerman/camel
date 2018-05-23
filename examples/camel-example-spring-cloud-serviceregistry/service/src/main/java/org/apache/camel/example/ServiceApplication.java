@@ -113,10 +113,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: service.host should be set using properties
 name|fromF
 argument_list|(
-literal|"service:my-service:undertow:http://localhost:%d/path/to/service/1?service.host=localhost"
+literal|"service:my-service:undertow:http://localhost:%d/path/to/service/1"
 argument_list|,
 name|SocketUtils
 operator|.
@@ -132,10 +131,9 @@ argument_list|(
 literal|"Hi!, I'm service-1 on path: /path/to/service/1"
 argument_list|)
 expr_stmt|;
-comment|// TODO: service.host should be set using properties
 name|fromF
 argument_list|(
-literal|"service:my-service:undertow:http://localhost:%d/path/to/service/2?service.host=localhost"
+literal|"service:my-service:undertow:http://localhost:%d/path/to/service/2"
 argument_list|,
 name|SocketUtils
 operator|.
