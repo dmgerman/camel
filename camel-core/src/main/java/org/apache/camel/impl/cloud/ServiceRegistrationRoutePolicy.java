@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -530,6 +540,7 @@ name|Route
 name|route
 parameter_list|)
 block|{
+specifier|final
 name|Endpoint
 name|endpoint
 init|=
@@ -539,6 +550,20 @@ name|getConsumer
 argument_list|()
 operator|.
 name|getEndpoint
+argument_list|()
+decl_stmt|;
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+init|=
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -557,20 +582,18 @@ name|DiscoverableService
 operator|)
 name|endpoint
 decl_stmt|;
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+comment|// first load all the properties from the endpoint
 name|properties
-init|=
+operator|.
+name|putAll
+argument_list|(
 name|service
 operator|.
 name|getServiceProperties
 argument_list|()
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
 comment|// try to get the service id from route properties
 name|String
 name|serviceId
@@ -702,24 +725,37 @@ name|SERVICE_META_NAME
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
 name|ObjectHelper
 operator|.
-name|notNull
+name|isEmpty
 argument_list|(
 name|serviceId
-argument_list|,
-literal|"Service ID"
 argument_list|)
-expr_stmt|;
+operator|||
 name|ObjectHelper
 operator|.
-name|notNull
+name|isEmpty
 argument_list|(
 name|serviceName
-argument_list|,
-literal|"Service Name"
+argument_list|)
+condition|)
+block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Route {} has not enough information for service registration"
 argument_list|)
 expr_stmt|;
+return|return
+name|Optional
+operator|.
+name|empty
+argument_list|()
+return|;
+block|}
 comment|// Build the final resource definition from bits collected from the
 comment|// endpoint and the route.
 name|DefaultServiceDefinition
@@ -745,6 +781,24 @@ operator|.
 name|withName
 argument_list|(
 name|serviceName
+argument_list|)
+operator|.
+name|addMeta
+argument_list|(
+name|ServiceDefinition
+operator|.
+name|SERVICE_META_NAME
+argument_list|,
+name|serviceName
+argument_list|)
+operator|.
+name|addMeta
+argument_list|(
+name|ServiceDefinition
+operator|.
+name|SERVICE_META_ID
+argument_list|,
+name|serviceId
 argument_list|)
 decl_stmt|;
 comment|// Add additional metadata from route properties whose name starts
@@ -851,13 +905,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-return|;
-block|}
-return|return
-name|Optional
-operator|.
-name|empty
-argument_list|()
 return|;
 block|}
 block|}
