@@ -297,6 +297,12 @@ specifier|private
 name|String
 name|loadBalancer
 decl_stmt|;
+comment|/**          * Determine if the default load balancer should be used instead of any auto discovered one.          */
+DECL|field|defaultLoadBalancer
+specifier|private
+name|boolean
+name|defaultLoadBalancer
+decl_stmt|;
 comment|/**          * The {@link Expression} to use.          */
 DECL|field|expression
 specifier|private
@@ -465,6 +471,32 @@ operator|.
 name|loadBalancer
 operator|=
 name|loadBalancer
+expr_stmt|;
+block|}
+DECL|method|isDefaultLoadBalancer ()
+specifier|public
+name|boolean
+name|isDefaultLoadBalancer
+parameter_list|()
+block|{
+return|return
+name|defaultLoadBalancer
+return|;
+block|}
+DECL|method|setDefaultLoadBalancer (boolean defaultLoadBalancer)
+specifier|public
+name|void
+name|setDefaultLoadBalancer
+parameter_list|(
+name|boolean
+name|defaultLoadBalancer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultLoadBalancer
+operator|=
+name|defaultLoadBalancer
 expr_stmt|;
 block|}
 DECL|method|getExpression ()
