@@ -38,6 +38,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|cloud
+operator|.
+name|CamelCloudConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|cloud
@@ -128,11 +146,27 @@ argument_list|,
 name|ZookeeperRegistration
 argument_list|>
 block|{
-DECL|method|ServiceDefinitionToZookeeperRegistration ()
+DECL|field|properties
+specifier|private
+specifier|final
+name|CamelCloudConfigurationProperties
+name|properties
+decl_stmt|;
+DECL|method|ServiceDefinitionToZookeeperRegistration (CamelCloudConfigurationProperties properties)
 specifier|public
 name|ServiceDefinitionToZookeeperRegistration
-parameter_list|()
-block|{     }
+parameter_list|(
+name|CamelCloudConfigurationProperties
+name|properties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|properties
+operator|=
+name|properties
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|convert (ServiceDefinition source)
@@ -174,9 +208,12 @@ argument_list|()
 operator|.
 name|address
 argument_list|(
-name|source
+name|properties
 operator|.
-name|getHost
+name|getServiceRegistry
+argument_list|()
+operator|.
+name|getServiceHost
 argument_list|()
 argument_list|)
 operator|.

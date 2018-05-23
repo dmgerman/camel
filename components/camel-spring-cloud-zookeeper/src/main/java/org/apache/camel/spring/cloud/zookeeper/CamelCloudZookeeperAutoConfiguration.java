@@ -46,6 +46,24 @@ name|spring
 operator|.
 name|boot
 operator|.
+name|cloud
+operator|.
+name|CamelCloudConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
 name|util
 operator|.
 name|GroupCondition
@@ -79,6 +97,22 @@ operator|.
 name|autoconfigure
 operator|.
 name|AutoConfigureBefore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|EnableConfigurationProperties
 import|;
 end_import
 
@@ -191,6 +225,13 @@ name|Condition
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|EnableConfigurationProperties
+argument_list|(
+name|CamelCloudConfigurationProperties
+operator|.
+name|class
+argument_list|)
 DECL|class|CamelCloudZookeeperAutoConfiguration
 specifier|public
 class|class
@@ -203,7 +244,7 @@ name|name
 operator|=
 literal|"service-definition-to-zookeeper-registration"
 argument_list|)
-DECL|method|serviceDefinitionToConsulRegistration ()
+DECL|method|serviceDefinitionToConsulRegistration ( CamelCloudConfigurationProperties properties)
 specifier|public
 name|Converter
 argument_list|<
@@ -212,12 +253,17 @@ argument_list|,
 name|ZookeeperRegistration
 argument_list|>
 name|serviceDefinitionToConsulRegistration
-parameter_list|()
+parameter_list|(
+name|CamelCloudConfigurationProperties
+name|properties
+parameter_list|)
 block|{
 return|return
 operator|new
 name|ServiceDefinitionToZookeeperRegistration
-argument_list|()
+argument_list|(
+name|properties
+argument_list|)
 return|;
 block|}
 comment|// *******************************

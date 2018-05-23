@@ -173,6 +173,15 @@ operator|new
 name|ServiceChooser
 argument_list|()
 decl_stmt|;
+DECL|field|serviceRegistry
+specifier|private
+name|ServiceRegistry
+name|serviceRegistry
+init|=
+operator|new
+name|ServiceRegistry
+argument_list|()
+decl_stmt|;
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -247,6 +256,16 @@ parameter_list|()
 block|{
 return|return
 name|serviceChooser
+return|;
+block|}
+DECL|method|getServiceRegistry ()
+specifier|public
+name|ServiceRegistry
+name|getServiceRegistry
+parameter_list|()
+block|{
+return|return
+name|serviceRegistry
 return|;
 block|}
 comment|// *****************************************
@@ -902,6 +921,82 @@ operator|.
 name|enabled
 operator|=
 name|enabled
+expr_stmt|;
+block|}
+block|}
+comment|// *****************************************
+comment|// Service Registry
+comment|// *****************************************
+DECL|class|ServiceRegistry
+specifier|public
+specifier|static
+class|class
+name|ServiceRegistry
+block|{
+comment|/**          * Configure if service registry should be enabled or not, default true.          */
+DECL|field|enabled
+specifier|private
+name|boolean
+name|enabled
+init|=
+literal|true
+decl_stmt|;
+comment|/**          * Configure the service listening address.          */
+DECL|field|serviceHost
+specifier|private
+name|String
+name|serviceHost
+decl_stmt|;
+DECL|method|isEnabled ()
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
+block|}
+DECL|method|setEnabled (boolean enabled)
+specifier|public
+name|void
+name|setEnabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enabled
+operator|=
+name|enabled
+expr_stmt|;
+block|}
+DECL|method|getServiceHost ()
+specifier|public
+name|String
+name|getServiceHost
+parameter_list|()
+block|{
+return|return
+name|serviceHost
+return|;
+block|}
+DECL|method|setServiceHost (String serviceHost)
+specifier|public
+name|void
+name|setServiceHost
+parameter_list|(
+name|String
+name|serviceHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceHost
+operator|=
+name|serviceHost
 expr_stmt|;
 block|}
 block|}
