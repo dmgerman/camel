@@ -163,10 +163,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CamelSpringDelegatingTestContextLoader which fixes issues in Camel's JavaConfigContextLoader. (adds support for Camel's test annotations)  *<br>  *<em>This loader can handle either classes or locations for configuring the context.</em>  *<br>  * NOTE: This TestContextLoader doesn't support the annotation of ExcludeRoutes now.  */
+comment|/**  * CamelSpringDelegatingTestContextLoader which fixes issues in Camel's JavaConfigContextLoader. (adds support for Camel's test annotations)  *<br>  *<em>This loader can handle either classes or locations for configuring the context.</em>  *<br>  * NOTE: This TestContextLoader doesn't support the annotation of ExcludeRoutes now.  *  * @deprecated use {@link CamelSpringRunner} or {@link CamelSpringBootRunner} instead.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CamelSpringDelegatingTestContextLoader
 specifier|public
 class|class
