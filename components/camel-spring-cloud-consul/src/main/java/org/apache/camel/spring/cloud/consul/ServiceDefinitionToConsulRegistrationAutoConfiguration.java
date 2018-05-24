@@ -219,7 +219,7 @@ name|ConditionalOnConsulEnabled
 annotation|@
 name|Conditional
 argument_list|(
-name|CamelCloudConsulAutoConfiguration
+name|ServiceDefinitionToConsulRegistrationAutoConfiguration
 operator|.
 name|Condition
 operator|.
@@ -232,10 +232,10 @@ name|CamelCloudConfigurationProperties
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelCloudConsulAutoConfiguration
+DECL|class|ServiceDefinitionToConsulRegistrationAutoConfiguration
 specifier|public
 class|class
-name|CamelCloudConsulAutoConfiguration
+name|ServiceDefinitionToConsulRegistrationAutoConfiguration
 block|{
 annotation|@
 name|Bean

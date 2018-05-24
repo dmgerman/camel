@@ -477,6 +477,10 @@ argument_list|,
 literal|"--spring.cloud.zookeeper.discovery.enabled=true"
 argument_list|,
 literal|"--spring.cloud.service-registry.auto-registration.enabled=false"
+argument_list|,
+literal|"--camel.cloud.service-registry.service-host="
+operator|+
+name|SERVICE_HOST
 argument_list|)
 decl_stmt|;
 try|try

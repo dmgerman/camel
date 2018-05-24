@@ -1108,7 +1108,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|getServiceProperties
 parameter_list|()
@@ -1122,8 +1122,13 @@ name|ServiceDefinition
 operator|.
 name|SERVICE_META_PORT
 argument_list|,
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|getPort
 argument_list|()
+argument_list|)
 argument_list|,
 name|ServiceDefinition
 operator|.

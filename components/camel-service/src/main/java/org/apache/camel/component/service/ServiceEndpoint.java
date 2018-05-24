@@ -347,7 +347,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|serviceParameters
 decl_stmt|;
@@ -377,7 +377,7 @@ specifier|final
 name|String
 name|delegateUri
 decl_stmt|;
-DECL|method|ServiceEndpoint (String uri, ServiceComponent component, ServiceRegistry serviceRegistry, Map<String, Object> serviceParameters, String delegateUri)
+DECL|method|ServiceEndpoint (String uri, ServiceComponent component, ServiceRegistry serviceRegistry, Map<String, String> serviceParameters, String delegateUri)
 specifier|public
 name|ServiceEndpoint
 parameter_list|(
@@ -394,7 +394,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|serviceParameters
 parameter_list|,
@@ -575,7 +575,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|parameters
 init|=

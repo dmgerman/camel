@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.cloud
+DECL|package|org.apache.camel.spring.cloud
 package|package
 name|org
 operator|.
@@ -12,39 +12,73 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spring
+operator|.
 name|cloud
 package|;
 end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|camel
+operator|.
+name|cloud
+operator|.
+name|ServiceLoadBalancer
 import|;
 end_import
 
-begin_interface
-DECL|interface|DiscoverableService
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|cloud
+operator|.
+name|client
+operator|.
+name|loadbalancer
+operator|.
+name|LoadBalancerClient
+import|;
+end_import
+
+begin_class
+DECL|class|DefaultLoadBalancerClientAdapter
 specifier|public
-interface|interface
-name|DiscoverableService
+class|class
+name|DefaultLoadBalancerClientAdapter
+implements|implements
+name|CamelSpringCloudServiceLoadBalancer
+operator|.
+name|LoadBalancerClientAdapter
 block|{
-comment|/**      * Get the service properties.      */
-DECL|method|getServiceProperties ()
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getServiceProperties
-parameter_list|()
-function_decl|;
+annotation|@
+name|Override
+DECL|method|adapt (LoadBalancerClient client)
+specifier|public
+name|ServiceLoadBalancer
+name|adapt
+parameter_list|(
+name|LoadBalancerClient
+name|client
+parameter_list|)
+block|{
+return|return
+operator|new
+name|DefaultServiceLoadBalancer
+argument_list|(
+name|client
+argument_list|)
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

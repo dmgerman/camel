@@ -398,6 +398,8 @@ argument_list|,
 literal|"--spring.cloud.consul.discovery.enabled=true"
 argument_list|,
 literal|"--spring.cloud.service-registry.auto-registration.enabled=false"
+argument_list|,
+literal|"--camel.cloud.service-registry.service-host=localhost"
 argument_list|)
 decl_stmt|;
 try|try

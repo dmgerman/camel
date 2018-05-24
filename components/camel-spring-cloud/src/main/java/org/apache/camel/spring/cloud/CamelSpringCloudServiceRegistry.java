@@ -286,37 +286,11 @@ name|ServiceDefinition
 name|definition
 parameter_list|)
 block|{
-name|Registration
-name|result
-init|=
-name|convertServiceDefinition
-argument_list|(
-name|definition
-argument_list|)
-decl_stmt|;
 synchronized|synchronized
 init|(
 name|this
 init|)
 block|{
-name|LOGGER
-operator|.
-name|debug
-argument_list|(
-literal|"Register service with definition: {} with registrations: {}"
-argument_list|,
-name|definition
-argument_list|,
-name|registrationType
-argument_list|)
-expr_stmt|;
-name|serviceRegistry
-operator|.
-name|register
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
 comment|// keep track of registered definition to remove them upon registry
 comment|// shutdown
 if|if
@@ -339,15 +313,46 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Register service with definition: {} with registrations: {}"
+argument_list|,
+name|definition
+argument_list|,
+name|registrationType
+argument_list|)
+block|;
+comment|// compute registration from definition
+name|Registration
+name|result
+operator|=
+name|convertServiceDefinition
+argument_list|(
+name|definition
+argument_list|)
+empty_stmt|;
+name|serviceRegistry
+operator|.
+name|register
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 name|definitions
 operator|.
 name|add
 argument_list|(
 name|definition
 argument_list|)
-block|;             }
+expr_stmt|;
 block|}
 block|}
+block|}
+end_class
+
+begin_function
 annotation|@
 name|Override
 DECL|method|deregister (ServiceDefinition definition)
@@ -359,18 +364,30 @@ name|ServiceDefinition
 name|definition
 parameter_list|)
 block|{
-name|Registration
-name|result
-init|=
-name|convertServiceDefinition
-argument_list|(
-name|definition
-argument_list|)
-decl_stmt|;
 synchronized|synchronized
 init|(
 name|this
 init|)
+block|{
+if|if
+condition|(
+name|definitions
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|noneMatch
+argument_list|(
+name|d
+lambda|->
+name|matchById
+argument_list|(
+name|d
+argument_list|,
+name|definition
+argument_list|)
+argument_list|)
+condition|)
 block|{
 name|LOGGER
 operator|.
@@ -382,7 +399,16 @@ name|definition
 argument_list|,
 name|registrationType
 argument_list|)
-expr_stmt|;
+block|;
+comment|// compute registration from definition
+name|Registration
+name|result
+operator|=
+name|convertServiceDefinition
+argument_list|(
+name|definition
+argument_list|)
+empty_stmt|;
 name|serviceRegistry
 operator|.
 name|deregister
@@ -390,6 +416,7 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+block|}
 comment|// remove any instance with the same id
 name|definitions
 operator|.
@@ -406,8 +433,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
+end_function
+
+begin_function
+unit|}      @
 name|Override
 DECL|method|doStart ()
 specifier|protected
@@ -417,6 +446,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -427,7 +459,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: need to be improved
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 operator|new
 name|ArrayList
 argument_list|<>
@@ -443,6 +479,10 @@ name|deregister
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+end_function
+
+begin_function
 DECL|method|getNativeServiceRegistry ()
 specifier|public
 name|ServiceRegistry
@@ -455,6 +495,9 @@ operator|.
 name|serviceRegistry
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getNativeServiceRegistry (Class<T> type)
 specifier|public
 parameter_list|<
@@ -490,7 +533,13 @@ name|serviceRegistry
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Determine the native registration type. This is needed because the registry      * specific implementation provided by spring-cloud-xyz does not handle generic      * Registration object but needs a Registration specific to the underlying      * technology used.      *      * @return the registration type      */
+end_comment
+
+begin_function
 DECL|method|determineRegistrationType (String methodName)
 specifier|private
 name|Class
@@ -649,6 +698,9 @@ operator|.
 name|class
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|matchById (ServiceDefinition definition, ServiceDefinition reference)
 specifier|private
 name|boolean
@@ -699,6 +751,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|convertServiceDefinition (ServiceDefinition definition)
 specifier|private
 name|Registration
@@ -710,15 +765,35 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|ConversionService
-name|conversionService
-range|:
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
 name|conversionServices
+operator|.
+name|size
+argument_list|()
+condition|;
+name|i
+operator|++
 control|)
 block|{
+name|ConversionService
+name|cs
+init|=
+name|conversionServices
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|conversionService
+name|cs
 operator|.
 name|canConvert
 argument_list|(
@@ -731,7 +806,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|conversionService
+name|cs
 operator|.
 name|convert
 argument_list|(
@@ -752,8 +827,8 @@ name|registrationType
 argument_list|)
 throw|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
