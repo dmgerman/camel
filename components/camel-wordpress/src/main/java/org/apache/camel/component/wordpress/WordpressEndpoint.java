@@ -386,7 +386,7 @@ literal|"Wordpress"
 argument_list|,
 name|syntax
 operator|=
-literal|"wordpress:operation"
+literal|"wordpress:operationDetail"
 argument_list|,
 name|label
 operator|=
