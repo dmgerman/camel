@@ -443,6 +443,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// TODO Need to find a way to setup the JAXRSClientFactory Bean, as the JAXRSClientFactoryBean properties could be changed by the configurer
 return|return
 operator|(
 name|RsClientBlueprintBean

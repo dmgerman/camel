@@ -1569,7 +1569,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getNullSafeCxfRsEndpointConfigurer ()
-specifier|private
+specifier|protected
 name|CxfRsEndpointConfigurer
 name|getNullSafeCxfRsEndpointConfigurer
 parameter_list|()
@@ -1713,22 +1713,6 @@ name|String
 name|address
 parameter_list|)
 block|{
-comment|// address
-if|if
-condition|(
-name|address
-operator|!=
-literal|null
-condition|)
-block|{
-name|cfb
-operator|.
-name|setAddress
-argument_list|(
-name|address
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|modelRef
@@ -1804,6 +1788,22 @@ argument_list|(
 name|cfb
 argument_list|)
 expr_stmt|;
+comment|// Add the address could be override by message header
+if|if
+condition|(
+name|address
+operator|!=
+literal|null
+condition|)
+block|{
+name|cfb
+operator|.
+name|setAddress
+argument_list|(
+name|address
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|setupCommonFactoryProperties (AbstractJAXRSFactoryBean factory)
 specifier|protected

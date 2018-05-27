@@ -359,6 +359,15 @@ argument_list|,
 name|cfb
 argument_list|)
 expr_stmt|;
+comment|// support to call the configurer here
+name|getNullSafeCxfRsEndpointConfigurer
+argument_list|()
+operator|.
+name|configure
+argument_list|(
+name|cfb
+argument_list|)
+expr_stmt|;
 name|cfb
 operator|.
 name|setAddress

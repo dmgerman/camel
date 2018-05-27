@@ -438,6 +438,16 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:end"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -543,6 +553,16 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:end"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -565,7 +585,16 @@ parameter_list|(
 name|AbstractJAXRSFactoryBean
 name|factoryBean
 parameter_list|)
-block|{         }
+block|{
+comment|// setup the wrong address here, it should be override from the address
+name|factoryBean
+operator|.
+name|setAddress
+argument_list|(
+literal|"xxxx"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configureClient (Client client)
