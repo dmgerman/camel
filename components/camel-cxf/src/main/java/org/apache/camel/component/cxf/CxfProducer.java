@@ -1724,7 +1724,7 @@ expr_stmt|;
 block|}
 block|}
 name|int
-name|experctMessagePartsSize
+name|expectMessagePartsSize
 init|=
 name|boi
 operator|.
@@ -1743,7 +1743,7 @@ name|parameters
 operator|.
 name|length
 operator|<
-name|experctMessagePartsSize
+name|expectMessagePartsSize
 condition|)
 block|{
 throw|throw
@@ -1752,7 +1752,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Get the wrong parameter size to invoke the out service, Expect size "
 operator|+
-name|experctMessagePartsSize
+name|expectMessagePartsSize
 operator|+
 literal|", Parameter size "
 operator|+
@@ -1770,7 +1770,7 @@ name|parameters
 operator|.
 name|length
 operator|>
-name|experctMessagePartsSize
+name|expectMessagePartsSize
 condition|)
 block|{
 comment|// need to check the holder parameters
@@ -1855,7 +1855,7 @@ if|if
 condition|(
 name|holdersSize
 operator|+
-name|experctMessagePartsSize
+name|expectMessagePartsSize
 operator|+
 name|soapHeadersSize
 operator|<
@@ -1871,7 +1871,7 @@ argument_list|(
 literal|"Get the wrong parameter size to invoke the out service, Expect size "
 operator|+
 operator|(
-name|experctMessagePartsSize
+name|expectMessagePartsSize
 operator|+
 name|holdersSize
 operator|+
