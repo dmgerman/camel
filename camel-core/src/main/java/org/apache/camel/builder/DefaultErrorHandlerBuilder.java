@@ -866,6 +866,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|retryAttemptedLogInterval (int retryAttemptedLogInterval)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|retryAttemptedLogInterval
+parameter_list|(
+name|int
+name|retryAttemptedLogInterval
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setRetryAttemptedLogInterval
+argument_list|(
+name|retryAttemptedLogInterval
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|logStackTrace (boolean logStackTrace)
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -965,6 +986,27 @@ operator|.
 name|setLogExhausted
 argument_list|(
 name|logExhausted
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|logRetryAttempted (boolean logRetryAttempted)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|logRetryAttempted
+parameter_list|(
+name|boolean
+name|logRetryAttempted
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogRetryAttempted
+argument_list|(
+name|logRetryAttempted
 argument_list|)
 expr_stmt|;
 return|return

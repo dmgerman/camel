@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliveryDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>asyncDelayedRedelivery = false</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logRetryAttempted = true</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *<li>logHandled = false</li>  *<li>logExhausted = true</li>  *<li>logExhaustedMessageHistory = true</li>  *<li>logExhaustedMessageBody = false</li>  *<li>logNewException = true</li>  *<li>allowRedeliveryWhileStopping = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version   */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliveryDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>asyncDelayedRedelivery = false</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>retryAttemptedLogInterval = 1</li>  *<li>logRetryAttempted = true</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *<li>logHandled = false</li>  *<li>logExhausted = true</li>  *<li>logExhaustedMessageHistory = true</li>  *<li>logExhaustedMessageBody = false</li>  *<li>logNewException = true</li>  *<li>allowRedeliveryWhileStopping = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version   */
 end_comment
 
 begin_class
@@ -215,6 +215,13 @@ init|=
 name|LoggingLevel
 operator|.
 name|DEBUG
+decl_stmt|;
+DECL|field|retryAttemptedLogInterval
+specifier|protected
+name|int
+name|retryAttemptedLogInterval
+init|=
+literal|1
 decl_stmt|;
 DECL|field|logStackTrace
 specifier|protected
@@ -332,6 +339,10 @@ operator|+
 literal|", retryAttemptedLogLevel="
 operator|+
 name|retryAttemptedLogLevel
+operator|+
+literal|", retryAttemptedLogInterval="
+operator|+
+name|retryAttemptedLogInterval
 operator|+
 literal|", logRetryAttempted="
 operator|+
@@ -979,6 +990,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the interval to log retry attempts      */
+DECL|method|retryAttemptedLogInterval (int logRetryAttemptedInterval)
+specifier|public
+name|RedeliveryPolicy
+name|retryAttemptedLogInterval
+parameter_list|(
+name|int
+name|logRetryAttemptedInterval
+parameter_list|)
+block|{
+name|setRetryAttemptedLogInterval
+argument_list|(
+name|logRetryAttemptedInterval
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets whether to log retry attempts      */
 DECL|method|logRetryAttempted (boolean logRetryAttempted)
 specifier|public
@@ -1577,6 +1607,33 @@ block|{
 return|return
 name|retryAttemptedLogLevel
 return|;
+block|}
+DECL|method|getRetryAttemptedLogInterval ()
+specifier|public
+name|int
+name|getRetryAttemptedLogInterval
+parameter_list|()
+block|{
+return|return
+name|retryAttemptedLogInterval
+return|;
+block|}
+comment|/**      * Sets the interval to log retry attempts      */
+DECL|method|setRetryAttemptedLogInterval (int retryAttemptedLogInterval)
+specifier|public
+name|void
+name|setRetryAttemptedLogInterval
+parameter_list|(
+name|int
+name|retryAttemptedLogInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retryAttemptedLogInterval
+operator|=
+name|retryAttemptedLogInterval
+expr_stmt|;
 block|}
 DECL|method|getDelayPattern ()
 specifier|public
