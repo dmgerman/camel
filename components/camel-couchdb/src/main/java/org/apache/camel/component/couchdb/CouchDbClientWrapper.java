@@ -156,6 +156,24 @@ name|changes
 argument_list|()
 return|;
 block|}
+DECL|method|get (String id)
+specifier|public
+name|Object
+name|get
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+return|return
+name|client
+operator|.
+name|find
+argument_list|(
+name|id
+argument_list|)
+return|;
+block|}
 DECL|method|context ()
 specifier|public
 name|CouchDbContext
