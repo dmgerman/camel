@@ -56,6 +56,17 @@ specifier|public
 class|class
 name|AntPathMatcher
 block|{
+DECL|field|INSTANCE
+specifier|public
+specifier|static
+specifier|final
+name|AntPathMatcher
+name|INSTANCE
+init|=
+operator|new
+name|AntPathMatcher
+argument_list|()
+decl_stmt|;
 comment|/** Default path separator: "/" */
 DECL|field|DEFAULT_PATH_SEPARATOR
 specifier|public

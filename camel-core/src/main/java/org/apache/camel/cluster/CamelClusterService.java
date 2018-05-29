@@ -271,6 +271,8 @@ literal|")"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|FunctionalInterface
 DECL|interface|Selector
 interface|interface
 name|Selector

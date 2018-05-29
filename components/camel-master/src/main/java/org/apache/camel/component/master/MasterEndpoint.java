@@ -258,6 +258,12 @@ specifier|final
 name|Endpoint
 name|delegateEndpoint
 decl_stmt|;
+DECL|field|clusterService
+specifier|private
+specifier|final
+name|CamelClusterService
+name|clusterService
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -297,12 +303,6 @@ specifier|private
 specifier|final
 name|String
 name|delegateUri
-decl_stmt|;
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|CamelClusterService
-name|clusterService
 decl_stmt|;
 DECL|method|MasterEndpoint (String uri, MasterComponent component, CamelClusterService clusterService, String namespace, String delegateUri)
 specifier|public
@@ -372,9 +372,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|getComponent
-argument_list|()
-expr_stmt|;
 throw|throw
 operator|new
 name|UnsupportedOperationException

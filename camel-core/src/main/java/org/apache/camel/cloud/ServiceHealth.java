@@ -20,9 +20,39 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
 import|;
 end_import
 
@@ -34,6 +64,7 @@ name|ServiceHealth
 block|{
 comment|/**      * Gets a key/value metadata associated with the service.      */
 DECL|method|getMetadata ()
+specifier|default
 name|Map
 argument_list|<
 name|String
@@ -42,13 +73,41 @@ name|String
 argument_list|>
 name|getMetadata
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|Collections
+operator|.
+name|EMPTY_MAP
+return|;
+block|}
 comment|/**      * States if the service is healthy or not      */
 DECL|method|isHealthy ()
+specifier|default
 name|boolean
 name|isHealthy
 parameter_list|()
-function_decl|;
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|/**      * The health enpoint exposed by the service.      */
+DECL|method|getEndpoint ()
+specifier|default
+name|Optional
+argument_list|<
+name|URI
+argument_list|>
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|Optional
+operator|.
+name|empty
+argument_list|()
+return|;
+block|}
 block|}
 end_interface
 

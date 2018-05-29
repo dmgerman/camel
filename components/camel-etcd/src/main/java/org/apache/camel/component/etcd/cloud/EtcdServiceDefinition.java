@@ -107,10 +107,19 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|JsonCreator
-DECL|method|EtcdServiceDefinition ( @sonPropertyR) final String name, @JsonProperty(R) final String address, @JsonProperty(R) final Integer port, @JsonProperty(R) final Map<String, String> tags)
+DECL|method|EtcdServiceDefinition ( @sonPropertyR) final String id, @JsonProperty(R) final String name, @JsonProperty(R) final String address, @JsonProperty(R) final Integer port, @JsonProperty(R) final Map<String, String> tags)
 specifier|public
 name|EtcdServiceDefinition
 parameter_list|(
+annotation|@
+name|JsonProperty
+argument_list|(
+literal|"id"
+argument_list|)
+specifier|final
+name|String
+name|id
+parameter_list|,
 annotation|@
 name|JsonProperty
 argument_list|(
@@ -155,6 +164,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|id
+argument_list|,
 name|name
 argument_list|,
 name|address

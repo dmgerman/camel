@@ -122,6 +122,8 @@ name|component
 operator|.
 name|consul
 operator|.
+name|support
+operator|.
 name|ConsulTestSupport
 import|;
 end_import
@@ -445,6 +447,12 @@ argument_list|)
 operator|.
 name|consulServiceDiscovery
 argument_list|()
+operator|.
+name|url
+argument_list|(
+name|consulUrl
+argument_list|()
+argument_list|)
 operator|.
 name|endParent
 argument_list|()

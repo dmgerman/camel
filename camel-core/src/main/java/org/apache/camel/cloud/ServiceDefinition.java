@@ -26,6 +26,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a Service.  *  * @see ServiceChooser  * @see ServiceDiscovery  */
 end_comment
@@ -36,6 +50,31 @@ specifier|public
 interface|interface
 name|ServiceDefinition
 block|{
+comment|// default service meta-data keys
+DECL|field|SERVICE_META_PORT
+name|String
+name|SERVICE_META_PORT
+init|=
+literal|"service.port"
+decl_stmt|;
+DECL|field|SERVICE_META_PROTOCOL
+name|String
+name|SERVICE_META_PROTOCOL
+init|=
+literal|"service.protocol"
+decl_stmt|;
+DECL|field|SERVICE_META_PATH
+name|String
+name|SERVICE_META_PATH
+init|=
+literal|"service.path"
+decl_stmt|;
+comment|/**      * Gets the service id.      */
+DECL|method|getId ()
+name|String
+name|getId
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the service name.      */
 DECL|method|getName ()
 name|String
@@ -71,6 +110,79 @@ argument_list|>
 name|getMetadata
 parameter_list|()
 function_decl|;
+comment|/**      * Check if a service definition matches.      */
+DECL|method|matches (ServiceDefinition other)
+specifier|default
+name|boolean
+name|matches
+parameter_list|(
+name|ServiceDefinition
+name|other
+parameter_list|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|equals
+argument_list|(
+name|other
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+name|getPort
+argument_list|()
+operator|==
+name|other
+operator|.
+name|getPort
+argument_list|()
+operator|&&
+name|StringHelper
+operator|.
+name|matches
+argument_list|(
+name|getName
+argument_list|()
+argument_list|,
+name|other
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|&&
+name|StringHelper
+operator|.
+name|matches
+argument_list|(
+name|getId
+argument_list|()
+argument_list|,
+name|other
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+operator|&&
+name|StringHelper
+operator|.
+name|matches
+argument_list|(
+name|getHost
+argument_list|()
+argument_list|,
+name|other
+operator|.
+name|getHost
+argument_list|()
+argument_list|)
+return|;
+block|}
 block|}
 end_interface
 

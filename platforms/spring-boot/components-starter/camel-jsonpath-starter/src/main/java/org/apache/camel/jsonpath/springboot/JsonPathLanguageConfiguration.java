@@ -100,7 +100,7 @@ name|allowSimple
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Whether to allow using the easy predicate parser to pre-parse predicates.      */
+comment|/**      * Whether to allow using the easy predicate parse to pre-parse predicates.      */
 DECL|field|allowEasyPredicate
 specifier|private
 name|Boolean
