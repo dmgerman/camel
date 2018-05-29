@@ -5171,7 +5171,7 @@ name|resolver
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if using a custom parse
+comment|// if using a custom parser
 if|if
 condition|(
 name|ObjectHelper
