@@ -324,6 +324,12 @@ specifier|final
 name|boolean
 name|skipBindingOnErrorCode
 decl_stmt|;
+DECL|field|clientRequestValidation
+specifier|private
+specifier|final
+name|boolean
+name|clientRequestValidation
+decl_stmt|;
 DECL|field|enableCORS
 specifier|private
 specifier|final
@@ -352,7 +358,7 @@ name|String
 argument_list|>
 name|queryDefaultValues
 decl_stmt|;
-DECL|method|RestBindingAdvice (CamelContext camelContext, DataFormat jsonDataFormat, DataFormat xmlDataFormat, DataFormat outJsonDataFormat, DataFormat outXmlDataFormat, String consumes, String produces, String bindingMode, boolean skipBindingOnErrorCode, boolean enableCORS, Map<String, String> corsHeaders, Map<String, String> queryDefaultValues)
+DECL|method|RestBindingAdvice (CamelContext camelContext, DataFormat jsonDataFormat, DataFormat xmlDataFormat, DataFormat outJsonDataFormat, DataFormat outXmlDataFormat, String consumes, String produces, String bindingMode, boolean skipBindingOnErrorCode, boolean clientRequestValidation, boolean enableCORS, Map<String, String> corsHeaders, Map<String, String> queryDefaultValues)
 specifier|public
 name|RestBindingAdvice
 parameter_list|(
@@ -382,6 +388,9 @@ name|bindingMode
 parameter_list|,
 name|boolean
 name|skipBindingOnErrorCode
+parameter_list|,
+name|boolean
+name|clientRequestValidation
 parameter_list|,
 name|boolean
 name|enableCORS
@@ -642,6 +651,12 @@ operator|.
 name|skipBindingOnErrorCode
 operator|=
 name|skipBindingOnErrorCode
+expr_stmt|;
+name|this
+operator|.
+name|clientRequestValidation
+operator|=
+name|clientRequestValidation
 expr_stmt|;
 name|this
 operator|.
@@ -1125,7 +1140,12 @@ argument_list|,
 name|accept
 argument_list|)
 expr_stmt|;
-comment|// TODO: option to turn this validation on|off
+comment|// perform client request validation
+if|if
+condition|(
+name|clientRequestValidation
+condition|)
+block|{
 comment|// check if the content-type is accepted according to consumes
 if|if
 condition|(
@@ -1138,7 +1158,7 @@ name|contentType
 argument_list|)
 condition|)
 block|{
-comment|// the content-type must be in a valid otherwise its a HTTP_ERROR 415
+comment|// the content-type is not something we can process so its a HTTP_ERROR 415
 name|exchange
 operator|.
 name|getOut
@@ -1153,7 +1173,7 @@ argument_list|,
 literal|415
 argument_list|)
 expr_stmt|;
-comment|// stop routing
+comment|// stop routing and return
 name|exchange
 operator|.
 name|setProperty
@@ -1165,7 +1185,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// return
 return|return;
 block|}
 comment|// check if what is produces is accepted by the client
@@ -1195,7 +1214,7 @@ argument_list|,
 literal|406
 argument_list|)
 expr_stmt|;
-comment|// stop routing
+comment|// stop routing and return
 name|exchange
 operator|.
 name|setProperty
@@ -1207,8 +1226,8 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// return
 return|return;
+block|}
 block|}
 name|String
 name|body

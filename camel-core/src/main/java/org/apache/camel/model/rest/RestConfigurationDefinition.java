@@ -415,6 +415,13 @@ name|skipBindingOnErrorCode
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|clientRequestValidation
+specifier|private
+name|Boolean
+name|clientRequestValidation
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 annotation|@
 name|Metadata
 argument_list|(
@@ -1041,6 +1048,33 @@ operator|=
 name|skipBindingOnErrorCode
 expr_stmt|;
 block|}
+DECL|method|getClientRequestValidation ()
+specifier|public
+name|Boolean
+name|getClientRequestValidation
+parameter_list|()
+block|{
+return|return
+name|clientRequestValidation
+return|;
+block|}
+comment|/**      * Whether to enable validation of the client request to check whether the Content-Type and Accept headers from      * the client is supported by the Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error, then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
+DECL|method|setClientRequestValidation (Boolean clientRequestValidation)
+specifier|public
+name|void
+name|setClientRequestValidation
+parameter_list|(
+name|Boolean
+name|clientRequestValidation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientRequestValidation
+operator|=
+name|clientRequestValidation
+expr_stmt|;
+block|}
 DECL|method|getEnableCORS ()
 specifier|public
 name|Boolean
@@ -1660,6 +1694,25 @@ block|{
 name|setSkipBindingOnErrorCode
 argument_list|(
 name|skipBindingOnErrorCode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether to enable validation of the client request to check whether the Content-Type and Accept headers from      * the client is supported by the Rest-DSL configuration of its consumes/produces settings.      */
+DECL|method|clientRequestValidation (boolean clientRequestValidation)
+specifier|public
+name|RestConfigurationDefinition
+name|clientRequestValidation
+parameter_list|(
+name|boolean
+name|clientRequestValidation
+parameter_list|)
+block|{
+name|setClientRequestValidation
+argument_list|(
+name|clientRequestValidation
 argument_list|)
 expr_stmt|;
 return|return
@@ -2411,6 +2464,21 @@ operator|.
 name|setSkipBindingOnErrorCode
 argument_list|(
 name|skipBindingOnErrorCode
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|clientRequestValidation
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setClientRequestValidation
+argument_list|(
+name|clientRequestValidation
 argument_list|)
 expr_stmt|;
 block|}

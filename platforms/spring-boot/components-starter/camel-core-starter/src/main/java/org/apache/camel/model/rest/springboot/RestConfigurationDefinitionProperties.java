@@ -220,6 +220,14 @@ name|skipBindingOnErrorCode
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Whether to enable validation of the client request to check whether the      * Content-Type and Accept headers from the client is supported by the      * Rest-DSL configuration of its consumes/produces settings. This can be      * turned on, to enable this check. In case of validation error, then HTTP      * Status codes 415 or 406 is returned. The default value is false.      */
+DECL|field|clientRequestValidation
+specifier|private
+name|Boolean
+name|clientRequestValidation
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether to enable CORS headers in the HTTP response. The default value is      * false.      */
 DECL|field|enableCors
 specifier|private
@@ -746,6 +754,32 @@ operator|.
 name|skipBindingOnErrorCode
 operator|=
 name|skipBindingOnErrorCode
+expr_stmt|;
+block|}
+DECL|method|getClientRequestValidation ()
+specifier|public
+name|Boolean
+name|getClientRequestValidation
+parameter_list|()
+block|{
+return|return
+name|clientRequestValidation
+return|;
+block|}
+DECL|method|setClientRequestValidation (Boolean clientRequestValidation)
+specifier|public
+name|void
+name|setClientRequestValidation
+parameter_list|(
+name|Boolean
+name|clientRequestValidation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientRequestValidation
+operator|=
+name|clientRequestValidation
 expr_stmt|;
 block|}
 DECL|method|getEnableCors ()

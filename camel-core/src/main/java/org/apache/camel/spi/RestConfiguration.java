@@ -201,6 +201,11 @@ name|skipBindingOnErrorCode
 init|=
 literal|true
 decl_stmt|;
+DECL|field|clientRequestValidation
+specifier|private
+name|boolean
+name|clientRequestValidation
+decl_stmt|;
 DECL|field|enableCORS
 specifier|private
 name|boolean
@@ -838,6 +843,33 @@ operator|.
 name|skipBindingOnErrorCode
 operator|=
 name|skipBindingOnErrorCode
+expr_stmt|;
+block|}
+DECL|method|isClientRequestValidation ()
+specifier|public
+name|boolean
+name|isClientRequestValidation
+parameter_list|()
+block|{
+return|return
+name|clientRequestValidation
+return|;
+block|}
+comment|/**      * Whether to enable validation of the client request to check whether the Content-Type and Accept headers from      * the client is supported by the Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error, then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
+DECL|method|setClientRequestValidation (boolean clientRequestValidation)
+specifier|public
+name|void
+name|setClientRequestValidation
+parameter_list|(
+name|boolean
+name|clientRequestValidation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientRequestValidation
+operator|=
+name|clientRequestValidation
 expr_stmt|;
 block|}
 comment|/**      * To specify whether to enable CORS which means Camel will automatic include CORS in the HTTP headers in the response.      *<p/>      * This option is default<tt>false</tt>      *      * @return whether CORS is enabled or not      */

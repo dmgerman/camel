@@ -371,6 +371,12 @@ argument_list|(
 name|getPort
 argument_list|()
 argument_list|)
+comment|// turn on client request validation
+operator|.
+name|clientRequestValidation
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services
 name|rest
