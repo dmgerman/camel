@@ -208,7 +208,7 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Clustered Route policy using"
+literal|"Service Registration Route policy"
 argument_list|)
 DECL|class|ServiceRegistrationRoutePolicy
 specifier|public

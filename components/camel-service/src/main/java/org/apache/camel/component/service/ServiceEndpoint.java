@@ -457,17 +457,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"The consumer endpoint to expose as a service"
-argument_list|,
-name|mask
-operator|=
-literal|true
-argument_list|)
-annotation|@
 name|Override
 DECL|method|getEndpoint ()
 specifier|public
@@ -486,12 +475,27 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"The service definition"
+literal|"The consumer endpoint to expose as a service"
 argument_list|,
 name|mask
 operator|=
 literal|true
 argument_list|)
+DECL|method|getDelegateEndpointUri ()
+specifier|public
+name|String
+name|getDelegateEndpointUri
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|delegateEndpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+return|;
+block|}
 DECL|method|getServiceDefinition ()
 specifier|public
 name|ServiceDefinition
