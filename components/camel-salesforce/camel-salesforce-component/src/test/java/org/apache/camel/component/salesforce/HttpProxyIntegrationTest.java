@@ -923,21 +923,15 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AfterClass
-DECL|method|tearDownAfterClass ()
+name|Override
+DECL|method|cleanupResources ()
 specifier|public
-specifier|static
 name|void
-name|tearDownAfterClass
+name|cleanupResources
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelTestSupport
-operator|.
-name|tearDownAfterClass
-argument_list|()
-expr_stmt|;
 comment|// stop the proxy server after component
 name|LOG
 operator|.

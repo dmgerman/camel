@@ -356,16 +356,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Before
 import|;
 end_import
@@ -1942,15 +1932,6 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|isCreateCamelContextPerClass
-argument_list|()
-condition|)
-block|{
-comment|// we tear down in after class
-return|return;
-block|}
 comment|// unregister services
 if|if
 condition|(
@@ -1991,12 +1972,11 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AfterClass
-DECL|method|tearDownAfterClass ()
+name|Override
+DECL|method|cleanupResources ()
 specifier|public
-specifier|static
 name|void
-name|tearDownAfterClass
+name|cleanupResources
 parameter_list|()
 throws|throws
 name|Exception
@@ -2027,9 +2007,9 @@ name|remove
 argument_list|()
 expr_stmt|;
 block|}
-name|CamelTestSupport
+name|super
 operator|.
-name|tearDownAfterClass
+name|cleanupResources
 argument_list|()
 expr_stmt|;
 block|}

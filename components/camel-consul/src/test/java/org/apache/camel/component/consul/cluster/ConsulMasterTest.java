@@ -126,6 +126,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|orbitz
+operator|.
+name|consul
+operator|.
+name|Consul
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -150,9 +162,7 @@ name|component
 operator|.
 name|consul
 operator|.
-name|support
-operator|.
-name|ConsulContainerSupport
+name|ConsulTestSupport
 import|;
 end_import
 
@@ -246,7 +256,7 @@ specifier|static
 name|GenericContainer
 name|container
 init|=
-name|ConsulContainerSupport
+name|ConsulTestSupport
 operator|.
 name|consulContainer
 argument_list|()
@@ -488,11 +498,25 @@ name|service
 operator|.
 name|setUrl
 argument_list|(
-name|ConsulContainerSupport
+name|String
 operator|.
-name|consulUrl
+name|format
 argument_list|(
+literal|"http://%s:%d"
+argument_list|,
 name|container
+operator|.
+name|getContainerIpAddress
+argument_list|()
+argument_list|,
+name|container
+operator|.
+name|getMappedPort
+argument_list|(
+name|Consul
+operator|.
+name|DEFAULT_HTTP_PORT
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

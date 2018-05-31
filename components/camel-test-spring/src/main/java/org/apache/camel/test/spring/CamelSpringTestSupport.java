@@ -160,16 +160,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|beans
@@ -604,16 +594,20 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|AfterClass
-DECL|method|tearSpringDownAfterClass ()
+name|Override
+DECL|method|doPostTearDown ()
 specifier|public
-specifier|static
 name|void
-name|tearSpringDownAfterClass
+name|doPostTearDown
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doPostTearDown
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|threadAppContext

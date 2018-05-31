@@ -702,23 +702,6 @@ name|context
 return|;
 block|}
 annotation|@
-name|AfterClass
-DECL|method|tearDownAfterClass ()
-specifier|public
-specifier|static
-name|void
-name|tearDownAfterClass
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|CamelTestSupport
-operator|.
-name|tearDownAfterClass
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|Override
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public

@@ -122,8 +122,6 @@ name|component
 operator|.
 name|consul
 operator|.
-name|support
-operator|.
 name|ConsulTestSupport
 import|;
 end_import
@@ -207,6 +205,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doPreSetup
+argument_list|()
+expr_stmt|;
 name|client
 operator|=
 name|getConsul
@@ -316,17 +319,17 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|tearDown ()
+DECL|method|doPostTearDown ()
 specifier|public
 name|void
-name|tearDown
+name|doPostTearDown
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|super
 operator|.
-name|tearDown
+name|doPostTearDown
 argument_list|()
 expr_stmt|;
 name|registrations

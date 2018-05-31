@@ -98,8 +98,6 @@ name|component
 operator|.
 name|consul
 operator|.
-name|support
-operator|.
 name|ConsulTestSupport
 import|;
 end_import
