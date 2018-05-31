@@ -416,11 +416,6 @@ operator|.
 name|route
 argument_list|()
 operator|.
-name|to
-argument_list|(
-literal|"mock:input"
-argument_list|)
-operator|.
 name|setBody
 argument_list|(
 name|constant
