@@ -128,7 +128,6 @@ name|Web3jConfiguration
 implements|implements
 name|Cloneable
 block|{
-comment|// TODO: Add javadoc for setter for documentation and add @UriParam to each option
 annotation|@
 name|UriParam
 argument_list|(
@@ -153,21 +152,61 @@ name|toLowerCase
 argument_list|()
 decl_stmt|;
 comment|// TODO: Make this an enum
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"latest"
+argument_list|)
 DECL|field|fromBlock
 specifier|private
 name|DefaultBlockParameter
 name|fromBlock
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"latest"
+argument_list|)
 DECL|field|toBlock
 specifier|private
 name|DefaultBlockParameter
 name|toBlock
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"latest"
+argument_list|)
 DECL|field|atBlock
 specifier|private
 name|DefaultBlockParameter
 name|atBlock
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|addresses
 specifier|private
 name|List
@@ -176,11 +215,25 @@ name|String
 argument_list|>
 name|addresses
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|address
 specifier|private
 name|String
 name|address
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|topics
 specifier|private
 name|List
@@ -190,126 +243,296 @@ argument_list|>
 name|topics
 decl_stmt|;
 comment|//TODO doesn't support list of lists
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|position
 specifier|private
 name|BigInteger
 name|position
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|blockHash
 specifier|private
 name|String
 name|blockHash
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|sha3HashOfDataToSign
 specifier|private
 name|String
 name|sha3HashOfDataToSign
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|signedTransactionData
 specifier|private
 name|String
 name|signedTransactionData
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|transactionIndex
 specifier|private
 name|BigInteger
 name|transactionIndex
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|filterId
 specifier|private
 name|BigInteger
 name|filterId
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|databaseName
 specifier|private
 name|String
 name|databaseName
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|keyName
 specifier|private
 name|String
 name|keyName
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|transactionHash
 specifier|private
 name|String
 name|transactionHash
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|sourceCode
 specifier|private
 name|String
 name|sourceCode
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|nonce
 specifier|private
 name|String
 name|nonce
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|headerPowHash
 specifier|private
 name|String
 name|headerPowHash
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|mixDigest
 specifier|private
 name|String
 name|mixDigest
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|hashrate
 specifier|private
 name|String
 name|hashrate
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|clientId
 specifier|private
 name|String
 name|clientId
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|fromAddress
 specifier|private
 name|String
 name|fromAddress
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|toAddress
 specifier|private
 name|String
 name|toAddress
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|gasPrice
 specifier|private
 name|BigInteger
 name|gasPrice
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|gasLimit
 specifier|private
 name|BigInteger
 name|gasLimit
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|value
 specifier|private
 name|BigInteger
 name|value
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|data
 specifier|private
 name|String
 name|data
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|priority
 specifier|private
 name|BigInteger
 name|priority
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|ttl
 specifier|private
 name|BigInteger
 name|ttl
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|web3j
 specifier|private
 name|Web3j
 name|web3j
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|fullTransactionObjects
 specifier|private
 name|boolean
@@ -325,6 +548,7 @@ return|return
 name|web3j
 return|;
 block|}
+comment|/**      * The preconfigured Web3j object.      */
 DECL|method|setWeb3j (Web3j web3j)
 specifier|public
 name|void
@@ -351,6 +575,7 @@ return|return
 name|priority
 return|;
 block|}
+comment|/**      * The priority of a whisper message.      */
 DECL|method|setPriority (BigInteger priority)
 specifier|public
 name|void
@@ -377,6 +602,7 @@ return|return
 name|ttl
 return|;
 block|}
+comment|/**      * The time to live in seconds of a whisper message.      */
 DECL|method|setTtl (BigInteger ttl)
 specifier|public
 name|void
@@ -403,6 +629,7 @@ return|return
 name|gasPrice
 return|;
 block|}
+comment|/**      * Gas price used for each paid gas.      */
 DECL|method|setGasPrice (BigInteger gasPrice)
 specifier|public
 name|void
@@ -429,6 +656,7 @@ return|return
 name|gasLimit
 return|;
 block|}
+comment|/**      * The maximum gas allowed in this block.      */
 DECL|method|setGasLimit (BigInteger gasLimit)
 specifier|public
 name|void
@@ -455,6 +683,7 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * The value sent within a transaction.      */
 DECL|method|setValue (BigInteger value)
 specifier|public
 name|void
@@ -481,6 +710,7 @@ return|return
 name|data
 return|;
 block|}
+comment|/**      * The compiled code of a contract OR the hash of the invoked method signature and encoded parameters.      */
 DECL|method|setData (String data)
 specifier|public
 name|void
@@ -507,6 +737,7 @@ return|return
 name|fromAddress
 return|;
 block|}
+comment|/**      * The address the transaction is send from      */
 DECL|method|setFromAddress (String fromAddress)
 specifier|public
 name|void
@@ -533,6 +764,7 @@ return|return
 name|toAddress
 return|;
 block|}
+comment|/**      * The address the transaction is directed to.      */
 DECL|method|setToAddress (String toAddress)
 specifier|public
 name|void
@@ -559,6 +791,7 @@ return|return
 name|clientId
 return|;
 block|}
+comment|/**      * A random hexadecimal(32 bytes) ID identifying the client.      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -585,6 +818,7 @@ return|return
 name|hashrate
 return|;
 block|}
+comment|/**      * A hexadecimal string representation (32 bytes) of the hash rate.      */
 DECL|method|setHashrate (String hashrate)
 specifier|public
 name|void
@@ -611,6 +845,7 @@ return|return
 name|mixDigest
 return|;
 block|}
+comment|/**      * The mix digest (256 bits) used for submitting a proof-of-work solution.      */
 DECL|method|setMixDigest (String mixDigest)
 specifier|public
 name|void
@@ -637,6 +872,7 @@ return|return
 name|headerPowHash
 return|;
 block|}
+comment|/**      * The header's pow-hash (256 bits) used for submitting a proof-of-work solution.      */
 DECL|method|setHeaderPowHash (String headerPowHash)
 specifier|public
 name|void
@@ -663,6 +899,7 @@ return|return
 name|nonce
 return|;
 block|}
+comment|/**      * The nonce found (64 bits) used for submitting a proof-of-work solution.      */
 DECL|method|setNonce (String nonce)
 specifier|public
 name|void
@@ -689,6 +926,7 @@ return|return
 name|sourceCode
 return|;
 block|}
+comment|/**      * The source code to compile.      */
 DECL|method|setSourceCode (String sourceCode)
 specifier|public
 name|void
@@ -715,6 +953,7 @@ return|return
 name|transactionHash
 return|;
 block|}
+comment|/**      * The information about a transaction requested by transaction hash.      */
 DECL|method|setTransactionHash (String transactionHash)
 specifier|public
 name|void
@@ -741,6 +980,7 @@ return|return
 name|databaseName
 return|;
 block|}
+comment|/**      * The local database name.      */
 DECL|method|setDatabaseName (String databaseName)
 specifier|public
 name|void
@@ -767,6 +1007,7 @@ return|return
 name|keyName
 return|;
 block|}
+comment|/**      * The key name in the database.      */
 DECL|method|setKeyName (String keyName)
 specifier|public
 name|void
@@ -793,6 +1034,7 @@ return|return
 name|filterId
 return|;
 block|}
+comment|/**      * The filter id to use.      */
 DECL|method|setFilterId (BigInteger filterId)
 specifier|public
 name|void
@@ -819,6 +1061,7 @@ return|return
 name|transactionIndex
 return|;
 block|}
+comment|/**      * The transactions index position in the block.      */
 DECL|method|setTransactionIndex (BigInteger transactionIndex)
 specifier|public
 name|void
@@ -845,6 +1088,7 @@ return|return
 name|signedTransactionData
 return|;
 block|}
+comment|/**      * The signed transaction data for a new message call transaction or a contract creation for signed transactions.      */
 DECL|method|setSignedTransactionData (String signedTransactionData)
 specifier|public
 name|void
@@ -871,6 +1115,7 @@ return|return
 name|blockHash
 return|;
 block|}
+comment|/**      * Hash of the block where this transaction was in.      */
 DECL|method|setBlockHash (String blockHash)
 specifier|public
 name|void
@@ -897,6 +1142,7 @@ return|return
 name|sha3HashOfDataToSign
 return|;
 block|}
+comment|/**      * Message to sign by calculating an Ethereum specific signature.      */
 DECL|method|setSha3HashOfDataToSign (String sha3HashOfDataToSign)
 specifier|public
 name|void
@@ -923,6 +1169,7 @@ return|return
 name|position
 return|;
 block|}
+comment|/**      * The transaction index position withing a block.      */
 DECL|method|setPosition (BigInteger position)
 specifier|public
 name|void
@@ -949,6 +1196,7 @@ return|return
 name|fromBlock
 return|;
 block|}
+comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
 DECL|method|setFromBlock (String block)
 specifier|public
 name|void
@@ -968,6 +1216,7 @@ name|block
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
 DECL|method|setToBlock (String block)
 specifier|public
 name|void
@@ -1084,6 +1333,7 @@ return|return
 name|atBlock
 return|;
 block|}
+comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
 DECL|method|setAtBlock (String block)
 specifier|public
 name|void
@@ -1116,6 +1366,7 @@ return|return
 name|addresses
 return|;
 block|}
+comment|/**      * Contract address or a list of addresses.      */
 DECL|method|setAddresses (List<String> addresses)
 specifier|public
 name|void
@@ -1148,6 +1399,7 @@ return|return
 name|topics
 return|;
 block|}
+comment|/**      * Topics are order-dependent. Each topic can also be a list of topics.      */
 DECL|method|setTopics (List<String> topics)
 specifier|public
 name|void
@@ -1177,6 +1429,7 @@ return|return
 name|address
 return|;
 block|}
+comment|/**      * Contract address.      */
 DECL|method|setAddress (String address)
 specifier|public
 name|void
@@ -1203,6 +1456,7 @@ return|return
 name|fullTransactionObjects
 return|;
 block|}
+comment|/**      *  If true it returns the full transaction objects, if false only the hashes of the transactions.      */
 DECL|method|setFullTransactionObjects (boolean fullTransactionObjects)
 specifier|public
 name|void

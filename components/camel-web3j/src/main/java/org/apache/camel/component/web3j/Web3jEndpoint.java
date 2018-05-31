@@ -346,11 +346,11 @@ literal|"web3j"
 argument_list|,
 name|title
 operator|=
-literal|"web3j"
+literal|"Web3j client for Ethereum blockchain"
 argument_list|,
 name|syntax
 operator|=
-literal|"web3j:cmsUrl"
+literal|"web3j:host:port"
 argument_list|,
 name|consumerClass
 operator|=
@@ -360,7 +360,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"web3j,blockchain"
+literal|"blockchain, ethereum"
 argument_list|)
 DECL|class|Web3jEndpoint
 specifier|public
@@ -385,13 +385,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|web3j
+specifier|private
+specifier|final
+name|Web3j
+name|web3j
+decl_stmt|;
 annotation|@
 name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"URL to the web3j repository"
-argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -399,11 +400,10 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|web3j
+DECL|field|nodeAddress
 specifier|private
-specifier|final
-name|Web3j
-name|web3j
+name|String
+name|nodeAddress
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -441,6 +441,12 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+name|this
+operator|.
+name|nodeAddress
+operator|=
+name|remaining
 expr_stmt|;
 name|this
 operator|.
@@ -660,6 +666,33 @@ argument_list|(
 name|web3jService
 argument_list|)
 return|;
+block|}
+DECL|method|getNodeAddress ()
+specifier|public
+name|String
+name|getNodeAddress
+parameter_list|()
+block|{
+return|return
+name|nodeAddress
+return|;
+block|}
+comment|/**      * Sets the node address used to communicate      */
+DECL|method|setNodeAddress (String nodeAddress)
+specifier|public
+name|void
+name|setNodeAddress
+parameter_list|(
+name|String
+name|nodeAddress
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nodeAddress
+operator|=
+name|nodeAddress
+expr_stmt|;
 block|}
 DECL|method|buildEthFilter (DefaultBlockParameter fromBlock, DefaultBlockParameter toBlock, List<String> addresses, List<String> topics)
 specifier|public
