@@ -211,145 +211,175 @@ name|Web3jConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * The preconfigured Web3j object.          */
 DECL|field|web3j
 specifier|private
 name|Web3j
 name|web3j
 decl_stmt|;
+comment|/**          * The priority of a whisper message.          */
 DECL|field|priority
 specifier|private
 name|BigInteger
 name|priority
 decl_stmt|;
+comment|/**          * The time to live in seconds of a whisper message.          */
 DECL|field|ttl
 specifier|private
 name|BigInteger
 name|ttl
 decl_stmt|;
+comment|/**          * Gas price used for each paid gas.          */
 DECL|field|gasPrice
 specifier|private
 name|BigInteger
 name|gasPrice
 decl_stmt|;
+comment|/**          * The maximum gas allowed in this block.          */
 DECL|field|gasLimit
 specifier|private
 name|BigInteger
 name|gasLimit
 decl_stmt|;
+comment|/**          * The value sent within a transaction.          */
 DECL|field|value
 specifier|private
 name|BigInteger
 name|value
 decl_stmt|;
+comment|/**          * The compiled code of a contract OR the hash of the invoked method          * signature and encoded parameters.          */
 DECL|field|data
 specifier|private
 name|String
 name|data
 decl_stmt|;
+comment|/**          * The address the transaction is send from          */
 DECL|field|fromAddress
 specifier|private
 name|String
 name|fromAddress
 decl_stmt|;
+comment|/**          * The address the transaction is directed to.          */
 DECL|field|toAddress
 specifier|private
 name|String
 name|toAddress
 decl_stmt|;
+comment|/**          * A random hexadecimal(32 bytes) ID identifying the client.          */
 DECL|field|clientId
 specifier|private
 name|String
 name|clientId
 decl_stmt|;
+comment|/**          * A hexadecimal string representation (32 bytes) of the hash rate.          */
 DECL|field|hashrate
 specifier|private
 name|String
 name|hashrate
 decl_stmt|;
+comment|/**          * The mix digest (256 bits) used for submitting a proof-of-work          * solution.          */
 DECL|field|mixDigest
 specifier|private
 name|String
 name|mixDigest
 decl_stmt|;
+comment|/**          * The header's pow-hash (256 bits) used for submitting a proof-of-work          * solution.          */
 DECL|field|headerPowHash
 specifier|private
 name|String
 name|headerPowHash
 decl_stmt|;
+comment|/**          * The nonce found (64 bits) used for submitting a proof-of-work          * solution.          */
 DECL|field|nonce
 specifier|private
 name|String
 name|nonce
 decl_stmt|;
+comment|/**          * The source code to compile.          */
 DECL|field|sourceCode
 specifier|private
 name|String
 name|sourceCode
 decl_stmt|;
+comment|/**          * The information about a transaction requested by transaction hash.          */
 DECL|field|transactionHash
 specifier|private
 name|String
 name|transactionHash
 decl_stmt|;
+comment|/**          * The local database name.          */
 DECL|field|databaseName
 specifier|private
 name|String
 name|databaseName
 decl_stmt|;
+comment|/**          * The key name in the database.          */
 DECL|field|keyName
 specifier|private
 name|String
 name|keyName
 decl_stmt|;
+comment|/**          * The filter id to use.          */
 DECL|field|filterId
 specifier|private
 name|BigInteger
 name|filterId
 decl_stmt|;
+comment|/**          * The transactions index position in the block.          */
 DECL|field|transactionIndex
 specifier|private
 name|BigInteger
 name|transactionIndex
 decl_stmt|;
+comment|/**          * The signed transaction data for a new message call transaction or a          * contract creation for signed transactions.          */
 DECL|field|signedTransactionData
 specifier|private
 name|String
 name|signedTransactionData
 decl_stmt|;
+comment|/**          * Hash of the block where this transaction was in.          */
 DECL|field|blockHash
 specifier|private
 name|String
 name|blockHash
 decl_stmt|;
+comment|/**          * Message to sign by calculating an Ethereum specific signature.          */
 DECL|field|sha3HashOfDataToSign
 specifier|private
 name|String
 name|sha3HashOfDataToSign
 decl_stmt|;
+comment|/**          * The transaction index position withing a block.          */
 DECL|field|position
 specifier|private
 name|BigInteger
 name|position
 decl_stmt|;
+comment|/**          * Contract address or a list of addresses.          */
 DECL|field|addresses
 specifier|private
 name|List
 name|addresses
 decl_stmt|;
+comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          */
 DECL|field|topics
 specifier|private
 name|List
 name|topics
 decl_stmt|;
+comment|/**          * Contract address.          */
 DECL|field|address
 specifier|private
 name|String
 name|address
 decl_stmt|;
+comment|/**          * If true it returns the full transaction objects, if false only the          * hashes of the transactions.          */
 DECL|field|fullTransactionObjects
 specifier|private
 name|Boolean
 name|fullTransactionObjects
+init|=
+literal|false
 decl_stmt|;
 comment|/**          * Operation to use.          */
 DECL|field|operation
