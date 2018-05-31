@@ -862,7 +862,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Build a map from varargs.      */
-DECL|method|mapOf (Supplier<Map<K,V>> creator, K key, V value, Object... keyVals)
+DECL|method|mapOf (Supplier<Map<K, V>> creator, K key, V value, Object... keyVals)
 specifier|public
 specifier|static
 parameter_list|<
@@ -969,7 +969,7 @@ name|map
 return|;
 block|}
 comment|/**      * Build an immutable map from varargs.      */
-DECL|method|immutableMapOf (Supplier<Map<K,V>> creator, K key, V value, Object... keyVals)
+DECL|method|immutableMapOf (Supplier<Map<K, V>> creator, K key, V value, Object... keyVals)
 specifier|public
 specifier|static
 parameter_list|<
