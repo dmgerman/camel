@@ -168,7 +168,7 @@ name|CoreOptions
 operator|.
 name|systemPackage
 argument_list|(
-literal|"sun.nio.ch"
+literal|"sun.nio.ch,com.sun.management"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -242,7 +242,7 @@ comment|// install ignite first
 name|String
 name|version
 init|=
-literal|"2.4.0"
+literal|"2.5.0"
 decl_stmt|;
 name|LOG
 operator|.
