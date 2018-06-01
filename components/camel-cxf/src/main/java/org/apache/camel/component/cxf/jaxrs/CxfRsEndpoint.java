@@ -414,9 +414,11 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|feature
+name|ext
 operator|.
-name|Feature
+name|logging
+operator|.
+name|LoggingFeature
 import|;
 end_import
 
@@ -430,7 +432,7 @@ name|cxf
 operator|.
 name|feature
 operator|.
-name|LoggingFeature
+name|Feature
 import|;
 end_import
 
@@ -2026,6 +2028,13 @@ name|isLoggingFeatureEnabled
 argument_list|()
 condition|)
 block|{
+name|LoggingFeature
+name|loggingFeature
+init|=
+operator|new
+name|LoggingFeature
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|getLoggingSizeLimit
@@ -2034,24 +2043,15 @@ operator|>
 literal|0
 condition|)
 block|{
-name|factory
+name|loggingFeature
 operator|.
-name|getFeatures
-argument_list|()
-operator|.
-name|add
-argument_list|(
-operator|new
-name|LoggingFeature
+name|setLimit
 argument_list|(
 name|getLoggingSizeLimit
 argument_list|()
 argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|factory
 operator|.
 name|getFeatures
@@ -2059,12 +2059,9 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-operator|new
-name|LoggingFeature
-argument_list|()
+name|loggingFeature
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
