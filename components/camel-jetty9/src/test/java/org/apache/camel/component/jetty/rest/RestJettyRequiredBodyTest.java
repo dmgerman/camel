@@ -289,7 +289,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|""
+literal|"The request body is missing."
 argument_list|,
 name|cause
 operator|.

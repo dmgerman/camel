@@ -1557,6 +1557,16 @@ argument_list|,
 literal|400
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"The request body is missing."
+argument_list|)
+expr_stmt|;
 comment|// stop routing and return
 name|exchange
 operator|.
@@ -1611,6 +1621,16 @@ argument_list|,
 literal|400
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Some of the required query parameters are missing."
+argument_list|)
+expr_stmt|;
 comment|// stop routing and return
 name|exchange
 operator|.
@@ -1662,6 +1682,16 @@ operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|,
 literal|400
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Some of the required HTTP headers are missing."
 argument_list|)
 expr_stmt|;
 comment|// stop routing and return

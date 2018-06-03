@@ -294,7 +294,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|""
+literal|"Some of the required query parameters are missing."
 argument_list|,
 name|cause
 operator|.

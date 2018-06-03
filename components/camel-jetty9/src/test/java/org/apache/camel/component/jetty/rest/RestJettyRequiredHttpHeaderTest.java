@@ -301,7 +301,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|""
+literal|"Some of the required HTTP headers are missing."
 argument_list|,
 name|cause
 operator|.
