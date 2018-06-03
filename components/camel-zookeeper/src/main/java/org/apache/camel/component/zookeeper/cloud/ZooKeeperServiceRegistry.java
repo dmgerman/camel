@@ -1685,12 +1685,10 @@ name|serviceList
 operator|.
 name|remove
 argument_list|(
-operator|(
 name|serviceInstance
 operator|.
 name|getId
 argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -26,7 +26,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Collections
 import|;
 end_import
 
@@ -116,25 +116,14 @@ name|getMetadata
 parameter_list|()
 block|{
 return|return
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
-block|{
-block|{
-name|put
+name|Collections
+operator|.
+name|singletonMap
 argument_list|(
 literal|"service.type"
 argument_list|,
 literal|"zookeeper"
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 return|;
 block|}
 annotation|@
