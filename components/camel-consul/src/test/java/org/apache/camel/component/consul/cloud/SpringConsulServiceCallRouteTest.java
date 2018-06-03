@@ -281,6 +281,18 @@ name|SpringConsulServiceCallRouteTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+annotation|@
+name|Rule
+DECL|field|container
+specifier|public
+name|GenericContainer
+name|container
+init|=
+name|ConsulContainerSupport
+operator|.
+name|consulContainer
+argument_list|()
+decl_stmt|;
 DECL|field|client
 specifier|private
 name|AgentClient
@@ -293,18 +305,6 @@ argument_list|<
 name|Registration
 argument_list|>
 name|registrations
-decl_stmt|;
-annotation|@
-name|Rule
-DECL|field|container
-specifier|public
-name|GenericContainer
-name|container
-init|=
-name|ConsulContainerSupport
-operator|.
-name|consulContainer
-argument_list|()
 decl_stmt|;
 comment|// *************************************************************************
 comment|// Setup / tear down

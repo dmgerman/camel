@@ -238,6 +238,19 @@ specifier|public
 class|class
 name|ConsulMasterTest
 block|{
+annotation|@
+name|ClassRule
+DECL|field|container
+specifier|public
+specifier|static
+name|GenericContainer
+name|container
+init|=
+name|ConsulContainerSupport
+operator|.
+name|consulContainer
+argument_list|()
+decl_stmt|;
 DECL|field|LOGGER
 specifier|private
 specifier|static
@@ -337,19 +350,6 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-decl_stmt|;
-annotation|@
-name|ClassRule
-DECL|field|container
-specifier|public
-specifier|static
-name|GenericContainer
-name|container
-init|=
-name|ConsulContainerSupport
-operator|.
-name|consulContainer
-argument_list|()
 decl_stmt|;
 comment|// ************************************
 comment|// Test

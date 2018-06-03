@@ -134,8 +134,8 @@ name|ConsulTestSupport
 block|{
 DECL|field|SERVICE_HOST
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SERVICE_HOST
 init|=
