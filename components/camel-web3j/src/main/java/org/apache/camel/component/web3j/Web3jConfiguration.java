@@ -298,10 +298,10 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
-DECL|field|transactionIndex
+DECL|field|index
 specifier|private
 name|BigInteger
-name|transactionIndex
+name|index
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1051,31 +1051,31 @@ operator|=
 name|filterId
 expr_stmt|;
 block|}
-DECL|method|getTransactionIndex ()
+DECL|method|getIndex ()
 specifier|public
 name|BigInteger
-name|getTransactionIndex
+name|getIndex
 parameter_list|()
 block|{
 return|return
-name|transactionIndex
+name|index
 return|;
 block|}
-comment|/**      * The transactions index position in the block.      */
-DECL|method|setTransactionIndex (BigInteger transactionIndex)
+comment|/**      * The transactions/uncle index position in the block.      */
+DECL|method|setIndex (BigInteger index)
 specifier|public
 name|void
-name|setTransactionIndex
+name|setIndex
 parameter_list|(
 name|BigInteger
-name|transactionIndex
+name|index
 parameter_list|)
 block|{
 name|this
 operator|.
-name|transactionIndex
+name|index
 operator|=
-name|transactionIndex
+name|index
 expr_stmt|;
 block|}
 DECL|method|getSignedTransactionData ()

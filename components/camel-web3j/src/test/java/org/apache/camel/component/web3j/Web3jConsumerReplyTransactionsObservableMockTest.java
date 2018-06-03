@@ -114,7 +114,7 @@ name|methods
 operator|.
 name|response
 operator|.
-name|EthBlock
+name|Transaction
 import|;
 end_import
 
@@ -168,43 +168,25 @@ name|web3j
 operator|.
 name|Web3jConstants
 operator|.
-name|CATCH_UP_TO_LATEST_AND_SUBSCRIBE_TO_NEW_BLOCKS_OBSERVABLE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|web3j
-operator|.
-name|Web3jConstants
-operator|.
-name|CATCH_UP_TO_LATEST_BLOCK_OBSERVABLE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|web3j
-operator|.
-name|Web3jConstants
-operator|.
 name|OPERATION
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|web3j
+operator|.
+name|Web3jConstants
+operator|.
+name|REPLAY_TRANSACTIONS_OBSERVABLE
 import|;
 end_import
 
@@ -221,12 +203,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|Web3jConsumerCatchUpToLatestAndSubscribeToNewBlocksObservableTest
+DECL|class|Web3jConsumerReplyTransactionsObservableMockTest
 specifier|public
 class|class
-name|Web3jConsumerCatchUpToLatestAndSubscribeToNewBlocksObservableTest
+name|Web3jConsumerReplyTransactionsObservableMockTest
 extends|extends
-name|Web3jTestSupport
+name|Web3jMockTestSupport
 block|{
 annotation|@
 name|Mock
@@ -234,7 +216,7 @@ DECL|field|observable
 specifier|private
 name|Observable
 argument_list|<
-name|EthBlock
+name|Transaction
 argument_list|>
 name|observable
 decl_stmt|;
@@ -268,7 +250,7 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|catchUpToLatestAndSubscribeToNewBlocksObservable
+name|replayTransactionsObservable
 argument_list|(
 name|any
 argument_list|(
@@ -279,7 +261,7 @@ argument_list|)
 argument_list|,
 name|any
 argument_list|(
-name|Boolean
+name|DefaultBlockParameter
 operator|.
 name|class
 argument_list|)
@@ -337,7 +319,7 @@ operator|(
 operator|(
 name|Action1
 argument_list|<
-name|EthBlock
+name|Transaction
 argument_list|>
 operator|)
 name|args
@@ -349,7 +331,7 @@ operator|.
 name|call
 argument_list|(
 operator|new
-name|EthBlock
+name|Transaction
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -406,7 +388,7 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|catchUpToLatestAndSubscribeToNewBlocksObservable
+name|replayTransactionsObservable
 argument_list|(
 name|any
 argument_list|(
@@ -417,7 +399,7 @@ argument_list|)
 argument_list|,
 name|any
 argument_list|(
-name|Boolean
+name|DefaultBlockParameter
 operator|.
 name|class
 argument_list|)
@@ -555,7 +537,7 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|catchUpToLatestAndSubscribeToNewBlocksObservable
+name|replayTransactionsObservable
 argument_list|(
 name|any
 argument_list|(
@@ -566,7 +548,7 @@ argument_list|)
 argument_list|,
 name|any
 argument_list|(
-name|Boolean
+name|DefaultBlockParameter
 operator|.
 name|class
 argument_list|)
@@ -696,9 +678,9 @@ argument_list|()
 operator|+
 literal|"="
 operator|+
-name|CATCH_UP_TO_LATEST_AND_SUBSCRIBE_TO_NEW_BLOCKS_OBSERVABLE
+name|REPLAY_TRANSACTIONS_OBSERVABLE
 operator|+
-literal|"&fromBlock=5499965&fullTransactionObjects=true"
+literal|"&fromBlock=5499965&toBlock=5499967"
 argument_list|)
 operator|.
 name|to

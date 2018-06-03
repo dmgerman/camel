@@ -325,11 +325,11 @@ specifier|private
 name|BigInteger
 name|filterId
 decl_stmt|;
-comment|/**          * The transactions index position in the block.          */
-DECL|field|transactionIndex
+comment|/**          * The transactions/uncle index position in the block.          */
+DECL|field|index
 specifier|private
 name|BigInteger
-name|transactionIndex
+name|index
 decl_stmt|;
 comment|/**          * The signed transaction data for a new message call transaction or a          * contract creation for signed transactions.          */
 DECL|field|signedTransactionData
@@ -883,30 +883,30 @@ operator|=
 name|filterId
 expr_stmt|;
 block|}
-DECL|method|getTransactionIndex ()
+DECL|method|getIndex ()
 specifier|public
 name|BigInteger
-name|getTransactionIndex
+name|getIndex
 parameter_list|()
 block|{
 return|return
-name|transactionIndex
+name|index
 return|;
 block|}
-DECL|method|setTransactionIndex (BigInteger transactionIndex)
+DECL|method|setIndex (BigInteger index)
 specifier|public
 name|void
-name|setTransactionIndex
+name|setIndex
 parameter_list|(
 name|BigInteger
-name|transactionIndex
+name|index
 parameter_list|)
 block|{
 name|this
 operator|.
-name|transactionIndex
+name|index
 operator|=
-name|transactionIndex
+name|index
 expr_stmt|;
 block|}
 DECL|method|getSignedTransactionData ()

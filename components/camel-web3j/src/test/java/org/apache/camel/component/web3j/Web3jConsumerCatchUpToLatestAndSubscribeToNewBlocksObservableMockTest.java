@@ -168,7 +168,7 @@ name|web3j
 operator|.
 name|Web3jConstants
 operator|.
-name|CATCH_UP_TO_LATEST_BLOCK_OBSERVABLE
+name|CATCH_UP_TO_LATEST_AND_SUBSCRIBE_TO_NEW_BLOCKS_OBSERVABLE
 import|;
 end_import
 
@@ -194,24 +194,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|web3j
-operator|.
-name|Web3jConstants
-operator|.
-name|REPLAY_BLOCKS_OBSERVABLE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|mockito
 operator|.
 name|ArgumentMatchers
@@ -221,12 +203,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|Web3jConsumerCatchUpToLatestBlocksObservableTest
+DECL|class|Web3jConsumerCatchUpToLatestAndSubscribeToNewBlocksObservableMockTest
 specifier|public
 class|class
-name|Web3jConsumerCatchUpToLatestBlocksObservableTest
+name|Web3jConsumerCatchUpToLatestAndSubscribeToNewBlocksObservableMockTest
 extends|extends
-name|Web3jTestSupport
+name|Web3jMockTestSupport
 block|{
 annotation|@
 name|Mock
@@ -268,7 +250,7 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|catchUpToLatestBlockObservable
+name|catchUpToLatestAndSubscribeToNewBlocksObservable
 argument_list|(
 name|any
 argument_list|(
@@ -406,7 +388,7 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|catchUpToLatestBlockObservable
+name|catchUpToLatestAndSubscribeToNewBlocksObservable
 argument_list|(
 name|any
 argument_list|(
@@ -555,7 +537,7 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|catchUpToLatestBlockObservable
+name|catchUpToLatestAndSubscribeToNewBlocksObservable
 argument_list|(
 name|any
 argument_list|(
@@ -696,9 +678,9 @@ argument_list|()
 operator|+
 literal|"="
 operator|+
-name|CATCH_UP_TO_LATEST_BLOCK_OBSERVABLE
+name|CATCH_UP_TO_LATEST_AND_SUBSCRIBE_TO_NEW_BLOCKS_OBSERVABLE
 operator|+
-literal|"&fromBlock=5499965&toBlock=5499967"
+literal|"&fromBlock=5499965&fullTransactionObjects=true"
 argument_list|)
 operator|.
 name|to

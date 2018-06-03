@@ -194,24 +194,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|web3j
-operator|.
-name|Web3jConstants
-operator|.
-name|REPLAY_TRANSACTIONS_OBSERVABLE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|mockito
 operator|.
 name|ArgumentMatchers
@@ -221,12 +203,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|Web3jConsumerCatchUpToLatestTransactionsObservableTest
+DECL|class|Web3jConsumerCatchUpToLatestTransactionsObservableMockTest
 specifier|public
 class|class
-name|Web3jConsumerCatchUpToLatestTransactionsObservableTest
+name|Web3jConsumerCatchUpToLatestTransactionsObservableMockTest
 extends|extends
-name|Web3jTestSupport
+name|Web3jMockTestSupport
 block|{
 annotation|@
 name|Mock

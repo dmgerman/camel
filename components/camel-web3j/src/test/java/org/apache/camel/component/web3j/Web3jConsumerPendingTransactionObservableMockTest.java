@@ -98,27 +98,9 @@ name|core
 operator|.
 name|methods
 operator|.
-name|request
-operator|.
-name|EthFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|web3j
-operator|.
-name|protocol
-operator|.
-name|core
-operator|.
-name|methods
-operator|.
 name|response
 operator|.
-name|Log
+name|Transaction
 import|;
 end_import
 
@@ -172,7 +154,7 @@ name|web3j
 operator|.
 name|Web3jConstants
 operator|.
-name|ETH_LOG_OBSERVABLE
+name|OPERATION
 import|;
 end_import
 
@@ -190,7 +172,7 @@ name|web3j
 operator|.
 name|Web3jConstants
 operator|.
-name|OPERATION
+name|PENDING_TRANSACTION_OBSERVABLE
 import|;
 end_import
 
@@ -207,12 +189,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|Web3jConsumerEthLogObservableTest
+DECL|class|Web3jConsumerPendingTransactionObservableMockTest
 specifier|public
 class|class
-name|Web3jConsumerEthLogObservableTest
+name|Web3jConsumerPendingTransactionObservableMockTest
 extends|extends
-name|Web3jTestSupport
+name|Web3jMockTestSupport
 block|{
 annotation|@
 name|Mock
@@ -220,7 +202,7 @@ DECL|field|observable
 specifier|private
 name|Observable
 argument_list|<
-name|Log
+name|Transaction
 argument_list|>
 name|observable
 decl_stmt|;
@@ -254,15 +236,8 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|ethLogObservable
-argument_list|(
-name|any
-argument_list|(
-name|EthFilter
-operator|.
-name|class
-argument_list|)
-argument_list|)
+name|pendingTransactionObservable
+argument_list|()
 argument_list|)
 operator|.
 name|thenReturn
@@ -316,7 +291,7 @@ operator|(
 operator|(
 name|Action1
 argument_list|<
-name|Log
+name|Transaction
 argument_list|>
 operator|)
 name|args
@@ -328,7 +303,7 @@ operator|.
 name|call
 argument_list|(
 operator|new
-name|Log
+name|Transaction
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -385,15 +360,8 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|ethLogObservable
-argument_list|(
-name|any
-argument_list|(
-name|EthFilter
-operator|.
-name|class
-argument_list|)
-argument_list|)
+name|pendingTransactionObservable
+argument_list|()
 argument_list|)
 operator|.
 name|thenReturn
@@ -527,15 +495,8 @@ name|when
 argument_list|(
 name|mockWeb3j
 operator|.
-name|ethLogObservable
-argument_list|(
-name|any
-argument_list|(
-name|EthFilter
-operator|.
-name|class
-argument_list|)
-argument_list|)
+name|pendingTransactionObservable
+argument_list|()
 argument_list|)
 operator|.
 name|thenReturn
@@ -661,7 +622,7 @@ argument_list|()
 operator|+
 literal|"="
 operator|+
-name|ETH_LOG_OBSERVABLE
+name|PENDING_TRANSACTION_OBSERVABLE
 argument_list|)
 operator|.
 name|to

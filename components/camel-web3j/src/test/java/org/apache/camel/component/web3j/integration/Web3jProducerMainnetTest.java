@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.web3j
+DECL|package|org.apache.camel.component.web3j.integration
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|web3j
+operator|.
+name|integration
 package|;
 end_package
 
@@ -102,7 +104,97 @@ name|web3j
 operator|.
 name|Web3jConstants
 operator|.
-name|*
+name|ETH_BLOCK_NUMBER
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|web3j
+operator|.
+name|Web3jConstants
+operator|.
+name|NET_VERSION
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|web3j
+operator|.
+name|Web3jConstants
+operator|.
+name|OPERATION
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|web3j
+operator|.
+name|Web3jConstants
+operator|.
+name|TRANSACTION
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|web3j
+operator|.
+name|Web3jConstants
+operator|.
+name|WEB3_CLIENT_VERSION
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|web3j
+operator|.
+name|Web3jConstants
+operator|.
+name|WEB3_SHA3
 import|;
 end_import
 
@@ -110,14 +202,14 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Integration test that requires a locally running synced ethereum node"
+literal|"Requires a local node or registration at Infura"
 argument_list|)
-DECL|class|Web3jProducerIntegrationTest
+DECL|class|Web3jProducerMainnetTest
 specifier|public
 class|class
-name|Web3jProducerIntegrationTest
+name|Web3jProducerMainnetTest
 extends|extends
-name|Web3jTestSupport
+name|Web3jIntegrationTestSupport
 block|{
 annotation|@
 name|Produce
@@ -131,8 +223,6 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
-annotation|@
-name|Override
 DECL|method|getUrl ()
 specifier|protected
 name|String
@@ -140,7 +230,7 @@ name|getUrl
 parameter_list|()
 block|{
 return|return
-literal|"web3j://http://127.0.0.1:8545?"
+literal|"https://mainnet.infura.io/YOUR_INFURA_ID?"
 return|;
 block|}
 annotation|@
@@ -316,6 +406,62 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Test
+DECL|method|ethBlockNumberTest ()
+specifier|public
+name|void
+name|ethBlockNumberTest
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Exchange
+name|exchange
+init|=
+name|createExchangeWithBodyAndHeader
+argument_list|(
+literal|null
+argument_list|,
+name|OPERATION
+argument_list|,
+name|ETH_BLOCK_NUMBER
+argument_list|)
+decl_stmt|;
+name|template
+operator|.
+name|send
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|Long
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|Long
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|body
+operator|.
+name|longValue
+argument_list|()
+operator|>
+literal|5714225
+argument_list|)
+expr_stmt|;
+comment|// latest block at time of writing
+block|}
+annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -342,6 +488,8 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"web3j://"
+operator|+
 name|getUrl
 argument_list|()
 operator|+
