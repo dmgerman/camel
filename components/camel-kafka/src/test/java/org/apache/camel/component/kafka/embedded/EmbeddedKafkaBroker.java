@@ -280,6 +280,13 @@ specifier|private
 name|File
 name|logDir
 decl_stmt|;
+DECL|field|zkUtils
+specifier|private
+name|ZkUtils
+name|zkUtils
+init|=
+literal|null
+decl_stmt|;
 DECL|method|EmbeddedKafkaBroker (int brokerId, String zkConnection)
 specifier|public
 name|EmbeddedKafkaBroker
@@ -378,10 +385,7 @@ name|getZkUtils
 parameter_list|()
 block|{
 return|return
-name|kafkaServer
-operator|.
 name|zkUtils
-argument_list|()
 return|;
 block|}
 DECL|method|createTopic (String topic, int partitionCount)
@@ -594,6 +598,21 @@ name|Properties
 name|props
 parameter_list|)
 block|{
+name|zkUtils
+operator|=
+name|ZkUtils
+operator|.
+name|apply
+argument_list|(
+name|zkConnection
+argument_list|,
+literal|30000
+argument_list|,
+literal|30000
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|KafkaMetricsReporter
