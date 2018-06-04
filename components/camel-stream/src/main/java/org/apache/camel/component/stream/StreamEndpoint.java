@@ -305,6 +305,18 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|fileWatcher
+specifier|private
+name|boolean
+name|fileWatcher
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer"
 argument_list|)
 DECL|field|closeOnDone
@@ -487,6 +499,29 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|isFileWatcher
+argument_list|()
+operator|&&
+operator|!
+literal|"file"
+operator|.
+name|equals
+argument_list|(
+name|getKind
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"File watcher is only possible if reading streams from files"
+argument_list|)
+throw|;
+block|}
 name|configureConsumer
 argument_list|(
 name|answer
@@ -870,7 +905,7 @@ return|return
 name|retry
 return|;
 block|}
-comment|/**      * Will retry opening the file if it's overwritten, somewhat like tail --retry      */
+comment|/**      * Will retry opening the stream if it's overwritten, somewhat like tail --retry      *<p/>      * If reading from files then you should also enable the fileWatcher option, to make it work reliable.      */
 DECL|method|setRetry (boolean retry)
 specifier|public
 name|void
@@ -885,6 +920,33 @@ operator|.
 name|retry
 operator|=
 name|retry
+expr_stmt|;
+block|}
+DECL|method|isFileWatcher ()
+specifier|public
+name|boolean
+name|isFileWatcher
+parameter_list|()
+block|{
+return|return
+name|fileWatcher
+return|;
+block|}
+comment|/**      * To use JVM file watcher to listen for file change events to support re-loading files that may be overwritten, somewhat like tail --retry      */
+DECL|method|setFileWatcher (boolean fileWatcher)
+specifier|public
+name|void
+name|setFileWatcher
+parameter_list|(
+name|boolean
+name|fileWatcher
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileWatcher
+operator|=
+name|fileWatcher
 expr_stmt|;
 block|}
 DECL|method|isCloseOnDone ()
