@@ -544,7 +544,7 @@ return|return
 name|serverFqdn
 return|;
 block|}
-comment|/**      * The Server Fully Qualified Domain Name (FQDN).      *      *<p> Used in message ids sent by endpoint.      *      * @param clientFqdn - the FQDN of client.      */
+comment|/**      * The Server Fully Qualified Domain Name (FQDN).      *      *<p> Used in message ids sent by endpoint.      *      * @param clientFqdn - the FQDN of server.      */
 DECL|method|setServerFqdn (String serverFqdn)
 specifier|public
 name|void

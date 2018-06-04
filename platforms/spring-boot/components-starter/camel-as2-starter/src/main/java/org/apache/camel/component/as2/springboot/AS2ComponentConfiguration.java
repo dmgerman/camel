@@ -297,7 +297,7 @@ specifier|private
 name|String
 name|server
 decl_stmt|;
-comment|/**          * The Server Fully Qualified Domain Name (FQDN).          *<p>          * Used in message ids sent by endpoint.          *           * @param clientFqdn          *            - the FQDN of client.          */
+comment|/**          * The Server Fully Qualified Domain Name (FQDN).          *<p>          * Used in message ids sent by endpoint.          *           * @param clientFqdn          *            - the FQDN of server.          */
 DECL|field|serverFqdn
 specifier|private
 name|String

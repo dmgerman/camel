@@ -245,7 +245,7 @@ block|{
 comment|//
 comment|// AS2 HTTP Context Attribute Keys
 comment|//
-comment|/**      * Prefix for all AS2 HTTP Context Attributes used by the Http Client      * Manager.      */
+comment|/**      * Prefix for all AS2 HTTP Context Attributes used by the AS2 Client      * Manager.      */
 DECL|field|CAMEL_AS2_CLIENT_PREFIX
 specifier|public
 specifier|static

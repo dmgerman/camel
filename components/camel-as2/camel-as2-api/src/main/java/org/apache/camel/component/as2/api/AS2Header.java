@@ -255,14 +255,14 @@ init|=
 literal|"Receipt-Delivery-Option"
 decl_stmt|;
 comment|/**      * Message Header name for Receipt Address      */
-DECL|field|RECEIPT_ADDRESS
+DECL|field|RECIPIENT_ADDRESS
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|RECEIPT_ADDRESS
+name|RECIPIENT_ADDRESS
 init|=
-literal|"Receipt-Address"
+literal|"Recipient-Address"
 decl_stmt|;
 comment|/**      * Message Header name for Disposition Notification Options      */
 DECL|field|DISPOSITION_NOTIFICATION_OPTIONS
@@ -273,16 +273,6 @@ name|String
 name|DISPOSITION_NOTIFICATION_OPTIONS
 init|=
 literal|"Disposition-Notification-Options"
-decl_stmt|;
-comment|/**      * Message Header name for Disposition Notification Options      */
-DECL|field|REPORT_TYPE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|REPORT_TYPE
-init|=
-literal|"Report-Type"
 decl_stmt|;
 block|}
 end_interface

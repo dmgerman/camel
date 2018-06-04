@@ -996,6 +996,13 @@ operator|.
 name|getEntity
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|entity
+operator|!=
+literal|null
+condition|)
+block|{
 name|entity
 operator|.
 name|writeTo
@@ -1003,6 +1010,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1026,6 +1034,13 @@ operator|.
 name|getEntity
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|entity
+operator|!=
+literal|null
+condition|)
+block|{
 name|entity
 operator|.
 name|writeTo
@@ -1033,6 +1048,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
