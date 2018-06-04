@@ -284,8 +284,6 @@ DECL|field|zkUtils
 specifier|private
 name|ZkUtils
 name|zkUtils
-init|=
-literal|null
 decl_stmt|;
 DECL|method|EmbeddedKafkaBroker (int brokerId, String zkConnection)
 specifier|public
