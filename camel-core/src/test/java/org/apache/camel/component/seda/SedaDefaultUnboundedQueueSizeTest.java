@@ -86,7 +86,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1200
+literal|1000
 condition|;
 name|i
 operator|++
@@ -106,7 +106,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|1200
+literal|1000
 argument_list|,
 name|seda
 operator|.

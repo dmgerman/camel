@@ -135,6 +135,8 @@ DECL|field|queueSize
 specifier|private
 name|Integer
 name|queueSize
+init|=
+literal|1000
 decl_stmt|;
 comment|/**      * Sets the default number of concurrent threads processing exchanges.      */
 DECL|field|concurrentConsumers

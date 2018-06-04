@@ -66,6 +66,20 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|SedaConstants
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -246,9 +260,9 @@ name|assertEquals
 argument_list|(
 literal|"size (remainingCapacity): wrong default"
 argument_list|,
-name|Integer
+name|SedaConstants
 operator|.
-name|MAX_VALUE
+name|QUEUE_SIZE
 argument_list|,
 name|endpoint
 operator|.

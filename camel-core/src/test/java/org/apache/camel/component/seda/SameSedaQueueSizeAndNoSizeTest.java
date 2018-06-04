@@ -68,6 +68,20 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|SedaConstants
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -283,9 +297,9 @@ name|assertEquals
 argument_list|(
 literal|"Cannot use existing queue seda://bar as the existing queue size "
 operator|+
-name|Integer
+name|SedaConstants
 operator|.
-name|MAX_VALUE
+name|QUEUE_SIZE
 operator|+
 literal|" does not match given queue size 200"
 argument_list|,
