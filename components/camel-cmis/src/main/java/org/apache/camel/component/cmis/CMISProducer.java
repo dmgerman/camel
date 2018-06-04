@@ -1401,8 +1401,9 @@ operator|==
 literal|null
 condition|)
 block|{
+name|CMISSessionFacade
 name|sessionFacade
-operator|=
+init|=
 name|sessionFacadeFactory
 operator|.
 name|create
@@ -1410,11 +1411,19 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|sessionFacade
 operator|.
 name|initSession
 argument_list|()
+expr_stmt|;
+comment|// make sure to set sessionFacade to the field after successful initialisation
+comment|// so that it has a valid session
+name|this
+operator|.
+name|sessionFacade
+operator|=
+name|sessionFacade
 expr_stmt|;
 block|}
 return|return
