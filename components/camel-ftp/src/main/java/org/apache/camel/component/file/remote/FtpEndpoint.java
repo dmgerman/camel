@@ -1024,7 +1024,7 @@ name|int
 operator|.
 name|class
 argument_list|,
-name|dataTimeout
+name|timeout
 argument_list|)
 expr_stmt|;
 block|}
