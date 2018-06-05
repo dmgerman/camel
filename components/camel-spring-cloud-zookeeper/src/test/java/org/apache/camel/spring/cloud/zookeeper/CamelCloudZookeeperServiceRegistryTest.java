@@ -328,8 +328,8 @@ name|CamelCloudZookeeperServiceRegistryTest
 block|{
 DECL|field|SERVICE_ID
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SERVICE_ID
 init|=
@@ -343,8 +343,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|SERVICE_NAME
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SERVICE_NAME
 init|=
@@ -352,8 +352,8 @@ literal|"my-service"
 decl_stmt|;
 DECL|field|SERVICE_HOST
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SERVICE_HOST
 init|=
@@ -361,8 +361,8 @@ literal|"localhost"
 decl_stmt|;
 DECL|field|SERVICE_PORT
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|SERVICE_PORT
 init|=
