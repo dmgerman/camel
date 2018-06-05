@@ -329,6 +329,11 @@ specifier|private
 name|boolean
 name|isRecursive
 decl_stmt|;
+DECL|field|watcher
+specifier|private
+name|WatchService
+name|watcher
+decl_stmt|;
 DECL|field|executorService
 specifier|private
 name|ExecutorService
@@ -719,9 +724,8 @@ operator|.
 name|toPath
 argument_list|()
 decl_stmt|;
-name|WatchService
 name|watcher
-init|=
+operator|=
 name|path
 operator|.
 name|getFileSystem
@@ -729,7 +733,7 @@ argument_list|()
 operator|.
 name|newWatchService
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// we cannot support deleting files as we don't know which routes that would be
 if|if
 condition|(
@@ -1015,6 +1019,21 @@ expr_stmt|;
 name|executorService
 operator|=
 literal|null
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|watcher
+operator|!=
+literal|null
+condition|)
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|watcher
+argument_list|)
 expr_stmt|;
 block|}
 block|}
