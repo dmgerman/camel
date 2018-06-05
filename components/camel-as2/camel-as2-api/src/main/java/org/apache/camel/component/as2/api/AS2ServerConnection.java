@@ -866,6 +866,7 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+comment|// Send asynchronous MDN if any.
 block|}
 block|}
 catch|catch
