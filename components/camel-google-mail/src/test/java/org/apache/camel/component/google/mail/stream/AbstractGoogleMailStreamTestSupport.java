@@ -84,6 +84,8 @@ name|camel
 operator|.
 name|component
 operator|.
+name|google
+operator|.
 name|mail
 operator|.
 name|stream
@@ -101,6 +103,8 @@ operator|.
 name|camel
 operator|.
 name|component
+operator|.
+name|google
 operator|.
 name|mail
 operator|.
