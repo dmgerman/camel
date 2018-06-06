@@ -349,7 +349,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a AS2 endpoint.  */
+comment|/**  * Component used for transferring data secure and reliable over the internet using the AS2 protocol.  */
 end_comment
 
 begin_class
@@ -359,6 +359,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"as2"
+argument_list|,
+name|firstVersion
+operator|=
+literal|"2.20.0"
 argument_list|,
 name|title
 operator|=
