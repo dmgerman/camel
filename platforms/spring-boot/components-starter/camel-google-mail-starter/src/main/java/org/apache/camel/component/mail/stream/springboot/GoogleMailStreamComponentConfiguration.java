@@ -308,12 +308,16 @@ DECL|field|query
 specifier|private
 name|String
 name|query
+init|=
+literal|"is:unread"
 decl_stmt|;
 comment|/**          * Max results to be returned          */
 DECL|field|maxResults
 specifier|private
 name|Long
 name|maxResults
+init|=
+literal|10L
 decl_stmt|;
 comment|/**          * Comma separated list of labels to take into account          */
 DECL|field|labels

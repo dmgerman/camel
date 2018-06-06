@@ -207,6 +207,11 @@ name|applicationName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"is:unread"
+argument_list|)
 DECL|field|query
 specifier|private
 name|String
@@ -216,6 +221,11 @@ literal|"is:unread"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"10"
+argument_list|)
 DECL|field|maxResults
 specifier|private
 name|long
