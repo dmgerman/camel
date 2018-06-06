@@ -839,6 +839,21 @@ block|{
 comment|// special for these components
 if|if
 condition|(
+literal|"camel-as2"
+operator|.
+name|equals
+argument_list|(
+name|artifactId
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"camel-as2/camel-as2-component/src/main/docs"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"camel-box"
 operator|.
 name|equals
