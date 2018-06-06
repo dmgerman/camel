@@ -1470,7 +1470,7 @@ literal|"MyServer-HTTP/1.1"
 argument_list|,
 name|SERVER_FQDN
 argument_list|,
-literal|8080
+name|TARGET_PORT
 argument_list|,
 name|certList
 operator|.
