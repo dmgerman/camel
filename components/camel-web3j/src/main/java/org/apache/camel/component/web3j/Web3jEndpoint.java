@@ -346,7 +346,7 @@ literal|"web3j"
 argument_list|,
 name|title
 operator|=
-literal|"Web3j client for Ethereum blockchain"
+literal|"Web3j Ethereum Blockchain"
 argument_list|,
 name|syntax
 operator|=
@@ -360,7 +360,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"blockchain, ethereum"
+literal|"bitcoin,blockchain"
 argument_list|)
 DECL|class|Web3jEndpoint
 specifier|public
