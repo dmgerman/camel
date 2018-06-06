@@ -32,6 +32,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|api
+operator|.
+name|services
+operator|.
+name|gmail
+operator|.
+name|Gmail
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -115,22 +131,6 @@ operator|.
 name|spi
 operator|.
 name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|services
-operator|.
-name|gmail
-operator|.
-name|Gmail
 import|;
 end_import
 
@@ -274,7 +274,7 @@ return|return
 name|client
 return|;
 block|}
-comment|/** 	 * The client Factory 	 */
+comment|/**      * The client Factory      */
 DECL|method|getClientFactory ()
 specifier|public
 name|GoogleMailClientFactory
@@ -309,7 +309,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/** 	 * The configuration 	 */
+comment|/**      * The configuration      */
 DECL|method|setConfiguration (GoogleMailStreamConfiguration configuration)
 specifier|public
 name|void

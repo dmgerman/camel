@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in Camel Google Mail Stream  *   */
+comment|/**  * Constants used in Camel Google Mail Stream  */
 end_comment
 
 begin_interface

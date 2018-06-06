@@ -301,7 +301,7 @@ return|return
 name|accessToken
 return|;
 block|}
-comment|/**      * OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.      */
+comment|/**      * OAuth 2 access token. This typically expires after an hour so      * refreshToken is recommended for long term usage.      */
 DECL|method|setAccessToken (String accessToken)
 specifier|public
 name|void
@@ -328,7 +328,7 @@ return|return
 name|refreshToken
 return|;
 block|}
-comment|/**      * OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.      */
+comment|/**      * OAuth 2 refresh token. Using this, the Google Calendar component can      * obtain a new accessToken whenever the current one expires - a necessity      * if the application is long-lived.      */
 DECL|method|setRefreshToken (String refreshToken)
 specifier|public
 name|void
@@ -385,7 +385,7 @@ return|return
 name|scopes
 return|;
 block|}
-comment|/**      * Specifies the level of permissions you want a mail application to have to a user account. See https://developers.google.com/gmail/api/auth/scopes for more info.      */
+comment|/**      * Specifies the level of permissions you want a mail application to have to      * a user account. See https://developers.google.com/gmail/api/auth/scopes      * for more info.      */
 DECL|method|setScopes (List<String> scopes)
 specifier|public
 name|void
