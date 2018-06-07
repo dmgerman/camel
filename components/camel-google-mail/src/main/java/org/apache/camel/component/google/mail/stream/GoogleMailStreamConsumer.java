@@ -84,18 +84,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|internet
-operator|.
-name|AddressException
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -161,20 +149,6 @@ operator|.
 name|model
 operator|.
 name|ModifyMessageRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Splitter
 import|;
 end_import
 
@@ -335,7 +309,12 @@ specifier|private
 name|String
 name|unreadLabelId
 decl_stmt|;
-DECL|method|GoogleMailStreamConsumer (Endpoint endpoint, Processor processor, String unreadLabelId)
+DECL|field|labelsIds
+specifier|private
+name|List
+name|labelsIds
+decl_stmt|;
+DECL|method|GoogleMailStreamConsumer (Endpoint endpoint, Processor processor, String unreadLabelId, List labelsIds)
 specifier|public
 name|GoogleMailStreamConsumer
 parameter_list|(
@@ -347,6 +326,9 @@ name|processor
 parameter_list|,
 name|String
 name|unreadLabelId
+parameter_list|,
+name|List
+name|labelsIds
 parameter_list|)
 block|{
 name|super
@@ -361,6 +343,12 @@ operator|.
 name|unreadLabelId
 operator|=
 name|unreadLabelId
+expr_stmt|;
+name|this
+operator|.
+name|labelsIds
+operator|=
+name|labelsIds
 expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
@@ -510,11 +498,7 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|getConfiguration
-argument_list|()
-operator|.
-name|getLabels
-argument_list|()
+name|labelsIds
 argument_list|)
 condition|)
 block|{
@@ -522,14 +506,7 @@ name|request
 operator|.
 name|setLabelIds
 argument_list|(
-name|splitLabels
-argument_list|(
-name|getConfiguration
-argument_list|()
-operator|.
-name|getLabels
-argument_list|()
-argument_list|)
+name|labelsIds
 argument_list|)
 expr_stmt|;
 block|}
@@ -864,46 +841,6 @@ expr_stmt|;
 block|}
 return|return
 name|total
-return|;
-block|}
-DECL|method|splitLabels (String labels)
-specifier|private
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|splitLabels
-parameter_list|(
-name|String
-name|labels
-parameter_list|)
-throws|throws
-name|AddressException
-block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|labelsList
-init|=
-name|Splitter
-operator|.
-name|on
-argument_list|(
-literal|','
-argument_list|)
-operator|.
-name|splitToList
-argument_list|(
-name|getConfiguration
-argument_list|()
-operator|.
-name|getLabels
-argument_list|()
-argument_list|)
-decl_stmt|;
-return|return
-name|labelsList
 return|;
 block|}
 comment|/**      * Strategy to delete the message after being processed.      *      * @param exchange the exchange      * @throws IOException      */
