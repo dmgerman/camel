@@ -106,6 +106,12 @@ name|JAVA_TYPE
 init|=
 literal|"Java-Type"
 decl_stmt|;
+DECL|field|CONTEXT
+name|String
+name|CONTEXT
+init|=
+literal|"Meta-Context"
+decl_stmt|;
 comment|/**          * Returns an attribute associated with this meta data by name.          *          * @param name the attribute name          * @return the attribute          */
 DECL|method|getAttribute (String name)
 name|Object
