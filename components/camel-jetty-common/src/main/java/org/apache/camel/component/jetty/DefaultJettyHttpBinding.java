@@ -863,10 +863,6 @@ condition|(
 name|transferException
 operator|&&
 name|responseBody
-operator|!=
-literal|null
-operator|&&
-name|responseBody
 operator|instanceof
 name|Exception
 condition|)
