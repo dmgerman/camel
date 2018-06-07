@@ -141,7 +141,7 @@ operator|=
 name|boxConnection
 expr_stmt|;
 block|}
-comment|/**      * Create an event stream with optional starting initial position and add      * listener that will be notified when an event is received.      *       * @param startingPosition      *            - the starting position of the event stream.      * @param listener      *            - the listener to add to event stream.      *       * @return The event stream.      */
+comment|/**      * Create an event stream with optional starting initial position and add      * listener that will be notified when an event is received.      *       * @param startingPosition      *            - the starting position of the event stream.      * @param listener      *            - the listener to add to event stream.      */
 DECL|method|listen (EventListener listener, Long startingPosition)
 specifier|public
 name|void

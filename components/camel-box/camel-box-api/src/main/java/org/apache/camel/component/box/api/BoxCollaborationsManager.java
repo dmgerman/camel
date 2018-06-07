@@ -722,7 +722,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Delete collaboration.      *       * @param collaborationId      *            - the id of comment to change.      * @return The comment with changed message.      */
+comment|/**      * Delete collaboration.      *       * @param collaborationId      *            - the id of comment to change.      */
 DECL|method|deleteCollaboration (String collaborationId)
 specifier|public
 name|void

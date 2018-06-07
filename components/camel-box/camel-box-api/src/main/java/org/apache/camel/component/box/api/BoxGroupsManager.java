@@ -1073,13 +1073,13 @@ throw|;
 block|}
 block|}
 comment|/**      * Update group membership information.      *       * @param groupMembershipId      *            - the id of group membership to update.      * @param info      *            - the updated information.      * @return The group information.      */
-DECL|method|updateGroupMembershipInfo (String groupMemebershipId, BoxGroupMembership.Info info)
+DECL|method|updateGroupMembershipInfo (String groupMembershipId, BoxGroupMembership.Info info)
 specifier|public
 name|BoxGroupMembership
 name|updateGroupMembershipInfo
 parameter_list|(
 name|String
-name|groupMemebershipId
+name|groupMembershipId
 parameter_list|,
 name|BoxGroupMembership
 operator|.
@@ -1095,14 +1095,14 @@ name|debug
 argument_list|(
 literal|"Updating info for groupMembership(id="
 operator|+
-name|groupMemebershipId
+name|groupMembershipId
 operator|+
 literal|")"
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|groupMemebershipId
+name|groupMembershipId
 operator|==
 literal|null
 condition|)
@@ -1111,7 +1111,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Parameter 'groupMemebershipId' can not be null"
+literal|"Parameter 'groupMembershipId' can not be null"
 argument_list|)
 throw|;
 block|}
@@ -1138,7 +1138,7 @@ name|BoxGroupMembership
 argument_list|(
 name|boxConnection
 argument_list|,
-name|groupMemebershipId
+name|groupMembershipId
 argument_list|)
 decl_stmt|;
 name|groupMembership
