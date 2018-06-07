@@ -170,16 +170,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|mockito
 operator|.
 name|Mockito
@@ -206,12 +196,14 @@ name|telegramServiceMocked
 decl_stmt|;
 comment|/**      * Restores the status of {@code TelegramServiceProvider} if it has been mocked.      */
 annotation|@
-name|After
-DECL|method|tearDown ()
+name|Override
+DECL|method|doPostTearDown ()
 specifier|public
 name|void
-name|tearDown
+name|doPostTearDown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
