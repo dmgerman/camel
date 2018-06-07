@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -83,16 +95,6 @@ operator|.
 name|saga
 operator|.
 name|InMemorySagaService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
 import|;
 end_import
 
@@ -262,8 +264,6 @@ argument_list|,
 literal|"Nicola"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|fail
 argument_list|(
 literal|"Should throw an exception"
@@ -283,6 +283,40 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|testRouteDoesNotHangOnOptionError ()
+specifier|public
+name|void
+name|testRouteDoesNotHangOnOptionError
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:wrong-expression"
+argument_list|,
+literal|"Hello"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|ex
+parameter_list|)
+block|{
+comment|// OK
+block|}
 block|}
 annotation|@
 name|Override
@@ -410,6 +444,29 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:endpoint"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:wrong-expression"
+argument_list|)
+operator|.
+name|saga
+argument_list|()
+operator|.
+name|option
+argument_list|(
+literal|"id"
+argument_list|,
+name|simple
+argument_list|(
+literal|"${10 / 0}"
+argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:info"
 argument_list|)
 expr_stmt|;
 block|}

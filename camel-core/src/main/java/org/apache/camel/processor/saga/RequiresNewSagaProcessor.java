@@ -210,6 +210,12 @@ name|ex2
 argument_list|,
 name|exchange
 argument_list|,
+literal|true
+argument_list|,
+name|newCoordinator
+argument_list|,
+name|existingCoordinator
+argument_list|,
 name|callback
 argument_list|,
 parameter_list|()
@@ -244,6 +250,12 @@ argument_list|(
 name|ex3
 argument_list|,
 name|exchange
+argument_list|,
+literal|true
+argument_list|,
+name|newCoordinator
+argument_list|,
+name|existingCoordinator
 argument_list|,
 name|callback
 argument_list|,

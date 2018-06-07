@@ -277,6 +277,13 @@ name|ex2
 argument_list|,
 name|exchange
 argument_list|,
+operator|!
+name|inheritedCoordinator
+argument_list|,
+name|coordinator
+argument_list|,
+name|existingCoordinator
+argument_list|,
 name|callback
 argument_list|,
 parameter_list|()
@@ -311,6 +318,13 @@ argument_list|(
 name|ex3
 argument_list|,
 name|exchange
+argument_list|,
+operator|!
+name|inheritedCoordinator
+argument_list|,
+name|coordinator
+argument_list|,
+name|existingCoordinator
 argument_list|,
 name|callback
 argument_list|,
