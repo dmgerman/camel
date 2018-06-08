@@ -229,6 +229,8 @@ argument_list|(
 name|properties
 operator|=
 block|{
+literal|"spring.main.banner-mode=off"
+block|,
 literal|"camel.component.kubernetes.cluster.service.enabled=true"
 block|,
 literal|"camel.component.kubernetes.cluster.service.id=myid1"
