@@ -123,7 +123,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"google-mail-stream://test?markAsRead=true&delay=5000&maxResults=10"
+literal|"google-mail-stream://test?markAsRead=true&delay=5000&maxResults=30"
 argument_list|)
 operator|.
 name|to

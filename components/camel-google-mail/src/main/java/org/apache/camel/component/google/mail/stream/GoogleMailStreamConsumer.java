@@ -858,6 +858,21 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"mark as read!"
+operator|+
+name|getConfiguration
+argument_list|()
+operator|.
+name|isMarkAsRead
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getConfiguration
