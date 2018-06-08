@@ -875,8 +875,7 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// get
-comment|// body
+comment|// get                                                                                                                       // body
 name|String
 name|body
 init|=
@@ -948,9 +947,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|(
 literal|"SUBJECT"
-operator|)
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -975,9 +972,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|(
 literal|"TO"
-operator|)
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -1002,9 +997,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|(
 literal|"FROM"
-operator|)
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -1029,9 +1022,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|(
 literal|"CC"
-operator|)
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -1056,9 +1047,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|(
 literal|"BCC"
-operator|)
 operator|.
 name|equalsIgnoreCase
 argument_list|(
