@@ -875,7 +875,6 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// get                                                                                                                       // body
 name|String
 name|body
 init|=
