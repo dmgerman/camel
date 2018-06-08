@@ -200,14 +200,8 @@ argument_list|()
 decl_stmt|;
 name|config
 operator|.
-name|setServiceDiscovery
-argument_list|(
-operator|new
-name|KubernetesEnvServiceDiscovery
-argument_list|(
-name|kubernetesConfiguration
-argument_list|)
-argument_list|)
+name|kubernetesEnvServiceDiscovery
+argument_list|()
 expr_stmt|;
 comment|// register configuration
 name|context
