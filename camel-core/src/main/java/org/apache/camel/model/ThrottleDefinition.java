@@ -260,6 +260,18 @@ argument_list|>
 block|{
 comment|// TODO: Camel 3.0 Should not support outputs
 annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"correlationExpression"
+argument_list|)
+DECL|field|correlationExpression
+specifier|private
+name|ExpressionSubElementDefinition
+name|correlationExpression
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|executorService
 specifier|private
@@ -314,18 +326,6 @@ DECL|field|rejectExecution
 specifier|private
 name|Boolean
 name|rejectExecution
-decl_stmt|;
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"correlationExpression"
-argument_list|)
-DECL|field|correlationExpression
-specifier|private
-name|ExpressionSubElementDefinition
-name|correlationExpression
 decl_stmt|;
 DECL|method|ThrottleDefinition ()
 specifier|public
