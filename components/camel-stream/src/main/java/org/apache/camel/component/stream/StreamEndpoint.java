@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -436,6 +446,31 @@ init|=
 operator|new
 name|DefaultGroupStrategy
 argument_list|()
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"httpHeaders."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
+DECL|field|httpHeaders
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|httpHeaders
 decl_stmt|;
 DECL|method|StreamEndpoint (String endpointUri, Component component)
 specifier|public
@@ -1066,6 +1101,43 @@ block|{
 return|return
 name|charset
 return|;
+block|}
+DECL|method|getHttpHeaders ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getHttpHeaders
+parameter_list|()
+block|{
+return|return
+name|httpHeaders
+return|;
+block|}
+comment|/**      * Optional http headers to use in request when using HTTP URL.      */
+DECL|method|setHttpHeaders (Map<String, Object> httpHeaders)
+specifier|public
+name|void
+name|setHttpHeaders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|httpHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpHeaders
+operator|=
+name|httpHeaders
+expr_stmt|;
 block|}
 comment|// Implementations
 comment|//-------------------------------------------------------------------------
