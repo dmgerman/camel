@@ -472,6 +472,30 @@ name|Object
 argument_list|>
 name|httpHeaders
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|connectTimeout
+specifier|private
+name|int
+name|connectTimeout
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|readTimeout
+specifier|private
+name|int
+name|readTimeout
+decl_stmt|;
 DECL|method|StreamEndpoint (String endpointUri, Component component)
 specifier|public
 name|StreamEndpoint
@@ -1137,6 +1161,60 @@ operator|.
 name|httpHeaders
 operator|=
 name|httpHeaders
+expr_stmt|;
+block|}
+DECL|method|getConnectTimeout ()
+specifier|public
+name|int
+name|getConnectTimeout
+parameter_list|()
+block|{
+return|return
+name|connectTimeout
+return|;
+block|}
+comment|/**      * Sets a specified timeout value, in milliseconds, to be used      * when opening a communications link to the resource referenced      * by this URLConnection.  If the timeout expires before the      * connection can be established, a      * java.net.SocketTimeoutException is raised. A timeout of zero is      * interpreted as an infinite timeout.      */
+DECL|method|setConnectTimeout (int connectTimeout)
+specifier|public
+name|void
+name|setConnectTimeout
+parameter_list|(
+name|int
+name|connectTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectTimeout
+operator|=
+name|connectTimeout
+expr_stmt|;
+block|}
+DECL|method|getReadTimeout ()
+specifier|public
+name|int
+name|getReadTimeout
+parameter_list|()
+block|{
+return|return
+name|readTimeout
+return|;
+block|}
+comment|/**      * Sets the read timeout to a specified timeout, in      * milliseconds. A non-zero value specifies the timeout when      * reading from Input stream when a connection is established to a      * resource. If the timeout expires before there is data available      * for read, a java.net.SocketTimeoutException is raised. A      * timeout of zero is interpreted as an infinite timeout.      */
+DECL|method|setReadTimeout (int readTimeout)
+specifier|public
+name|void
+name|setReadTimeout
+parameter_list|(
+name|int
+name|readTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readTimeout
+operator|=
+name|readTimeout
 expr_stmt|;
 block|}
 comment|// Implementations
