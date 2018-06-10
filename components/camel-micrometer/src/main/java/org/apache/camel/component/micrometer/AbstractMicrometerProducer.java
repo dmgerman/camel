@@ -756,6 +756,11 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getTagHeader (Message in, String header, Iterable<Tag> defaultTags)
 specifier|protected
 name|Iterable
@@ -778,12 +783,6 @@ name|defaultTags
 parameter_list|)
 block|{
 return|return
-operator|(
-name|Iterable
-argument_list|<
-name|Tag
-argument_list|>
-operator|)
 name|in
 operator|.
 name|getHeader

@@ -575,17 +575,6 @@ init|=
 name|getMBeanServer
 argument_list|()
 decl_stmt|;
-comment|// get the object name for the delayer
-name|ObjectName
-name|throttlerName
-init|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler2\""
-argument_list|)
-decl_stmt|;
 comment|// use route to get the total time
 name|ObjectName
 name|routeName
@@ -749,17 +738,6 @@ name|mbeanServer
 init|=
 name|getMBeanServer
 argument_list|()
-decl_stmt|;
-comment|// get the object name for the delayer
-name|ObjectName
-name|throttlerName
-init|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler3\""
-argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
 name|ObjectName
@@ -1092,17 +1070,6 @@ init|=
 name|getMBeanServer
 argument_list|()
 decl_stmt|;
-comment|// get the object name for the delayer
-name|ObjectName
-name|throttlerName
-init|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler2\""
-argument_list|)
-decl_stmt|;
 comment|// use route to get the total time
 name|ObjectName
 name|routeName
@@ -1218,17 +1185,6 @@ name|mbeanServer
 init|=
 name|getMBeanServer
 argument_list|()
-decl_stmt|;
-comment|// get the object name for the delayer
-name|ObjectName
-name|throttlerName
-init|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler2\""
-argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
 name|ObjectName

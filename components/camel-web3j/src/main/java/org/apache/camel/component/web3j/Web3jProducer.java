@@ -5448,7 +5448,7 @@ operator|.
 name|EthFilter
 name|ethFilter
 init|=
-name|endpoint
+name|Web3jEndpoint
 operator|.
 name|buildEthFilter
 argument_list|(
@@ -6074,7 +6074,7 @@ operator|.
 name|EthFilter
 name|ethFilter
 init|=
-name|endpoint
+name|Web3jEndpoint
 operator|.
 name|buildEthFilter
 argument_list|(
@@ -7686,7 +7686,7 @@ operator|.
 name|ShhFilter
 name|shhFilter
 init|=
-name|endpoint
+name|Web3jEndpoint
 operator|.
 name|buildShhFilter
 argument_list|(

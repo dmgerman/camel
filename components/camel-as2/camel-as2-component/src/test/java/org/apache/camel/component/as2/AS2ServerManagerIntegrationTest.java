@@ -2438,9 +2438,7 @@ name|certList
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|X509Certificate
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|certList

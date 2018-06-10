@@ -1305,9 +1305,7 @@ name|certList
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|X509Certificate
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|certList
@@ -1440,9 +1438,7 @@ name|certList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|X509Certificate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|certList
@@ -3580,11 +3576,7 @@ name|extensionFields
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|extensionFields

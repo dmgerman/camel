@@ -322,7 +322,7 @@ case|:
 name|EthFilter
 name|ethFilter
 init|=
-name|endpoint
+name|Web3jEndpoint
 operator|.
 name|buildEthFilter
 argument_list|(

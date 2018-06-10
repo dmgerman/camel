@@ -247,8 +247,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|StreamMessageInputStream
-name|is
+name|Object
+name|body
 init|=
 name|getMockEndpoint
 argument_list|(
@@ -267,17 +267,20 @@ name|getIn
 argument_list|()
 operator|.
 name|getBody
+argument_list|()
+decl_stmt|;
+name|StreamMessageInputStream
+name|is
+init|=
+name|assertIsInstanceOf
 argument_list|(
 name|StreamMessageInputStream
 operator|.
 name|class
+argument_list|,
+name|body
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|is
-argument_list|)
-expr_stmt|;
 comment|// no more bytes should be available on the inputstream
 name|assertEquals
 argument_list|(

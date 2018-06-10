@@ -163,9 +163,7 @@ name|parts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MimeEntity
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|MultipartMimeEntity (ContentType contentType)

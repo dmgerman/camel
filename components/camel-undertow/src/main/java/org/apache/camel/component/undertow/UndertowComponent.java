@@ -606,13 +606,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|(
-name|parameters
-argument_list|)
-expr_stmt|;
 name|URI
 name|uriHttpUriAddress
 init|=
