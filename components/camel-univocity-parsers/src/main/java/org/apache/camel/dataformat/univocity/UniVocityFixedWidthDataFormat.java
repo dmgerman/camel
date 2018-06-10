@@ -48,7 +48,7 @@ name|parsers
 operator|.
 name|fixed
 operator|.
-name|FixedWidthFieldLengths
+name|FixedWidthFields
 import|;
 end_import
 
@@ -462,7 +462,7 @@ block|}
 comment|/**      * Creates the {@link com.univocity.parsers.fixed.FixedWidthFieldLengths} instance based on the headers and field      * lengths.      *      * @return new {@code FixedWidthFieldLengths} based on the header and field lengthsl      */
 DECL|method|createFixedWidthFieldLengths ()
 specifier|private
-name|FixedWidthFieldLengths
+name|FixedWidthFields
 name|createFixedWidthFieldLengths
 parameter_list|()
 block|{
@@ -492,7 +492,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|FixedWidthFieldLengths
+name|FixedWidthFields
 argument_list|(
 name|fieldLengths
 argument_list|)
@@ -586,7 +586,7 @@ throw|;
 block|}
 return|return
 operator|new
-name|FixedWidthFieldLengths
+name|FixedWidthFields
 argument_list|(
 name|fields
 argument_list|)
