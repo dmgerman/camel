@@ -531,8 +531,8 @@ condition|)
 block|{
 for|for
 control|(
-name|Object
-name|element
+name|Message
+name|message
 range|:
 name|c
 operator|.
@@ -540,14 +540,6 @@ name|getMessages
 argument_list|()
 control|)
 block|{
-name|Message
-name|message
-init|=
-operator|(
-name|Message
-operator|)
-name|element
-decl_stmt|;
 name|Message
 name|mess
 init|=
