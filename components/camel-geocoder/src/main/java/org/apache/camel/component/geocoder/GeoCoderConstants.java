@@ -115,6 +115,15 @@ name|COUNTRY_SHORT
 init|=
 literal|"CamelGeoCoderCountryShort"
 decl_stmt|;
+DECL|field|POSTAL_CODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|POSTAL_CODE
+init|=
+literal|"CamelGeoCoderPostalCode"
+decl_stmt|;
 DECL|method|GeoCoderConstants ()
 specifier|private
 name|GeoCoderConstants

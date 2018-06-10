@@ -52,22 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -80,7 +64,7 @@ specifier|public
 class|class
 name|GeoCoderComponentAddressTest
 extends|extends
-name|CamelTestSupport
+name|GeoCoderApiKeyTestBase
 block|{
 annotation|@
 name|Test
@@ -107,6 +91,17 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|GeoCoderConstants
+operator|.
+name|LATLNG
+argument_list|,
+literal|"55.67609680,12.56833720"
+argument_list|)
+expr_stmt|;
 comment|// the address header overrides the endpoint configuration
 name|template
 operator|.
@@ -120,7 +115,7 @@ name|GeoCoderConstants
 operator|.
 name|ADDRESS
 argument_list|,
-literal|"Copenhagen, Denmark"
+literal|" "
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -154,7 +149,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"geocoder:address:Paris, France"
+literal|"geocoder:address: empty?apiKey="
+operator|+
+name|getApiKey
+argument_list|()
 argument_list|)
 operator|.
 name|to

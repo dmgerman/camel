@@ -34,25 +34,9 @@ name|com
 operator|.
 name|google
 operator|.
-name|code
+name|maps
 operator|.
-name|geocoder
-operator|.
-name|AdvancedGeoCoder
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|code
-operator|.
-name|geocoder
-operator|.
-name|Geocoder
+name|GeoApiContext
 import|;
 end_import
 
@@ -345,6 +329,15 @@ literal|"en"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|clientId
 specifier|private
 name|String
@@ -352,10 +345,35 @@ name|clientId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|clientKey
 specifier|private
 name|String
 name|clientKey
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
+DECL|field|apiKey
+specifier|private
+name|String
+name|apiKey
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -703,6 +721,32 @@ operator|=
 name|clientKey
 expr_stmt|;
 block|}
+DECL|method|getApiKey ()
+specifier|private
+name|String
+name|getApiKey
+parameter_list|()
+block|{
+return|return
+name|apiKey
+return|;
+block|}
+DECL|method|setApiKey (String apiKey)
+specifier|public
+name|void
+name|setApiKey
+parameter_list|(
+name|String
+name|apiKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiKey
+operator|=
+name|apiKey
+expr_stmt|;
+block|}
 comment|/**      * The proxy host name      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
@@ -936,142 +980,11 @@ operator|=
 name|httpConnectionManager
 expr_stmt|;
 block|}
-DECL|method|createGeocoder ()
-name|Geocoder
-name|createGeocoder
+DECL|method|createGeoApiContext ()
+name|GeoApiContext
+name|createGeoApiContext
 parameter_list|()
-throws|throws
-name|InvalidKeyException
 block|{
-name|HttpConnectionManager
-name|connectionManager
-init|=
-name|this
-operator|.
-name|httpConnectionManager
-decl_stmt|;
-if|if
-condition|(
-name|connectionManager
-operator|==
-literal|null
-condition|)
-block|{
-name|connectionManager
-operator|=
-operator|new
-name|MultiThreadedHttpConnectionManager
-argument_list|()
-expr_stmt|;
-block|}
-name|HttpClient
-name|httpClient
-init|=
-operator|new
-name|HttpClient
-argument_list|(
-name|connectionManager
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|proxyHost
-operator|!=
-literal|null
-operator|&&
-name|proxyPort
-operator|!=
-literal|null
-condition|)
-block|{
-name|httpClient
-operator|.
-name|getHostConfiguration
-argument_list|()
-operator|.
-name|setProxy
-argument_list|(
-name|proxyHost
-argument_list|,
-name|proxyPort
-argument_list|)
-expr_stmt|;
-block|}
-comment|// validate that if proxy auth username is given then the proxy auth method is also provided
-if|if
-condition|(
-name|proxyAuthUsername
-operator|!=
-literal|null
-operator|&&
-name|proxyAuthMethod
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Option proxyAuthMethod must be provided to use proxy authentication"
-argument_list|)
-throw|;
-block|}
-name|CompositeHttpConfigurer
-name|configurer
-init|=
-operator|new
-name|CompositeHttpConfigurer
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|proxyAuthMethod
-operator|!=
-literal|null
-condition|)
-block|{
-name|configureProxyAuth
-argument_list|(
-name|configurer
-argument_list|,
-name|proxyAuthMethod
-argument_list|,
-name|proxyAuthUsername
-argument_list|,
-name|proxyAuthPassword
-argument_list|,
-name|proxyAuthDomain
-argument_list|,
-name|proxyAuthHost
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|httpClientConfigurer
-operator|!=
-literal|null
-condition|)
-block|{
-name|configurer
-operator|.
-name|addConfigurer
-argument_list|(
-name|httpClientConfigurer
-argument_list|)
-expr_stmt|;
-block|}
-name|configurer
-operator|.
-name|configureHttpClient
-argument_list|(
-name|httpClient
-argument_list|)
-expr_stmt|;
-name|Geocoder
-name|geocoder
-decl_stmt|;
 if|if
 condition|(
 name|clientId
@@ -1079,34 +992,79 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|geocoder
-operator|=
+return|return
 operator|new
-name|AdvancedGeoCoder
+name|GeoApiContext
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|enterpriseCredentials
 argument_list|(
-name|httpClient
-argument_list|,
 name|clientId
 argument_list|,
 name|clientKey
 argument_list|)
-expr_stmt|;
+operator|.
+name|build
+argument_list|()
+return|;
 block|}
 else|else
 block|{
-name|geocoder
-operator|=
-operator|new
-name|AdvancedGeoCoder
-argument_list|(
-name|httpClient
-argument_list|)
-expr_stmt|;
-block|}
 return|return
-name|geocoder
+operator|new
+name|GeoApiContext
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|apiKey
+argument_list|(
+name|getApiKey
+argument_list|()
+argument_list|)
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
+block|}
+comment|//    Geocoder createGeocoder() throws InvalidKeyException {
+comment|//        HttpConnectionManager connectionManager = this.httpConnectionManager;
+comment|//        if (connectionManager == null) {
+comment|//            connectionManager = new MultiThreadedHttpConnectionManager();
+comment|//        }
+comment|//
+comment|//        HttpClient httpClient = new HttpClient(connectionManager);
+comment|//        if (proxyHost != null&& proxyPort != null) {
+comment|//            httpClient.getHostConfiguration().setProxy(proxyHost, proxyPort);
+comment|//        }
+comment|//
+comment|//        // validate that if proxy auth username is given then the proxy auth method is also provided
+comment|//        if (proxyAuthUsername != null&& proxyAuthMethod == null) {
+comment|//            throw new IllegalArgumentException("Option proxyAuthMethod must be provided to use proxy authentication");
+comment|//        }
+comment|//
+comment|//        CompositeHttpConfigurer configurer = new CompositeHttpConfigurer();
+comment|//        if (proxyAuthMethod != null) {
+comment|//            configureProxyAuth(configurer, proxyAuthMethod, proxyAuthUsername, proxyAuthPassword, proxyAuthDomain, proxyAuthHost);
+comment|//        }
+comment|//        if (httpClientConfigurer != null) {
+comment|//            configurer.addConfigurer(httpClientConfigurer);
+comment|//        }
+comment|//
+comment|//        configurer.configureHttpClient(httpClient);
+comment|//
+comment|//        Geocoder geocoder;
+comment|//        if (clientId != null) {
+comment|//            geocoder = new AdvancedGeoCoder(httpClient, clientId, clientKey);
+comment|//        } else {
+comment|//            geocoder = new AdvancedGeoCoder(httpClient);
+comment|//        }
+comment|//
+comment|//        return geocoder;
+comment|//    }
 comment|/**      * Configures the proxy authentication method to be used      *      * @return configurer to used      */
 DECL|method|configureProxyAuth (CompositeHttpConfigurer configurer, String authMethod, String username, String password, String domain, String host)
 specifier|protected
