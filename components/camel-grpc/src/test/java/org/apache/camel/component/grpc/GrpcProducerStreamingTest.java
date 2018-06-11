@@ -755,15 +755,6 @@ argument_list|>
 name|responseObserver
 parameter_list|)
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"unchecked"
-block|,
-literal|"rawtypes"
-block|}
-argument_list|)
 name|StreamObserver
 argument_list|<
 name|PingRequest

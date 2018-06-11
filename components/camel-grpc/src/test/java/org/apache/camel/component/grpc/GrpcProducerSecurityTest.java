@@ -801,9 +801,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|Object
-name|pongResponse
-init|=
 name|template
 operator|.
 name|requestBody
@@ -812,7 +809,7 @@ literal|"direct:grpc-incorrect-jwt"
 argument_list|,
 name|pingRequest
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

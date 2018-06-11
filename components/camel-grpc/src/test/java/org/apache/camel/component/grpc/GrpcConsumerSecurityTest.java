@@ -549,9 +549,7 @@ name|GRPC_JWT_CORRECT_TEST_PORT
 argument_list|)
 operator|.
 name|usePlaintext
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|build
 argument_list|()
@@ -568,9 +566,7 @@ name|GRPC_JWT_INCORRECT_TEST_PORT
 argument_list|)
 operator|.
 name|usePlaintext
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|.
 name|build
 argument_list|()
