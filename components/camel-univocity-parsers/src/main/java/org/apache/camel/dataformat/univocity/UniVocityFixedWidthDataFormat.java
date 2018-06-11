@@ -168,7 +168,7 @@ specifier|protected
 name|Character
 name|padding
 decl_stmt|;
-comment|/**      * Gets the field lengths.      * It's used to construct uniVocity {@link com.univocity.parsers.fixed.FixedWidthFieldLengths} instance.      *      * @return the field lengths      */
+comment|/**      * Gets the field lengths.      * It's used to construct uniVocity {@link com.univocity.parsers.fixed.FixedWidthFields} instance.      *      * @return the field lengths      */
 DECL|method|getFieldLengths ()
 specifier|public
 name|int
@@ -180,7 +180,7 @@ return|return
 name|fieldLengths
 return|;
 block|}
-comment|/**      * Sets the field lengths      * It's used to construct uniVocity {@link com.univocity.parsers.fixed.FixedWidthFieldLengths} instance.      *      * @param fieldLengths the field length      * @return current data format instance, fluent API      */
+comment|/**      * Sets the field lengths      * It's used to construct uniVocity {@link com.univocity.parsers.fixed.FixedWidthFields} instance.      *      * @param fieldLengths the field length      * @return current data format instance, fluent API      */
 DECL|method|setFieldLengths (int[] fieldLengths)
 specifier|public
 name|UniVocityFixedWidthDataFormat
@@ -307,7 +307,7 @@ return|return
 operator|new
 name|FixedWidthWriterSettings
 argument_list|(
-name|createFixedWidthFieldLengths
+name|createFixedWidthFields
 argument_list|()
 argument_list|)
 return|;
@@ -350,7 +350,7 @@ return|return
 operator|new
 name|FixedWidthParserSettings
 argument_list|(
-name|createFixedWidthFieldLengths
+name|createFixedWidthFields
 argument_list|()
 argument_list|)
 return|;
@@ -459,11 +459,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates the {@link com.univocity.parsers.fixed.FixedWidthFieldLengths} instance based on the headers and field      * lengths.      *      * @return new {@code FixedWidthFieldLengths} based on the header and field lengthsl      */
-DECL|method|createFixedWidthFieldLengths ()
+comment|/**      * Creates the {@link com.univocity.parsers.fixed.FixedWidthFields} instance based on the headers and field      * lengths.      *      * @return new {@code FixedWidthFields} based on the header and field lengths.      */
+DECL|method|createFixedWidthFields ()
 specifier|private
 name|FixedWidthFields
-name|createFixedWidthFieldLengths
+name|createFixedWidthFields
 parameter_list|()
 block|{
 comment|// Ensure that the field lengths have been defined.

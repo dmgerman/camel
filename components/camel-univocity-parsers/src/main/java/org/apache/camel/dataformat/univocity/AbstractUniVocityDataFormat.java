@@ -396,7 +396,7 @@ argument_list|>
 name|marshaller
 decl_stmt|;
 comment|// We're using a ThreadLocal for the parser settings because in order to retrieve the headers we need to change the
-comment|// settings each time we're parsing...
+comment|// settings each time we're parsing
 DECL|field|parserSettings
 specifier|private
 specifier|volatile
@@ -895,7 +895,7 @@ return|return
 name|numberOfRecordsToRead
 return|;
 block|}
-comment|/**      * Sets the number of records to read.      * If {@code null} then the default settings value is used.      *      * @param numberOfRecordsToRead the number of records to read      * @return current data format instance, fluent API      * @see com.univocity.parsers.common.CommonParserSettings#setNumberOfRecordsToRead(int)      */
+comment|/**      * Sets the number of records to read.      * If {@code null} then the default settings value is used.      *      * @param numberOfRecordsToRead the number of records to read      * @return current data format instance, fluent API      * @see com.univocity.parsers.common.CommonParserSettings#setNumberOfRecordsToRead(long)      */
 DECL|method|setNumberOfRecordsToRead (Integer numberOfRecordsToRead)
 specifier|public
 name|DF
