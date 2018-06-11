@@ -55,7 +55,7 @@ specifier|public
 class|class
 name|KubernetesServiceCallServiceDiscoveryConfigurationCommon
 block|{
-comment|/**      * How to perform service lookup. Possible values: client, dns, environment.      * When using client, then the client queries the kubernetes master to      * obtain a list of active pods that provides the service, and then random      * (or round robin) select a pod. When using dns the service name is      * resolved as name.namespace.service.dnsDomain. When using environment then      * environment variables are used to lookup the service. By default      * environment is used.      */
+comment|/**      * How to perform service lookup. Possible values: client, dns, environment.      * When using client, then the client queries the kubernetes master to      * obtain a list of active pods that provides the service, and then random      * (or round robin) select a pod. When using dns the service name is      * resolved as name.namespace.svc.dnsDomain. When using dnssrv the service      * name is resolved with SRV query for _._...svc... When using environment      * then environment variables are used to lookup the service. By default      * environment is used.      */
 DECL|field|lookup
 specifier|private
 name|String
@@ -68,6 +68,18 @@ DECL|field|dnsDomain
 specifier|private
 name|String
 name|dnsDomain
+decl_stmt|;
+comment|/**      * Sets the Port Name to use for DNS/DNSSRV lookup.      */
+DECL|field|portName
+specifier|private
+name|String
+name|portName
+decl_stmt|;
+comment|/**      * Sets the Port Protocol to use for DNS/DNSSRV lookup.      */
+DECL|field|portProtocol
+specifier|private
+name|String
+name|portProtocol
 decl_stmt|;
 comment|/**      * Sets the namespace to use. Will by default use namespace from the ENV      * variable KUBERNETES_MASTER.      */
 DECL|field|namespace
@@ -222,6 +234,58 @@ operator|.
 name|dnsDomain
 operator|=
 name|dnsDomain
+expr_stmt|;
+block|}
+DECL|method|getPortName ()
+specifier|public
+name|String
+name|getPortName
+parameter_list|()
+block|{
+return|return
+name|portName
+return|;
+block|}
+DECL|method|setPortName (String portName)
+specifier|public
+name|void
+name|setPortName
+parameter_list|(
+name|String
+name|portName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|portName
+operator|=
+name|portName
+expr_stmt|;
+block|}
+DECL|method|getPortProtocol ()
+specifier|public
+name|String
+name|getPortProtocol
+parameter_list|()
+block|{
+return|return
+name|portProtocol
+return|;
+block|}
+DECL|method|setPortProtocol (String portProtocol)
+specifier|public
+name|void
+name|setPortProtocol
+parameter_list|(
+name|String
+name|portProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|portProtocol
+operator|=
+name|portProtocol
 expr_stmt|;
 block|}
 DECL|method|getNamespace ()

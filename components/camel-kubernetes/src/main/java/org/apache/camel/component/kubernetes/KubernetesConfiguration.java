@@ -406,6 +406,20 @@ name|portName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"tcp"
+argument_list|)
+DECL|field|portProtocol
+specifier|private
+name|String
+name|portProtocol
+init|=
+literal|"tcp"
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|dnsDomain
 specifier|private
 name|String
@@ -952,6 +966,33 @@ operator|.
 name|portName
 operator|=
 name|portName
+expr_stmt|;
+block|}
+DECL|method|getPortProtocol ()
+specifier|public
+name|String
+name|getPortProtocol
+parameter_list|()
+block|{
+return|return
+name|portProtocol
+return|;
+block|}
+comment|/**      * The port protocol, used for ServiceCall EIP      */
+DECL|method|setPortProtocol (String portProtocol)
+specifier|public
+name|void
+name|setPortProtocol
+parameter_list|(
+name|String
+name|portProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|portProtocol
+operator|=
+name|portProtocol
 expr_stmt|;
 block|}
 DECL|method|getDnsDomain ()

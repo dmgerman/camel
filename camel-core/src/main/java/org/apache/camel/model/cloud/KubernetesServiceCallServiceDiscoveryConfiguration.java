@@ -139,10 +139,47 @@ literal|"environment"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"dns,dnssrv"
+argument_list|)
 DECL|field|dnsDomain
 specifier|private
 name|String
 name|dnsDomain
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"dns,dnssrv"
+argument_list|)
+DECL|field|portName
+specifier|private
+name|String
+name|portName
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"dns,dnssrv"
+argument_list|)
+DECL|field|portProtocol
+specifier|private
+name|String
+name|portProtocol
+init|=
+literal|"tcp"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -461,7 +498,7 @@ return|return
 name|lookup
 return|;
 block|}
-comment|/**      * How to perform service lookup. Possible values: client, dns, environment.      *<p/>      * When using client, then the client queries the kubernetes master to obtain a list      * of active pods that provides the service, and then random (or round robin) select a pod.      *<p/>      * When using dns the service name is resolved as<tt>name.namespace.service.dnsDomain</tt>.      *<p/>      * When using environment then environment variables are used to lookup the service.      *<p/>      * By default environment is used.      */
+comment|/**      * How to perform service lookup. Possible values: client, dns, environment.      *<p/>      * When using client, then the client queries the kubernetes master to obtain a list      * of active pods that provides the service, and then random (or round robin) select a pod.      *<p/>      * When using dns the service name is resolved as<tt>name.namespace.svc.dnsDomain</tt>.      *<p/>      * When using dnssrv the service name is resolved with SRV query for<tt>_<port_name>._<port_proto>.<serviceName>.<namespace>.svc.<zone>.</tt>.      *<p/>      * When using environment then environment variables are used to lookup the service.      *<p/>      * By default environment is used.      */
 DECL|method|setLookup (String lookup)
 specifier|public
 name|void
@@ -503,6 +540,60 @@ operator|.
 name|dnsDomain
 operator|=
 name|dnsDomain
+expr_stmt|;
+block|}
+DECL|method|getPortName ()
+specifier|public
+name|String
+name|getPortName
+parameter_list|()
+block|{
+return|return
+name|portName
+return|;
+block|}
+comment|/**      * Sets the Port Name to use for DNS/DNSSRV lookup.      */
+DECL|method|setPortName (String portName)
+specifier|public
+name|void
+name|setPortName
+parameter_list|(
+name|String
+name|portName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|portName
+operator|=
+name|portName
+expr_stmt|;
+block|}
+DECL|method|getPortProtocol ()
+specifier|public
+name|String
+name|getPortProtocol
+parameter_list|()
+block|{
+return|return
+name|portProtocol
+return|;
+block|}
+comment|/**      * Sets the Port Protocol to use for DNS/DNSSRV lookup.      */
+DECL|method|setPortProtocol (String portProtocol)
+specifier|public
+name|void
+name|setPortProtocol
+parameter_list|(
+name|String
+name|portProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|portProtocol
+operator|=
+name|portProtocol
 expr_stmt|;
 block|}
 DECL|method|getUsername ()
@@ -889,7 +980,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * How to perform service lookup. Possible values: client, dns, environment.      *<p/>      * When using client, then the client queries the kubernetes master to obtain a list      * of active pods that provides the service, and then random (or round robin) select a pod.      *<p/>      * When using dns the service name is resolved as<tt>name.namespace.service.dnsDomain</tt>.      *<p/>      * When using environment then environment variables are used to lookup the service.      *<p/>      * By default environment is used.      */
+comment|/**      * How to perform service lookup, @see {@link #setLookup(String)}.      */
 DECL|method|lookup (String lookup)
 specifier|public
 name|KubernetesServiceCallServiceDiscoveryConfiguration
@@ -908,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the DNS domain to use for DNS lookup.      */
+comment|/**      * Sets the DNS domain to use for DNS/SNDSRV lookup.      */
 DECL|method|dnsDomain (String dnsDomain)
 specifier|public
 name|KubernetesServiceCallServiceDiscoveryConfiguration
@@ -921,6 +1012,44 @@ block|{
 name|setDnsDomain
 argument_list|(
 name|dnsDomain
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets Port Name to use for DNS/SNDSRV lookup.      */
+DECL|method|portName (String portName)
+specifier|public
+name|KubernetesServiceCallServiceDiscoveryConfiguration
+name|portName
+parameter_list|(
+name|String
+name|portName
+parameter_list|)
+block|{
+name|setPortName
+argument_list|(
+name|portName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets Port Protocol to use for DNS/SNDSRV lookup.      */
+DECL|method|portProtocol (String portProtocol)
+specifier|public
+name|KubernetesServiceCallServiceDiscoveryConfiguration
+name|portProtocol
+parameter_list|(
+name|String
+name|portProtocol
+parameter_list|)
+block|{
+name|setPortProtocol
+argument_list|(
+name|portProtocol
 argument_list|)
 expr_stmt|;
 return|return
