@@ -371,7 +371,7 @@ literal|2
 argument_list|,
 name|metricRegistry
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.hits"
 argument_list|)
@@ -386,7 +386,7 @@ literal|1
 argument_list|,
 name|metricRegistry
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.misses"
 argument_list|)

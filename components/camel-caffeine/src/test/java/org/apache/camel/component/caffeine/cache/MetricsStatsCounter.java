@@ -40,7 +40,7 @@ name|codahale
 operator|.
 name|metrics
 operator|.
-name|Meter
+name|Counter
 import|;
 end_import
 
@@ -115,25 +115,25 @@ block|{
 DECL|field|hitCount
 specifier|private
 specifier|final
-name|Meter
+name|Counter
 name|hitCount
 decl_stmt|;
 DECL|field|missCount
 specifier|private
 specifier|final
-name|Meter
+name|Counter
 name|missCount
 decl_stmt|;
 DECL|field|loadSuccessCount
 specifier|private
 specifier|final
-name|Meter
+name|Counter
 name|loadSuccessCount
 decl_stmt|;
 DECL|field|loadFailureCount
 specifier|private
 specifier|final
-name|Meter
+name|Counter
 name|loadFailureCount
 decl_stmt|;
 DECL|field|totalLoadTime
@@ -145,13 +145,13 @@ decl_stmt|;
 DECL|field|evictionCount
 specifier|private
 specifier|final
-name|Meter
+name|Counter
 name|evictionCount
 decl_stmt|;
 DECL|field|evictionWeight
 specifier|private
 specifier|final
-name|Meter
+name|Counter
 name|evictionWeight
 decl_stmt|;
 DECL|method|MetricsStatsCounter (MetricRegistry registry)
@@ -166,7 +166,7 @@ name|hitCount
 operator|=
 name|registry
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.hits"
 argument_list|)
@@ -175,7 +175,7 @@ name|missCount
 operator|=
 name|registry
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.misses"
 argument_list|)
@@ -193,7 +193,7 @@ name|loadSuccessCount
 operator|=
 name|registry
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.loads-success"
 argument_list|)
@@ -202,7 +202,7 @@ name|loadFailureCount
 operator|=
 name|registry
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.loads-failure"
 argument_list|)
@@ -211,7 +211,7 @@ name|evictionCount
 operator|=
 name|registry
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.evictions"
 argument_list|)
@@ -220,7 +220,7 @@ name|evictionWeight
 operator|=
 name|registry
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.evictions-weight"
 argument_list|)
@@ -239,7 +239,7 @@ parameter_list|)
 block|{
 name|hitCount
 operator|.
-name|mark
+name|inc
 argument_list|(
 name|count
 argument_list|)
@@ -258,7 +258,7 @@ parameter_list|)
 block|{
 name|missCount
 operator|.
-name|mark
+name|inc
 argument_list|(
 name|count
 argument_list|)
@@ -277,7 +277,7 @@ parameter_list|)
 block|{
 name|loadSuccessCount
 operator|.
-name|mark
+name|inc
 argument_list|()
 expr_stmt|;
 name|totalLoadTime
@@ -305,7 +305,7 @@ parameter_list|)
 block|{
 name|loadFailureCount
 operator|.
-name|mark
+name|inc
 argument_list|()
 expr_stmt|;
 name|totalLoadTime
@@ -347,12 +347,12 @@ parameter_list|)
 block|{
 name|evictionCount
 operator|.
-name|mark
+name|inc
 argument_list|()
 expr_stmt|;
 name|evictionWeight
 operator|.
-name|mark
+name|inc
 argument_list|(
 name|weight
 argument_list|)

@@ -293,7 +293,7 @@ argument_list|,
 name|getMetricRegistry
 argument_list|()
 operator|.
-name|meter
+name|counter
 argument_list|(
 literal|"camelcache.hits"
 argument_list|)
