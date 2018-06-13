@@ -20,22 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|github
-operator|.
-name|kristofa
-operator|.
-name|brave
-operator|.
-name|scribe
-operator|.
-name|ScribeSpanCollector
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -62,8 +46,30 @@ name|ZipkinTracer
 import|;
 end_import
 
+begin_import
+import|import
+name|zipkin2
+operator|.
+name|reporter
+operator|.
+name|AsyncReporter
+import|;
+end_import
+
+begin_import
+import|import
+name|zipkin2
+operator|.
+name|reporter
+operator|.
+name|libthrift
+operator|.
+name|LibthriftSender
+import|;
+end_import
+
 begin_comment
-comment|/**  * Integration test requires running Zipkin/Scribe running  *  *<p>The easiest way to run is locally:  *<pre>{@code  * curl -sSL https://zipkin.io/quickstart.sh | bash -s  * SCRIBE_ENABLED=true java -jar zipkin.jar  * }</pre>  */
+comment|/**  * Integration test requires running Zipkin/Scribe running  *  *<p>The easiest way to run is locally:  *  *<pre>{@code  * curl -sSL https://zipkin.io/quickstart.sh | bash -s  * curl -sSL https://zipkin.io/quickstart.sh | bash -s io.zipkin.java:zipkin-autoconfigure-collector-scribe:LATEST:module scribe.jar  * SCRIBE_ENABLED=true \  *     java \  *     -Dloader.path='scribe.jar,scribe.jar!/lib' \  *     -Dspring.profiles.active=scribe \  *     -cp zipkin.jar \  *     org.springframework.boot.loader.PropertiesLauncher  * }</pre>  *  *<p>Note: the scribe transport is deprecated. Most use out-of-box defaults, such as Http, RabbitMQ  * or Kafka.  */
 end_comment
 
 begin_class
@@ -87,14 +93,18 @@ parameter_list|)
 block|{
 name|zipkin
 operator|.
-name|setSpanCollector
+name|setSpanReporter
 argument_list|(
-operator|new
-name|ScribeSpanCollector
+name|AsyncReporter
+operator|.
+name|create
+argument_list|(
+name|LibthriftSender
+operator|.
+name|create
 argument_list|(
 literal|"127.0.0.1"
-argument_list|,
-literal|9410
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
