@@ -847,7 +847,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|AggregateDefinition (ExpressionDefinition correlationExpression)
-specifier|private
+specifier|public
 name|AggregateDefinition
 parameter_list|(
 name|ExpressionDefinition
