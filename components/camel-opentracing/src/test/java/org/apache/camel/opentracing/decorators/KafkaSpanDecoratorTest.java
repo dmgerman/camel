@@ -622,7 +622,7 @@ block|{
 name|Long
 name|testOffset
 init|=
-literal|4875454l
+literal|4875454L
 decl_stmt|;
 name|Integer
 name|testPartition
