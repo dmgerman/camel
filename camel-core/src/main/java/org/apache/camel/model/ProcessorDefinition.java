@@ -7018,6 +7018,77 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      *<a href="http://camel.apache.org/throttler.html">Throttler EIP:</a>      * Creates a throttler allowing you to ensure that a specific endpoint does not get overloaded,      * or that we don't exceed an agreed SLA with some external service.      * Here another parameter correlationExpressionKey is introduced for the functionality which      * will throttle based on the key expression to group exchanges. This will make key-based throttling      * instead of overall throttling.      *<p/>      * Will default use a time period of 1 second, so setting the maximumRequestCount to eg 10      * will default ensure at most 10 messages per second.      *      * @param maximumRequestCount  an expression to calculate the maximum request count      * @param correlationExpressionKey  is a correlation key that can throttle by the given key instead of overall throttling      * @return the builder      */
+DECL|method|throttle (Expression maximumRequestCount, long correlationExpressionKey)
+specifier|public
+name|ThrottleDefinition
+name|throttle
+parameter_list|(
+name|Expression
+name|maximumRequestCount
+parameter_list|,
+name|long
+name|correlationExpressionKey
+parameter_list|)
+block|{
+name|ThrottleDefinition
+name|answer
+init|=
+operator|new
+name|ThrottleDefinition
+argument_list|(
+name|maximumRequestCount
+argument_list|,
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+name|correlationExpressionKey
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/throttler.html">Throttler EIP:</a>      * Creates a throttler allowing you to ensure that a specific endpoint does not get overloaded,      * or that we don't exceed an agreed SLA with some external service.      * Here another parameter correlationExpressionKey is introduced for the functionality which      * will throttle based on the key expression to group exchanges. This will make key-based throttling      * instead of overall throttling.      *<p/>      * Will default use a time period of 1 second, so setting the maximumRequestCount to eg 10      * will default ensure at most 10 messages per second.      *      * @param maximumRequestCount  an expression to calculate the maximum request count      * @param correlationExpressionKey  is a correlation key as an expression that can throttle by the given key instead of overall throttling      * @return the builder      */
+DECL|method|throttle (Expression maximumRequestCount, Expression correlationExpressionKey)
+specifier|public
+name|ThrottleDefinition
+name|throttle
+parameter_list|(
+name|Expression
+name|maximumRequestCount
+parameter_list|,
+name|Expression
+name|correlationExpressionKey
+parameter_list|)
+block|{
+name|ThrottleDefinition
+name|answer
+init|=
+operator|new
+name|ThrottleDefinition
+argument_list|(
+name|maximumRequestCount
+argument_list|,
+name|correlationExpressionKey
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @return the clause used to create the loop expression      */
 DECL|method|loop ()
 specifier|public

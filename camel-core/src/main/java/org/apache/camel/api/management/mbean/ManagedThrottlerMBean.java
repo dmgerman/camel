@@ -49,7 +49,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Maximum requires per period"
+literal|"Maximum requests per period"
 argument_list|)
 DECL|method|getMaximumRequestsPerPeriod ()
 name|long
@@ -61,7 +61,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Maximum requires per period"
+literal|"Maximum requests per period"
 argument_list|)
 DECL|method|setMaximumRequestsPerPeriod (long maximumRequestsPerPeriod)
 name|void
