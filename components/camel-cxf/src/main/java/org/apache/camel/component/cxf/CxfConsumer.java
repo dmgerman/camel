@@ -1104,6 +1104,12 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|continuation
+operator|.
+name|isTimeout
+argument_list|()
+operator|&&
 name|continuation
 operator|.
 name|isResumed
@@ -1166,6 +1172,12 @@ block|}
 elseif|else
 if|if
 condition|(
+name|continuation
+operator|.
+name|isTimeout
+argument_list|()
+operator|||
+operator|(
 operator|!
 name|continuation
 operator|.
@@ -1177,6 +1189,7 @@ name|continuation
 operator|.
 name|isPending
 argument_list|()
+operator|)
 condition|)
 block|{
 name|org
