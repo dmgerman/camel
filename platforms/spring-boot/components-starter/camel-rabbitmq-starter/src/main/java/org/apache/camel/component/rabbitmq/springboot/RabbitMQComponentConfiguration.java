@@ -218,7 +218,7 @@ specifier|private
 name|Integer
 name|requestedChannelMax
 init|=
-literal|0
+literal|2047
 decl_stmt|;
 comment|/**      * Connection requested frame max (max size of frame offered)      */
 DECL|field|requestedFrameMax
