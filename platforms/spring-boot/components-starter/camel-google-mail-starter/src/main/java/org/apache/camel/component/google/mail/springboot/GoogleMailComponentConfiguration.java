@@ -24,16 +24,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -323,12 +313,6 @@ specifier|private
 name|String
 name|applicationName
 decl_stmt|;
-comment|/**          * Specifies the level of permissions you want a mail application to          * have to a user account. See          * https://developers.google.com/gmail/api/auth/scopes for more info.          */
-DECL|field|scopes
-specifier|private
-name|List
-name|scopes
-decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|GoogleMailApiName
@@ -509,32 +493,6 @@ operator|.
 name|applicationName
 operator|=
 name|applicationName
-expr_stmt|;
-block|}
-DECL|method|getScopes ()
-specifier|public
-name|List
-name|getScopes
-parameter_list|()
-block|{
-return|return
-name|scopes
-return|;
-block|}
-DECL|method|setScopes (List scopes)
-specifier|public
-name|void
-name|setScopes
-parameter_list|(
-name|List
-name|scopes
-parameter_list|)
-block|{
-name|this
-operator|.
-name|scopes
-operator|=
-name|scopes
 expr_stmt|;
 block|}
 block|}

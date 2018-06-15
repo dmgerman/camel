@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -210,7 +200,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken, String accessToken)
+DECL|method|makeClient (String clientId, String clientSecret, String applicationName, String refreshToken, String accessToken)
 specifier|public
 name|Gmail
 name|makeClient
@@ -220,12 +210,6 @@ name|clientId
 parameter_list|,
 name|String
 name|clientSecret
-parameter_list|,
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|scopes
 parameter_list|,
 name|String
 name|applicationName
@@ -266,8 +250,6 @@ argument_list|(
 name|clientId
 argument_list|,
 name|clientSecret
-argument_list|,
-name|scopes
 argument_list|)
 decl_stmt|;
 if|if
@@ -356,7 +338,7 @@ throw|;
 block|}
 block|}
 comment|// Authorizes the installed application to access user's protected data.
-DECL|method|authorize (String clientId, String clientSecret, Collection<String> scopes)
+DECL|method|authorize (String clientId, String clientSecret)
 specifier|private
 name|Credential
 name|authorize
@@ -366,12 +348,6 @@ name|clientId
 parameter_list|,
 name|String
 name|clientSecret
-parameter_list|,
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|scopes
 parameter_list|)
 throws|throws
 name|Exception

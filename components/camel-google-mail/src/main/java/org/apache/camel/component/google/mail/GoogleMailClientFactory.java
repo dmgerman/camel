@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -52,7 +42,7 @@ specifier|public
 interface|interface
 name|GoogleMailClientFactory
 block|{
-DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken, String accessToken)
+DECL|method|makeClient (String clientId, String clientSecret, String applicationName, String refreshToken, String accessToken)
 name|Gmail
 name|makeClient
 parameter_list|(
@@ -61,12 +51,6 @@ name|clientId
 parameter_list|,
 name|String
 name|clientSecret
-parameter_list|,
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|scopes
 parameter_list|,
 name|String
 name|applicationName

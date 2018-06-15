@@ -252,11 +252,6 @@ argument_list|()
 argument_list|,
 name|googleMailConfiguration
 operator|.
-name|getScopes
-argument_list|()
-argument_list|,
-name|googleMailConfiguration
-operator|.
 name|getApplicationName
 argument_list|()
 argument_list|,
