@@ -140,6 +140,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlElementRef
 import|;
 end_import
@@ -445,6 +459,19 @@ name|Boolean
 name|apiDocs
 decl_stmt|;
 annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"securityDefinitions"
+argument_list|)
+comment|// use the name swagger uses
+DECL|field|securityDefinitions
+specifier|private
+name|RestSecuritiesDefinition
+name|securityDefinitions
+decl_stmt|;
+annotation|@
 name|XmlElementRef
 DECL|field|verbs
 specifier|private
@@ -618,6 +645,33 @@ block|{
 return|return
 name|verbs
 return|;
+block|}
+DECL|method|getSecurityDefinitions ()
+specifier|public
+name|RestSecuritiesDefinition
+name|getSecurityDefinitions
+parameter_list|()
+block|{
+return|return
+name|securityDefinitions
+return|;
+block|}
+comment|/**      * Sets the security definitions such as Basic, OAuth2 etc.      */
+DECL|method|setSecurityDefinitions (RestSecuritiesDefinition securityDefinitions)
+specifier|public
+name|void
+name|setSecurityDefinitions
+parameter_list|(
+name|RestSecuritiesDefinition
+name|securityDefinitions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|securityDefinitions
+operator|=
+name|securityDefinitions
+expr_stmt|;
 block|}
 comment|/**      * The HTTP verbs this REST service accepts and uses      */
 DECL|method|setVerbs (List<VerbDefinition> verbs)
@@ -2468,6 +2522,20 @@ argument_list|)
 expr_stmt|;
 return|return
 name|route
+return|;
+block|}
+DECL|method|securityDefinition (String id)
+specifier|public
+name|RestSecurityDefinition
+name|securityDefinition
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+comment|//return new RestSecurityDefinition(this, id);
+return|return
+literal|null
 return|;
 block|}
 comment|// Implementation
