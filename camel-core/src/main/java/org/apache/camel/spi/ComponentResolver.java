@@ -50,7 +50,7 @@ specifier|public
 interface|interface
 name|ComponentResolver
 block|{
-comment|/**      * Attempts to resolve the component for the given URI      *      * @param name the component name to resolve      * @param context the context to load the component if it can be resolved      * @return the component which is added to the context or null if it cannot be resolved      * @throws Exception is thrown if the the component could not be loaded      */
+comment|/**      * Attempts to resolve the component for the given URI      *      * @param name the component name to resolve      * @param context the context to load the component if it can be resolved      * @return the component which is added to the context or null if it cannot be resolved      * @throws Exception is thrown if the component could not be loaded      */
 DECL|method|resolveComponent (String name, CamelContext context)
 name|Component
 name|resolveComponent

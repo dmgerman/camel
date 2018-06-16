@@ -1265,7 +1265,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Closes the given writer, logging any closing exceptions to the given log.      * An associated FileOutputStream can optionally be forced to disk.      *      * @param writer the writer to close      * @param os an underlying FileOutputStream that will to be forced to disk according to the the force parameter      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      * @param force forces the FileOutputStream to disk      */
+comment|/**      * Closes the given writer, logging any closing exceptions to the given log.      * An associated FileOutputStream can optionally be forced to disk.      *      * @param writer the writer to close      * @param os an underlying FileOutputStream that will to be forced to disk according to the force parameter      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      * @param force forces the FileOutputStream to disk      */
 DECL|method|close (Writer writer, FileOutputStream os, String name, Logger log, boolean force)
 specifier|public
 specifier|static

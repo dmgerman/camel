@@ -351,7 +351,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Writes {@link Payload} to the the {@link BlobStore}.      */
+comment|/**      * Writes {@link Payload} to the {@link BlobStore}.      */
 DECL|method|writeBlob (BlobStore blobStore, String container, String blobName, Payload payload)
 specifier|public
 specifier|static

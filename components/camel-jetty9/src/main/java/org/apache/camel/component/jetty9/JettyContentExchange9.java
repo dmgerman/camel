@@ -449,7 +449,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jetty specific exchange which keeps track of the the request and response.  */
+comment|/**  * Jetty specific exchange which keeps track of the request and response.  */
 end_comment
 
 begin_class

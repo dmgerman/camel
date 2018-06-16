@@ -352,7 +352,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// create producer when we have access the the camel context (we dont in doStart)
+comment|// create producer when we have access the camel context (we dont in doStart)
 name|Endpoint
 name|endpoint
 init|=

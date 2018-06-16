@@ -239,13 +239,13 @@ specifier|private
 name|SecureRandomParameters
 name|secureRandom
 decl_stmt|;
-comment|/**      * The optional configuration options to be applied purely to the client side settings      * of the {@link SSLContext}.  Settings specified here override any duplicate settings      * provided at the overall level by this class.  These parameters apply to       * {@link SSLSocketFactory}s and {@link SSLEngine}s produced by the the {@code SSLContext}      * produced from this class as well as to the {@code SSLContext} itself.      */
+comment|/**      * The optional configuration options to be applied purely to the client side settings      * of the {@link SSLContext}.  Settings specified here override any duplicate settings      * provided at the overall level by this class.  These parameters apply to       * {@link SSLSocketFactory}s and {@link SSLEngine}s produced by the {@code SSLContext}      * produced from this class as well as to the {@code SSLContext} itself.      */
 DECL|field|clientParameters
 specifier|private
 name|SSLContextClientParameters
 name|clientParameters
 decl_stmt|;
-comment|/**      * The optional configuration options to be applied purely to the server side settings      * of the {@link SSLContext}.  Settings specified here override any duplicate settings      * provided at the overall level by this class.  These parameters apply to       * {@link SSLServerSocketFactory}s and {@link SSLEngine}s produced by the the {@code SSLContext}      * produced from this class as well as to the {@code SSLContext} itself.      */
+comment|/**      * The optional configuration options to be applied purely to the server side settings      * of the {@link SSLContext}.  Settings specified here override any duplicate settings      * provided at the overall level by this class.  These parameters apply to       * {@link SSLServerSocketFactory}s and {@link SSLEngine}s produced by the {@code SSLContext}      * produced from this class as well as to the {@code SSLContext} itself.      */
 DECL|field|serverParameters
 specifier|private
 name|SSLContextServerParameters
@@ -360,7 +360,7 @@ return|return
 name|clientParameters
 return|;
 block|}
-comment|/**      * The optional configuration options to be applied purely to the client side settings      * of the {@link SSLContext}.  Settings specified here override any duplicate settings      * provided at the overall level by this class.  These parameters apply to       * {@link SSLSocketFactory}s and {@link SSLEngine}s produced by the the {@code SSLContext}      * produced from this class as well as to the {@code SSLContext} itself.      *      * @param clientParameters the optional additional client-side parameters      */
+comment|/**      * The optional configuration options to be applied purely to the client side settings      * of the {@link SSLContext}.  Settings specified here override any duplicate settings      * provided at the overall level by this class.  These parameters apply to       * {@link SSLSocketFactory}s and {@link SSLEngine}s produced by the {@code SSLContext}      * produced from this class as well as to the {@code SSLContext} itself.      *      * @param clientParameters the optional additional client-side parameters      */
 DECL|method|setClientParameters (SSLContextClientParameters clientParameters)
 specifier|public
 name|void
@@ -387,7 +387,7 @@ return|return
 name|serverParameters
 return|;
 block|}
-comment|/**      * The optional configuration options to be applied purely to the server side settings      * of the {@link SSLContext}.  Settings specified here override any duplicate settings      * provided at the overall level by this class.  These parameters apply to       * {@link SSLServerSocketFactory}s and {@link SSLEngine}s produced by the the {@code SSLContext}      * produced from this class as well as to the {@code SSLContext} itself.      *      * @param serverParameters the optional additional client-side parameters      */
+comment|/**      * The optional configuration options to be applied purely to the server side settings      * of the {@link SSLContext}.  Settings specified here override any duplicate settings      * provided at the overall level by this class.  These parameters apply to       * {@link SSLServerSocketFactory}s and {@link SSLEngine}s produced by the {@code SSLContext}      * produced from this class as well as to the {@code SSLContext} itself.      *      * @param serverParameters the optional additional client-side parameters      */
 DECL|method|setServerParameters (SSLContextServerParameters serverParameters)
 specifier|public
 name|void

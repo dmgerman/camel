@@ -301,7 +301,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// context path is derived from the the jetty endpoint.
+comment|// context path is derived from the jetty endpoint.
 name|from
 argument_list|(
 literal|"direct:start"

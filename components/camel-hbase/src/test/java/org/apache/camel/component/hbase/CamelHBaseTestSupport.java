@@ -274,7 +274,7 @@ extends|extends
 name|CamelTestSupport
 block|{
 comment|//The hbase testing utility has special requirements on the umask.
-comment|//We hold this value to check if the the minicluster has properly started and tests can be run.
+comment|//We hold this value to check if the minicluster has properly started and tests can be run.
 DECL|field|systemReady
 specifier|protected
 specifier|static

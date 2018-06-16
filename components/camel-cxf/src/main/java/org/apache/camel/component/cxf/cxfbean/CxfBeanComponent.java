@@ -200,7 +200,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 comment|// add to the endpoints map before calling the endpoint's init() method to
-comment|// make sure the the CxfBeanDestination activate() method can find the endpoint
+comment|// make sure the CxfBeanDestination activate() method can find the endpoint
 comment|// from the map.
 name|endpoints
 operator|.

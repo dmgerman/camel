@@ -167,7 +167,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Invoke the check. The implementation is responsible to eventually perform      * the check according to the limitation of the third party system i.e.      * it should not be performed too often to avoid rate limiting. The options      * argument can be used to pass information specific to the check like      * forcing the check to be performed against the the policies. The implementation      * is responsible to catch an handle any exception thrown by the underlying      * technology, including unchecked ones.      */
+comment|/**      * Invoke the check. The implementation is responsible to eventually perform      * the check according to the limitation of the third party system i.e.      * it should not be performed too often to avoid rate limiting. The options      * argument can be used to pass information specific to the check like      * forcing the check to be performed against the policies. The implementation      * is responsible to catch an handle any exception thrown by the underlying      * technology, including unchecked ones.      */
 DECL|method|call (Map<String, Object> options)
 name|Result
 name|call

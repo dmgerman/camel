@@ -2422,7 +2422,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  optional parent or root tag name that contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  optional parent or root tag name that contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
 DECL|method|tokenizeXMLPair (String tagName, String inheritNamespaceTagName, int group)
 specifier|public
 name|T
@@ -2451,7 +2451,7 @@ name|group
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  optional parent or root tag name that contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  optional parent or root tag name that contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
 DECL|method|tokenizeXMLPair (String tagName, String inheritNamespaceTagName, String group)
 specifier|public
 name|T

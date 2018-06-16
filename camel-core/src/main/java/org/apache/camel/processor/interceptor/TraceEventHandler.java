@@ -68,7 +68,7 @@ specifier|public
 interface|interface
 name|TraceEventHandler
 block|{
-comment|/**      * Event called when an {@link Exchange} is about to be processed      *<p/>      * This event is only called if trace out has been disabled (which it is by default).      *<p/>      * This method is for coarse grained tracing, where as the the other two methods is for fine grained      * with in and event events.      *      * @param node             the current node      * @param target           the current processor being invoked      * @param traceInterceptor the trace interceptor      * @param exchange         the current exchange      * @throws Exception is thrown if an error occurred during tracing      */
+comment|/**      * Event called when an {@link Exchange} is about to be processed      *<p/>      * This event is only called if trace out has been disabled (which it is by default).      *<p/>      * This method is for coarse grained tracing, where as the other two methods is for fine grained      * with in and event events.      *      * @param node             the current node      * @param target           the current processor being invoked      * @param traceInterceptor the trace interceptor      * @param exchange         the current exchange      * @throws Exception is thrown if an error occurred during tracing      */
 DECL|method|traceExchange (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 name|void
 name|traceExchange

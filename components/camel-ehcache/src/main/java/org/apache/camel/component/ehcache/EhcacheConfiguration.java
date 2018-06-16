@@ -687,7 +687,7 @@ return|return
 name|eventOrdering
 return|;
 block|}
-comment|/**      * Set the the delivery mode (ordered, unordered)      */
+comment|/**      * Set the delivery mode (ordered, unordered)      */
 DECL|method|setEventOrdering (String eventOrdering)
 specifier|public
 name|void
@@ -734,7 +734,7 @@ return|return
 name|eventFiring
 return|;
 block|}
-comment|/**      * Set the the delivery mode (synchronous, asynchronous)      */
+comment|/**      * Set the delivery mode (synchronous, asynchronous)      */
 DECL|method|setEventFiring (String eventFiring)
 specifier|public
 name|void

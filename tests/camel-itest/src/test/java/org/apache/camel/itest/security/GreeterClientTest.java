@@ -447,7 +447,7 @@ argument_list|,
 name|username
 argument_list|)
 expr_stmt|;
-comment|// Set the the password type to be plain text,
+comment|// Set the password type to be plain text,
 comment|// so we can keep using the password to authenticate with spring security
 name|props
 operator|.

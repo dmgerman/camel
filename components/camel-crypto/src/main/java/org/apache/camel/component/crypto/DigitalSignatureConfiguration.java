@@ -1462,7 +1462,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-comment|/**      * Gets the Crypto operation that was supplied in the the crypto scheme in the endpoint uri      */
+comment|/**      * Gets the Crypto operation that was supplied in the crypto scheme in the endpoint uri      */
 DECL|method|getCryptoOperation ()
 specifier|public
 name|CryptoOperation

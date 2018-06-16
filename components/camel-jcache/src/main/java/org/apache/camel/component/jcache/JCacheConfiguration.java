@@ -1100,7 +1100,7 @@ operator|=
 name|oldValueRequired
 expr_stmt|;
 block|}
-comment|/**      * if the the event listener should block the thread causing the event      */
+comment|/**      * if the event listener should block the thread causing the event      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean

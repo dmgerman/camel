@@ -219,7 +219,7 @@ index|[]
 name|reply
 parameter_list|)
 block|{
-comment|// create holder object with the the reply
+comment|// create holder object with the reply
 name|log
 operator|.
 name|debug

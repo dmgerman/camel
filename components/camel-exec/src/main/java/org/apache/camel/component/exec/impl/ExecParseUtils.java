@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class for parsing, used by the Camel Exec component.<br>  * Note: the class should be dropped, when the the commons-exec library  * implements similar functionality.  */
+comment|/**  * Utility class for parsing, used by the Camel Exec component.<br>  * Note: the class should be dropped, when the commons-exec library  * implements similar functionality.  */
 end_comment
 
 begin_class

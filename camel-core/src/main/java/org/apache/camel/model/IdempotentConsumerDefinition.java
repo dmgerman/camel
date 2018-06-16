@@ -393,7 +393,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the the message id repository for the idempotent consumer      *      * @param idempotentRepository the repository instance of idempotent      * @return builder      */
+comment|/**      * Sets the message id repository for the idempotent consumer      *      * @param idempotentRepository the repository instance of idempotent      * @return builder      */
 DECL|method|messageIdRepository (IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|IdempotentConsumerDefinition

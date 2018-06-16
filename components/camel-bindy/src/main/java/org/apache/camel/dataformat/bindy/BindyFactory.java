@@ -68,7 +68,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * The bind allow to read the content of a record (expressed as a      * List<String>) and map it to the model classes.      *       * @param data List<String> represents the csv, ... data to transform      * @param model Map<String, object> is a collection of objects used to bind      *            data. String is the the key name of the class link to POJO      *            objects      * @param line is the position of the record into the file      * @throws Exception can be thrown      */
+comment|/**      * The bind allow to read the content of a record (expressed as a      * List<String>) and map it to the model classes.      *       * @param data List<String> represents the csv, ... data to transform      * @param model Map<String, object> is a collection of objects used to bind      *            data. String is the key name of the class link to POJO      *            objects      * @param line is the position of the record into the file      * @throws Exception can be thrown      */
 DECL|method|bind (CamelContext camelContext, List<String> data, Map<String, Object> model, int line)
 name|void
 name|bind
@@ -96,7 +96,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * The unbind is used to transform the content of the classes model objects      * into a string. The string represents a record of a CSV file      *       * @return String represents a csv record created      * @param model Map<String, Object> is a collection of objects used to      *            create csv, ... records. String is the the key name of the      *            class link to POJO objects      * @throws Exception can be thrown      */
+comment|/**      * The unbind is used to transform the content of the classes model objects      * into a string. The string represents a record of a CSV file      *       * @return String represents a csv record created      * @param model Map<String, Object> is a collection of objects used to      *            create csv, ... records. String is the key name of the      *            class link to POJO objects      * @throws Exception can be thrown      */
 DECL|method|unbind (CamelContext camelContext, Map<String, Object> model)
 name|String
 name|unbind

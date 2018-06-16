@@ -189,7 +189,7 @@ name|Session
 name|session
 parameter_list|)
 block|{
-comment|// create holder object with the the reply
+comment|// create holder object with the reply
 name|ReplyHolder
 name|holder
 init|=

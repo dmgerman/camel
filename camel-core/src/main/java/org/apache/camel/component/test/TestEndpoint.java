@@ -655,7 +655,7 @@ return|return
 name|split
 return|;
 block|}
-comment|/**      * If enabled the the messages loaded from the test endpoint will be split using new line delimiters      * so each line is an expected message.      *<br/>      * For example to use a file endpoint to load a file where each line is an expected message.      */
+comment|/**      * If enabled the messages loaded from the test endpoint will be split using new line delimiters      * so each line is an expected message.      *<br/>      * For example to use a file endpoint to load a file where each line is an expected message.      */
 DECL|method|setSplit (boolean split)
 specifier|public
 name|void

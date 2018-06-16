@@ -2758,7 +2758,7 @@ literal|null
 condition|)
 block|{
 comment|// prefer to use application class loader which is most likely to be able to
-comment|// load the the class which has been JAXB annotated
+comment|// load the class which has been JAXB annotated
 name|ClassLoader
 name|cl
 init|=

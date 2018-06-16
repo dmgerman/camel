@@ -1419,7 +1419,7 @@ name|lang
 operator|.
 name|IllegalArgumentException
 argument_list|(
-literal|"No records have been defined in the the file"
+literal|"No records have been defined in the file"
 argument_list|)
 throw|;
 block|}

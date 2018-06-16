@@ -1061,7 +1061,7 @@ throw|throw
 operator|new
 name|CryptoCmsNoCertificateForSignerInfosException
 argument_list|(
-literal|"Cannot verify the signatures of the the PKCS7/CMS Signed Data object: No verifier certificate is configured."
+literal|"Cannot verify the signatures of the PKCS7/CMS Signed Data object: No verifier certificate is configured."
 argument_list|)
 throw|;
 block|}

@@ -1334,7 +1334,7 @@ argument_list|>
 name|componentType
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a readonly list of names of the components currently registered      *      * @return a readonly list with the names of the the components      */
+comment|/**      * Gets a readonly list of names of the components currently registered      *      * @return a readonly list with the names of the components      */
 DECL|method|getComponentNames ()
 name|List
 argument_list|<
@@ -2172,7 +2172,7 @@ name|String
 name|getPropertySuffixToken
 parameter_list|()
 function_decl|;
-comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the the languages      */
+comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the languages      */
 DECL|method|getLanguageNames ()
 name|List
 argument_list|<
@@ -2711,7 +2711,7 @@ name|AsyncProcessorAwaitManager
 name|manager
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the the application CamelContext class loader which may be helpful for running camel in other containers      *      * @return the application CamelContext class loader      */
+comment|/**      * Gets the application CamelContext class loader which may be helpful for running camel in other containers      *      * @return the application CamelContext class loader      */
 DECL|method|getApplicationContextClassLoader ()
 name|ClassLoader
 name|getApplicationContextClassLoader

@@ -146,7 +146,7 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// Set the the required name of the exchange
+comment|// Set the required name of the exchange
 name|configuration
 operator|.
 name|setName
