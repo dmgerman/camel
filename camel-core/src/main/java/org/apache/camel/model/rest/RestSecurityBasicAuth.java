@@ -120,7 +120,27 @@ class|class
 name|RestSecurityBasicAuth
 extends|extends
 name|RestSecurityDefinition
-block|{  }
+block|{
+DECL|method|RestSecurityBasicAuth ()
+specifier|public
+name|RestSecurityBasicAuth
+parameter_list|()
+block|{     }
+DECL|method|RestSecurityBasicAuth (RestDefinition rest)
+specifier|public
+name|RestSecurityBasicAuth
+parameter_list|(
+name|RestDefinition
+name|rest
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|rest
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 end_class
 
 end_unit

@@ -109,7 +109,6 @@ block|{
 annotation|@
 name|XmlTransient
 DECL|field|rest
-specifier|private
 name|RestDefinition
 name|rest
 decl_stmt|;
@@ -139,6 +138,26 @@ specifier|private
 name|String
 name|description
 decl_stmt|;
+DECL|method|RestSecurityDefinition ()
+specifier|public
+name|RestSecurityDefinition
+parameter_list|()
+block|{     }
+DECL|method|RestSecurityDefinition (RestDefinition rest)
+specifier|public
+name|RestSecurityDefinition
+parameter_list|(
+name|RestDefinition
+name|rest
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rest
+operator|=
+name|rest
+expr_stmt|;
+block|}
 comment|/**      * Ends the configuration of this security      */
 DECL|method|endSecurityDefinition ()
 specifier|public

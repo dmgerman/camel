@@ -178,6 +178,25 @@ return|return
 name|name
 return|;
 block|}
+DECL|method|RestSecurityApiKey ()
+specifier|public
+name|RestSecurityApiKey
+parameter_list|()
+block|{     }
+DECL|method|RestSecurityApiKey (RestDefinition rest)
+specifier|public
+name|RestSecurityApiKey
+parameter_list|(
+name|RestDefinition
+name|rest
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|rest
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * The name of the header or query parameter to be used.      */
 DECL|method|setName (String name)
 specifier|public
@@ -248,6 +267,75 @@ name|inQuery
 operator|=
 name|inQuery
 expr_stmt|;
+block|}
+DECL|method|withHeader (String name)
+specifier|public
+name|RestSecurityApiKey
+name|withHeader
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|setName
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+name|setInHeader
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|setInQuery
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|withQuery (String name)
+specifier|public
+name|RestSecurityApiKey
+name|withQuery
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|setName
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+name|setInQuery
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|setInHeader
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|end ()
+specifier|public
+name|RestSecuritiesDefinition
+name|end
+parameter_list|()
+block|{
+return|return
+name|rest
+operator|.
+name|getSecurityDefinitions
+argument_list|()
+return|;
 block|}
 block|}
 end_class

@@ -1728,6 +1728,33 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To configure security definitions.      */
+DECL|method|securityDefinitions ()
+specifier|public
+name|RestSecuritiesDefinition
+name|securityDefinitions
+parameter_list|()
+block|{
+if|if
+condition|(
+name|securityDefinitions
+operator|==
+literal|null
+condition|)
+block|{
+name|securityDefinitions
+operator|=
+operator|new
+name|RestSecuritiesDefinition
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|securityDefinitions
+return|;
+block|}
 DECL|method|produces (String mediaType)
 specifier|public
 name|RestDefinition
@@ -2522,20 +2549,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|route
-return|;
-block|}
-DECL|method|securityDefinition (String id)
-specifier|public
-name|RestSecurityDefinition
-name|securityDefinition
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-comment|//return new RestSecurityDefinition(this, id);
-return|return
-literal|null
 return|;
 block|}
 comment|// Implementation

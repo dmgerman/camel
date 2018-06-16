@@ -233,11 +233,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//                restConfiguration()
-comment|//                    .apiSecurityProperty("petstore_auth", "type", "oauth2")
-comment|//                    .apiSecurityProperty("petstore_auth", "authorizationUrl", "http://petstore.swagger.io/oauth/dialog")
-comment|//                    .apiSecurityProperty("petstore_auth", "flow", "implicit");
-comment|// this user REST service is json only
 name|rest
 argument_list|(
 literal|"/user"
@@ -252,6 +247,39 @@ name|description
 argument_list|(
 literal|"User rest service"
 argument_list|)
+comment|// setup security definitions
+operator|.
+name|securityDefinitions
+argument_list|()
+operator|.
+name|oauth2
+argument_list|(
+literal|"petstore_auth"
+argument_list|)
+operator|.
+name|authorizationUrl
+argument_list|(
+literal|"http://petstore.swagger.io/oauth/dialog"
+argument_list|)
+operator|.
+name|end
+argument_list|()
+operator|.
+name|apiKey
+argument_list|(
+literal|"api_key"
+argument_list|)
+operator|.
+name|withHeader
+argument_list|(
+literal|"myHeader"
+argument_list|)
+operator|.
+name|end
+argument_list|()
+operator|.
+name|end
+argument_list|()
 operator|.
 name|consumes
 argument_list|(
@@ -573,13 +601,54 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertTrue
 argument_list|(
 name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"securityDefinitions\" : {"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"type\" : \"oauth2\","
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"authorizationUrl\" : \"http://petstore.swagger.io/oauth/dialog\","
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"type\" : \"apiKey\","
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"in\" : \"header\""
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertTrue
