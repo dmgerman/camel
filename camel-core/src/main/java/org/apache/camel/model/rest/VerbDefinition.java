@@ -294,6 +294,21 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
+name|XmlElementRef
+DECL|field|security
+specifier|private
+name|List
+argument_list|<
+name|SecurityDefinition
+argument_list|>
+name|security
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 DECL|field|uri
 specifier|private
@@ -577,6 +592,39 @@ operator|.
 name|responseMsgs
 operator|=
 name|responseMsgs
+expr_stmt|;
+block|}
+DECL|method|getSecurity ()
+specifier|public
+name|List
+argument_list|<
+name|SecurityDefinition
+argument_list|>
+name|getSecurity
+parameter_list|()
+block|{
+return|return
+name|security
+return|;
+block|}
+comment|/**      * Sets the swagger security settings for this verb.      */
+DECL|method|setSecurity (List<SecurityDefinition> security)
+specifier|public
+name|void
+name|setSecurity
+parameter_list|(
+name|List
+argument_list|<
+name|SecurityDefinition
+argument_list|>
+name|security
+parameter_list|)
+block|{
+name|this
+operator|.
+name|security
+operator|=
+name|security
 expr_stmt|;
 block|}
 DECL|method|getMethod ()

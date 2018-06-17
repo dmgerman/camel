@@ -318,6 +318,12 @@ argument_list|)
 operator|.
 name|endResponseMessage
 argument_list|()
+comment|// setup security for this rest verb
+operator|.
+name|security
+argument_list|(
+literal|"api_key"
+argument_list|)
 operator|.
 name|param
 argument_list|()
@@ -388,6 +394,14 @@ argument_list|(
 name|User
 operator|.
 name|class
+argument_list|)
+comment|// setup security for this rest verb
+operator|.
+name|security
+argument_list|(
+literal|"petstore_auth"
+argument_list|,
+literal|"write:pets,read:pets"
 argument_list|)
 operator|.
 name|param
@@ -658,6 +672,36 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"host\" : \"localhost:8080\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"security\" : [ {"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"petstore_auth\" : [ \"write:pets\", \"read:pets\" ]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"api_key\" : [ ]"
 argument_list|)
 argument_list|)
 expr_stmt|;
