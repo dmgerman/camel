@@ -452,6 +452,8 @@ name|solrServer
 operator|.
 name|query
 argument_list|(
+literal|"collection1"
+argument_list|,
 name|solrQuery
 argument_list|)
 return|;

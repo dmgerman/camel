@@ -529,6 +529,15 @@ operator|++
 operator|)
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"solr.log.dir"
+argument_list|,
+literal|"target/"
+argument_list|)
+expr_stmt|;
 comment|// Instruct Solr to keep the index in memory, for faster testing.
 name|System
 operator|.

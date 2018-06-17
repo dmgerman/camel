@@ -217,11 +217,11 @@ name|USE_HTTPS
 condition|)
 block|{
 return|return
-literal|"solrs://localhost:"
+literal|"solrs://127.0.0.1:"
 operator|+
 name|httpsPort
 operator|+
-literal|"/solr"
+literal|"/solr/collection1"
 return|;
 block|}
 elseif|else
@@ -266,7 +266,7 @@ literal|"solr://localhost:"
 operator|+
 name|port
 operator|+
-literal|"/solr"
+literal|"/solr/collection1"
 return|;
 block|}
 block|}
@@ -354,7 +354,11 @@ name|HttpSolrClient
 operator|.
 name|Builder
 argument_list|(
-literal|"https://localhost: + httpsPort + /solr"
+literal|"https://127.0.0.1:"
+operator|+
+name|httpsPort
+operator|+
+literal|"/solr"
 argument_list|)
 operator|.
 name|build
@@ -390,7 +394,11 @@ name|HttpSolrClient
 operator|.
 name|Builder
 argument_list|(
-literal|"http://localhost: + port + /solr"
+literal|"http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/solr"
 argument_list|)
 operator|.
 name|build
@@ -489,13 +497,17 @@ name|solrServer
 operator|.
 name|deleteByQuery
 argument_list|(
+literal|"collection1"
+argument_list|,
 literal|"*:*"
 argument_list|)
 expr_stmt|;
 name|solrServer
 operator|.
 name|commit
-argument_list|()
+argument_list|(
+literal|"collection1"
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -509,13 +521,17 @@ name|solrHttpsServer
 operator|.
 name|deleteByQuery
 argument_list|(
+literal|"collection1"
+argument_list|,
 literal|"*:*"
 argument_list|)
 expr_stmt|;
 name|solrHttpsServer
 operator|.
 name|commit
-argument_list|()
+argument_list|(
+literal|"collection1"
+argument_list|)
 expr_stmt|;
 block|}
 if|if

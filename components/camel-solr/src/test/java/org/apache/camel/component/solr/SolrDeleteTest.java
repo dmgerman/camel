@@ -52,7 +52,7 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Need refactoring in SolrComponentTestSupport, with new schema and solr-config from solr 5.2.1 and new Cloud Solr cluster instantiation"
+literal|"At this stage, a single Test class inheriting from SolrComponentTestSupport is supported per test run"
 argument_list|)
 DECL|class|SolrDeleteTest
 specifier|public

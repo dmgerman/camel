@@ -42,7 +42,7 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Need refactoring in SolrComponentTestSupport, with new schema and solr-config from solr 5.2.1 and new Cloud Solr cluster instantiation"
+literal|"Rollback is currently not supported in SolrCloud mode. (SOLR-4895)"
 argument_list|)
 DECL|class|SolrTransactionsTest
 specifier|public

@@ -202,7 +202,7 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Need refactoring in SolrComponentTestSupport, with new schema and solr-config from solr 5.2.1 and new Cloud Solr cluster instantiation"
+literal|"Assert.fail:88 expected:<0> but was:<12>"
 argument_list|)
 DECL|class|SolrUpdateTest
 specifier|public
