@@ -168,16 +168,6 @@ specifier|private
 name|Boolean
 name|inQuery
 decl_stmt|;
-DECL|method|getName ()
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|name
-return|;
-block|}
 DECL|method|RestSecurityApiKey ()
 specifier|public
 name|RestSecurityApiKey
@@ -196,6 +186,16 @@ argument_list|(
 name|rest
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
 block|}
 comment|/**      * The name of the header or query parameter to be used.      */
 DECL|method|setName (String name)
