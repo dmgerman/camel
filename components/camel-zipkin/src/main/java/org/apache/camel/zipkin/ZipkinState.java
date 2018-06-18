@@ -18,39 +18,19 @@ end_package
 
 begin_import
 import|import
+name|brave
+operator|.
+name|Span
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
 operator|.
 name|Stack
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|kristofa
-operator|.
-name|brave
-operator|.
-name|ServerSpan
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|twitter
-operator|.
-name|zipkin
-operator|.
-name|gen
-operator|.
-name|Span
 import|;
 end_import
 
@@ -105,7 +85,7 @@ specifier|private
 specifier|final
 name|Stack
 argument_list|<
-name|ServerSpan
+name|Span
 argument_list|>
 name|serverSpans
 init|=
@@ -160,12 +140,12 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|pushServerSpan (ServerSpan span)
+DECL|method|pushServerSpan (Span span)
 specifier|public
 name|void
 name|pushServerSpan
 parameter_list|(
-name|ServerSpan
+name|Span
 name|span
 parameter_list|)
 block|{
@@ -179,7 +159,7 @@ expr_stmt|;
 block|}
 DECL|method|popServerSpan ()
 specifier|public
-name|ServerSpan
+name|Span
 name|popServerSpan
 parameter_list|()
 block|{
@@ -208,7 +188,7 @@ block|}
 block|}
 DECL|method|peekServerSpan ()
 specifier|public
-name|ServerSpan
+name|Span
 name|peekServerSpan
 parameter_list|()
 block|{
