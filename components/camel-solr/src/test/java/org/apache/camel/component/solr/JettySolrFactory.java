@@ -282,7 +282,7 @@ specifier|private
 name|JettySolrFactory
 parameter_list|()
 block|{
-comment|// Util classs
+comment|// Util class
 block|}
 DECL|method|buildSSLConfig (boolean useSsl, boolean sslClientAuth)
 specifier|private
