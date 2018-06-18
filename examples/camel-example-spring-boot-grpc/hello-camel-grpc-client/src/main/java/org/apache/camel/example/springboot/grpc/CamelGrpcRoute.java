@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple Camel Grpc route example using Spring-boot  */
+comment|/**  * A simple Camel gRPC route example using Spring-boot  */
 end_comment
 
 begin_class
@@ -126,7 +126,7 @@ argument_list|()
 decl_stmt|;
 name|from
 argument_list|(
-literal|"timer://foo?period=10000&repeatCount=1"
+literal|"timer://foo?period=10000&repeatCount=5"
 argument_list|)
 operator|.
 name|process

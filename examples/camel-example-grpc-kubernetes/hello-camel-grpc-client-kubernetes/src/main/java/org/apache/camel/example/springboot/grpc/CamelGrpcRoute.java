@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple Camel Grpc route example using Spring-boot  */
+comment|/**  * A simple Camel gRPC route example using Spring-boot  */
 end_comment
 
 begin_class
