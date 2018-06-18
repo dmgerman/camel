@@ -18,19 +18,19 @@ end_package
 
 begin_import
 import|import
-name|brave
-operator|.
-name|Span
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
 operator|.
 name|Stack
+import|;
+end_import
+
+begin_import
+import|import
+name|brave
+operator|.
+name|Span
 import|;
 end_import
 
