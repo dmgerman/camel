@@ -942,7 +942,7 @@ return|return
 name|cacheContainerConfiguration
 return|;
 block|}
-comment|/**      * The CacheContainer configuration      */
+comment|/**      * The CacheContainer configuration. Uses if the cacheContainer is not defined.      * Must be the following types:      * org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration;      * org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;      *       */
 DECL|method|setCacheContainerConfiguration (Object cacheContainerConfiguration)
 specifier|public
 name|void

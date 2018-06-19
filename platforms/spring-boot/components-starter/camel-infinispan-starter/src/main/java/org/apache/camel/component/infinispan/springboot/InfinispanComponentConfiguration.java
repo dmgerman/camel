@@ -433,7 +433,7 @@ specifier|private
 name|Map
 name|configurationProperties
 decl_stmt|;
-comment|/**          * The CacheContainer configuration          */
+comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;          */
 DECL|field|cacheContainerConfiguration
 specifier|private
 name|Object

@@ -348,18 +348,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Check if a container configuration object has been provided so use
-comment|// it and discard any other additional configuration.
-if|if
-condition|(
-name|configuration
-operator|.
-name|getCacheContainerConfiguration
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 specifier|final
 name|Object
 name|containerConf
@@ -369,6 +357,15 @@ operator|.
 name|getCacheContainerConfiguration
 argument_list|()
 decl_stmt|;
+comment|// Check if a container configuration object has been provided so use
+comment|// it and discard any other additional configuration.
+if|if
+condition|(
+name|containerConf
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|containerConf
