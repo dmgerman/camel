@@ -62,26 +62,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"At this stage, a single Test class inheriting from SolrComponentTestSupport is supported per test run"
-argument_list|)
 DECL|class|SolrAddBeansTest
 specifier|public
 class|class

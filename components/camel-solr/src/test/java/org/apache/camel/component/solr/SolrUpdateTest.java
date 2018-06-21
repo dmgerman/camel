@@ -199,11 +199,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Assert.fail:88 expected:<0> but was:<12>"
-argument_list|)
 DECL|class|SolrUpdateTest
 specifier|public
 class|class
