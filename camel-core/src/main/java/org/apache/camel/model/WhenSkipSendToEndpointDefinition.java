@@ -142,6 +142,18 @@ name|WhenDefinition
 block|{
 annotation|@
 name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"whenSkipSendToEndpoint"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createPredicate (RouteContext routeContext)
 specifier|protected
 name|Predicate

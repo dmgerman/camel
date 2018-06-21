@@ -118,6 +118,7 @@ name|FIELD
 argument_list|)
 DECL|class|NoOutputExpressionNode
 specifier|public
+specifier|abstract
 class|class
 name|NoOutputExpressionNode
 extends|extends

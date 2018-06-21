@@ -371,6 +371,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getShortName ()
+specifier|public
+name|String
+name|getShortName
+parameter_list|()
+block|{
+return|return
+literal|"pollEnrich"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getLabel ()
 specifier|public
 name|String
