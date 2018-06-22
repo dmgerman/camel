@@ -40,6 +40,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ValueHolder
 import|;
 end_import
@@ -50,6 +64,7 @@ end_comment
 
 begin_class
 DECL|class|EndpointKey
+specifier|public
 specifier|final
 class|class
 name|EndpointKey
@@ -60,6 +75,7 @@ name|String
 argument_list|>
 block|{
 DECL|method|EndpointKey (String uri)
+specifier|public
 name|EndpointKey
 parameter_list|(
 name|String
@@ -77,7 +93,7 @@ name|uri
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -89,6 +105,7 @@ expr_stmt|;
 block|}
 comment|/**      * Optimized when the uri is already normalized.      */
 DECL|method|EndpointKey (String uri, boolean normalized)
+specifier|public
 name|EndpointKey
 parameter_list|(
 name|String
@@ -103,7 +120,7 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
