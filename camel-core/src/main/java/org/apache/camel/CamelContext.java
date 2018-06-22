@@ -1008,6 +1008,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ValueHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
@@ -1358,7 +1372,12 @@ comment|/**      * Gets the {@link org.apache.camel.spi.EndpointRegistry}      *
 DECL|method|getEndpointRegistry ()
 name|EndpointRegistry
 argument_list|<
+name|?
+extends|extends
+name|ValueHolder
+argument_list|<
 name|String
+argument_list|>
 argument_list|>
 name|getEndpointRegistry
 parameter_list|()
@@ -2379,6 +2398,14 @@ function_decl|;
 comment|/**      * Gets the {@link org.apache.camel.spi.TransformerRegistry}      * @return the TransformerRegistry      */
 DECL|method|getTransformerRegistry ()
 name|TransformerRegistry
+argument_list|<
+name|?
+extends|extends
+name|ValueHolder
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|getTransformerRegistry
 parameter_list|()
 function_decl|;
@@ -2415,6 +2442,14 @@ function_decl|;
 comment|/**      * Gets the {@link org.apache.camel.spi.ValidatorRegistry}      * @return the ValidatorRegistry      */
 DECL|method|getValidatorRegistry ()
 name|ValidatorRegistry
+argument_list|<
+name|?
+extends|extends
+name|ValueHolder
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|getValidatorRegistry
 parameter_list|()
 function_decl|;

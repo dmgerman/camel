@@ -4520,6 +4520,9 @@ comment|// ---------------------------------------------------------------------
 DECL|method|getEndpointRegistry ()
 specifier|public
 name|EndpointRegistry
+argument_list|<
+name|EndpointKey
+argument_list|>
 name|getEndpointRegistry
 parameter_list|()
 block|{
@@ -24235,6 +24238,9 @@ name|Override
 DECL|method|getTransformerRegistry ()
 specifier|public
 name|TransformerRegistry
+argument_list|<
+name|TransformerKey
+argument_list|>
 name|getTransformerRegistry
 parameter_list|()
 block|{
@@ -24307,6 +24313,9 @@ name|Override
 DECL|method|getValidatorRegistry ()
 specifier|public
 name|ValidatorRegistry
+argument_list|<
+name|ValidatorKey
+argument_list|>
 name|getValidatorRegistry
 parameter_list|()
 block|{
