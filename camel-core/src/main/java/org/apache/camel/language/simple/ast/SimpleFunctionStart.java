@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -144,7 +154,7 @@ comment|// use caches to avoid re-parsing the same expressions over and over aga
 DECL|field|cacheExpression
 specifier|private
 specifier|final
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -158,14 +168,14 @@ specifier|final
 name|CompositeNodes
 name|block
 decl_stmt|;
-DECL|method|SimpleFunctionStart (SimpleToken token, LRUCache<String, Expression> cacheExpression)
+DECL|method|SimpleFunctionStart (SimpleToken token, Map<String, Expression> cacheExpression)
 specifier|public
 name|SimpleFunctionStart
 parameter_list|(
 name|SimpleToken
 name|token
 parameter_list|,
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,

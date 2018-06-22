@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUCacheFactory
+name|LRUCache
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUSoftCache
+name|LRUCacheFactory
 import|;
 end_import
 
@@ -154,7 +154,7 @@ argument_list|)
 DECL|field|cache
 specifier|private
 specifier|final
-name|LRUSoftCache
+name|Map
 argument_list|<
 name|BeanInfoCacheKey
 argument_list|,
@@ -333,8 +333,22 @@ name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
+operator|&&
+name|cache
+operator|instanceof
+name|LRUCache
 condition|)
 block|{
+name|LRUCache
+name|cache
+init|=
+operator|(
+name|LRUCache
+operator|)
+name|this
+operator|.
+name|cache
+decl_stmt|;
 name|LOG
 operator|.
 name|debug

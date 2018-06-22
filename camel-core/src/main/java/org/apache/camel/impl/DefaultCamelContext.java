@@ -3428,36 +3428,6 @@ specifier|public
 name|DefaultCamelContext
 parameter_list|()
 block|{
-name|boolean
-name|warmUp
-init|=
-literal|"true"
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"CamelWarmUpLRUCacheFactory"
-argument_list|,
-literal|"true"
-argument_list|)
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|warmUp
-condition|)
-block|{
-comment|// warm-up LRUCache which happens in a background test, which can speedup starting Camel
-comment|// as the warm-up can run concurrently with starting up Camel and the runtime container Camel may be running inside
-name|LRUCacheFactory
-operator|.
-name|warmUp
-argument_list|()
-expr_stmt|;
-block|}
 name|this
 operator|.
 name|executorServiceManager

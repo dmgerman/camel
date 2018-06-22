@@ -776,7 +776,7 @@ argument_list|)
 DECL|method|createLRUCache (int cacheSize)
 specifier|protected
 specifier|static
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,

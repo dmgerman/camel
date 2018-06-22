@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|locks
@@ -119,20 +129,6 @@ operator|.
 name|util
 operator|.
 name|FileUtil
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|LRUCache
 import|;
 end_import
 
@@ -262,7 +258,7 @@ comment|// assume writing to 100 different files concurrently at most for the sa
 DECL|field|locks
 specifier|private
 specifier|final
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,

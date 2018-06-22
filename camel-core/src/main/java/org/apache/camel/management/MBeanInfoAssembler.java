@@ -383,7 +383,7 @@ comment|// use a weak cache as we dont want the cache to keep around as it refer
 comment|// which could prevent classloader to unload classes if being referenced from this cache
 DECL|field|cache
 specifier|private
-name|LRUCache
+name|Map
 argument_list|<
 name|Class
 argument_list|<
@@ -457,8 +457,22 @@ name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
+operator|&&
+name|cache
+operator|instanceof
+name|LRUCache
 condition|)
 block|{
+name|LRUCache
+name|cache
+init|=
+operator|(
+name|LRUCache
+operator|)
+name|this
+operator|.
+name|cache
+decl_stmt|;
 name|LOG
 operator|.
 name|debug

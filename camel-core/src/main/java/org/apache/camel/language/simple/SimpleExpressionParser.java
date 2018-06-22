@@ -44,6 +44,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|atomic
@@ -258,20 +268,6 @@ name|TokenType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|LRUCache
-import|;
-end_import
-
 begin_comment
 comment|/**  * A parser to parse simple language as a Camel {@link Expression}  */
 end_comment
@@ -287,7 +283,7 @@ block|{
 comment|// use caches to avoid re-parsing the same expressions over and over again
 DECL|field|cacheExpression
 specifier|private
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -334,7 +330,7 @@ name|allowEscape
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SimpleExpressionParser (String expression, boolean allowEscape, LRUCache<String, Expression> cacheExpression)
+DECL|method|SimpleExpressionParser (String expression, boolean allowEscape, Map<String, Expression> cacheExpression)
 specifier|public
 name|SimpleExpressionParser
 parameter_list|(
@@ -344,7 +340,7 @@ parameter_list|,
 name|boolean
 name|allowEscape
 parameter_list|,
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,

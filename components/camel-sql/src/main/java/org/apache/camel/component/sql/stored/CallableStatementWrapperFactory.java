@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -61,20 +71,6 @@ operator|.
 name|support
 operator|.
 name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|LRUCache
 import|;
 end_import
 
@@ -158,7 +154,7 @@ argument_list|)
 DECL|field|templateCache
 specifier|private
 specifier|final
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -181,7 +177,7 @@ argument_list|)
 DECL|field|batchTemplateCache
 specifier|private
 specifier|final
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,

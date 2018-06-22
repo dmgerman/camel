@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -153,7 +163,7 @@ block|{
 comment|// use caches to avoid re-parsing the same expressions over and over again
 DECL|field|cacheExpression
 specifier|private
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -177,14 +187,14 @@ name|token
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SimpleFunctionExpression (SimpleToken token, LRUCache<String, Expression> cacheExpression)
+DECL|method|SimpleFunctionExpression (SimpleToken token, Map<String, Expression> cacheExpression)
 specifier|public
 name|SimpleFunctionExpression
 parameter_list|(
 name|SimpleToken
 name|token
 parameter_list|,
-name|LRUCache
+name|Map
 argument_list|<
 name|String
 argument_list|,
