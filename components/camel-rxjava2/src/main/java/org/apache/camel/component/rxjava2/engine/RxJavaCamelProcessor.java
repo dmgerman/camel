@@ -66,20 +66,6 @@ end_import
 
 begin_import
 import|import
-name|hu
-operator|.
-name|akarnokd
-operator|.
-name|rxjava2
-operator|.
-name|processors
-operator|.
-name|MulticastProcessor
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|reactivex
@@ -117,6 +103,18 @@ operator|.
 name|processors
 operator|.
 name|FlowableProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|reactivex
+operator|.
+name|processors
+operator|.
+name|MulticastProcessor
 import|;
 end_import
 
