@@ -58,7 +58,11 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
@@ -729,10 +733,7 @@ argument_list|(
 name|in
 argument_list|,
 name|charset
-argument_list|)
-operator|.
-name|useDelimiter
-argument_list|(
+argument_list|,
 name|scanEndToken
 argument_list|)
 expr_stmt|;
