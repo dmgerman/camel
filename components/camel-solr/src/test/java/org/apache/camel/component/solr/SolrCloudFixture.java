@@ -338,7 +338,7 @@ specifier|final
 name|Path
 name|TEMP_DIR
 decl_stmt|;
-comment|/**      * Create indexes in this directory, optimally use a subdir, named after the      * test      */
+comment|/**      * Create a temp dir under the maven target folder      */
 static|static
 block|{
 name|LOG
@@ -352,46 +352,12 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|String
-name|s
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"tempDir"
-argument_list|,
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.io.tmpdir"
-argument_list|)
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|s
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"To run tests, you need to define system property 'tempDir' or 'java.io.tmpdir'."
-argument_list|)
-throw|;
-block|}
 name|TEMP_DIR
 operator|=
 name|Paths
 operator|.
 name|get
 argument_list|(
-name|s
-argument_list|,
 literal|"tmp"
 argument_list|)
 expr_stmt|;
