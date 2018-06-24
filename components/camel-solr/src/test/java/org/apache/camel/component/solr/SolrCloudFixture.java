@@ -358,6 +358,8 @@ name|Paths
 operator|.
 name|get
 argument_list|(
+literal|"target"
+argument_list|,
 literal|"tmp"
 argument_list|)
 expr_stmt|;
