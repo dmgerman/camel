@@ -647,7 +647,7 @@ name|assertEquals
 argument_list|(
 name|join
 argument_list|(
-literal|"_____empty"
+literal|"N/A__empty"
 argument_list|,
 literal|"one__two__"
 argument_list|)
