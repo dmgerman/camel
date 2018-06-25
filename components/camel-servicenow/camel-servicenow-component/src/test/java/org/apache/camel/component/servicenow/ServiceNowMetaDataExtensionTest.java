@@ -246,6 +246,15 @@ argument_list|,
 literal|"incident"
 argument_list|)
 expr_stmt|;
+name|parameters
+operator|.
+name|put
+argument_list|(
+literal|"metaType"
+argument_list|,
+literal|"definition"
+argument_list|)
+expr_stmt|;
 comment|//parameters.put("object.sys_user.fields", "first_name,last_name");
 comment|//parameters.put("object.incident.fields", "caller_id,severity,resolved_at,sys_id");
 comment|//parameters.put("object.incident.fields", "^sys_.*$");
@@ -507,6 +516,15 @@ argument_list|(
 literal|"objectType"
 argument_list|,
 literal|"import"
+argument_list|)
+expr_stmt|;
+name|parameters
+operator|.
+name|put
+argument_list|(
+literal|"metaType"
+argument_list|,
+literal|"list"
 argument_list|)
 expr_stmt|;
 comment|//parameters.put("object.sys_user.fields", "first_name,last_name");
