@@ -930,6 +930,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|model
+operator|==
+name|String
+operator|.
+name|class
+condition|)
+block|{
+comment|// If the model is a String, let's just serialize it as
+comment|// a json string
+return|return
+name|mapper
+operator|.
+name|writeValueAsString
+argument_list|(
+name|node
+argument_list|)
+return|;
+block|}
+specifier|final
 name|Object
 name|result
 decl_stmt|;
