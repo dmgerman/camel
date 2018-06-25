@@ -192,6 +192,12 @@ specifier|final
 name|boolean
 name|blockWhenFull
 decl_stmt|;
+DECL|field|offerTimeout
+specifier|private
+specifier|final
+name|long
+name|offerTimeout
+decl_stmt|;
 comment|/**      * @deprecated Use {@link #SedaProducer(SedaEndpoint, WaitForTaskToComplete, long, boolean) the other constructor}.      */
 annotation|@
 name|Deprecated
@@ -224,13 +230,15 @@ argument_list|,
 name|timeout
 argument_list|,
 literal|false
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @deprecated Use {@link #SedaProducer(SedaEndpoint, WaitForTaskToComplete, long, boolean) the other constructor}.      */
 annotation|@
 name|Deprecated
-DECL|method|SedaProducer (SedaEndpoint endpoint, BlockingQueue<Exchange> queue, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull)
+DECL|method|SedaProducer (SedaEndpoint endpoint, BlockingQueue<Exchange> queue, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull, long offerTimeout)
 specifier|public
 name|SedaProducer
 parameter_list|(
@@ -251,6 +259,9 @@ name|timeout
 parameter_list|,
 name|boolean
 name|blockWhenFull
+parameter_list|,
+name|long
+name|offerTimeout
 parameter_list|)
 block|{
 name|this
@@ -262,10 +273,12 @@ argument_list|,
 name|timeout
 argument_list|,
 name|blockWhenFull
+argument_list|,
+name|offerTimeout
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SedaProducer (SedaEndpoint endpoint, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull)
+DECL|method|SedaProducer (SedaEndpoint endpoint, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull, long offerTimeout)
 specifier|public
 name|SedaProducer
 parameter_list|(
@@ -280,6 +293,9 @@ name|timeout
 parameter_list|,
 name|boolean
 name|blockWhenFull
+parameter_list|,
+name|long
+name|offerTimeout
 parameter_list|)
 block|{
 name|super
@@ -319,6 +335,12 @@ operator|.
 name|blockWhenFull
 operator|=
 name|blockWhenFull
+expr_stmt|;
+name|this
+operator|.
+name|offerTimeout
+operator|=
+name|offerTimeout
 expr_stmt|;
 block|}
 annotation|@
@@ -923,6 +945,9 @@ parameter_list|)
 throws|throws
 name|SedaConsumerNotAvailableException
 block|{
+name|boolean
+name|offerTime
+decl_stmt|;
 name|BlockingQueue
 argument_list|<
 name|Exchange
@@ -1061,6 +1086,10 @@ expr_stmt|;
 if|if
 condition|(
 name|blockWhenFull
+operator|&&
+name|offerTimeout
+operator|==
+literal|0
 condition|)
 block|{
 try|try
@@ -1085,6 +1114,76 @@ operator|.
 name|debug
 argument_list|(
 literal|"Put interrupted, are we stopping? {}"
+argument_list|,
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|blockWhenFull
+operator|&&
+name|offerTimeout
+operator|>
+literal|0
+condition|)
+block|{
+try|try
+block|{
+name|offerTime
+operator|=
+name|queue
+operator|.
+name|offer
+argument_list|(
+name|target
+argument_list|,
+name|offerTimeout
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|offerTime
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Fails to insert element into queue, "
+operator|+
+literal|"after timeout of"
+operator|+
+name|offerTimeout
+operator|+
+literal|"milliseconds"
+argument_list|)
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Offer interrupted, are we stopping? {}"
 argument_list|,
 name|isStopping
 argument_list|()

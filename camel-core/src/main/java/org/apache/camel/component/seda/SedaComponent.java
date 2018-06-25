@@ -264,6 +264,18 @@ specifier|private
 name|boolean
 name|defaultBlockWhenFull
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|defaultOfferTimeout
+specifier|private
+name|long
+name|defaultOfferTimeout
+decl_stmt|;
 DECL|field|queues
 specifier|private
 specifier|final
@@ -420,6 +432,33 @@ operator|.
 name|defaultBlockWhenFull
 operator|=
 name|defaultBlockWhenFull
+expr_stmt|;
+block|}
+DECL|method|getDefaultOfferTimeout ()
+specifier|public
+name|long
+name|getDefaultOfferTimeout
+parameter_list|()
+block|{
+return|return
+name|defaultOfferTimeout
+return|;
+block|}
+comment|/**      * Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted.      * By default, an exception will be thrown stating that the queue is full.      * By enabling this option, where a configured timeout can be added to the block case.  Utilizing the .offer(timeout) method of the underlining java queue      */
+DECL|method|setDefaultOfferTimeout (long defaultOfferTimeout)
+specifier|public
+name|void
+name|setDefaultOfferTimeout
+parameter_list|(
+name|long
+name|defaultOfferTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultOfferTimeout
+operator|=
+name|defaultOfferTimeout
 expr_stmt|;
 block|}
 comment|/**      * @deprecated use      */
@@ -1048,6 +1087,30 @@ argument_list|,
 name|defaultBlockWhenFull
 argument_list|)
 decl_stmt|;
+comment|// if offerTimeout is set on endpoint, defaultOfferTimeout is ignored.
+name|long
+name|offerTimeout
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"offerTimeout"
+argument_list|,
+name|long
+operator|.
+name|class
+argument_list|,
+name|defaultOfferTimeout
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setOfferTimeout
+argument_list|(
+name|offerTimeout
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setBlockWhenFull

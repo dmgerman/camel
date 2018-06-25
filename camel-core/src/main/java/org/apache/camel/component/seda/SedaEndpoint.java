@@ -690,6 +690,18 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
+DECL|field|offerTimeout
+specifier|private
+name|long
+name|offerTimeout
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|blockWhenFull
 specifier|private
 name|boolean
@@ -942,6 +954,9 @@ name|getTimeout
 argument_list|()
 argument_list|,
 name|isBlockWhenFull
+argument_list|()
+argument_list|,
+name|getOfferTimeout
 argument_list|()
 argument_list|)
 return|;
@@ -1758,6 +1773,35 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getOfferTimeout ()
+specifier|public
+name|long
+name|getOfferTimeout
+parameter_list|()
+block|{
+return|return
+name|offerTimeout
+return|;
+block|}
+comment|/**      * offerTimeout (in milliseconds)  can be added to the block case when queue is full.      * You can disable timeout by using 0 or a negative value.      */
+DECL|method|setOfferTimeout (long offerTimeout)
+specifier|public
+name|void
+name|setOfferTimeout
+parameter_list|(
+name|long
+name|offerTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|offerTimeout
+operator|=
+name|offerTimeout
 expr_stmt|;
 block|}
 annotation|@

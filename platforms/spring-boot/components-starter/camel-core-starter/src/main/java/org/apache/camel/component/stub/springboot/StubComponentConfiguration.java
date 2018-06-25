@@ -165,6 +165,12 @@ name|defaultBlockWhenFull
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Whether a thread that sends messages to a full SEDA queue will block      * until the queue's capacity is no longer exhausted. By default, an      * exception will be thrown stating that the queue is full. By enabling this      * option, where a configured timeout can be added to the block case.      * Utilizing the .offer(timeout) method of the underlining java queue      */
+DECL|field|defaultOfferTimeout
+specifier|private
+name|Long
+name|defaultOfferTimeout
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -281,6 +287,32 @@ operator|.
 name|defaultBlockWhenFull
 operator|=
 name|defaultBlockWhenFull
+expr_stmt|;
+block|}
+DECL|method|getDefaultOfferTimeout ()
+specifier|public
+name|Long
+name|getDefaultOfferTimeout
+parameter_list|()
+block|{
+return|return
+name|defaultOfferTimeout
+return|;
+block|}
+DECL|method|setDefaultOfferTimeout (Long defaultOfferTimeout)
+specifier|public
+name|void
+name|setDefaultOfferTimeout
+parameter_list|(
+name|Long
+name|defaultOfferTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultOfferTimeout
+operator|=
+name|defaultOfferTimeout
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
