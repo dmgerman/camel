@@ -120,13 +120,9 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|lmax
-operator|.
-name|disruptor
-operator|.
-name|collections
+name|HdrHistogram
 operator|.
 name|Histogram
 import|;
@@ -1494,18 +1490,26 @@ name|out
 operator|.
 name|printf
 argument_list|(
-literal|"%-45s time spent = %5d ms. Latency (ms): %s %n"
+literal|"%-45s time spent = %5d ms.%n"
 argument_list|,
 name|componentName
 argument_list|,
 name|stop
 operator|-
 name|start
-argument_list|,
+argument_list|)
+expr_stmt|;
 name|histogram
 operator|.
-name|toString
-argument_list|()
+name|outputPercentileDistribution
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|,
+literal|1
+argument_list|,
+literal|1000.0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1821,6 +1825,15 @@ operator|new
 name|Histogram
 argument_list|(
 name|sizeHistogramBounds
+index|[
+name|sizeHistogramBounds
+operator|.
+name|length
+operator|-
+literal|1
+index|]
+argument_list|,
+literal|4
 argument_list|)
 decl_stmt|;
 for|for
@@ -1834,7 +1847,7 @@ control|)
 block|{
 name|histogram
 operator|.
-name|addObservation
+name|recordValue
 argument_list|(
 name|observation
 argument_list|)
@@ -2178,6 +2191,15 @@ operator|new
 name|Histogram
 argument_list|(
 name|LATENCY_HISTOGRAM_BOUNDS
+index|[
+name|LATENCY_HISTOGRAM_BOUNDS
+operator|.
+name|length
+operator|-
+literal|1
+index|]
+argument_list|,
+literal|4
 argument_list|)
 decl_stmt|;
 for|for
@@ -2191,7 +2213,7 @@ control|)
 block|{
 name|histogram
 operator|.
-name|addObservation
+name|recordValue
 argument_list|(
 name|latencyValue
 operator|/
