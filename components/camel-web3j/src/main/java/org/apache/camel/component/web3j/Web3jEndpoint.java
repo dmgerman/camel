@@ -289,14 +289,6 @@ import|;
 end_import
 
 begin_comment
-comment|// TODO: should it say web3j compliant content repository. Should it not say something about blockchain,bitcoin
-end_comment
-
-begin_comment
-comment|// TODO: label should be bitcoin,blockchain   (web3j is already in the JAR name)
-end_comment
-
-begin_comment
 comment|/**  * The web3j component uses the Web3j client API and allows you to add/read nodes to/from a web3j compliant content repositories.  */
 end_comment
 
@@ -318,7 +310,7 @@ literal|"Web3j Ethereum Blockchain"
 argument_list|,
 name|syntax
 operator|=
-literal|"web3j:host:port"
+literal|"web3j:nodeAddress"
 argument_list|,
 name|consumerClass
 operator|=

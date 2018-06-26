@@ -361,7 +361,7 @@ specifier|private
 name|List
 name|addresses
 decl_stmt|;
-comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          */
+comment|/**          * Topics are order-dependent. Each topic can also be a list of topics.          * Specify multiple topics separated by comma.          */
 DECL|field|topics
 specifier|private
 name|List

@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -233,6 +243,10 @@ argument_list|(
 name|label
 operator|=
 literal|"common"
+argument_list|,
+name|javaType
+operator|=
+literal|"String"
 argument_list|)
 DECL|field|topics
 specifier|private
@@ -242,7 +256,6 @@ name|String
 argument_list|>
 name|topics
 decl_stmt|;
-comment|//TODO doesn't support list of lists
 annotation|@
 name|UriParam
 argument_list|(
@@ -1399,7 +1412,7 @@ return|return
 name|topics
 return|;
 block|}
-comment|/**      * Topics are order-dependent. Each topic can also be a list of topics.      */
+comment|/**      * Topics are order-dependent. Each topic can also be a list of topics.      * Specify multiple topics separated by comma.      */
 DECL|method|setTopics (List<String> topics)
 specifier|public
 name|void
@@ -1417,6 +1430,38 @@ operator|.
 name|topics
 operator|=
 name|topics
+expr_stmt|;
+block|}
+DECL|method|setTopics (String topics)
+specifier|public
+name|void
+name|setTopics
+parameter_list|(
+name|String
+name|topics
+parameter_list|)
+block|{
+name|String
+index|[]
+name|arr
+init|=
+name|topics
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+name|this
+operator|.
+name|topics
+operator|=
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|arr
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getAddress ()
