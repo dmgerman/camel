@@ -462,6 +462,12 @@ argument_list|,
 name|serviceUsers
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|config
+expr_stmt|;
 name|LOGGER
 operator|.
 name|info

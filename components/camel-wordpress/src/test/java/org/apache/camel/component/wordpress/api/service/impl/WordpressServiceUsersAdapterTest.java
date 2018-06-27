@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.wordpress.api.service.impl.ignored
+DECL|package|org.apache.camel.component.wordpress.api.service.impl
 package|package
 name|org
 operator|.
@@ -21,8 +21,6 @@ operator|.
 name|service
 operator|.
 name|impl
-operator|.
-name|ignored
 package|;
 end_package
 
@@ -33,6 +31,26 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|wordpress
+operator|.
+name|api
+operator|.
+name|auth
+operator|.
+name|WordpressBasicAuthentication
 import|;
 end_import
 
@@ -113,6 +131,26 @@ operator|.
 name|test
 operator|.
 name|WordpressMockServerTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|wordpress
+operator|.
+name|api
+operator|.
+name|test
+operator|.
+name|WordpressServerHttpRequestHandler
 import|;
 end_import
 
@@ -240,6 +278,23 @@ argument_list|(
 name|WordpressServiceUsers
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+name|serviceUsers
+operator|.
+name|setWordpressAuthentication
+argument_list|(
+operator|new
+name|WordpressBasicAuthentication
+argument_list|(
+name|WordpressServerHttpRequestHandler
+operator|.
+name|USERNAME
+argument_list|,
+name|WordpressServerHttpRequestHandler
+operator|.
+name|PASSWORD
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

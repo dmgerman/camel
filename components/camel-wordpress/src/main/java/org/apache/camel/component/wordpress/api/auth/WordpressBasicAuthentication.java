@@ -70,6 +70,26 @@ name|WebClient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Basic Authentication implementation for Wordpress authentication mechanism. Should be used only on tested environments due to lack of security. Be aware that credentials will be passed over each  * request to your server.  *<p/>  * On environments without non HTTPS this a high security risk.  *<p/>  * To this implementation work, the<a href="https://github.com/WP-API/Basic-Auth">Basic Authentication Plugin</a> must be installed into the Wordpress server.  */
 end_comment
@@ -82,6 +102,22 @@ name|WordpressBasicAuthentication
 extends|extends
 name|BaseWordpressAuthentication
 block|{
+DECL|field|LOGGER
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOGGER
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|BaseWordpressAuthentication
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|WordpressBasicAuthentication ()
 specifier|public
 name|WordpressBasicAuthentication
@@ -132,7 +168,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Basic "
+literal|"Basic %s"
 argument_list|,
 name|Base64Utility
 operator|.
@@ -158,6 +194,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Credentials set for user {}"
+argument_list|,
+name|username
+argument_list|)
+expr_stmt|;
 name|WebClient
 operator|.
 name|client
@@ -170,6 +215,16 @@ argument_list|(
 literal|"Authorization"
 argument_list|,
 name|authorizationHeader
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOGGER
+operator|.
+name|warn
+argument_list|(
+literal|"Credentials not set because username or password are empty."
 argument_list|)
 expr_stmt|;
 block|}
