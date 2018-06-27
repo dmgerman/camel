@@ -155,6 +155,7 @@ block|{
 return|return
 operator|new
 name|GenericContainer
+argument_list|<>
 argument_list|(
 literal|"consul:1.0.7"
 argument_list|)
