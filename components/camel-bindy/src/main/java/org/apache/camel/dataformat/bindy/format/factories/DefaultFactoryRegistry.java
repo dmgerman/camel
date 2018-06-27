@@ -474,10 +474,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|stream
-argument_list|()
-operator|.
-name|filter
+name|removeIf
 argument_list|(
 name|factory
 lambda|->
@@ -488,36 +485,13 @@ argument_list|()
 operator|==
 name|clazz
 argument_list|)
-operator|.
-name|forEach
-argument_list|(
-name|factory
-lambda|->
-block|{
-name|entry
-operator|.
-name|getValue
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-name|factory
-argument_list|)
-argument_list|;
+expr_stmt|;
 block|}
-block|)
-function|;
-block|}
-end_class
-
-begin_return
 return|return
 name|this
 return|;
-end_return
-
-begin_function
-unit|}      @
+block|}
+annotation|@
 name|Override
 DECL|method|findForFormattingOptions (FormattingOptions formattingOptions)
 specifier|public
@@ -596,9 +570,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-end_function
-
-begin_function
 DECL|method|getByClass (Class<?> clazz)
 specifier|private
 name|List
@@ -655,8 +626,8 @@ return|return
 name|result
 return|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 
