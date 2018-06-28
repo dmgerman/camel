@@ -472,7 +472,7 @@ name|DelayQueue
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// below 4 fields added for (throttling grouping)
+comment|// below 3 fields added for (throttling grouping)
 DECL|field|correlationExpression
 specifier|private
 name|Expression
@@ -505,11 +505,6 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|()
-decl_stmt|;
-DECL|field|delayQueueCacheExecutorService
-specifier|private
-name|ExecutorService
-name|delayQueueCacheExecutorService
 decl_stmt|;
 DECL|method|Throttler (final CamelContext camelContext, final Processor processor, final Expression maxRequestsPerPeriodExpression, final long timePeriodMillis, final ExecutorService asyncExecutor, final boolean shutdownAsyncExecutor, final boolean rejectExecution, Expression correlation)
 specifier|public
@@ -1229,6 +1224,7 @@ name|doneSync
 return|;
 block|}
 block|}
+comment|/**      *       * Finds the right Delay Queue to put a permit into with the exchanges time arrival timestamp +  timePeriodInMillis       * In case of asynchronous routing there may be cases where we create new group whose correlationExpression       * might first hit after long series of exchanges with a different correlationExpression and are to be on hold in       * their delayQueue so we need to find delay queue to add new ones while we create a new empty delay      * queue for the new group hit for the first time. that's why locating delay queues for those frequently      * hitting exchanges for the group during asynchronous routing would be better be asynchronous with asyncExecutor       *       * @param key is evaluated value of correlationExpression      * @param doneSync is a flag indicating if the exchange is routed asynchronously or not      * @return DelayQueue in which the exchange with permit expiry to be put into      */
 DECL|method|locateDelayQueue (final Integer key, final boolean doneSync)
 specifier|private
 name|DelayQueue
@@ -1270,7 +1266,7 @@ operator|!
 name|doneSync
 condition|)
 block|{
-name|delayQueueCacheExecutorService
+name|asyncExecutor
 operator|.
 name|submit
 argument_list|(
@@ -1912,6 +1908,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|correlationExpression
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
 name|camelContext
 operator|!=
 literal|null
@@ -1994,63 +1997,12 @@ name|delayQueueCache
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|delayQueueCacheExecutorService
-operator|==
-literal|null
-condition|)
-block|{
-name|String
-name|name
-init|=
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
-operator|+
-literal|"-DelayQueueLocatorTask"
-decl_stmt|;
-name|delayQueueCacheExecutorService
-operator|=
-name|createDelayQueueCacheExecutorService
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 block|}
 name|super
 operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-block|}
-comment|/**      * Strategy to create the thread pool for locating right DelayQueue from the case as a background task      *      * @param name  the suggested name for the background thread      * @return the thread pool      */
-DECL|method|createDelayQueueCacheExecutorService (String name)
-specifier|protected
-specifier|synchronized
-name|ExecutorService
-name|createDelayQueueCacheExecutorService
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-comment|// use a cached thread pool so we each on-the-fly task has a dedicated thread to process completions as they come in
-return|return
-name|camelContext
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newCachedThreadPool
-argument_list|(
-name|this
-argument_list|,
-name|name
-argument_list|)
-return|;
 block|}
 annotation|@
 name|SuppressWarnings
@@ -2089,22 +2041,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|delayQueueCacheExecutorService
+name|correlationExpression
 operator|!=
 literal|null
 condition|)
 block|{
-name|camelContext
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|shutdownNow
-argument_list|(
-name|delayQueueCacheExecutorService
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|delayQueueCache
@@ -2203,6 +2144,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|super
 operator|.
