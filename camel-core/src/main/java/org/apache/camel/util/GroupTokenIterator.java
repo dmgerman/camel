@@ -204,7 +204,7 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-comment|/**      * Creates a new token based group titerator      *      * @param camelContext  the camel context      * @param it            the iterator to group      * @param token         then token used to separate between the parts, use<tt>null</tt> to not add the token      * @param group         number of parts to group together      * @throws IllegalArgumentException is thrown if group is not a positive number      * @deprecated  Please use GroupIterator(Exchange exchange, Iterator<?> it, String token, int group) instead      */
+comment|/**      * Creates a new token based group iterator      *      * @param camelContext  the camel context      * @param it            the iterator to group      * @param token         then token used to separate between the parts, use<tt>null</tt> to not add the token      * @param group         number of parts to group together      * @throws IllegalArgumentException is thrown if group is not a positive number      * @deprecated  Please use GroupIterator(Exchange exchange, Iterator<?> it, String token, int group) instead      */
 annotation|@
 name|Deprecated
 DECL|method|GroupTokenIterator (CamelContext camelContext, Iterator<?> it, String token, int group)
@@ -614,6 +614,14 @@ literal|true
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
 name|data
 operator|=
 name|it
@@ -621,6 +629,15 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Content with header only which is marked to skip
+name|data
+operator|=
+literal|""
+expr_stmt|;
+block|}
 block|}
 comment|// include token in between
 if|if

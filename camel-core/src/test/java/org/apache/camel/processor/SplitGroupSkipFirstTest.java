@@ -87,6 +87,37 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testSplitSkipFirstOnlyHeader ()
+specifier|public
+name|void
+name|testSplitSkipFirstOnlyHeader
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:group"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"##comment\n"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
