@@ -562,6 +562,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|exclusiveConsumer
+specifier|private
+name|boolean
+name|exclusiveConsumer
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"common"
 argument_list|)
 DECL|field|exclusive
@@ -3342,6 +3358,33 @@ operator|.
 name|exclusive
 operator|=
 name|exclusive
+expr_stmt|;
+block|}
+DECL|method|isExclusiveConsumer ()
+specifier|public
+name|boolean
+name|isExclusiveConsumer
+parameter_list|()
+block|{
+return|return
+name|exclusiveConsumer
+return|;
+block|}
+comment|/**      * Request exclusive access to the queue (meaning only this consumer can access the queue). This is useful      * when you want a long-lived shared queue to be temporarily accessible by just one consumer.      */
+DECL|method|setExclusiveConsumer (boolean exclusiveConsumer)
+specifier|public
+name|void
+name|setExclusiveConsumer
+parameter_list|(
+name|boolean
+name|exclusiveConsumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exclusiveConsumer
+operator|=
+name|exclusiveConsumer
 expr_stmt|;
 block|}
 DECL|method|isPassive ()
