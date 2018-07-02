@@ -428,6 +428,14 @@ name|exclusive
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Request exclusive access to the queue (meaning only this consumer can      * access the queue). This is useful when you want a long-lived shared queue      * to be temporarily accessible by just one consumer.      */
+DECL|field|exclusiveConsumer
+specifier|private
+name|Boolean
+name|exclusiveConsumer
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Passive queues depend on the queue already to be available at RabbitMQ.      */
 DECL|field|passive
 specifier|private
@@ -1508,6 +1516,32 @@ operator|.
 name|exclusive
 operator|=
 name|exclusive
+expr_stmt|;
+block|}
+DECL|method|getExclusiveConsumer ()
+specifier|public
+name|Boolean
+name|getExclusiveConsumer
+parameter_list|()
+block|{
+return|return
+name|exclusiveConsumer
+return|;
+block|}
+DECL|method|setExclusiveConsumer (Boolean exclusiveConsumer)
+specifier|public
+name|void
+name|setExclusiveConsumer
+parameter_list|(
+name|Boolean
+name|exclusiveConsumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exclusiveConsumer
+operator|=
+name|exclusiveConsumer
 expr_stmt|;
 block|}
 DECL|method|getPassive ()
