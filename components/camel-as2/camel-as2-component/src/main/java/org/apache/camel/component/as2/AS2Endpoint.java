@@ -597,14 +597,14 @@ name|apiName
 condition|)
 block|{
 case|case
-name|SEND
+name|CLIENT
 case|:
 name|createAS2ClientConnection
 argument_list|()
 expr_stmt|;
 break|break;
 case|case
-name|LISTEN
+name|SERVER
 case|:
 name|createAS2ServerConnection
 argument_list|()
@@ -702,7 +702,7 @@ name|apiName
 condition|)
 block|{
 case|case
-name|SEND
+name|CLIENT
 case|:
 name|apiProxy
 operator|=
@@ -715,7 +715,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|LISTEN
+name|SERVER
 case|:
 name|apiProxy
 operator|=
