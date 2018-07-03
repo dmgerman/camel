@@ -830,7 +830,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Sending {} messages to bigquery table {}, suffix, partition"
+literal|"Sending {} messages to bigquery table {}, suffix {}, partition {}"
 argument_list|,
 name|apiRequestRows
 operator|.
@@ -901,7 +901,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Sent {} messages to bigquery table {}, suffix, partition"
+literal|"Sent {} messages to bigquery table {}, suffix {}, partition {}"
 argument_list|,
 name|apiRequestRows
 operator|.
