@@ -260,7 +260,7 @@ operator|-
 literal|7061982839117697829L
 decl_stmt|;
 DECL|field|METHODS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|List
