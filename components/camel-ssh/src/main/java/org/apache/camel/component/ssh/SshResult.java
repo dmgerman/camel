@@ -63,7 +63,7 @@ decl_stmt|;
 DECL|field|exitValue
 specifier|private
 specifier|final
-name|int
+name|Integer
 name|exitValue
 decl_stmt|;
 DECL|field|stdout
@@ -78,14 +78,14 @@ specifier|final
 name|InputStream
 name|stderr
 decl_stmt|;
-DECL|method|SshResult (String command, int exitValue, InputStream out, InputStream err)
+DECL|method|SshResult (String command, Integer exitValue, InputStream out, InputStream err)
 specifier|public
 name|SshResult
 parameter_list|(
 name|String
 name|command
 parameter_list|,
-name|int
+name|Integer
 name|exitValue
 parameter_list|,
 name|InputStream
@@ -132,7 +132,7 @@ return|;
 block|}
 DECL|method|getExitValue ()
 specifier|public
-name|int
+name|Integer
 name|getExitValue
 parameter_list|()
 block|{
