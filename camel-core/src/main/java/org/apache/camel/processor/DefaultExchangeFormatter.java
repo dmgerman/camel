@@ -686,10 +686,13 @@ name|append
 argument_list|(
 name|sortMap
 argument_list|(
+name|filterHeaderAndProperties
+argument_list|(
 name|exchange
 operator|.
 name|getProperties
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -728,10 +731,13 @@ name|append
 argument_list|(
 name|sortMap
 argument_list|(
+name|filterHeaderAndProperties
+argument_list|(
 name|in
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1105,10 +1111,13 @@ name|append
 argument_list|(
 name|sortMap
 argument_list|(
+name|filterHeaderAndProperties
+argument_list|(
 name|out
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1439,6 +1448,30 @@ name|toString
 argument_list|()
 return|;
 block|}
+block|}
+comment|/**      * Filters the headers or properties before formatting them. No default behavior, but can be overridden.      *      * @param map      * @return      */
+DECL|method|filterHeaderAndProperties (Map<String, Object> map)
+specifier|protected
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|filterHeaderAndProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+parameter_list|)
+block|{
+return|return
+name|map
+return|;
 block|}
 DECL|method|isShowExchangeId ()
 specifier|public
