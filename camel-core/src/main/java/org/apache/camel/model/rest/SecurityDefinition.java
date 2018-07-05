@@ -88,6 +88,10 @@ name|Metadata
 import|;
 end_import
 
+begin_comment
+comment|/**  * Rest security definition  */
+end_comment
+
 begin_class
 annotation|@
 name|Metadata

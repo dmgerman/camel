@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To configure security definition  */
+comment|/**  * To configure rest security definitions.  */
 end_comment
 
 begin_class
@@ -271,6 +271,7 @@ return|return
 name|securityDefinitions
 return|;
 block|}
+comment|/**      * Security definitions      */
 DECL|method|setSecurityDefinitions (List<RestSecurityDefinition> securityDefinitions)
 specifier|public
 name|void
