@@ -192,20 +192,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cluster
-operator|.
-name|CamelClusterView
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -271,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an endpoint which only becomes active when the {@link CamelClusterView}  * has the leadership.  */
+comment|/**  * Represents an endpoint which is registered to a Service Registry such as Consul, Etcd.  */
 end_comment
 
 begin_class
