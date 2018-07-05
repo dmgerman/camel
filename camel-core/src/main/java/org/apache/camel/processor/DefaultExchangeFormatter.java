@@ -1449,7 +1449,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Filters the headers or properties before formatting them. No default behavior, but can be overridden.      *      * @param map      * @return      */
+comment|/**      * Filters the headers or properties before formatting them. No default behavior, but can be overridden.      * @param map      * @return      */
 DECL|method|filterHeaderAndProperties (Map<String, Object> map)
 specifier|protected
 name|Map
