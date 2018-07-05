@@ -1080,7 +1080,7 @@ name|parameters
 argument_list|,
 literal|"blockWhenFull"
 argument_list|,
-name|boolean
+name|Boolean
 operator|.
 name|class
 argument_list|,

@@ -1465,9 +1465,26 @@ decl_stmt|;
 if|if
 condition|(
 name|value
-operator|==
+operator|!=
 literal|null
 condition|)
+block|{
+comment|// if we have a value then convert it
+return|return
+name|CamelContextHelper
+operator|.
+name|mandatoryConvertTo
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|type
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+else|else
 block|{
 name|value
 operator|=
@@ -1488,7 +1505,7 @@ block|}
 return|return
 name|CamelContextHelper
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|getCamelContext
 argument_list|()
