@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To collect various metrics directly from Camel routes using the DropWizard metrics library.  */
+comment|/**  * To collect various metrics directly from Camel routes using the Micrometer library.  */
 end_comment
 
 begin_class
