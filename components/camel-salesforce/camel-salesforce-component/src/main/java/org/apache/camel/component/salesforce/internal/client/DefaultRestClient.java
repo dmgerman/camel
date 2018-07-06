@@ -2918,6 +2918,23 @@ name|ResponseCallback
 name|responseCallback
 parameter_list|)
 block|{
+if|if
+condition|(
+name|format
+operator|!=
+name|PayloadFormat
+operator|.
+name|JSON
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Using XML format for the Limits API, to use it set the `format` endpoint property to JSON"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|Request
 name|get
