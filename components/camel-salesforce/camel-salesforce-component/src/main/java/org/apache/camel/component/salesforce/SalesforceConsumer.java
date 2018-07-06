@@ -831,6 +831,16 @@ name|in
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Unknown message kind: "
+operator|+
+name|messageKind
+argument_list|)
+throw|;
 block|}
 try|try
 block|{
