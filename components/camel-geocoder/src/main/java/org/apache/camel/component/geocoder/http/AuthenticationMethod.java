@@ -32,12 +32,9 @@ name|AuthenticationMethod
 block|{
 DECL|enumConstant|Basic
 DECL|enumConstant|Digest
-DECL|enumConstant|NTLM
 name|Basic
 block|,
 name|Digest
-block|,
-name|NTLM
 block|}
 end_enum
 

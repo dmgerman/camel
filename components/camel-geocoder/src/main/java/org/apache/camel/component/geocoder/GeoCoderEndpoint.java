@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,16 +17,6 @@ operator|.
 name|geocoder
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|InvalidKeyException
-import|;
-end_import
 
 begin_import
 import|import
@@ -90,61 +80,7 @@ name|geocoder
 operator|.
 name|http
 operator|.
-name|AuthenticationHttpClientConfigurer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|geocoder
-operator|.
-name|http
-operator|.
 name|AuthenticationMethod
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|geocoder
-operator|.
-name|http
-operator|.
-name|CompositeHttpConfigurer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|geocoder
-operator|.
-name|http
-operator|.
-name|HttpClientConfigurer
 import|;
 end_import
 
@@ -206,57 +142,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
+name|InetSocketAddress
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|HttpClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|HttpConnectionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|MultiThreadedHttpConnectionManager
+name|Proxy
 import|;
 end_import
 
@@ -465,30 +365,6 @@ DECL|field|proxyAuthHost
 specifier|private
 name|String
 name|proxyAuthHost
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|httpClientConfigurer
-specifier|private
-name|HttpClientConfigurer
-name|httpClientConfigurer
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|httpConnectionManager
-specifier|private
-name|HttpConnectionManager
-name|httpConnectionManager
 decl_stmt|;
 DECL|method|GeoCoderEndpoint ()
 specifier|public
@@ -926,65 +802,22 @@ operator|=
 name|proxyAuthHost
 expr_stmt|;
 block|}
-DECL|method|getHttpClientConfigurer ()
-specifier|public
-name|HttpClientConfigurer
-name|getHttpClientConfigurer
-parameter_list|()
-block|{
-return|return
-name|httpClientConfigurer
-return|;
-block|}
-comment|/**      * Register a custom configuration strategy for new {@link HttpClient} instances      * created by producers or consumers such as to configure authentication mechanisms etc      *      * @param httpClientConfigurer the strategy for configuring new {@link HttpClient} instances      */
-DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
-specifier|public
-name|void
-name|setHttpClientConfigurer
-parameter_list|(
-name|HttpClientConfigurer
-name|httpClientConfigurer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpClientConfigurer
-operator|=
-name|httpClientConfigurer
-expr_stmt|;
-block|}
-DECL|method|getHttpConnectionManager ()
-specifier|public
-name|HttpConnectionManager
-name|getHttpConnectionManager
-parameter_list|()
-block|{
-return|return
-name|httpConnectionManager
-return|;
-block|}
-comment|/**      * To use a custom HttpConnectionManager to manage connections      */
-DECL|method|setHttpConnectionManager (HttpConnectionManager httpConnectionManager)
-specifier|public
-name|void
-name|setHttpConnectionManager
-parameter_list|(
-name|HttpConnectionManager
-name|httpConnectionManager
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpConnectionManager
-operator|=
-name|httpConnectionManager
-expr_stmt|;
-block|}
 DECL|method|createGeoApiContext ()
 name|GeoApiContext
 name|createGeoApiContext
 parameter_list|()
 block|{
+name|GeoApiContext
+operator|.
+name|Builder
+name|builder
+init|=
+operator|new
+name|GeoApiContext
+operator|.
+name|Builder
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|clientId
@@ -992,12 +825,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
-operator|new
-name|GeoApiContext
-operator|.
-name|Builder
-argument_list|()
+name|builder
+operator|=
+name|builder
 operator|.
 name|enterpriseCredentials
 argument_list|(
@@ -1005,154 +835,72 @@ name|clientId
 argument_list|,
 name|clientKey
 argument_list|)
-operator|.
-name|build
-argument_list|()
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
-return|return
-operator|new
-name|GeoApiContext
-operator|.
-name|Builder
-argument_list|()
+name|builder
+operator|=
+name|builder
 operator|.
 name|apiKey
 argument_list|(
 name|getApiKey
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isProxyDefined
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|=
+name|builder
+operator|.
+name|proxy
+argument_list|(
+name|createProxy
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|isProxyAuthDefined
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|=
+name|configureProxyAuth
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|builder
 operator|.
 name|build
 argument_list|()
 return|;
 block|}
-block|}
-comment|//    Geocoder createGeocoder() throws InvalidKeyException {
-comment|//        HttpConnectionManager connectionManager = this.httpConnectionManager;
-comment|//        if (connectionManager == null) {
-comment|//            connectionManager = new MultiThreadedHttpConnectionManager();
-comment|//        }
-comment|//
-comment|//        HttpClient httpClient = new HttpClient(connectionManager);
-comment|//        if (proxyHost != null&& proxyPort != null) {
-comment|//            httpClient.getHostConfiguration().setProxy(proxyHost, proxyPort);
-comment|//        }
-comment|//
-comment|//        // validate that if proxy auth username is given then the proxy auth method is also provided
-comment|//        if (proxyAuthUsername != null&& proxyAuthMethod == null) {
-comment|//            throw new IllegalArgumentException("Option proxyAuthMethod must be provided to use proxy authentication");
-comment|//        }
-comment|//
-comment|//        CompositeHttpConfigurer configurer = new CompositeHttpConfigurer();
-comment|//        if (proxyAuthMethod != null) {
-comment|//            configureProxyAuth(configurer, proxyAuthMethod, proxyAuthUsername, proxyAuthPassword, proxyAuthDomain, proxyAuthHost);
-comment|//        }
-comment|//        if (httpClientConfigurer != null) {
-comment|//            configurer.addConfigurer(httpClientConfigurer);
-comment|//        }
-comment|//
-comment|//        configurer.configureHttpClient(httpClient);
-comment|//
-comment|//        Geocoder geocoder;
-comment|//        if (clientId != null) {
-comment|//            geocoder = new AdvancedGeoCoder(httpClient, clientId, clientKey);
-comment|//        } else {
-comment|//            geocoder = new AdvancedGeoCoder(httpClient);
-comment|//        }
-comment|//
-comment|//        return geocoder;
-comment|//    }
-comment|/**      * Configures the proxy authentication method to be used      *      * @return configurer to used      */
-DECL|method|configureProxyAuth (CompositeHttpConfigurer configurer, String authMethod, String username, String password, String domain, String host)
-specifier|protected
-name|CompositeHttpConfigurer
+DECL|method|configureProxyAuth (GeoApiContext.Builder builder)
+specifier|private
+name|GeoApiContext
+operator|.
+name|Builder
 name|configureProxyAuth
 parameter_list|(
-name|CompositeHttpConfigurer
-name|configurer
-parameter_list|,
-name|String
-name|authMethod
-parameter_list|,
-name|String
-name|username
-parameter_list|,
-name|String
-name|password
-parameter_list|,
-name|String
-name|domain
-parameter_list|,
-name|String
-name|host
+name|GeoApiContext
+operator|.
+name|Builder
+name|builder
 parameter_list|)
 block|{
-comment|// no proxy auth is in use
-if|if
-condition|(
-name|username
-operator|==
-literal|null
-operator|&&
-name|authMethod
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|configurer
-return|;
-block|}
-comment|// validate mandatory options given
-if|if
-condition|(
-name|username
-operator|!=
-literal|null
-operator|&&
-name|authMethod
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Option proxyAuthMethod must be provided to use proxy authentication"
-argument_list|)
-throw|;
-block|}
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|authMethod
-argument_list|,
-literal|"proxyAuthMethod"
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|username
-argument_list|,
-literal|"proxyAuthUsername"
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|password
-argument_list|,
-literal|"proxyAuthPassword"
-argument_list|)
-expr_stmt|;
 name|AuthenticationMethod
 name|auth
 init|=
@@ -1168,7 +916,7 @@ name|AuthenticationMethod
 operator|.
 name|class
 argument_list|,
-name|authMethod
+name|proxyAuthMethod
 argument_list|)
 decl_stmt|;
 if|if
@@ -1186,79 +934,87 @@ operator|.
 name|Digest
 condition|)
 block|{
-name|configurer
+name|builder
+operator|=
+name|builder
 operator|.
-name|addConfigurer
+name|proxyAuthentication
 argument_list|(
-name|AuthenticationHttpClientConfigurer
-operator|.
-name|basicAutenticationConfigurer
-argument_list|(
-literal|true
+name|proxyAuthUsername
 argument_list|,
-name|username
-argument_list|,
-name|password
-argument_list|)
+name|proxyAuthPassword
 argument_list|)
 expr_stmt|;
-return|return
-name|configurer
-return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|auth
-operator|==
-name|AuthenticationMethod
-operator|.
-name|NTLM
-condition|)
+else|else
 block|{
-comment|// domain is mandatory for NTML
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|domain
-argument_list|,
-literal|"proxyAuthDomain"
-argument_list|)
-expr_stmt|;
-name|configurer
-operator|.
-name|addConfigurer
-argument_list|(
-name|AuthenticationHttpClientConfigurer
-operator|.
-name|ntlmAutenticationConfigurer
-argument_list|(
-literal|true
-argument_list|,
-name|username
-argument_list|,
-name|password
-argument_list|,
-name|domain
-argument_list|,
-name|host
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|configurer
-return|;
-block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"Unknown proxyAuthMethod "
 operator|+
-name|authMethod
+name|proxyAuthMethod
 argument_list|)
 throw|;
+block|}
+return|return
+name|builder
+return|;
+block|}
+DECL|method|createProxy ()
+specifier|private
+name|Proxy
+name|createProxy
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Proxy
+argument_list|(
+name|Proxy
+operator|.
+name|Type
+operator|.
+name|HTTP
+argument_list|,
+operator|new
+name|InetSocketAddress
+argument_list|(
+name|proxyHost
+argument_list|,
+name|proxyPort
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|isProxyDefined ()
+specifier|private
+name|boolean
+name|isProxyDefined
+parameter_list|()
+block|{
+return|return
+name|proxyHost
+operator|!=
+literal|null
+operator|&&
+name|proxyPort
+operator|!=
+literal|null
+return|;
+block|}
+DECL|method|isProxyAuthDefined ()
+specifier|private
+name|boolean
+name|isProxyAuthDefined
+parameter_list|()
+block|{
+return|return
+name|proxyAuthMethod
+operator|!=
+literal|null
+return|;
 block|}
 block|}
 end_class

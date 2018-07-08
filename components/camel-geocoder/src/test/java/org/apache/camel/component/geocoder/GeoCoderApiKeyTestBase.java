@@ -103,7 +103,7 @@ name|System
 operator|.
 name|getenv
 argument_list|(
-literal|"CAMEL_GEOCODER_APIKEYx"
+literal|"CAMEL_GEOCODER_APIKEY"
 argument_list|)
 return|;
 block|}
