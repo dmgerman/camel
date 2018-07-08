@@ -458,6 +458,7 @@ return|;
 block|}
 comment|// do we have a custom adapter for this POJO to a Processor
 comment|// but only do this if allowed
+comment|// we need to check beanHolder is Processor is support, to avoid the bean cached issue
 if|if
 condition|(
 name|allowProcessor
@@ -466,6 +467,11 @@ name|explicitMethodName
 argument_list|,
 name|beanInfo
 argument_list|)
+operator|&&
+name|beanHolder
+operator|.
+name|supportProcessor
+argument_list|()
 condition|)
 block|{
 name|processor
