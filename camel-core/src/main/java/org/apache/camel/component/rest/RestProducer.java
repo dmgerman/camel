@@ -2456,7 +2456,10 @@ name|params
 operator|.
 name|put
 argument_list|(
-name|key
+name|entry
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|value
 argument_list|)
