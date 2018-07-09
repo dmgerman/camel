@@ -622,6 +622,84 @@ name|certResource
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the channel type to pass to the Channel as part of command execution.      * Defaults to "exec".      *      * @param channelType      *            String defining the type of Channel to use for command execution.      *      * @see org.apache.sshd.common.channel.Channel      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|method|setChannelType (String channelType)
+specifier|public
+name|void
+name|setChannelType
+parameter_list|(
+name|String
+name|channelType
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setChannelType
+argument_list|(
+name|channelType
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the shellPrompt to be dropped when response is read after command execution      *      * @param shellPrompt      *            String defining ending string of command line which has to be dropped when response is       *            read after command execution.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|method|setShellPrompt (String shellPrompt)
+specifier|public
+name|void
+name|setShellPrompt
+parameter_list|(
+name|String
+name|shellPrompt
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setShellPrompt
+argument_list|(
+name|shellPrompt
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the sleep period in milliseconds to wait reading response from shell prompt.      * Defaults to 100 milliseconds.      *      * @param sleepForShellPrompt      *            long milliseconds to wait.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|method|setSleepForShellPrompt (long sleepForShellPrompt)
+specifier|public
+name|void
+name|setSleepForShellPrompt
+parameter_list|(
+name|long
+name|sleepForShellPrompt
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSleepForShellPrompt
+argument_list|(
+name|sleepForShellPrompt
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
