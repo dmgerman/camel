@@ -1625,6 +1625,26 @@ condition|)
 block|{
 comment|// okay we can redeliver then we need to change the output in the error handler
 comment|// to use us which we then wrap the call so we can capture before/after for redeliveries as well
+name|Processor
+name|currentOutput
+init|=
+operator|(
+operator|(
+name|RedeliveryErrorHandler
+operator|)
+name|errorHandler
+operator|)
+operator|.
+name|getOutput
+argument_list|()
+decl_stmt|;
+name|instrumentationProcessor
+operator|.
+name|setProcessor
+argument_list|(
+name|currentOutput
+argument_list|)
+expr_stmt|;
 operator|(
 operator|(
 name|RedeliveryErrorHandler
