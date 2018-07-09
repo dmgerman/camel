@@ -148,7 +148,9 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"geocoder:address:current?headersOnly=true&proxyHost=localhost&proxyPort=8888&apiKey="
+literal|"geocoder:address:current?headersOnly=true&proxyHost=localhost"
+operator|+
+literal|"&proxyPort=8888&apiKey="
 operator|+
 name|getApiKey
 argument_list|()
@@ -220,7 +222,9 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"geocoder:address:current?headersOnly=true&proxyHost=localhost&proxyPort=8888&proxyAuthMethod=Basic&proxyAuthUsername=proxy&proxyAuthPassword=proxy&apiKey="
+literal|"geocoder:address:current?headersOnly=true&proxyHost=localhost"
+operator|+
+literal|"&proxyPort=8888&proxyAuthMethod=Basic&proxyAuthUsername=proxy&proxyAuthPassword=proxy&apiKey="
 operator|+
 name|getApiKey
 argument_list|()
