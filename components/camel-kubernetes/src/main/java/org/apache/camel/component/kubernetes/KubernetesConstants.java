@@ -265,6 +265,18 @@ name|KUBERNETES_DEPLOYMENT_REPLICAS
 init|=
 literal|"CamelKubernetesDeploymentReplicas"
 decl_stmt|;
+DECL|field|KUBERNETES_HPA_NAME
+name|String
+name|KUBERNETES_HPA_NAME
+init|=
+literal|"CamelKubernetesHPAName"
+decl_stmt|;
+DECL|field|KUBERNETES_HPA_SPEC
+name|String
+name|KUBERNETES_HPA_SPEC
+init|=
+literal|"CamelKubernetesHPASpec"
+decl_stmt|;
 comment|// Consumer
 DECL|field|KUBERNETES_EVENT_ACTION
 name|String

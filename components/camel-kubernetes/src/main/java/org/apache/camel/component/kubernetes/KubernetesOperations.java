@@ -316,6 +316,37 @@ name|GET_NODE_OPERATION
 init|=
 literal|"getNode"
 decl_stmt|;
+comment|// HPA
+DECL|field|LIST_HPA
+name|String
+name|LIST_HPA
+init|=
+literal|"listHPA"
+decl_stmt|;
+DECL|field|LIST_HPA_BY_LABELS_OPERATION
+name|String
+name|LIST_HPA_BY_LABELS_OPERATION
+init|=
+literal|"listHPAByLabels"
+decl_stmt|;
+DECL|field|GET_HPA_OPERATION
+name|String
+name|GET_HPA_OPERATION
+init|=
+literal|"getHPA"
+decl_stmt|;
+DECL|field|CREATE_HPA_OPERATION
+name|String
+name|CREATE_HPA_OPERATION
+init|=
+literal|"createHPA"
+decl_stmt|;
+DECL|field|DELETE_HPA_OPERATION
+name|String
+name|DELETE_HPA_OPERATION
+init|=
+literal|"deleteHPA"
+decl_stmt|;
 comment|// Deployments
 DECL|field|LIST_DEPLOYMENTS
 name|String
