@@ -22,22 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|code
-operator|.
-name|geocoder
-operator|.
-name|model
-operator|.
-name|GeocodeResponse
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -59,6 +43,20 @@ operator|.
 name|stereotype
 operator|.
 name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|maps
+operator|.
+name|model
+operator|.
+name|GeocodingResult
 import|;
 end_import
 
@@ -135,9 +133,10 @@ argument_list|)
 operator|.
 name|outType
 argument_list|(
-name|GeocodeResponse
+name|GeocodingResult
+index|[]
 operator|.
-name|class
+expr|class
 argument_list|)
 operator|.
 name|param
@@ -185,7 +184,7 @@ comment|// call the geocoder to lookup details from the provided address
 operator|.
 name|toD
 argument_list|(
-literal|"geocoder:address:${header.address}"
+literal|"geocoder:address:${header.address})"
 argument_list|)
 expr_stmt|;
 block|}
