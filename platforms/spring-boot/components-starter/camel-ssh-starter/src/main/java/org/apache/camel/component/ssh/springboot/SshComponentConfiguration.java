@@ -204,6 +204,24 @@ specifier|private
 name|String
 name|certResource
 decl_stmt|;
+comment|/**      * Sets the channel type to pass to the Channel as part of command      * execution. Defaults to exec.      */
+DECL|field|channelType
+specifier|private
+name|String
+name|channelType
+decl_stmt|;
+comment|/**      * Sets the shellPrompt to be dropped when response is read after command      * execution      */
+DECL|field|shellPrompt
+specifier|private
+name|String
+name|shellPrompt
+decl_stmt|;
+comment|/**      * Sets the sleep period in milliseconds to wait reading response from shell      * prompt. Defaults to 100 milliseconds.      */
+DECL|field|sleepForShellPrompt
+specifier|private
+name|Long
+name|sleepForShellPrompt
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -504,6 +522,84 @@ operator|=
 name|certResource
 expr_stmt|;
 block|}
+DECL|method|getChannelType ()
+specifier|public
+name|String
+name|getChannelType
+parameter_list|()
+block|{
+return|return
+name|channelType
+return|;
+block|}
+DECL|method|setChannelType (String channelType)
+specifier|public
+name|void
+name|setChannelType
+parameter_list|(
+name|String
+name|channelType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|channelType
+operator|=
+name|channelType
+expr_stmt|;
+block|}
+DECL|method|getShellPrompt ()
+specifier|public
+name|String
+name|getShellPrompt
+parameter_list|()
+block|{
+return|return
+name|shellPrompt
+return|;
+block|}
+DECL|method|setShellPrompt (String shellPrompt)
+specifier|public
+name|void
+name|setShellPrompt
+parameter_list|(
+name|String
+name|shellPrompt
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shellPrompt
+operator|=
+name|shellPrompt
+expr_stmt|;
+block|}
+DECL|method|getSleepForShellPrompt ()
+specifier|public
+name|Long
+name|getSleepForShellPrompt
+parameter_list|()
+block|{
+return|return
+name|sleepForShellPrompt
+return|;
+block|}
+DECL|method|setSleepForShellPrompt (Long sleepForShellPrompt)
+specifier|public
+name|void
+name|setSleepForShellPrompt
+parameter_list|(
+name|Long
+name|sleepForShellPrompt
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sleepForShellPrompt
+operator|=
+name|sleepForShellPrompt
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean
@@ -638,6 +734,28 @@ name|Boolean
 name|failOnUnknownHost
 init|=
 literal|false
+decl_stmt|;
+comment|/**          * Sets the channel type to pass to the Channel as part of command          * execution. Defaults to "exec".          *           * @param channelTypeString          *            defining the type of Channel to use for command execution.          * @seeorg.apache.sshd.common.channel.Channel          */
+DECL|field|channelType
+specifier|private
+name|String
+name|channelType
+init|=
+literal|"exec"
+decl_stmt|;
+comment|/**          * Sets the shellPrompt to be dropped when response is read after          * command execution          *           * @param shellPromptString          *            defining ending string of command line which has to be          *            dropped when response is read after command execution.          */
+DECL|field|shellPrompt
+specifier|private
+name|String
+name|shellPrompt
+decl_stmt|;
+comment|/**          * Sets the sleep period in milliseconds to wait reading response from          * shell prompt. Defaults to 100 milliseconds.          *           * @param sleepForShellPromptlong          *            milliseconds to wait.          */
+DECL|field|sleepForShellPrompt
+specifier|private
+name|Long
+name|sleepForShellPrompt
+init|=
+literal|100L
 decl_stmt|;
 DECL|method|getUsername ()
 specifier|public
@@ -955,6 +1073,84 @@ operator|.
 name|failOnUnknownHost
 operator|=
 name|failOnUnknownHost
+expr_stmt|;
+block|}
+DECL|method|getChannelType ()
+specifier|public
+name|String
+name|getChannelType
+parameter_list|()
+block|{
+return|return
+name|channelType
+return|;
+block|}
+DECL|method|setChannelType (String channelType)
+specifier|public
+name|void
+name|setChannelType
+parameter_list|(
+name|String
+name|channelType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|channelType
+operator|=
+name|channelType
+expr_stmt|;
+block|}
+DECL|method|getShellPrompt ()
+specifier|public
+name|String
+name|getShellPrompt
+parameter_list|()
+block|{
+return|return
+name|shellPrompt
+return|;
+block|}
+DECL|method|setShellPrompt (String shellPrompt)
+specifier|public
+name|void
+name|setShellPrompt
+parameter_list|(
+name|String
+name|shellPrompt
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shellPrompt
+operator|=
+name|shellPrompt
+expr_stmt|;
+block|}
+DECL|method|getSleepForShellPrompt ()
+specifier|public
+name|Long
+name|getSleepForShellPrompt
+parameter_list|()
+block|{
+return|return
+name|sleepForShellPrompt
+return|;
+block|}
+DECL|method|setSleepForShellPrompt (Long sleepForShellPrompt)
+specifier|public
+name|void
+name|setSleepForShellPrompt
+parameter_list|(
+name|Long
+name|sleepForShellPrompt
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sleepForShellPrompt
+operator|=
+name|sleepForShellPrompt
 expr_stmt|;
 block|}
 block|}
