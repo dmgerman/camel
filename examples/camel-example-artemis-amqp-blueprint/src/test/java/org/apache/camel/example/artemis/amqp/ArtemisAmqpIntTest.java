@@ -95,6 +95,15 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
+argument_list|)
 DECL|method|useOverridePropertiesWithConfigAdmin (Dictionary props)
 specifier|protected
 name|String
@@ -122,7 +131,7 @@ operator|!=
 literal|9090
 condition|)
 block|{
-comment|//override the netty port to use
+comment|//override the Netty port to use
 name|props
 operator|.
 name|put
