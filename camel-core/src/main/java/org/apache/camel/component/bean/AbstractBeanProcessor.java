@@ -467,11 +467,6 @@ name|explicitMethodName
 argument_list|,
 name|beanInfo
 argument_list|)
-operator|&&
-name|beanHolder
-operator|.
-name|supportProcessor
-argument_list|()
 condition|)
 block|{
 name|processor

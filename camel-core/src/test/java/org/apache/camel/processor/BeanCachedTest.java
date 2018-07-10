@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicInteger
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|naming
@@ -73,18 +59,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -431,18 +405,16 @@ specifier|public
 specifier|static
 class|class
 name|MyBean
-implements|implements
-name|Processor
 block|{
 DECL|field|invoked
 specifier|private
 name|boolean
 name|invoked
 decl_stmt|;
-DECL|method|process (Exchange exchange)
+DECL|method|doSomething (Exchange exchange)
 specifier|public
 name|void
-name|process
+name|doSomething
 parameter_list|(
 name|Exchange
 name|exchange
