@@ -34,7 +34,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|extensions
+name|apps
 operator|.
 name|Deployment
 import|;

@@ -44,7 +44,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|extensions
+name|apps
 operator|.
 name|Deployment
 import|;
@@ -62,7 +62,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|extensions
+name|apps
 operator|.
 name|DeploymentList
 import|;
@@ -80,7 +80,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|extensions
+name|apps
 operator|.
 name|DoneableDeployment
 import|;
@@ -552,7 +552,7 @@ operator|.
 name|getKubernetesClient
 argument_list|()
 operator|.
-name|extensions
+name|apps
 argument_list|()
 operator|.
 name|deployments

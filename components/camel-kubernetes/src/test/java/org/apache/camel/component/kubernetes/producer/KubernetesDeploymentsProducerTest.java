@@ -62,7 +62,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|extensions
+name|apps
 operator|.
 name|Deployment
 import|;
@@ -80,7 +80,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|extensions
+name|apps
 operator|.
 name|DeploymentBuilder
 import|;
@@ -98,7 +98,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|extensions
+name|apps
 operator|.
 name|DeploymentListBuilder
 import|;
