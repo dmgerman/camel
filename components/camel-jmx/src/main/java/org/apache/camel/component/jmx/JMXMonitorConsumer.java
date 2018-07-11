@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Variant of the consumer that creates and registers a monitor bean to   * monitor object and attribute referenced by the endpoint. The only   * difference here is the act of adding and removing the notification  * listener.  *  */
+comment|/**  * Variant of the consumer that creates and registers a monitor bean to   * monitor object and attribute referenced by the endpoint. The only   * difference here is the act of adding and removing the notification  * listener.  */
 end_comment
 
 begin_class
@@ -209,9 +209,6 @@ block|{
 name|JMXEndpoint
 name|ep
 init|=
-operator|(
-name|JMXEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
 decl_stmt|;
@@ -509,6 +506,21 @@ name|bean
 operator|=
 name|sm
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unsupported monitortype: "
+operator|+
+name|ep
+operator|.
+name|getMonitorType
+argument_list|()
+argument_list|)
+throw|;
 block|}
 name|bean
 operator|.

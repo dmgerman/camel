@@ -317,7 +317,30 @@ specifier|private
 name|String
 name|serverURL
 decl_stmt|;
-comment|/**      * [monitor types only] The attribute to observe for the monitor bean.      */
+comment|/**      * The domain for the mbean you're connecting to      */
+annotation|@
+name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|objectDomain
+specifier|private
+name|String
+name|objectDomain
+decl_stmt|;
+comment|/**      * The name key for the mbean you're connecting to. This value is mutually exclusive with the object properties that get passed.      */
+annotation|@
+name|UriParam
+DECL|field|objectName
+specifier|private
+name|String
+name|objectName
+decl_stmt|;
+comment|/**      * The attribute to observe for the monitor bean (monitor types only).      */
 annotation|@
 name|UriParam
 DECL|field|observedAttribute
@@ -325,7 +348,7 @@ specifier|private
 name|String
 name|observedAttribute
 decl_stmt|;
-comment|/**      * [monitor types only] The frequency to poll the bean to check the monitor.      */
+comment|/**      * The frequency to poll the bean to check the monitor (monitor types only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -340,7 +363,7 @@ name|granularityPeriod
 init|=
 literal|10000
 decl_stmt|;
-comment|/**      * [monitor types only] The type of monitor to create. One of string, gauge, counter.      */
+comment|/**      * The type of monitor to create. One of string, gauge, counter (monitor types only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -353,7 +376,7 @@ specifier|private
 name|String
 name|monitorType
 decl_stmt|;
-comment|/**      * [counter monitor only] Initial threshold for the monitor. The value must exceed this before notifications are fired.      */
+comment|/**      * Initial threshold for the monitor. The value must exceed this before notifications are fired (counter monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -366,7 +389,7 @@ specifier|private
 name|int
 name|initThreshold
 decl_stmt|;
-comment|/**      * [counter monitor only] The amount to increment the threshold after it's been exceeded.      */
+comment|/**      * The amount to increment the threshold after it's been exceeded (counter monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -379,7 +402,7 @@ specifier|private
 name|int
 name|offset
 decl_stmt|;
-comment|/**      * [counter monitor only] The value at which the counter is reset to zero      */
+comment|/**      * The value at which the counter is reset to zero (counter monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -392,7 +415,7 @@ specifier|private
 name|int
 name|modulus
 decl_stmt|;
-comment|/**      * [counter + gauge monitor only] If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself.      */
+comment|/**      * If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself (counter and gauge monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -405,7 +428,7 @@ specifier|private
 name|boolean
 name|differenceMode
 decl_stmt|;
-comment|/**      * [gauge monitor only] If true, the gauge will fire a notification when the high threshold is exceeded      */
+comment|/**      * If true, the gauge will fire a notification when the high threshold is exceeded (gauge monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -418,7 +441,7 @@ specifier|private
 name|boolean
 name|notifyHigh
 decl_stmt|;
-comment|/**      * [gauge monitor only] If true, the gauge will fire a notification when the low threshold is exceeded      */
+comment|/**      * If true, the gauge will fire a notification when the low threshold is exceeded (gauge monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -431,7 +454,7 @@ specifier|private
 name|boolean
 name|notifyLow
 decl_stmt|;
-comment|/**      * [gauge monitor only] Value for the gauge's high threshold      */
+comment|/**      * Value for the gauge's high threshold (gauge monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -444,7 +467,7 @@ specifier|private
 name|Double
 name|thresholdHigh
 decl_stmt|;
-comment|/**      * [gauge monitor only] Value for the gauge's low threshold      */
+comment|/**      * Value for the gauge's low threshold (gauge monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -457,7 +480,7 @@ specifier|private
 name|Double
 name|thresholdLow
 decl_stmt|;
-comment|/**      * [string monitor only] If true, the string monitor will fire a notification when the string attribute differs from the string to compare.      */
+comment|/**      * If true, the string monitor will fire a notification when the string attribute differs from the string to compare (string monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -470,7 +493,7 @@ specifier|private
 name|boolean
 name|notifyDiffer
 decl_stmt|;
-comment|/**      * [string monitor only] If true, the string monitor will fire a notification when the string attribute matches the string to compare.      */
+comment|/**      * If true, the string monitor will fire a notification when the string attribute matches the string to compare (string monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -483,7 +506,7 @@ specifier|private
 name|boolean
 name|notifyMatch
 decl_stmt|;
-comment|/**      * [string monitor only] Value for the string monitor's string to compare.      */
+comment|/**      * Value for the string monitor's string to compare (string monitor only).      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -549,29 +572,6 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**      * The domain for the mbean you're connecting to      */
-annotation|@
-name|UriParam
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|objectDomain
-specifier|private
-name|String
-name|objectDomain
-decl_stmt|;
-comment|/**      * The name key for the mbean you're connecting to. This value is mutually exclusive with the object properties that get passed.      */
-annotation|@
-name|UriParam
-DECL|field|objectName
-specifier|private
-name|String
-name|objectName
-decl_stmt|;
 comment|/**      * Reference to a bean that implements the NotificationFilter.      */
 annotation|@
 name|UriParam
@@ -602,13 +602,13 @@ comment|/**      * If true the consumer will throw an exception if unable to est
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|,
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|testConnectionOnStartup
 specifier|private
@@ -634,13 +634,13 @@ comment|/**      * The number of seconds to wait before attempting to retry esta
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
-operator|=
-literal|"10"
-argument_list|,
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10"
 argument_list|)
 DECL|field|reconnectDelay
 specifier|private
