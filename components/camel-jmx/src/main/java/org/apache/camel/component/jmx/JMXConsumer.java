@@ -68,6 +68,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -202,18 +214,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Message
 import|;
 end_import
@@ -337,6 +337,17 @@ specifier|private
 name|String
 name|mConnectionId
 decl_stmt|;
+comment|/**      * Used for processing notifications (should not block notification thread)      */
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
+DECL|field|shutdownExecutorService
+specifier|private
+name|boolean
+name|shutdownExecutorService
+decl_stmt|;
 comment|/**      * Used to schedule delayed connection attempts      */
 DECL|field|mScheduledExecutor
 specifier|private
@@ -394,6 +405,24 @@ name|NotificationXmlFormatter
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|JMXEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|JMXEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
 comment|/**      * Initializes the mbean server connection and starts listening for      * Notification events from the object.      */
 annotation|@
 name|Override
@@ -412,6 +441,77 @@ argument_list|(
 name|mFormatter
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getExecutorService
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use shared thread-pool
+name|executorService
+operator|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getExecutorService
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// lets just use a single threaded thread-pool to process these notifications
+name|String
+name|name
+init|=
+literal|"JMXConsumer["
+operator|+
+name|getEndpoint
+argument_list|()
+operator|.
+name|getJMXObjectName
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|"]"
+decl_stmt|;
+name|executorService
+operator|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newSingleThreadExecutor
+argument_list|(
+name|this
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+name|shutdownExecutorService
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
 comment|// connect to the mbean server
 if|if
 condition|(
@@ -854,7 +954,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"The JMX consumer will not be reconnected.  Use 'reconnectOnConnectionFailure' to "
+literal|"The JMX consumer will not be reconnected. Use 'reconnectOnConnectionFailure' to "
 operator|+
 literal|"enable reconnections."
 argument_list|)
@@ -996,7 +1096,7 @@ return|return
 name|mScheduledExecutor
 return|;
 block|}
-comment|/**      * Adds a notification listener to the target bean.      * @throws Exception      */
+comment|/**      * Adds a notification listener to the target bean.      */
 DECL|method|addNotificationListener ()
 specifier|protected
 name|void
@@ -1008,9 +1108,6 @@ block|{
 name|JMXEndpoint
 name|ep
 init|=
-operator|(
-name|JMXEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
 decl_stmt|;
@@ -1113,6 +1210,34 @@ argument_list|(
 name|mFormatter
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shutdownExecutorService
+operator|&&
+name|executorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+name|executorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Removes the configured notification listener and the connection notification listener from the       * connection      */
 DECL|method|removeNotificationListeners ()
@@ -1196,9 +1321,6 @@ block|{
 name|JMXEndpoint
 name|ep
 init|=
-operator|(
-name|JMXEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
 decl_stmt|;
@@ -1209,11 +1331,7 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|createExchange
-argument_list|(
-name|ExchangePattern
-operator|.
-name|InOnly
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Message
 name|message
@@ -1266,29 +1384,22 @@ name|aNotification
 argument_list|)
 expr_stmt|;
 block|}
+comment|// process the notification from thred pool to not block this notification callback thread from the JVM
+name|executorService
+operator|.
+name|submit
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+try|try
+block|{
 name|getProcessor
 argument_list|()
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NotificationFormatException
-name|e
-parameter_list|)
-block|{
-name|getExceptionHandler
-argument_list|()
-operator|.
-name|handleException
-argument_list|(
-literal|"Failed to marshal notification"
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1304,6 +1415,27 @@ operator|.
 name|handleException
 argument_list|(
 literal|"Failed to process notification"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NotificationFormatException
+name|e
+parameter_list|)
+block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+literal|"Failed to marshal notification"
 argument_list|,
 name|e
 argument_list|)

@@ -40,6 +40,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -297,7 +309,7 @@ name|ERR_OBSERVED_ATTRIBUTE
 init|=
 literal|"Observed attribute must be specified"
 decl_stmt|;
-comment|/**      * server url comes from the remaining endpoint      */
+comment|/**      * Server url comes from the remaining endpoint. Use platform to connect to local JVM.      */
 annotation|@
 name|UriPath
 DECL|field|serverURL
@@ -662,6 +674,19 @@ argument_list|,
 name|String
 argument_list|>
 name|objectProperties
+decl_stmt|;
+comment|/**      * To use a custom shared thread pool for the consumers. By default each consume has their own thread-pool to process and route notifications.      */
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
 decl_stmt|;
 comment|/**      * cached object name that was built from the objectName param or the hashtable      */
 DECL|field|jmxObjectName
@@ -1683,6 +1708,32 @@ operator|.
 name|reconnectDelay
 operator|=
 name|reconnectDelay
+expr_stmt|;
+block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|executorService
+return|;
+block|}
+DECL|method|setExecutorService (ExecutorService executorService)
+specifier|public
+name|void
+name|setExecutorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
 expr_stmt|;
 block|}
 DECL|method|buildObjectName ()
