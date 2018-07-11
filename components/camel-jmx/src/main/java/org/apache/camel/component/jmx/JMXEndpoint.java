@@ -340,7 +340,7 @@ specifier|private
 name|String
 name|objectName
 decl_stmt|;
-comment|/**      * The attribute to observe for the monitor bean (monitor types only).      */
+comment|/**      * The attribute to observe for the monitor bean or consumer.      */
 annotation|@
 name|UriParam
 DECL|field|observedAttribute
