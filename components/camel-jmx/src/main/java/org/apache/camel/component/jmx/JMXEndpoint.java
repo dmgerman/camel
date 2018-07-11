@@ -317,7 +317,7 @@ specifier|private
 name|String
 name|serverURL
 decl_stmt|;
-comment|/**      * URI Property: [monitor types only] The attribute to observe for the monitor bean.        */
+comment|/**      * [monitor types only] The attribute to observe for the monitor bean.      */
 annotation|@
 name|UriParam
 DECL|field|observedAttribute
@@ -325,7 +325,7 @@ specifier|private
 name|String
 name|observedAttribute
 decl_stmt|;
-comment|/**      * URI Property: [monitor types only] The frequency to poll the bean to check the monitor.        */
+comment|/**      * [monitor types only] The frequency to poll the bean to check the monitor.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -340,7 +340,7 @@ name|granularityPeriod
 init|=
 literal|10000
 decl_stmt|;
-comment|/**      * URI Property: [monitor types only] The type of monitor to create. One of string, gauge, counter.        */
+comment|/**      * [monitor types only] The type of monitor to create. One of string, gauge, counter.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -353,7 +353,7 @@ specifier|private
 name|String
 name|monitorType
 decl_stmt|;
-comment|/**      * URI Property: [counter monitor only] Initial threshold for the monitor. The value must exceed this before notifications are fired.        */
+comment|/**      * [counter monitor only] Initial threshold for the monitor. The value must exceed this before notifications are fired.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -366,7 +366,7 @@ specifier|private
 name|int
 name|initThreshold
 decl_stmt|;
-comment|/**      * URI Property: [counter monitor only] The amount to increment the threshold after it's been exceeded.        */
+comment|/**      * [counter monitor only] The amount to increment the threshold after it's been exceeded.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -379,7 +379,7 @@ specifier|private
 name|int
 name|offset
 decl_stmt|;
-comment|/**      * URI Property: [counter monitor only] The value at which the counter is reset to zero        */
+comment|/**      * [counter monitor only] The value at which the counter is reset to zero      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -392,7 +392,7 @@ specifier|private
 name|int
 name|modulus
 decl_stmt|;
-comment|/**      * URI Property: [counter + gauge monitor only] If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself.        */
+comment|/**      * [counter + gauge monitor only] If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -405,7 +405,7 @@ specifier|private
 name|boolean
 name|differenceMode
 decl_stmt|;
-comment|/**      * URI Property: [gauge monitor only] If true, the gauge will fire a notification when the high threshold is exceeded        */
+comment|/**      * [gauge monitor only] If true, the gauge will fire a notification when the high threshold is exceeded      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -418,7 +418,7 @@ specifier|private
 name|boolean
 name|notifyHigh
 decl_stmt|;
-comment|/**      * URI Property: [gauge monitor only] If true, the gauge will fire a notification when the low threshold is exceeded        */
+comment|/**      * [gauge monitor only] If true, the gauge will fire a notification when the low threshold is exceeded      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -431,7 +431,7 @@ specifier|private
 name|boolean
 name|notifyLow
 decl_stmt|;
-comment|/**      * URI Property: [gauge monitor only] Value for the gauge's high threshold        */
+comment|/**      * [gauge monitor only] Value for the gauge's high threshold      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -444,7 +444,7 @@ specifier|private
 name|Double
 name|thresholdHigh
 decl_stmt|;
-comment|/**      * URI Property: [gauge monitor only] Value for the gauge's low threshold        */
+comment|/**      * [gauge monitor only] Value for the gauge's low threshold      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -457,7 +457,7 @@ specifier|private
 name|Double
 name|thresholdLow
 decl_stmt|;
-comment|/**      * URI Property: [string monitor only] If true, the string monitor will fire a notification when the string attribute differs from the string to compare.        */
+comment|/**      * [string monitor only] If true, the string monitor will fire a notification when the string attribute differs from the string to compare.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -470,7 +470,7 @@ specifier|private
 name|boolean
 name|notifyDiffer
 decl_stmt|;
-comment|/**      * URI Property: [string monitor only] If true, the string monitor will fire a notification when the string attribute matches the string to compare.        */
+comment|/**      * [string monitor only] If true, the string monitor will fire a notification when the string attribute matches the string to compare.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -483,7 +483,7 @@ specifier|private
 name|boolean
 name|notifyMatch
 decl_stmt|;
-comment|/**      * URI Property: [string monitor only] Value for the string monitor's string to compare.        */
+comment|/**      * [string monitor only] Value for the string monitor's string to compare.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -496,7 +496,7 @@ specifier|private
 name|String
 name|stringToCompare
 decl_stmt|;
-comment|/**      * URI Property: Format for the message body. Either "xml" or "raw". If xml, the notification is serialized to xml. If raw, then the raw java object is set as the body.      */
+comment|/**      * Format for the message body. Either "xml" or "raw". If xml, the notification is serialized to xml. If raw, then the raw java object is set as the body.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -515,7 +515,7 @@ name|format
 init|=
 literal|"xml"
 decl_stmt|;
-comment|/**      * URI Property: credentials for making a remote connection      */
+comment|/**      * Credentials for making a remote connection      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -532,7 +532,7 @@ specifier|private
 name|String
 name|user
 decl_stmt|;
-comment|/**      * URI Property: credentials for making a remote connection      */
+comment|/**      * Credentials for making a remote connection      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -549,7 +549,7 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**      * URI Property: The domain for the mbean you're connecting to      */
+comment|/**      * The domain for the mbean you're connecting to      */
 annotation|@
 name|UriParam
 annotation|@
@@ -564,7 +564,7 @@ specifier|private
 name|String
 name|objectDomain
 decl_stmt|;
-comment|/**      * URI Property: The name key for the mbean you're connecting to. This value is mutually exclusive with the object properties that get passed.      */
+comment|/**      * The name key for the mbean you're connecting to. This value is mutually exclusive with the object properties that get passed.      */
 annotation|@
 name|UriParam
 DECL|field|objectName
@@ -572,7 +572,7 @@ specifier|private
 name|String
 name|objectName
 decl_stmt|;
-comment|/**      * URI Property: Reference to a bean that implements the NotificationFilter.      */
+comment|/**      * Reference to a bean that implements the NotificationFilter.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -585,7 +585,7 @@ specifier|private
 name|NotificationFilter
 name|notificationFilter
 decl_stmt|;
-comment|/**      * URI Property: Value to handback to the listener when a notification is received. This value will be put in the message header with the key "jmx.handback"      */
+comment|/**      * Value to handback to the listener when a notification is received. This value will be put in the message header with the key "jmx.handback"      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -598,7 +598,7 @@ specifier|private
 name|Object
 name|handback
 decl_stmt|;
-comment|/**      * URI Property:  If true the consumer will throw an exception if unable to establish the JMX connection upon startup.  If false, the consumer will attempt      *                to establish the JMX connection every 'x' seconds until the connection is made -- where 'x' is the configured  reconnectionDelay       */
+comment|/**      * If true the consumer will throw an exception if unable to establish the JMX connection upon startup.  If false, the consumer will attempt      * to establish the JMX connection every 'x' seconds until the connection is made -- where 'x' is the configured  reconnectionDelay      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -617,7 +617,7 @@ name|testConnectionOnStartup
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * URI Property:  If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs.  The consumer will attempt      *                to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured  reconnectionDelay      */
+comment|/**      * If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs.  The consumer will attempt      * to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured  reconnectionDelay      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -630,7 +630,7 @@ specifier|private
 name|boolean
 name|reconnectOnConnectionFailure
 decl_stmt|;
-comment|/**       * URI Property:  The number of seconds to wait before attempting to retry establishment of the initial connection or attempt to reconnect a lost connection       */
+comment|/**      * The number of seconds to wait before attempting to retry establishment of the initial connection or attempt to reconnect a lost connection      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -649,7 +649,7 @@ name|reconnectDelay
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * URI Property: properties for the object name. These values will be used if the objectName param is not set      */
+comment|/**      * Properties for the object name. These values will be used if the objectName param is not set      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -681,14 +681,14 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer,advanced"
+literal|"advanced"
 argument_list|)
 DECL|field|executorService
 specifier|private
 name|ExecutorService
 name|executorService
 decl_stmt|;
-comment|/**      * cached object name that was built from the objectName param or the hashtable      */
+comment|/**      * Cached object name that was built from the objectName param or the hashtable      */
 DECL|field|jmxObjectName
 specifier|private
 specifier|transient
