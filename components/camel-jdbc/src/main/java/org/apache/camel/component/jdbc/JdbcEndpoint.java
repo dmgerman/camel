@@ -454,7 +454,7 @@ return|return
 name|dataSourceName
 return|;
 block|}
-comment|/**      * Name of DataSource to lookup in the Registry.      */
+comment|/**      * Name of DataSource to lookup in the Registry. If the name is dataSource or default, then Camel      * will attempt to lookup a default DataSource from the registry, meaning if there is a only      * one instance of DataSource found, then this DataSource will be used.      */
 DECL|method|setDataSourceName (String dataSourceName)
 specifier|public
 name|void
