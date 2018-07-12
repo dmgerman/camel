@@ -78,22 +78,6 @@ name|component
 operator|.
 name|mail
 operator|.
-name|ContentTypeResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mail
-operator|.
 name|JavaMailSender
 import|;
 end_import
@@ -192,12 +176,10 @@ specifier|private
 name|MailConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * Resolver to determine Content-Type for file attachments.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Resolver to determine Content-Type for file attachments. The option is a      * org.apache.camel.component.mail.ContentTypeResolver type.      */
 DECL|field|contentTypeResolver
 specifier|private
-name|ContentTypeResolver
+name|String
 name|contentTypeResolver
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -244,7 +226,7 @@ expr_stmt|;
 block|}
 DECL|method|getContentTypeResolver ()
 specifier|public
-name|ContentTypeResolver
+name|String
 name|getContentTypeResolver
 parameter_list|()
 block|{
@@ -252,12 +234,12 @@ return|return
 name|contentTypeResolver
 return|;
 block|}
-DECL|method|setContentTypeResolver (ContentTypeResolver contentTypeResolver)
+DECL|method|setContentTypeResolver (String contentTypeResolver)
 specifier|public
 name|void
 name|setContentTypeResolver
 parameter_list|(
-name|ContentTypeResolver
+name|String
 name|contentTypeResolver
 parameter_list|)
 block|{

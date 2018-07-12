@@ -38,22 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|splunk
-operator|.
-name|SplunkConfigurationFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -75,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -118,12 +86,10 @@ name|SplunkComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use the SplunkConfigurationFactory      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the SplunkConfigurationFactory. The option is a      * org.apache.camel.component.splunk.SplunkConfigurationFactory type.      */
 DECL|field|splunkConfigurationFactory
 specifier|private
-name|SplunkConfigurationFactory
+name|String
 name|splunkConfigurationFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -136,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getSplunkConfigurationFactory ()
 specifier|public
-name|SplunkConfigurationFactory
+name|String
 name|getSplunkConfigurationFactory
 parameter_list|()
 block|{
@@ -144,12 +110,12 @@ return|return
 name|splunkConfigurationFactory
 return|;
 block|}
-DECL|method|setSplunkConfigurationFactory ( SplunkConfigurationFactory splunkConfigurationFactory)
+DECL|method|setSplunkConfigurationFactory (String splunkConfigurationFactory)
 specifier|public
 name|void
 name|setSplunkConfigurationFactory
 parameter_list|(
-name|SplunkConfigurationFactory
+name|String
 name|splunkConfigurationFactory
 parameter_list|)
 block|{

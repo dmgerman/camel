@@ -38,43 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|undertow
-operator|.
-name|UndertowHttpBinding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
 operator|.
 name|ComponentConfigurationPropertiesCommon
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
 import|;
 end_import
 
@@ -91,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -134,20 +86,16 @@ name|UndertowComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient. The option is a      * org.apache.camel.component.undertow.UndertowHttpBinding type.      */
 DECL|field|undertowHttpBinding
 specifier|private
-name|UndertowHttpBinding
+name|String
 name|undertowHttpBinding
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -174,7 +122,7 @@ literal|true
 decl_stmt|;
 DECL|method|getUndertowHttpBinding ()
 specifier|public
-name|UndertowHttpBinding
+name|String
 name|getUndertowHttpBinding
 parameter_list|()
 block|{
@@ -182,12 +130,12 @@ return|return
 name|undertowHttpBinding
 return|;
 block|}
-DECL|method|setUndertowHttpBinding (UndertowHttpBinding undertowHttpBinding)
+DECL|method|setUndertowHttpBinding (String undertowHttpBinding)
 specifier|public
 name|void
 name|setUndertowHttpBinding
 parameter_list|(
-name|UndertowHttpBinding
+name|String
 name|undertowHttpBinding
 parameter_list|)
 block|{
@@ -200,7 +148,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -208,12 +156,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{

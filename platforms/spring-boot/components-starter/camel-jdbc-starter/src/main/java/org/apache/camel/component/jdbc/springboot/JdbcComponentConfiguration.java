@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|sql
-operator|.
-name|DataSource
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -96,10 +86,10 @@ name|JdbcComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use the DataSource instance instead of looking up the data source by      * name from the registry.      */
+comment|/**      * To use the DataSource instance instead of looking up the data source by      * name from the registry. The option is a javax.sql.DataSource type.      */
 DECL|field|dataSource
 specifier|private
-name|DataSource
+name|String
 name|dataSource
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -112,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getDataSource ()
 specifier|public
-name|DataSource
+name|String
 name|getDataSource
 parameter_list|()
 block|{
@@ -120,12 +110,12 @@ return|return
 name|dataSource
 return|;
 block|}
-DECL|method|setDataSource (DataSource dataSource)
+DECL|method|setDataSource (String dataSource)
 specifier|public
 name|void
 name|setDataSource
 parameter_list|(
-name|DataSource
+name|String
 name|dataSource
 parameter_list|)
 block|{

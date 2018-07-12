@@ -22,83 +22,11 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jetty
-operator|.
-name|JettyHttpBinding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|http
-operator|.
-name|common
-operator|.
-name|HttpBinding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|http
-operator|.
-name|common
-operator|.
-name|HttpConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -122,82 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|jmx
-operator|.
-name|MBeanContainer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|server
-operator|.
-name|Connector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|server
-operator|.
-name|handler
-operator|.
-name|ErrorHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|util
-operator|.
-name|thread
-operator|.
-name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -207,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -268,34 +104,22 @@ specifier|private
 name|String
 name|keystore
 decl_stmt|;
-comment|/**      * This option is used to set the ErrorHandler that Jetty server uses.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * This option is used to set the ErrorHandler that Jetty server uses. The      * option is a org.eclipse.jetty.server.handler.ErrorHandler type.      */
 DECL|field|errorHandler
 specifier|private
-name|ErrorHandler
+name|String
 name|errorHandler
 decl_stmt|;
-comment|/**      * A map which contains per port number specific SSL connectors.      */
+comment|/**      * A map which contains per port number specific SSL connectors. The option      * is a java.util.Map<java.lang.Integer,org.eclipse.jetty.server.Connector>      * type.      */
 DECL|field|sslSocketConnectors
 specifier|private
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
+name|String
 name|sslSocketConnectors
 decl_stmt|;
-comment|/**      * A map which contains per port number specific HTTP connectors. Uses the      * same principle as sslSocketConnectors.      */
+comment|/**      * A map which contains per port number specific HTTP connectors. Uses the      * same principle as sslSocketConnectors. The option is a      * java.util.Map<java.lang.Integer,org.eclipse.jetty.server.Connector> type.      */
 DECL|field|socketConnectors
 specifier|private
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
+name|String
 name|socketConnectors
 decl_stmt|;
 comment|/**      * To set a value for minimum number of threads in HttpClient thread pool.      * Notice that both a min and max size must be configured.      */
@@ -322,12 +146,10 @@ specifier|private
 name|Integer
 name|maxThreads
 decl_stmt|;
-comment|/**      * To use a custom thread pool for the server. This option should only be      * used in special circumstances.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom thread pool for the server. This option should only be      * used in special circumstances. The option is a      * org.eclipse.jetty.util.thread.ThreadPool type.      */
 DECL|field|threadPool
 specifier|private
-name|ThreadPool
+name|String
 name|threadPool
 decl_stmt|;
 comment|/**      * If this option is true, Jetty JMX support will be enabled for this      * endpoint.      */
@@ -338,58 +160,40 @@ name|enableJmx
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which      * are used to customize how a response should be written for the producer.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which      * are used to customize how a response should be written for the producer.      * The option is a org.apache.camel.component.jetty.JettyHttpBinding type.      */
 DECL|field|jettyHttpBinding
 specifier|private
-name|JettyHttpBinding
+name|String
 name|jettyHttpBinding
 decl_stmt|;
-comment|/**      * Not to be used - use JettyHttpBinding instead.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Not to be used - use JettyHttpBinding instead. The option is a      * org.apache.camel.http.common.HttpBinding type.      */
 DECL|field|httpBinding
 specifier|private
-name|HttpBinding
+name|String
 name|httpBinding
 decl_stmt|;
-comment|/**      * Jetty component does not use HttpConfiguration.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Jetty component does not use HttpConfiguration. The option is a      * org.apache.camel.http.common.HttpConfiguration type.      */
 DECL|field|httpConfiguration
 specifier|private
-name|HttpConfiguration
+name|String
 name|httpConfiguration
 decl_stmt|;
-comment|/**      * To use a existing configured org.eclipse.jetty.jmx.MBeanContainer if JMX      * is enabled that Jetty uses for registering mbeans.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a existing configured org.eclipse.jetty.jmx.MBeanContainer if JMX      * is enabled that Jetty uses for registering mbeans. The option is a      * org.eclipse.jetty.jmx.MBeanContainer type.      */
 DECL|field|mbContainer
 specifier|private
-name|MBeanContainer
+name|String
 name|mbContainer
 decl_stmt|;
-comment|/**      * A map which contains general SSL connector properties.      */
+comment|/**      * A map which contains general SSL connector properties. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
 DECL|field|sslSocketConnectorProperties
 specifier|private
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|sslSocketConnectorProperties
 decl_stmt|;
-comment|/**      * A map which contains general HTTP connector properties. Uses the same      * principle as sslSocketConnectorProperties.      */
+comment|/**      * A map which contains general HTTP connector properties. Uses the same      * principle as sslSocketConnectorProperties. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
 DECL|field|socketConnectorProperties
 specifier|private
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|socketConnectorProperties
 decl_stmt|;
 comment|/**      * Allows to set a timeout in millis when using Jetty as consumer (server).      * By default Jetty uses 30000. You can use a value of = 0 to never expire.      * If a timeout occurs then the request will be expired and Jetty will      * return back a http error 503 to the client. This option is only in use      * when using Jetty with the Asynchronous Routing Engine.      */
@@ -408,12 +212,10 @@ name|useContinuation
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters      */
@@ -484,12 +286,10 @@ name|allowJavaSerializedObject
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message. The option is a      * org.apache.camel.spi.HeaderFilterStrategy type.      */
 DECL|field|headerFilterStrategy
 specifier|private
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -580,7 +380,7 @@ expr_stmt|;
 block|}
 DECL|method|getErrorHandler ()
 specifier|public
-name|ErrorHandler
+name|String
 name|getErrorHandler
 parameter_list|()
 block|{
@@ -588,12 +388,12 @@ return|return
 name|errorHandler
 return|;
 block|}
-DECL|method|setErrorHandler (ErrorHandler errorHandler)
+DECL|method|setErrorHandler (String errorHandler)
 specifier|public
 name|void
 name|setErrorHandler
 parameter_list|(
-name|ErrorHandler
+name|String
 name|errorHandler
 parameter_list|)
 block|{
@@ -606,12 +406,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslSocketConnectors ()
 specifier|public
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
+name|String
 name|getSslSocketConnectors
 parameter_list|()
 block|{
@@ -619,17 +414,12 @@ return|return
 name|sslSocketConnectors
 return|;
 block|}
-DECL|method|setSslSocketConnectors ( Map<Integer, Connector> sslSocketConnectors)
+DECL|method|setSslSocketConnectors (String sslSocketConnectors)
 specifier|public
 name|void
 name|setSslSocketConnectors
 parameter_list|(
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
+name|String
 name|sslSocketConnectors
 parameter_list|)
 block|{
@@ -642,12 +432,7 @@ expr_stmt|;
 block|}
 DECL|method|getSocketConnectors ()
 specifier|public
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
+name|String
 name|getSocketConnectors
 parameter_list|()
 block|{
@@ -655,17 +440,12 @@ return|return
 name|socketConnectors
 return|;
 block|}
-DECL|method|setSocketConnectors (Map<Integer, Connector> socketConnectors)
+DECL|method|setSocketConnectors (String socketConnectors)
 specifier|public
 name|void
 name|setSocketConnectors
 parameter_list|(
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
+name|String
 name|socketConnectors
 parameter_list|)
 block|{
@@ -782,7 +562,7 @@ expr_stmt|;
 block|}
 DECL|method|getThreadPool ()
 specifier|public
-name|ThreadPool
+name|String
 name|getThreadPool
 parameter_list|()
 block|{
@@ -790,12 +570,12 @@ return|return
 name|threadPool
 return|;
 block|}
-DECL|method|setThreadPool (ThreadPool threadPool)
+DECL|method|setThreadPool (String threadPool)
 specifier|public
 name|void
 name|setThreadPool
 parameter_list|(
-name|ThreadPool
+name|String
 name|threadPool
 parameter_list|)
 block|{
@@ -834,7 +614,7 @@ expr_stmt|;
 block|}
 DECL|method|getJettyHttpBinding ()
 specifier|public
-name|JettyHttpBinding
+name|String
 name|getJettyHttpBinding
 parameter_list|()
 block|{
@@ -842,12 +622,12 @@ return|return
 name|jettyHttpBinding
 return|;
 block|}
-DECL|method|setJettyHttpBinding (JettyHttpBinding jettyHttpBinding)
+DECL|method|setJettyHttpBinding (String jettyHttpBinding)
 specifier|public
 name|void
 name|setJettyHttpBinding
 parameter_list|(
-name|JettyHttpBinding
+name|String
 name|jettyHttpBinding
 parameter_list|)
 block|{
@@ -860,7 +640,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpBinding ()
 specifier|public
-name|HttpBinding
+name|String
 name|getHttpBinding
 parameter_list|()
 block|{
@@ -868,12 +648,12 @@ return|return
 name|httpBinding
 return|;
 block|}
-DECL|method|setHttpBinding (HttpBinding httpBinding)
+DECL|method|setHttpBinding (String httpBinding)
 specifier|public
 name|void
 name|setHttpBinding
 parameter_list|(
-name|HttpBinding
+name|String
 name|httpBinding
 parameter_list|)
 block|{
@@ -886,7 +666,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpConfiguration ()
 specifier|public
-name|HttpConfiguration
+name|String
 name|getHttpConfiguration
 parameter_list|()
 block|{
@@ -894,12 +674,12 @@ return|return
 name|httpConfiguration
 return|;
 block|}
-DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
+DECL|method|setHttpConfiguration (String httpConfiguration)
 specifier|public
 name|void
 name|setHttpConfiguration
 parameter_list|(
-name|HttpConfiguration
+name|String
 name|httpConfiguration
 parameter_list|)
 block|{
@@ -912,7 +692,7 @@ expr_stmt|;
 block|}
 DECL|method|getMbContainer ()
 specifier|public
-name|MBeanContainer
+name|String
 name|getMbContainer
 parameter_list|()
 block|{
@@ -920,12 +700,12 @@ return|return
 name|mbContainer
 return|;
 block|}
-DECL|method|setMbContainer (MBeanContainer mbContainer)
+DECL|method|setMbContainer (String mbContainer)
 specifier|public
 name|void
 name|setMbContainer
 parameter_list|(
-name|MBeanContainer
+name|String
 name|mbContainer
 parameter_list|)
 block|{
@@ -938,12 +718,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslSocketConnectorProperties ()
 specifier|public
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|getSslSocketConnectorProperties
 parameter_list|()
 block|{
@@ -951,17 +726,12 @@ return|return
 name|sslSocketConnectorProperties
 return|;
 block|}
-DECL|method|setSslSocketConnectorProperties ( Map<String, Object> sslSocketConnectorProperties)
+DECL|method|setSslSocketConnectorProperties ( String sslSocketConnectorProperties)
 specifier|public
 name|void
 name|setSslSocketConnectorProperties
 parameter_list|(
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|sslSocketConnectorProperties
 parameter_list|)
 block|{
@@ -974,12 +744,7 @@ expr_stmt|;
 block|}
 DECL|method|getSocketConnectorProperties ()
 specifier|public
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|getSocketConnectorProperties
 parameter_list|()
 block|{
@@ -987,17 +752,12 @@ return|return
 name|socketConnectorProperties
 return|;
 block|}
-DECL|method|setSocketConnectorProperties ( Map<String, Object> socketConnectorProperties)
+DECL|method|setSocketConnectorProperties (String socketConnectorProperties)
 specifier|public
 name|void
 name|setSocketConnectorProperties
 parameter_list|(
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|socketConnectorProperties
 parameter_list|)
 block|{
@@ -1062,7 +822,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -1070,12 +830,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{
@@ -1348,7 +1108,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
-name|HeaderFilterStrategy
+name|String
 name|getHeaderFilterStrategy
 parameter_list|()
 block|{
@@ -1356,12 +1116,12 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+DECL|method|setHeaderFilterStrategy (String headerFilterStrategy)
 specifier|public
 name|void
 name|setHeaderFilterStrategy
 parameter_list|(
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{

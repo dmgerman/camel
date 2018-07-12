@@ -44,51 +44,11 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|milo
-operator|.
-name|KeyStoreLoader
-operator|.
-name|Result
 import|;
 end_import
 
@@ -122,71 +82,9 @@ name|stack
 operator|.
 name|core
 operator|.
-name|application
-operator|.
-name|CertificateManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|milo
-operator|.
-name|opcua
-operator|.
-name|stack
-operator|.
-name|core
-operator|.
-name|application
-operator|.
-name|CertificateValidator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|milo
-operator|.
-name|opcua
-operator|.
-name|stack
-operator|.
-name|core
-operator|.
 name|security
 operator|.
 name|SecurityPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|milo
-operator|.
-name|opcua
-operator|.
-name|stack
-operator|.
-name|core
-operator|.
-name|types
-operator|.
-name|structured
-operator|.
-name|BuildInfo
 import|;
 end_import
 
@@ -203,22 +101,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -296,13 +178,10 @@ specifier|private
 name|String
 name|hostname
 decl_stmt|;
-comment|/**      * Security policies      */
+comment|/**      * Security policies. The option is a      * java.util.Set<org.eclipse.milo.opcua.stack.core.security.SecurityPolicy>      * type.      */
 DECL|field|securityPolicies
 specifier|private
-name|Set
-argument_list|<
-name|SecurityPolicy
-argument_list|>
+name|String
 name|securityPolicies
 decl_stmt|;
 comment|/**      * Security policies by URI or name      */
@@ -340,37 +219,28 @@ specifier|private
 name|String
 name|bindAddresses
 decl_stmt|;
-comment|/**      * Server build info      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Server build info. The option is a      * org.eclipse.milo.opcua.stack.core.types.structured.BuildInfo type.      */
 DECL|field|buildInfo
 specifier|private
-name|BuildInfo
+name|String
 name|buildInfo
 decl_stmt|;
-comment|/**      * Server certificate      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Server certificate. The option is a      * org.apache.camel.component.milo.KeyStoreLoader.Result type.      */
 DECL|field|serverCertificate
 specifier|private
-name|Result
+name|String
 name|serverCertificate
 decl_stmt|;
-comment|/**      * Server certificate manager      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Server certificate manager. The option is a      * org.eclipse.milo.opcua.stack.core.application.CertificateManager type.      */
 DECL|field|certificateManager
 specifier|private
-name|CertificateManager
+name|String
 name|certificateManager
 decl_stmt|;
-comment|/**      * Validator for client certificates      */
+comment|/**      * Validator for client certificates. The option is a      * java.util.function.Supplier      *<org.eclipse.milo.opcua.stack.core.application.CertificateValidator>      * type.      */
 DECL|field|certificateValidator
 specifier|private
-name|Supplier
-argument_list|<
-name|CertificateValidator
-argument_list|>
+name|String
 name|certificateValidator
 decl_stmt|;
 comment|/**      * Validator for client certificates using default file based approach      */
@@ -597,10 +467,7 @@ expr_stmt|;
 block|}
 DECL|method|getSecurityPolicies ()
 specifier|public
-name|Set
-argument_list|<
-name|SecurityPolicy
-argument_list|>
+name|String
 name|getSecurityPolicies
 parameter_list|()
 block|{
@@ -608,15 +475,12 @@ return|return
 name|securityPolicies
 return|;
 block|}
-DECL|method|setSecurityPolicies (Set<SecurityPolicy> securityPolicies)
+DECL|method|setSecurityPolicies (String securityPolicies)
 specifier|public
 name|void
 name|setSecurityPolicies
 parameter_list|(
-name|Set
-argument_list|<
-name|SecurityPolicy
-argument_list|>
+name|String
 name|securityPolicies
 parameter_list|)
 block|{
@@ -765,7 +629,7 @@ expr_stmt|;
 block|}
 DECL|method|getBuildInfo ()
 specifier|public
-name|BuildInfo
+name|String
 name|getBuildInfo
 parameter_list|()
 block|{
@@ -773,12 +637,12 @@ return|return
 name|buildInfo
 return|;
 block|}
-DECL|method|setBuildInfo (BuildInfo buildInfo)
+DECL|method|setBuildInfo (String buildInfo)
 specifier|public
 name|void
 name|setBuildInfo
 parameter_list|(
-name|BuildInfo
+name|String
 name|buildInfo
 parameter_list|)
 block|{
@@ -791,7 +655,7 @@ expr_stmt|;
 block|}
 DECL|method|getServerCertificate ()
 specifier|public
-name|Result
+name|String
 name|getServerCertificate
 parameter_list|()
 block|{
@@ -799,12 +663,12 @@ return|return
 name|serverCertificate
 return|;
 block|}
-DECL|method|setServerCertificate (Result serverCertificate)
+DECL|method|setServerCertificate (String serverCertificate)
 specifier|public
 name|void
 name|setServerCertificate
 parameter_list|(
-name|Result
+name|String
 name|serverCertificate
 parameter_list|)
 block|{
@@ -817,7 +681,7 @@ expr_stmt|;
 block|}
 DECL|method|getCertificateManager ()
 specifier|public
-name|CertificateManager
+name|String
 name|getCertificateManager
 parameter_list|()
 block|{
@@ -825,12 +689,12 @@ return|return
 name|certificateManager
 return|;
 block|}
-DECL|method|setCertificateManager (CertificateManager certificateManager)
+DECL|method|setCertificateManager (String certificateManager)
 specifier|public
 name|void
 name|setCertificateManager
 parameter_list|(
-name|CertificateManager
+name|String
 name|certificateManager
 parameter_list|)
 block|{
@@ -843,10 +707,7 @@ expr_stmt|;
 block|}
 DECL|method|getCertificateValidator ()
 specifier|public
-name|Supplier
-argument_list|<
-name|CertificateValidator
-argument_list|>
+name|String
 name|getCertificateValidator
 parameter_list|()
 block|{
@@ -854,15 +715,12 @@ return|return
 name|certificateValidator
 return|;
 block|}
-DECL|method|setCertificateValidator ( Supplier<CertificateValidator> certificateValidator)
+DECL|method|setCertificateValidator (String certificateValidator)
 specifier|public
 name|void
 name|setCertificateValidator
 parameter_list|(
-name|Supplier
-argument_list|<
-name|CertificateValidator
-argument_list|>
+name|String
 name|certificateValidator
 parameter_list|)
 block|{

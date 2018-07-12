@@ -52,24 +52,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|google
-operator|.
-name|mail
-operator|.
-name|GoogleMailClientFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -91,22 +73,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -140,12 +106,10 @@ specifier|private
 name|GoogleMailStreamConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * The client Factory      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * The client Factory. The option is a      * org.apache.camel.component.google.mail.GoogleMailClientFactory type.      */
 DECL|field|clientFactory
 specifier|private
-name|GoogleMailClientFactory
+name|String
 name|clientFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -184,7 +148,7 @@ expr_stmt|;
 block|}
 DECL|method|getClientFactory ()
 specifier|public
-name|GoogleMailClientFactory
+name|String
 name|getClientFactory
 parameter_list|()
 block|{
@@ -192,12 +156,12 @@ return|return
 name|clientFactory
 return|;
 block|}
-DECL|method|setClientFactory (GoogleMailClientFactory clientFactory)
+DECL|method|setClientFactory (String clientFactory)
 specifier|public
 name|void
 name|setClientFactory
 parameter_list|(
-name|GoogleMailClientFactory
+name|String
 name|clientFactory
 parameter_list|)
 block|{

@@ -38,77 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|ahc
-operator|.
-name|AhcBinding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
 operator|.
 name|ComponentConfigurationPropertiesCommon
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|asynchttpclient
-operator|.
-name|AsyncHttpClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|asynchttpclient
-operator|.
-name|AsyncHttpClientConfig
 import|;
 end_import
 
@@ -125,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -168,36 +86,28 @@ name|AhcComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use a custom AsyncHttpClient      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom AsyncHttpClient. The option is a      * org.asynchttpclient.AsyncHttpClient type.      */
 DECL|field|client
 specifier|private
-name|AsyncHttpClient
+name|String
 name|client
 decl_stmt|;
-comment|/**      * To use a custom AhcBinding which allows to control how to bind between      * AHC and Camel.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom AhcBinding which allows to control how to bind between      * AHC and Camel. The option is a org.apache.camel.component.ahc.AhcBinding      * type.      */
 DECL|field|binding
 specifier|private
-name|AhcBinding
+name|String
 name|binding
 decl_stmt|;
-comment|/**      * To configure the AsyncHttpClient to use a custom      * com.ning.http.client.AsyncHttpClientConfig instance.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure the AsyncHttpClient to use a custom      * com.ning.http.client.AsyncHttpClientConfig instance. The option is a      * org.asynchttpclient.AsyncHttpClientConfig type.      */
 DECL|field|clientConfig
 specifier|private
-name|AsyncHttpClientConfig
+name|String
 name|clientConfig
 decl_stmt|;
-comment|/**      * Reference to a org.apache.camel.util.jsse.SSLContextParameters in the      * Registry. Note that configuring this option will override any SSL/TLS      * configuration options provided through the clientConfig option at the      * endpoint or component level.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Reference to a org.apache.camel.util.jsse.SSLContextParameters in the      * Registry. Note that configuring this option will override any SSL/TLS      * configuration options provided through the clientConfig option at the      * endpoint or component level. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
@@ -216,12 +126,10 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message. The option is a      * org.apache.camel.spi.HeaderFilterStrategy type.      */
 DECL|field|headerFilterStrategy
 specifier|private
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -234,7 +142,7 @@ literal|true
 decl_stmt|;
 DECL|method|getClient ()
 specifier|public
-name|AsyncHttpClient
+name|String
 name|getClient
 parameter_list|()
 block|{
@@ -242,12 +150,12 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|setClient (AsyncHttpClient client)
+DECL|method|setClient (String client)
 specifier|public
 name|void
 name|setClient
 parameter_list|(
-name|AsyncHttpClient
+name|String
 name|client
 parameter_list|)
 block|{
@@ -260,7 +168,7 @@ expr_stmt|;
 block|}
 DECL|method|getBinding ()
 specifier|public
-name|AhcBinding
+name|String
 name|getBinding
 parameter_list|()
 block|{
@@ -268,12 +176,12 @@ return|return
 name|binding
 return|;
 block|}
-DECL|method|setBinding (AhcBinding binding)
+DECL|method|setBinding (String binding)
 specifier|public
 name|void
 name|setBinding
 parameter_list|(
-name|AhcBinding
+name|String
 name|binding
 parameter_list|)
 block|{
@@ -286,7 +194,7 @@ expr_stmt|;
 block|}
 DECL|method|getClientConfig ()
 specifier|public
-name|AsyncHttpClientConfig
+name|String
 name|getClientConfig
 parameter_list|()
 block|{
@@ -294,12 +202,12 @@ return|return
 name|clientConfig
 return|;
 block|}
-DECL|method|setClientConfig (AsyncHttpClientConfig clientConfig)
+DECL|method|setClientConfig (String clientConfig)
 specifier|public
 name|void
 name|setClientConfig
 parameter_list|(
-name|AsyncHttpClientConfig
+name|String
 name|clientConfig
 parameter_list|)
 block|{
@@ -312,7 +220,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -320,12 +228,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{
@@ -390,7 +298,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
-name|HeaderFilterStrategy
+name|String
 name|getHeaderFilterStrategy
 parameter_list|()
 block|{
@@ -398,12 +306,12 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+DECL|method|setHeaderFilterStrategy (String headerFilterStrategy)
 specifier|public
 name|void
 name|setHeaderFilterStrategy
 parameter_list|(
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{

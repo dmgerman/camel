@@ -38,43 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|spark
-operator|.
-name|RddCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
 operator|.
 name|ComponentConfigurationPropertiesCommon
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|spark
-operator|.
-name|api
-operator|.
-name|java
-operator|.
-name|JavaRDDLike
 import|;
 end_import
 
@@ -91,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -134,20 +86,16 @@ name|SparkComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * RDD to compute against.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * RDD to compute against. The option is a      * org.apache.spark.api.java.JavaRDDLike type.      */
 DECL|field|rdd
 specifier|private
-name|JavaRDDLike
+name|String
 name|rdd
 decl_stmt|;
-comment|/**      * Function performing action against an RDD.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Function performing action against an RDD. The option is a      * org.apache.camel.component.spark.RddCallback type.      */
 DECL|field|rddCallback
 specifier|private
-name|RddCallback
+name|String
 name|rddCallback
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -160,7 +108,7 @@ literal|true
 decl_stmt|;
 DECL|method|getRdd ()
 specifier|public
-name|JavaRDDLike
+name|String
 name|getRdd
 parameter_list|()
 block|{
@@ -168,12 +116,12 @@ return|return
 name|rdd
 return|;
 block|}
-DECL|method|setRdd (JavaRDDLike rdd)
+DECL|method|setRdd (String rdd)
 specifier|public
 name|void
 name|setRdd
 parameter_list|(
-name|JavaRDDLike
+name|String
 name|rdd
 parameter_list|)
 block|{
@@ -186,7 +134,7 @@ expr_stmt|;
 block|}
 DECL|method|getRddCallback ()
 specifier|public
-name|RddCallback
+name|String
 name|getRddCallback
 parameter_list|()
 block|{
@@ -194,12 +142,12 @@ return|return
 name|rddCallback
 return|;
 block|}
-DECL|method|setRddCallback (RddCallback rddCallback)
+DECL|method|setRddCallback (String rddCallback)
 specifier|public
 name|void
 name|setRddCallback
 parameter_list|(
-name|RddCallback
+name|String
 name|rddCallback
 parameter_list|)
 block|{

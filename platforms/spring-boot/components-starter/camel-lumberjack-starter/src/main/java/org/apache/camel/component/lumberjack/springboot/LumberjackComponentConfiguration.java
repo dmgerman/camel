@@ -50,22 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -75,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -118,12 +86,10 @@ name|LumberjackComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Sets the default SSL configuration to use for all the endpoints. You can      * also configure it directly at the endpoint level.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Sets the default SSL configuration to use for all the endpoints. You can      * also configure it directly at the endpoint level. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -144,7 +110,7 @@ literal|true
 decl_stmt|;
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -152,12 +118,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{

@@ -38,77 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|flink
-operator|.
-name|DataSetCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|flink
-operator|.
-name|DataStreamCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
 operator|.
 name|ComponentConfigurationPropertiesCommon
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|flink
-operator|.
-name|api
-operator|.
-name|java
-operator|.
-name|DataSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|flink
-operator|.
-name|streaming
-operator|.
-name|api
-operator|.
-name|datastream
-operator|.
-name|DataStream
 import|;
 end_import
 
@@ -125,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -168,36 +86,28 @@ name|FlinkComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * DataSet to compute against.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * DataSet to compute against. The option is a      * org.apache.flink.api.java.DataSet type.      */
 DECL|field|dataSet
 specifier|private
-name|DataSet
+name|String
 name|dataSet
 decl_stmt|;
-comment|/**      * DataStream to compute against.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * DataStream to compute against. The option is a      * org.apache.flink.streaming.api.datastream.DataStream type.      */
 DECL|field|dataStream
 specifier|private
-name|DataStream
+name|String
 name|dataStream
 decl_stmt|;
-comment|/**      * Function performing action against a DataSet.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Function performing action against a DataSet. The option is a      * org.apache.camel.component.flink.DataSetCallback type.      */
 DECL|field|dataSetCallback
 specifier|private
-name|DataSetCallback
+name|String
 name|dataSetCallback
 decl_stmt|;
-comment|/**      * Function performing action against a DataStream.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Function performing action against a DataStream. The option is a      * org.apache.camel.component.flink.DataStreamCallback type.      */
 DECL|field|dataStreamCallback
 specifier|private
-name|DataStreamCallback
+name|String
 name|dataStreamCallback
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -210,7 +120,7 @@ literal|true
 decl_stmt|;
 DECL|method|getDataSet ()
 specifier|public
-name|DataSet
+name|String
 name|getDataSet
 parameter_list|()
 block|{
@@ -218,12 +128,12 @@ return|return
 name|dataSet
 return|;
 block|}
-DECL|method|setDataSet (DataSet dataSet)
+DECL|method|setDataSet (String dataSet)
 specifier|public
 name|void
 name|setDataSet
 parameter_list|(
-name|DataSet
+name|String
 name|dataSet
 parameter_list|)
 block|{
@@ -236,7 +146,7 @@ expr_stmt|;
 block|}
 DECL|method|getDataStream ()
 specifier|public
-name|DataStream
+name|String
 name|getDataStream
 parameter_list|()
 block|{
@@ -244,12 +154,12 @@ return|return
 name|dataStream
 return|;
 block|}
-DECL|method|setDataStream (DataStream dataStream)
+DECL|method|setDataStream (String dataStream)
 specifier|public
 name|void
 name|setDataStream
 parameter_list|(
-name|DataStream
+name|String
 name|dataStream
 parameter_list|)
 block|{
@@ -262,7 +172,7 @@ expr_stmt|;
 block|}
 DECL|method|getDataSetCallback ()
 specifier|public
-name|DataSetCallback
+name|String
 name|getDataSetCallback
 parameter_list|()
 block|{
@@ -270,12 +180,12 @@ return|return
 name|dataSetCallback
 return|;
 block|}
-DECL|method|setDataSetCallback (DataSetCallback dataSetCallback)
+DECL|method|setDataSetCallback (String dataSetCallback)
 specifier|public
 name|void
 name|setDataSetCallback
 parameter_list|(
-name|DataSetCallback
+name|String
 name|dataSetCallback
 parameter_list|)
 block|{
@@ -288,7 +198,7 @@ expr_stmt|;
 block|}
 DECL|method|getDataStreamCallback ()
 specifier|public
-name|DataStreamCallback
+name|String
 name|getDataStreamCallback
 parameter_list|()
 block|{
@@ -296,12 +206,12 @@ return|return
 name|dataStreamCallback
 return|;
 block|}
-DECL|method|setDataStreamCallback (DataStreamCallback dataStreamCallback)
+DECL|method|setDataStreamCallback (String dataStreamCallback)
 specifier|public
 name|void
 name|setDataStreamCallback
 parameter_list|(
-name|DataStreamCallback
+name|String
 name|dataStreamCallback
 parameter_list|)
 block|{

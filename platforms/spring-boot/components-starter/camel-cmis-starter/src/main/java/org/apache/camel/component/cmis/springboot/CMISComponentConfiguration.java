@@ -38,22 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|cmis
-operator|.
-name|CMISSessionFacadeFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -75,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -118,12 +86,10 @@ name|CMISComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade      * instances      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade      * instances. The option is a      * org.apache.camel.component.cmis.CMISSessionFacadeFactory type.      */
 DECL|field|sessionFacadeFactory
 specifier|private
-name|CMISSessionFacadeFactory
+name|String
 name|sessionFacadeFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -136,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getSessionFacadeFactory ()
 specifier|public
-name|CMISSessionFacadeFactory
+name|String
 name|getSessionFacadeFactory
 parameter_list|()
 block|{
@@ -144,12 +110,12 @@ return|return
 name|sessionFacadeFactory
 return|;
 block|}
-DECL|method|setSessionFacadeFactory ( CMISSessionFacadeFactory sessionFacadeFactory)
+DECL|method|setSessionFacadeFactory (String sessionFacadeFactory)
 specifier|public
 name|void
 name|setSessionFacadeFactory
 parameter_list|(
-name|CMISSessionFacadeFactory
+name|String
 name|sessionFacadeFactory
 parameter_list|)
 block|{

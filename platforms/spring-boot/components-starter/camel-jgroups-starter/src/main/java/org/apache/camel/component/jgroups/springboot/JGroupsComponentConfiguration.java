@@ -50,16 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|jgroups
-operator|.
-name|JChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -69,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -112,12 +86,10 @@ name|JGroupsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Channel to use      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Channel to use. The option is a org.jgroups.JChannel type.      */
 DECL|field|channel
 specifier|private
-name|JChannel
+name|String
 name|channel
 decl_stmt|;
 comment|/**      * Specifies configuration properties of the JChannel used by the endpoint.      */
@@ -144,7 +116,7 @@ literal|true
 decl_stmt|;
 DECL|method|getChannel ()
 specifier|public
-name|JChannel
+name|String
 name|getChannel
 parameter_list|()
 block|{
@@ -152,12 +124,12 @@ return|return
 name|channel
 return|;
 block|}
-DECL|method|setChannel (JChannel channel)
+DECL|method|setChannel (String channel)
 specifier|public
 name|void
 name|setChannel
 parameter_list|(
-name|JChannel
+name|String
 name|channel
 parameter_list|)
 block|{

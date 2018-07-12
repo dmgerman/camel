@@ -50,22 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|kafka
-operator|.
-name|KafkaManualCommitFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -186,10 +170,10 @@ specifier|private
 name|String
 name|brokers
 decl_stmt|;
-comment|/**      * To use a shared custom worker pool for continue routing Exchange after      * kafka server has acknowledge the message that was sent to it from      * KafkaProducer using asynchronous non-blocking processing. If using this      * option then you must handle the lifecycle of the thread pool to shut the      * pool down when no longer needed.      */
+comment|/**      * To use a shared custom worker pool for continue routing Exchange after      * kafka server has acknowledge the message that was sent to it from      * KafkaProducer using asynchronous non-blocking processing. If using this      * option then you must handle the lifecycle of the thread pool to shut the      * pool down when no longer needed. The option is a      * java.util.concurrent.ExecutorService type.      */
 DECL|field|workerPool
 specifier|private
-name|ExecutorService
+name|String
 name|workerPool
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -216,12 +200,10 @@ name|allowManualCommit
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Factory to use for creating KafkaManualCommit instances. This allows to      * plugin a custom factory to create custom KafkaManualCommit instances in      * case special logic is needed when doing manual commits that deviates from      * the default implementation that comes out of the box.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Factory to use for creating KafkaManualCommit instances. This allows to      * plugin a custom factory to create custom KafkaManualCommit instances in      * case special logic is needed when doing manual commits that deviates from      * the default implementation that comes out of the box. The option is a      * org.apache.camel.component.kafka.KafkaManualCommitFactory type.      */
 DECL|field|kafkaManualCommitFactory
 specifier|private
-name|KafkaManualCommitFactory
+name|String
 name|kafkaManualCommitFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -286,7 +268,7 @@ expr_stmt|;
 block|}
 DECL|method|getWorkerPool ()
 specifier|public
-name|ExecutorService
+name|String
 name|getWorkerPool
 parameter_list|()
 block|{
@@ -294,12 +276,12 @@ return|return
 name|workerPool
 return|;
 block|}
-DECL|method|setWorkerPool (ExecutorService workerPool)
+DECL|method|setWorkerPool (String workerPool)
 specifier|public
 name|void
 name|setWorkerPool
 parameter_list|(
-name|ExecutorService
+name|String
 name|workerPool
 parameter_list|)
 block|{
@@ -390,7 +372,7 @@ expr_stmt|;
 block|}
 DECL|method|getKafkaManualCommitFactory ()
 specifier|public
-name|KafkaManualCommitFactory
+name|String
 name|getKafkaManualCommitFactory
 parameter_list|()
 block|{
@@ -398,12 +380,12 @@ return|return
 name|kafkaManualCommitFactory
 return|;
 block|}
-DECL|method|setKafkaManualCommitFactory ( KafkaManualCommitFactory kafkaManualCommitFactory)
+DECL|method|setKafkaManualCommitFactory (String kafkaManualCommitFactory)
 specifier|public
 name|void
 name|setKafkaManualCommitFactory
 parameter_list|(
-name|KafkaManualCommitFactory
+name|String
 name|kafkaManualCommitFactory
 parameter_list|)
 block|{

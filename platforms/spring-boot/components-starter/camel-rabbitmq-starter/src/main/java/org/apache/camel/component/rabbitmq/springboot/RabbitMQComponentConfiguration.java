@@ -22,45 +22,11 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|TrustManager
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|ConnectionFactory
 import|;
 end_import
 
@@ -93,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -180,12 +130,10 @@ specifier|private
 name|String
 name|addresses
 decl_stmt|;
-comment|/**      * To use a custom RabbitMQ connection factory. When this option is set, all      * connection options (connectionTimeout, requestedChannelMax...) set on URI      * are not used      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom RabbitMQ connection factory. When this option is set, all      * connection options (connectionTimeout, requestedChannelMax...) set on URI      * are not used. The option is a com.rabbitmq.client.ConnectionFactory type.      */
 DECL|field|connectionFactory
 specifier|private
-name|ConnectionFactory
+name|String
 name|connectionFactory
 decl_stmt|;
 comment|/**      * The consumer uses a Thread Pool Executor with a fixed number of threads.      * This setting allows you to set that number of threads.      */
@@ -362,26 +310,16 @@ name|immediate
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Specify arguments for configuring the different RabbitMQ concepts, a      * different prefix is required for each: Exchange: arg.exchange. Queue:      * arg.queue. Binding: arg.binding. For example to declare a queue with      * message ttl argument:      * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000      */
+comment|/**      * Specify arguments for configuring the different RabbitMQ concepts, a      * different prefix is required for each: Exchange: arg.exchange. Queue:      * arg.queue. Binding: arg.binding. For example to declare a queue with      * message ttl argument:      * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000.      * The option is a java.util.Map<java.lang.String,java.lang.Object> type.      */
 DECL|field|args
 specifier|private
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|args
 decl_stmt|;
-comment|/**      * Connection client properties (client info used in negotiating with the      * server)      */
+comment|/**      * Connection client properties (client info used in negotiating with the      * server). The option is a java.util.Map<java.lang.String,java.lang.Object>      * type.      */
 DECL|field|clientProperties
 specifier|private
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|clientProperties
 decl_stmt|;
 comment|/**      * Enables SSL on connection, accepted value are true, TLS and 'SSLv3      */
@@ -390,10 +328,10 @@ specifier|private
 name|String
 name|sslProtocol
 decl_stmt|;
-comment|/**      * Configure SSL trust manager, SSL should be enabled for this option to be      * effective      */
+comment|/**      * Configure SSL trust manager, SSL should be enabled for this option to be      * effective. The option is a javax.net.ssl.TrustManager type.      */
 DECL|field|trustManager
 specifier|private
-name|TrustManager
+name|String
 name|trustManager
 decl_stmt|;
 comment|/**      * If messages should be auto acknowledged      */
@@ -668,7 +606,7 @@ expr_stmt|;
 block|}
 DECL|method|getConnectionFactory ()
 specifier|public
-name|ConnectionFactory
+name|String
 name|getConnectionFactory
 parameter_list|()
 block|{
@@ -676,12 +614,12 @@ return|return
 name|connectionFactory
 return|;
 block|}
-DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
+DECL|method|setConnectionFactory (String connectionFactory)
 specifier|public
 name|void
 name|setConnectionFactory
 parameter_list|(
-name|ConnectionFactory
+name|String
 name|connectionFactory
 parameter_list|)
 block|{
@@ -1292,12 +1230,7 @@ expr_stmt|;
 block|}
 DECL|method|getArgs ()
 specifier|public
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|getArgs
 parameter_list|()
 block|{
@@ -1305,17 +1238,12 @@ return|return
 name|args
 return|;
 block|}
-DECL|method|setArgs (Map<String, Object> args)
+DECL|method|setArgs (String args)
 specifier|public
 name|void
 name|setArgs
 parameter_list|(
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|args
 parameter_list|)
 block|{
@@ -1328,12 +1256,7 @@ expr_stmt|;
 block|}
 DECL|method|getClientProperties ()
 specifier|public
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|getClientProperties
 parameter_list|()
 block|{
@@ -1341,17 +1264,12 @@ return|return
 name|clientProperties
 return|;
 block|}
-DECL|method|setClientProperties (Map<String, Object> clientProperties)
+DECL|method|setClientProperties (String clientProperties)
 specifier|public
 name|void
 name|setClientProperties
 parameter_list|(
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|clientProperties
 parameter_list|)
 block|{
@@ -1390,7 +1308,7 @@ expr_stmt|;
 block|}
 DECL|method|getTrustManager ()
 specifier|public
-name|TrustManager
+name|String
 name|getTrustManager
 parameter_list|()
 block|{
@@ -1398,12 +1316,12 @@ return|return
 name|trustManager
 return|;
 block|}
-DECL|method|setTrustManager (TrustManager trustManager)
+DECL|method|setTrustManager (String trustManager)
 specifier|public
 name|void
 name|setTrustManager
 parameter_list|(
-name|TrustManager
+name|String
 name|trustManager
 parameter_list|)
 block|{

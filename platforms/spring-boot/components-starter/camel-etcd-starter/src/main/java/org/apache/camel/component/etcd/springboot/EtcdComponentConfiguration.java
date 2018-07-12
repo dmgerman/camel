@@ -136,12 +136,10 @@ specifier|private
 name|String
 name|uris
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * The user name to use for basic authentication.      */
@@ -206,7 +204,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -214,12 +212,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{

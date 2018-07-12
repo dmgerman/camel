@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|freemarker
-operator|.
-name|template
-operator|.
-name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -96,10 +86,10 @@ name|FreemarkerComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use an existing freemarker.template.Configuration instance as the      * configuration.      */
+comment|/**      * To use an existing freemarker.template.Configuration instance as the      * configuration. The option is a freemarker.template.Configuration type.      */
 DECL|field|configuration
 specifier|private
-name|Configuration
+name|String
 name|configuration
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -112,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
-name|Configuration
+name|String
 name|getConfiguration
 parameter_list|()
 block|{
@@ -120,12 +110,12 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|setConfiguration (Configuration configuration)
+DECL|method|setConfiguration (String configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|Configuration
+name|String
 name|configuration
 parameter_list|)
 block|{

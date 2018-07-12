@@ -42,16 +42,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -308,22 +298,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -414,12 +388,10 @@ specifier|private
 name|String
 name|clientSecret
 decl_stmt|;
-comment|/**      * KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain      * only one entry with private key and certificate. Salesforce does not      * verify the certificate chain, so this can easily be a selfsigned      * certificate. Make sure that you upload the certificate to the      * corresponding connected app.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain      * only one entry with private key and certificate. Salesforce does not      * verify the certificate chain, so this can easily be a selfsigned      * certificate. Make sure that you upload the certificate to the      * corresponding connected app. The option is a      * org.apache.camel.util.jsse.KeyStoreParameters type.      */
 DECL|field|keystore
 specifier|private
-name|KeyStoreParameters
+name|String
 name|keystore
 decl_stmt|;
 comment|/**      * Refresh token already obtained in the refresh token OAuth flow. One needs      * to setup a web application and configure a callback URL to receive the      * refresh token, or configure using the builtin callback at      * https://login.salesforce.com/services/oauth2/success or      * https://test.salesforce.com/services/oauth2/success and then retrive the      * refresh_token from the URL at the end of the flow. Note that in      * development organizations Salesforce allows hosting the callback web      * application at localhost.      */
@@ -454,34 +426,22 @@ specifier|private
 name|SalesforceEndpointConfigNestedConfiguration
 name|config
 decl_stmt|;
-comment|/**      * Used to set any properties that can be configured on the underlying HTTP      * client. Have a look at properties of SalesforceHttpClient and the Jetty      * HttpClient for all available options.      */
+comment|/**      * Used to set any properties that can be configured on the underlying HTTP      * client. Have a look at properties of SalesforceHttpClient and the Jetty      * HttpClient for all available options. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
 DECL|field|httpClientProperties
 specifier|private
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|httpClientProperties
 decl_stmt|;
-comment|/**      * Used to set any properties that can be configured on the      * LongPollingTransport used by the BayeuxClient (CometD) used by the      * streaming api      */
+comment|/**      * Used to set any properties that can be configured on the      * LongPollingTransport used by the BayeuxClient (CometD) used by the      * streaming api. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
 DECL|field|longPollingTransportProperties
 specifier|private
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|longPollingTransportProperties
 decl_stmt|;
-comment|/**      * SSL parameters to use, see SSLContextParameters class for all available      * options.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * SSL parameters to use, see SSLContextParameters class for all available      * options. The option is a org.apache.camel.util.jsse.SSLContextParameters      * type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters      */
@@ -532,22 +492,16 @@ name|isHttpProxySecure
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * A list of addresses for which HTTP proxy server should be used.      */
+comment|/**      * A list of addresses for which HTTP proxy server should be used. The      * option is a java.util.Set<java.lang.String> type.      */
 DECL|field|httpProxyIncludedAddresses
 specifier|private
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|httpProxyIncludedAddresses
 decl_stmt|;
-comment|/**      * A list of addresses for which HTTP proxy server should not be used.      */
+comment|/**      * A list of addresses for which HTTP proxy server should not be used. The      * option is a java.util.Set<java.lang.String> type.      */
 DECL|field|httpProxyExcludedAddresses
 specifier|private
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|httpProxyExcludedAddresses
 decl_stmt|;
 comment|/**      * Used in authentication against the HTTP proxy server, needs to match the      * URI of the proxy server in order for the httpProxyUsername and      * httpProxyPassword to be used for authentication.      */
@@ -743,7 +697,7 @@ expr_stmt|;
 block|}
 DECL|method|getKeystore ()
 specifier|public
-name|KeyStoreParameters
+name|String
 name|getKeystore
 parameter_list|()
 block|{
@@ -751,12 +705,12 @@ return|return
 name|keystore
 return|;
 block|}
-DECL|method|setKeystore (KeyStoreParameters keystore)
+DECL|method|setKeystore (String keystore)
 specifier|public
 name|void
 name|setKeystore
 parameter_list|(
-name|KeyStoreParameters
+name|String
 name|keystore
 parameter_list|)
 block|{
@@ -899,12 +853,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpClientProperties ()
 specifier|public
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|getHttpClientProperties
 parameter_list|()
 block|{
@@ -912,17 +861,12 @@ return|return
 name|httpClientProperties
 return|;
 block|}
-DECL|method|setHttpClientProperties (Map<String, Object> httpClientProperties)
+DECL|method|setHttpClientProperties (String httpClientProperties)
 specifier|public
 name|void
 name|setHttpClientProperties
 parameter_list|(
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|httpClientProperties
 parameter_list|)
 block|{
@@ -935,12 +879,7 @@ expr_stmt|;
 block|}
 DECL|method|getLongPollingTransportProperties ()
 specifier|public
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|getLongPollingTransportProperties
 parameter_list|()
 block|{
@@ -948,17 +887,12 @@ return|return
 name|longPollingTransportProperties
 return|;
 block|}
-DECL|method|setLongPollingTransportProperties ( Map<String, Object> longPollingTransportProperties)
+DECL|method|setLongPollingTransportProperties ( String longPollingTransportProperties)
 specifier|public
 name|void
 name|setLongPollingTransportProperties
 parameter_list|(
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|Object
-argument_list|>
 name|longPollingTransportProperties
 parameter_list|)
 block|{
@@ -971,7 +905,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -979,12 +913,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{
@@ -1179,10 +1113,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpProxyIncludedAddresses ()
 specifier|public
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|getHttpProxyIncludedAddresses
 parameter_list|()
 block|{
@@ -1190,15 +1121,12 @@ return|return
 name|httpProxyIncludedAddresses
 return|;
 block|}
-DECL|method|setHttpProxyIncludedAddresses ( Set<String> httpProxyIncludedAddresses)
+DECL|method|setHttpProxyIncludedAddresses (String httpProxyIncludedAddresses)
 specifier|public
 name|void
 name|setHttpProxyIncludedAddresses
 parameter_list|(
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|httpProxyIncludedAddresses
 parameter_list|)
 block|{
@@ -1211,10 +1139,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpProxyExcludedAddresses ()
 specifier|public
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|getHttpProxyExcludedAddresses
 parameter_list|()
 block|{
@@ -1222,15 +1147,12 @@ return|return
 name|httpProxyExcludedAddresses
 return|;
 block|}
-DECL|method|setHttpProxyExcludedAddresses ( Set<String> httpProxyExcludedAddresses)
+DECL|method|setHttpProxyExcludedAddresses (String httpProxyExcludedAddresses)
 specifier|public
 name|void
 name|setHttpProxyExcludedAddresses
 parameter_list|(
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|httpProxyExcludedAddresses
 parameter_list|)
 block|{

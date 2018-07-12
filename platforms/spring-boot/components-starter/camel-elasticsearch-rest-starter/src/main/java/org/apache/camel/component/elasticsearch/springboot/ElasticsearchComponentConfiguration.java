@@ -50,18 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|RestClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -71,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -114,12 +86,10 @@ name|ElasticsearchComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use an existing configured Elasticsearch client, instead of creating a      * client per endpoint. This allow to customize the client with specific      * settings.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use an existing configured Elasticsearch client, instead of creating a      * client per endpoint. This allow to customize the client with specific      * settings. The option is a org.elasticsearch.client.RestClient type.      */
 DECL|field|client
 specifier|private
-name|RestClient
+name|String
 name|client
 decl_stmt|;
 comment|/**      * Comma separated list with ip:port formatted remote transport addresses to      * use. The ip and port options must be left blank for hostAddresses to be      * considered instead.      */
@@ -206,7 +176,7 @@ literal|true
 decl_stmt|;
 DECL|method|getClient ()
 specifier|public
-name|RestClient
+name|String
 name|getClient
 parameter_list|()
 block|{
@@ -214,12 +184,12 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|setClient (RestClient client)
+DECL|method|setClient (String client)
 specifier|public
 name|void
 name|setClient
 parameter_list|(
-name|RestClient
+name|String
 name|client
 parameter_list|)
 block|{

@@ -50,20 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|velocity
-operator|.
-name|app
-operator|.
-name|VelocityEngine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -73,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -116,12 +86,10 @@ name|VelocityComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use the VelocityEngine otherwise a new engine is created      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the VelocityEngine otherwise a new engine is created. The option      * is a org.apache.velocity.app.VelocityEngine type.      */
 DECL|field|velocityEngine
 specifier|private
-name|VelocityEngine
+name|String
 name|velocityEngine
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -134,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getVelocityEngine ()
 specifier|public
-name|VelocityEngine
+name|String
 name|getVelocityEngine
 parameter_list|()
 block|{
@@ -142,12 +110,12 @@ return|return
 name|velocityEngine
 return|;
 block|}
-DECL|method|setVelocityEngine (VelocityEngine velocityEngine)
+DECL|method|setVelocityEngine (String velocityEngine)
 specifier|public
 name|void
 name|setVelocityEngine
 parameter_list|(
-name|VelocityEngine
+name|String
 name|velocityEngine
 parameter_list|)
 block|{

@@ -50,20 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|ibatis
-operator|.
-name|session
-operator|.
-name|SqlSessionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -73,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -116,12 +86,10 @@ name|MyBatisBeanComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use the SqlSessionFactory      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the SqlSessionFactory. The option is a      * org.apache.ibatis.session.SqlSessionFactory type.      */
 DECL|field|sqlSessionFactory
 specifier|private
-name|SqlSessionFactory
+name|String
 name|sqlSessionFactory
 decl_stmt|;
 comment|/**      * Location of MyBatis xml configuration file. The default value is:      * SqlMapConfig.xml loaded from the classpath      */
@@ -142,7 +110,7 @@ literal|true
 decl_stmt|;
 DECL|method|getSqlSessionFactory ()
 specifier|public
-name|SqlSessionFactory
+name|String
 name|getSqlSessionFactory
 parameter_list|()
 block|{
@@ -150,12 +118,12 @@ return|return
 name|sqlSessionFactory
 return|;
 block|}
-DECL|method|setSqlSessionFactory (SqlSessionFactory sqlSessionFactory)
+DECL|method|setSqlSessionFactory (String sqlSessionFactory)
 specifier|public
 name|void
 name|setSqlSessionFactory
 parameter_list|(
-name|SqlSessionFactory
+name|String
 name|sqlSessionFactory
 parameter_list|)
 block|{

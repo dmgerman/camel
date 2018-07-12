@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -60,26 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|quartz
-operator|.
-name|Scheduler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|quartz
-operator|.
-name|SchedulerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -89,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -162,10 +116,10 @@ name|enableJmx
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Properties to configure the Quartz scheduler.      */
+comment|/**      * Properties to configure the Quartz scheduler. The option is a      * java.util.Properties type.      */
 DECL|field|properties
 specifier|private
-name|Properties
+name|String
 name|properties
 decl_stmt|;
 comment|/**      * File name of the properties to load from the classpath      */
@@ -190,20 +144,16 @@ name|interruptJobsOnShutdown
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use the custom SchedulerFactory which is used to create the Scheduler.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the custom SchedulerFactory which is used to create the Scheduler.      * The option is a org.quartz.SchedulerFactory type.      */
 DECL|field|schedulerFactory
 specifier|private
-name|SchedulerFactory
+name|String
 name|schedulerFactory
 decl_stmt|;
-comment|/**      * To use the custom configured Quartz scheduler, instead of creating a new      * Scheduler.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the custom configured Quartz scheduler, instead of creating a new      * Scheduler. The option is a org.quartz.Scheduler type.      */
 DECL|field|scheduler
 specifier|private
-name|Scheduler
+name|String
 name|scheduler
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -320,7 +270,7 @@ expr_stmt|;
 block|}
 DECL|method|getProperties ()
 specifier|public
-name|Properties
+name|String
 name|getProperties
 parameter_list|()
 block|{
@@ -328,12 +278,12 @@ return|return
 name|properties
 return|;
 block|}
-DECL|method|setProperties (Properties properties)
+DECL|method|setProperties (String properties)
 specifier|public
 name|void
 name|setProperties
 parameter_list|(
-name|Properties
+name|String
 name|properties
 parameter_list|)
 block|{
@@ -424,7 +374,7 @@ expr_stmt|;
 block|}
 DECL|method|getSchedulerFactory ()
 specifier|public
-name|SchedulerFactory
+name|String
 name|getSchedulerFactory
 parameter_list|()
 block|{
@@ -432,12 +382,12 @@ return|return
 name|schedulerFactory
 return|;
 block|}
-DECL|method|setSchedulerFactory (SchedulerFactory schedulerFactory)
+DECL|method|setSchedulerFactory (String schedulerFactory)
 specifier|public
 name|void
 name|setSchedulerFactory
 parameter_list|(
-name|SchedulerFactory
+name|String
 name|schedulerFactory
 parameter_list|)
 block|{
@@ -450,7 +400,7 @@ expr_stmt|;
 block|}
 DECL|method|getScheduler ()
 specifier|public
-name|Scheduler
+name|String
 name|getScheduler
 parameter_list|()
 block|{
@@ -458,12 +408,12 @@ return|return
 name|scheduler
 return|;
 block|}
-DECL|method|setScheduler (Scheduler scheduler)
+DECL|method|setScheduler (String scheduler)
 specifier|public
 name|void
 name|setScheduler
 parameter_list|(
-name|Scheduler
+name|String
 name|scheduler
 parameter_list|)
 block|{

@@ -22,37 +22,11 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|websocket
-operator|.
-name|WebSocketFactory
 import|;
 end_import
 
@@ -76,38 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|util
-operator|.
-name|thread
-operator|.
-name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -117,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -220,20 +146,16 @@ specifier|private
 name|Integer
 name|maxThreads
 decl_stmt|;
-comment|/**      * To use a custom thread pool for the server. MaxThreads/minThreads or      * threadPool fields are required due to switch to Jetty9.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom thread pool for the server. MaxThreads/minThreads or      * threadPool fields are required due to switch to Jetty9. The option is a      * org.eclipse.jetty.util.thread.ThreadPool type.      */
 DECL|field|threadPool
 specifier|private
-name|ThreadPool
+name|String
 name|threadPool
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -244,15 +166,10 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To configure a map which contains custom WebSocketFactory for sub      * protocols. The key in the map is the sub protocol. The default key is      * reserved for the default implementation.      */
+comment|/**      * To configure a map which contains custom WebSocketFactory for sub      * protocols. The key in the map is the sub protocol. The default key is      * reserved for the default implementation. The option is a      * java.util.Map<java      * .lang.String,org.apache.camel.component.websocket.WebSocketFactory> type.      */
 DECL|field|socketFactory
 specifier|private
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|WebSocketFactory
-argument_list|>
 name|socketFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -499,7 +416,7 @@ expr_stmt|;
 block|}
 DECL|method|getThreadPool ()
 specifier|public
-name|ThreadPool
+name|String
 name|getThreadPool
 parameter_list|()
 block|{
@@ -507,12 +424,12 @@ return|return
 name|threadPool
 return|;
 block|}
-DECL|method|setThreadPool (ThreadPool threadPool)
+DECL|method|setThreadPool (String threadPool)
 specifier|public
 name|void
 name|setThreadPool
 parameter_list|(
-name|ThreadPool
+name|String
 name|threadPool
 parameter_list|)
 block|{
@@ -525,7 +442,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -533,12 +450,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{
@@ -577,12 +494,7 @@ expr_stmt|;
 block|}
 DECL|method|getSocketFactory ()
 specifier|public
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|WebSocketFactory
-argument_list|>
 name|getSocketFactory
 parameter_list|()
 block|{
@@ -590,17 +502,12 @@ return|return
 name|socketFactory
 return|;
 block|}
-DECL|method|setSocketFactory (Map<String, WebSocketFactory> socketFactory)
+DECL|method|setSocketFactory (String socketFactory)
 specifier|public
 name|void
 name|setSocketFactory
 parameter_list|(
-name|Map
-argument_list|<
 name|String
-argument_list|,
-name|WebSocketFactory
-argument_list|>
 name|socketFactory
 parameter_list|)
 block|{

@@ -202,37 +202,7 @@ name|component
 operator|.
 name|jms
 operator|.
-name|QueueBrowseStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
 name|ReplyToType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -502,10 +472,10 @@ name|replyToConcurrentConsumers
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * The connection factory to be use. A connection factory must be configured      * either on the component or endpoint.      */
+comment|/**      * The connection factory to be use. A connection factory must be configured      * either on the component or endpoint. The option is a      * javax.jms.ConnectionFactory type.      */
 DECL|field|connectionFactory
 specifier|private
-name|ConnectionFactory
+name|String
 name|connectionFactory
 decl_stmt|;
 comment|/**      * Username to use with the ConnectionFactory. You can also configure      * username/password directly on the ConnectionFactory.      */
@@ -540,18 +510,16 @@ specifier|private
 name|String
 name|durableSubscriptionName
 decl_stmt|;
-comment|/**      * Specifies the JMS Exception Listener that is to be notified of any      * underlying JMS exceptions.      */
+comment|/**      * Specifies the JMS Exception Listener that is to be notified of any      * underlying JMS exceptions. The option is a javax.jms.ExceptionListener      * type.      */
 DECL|field|exceptionListener
 specifier|private
-name|ExceptionListener
+name|String
 name|exceptionListener
 decl_stmt|;
-comment|/**      * Specifies a org.springframework.util.ErrorHandler to be invoked in case      * of any uncaught exceptions thrown while processing a Message. By default      * these exceptions will be logged at the WARN level, if no errorHandler has      * been configured. You can configure logging level and whether stack traces      * should be logged using errorHandlerLoggingLevel and      * errorHandlerLogStackTrace options. This makes it much easier to      * configure, than having to code a custom errorHandler.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Specifies a org.springframework.util.ErrorHandler to be invoked in case      * of any uncaught exceptions thrown while processing a Message. By default      * these exceptions will be logged at the WARN level, if no errorHandler has      * been configured. You can configure logging level and whether stack traces      * should be logged using errorHandlerLoggingLevel and      * errorHandlerLogStackTrace options. This makes it much easier to      * configure, than having to code a custom errorHandler. The option is a      * org.springframework.util.ErrorHandler type.      */
 DECL|field|errorHandler
 specifier|private
-name|ErrorHandler
+name|String
 name|errorHandler
 decl_stmt|;
 comment|/**      * Allows to configure the default errorHandler logging level for logging      * uncaught exceptions.      */
@@ -633,12 +601,10 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * To use a custom Spring      * org.springframework.jms.support.converter.MessageConverter so you can be      * in control how to map to/from a javax.jms.Message.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom Spring      * org.springframework.jms.support.converter.MessageConverter so you can be      * in control how to map to/from a javax.jms.Message. The option is a      * org.springframework.jms.support.converter.MessageConverter type.      */
 DECL|field|messageConverter
 specifier|private
-name|MessageConverter
+name|String
 name|messageConverter
 decl_stmt|;
 comment|/**      * Specifies whether Camel should auto map the received JMS message to a      * suited payload type, such as javax.jms.TextMessage to a String etc. See      * section about how mapping works below for more details.      */
@@ -713,12 +679,10 @@ name|recoveryInterval
 init|=
 literal|5000L
 decl_stmt|;
-comment|/**      * Allows you to specify a custom task executor for consuming messages.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Allows you to specify a custom task executor for consuming messages. The      * option is a org.springframework.core.task.TaskExecutor type.      */
 DECL|field|taskExecutor
 specifier|private
-name|TaskExecutor
+name|String
 name|taskExecutor
 decl_stmt|;
 comment|/**      * When sending messages, specifies the time-to-live of the message (in      * milliseconds).      */
@@ -746,12 +710,10 @@ name|lazyCreateTransactionManager
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * The Spring transaction manager to use.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * The Spring transaction manager to use. The option is a      * org.springframework.transaction.PlatformTransactionManager type.      */
 DECL|field|transactionManager
 specifier|private
-name|PlatformTransactionManager
+name|String
 name|transactionManager
 decl_stmt|;
 comment|/**      * The name of the transaction to use.      */
@@ -841,20 +803,16 @@ name|transferFault
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Allows you to use your own implementation of the      * org.springframework.jms.core.JmsOperations interface. Camel uses      * JmsTemplate as default. Can be used for testing purpose, but not used      * much as stated in the spring API docs.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Allows you to use your own implementation of the      * org.springframework.jms.core.JmsOperations interface. Camel uses      * JmsTemplate as default. Can be used for testing purpose, but not used      * much as stated in the spring API docs. The option is a      * org.springframework.jms.core.JmsOperations type.      */
 DECL|field|jmsOperations
 specifier|private
-name|JmsOperations
+name|String
 name|jmsOperations
 decl_stmt|;
-comment|/**      * A pluggable      * org.springframework.jms.support.destination.DestinationResolver that      * allows you to use your own resolver (for example, to lookup the real      * destination in a JNDI registry).      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * A pluggable      * org.springframework.jms.support.destination.DestinationResolver that      * allows you to use your own resolver (for example, to lookup the real      * destination in a JNDI registry). The option is a      * org.springframework.jms.support.destination.DestinationResolver type.      */
 DECL|field|destinationResolver
 specifier|private
-name|DestinationResolver
+name|String
 name|destinationResolver
 decl_stmt|;
 comment|/**      * Allows for explicitly specifying which kind of strategy to use for      * replyTo queues when doing request/reply over JMS. Possible values are:      * Temporary, Shared, or Exclusive. By default Camel will use temporary      * queues. However if replyTo has been configured, then Shared is used by      * default. This option allows you to use exclusive queues instead of shared      * ones. See Camel JMS documentation for more details, and especially the      * notes about the implications if running in a clustered environment, and      * the fact that Shared reply queues has lower performance than its      * alternatives Temporary and Exclusive.      */
@@ -909,12 +867,10 @@ specifier|private
 name|DefaultTaskExecutorType
 name|defaultTaskExecutorType
 decl_stmt|;
-comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be      * compliant with the JMS specification. Camel provides two implementations      * out of the box: default and passthrough. The default strategy will safely      * marshal dots and hyphens (. and -). The passthrough strategy leaves the      * key as is. Can be used for JMS brokers which do not care whether JMS      * header keys contain illegal characters. You can provide your own      * implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the notation.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be      * compliant with the JMS specification. Camel provides two implementations      * out of the box: default and passthrough. The default strategy will safely      * marshal dots and hyphens (. and -). The passthrough strategy leaves the      * key as is. Can be used for JMS brokers which do not care whether JMS      * header keys contain illegal characters. You can provide your own      * implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the notation. The option is a      * org.apache.camel.component.jms.JmsKeyFormatStrategy type.      */
 DECL|field|jmsKeyFormatStrategy
 specifier|private
-name|JmsKeyFormatStrategy
+name|String
 name|jmsKeyFormatStrategy
 decl_stmt|;
 comment|/**      * This option is used to allow additional headers which may have values      * that are invalid according to JMS specification. For example some message      * systems such as WMQ do this with header names using prefix JMS_IBM_MQMD_      * containing values with byte array or other invalid types. You can specify      * multiple header names separated by comma, and use as suffix for wildcard      * matching.      */
@@ -923,20 +879,16 @@ specifier|private
 name|String
 name|allowAdditionalHeaders
 decl_stmt|;
-comment|/**      * To use a custom QueueBrowseStrategy when browsing queues      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom QueueBrowseStrategy when browsing queues. The option is a      * org.apache.camel.component.jms.QueueBrowseStrategy type.      */
 DECL|field|queueBrowseStrategy
 specifier|private
-name|QueueBrowseStrategy
+name|String
 name|queueBrowseStrategy
 decl_stmt|;
-comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel      * creates new instances of javax.jms.Message objects when Camel is sending      * a JMS message.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel      * creates new instances of javax.jms.Message objects when Camel is sending      * a JMS message. The option is a      * org.apache.camel.component.jms.MessageCreatedStrategy type.      */
 DECL|field|messageCreatedStrategy
 specifier|private
-name|MessageCreatedStrategy
+name|String
 name|messageCreatedStrategy
 decl_stmt|;
 comment|/**      * Number of times to wait for provisional correlation id to be updated to      * the actual correlation id when doing request/reply over JMS and when the      * option useMessageIDAsCorrelationID is enabled.      */
@@ -999,12 +951,10 @@ name|formatDateHeadersToIso8601
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message. The option is a      * org.apache.camel.spi.HeaderFilterStrategy type.      */
 DECL|field|headerFilterStrategy
 specifier|private
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -1355,7 +1305,7 @@ expr_stmt|;
 block|}
 DECL|method|getConnectionFactory ()
 specifier|public
-name|ConnectionFactory
+name|String
 name|getConnectionFactory
 parameter_list|()
 block|{
@@ -1363,12 +1313,12 @@ return|return
 name|connectionFactory
 return|;
 block|}
-DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
+DECL|method|setConnectionFactory (String connectionFactory)
 specifier|public
 name|void
 name|setConnectionFactory
 parameter_list|(
-name|ConnectionFactory
+name|String
 name|connectionFactory
 parameter_list|)
 block|{
@@ -1511,7 +1461,7 @@ expr_stmt|;
 block|}
 DECL|method|getExceptionListener ()
 specifier|public
-name|ExceptionListener
+name|String
 name|getExceptionListener
 parameter_list|()
 block|{
@@ -1519,12 +1469,12 @@ return|return
 name|exceptionListener
 return|;
 block|}
-DECL|method|setExceptionListener (ExceptionListener exceptionListener)
+DECL|method|setExceptionListener (String exceptionListener)
 specifier|public
 name|void
 name|setExceptionListener
 parameter_list|(
-name|ExceptionListener
+name|String
 name|exceptionListener
 parameter_list|)
 block|{
@@ -1537,7 +1487,7 @@ expr_stmt|;
 block|}
 DECL|method|getErrorHandler ()
 specifier|public
-name|ErrorHandler
+name|String
 name|getErrorHandler
 parameter_list|()
 block|{
@@ -1545,12 +1495,12 @@ return|return
 name|errorHandler
 return|;
 block|}
-DECL|method|setErrorHandler (ErrorHandler errorHandler)
+DECL|method|setErrorHandler (String errorHandler)
 specifier|public
 name|void
 name|setErrorHandler
 parameter_list|(
-name|ErrorHandler
+name|String
 name|errorHandler
 parameter_list|)
 block|{
@@ -1823,7 +1773,7 @@ expr_stmt|;
 block|}
 DECL|method|getMessageConverter ()
 specifier|public
-name|MessageConverter
+name|String
 name|getMessageConverter
 parameter_list|()
 block|{
@@ -1831,12 +1781,12 @@ return|return
 name|messageConverter
 return|;
 block|}
-DECL|method|setMessageConverter (MessageConverter messageConverter)
+DECL|method|setMessageConverter (String messageConverter)
 specifier|public
 name|void
 name|setMessageConverter
 parameter_list|(
-name|MessageConverter
+name|String
 name|messageConverter
 parameter_list|)
 block|{
@@ -2083,7 +2033,7 @@ expr_stmt|;
 block|}
 DECL|method|getTaskExecutor ()
 specifier|public
-name|TaskExecutor
+name|String
 name|getTaskExecutor
 parameter_list|()
 block|{
@@ -2091,12 +2041,12 @@ return|return
 name|taskExecutor
 return|;
 block|}
-DECL|method|setTaskExecutor (TaskExecutor taskExecutor)
+DECL|method|setTaskExecutor (String taskExecutor)
 specifier|public
 name|void
 name|setTaskExecutor
 parameter_list|(
-name|TaskExecutor
+name|String
 name|taskExecutor
 parameter_list|)
 block|{
@@ -2187,7 +2137,7 @@ expr_stmt|;
 block|}
 DECL|method|getTransactionManager ()
 specifier|public
-name|PlatformTransactionManager
+name|String
 name|getTransactionManager
 parameter_list|()
 block|{
@@ -2195,12 +2145,12 @@ return|return
 name|transactionManager
 return|;
 block|}
-DECL|method|setTransactionManager ( PlatformTransactionManager transactionManager)
+DECL|method|setTransactionManager (String transactionManager)
 specifier|public
 name|void
 name|setTransactionManager
 parameter_list|(
-name|PlatformTransactionManager
+name|String
 name|transactionManager
 parameter_list|)
 block|{
@@ -2499,7 +2449,7 @@ expr_stmt|;
 block|}
 DECL|method|getJmsOperations ()
 specifier|public
-name|JmsOperations
+name|String
 name|getJmsOperations
 parameter_list|()
 block|{
@@ -2507,12 +2457,12 @@ return|return
 name|jmsOperations
 return|;
 block|}
-DECL|method|setJmsOperations (JmsOperations jmsOperations)
+DECL|method|setJmsOperations (String jmsOperations)
 specifier|public
 name|void
 name|setJmsOperations
 parameter_list|(
-name|JmsOperations
+name|String
 name|jmsOperations
 parameter_list|)
 block|{
@@ -2525,7 +2475,7 @@ expr_stmt|;
 block|}
 DECL|method|getDestinationResolver ()
 specifier|public
-name|DestinationResolver
+name|String
 name|getDestinationResolver
 parameter_list|()
 block|{
@@ -2533,12 +2483,12 @@ return|return
 name|destinationResolver
 return|;
 block|}
-DECL|method|setDestinationResolver (DestinationResolver destinationResolver)
+DECL|method|setDestinationResolver (String destinationResolver)
 specifier|public
 name|void
 name|setDestinationResolver
 parameter_list|(
-name|DestinationResolver
+name|String
 name|destinationResolver
 parameter_list|)
 block|{
@@ -2733,7 +2683,7 @@ expr_stmt|;
 block|}
 DECL|method|getJmsKeyFormatStrategy ()
 specifier|public
-name|JmsKeyFormatStrategy
+name|String
 name|getJmsKeyFormatStrategy
 parameter_list|()
 block|{
@@ -2741,12 +2691,12 @@ return|return
 name|jmsKeyFormatStrategy
 return|;
 block|}
-DECL|method|setJmsKeyFormatStrategy ( JmsKeyFormatStrategy jmsKeyFormatStrategy)
+DECL|method|setJmsKeyFormatStrategy (String jmsKeyFormatStrategy)
 specifier|public
 name|void
 name|setJmsKeyFormatStrategy
 parameter_list|(
-name|JmsKeyFormatStrategy
+name|String
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
@@ -2785,7 +2735,7 @@ expr_stmt|;
 block|}
 DECL|method|getQueueBrowseStrategy ()
 specifier|public
-name|QueueBrowseStrategy
+name|String
 name|getQueueBrowseStrategy
 parameter_list|()
 block|{
@@ -2793,12 +2743,12 @@ return|return
 name|queueBrowseStrategy
 return|;
 block|}
-DECL|method|setQueueBrowseStrategy (QueueBrowseStrategy queueBrowseStrategy)
+DECL|method|setQueueBrowseStrategy (String queueBrowseStrategy)
 specifier|public
 name|void
 name|setQueueBrowseStrategy
 parameter_list|(
-name|QueueBrowseStrategy
+name|String
 name|queueBrowseStrategy
 parameter_list|)
 block|{
@@ -2811,7 +2761,7 @@ expr_stmt|;
 block|}
 DECL|method|getMessageCreatedStrategy ()
 specifier|public
-name|MessageCreatedStrategy
+name|String
 name|getMessageCreatedStrategy
 parameter_list|()
 block|{
@@ -2819,12 +2769,12 @@ return|return
 name|messageCreatedStrategy
 return|;
 block|}
-DECL|method|setMessageCreatedStrategy ( MessageCreatedStrategy messageCreatedStrategy)
+DECL|method|setMessageCreatedStrategy (String messageCreatedStrategy)
 specifier|public
 name|void
 name|setMessageCreatedStrategy
 parameter_list|(
-name|MessageCreatedStrategy
+name|String
 name|messageCreatedStrategy
 parameter_list|)
 block|{
@@ -3045,7 +2995,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
-name|HeaderFilterStrategy
+name|String
 name|getHeaderFilterStrategy
 parameter_list|()
 block|{
@@ -3053,12 +3003,12 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+DECL|method|setHeaderFilterStrategy (String headerFilterStrategy)
 specifier|public
 name|void
 name|setHeaderFilterStrategy
 parameter_list|(
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{

@@ -114,20 +114,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|EventExecutorGroup
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -352,12 +338,10 @@ specifier|private
 name|NettyConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * To use the given EventExecutorGroup.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the given EventExecutorGroup. The option is a      * io.netty.util.concurrent.EventExecutorGroup type.      */
 DECL|field|executorService
 specifier|private
-name|EventExecutorGroup
+name|String
 name|executorService
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -430,7 +414,7 @@ expr_stmt|;
 block|}
 DECL|method|getExecutorService ()
 specifier|public
-name|EventExecutorGroup
+name|String
 name|getExecutorService
 parameter_list|()
 block|{
@@ -438,12 +422,12 @@ return|return
 name|executorService
 return|;
 block|}
-DECL|method|setExecutorService (EventExecutorGroup executorService)
+DECL|method|setExecutorService (String executorService)
 specifier|public
 name|void
 name|setExecutorService
 parameter_list|(
-name|EventExecutorGroup
+name|String
 name|executorService
 parameter_list|)
 block|{

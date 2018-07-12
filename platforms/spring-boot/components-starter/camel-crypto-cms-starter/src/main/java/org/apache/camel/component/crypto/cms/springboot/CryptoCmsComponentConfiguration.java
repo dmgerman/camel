@@ -40,46 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|crypto
-operator|.
-name|cms
-operator|.
-name|crypt
-operator|.
-name|EnvelopedDataDecryptorConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|crypto
-operator|.
-name|cms
-operator|.
-name|sig
-operator|.
-name|SignedDataVerifierConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -101,22 +61,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -144,20 +88,16 @@ name|CryptoCmsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To configure the shared SignedDataVerifierConfiguration, which determines      * the uri parameters for the verify operation.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure the shared SignedDataVerifierConfiguration, which determines      * the uri parameters for the verify operation. The option is a      * org.apache.camel.component.crypto.cms.sig.SignedDataVerifierConfiguration      * type.      */
 DECL|field|signedDataVerifierConfiguration
 specifier|private
-name|SignedDataVerifierConfiguration
+name|String
 name|signedDataVerifierConfiguration
 decl_stmt|;
-comment|/**      * To configure the shared EnvelopedDataDecryptorConfiguration, which      * determines the uri parameters for the decrypt operation.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure the shared EnvelopedDataDecryptorConfiguration, which      * determines the uri parameters for the decrypt operation. The option is a      * org.apache.camel.component.crypto.cms.crypt.      * EnvelopedDataDecryptorConfiguration type.      */
 DECL|field|envelopedDataDecryptorConfiguration
 specifier|private
-name|EnvelopedDataDecryptorConfiguration
+name|String
 name|envelopedDataDecryptorConfiguration
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -170,7 +110,7 @@ literal|true
 decl_stmt|;
 DECL|method|getSignedDataVerifierConfiguration ()
 specifier|public
-name|SignedDataVerifierConfiguration
+name|String
 name|getSignedDataVerifierConfiguration
 parameter_list|()
 block|{
@@ -178,12 +118,12 @@ return|return
 name|signedDataVerifierConfiguration
 return|;
 block|}
-DECL|method|setSignedDataVerifierConfiguration ( SignedDataVerifierConfiguration signedDataVerifierConfiguration)
+DECL|method|setSignedDataVerifierConfiguration ( String signedDataVerifierConfiguration)
 specifier|public
 name|void
 name|setSignedDataVerifierConfiguration
 parameter_list|(
-name|SignedDataVerifierConfiguration
+name|String
 name|signedDataVerifierConfiguration
 parameter_list|)
 block|{
@@ -196,7 +136,7 @@ expr_stmt|;
 block|}
 DECL|method|getEnvelopedDataDecryptorConfiguration ()
 specifier|public
-name|EnvelopedDataDecryptorConfiguration
+name|String
 name|getEnvelopedDataDecryptorConfiguration
 parameter_list|()
 block|{
@@ -204,12 +144,12 @@ return|return
 name|envelopedDataDecryptorConfiguration
 return|;
 block|}
-DECL|method|setEnvelopedDataDecryptorConfiguration ( EnvelopedDataDecryptorConfiguration envelopedDataDecryptorConfiguration)
+DECL|method|setEnvelopedDataDecryptorConfiguration ( String envelopedDataDecryptorConfiguration)
 specifier|public
 name|void
 name|setEnvelopedDataDecryptorConfiguration
 parameter_list|(
-name|EnvelopedDataDecryptorConfiguration
+name|String
 name|envelopedDataDecryptorConfiguration
 parameter_list|)
 block|{

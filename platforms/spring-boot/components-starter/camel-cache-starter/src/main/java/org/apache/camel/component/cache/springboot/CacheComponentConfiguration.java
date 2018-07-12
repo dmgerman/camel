@@ -84,22 +84,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|cache
-operator|.
-name|CacheManagerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -180,10 +164,10 @@ name|CacheComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use the given CacheManagerFactory for creating the CacheManager. By      * default the DefaultCacheManagerFactory is used.      */
+comment|/**      * To use the given CacheManagerFactory for creating the CacheManager. By      * default the DefaultCacheManagerFactory is used. The option is a      * org.apache.camel.component.cache.CacheManagerFactory type.      */
 DECL|field|cacheManagerFactory
 specifier|private
-name|CacheManagerFactory
+name|String
 name|cacheManagerFactory
 decl_stmt|;
 comment|/**      * Sets the Cache configuration      */
@@ -210,7 +194,7 @@ literal|true
 decl_stmt|;
 DECL|method|getCacheManagerFactory ()
 specifier|public
-name|CacheManagerFactory
+name|String
 name|getCacheManagerFactory
 parameter_list|()
 block|{
@@ -218,12 +202,12 @@ return|return
 name|cacheManagerFactory
 return|;
 block|}
-DECL|method|setCacheManagerFactory (CacheManagerFactory cacheManagerFactory)
+DECL|method|setCacheManagerFactory (String cacheManagerFactory)
 specifier|public
 name|void
 name|setCacheManagerFactory
 parameter_list|(
-name|CacheManagerFactory
+name|String
 name|cacheManagerFactory
 parameter_list|)
 block|{

@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|sql
-operator|.
-name|DataSource
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -96,10 +86,10 @@ name|SqlComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Sets the DataSource to use to communicate with the database.      */
+comment|/**      * Sets the DataSource to use to communicate with the database. The option      * is a javax.sql.DataSource type.      */
 DECL|field|dataSource
 specifier|private
-name|DataSource
+name|String
 name|dataSource
 decl_stmt|;
 comment|/**      * Sets whether to use placeholder and replace all placeholder characters      * with sign in the SQL queries. This option is default true      */
@@ -120,7 +110,7 @@ literal|true
 decl_stmt|;
 DECL|method|getDataSource ()
 specifier|public
-name|DataSource
+name|String
 name|getDataSource
 parameter_list|()
 block|{
@@ -128,12 +118,12 @@ return|return
 name|dataSource
 return|;
 block|}
-DECL|method|setDataSource (DataSource dataSource)
+DECL|method|setDataSource (String dataSource)
 specifier|public
 name|void
 name|setDataSource
 parameter_list|(
-name|DataSource
+name|String
 name|dataSource
 parameter_list|)
 block|{

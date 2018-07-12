@@ -38,41 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|zookeepermaster
-operator|.
-name|ContainerIdFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
 operator|.
 name|ComponentConfigurationPropertiesCommon
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|curator
-operator|.
-name|framework
-operator|.
-name|CuratorFramework
 import|;
 end_import
 
@@ -89,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -132,12 +86,10 @@ name|MasterComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use a custom ContainerIdFactory for creating container ids.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom ContainerIdFactory for creating container ids. The option      * is a org.apache.camel.component.zookeepermaster.ContainerIdFactory type.      */
 DECL|field|containerIdFactory
 specifier|private
-name|ContainerIdFactory
+name|String
 name|containerIdFactory
 decl_stmt|;
 comment|/**      * The root path to use in zookeeper where information is stored which nodes      * are master/slave etc. Will by default use:      * /camel/zookeepermaster/clusters/master      */
@@ -148,12 +100,10 @@ name|zkRoot
 init|=
 literal|"/camel/zookeepermaster/clusters/master"
 decl_stmt|;
-comment|/**      * To use a custom configured CuratorFramework as connection to zookeeper      * ensemble.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom configured CuratorFramework as connection to zookeeper      * ensemble. The option is a org.apache.curator.framework.CuratorFramework      * type.      */
 DECL|field|curator
 specifier|private
-name|CuratorFramework
+name|String
 name|curator
 decl_stmt|;
 comment|/**      * Timeout in millis to use when connecting to the zookeeper ensemble      */
@@ -188,7 +138,7 @@ literal|true
 decl_stmt|;
 DECL|method|getContainerIdFactory ()
 specifier|public
-name|ContainerIdFactory
+name|String
 name|getContainerIdFactory
 parameter_list|()
 block|{
@@ -196,12 +146,12 @@ return|return
 name|containerIdFactory
 return|;
 block|}
-DECL|method|setContainerIdFactory (ContainerIdFactory containerIdFactory)
+DECL|method|setContainerIdFactory (String containerIdFactory)
 specifier|public
 name|void
 name|setContainerIdFactory
 parameter_list|(
-name|ContainerIdFactory
+name|String
 name|containerIdFactory
 parameter_list|)
 block|{
@@ -240,7 +190,7 @@ expr_stmt|;
 block|}
 DECL|method|getCurator ()
 specifier|public
-name|CuratorFramework
+name|String
 name|getCurator
 parameter_list|()
 block|{
@@ -248,12 +198,12 @@ return|return
 name|curator
 return|;
 block|}
-DECL|method|setCurator (CuratorFramework curator)
+DECL|method|setCurator (String curator)
 specifier|public
 name|void
 name|setCurator
 parameter_list|(
-name|CuratorFramework
+name|String
 name|curator
 parameter_list|)
 block|{

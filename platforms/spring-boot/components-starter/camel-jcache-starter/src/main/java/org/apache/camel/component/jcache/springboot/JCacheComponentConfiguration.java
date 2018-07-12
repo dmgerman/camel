@@ -22,33 +22,11 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|cache
-operator|.
-name|configuration
-operator|.
-name|Configuration
 import|;
 end_import
 
@@ -114,16 +92,16 @@ specifier|private
 name|String
 name|cachingProvider
 decl_stmt|;
-comment|/**      * A Configuration for the Cache      */
+comment|/**      * A Configuration for the Cache. The option is a      * javax.cache.configuration.Configuration type.      */
 DECL|field|cacheConfiguration
 specifier|private
-name|Configuration
+name|String
 name|cacheConfiguration
 decl_stmt|;
-comment|/**      * The Properties for the javax.cache.spi.CachingProvider to create the      * CacheManager      */
+comment|/**      * The Properties for the javax.cache.spi.CachingProvider to create the      * CacheManager. The option is a java.util.Properties type.      */
 DECL|field|cacheConfigurationProperties
 specifier|private
-name|Properties
+name|String
 name|cacheConfigurationProperties
 decl_stmt|;
 comment|/**      * An implementation specific URI for the CacheManager      */
@@ -168,7 +146,7 @@ expr_stmt|;
 block|}
 DECL|method|getCacheConfiguration ()
 specifier|public
-name|Configuration
+name|String
 name|getCacheConfiguration
 parameter_list|()
 block|{
@@ -176,12 +154,12 @@ return|return
 name|cacheConfiguration
 return|;
 block|}
-DECL|method|setCacheConfiguration (Configuration cacheConfiguration)
+DECL|method|setCacheConfiguration (String cacheConfiguration)
 specifier|public
 name|void
 name|setCacheConfiguration
 parameter_list|(
-name|Configuration
+name|String
 name|cacheConfiguration
 parameter_list|)
 block|{
@@ -194,7 +172,7 @@ expr_stmt|;
 block|}
 DECL|method|getCacheConfigurationProperties ()
 specifier|public
-name|Properties
+name|String
 name|getCacheConfigurationProperties
 parameter_list|()
 block|{
@@ -202,12 +180,12 @@ return|return
 name|cacheConfigurationProperties
 return|;
 block|}
-DECL|method|setCacheConfigurationProperties ( Properties cacheConfigurationProperties)
+DECL|method|setCacheConfigurationProperties ( String cacheConfigurationProperties)
 specifier|public
 name|void
 name|setCacheConfigurationProperties
 parameter_list|(
-name|Properties
+name|String
 name|cacheConfigurationProperties
 parameter_list|)
 block|{

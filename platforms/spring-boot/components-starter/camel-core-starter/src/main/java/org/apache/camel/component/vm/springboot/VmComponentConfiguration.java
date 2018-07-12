@@ -38,34 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|seda
-operator|.
-name|BlockingQueueFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -87,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -146,15 +102,10 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Sets the default queue factory.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Sets the default queue factory. The option is a      * org.apache.camel.component      * .seda.BlockingQueueFactory<org.apache.camel.Exchange> type.      */
 DECL|field|defaultQueueFactory
 specifier|private
-name|BlockingQueueFactory
-argument_list|<
-name|Exchange
-argument_list|>
+name|String
 name|defaultQueueFactory
 decl_stmt|;
 comment|/**      * Whether a thread that sends messages to a full SEDA queue will block      * until the queue's capacity is no longer exhausted. By default, an      * exception will be thrown stating that the queue is full. By enabling this      * option, the calling thread will instead block and wait until the message      * can be accepted.      */
@@ -233,10 +184,7 @@ expr_stmt|;
 block|}
 DECL|method|getDefaultQueueFactory ()
 specifier|public
-name|BlockingQueueFactory
-argument_list|<
-name|Exchange
-argument_list|>
+name|String
 name|getDefaultQueueFactory
 parameter_list|()
 block|{
@@ -244,15 +192,12 @@ return|return
 name|defaultQueueFactory
 return|;
 block|}
-DECL|method|setDefaultQueueFactory ( BlockingQueueFactory<Exchange> defaultQueueFactory)
+DECL|method|setDefaultQueueFactory (String defaultQueueFactory)
 specifier|public
 name|void
 name|setDefaultQueueFactory
 parameter_list|(
-name|BlockingQueueFactory
-argument_list|<
-name|Exchange
-argument_list|>
+name|String
 name|defaultQueueFactory
 parameter_list|)
 block|{

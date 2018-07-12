@@ -38,20 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -73,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -130,12 +100,10 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message. The option is a      * org.apache.camel.spi.HeaderFilterStrategy type.      */
 DECL|field|headerFilterStrategy
 specifier|private
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -200,7 +168,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
-name|HeaderFilterStrategy
+name|String
 name|getHeaderFilterStrategy
 parameter_list|()
 block|{
@@ -208,12 +176,12 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+DECL|method|setHeaderFilterStrategy (String headerFilterStrategy)
 specifier|public
 name|void
 name|setHeaderFilterStrategy
 parameter_list|(
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{

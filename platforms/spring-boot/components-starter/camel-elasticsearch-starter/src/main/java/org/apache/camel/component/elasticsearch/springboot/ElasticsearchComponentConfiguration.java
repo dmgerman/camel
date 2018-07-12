@@ -50,18 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -71,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -114,12 +86,10 @@ name|ElasticsearchComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use an existing configured Elasticsearch client, instead of creating a      * client per endpoint.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use an existing configured Elasticsearch client, instead of creating a      * client per endpoint. The option is a org.elasticsearch.client.Client      * type.      */
 DECL|field|client
 specifier|private
-name|Client
+name|String
 name|client
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -132,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getClient ()
 specifier|public
-name|Client
+name|String
 name|getClient
 parameter_list|()
 block|{
@@ -140,12 +110,12 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|setClient (Client client)
+DECL|method|setClient (String client)
 specifier|public
 name|void
 name|setClient
 parameter_list|(
-name|Client
+name|String
 name|client
 parameter_list|)
 block|{

@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -74,38 +64,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
-operator|.
-name|PropertiesParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|properties
-operator|.
-name|PropertiesResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -127,22 +85,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -191,20 +133,16 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
-comment|/**      * To use a custom PropertiesResolver      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom PropertiesResolver. The option is a      * org.apache.camel.component.properties.PropertiesResolver type.      */
 DECL|field|propertiesResolver
 specifier|private
-name|PropertiesResolver
+name|String
 name|propertiesResolver
 decl_stmt|;
-comment|/**      * To use a custom PropertiesParser      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom PropertiesParser. The option is a      * org.apache.camel.component.properties.PropertiesParser type.      */
 DECL|field|propertiesParser
 specifier|private
-name|PropertiesParser
+name|String
 name|propertiesParser
 decl_stmt|;
 comment|/**      * Whether or not to cache loaded properties. The default value is true.      */
@@ -267,16 +205,16 @@ name|suffixToken
 init|=
 literal|"}}"
 decl_stmt|;
-comment|/**      * Sets initial properties which will be used before any locations are      * resolved.      */
+comment|/**      * Sets initial properties which will be used before any locations are      * resolved. The option is a java.util.Properties type.      */
 DECL|field|initialProperties
 specifier|private
-name|Properties
+name|String
 name|initialProperties
 decl_stmt|;
-comment|/**      * Sets a special list of override properties that take precedence and will      * use first, if a property exist.      */
+comment|/**      * Sets a special list of override properties that take precedence and will      * use first, if a property exist. The option is a java.util.Properties      * type.      */
 DECL|field|overrideProperties
 specifier|private
-name|Properties
+name|String
 name|overrideProperties
 decl_stmt|;
 comment|/**      * Sets the system property mode.      */
@@ -381,7 +319,7 @@ expr_stmt|;
 block|}
 DECL|method|getPropertiesResolver ()
 specifier|public
-name|PropertiesResolver
+name|String
 name|getPropertiesResolver
 parameter_list|()
 block|{
@@ -389,12 +327,12 @@ return|return
 name|propertiesResolver
 return|;
 block|}
-DECL|method|setPropertiesResolver (PropertiesResolver propertiesResolver)
+DECL|method|setPropertiesResolver (String propertiesResolver)
 specifier|public
 name|void
 name|setPropertiesResolver
 parameter_list|(
-name|PropertiesResolver
+name|String
 name|propertiesResolver
 parameter_list|)
 block|{
@@ -407,7 +345,7 @@ expr_stmt|;
 block|}
 DECL|method|getPropertiesParser ()
 specifier|public
-name|PropertiesParser
+name|String
 name|getPropertiesParser
 parameter_list|()
 block|{
@@ -415,12 +353,12 @@ return|return
 name|propertiesParser
 return|;
 block|}
-DECL|method|setPropertiesParser (PropertiesParser propertiesParser)
+DECL|method|setPropertiesParser (String propertiesParser)
 specifier|public
 name|void
 name|setPropertiesParser
 parameter_list|(
-name|PropertiesParser
+name|String
 name|propertiesParser
 parameter_list|)
 block|{
@@ -641,7 +579,7 @@ expr_stmt|;
 block|}
 DECL|method|getInitialProperties ()
 specifier|public
-name|Properties
+name|String
 name|getInitialProperties
 parameter_list|()
 block|{
@@ -649,12 +587,12 @@ return|return
 name|initialProperties
 return|;
 block|}
-DECL|method|setInitialProperties (Properties initialProperties)
+DECL|method|setInitialProperties (String initialProperties)
 specifier|public
 name|void
 name|setInitialProperties
 parameter_list|(
-name|Properties
+name|String
 name|initialProperties
 parameter_list|)
 block|{
@@ -667,7 +605,7 @@ expr_stmt|;
 block|}
 DECL|method|getOverrideProperties ()
 specifier|public
-name|Properties
+name|String
 name|getOverrideProperties
 parameter_list|()
 block|{
@@ -675,12 +613,12 @@ return|return
 name|overrideProperties
 return|;
 block|}
-DECL|method|setOverrideProperties (Properties overrideProperties)
+DECL|method|setOverrideProperties (String overrideProperties)
 specifier|public
 name|void
 name|setOverrideProperties
 parameter_list|(
-name|Properties
+name|String
 name|overrideProperties
 parameter_list|)
 block|{

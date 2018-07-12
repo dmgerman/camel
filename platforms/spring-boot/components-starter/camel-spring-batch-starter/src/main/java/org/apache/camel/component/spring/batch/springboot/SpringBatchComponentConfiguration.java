@@ -54,38 +54,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|batch
-operator|.
-name|core
-operator|.
-name|configuration
-operator|.
-name|JobRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|batch
-operator|.
-name|core
-operator|.
-name|launch
-operator|.
-name|JobLauncher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|boot
 operator|.
 name|context
@@ -93,22 +61,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -136,20 +88,16 @@ name|SpringBatchComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Explicitly specifies a JobLauncher to be used.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Explicitly specifies a JobLauncher to be used. The option is a      * org.springframework.batch.core.launch.JobLauncher type.      */
 DECL|field|jobLauncher
 specifier|private
-name|JobLauncher
+name|String
 name|jobLauncher
 decl_stmt|;
-comment|/**      * Explicitly specifies a JobRegistry to be used.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Explicitly specifies a JobRegistry to be used. The option is a      * org.springframework.batch.core.configuration.JobRegistry type.      */
 DECL|field|jobRegistry
 specifier|private
-name|JobRegistry
+name|String
 name|jobRegistry
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -162,7 +110,7 @@ literal|true
 decl_stmt|;
 DECL|method|getJobLauncher ()
 specifier|public
-name|JobLauncher
+name|String
 name|getJobLauncher
 parameter_list|()
 block|{
@@ -170,12 +118,12 @@ return|return
 name|jobLauncher
 return|;
 block|}
-DECL|method|setJobLauncher (JobLauncher jobLauncher)
+DECL|method|setJobLauncher (String jobLauncher)
 specifier|public
 name|void
 name|setJobLauncher
 parameter_list|(
-name|JobLauncher
+name|String
 name|jobLauncher
 parameter_list|)
 block|{
@@ -188,7 +136,7 @@ expr_stmt|;
 block|}
 DECL|method|getJobRegistry ()
 specifier|public
-name|JobRegistry
+name|String
 name|getJobRegistry
 parameter_list|()
 block|{
@@ -196,12 +144,12 @@ return|return
 name|jobRegistry
 return|;
 block|}
-DECL|method|setJobRegistry (JobRegistry jobRegistry)
+DECL|method|setJobRegistry (String jobRegistry)
 specifier|public
 name|void
 name|setJobRegistry
 parameter_list|(
-name|JobRegistry
+name|String
 name|jobRegistry
 parameter_list|)
 block|{

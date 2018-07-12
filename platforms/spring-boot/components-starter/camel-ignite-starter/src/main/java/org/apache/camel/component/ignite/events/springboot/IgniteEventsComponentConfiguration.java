@@ -52,32 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|ignite
-operator|.
-name|Ignite
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|ignite
-operator|.
-name|configuration
-operator|.
-name|IgniteConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -87,22 +61,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -130,26 +88,22 @@ name|IgniteEventsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Sets the Ignite instance.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Sets the Ignite instance. The option is a org.apache.ignite.Ignite type.      */
 DECL|field|ignite
 specifier|private
-name|Ignite
+name|String
 name|ignite
 decl_stmt|;
-comment|/**      * Sets the resource from where to load the configuration. It can be a: URI,      * String (URI) or an InputStream.      */
+comment|/**      * Sets the resource from where to load the configuration. It can be a: URI,      * String (URI) or an InputStream. The option is a java.lang.Object type.      */
 DECL|field|configurationResource
 specifier|private
-name|Object
+name|String
 name|configurationResource
 decl_stmt|;
-comment|/**      * Allows the user to set a programmatic IgniteConfiguration.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Allows the user to set a programmatic IgniteConfiguration. The option is      * a org.apache.ignite.configuration.IgniteConfiguration type.      */
 DECL|field|igniteConfiguration
 specifier|private
-name|IgniteConfiguration
+name|String
 name|igniteConfiguration
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -162,7 +116,7 @@ literal|true
 decl_stmt|;
 DECL|method|getIgnite ()
 specifier|public
-name|Ignite
+name|String
 name|getIgnite
 parameter_list|()
 block|{
@@ -170,12 +124,12 @@ return|return
 name|ignite
 return|;
 block|}
-DECL|method|setIgnite (Ignite ignite)
+DECL|method|setIgnite (String ignite)
 specifier|public
 name|void
 name|setIgnite
 parameter_list|(
-name|Ignite
+name|String
 name|ignite
 parameter_list|)
 block|{
@@ -188,7 +142,7 @@ expr_stmt|;
 block|}
 DECL|method|getConfigurationResource ()
 specifier|public
-name|Object
+name|String
 name|getConfigurationResource
 parameter_list|()
 block|{
@@ -196,12 +150,12 @@ return|return
 name|configurationResource
 return|;
 block|}
-DECL|method|setConfigurationResource (Object configurationResource)
+DECL|method|setConfigurationResource (String configurationResource)
 specifier|public
 name|void
 name|setConfigurationResource
 parameter_list|(
-name|Object
+name|String
 name|configurationResource
 parameter_list|)
 block|{
@@ -214,7 +168,7 @@ expr_stmt|;
 block|}
 DECL|method|getIgniteConfiguration ()
 specifier|public
-name|IgniteConfiguration
+name|String
 name|getIgniteConfiguration
 parameter_list|()
 block|{
@@ -222,12 +176,12 @@ return|return
 name|igniteConfiguration
 return|;
 block|}
-DECL|method|setIgniteConfiguration (IgniteConfiguration igniteConfiguration)
+DECL|method|setIgniteConfiguration (String igniteConfiguration)
 specifier|public
 name|void
 name|setIgniteConfiguration
 parameter_list|(
-name|IgniteConfiguration
+name|String
 name|igniteConfiguration
 parameter_list|)
 block|{

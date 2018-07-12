@@ -38,20 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ExchangeFormatter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -73,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -116,12 +86,10 @@ name|LogComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Sets a custom ExchangeFormatter to convert the Exchange to a String      * suitable for logging. If not specified, we default to      * DefaultExchangeFormatter.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Sets a custom ExchangeFormatter to convert the Exchange to a String      * suitable for logging. If not specified, we default to      * DefaultExchangeFormatter. The option is a      * org.apache.camel.spi.ExchangeFormatter type.      */
 DECL|field|exchangeFormatter
 specifier|private
-name|ExchangeFormatter
+name|String
 name|exchangeFormatter
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -134,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getExchangeFormatter ()
 specifier|public
-name|ExchangeFormatter
+name|String
 name|getExchangeFormatter
 parameter_list|()
 block|{
@@ -142,12 +110,12 @@ return|return
 name|exchangeFormatter
 return|;
 block|}
-DECL|method|setExchangeFormatter (ExchangeFormatter exchangeFormatter)
+DECL|method|setExchangeFormatter (String exchangeFormatter)
 specifier|public
 name|void
 name|setExchangeFormatter
 parameter_list|(
-name|ExchangeFormatter
+name|String
 name|exchangeFormatter
 parameter_list|)
 block|{

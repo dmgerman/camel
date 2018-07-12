@@ -34,20 +34,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|EventExecutorGroup
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -55,24 +41,6 @@ operator|.
 name|camel
 operator|.
 name|LoggingLevel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty4
-operator|.
-name|http
-operator|.
-name|NettyHttpBinding
 import|;
 end_import
 
@@ -120,20 +88,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -155,22 +109,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -198,12 +136,10 @@ name|NettyHttpComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use a custom org.apache.camel.component.netty4.http.NettyHttpBinding      * for binding to/from Netty and Camel Message API.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.camel.component.netty4.http.NettyHttpBinding      * for binding to/from Netty and Camel Message API. The option is a      * org.apache.camel.component.netty4.http.NettyHttpBinding type.      */
 DECL|field|nettyHttpBinding
 specifier|private
-name|NettyHttpBinding
+name|String
 name|nettyHttpBinding
 decl_stmt|;
 comment|/**      * To use the NettyConfiguration as configuration when creating endpoints.      */
@@ -212,12 +148,10 @@ specifier|private
 name|NettyHttpConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * headers.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * headers. The option is a org.apache.camel.spi.HeaderFilterStrategy type.      */
 DECL|field|headerFilterStrategy
 specifier|private
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * Refers to a      * org.apache.camel.component.netty4.http.NettyHttpSecurityConfiguration for      * configuring secure web resources.      */
@@ -242,12 +176,10 @@ name|maximumPoolSize
 init|=
 literal|16
 decl_stmt|;
-comment|/**      * To use the given EventExecutorGroup.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the given EventExecutorGroup. The option is a      * io.netty.util.concurrent.EventExecutorGroup type.      */
 DECL|field|executorService
 specifier|private
-name|EventExecutorGroup
+name|String
 name|executorService
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -260,7 +192,7 @@ literal|true
 decl_stmt|;
 DECL|method|getNettyHttpBinding ()
 specifier|public
-name|NettyHttpBinding
+name|String
 name|getNettyHttpBinding
 parameter_list|()
 block|{
@@ -268,12 +200,12 @@ return|return
 name|nettyHttpBinding
 return|;
 block|}
-DECL|method|setNettyHttpBinding (NettyHttpBinding nettyHttpBinding)
+DECL|method|setNettyHttpBinding (String nettyHttpBinding)
 specifier|public
 name|void
 name|setNettyHttpBinding
 parameter_list|(
-name|NettyHttpBinding
+name|String
 name|nettyHttpBinding
 parameter_list|)
 block|{
@@ -312,7 +244,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
-name|HeaderFilterStrategy
+name|String
 name|getHeaderFilterStrategy
 parameter_list|()
 block|{
@@ -320,12 +252,12 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+DECL|method|setHeaderFilterStrategy (String headerFilterStrategy)
 specifier|public
 name|void
 name|setHeaderFilterStrategy
 parameter_list|(
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
@@ -416,7 +348,7 @@ expr_stmt|;
 block|}
 DECL|method|getExecutorService ()
 specifier|public
-name|EventExecutorGroup
+name|String
 name|getExecutorService
 parameter_list|()
 block|{
@@ -424,12 +356,12 @@ return|return
 name|executorService
 return|;
 block|}
-DECL|method|setExecutorService (EventExecutorGroup executorService)
+DECL|method|setExecutorService (String executorService)
 specifier|public
 name|void
 name|setExecutorService
 parameter_list|(
-name|EventExecutorGroup
+name|String
 name|executorService
 parameter_list|)
 block|{

@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|security
-operator|.
-name|auth
-operator|.
-name|login
-operator|.
-name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -100,10 +86,10 @@ name|HdfsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use the given configuration for security with JAAS.      */
+comment|/**      * To use the given configuration for security with JAAS. The option is a      * javax.security.auth.login.Configuration type.      */
 DECL|field|jAASConfiguration
 specifier|private
-name|Configuration
+name|String
 name|jAASConfiguration
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -116,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getJAASConfiguration ()
 specifier|public
-name|Configuration
+name|String
 name|getJAASConfiguration
 parameter_list|()
 block|{
@@ -124,12 +110,12 @@ return|return
 name|jAASConfiguration
 return|;
 block|}
-DECL|method|setJAASConfiguration (Configuration jAASConfiguration)
+DECL|method|setJAASConfiguration (String jAASConfiguration)
 specifier|public
 name|void
 name|setJAASConfiguration
 parameter_list|(
-name|Configuration
+name|String
 name|jAASConfiguration
 parameter_list|)
 block|{

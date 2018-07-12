@@ -38,20 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -73,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -132,12 +102,10 @@ name|timeout
 init|=
 literal|30000L
 decl_stmt|;
-comment|/**      * Sets a HeaderFilterStrategy that will only be applied on producer      * endpoints (on both directions: request and response). Default value:      * none.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Sets a HeaderFilterStrategy that will only be applied on producer      * endpoints (on both directions: request and response). Default value:      * none. The option is a org.apache.camel.spi.HeaderFilterStrategy type.      */
 DECL|field|headerFilterStrategy
 specifier|private
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * Whether to propagate or not properties from the producer side to the      * consumer side, and vice versa. Default value: true.      */
@@ -210,7 +178,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
-name|HeaderFilterStrategy
+name|String
 name|getHeaderFilterStrategy
 parameter_list|()
 block|{
@@ -218,12 +186,12 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+DECL|method|setHeaderFilterStrategy (String headerFilterStrategy)
 specifier|public
 name|void
 name|setHeaderFilterStrategy
 parameter_list|(
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{

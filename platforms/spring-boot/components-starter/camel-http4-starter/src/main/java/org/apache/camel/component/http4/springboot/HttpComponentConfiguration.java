@@ -32,80 +32,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|HostnameVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http4
-operator|.
-name|HttpClientConfigurer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|http
-operator|.
-name|common
-operator|.
-name|HttpBinding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|http
-operator|.
-name|common
-operator|.
-name|HttpConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -124,64 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|client
-operator|.
-name|CookieStore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|conn
-operator|.
-name|HttpClientConnectionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|protocol
-operator|.
-name|HttpContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -191,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -234,36 +86,28 @@ name|HttpComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use the custom HttpClientConfigurer to perform configuration of the      * HttpClient that will be used.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the custom HttpClientConfigurer to perform configuration of the      * HttpClient that will be used. The option is a      * org.apache.camel.component.http4.HttpClientConfigurer type.      */
 DECL|field|httpClientConfigurer
 specifier|private
-name|HttpClientConfigurer
+name|String
 name|httpClientConfigurer
 decl_stmt|;
-comment|/**      * To use a custom and shared HttpClientConnectionManager to manage      * connections. If this has been configured then this is always used for all      * endpoints created by this component.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom and shared HttpClientConnectionManager to manage      * connections. If this has been configured then this is always used for all      * endpoints created by this component. The option is a      * org.apache.http.conn.HttpClientConnectionManager type.      */
 DECL|field|clientConnectionManager
 specifier|private
-name|HttpClientConnectionManager
+name|String
 name|clientConnectionManager
 decl_stmt|;
-comment|/**      * To use a custom org.apache.http.protocol.HttpContext when executing      * requests.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.http.protocol.HttpContext when executing      * requests. The option is a org.apache.http.protocol.HttpContext type.      */
 DECL|field|httpContext
 specifier|private
-name|HttpContext
+name|String
 name|httpContext
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters. Important: Only one      * instance of org.apache.camel.util.jsse.SSLContextParameters is supported      * per HttpComponent. If you need to use 2 or more different instances, you      * need to define a new HttpComponent per instance you need.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure security using SSLContextParameters. Important: Only one      * instance of org.apache.camel.util.jsse.SSLContextParameters is supported      * per HttpComponent. If you need to use 2 or more different instances, you      * need to define a new HttpComponent per instance you need. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -274,10 +118,10 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or      * org.apache.http.conn.ssl.NoopHostnameVerifier.      */
+comment|/**      * To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or      * org.apache.http.conn.ssl.NoopHostnameVerifier. The option is a      * javax.net.ssl.HostnameVerifier type.      */
 DECL|field|x509HostnameVerifier
 specifier|private
-name|HostnameVerifier
+name|String
 name|x509HostnameVerifier
 decl_stmt|;
 comment|/**      * The maximum number of connections.      */
@@ -302,12 +146,10 @@ specifier|private
 name|Long
 name|connectionTimeToLive
 decl_stmt|;
-comment|/**      * To use a custom org.apache.http.client.CookieStore. By default the      * org.apache.http.impl.client.BasicCookieStore is used which is an      * in-memory only cookie store. Notice if bridgeEndpoint=true then the      * cookie store is forced to be a noop cookie store as cookie shouldn't be      * stored as we are just bridging (eg acting as a proxy).      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.http.client.CookieStore. By default the      * org.apache.http.impl.client.BasicCookieStore is used which is an      * in-memory only cookie store. Notice if bridgeEndpoint=true then the      * cookie store is forced to be a noop cookie store as cookie shouldn't be      * stored as we are just bridging (eg acting as a proxy). The option is a      * org.apache.http.client.CookieStore type.      */
 DECL|field|cookieStore
 specifier|private
-name|CookieStore
+name|String
 name|cookieStore
 decl_stmt|;
 comment|/**      * The timeout in milliseconds used when requesting a connection from the      * connection manager. A timeout value of zero is interpreted as an infinite      * timeout. A timeout value of zero is interpreted as an infinite timeout. A      * negative value is interpreted as undefined (system default). Default:      * code -1      */
@@ -337,20 +179,16 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient. The option is a org.apache.camel.http.common.HttpBinding      * type.      */
 DECL|field|httpBinding
 specifier|private
-name|HttpBinding
+name|String
 name|httpBinding
 decl_stmt|;
-comment|/**      * To use the shared HttpConfiguration as base configuration.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the shared HttpConfiguration as base configuration. The option is      * a org.apache.camel.http.common.HttpConfiguration type.      */
 DECL|field|httpConfiguration
 specifier|private
-name|HttpConfiguration
+name|String
 name|httpConfiguration
 decl_stmt|;
 comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object. This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
@@ -361,12 +199,10 @@ name|allowJavaSerializedObject
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message. The option is a      * org.apache.camel.spi.HeaderFilterStrategy type.      */
 DECL|field|headerFilterStrategy
 specifier|private
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -379,7 +215,7 @@ literal|true
 decl_stmt|;
 DECL|method|getHttpClientConfigurer ()
 specifier|public
-name|HttpClientConfigurer
+name|String
 name|getHttpClientConfigurer
 parameter_list|()
 block|{
@@ -387,12 +223,12 @@ return|return
 name|httpClientConfigurer
 return|;
 block|}
-DECL|method|setHttpClientConfigurer ( HttpClientConfigurer httpClientConfigurer)
+DECL|method|setHttpClientConfigurer (String httpClientConfigurer)
 specifier|public
 name|void
 name|setHttpClientConfigurer
 parameter_list|(
-name|HttpClientConfigurer
+name|String
 name|httpClientConfigurer
 parameter_list|)
 block|{
@@ -405,7 +241,7 @@ expr_stmt|;
 block|}
 DECL|method|getClientConnectionManager ()
 specifier|public
-name|HttpClientConnectionManager
+name|String
 name|getClientConnectionManager
 parameter_list|()
 block|{
@@ -413,12 +249,12 @@ return|return
 name|clientConnectionManager
 return|;
 block|}
-DECL|method|setClientConnectionManager ( HttpClientConnectionManager clientConnectionManager)
+DECL|method|setClientConnectionManager (String clientConnectionManager)
 specifier|public
 name|void
 name|setClientConnectionManager
 parameter_list|(
-name|HttpClientConnectionManager
+name|String
 name|clientConnectionManager
 parameter_list|)
 block|{
@@ -431,7 +267,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpContext ()
 specifier|public
-name|HttpContext
+name|String
 name|getHttpContext
 parameter_list|()
 block|{
@@ -439,12 +275,12 @@ return|return
 name|httpContext
 return|;
 block|}
-DECL|method|setHttpContext (HttpContext httpContext)
+DECL|method|setHttpContext (String httpContext)
 specifier|public
 name|void
 name|setHttpContext
 parameter_list|(
-name|HttpContext
+name|String
 name|httpContext
 parameter_list|)
 block|{
@@ -457,7 +293,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -465,12 +301,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{
@@ -509,7 +345,7 @@ expr_stmt|;
 block|}
 DECL|method|getX509HostnameVerifier ()
 specifier|public
-name|HostnameVerifier
+name|String
 name|getX509HostnameVerifier
 parameter_list|()
 block|{
@@ -517,12 +353,12 @@ return|return
 name|x509HostnameVerifier
 return|;
 block|}
-DECL|method|setX509HostnameVerifier (HostnameVerifier x509HostnameVerifier)
+DECL|method|setX509HostnameVerifier (String x509HostnameVerifier)
 specifier|public
 name|void
 name|setX509HostnameVerifier
 parameter_list|(
-name|HostnameVerifier
+name|String
 name|x509HostnameVerifier
 parameter_list|)
 block|{
@@ -613,7 +449,7 @@ expr_stmt|;
 block|}
 DECL|method|getCookieStore ()
 specifier|public
-name|CookieStore
+name|String
 name|getCookieStore
 parameter_list|()
 block|{
@@ -621,12 +457,12 @@ return|return
 name|cookieStore
 return|;
 block|}
-DECL|method|setCookieStore (CookieStore cookieStore)
+DECL|method|setCookieStore (String cookieStore)
 specifier|public
 name|void
 name|setCookieStore
 parameter_list|(
-name|CookieStore
+name|String
 name|cookieStore
 parameter_list|)
 block|{
@@ -717,7 +553,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpBinding ()
 specifier|public
-name|HttpBinding
+name|String
 name|getHttpBinding
 parameter_list|()
 block|{
@@ -725,12 +561,12 @@ return|return
 name|httpBinding
 return|;
 block|}
-DECL|method|setHttpBinding (HttpBinding httpBinding)
+DECL|method|setHttpBinding (String httpBinding)
 specifier|public
 name|void
 name|setHttpBinding
 parameter_list|(
-name|HttpBinding
+name|String
 name|httpBinding
 parameter_list|)
 block|{
@@ -743,7 +579,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpConfiguration ()
 specifier|public
-name|HttpConfiguration
+name|String
 name|getHttpConfiguration
 parameter_list|()
 block|{
@@ -751,12 +587,12 @@ return|return
 name|httpConfiguration
 return|;
 block|}
-DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
+DECL|method|setHttpConfiguration (String httpConfiguration)
 specifier|public
 name|void
 name|setHttpConfiguration
 parameter_list|(
-name|HttpConfiguration
+name|String
 name|httpConfiguration
 parameter_list|)
 block|{
@@ -795,7 +631,7 @@ expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
-name|HeaderFilterStrategy
+name|String
 name|getHeaderFilterStrategy
 parameter_list|()
 block|{
@@ -803,12 +639,12 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
-DECL|method|setHeaderFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
+DECL|method|setHeaderFilterStrategy (String headerFilterStrategy)
 specifier|public
 name|void
 name|setHeaderFilterStrategy
 parameter_list|(
-name|HeaderFilterStrategy
+name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{

@@ -38,36 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cloud
-operator|.
-name|ServiceRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cloud
-operator|.
-name|ServiceRegistry
-operator|.
-name|Selector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -89,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -132,20 +86,16 @@ name|ServiceComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Inject the service to use.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Inject the service to use. The option is a      * org.apache.camel.cloud.ServiceRegistry type.      */
 DECL|field|service
 specifier|private
-name|ServiceRegistry
+name|String
 name|service
 decl_stmt|;
-comment|/**      * Inject the service selector used to lookup the ServiceRegistry to use.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Inject the service selector used to lookup the ServiceRegistry to use.      * The option is a org.apache.camel.cloud.ServiceRegistry.Selector type.      */
 DECL|field|serviceSelector
 specifier|private
-name|Selector
+name|String
 name|serviceSelector
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -158,7 +108,7 @@ literal|true
 decl_stmt|;
 DECL|method|getService ()
 specifier|public
-name|ServiceRegistry
+name|String
 name|getService
 parameter_list|()
 block|{
@@ -166,12 +116,12 @@ return|return
 name|service
 return|;
 block|}
-DECL|method|setService (ServiceRegistry service)
+DECL|method|setService (String service)
 specifier|public
 name|void
 name|setService
 parameter_list|(
-name|ServiceRegistry
+name|String
 name|service
 parameter_list|)
 block|{
@@ -184,7 +134,7 @@ expr_stmt|;
 block|}
 DECL|method|getServiceSelector ()
 specifier|public
-name|Selector
+name|String
 name|getServiceSelector
 parameter_list|()
 block|{
@@ -192,12 +142,12 @@ return|return
 name|serviceSelector
 return|;
 block|}
-DECL|method|setServiceSelector (Selector serviceSelector)
+DECL|method|setServiceSelector (String serviceSelector)
 specifier|public
 name|void
 name|setServiceSelector
 parameter_list|(
-name|Selector
+name|String
 name|serviceSelector
 parameter_list|)
 block|{

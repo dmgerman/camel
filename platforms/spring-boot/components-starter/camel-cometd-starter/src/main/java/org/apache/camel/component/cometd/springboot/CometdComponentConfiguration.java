@@ -60,22 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|cometd
 operator|.
 name|bayeux
@@ -92,20 +76,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|cometd
-operator|.
-name|bayeux
-operator|.
-name|server
-operator|.
-name|SecurityPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -115,22 +85,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -176,12 +130,10 @@ specifier|private
 name|String
 name|sslKeystore
 decl_stmt|;
-comment|/**      * To use a custom configured SecurityPolicy to control authorization      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom configured SecurityPolicy to control authorization. The      * option is a org.cometd.bayeux.server.SecurityPolicy type.      */
 DECL|field|securityPolicy
 specifier|private
-name|SecurityPolicy
+name|String
 name|securityPolicy
 decl_stmt|;
 comment|/**      * To use a list of custom BayeuxServer.Extension that allows modifying      * incoming and outgoing requests.      */
@@ -193,12 +145,10 @@ name|Extension
 argument_list|>
 name|extensions
 decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -297,7 +247,7 @@ expr_stmt|;
 block|}
 DECL|method|getSecurityPolicy ()
 specifier|public
-name|SecurityPolicy
+name|String
 name|getSecurityPolicy
 parameter_list|()
 block|{
@@ -305,12 +255,12 @@ return|return
 name|securityPolicy
 return|;
 block|}
-DECL|method|setSecurityPolicy (SecurityPolicy securityPolicy)
+DECL|method|setSecurityPolicy (String securityPolicy)
 specifier|public
 name|void
 name|setSecurityPolicy
 parameter_list|(
-name|SecurityPolicy
+name|String
 name|securityPolicy
 parameter_list|)
 block|{
@@ -355,7 +305,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -363,12 +313,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{

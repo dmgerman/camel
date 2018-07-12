@@ -38,22 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|beanstalk
-operator|.
-name|ConnectionSettingsFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -75,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -118,12 +86,10 @@ name|BeanstalkComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Custom ConnectionSettingsFactory. Specify which ConnectionSettingsFactory      * to use to make connections to Beanstalkd. Especially useful for unit      * testing without beanstalkd daemon (you can mock ConnectionSettings)      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Custom ConnectionSettingsFactory. Specify which ConnectionSettingsFactory      * to use to make connections to Beanstalkd. Especially useful for unit      * testing without beanstalkd daemon (you can mock ConnectionSettings). The      * option is a      * org.apache.camel.component.beanstalk.ConnectionSettingsFactory type.      */
 DECL|field|connectionSettingsFactory
 specifier|private
-name|ConnectionSettingsFactory
+name|String
 name|connectionSettingsFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -136,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getConnectionSettingsFactory ()
 specifier|public
-name|ConnectionSettingsFactory
+name|String
 name|getConnectionSettingsFactory
 parameter_list|()
 block|{
@@ -144,12 +110,12 @@ return|return
 name|connectionSettingsFactory
 return|;
 block|}
-DECL|method|setConnectionSettingsFactory ( ConnectionSettingsFactory connectionSettingsFactory)
+DECL|method|setConnectionSettingsFactory (String connectionSettingsFactory)
 specifier|public
 name|void
 name|setConnectionSettingsFactory
 parameter_list|(
-name|ConnectionSettingsFactory
+name|String
 name|connectionSettingsFactory
 parameter_list|)
 block|{

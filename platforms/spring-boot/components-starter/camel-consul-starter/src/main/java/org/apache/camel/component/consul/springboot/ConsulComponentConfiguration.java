@@ -202,12 +202,10 @@ specifier|private
 name|String
 name|datacenter
 decl_stmt|;
-comment|/**      * SSL configuration using an      * org.apache.camel.util.jsse.SSLContextParameters instance.      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * SSL configuration using an      * org.apache.camel.util.jsse.SSLContextParameters instance. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
 DECL|field|sslContextParameters
 specifier|private
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
@@ -304,7 +302,7 @@ expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContextParameters
+name|String
 name|getSslContextParameters
 parameter_list|()
 block|{
@@ -312,12 +310,12 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+DECL|method|setSslContextParameters (String sslContextParameters)
 specifier|public
 name|void
 name|setSslContextParameters
 parameter_list|(
-name|SSLContextParameters
+name|String
 name|sslContextParameters
 parameter_list|)
 block|{

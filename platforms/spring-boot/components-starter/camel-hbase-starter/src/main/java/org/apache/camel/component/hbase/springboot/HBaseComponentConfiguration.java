@@ -50,20 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|hadoop
-operator|.
-name|conf
-operator|.
-name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -73,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -116,12 +86,10 @@ name|HBaseComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use the shared configuration      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use the shared configuration. The option is a      * org.apache.hadoop.conf.Configuration type.      */
 DECL|field|configuration
 specifier|private
-name|Configuration
+name|String
 name|configuration
 decl_stmt|;
 comment|/**      * Maximum number of references to keep for each table in the HTable pool.      * The default value is 10.      */
@@ -142,7 +110,7 @@ literal|true
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
-name|Configuration
+name|String
 name|getConfiguration
 parameter_list|()
 block|{
@@ -150,12 +118,12 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|setConfiguration (Configuration configuration)
+DECL|method|setConfiguration (String configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|Configuration
+name|String
 name|configuration
 parameter_list|)
 block|{

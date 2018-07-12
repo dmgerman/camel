@@ -38,22 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|validator
-operator|.
-name|ValidatorResourceResolverFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -75,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -118,12 +86,10 @@ name|ValidatorComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * To use a custom LSResourceResolver which depends on a dynamic endpoint      * resource URI      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * To use a custom LSResourceResolver which depends on a dynamic endpoint      * resource URI. The option is a      * org.apache.camel.component.validator.ValidatorResourceResolverFactory      * type.      */
 DECL|field|resourceResolverFactory
 specifier|private
-name|ValidatorResourceResolverFactory
+name|String
 name|resourceResolverFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -136,7 +102,7 @@ literal|true
 decl_stmt|;
 DECL|method|getResourceResolverFactory ()
 specifier|public
-name|ValidatorResourceResolverFactory
+name|String
 name|getResourceResolverFactory
 parameter_list|()
 block|{
@@ -144,12 +110,12 @@ return|return
 name|resourceResolverFactory
 return|;
 block|}
-DECL|method|setResourceResolverFactory ( ValidatorResourceResolverFactory resourceResolverFactory)
+DECL|method|setResourceResolverFactory (String resourceResolverFactory)
 specifier|public
 name|void
 name|setResourceResolverFactory
 parameter_list|(
-name|ValidatorResourceResolverFactory
+name|String
 name|resourceResolverFactory
 parameter_list|)
 block|{

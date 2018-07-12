@@ -50,22 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|eclipse
-operator|.
-name|paho
-operator|.
-name|client
-operator|.
-name|mqttv3
-operator|.
-name|MqttConnectOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -75,22 +59,6 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -130,12 +98,10 @@ specifier|private
 name|String
 name|clientId
 decl_stmt|;
-comment|/**      * Client connection options      */
-annotation|@
-name|NestedConfigurationProperty
+comment|/**      * Client connection options. The option is a      * org.eclipse.paho.client.mqttv3.MqttConnectOptions type.      */
 DECL|field|connectOptions
 specifier|private
-name|MqttConnectOptions
+name|String
 name|connectOptions
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -200,7 +166,7 @@ expr_stmt|;
 block|}
 DECL|method|getConnectOptions ()
 specifier|public
-name|MqttConnectOptions
+name|String
 name|getConnectOptions
 parameter_list|()
 block|{
@@ -208,12 +174,12 @@ return|return
 name|connectOptions
 return|;
 block|}
-DECL|method|setConnectOptions (MqttConnectOptions connectOptions)
+DECL|method|setConnectOptions (String connectOptions)
 specifier|public
 name|void
 name|setConnectOptions
 parameter_list|(
-name|MqttConnectOptions
+name|String
 name|connectOptions
 parameter_list|)
 block|{
