@@ -4959,14 +4959,19 @@ argument_list|(
 name|type
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|boolean
+name|isNestedProperty
+init|=
 name|isNestedProperty
 argument_list|(
 name|nestedTypes
 argument_list|,
 name|javaClassSource
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isNestedProperty
 condition|)
 block|{
 name|type
@@ -4977,6 +4982,43 @@ name|getShortJavaType
 argument_list|()
 operator|+
 name|INNER_TYPE_SUFFIX
+expr_stmt|;
+block|}
+comment|// spring-boot auto configuration does not support complex types (unless they are enum, nested)
+comment|// and if so then we should use a String type so spring-boot and its tooling support that
+comment|// as Camel will be able to convert the string value into a lookup of the bean in the registry anyway
+comment|// and therefore there is no problem, eg camel.component.jdbc.data-source = myDataSource
+comment|// where the type would have been javax.sql.DataSource
+name|boolean
+name|complex
+init|=
+name|isComplexType
+argument_list|(
+name|option
+argument_list|)
+operator|&&
+operator|!
+name|isNestedProperty
+operator|&&
+name|Strings
+operator|.
+name|isBlank
+argument_list|(
+name|option
+operator|.
+name|getEnums
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|complex
+condition|)
+block|{
+comment|// force to use a string type
+name|type
+operator|=
+literal|"java.lang.String"
 expr_stmt|;
 block|}
 name|PropertySource
@@ -5149,6 +5191,51 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|String
+name|desc
+init|=
+name|option
+operator|.
+name|getDescription
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|complex
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|desc
+operator|.
+name|endsWith
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+name|desc
+operator|=
+name|desc
+operator|+
+literal|"."
+expr_stmt|;
+block|}
+name|desc
+operator|=
+name|desc
+operator|+
+literal|" The option is a "
+operator|+
+name|option
+operator|.
+name|getJavaType
+argument_list|()
+operator|+
+literal|" type."
+expr_stmt|;
+block|}
 name|prop
 operator|.
 name|getField
@@ -5159,10 +5246,7 @@ argument_list|()
 operator|.
 name|setFullText
 argument_list|(
-name|option
-operator|.
-name|getDescription
-argument_list|()
+name|desc
 argument_list|)
 expr_stmt|;
 block|}
@@ -6213,6 +6297,72 @@ argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isComplexType (ComponentOptionModel option)
+specifier|private
+name|boolean
+name|isComplexType
+parameter_list|(
+name|ComponentOptionModel
+name|option
+parameter_list|)
+block|{
+comment|// all the object types are complex
+return|return
+literal|"object"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|isComplexType (DataFormatOptionModel option)
+specifier|private
+name|boolean
+name|isComplexType
+parameter_list|(
+name|DataFormatOptionModel
+name|option
+parameter_list|)
+block|{
+comment|// all the object types are complex
+return|return
+literal|"object"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|isComplexType (LanguageOptionModel option)
+specifier|private
+name|boolean
+name|isComplexType
+parameter_list|(
+name|LanguageOptionModel
+name|option
+parameter_list|)
+block|{
+comment|// all the object types are complex
+return|return
+literal|"object"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+return|;
 block|}
 comment|// resolved property type name and property source, Roaster doesn't resolve inner classes correctly
 DECL|class|ResolvedProperty
@@ -7443,6 +7593,40 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
+comment|// spring-boot auto configuration does not support complex types (unless they are enum, nested)
+comment|// and if so then we should use a String type so spring-boot and its tooling support that
+comment|// as Camel will be able to convert the string value into a lookup of the bean in the registry anyway
+comment|// and therefore there is no problem, eg camel.component.jdbc.data-source = myDataSource
+comment|// where the type would have been javax.sql.DataSource
+name|boolean
+name|complex
+init|=
+name|isComplexType
+argument_list|(
+name|option
+argument_list|)
+operator|&&
+name|Strings
+operator|.
+name|isBlank
+argument_list|(
+name|option
+operator|.
+name|getEnumValues
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|complex
+condition|)
+block|{
+comment|// force to use a string type
+name|type
+operator|=
+literal|"java.lang.String"
+expr_stmt|;
+block|}
 name|PropertySource
 argument_list|<
 name|JavaClassSource
@@ -7538,6 +7722,51 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|String
+name|desc
+init|=
+name|option
+operator|.
+name|getDescription
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|complex
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|desc
+operator|.
+name|endsWith
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+name|desc
+operator|=
+name|desc
+operator|+
+literal|"."
+expr_stmt|;
+block|}
+name|desc
+operator|=
+name|desc
+operator|+
+literal|" The option is a "
+operator|+
+name|option
+operator|.
+name|getJavaType
+argument_list|()
+operator|+
+literal|" type."
+expr_stmt|;
+block|}
 name|prop
 operator|.
 name|getField
@@ -7548,10 +7777,7 @@ argument_list|()
 operator|.
 name|setFullText
 argument_list|(
-name|option
-operator|.
-name|getDescription
-argument_list|()
+name|desc
 argument_list|)
 expr_stmt|;
 block|}
@@ -8324,6 +8550,40 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
+comment|// spring-boot auto configuration does not support complex types (unless they are enum, nested)
+comment|// and if so then we should use a String type so spring-boot and its tooling support that
+comment|// as Camel will be able to convert the string value into a lookup of the bean in the registry anyway
+comment|// and therefore there is no problem, eg camel.component.jdbc.data-source = myDataSource
+comment|// where the type would have been javax.sql.DataSource
+name|boolean
+name|complex
+init|=
+name|isComplexType
+argument_list|(
+name|option
+argument_list|)
+operator|&&
+name|Strings
+operator|.
+name|isBlank
+argument_list|(
+name|option
+operator|.
+name|getEnumValues
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|complex
+condition|)
+block|{
+comment|// force to use a string type
+name|type
+operator|=
+literal|"java.lang.String"
+expr_stmt|;
+block|}
 name|PropertySource
 argument_list|<
 name|JavaClassSource
@@ -8419,6 +8679,51 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|String
+name|desc
+init|=
+name|option
+operator|.
+name|getDescription
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|complex
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|desc
+operator|.
+name|endsWith
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+name|desc
+operator|=
+name|desc
+operator|+
+literal|"."
+expr_stmt|;
+block|}
+name|desc
+operator|=
+name|desc
+operator|+
+literal|" The option is a "
+operator|+
+name|option
+operator|.
+name|getJavaType
+argument_list|()
+operator|+
+literal|" type."
+expr_stmt|;
+block|}
 name|prop
 operator|.
 name|getField
@@ -8429,10 +8734,7 @@ argument_list|()
 operator|.
 name|setFullText
 argument_list|(
-name|option
-operator|.
-name|getDescription
-argument_list|()
+name|desc
 argument_list|)
 expr_stmt|;
 block|}
