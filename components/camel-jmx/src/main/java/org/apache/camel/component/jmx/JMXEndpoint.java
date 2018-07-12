@@ -480,39 +480,39 @@ specifier|private
 name|Double
 name|thresholdLow
 decl_stmt|;
-comment|/**      * If true, the string monitor will fire a notification when the string attribute differs from the string to compare (string monitor only).      */
+comment|/**      * If true, will fire a notification when the string attribute differs from the string to compare (string monitor or consumer).      * By default the consumer will notify match if observed attribute and string to compare has been configured.      */
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"string"
+literal|"consumer,string"
 argument_list|)
 DECL|field|notifyDiffer
 specifier|private
 name|boolean
 name|notifyDiffer
 decl_stmt|;
-comment|/**      * If true, the string monitor will fire a notification when the string attribute matches the string to compare (string monitor only).      */
+comment|/**      * If true, will fire a notification when the string attribute matches the string to compare (string monitor or consumer).      * By default the consumer will notify match if observed attribute and string to compare has been configured.      */
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"string"
+literal|"consumer,string"
 argument_list|)
 DECL|field|notifyMatch
 specifier|private
 name|boolean
 name|notifyMatch
 decl_stmt|;
-comment|/**      * Value for the string monitor's string to compare (string monitor only).      */
+comment|/**      * Value for attribute to compare (string monitor or consumer).      * By default the consumer will notify match if observed attribute and string to compare has been configured.      */
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"string"
+literal|"consumer,string"
 argument_list|)
 DECL|field|stringToCompare
 specifier|private
