@@ -262,16 +262,16 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Fails to insert element into queue, "
+literal|"Failed to insert element into queue, "
 operator|+
-literal|"after timeout of"
+literal|"after timeout of "
 operator|+
 name|seda
 operator|.
 name|getOfferTimeout
 argument_list|()
 operator|+
-literal|"milliseconds"
+literal|" milliseconds"
 argument_list|)
 expr_stmt|;
 block|}
