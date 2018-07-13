@@ -251,6 +251,14 @@ name|uri
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|details
+operator|.
+name|setTopicPrefix
+argument_list|()
+condition|)
+block|{
 name|connectionFactory
 operator|.
 name|setTopicPrefix
@@ -258,6 +266,7 @@ argument_list|(
 literal|"topic://"
 argument_list|)
 expr_stmt|;
+block|}
 name|setConnectionFactory
 argument_list|(
 name|connectionFactory
