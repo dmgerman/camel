@@ -1140,7 +1140,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Delete Broker command returned the error code {}"
+literal|"Reboot Broker command returned the error code {}"
 argument_list|,
 name|ase
 operator|.

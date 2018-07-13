@@ -4818,7 +4818,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Executing Docker Kill Container Request"
+literal|"Executing Docker Stop Container Request"
 argument_list|)
 expr_stmt|;
 name|String

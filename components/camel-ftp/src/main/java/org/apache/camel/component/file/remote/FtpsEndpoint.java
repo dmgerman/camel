@@ -1231,7 +1231,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Created FTPClient [connectTimeout: {}, soTimeout: {}, dataTimeout: {}, bufferSize: {}"
+literal|"Created FTPSClient [connectTimeout: {}, soTimeout: {}, dataTimeout: {}, bufferSize: {}"
 operator|+
 literal|", receiveDataSocketBufferSize: {}, sendDataSocketBufferSize: {}]: {}"
 argument_list|,

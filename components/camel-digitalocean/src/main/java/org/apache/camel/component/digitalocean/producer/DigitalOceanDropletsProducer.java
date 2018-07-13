@@ -2460,7 +2460,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Rename Droplet {} : [{}] "
+literal|"Change Droplet {} : [{}] "
 argument_list|,
 name|dropletId
 argument_list|,

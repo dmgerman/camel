@@ -660,7 +660,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Error scanning JAR for custom Camel components"
+literal|"Error scanning JAR for custom Camel connectors"
 argument_list|,
 name|e
 argument_list|)

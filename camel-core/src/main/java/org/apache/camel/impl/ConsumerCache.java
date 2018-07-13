@@ -873,7 +873,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Adding to producer service pool with key: {} for producer: {}"
+literal|"Adding to consumer service pool with key: {} for consumer: {}"
 argument_list|,
 name|endpoint
 argument_list|,

@@ -709,7 +709,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Channel closed but no message received from address: {}"
+literal|"Channel is inactive but no message received from address: {}"
 argument_list|,
 name|address
 argument_list|)

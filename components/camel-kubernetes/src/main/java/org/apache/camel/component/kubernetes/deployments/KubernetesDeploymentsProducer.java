@@ -1064,7 +1064,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Create a specific pod require specify a pod name"
+literal|"Create a specific Deployment require specify a pod name"
 argument_list|)
 throw|;
 block|}
@@ -1082,14 +1082,14 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Create a specific pod require specify a namespace name"
+literal|"Create a specific Deployment require specify a namespace name"
 argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Create a specific pod require specify a namespace name"
+literal|"Create a specific Deployment require specify a namespace name"
 argument_list|)
 throw|;
 block|}

@@ -1873,7 +1873,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping JmsReplyManager: {} from processing replies from: {}"
+literal|"Stopping RabbitMQReplyManager: {} from processing replies from: {}"
 argument_list|,
 name|replyManager
 argument_list|,

@@ -1130,7 +1130,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"TimeoutEvent received at Sip Subscription Listener"
+literal|"TimeoutEvent received at Sip Presence Agent Listener"
 argument_list|)
 expr_stmt|;
 block|}

@@ -332,7 +332,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Subscribe to events for queue: {}"
+literal|"Subscribe to events for value: {}"
 argument_list|,
 name|resourceName
 argument_list|)

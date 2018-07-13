@@ -200,7 +200,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Trying to update the post {} with id {}"
+literal|"Trying to update the user {} with id {}"
 argument_list|,
 name|exchange
 operator|.
