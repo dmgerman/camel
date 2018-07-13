@@ -419,7 +419,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-sns://arn:aws:sns:region:account:MyTopic?amazonSNSClient=#amazonSNSClient&accessKey=xxx&secretKey=yyy"
+literal|"aws-sns://arn:aws:sns:us-east-1:account:MyTopic?amazonSNSClient=#amazonSNSClient&accessKey=xxx&secretKey=yyy"
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -435,7 +435,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"arn:aws:sns:region:account:MyTopic"
+literal|"arn:aws:sns:us-east-1:account:MyTopic"
 argument_list|,
 name|endpoint
 operator|.

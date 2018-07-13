@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|regions
+operator|.
+name|Regions
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -297,10 +309,18 @@ name|configuration
 operator|.
 name|setRegion
 argument_list|(
+name|Regions
+operator|.
+name|fromName
+argument_list|(
 name|parts
 index|[
 literal|3
 index|]
+argument_list|)
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration

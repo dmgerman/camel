@@ -551,12 +551,12 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-sqs://arn:aws:sqs:region:account:MyQueue?amazonSQSClient=#amazonSQSClient&accessKey=xxx&secretKey=yyy"
+literal|"aws-sqs://arn:aws:sqs:us-east-1:account:MyQueue?amazonSQSClient=#amazonSQSClient&accessKey=xxx&secretKey=yyy"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"region"
+literal|"US_EAST_1"
 argument_list|,
 name|endpoint
 operator|.
