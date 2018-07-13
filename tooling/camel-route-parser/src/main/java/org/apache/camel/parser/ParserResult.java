@@ -42,6 +42,11 @@ specifier|private
 name|int
 name|position
 decl_stmt|;
+DECL|field|length
+specifier|private
+name|int
+name|length
+decl_stmt|;
 DECL|field|element
 specifier|private
 name|String
@@ -52,7 +57,7 @@ specifier|private
 name|Boolean
 name|predicate
 decl_stmt|;
-DECL|method|ParserResult (String node, int position, String element)
+DECL|method|ParserResult (String node, int position, int length, String element)
 specifier|public
 name|ParserResult
 parameter_list|(
@@ -61,6 +66,9 @@ name|node
 parameter_list|,
 name|int
 name|position
+parameter_list|,
+name|int
+name|length
 parameter_list|,
 name|String
 name|element
@@ -72,13 +80,15 @@ name|node
 argument_list|,
 name|position
 argument_list|,
+name|length
+argument_list|,
 name|element
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ParserResult (String node, int position, String element, boolean parsed)
+DECL|method|ParserResult (String node, int position, int length, String element, boolean parsed)
 specifier|public
 name|ParserResult
 parameter_list|(
@@ -87,6 +97,9 @@ name|node
 parameter_list|,
 name|int
 name|position
+parameter_list|,
+name|int
+name|length
 parameter_list|,
 name|String
 name|element
@@ -106,6 +119,12 @@ operator|.
 name|position
 operator|=
 name|position
+expr_stmt|;
+name|this
+operator|.
+name|length
+operator|=
+name|length
 expr_stmt|;
 name|this
 operator|.
@@ -129,6 +148,17 @@ parameter_list|()
 block|{
 return|return
 name|position
+return|;
+block|}
+comment|/**      * Length of node in the source code (not line based).      */
+DECL|method|getLength ()
+specifier|public
+name|int
+name|getLength
+parameter_list|()
+block|{
+return|return
+name|length
 return|;
 block|}
 comment|/**      * The element such as a Camel endpoint uri      */

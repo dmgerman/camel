@@ -141,6 +141,13 @@ name|to
 argument_list|(
 name|mynetty
 argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:foo"
+operator|+
+literal|"?retainFirst=1"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
