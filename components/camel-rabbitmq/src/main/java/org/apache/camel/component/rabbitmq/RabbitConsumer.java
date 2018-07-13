@@ -1303,7 +1303,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to obtain a RabbitMQ channel. Will try again"
+literal|"Unable to obtain a RabbitMQ channel. Will try again."
+operator|+
+literal|" Caused by: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Integer
