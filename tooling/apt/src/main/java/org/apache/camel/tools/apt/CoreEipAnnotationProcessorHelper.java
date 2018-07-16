@@ -559,10 +559,10 @@ comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generat
 end_comment
 
 begin_class
-DECL|class|CoreEipAnnotationProcessor
+DECL|class|CoreEipAnnotationProcessorHelper
 specifier|public
 class|class
-name|CoreEipAnnotationProcessor
+name|CoreEipAnnotationProcessorHelper
 block|{
 comment|// special when using expression/predicates in the model
 DECL|field|ONE_OF_TYPE_NAME

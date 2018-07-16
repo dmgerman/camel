@@ -726,13 +726,6 @@ block|{
 literal|"org.apache.camel.spi.*"
 block|}
 argument_list|)
-annotation|@
-name|SupportedSourceVersion
-argument_list|(
-name|SourceVersion
-operator|.
-name|RELEASE_8
-argument_list|)
 DECL|class|EndpointAnnotationProcessor
 specifier|public
 class|class
@@ -845,6 +838,21 @@ expr_stmt|;
 block|}
 return|return
 literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getSupportedSourceVersion ()
+specifier|public
+name|SourceVersion
+name|getSupportedSourceVersion
+parameter_list|()
+block|{
+return|return
+name|SourceVersion
+operator|.
+name|latest
+argument_list|()
 return|;
 block|}
 DECL|method|processEndpointClass (final RoundEnvironment roundEnv, final TypeElement classElement)
