@@ -1725,6 +1725,7 @@ block|{
 name|Object
 name|answer
 decl_stmt|;
+specifier|final
 name|XMLStreamReader
 name|xmlReader
 decl_stmt|;
@@ -1746,6 +1747,8 @@ name|XMLStreamReader
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|createNonXmlFilterReader
 argument_list|(
 name|exchange
@@ -1766,6 +1769,8 @@ argument_list|(
 name|XMLStreamReader
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 name|stream
 argument_list|)
