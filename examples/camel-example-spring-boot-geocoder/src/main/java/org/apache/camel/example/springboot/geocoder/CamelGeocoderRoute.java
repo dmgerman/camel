@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|maps
+operator|.
+name|model
+operator|.
+name|GeocodingResult
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,20 +57,6 @@ operator|.
 name|stereotype
 operator|.
 name|Component
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|maps
-operator|.
-name|model
-operator|.
-name|GeocodingResult
 import|;
 end_import
 
