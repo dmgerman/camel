@@ -60,6 +60,11 @@ specifier|private
 name|String
 name|lineNumberEnd
 decl_stmt|;
+DECL|field|linePosition
+specifier|private
+name|int
+name|linePosition
+decl_stmt|;
 comment|// java source code details
 DECL|field|className
 specifier|private
@@ -438,6 +443,32 @@ operator|.
 name|lineNumberEnd
 operator|=
 name|lineNumberEnd
+expr_stmt|;
+block|}
+DECL|method|getLinePosition ()
+specifier|public
+name|int
+name|getLinePosition
+parameter_list|()
+block|{
+return|return
+name|linePosition
+return|;
+block|}
+DECL|method|setLinePosition (int linePosition)
+specifier|public
+name|void
+name|setLinePosition
+parameter_list|(
+name|int
+name|linePosition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|linePosition
+operator|=
+name|linePosition
 expr_stmt|;
 block|}
 DECL|method|getClassName ()

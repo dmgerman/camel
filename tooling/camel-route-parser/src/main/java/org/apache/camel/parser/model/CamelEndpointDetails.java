@@ -43,6 +43,16 @@ specifier|private
 name|String
 name|lineNumberEnd
 decl_stmt|;
+DECL|field|absolutePosition
+specifier|private
+name|int
+name|absolutePosition
+decl_stmt|;
+DECL|field|linePosition
+specifier|private
+name|int
+name|linePosition
+decl_stmt|;
 DECL|field|className
 specifier|private
 name|String
@@ -154,6 +164,60 @@ operator|.
 name|lineNumberEnd
 operator|=
 name|lineNumberEnd
+expr_stmt|;
+block|}
+DECL|method|getAbsolutePosition ()
+specifier|public
+name|int
+name|getAbsolutePosition
+parameter_list|()
+block|{
+return|return
+name|absolutePosition
+return|;
+block|}
+comment|/**      * The absolute position where 0 is the beginning of the file. This is only available for Java DSL.      */
+DECL|method|setAbsolutePosition (int absolutePosition)
+specifier|public
+name|void
+name|setAbsolutePosition
+parameter_list|(
+name|int
+name|absolutePosition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|absolutePosition
+operator|=
+name|absolutePosition
+expr_stmt|;
+block|}
+DECL|method|getLinePosition ()
+specifier|public
+name|int
+name|getLinePosition
+parameter_list|()
+block|{
+return|return
+name|linePosition
+return|;
+block|}
+comment|/**      * The relative position in the line number (start line).      */
+DECL|method|setLinePosition (int linePosition)
+specifier|public
+name|void
+name|setLinePosition
+parameter_list|(
+name|int
+name|linePosition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|linePosition
+operator|=
+name|linePosition
 expr_stmt|;
 block|}
 DECL|method|getClassName ()
