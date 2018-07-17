@@ -746,7 +746,7 @@ return|return
 name|geolocationRequestHostIP
 return|;
 block|}
-comment|/**      * The geolocation service now needs to specify the IP associated to the accessKey you're using      */
+comment|/**      * The geolocation service now needs to specify the IP associated to the      * accessKey you're using      */
 DECL|method|setGeolocationRequestHostIP (String geolocationRequestHostIP)
 specifier|public
 name|void
