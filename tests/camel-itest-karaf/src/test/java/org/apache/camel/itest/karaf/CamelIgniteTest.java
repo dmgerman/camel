@@ -242,7 +242,7 @@ comment|// install ignite first
 name|String
 name|version
 init|=
-literal|"2.5.0"
+literal|"2.6.0"
 decl_stmt|;
 name|LOG
 operator|.
