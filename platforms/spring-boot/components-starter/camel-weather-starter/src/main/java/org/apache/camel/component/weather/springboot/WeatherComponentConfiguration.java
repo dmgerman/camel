@@ -86,6 +86,18 @@ name|WeatherComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * The geolocation service now needs an accessKey to be used      */
+DECL|field|geolocationAccessKey
+specifier|private
+name|String
+name|geolocationAccessKey
+decl_stmt|;
+comment|/**      * The geolocation service now needs to specify the IP associated to the      * accessKey you're using      */
+DECL|field|geolocationRequestHostIP
+specifier|private
+name|String
+name|geolocationRequestHostIP
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -94,6 +106,58 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getGeolocationAccessKey ()
+specifier|public
+name|String
+name|getGeolocationAccessKey
+parameter_list|()
+block|{
+return|return
+name|geolocationAccessKey
+return|;
+block|}
+DECL|method|setGeolocationAccessKey (String geolocationAccessKey)
+specifier|public
+name|void
+name|setGeolocationAccessKey
+parameter_list|(
+name|String
+name|geolocationAccessKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|geolocationAccessKey
+operator|=
+name|geolocationAccessKey
+expr_stmt|;
+block|}
+DECL|method|getGeolocationRequestHostIP ()
+specifier|public
+name|String
+name|getGeolocationRequestHostIP
+parameter_list|()
+block|{
+return|return
+name|geolocationRequestHostIP
+return|;
+block|}
+DECL|method|setGeolocationRequestHostIP (String geolocationRequestHostIP)
+specifier|public
+name|void
+name|setGeolocationRequestHostIP
+parameter_list|(
+name|String
+name|geolocationRequestHostIP
+parameter_list|)
+block|{
+name|this
+operator|.
+name|geolocationRequestHostIP
+operator|=
+name|geolocationRequestHostIP
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean

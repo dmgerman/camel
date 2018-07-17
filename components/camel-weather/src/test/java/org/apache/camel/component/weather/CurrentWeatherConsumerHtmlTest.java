@@ -121,7 +121,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"weather:foo?mode=HTML&appid=9162755b2efa555823cfe0451d7fff38"
+literal|"weather:foo?mode=HTML&appid=9162755b2efa555823cfe0451d7fff38&geolocationAccessKey=test&geolocationRequestHostIP=test"
 argument_list|)
 operator|.
 name|to

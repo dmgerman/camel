@@ -410,7 +410,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"weather:foo?location=Madrid,Spain&appid=9162755b2efa555823cfe0451d7fff38"
+literal|"weather:foo?location=Madrid,Spain&appid=9162755b2efa555823cfe0451d7fff38&geolocationAccessKey=test&geolocationRequestHostIP=test"
 argument_list|)
 operator|.
 name|to
