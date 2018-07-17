@@ -1766,6 +1766,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|isHl7Headers
+argument_list|()
+operator|&&
 name|exchange
 operator|!=
 literal|null
@@ -1911,21 +1917,13 @@ block|{
 comment|// TODO:  May want to throw some sort of an Exception here
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Population of message headers failed - unable to find the end of the MSH segment"
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|getConfiguration
-argument_list|()
-operator|.
-name|isHl7Headers
-argument_list|()
-condition|)
+else|else
 block|{
 name|log
 operator|.
@@ -2264,6 +2262,7 @@ block|}
 block|}
 block|}
 block|}
+block|}
 else|else
 block|{
 name|log
@@ -2273,7 +2272,6 @@ argument_list|(
 literal|"HL7 Message headers disabled"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|sendAcknowledgement (byte[] originalHl7MessageBytes, Exchange exchange, TcpSocketConsumerRunnable consumerRunnable)
