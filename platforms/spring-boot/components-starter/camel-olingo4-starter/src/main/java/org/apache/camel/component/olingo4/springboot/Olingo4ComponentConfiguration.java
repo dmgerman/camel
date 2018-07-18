@@ -192,6 +192,12 @@ name|Olingo4ComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the olingo4 component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the shared configuration      */
 DECL|field|configuration
 specifier|private

@@ -86,6 +86,12 @@ name|MQTTComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the mqtt component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The URI of the MQTT broker to connect too - this component also supports      * SSL - e.g. ssl://127.0.0.1:8883      */
 DECL|field|host
 specifier|private

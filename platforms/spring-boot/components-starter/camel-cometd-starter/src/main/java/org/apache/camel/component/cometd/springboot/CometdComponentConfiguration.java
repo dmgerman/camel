@@ -112,6 +112,12 @@ name|CometdComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the cometd component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The password for the keystore when using SSL.      */
 DECL|field|sslKeyPassword
 specifier|private

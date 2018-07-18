@@ -132,6 +132,12 @@ name|WordpressComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the wordpress component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Wordpress component configuration      */
 DECL|field|configuration
 specifier|private

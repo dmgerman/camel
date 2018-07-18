@@ -86,6 +86,12 @@ name|SchedulerComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the scheduler component      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Number of threads used by the scheduling thread pool. Is by default using      * a single thread      */
 DECL|field|concurrentTasks
 specifier|private

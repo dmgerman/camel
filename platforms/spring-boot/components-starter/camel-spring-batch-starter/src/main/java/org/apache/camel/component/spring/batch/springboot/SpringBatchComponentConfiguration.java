@@ -88,6 +88,12 @@ name|SpringBatchComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the spring-batch component. This      * is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Explicitly specifies a JobLauncher to be used. The option is a      * org.springframework.batch.core.launch.JobLauncher type.      */
 DECL|field|jobLauncher
 specifier|private

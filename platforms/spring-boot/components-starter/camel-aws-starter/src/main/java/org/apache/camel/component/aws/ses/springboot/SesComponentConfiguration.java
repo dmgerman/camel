@@ -112,6 +112,12 @@ name|SesComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the aws-ses component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The AWS SES default configuration      */
 DECL|field|configuration
 specifier|private

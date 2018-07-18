@@ -86,6 +86,12 @@ name|WeatherComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the weather component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The geolocation service now needs an accessKey to be used      */
 DECL|field|geolocationAccessKey
 specifier|private

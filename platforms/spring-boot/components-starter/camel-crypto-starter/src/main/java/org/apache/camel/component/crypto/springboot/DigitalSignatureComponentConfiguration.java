@@ -198,6 +198,12 @@ name|DigitalSignatureComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the crypto component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the shared DigitalSignatureConfiguration as configuration      */
 DECL|field|configuration
 specifier|private

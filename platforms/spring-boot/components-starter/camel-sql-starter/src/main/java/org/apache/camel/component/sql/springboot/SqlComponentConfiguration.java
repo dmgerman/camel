@@ -86,6 +86,12 @@ name|SqlComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the sql component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Sets the DataSource to use to communicate with the database. The option      * is a javax.sql.DataSource type.      */
 DECL|field|dataSource
 specifier|private

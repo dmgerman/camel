@@ -86,6 +86,12 @@ name|OpenShiftComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the openshift component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The username to login to openshift server.      */
 DECL|field|username
 specifier|private

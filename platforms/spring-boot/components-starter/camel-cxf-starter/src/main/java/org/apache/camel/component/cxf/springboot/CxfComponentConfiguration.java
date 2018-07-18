@@ -86,6 +86,12 @@ name|CxfComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the cxf component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * This option controls whether the CXF component, when running in PAYLOAD      * mode, will DOM parse the incoming messages into DOM Elements or keep the      * payload as a javax.xml.transform.Source object that would allow streaming      * in some cases.      */
 DECL|field|allowStreaming
 specifier|private

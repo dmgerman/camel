@@ -110,6 +110,12 @@ name|XsltComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the xslt component      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a custom implementation of      * org.apache.camel.converter.jaxp.XmlConverter      */
 DECL|field|xmlConverter
 specifier|private

@@ -86,6 +86,12 @@ name|LogComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the log component      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Sets a custom ExchangeFormatter to convert the Exchange to a String      * suitable for logging. If not specified, we default to      * DefaultExchangeFormatter. The option is a      * org.apache.camel.spi.ExchangeFormatter type.      */
 DECL|field|exchangeFormatter
 specifier|private

@@ -86,6 +86,12 @@ name|PahoComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the paho component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The URL of the MQTT broker.      */
 DECL|field|brokerUrl
 specifier|private

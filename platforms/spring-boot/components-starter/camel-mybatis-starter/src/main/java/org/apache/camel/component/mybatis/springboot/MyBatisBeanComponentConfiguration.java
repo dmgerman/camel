@@ -86,6 +86,12 @@ name|MyBatisBeanComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the mybatis-bean component. This      * is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the SqlSessionFactory. The option is a      * org.apache.ibatis.session.SqlSessionFactory type.      */
 DECL|field|sqlSessionFactory
 specifier|private

@@ -86,6 +86,12 @@ name|FlinkComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the flink component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * DataSet to compute against. The option is a      * org.apache.flink.api.java.DataSet type.      */
 DECL|field|dataSet
 specifier|private

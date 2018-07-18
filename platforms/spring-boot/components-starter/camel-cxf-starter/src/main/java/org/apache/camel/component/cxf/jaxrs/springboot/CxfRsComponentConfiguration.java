@@ -88,6 +88,12 @@ name|CxfRsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the cxfrs component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Enable usage of global SSL context parameters.      */
 DECL|field|useGlobalSslContextParameters
 specifier|private

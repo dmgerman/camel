@@ -86,6 +86,12 @@ name|XQueryComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the xquery component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the custom ModuleURIResolver. The option is a      * net.sf.saxon.lib.ModuleURIResolver type.      */
 DECL|field|moduleURIResolver
 specifier|private

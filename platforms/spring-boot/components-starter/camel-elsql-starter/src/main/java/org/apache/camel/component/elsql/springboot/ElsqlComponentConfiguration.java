@@ -102,6 +102,12 @@ name|ElsqlComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the elsql component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a vendor specific com.opengamma.elsql.ElSqlConfig      */
 DECL|field|databaseVendor
 specifier|private

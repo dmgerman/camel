@@ -86,6 +86,12 @@ name|MicrometerComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the micrometer component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a custom configured MetricRegistry. The option is a      * io.micrometer.core.instrument.MeterRegistry type.      */
 DECL|field|metricsRegistry
 specifier|private

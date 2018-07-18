@@ -86,6 +86,12 @@ name|JoltComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jolt component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Explicitly sets the Transform to use. If not set a Transform specified by      * the transformDsl will be created. The option is a      * com.bazaarvoice.jolt.Transform type.      */
 DECL|field|transform
 specifier|private

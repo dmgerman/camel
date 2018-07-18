@@ -86,6 +86,12 @@ name|AtmosComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the atmos component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The token id to pass to the Atmos client      */
 DECL|field|fullTokenId
 specifier|private

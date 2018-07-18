@@ -150,6 +150,12 @@ name|DisruptorComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the disruptor component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To configure the default number of concurrent consumers      */
 DECL|field|defaultConcurrentConsumers
 specifier|private

@@ -152,6 +152,12 @@ name|S3ComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the aws-s3 component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The AWS S3 default configuration      */
 DECL|field|configuration
 specifier|private

@@ -86,6 +86,12 @@ name|VelocityComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the velocity component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the VelocityEngine otherwise a new engine is created. The option      * is a org.apache.velocity.app.VelocityEngine type.      */
 DECL|field|velocityEngine
 specifier|private

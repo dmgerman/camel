@@ -260,6 +260,12 @@ name|XmlSignatureComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the xmlsecurity component. This      * is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a shared XmlSignerConfiguration configuration to use as base for      * configuring endpoints.      */
 DECL|field|signerConfiguration
 specifier|private

@@ -88,6 +88,12 @@ name|WebsocketComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the atmosphere-websocket      * component. This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Default name of servlet to use. The default name is CamelServlet.      */
 DECL|field|servletName
 specifier|private

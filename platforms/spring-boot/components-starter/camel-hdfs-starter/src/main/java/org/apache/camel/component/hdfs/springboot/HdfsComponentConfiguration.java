@@ -86,6 +86,12 @@ name|HdfsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the hdfs component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the given configuration for security with JAAS. The option is a      * javax.security.auth.login.Configuration type.      */
 DECL|field|jAASConfiguration
 specifier|private

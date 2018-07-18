@@ -88,6 +88,12 @@ name|HazelcastQueueComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the hazelcast-queue component.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The hazelcast instance reference which can be used for hazelcast      * endpoint. If you don't specify the instance reference, camel use the      * default hazelcast instance from the camel-hazelcast instance. The option      * is a com.hazelcast.core.HazelcastInstance type.      */
 DECL|field|hazelcastInstance
 specifier|private

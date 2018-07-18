@@ -128,6 +128,12 @@ name|MiloServerComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the milo-server component. This      * is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The URI of the namespace, defaults to urn:org:apache:camel      */
 DECL|field|namespaceUri
 specifier|private

@@ -86,6 +86,12 @@ name|JettyHttpComponentConfiguration9
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jetty component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The key password, which is used to access the certificate's key entry in      * the keystore (this is the same password that is supplied to the keystore      * command's -keypass option).      */
 DECL|field|sslKeyPassword
 specifier|private

@@ -86,6 +86,12 @@ name|MustacheComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the mustache component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a custom MustacheFactory. The option is a      * com.github.mustachejava.MustacheFactory type.      */
 DECL|field|mustacheFactory
 specifier|private

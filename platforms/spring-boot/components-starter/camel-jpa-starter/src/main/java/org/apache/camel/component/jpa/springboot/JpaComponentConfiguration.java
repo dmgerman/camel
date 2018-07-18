@@ -86,6 +86,12 @@ name|JpaComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jpa component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the EntityManagerFactory. This is strongly recommended to      * configure. The option is a javax.persistence.EntityManagerFactory type.      */
 DECL|field|entityManagerFactory
 specifier|private

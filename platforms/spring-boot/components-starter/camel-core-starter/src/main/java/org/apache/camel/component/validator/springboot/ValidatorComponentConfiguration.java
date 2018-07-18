@@ -86,6 +86,12 @@ name|ValidatorComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the validator component      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a custom LSResourceResolver which depends on a dynamic endpoint      * resource URI. The option is a      * org.apache.camel.component.validator.ValidatorResourceResolverFactory      * type.      */
 DECL|field|resourceResolverFactory
 specifier|private

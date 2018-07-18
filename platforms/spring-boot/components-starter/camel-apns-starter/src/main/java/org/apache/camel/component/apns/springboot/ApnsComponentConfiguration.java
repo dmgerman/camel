@@ -86,6 +86,12 @@ name|ApnsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the apns component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The ApnsService to use. The      * org.apache.camel.component.apns.factory.ApnsServiceFactory can be used to      * build a ApnsService. The option is a com.notnoop.apns.ApnsService type.      */
 DECL|field|apnsService
 specifier|private

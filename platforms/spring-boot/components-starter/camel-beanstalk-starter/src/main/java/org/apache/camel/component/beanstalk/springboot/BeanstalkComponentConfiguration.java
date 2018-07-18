@@ -86,6 +86,12 @@ name|BeanstalkComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the beanstalk component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Custom ConnectionSettingsFactory. Specify which ConnectionSettingsFactory      * to use to make connections to Beanstalkd. Especially useful for unit      * testing without beanstalkd daemon (you can mock ConnectionSettings). The      * option is a      * org.apache.camel.component.beanstalk.ConnectionSettingsFactory type.      */
 DECL|field|connectionSettingsFactory
 specifier|private

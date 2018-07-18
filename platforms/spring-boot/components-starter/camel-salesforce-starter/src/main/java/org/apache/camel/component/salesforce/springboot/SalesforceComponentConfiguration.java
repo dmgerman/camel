@@ -350,6 +350,12 @@ name|SalesforceComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the salesforce component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Explicit authentication method to be used, one of USERNAME_PASSWORD,      * REFRESH_TOKEN or JWT. Salesforce component can auto-determine the      * authentication method to use from the properties set, set this property      * to eliminate any ambiguity.      */
 DECL|field|authenticationType
 specifier|private

@@ -88,6 +88,12 @@ name|IgniteCacheComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the ignite-cache component. This      * is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Sets the Ignite instance. The option is a org.apache.ignite.Ignite type.      */
 DECL|field|ignite
 specifier|private

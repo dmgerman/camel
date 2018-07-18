@@ -112,6 +112,12 @@ name|PropertiesComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the properties component      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * A list of locations to load properties. This option will override any      * default locations and only use the locations from this option.      */
 DECL|field|locations
 specifier|private

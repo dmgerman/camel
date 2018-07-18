@@ -86,6 +86,12 @@ name|YqlComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the yql component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a custom configured HttpClientConnectionManager. The option is a      * org.apache.http.conn.HttpClientConnectionManager type.      */
 DECL|field|connectionManager
 specifier|private

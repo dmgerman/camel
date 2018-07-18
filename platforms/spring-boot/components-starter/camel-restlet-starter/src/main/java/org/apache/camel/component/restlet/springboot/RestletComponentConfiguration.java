@@ -96,6 +96,12 @@ name|RestletComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the restlet component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Indicates if the controller thread should be a daemon (not blocking JVM      * exit).      */
 DECL|field|controllerDaemon
 specifier|private

@@ -88,6 +88,12 @@ name|GooglePubsubComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the google-pubsub component. This      * is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Sets the connection factory to use: provides the ability to explicitly      * manage connection credentials: - the path to the key file - the Service      * Account Key / Email pair      */
 DECL|field|connectionFactory
 specifier|private

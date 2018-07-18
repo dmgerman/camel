@@ -86,6 +86,12 @@ name|Sjms2ComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the sjms2 component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * A ConnectionFactory is required to enable the SjmsComponent. It can be      * set directly or set set as part of a ConnectionResource. The option is a      * javax.jms.ConnectionFactory type.      */
 DECL|field|connectionFactory
 specifier|private

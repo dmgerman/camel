@@ -146,6 +146,12 @@ name|AMQPComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the amqp component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a shared JMS configuration. The option is a      * org.apache.camel.component.jms.JmsConfiguration type.      */
 DECL|field|configuration
 specifier|private

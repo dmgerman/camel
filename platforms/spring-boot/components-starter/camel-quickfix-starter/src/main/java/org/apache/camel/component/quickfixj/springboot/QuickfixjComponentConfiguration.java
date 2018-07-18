@@ -86,6 +86,12 @@ name|QuickfixjComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the quickfix component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the given MessageFactory. The option is a quickfix.MessageFactory      * type.      */
 DECL|field|messageFactory
 specifier|private

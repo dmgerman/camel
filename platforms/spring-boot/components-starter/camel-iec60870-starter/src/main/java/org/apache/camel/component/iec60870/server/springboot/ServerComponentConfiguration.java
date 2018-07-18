@@ -88,6 +88,12 @@ name|ServerComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the iec60870-server component.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Default connection options      */
 DECL|field|defaultConnectionOptions
 specifier|private

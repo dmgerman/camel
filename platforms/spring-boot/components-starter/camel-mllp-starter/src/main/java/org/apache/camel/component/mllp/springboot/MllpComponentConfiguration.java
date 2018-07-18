@@ -130,6 +130,12 @@ name|MllpComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the mllp component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Set the component to log PHI data.      */
 DECL|field|logPhi
 specifier|private

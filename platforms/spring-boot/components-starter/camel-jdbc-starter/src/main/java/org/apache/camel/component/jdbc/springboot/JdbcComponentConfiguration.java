@@ -86,6 +86,12 @@ name|JdbcComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jdbc component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the DataSource instance instead of looking up the data source by      * name from the registry. The option is a javax.sql.DataSource type.      */
 DECL|field|dataSource
 specifier|private

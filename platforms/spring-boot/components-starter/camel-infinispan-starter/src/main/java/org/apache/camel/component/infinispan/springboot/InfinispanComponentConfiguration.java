@@ -212,6 +212,12 @@ name|InfinispanComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the infinispan component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The default configuration shared among endpoints.      */
 DECL|field|configuration
 specifier|private

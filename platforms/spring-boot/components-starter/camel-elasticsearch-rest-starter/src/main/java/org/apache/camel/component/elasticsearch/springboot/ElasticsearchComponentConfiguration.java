@@ -86,6 +86,12 @@ name|ElasticsearchComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the elasticsearch-rest component.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use an existing configured Elasticsearch client, instead of creating a      * client per endpoint. This allow to customize the client with specific      * settings. The option is a org.elasticsearch.client.RestClient type.      */
 DECL|field|client
 specifier|private

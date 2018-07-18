@@ -208,6 +208,12 @@ name|ServiceNowComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the servicenow component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The ServiceNow instance name      */
 DECL|field|instanceName
 specifier|private

@@ -86,6 +86,12 @@ name|HttpComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the https4 component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the custom HttpClientConfigurer to perform configuration of the      * HttpClient that will be used. The option is a      * org.apache.camel.component.http4.HttpClientConfigurer type.      */
 DECL|field|httpClientConfigurer
 specifier|private

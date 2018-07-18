@@ -88,6 +88,12 @@ name|WsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the ahc-wss component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a custom AsyncHttpClient. The option is a      * org.asynchttpclient.AsyncHttpClient type.      */
 DECL|field|client
 specifier|private

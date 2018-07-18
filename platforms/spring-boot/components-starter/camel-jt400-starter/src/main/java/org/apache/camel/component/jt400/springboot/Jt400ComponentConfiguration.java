@@ -86,6 +86,12 @@ name|Jt400ComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jt400 component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Returns the default connection pool used by this component. The option is      * a com.ibm.as400.access.AS400ConnectionPool type.      */
 DECL|field|connectionPool
 specifier|private

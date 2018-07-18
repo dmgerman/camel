@@ -88,6 +88,12 @@ name|GuavaEventBusComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the guava-eventbus component.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the given Guava EventBus instance. The option is a      * com.google.common.eventbus.EventBus type.      */
 DECL|field|eventBus
 specifier|private

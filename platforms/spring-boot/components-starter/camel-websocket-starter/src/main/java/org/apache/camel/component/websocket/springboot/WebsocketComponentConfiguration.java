@@ -86,6 +86,12 @@ name|WebsocketComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the websocket component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Set a resource path for static resources (such as .html files etc). The      * resources can be loaded from classpath, if you prefix with classpath:,      * otherwise the resources is loaded from file system or from JAR files. For      * example to load from root classpath use classpath:., or      * classpath:WEB-INF/static If not configured (eg null) then no static      * resource is in use.      */
 DECL|field|staticResources
 specifier|private

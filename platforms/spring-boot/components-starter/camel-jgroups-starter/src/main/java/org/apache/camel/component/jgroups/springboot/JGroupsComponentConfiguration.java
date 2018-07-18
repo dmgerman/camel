@@ -86,6 +86,12 @@ name|JGroupsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jgroups component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Channel to use. The option is a org.jgroups.JChannel type.      */
 DECL|field|channel
 specifier|private

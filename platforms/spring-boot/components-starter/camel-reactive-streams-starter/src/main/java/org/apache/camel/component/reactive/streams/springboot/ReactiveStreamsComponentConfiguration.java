@@ -124,6 +124,12 @@ name|ReactiveStreamsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the reactive-streams component.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Configures the internal engine for Reactive Streams.      */
 DECL|field|internalEngineConfiguration
 specifier|private

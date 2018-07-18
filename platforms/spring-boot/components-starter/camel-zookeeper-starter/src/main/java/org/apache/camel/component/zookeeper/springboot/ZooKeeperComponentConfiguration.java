@@ -112,6 +112,12 @@ name|ZooKeeperComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the zookeeper component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a shared ZooKeeperConfiguration      */
 DECL|field|configuration
 specifier|private

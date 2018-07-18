@@ -86,6 +86,12 @@ name|RabbitMQComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the rabbitmq component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The hostname of the running rabbitmq instance or cluster.      */
 DECL|field|hostname
 specifier|private

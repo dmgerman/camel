@@ -86,6 +86,12 @@ name|QuartzComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the quartz2 component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Whether or not the scheduler should be auto started. This options is      * default true      */
 DECL|field|autoStartScheduler
 specifier|private

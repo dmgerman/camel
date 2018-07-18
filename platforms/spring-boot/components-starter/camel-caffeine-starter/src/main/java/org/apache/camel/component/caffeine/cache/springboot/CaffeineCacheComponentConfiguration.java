@@ -188,6 +188,12 @@ name|CaffeineCacheComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the caffeine-cache component.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Sets the global component configuration      */
 DECL|field|configuration
 specifier|private

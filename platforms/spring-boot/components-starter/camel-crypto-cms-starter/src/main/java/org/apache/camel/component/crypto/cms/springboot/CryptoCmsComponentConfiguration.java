@@ -88,6 +88,12 @@ name|CryptoCmsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the crypto-cms component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To configure the shared SignedDataVerifierConfiguration, which determines      * the uri parameters for the verify operation. The option is a      * org.apache.camel.component.crypto.cms.sig.SignedDataVerifierConfiguration      * type.      */
 DECL|field|signedDataVerifierConfiguration
 specifier|private

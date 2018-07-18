@@ -86,6 +86,12 @@ name|VertxComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the vertx component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a custom VertxFactory implementation. The option is a      * io.vertx.core.spi.VertxFactory type.      */
 DECL|field|vertxFactory
 specifier|private

@@ -88,6 +88,12 @@ name|MsvComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the msv component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use the javax.xml.validation.SchemaFactory. The option is a      * javax.xml.validation.SchemaFactory type.      */
 DECL|field|schemaFactory
 specifier|private

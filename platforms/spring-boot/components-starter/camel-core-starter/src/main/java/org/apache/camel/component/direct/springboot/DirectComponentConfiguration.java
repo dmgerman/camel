@@ -86,6 +86,12 @@ name|DirectComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the direct component      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * If sending a message to a direct endpoint which has no active consumer,      * then we can tell the producer to block and wait for the consumer to      * become active.      */
 DECL|field|block
 specifier|private

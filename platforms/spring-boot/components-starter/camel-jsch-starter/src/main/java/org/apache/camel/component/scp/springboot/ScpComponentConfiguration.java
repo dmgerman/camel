@@ -86,6 +86,12 @@ name|ScpComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the scp component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * JSCH is verbose logging out of the box. Therefore we turn the logging      * down to DEBUG logging by default. But setting this option to true turns      * on the verbose logging again.      */
 DECL|field|verboseLogging
 specifier|private

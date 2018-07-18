@@ -324,6 +324,12 @@ name|NettyComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the netty4 component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The thread pool size for the EventExecutorGroup if its in use. The      * default value is 16.      */
 DECL|field|maximumPoolSize
 specifier|private

@@ -130,6 +130,12 @@ name|AvroComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the avro component. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To use a shared AvroConfiguration to configure options once      */
 DECL|field|configuration
 specifier|private
