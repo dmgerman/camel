@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.fhir
+DECL|package|org.apache.camel.component.fhir.dataformat
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|fhir
+operator|.
+name|dataformat
 package|;
 end_package
 
@@ -72,6 +74,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|mock
@@ -90,9 +106,9 @@ name|camel
 operator|.
 name|test
 operator|.
-name|spring
+name|junit4
 operator|.
-name|CamelSpringTestSupport
+name|CamelTestSupport
 import|;
 end_import
 
@@ -198,41 +214,13 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|AbstractApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
-import|;
-end_import
-
 begin_class
-DECL|class|FhirJsonDataFormatSpringTest
+DECL|class|FhirXmlDataFormatTest
 specifier|public
 class|class
-name|FhirJsonDataFormatSpringTest
+name|FhirXmlDataFormatTest
 extends|extends
-name|CamelSpringTestSupport
+name|CamelTestSupport
 block|{
 DECL|field|PATIENT
 specifier|private
@@ -241,11 +229,13 @@ specifier|final
 name|String
 name|PATIENT
 init|=
-literal|"{\"resourceType\":\"Patient\","
+literal|"<Patient xmlns=\"http://hl7.org/fhir\">"
 operator|+
-literal|"\"name\":[{\"family\":\"Holmes\",\"given\":[\"Sherlock\"]}],"
+literal|"<name><family value=\"Holmes\"/><given value=\"Sherlock\"/></name>"
 operator|+
-literal|"\"address\":[{\"line\":[\"221b Baker St, Marylebone, London NW1 6XE, UK\"]}]}"
+literal|"<address><line value=\"221b Baker St, Marylebone, London NW1 6XE, UK\"/></address>"
+operator|+
+literal|"</Patient>"
 decl_stmt|;
 DECL|field|mockEndpoint
 specifier|private
@@ -418,6 +408,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|final
 name|IBaseResource
 name|iBaseResource
 init|=
@@ -426,7 +417,7 @@ operator|.
 name|forDstu3
 argument_list|()
 operator|.
-name|newJsonParser
+name|newXmlParser
 argument_list|()
 operator|.
 name|parseResource
@@ -502,20 +493,56 @@ return|return
 name|patient
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|createApplicationContext ()
+DECL|method|createRouteBuilder ()
 specifier|protected
-name|AbstractApplicationContext
-name|createApplicationContext
+name|RouteBuilder
+name|createRouteBuilder
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ClassPathXmlApplicationContext
+name|RouteBuilder
+argument_list|()
+block|{
+specifier|public
+name|void
+name|configure
+parameter_list|()
+block|{
+name|from
 argument_list|(
-literal|"org/apache/camel/dataformat/fhir/json/FhirJsonDataFormatSpringTest.xml"
+literal|"direct:marshal"
 argument_list|)
+operator|.
+name|marshal
+argument_list|()
+operator|.
+name|fhirXml
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:unmarshal"
+argument_list|)
+operator|.
+name|unmarshal
+argument_list|()
+operator|.
+name|fhirXml
+argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|;
 block|}
 block|}
