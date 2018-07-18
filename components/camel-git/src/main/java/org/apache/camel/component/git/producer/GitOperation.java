@@ -104,6 +104,12 @@ name|PUSH_OPERATION
 init|=
 literal|"push"
 decl_stmt|;
+DECL|field|PUSH_TAG_OPERATION
+name|String
+name|PUSH_TAG_OPERATION
+init|=
+literal|"pushTag"
+decl_stmt|;
 DECL|field|PULL_OPERATION
 name|String
 name|PULL_OPERATION
