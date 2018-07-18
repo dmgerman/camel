@@ -381,13 +381,13 @@ specifier|private
 name|String
 name|proxyUser
 decl_stmt|;
-comment|/**          * "To use the custom client"          */
+comment|/**          * To use the custom client          */
 DECL|field|client
 specifier|private
 name|IGenericClient
 name|client
 decl_stmt|;
-comment|/**          * "To use the custom client factory"          */
+comment|/**          * To use the custom client factory          */
 DECL|field|clientFactory
 specifier|private
 name|IRestfulClientFactory

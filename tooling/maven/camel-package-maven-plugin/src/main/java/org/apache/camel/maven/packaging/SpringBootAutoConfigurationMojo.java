@@ -5921,7 +5921,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|getLiteralValue
+name|getStringValue
 argument_list|(
 literal|"description"
 argument_list|)
@@ -5957,7 +5957,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|getLiteralValue
+name|getStringValue
 argument_list|(
 literal|"description"
 argument_list|)
@@ -5993,7 +5993,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|getLiteralValue
+name|getStringValue
 argument_list|(
 literal|"description"
 argument_list|)
