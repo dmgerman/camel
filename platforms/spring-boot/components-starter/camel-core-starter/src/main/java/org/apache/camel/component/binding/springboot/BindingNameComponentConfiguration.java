@@ -86,7 +86,7 @@ name|BindingNameComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the binding component      */
+comment|/**      * Whether to enable auto configuration of the binding component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

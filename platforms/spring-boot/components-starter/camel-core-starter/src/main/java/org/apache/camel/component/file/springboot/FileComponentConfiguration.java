@@ -86,7 +86,7 @@ name|FileComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the file component      */
+comment|/**      * Whether to enable auto configuration of the file component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

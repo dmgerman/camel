@@ -86,7 +86,7 @@ name|TimerComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the timer component      */
+comment|/**      * Whether to enable auto configuration of the timer component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

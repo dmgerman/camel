@@ -86,7 +86,7 @@ name|SipComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the sips component. This is      * enabled by default.      */
+comment|/**      * Whether to enable auto configuration of the sip component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

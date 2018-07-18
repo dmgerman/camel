@@ -86,7 +86,7 @@ name|BeanComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the bean component      */
+comment|/**      * Whether to enable auto configuration of the bean component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

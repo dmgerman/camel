@@ -86,7 +86,7 @@ name|SagaComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the saga component      */
+comment|/**      * Whether to enable auto configuration of the saga component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

@@ -86,7 +86,7 @@ name|ClassComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the class component      */
+comment|/**      * Whether to enable auto configuration of the class component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean
