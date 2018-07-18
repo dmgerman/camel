@@ -327,7 +327,7 @@ argument_list|,
 literal|"camel-hl7"
 argument_list|)
 argument_list|)
-block|,     ;
+block|;
 DECL|field|options
 specifier|private
 specifier|final

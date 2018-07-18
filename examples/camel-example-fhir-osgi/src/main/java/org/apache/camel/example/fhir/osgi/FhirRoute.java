@@ -166,7 +166,9 @@ name|LoggingLevel
 operator|.
 name|ERROR
 argument_list|,
-literal|"Error connecting to FHIR server with URL:{{serverUrl}}, please check the org.apache.camel.example.fhir.osgi.configuration.cfg configuration file ${exception.message}"
+literal|"Error connecting to FHIR server with URL:{{serverUrl}}, "
+operator|+
+literal|"please check the org.apache.camel.example.fhir.osgi.configuration.cfg configuration file ${exception.message}"
 argument_list|)
 operator|.
 name|end
