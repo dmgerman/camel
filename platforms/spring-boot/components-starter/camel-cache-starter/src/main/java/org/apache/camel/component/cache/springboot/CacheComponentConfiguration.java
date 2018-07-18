@@ -344,8 +344,6 @@ init|=
 literal|1000
 decl_stmt|;
 comment|/**          * Which eviction strategy to use when maximum number of elements in          * memory is reached. The strategy defines which elements to be removed.          *<ul>          *<li>LRU - Lest Recently Used</li>          *<li>LFU - Lest Frequently Used</li>          *<li>FIFO - First In First Out</li>          *</ul>          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|memoryStoreEvictionPolicy
 specifier|private
 name|MemoryStoreEvictionPolicy

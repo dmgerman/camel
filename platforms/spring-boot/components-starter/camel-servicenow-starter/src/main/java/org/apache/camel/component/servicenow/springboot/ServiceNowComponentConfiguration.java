@@ -870,8 +870,6 @@ name|Map
 name|requestModels
 decl_stmt|;
 comment|/**          * Sets Jackson's ObjectMapper to use for request/reply          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|mapper
 specifier|private
 name|ObjectMapper
@@ -902,16 +900,12 @@ name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
 comment|/**          * To configure http-client          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|httpClientPolicy
 specifier|private
 name|HTTPClientPolicy
 name|httpClientPolicy
 decl_stmt|;
 comment|/**          * To configure proxy authentication          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|proxyAuthorizationPolicy
 specifier|private
 name|ProxyAuthorizationPolicy

@@ -874,8 +874,6 @@ init|=
 literal|false
 decl_stmt|;
 comment|/**          * Reference to a class that could be used to return an SSL Handler          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|sslHandler
 specifier|private
 name|SslHandler

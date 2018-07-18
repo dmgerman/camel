@@ -598,24 +598,6 @@ name|model
 operator|.
 name|source
 operator|.
-name|FieldSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|forge
-operator|.
-name|roaster
-operator|.
-name|model
-operator|.
-name|source
-operator|.
 name|Import
 import|;
 end_import
@@ -1108,19 +1090,19 @@ name|INNER_TYPE_SUFFIX
 init|=
 literal|"NestedConfiguration"
 decl_stmt|;
-comment|/**      * Classes to exclude when adding {@link NestedConfigurationProperty} annotations.      */
-DECL|field|EXCLUDE_INNER_PATTERN
+comment|/**      * Classes to include when adding {@link NestedConfigurationProperty} annotations.      */
+DECL|field|INCLUDE_INNER_PATTERN
 specifier|private
 specifier|static
 specifier|final
 name|Pattern
-name|EXCLUDE_INNER_PATTERN
+name|INCLUDE_INNER_PATTERN
 init|=
 name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"^((java\\.)|(javax\\.)|(org\\.springframework\\.context\\.ApplicationContext)|(freemarker\\.template\\.Configuration)).*"
+literal|"org\\.apache\\.camel\\..*"
 argument_list|)
 decl_stmt|;
 DECL|field|PRIMITIVEMAP
@@ -5123,8 +5105,7 @@ operator|==
 operator|-
 literal|1
 operator|&&
-operator|!
-name|EXCLUDE_INNER_PATTERN
+name|INCLUDE_INNER_PATTERN
 operator|.
 name|matcher
 argument_list|(
@@ -5683,8 +5664,7 @@ block|}
 comment|// add nested configuration annotation for complex properties
 if|if
 condition|(
-operator|!
-name|EXCLUDE_INNER_PATTERN
+name|INCLUDE_INNER_PATTERN
 operator|.
 name|matcher
 argument_list|(

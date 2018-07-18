@@ -374,8 +374,6 @@ init|=
 literal|30000
 decl_stmt|;
 comment|/**          * HTTP proxy server configuration          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|proxy
 specifier|private
 name|HttpHost
@@ -390,16 +388,12 @@ name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
 comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|httpAsyncClientBuilder
 specifier|private
 name|HttpAsyncClientBuilder
 name|httpAsyncClientBuilder
 decl_stmt|;
 comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|httpClientBuilder
 specifier|private
 name|HttpClientBuilder

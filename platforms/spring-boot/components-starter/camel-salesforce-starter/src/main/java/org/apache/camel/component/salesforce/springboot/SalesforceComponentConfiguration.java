@@ -1887,8 +1887,6 @@ name|SalesforceHttpClient
 name|httpClient
 decl_stmt|;
 comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|objectMapper
 specifier|private
 name|ObjectMapper

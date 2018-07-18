@@ -534,8 +534,6 @@ name|String
 name|key
 decl_stmt|;
 comment|/**          * Reference to a `com.orbitz.consul.Consul` in the registry.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|consulClient
 specifier|private
 name|Consul
