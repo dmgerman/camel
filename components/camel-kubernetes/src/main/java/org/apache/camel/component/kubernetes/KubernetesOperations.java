@@ -453,6 +453,37 @@ name|GET_BUILD_CONFIG_OPERATION
 init|=
 literal|"getBuildConfig"
 decl_stmt|;
+comment|// Secrets
+DECL|field|LIST_JOB
+name|String
+name|LIST_JOB
+init|=
+literal|"listJob"
+decl_stmt|;
+DECL|field|LIST_JOB_BY_LABELS_OPERATION
+name|String
+name|LIST_JOB_BY_LABELS_OPERATION
+init|=
+literal|"listJobByLabels"
+decl_stmt|;
+DECL|field|GET_JOB_OPERATION
+name|String
+name|GET_JOB_OPERATION
+init|=
+literal|"getJob"
+decl_stmt|;
+DECL|field|CREATE_JOB_OPERATION
+name|String
+name|CREATE_JOB_OPERATION
+init|=
+literal|"createJob"
+decl_stmt|;
+DECL|field|DELETE_JOB_OPERATION
+name|String
+name|DELETE_JOB_OPERATION
+init|=
+literal|"deleteJob"
+decl_stmt|;
 block|}
 end_interface
 

@@ -277,6 +277,24 @@ name|KUBERNETES_HPA_SPEC
 init|=
 literal|"CamelKubernetesHPASpec"
 decl_stmt|;
+DECL|field|KUBERNETES_JOB_NAME
+name|String
+name|KUBERNETES_JOB_NAME
+init|=
+literal|"CamelKubernetesJobName"
+decl_stmt|;
+DECL|field|KUBERNETES_JOB_SPEC
+name|String
+name|KUBERNETES_JOB_SPEC
+init|=
+literal|"CamelKubernetesJobSpec"
+decl_stmt|;
+DECL|field|KUBERNETES_JOB_LABELS
+name|String
+name|KUBERNETES_JOB_LABELS
+init|=
+literal|"CamelKubernetesJobLabels"
+decl_stmt|;
 comment|// Consumer
 DECL|field|KUBERNETES_EVENT_ACTION
 name|String
