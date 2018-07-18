@@ -291,7 +291,7 @@ specifier|private
 name|String
 name|clientSecret
 decl_stmt|;
-comment|/**          * List of LinkedIn scopes as specified at          * https://developer.linkedin.com/documents/authentication#granting          */
+comment|/**          * List of LinkedIn scopes as specified at          * https://developer.linkedin.com/documents/authenticationgranting          */
 DECL|field|scopes
 specifier|private
 name|OAuthScope

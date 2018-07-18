@@ -307,7 +307,7 @@ specifier|private
 name|Object
 name|key
 decl_stmt|;
-comment|/**          * The cache key type, default "java.lang.Object"          */
+comment|/**          * The cache key type, default java.lang.Object          */
 DECL|field|keyType
 specifier|private
 name|String
@@ -315,7 +315,7 @@ name|keyType
 init|=
 literal|"java.lang.Object"
 decl_stmt|;
-comment|/**          * The cache value type, default "java.lang.Object"          */
+comment|/**          * The cache value type, default java.lang.Object          */
 DECL|field|valueType
 specifier|private
 name|String

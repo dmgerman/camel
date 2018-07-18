@@ -357,16 +357,19 @@ specifier|private
 name|AmazonCloudWatch
 name|amazonCwClient
 decl_stmt|;
+comment|/**          * To define a proxy host when instantiating the CW client          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
+comment|/**          * To define a proxy port when instantiating the CW client          */
 DECL|field|proxyPort
 specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+comment|/**          * The region in which CW client needs to work          */
 DECL|field|region
 specifier|private
 name|String

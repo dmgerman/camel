@@ -231,11 +231,13 @@ name|WordpressComponentConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * The Wordpress API URL from your site, e.g. http://myblog.com/wp-json/          */
 DECL|field|url
 specifier|private
 name|String
 name|url
 decl_stmt|;
+comment|/**          * The Wordpress REST API version          */
 DECL|field|apiVersion
 specifier|private
 name|String
@@ -243,21 +245,25 @@ name|apiVersion
 init|=
 literal|"2"
 decl_stmt|;
+comment|/**          * Password from authorized user          */
 DECL|field|password
 specifier|private
 name|String
 name|password
 decl_stmt|;
+comment|/**          * Authorized user to perform writing operations          */
 DECL|field|user
 specifier|private
 name|String
 name|user
 decl_stmt|;
+comment|/**          * The entity id          */
 DECL|field|id
 specifier|private
 name|Integer
 name|id
 decl_stmt|;
+comment|/**          * Whether to bypass trash and force deletion.          */
 DECL|field|force
 specifier|private
 name|Boolean

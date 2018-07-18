@@ -641,19 +641,19 @@ name|SshConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * Sets the username to use in logging into the remote SSH server.          *           * @param usernameString          *            representing login username.          */
+comment|/**          * Sets the username to use in logging into the remote SSH server.          */
 DECL|field|username
 specifier|private
 name|String
 name|username
 decl_stmt|;
-comment|/**          * Sets the hostname of the remote SSH server.          *           * @param hostString          *            representing hostname of SSH server.          */
+comment|/**          * Sets the hostname of the remote SSH server.          */
 DECL|field|host
 specifier|private
 name|String
 name|host
 decl_stmt|;
-comment|/**          * Sets the port number for the remote SSH server.          *           * @param portint          *            representing port number on remote host. Defaults to 22.          */
+comment|/**          * Sets the port number for the remote SSH server.          */
 DECL|field|port
 specifier|private
 name|Integer
@@ -661,25 +661,25 @@ name|port
 init|=
 literal|22
 decl_stmt|;
-comment|/**          * Sets the password to use in connecting to remote SSH server. Requires          * keyPairProvider to be set to null.          *           * @param passwordString          *            representing password for username at remote host.          */
+comment|/**          * Sets the password to use in connecting to remote SSH server. Requires          * keyPairProvider to be set to null.          */
 DECL|field|password
 specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**          * Sets the command string to send to the remote SSH server during every          * poll cycle. Only works with camel-ssh component being used as a          * consumer, i.e. from("ssh://...") You may need to end your command          * with a newline, and that must be URL encoded %0A          *           * @param pollCommandString          *            representing the command to send.          */
+comment|/**          * Sets the command string to send to the remote SSH server during every          * poll cycle. Only works with camel-ssh component being used as a          * consumer, i.e. from(ssh://...) You may need to end your command with          * a newline, and that must be URL encoded %0A          */
 DECL|field|pollCommand
 specifier|private
 name|String
 name|pollCommand
 decl_stmt|;
-comment|/**          * Sets the KeyPairProvider reference to use when connecting using          * Certificates to the remote SSH Server.          *           * @param keyPairProviderKeyPairProvider          *            reference to use in authenticating. If set to 'null', then          *            will attempt to connect using username/password settings.          * @see KeyPairProvider          */
+comment|/**          * Sets the KeyPairProvider reference to use when connecting using          * Certificates to the remote SSH Server.          */
 DECL|field|keyPairProvider
 specifier|private
 name|KeyPairProvider
 name|keyPairProvider
 decl_stmt|;
-comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. Defaults to "ssh-rsa".          *           * @param keyTypeString          *            defining the type of KeyPair to use for authentication.          * @see KeyPairProvider          */
+comment|/**          * Sets the key type to pass to the KeyPairProvider as part of          * authentication. KeyPairProvider.loadKey(...) will be passed this          * value. Defaults to ssh-rsa.          */
 DECL|field|keyType
 specifier|private
 name|String
@@ -687,7 +687,7 @@ name|keyType
 init|=
 literal|"ssh-rsa"
 decl_stmt|;
-comment|/**          * Sets the timeout in milliseconds to wait in establishing the remote          * SSH server connection. Defaults to 30000 milliseconds.          *           * @param timeoutlong          *            milliseconds to wait.          */
+comment|/**          * Sets the timeout in milliseconds to wait in establishing the remote          * SSH server connection. Defaults to 30000 milliseconds.          */
 DECL|field|timeout
 specifier|private
 name|Long
@@ -703,19 +703,19 @@ specifier|private
 name|String
 name|certFilename
 decl_stmt|;
-comment|/**          * Sets the resource path of the certificate to use for Authentication.          * Will use {@link ResourceHelperKeyPairProvider} to resolve file based          * certificate, and depends on keyType setting.          *           * @param certResourceString          *            file, classpath, or http url for the certificate          */
+comment|/**          * Sets the resource path of the certificate to use for Authentication.          * Will use ResourceHelperKeyPairProvider to resolve file based          * certificate, and depends on keyType setting.          */
 DECL|field|certResource
 specifier|private
 name|String
 name|certResource
 decl_stmt|;
-comment|/**          * Sets the resource path for a known_hosts file          *           * @param knownHostsString          *            file, classpath, or http url for the certificate          */
+comment|/**          * Sets the resource path for a known_hosts file          */
 DECL|field|knownHostsResource
 specifier|private
 name|String
 name|knownHostsResource
 decl_stmt|;
-comment|/**          * Specifies whether a connection to an unknown host should fail or not.          * This value is only checked when the property knownHosts is set.          *           * @param boolean boolean flag, whether a connection to an unknown host          *        should fail          */
+comment|/**          * Specifies whether a connection to an unknown host should fail or not.          * This value is only checked when the property knownHosts is set.          */
 DECL|field|failOnUnknownHost
 specifier|private
 name|Boolean
@@ -723,7 +723,7 @@ name|failOnUnknownHost
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Sets the channel type to pass to the Channel as part of command          * execution. Defaults to "exec".          *           * @param channelTypeString          *            defining the type of Channel to use for command execution.          * @seeorg.apache.sshd.common.channel.Channel          */
+comment|/**          * Sets the channel type to pass to the Channel as part of command          * execution. Defaults to exec.          */
 DECL|field|channelType
 specifier|private
 name|String
@@ -731,13 +731,13 @@ name|channelType
 init|=
 literal|"exec"
 decl_stmt|;
-comment|/**          * Sets the shellPrompt to be dropped when response is read after          * command execution          *           * @param shellPromptString          *            defining ending string of command line which has to be          *            dropped when response is read after command execution.          */
+comment|/**          * Sets the shellPrompt to be dropped when response is read after          * command execution          */
 DECL|field|shellPrompt
 specifier|private
 name|String
 name|shellPrompt
 decl_stmt|;
-comment|/**          * Sets the sleep period in milliseconds to wait reading response from          * shell prompt. Defaults to 100 milliseconds.          *           * @param sleepForShellPromptlong          *            milliseconds to wait.          */
+comment|/**          * Sets the sleep period in milliseconds to wait reading response from          * shell prompt. Defaults to 100 milliseconds.          */
 DECL|field|sleepForShellPrompt
 specifier|private
 name|Long

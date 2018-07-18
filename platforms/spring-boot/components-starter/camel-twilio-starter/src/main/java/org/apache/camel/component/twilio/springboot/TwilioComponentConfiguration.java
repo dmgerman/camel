@@ -331,13 +331,13 @@ name|TwilioConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * What kind of operation to perform          *           * @param apiNamethe          *            API Name to set          */
+comment|/**          * What kind of operation to perform          */
 DECL|field|apiName
 specifier|private
 name|TwilioApiName
 name|apiName
 decl_stmt|;
-comment|/**          * What sub operation to use for the selected operation          *           * @param methodNamethe          *            methodName to set          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|methodName
 specifier|private
 name|String

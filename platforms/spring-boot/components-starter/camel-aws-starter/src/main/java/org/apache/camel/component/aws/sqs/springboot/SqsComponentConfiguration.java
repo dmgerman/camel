@@ -433,6 +433,7 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
+comment|/**          * Allows you to use multiple threads to poll the sqs queue to increase          * throughput          */
 DECL|field|concurrentConsumers
 specifier|private
 name|Integer
@@ -440,16 +441,19 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
+comment|/**          * To define the queueUrl explicitly. All other parameters, which would          * influence the queueUrl, are ignored. This parameter is intended to be          * used, to connect to a mock implementation of SQS, for testing          * purposes.          */
 DECL|field|queueUrl
 specifier|private
 name|String
 name|queueUrl
 decl_stmt|;
+comment|/**          * To define a proxy host when instantiating the SQS client          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
+comment|/**          * To define a proxy port when instantiating the SQS client          */
 DECL|field|proxyPort
 specifier|private
 name|Integer

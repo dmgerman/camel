@@ -688,7 +688,7 @@ name|throwExceptionOnFailure
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized.          *<p/>          * This is by default turned off. If you enable this then be aware that          * Java will deserialize the incoming data from the request to Java and          * that can be a potential security risk.          */
+comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          */
 DECL|field|transferException
 specifier|private
 name|Boolean
@@ -734,7 +734,7 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
-comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() is cached or not (Camel will read the stream          * into a in light-weight memory based Stream caching) cache. By default          * Camel will cache the Netty input stream to support reading it          * multiple times to ensure it Camel can retrieve all data from the          * stream. However you can set this option to true when you for example          * need to access the raw stream, such as streaming it directly to a          * file or other persistent store. Mind that if you enable this option,          * then you cannot read the Netty stream multiple times out of the box,          * and you would need manually to reset the reader index on the Netty          * raw stream.          */
+comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequestgetContent() is cached or not (Camel will read the stream          * into a in light-weight memory based Stream caching) cache. By default          * Camel will cache the Netty input stream to support reading it          * multiple times to ensure it Camel can retrieve all data from the          * stream. However you can set this option to true when you for example          * need to access the raw stream, such as streaming it directly to a          * file or other persistent store. Mind that if you enable this option,          * then you cannot read the Netty stream multiple times out of the box,          * and you would need manually to reset the reader index on the Netty          * raw stream.          */
 DECL|field|disableStreamCache
 specifier|private
 name|Boolean
@@ -758,7 +758,7 @@ name|chunkedMaxContentLength
 init|=
 literal|1048576
 decl_stmt|;
-comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a {@link TooLongFrameException} will be          * raised.          */
+comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a TooLongFrameException will be raised.          */
 DECL|field|maxHeaderSize
 specifier|private
 name|Integer
@@ -771,7 +771,7 @@ specifier|private
 name|Boolean
 name|allowDefaultCodec
 decl_stmt|;
-comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g.<tt>200-204,209,301-304</tt>. Each range must be a single number          * or from-to with the dash included.          *<p/>          * The default range is<tt>200-299</tt>          */
+comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g. 200-204,209,301-304. Each range must be a single number or          * from-to with the dash included. The default range is 200-299          */
 DECL|field|okStatusCodeRange
 specifier|private
 name|String
@@ -779,7 +779,7 @@ name|okStatusCodeRange
 init|=
 literal|"200-299"
 decl_stmt|;
-comment|/**          * Sets whether to use a relative path in HTTP requests.          *<p/>          * Some third party backend systems such as IBM Datapower do not support          * absolute URIs in HTTP POSTs, and setting this option to<tt>true</tt>          * can work around this problem.          */
+comment|/**          * Sets whether to use a relative path in HTTP requests. Some third          * party backend systems such as IBM Datapower do not support absolute          * URIs in HTTP POSTs, and setting this option to true can work around          * this problem.          */
 DECL|field|useRelativePath
 specifier|private
 name|Boolean

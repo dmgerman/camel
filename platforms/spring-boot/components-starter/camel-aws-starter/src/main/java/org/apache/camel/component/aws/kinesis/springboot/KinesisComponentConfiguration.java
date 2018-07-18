@@ -351,11 +351,13 @@ name|KinesisConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * Amazon Kinesis client to use for all requests for this endpoint          */
 DECL|field|amazonKinesisClient
 specifier|private
 name|AmazonKinesis
 name|amazonKinesisClient
 decl_stmt|;
+comment|/**          * Maximum number of records that will be fetched in each poll          */
 DECL|field|maxResultsPerRequest
 specifier|private
 name|Integer
@@ -363,11 +365,13 @@ name|maxResultsPerRequest
 init|=
 literal|1
 decl_stmt|;
+comment|/**          * Name of the stream          */
 DECL|field|streamName
 specifier|private
 name|String
 name|streamName
 decl_stmt|;
+comment|/**          * Defines where in the Kinesis stream to start getting records          */
 DECL|field|iteratorType
 specifier|private
 name|ShardIteratorType
@@ -377,16 +381,19 @@ name|ShardIteratorType
 operator|.
 name|TRIM_HORIZON
 decl_stmt|;
+comment|/**          * Defines which shardId in the Kinesis stream to get records from          */
 DECL|field|shardId
 specifier|private
 name|String
 name|shardId
 decl_stmt|;
+comment|/**          * The sequence number to start polling from. Required if iteratorType          * is set to AFTER_SEQUENCE_NUMBER or AT_SEQUENCE_NUMBER          */
 DECL|field|sequenceNumber
 specifier|private
 name|String
 name|sequenceNumber
 decl_stmt|;
+comment|/**          * Define what will be the behavior in case of shard closed. Possible          * value are ignore, silent and fail.In case of ignore a message will be          * logged and the consumer will restart from the beginning,in case of          * silent there will be no logging and the consumer will start from the          * beginning,in case of fail a ReachedClosedStateException will be          * raised          */
 DECL|field|shardClosed
 specifier|private
 name|KinesisShardClosedStrategyEnum
@@ -396,26 +403,31 @@ name|KinesisShardClosedStrategyEnum
 operator|.
 name|ignore
 decl_stmt|;
+comment|/**          * Amazon AWS Access Key          */
 DECL|field|accessKey
 specifier|private
 name|String
 name|accessKey
 decl_stmt|;
+comment|/**          * Amazon AWS Secret Key          */
 DECL|field|secretKey
 specifier|private
 name|String
 name|secretKey
 decl_stmt|;
+comment|/**          * The region in which Kinesis client needs to work          */
 DECL|field|region
 specifier|private
 name|String
 name|region
 decl_stmt|;
+comment|/**          * To define a proxy host when instantiating the DDBStreams client          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
+comment|/**          * To define a proxy port when instantiating the DDBStreams client          */
 DECL|field|proxyPort
 specifier|private
 name|Integer

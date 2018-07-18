@@ -351,36 +351,43 @@ name|DdbStreamConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * Amazon DynamoDB client to use for all requests for this endpoint          */
 DECL|field|amazonDynamoDbStreamsClient
 specifier|private
 name|AmazonDynamoDBStreams
 name|amazonDynamoDbStreamsClient
 decl_stmt|;
+comment|/**          * Amazon AWS Access Key          */
 DECL|field|accessKey
 specifier|private
 name|String
 name|accessKey
 decl_stmt|;
+comment|/**          * Amazon AWS Secret Key          */
 DECL|field|secretKey
 specifier|private
 name|String
 name|secretKey
 decl_stmt|;
+comment|/**          * The region in which DDBStreams client needs to work          */
 DECL|field|region
 specifier|private
 name|String
 name|region
 decl_stmt|;
+comment|/**          * Maximum number of records that will be fetched in each poll          */
 DECL|field|maxResultsPerRequest
 specifier|private
 name|Integer
 name|maxResultsPerRequest
 decl_stmt|;
+comment|/**          * Name of the dynamodb table          */
 DECL|field|tableName
 specifier|private
 name|String
 name|tableName
 decl_stmt|;
+comment|/**          * Defines where in the DynaboDB stream to start getting records. Note          * that using TRIM_HORIZON can cause a significant delay before the          * stream has caught up to real-time. if AT,AFTER_SEQUENCE_NUMBER are          * used, then a sequenceNumberProvider MUST be supplied.          */
 DECL|field|iteratorType
 specifier|private
 name|ShardIteratorType
@@ -390,16 +397,19 @@ name|ShardIteratorType
 operator|.
 name|LATEST
 decl_stmt|;
+comment|/**          * Provider for the sequence number when using one of the two          * ShardIteratorType.AT,AFTER_SEQUENCE_NUMBER iterator types. Can be a          * registry reference or a literal sequence number.          */
 DECL|field|sequenceNumberProvider
 specifier|private
 name|SequenceNumberProvider
 name|sequenceNumberProvider
 decl_stmt|;
+comment|/**          * To define a proxy host when instantiating the DDBStreams client          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
+comment|/**          * To define a proxy port when instantiating the DDBStreams client          */
 DECL|field|proxyPort
 specifier|private
 name|Integer

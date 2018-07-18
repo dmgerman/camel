@@ -343,7 +343,7 @@ name|InfinispanConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * The operation to perform.          *           * @deprecated replaced by @{link setOperation}          */
+comment|/**          * The operation to perform.          */
 annotation|@
 name|Deprecated
 DECL|field|command
@@ -363,16 +363,19 @@ name|InfinispanOperation
 operator|.
 name|PUT
 decl_stmt|;
+comment|/**          * Specifies the host of the cache on Infinispan instance          */
 DECL|field|hosts
 specifier|private
 name|String
 name|hosts
 decl_stmt|;
+comment|/**          * Specifies the cache Container to connect          */
 DECL|field|cacheContainer
 specifier|private
 name|BasicCacheContainer
 name|cacheContainer
 decl_stmt|;
+comment|/**          * If true, the consumer will receive notifications synchronously          */
 DECL|field|sync
 specifier|private
 name|Boolean
@@ -380,6 +383,7 @@ name|sync
 init|=
 literal|true
 decl_stmt|;
+comment|/**          * If true, the listener will be installed for the entire cluster          */
 DECL|field|clusteredListener
 specifier|private
 name|Boolean
@@ -387,12 +391,13 @@ name|clusteredListener
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Specifies the set of event types to register by the consumer.          * Multiple event can be separated by comma.          *<p/>          * The possible event types are: CACHE_ENTRY_ACTIVATED,          * CACHE_ENTRY_PASSIVATED, CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED,          * CACHE_ENTRY_EVICTED, CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED,          * CACHE_ENTRY_MODIFIED, TRANSACTION_COMPLETED, TRANSACTION_REGISTERED,          * CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED,          * PARTITION_STATUS_CHANGED          */
+comment|/**          * Specifies the set of event types to register by the consumer.          * Multiple event can be separated by comma. The possible event types          * are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED,          * CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED,          * CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED,          * TRANSACTION_COMPLETED, TRANSACTION_REGISTERED,          * CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED,          * PARTITION_STATUS_CHANGED          */
 DECL|field|eventTypes
 specifier|private
 name|Set
 name|eventTypes
 decl_stmt|;
+comment|/**          * Returns the custom listener in use, if provided          */
 DECL|field|customListener
 specifier|private
 name|InfinispanCustomListener
@@ -404,12 +409,14 @@ specifier|private
 name|InfinispanQueryBuilder
 name|queryBuilder
 decl_stmt|;
+comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          */
 DECL|field|flags
 specifier|private
 name|Flag
 index|[]
 name|flags
 decl_stmt|;
+comment|/**          * An implementation specific URI for the CacheManager          */
 DECL|field|configurationUri
 specifier|private
 name|String

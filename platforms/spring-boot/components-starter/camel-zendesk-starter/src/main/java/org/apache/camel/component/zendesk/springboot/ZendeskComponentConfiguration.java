@@ -217,37 +217,37 @@ name|ZendeskConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * What operation to use          *           * @param methodNamethe          *            methodName to set          */
+comment|/**          * What operation to use          */
 DECL|field|methodName
 specifier|private
 name|String
 name|methodName
 decl_stmt|;
-comment|/**          * The server URL to connect.          *           * @param url          *            server URL          */
+comment|/**          * The server URL to connect.          */
 DECL|field|serverUrl
 specifier|private
 name|String
 name|serverUrl
 decl_stmt|;
-comment|/**          * The user name.          *           * @param user          *            user name          */
+comment|/**          * The user name.          */
 DECL|field|username
 specifier|private
 name|String
 name|username
 decl_stmt|;
-comment|/**          * The security token.          *           * @param token          *            security token          */
+comment|/**          * The security token.          */
 DECL|field|token
 specifier|private
 name|String
 name|token
 decl_stmt|;
-comment|/**          * The OAuth token.          *           * @param token          *            OAuth token          */
+comment|/**          * The OAuth token.          */
 DECL|field|oauthToken
 specifier|private
 name|String
 name|oauthToken
 decl_stmt|;
-comment|/**          * The password.          *           * @param password          *            password          */
+comment|/**          * The password.          */
 DECL|field|password
 specifier|private
 name|String

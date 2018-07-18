@@ -257,49 +257,49 @@ name|BoxConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * What kind of operation to perform          *           * @param apiNamethe          *            API Name to set          */
+comment|/**          * What kind of operation to perform          */
 DECL|field|apiName
 specifier|private
 name|BoxApiName
 name|apiName
 decl_stmt|;
-comment|/**          * What sub operation to use for the selected operation          *           * @param methodNamethe          *            methodName to set          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|methodName
 specifier|private
 name|String
 name|methodName
 decl_stmt|;
-comment|/**          * The enterprise ID to use for an App Enterprise.          *           * @param enterpriseIdthe          *            enterpriseId to set          */
+comment|/**          * The enterprise ID to use for an App Enterprise.          */
 DECL|field|enterpriseId
 specifier|private
 name|String
 name|enterpriseId
 decl_stmt|;
-comment|/**          * The user ID to use for an App User.          *           * @param userIdthe          *            userId to set          */
+comment|/**          * The user ID to use for an App User.          */
 DECL|field|userId
 specifier|private
 name|String
 name|userId
 decl_stmt|;
-comment|/**          * The ID for public key for validating the JWT signature.          *           * @param publicKeyIdthe          *            publicKeyId to set          */
+comment|/**          * The ID for public key for validating the JWT signature.          */
 DECL|field|publicKeyId
 specifier|private
 name|String
 name|publicKeyId
 decl_stmt|;
-comment|/**          * The private key for generating the JWT signature.          *           * @param privateKeythe          *            privateKey to set          */
+comment|/**          * The private key for generating the JWT signature.          */
 DECL|field|privateKeyFile
 specifier|private
 name|String
 name|privateKeyFile
 decl_stmt|;
-comment|/**          * The password for the private key.          *           * @param privateKeyPasswordthe          *            privateKeyPassword to set          */
+comment|/**          * The password for the private key.          */
 DECL|field|privateKeyPassword
 specifier|private
 name|String
 name|privateKeyPassword
 decl_stmt|;
-comment|/**          * The type of authentication for connection.          *<p>          * Types of Authentication:          *<ul>          *<li>STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged)</li>          *<li>SERVER_AUTHENTICATION - OAuth 2.0 with JSON Web Tokens</li>          *</ul>          *           * @param authenticationTypethe          *            authenticationType to set          */
+comment|/**          * The type of authentication for connection. Types of Authentication:          * STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION          * - OAuth 2.0 with JSON Web Tokens          */
 DECL|field|authenticationType
 specifier|private
 name|String
@@ -307,37 +307,37 @@ name|authenticationType
 init|=
 literal|"APP_USER_AUTHENTICATION"
 decl_stmt|;
-comment|/**          * Box application client ID          *           * @param clientIdthe          *            clientId to set          */
+comment|/**          * Box application client ID          */
 DECL|field|clientId
 specifier|private
 name|String
 name|clientId
 decl_stmt|;
-comment|/**          * Box application client secret          *           * @param clientSecretthe          *            clientSecret to set          */
+comment|/**          * Box application client secret          */
 DECL|field|clientSecret
 specifier|private
 name|String
 name|clientSecret
 decl_stmt|;
-comment|/**          * Box user name, MUST be provided          *           * @param userNamethe          *            userName to set          */
+comment|/**          * Box user name, MUST be provided          */
 DECL|field|userName
 specifier|private
 name|String
 name|userName
 decl_stmt|;
-comment|/**          * Box user password, MUST be provided if authSecureStorage is not set,          * or returns null on first call          *           * @param userPasswordthe          *            userPassword to set          */
+comment|/**          * Box user password, MUST be provided if authSecureStorage is not set,          * or returns null on first call          */
 DECL|field|userPassword
 specifier|private
 name|String
 name|userPassword
 decl_stmt|;
-comment|/**          * Custom HTTP params for settings like proxy host          *           * @param httpParamsthe          *            httpParams to set          */
+comment|/**          * Custom HTTP params for settings like proxy host          */
 DECL|field|httpParams
 specifier|private
 name|Map
 name|httpParams
 decl_stmt|;
-comment|/**          * To configure security using SSLContextParameters.          *           * @param sslContextParametersthe          *            sslContextParameters to set          */
+comment|/**          * To configure security using SSLContextParameters.          */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|sslContextParameters
@@ -345,7 +345,7 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|/**          * Custom Access Token Cache for storing and retrieving access tokens.          *           * @param accessTokenCache          *            - the Custom Access Token Cache          */
+comment|/**          * Custom Access Token Cache for storing and retrieving access tokens.          */
 DECL|field|accessTokenCache
 specifier|private
 name|IAccessTokenCache

@@ -401,16 +401,19 @@ specifier|private
 name|String
 name|keyAttributeType
 decl_stmt|;
+comment|/**          * To define a proxy host when instantiating the DDB client          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
+comment|/**          * To define a proxy port when instantiating the DDB client          */
 DECL|field|proxyPort
 specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+comment|/**          * The region in which DDB client needs to work          */
 DECL|field|region
 specifier|private
 name|String

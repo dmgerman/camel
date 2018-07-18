@@ -90,18 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|crypto
@@ -297,11 +285,6 @@ name|DigitalSignatureConfiguration
 operator|.
 name|class
 decl_stmt|;
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
-decl_stmt|;
 comment|/**          * The logical name of this operation.          */
 DECL|field|name
 specifier|private
@@ -316,13 +299,13 @@ name|algorithm
 init|=
 literal|"SHA1WithDSA"
 decl_stmt|;
-comment|/**          * Sets the alias used to query the KeyStore for keys and          * {@link java.security.cert.Certificate Certificates} to be used in          * signing and verifying exchanges. This value can be provided at          * runtime via the message header          * {@link org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS}          */
+comment|/**          * Sets the alias used to query the KeyStore for keys and link          * java.security.cert.Certificate Certificates to be used in signing and          * verifying exchanges. This value can be provided at runtime via the          * message header link org.apache.camel.component.crypto.          * DigitalSignatureConstantsKEYSTORE_ALIAS          */
 DECL|field|alias
 specifier|private
 name|String
 name|alias
 decl_stmt|;
-comment|/**          * Set the PrivateKey that should be used to sign the exchange          *           * @param privateKey          *            the key with with to sign the exchange.          */
+comment|/**          * Set the PrivateKey that should be used to sign the exchange          */
 DECL|field|privateKey
 specifier|private
 name|PrivateKey
@@ -340,7 +323,7 @@ specifier|private
 name|PublicKey
 name|publicKey
 decl_stmt|;
-comment|/**          * Sets the reference name for a publicKey that can be fond in the          * registry.          */
+comment|/**          * references that should be resolved when the context changes          */
 DECL|field|publicKeyName
 specifier|private
 name|String
@@ -358,7 +341,7 @@ specifier|private
 name|String
 name|certificateName
 decl_stmt|;
-comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges. A {@link KeyStore} is typically used          * with an alias, either one supplied in the Route definition or          * dynamically via the message header "CamelSignatureKeyStoreAlias". If          * no alias is supplied and there is only a single entry in the          * Keystore, then this single entry will be used.          */
+comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges. A KeyStore is typically used with an          * alias, either one supplied in the Route definition or dynamically via          * the message header CamelSignatureKeyStoreAlias. If no alias is          * supplied and there is only a single entry in the Keystore, then this          * single entry will be used.          */
 DECL|field|keystore
 specifier|private
 name|KeyStore
@@ -370,14 +353,14 @@ specifier|private
 name|String
 name|keystoreName
 decl_stmt|;
-comment|/**          * Sets the password used to access an aliased {@link PrivateKey} in the          * KeyStore.          */
+comment|/**          * Sets the password used to access an aliased PrivateKey in the          * KeyStore.          */
 DECL|field|password
 specifier|private
 name|char
 index|[]
 name|password
 decl_stmt|;
-comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges based on the given          * KeyStoreParameters. A {@link KeyStore} is typically used with an          * alias, either one supplied in the Route definition or dynamically via          * the message header "CamelSignatureKeyStoreAlias". If no alias is          * supplied and there is only a single entry in the Keystore, then this          * single entry will be used.          */
+comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges based on the given          * KeyStoreParameters. A KeyStore is typically used with an alias,          * either one supplied in the Route definition or dynamically via the          * message header CamelSignatureKeyStoreAlias. If no alias is supplied          * and there is only a single entry in the Keystore, then this single          * entry will be used.          */
 annotation|@
 name|NestedConfigurationProperty
 DECL|field|keyStoreParameters
@@ -385,7 +368,7 @@ specifier|private
 name|KeyStoreParameters
 name|keyStoreParameters
 decl_stmt|;
-comment|/**          * Set the SecureRandom used to initialize the Signature service          *           * @param secureRandom          *            the random used to init the Signature service          */
+comment|/**          * Set the SecureRandom used to initialize the Signature service          */
 DECL|field|secureRandom
 specifier|private
 name|SecureRandom
@@ -405,7 +388,7 @@ name|bufferSize
 init|=
 literal|2048
 decl_stmt|;
-comment|/**          * Set the id of the security provider that provides the configured          * {@link Signature} algorithm.          *           * @param provider          *            the id of the security provider          */
+comment|/**          * Set the id of the security provider that provides the configured          * Signature algorithm.          */
 DECL|field|provider
 specifier|private
 name|String
@@ -425,37 +408,12 @@ name|clearHeaders
 init|=
 literal|true
 decl_stmt|;
+comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto:sign sets sign as the operation.          */
 DECL|field|cryptoOperation
 specifier|private
 name|CryptoOperation
 name|cryptoOperation
 decl_stmt|;
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
-block|}
 DECL|method|getName ()
 specifier|public
 name|String

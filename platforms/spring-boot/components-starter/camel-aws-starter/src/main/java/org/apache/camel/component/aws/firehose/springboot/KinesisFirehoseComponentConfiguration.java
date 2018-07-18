@@ -299,36 +299,43 @@ name|KinesisFirehoseConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * Amazon Kinesis Firehose client to use for all requests for this          * endpoint          */
 DECL|field|amazonKinesisFirehoseClient
 specifier|private
 name|AmazonKinesisFirehose
 name|amazonKinesisFirehoseClient
 decl_stmt|;
+comment|/**          * Name of the stream          */
 DECL|field|streamName
 specifier|private
 name|String
 name|streamName
 decl_stmt|;
+comment|/**          * Amazon AWS Access Key          */
 DECL|field|accessKey
 specifier|private
 name|String
 name|accessKey
 decl_stmt|;
+comment|/**          * Amazon AWS Secret Key          */
 DECL|field|secretKey
 specifier|private
 name|String
 name|secretKey
 decl_stmt|;
+comment|/**          * The region in which Kinesis client needs to work          */
 DECL|field|region
 specifier|private
 name|String
 name|region
 decl_stmt|;
+comment|/**          * To define a proxy host when instantiating the DDBStreams client          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
+comment|/**          * To define a proxy port when instantiating the DDBStreams client          */
 DECL|field|proxyPort
 specifier|private
 name|Integer

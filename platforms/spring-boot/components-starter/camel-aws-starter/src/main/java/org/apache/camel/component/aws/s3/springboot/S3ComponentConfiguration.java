@@ -341,7 +341,7 @@ name|partSize
 init|=
 literal|26214400L
 decl_stmt|;
-comment|/**          * If it is true, camel will upload the file with multi part format, the          * part size is decided by the option of `partSize`          */
+comment|/**          * If it is true, camel will upload the file with multi part format, the          * part size is decided by the option of partSize          */
 DECL|field|multiPartUpload
 specifier|private
 name|Boolean
@@ -361,7 +361,7 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-comment|/**          * Reference to a `com.amazonaws.services.sqs.AmazonS3` in the          * link:registry.html[Registry].          */
+comment|/**          * Reference to a com.amazonaws.services.sqs.AmazonS3 in the          * link:registry.htmlRegistry.          */
 DECL|field|amazonS3Client
 specifier|private
 name|AmazonS3
@@ -399,7 +399,7 @@ name|includeBody
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Delete objects from S3 after they have been retrieved. The delete is          * only performed if the Exchange is committed. If a rollback occurs,          * the object is not deleted.          *<p/>          * If this option is false, then the same objects will be retrieve over          * and over again on the polls. Therefore you need to use the Idempotent          * Consumer EIP in the route to filter out duplicates. You can filter          * using the {@link S3Constants#BUCKET_NAME} and {@link S3Constants#KEY}          * headers, or only the {@link S3Constants#KEY} header.          */
+comment|/**          * Delete objects from S3 after they have been retrieved. The delete is          * only performed if the Exchange is committed. If a rollback occurs,          * the object is not deleted. If this option is false, then the same          * objects will be retrieve over and over again on the polls. Therefore          * you need to use the Idempotent Consumer EIP in the route to filter          * out duplicates. You can filter using the link S3ConstantsBUCKET_NAME          * and link S3ConstantsKEY headers, or only the link S3ConstantsKEY          * header.          */
 DECL|field|deleteAfterRead
 specifier|private
 name|Boolean
@@ -415,19 +415,19 @@ name|deleteAfterWrite
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * The policy for this queue to set in the          * `com.amazonaws.services.s3.AmazonS3#setBucketPolicy()` method.          */
+comment|/**          * The policy for this queue to set in the          * com.amazonaws.services.s3.AmazonS3setBucketPolicy() method.          */
 DECL|field|policy
 specifier|private
 name|String
 name|policy
 decl_stmt|;
-comment|/**          * The storage class to set in the          * `com.amazonaws.services.s3.model.PutObjectRequest` request.          */
+comment|/**          * The storage class to set in the          * com.amazonaws.services.s3.model.PutObjectRequest request.          */
 DECL|field|storageClass
 specifier|private
 name|String
 name|storageClass
 decl_stmt|;
-comment|/**          * Sets the server-side encryption algorithm when encrypting the object          * using AWS-managed keys. For example use<tt>AES256</tt>.          */
+comment|/**          * Sets the server-side encryption algorithm when encrypting the object          * using AWS-managed keys. For example use AES256.          */
 DECL|field|serverSideEncryption
 specifier|private
 name|String

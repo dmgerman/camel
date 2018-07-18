@@ -467,7 +467,7 @@ name|throwExceptionOnFailure
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized.          *<p/>          * This is by default turned off. If you enable this then be aware that          * Java will deserialize the incoming data from the request to Java and          * that can be a potential security risk.          */
+comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          */
 DECL|field|transferException
 specifier|private
 name|Boolean
@@ -513,7 +513,7 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
-comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() or HttpResponset#getContent() is cached or          * not (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * {@link org.apache.camel.Exchange} may not be able to read the Netty          * stream, because Netty has closed it.          */
+comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequestgetContent() or HttpResponsetgetContent() is cached or not          * (Camel will read the stream into a in light-weight memory based          * Stream caching) cache. By default Camel will cache the Netty input          * stream to support reading it multiple times to ensure it Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store. Mind that          * if you enable this option, then you cannot read the Netty stream          * multiple times out of the box, and you would need manually to reset          * the reader index on the Netty raw stream. Also Netty will auto-close          * the Netty stream when the Netty HTTP server/HTTP client is done          * processing, which means that if the asynchronous routing engine is in          * use then any asynchronous thread that may continue routing the          * org.apache.camel.Exchange may not be able to read the Netty stream,          * because Netty has closed it.          */
 DECL|field|disableStreamCache
 specifier|private
 name|Boolean
@@ -537,7 +537,7 @@ name|chunkedMaxContentLength
 init|=
 literal|1048576
 decl_stmt|;
-comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a          * {@link io.netty.handler.codec.TooLongFrameException} will be raised.          */
+comment|/**          * The maximum length of all headers. If the sum of the length of each          * header exceeds this value, a          * io.netty.handler.codec.TooLongFrameException will be raised.          */
 DECL|field|maxHeaderSize
 specifier|private
 name|Integer
@@ -550,7 +550,7 @@ specifier|private
 name|Boolean
 name|allowDefaultCodec
 decl_stmt|;
-comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g.<tt>200-204,209,301-304</tt>. Each range must be a single number          * or from-to with the dash included.          *<p/>          * The default range is<tt>200-299</tt>          */
+comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g. 200-204,209,301-304. Each range must be a single number or          * from-to with the dash included. The default range is 200-299          */
 DECL|field|okStatusCodeRange
 specifier|private
 name|String

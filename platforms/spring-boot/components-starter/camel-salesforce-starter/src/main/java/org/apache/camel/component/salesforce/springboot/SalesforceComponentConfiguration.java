@@ -1682,7 +1682,7 @@ specifier|private
 name|PayloadFormat
 name|format
 decl_stmt|;
-comment|/**          * Use raw payload {@link String} for request and response (either JSON          * or XML depending on {@code format} ), instead of DTOs, false by          * default          */
+comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default          */
 DECL|field|rawPayload
 specifier|private
 name|Boolean
@@ -1822,31 +1822,31 @@ specifier|private
 name|NotifyForFieldsEnum
 name|notifyForFields
 decl_stmt|;
-comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version< 29.0)          */
+comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0)          */
 DECL|field|notifyForOperations
 specifier|private
 name|NotifyForOperationsEnum
 name|notifyForOperations
 decl_stmt|;
-comment|/**          * Notify for create operation, defaults to false (API version>= 29.0)          */
+comment|/**          * Notify for create operation, defaults to false (API version = 29.0)          */
 DECL|field|notifyForOperationCreate
 specifier|private
 name|Boolean
 name|notifyForOperationCreate
 decl_stmt|;
-comment|/**          * Notify for update operation, defaults to false (API version>= 29.0)          */
+comment|/**          * Notify for update operation, defaults to false (API version = 29.0)          */
 DECL|field|notifyForOperationUpdate
 specifier|private
 name|Boolean
 name|notifyForOperationUpdate
 decl_stmt|;
-comment|/**          * Notify for delete operation, defaults to false (API version>= 29.0)          */
+comment|/**          * Notify for delete operation, defaults to false (API version = 29.0)          */
 DECL|field|notifyForOperationDelete
 specifier|private
 name|Boolean
 name|notifyForOperationDelete
 decl_stmt|;
-comment|/**          * Notify for un-delete operation, defaults to false (API version>=          * 29.0)          */
+comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0)          */
 DECL|field|notifyForOperationUndelete
 specifier|private
 name|Boolean
@@ -1904,7 +1904,7 @@ specifier|private
 name|Long
 name|maxBackoff
 decl_stmt|;
-comment|/**          * Default replayId setting if no value is found in          * {@link #initialReplayIdMap}          *           * @param defaultReplayId          */
+comment|/**          * Default replayId setting if no value is found in link          * initialReplayIdMap          */
 DECL|field|defaultReplayId
 specifier|private
 name|Long
@@ -1916,7 +1916,7 @@ specifier|private
 name|Map
 name|initialReplayIdMap
 decl_stmt|;
-comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          *           * @param limit          */
+comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          */
 DECL|field|limit
 specifier|private
 name|Integer
@@ -1964,7 +1964,7 @@ specifier|private
 name|Boolean
 name|approvalSkipEntryCriteria
 decl_stmt|;
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL {@link NotFoundBehaviour#NULL} or          * should a exception be signaled on the exchange          * {@link NotFoundBehaviour#EXCEPTION} - the default.          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL link NotFoundBehaviourNULL or          * should a exception be signaled on the exchange link          * NotFoundBehaviourEXCEPTION - the default.          */
 DECL|field|notFoundBehaviour
 specifier|private
 name|NotFoundBehaviour

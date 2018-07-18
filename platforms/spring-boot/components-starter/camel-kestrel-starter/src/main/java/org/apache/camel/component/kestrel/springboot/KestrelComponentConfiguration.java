@@ -185,14 +185,14 @@ name|KestrelConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * The addresses          */
+comment|/**          * The address(es) on which kestrel is running          */
 DECL|field|addresses
 specifier|private
 name|String
 index|[]
 name|addresses
 decl_stmt|;
-comment|/**          * The wait time in milliseconds          */
+comment|/**          * How long a given wait should block (server side), in milliseconds          */
 DECL|field|waitTimeMs
 specifier|private
 name|Integer
@@ -200,7 +200,7 @@ name|waitTimeMs
 init|=
 literal|100
 decl_stmt|;
-comment|/**          * The number of concurrent consumers          */
+comment|/**          * How many concurrent listeners to schedule for the thread pool          */
 DECL|field|concurrentConsumers
 specifier|private
 name|Integer

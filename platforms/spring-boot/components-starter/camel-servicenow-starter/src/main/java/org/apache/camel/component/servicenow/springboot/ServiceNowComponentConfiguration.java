@@ -959,6 +959,7 @@ name|dateTimeFormat
 init|=
 literal|"yyyy-MM-dd HH:mm:ss"
 decl_stmt|;
+comment|/**          * Defines both request and response models          */
 DECL|field|models
 specifier|private
 name|Map

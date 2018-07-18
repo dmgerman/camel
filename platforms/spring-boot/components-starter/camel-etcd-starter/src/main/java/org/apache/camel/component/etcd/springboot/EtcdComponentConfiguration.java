@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spring
 operator|.
 name|boot
@@ -391,11 +379,6 @@ name|EtcdConfiguration
 operator|.
 name|class
 decl_stmt|;
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
-decl_stmt|;
 comment|/**          * To set the URIs the client connects.          */
 DECL|field|uris
 specifier|private
@@ -468,32 +451,6 @@ name|servicePath
 init|=
 literal|"/services/"
 decl_stmt|;
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-DECL|method|setCamelContext (CamelContext camelContext)
-specifier|public
-name|void
-name|setCamelContext
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
-block|}
 DECL|method|getUris ()
 specifier|public
 name|String

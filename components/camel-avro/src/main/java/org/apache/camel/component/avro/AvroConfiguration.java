@@ -515,7 +515,7 @@ return|return
 name|transport
 return|;
 block|}
-comment|/**      * Transport to use      */
+comment|/**      * Transport to use, can be either http or netty      */
 DECL|method|setTransport (String transport)
 specifier|public
 name|void
@@ -537,6 +537,7 @@ name|transport
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Transport to use, can be either http or netty      */
 DECL|method|setTransport (AvroTransport transport)
 specifier|public
 name|void

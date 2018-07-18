@@ -345,7 +345,7 @@ name|mbeanEnabled
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Default OAuth permissions. Comma separated permission names. See          * https://developers.facebook.com/docs/reference/login/#permissions for          * the detail          */
+comment|/**          * Default OAuth permissions. Comma separated permission names. See          * https://developers.facebook.com/docs/reference/login/permissions for          * the detail          */
 DECL|field|oAuthPermissions
 specifier|private
 name|String

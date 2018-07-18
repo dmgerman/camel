@@ -170,7 +170,7 @@ name|MailComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the imap component. This is      * enabled by default.      */
+comment|/**      * Whether to enable auto configuration of the pop3s component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean
@@ -335,7 +335,7 @@ name|MailConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * To use a custom          * {@link org.apache.camel.component.mail.JavaMailSender} for sending          * emails.          */
+comment|/**          * To use a custom org.apache.camel.component.mail.JavaMailSender for          * sending emails.          */
 DECL|field|javaMailSender
 specifier|private
 name|JavaMailSender
@@ -570,7 +570,7 @@ name|peek
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to skip the message and move on to retrieve the next          * mail message.          *<p/>          * The default behavior would be the consumer throws an exception and no          * mails from the batch would be able to be routed by Camel.          */
+comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to skip the message and move on to retrieve the next          * mail message. The default behavior would be the consumer throws an          * exception and no mails from the batch would be able to be routed by          * Camel.          */
 DECL|field|skipFailedMessage
 specifier|private
 name|Boolean
@@ -578,7 +578,7 @@ name|skipFailedMessage
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to handle the caused exception by the consumer's error          * handler. By enable the bridge error handler on the consumer, then the          * Camel routing error handler can handle the exception instead.          *<p/>          * The default behavior would be the consumer throws an exception and no          * mails from the batch would be able to be routed by Camel.          */
+comment|/**          * If the mail consumer cannot retrieve a given mail message, then this          * option allows to handle the caused exception by the consumer's error          * handler. By enable the bridge error handler on the consumer, then the          * Camel routing error handler can handle the exception instead. The          * default behavior would be the consumer throws an exception and no          * mails from the batch would be able to be routed by Camel.          */
 DECL|field|handleFailedMessage
 specifier|private
 name|Boolean

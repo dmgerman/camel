@@ -253,11 +253,13 @@ name|FhirConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * The FHIR server base URL          */
 DECL|field|serverUrl
 specifier|private
 name|String
 name|serverUrl
 decl_stmt|;
+comment|/**          * Pretty print all request          */
 DECL|field|prettyPrint
 specifier|private
 name|Boolean
@@ -277,11 +279,13 @@ specifier|private
 name|String
 name|methodName
 decl_stmt|;
+comment|/**          * FhirContext is an expensive object to create. To avoid creating          * multiple instances, it can be set directly.          */
 DECL|field|fhirContext
 specifier|private
 name|FhirContext
 name|fhirContext
 decl_stmt|;
+comment|/**          * Force conformance check          */
 DECL|field|forceConformanceCheck
 specifier|private
 name|Boolean
@@ -289,21 +293,25 @@ name|forceConformanceCheck
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Username to use for basic authentication          */
 DECL|field|username
 specifier|private
 name|String
 name|username
 decl_stmt|;
+comment|/**          * Username to use for basic authentication          */
 DECL|field|password
 specifier|private
 name|String
 name|password
 decl_stmt|;
+comment|/**          * OAuth access token          */
 DECL|field|accessToken
 specifier|private
 name|String
 name|accessToken
 decl_stmt|;
+comment|/**          * Will log every requests and responses          */
 DECL|field|log
 specifier|private
 name|Boolean
@@ -311,6 +319,7 @@ name|log
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Compresses outgoing (POST/PUT) contents to the GZIP format          */
 DECL|field|compress
 specifier|private
 name|Boolean
@@ -318,11 +327,13 @@ name|compress
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * HTTP session cookie to add to every request          */
 DECL|field|sessionCookie
 specifier|private
 name|String
 name|sessionCookie
 decl_stmt|;
+comment|/**          * When this option is set, model classes will not be scanned for          * children until the child list for the given type is actually          * accessed.          */
 DECL|field|deferModelScanning
 specifier|private
 name|Boolean
@@ -330,6 +341,7 @@ name|deferModelScanning
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * How long to try and establish the initial TCP connection (in ms)          */
 DECL|field|connectionTimeout
 specifier|private
 name|Integer
@@ -337,6 +349,7 @@ name|connectionTimeout
 init|=
 literal|10000
 decl_stmt|;
+comment|/**          * How long to block for individual read/write operations (in ms)          */
 DECL|field|socketTimeout
 specifier|private
 name|Integer
@@ -344,31 +357,37 @@ name|socketTimeout
 init|=
 literal|10000
 decl_stmt|;
+comment|/**          * The proxy host          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
+comment|/**          * The proxy password          */
 DECL|field|proxyPassword
 specifier|private
 name|String
 name|proxyPassword
 decl_stmt|;
+comment|/**          * The proxy port          */
 DECL|field|proxyPort
 specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+comment|/**          * The proxy username          */
 DECL|field|proxyUser
 specifier|private
 name|String
 name|proxyUser
 decl_stmt|;
+comment|/**          * "To use the custom client"          */
 DECL|field|client
 specifier|private
 name|IGenericClient
 name|client
 decl_stmt|;
+comment|/**          * "To use the custom client factory"          */
 DECL|field|clientFactory
 specifier|private
 name|IRestfulClientFactory

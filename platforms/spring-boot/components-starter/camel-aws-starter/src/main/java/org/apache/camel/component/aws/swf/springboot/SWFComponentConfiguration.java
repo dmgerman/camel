@@ -465,7 +465,7 @@ specifier|private
 name|AmazonSimpleWorkflowClient
 name|amazonSWClient
 decl_stmt|;
-comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          *           * @param startWorkflowOptionsParameters          */
+comment|/**          * To configure the StartWorkflowOptions using the key/values from the          * Map.          */
 DECL|field|startWorkflowOptionsParameters
 specifier|private
 name|Map
@@ -547,6 +547,7 @@ name|activityThreadPoolSize
 init|=
 literal|100
 decl_stmt|;
+comment|/**          * Set the execution start to close timeout.          */
 DECL|field|executionStartToCloseTimeout
 specifier|private
 name|String
@@ -554,6 +555,7 @@ name|executionStartToCloseTimeout
 init|=
 literal|"3600"
 decl_stmt|;
+comment|/**          * Set the task start to close timeout.          */
 DECL|field|taskStartToCloseTimeout
 specifier|private
 name|String

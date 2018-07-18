@@ -1035,7 +1035,6 @@ operator|=
 name|region
 expr_stmt|;
 block|}
-comment|/**      * Allows you to use multiple threads to poll the sqs queue to increase throughput      */
 DECL|method|getConcurrentConsumers ()
 specifier|public
 name|int
@@ -1046,6 +1045,7 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
+comment|/**      * Allows you to use multiple threads to poll the sqs queue to increase throughput      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -1062,7 +1062,6 @@ operator|=
 name|concurrentConsumers
 expr_stmt|;
 block|}
-comment|/**      *  To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored.      *  This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes.      */
 DECL|method|getQueueUrl ()
 specifier|public
 name|String
@@ -1073,6 +1072,7 @@ return|return
 name|queueUrl
 return|;
 block|}
+comment|/**      * To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored.      * This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes.      */
 DECL|method|setQueueUrl (String queueUrl)
 specifier|public
 name|void
@@ -1089,7 +1089,6 @@ operator|=
 name|queueUrl
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy host when instantiating the SQS client      */
 DECL|method|getProxyHost ()
 specifier|public
 name|String
@@ -1100,6 +1099,7 @@ return|return
 name|proxyHost
 return|;
 block|}
+comment|/**      * To define a proxy host when instantiating the SQS client      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -1116,7 +1116,6 @@ operator|=
 name|proxyHost
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy port when instantiating the SQS client      */
 DECL|method|getProxyPort ()
 specifier|public
 name|Integer
@@ -1127,6 +1126,7 @@ return|return
 name|proxyPort
 return|;
 block|}
+comment|/**      * To define a proxy port when instantiating the SQS client      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void

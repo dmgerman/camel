@@ -501,6 +501,7 @@ specifier|private
 name|Configuration
 name|cacheManagerConfiguration
 decl_stmt|;
+comment|/**          * Set the delivery mode (ordered, unordered)          */
 DECL|field|eventOrdering
 specifier|private
 name|EventOrdering
@@ -510,6 +511,7 @@ name|EventOrdering
 operator|.
 name|ORDERED
 decl_stmt|;
+comment|/**          * Set the delivery mode (synchronous, asynchronous)          */
 DECL|field|eventFiring
 specifier|private
 name|EventFiring
@@ -519,6 +521,7 @@ name|EventFiring
 operator|.
 name|ASYNCHRONOUS
 decl_stmt|;
+comment|/**          * Set the type of events to listen for          */
 DECL|field|eventTypes
 specifier|private
 name|Set
@@ -530,12 +533,13 @@ specifier|private
 name|CacheConfiguration
 name|configuration
 decl_stmt|;
+comment|/**          * A map of cache configuration to be used to create caches.          */
 DECL|field|configurations
 specifier|private
 name|Map
 name|configurations
 decl_stmt|;
-comment|/**          * The cache key type, default "java.lang.Object"          */
+comment|/**          * The cache key type, default java.lang.Object          */
 DECL|field|keyType
 specifier|private
 name|String
@@ -543,7 +547,7 @@ name|keyType
 init|=
 literal|"java.lang.Object"
 decl_stmt|;
-comment|/**          * The cache value type, default "java.lang.Object"          */
+comment|/**          * The cache value type, default java.lang.Object          */
 DECL|field|valueType
 specifier|private
 name|String

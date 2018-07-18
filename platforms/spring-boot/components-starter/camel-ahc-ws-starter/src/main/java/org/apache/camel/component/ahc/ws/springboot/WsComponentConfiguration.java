@@ -88,7 +88,7 @@ name|WsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the ahc-ws component. This is      * enabled by default.      */
+comment|/**      * Whether to enable auto configuration of the ahc-wss component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

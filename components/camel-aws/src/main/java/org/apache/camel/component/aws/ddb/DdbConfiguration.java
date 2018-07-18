@@ -507,7 +507,6 @@ operator|=
 name|keyAttributeType
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy host when instantiating the DDB client      */
 DECL|method|getProxyHost ()
 specifier|public
 name|String
@@ -518,6 +517,7 @@ return|return
 name|proxyHost
 return|;
 block|}
+comment|/**      * To define a proxy host when instantiating the DDB client      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -534,7 +534,6 @@ operator|=
 name|proxyHost
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy port when instantiating the DDB client      */
 DECL|method|getProxyPort ()
 specifier|public
 name|Integer
@@ -545,6 +544,7 @@ return|return
 name|proxyPort
 return|;
 block|}
+comment|/**      * To define a proxy port when instantiating the DDB client      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void
@@ -561,7 +561,6 @@ operator|=
 name|proxyPort
 expr_stmt|;
 block|}
-comment|/**      * The region in which DDB client needs to work      */
 DECL|method|getRegion ()
 specifier|public
 name|String
@@ -572,6 +571,7 @@ return|return
 name|region
 return|;
 block|}
+comment|/**      * The region in which DDB client needs to work      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void

@@ -247,7 +247,7 @@ name|repeat
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Not in use          *           * @deprecated The usage of this option has no effect at all.          */
+comment|/**          * Not in use          */
 annotation|@
 name|Deprecated
 DECL|field|awaitExistence

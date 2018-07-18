@@ -1293,7 +1293,6 @@ operator|=
 name|activityThreadPoolSize
 expr_stmt|;
 block|}
-comment|/**      * Set the execution start to close timeout.      */
 DECL|method|getExecutionStartToCloseTimeout ()
 specifier|public
 name|String
@@ -1304,6 +1303,7 @@ return|return
 name|executionStartToCloseTimeout
 return|;
 block|}
+comment|/**      * Set the execution start to close timeout.      */
 DECL|method|setExecutionStartToCloseTimeout (String executionStartToCloseTimeout)
 specifier|public
 name|void
@@ -1320,7 +1320,6 @@ operator|=
 name|executionStartToCloseTimeout
 expr_stmt|;
 block|}
-comment|/**      * Set the task start to close timeout.      */
 DECL|method|getTaskStartToCloseTimeout ()
 specifier|public
 name|String
@@ -1331,6 +1330,7 @@ return|return
 name|taskStartToCloseTimeout
 return|;
 block|}
+comment|/**      * Set the task start to close timeout.      */
 DECL|method|setTaskStartToCloseTimeout (String taskStartToCloseTimeout)
 specifier|public
 name|void

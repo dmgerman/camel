@@ -559,13 +559,13 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
-comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          */
+comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with so Camel knows it should          * lookup.          */
 DECL|field|decoders
 specifier|private
 name|List
 name|decoders
 decl_stmt|;
-comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          */
+comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with so Camel knows it should          * lookup.          */
 DECL|field|encoders
 specifier|private
 name|List
@@ -693,7 +693,7 @@ specifier|private
 name|Integer
 name|producerPoolMinIdle
 decl_stmt|;
-comment|/**          * Sets the cap on the number of "idle" instances in the pool.          */
+comment|/**          * Sets the cap on the number of idle instances in the pool.          */
 DECL|field|producerPoolMaxIdle
 specifier|private
 name|Integer
@@ -733,7 +733,7 @@ name|clientMode
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * If the useChannelBuffer is true, netty producer will turn the message          * body into {@link ChannelBuffer} before sending it out.          */
+comment|/**          * If the useChannelBuffer is true, netty producer will turn the message          * body into ChannelBuffer before sending it out.          */
 DECL|field|useChannelBuffer
 specifier|private
 name|Boolean
@@ -763,7 +763,7 @@ specifier|private
 name|String
 name|protocol
 decl_stmt|;
-comment|/**          * The hostname.          *<p/>          * For the consumer the hostname is localhost or 0.0.0.0 For the          * producer the hostname is the remote host to connect to          */
+comment|/**          * The hostname. For the consumer the hostname is localhost or 0.0.0.0          * For the producer the hostname is the remote host to connect to          */
 DECL|field|host
 specifier|private
 name|String
@@ -805,7 +805,7 @@ specifier|private
 name|Integer
 name|receiveBufferSizePredictor
 decl_stmt|;
-comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads*2. User can use this operation          * to override the default workerCount from Netty          */
+comment|/**          * When netty works on nio mode, it uses default workerCount parameter          * from Netty, which is cpu_core_threads2. User can use this operation          * to override the default workerCount from Netty          */
 DECL|field|workerCount
 specifier|private
 name|Integer
@@ -851,7 +851,7 @@ name|connectTimeout
 init|=
 literal|10000L
 decl_stmt|;
-comment|/**          * Allows to configure a backlog for netty consumer (server). Note the          * backlog is just a best effort depending on the OS. Setting this          * option to a value such as 200, 500 or 1000, tells the TCP stack how          * long the "accept" queue can be If this option is not configured, then          * the backlog depends on OS setting.          */
+comment|/**          * Allows to configure a backlog for netty consumer (server). Note the          * backlog is just a best effort depending on the OS. Setting this          * option to a value such as 200, 500 or 1000, tells the TCP stack how          * long the accept queue can be If this option is not configured, then          * the backlog depends on OS setting.          */
 DECL|field|backlog
 specifier|private
 name|Integer
@@ -911,19 +911,19 @@ specifier|private
 name|File
 name|trustStoreFile
 decl_stmt|;
-comment|/**          * Client side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with "classpath:",          * "file:", or "http:" to load the resource from different systems.          */
+comment|/**          * Client side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          */
 DECL|field|keyStoreResource
 specifier|private
 name|String
 name|keyStoreResource
 decl_stmt|;
-comment|/**          * Server side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with "classpath:",          * "file:", or "http:" to load the resource from different systems.          */
+comment|/**          * Server side certificate keystore to be used for encryption. Is loaded          * by default from classpath, but you can prefix with classpath:, file:,          * or http: to load the resource from different systems.          */
 DECL|field|trustStoreResource
 specifier|private
 name|String
 name|trustStoreResource
 decl_stmt|;
-comment|/**          * Keystore format to be used for payload encryption. Defaults to "JKS"          * if not set          */
+comment|/**          * Keystore format to be used for payload encryption. Defaults to JKS if          * not set          */
 DECL|field|keyStoreFormat
 specifier|private
 name|String
@@ -931,7 +931,7 @@ name|keyStoreFormat
 init|=
 literal|"JKS"
 decl_stmt|;
-comment|/**          * Security provider to be used for payload encryption. Defaults to          * "SunX509" if not set.          */
+comment|/**          * Security provider to be used for payload encryption. Defaults to          * SunX509 if not set.          */
 DECL|field|securityProvider
 specifier|private
 name|String
@@ -957,7 +957,7 @@ specifier|private
 name|NettyServerBootstrapFactory
 name|nettyServerBootstrapFactory
 decl_stmt|;
-comment|/**          * Allows to configure additional netty options using "option." as          * prefix. For example "option.child.keepAlive=false" to set the netty          * option "child.keepAlive=false". See the Netty documentation for          * possible options that can be used.          */
+comment|/**          * Allows to configure additional netty options using option. as prefix.          * For example option.child.keepAlive=false to set the netty option          * child.keepAlive=false. See the Netty documentation for possible          * options that can be used.          */
 DECL|field|options
 specifier|private
 name|Map

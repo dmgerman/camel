@@ -382,7 +382,6 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy host when instantiating the Lambda client      */
 DECL|method|getProxyHost ()
 specifier|public
 name|String
@@ -393,6 +392,7 @@ return|return
 name|proxyHost
 return|;
 block|}
+comment|/**      * To define a proxy host when instantiating the Lambda client      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -409,7 +409,6 @@ operator|=
 name|proxyHost
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy port when instantiating the Lambda client      */
 DECL|method|getProxyPort ()
 specifier|public
 name|Integer
@@ -420,6 +419,7 @@ return|return
 name|proxyPort
 return|;
 block|}
+comment|/**      * To define a proxy port when instantiating the Lambda client      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void

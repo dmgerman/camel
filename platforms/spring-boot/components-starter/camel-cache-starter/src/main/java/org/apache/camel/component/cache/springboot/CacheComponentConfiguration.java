@@ -343,7 +343,7 @@ name|maxElementsInMemory
 init|=
 literal|1000
 decl_stmt|;
-comment|/**          * Which eviction strategy to use when maximum number of elements in          * memory is reached. The strategy defines which elements to be removed.          *<ul>          *<li>LRU - Lest Recently Used</li>          *<li>LFU - Lest Frequently Used</li>          *<li>FIFO - First In First Out</li>          *</ul>          */
+comment|/**          * Which eviction strategy to use when maximum number of elements in          * memory is reached. The strategy defines which elements to be removed.          * LRU - Lest Recently Used LFU - Lest Frequently Used FIFO - First In          * First Out          */
 DECL|field|memoryStoreEvictionPolicy
 specifier|private
 name|MemoryStoreEvictionPolicy

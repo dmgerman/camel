@@ -231,6 +231,7 @@ specifier|private
 name|Protocol
 name|protocol
 decl_stmt|;
+comment|/**          * Transport to use, can be either http or netty          */
 DECL|field|transport
 specifier|private
 name|AvroTransport

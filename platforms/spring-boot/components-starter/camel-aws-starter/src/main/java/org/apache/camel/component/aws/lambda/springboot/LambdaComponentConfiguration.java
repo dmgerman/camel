@@ -353,11 +353,13 @@ specifier|private
 name|LambdaOperations
 name|operation
 decl_stmt|;
+comment|/**          * To define a proxy host when instantiating the Lambda client          */
 DECL|field|proxyHost
 specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
+comment|/**          * To define a proxy port when instantiating the Lambda client          */
 DECL|field|proxyPort
 specifier|private
 name|Integer
