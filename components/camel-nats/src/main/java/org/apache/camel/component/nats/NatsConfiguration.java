@@ -40,6 +40,32 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|nats
+operator|.
+name|client
+operator|.
+name|Options
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|nats
+operator|.
+name|client
+operator|.
+name|Options
+operator|.
+name|Builder
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -107,32 +133,6 @@ operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|nats
-operator|.
-name|client
-operator|.
-name|Options
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|nats
-operator|.
-name|client
-operator|.
-name|Options
-operator|.
-name|Builder
 import|;
 end_import
 
@@ -361,7 +361,7 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|/**      * URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.      */
+comment|/**      * URLs to one or more NAT servers. Use comma to separate URLs when      * specifying multiple servers.      */
 DECL|method|getServers ()
 specifier|public
 name|String
@@ -604,7 +604,7 @@ operator|=
 name|replySubject
 expr_stmt|;
 block|}
-comment|/**      * Whether or not randomizing the order of servers for the connection attempts      */
+comment|/**      * Whether or not randomizing the order of servers for the connection      * attempts      */
 DECL|method|getNoRandomizeServers ()
 specifier|public
 name|boolean
@@ -658,7 +658,7 @@ operator|=
 name|queueName
 expr_stmt|;
 block|}
-comment|/**      * Stop receiving messages from a topic we are subscribing to after maxMessages       */
+comment|/**      * Stop receiving messages from a topic we are subscribing to after      * maxMessages      */
 DECL|method|getMaxMessages ()
 specifier|public
 name|String
