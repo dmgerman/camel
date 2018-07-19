@@ -260,22 +260,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|core
 operator|.
 name|task
@@ -3477,8 +3461,6 @@ name|DestinationResolver
 name|destinationResolver
 decl_stmt|;
 comment|/**          * Allows the provider metadata to be explicitly configured. Typically          * this is not required and Camel will auto-detect the provider metadata          * from the underlying provider.          */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|providerMetadata
 specifier|private
 name|JmsProviderMetadata

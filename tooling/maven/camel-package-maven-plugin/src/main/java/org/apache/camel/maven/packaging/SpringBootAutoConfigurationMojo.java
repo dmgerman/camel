@@ -1137,6 +1137,16 @@ argument_list|(
 literal|"org\\.apache\\.camel\\..*"
 argument_list|)
 decl_stmt|;
+comment|/**      * Whether to enable adding @NestedConfigurationProperty annotations to options.      * This is disabled as the generated options likely is not configurable as plain POJOs      * and there is also no documentation for each of the generated options.      */
+DECL|field|ADD_NESTED_CONFIGURATION_PROPERTY
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|ADD_NESTED_CONFIGURATION_PROPERTY
+init|=
+literal|false
+decl_stmt|;
 DECL|field|PRIMITIVEMAP
 specifier|private
 specifier|static
@@ -5119,6 +5129,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|ADD_NESTED_CONFIGURATION_PROPERTY
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|type
 operator|.
@@ -5190,6 +5205,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -5709,6 +5725,11 @@ block|}
 comment|// add nested configuration annotation for complex properties
 if|if
 condition|(
+name|ADD_NESTED_CONFIGURATION_PROPERTY
+condition|)
+block|{
+if|if
+condition|(
 name|INCLUDE_INNER_PATTERN
 operator|.
 name|matcher
@@ -5768,6 +5789,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
