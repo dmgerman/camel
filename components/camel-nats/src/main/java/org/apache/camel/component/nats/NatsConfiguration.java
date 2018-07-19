@@ -783,7 +783,7 @@ return|return
 name|flushTimeout
 return|;
 block|}
-comment|/**      * Set the flush timeout      */
+comment|/**      * Set the flush timeout (in milliseconds)      */
 DECL|method|setFlushTimeout (int flushTimeout)
 specifier|public
 name|void
