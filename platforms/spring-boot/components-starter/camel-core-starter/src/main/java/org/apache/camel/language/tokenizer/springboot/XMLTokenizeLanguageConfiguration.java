@@ -86,6 +86,12 @@ name|XMLTokenizeLanguageConfiguration
 extends|extends
 name|LanguageConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the xtokenize language. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The extraction mode. The available extraction modes are: i - injecting      * the contextual namespace bindings into the extracted token (default) w -      * wrapping the extracted token in its ancestor context u - unwrapping the      * extracted token to its child content t - extracting the text content of      * the specified element      */
 DECL|field|mode
 specifier|private

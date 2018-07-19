@@ -84,6 +84,12 @@ name|ZipDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the zip data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To specify a specific compression between 0-9. -1 is default compression,      * 0 is no compression, and 9 is best compression.      */
 DECL|field|compressionLevel
 specifier|private

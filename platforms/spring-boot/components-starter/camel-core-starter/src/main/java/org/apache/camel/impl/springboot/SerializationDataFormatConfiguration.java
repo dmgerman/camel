@@ -84,6 +84,12 @@ name|SerializationDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the serialization data format.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private

@@ -84,6 +84,12 @@ name|StringDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the string data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Sets an encoding to use. Will by default use the JVM platform default      * charset.      */
 DECL|field|charset
 specifier|private

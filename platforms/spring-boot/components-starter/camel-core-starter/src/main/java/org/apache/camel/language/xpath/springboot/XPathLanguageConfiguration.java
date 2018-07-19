@@ -86,6 +86,12 @@ name|XPathLanguageConfiguration
 extends|extends
 name|LanguageConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the xpath language. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Name of class for document type The default value is org.w3c.dom.Document      */
 DECL|field|documentType
 specifier|private
