@@ -145,15 +145,6 @@ name|IOException
 block|{
 name|mockResultEndpoint
 operator|.
-name|expectedBodiesReceivedInAnyOrder
-argument_list|(
-literal|"{Subject=test;Reply=null;Payload=<test>}"
-argument_list|,
-literal|"{Subject=test;Reply=null;Payload=<test1>}"
-argument_list|)
-expr_stmt|;
-name|mockResultEndpoint
-operator|.
 name|setExpectedMessageCount
 argument_list|(
 literal|2

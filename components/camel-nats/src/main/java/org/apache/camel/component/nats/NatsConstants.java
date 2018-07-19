@@ -30,12 +30,6 @@ name|NATS_MESSAGE_TIMESTAMP
 init|=
 literal|"CamelNatsMessageTimestamp"
 decl_stmt|;
-DECL|field|NATS_SUBSCRIPTION_ID
-name|String
-name|NATS_SUBSCRIPTION_ID
-init|=
-literal|"CamelNatsSubscriptionId"
-decl_stmt|;
 block|}
 end_interface
 

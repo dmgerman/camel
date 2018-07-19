@@ -150,13 +150,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|mockResultEndpoint
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"{Subject=test;Reply=null;Payload=<test>}"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|requestBody
