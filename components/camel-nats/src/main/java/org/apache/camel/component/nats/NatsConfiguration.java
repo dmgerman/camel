@@ -263,6 +263,13 @@ name|noRandomizeServers
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|noEcho
+specifier|private
+name|boolean
+name|noEcho
+decl_stmt|;
+annotation|@
+name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -631,6 +638,33 @@ operator|=
 name|noRandomizeServers
 expr_stmt|;
 block|}
+comment|/**      * Turn off echo. If supported by the gnatsd version you are connecting       * to this flag will prevent the server from echoing messages back       * to the connection if it has subscriptions on the subject being published to.      */
+DECL|method|getNoEcho ()
+specifier|public
+name|boolean
+name|getNoEcho
+parameter_list|()
+block|{
+return|return
+name|noEcho
+return|;
+block|}
+DECL|method|setNoEcho (boolean noEcho)
+specifier|public
+name|void
+name|setNoEcho
+parameter_list|(
+name|boolean
+name|noEcho
+parameter_list|)
+block|{
+name|this
+operator|.
+name|noEcho
+operator|=
+name|noEcho
+expr_stmt|;
+block|}
 comment|/**      * The Queue name if we are using nats for a queue configuration      */
 DECL|method|getQueueName ()
 specifier|public
@@ -942,6 +976,18 @@ block|{
 name|builder
 operator|.
 name|noRandomize
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getNoEcho
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|noEcho
 argument_list|()
 expr_stmt|;
 block|}

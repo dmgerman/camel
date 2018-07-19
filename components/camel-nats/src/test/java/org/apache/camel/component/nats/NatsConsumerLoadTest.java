@@ -154,12 +154,11 @@ name|Test
 import|;
 end_import
 
+begin_comment
+comment|//@Ignore("Require a running Nats server")
+end_comment
+
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Require a running Nats server"
-argument_list|)
 DECL|class|NatsConsumerLoadTest
 specifier|public
 class|class
