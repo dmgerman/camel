@@ -118,6 +118,12 @@ name|JacksonDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the json-jackson data format.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Lookup and use the existing ObjectMapper with the given id when using      * Jackson.      */
 DECL|field|objectMapper
 specifier|private

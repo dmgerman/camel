@@ -86,6 +86,12 @@ name|Base64DataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the base64 data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To specific a maximum line length for the encoded data. By default 76 is      * used.      */
 DECL|field|lineLength
 specifier|private

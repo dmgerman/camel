@@ -86,6 +86,12 @@ name|AvroDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the avro data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Class name to use for marshal and unmarshalling      */
 DECL|field|instanceClassName
 specifier|private

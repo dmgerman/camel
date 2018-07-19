@@ -86,6 +86,12 @@ name|FhirJsonDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the fhirJson data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The version of FHIR to use. Possible values are:      * DSTU2,DSTU2_HL7ORG,DSTU2_1,DSTU3,R4      */
 DECL|field|fhirVersion
 specifier|private

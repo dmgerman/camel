@@ -104,6 +104,12 @@ name|BindyCsvDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the bindy-csv data format. This      * is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Whether to use csv, fixed or key value pairs mode.      */
 DECL|field|type
 specifier|private

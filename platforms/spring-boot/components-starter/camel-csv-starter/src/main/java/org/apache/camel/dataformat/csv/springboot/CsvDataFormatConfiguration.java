@@ -96,6 +96,12 @@ name|CsvDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the csv data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The reference format to use, it will be updated with the other format      * options, the default value is CSVFormat.DEFAULT      */
 DECL|field|formatRef
 specifier|private

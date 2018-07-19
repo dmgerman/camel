@@ -86,6 +86,12 @@ name|UniVocityTsvDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the univocity-tsv data format.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The escape character.      */
 DECL|field|escapeChar
 specifier|private

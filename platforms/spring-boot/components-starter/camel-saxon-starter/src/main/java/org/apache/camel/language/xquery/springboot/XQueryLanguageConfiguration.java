@@ -86,6 +86,12 @@ name|XQueryLanguageConfiguration
 extends|extends
 name|LanguageConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the xquery language. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Sets the class name of the result type (type from output) The default      * result type is NodeSet      */
 DECL|field|type
 specifier|private

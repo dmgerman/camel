@@ -86,6 +86,12 @@ name|JaxbDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jaxb data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Package name where your JAXB classes are located.      */
 DECL|field|contextPath
 specifier|private

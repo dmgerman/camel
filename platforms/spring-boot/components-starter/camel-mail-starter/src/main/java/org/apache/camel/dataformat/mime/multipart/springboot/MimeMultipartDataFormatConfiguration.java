@@ -88,6 +88,12 @@ name|MimeMultipartDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the mime-multipart data format.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Specify the subtype of the MIME Multipart. Default is mixed.      */
 DECL|field|multipartSubType
 specifier|private

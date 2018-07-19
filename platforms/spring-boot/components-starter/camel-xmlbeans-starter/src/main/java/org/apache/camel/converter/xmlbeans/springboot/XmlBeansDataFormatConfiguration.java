@@ -86,6 +86,12 @@ name|XmlBeansDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the xmlBeans data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * To enable pretty printing output nicely formatted. Is by default false.      */
 DECL|field|prettyPrint
 specifier|private

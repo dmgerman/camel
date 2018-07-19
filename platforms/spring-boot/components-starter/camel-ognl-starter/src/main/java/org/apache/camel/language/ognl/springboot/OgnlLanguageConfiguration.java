@@ -86,6 +86,12 @@ name|OgnlLanguageConfiguration
 extends|extends
 name|LanguageConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the ognl language. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and      * line breaks      */
 DECL|field|trim
 specifier|private

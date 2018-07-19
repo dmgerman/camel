@@ -86,6 +86,12 @@ name|XmlRpcDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the xmlrpc data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Whether to marshal/unmarshal request or response Is by default false      */
 DECL|field|request
 specifier|private

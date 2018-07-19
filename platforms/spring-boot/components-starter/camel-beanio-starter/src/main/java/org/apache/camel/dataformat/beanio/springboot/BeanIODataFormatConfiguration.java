@@ -86,6 +86,12 @@ name|BeanIODataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the beanio data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The BeanIO mapping file. Is by default loaded from the classpath. You can      * prefix with file:, http:, or classpath: to denote from where to load the      * mapping file.      */
 DECL|field|mapping
 specifier|private

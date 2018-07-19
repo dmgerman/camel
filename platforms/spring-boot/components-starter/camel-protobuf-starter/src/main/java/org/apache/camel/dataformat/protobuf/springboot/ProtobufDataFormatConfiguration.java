@@ -86,6 +86,12 @@ name|ProtobufDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the protobuf data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Name of class to use when unarmshalling      */
 DECL|field|instanceClass
 specifier|private

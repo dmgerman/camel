@@ -144,6 +144,12 @@ name|SnakeYAMLDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the yaml-snakeyaml data format.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Which yaml library to use. By default it is SnakeYAML      */
 DECL|field|library
 specifier|private

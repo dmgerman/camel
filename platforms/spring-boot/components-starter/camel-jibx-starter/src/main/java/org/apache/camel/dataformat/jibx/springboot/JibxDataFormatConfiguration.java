@@ -86,6 +86,12 @@ name|JibxDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jibx data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Class name to use when unmarshalling from XML to Java.      */
 DECL|field|unmarshallClass
 specifier|private

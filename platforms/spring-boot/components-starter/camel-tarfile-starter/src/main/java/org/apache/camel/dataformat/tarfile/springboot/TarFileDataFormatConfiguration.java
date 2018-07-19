@@ -86,6 +86,12 @@ name|TarFileDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the tarfile data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * If the tar file has more then one entry, the setting this option to true,      * allows to work with the splitter EIP, to split the data using an iterator      * in a streaming mode.      */
 DECL|field|usingIterator
 specifier|private

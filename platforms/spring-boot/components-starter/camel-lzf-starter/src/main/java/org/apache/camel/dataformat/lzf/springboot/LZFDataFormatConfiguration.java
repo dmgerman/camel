@@ -86,6 +86,12 @@ name|LZFDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the lzf data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Enable encoding (compress) using multiple processing cores.      */
 DECL|field|usingParallelCompression
 specifier|private

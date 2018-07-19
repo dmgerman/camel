@@ -86,6 +86,12 @@ name|HL7DataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the hl7 data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Whether to validate the HL7 message Is by default true.      */
 DECL|field|validate
 specifier|private

@@ -84,6 +84,12 @@ name|JsonPathLanguageConfiguration
 extends|extends
 name|LanguageConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the jsonpath language. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Whether to suppress exceptions such as PathNotFoundException.      */
 DECL|field|suppressExceptions
 specifier|private

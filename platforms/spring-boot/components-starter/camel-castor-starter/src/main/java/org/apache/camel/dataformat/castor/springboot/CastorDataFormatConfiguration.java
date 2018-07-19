@@ -86,6 +86,12 @@ name|CastorDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the castor data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Path to a Castor mapping file to load from the classpath.      */
 DECL|field|mappingFile
 specifier|private

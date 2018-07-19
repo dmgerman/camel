@@ -86,6 +86,12 @@ name|TidyMarkupDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the tidyMarkup data format. This      * is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * What data type to unmarshal as, can either be org.w3c.dom.Node or      * java.lang.String. Is by default org.w3c.dom.Node      */
 DECL|field|dataObjectType
 specifier|private

@@ -86,6 +86,12 @@ name|UniVocityFixedWidthDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the univocity-fixed data format.      * This is enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * Whether or not the trailing characters until new line must be ignored.      * The default value is false      */
 DECL|field|skipTrailingCharsUntilNewline
 specifier|private

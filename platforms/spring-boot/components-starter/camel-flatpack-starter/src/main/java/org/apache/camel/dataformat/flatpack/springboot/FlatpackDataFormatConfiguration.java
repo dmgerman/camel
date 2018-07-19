@@ -86,6 +86,12 @@ name|FlatpackDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the flatpack data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The flatpack pzmap configuration file. Can be omitted in simpler      * situations, but its preferred to use the pzmap.      */
 DECL|field|definition
 specifier|private

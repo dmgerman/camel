@@ -86,6 +86,12 @@ name|CryptoDataFormatConfiguration
 extends|extends
 name|DataFormatConfigurationPropertiesCommon
 block|{
+comment|/**      * Whether to enable auto configuration of the crypto data format. This is      * enabled by default.      */
+DECL|field|enabled
+specifier|private
+name|Boolean
+name|enabled
+decl_stmt|;
 comment|/**      * The JCE algorithm name indicating the cryptographic algorithm that will      * be used. Is by default DES/CBC/PKCS5Padding.      */
 DECL|field|algorithm
 specifier|private
