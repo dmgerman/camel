@@ -266,6 +266,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -5645,8 +5659,24 @@ name|getType
 argument_list|()
 decl_stmt|;
 comment|// skip these types
+name|boolean
+name|ignore
+init|=
+name|sourceProp
+operator|.
+name|getAnnotation
+argument_list|(
+name|XmlTransient
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
 if|if
 condition|(
+name|ignore
+operator|||
 name|propType
 operator|.
 name|isType

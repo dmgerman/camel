@@ -156,6 +156,24 @@ specifier|private
 name|boolean
 name|ignoreBackgroundScan
 decl_stmt|;
+comment|// dummy for doc generation
+comment|/**      * Whether to include the source address      */
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"data"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|causeSourceAddress
+specifier|private
+name|boolean
+name|causeSourceAddress
+decl_stmt|;
 DECL|method|ClientOptions ()
 specifier|public
 name|ClientOptions

@@ -189,11 +189,6 @@ name|ClientOptions
 operator|.
 name|class
 decl_stmt|;
-DECL|field|causeSourceAddress
-specifier|private
-name|Byte
-name|causeSourceAddress
-decl_stmt|;
 comment|/**          * Whether background scan transmissions should be ignored.          */
 DECL|field|ignoreBackgroundScan
 specifier|private
@@ -202,32 +197,6 @@ name|ignoreBackgroundScan
 init|=
 literal|true
 decl_stmt|;
-DECL|method|getCauseSourceAddress ()
-specifier|public
-name|Byte
-name|getCauseSourceAddress
-parameter_list|()
-block|{
-return|return
-name|causeSourceAddress
-return|;
-block|}
-DECL|method|setCauseSourceAddress (Byte causeSourceAddress)
-specifier|public
-name|void
-name|setCauseSourceAddress
-parameter_list|(
-name|Byte
-name|causeSourceAddress
-parameter_list|)
-block|{
-name|this
-operator|.
-name|causeSourceAddress
-operator|=
-name|causeSourceAddress
-expr_stmt|;
-block|}
 DECL|method|getIgnoreBackgroundScan ()
 specifier|public
 name|Boolean

@@ -94,6 +94,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -317,6 +331,9 @@ name|DEFAULT_PRODUCT_URI
 init|=
 literal|"http://camel.apache.org/EclipseMilo"
 decl_stmt|;
+annotation|@
+name|XmlTransient
+comment|// to not be included in component docs
 DECL|field|endpointUri
 specifier|private
 name|String
@@ -755,6 +772,7 @@ operator|.
 name|overrideHost
 expr_stmt|;
 block|}
+comment|/**      * The OPC UA server endpoint      */
 DECL|method|setEndpointUri (final String endpointUri)
 specifier|public
 name|void

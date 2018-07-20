@@ -327,11 +327,6 @@ name|MiloClientConfiguration
 operator|.
 name|class
 decl_stmt|;
-DECL|field|endpointUri
-specifier|private
-name|String
-name|endpointUri
-decl_stmt|;
 comment|/**          * An alternative discovery URI          */
 DECL|field|discoveryEndpointUri
 specifier|private
@@ -448,32 +443,6 @@ name|overrideHost
 init|=
 literal|false
 decl_stmt|;
-DECL|method|getEndpointUri ()
-specifier|public
-name|String
-name|getEndpointUri
-parameter_list|()
-block|{
-return|return
-name|endpointUri
-return|;
-block|}
-DECL|method|setEndpointUri (String endpointUri)
-specifier|public
-name|void
-name|setEndpointUri
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|endpointUri
-operator|=
-name|endpointUri
-expr_stmt|;
-block|}
 DECL|method|getDiscoveryEndpointUri ()
 specifier|public
 name|String
