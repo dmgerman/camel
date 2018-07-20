@@ -267,6 +267,26 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"2"
+argument_list|)
+DECL|field|maxPingsOut
+specifier|private
+name|int
+name|maxPingsOut
+init|=
+name|Options
+operator|.
+name|DEFAULT_MAX_PINGS_OUT
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer"
 argument_list|)
 DECL|field|replySubject
@@ -575,6 +595,33 @@ operator|.
 name|maxReconnectAttempts
 operator|=
 name|maxReconnectAttempts
+expr_stmt|;
+block|}
+comment|/**      * maximum number of pings have not received a response allowed by the       * client      */
+DECL|method|getMaxPingsOut ()
+specifier|public
+name|int
+name|getMaxPingsOut
+parameter_list|()
+block|{
+return|return
+name|maxPingsOut
+return|;
+block|}
+DECL|method|setMaxPingsOut (int maxPingsOut)
+specifier|public
+name|void
+name|setMaxPingsOut
+parameter_list|(
+name|int
+name|maxPingsOut
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxPingsOut
+operator|=
+name|maxPingsOut
 expr_stmt|;
 block|}
 comment|/**      * Ping interval to be aware if connection is still alive (in milliseconds)      */
@@ -1025,6 +1072,14 @@ argument_list|(
 name|getConnectionTimeout
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|maxPingsOut
+argument_list|(
+name|getMaxPingsOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
