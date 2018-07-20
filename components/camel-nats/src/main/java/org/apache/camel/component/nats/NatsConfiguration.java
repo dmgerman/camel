@@ -597,7 +597,7 @@ operator|=
 name|maxReconnectAttempts
 expr_stmt|;
 block|}
-comment|/**      * maximum number of pings have not received a response allowed by the       * client      */
+comment|/**      * maximum number of pings have not received a response allowed by the      * client      */
 DECL|method|getMaxPingsOut ()
 specifier|public
 name|int
@@ -732,7 +732,7 @@ operator|=
 name|noRandomizeServers
 expr_stmt|;
 block|}
-comment|/**      * Turn off echo. If supported by the gnatsd version you are connecting       * to this flag will prevent the server from echoing messages back       * to the connection if it has subscriptions on the subject being published to.      */
+comment|/**      * Turn off echo. If supported by the gnatsd version you are connecting to      * this flag will prevent the server from echoing messages back to the      * connection if it has subscriptions on the subject being published to.      */
 DECL|method|getNoEcho ()
 specifier|public
 name|boolean
