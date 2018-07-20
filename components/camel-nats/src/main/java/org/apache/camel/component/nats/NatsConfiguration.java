@@ -233,14 +233,14 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"4000"
+literal|"120000"
 argument_list|)
 DECL|field|pingInterval
 specifier|private
 name|int
 name|pingInterval
 init|=
-literal|4000
+literal|120000
 decl_stmt|;
 annotation|@
 name|UriParam
