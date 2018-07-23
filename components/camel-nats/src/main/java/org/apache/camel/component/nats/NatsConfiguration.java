@@ -46,6 +46,18 @@ name|nats
 operator|.
 name|client
 operator|.
+name|Connection
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|nats
+operator|.
+name|client
+operator|.
 name|Options
 import|;
 end_import
@@ -171,6 +183,13 @@ DECL|field|topic
 specifier|private
 name|String
 name|topic
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|connection
+specifier|private
+name|Connection
+name|connection
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -478,6 +497,33 @@ operator|.
 name|topic
 operator|=
 name|topic
+expr_stmt|;
+block|}
+comment|/**      * Reference an already instantiated connection to Nats server      */
+DECL|method|getConnection ()
+specifier|public
+name|Connection
+name|getConnection
+parameter_list|()
+block|{
+return|return
+name|connection
+return|;
+block|}
+DECL|method|setConnection (Connection connection)
+specifier|public
+name|void
+name|setConnection
+parameter_list|(
+name|Connection
+name|connection
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connection
+operator|=
+name|connection
 expr_stmt|;
 block|}
 comment|/**      * Whether or not using reconnection feature      */
