@@ -106,6 +106,13 @@ specifier|private
 name|String
 name|passPhrase
 decl_stmt|;
+comment|/**      * A byte used as passPhrase to encrypt/decrypt content. The passPhrase has      * to be provided. If no passPhrase is specified, a default passPhrase is      * used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a Only another 24 Byte key      */
+DECL|field|passPhraseByte
+specifier|private
+name|byte
+index|[]
+name|passPhraseByte
+decl_stmt|;
 comment|/**      * The XPath reference to the XML Element selected for      * encryption/decryption. If no tag is specified, the entire payload is      * encrypted/decrypted.      */
 DECL|field|secureTag
 specifier|private
@@ -228,6 +235,34 @@ operator|.
 name|passPhrase
 operator|=
 name|passPhrase
+expr_stmt|;
+block|}
+DECL|method|getPassPhraseByte ()
+specifier|public
+name|byte
+index|[]
+name|getPassPhraseByte
+parameter_list|()
+block|{
+return|return
+name|passPhraseByte
+return|;
+block|}
+DECL|method|setPassPhraseByte (byte[] passPhraseByte)
+specifier|public
+name|void
+name|setPassPhraseByte
+parameter_list|(
+name|byte
+index|[]
+name|passPhraseByte
+parameter_list|)
+block|{
+name|this
+operator|.
+name|passPhraseByte
+operator|=
+name|passPhraseByte
 expr_stmt|;
 block|}
 DECL|method|getSecureTag ()
