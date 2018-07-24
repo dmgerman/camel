@@ -28,6 +28,9 @@ name|IAMOperations
 block|{
 DECL|enumConstant|listAccessKeys
 name|listAccessKeys
+block|,
+DECL|enumConstant|createUser
+name|createUser
 block|}
 end_enum
 
