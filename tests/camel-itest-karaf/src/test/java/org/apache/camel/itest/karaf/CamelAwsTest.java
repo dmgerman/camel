@@ -127,6 +127,13 @@ name|testComponent
 argument_list|(
 name|COMPONENT
 argument_list|,
+literal|"aws-iam"
+argument_list|)
+expr_stmt|;
+name|testComponent
+argument_list|(
+name|COMPONENT
+argument_list|,
 literal|"aws-kinesis"
 argument_list|)
 expr_stmt|;
