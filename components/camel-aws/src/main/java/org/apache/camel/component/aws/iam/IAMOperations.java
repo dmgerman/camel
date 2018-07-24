@@ -34,6 +34,9 @@ name|createUser
 block|,
 DECL|enumConstant|deleteUser
 name|deleteUser
+block|,
+DECL|enumConstant|listUsers
+name|listUsers
 block|}
 end_enum
 
