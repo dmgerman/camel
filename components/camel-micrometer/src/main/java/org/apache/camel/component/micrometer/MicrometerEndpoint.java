@@ -212,7 +212,7 @@ literal|"Micrometer"
 argument_list|,
 name|syntax
 operator|=
-literal|"micrometer:metricsType:meterName"
+literal|"micrometer:metricsType:metricsName"
 argument_list|,
 name|producerOnly
 operator|=
