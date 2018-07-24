@@ -126,7 +126,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The AWS MQ default configuration      */
+comment|/**      * The AWS KMS default configuration      */
 DECL|field|configuration
 specifier|private
 name|KMSConfigurationNestedConfiguration
@@ -144,7 +144,7 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-comment|/**      * The region in which MQ client needs to work      */
+comment|/**      * The region in which KMS client needs to work      */
 DECL|field|region
 specifier|private
 name|String
