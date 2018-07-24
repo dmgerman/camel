@@ -340,7 +340,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * The AWS MQ default configuration      */
+comment|/**      * The AWS IAM default configuration      */
 DECL|method|setConfiguration (IAMConfiguration configuration)
 specifier|public
 name|void
@@ -432,7 +432,7 @@ name|getRegion
 argument_list|()
 return|;
 block|}
-comment|/**      * The region in which MQ client needs to work      */
+comment|/**      * The region in which IAM client needs to work      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
