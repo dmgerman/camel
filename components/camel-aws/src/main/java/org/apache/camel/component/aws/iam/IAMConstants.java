@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in Camel AWS IAM module  *   */
+comment|/**  * Constants used in Camel AWS IAM module  */
 end_comment
 
 begin_interface

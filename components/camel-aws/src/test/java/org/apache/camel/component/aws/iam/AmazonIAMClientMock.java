@@ -156,7 +156,7 @@ parameter_list|(
 name|String
 name|endpoint
 parameter_list|)
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|setRegion (Region region)
@@ -167,10 +167,10 @@ parameter_list|(
 name|Region
 name|region
 parameter_list|)
-block|{	 	}
+block|{     }
 annotation|@
 name|Override
-DECL|method|addClientIDToOpenIDConnectProvider ( AddClientIDToOpenIDConnectProviderRequest addClientIDToOpenIDConnectProviderRequest)
+DECL|method|addClientIDToOpenIDConnectProvider (AddClientIDToOpenIDConnectProviderRequest addClientIDToOpenIDConnectProviderRequest)
 specifier|public
 name|AddClientIDToOpenIDConnectProviderResult
 name|addClientIDToOpenIDConnectProvider
@@ -187,7 +187,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|addRoleToInstanceProfile ( AddRoleToInstanceProfileRequest addRoleToInstanceProfileRequest)
+DECL|method|addRoleToInstanceProfile (AddRoleToInstanceProfileRequest addRoleToInstanceProfileRequest)
 specifier|public
 name|AddRoleToInstanceProfileResult
 name|addRoleToInstanceProfile
@@ -354,7 +354,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|createInstanceProfile ( CreateInstanceProfileRequest createInstanceProfileRequest)
+DECL|method|createInstanceProfile (CreateInstanceProfileRequest createInstanceProfileRequest)
 specifier|public
 name|CreateInstanceProfileResult
 name|createInstanceProfile
@@ -388,7 +388,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|createOpenIDConnectProvider ( CreateOpenIDConnectProviderRequest createOpenIDConnectProviderRequest)
+DECL|method|createOpenIDConnectProvider (CreateOpenIDConnectProviderRequest createOpenIDConnectProviderRequest)
 specifier|public
 name|CreateOpenIDConnectProviderResult
 name|createOpenIDConnectProvider
@@ -473,7 +473,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|createServiceLinkedRole ( CreateServiceLinkedRoleRequest createServiceLinkedRoleRequest)
+DECL|method|createServiceLinkedRole (CreateServiceLinkedRoleRequest createServiceLinkedRoleRequest)
 specifier|public
 name|CreateServiceLinkedRoleResult
 name|createServiceLinkedRole
@@ -490,7 +490,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|createServiceSpecificCredential ( CreateServiceSpecificCredentialRequest createServiceSpecificCredentialRequest)
+DECL|method|createServiceSpecificCredential (CreateServiceSpecificCredentialRequest createServiceSpecificCredentialRequest)
 specifier|public
 name|CreateServiceSpecificCredentialResult
 name|createServiceSpecificCredential
@@ -550,7 +550,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createVirtualMFADevice ( CreateVirtualMFADeviceRequest createVirtualMFADeviceRequest)
+DECL|method|createVirtualMFADevice (CreateVirtualMFADeviceRequest createVirtualMFADeviceRequest)
 specifier|public
 name|CreateVirtualMFADeviceResult
 name|createVirtualMFADevice
@@ -618,7 +618,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteAccountPasswordPolicy ( DeleteAccountPasswordPolicyRequest deleteAccountPasswordPolicyRequest)
+DECL|method|deleteAccountPasswordPolicy (DeleteAccountPasswordPolicyRequest deleteAccountPasswordPolicyRequest)
 specifier|public
 name|DeleteAccountPasswordPolicyResult
 name|deleteAccountPasswordPolicy
@@ -683,7 +683,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteInstanceProfile ( DeleteInstanceProfileRequest deleteInstanceProfileRequest)
+DECL|method|deleteInstanceProfile (DeleteInstanceProfileRequest deleteInstanceProfileRequest)
 specifier|public
 name|DeleteInstanceProfileResult
 name|deleteInstanceProfile
@@ -717,7 +717,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteOpenIDConnectProvider ( DeleteOpenIDConnectProviderRequest deleteOpenIDConnectProviderRequest)
+DECL|method|deleteOpenIDConnectProvider (DeleteOpenIDConnectProviderRequest deleteOpenIDConnectProviderRequest)
 specifier|public
 name|DeleteOpenIDConnectProviderResult
 name|deleteOpenIDConnectProvider
@@ -836,7 +836,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteServerCertificate ( DeleteServerCertificateRequest deleteServerCertificateRequest)
+DECL|method|deleteServerCertificate (DeleteServerCertificateRequest deleteServerCertificateRequest)
 specifier|public
 name|DeleteServerCertificateResult
 name|deleteServerCertificate
@@ -853,7 +853,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteServiceLinkedRole ( DeleteServiceLinkedRoleRequest deleteServiceLinkedRoleRequest)
+DECL|method|deleteServiceLinkedRole (DeleteServiceLinkedRoleRequest deleteServiceLinkedRoleRequest)
 specifier|public
 name|DeleteServiceLinkedRoleResult
 name|deleteServiceLinkedRole
@@ -870,7 +870,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteServiceSpecificCredential ( DeleteServiceSpecificCredentialRequest deleteServiceSpecificCredentialRequest)
+DECL|method|deleteServiceSpecificCredential (DeleteServiceSpecificCredentialRequest deleteServiceSpecificCredentialRequest)
 specifier|public
 name|DeleteServiceSpecificCredentialResult
 name|deleteServiceSpecificCredential
@@ -887,7 +887,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteSigningCertificate ( DeleteSigningCertificateRequest deleteSigningCertificateRequest)
+DECL|method|deleteSigningCertificate (DeleteSigningCertificateRequest deleteSigningCertificateRequest)
 specifier|public
 name|DeleteSigningCertificateResult
 name|deleteSigningCertificate
@@ -943,7 +943,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|deleteVirtualMFADevice ( DeleteVirtualMFADeviceRequest deleteVirtualMFADeviceRequest)
+DECL|method|deleteVirtualMFADevice (DeleteVirtualMFADeviceRequest deleteVirtualMFADeviceRequest)
 specifier|public
 name|DeleteVirtualMFADeviceResult
 name|deleteVirtualMFADevice
@@ -1028,7 +1028,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|generateCredentialReport ( GenerateCredentialReportRequest generateCredentialReportRequest)
+DECL|method|generateCredentialReport (GenerateCredentialReportRequest generateCredentialReportRequest)
 specifier|public
 name|GenerateCredentialReportResult
 name|generateCredentialReport
@@ -1076,7 +1076,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|getAccountAuthorizationDetails ( GetAccountAuthorizationDetailsRequest getAccountAuthorizationDetailsRequest)
+DECL|method|getAccountAuthorizationDetails (GetAccountAuthorizationDetailsRequest getAccountAuthorizationDetailsRequest)
 specifier|public
 name|GetAccountAuthorizationDetailsResult
 name|getAccountAuthorizationDetails
@@ -1107,7 +1107,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|getAccountPasswordPolicy ( GetAccountPasswordPolicyRequest getAccountPasswordPolicyRequest)
+DECL|method|getAccountPasswordPolicy (GetAccountPasswordPolicyRequest getAccountPasswordPolicyRequest)
 specifier|public
 name|GetAccountPasswordPolicyResult
 name|getAccountPasswordPolicy
@@ -1169,7 +1169,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|getContextKeysForCustomPolicy ( GetContextKeysForCustomPolicyRequest getContextKeysForCustomPolicyRequest)
+DECL|method|getContextKeysForCustomPolicy (GetContextKeysForCustomPolicyRequest getContextKeysForCustomPolicyRequest)
 specifier|public
 name|GetContextKeysForCustomPolicyResult
 name|getContextKeysForCustomPolicy
@@ -1186,7 +1186,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|getContextKeysForPrincipalPolicy ( GetContextKeysForPrincipalPolicyRequest getContextKeysForPrincipalPolicyRequest)
+DECL|method|getContextKeysForPrincipalPolicy (GetContextKeysForPrincipalPolicyRequest getContextKeysForPrincipalPolicyRequest)
 specifier|public
 name|GetContextKeysForPrincipalPolicyResult
 name|getContextKeysForPrincipalPolicy
@@ -1302,7 +1302,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|getOpenIDConnectProvider ( GetOpenIDConnectProviderRequest getOpenIDConnectProviderRequest)
+DECL|method|getOpenIDConnectProvider (GetOpenIDConnectProviderRequest getOpenIDConnectProviderRequest)
 specifier|public
 name|GetOpenIDConnectProviderResult
 name|getOpenIDConnectProvider
@@ -1438,7 +1438,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|getServiceLinkedRoleDeletionStatus ( GetServiceLinkedRoleDeletionStatusRequest getServiceLinkedRoleDeletionStatusRequest)
+DECL|method|getServiceLinkedRoleDeletionStatus (GetServiceLinkedRoleDeletionStatusRequest getServiceLinkedRoleDeletionStatusRequest)
 specifier|public
 name|GetServiceLinkedRoleDeletionStatusResult
 name|getServiceLinkedRoleDeletionStatus
@@ -1636,7 +1636,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listAttachedGroupPolicies ( ListAttachedGroupPoliciesRequest listAttachedGroupPoliciesRequest)
+DECL|method|listAttachedGroupPolicies (ListAttachedGroupPoliciesRequest listAttachedGroupPoliciesRequest)
 specifier|public
 name|ListAttachedGroupPoliciesResult
 name|listAttachedGroupPolicies
@@ -1653,7 +1653,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listAttachedRolePolicies ( ListAttachedRolePoliciesRequest listAttachedRolePoliciesRequest)
+DECL|method|listAttachedRolePolicies (ListAttachedRolePoliciesRequest listAttachedRolePoliciesRequest)
 specifier|public
 name|ListAttachedRolePoliciesResult
 name|listAttachedRolePolicies
@@ -1670,7 +1670,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listAttachedUserPolicies ( ListAttachedUserPoliciesRequest listAttachedUserPoliciesRequest)
+DECL|method|listAttachedUserPolicies (ListAttachedUserPoliciesRequest listAttachedUserPoliciesRequest)
 specifier|public
 name|ListAttachedUserPoliciesResult
 name|listAttachedUserPolicies
@@ -1687,7 +1687,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listEntitiesForPolicy ( ListEntitiesForPolicyRequest listEntitiesForPolicyRequest)
+DECL|method|listEntitiesForPolicy (ListEntitiesForPolicyRequest listEntitiesForPolicyRequest)
 specifier|public
 name|ListEntitiesForPolicyResult
 name|listEntitiesForPolicy
@@ -1800,7 +1800,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listInstanceProfilesForRole ( ListInstanceProfilesForRoleRequest listInstanceProfilesForRoleRequest)
+DECL|method|listInstanceProfilesForRole (ListInstanceProfilesForRoleRequest listInstanceProfilesForRoleRequest)
 specifier|public
 name|ListInstanceProfilesForRoleResult
 name|listInstanceProfilesForRole
@@ -1848,7 +1848,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listOpenIDConnectProviders ( ListOpenIDConnectProvidersRequest listOpenIDConnectProvidersRequest)
+DECL|method|listOpenIDConnectProviders (ListOpenIDConnectProvidersRequest listOpenIDConnectProvidersRequest)
 specifier|public
 name|ListOpenIDConnectProvidersResult
 name|listOpenIDConnectProviders
@@ -2037,7 +2037,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listServerCertificates ( ListServerCertificatesRequest listServerCertificatesRequest)
+DECL|method|listServerCertificates (ListServerCertificatesRequest listServerCertificatesRequest)
 specifier|public
 name|ListServerCertificatesResult
 name|listServerCertificates
@@ -2068,7 +2068,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listServiceSpecificCredentials ( ListServiceSpecificCredentialsRequest listServiceSpecificCredentialsRequest)
+DECL|method|listServiceSpecificCredentials (ListServiceSpecificCredentialsRequest listServiceSpecificCredentialsRequest)
 specifier|public
 name|ListServiceSpecificCredentialsResult
 name|listServiceSpecificCredentials
@@ -2085,7 +2085,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|listSigningCertificates ( ListSigningCertificatesRequest listSigningCertificatesRequest)
+DECL|method|listSigningCertificates (ListSigningCertificatesRequest listSigningCertificatesRequest)
 specifier|public
 name|ListSigningCertificatesResult
 name|listSigningCertificates
@@ -2208,7 +2208,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|listVirtualMFADevices ( ListVirtualMFADevicesRequest listVirtualMFADevicesRequest)
+DECL|method|listVirtualMFADevices (ListVirtualMFADevicesRequest listVirtualMFADevicesRequest)
 specifier|public
 name|ListVirtualMFADevicesResult
 name|listVirtualMFADevices
@@ -2290,7 +2290,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|removeClientIDFromOpenIDConnectProvider ( RemoveClientIDFromOpenIDConnectProviderRequest removeClientIDFromOpenIDConnectProviderRequest)
+DECL|method|removeClientIDFromOpenIDConnectProvider (RemoveClientIDFromOpenIDConnectProviderRequest removeClientIDFromOpenIDConnectProviderRequest)
 specifier|public
 name|RemoveClientIDFromOpenIDConnectProviderResult
 name|removeClientIDFromOpenIDConnectProvider
@@ -2307,7 +2307,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|removeRoleFromInstanceProfile ( RemoveRoleFromInstanceProfileRequest removeRoleFromInstanceProfileRequest)
+DECL|method|removeRoleFromInstanceProfile (RemoveRoleFromInstanceProfileRequest removeRoleFromInstanceProfileRequest)
 specifier|public
 name|RemoveRoleFromInstanceProfileResult
 name|removeRoleFromInstanceProfile
@@ -2341,7 +2341,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|resetServiceSpecificCredential ( ResetServiceSpecificCredentialRequest resetServiceSpecificCredentialRequest)
+DECL|method|resetServiceSpecificCredential (ResetServiceSpecificCredentialRequest resetServiceSpecificCredentialRequest)
 specifier|public
 name|ResetServiceSpecificCredentialResult
 name|resetServiceSpecificCredential
@@ -2375,7 +2375,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|setDefaultPolicyVersion ( SetDefaultPolicyVersionRequest setDefaultPolicyVersionRequest)
+DECL|method|setDefaultPolicyVersion (SetDefaultPolicyVersionRequest setDefaultPolicyVersionRequest)
 specifier|public
 name|SetDefaultPolicyVersionResult
 name|setDefaultPolicyVersion
@@ -2409,7 +2409,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|simulatePrincipalPolicy ( SimulatePrincipalPolicyRequest simulatePrincipalPolicyRequest)
+DECL|method|simulatePrincipalPolicy (SimulatePrincipalPolicyRequest simulatePrincipalPolicyRequest)
 specifier|public
 name|SimulatePrincipalPolicyResult
 name|simulatePrincipalPolicy
@@ -2443,7 +2443,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateAccountPasswordPolicy ( UpdateAccountPasswordPolicyRequest updateAccountPasswordPolicyRequest)
+DECL|method|updateAccountPasswordPolicy (UpdateAccountPasswordPolicyRequest updateAccountPasswordPolicyRequest)
 specifier|public
 name|UpdateAccountPasswordPolicyResult
 name|updateAccountPasswordPolicy
@@ -2460,7 +2460,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateAssumeRolePolicy ( UpdateAssumeRolePolicyRequest updateAssumeRolePolicyRequest)
+DECL|method|updateAssumeRolePolicy (UpdateAssumeRolePolicyRequest updateAssumeRolePolicyRequest)
 specifier|public
 name|UpdateAssumeRolePolicyResult
 name|updateAssumeRolePolicy
@@ -2511,7 +2511,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateOpenIDConnectProviderThumbprint ( UpdateOpenIDConnectProviderThumbprintRequest updateOpenIDConnectProviderThumbprintRequest)
+DECL|method|updateOpenIDConnectProviderThumbprint (UpdateOpenIDConnectProviderThumbprintRequest updateOpenIDConnectProviderThumbprintRequest)
 specifier|public
 name|UpdateOpenIDConnectProviderThumbprintResult
 name|updateOpenIDConnectProviderThumbprint
@@ -2528,7 +2528,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateRoleDescription ( UpdateRoleDescriptionRequest updateRoleDescriptionRequest)
+DECL|method|updateRoleDescription (UpdateRoleDescriptionRequest updateRoleDescriptionRequest)
 specifier|public
 name|UpdateRoleDescriptionResult
 name|updateRoleDescription
@@ -2579,7 +2579,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateServerCertificate ( UpdateServerCertificateRequest updateServerCertificateRequest)
+DECL|method|updateServerCertificate (UpdateServerCertificateRequest updateServerCertificateRequest)
 specifier|public
 name|UpdateServerCertificateResult
 name|updateServerCertificate
@@ -2596,7 +2596,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateServiceSpecificCredential ( UpdateServiceSpecificCredentialRequest updateServiceSpecificCredentialRequest)
+DECL|method|updateServiceSpecificCredential (UpdateServiceSpecificCredentialRequest updateServiceSpecificCredentialRequest)
 specifier|public
 name|UpdateServiceSpecificCredentialResult
 name|updateServiceSpecificCredential
@@ -2613,7 +2613,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateSigningCertificate ( UpdateSigningCertificateRequest updateSigningCertificateRequest)
+DECL|method|updateSigningCertificate (UpdateSigningCertificateRequest updateSigningCertificateRequest)
 specifier|public
 name|UpdateSigningCertificateResult
 name|updateSigningCertificate
@@ -2664,7 +2664,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|uploadServerCertificate ( UploadServerCertificateRequest uploadServerCertificateRequest)
+DECL|method|uploadServerCertificate (UploadServerCertificateRequest uploadServerCertificateRequest)
 specifier|public
 name|UploadServerCertificateResult
 name|uploadServerCertificate
@@ -2681,7 +2681,7 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|uploadSigningCertificate ( UploadSigningCertificateRequest uploadSigningCertificateRequest)
+DECL|method|uploadSigningCertificate (UploadSigningCertificateRequest uploadSigningCertificateRequest)
 specifier|public
 name|UploadSigningCertificateResult
 name|uploadSigningCertificate
