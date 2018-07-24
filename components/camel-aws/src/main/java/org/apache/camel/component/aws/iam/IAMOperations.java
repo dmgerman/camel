@@ -31,6 +31,9 @@ name|listAccessKeys
 block|,
 DECL|enumConstant|createUser
 name|createUser
+block|,
+DECL|enumConstant|deleteUser
+name|deleteUser
 block|}
 end_enum
 
