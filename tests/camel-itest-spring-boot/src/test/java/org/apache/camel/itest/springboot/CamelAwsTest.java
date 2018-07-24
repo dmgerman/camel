@@ -226,6 +226,16 @@ argument_list|(
 name|createTestConfig
 argument_list|()
 argument_list|,
+literal|"aws-iam"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|runComponentTest
+argument_list|(
+name|createTestConfig
+argument_list|()
+argument_list|,
 literal|"aws-kinesis"
 argument_list|)
 expr_stmt|;
