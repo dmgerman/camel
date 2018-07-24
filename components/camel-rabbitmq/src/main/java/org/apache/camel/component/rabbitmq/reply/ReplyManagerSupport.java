@@ -1151,6 +1151,16 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|messageConverter
+operator|.
+name|setAllowNullHeaders
+argument_list|(
+name|endpoint
+operator|.
+name|isAllowNullHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// timeout map to use for purging messages which have timed out, while waiting for an expected reply
 comment|// when doing request/reply over JMS
 name|log

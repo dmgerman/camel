@@ -218,6 +218,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|allowNullHeaders
+specifier|private
+name|boolean
+name|allowNullHeaders
+decl_stmt|;
 comment|/**      * Will take an {@link Exchange} and add header values back to the {@link Exchange#getIn()}      */
 DECL|method|mergeAmqpProperties (Exchange exchange, AMQP.BasicProperties properties)
 specifier|public
@@ -1131,6 +1136,9 @@ condition|(
 name|value
 operator|!=
 literal|null
+operator|||
+name|isAllowNullHeaders
+argument_list|()
 condition|)
 block|{
 name|filteredHeaders
@@ -1949,6 +1957,32 @@ operator|.
 name|SERIALIZE_HEADER
 argument_list|)
 return|;
+block|}
+DECL|method|isAllowNullHeaders ()
+specifier|public
+name|boolean
+name|isAllowNullHeaders
+parameter_list|()
+block|{
+return|return
+name|allowNullHeaders
+return|;
+block|}
+DECL|method|setAllowNullHeaders (boolean allowNullHeaders)
+specifier|public
+name|void
+name|setAllowNullHeaders
+parameter_list|(
+name|boolean
+name|allowNullHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNullHeaders
+operator|=
+name|allowNullHeaders
+expr_stmt|;
 block|}
 block|}
 end_class

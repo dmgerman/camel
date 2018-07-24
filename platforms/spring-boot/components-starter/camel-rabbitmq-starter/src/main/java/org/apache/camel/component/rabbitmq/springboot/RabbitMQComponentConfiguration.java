@@ -92,7 +92,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The hostname of the running rabbitmq instance or cluster.      */
+comment|/**      * The hostname of the running RabbitMQ instance or cluster.      */
 DECL|field|hostname
 specifier|private
 name|String
@@ -445,6 +445,14 @@ name|String
 name|deadLetterExchangeType
 init|=
 literal|"direct"
+decl_stmt|;
+comment|/**      * Allow pass null values to header      */
+DECL|field|allowNullHeaders
+specifier|private
+name|Boolean
+name|allowNullHeaders
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
@@ -1700,6 +1708,32 @@ operator|.
 name|deadLetterExchangeType
 operator|=
 name|deadLetterExchangeType
+expr_stmt|;
+block|}
+DECL|method|getAllowNullHeaders ()
+specifier|public
+name|Boolean
+name|getAllowNullHeaders
+parameter_list|()
+block|{
+return|return
+name|allowNullHeaders
+return|;
+block|}
+DECL|method|setAllowNullHeaders (Boolean allowNullHeaders)
+specifier|public
+name|void
+name|setAllowNullHeaders
+parameter_list|(
+name|Boolean
+name|allowNullHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNullHeaders
+operator|=
+name|allowNullHeaders
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()

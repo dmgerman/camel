@@ -1310,6 +1310,18 @@ specifier|private
 name|boolean
 name|guaranteedDeliveries
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|allowNullHeaders
+specifier|private
+name|boolean
+name|allowNullHeaders
+decl_stmt|;
 comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
 DECL|field|useMessageIDAsCorrelationID
 specifier|private
@@ -3385,6 +3397,33 @@ operator|.
 name|exclusiveConsumer
 operator|=
 name|exclusiveConsumer
+expr_stmt|;
+block|}
+comment|/**      * Allow pass null values to header      */
+DECL|method|isAllowNullHeaders ()
+specifier|public
+name|boolean
+name|isAllowNullHeaders
+parameter_list|()
+block|{
+return|return
+name|allowNullHeaders
+return|;
+block|}
+DECL|method|setAllowNullHeaders (boolean allowNullHeaders)
+specifier|public
+name|void
+name|setAllowNullHeaders
+parameter_list|(
+name|boolean
+name|allowNullHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNullHeaders
+operator|=
+name|allowNullHeaders
 expr_stmt|;
 block|}
 DECL|method|isPassive ()

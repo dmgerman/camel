@@ -552,6 +552,18 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|)
+DECL|field|allowNullHeaders
+specifier|private
+name|boolean
+name|allowNullHeaders
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
 literal|"security"
 argument_list|)
 DECL|field|sslProtocol
@@ -1708,6 +1720,14 @@ name|getDeadLetterRoutingKey
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|setAllowNullHeaders
+argument_list|(
+name|isAllowNullHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -1870,6 +1890,20 @@ name|BINDING_ARG_PREFIX
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Change null headers processing for message converter
+name|endpoint
+operator|.
+name|getMessageConverter
+argument_list|()
+operator|.
+name|setAllowNullHeaders
+argument_list|(
+name|endpoint
+operator|.
+name|isAllowNullHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
@@ -1884,7 +1918,7 @@ return|return
 name|hostname
 return|;
 block|}
-comment|/**      * The hostname of the running rabbitmq instance or cluster.      */
+comment|/**      * The hostname of the running RabbitMQ instance or cluster.      */
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -3230,6 +3264,33 @@ operator|.
 name|deadLetterExchangeType
 operator|=
 name|deadLetterExchangeType
+expr_stmt|;
+block|}
+comment|/**      * Allow pass null values to header      */
+DECL|method|isAllowNullHeaders ()
+specifier|public
+name|boolean
+name|isAllowNullHeaders
+parameter_list|()
+block|{
+return|return
+name|allowNullHeaders
+return|;
+block|}
+DECL|method|setAllowNullHeaders (boolean allowNullHeaders)
+specifier|public
+name|void
+name|setAllowNullHeaders
+parameter_list|(
+name|boolean
+name|allowNullHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNullHeaders
+operator|=
+name|allowNullHeaders
 expr_stmt|;
 block|}
 block|}
