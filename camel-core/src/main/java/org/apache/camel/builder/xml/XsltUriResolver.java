@@ -431,6 +431,8 @@ operator|new
 name|StreamSource
 argument_list|(
 name|is
+argument_list|,
+name|href
 argument_list|)
 return|;
 block|}
@@ -461,7 +463,7 @@ name|base
 argument_list|)
 return|;
 block|}
-comment|// okay then its relative to the starting location from the XSLT component
+comment|// okay then its relative to the starting location from the XSLT importing this one
 name|String
 name|path
 init|=
@@ -469,7 +471,7 @@ name|FileUtil
 operator|.
 name|onlyPath
 argument_list|(
-name|location
+name|base
 argument_list|)
 decl_stmt|;
 if|if

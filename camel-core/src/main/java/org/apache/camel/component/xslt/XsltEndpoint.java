@@ -1665,13 +1665,6 @@ throw|;
 block|}
 else|else
 block|{
-name|source
-operator|.
-name|setSystemId
-argument_list|(
-name|resourceUri
-argument_list|)
-expr_stmt|;
 name|xslt
 operator|.
 name|setTransformerSource
