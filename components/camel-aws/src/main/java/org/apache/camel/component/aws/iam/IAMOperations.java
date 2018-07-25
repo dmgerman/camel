@@ -37,6 +37,9 @@ block|,
 name|deleteUser
 block|,
 name|listUsers
+block|,
+DECL|enumConstant|createAccessKey
+name|createAccessKey
 block|}
 end_enum
 
