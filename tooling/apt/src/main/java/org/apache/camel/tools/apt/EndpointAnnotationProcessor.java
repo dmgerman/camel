@@ -284,6 +284,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|tools
+operator|.
+name|Diagnostic
+operator|.
+name|Kind
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -814,6 +826,25 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+name|processingEnv
+operator|.
+name|getMessager
+argument_list|()
+operator|.
+name|printMessage
+argument_list|(
+name|Kind
+operator|.
+name|ERROR
+argument_list|,
+literal|"Unable to process elements annotated with @UriEndpoint: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|dumpExceptionToErrorFile
 argument_list|(
 literal|"camel-apt-error.log"
