@@ -260,7 +260,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10000
+literal|100
 condition|;
 name|i
 operator|++
