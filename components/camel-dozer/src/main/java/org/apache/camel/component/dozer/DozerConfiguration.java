@@ -92,9 +92,13 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|util
 operator|.

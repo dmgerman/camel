@@ -48,9 +48,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|DozerBeanMapperBuilder
 import|;
@@ -58,9 +62,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|Mapper
 import|;
@@ -68,9 +76,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|config
 operator|.
@@ -80,9 +92,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|el
 operator|.
@@ -92,9 +108,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|el
 operator|.
@@ -104,9 +124,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|el
 operator|.
@@ -116,9 +140,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|el
 operator|.
@@ -128,9 +156,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|el
 operator|.
@@ -140,9 +172,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|util
 operator|.
@@ -381,6 +417,24 @@ operator|.
 name|class
 operator|.
 name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// TODO: Remove next version, see:
+comment|// https://github.com/DozerMapper/dozer/issues/680
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|SettingsKeys
+operator|.
+name|USE_JAXB_MAPPING_ENGINE
+argument_list|,
+name|Boolean
+operator|.
+name|FALSE
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
