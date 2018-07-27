@@ -40,9 +40,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|CustomConverter
 import|;
@@ -50,9 +54,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|CustomFieldMapper
 import|;
@@ -60,19 +68,29 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
 operator|.
-name|DozerEventListener
+name|dozermapper
+operator|.
+name|core
+operator|.
+name|events
+operator|.
+name|EventListener
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|loader
 operator|.
@@ -108,7 +126,7 @@ DECL|field|eventListeners
 specifier|private
 name|List
 argument_list|<
-name|DozerEventListener
+name|EventListener
 argument_list|>
 name|eventListeners
 decl_stmt|;
@@ -203,7 +221,7 @@ DECL|method|getEventListeners ()
 specifier|public
 name|List
 argument_list|<
-name|DozerEventListener
+name|EventListener
 argument_list|>
 name|getEventListeners
 parameter_list|()
@@ -212,14 +230,14 @@ return|return
 name|eventListeners
 return|;
 block|}
-DECL|method|setEventListeners (List<DozerEventListener> eventListeners)
+DECL|method|setEventListeners (List<EventListener> eventListeners)
 specifier|public
 name|void
 name|setEventListeners
 parameter_list|(
 name|List
 argument_list|<
-name|DozerEventListener
+name|EventListener
 argument_list|>
 name|eventListeners
 parameter_list|)

@@ -176,9 +176,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|Mapper
 import|;
@@ -186,9 +190,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|metadata
 operator|.
@@ -198,9 +206,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|metadata
 operator|.
@@ -210,9 +222,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|util
 operator|.
@@ -242,9 +258,13 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|dozer
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
 operator|.
 name|classmap
 operator|.
@@ -1132,7 +1152,7 @@ return|return
 name|camelContext
 return|;
 block|}
-comment|/**      * Sets the {@link CamelContext}<b>and also</b> initializes this loader.      *<p/>      * The reason why {@link #init(org.apache.camel.CamelContext, org.dozer.Mapper)} is also called      * is because making using Dozer in Spring XML files easier, as no need to use the init-method attribute.      *      * @param camelContext the CamelContext      */
+comment|/**      * Sets the {@link CamelContext}<b>and also</b> initializes this loader.      *<p/>      * The reason why {@link #init(org.apache.camel.CamelContext, com.github.dozermapper.core.Mapper)} is also called      * is because making using Dozer in Spring XML files easier, as no need to use the init-method attribute.      *      * @param camelContext the CamelContext      */
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
