@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dozermapper
+operator|.
+name|core
+operator|.
+name|Mapper
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -89,20 +103,6 @@ operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dozermapper
-operator|.
-name|core
-operator|.
-name|Mapper
 import|;
 end_import
 
