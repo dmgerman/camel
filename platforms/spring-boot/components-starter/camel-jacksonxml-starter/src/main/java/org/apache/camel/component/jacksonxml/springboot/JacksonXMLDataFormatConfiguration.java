@@ -118,7 +118,7 @@ specifier|private
 name|Class
 name|jsonView
 decl_stmt|;
-comment|/**      * If you want to marshal a pojo to JSON, and the pojo has some fields with      * null values. And you want to skip these null values, you can set this      * option to NOT_NULL      */
+comment|/**      * If you want to marshal a pojo to JSON, and the pojo has some fields with      * null values. And you want to skip these null values, you can set this      * option to NON_NULL      */
 DECL|field|include
 specifier|private
 name|String
