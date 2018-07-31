@@ -475,7 +475,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a FHIR endpoint.  */
+comment|/**  * The fhir component is used for working with the FHIR protocol (health care).  */
 end_comment
 
 begin_class
@@ -506,7 +506,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"api"
+literal|"hl7,api"
 argument_list|)
 DECL|class|FhirEndpoint
 specifier|public
