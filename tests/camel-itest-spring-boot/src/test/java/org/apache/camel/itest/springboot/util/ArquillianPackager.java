@@ -1077,7 +1077,7 @@ argument_list|(
 literal|"pom.xml"
 argument_list|)
 operator|.
-name|importRuntimeDependencies
+name|importCompileAndRuntimeDependencies
 argument_list|()
 operator|.
 name|resolve
@@ -4577,6 +4577,9 @@ name|classFound
 parameter_list|(
 name|String
 name|className
+parameter_list|,
+name|Asset
+name|asset
 parameter_list|)
 block|{
 name|ArchivePath
@@ -4589,9 +4592,8 @@ argument_list|(
 name|className
 argument_list|)
 decl_stmt|;
-name|Asset
 name|asset
-init|=
+operator|=
 operator|new
 name|ClassLoaderAsset
 argument_list|(
@@ -4607,7 +4609,7 @@ argument_list|)
 argument_list|,
 name|classLoader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|ArchivePath
 name|location
 init|=

@@ -498,11 +498,11 @@ argument_list|(
 literal|"tests/camel-itest-spring-boot/target/bom-versions-cache"
 argument_list|)
 decl_stmt|;
-DECL|field|INSTANCE
+DECL|field|instance
 specifier|private
 specifier|static
 name|BOMResolver
-name|INSTANCE
+name|instance
 decl_stmt|;
 DECL|field|config
 specifier|private
@@ -1265,12 +1265,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|INSTANCE
+name|instance
 operator|==
 literal|null
 condition|)
 block|{
-name|INSTANCE
+name|instance
 operator|=
 operator|new
 name|BOMResolver
@@ -1280,7 +1280,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|INSTANCE
+name|instance
 return|;
 block|}
 DECL|method|getBOMVersion (String groupId, String artifactId)
