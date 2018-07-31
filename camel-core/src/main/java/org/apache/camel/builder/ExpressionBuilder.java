@@ -128,20 +128,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|Scanner
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -695,6 +681,20 @@ operator|.
 name|util
 operator|.
 name|OgnlHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|Scanner
 import|;
 end_import
 
