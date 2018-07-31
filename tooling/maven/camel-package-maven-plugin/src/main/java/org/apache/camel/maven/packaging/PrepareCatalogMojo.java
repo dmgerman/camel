@@ -5282,7 +5282,7 @@ decl_stmt|;
 comment|// special for these as they are in sub dir
 if|if
 condition|(
-literal|"camel-as3"
+literal|"camel-as2"
 operator|.
 name|equals
 argument_list|(
@@ -5475,7 +5475,7 @@ name|File
 argument_list|(
 name|dir
 argument_list|,
-literal|"camel-fhir-component/target/classes"
+literal|"camel-fhir-component/src/main/docs"
 argument_list|)
 expr_stmt|;
 block|}
