@@ -83,13 +83,13 @@ specifier|public
 class|class
 name|ClusteredRouteControllerConfiguration
 block|{
-comment|/**      * Global option to enable/disable this ${@link org.apache.camel.spi.RouteController}, default is false.      */
+comment|/**      * Global option to enable/disable Camel clustered route controller, default is false.      */
 DECL|field|enabled
 specifier|private
 name|boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Set the amount of time the route controller should wait before to start      * the routes after the camel context is started or after the route is      * initialized if the route is created after the camel context is started.      */
+comment|/**      * Set the amount of time (in millis) the route controller should wait before to start      * the routes after the camel context is started or after the route is      * initialized if the route is created after the camel context is started.      */
 DECL|field|initialDelay
 specifier|private
 name|String
@@ -286,7 +286,7 @@ name|clustered
 init|=
 literal|true
 decl_stmt|;
-comment|/**          * Set the amount of time the route controller should wait before to start          * the routes after the camel context is started or after the route is          * initialized if the route is created after the camel context is started.          */
+comment|/**          * Set the amount of time (in millis) the route controller should wait before to start          * the routes after the camel context is started or after the route is          * initialized if the route is created after the camel context is started.          */
 DECL|field|initialDelay
 specifier|private
 name|String
