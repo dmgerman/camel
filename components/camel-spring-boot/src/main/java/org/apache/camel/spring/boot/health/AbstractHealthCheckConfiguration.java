@@ -59,7 +59,7 @@ specifier|private
 name|Integer
 name|failureThreshold
 decl_stmt|;
-comment|/**      * @return true if the check associated to this configuration is enabled,      * false otherwise.      */
+comment|/**      * Set if the check associated to this configuration is enabled or not.      */
 DECL|method|isEnabled ()
 specifier|public
 name|Boolean
@@ -87,7 +87,6 @@ operator|=
 name|enabled
 expr_stmt|;
 block|}
-comment|/**      * @return the check interval.      */
 DECL|method|getInterval ()
 specifier|public
 name|String
@@ -115,7 +114,6 @@ operator|=
 name|interval
 expr_stmt|;
 block|}
-comment|/**      * @return the number of failure before reporting the service as un-healthy.      */
 DECL|method|getFailureThreshold ()
 specifier|public
 name|Integer

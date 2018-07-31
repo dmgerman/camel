@@ -75,13 +75,13 @@ specifier|public
 class|class
 name|HealthCheckRoutesConfiguration
 block|{
-comment|/**      * Global option to enable/disable this ${@link org.apache.camel.health.HealthCheckRepository}, default is false.      */
+comment|/**      * Global option to enable/disable Camel extended health check for routes, default is false.      */
 DECL|field|enabled
 specifier|private
 name|boolean
 name|enabled
 decl_stmt|;
-comment|/**      * configuration      */
+comment|/**      * Threshold healthc check configurations.      */
 DECL|field|thresholds
 specifier|private
 name|ThresholdsConfiguration
@@ -91,7 +91,7 @@ operator|new
 name|ThresholdsConfiguration
 argument_list|()
 decl_stmt|;
-comment|/**      * configurations      */
+comment|/**      * General health check configurations.      */
 DECL|field|threshold
 specifier|private
 name|Map
@@ -717,7 +717,7 @@ name|RouteThresholdsConfiguration
 extends|extends
 name|ThresholdsConfiguration
 block|{
-comment|/**          * Inherit from global from global configuration;          */
+comment|/**          * Inherit from global from global configuration.          */
 DECL|field|inherit
 specifier|private
 name|boolean
@@ -758,13 +758,13 @@ specifier|static
 class|class
 name|ThresholdsWithFailuresConfiguration
 block|{
-comment|/**          * The Threshold          */
+comment|/**          * The threshold value.          */
 DECL|field|threshold
 specifier|private
 name|String
 name|threshold
 decl_stmt|;
-comment|/**          * Failures          */
+comment|/**          * The threshold of number of failures.          */
 DECL|field|failures
 specifier|private
 name|Integer

@@ -71,7 +71,7 @@ specifier|public
 class|class
 name|HealthCheckServiceConfiguration
 block|{
-comment|/**      * Global option to enable/disable this ${@link org.apache.camel.health.HealthCheckService}, default is false.      */
+comment|/**      * Global option to enable/disable extended Camel health checks, default is false.      */
 DECL|field|enabled
 specifier|private
 name|boolean
@@ -83,7 +83,7 @@ specifier|private
 name|String
 name|checkInterval
 decl_stmt|;
-comment|/**      * Checks configuration.s      */
+comment|/**      * Configuration of health checks      */
 DECL|field|checks
 specifier|private
 name|Map
@@ -174,7 +174,7 @@ specifier|public
 class|class
 name|Check
 block|{
-comment|/**          * Option for this check.          */
+comment|/**          * Option for this health check.          */
 DECL|field|options
 specifier|private
 name|Map
