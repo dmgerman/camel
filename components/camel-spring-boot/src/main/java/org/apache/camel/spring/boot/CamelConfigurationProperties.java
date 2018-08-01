@@ -74,13 +74,13 @@ name|shutdownTimeout
 init|=
 literal|300
 decl_stmt|;
-comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      *<p/>      * By default this is<tt>false</tt>      *<p/>      * Notice the suppress is a<i>best effort</i> as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      */
+comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      * Notice the suppress is a best effort as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      * This option is default false.      */
 DECL|field|shutdownSuppressLoggingOnTimeout
 specifier|private
 name|boolean
 name|shutdownSuppressLoggingOnTimeout
 decl_stmt|;
-comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *<p/>      * You should have good reasons to set this option to<tt>false</tt> as it means that the routes      * keep running and is halted abruptly when CamelContext has been shutdown.      */
+comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *      * You should have good reasons to set this option to false as it means that the routes      * keep running and is halted abruptly when CamelContext has been shutdown.      */
 DECL|field|shutdownNowOnTimeout
 specifier|private
 name|boolean
@@ -144,13 +144,13 @@ name|loadTypeConverters
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *<p/>      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use<tt>&#42;&#42;/Foo*</tt>.      * To include all routes form a specific package use,<tt>com/mycompany/foo/*</tt>      * To include all routes form a specific package and its sub-packages use double wildcards,<tt>com/mycompany/foo/**</tt>      * And to include all routes from two specific packages use,<tt>com/mycompany/foo/*,com/mycompany/stuff/*</tt>      *      * @see org.springframework.util.AntPathMatcher      */
+comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use:&#42;&#42;/Foo*      * To include all routes form a specific package use: com/mycompany/foo/*      * To include all routes form a specific package and its sub-packages use double wildcards: com/mycompany/foo/**      * And to include all routes from two specific packages use: com/mycompany/foo/*,com/mycompany/stuff/*      */
 DECL|field|javaRoutesIncludePattern
 specifier|private
 name|String
 name|javaRoutesIncludePattern
 decl_stmt|;
-comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *<p/>      * For example to exclude all classes starting with Bar use<tt>&#42;&#42;/Bar*</tt>.      * To exclude all routes form a specific package use,<tt>com/mycompany/bar/*</tt>      * To exclude all routes form a specific package and its sub-packages use double wildcards,<tt>com/mycompany/bar/**</tt>      * And to exclude all routes from two specific packages use,<tt>com/mycompany/bar/*,com/mycompany/stuff/*</tt>      *      * @see org.springframework.util.AntPathMatcher      */
+comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *      * For example to exclude all classes starting with Bar use:&#42;&#42;/Bar*      * To exclude all routes form a specific package use: com/mycompany/bar/*      * To exclude all routes form a specific package and its sub-packages use double wildcards: com/mycompany/bar/**      * And to exclude all routes from two specific packages use: com/mycompany/bar/*,com/mycompany/stuff/*      */
 DECL|field|javaRoutesExcludePattern
 specifier|private
 name|String
@@ -172,13 +172,13 @@ name|xmlRests
 init|=
 literal|"classpath:camel-rest/*.xml"
 decl_stmt|;
-comment|/**      * To watch the directory for file changes which triggers      * a live reload of the Camel routes on-the-fly.      *<p/>      * For example configure this to point to the source code where the Camel XML files are located      * such as: src/main/resources/camel/      */
+comment|/**      * To watch the directory for file changes which triggers      * a live reload of the Camel routes on-the-fly.      *      * For example configure this to point to the source code where the Camel XML files are located      * such as: src/main/resources/camel/      */
 DECL|field|xmlRoutesReloadDirectory
 specifier|private
 name|String
 name|xmlRoutesReloadDirectory
 decl_stmt|;
-comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *<p/>      * You must use either<tt>file:</tt> or<tt>classpath:</tt> as prefix to load      * from file system or classpath. Then you can specify a pattern to load      * from sub directories and a name pattern such as<tt>file:/var/app/secret/*.properties</tt>      */
+comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *      * You must use either file: or classpath: as prefix to load      * from file system or classpath. Then you can specify a pattern to load      * from sub directories and a name pattern such as file:/var/app/secret/*.properties      */
 DECL|field|fileConfigurations
 specifier|private
 name|String
@@ -220,7 +220,7 @@ specifier|private
 name|int
 name|logDebugMaxChars
 decl_stmt|;
-comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      *      * @deprecated use {@link #streamCachingEnabled}      */
+comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      */
 annotation|@
 name|Deprecated
 DECL|field|streamCaching
@@ -234,19 +234,19 @@ specifier|private
 name|boolean
 name|streamCachingEnabled
 decl_stmt|;
-comment|/**      * Sets the stream caching spool (temporary) directory to use for overflow and spooling to disk.      *<p/>      * If no spool directory has been explicit configured, then a temporary directory      * is created in the<tt>java.io.tmpdir</tt> directory.      */
+comment|/**      * Sets the stream caching spool (temporary) directory to use for overflow and spooling to disk.      *      * If no spool directory has been explicit configured, then a temporary directory      * is created in the java.io.tmpdir directory.      */
 DECL|field|streamCachingSpoolDirectory
 specifier|private
 name|String
 name|streamCachingSpoolDirectory
 decl_stmt|;
-comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      *<p/>      * By default the data is not encrypted.      */
+comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      * By default the data is not encrypted.      */
 DECL|field|streamCachingSpoolChiper
 specifier|private
 name|String
 name|streamCachingSpoolChiper
 decl_stmt|;
-comment|/**      * Stream caching threshold in bytes when overflow to disk is activated.      *<p/>      * The default threshold is {@link org.apache.camel.StreamCache#DEFAULT_SPOOL_THRESHOLD} bytes (eg 128kb).      * Use<tt>-1</tt> to disable overflow to disk.      */
+comment|/**      * Stream caching threshold in bytes when overflow to disk is activated.      * The default threshold is 128kb.      * Use -1 to disable overflow to disk.      */
 DECL|field|streamCachingSpoolThreshold
 specifier|private
 name|long
@@ -264,19 +264,19 @@ specifier|private
 name|String
 name|streamCachingSpoolUsedHeapMemoryLimit
 decl_stmt|;
-comment|/**      * Sets whether if just any of the {@link org.apache.camel.spi.StreamCachingStrategy.SpoolRule} rules      * returns<tt>true</tt> then shouldSpoolCache(long) returns<tt>true</tt>.      * If this option is<tt>false</tt>, then<b>all</b> the {@link org.apache.camel.spi.StreamCachingStrategy.SpoolRule} must      * return<tt>true</tt>.      *<p/>      * The default value is<tt>false</tt> which means that all the rules must return<tt>true</tt>.      */
+comment|/**      * Sets whether if just any of the org.apache.camel.spi.StreamCachingStrategy.SpoolRule rules      * returns true then shouldSpoolCache(long) returns true, to allow spooling to disk.      * If this option is false, then all the org.apache.camel.spi.StreamCachingStrategy.SpoolRule must      * return true.      *      * The default value is false which means that all the rules must return true.      */
 DECL|field|streamCachingAnySpoolRules
 specifier|private
 name|boolean
 name|streamCachingAnySpoolRules
 decl_stmt|;
-comment|/**      * Sets the stream caching buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *<p/>      * The default size is {@link org.apache.camel.util.IOHelper#DEFAULT_BUFFER_SIZE}      */
+comment|/**      * Sets the stream caching buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *      * The default size is 4096.      */
 DECL|field|streamCachingBufferSize
 specifier|private
 name|int
 name|streamCachingBufferSize
 decl_stmt|;
-comment|/**      * Whether to remove stream caching temporary directory when stopping.      *<p/>      * This option is default<tt>true</tt>      */
+comment|/**      * Whether to remove stream caching temporary directory when stopping.      * This option is default true.      */
 DECL|field|streamCachingRemoveSpoolDirectoryWhenStopping
 specifier|private
 name|boolean
@@ -342,13 +342,13 @@ specifier|private
 name|boolean
 name|endpointRuntimeStatisticsEnabled
 decl_stmt|;
-comment|/**      * Whether to enable using data type on Camel messages.      *<p/>      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      */
+comment|/**      * Whether to enable using data type on Camel messages.      *      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      */
 DECL|field|useDataType
 specifier|private
 name|boolean
 name|useDataType
 decl_stmt|;
-comment|/**      * Set whether breadcrumb is enabled.      */
+comment|/**      * Set whether breadcrumb is enabled.      * The default value is true.      */
 DECL|field|useBreadcrumb
 specifier|private
 name|boolean
@@ -482,7 +482,7 @@ name|tracerFormatterMaxChars
 init|=
 literal|10000
 decl_stmt|;
-comment|/**      * To turn on MDC logging      *      * @deprecated use useMdcLogging instead      */
+comment|/**      * To turn on MDC logging      */
 annotation|@
 name|Deprecated
 DECL|field|useMDCLogging
@@ -496,7 +496,7 @@ specifier|private
 name|boolean
 name|useMdcLogging
 decl_stmt|;
-comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel (#camelId#) thread ##counter# - #name#</tt>      *<p/>      * Where<tt>#camelId#</tt> is the name of the {@link org.apache.camel.CamelContext}      *<br/>and<tt>#counter#</tt> is a unique incrementing counter.      *<br/>and<tt>#name#</tt> is the regular thread name.      *<br/>You can also use<tt>#longName#</tt> is the long thread name which can includes endpoint parameters etc.      */
+comment|/**      * Sets the thread name pattern used for creating the full thread name.      *      * The default pattern is: Camel (#camelId#) thread ##counter# - #name#      *      * Where #camelId# is the name of the CamelContext.      * and #counter# is a unique incrementing counter.      * and #name# is the regular thread name.      *      * You can also use #longName# which is the long thread name which can includes endpoint parameters etc.      */
 DECL|field|threadNamePattern
 specifier|private
 name|String
