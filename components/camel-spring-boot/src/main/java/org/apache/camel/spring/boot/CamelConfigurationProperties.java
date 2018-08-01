@@ -220,7 +220,7 @@ specifier|private
 name|int
 name|logDebugMaxChars
 decl_stmt|;
-comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      */
+comment|/**      * Sets whether stream caching is enabled or not (deprecated use stream-caching-enabled instead).      *      * Default is false.      */
 annotation|@
 name|Deprecated
 DECL|field|streamCaching
@@ -482,7 +482,7 @@ name|tracerFormatterMaxChars
 init|=
 literal|10000
 decl_stmt|;
-comment|/**      * To turn on MDC logging      */
+comment|/**      * To turn on MDC logging (deprecated use use-mdc-logging instead)      */
 annotation|@
 name|Deprecated
 DECL|field|useMDCLogging
