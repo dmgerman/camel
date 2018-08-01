@@ -144,13 +144,13 @@ name|loadTypeConverters
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use:&#42;&#42;/Foo*      * To include all routes form a specific package use: com/mycompany/foo/*      * To include all routes form a specific package and its sub-packages use double wildcards: com/mycompany/foo/&#42;&#42;      * And to include all routes from two specific packages use: com/mycompany/foo/*,com/mycompany/stuff/*      */
+comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use:&#42;&#42;/Foo*      * To include all routes form a specific package use: com/mycompany/foo/&#42;      * To include all routes form a specific package and its sub-packages use double wildcards: com/mycompany/foo/&#42;&#42;      * And to include all routes from two specific packages use: com/mycompany/foo/&#42;,com/mycompany/stuff/&#42;      */
 DECL|field|javaRoutesIncludePattern
 specifier|private
 name|String
 name|javaRoutesIncludePattern
 decl_stmt|;
-comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *      * For example to exclude all classes starting with Bar use:&#42;&#42;/Bar*      * To exclude all routes form a specific package use: com/mycompany/bar/*      * To exclude all routes form a specific package and its sub-packages use double wildcards: com/mycompany/bar/&#42;&#42;      * And to exclude all routes from two specific packages use: com/mycompany/bar/*,com/mycompany/stuff/*      */
+comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *      * For example to exclude all classes starting with Bar use:&#42;&#42;/Bar&#42;      * To exclude all routes form a specific package use: com/mycompany/bar/&#42;      * To exclude all routes form a specific package and its sub-packages use double wildcards: com/mycompany/bar/&#42;&#42;      * And to exclude all routes from two specific packages use: com/mycompany/bar/&#42;,com/mycompany/stuff/&#42;      */
 DECL|field|javaRoutesExcludePattern
 specifier|private
 name|String
