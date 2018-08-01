@@ -490,20 +490,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|SynchronizationAdapter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -4075,21 +4061,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// add on completion after the route is done, but before the consumer writes the response
-comment|// this allows us to track the zipkin event before returning the response which is the right time
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
-operator|new
-name|SynchronizationAdapter
-argument_list|()
-block|{
+block|}
+comment|// Report Server send after route has completed processing of the exchange.
 annotation|@
 name|Override
+DECL|method|onExchangeDone (Route route, Exchange exchange)
 specifier|public
 name|void
-name|onAfterRoute
+name|onExchangeDone
 parameter_list|(
 name|Route
 name|route
@@ -4140,25 +4119,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"ZipkinTracerOnCompletion["
-operator|+
-name|routeId
-operator|+
-literal|"]"
-return|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
