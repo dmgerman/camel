@@ -121,6 +121,7 @@ specifier|public
 class|class
 name|CamelCloudConfigurationProperties
 block|{
+comment|/**      * Global option to enable/disable Camel cloud support, default is true.      */
 DECL|field|enabled
 specifier|private
 name|boolean
@@ -276,13 +277,13 @@ specifier|public
 class|class
 name|ServiceCall
 block|{
-comment|/**          * The uri of the endpoint to send to.          * The uri can be dynamic computed using the {@link org.apache.camel.language.simple.SimpleLanguage} expression.          */
+comment|/**          * The uri of the endpoint to send to.          * The uri can be dynamic computed using the simple language expression.          */
 DECL|field|uri
 specifier|private
 name|String
 name|uri
 decl_stmt|;
-comment|/**          * The component to use.          */
+comment|/**          * The Camel component to use for calling the service. The default is http4 component.          */
 DECL|field|component
 specifier|private
 name|String
@@ -292,25 +293,25 @@ name|ServiceCallDefinitionConstants
 operator|.
 name|DEFAULT_COMPONENT
 decl_stmt|;
-comment|/**          * A reference to the {@link org.apache.camel.cloud.ServiceDiscovery} to use.          */
+comment|/**          * A reference to the org.apache.camel.cloud.ServiceDiscovery to use.          */
 DECL|field|serviceDiscovery
 specifier|private
 name|String
 name|serviceDiscovery
 decl_stmt|;
-comment|/**          * A reference to the {@link org.apache.camel.cloud.ServiceFilter} to use.          */
+comment|/**          * A reference to the org.apache.camel.cloud.ServiceFilter to use.          */
 DECL|field|serviceFilter
 specifier|private
 name|String
 name|serviceFilter
 decl_stmt|;
-comment|/**          * A reference to the {@link org.apache.camel.cloud.ServiceChooser} to use.          */
+comment|/**          * A reference to the org.apache.camel.cloud.ServiceChooser to use.          */
 DECL|field|serviceChooser
 specifier|private
 name|String
 name|serviceChooser
 decl_stmt|;
-comment|/**          * A reference to the {@link ServiceLoadBalancer} to use.          */
+comment|/**          * A reference to the org.apache.camel.cloud.ServiceLoadBalancer to use.          */
 DECL|field|loadBalancer
 specifier|private
 name|String
@@ -322,13 +323,13 @@ specifier|private
 name|boolean
 name|defaultLoadBalancer
 decl_stmt|;
-comment|/**          * The {@link Expression} to use.          */
+comment|/**          * The expression to use.          */
 DECL|field|expression
 specifier|private
 name|String
 name|expression
 decl_stmt|;
-comment|/**          * The {@link Expression} language to use, default is ref          */
+comment|/**          * The expression language to use, default is ref.          */
 DECL|field|expressionLanguage
 specifier|private
 name|String
@@ -580,6 +581,7 @@ specifier|static
 class|class
 name|LoadBalancer
 block|{
+comment|/**          * Global option to enable/disable Camel cloud load balancer, default is true.          */
 DECL|field|enabled
 specifier|private
 name|boolean
@@ -623,6 +625,7 @@ specifier|static
 class|class
 name|ServiceDiscoveryConfiguration
 block|{
+comment|/**          * Configure service discoveries.          */
 DECL|field|services
 specifier|private
 name|Map
@@ -641,6 +644,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|/**          * Configure cache timeout (in millis).          */
 DECL|field|cacheTimeout
 specifier|private
 name|String
@@ -699,6 +703,7 @@ name|ServiceDiscovery
 extends|extends
 name|ServiceDiscoveryConfiguration
 block|{
+comment|/**          * Global option to enable/disable Camel cloud service discovery, default is true.          */
 DECL|field|enabled
 specifier|private
 name|boolean
@@ -706,6 +711,7 @@ name|enabled
 init|=
 literal|true
 decl_stmt|;
+comment|/**          * Configure the service discovery rules.          */
 DECL|field|configurations
 specifier|private
 name|Map
@@ -772,6 +778,7 @@ specifier|static
 class|class
 name|ServiceFilterConfiguration
 block|{
+comment|/**          * Configure service filter blacklists.          */
 DECL|field|blacklist
 specifier|private
 name|Map
@@ -817,6 +824,7 @@ name|ServiceFilter
 extends|extends
 name|ServiceFilterConfiguration
 block|{
+comment|/**          * Global option to enable/disable Camel cloud service filter, default is true.          */
 DECL|field|enabled
 specifier|private
 name|boolean
@@ -824,6 +832,7 @@ name|enabled
 init|=
 literal|true
 decl_stmt|;
+comment|/**          * Configure the service filtering rules.          */
 DECL|field|configurations
 specifier|private
 name|Map
@@ -890,6 +899,7 @@ specifier|static
 class|class
 name|ServiceChooser
 block|{
+comment|/**          * Global option to enable/disable Camel cloud service chooser, default is true.          */
 DECL|field|enabled
 specifier|private
 name|boolean
