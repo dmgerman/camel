@@ -7385,12 +7385,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"CAMEL-12705"
-argument_list|)
-comment|// TODO: Fix this bug
 DECL|method|testNetty4Http4DynamicToIssue ()
 specifier|public
 name|void
@@ -7424,6 +7418,13 @@ operator|.
 name|remove
 argument_list|(
 literal|"path"
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|remove
+argument_list|(
+literal|"throwExceptionOnFailure"
 argument_list|)
 expr_stmt|;
 name|String

@@ -601,7 +601,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"(\\w+)"
+literal|"([\\w.]+)"
 argument_list|)
 decl_stmt|;
 DECL|field|COMPONENT_SYNTAX_PARSER
@@ -5456,7 +5456,7 @@ name|syntax
 operator|.
 name|split
 argument_list|(
-literal|"\\w+"
+literal|"[\\w.]+"
 argument_list|)
 decl_stmt|;
 comment|// parse the syntax into each options
