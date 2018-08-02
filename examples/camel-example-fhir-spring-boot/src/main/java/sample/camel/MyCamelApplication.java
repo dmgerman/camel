@@ -39,6 +39,10 @@ import|;
 end_import
 
 begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
+begin_comment
 comment|/**  * A sample Spring Boot application that starts the Camel routes.  */
 end_comment
 
