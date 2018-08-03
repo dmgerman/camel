@@ -332,7 +332,7 @@ name|smack
 operator|.
 name|packet
 operator|.
-name|XMPPError
+name|StanzaError
 import|;
 end_import
 
@@ -346,7 +346,7 @@ name|smack
 operator|.
 name|packet
 operator|.
-name|XMPPError
+name|StanzaError
 operator|.
 name|Condition
 import|;
@@ -1535,7 +1535,7 @@ name|XMPPErrorException
 argument_list|(
 literal|null
 argument_list|,
-name|XMPPError
+name|StanzaError
 operator|.
 name|from
 argument_list|(
@@ -1615,7 +1615,7 @@ literal|"/"
 operator|+
 name|connection
 operator|.
-name|getServiceName
+name|getXMPPServiceDomain
 argument_list|()
 return|;
 block|}
