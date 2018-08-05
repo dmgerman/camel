@@ -1760,6 +1760,34 @@ literal|true
 argument_list|)
 condition|)
 block|{
+comment|// do not use error handler for hystrix as it offers circuit breaking with fallback for its outputs
+comment|// however if inherit error handler is enabled, we need to wrap an error handler on the hystrix parent
+if|if
+condition|(
+name|inheritErrorHandler
+operator|!=
+literal|null
+operator|&&
+name|inheritErrorHandler
+operator|&&
+name|child
+operator|==
+literal|null
+condition|)
+block|{
+comment|// only wrap the parent (not the children of the hystrix)
+name|wrapChannelInErrorHandler
+argument_list|(
+name|channel
+argument_list|,
+name|routeContext
+argument_list|,
+name|inheritErrorHandler
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|log
 operator|.
 name|trace
@@ -1769,7 +1797,7 @@ argument_list|,
 name|defn
 argument_list|)
 expr_stmt|;
-comment|// do not use error handler for hystrixCircuitBreaker blocks as it will handle errors itself
+block|}
 block|}
 elseif|else
 if|if
