@@ -2425,7 +2425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the output message with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      *      * @param urn output type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the output message with content validation enabled.      * If the actual message type is different at runtime, Camel look for a required      * {@link Transformer} and apply if exists, and then applies {@link Validator} as well.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      *      * @param urn output type URN      * @return the builder      */
 DECL|method|outputTypeWithValidate (String urn)
 specifier|public
 name|RouteDefinition
