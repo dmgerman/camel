@@ -60,22 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|validator
-operator|.
-name|ProcessorValidator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|language
@@ -280,7 +264,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the URI to be used for the endpoint {@link Validator}.      * @see {@link EndpointValidatorDefinition}, {@link ProcessorValidator}      *       * @param uri endpoint URI      */
+comment|/**      * Set the URI to be used for the endpoint {@link Validator}.      * @see EndpointValidatorDefinition, ProcessorValidator      *       * @param uri endpoint URI      */
 DECL|method|withUri (String uri)
 specifier|public
 name|ValidatorBuilder
@@ -303,7 +287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the {@link Expression} to be used for the predicate {@link Validator}.      * @see {@link PredicateValidatorDefinition}, {@link ProcessorValidator}      *       * @param expression validation expression      */
+comment|/**      * Set the {@link Expression} to be used for the predicate {@link Validator}.      * @see PredicateValidatorDefinition, ProcessorValidator      *       * @param expression validation expression      */
 DECL|method|withExpression (@sPredicate Expression expression)
 specifier|public
 name|ValidatorBuilder
@@ -332,7 +316,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the {@link Predicate} to be used for the predicate {@link Validator}.      * @see {@link PredicateValidatorDefinition}, {@link ProcessorValidator}      *       * @param predicate validation predicate      */
+comment|/**      * Set the {@link Predicate} to be used for the predicate {@link Validator}.      * @see PredicateValidatorDefinition, ProcessorValidator      *       * @param predicate validation predicate      */
 DECL|method|withExpression (@sPredicate Predicate predicate)
 specifier|public
 name|ValidatorBuilder
@@ -361,7 +345,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the Java {@code Class} represents a custom {@code Validator} implementation class.      * @see {@code CustomValidatorDefinition}      *       * @param clazz {@code Class} object represents custom validator implementation      */
+comment|/**      * Set the Java {@code Class} represents a custom {@code Validator} implementation class.      * @see CustomValidatorDefinition      *       * @param clazz {@code Class} object represents custom validator implementation      */
 DECL|method|withJava (Class<? extends Validator> clazz)
 specifier|public
 name|ValidatorBuilder
@@ -389,7 +373,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the Java Bean name to be used for custom {@code Validator}.      * @see {@code CustomValidatorDefinition}      *       * @param ref bean name for the custom {@code Validator}      */
+comment|/**      * Set the Java Bean name to be used for custom {@code Validator}.      * @see CustomValidatorDefinition      *       * @param ref bean name for the custom {@code Validator}      */
 DECL|method|withBean (String ref)
 specifier|public
 name|ValidatorBuilder
@@ -443,7 +427,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Configure a Validator according to the configurations built on this builder      * and register it into given {@code CamelContext}.      *       * @param camelContext {@code CamelContext}      */
+comment|/**      * Configures a new Validator according to the configurations built on this builder      * and register it into the given {@code CamelContext}.      *       * @param camelContext the given CamelContext      */
 DECL|method|configure (CamelContext camelContext)
 specifier|public
 name|void
