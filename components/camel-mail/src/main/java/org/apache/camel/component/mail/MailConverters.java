@@ -706,6 +706,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Converters the simple search term builder to search term.      *      * This should not be a @Converter method      */
 DECL|method|toSearchTerm (SimpleSearchTerm simple, TypeConverter typeConverter)
 specifier|public
 specifier|static
@@ -1313,9 +1314,7 @@ name|build
 argument_list|()
 return|;
 block|}
-comment|/*      * Converts from comma separated list of sort terms to SortTerm obj array      */
-annotation|@
-name|Converter
+comment|/*      * Converts from comma separated list of sort terms to SortTerm obj array.      * This should not be a @Converter method      */
 DECL|method|toSortTerm (String sortTerm)
 specifier|public
 specifier|static
