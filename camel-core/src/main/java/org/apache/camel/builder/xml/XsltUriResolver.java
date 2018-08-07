@@ -146,6 +146,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -339,6 +353,18 @@ literal|null
 condition|)
 block|{
 comment|// need to compact paths for file/classpath as it can be relative paths using .. to go backwards
+name|String
+name|hrefPath
+init|=
+name|StringHelper
+operator|.
+name|after
+argument_list|(
+name|href
+argument_list|,
+name|scheme
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 literal|"file:"
@@ -352,11 +378,13 @@ block|{
 comment|// compact path use file OS separator
 name|href
 operator|=
+name|scheme
+operator|+
 name|FileUtil
 operator|.
 name|compactPath
 argument_list|(
-name|href
+name|hrefPath
 argument_list|)
 expr_stmt|;
 block|}
@@ -374,11 +402,13 @@ block|{
 comment|// for classpath always use /
 name|href
 operator|=
+name|scheme
+operator|+
 name|FileUtil
 operator|.
 name|compactPath
 argument_list|(
-name|href
+name|hrefPath
 argument_list|,
 literal|'/'
 argument_list|)
