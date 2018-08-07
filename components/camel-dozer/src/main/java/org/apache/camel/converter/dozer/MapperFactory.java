@@ -420,24 +420,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: Remove next version, see:
-comment|// https://github.com/DozerMapper/dozer/issues/680
-name|System
-operator|.
-name|setProperty
-argument_list|(
-name|SettingsKeys
-operator|.
-name|USE_JAXB_MAPPING_ENGINE
-argument_list|,
-name|Boolean
-operator|.
-name|FALSE
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|createELEngine ()
 specifier|private
