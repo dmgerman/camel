@@ -496,20 +496,6 @@ name|ExpressionToPredicateAdapter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|LRUCache
-import|;
-end_import
-
 begin_comment
 comment|/**  * A parser to parse simple language as a Camel {@link Predicate}  */
 end_comment
