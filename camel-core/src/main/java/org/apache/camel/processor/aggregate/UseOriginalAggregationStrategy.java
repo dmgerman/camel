@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link org.apache.camel.processor.aggregate.AggregationStrategy} which just uses the original exchange  * which can be needed when you want to preserve the original Exchange. For example when splitting an {@link Exchange}  * and then you may want to keep routing using the original {@link Exchange}.  *  * @see org.apache.camel.processor.Splitter  * @version   */
+comment|/**  * An {@link org.apache.camel.processor.aggregate.AggregationStrategy} which just uses the original exchange  * which can be needed when you want to preserve the original Exchange. For example when splitting an {@link Exchange}  * and then you may want to keep routing using the original {@link Exchange}.  *  * @see org.apache.camel.processor.Splitter  * @version  */
 end_comment
 
 begin_class
@@ -44,6 +44,7 @@ name|AggregationStrategy
 block|{
 DECL|field|original
 specifier|private
+specifier|final
 name|Exchange
 name|original
 decl_stmt|;
@@ -75,10 +76,11 @@ name|propagateException
 parameter_list|)
 block|{
 name|this
-operator|.
+argument_list|(
+literal|null
+argument_list|,
 name|propagateException
-operator|=
-name|propagateException
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|UseOriginalAggregationStrategy (Exchange original, boolean propagateException)
@@ -104,6 +106,26 @@ name|propagateException
 operator|=
 name|propagateException
 expr_stmt|;
+block|}
+comment|/**      * Creates a new instance as a clone of this strategy with the new given original.      */
+DECL|method|newInstance (Exchange original)
+specifier|public
+name|UseOriginalAggregationStrategy
+name|newInstance
+parameter_list|(
+name|Exchange
+name|original
+parameter_list|)
+block|{
+return|return
+operator|new
+name|UseOriginalAggregationStrategy
+argument_list|(
+name|original
+argument_list|,
+name|propagateException
+argument_list|)
+return|;
 block|}
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
@@ -240,6 +262,8 @@ return|return
 name|original
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setOriginal (Exchange original)
 specifier|public
 name|void
@@ -249,12 +273,13 @@ name|Exchange
 name|original
 parameter_list|)
 block|{
-name|this
-operator|.
-name|original
-operator|=
-name|original
-expr_stmt|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"This method is deprecated"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override

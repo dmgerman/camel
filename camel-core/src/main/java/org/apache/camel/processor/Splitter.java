@@ -722,6 +722,7 @@ operator|instanceof
 name|UseOriginalAggregationStrategy
 condition|)
 block|{
+comment|// need to create a new private instance, as we can also have concurrency issue so we cannot store state
 name|UseOriginalAggregationStrategy
 name|original
 init|=
@@ -730,24 +731,23 @@ name|UseOriginalAggregationStrategy
 operator|)
 name|strategy
 decl_stmt|;
-if|if
-condition|(
+name|UseOriginalAggregationStrategy
+name|clone
+init|=
 name|original
 operator|.
-name|getOriginal
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|original
-operator|.
-name|setOriginal
+name|newInstance
 argument_list|(
 name|exchange
 argument_list|)
+decl_stmt|;
+name|setAggregationStrategyOnExchange
+argument_list|(
+name|exchange
+argument_list|,
+name|clone
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// if no custom aggregation strategy is being used then fallback to keep the original
 comment|// and propagate exceptions which is done by a per exchange specific aggregation strategy
