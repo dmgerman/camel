@@ -120,9 +120,9 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|endpoint
+name|helpers
 operator|.
-name|EndpointImpl
+name|CastUtils
 import|;
 end_import
 
@@ -134,9 +134,11 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|helpers
+name|jaxws
 operator|.
-name|CastUtils
+name|support
+operator|.
+name|JaxWsEndpointImpl
 import|;
 end_import
 
@@ -606,7 +608,7 @@ name|Endpoint
 name|ep
 init|=
 operator|new
-name|EndpointImpl
+name|JaxWsEndpointImpl
 argument_list|(
 name|getBus
 argument_list|()
