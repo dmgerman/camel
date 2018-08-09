@@ -4866,6 +4866,20 @@ argument_list|,
 literal|"enabled"
 argument_list|)
 decl_stmt|;
+name|String
+name|scheme
+init|=
+name|overrideComponentName
+operator|!=
+literal|null
+condition|?
+name|overrideComponentName
+else|:
+name|model
+operator|.
+name|getScheme
+argument_list|()
+decl_stmt|;
 name|bogus
 operator|.
 name|getField
@@ -4878,10 +4892,7 @@ name|setText
 argument_list|(
 literal|"Whether to enable auto configuration of the "
 operator|+
-name|model
-operator|.
-name|getScheme
-argument_list|()
+name|scheme
 operator|+
 literal|" component. This is enabled by default."
 argument_list|)
