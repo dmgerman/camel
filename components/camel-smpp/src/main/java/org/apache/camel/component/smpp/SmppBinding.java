@@ -1578,7 +1578,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Skipping optional parameter with tag {} because it was not recogized"
+literal|"Skipping optional parameter with tag {} because it was not recognized"
 argument_list|,
 name|optPara
 operator|.
@@ -1597,16 +1597,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Skipping optional parameter with tag {} due "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
+literal|"Skipping optional parameter with tag {} due to {}"
 argument_list|,
 name|optPara
 operator|.
 name|tag
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
