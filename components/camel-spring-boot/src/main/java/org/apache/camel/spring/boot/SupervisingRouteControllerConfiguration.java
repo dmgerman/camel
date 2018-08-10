@@ -67,7 +67,7 @@ specifier|public
 class|class
 name|SupervisingRouteControllerConfiguration
 block|{
-comment|/**      * Global option to enable/disable this ${@link org.apache.camel.spi.RouteController}, default is false.      */
+comment|/**      * Global option to enable/disable this org.apache.camel.spi.RouteController, default is false.      */
 DECL|field|enabled
 specifier|private
 name|boolean
