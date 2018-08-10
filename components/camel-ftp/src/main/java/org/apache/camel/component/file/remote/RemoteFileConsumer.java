@@ -561,7 +561,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"postPollCheck disconnect from: {}"
+literal|"processExchange disconnect from: {}"
 argument_list|,
 name|getEndpoint
 argument_list|()
