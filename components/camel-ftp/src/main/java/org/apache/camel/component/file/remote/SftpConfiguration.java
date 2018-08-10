@@ -381,6 +381,18 @@ specifier|private
 name|Integer
 name|bulkRequests
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"bindAddress"
+argument_list|)
+DECL|field|bindAddress
+specifier|private
+name|String
+name|bindAddress
+decl_stmt|;
 DECL|method|SftpConfiguration ()
 specifier|public
 name|SftpConfiguration
@@ -938,6 +950,33 @@ parameter_list|()
 block|{
 return|return
 name|bulkRequests
+return|;
+block|}
+comment|/**      * Specifies the address of the local interface against which the connection should bind.      */
+DECL|method|setBindAddress (String bindAddress)
+specifier|public
+name|void
+name|setBindAddress
+parameter_list|(
+name|String
+name|bindAddress
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindAddress
+operator|=
+name|bindAddress
+expr_stmt|;
+block|}
+DECL|method|getBindAddress ()
+specifier|public
+name|String
+name|getBindAddress
+parameter_list|()
+block|{
+return|return
+name|bindAddress
 return|;
 block|}
 block|}
