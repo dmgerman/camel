@@ -780,7 +780,12 @@ name|debug
 argument_list|(
 literal|"Creating folder with path '"
 operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|path
+argument_list|)
 operator|+
 literal|"' in parent_folder(id="
 operator|+

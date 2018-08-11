@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -169,13 +179,15 @@ condition|)
 block|{
 name|exclude
 operator|=
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|processor
 operator|.
 name|getExcludePattern
 argument_list|()
-operator|.
-name|toString
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 else|else

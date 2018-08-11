@@ -84,6 +84,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Hashtable
 import|;
 end_import
@@ -1475,10 +1485,15 @@ name|GenericFileOperationFailedException
 argument_list|(
 literal|"Cannot load private key bytes: "
 operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|config
 operator|.
 name|getPrivateKeyBytes
 argument_list|()
+argument_list|)
 argument_list|,
 name|e
 argument_list|)
