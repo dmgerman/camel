@@ -595,7 +595,7 @@ name|fetchWaitMaxMs
 init|=
 literal|500
 decl_stmt|;
-comment|/**          * What to do when there is no initial offset in ZooKeeper or if an          * offset is out of range: smallest : automatically reset the offset to          * the smallest offset largest : automatically reset the offset to the          * largest offset fail: throw exception to the consumer          */
+comment|/**          * What to do when there is no initial offset in ZooKeeper or if an          * offset is out of range: earliest : automatically reset the offset to          * the earliest offset latest : automatically reset the offset to the          * latest offset fail: throw exception to the consumer          */
 DECL|field|autoOffsetReset
 specifier|private
 name|String
