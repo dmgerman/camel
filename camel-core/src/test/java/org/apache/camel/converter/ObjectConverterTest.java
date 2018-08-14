@@ -1254,6 +1254,22 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|new
+name|BigInteger
+argument_list|(
+literal|"14350442579497085228"
+argument_list|)
+argument_list|,
+name|ObjectConverter
+operator|.
+name|toBigInteger
+argument_list|(
+literal|"14350442579497085228"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testToString ()
 specifier|public
