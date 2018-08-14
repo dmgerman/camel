@@ -536,6 +536,11 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+name|dataStore
+operator|.
+name|persist
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
