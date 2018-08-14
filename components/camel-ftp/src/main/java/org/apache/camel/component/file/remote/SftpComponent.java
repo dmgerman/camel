@@ -144,26 +144,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// get the base uri part before the options as they can be non URI valid such as the expression using $ chars
-comment|// and the URI constructor will regard $ as an illegal character and we dont want to enforce end users to
-comment|// to escape the $ for the expression (file language)
-name|String
-name|baseUri
+name|SftpConfiguration
+name|config
 init|=
-name|uri
-decl_stmt|;
-if|if
-condition|(
-name|uri
-operator|.
-name|contains
+operator|new
+name|SftpConfiguration
 argument_list|(
-literal|"?"
-argument_list|)
-condition|)
-block|{
-name|baseUri
-operator|=
+operator|new
+name|URI
+argument_list|(
 name|uri
 operator|.
 name|substring
@@ -174,23 +163,15 @@ name|uri
 operator|.
 name|indexOf
 argument_list|(
-literal|"?"
+literal|":"
 argument_list|)
+operator|+
+literal|1
 argument_list|)
-expr_stmt|;
-block|}
-comment|// lets make sure we create a new configuration as each endpoint can
-comment|// customize its own version
-name|SftpConfiguration
-name|config
-init|=
-operator|new
-name|SftpConfiguration
-argument_list|(
-operator|new
-name|URI
-argument_list|(
-name|baseUri
+operator|+
+literal|"//"
+operator|+
+name|remaining
 argument_list|)
 argument_list|)
 decl_stmt|;
