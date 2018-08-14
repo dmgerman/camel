@@ -1686,10 +1686,7 @@ name|peerCount
 init|=
 name|BigInteger
 operator|.
-name|valueOf
-argument_list|(
-literal|1L
-argument_list|)
+name|ONE
 decl_stmt|;
 name|NetPeerCount
 name|response

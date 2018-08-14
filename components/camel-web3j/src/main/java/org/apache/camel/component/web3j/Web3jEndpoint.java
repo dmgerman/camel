@@ -288,6 +288,18 @@ name|WindowsIpcService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|web3j
+operator|.
+name|quorum
+operator|.
+name|Quorum
+import|;
+end_import
+
 begin_comment
 comment|/**  * The web3j component uses the Web3j client API and allows you to add/read nodes to/from a web3j compliant content repositories.  */
 end_comment
@@ -617,6 +629,23 @@ argument_list|(
 name|clientAddress
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|configuration
+operator|.
+name|isQuorumAPI
+argument_list|()
+condition|)
+block|{
+return|return
+name|Quorum
+operator|.
+name|build
+argument_list|(
+name|web3jService
+argument_list|)
+return|;
 block|}
 return|return
 name|Web3j

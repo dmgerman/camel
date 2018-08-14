@@ -217,6 +217,20 @@ name|Web3jConfiguration
 operator|.
 name|class
 decl_stmt|;
+comment|/**          * A transaction privateFor nodes with public keys in a Quorum network          */
+DECL|field|privateFor
+specifier|private
+name|List
+name|privateFor
+decl_stmt|;
+comment|/**          * If true, this will support Quorum API.          */
+DECL|field|quorumAPI
+specifier|private
+name|Boolean
+name|quorumAPI
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * The preconfigured Web3j object.          */
 DECL|field|web3j
 specifier|private
@@ -395,6 +409,58 @@ name|operation
 init|=
 literal|"transaction"
 decl_stmt|;
+DECL|method|getPrivateFor ()
+specifier|public
+name|List
+name|getPrivateFor
+parameter_list|()
+block|{
+return|return
+name|privateFor
+return|;
+block|}
+DECL|method|setPrivateFor (List privateFor)
+specifier|public
+name|void
+name|setPrivateFor
+parameter_list|(
+name|List
+name|privateFor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|privateFor
+operator|=
+name|privateFor
+expr_stmt|;
+block|}
+DECL|method|getQuorumAPI ()
+specifier|public
+name|Boolean
+name|getQuorumAPI
+parameter_list|()
+block|{
+return|return
+name|quorumAPI
+return|;
+block|}
+DECL|method|setQuorumAPI (Boolean quorumAPI)
+specifier|public
+name|void
+name|setQuorumAPI
+parameter_list|(
+name|Boolean
+name|quorumAPI
+parameter_list|)
+block|{
+name|this
+operator|.
+name|quorumAPI
+operator|=
+name|quorumAPI
+expr_stmt|;
+block|}
 DECL|method|getWeb3j ()
 specifier|public
 name|Web3j

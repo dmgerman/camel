@@ -104,6 +104,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|web3j
+operator|.
+name|Web3jConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Ignore
@@ -3246,6 +3262,8 @@ literal|50000000000000L
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//        String data = message.getHeader(Web3jConstants.DATA, configuration::getData, String.class);
+comment|//
 name|template
 operator|.
 name|send
