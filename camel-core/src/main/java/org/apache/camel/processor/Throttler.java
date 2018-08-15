@@ -1656,9 +1656,13 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|newThrottle
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|throttleRate
+argument_list|)
 condition|)
 block|{
 comment|// get the queue from the cache
@@ -1917,13 +1921,17 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|newThrottle
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|throttleRatesMap
 operator|.
 name|get
 argument_list|(
 name|key
+argument_list|)
 argument_list|)
 condition|)
 block|{
