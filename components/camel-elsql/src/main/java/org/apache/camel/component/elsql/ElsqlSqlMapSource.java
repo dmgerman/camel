@@ -248,12 +248,21 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|(
+name|paramName
+operator|.
+name|startsWith
+argument_list|(
+literal|"$simple{"
+argument_list|)
+operator|||
 name|paramName
 operator|.
 name|startsWith
 argument_list|(
 literal|"${"
 argument_list|)
+operator|)
 operator|&&
 name|paramName
 operator|.
@@ -326,12 +335,21 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|(
+name|paramName
+operator|.
+name|startsWith
+argument_list|(
+literal|"$simple{"
+argument_list|)
+operator|||
 name|paramName
 operator|.
 name|startsWith
 argument_list|(
 literal|"${"
 argument_list|)
+operator|)
 operator|&&
 name|paramName
 operator|.
@@ -342,6 +360,20 @@ argument_list|)
 condition|)
 block|{
 comment|// its a simple language expression
+comment|// spring org.springframework.jdbc.core.namedparam.NamedParameterUtils.PARAMETER_SEPARATORS
+comment|// uses : as parameter separator and we may use colon in simple languages as well such as bean:foo
+comment|// so we have to use # instead and replace them back
+name|paramName
+operator|=
+name|paramName
+operator|.
+name|replace
+argument_list|(
+literal|'#'
+argument_list|,
+literal|':'
+argument_list|)
+expr_stmt|;
 name|answer
 operator|=
 name|SimpleLanguage

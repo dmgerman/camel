@@ -484,7 +484,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer,advanced"
+literal|"advanced"
 argument_list|,
 name|description
 operator|=
@@ -568,7 +568,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer,advanced"
+literal|"advanced"
 argument_list|,
 name|description
 operator|=
