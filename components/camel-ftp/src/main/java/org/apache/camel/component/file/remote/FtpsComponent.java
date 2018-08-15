@@ -215,6 +215,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+name|baseUri
+init|=
+name|getBaseUri
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+comment|// lets make sure we create a new configuration as each endpoint can customize its own version
+comment|// must pass on baseUri to the configuration (see above)
 name|FtpsConfiguration
 name|config
 init|=
@@ -224,25 +234,7 @@ argument_list|(
 operator|new
 name|URI
 argument_list|(
-name|uri
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|uri
-operator|.
-name|indexOf
-argument_list|(
-literal|":"
-argument_list|)
-operator|+
-literal|1
-argument_list|)
-operator|+
-literal|"//"
-operator|+
-name|remaining
+name|baseUri
 argument_list|)
 argument_list|)
 decl_stmt|;

@@ -56,6 +56,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -65,6 +75,8 @@ comment|/**  * Test the ftps component over TLS (explicit) and without client au
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|FileToFtpsWithDefaultSettingsIPV6Test
 specifier|public
 class|class
