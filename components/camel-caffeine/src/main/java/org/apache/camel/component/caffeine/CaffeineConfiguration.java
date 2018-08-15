@@ -540,7 +540,7 @@ return|return
 name|cache
 return|;
 block|}
-comment|/**      * To configure the default an already instantianted cache to be used      */
+comment|/**      * To configure an already instantiated cache to be used      */
 DECL|method|setCache (Cache cache)
 specifier|public
 name|void

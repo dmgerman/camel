@@ -323,7 +323,7 @@ name|valueType
 init|=
 literal|"java.lang.Object"
 decl_stmt|;
-comment|/**          * To configure the default an already instantianted cache to be used          */
+comment|/**          * To configure an already instantiated cache to be used          */
 DECL|field|cache
 specifier|private
 name|Cache
