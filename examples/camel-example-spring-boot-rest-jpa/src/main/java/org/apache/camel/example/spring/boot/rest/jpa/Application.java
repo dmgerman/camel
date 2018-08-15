@@ -150,6 +150,13 @@ name|Application
 extends|extends
 name|SpringBootServletInitializer
 block|{
+annotation|@
+name|Autowired
+DECL|field|env
+specifier|private
+name|Environment
+name|env
+decl_stmt|;
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -173,13 +180,6 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Autowired
-DECL|field|env
-specifier|private
-name|Environment
-name|env
-decl_stmt|;
 annotation|@
 name|Component
 DECL|class|RestApi
