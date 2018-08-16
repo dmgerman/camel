@@ -2455,6 +2455,15 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isAllowManualCommit
+argument_list|()
+operator|&&
 name|offsetRepository
 operator|!=
 literal|null
