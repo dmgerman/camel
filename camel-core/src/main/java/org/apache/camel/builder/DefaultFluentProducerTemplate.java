@@ -1083,6 +1083,22 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 block|{
+if|if
+condition|(
+name|exchangeSupplier
+operator|.
+name|isPresent
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"withExchange not supported on FluentProducerTemplate.request method. Use send method instead."
+argument_list|)
+throw|;
+block|}
 comment|// Determine the target endpoint
 specifier|final
 name|Endpoint

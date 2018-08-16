@@ -198,7 +198,7 @@ argument_list|>
 name|templateCustomizer
 parameter_list|)
 function_decl|;
-comment|/**      * Set the exchange to use for send.      *      * @param exchange the exchange      */
+comment|/**      * Set the exchange to use for send.      *      * When using withExchange then you must use the send method (request is not supported).      *      * @param exchange the exchange      */
 DECL|method|withExchange (Exchange exchange)
 name|FluentProducerTemplate
 name|withExchange
@@ -207,7 +207,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Set the exchangeSupplier which will be invoke to get the exchange to be      * used for send.      *      * @param exchangeSupplier the supplier      */
+comment|/**      * Set the exchangeSupplier which will be invoke to get the exchange to be      * used for send.      *      * When using withExchange then you must use the send method (request is not supported).      *      * @param exchangeSupplier the supplier      */
 DECL|method|withExchange (Supplier<Exchange> exchangeSupplier)
 name|FluentProducerTemplate
 name|withExchange
