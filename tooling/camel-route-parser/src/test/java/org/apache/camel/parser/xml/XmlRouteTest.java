@@ -34,16 +34,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -173,6 +163,8 @@ block|{
 name|test
 argument_list|(
 literal|"mycamel"
+argument_list|,
+literal|29
 argument_list|)
 expr_stmt|;
 block|}
@@ -189,20 +181,23 @@ block|{
 name|test
 argument_list|(
 literal|"mycamel-withNamespacePrefix"
+argument_list|,
+literal|51
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|test (String filename)
+DECL|method|test (String filename, int pos)
 specifier|private
 name|void
 name|test
 parameter_list|(
 name|String
 name|filename
+parameter_list|,
+name|int
+name|pos
 parameter_list|)
 throws|throws
-name|FileNotFoundException
-throws|,
 name|Exception
 block|{
 name|List
@@ -330,7 +325,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|29
+name|pos
 argument_list|,
 name|endpoints
 operator|.
