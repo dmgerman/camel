@@ -3424,6 +3424,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Add type converters to Camel contexts
+for|for
+control|(
+name|CamelContext
+name|context
+range|:
+name|contexts
+control|)
+block|{
 name|CdiTypeConverterLoader
 name|loader
 init|=
@@ -3440,14 +3448,6 @@ argument_list|>
 name|converter
 range|:
 name|converters
-control|)
-block|{
-for|for
-control|(
-name|CamelContext
-name|context
-range|:
-name|contexts
 control|)
 block|{
 name|loader
