@@ -470,6 +470,12 @@ specifier|private
 name|boolean
 name|ignoreIncapable
 decl_stmt|;
+comment|/**      * Whether to ignore deprecated options being used in the endpoint uri      *      * @parameter property="camel.ignoreDeprecated"      *            default-value="true"      */
+DECL|field|ignoreDeprecated
+specifier|private
+name|boolean
+name|ignoreDeprecated
+decl_stmt|;
 comment|/**      * Whether to ignore components that uses lenient properties. When this is true, then the uri validation is stricter      * but would fail on properties that are not part of the component but in the uri because of using lenient properties.      * For example using the HTTP components to provide query parameters in the endpoint uri.      *      * @parameter property="camel.ignoreLenientProperties"      *            default-value="true"      */
 DECL|field|ignoreLenientProperties
 specifier|private
@@ -1378,6 +1384,11 @@ name|incapableErrors
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|deprecatedOptions
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|CamelEndpointDetails
@@ -1414,6 +1425,30 @@ argument_list|,
 name|ignoreLenientProperties
 argument_list|)
 decl_stmt|;
+name|int
+name|deprecated
+init|=
+name|result
+operator|.
+name|getDeprecated
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|result
+operator|.
+name|getDeprecated
+argument_list|()
+operator|.
+name|size
+argument_list|()
+else|:
+literal|0
+decl_stmt|;
+name|deprecatedOptions
+operator|+=
+name|deprecated
+expr_stmt|;
 name|boolean
 name|ok
 init|=
@@ -1468,6 +1503,23 @@ expr_stmt|;
 name|ok
 operator|=
 literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ok
+operator|&&
+operator|!
+name|ignoreDeprecated
+operator|&&
+name|deprecated
+operator|>
+literal|0
+condition|)
+block|{
+name|ok
+operator|=
+literal|false
 expr_stmt|;
 block|}
 if|if
@@ -1749,6 +1801,8 @@ operator|.
 name|summaryErrorMessage
 argument_list|(
 literal|false
+argument_list|,
+name|ignoreDeprecated
 argument_list|)
 decl_stmt|;
 name|sb
@@ -2078,7 +2132,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Endpoint validation success: (%s = passed, %s = invalid, %s = incapable, %s = unknown components)"
+literal|"Endpoint validation success: (%s = passed, %s = invalid, %s = incapable, %s = unknown components, %s = deprecated options)"
 argument_list|,
 name|ok
 argument_list|,
@@ -2087,6 +2141,8 @@ argument_list|,
 name|incapableErrors
 argument_list|,
 name|unknownComponents
+argument_list|,
+name|deprecatedOptions
 argument_list|)
 expr_stmt|;
 block|}
@@ -2112,7 +2168,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Endpoint validation error: (%s = passed, %s = invalid, %s = incapable, %s = unknown components)"
+literal|"Endpoint validation error: (%s = passed, %s = invalid, %s = incapable, %s = unknown components, %s = deprecated options)"
 argument_list|,
 name|ok
 argument_list|,
@@ -2121,6 +2177,8 @@ argument_list|,
 name|incapableErrors
 argument_list|,
 name|unknownComponents
+argument_list|,
+name|deprecatedOptions
 argument_list|)
 expr_stmt|;
 block|}
