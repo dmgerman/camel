@@ -196,6 +196,7 @@ name|EmbeddedDatabase
 name|db
 decl_stmt|;
 DECL|field|idGenerator
+specifier|private
 name|MyIdGenerator
 name|idGenerator
 init|=
