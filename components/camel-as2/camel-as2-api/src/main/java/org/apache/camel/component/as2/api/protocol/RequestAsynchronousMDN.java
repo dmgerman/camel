@@ -100,7 +100,9 @@ name|as2
 operator|.
 name|api
 operator|.
-name|Util
+name|util
+operator|.
+name|AS2Utils
 import|;
 end_import
 
@@ -276,7 +278,7 @@ name|AS2Header
 operator|.
 name|MESSAGE_ID
 argument_list|,
-name|Util
+name|AS2Utils
 operator|.
 name|createMessageId
 argument_list|(

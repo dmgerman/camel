@@ -118,7 +118,9 @@ name|as2
 operator|.
 name|api
 operator|.
-name|Util
+name|util
+operator|.
+name|AS2Utils
 import|;
 end_import
 
@@ -359,7 +361,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|Util
+name|AS2Utils
 operator|.
 name|validateAS2Name
 argument_list|(
@@ -413,7 +415,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|Util
+name|AS2Utils
 operator|.
 name|validateAS2Name
 argument_list|(
@@ -458,7 +460,7 @@ name|AS2Header
 operator|.
 name|MESSAGE_ID
 argument_list|,
-name|Util
+name|AS2Utils
 operator|.
 name|createMessageId
 argument_list|(

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.as2.api
+DECL|package|org.apache.camel.component.as2.api.util
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|as2
 operator|.
 name|api
+operator|.
+name|util
 package|;
 end_package
 
@@ -105,6 +107,24 @@ operator|.
 name|regex
 operator|.
 name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
+name|api
+operator|.
+name|InvalidAS2NameException
 import|;
 end_import
 
@@ -221,11 +241,11 @@ comment|/**  * Utility Methods used in AS2 Component  */
 end_comment
 
 begin_class
-DECL|class|Util
+DECL|class|AS2Utils
 specifier|public
 specifier|final
 class|class
-name|Util
+name|AS2Utils
 block|{
 DECL|field|DQUOTE
 specifier|public
@@ -351,9 +371,9 @@ operator|new
 name|Random
 argument_list|()
 decl_stmt|;
-DECL|method|Util ()
+DECL|method|AS2Utils ()
 specifier|private
-name|Util
+name|AS2Utils
 parameter_list|()
 block|{     }
 comment|/**      * Validates if the given<code>name</code> is a valid AS2 Name      *      * @param name - the name to validate.      * @throws InvalidAS2NameException      */
