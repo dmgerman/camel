@@ -291,6 +291,18 @@ specifier|private
 name|boolean
 name|attachmentMultipartBinding
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|fileNameExtWhitelist
+specifier|private
+name|String
+name|fileNameExtWhitelist
+decl_stmt|;
 DECL|method|ServletEndpoint ()
 specifier|public
 name|ServletEndpoint
@@ -394,6 +406,16 @@ name|DefaultHttpBinding
 argument_list|()
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|binding
+operator|.
+name|setFileNameExtWhitelist
+argument_list|(
+name|getFileNameExtWhitelist
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|binding
@@ -585,6 +607,33 @@ operator|.
 name|attachmentMultipartBinding
 operator|=
 name|attachmentMultipartBinding
+expr_stmt|;
+block|}
+DECL|method|getFileNameExtWhitelist ()
+specifier|public
+name|String
+name|getFileNameExtWhitelist
+parameter_list|()
+block|{
+return|return
+name|fileNameExtWhitelist
+return|;
+block|}
+comment|/**      * Whitelist of accepted filename extensions for accepting uploaded files.      *<p/>      * Multiple extensions can be separated by comma, such as txt,xml.      */
+DECL|method|setFileNameExtWhitelist (String fileNameExtWhitelist)
+specifier|public
+name|void
+name|setFileNameExtWhitelist
+parameter_list|(
+name|String
+name|fileNameExtWhitelist
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileNameExtWhitelist
+operator|=
+name|fileNameExtWhitelist
 expr_stmt|;
 block|}
 annotation|@

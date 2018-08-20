@@ -305,6 +305,21 @@ name|boolean
 name|mapHttpMessageFormUrlEncodedBody
 parameter_list|)
 function_decl|;
+comment|/**      * Whitelist of accepted filename extensions for accepting uploaded files.      *<p/>      * Multiple extensions can be separated by comma, such as txt,xml.      */
+DECL|method|getFileNameExtWhitelist ()
+name|String
+name|getFileNameExtWhitelist
+parameter_list|()
+function_decl|;
+comment|/**      * Whitelist of accepted filename extensions for accepting uploaded files.      *<p/>      * Multiple extensions can be separated by comma, such as txt,xml.      */
+DECL|method|setFileNameExtWhitelist (String fileNameExtWhitelist)
+name|void
+name|setFileNameExtWhitelist
+parameter_list|(
+name|String
+name|fileNameExtWhitelist
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

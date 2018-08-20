@@ -343,6 +343,11 @@ specifier|private
 name|boolean
 name|attachmentMultipartBinding
 decl_stmt|;
+DECL|field|fileNameExtWhitelist
+specifier|private
+name|String
+name|fileNameExtWhitelist
+decl_stmt|;
 DECL|method|ServletComponent ()
 specifier|public
 name|ServletComponent
@@ -664,6 +669,13 @@ operator|.
 name|setServletName
 argument_list|(
 name|servletName
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setFileNameExtWhitelist
+argument_list|(
+name|fileNameExtWhitelist
 argument_list|)
 expr_stmt|;
 if|if
@@ -1157,6 +1169,33 @@ operator|.
 name|attachmentMultipartBinding
 operator|=
 name|attachmentMultipartBinding
+expr_stmt|;
+block|}
+DECL|method|getFileNameExtWhitelist ()
+specifier|public
+name|String
+name|getFileNameExtWhitelist
+parameter_list|()
+block|{
+return|return
+name|fileNameExtWhitelist
+return|;
+block|}
+comment|/**      * Whitelist of accepted filename extensions for accepting uploaded files.      *<p/>      * Multiple extensions can be separated by comma, such as txt,xml.      */
+DECL|method|setFileNameExtWhitelist (String fileNameExtWhitelist)
+specifier|public
+name|void
+name|setFileNameExtWhitelist
+parameter_list|(
+name|String
+name|fileNameExtWhitelist
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileNameExtWhitelist
+operator|=
+name|fileNameExtWhitelist
 expr_stmt|;
 block|}
 annotation|@

@@ -112,6 +112,12 @@ name|attachmentMultipartBinding
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Whitelist of accepted filename extensions for accepting uploaded files.      * Multiple extensions can be separated by comma, such as txt,xml.      */
+DECL|field|fileNameExtWhitelist
+specifier|private
+name|String
+name|fileNameExtWhitelist
+decl_stmt|;
 comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient. The option is a org.apache.camel.http.common.HttpBinding      * type.      */
 DECL|field|httpBinding
 specifier|private
@@ -222,6 +228,32 @@ operator|.
 name|attachmentMultipartBinding
 operator|=
 name|attachmentMultipartBinding
+expr_stmt|;
+block|}
+DECL|method|getFileNameExtWhitelist ()
+specifier|public
+name|String
+name|getFileNameExtWhitelist
+parameter_list|()
+block|{
+return|return
+name|fileNameExtWhitelist
+return|;
+block|}
+DECL|method|setFileNameExtWhitelist (String fileNameExtWhitelist)
+specifier|public
+name|void
+name|setFileNameExtWhitelist
+parameter_list|(
+name|String
+name|fileNameExtWhitelist
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileNameExtWhitelist
+operator|=
+name|fileNameExtWhitelist
 expr_stmt|;
 block|}
 DECL|method|getHttpBinding ()
