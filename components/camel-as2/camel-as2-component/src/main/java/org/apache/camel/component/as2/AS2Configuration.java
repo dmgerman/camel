@@ -185,7 +185,7 @@ name|AS2ApiName
 name|apiName
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 annotation|@
 name|Metadata
 argument_list|(
@@ -199,7 +199,16 @@ name|String
 name|methodName
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1.1"
+argument_list|,
+name|enums
+operator|=
+literal|"1.0,1.1"
+argument_list|)
 DECL|field|as2Version
 specifier|private
 name|String
@@ -209,6 +218,11 @@ literal|"1.1"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"Camel AS2 Client Endpoint"
+argument_list|)
 DECL|field|userAgent
 specifier|private
 name|String
@@ -218,6 +232,11 @@ literal|"Camel AS2 Client Endpoint"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"Camel AS2 Server Endpoint"
+argument_list|)
 DECL|field|server
 specifier|private
 name|String
@@ -227,6 +246,11 @@ literal|"Camel AS2 Server Endpoint"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"camel.apache.org"
+argument_list|)
 DECL|field|serverFqdn
 specifier|private
 name|String
@@ -250,6 +274,11 @@ name|targetPortNumber
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"camel.apache.org"
+argument_list|)
 DECL|field|clientFqdn
 specifier|private
 name|String
@@ -266,6 +295,11 @@ name|serverPortNumber
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"/"
+argument_list|)
 DECL|field|requestUri
 specifier|private
 name|String
@@ -359,7 +393,6 @@ name|String
 index|[]
 name|signedReceiptMicAlgorithms
 decl_stmt|;
-comment|/**      * What kind of operation to perform      *      * @return the API Name      */
 DECL|method|getApiName ()
 specifier|public
 name|AS2ApiName
@@ -370,7 +403,7 @@ return|return
 name|apiName
 return|;
 block|}
-comment|/**      * What kind of operation to perform      *      * @param apiName      *            - the API Name to set      */
+comment|/**      * What kind of operation to perform      */
 DECL|method|setApiName (AS2ApiName apiName)
 specifier|public
 name|void
@@ -387,7 +420,6 @@ operator|=
 name|apiName
 expr_stmt|;
 block|}
-comment|/**      * What sub operation to use for the selected operation      *      * @return The methodName      */
 DECL|method|getMethodName ()
 specifier|public
 name|String
@@ -398,7 +430,7 @@ return|return
 name|methodName
 return|;
 block|}
-comment|/**      * What sub operation to use for the selected operation      *      * @param methodName      *            - the methodName to set      */
+comment|/**      * What sub operation to use for the selected operation      */
 DECL|method|setMethodName (String methodName)
 specifier|public
 name|void
@@ -415,7 +447,6 @@ operator|=
 name|methodName
 expr_stmt|;
 block|}
-comment|/**      * The version of the AS2 protocol.      *      * @return The version of the AS2 protocol.      */
 DECL|method|getAs2Version ()
 specifier|public
 name|String
@@ -426,7 +457,7 @@ return|return
 name|as2Version
 return|;
 block|}
-comment|/**      * The version of the AS2 protocol.      *      * @param as2Version      *            - the version of the AS2 protocol.      */
+comment|/**      * The version of the AS2 protocol.      */
 DECL|method|setAs2Version (String as2Version)
 specifier|public
 name|void
@@ -477,7 +508,6 @@ operator|=
 name|as2Version
 expr_stmt|;
 block|}
-comment|/**      * The value included in the<code>User-Agent</code> message header identifying      * the AS2 user agent.      *      * @return AS2 user agent identification string.      */
 DECL|method|getUserAgent ()
 specifier|public
 name|String
@@ -488,7 +518,7 @@ return|return
 name|userAgent
 return|;
 block|}
-comment|/**      * The value included in the<code>User-Agent</code> message header identifying      * the AS2 user agent.      *      * @param userAgent      *            - AS2 user agent identification string.      */
+comment|/**      * The value included in the User-Agent message header identifying      * the AS2 user agent.      */
 DECL|method|setUserAgent (String userAgent)
 specifier|public
 name|void
@@ -505,7 +535,6 @@ operator|=
 name|userAgent
 expr_stmt|;
 block|}
-comment|/**      * The value included in the<code>Server</code> message header identifying the      * AS2 Server.      *      * @return AS2 server identification string.      */
 DECL|method|getServer ()
 specifier|public
 name|String
@@ -516,7 +545,7 @@ return|return
 name|server
 return|;
 block|}
-comment|/**      * The value included in the<code>Server</code> message header identifying the      * AS2 Server.      *      * @param server      *            - AS2 server identification string.      */
+comment|/**      * The value included in the Server message header identifying the      * AS2 Server.      */
 DECL|method|setServer (String server)
 specifier|public
 name|void
@@ -533,7 +562,6 @@ operator|=
 name|server
 expr_stmt|;
 block|}
-comment|/**      * The Server Fully Qualified Domain Name (FQDN).      *      *<p>      * Used in message ids sent by endpoint.      *      * @return The FQDN of client.      */
 DECL|method|getServerFqdn ()
 specifier|public
 name|String
@@ -544,7 +572,7 @@ return|return
 name|serverFqdn
 return|;
 block|}
-comment|/**      * The Server Fully Qualified Domain Name (FQDN).      *      *<p>      * Used in message ids sent by endpoint.      *      * @param clientFqdn      *            - the FQDN of server.      */
+comment|/**      * The Server Fully Qualified Domain Name (FQDN).      * Used in message ids sent by endpoint.      */
 DECL|method|setServerFqdn (String serverFqdn)
 specifier|public
 name|void
@@ -576,7 +604,6 @@ operator|=
 name|serverFqdn
 expr_stmt|;
 block|}
-comment|/**      * The host name (IP or DNS) of target host.      *      * @return The target host name (IP or DNS name).      */
 DECL|method|getTargetHostname ()
 specifier|public
 name|String
@@ -587,7 +614,7 @@ return|return
 name|targetHostname
 return|;
 block|}
-comment|/**      * The host name (IP or DNS name) of target host.      *      * @param targetHostname      *            - the target host name (IP or DNS name).      */
+comment|/**      * The host name (IP or DNS name) of target host.      */
 DECL|method|setTargetHostname (String targetHostname)
 specifier|public
 name|void
@@ -604,7 +631,6 @@ operator|=
 name|targetHostname
 expr_stmt|;
 block|}
-comment|/**      * The port number of target host.      *      * @return The target port number. -1 indicates the scheme default port.      */
 DECL|method|getTargetPortNumber ()
 specifier|public
 name|int
@@ -615,7 +641,7 @@ return|return
 name|targetPortNumber
 return|;
 block|}
-comment|/**      * The port number of target host.      *      * @param targetPortNumber      *            - the target port number. -1 indicates the scheme default port.      */
+comment|/**      * The port number of target host. -1 indicates the scheme default port.      */
 DECL|method|setTargetPortNumber (String targetPortNumber)
 specifier|public
 name|void
@@ -661,7 +687,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The port number of target host.      *       * @param targetPortNumber      *            - the target port number. -1 indicates the scheme default port.      */
+comment|/**      * The port number of target host. -1 indicates the scheme default port.      */
 DECL|method|setTargetPortNumber (Integer targetPortNumber)
 specifier|public
 name|void
@@ -678,7 +704,6 @@ operator|=
 name|targetPortNumber
 expr_stmt|;
 block|}
-comment|/**      * The Client Fully Qualified Domain Name (FQDN).      *      *<p>      * Used in message ids sent by endpoint.      *      * @return The FQDN of client.      */
 DECL|method|getClientFqdn ()
 specifier|public
 name|String
@@ -689,7 +714,7 @@ return|return
 name|clientFqdn
 return|;
 block|}
-comment|/**      * The Client Fully Qualified Domain Name (FQDN).      *      *<p>      * Used in message ids sent by endpoint.      *      * @param clientFqdn      *            - the FQDN of client.      */
+comment|/**      * The Client Fully Qualified Domain Name (FQDN).      * Used in message ids sent by endpoint.      */
 DECL|method|setClientFqdn (String clientFqdn)
 specifier|public
 name|void
@@ -721,7 +746,6 @@ operator|=
 name|clientFqdn
 expr_stmt|;
 block|}
-comment|/**      * The port number of server.      *      * @return The server port number.      */
 DECL|method|getServerPortNumber ()
 specifier|public
 name|Integer
@@ -732,7 +756,7 @@ return|return
 name|serverPortNumber
 return|;
 block|}
-comment|/**      * The port number of server.      *      * @param serverPortNumber      *            - the server port number.      */
+comment|/**      * The port number of server.      */
 DECL|method|setServerPortNumber (String serverPortNumber)
 specifier|public
 name|void
@@ -778,7 +802,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The port number of server.      *      * @param serverPortNumber      *            - the server port number.      */
+comment|/**      * The port number of server.      */
 DECL|method|setServerPortNumber (Integer serverPortNumber)
 specifier|public
 name|void
@@ -795,7 +819,6 @@ operator|=
 name|serverPortNumber
 expr_stmt|;
 block|}
-comment|/**      * The request URI of EDI message.      *       * @return The URI of request      */
 DECL|method|getRequestUri ()
 specifier|public
 name|String
@@ -806,7 +829,7 @@ return|return
 name|requestUri
 return|;
 block|}
-comment|/**      * The request URI of EDI message.      *       * @param requestUri      *            - the URI of request      */
+comment|/**      * The request URI of EDI message.      */
 DECL|method|setRequestUri (String requestUri)
 specifier|public
 name|void
@@ -823,7 +846,6 @@ operator|=
 name|requestUri
 expr_stmt|;
 block|}
-comment|/**      * The content type of EDI message. One of      *<ul>      *<li>application/edifact</li>      *<li>application/edi-x12</li>      *<li>application/edi-consent</li>      *</ul>      *       * @return The content type of EDI message.      */
 DECL|method|getEdiMessageType ()
 specifier|public
 name|ContentType
@@ -834,7 +856,7 @@ return|return
 name|ediMessageType
 return|;
 block|}
-comment|/**      * The content type of EDI message. One of      *<ul>      *<li>application/edifact</li>      *<li>application/edi-x12</li>      *<li>application/edi-consent</li>      *</ul>      *       * @param ediMessageType      *            - the content type of EDI message.      */
+comment|/**      * The content type of EDI message.      * One of application/edifact, application/edi-x12, application/edi-consent      */
 DECL|method|setEdiMessageType (ContentType ediMessageType)
 specifier|public
 name|void
@@ -851,7 +873,6 @@ operator|=
 name|ediMessageType
 expr_stmt|;
 block|}
-comment|/**      * The transfer encoding of EDI message.      *       * @return The transfer encoding of EDI message.      */
 DECL|method|getEdiMessageTransferEncoding ()
 specifier|public
 name|String
@@ -862,7 +883,7 @@ return|return
 name|ediMessageTransferEncoding
 return|;
 block|}
-comment|/**      * The transfer encoding of EDI message.      *       * @param ediMessageTransferEncoding      *            - the transfer encoding of EDI message.      */
+comment|/**      * The transfer encoding of EDI message.      */
 DECL|method|setEdiMessageTransferEncoding (String ediMessageTransferEncoding)
 specifier|public
 name|void
@@ -879,7 +900,6 @@ operator|=
 name|ediMessageTransferEncoding
 expr_stmt|;
 block|}
-comment|/**      * The structure of AS2 Message. One of      *<ul>      *<li>PLAIN - No encryption, no signature</li>      *<li>SIGNED - No encryption, signature</li>      *<li>ENCRYPTED - Encryption, no signature</li>      *<li>ENCRYPTED_SIGNED - Encryption, signature</li>      *</ul>      *       * @return The structure of AS2 Message.      */
 DECL|method|getAs2MessageStructure ()
 specifier|public
 name|AS2MessageStructure
@@ -890,7 +910,7 @@ return|return
 name|as2MessageStructure
 return|;
 block|}
-comment|/**      * The structure of AS2 Message. One of      *<ul>      *<li>PLAIN - No encryption, no signature</li>      *<li>SIGNED - No encryption, signature</li>      *<li>ENCRYPTED - Encryption, no signature</li>      *<li>ENCRYPTED_SIGNED - Encryption, signature</li>      *</ul>      *       * @param as2MessageStructure      *            - the structure of AS2 Message.      */
+comment|/**      * The structure of AS2 Message. One of:      * PLAIN - No encryption, no signature,      * SIGNED - No encryption, signature,      * ENCRYPTED - Encryption, no signature,      * ENCRYPTED_SIGNED - Encryption, signature      */
 DECL|method|setAs2MessageStructure (AS2MessageStructure as2MessageStructure)
 specifier|public
 name|void
@@ -907,7 +927,6 @@ operator|=
 name|as2MessageStructure
 expr_stmt|;
 block|}
-comment|/**      * The value of Subject header of AS2 message.      *       * @return The value of Subject header of AS2 message.      */
 DECL|method|getSubject ()
 specifier|public
 name|String
@@ -918,7 +937,7 @@ return|return
 name|subject
 return|;
 block|}
-comment|/**      * The value of Subject header of AS2 message.      *       * @param subject      *            - the value of Subject header of AS2 message.      */
+comment|/**      * The value of Subject header of AS2 message.      */
 DECL|method|setSubject (String subject)
 specifier|public
 name|void
@@ -935,7 +954,6 @@ operator|=
 name|subject
 expr_stmt|;
 block|}
-comment|/**      * The value of the From header of AS2 message.      *       * @return The value of the From header of AS2 message.      */
 DECL|method|getFrom ()
 specifier|public
 name|String
@@ -946,7 +964,7 @@ return|return
 name|from
 return|;
 block|}
-comment|/**      * The value of the From header of AS2 message.      *       * @param from      *            - the value of the From header of AS2 message.      */
+comment|/**      * The value of the From header of AS2 message.      */
 DECL|method|setFrom (String from)
 specifier|public
 name|void
@@ -963,7 +981,6 @@ operator|=
 name|from
 expr_stmt|;
 block|}
-comment|/**      * The value of the AS2From header of AS2 message.      *       * @return The value of the AS2From header of AS2 message.      */
 DECL|method|getAs2From ()
 specifier|public
 name|String
@@ -974,7 +991,7 @@ return|return
 name|as2From
 return|;
 block|}
-comment|/**      * The value of the AS2From header of AS2 message.      *       * @param as2From      *            - the value of the AS2From header of AS2 message.      */
+comment|/**      * The value of the AS2From header of AS2 message.      */
 DECL|method|setAs2From (String as2From)
 specifier|public
 name|void
@@ -991,7 +1008,6 @@ operator|=
 name|as2From
 expr_stmt|;
 block|}
-comment|/**      * The value of the AS2To header of AS2 message.      *       * @return The value of the AS2To header of AS2 message.      */
 DECL|method|getAs2To ()
 specifier|public
 name|String
@@ -1002,7 +1018,7 @@ return|return
 name|as2To
 return|;
 block|}
-comment|/**      * The value of the AS2To header of AS2 message.      *       * @param as2From      *            - the value of the AS2To header of AS2 message.      */
+comment|/**      * The value of the AS2To header of AS2 message.      */
 DECL|method|setAs2To (String as2To)
 specifier|public
 name|void
@@ -1019,7 +1035,6 @@ operator|=
 name|as2To
 expr_stmt|;
 block|}
-comment|/**      * The name of algorithm used to sign EDI message.      *       * @return The name of algorithm used to sign EDI message.      */
 DECL|method|getSigningAlgorithmName ()
 specifier|public
 name|String
@@ -1030,7 +1045,7 @@ return|return
 name|signingAlgorithmName
 return|;
 block|}
-comment|/**      * The name of algorithm used to sign EDI message.      *       * @param signingAlgorithmName      *            - the name of algorithm used to sign EDI message.      */
+comment|/**      * The name of algorithm used to sign EDI message.      */
 DECL|method|setSigningAlgorithmName (String signingAlgorithmName)
 specifier|public
 name|void
@@ -1047,7 +1062,6 @@ operator|=
 name|signingAlgorithmName
 expr_stmt|;
 block|}
-comment|/**      * The chain of certificates used to sign EDI message.      *       * @return The chain of certificates used to sign EDI message.      */
 DECL|method|getSigningCertificateChain ()
 specifier|public
 name|Certificate
@@ -1059,7 +1073,7 @@ return|return
 name|signingCertificateChain
 return|;
 block|}
-comment|/**      * The chain of certificates used to sign EDI message.      *       * @param signingCertificateChain      *            - the chain of certificates used to sign EDI message.      */
+comment|/**      * The chain of certificates used to sign EDI message.      */
 DECL|method|setSigningCertificateChain (Certificate[] signingCertificateChain)
 specifier|public
 name|void
@@ -1077,7 +1091,6 @@ operator|=
 name|signingCertificateChain
 expr_stmt|;
 block|}
-comment|/**      * The key used to sign the EDI message.      *       * @return The key used to sign the EDI message.      */
 DECL|method|getSigningPrivateKey ()
 specifier|public
 name|PrivateKey
@@ -1088,7 +1101,7 @@ return|return
 name|signingPrivateKey
 return|;
 block|}
-comment|/**      * The key used to sign the EDI message.      *       * @param signingPrivateKey      *            - the key used to sign the EDI message.      */
+comment|/**      * The key used to sign the EDI message.      */
 DECL|method|setSigningPrivateKey (PrivateKey signingPrivateKey)
 specifier|public
 name|void
@@ -1105,7 +1118,6 @@ operator|=
 name|signingPrivateKey
 expr_stmt|;
 block|}
-comment|/**      * The value of the Dispostion-Notification-To header.      *       * Assigning a value to this parameter requests a message disposition      * notification (MDN) for the AS2 message.      *       * @return The value of the Dispostion-Notification-To header.      */
 DECL|method|getDispositionNotificationTo ()
 specifier|public
 name|String
@@ -1116,7 +1128,7 @@ return|return
 name|dispositionNotificationTo
 return|;
 block|}
-comment|/**      * The value of the Dispostion-Notification-To header.      *       * Assigning a value to this parameter requests a message disposition      * notification (MDN) for the AS2 message.      *       * @param dispositionNotificationTo      *            - the value of the Dispostion-Notification-To header.      */
+comment|/**      * The value of the Disposition-Notification-To header.      *       * Assigning a value to this parameter requests a message disposition      * notification (MDN) for the AS2 message.      */
 DECL|method|setDispositionNotificationTo (String dispositionNotificationTo)
 specifier|public
 name|void
@@ -1133,7 +1145,6 @@ operator|=
 name|dispositionNotificationTo
 expr_stmt|;
 block|}
-comment|/**      * The list of algorithms, in order of preference, requested to generate a      * message integrity check (MIC) returned in message dispostion notification      * (MDN)      *       * @return The list of algorithms.      */
 DECL|method|getSignedReceiptMicAlgorithms ()
 specifier|public
 name|String
@@ -1145,7 +1156,7 @@ return|return
 name|signedReceiptMicAlgorithms
 return|;
 block|}
-comment|/**      * The list of algorithms, in order of preference, requested to generate a      * message integrity check (MIC) returned in message dispostion notification      * (MDN)      *       * @param signedReceiptMicAlgorithms      *            - the list of algorithms.      */
+comment|/**      * The list of algorithms, in order of preference, requested to generate a      * message integrity check (MIC) returned in message dispostion notification      * (MDN)      */
 DECL|method|setSignedReceiptMicAlgorithms (String[] signedReceiptMicAlgorithms)
 specifier|public
 name|void

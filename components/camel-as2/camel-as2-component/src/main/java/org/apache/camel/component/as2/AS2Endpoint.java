@@ -268,20 +268,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -296,7 +282,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|UriPath
+name|UriParam
 import|;
 end_import
 
@@ -370,7 +356,7 @@ literal|"AS2"
 argument_list|,
 name|syntax
 operator|=
-literal|"as2:name"
+literal|"as2:apiName"
 argument_list|,
 name|consumerClass
 operator|=
@@ -395,18 +381,11 @@ name|AS2Configuration
 argument_list|>
 block|{
 annotation|@
-name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|name
+name|UriParam
+DECL|field|configuration
 specifier|private
-name|String
-name|name
+name|AS2Configuration
+name|configuration
 decl_stmt|;
 DECL|field|apiProxy
 specifier|private
@@ -466,6 +445,22 @@ argument_list|,
 name|endpointConfiguration
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|endpointConfiguration
+expr_stmt|;
+block|}
+DECL|method|getAs2Configuration ()
+specifier|public
+name|AS2Configuration
+name|getAs2Configuration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
 block|}
 DECL|method|getAS2ClientConnection ()
 specifier|public
@@ -650,33 +645,6 @@ expr_stmt|;
 block|}
 return|return
 name|apiProxy
-return|;
-block|}
-comment|/**      * Some description of this option, and what it does      */
-DECL|method|setName (String name)
-specifier|public
-name|void
-name|setName
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
-block|}
-DECL|method|getName ()
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|name
 return|;
 block|}
 DECL|method|createApiProxy (ApiMethod method, Map<String, Object> args)

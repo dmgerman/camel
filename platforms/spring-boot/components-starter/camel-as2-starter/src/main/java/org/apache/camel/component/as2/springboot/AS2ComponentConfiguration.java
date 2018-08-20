@@ -257,125 +257,152 @@ name|AS2Configuration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * What kind of operation to perform          *           * @param apiName          *            - the API Name to set          */
+comment|/**          * What kind of operation to perform          */
 DECL|field|apiName
 specifier|private
 name|AS2ApiName
 name|apiName
 decl_stmt|;
-comment|/**          * What sub operation to use for the selected operation          *           * @param methodName          *            - the methodName to set          */
+comment|/**          * What sub operation to use for the selected operation          */
 DECL|field|methodName
 specifier|private
 name|String
 name|methodName
 decl_stmt|;
-comment|/**          * The version of the AS2 protocol.          *           * @param as2Version          *            - the version of the AS2 protocol.          */
+comment|/**          * The version of the AS2 protocol.          */
 DECL|field|as2Version
 specifier|private
 name|String
 name|as2Version
+init|=
+literal|"1.1"
 decl_stmt|;
-comment|/**          * The value included in the<code>User-Agent</code> message header          * identifying the AS2 user agent.          *           * @param userAgent          *            - AS2 user agent identification string.          */
+comment|/**          * The value included in the User-Agent message header identifying the          * AS2 user agent.          */
 DECL|field|userAgent
 specifier|private
 name|String
 name|userAgent
+init|=
+literal|"Camel AS2 Client Endpoint"
 decl_stmt|;
-comment|/**          * The value included in the<code>Server</code> message header          * identifying the AS2 Server.          *           * @param server          *            - AS2 server identification string.          */
+comment|/**          * The value included in the Server message header identifying the AS2          * Server.          */
 DECL|field|server
 specifier|private
 name|String
 name|server
+init|=
+literal|"Camel AS2 Server Endpoint"
 decl_stmt|;
-comment|/**          * The Server Fully Qualified Domain Name (FQDN).          *<p>          * Used in message ids sent by endpoint.          *           * @param clientFqdn          *            - the FQDN of server.          */
+comment|/**          * The Server Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          */
 DECL|field|serverFqdn
 specifier|private
 name|String
 name|serverFqdn
+init|=
+literal|"camel.apache.org"
 decl_stmt|;
-comment|/**          * The host name (IP or DNS name) of target host.          *           * @param targetHostname          *            - the target host name (IP or DNS name).          */
+comment|/**          * The host name (IP or DNS name) of target host.          */
 DECL|field|targetHostname
 specifier|private
 name|String
 name|targetHostname
 decl_stmt|;
+comment|/**          * The port number of target host. -1 indicates the scheme default port.          */
 DECL|field|targetPortNumber
 specifier|private
 name|Integer
 name|targetPortNumber
 decl_stmt|;
-comment|/**          * The Client Fully Qualified Domain Name (FQDN).          *<p>          * Used in message ids sent by endpoint.          *           * @param clientFqdn          *            - the FQDN of client.          */
+comment|/**          * The Client Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          */
 DECL|field|clientFqdn
 specifier|private
 name|String
 name|clientFqdn
+init|=
+literal|"camel.apache.org"
 decl_stmt|;
+comment|/**          * The port number of server.          */
 DECL|field|serverPortNumber
 specifier|private
 name|Integer
 name|serverPortNumber
 decl_stmt|;
+comment|/**          * The request URI of EDI message.          */
 DECL|field|requestUri
 specifier|private
 name|String
 name|requestUri
+init|=
+literal|"/"
 decl_stmt|;
+comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent          */
 DECL|field|ediMessageType
 specifier|private
 name|ContentType
 name|ediMessageType
 decl_stmt|;
+comment|/**          * The transfer encoding of EDI message.          */
 DECL|field|ediMessageTransferEncoding
 specifier|private
 name|String
 name|ediMessageTransferEncoding
 decl_stmt|;
+comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature          */
 DECL|field|as2MessageStructure
 specifier|private
 name|AS2MessageStructure
 name|as2MessageStructure
 decl_stmt|;
+comment|/**          * The value of Subject header of AS2 message.          */
 DECL|field|subject
 specifier|private
 name|String
 name|subject
 decl_stmt|;
+comment|/**          * The value of the From header of AS2 message.          */
 DECL|field|from
 specifier|private
 name|String
 name|from
 decl_stmt|;
+comment|/**          * The value of the AS2From header of AS2 message.          */
 DECL|field|as2From
 specifier|private
 name|String
 name|as2From
 decl_stmt|;
+comment|/**          * The value of the AS2To header of AS2 message.          */
 DECL|field|as2To
 specifier|private
 name|String
 name|as2To
 decl_stmt|;
+comment|/**          * The name of algorithm used to sign EDI message.          */
 DECL|field|signingAlgorithmName
 specifier|private
 name|String
 name|signingAlgorithmName
 decl_stmt|;
+comment|/**          * The chain of certificates used to sign EDI message.          */
 DECL|field|signingCertificateChain
 specifier|private
 name|Certificate
 index|[]
 name|signingCertificateChain
 decl_stmt|;
+comment|/**          * The key used to sign the EDI message.          */
 DECL|field|signingPrivateKey
 specifier|private
 name|PrivateKey
 name|signingPrivateKey
 decl_stmt|;
+comment|/**          * The value of the Disposition-Notification-To header. Assigning a          * value to this parameter requests a message disposition notification          * (MDN) for the AS2 message.          */
 DECL|field|dispositionNotificationTo
 specifier|private
 name|String
 name|dispositionNotificationTo
 decl_stmt|;
+comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN)          */
 DECL|field|signedReceiptMicAlgorithms
 specifier|private
 name|String
