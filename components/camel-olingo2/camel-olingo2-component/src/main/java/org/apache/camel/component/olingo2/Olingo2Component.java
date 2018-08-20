@@ -923,6 +923,10 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|clientBuilder
+operator|=
+name|asyncClientBuilder
+expr_stmt|;
 block|}
 name|Olingo2AppImpl
 name|olingo2App
