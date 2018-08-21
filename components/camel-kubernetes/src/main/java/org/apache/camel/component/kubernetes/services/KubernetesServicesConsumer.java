@@ -156,6 +156,22 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|fabric8
+operator|.
+name|kubernetes
+operator|.
+name|client
+operator|.
+name|dsl
+operator|.
+name|ServiceResource
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -531,7 +547,7 @@ name|ServiceList
 argument_list|,
 name|DoneableService
 argument_list|,
-name|Resource
+name|ServiceResource
 argument_list|<
 name|Service
 argument_list|,
