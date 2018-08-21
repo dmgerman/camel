@@ -99,6 +99,8 @@ DECL|field|servletName
 specifier|private
 name|String
 name|servletName
+init|=
+literal|"CamelServlet"
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.component.servlet.HttpRegistry. The      * option is a org.apache.camel.component.servlet.HttpRegistry type.      */
 DECL|field|httpRegistry

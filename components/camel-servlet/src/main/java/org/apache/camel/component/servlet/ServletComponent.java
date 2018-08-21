@@ -190,6 +190,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RestApiConsumerFactory
 import|;
 end_import
@@ -326,6 +340,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"CamelServlet"
+argument_list|,
+name|description
+operator|=
+literal|"Default name of servlet to use. The default name is CamelServlet."
+argument_list|)
 DECL|field|servletName
 specifier|private
 name|String
@@ -333,16 +362,57 @@ name|servletName
 init|=
 literal|"CamelServlet"
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom org.apache.camel.component.servlet.HttpRegistry."
+argument_list|)
 DECL|field|httpRegistry
 specifier|private
 name|HttpRegistry
 name|httpRegistry
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to automatic bind multipart/form-data as attachments on the Camel Exchange}."
+operator|+
+literal|" The options attachmentMultipartBinding=true and disableStreamCache=false cannot work together."
+operator|+
+literal|" Remove disableStreamCache to use AttachmentMultipartBinding."
+operator|+
+literal|" This is turn off by default as this may require servlet specific configuration to enable this when using Servlet's."
+argument_list|)
 DECL|field|attachmentMultipartBinding
 specifier|private
 name|boolean
 name|attachmentMultipartBinding
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Whitelist of accepted filename extensions for accepting uploaded files."
+operator|+
+literal|" Multiple extensions can be separated by comma, such as txt,xml."
+argument_list|)
 DECL|field|fileNameExtWhitelist
 specifier|private
 name|String
@@ -1100,7 +1170,7 @@ return|return
 name|servletName
 return|;
 block|}
-comment|/**      * Default name of servlet to use. The default name is<tt>CamelServlet</tt>.      */
+comment|/**      * Default name of servlet to use. The default name is CamelServlet.      */
 DECL|method|setServletName (String servletName)
 specifier|public
 name|void
@@ -1127,7 +1197,7 @@ return|return
 name|httpRegistry
 return|;
 block|}
-comment|/**      * To use a custom {@link org.apache.camel.component.servlet.HttpRegistry}.      */
+comment|/**      * To use a custom org.apache.camel.component.servlet.HttpRegistry.      */
 DECL|method|setHttpRegistry (HttpRegistry httpRegistry)
 specifier|public
 name|void
