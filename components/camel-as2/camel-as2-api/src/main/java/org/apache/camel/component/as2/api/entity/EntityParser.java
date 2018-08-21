@@ -3849,11 +3849,11 @@ init|=
 operator|new
 name|ApplicationPkcs7SignatureEntity
 argument_list|(
+name|signature
+argument_list|,
 name|charsetName
 argument_list|,
 name|contentTransferEncoding
-argument_list|,
-name|signature
 argument_list|,
 literal|false
 argument_list|)
