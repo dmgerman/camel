@@ -734,7 +734,7 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
-comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequestgetContent() is cached or not (Camel will read the stream          * into a in light-weight memory based Stream caching) cache. By default          * Camel will cache the Netty input stream to support reading it          * multiple times to ensure it Camel can retrieve all data from the          * stream. However you can set this option to true when you for example          * need to access the raw stream, such as streaming it directly to a          * file or other persistent store. Mind that if you enable this option,          * then you cannot read the Netty stream multiple times out of the box,          * and you would need manually to reset the reader index on the Netty          * raw stream.          */
+comment|/**          * Determines whether or not the raw input stream from Netty          * HttpRequest#getContent() is cached or not (Camel will read the stream          * into a in light-weight memory based Stream caching) cache. By default          * Camel will cache the Netty input stream to support reading it          * multiple times to ensure it Camel can retrieve all data from the          * stream. However you can set this option to true when you for example          * need to access the raw stream, such as streaming it directly to a          * file or other persistent store. Mind that if you enable this option,          * then you cannot read the Netty stream multiple times out of the box,          * and you would need manually to reset the reader index on the Netty          * raw stream.          */
 DECL|field|disableStreamCache
 specifier|private
 name|Boolean

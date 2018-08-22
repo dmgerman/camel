@@ -186,7 +186,7 @@ specifier|private
 name|Boolean
 name|useForwardedForHeader
 decl_stmt|;
-comment|/**      * Enable/disable the SO_REUSEADDR socket option. See      * java.io.ServerSocketreuseAddress property for additional details.      */
+comment|/**      * Enable/disable the SO_REUSEADDR socket option. See      * java.io.ServerSocket#reuseAddress property for additional details.      */
 DECL|field|reuseAddress
 specifier|private
 name|Boolean

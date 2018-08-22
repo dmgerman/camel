@@ -855,13 +855,13 @@ name|bufferMemorySize
 init|=
 literal|33554432
 decl_stmt|;
-comment|/**          * The record key (or null if no key is specified). If this option has          * been configured then it take precedence over header link          * KafkaConstantsKEY          */
+comment|/**          * The record key (or null if no key is specified). If this option has          * been configured then it take precedence over header          * KafkaConstants#KEY          */
 DECL|field|key
 specifier|private
 name|String
 name|key
 decl_stmt|;
-comment|/**          * The partition to which the record will be sent (or null if no          * partition was specified). If this option has been configured then it          * take precedence over header link KafkaConstantsPARTITION_KEY          */
+comment|/**          * The partition to which the record will be sent (or null if no          * partition was specified). If this option has been configured then it          * take precedence over header KafkaConstants#PARTITION_KEY          */
 DECL|field|partitionKey
 specifier|private
 name|Integer
@@ -985,7 +985,7 @@ name|heartbeatIntervalMs
 init|=
 literal|3000
 decl_stmt|;
-comment|/**          * The maximum amount of data per-partition the server will return. The          * maximum total memory used for a request will be partitions          * max.partition.fetch.bytes. This size must be at least as large as the          * maximum message size the server allows or else it is possible for the          * producer to send messages larger than the consumer can fetch. If that          * happens, the consumer can get stuck trying to fetch a large message          * on a certain partition.          */
+comment|/**          * The maximum amount of data per-partition the server will return. The          * maximum total memory used for a request will be #partitions          * max.partition.fetch.bytes. This size must be at least as large as the          * maximum message size the server allows or else it is possible for the          * producer to send messages larger than the consumer can fetch. If that          * happens, the consumer can get stuck trying to fetch a large message          * on a certain partition.          */
 DECL|field|maxPartitionFetchBytes
 specifier|private
 name|Integer
@@ -1091,7 +1091,7 @@ name|workerPoolMaxSize
 init|=
 literal|20
 decl_stmt|;
-comment|/**          * Whether the producer should store the RecordMetadata results from          * sending to Kafka. The results are stored in a List containing the          * RecordMetadata metadata's. The list is stored on a header with the          * key link KafkaConstantsKAFKA_RECORDMETA          */
+comment|/**          * Whether the producer should store the RecordMetadata results from          * sending to Kafka. The results are stored in a List containing the          * RecordMetadata metadata's. The list is stored on a header with the          * key KafkaConstants#KAFKA_RECORDMETA          */
 DECL|field|recordMetadata
 specifier|private
 name|Boolean

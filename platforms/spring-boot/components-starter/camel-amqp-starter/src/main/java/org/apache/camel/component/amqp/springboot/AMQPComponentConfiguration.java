@@ -166,7 +166,7 @@ name|acceptMessagesWhileStopping
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Whether the DefaultMessageListenerContainer used in the reply managers      * for request-reply messaging allow the      * DefaultMessageListenerContainer.runningAllowed flag to quick stop in case      * JmsConfigurationisAcceptMessagesWhileStopping is enabled, and      * org.apache.camel.CamelContext is currently being stopped. This quick stop      * ability is enabled by default in the regular JMS consumers but to enable      * for reply managers you must enable this flag.      */
+comment|/**      * Whether the DefaultMessageListenerContainer used in the reply managers      * for request-reply messaging allow the      * DefaultMessageListenerContainer.runningAllowed flag to quick stop in case      * JmsConfiguration#isAcceptMessagesWhileStopping is enabled, and      * org.apache.camel.CamelContext is currently being stopped. This quick stop      * ability is enabled by default in the regular JMS consumers but to enable      * for reply managers you must enable this flag.      */
 DECL|field|allowReplyManagerQuickStop
 specifier|private
 name|Boolean
@@ -569,7 +569,7 @@ name|transferException
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an      * Exchange failed with a SOAP fault (not exception) on the consumer side,      * then the fault flag on MessageisFault() will be send back in the response      * as a JMS header with the key org.apache.camel.component.jms.      * JmsConstantsJMS_TRANSFER_FAULTJMS_TRANSFER_FAULT. If the client is Camel,      * the returned fault flag will be set on the link      * org.apache.camel.MessagesetFault(boolean). You may want to enable this      * when using Camel components that support faults such as SOAP based such      * as cxf or spring-ws.      */
+comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an      * Exchange failed with a SOAP fault (not exception) on the consumer side,      * then the fault flag on Message#isFault() will be send back in the      * response as a JMS header with the key      * org.apache.camel.component.jms.JmsConstants      * #JMS_TRANSFER_FAULT#JMS_TRANSFER_FAULT. If the client is Camel, the      * returned fault flag will be set on the      * org.apache.camel.Message#setFault(boolean). You may want to enable this      * when using Camel components that support faults such as SOAP based such      * as cxf or spring-ws.      */
 DECL|field|transferFault
 specifier|private
 name|Boolean
@@ -641,7 +641,7 @@ specifier|private
 name|DefaultTaskExecutorType
 name|defaultTaskExecutorType
 decl_stmt|;
-comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be      * compliant with the JMS specification. Camel provides two implementations      * out of the box: default and passthrough. The default strategy will safely      * marshal dots and hyphens (. and -). The passthrough strategy leaves the      * key as is. Can be used for JMS brokers which do not care whether JMS      * header keys contain illegal characters. You can provide your own      * implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the notation. The option is a      * org.apache.camel.component.jms.JmsKeyFormatStrategy type.      */
+comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be      * compliant with the JMS specification. Camel provides two implementations      * out of the box: default and passthrough. The default strategy will safely      * marshal dots and hyphens (. and -). The passthrough strategy leaves the      * key as is. Can be used for JMS brokers which do not care whether JMS      * header keys contain illegal characters. You can provide your own      * implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the # notation. The option is a      * org.apache.camel.component.jms.JmsKeyFormatStrategy type.      */
 DECL|field|jmsKeyFormatStrategy
 specifier|private
 name|String

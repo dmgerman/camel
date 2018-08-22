@@ -561,13 +561,13 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
-comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with so Camel knows it should          * lookup.          */
+comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          */
 DECL|field|decoders
 specifier|private
 name|List
 name|decoders
 decl_stmt|;
-comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with so Camel knows it should          * lookup.          */
+comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          */
 DECL|field|encoders
 specifier|private
 name|List
@@ -760,7 +760,7 @@ name|udpByteArrayCodec
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key link NettyConstantsNETTY_CHANNEL which allows you to obtain          * the channel during routing and use it as well.          */
+comment|/**          * This option allows producers and consumers (in client mode) to reuse          * the same Netty Channel for the lifecycle of processing the Exchange.          * This is useful if you need to call a server multiple times in a Camel          * route and want to use the same network connection. When using this,          * the channel is not returned to the connection pool until the Exchange          * is done; or disconnected if the disconnect option is set to true. The          * reused Channel is stored on the Exchange as an exchange property with          * the key NettyConstants#NETTY_CHANNEL which allows you to obtain the          * channel during routing and use it as well.          */
 DECL|field|reuseChannel
 specifier|private
 name|Boolean

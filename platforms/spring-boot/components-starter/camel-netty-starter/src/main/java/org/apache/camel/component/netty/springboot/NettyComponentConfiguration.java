@@ -543,13 +543,13 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
-comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with so Camel knows it should          * lookup.          */
+comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          */
 DECL|field|decoders
 specifier|private
 name|List
 name|decoders
 decl_stmt|;
-comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with so Camel knows it should          * lookup.          */
+comment|/**          * A list of encoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          */
 DECL|field|encoders
 specifier|private
 name|List

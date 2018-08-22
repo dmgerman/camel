@@ -133,7 +133,7 @@ specifier|private
 name|String
 name|location
 decl_stmt|;
-comment|/**      * Encoding to use when loading properties file from the file system or      * classpath. If no encoding has been set, then the properties files is      * loaded using ISO-8859-1 encoding (latin-1) as documented by link      * java.util.Propertiesload(java.io.InputStream)      */
+comment|/**      * Encoding to use when loading properties file from the file system or      * classpath. If no encoding has been set, then the properties files is      * loaded using ISO-8859-1 encoding (latin-1) as documented by      * java.util.Properties#load(java.io.InputStream)      */
 DECL|field|encoding
 specifier|private
 name|String
@@ -195,7 +195,7 @@ name|ignoreMissingLocation
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Sets the value of the prefix token used to identify properties to      * replace. Setting a value of null restores the default token (link link      * DEFAULT_PREFIX_TOKEN).      */
+comment|/**      * Sets the value of the prefix token used to identify properties to      * replace. Setting a value of null restores the default token (link      * DEFAULT_PREFIX_TOKEN).      */
 DECL|field|prefixToken
 specifier|private
 name|String
@@ -203,7 +203,7 @@ name|prefixToken
 init|=
 literal|"{{"
 decl_stmt|;
-comment|/**      * Sets the value of the suffix token used to identify properties to      * replace. Setting a value of null restores the default token (link link      * DEFAULT_SUFFIX_TOKEN).      */
+comment|/**      * Sets the value of the suffix token used to identify properties to      * replace. Setting a value of null restores the default token (link      * DEFAULT_SUFFIX_TOKEN).      */
 DECL|field|suffixToken
 specifier|private
 name|String

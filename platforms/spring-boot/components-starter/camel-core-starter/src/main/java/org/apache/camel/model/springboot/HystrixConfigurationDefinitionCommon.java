@@ -75,7 +75,7 @@ name|circuitBreakerErrorThresholdPercentage
 init|=
 literal|50
 decl_stmt|;
-comment|/**      * If true the HystrixCircuitBreakerallowRequest() will always return true      * to allow requests regardless of the error percentage from      * HystrixCommandMetrics.getHealthCounts(). The circuitBreakerForceOpen()      * property takes precedence so if it set to true this property does      * nothing.      */
+comment|/**      * If true the HystrixCircuitBreaker#allowRequest() will always return true      * to allow requests regardless of the error percentage from      * HystrixCommandMetrics.getHealthCounts(). The circuitBreakerForceOpen()      * property takes precedence so if it set to true this property does      * nothing.      */
 DECL|field|circuitBreakerForceClosed
 specifier|private
 name|Boolean
@@ -123,7 +123,7 @@ name|executionIsolationStrategy
 init|=
 literal|"THREAD"
 decl_stmt|;
-comment|/**      * Whether the execution thread should attempt an interrupt (using link      * Futurecancel) when a thread times out. Applicable only when      * executionIsolationStrategy() == THREAD.      */
+comment|/**      * Whether the execution thread should attempt an interrupt (using      * Future#cancel) when a thread times out. Applicable only when      * executionIsolationStrategy() == THREAD.      */
 DECL|field|executionIsolationThreadInterruptOnTimeout
 specifier|private
 name|Boolean
@@ -131,7 +131,7 @@ name|executionIsolationThreadInterruptOnTimeout
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Time in milliseconds at which point the command will timeout and halt      * execution. If link executionIsolationThreadInterruptOnTimeout == true and      * the command is thread-isolated, the executing thread will be interrupted.      * If the command is semaphore-isolated and a HystrixObservableCommand, that      * command will get unsubscribed.      */
+comment|/**      * Time in milliseconds at which point the command will timeout and halt      * execution. If executionIsolationThreadInterruptOnTimeout == true and the      * command is thread-isolated, the executing thread will be interrupted. If      * the command is semaphore-isolated and a HystrixObservableCommand, that      * command will get unsubscribed.      */
 DECL|field|executionTimeoutInMilliseconds
 specifier|private
 name|Integer
@@ -227,7 +227,7 @@ name|requestLogEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Core thread-pool size that gets passed to link      * java.util.concurrent.ThreadPoolExecutorsetCorePoolSize(int)      */
+comment|/**      * Core thread-pool size that gets passed to      * java.util.concurrent.ThreadPoolExecutor#setCorePoolSize(int)      */
 DECL|field|corePoolSize
 specifier|private
 name|Integer
@@ -235,7 +235,7 @@ name|corePoolSize
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * Maximum thread-pool size that gets passed to link      * ThreadPoolExecutorsetMaximumPoolSize(int). This is the maximum amount of      * concurrency that can be supported without starting to reject      * HystrixCommands. Please note that this setting only takes effect if you      * also set allowMaximumSizeToDivergeFromCoreSize      */
+comment|/**      * Maximum thread-pool size that gets passed to      * ThreadPoolExecutor#setMaximumPoolSize(int). This is the maximum amount of      * concurrency that can be supported without starting to reject      * HystrixCommands. Please note that this setting only takes effect if you      * also set allowMaximumSizeToDivergeFromCoreSize      */
 DECL|field|maximumSize
 specifier|private
 name|Integer
@@ -243,7 +243,7 @@ name|maximumSize
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * Keep-alive time in minutes that gets passed to link      * ThreadPoolExecutorsetKeepAliveTime(long, TimeUnit)      */
+comment|/**      * Keep-alive time in minutes that gets passed to link      * ThreadPoolExecutor#setKeepAliveTime(long, TimeUnit)      */
 DECL|field|keepAliveTime
 specifier|private
 name|Integer
@@ -260,7 +260,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Queue size rejection threshold is an artificial max size at which      * rejections will occur even if link maxQueueSize has not been reached.      * This is done because the link maxQueueSize of a BlockingQueue can not be      * dynamically changed and we want to support dynamically changing the queue      * size that affects rejections. This is used by HystrixCommand when queuing      * a thread for execution.      */
+comment|/**      * Queue size rejection threshold is an artificial max size at which      * rejections will occur even if maxQueueSize has not been reached. This is      * done because the maxQueueSize of a BlockingQueue can not be dynamically      * changed and we want to support dynamically changing the queue size that      * affects rejections. This is used by HystrixCommand when queuing a thread      * for execution.      */
 DECL|field|queueSizeRejectionThreshold
 specifier|private
 name|Integer

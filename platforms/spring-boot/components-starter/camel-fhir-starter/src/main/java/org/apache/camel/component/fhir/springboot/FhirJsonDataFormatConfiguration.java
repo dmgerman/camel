@@ -132,13 +132,13 @@ name|omitResourceId
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If provided, tells the parse which resource types to apply link      * setEncodeElements(Set) encode elements to. Any resource types not      * specified here will be encoded completely, with no elements excluded. The      * option is a java.util.Set<java.lang.String> type.      */
+comment|/**      * If provided, tells the parse which resource types to apply link      * #setEncodeElements(Set) encode elements to. Any resource types not      * specified here will be encoded completely, with no elements excluded. The      * option is a java.util.Set<java.lang.String> type.      */
 DECL|field|encodeElementsAppliesToResourceTypes
 specifier|private
 name|String
 name|encodeElementsAppliesToResourceTypes
 decl_stmt|;
-comment|/**      * If set to true (default is false), the values supplied to link      * setEncodeElements(Set) will not be applied to the root resource      * (typically a Bundle), but will be applied to any sub-resources contained      * within it (i.e. search result resources in that bundle)      */
+comment|/**      * If set to true (default is false), the values supplied to      * setEncodeElements(Set) will not be applied to the root resource      * (typically a Bundle), but will be applied to any sub-resources contained      * within it (i.e. search result resources in that bundle)      */
 DECL|field|encodeElementsAppliesToChildResourcesOnly
 specifier|private
 name|Boolean
@@ -158,7 +158,7 @@ specifier|private
 name|String
 name|dontEncodeElements
 decl_stmt|;
-comment|/**      * If set to true (which is the default), resource references containing a      * version will have the version removed when the resource is encoded. This      * is generally good behaviour because in most situations, references from      * one resource to another should be to the resource by ID, not by ID and      * version. In some cases though, it may be desirable to preserve the      * version in resource links. In that case, this value should be set to      * false. This method provides the ability to globally disable reference      * encoding. If finer-grained control is needed, use link      * setDontStripVersionsFromReferencesAtPaths(List)      */
+comment|/**      * If set to true (which is the default), resource references containing a      * version will have the version removed when the resource is encoded. This      * is generally good behaviour because in most situations, references from      * one resource to another should be to the resource by ID, not by ID and      * version. In some cases though, it may be desirable to preserve the      * version in resource links. In that case, this value should be set to      * false. This method provides the ability to globally disable reference      * encoding. If finer-grained control is needed, use      * setDontStripVersionsFromReferencesAtPaths(List)      */
 DECL|field|stripVersionsFromReferences
 specifier|private
 name|Boolean
@@ -190,7 +190,7 @@ name|suppressNarratives
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If supplied value(s), any resource references at the specified paths will      * have their resource versions encoded instead of being automatically      * stripped during the encoding process. This setting has no effect on the      * parsing process. This method provides a finer-grained level of control      * than link setStripVersionsFromReferences(Boolean) and any paths specified      * by this method will be encoded even if link      * setStripVersionsFromReferences(Boolean) has been set to true (which is      * the default)      */
+comment|/**      * If supplied value(s), any resource references at the specified paths will      * have their resource versions encoded instead of being automatically      * stripped during the encoding process. This setting has no effect on the      * parsing process. This method provides a finer-grained level of control      * than setStripVersionsFromReferences(Boolean) and any paths specified by      * this method will be encoded even if      * setStripVersionsFromReferences(Boolean) has been set to true (which is      * the default)      */
 DECL|field|dontStripVersionsFromReferencesAtPaths
 specifier|private
 name|List

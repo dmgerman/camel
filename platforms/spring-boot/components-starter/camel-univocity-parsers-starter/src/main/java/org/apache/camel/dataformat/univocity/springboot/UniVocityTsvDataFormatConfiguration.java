@@ -170,7 +170,7 @@ specifier|private
 name|String
 name|normalizedLineSeparator
 decl_stmt|;
-comment|/**      * The comment symbol. The default value is      */
+comment|/**      * The comment symbol. The default value is #      */
 DECL|field|comment
 specifier|private
 name|String

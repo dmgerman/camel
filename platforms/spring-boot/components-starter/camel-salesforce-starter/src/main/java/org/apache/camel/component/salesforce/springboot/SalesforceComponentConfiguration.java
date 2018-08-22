@@ -1880,7 +1880,7 @@ specifier|private
 name|Long
 name|maxBackoff
 decl_stmt|;
-comment|/**          * Default replayId setting if no value is found in link          * initialReplayIdMap          */
+comment|/**          * Default replayId setting if no value is found in initialReplayIdMap          */
 DECL|field|defaultReplayId
 specifier|private
 name|Long
@@ -1940,7 +1940,7 @@ specifier|private
 name|Boolean
 name|approvalSkipEntryCriteria
 decl_stmt|;
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL link NotFoundBehaviourNULL or          * should a exception be signaled on the exchange link          * NotFoundBehaviourEXCEPTION - the default.          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          */
 DECL|field|notFoundBehaviour
 specifier|private
 name|NotFoundBehaviour

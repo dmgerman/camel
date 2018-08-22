@@ -106,13 +106,13 @@ name|whitelistEnabled
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Define the allowed objects to be unmarshalled. You can specify the FQN      * class name of allowed objects, and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelpermatchPattern(String, String). Denied      * objects takes precedence over allowed objects.      */
+comment|/**      * Define the allowed objects to be unmarshalled. You can specify the FQN      * class name of allowed objects, and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelper#matchPattern(String, String). Denied      * objects takes precedence over allowed objects.      */
 DECL|field|allowedUnmarshallObjects
 specifier|private
 name|String
 name|allowedUnmarshallObjects
 decl_stmt|;
-comment|/**      * Define the denied objects to be unmarshalled. You can specify the FQN      * class name of deined objects, and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelpermatchPattern(String, String). Denied      * objects takes precedence over allowed objects.      */
+comment|/**      * Define the denied objects to be unmarshalled. You can specify the FQN      * class name of deined objects, and you can use comma to separate multiple      * entries. It is also possible to use wildcards and regular expression      * which is based on the pattern defined by link      * org.apache.camel.util.EndpointHelper#matchPattern(String, String). Denied      * objects takes precedence over allowed objects.      */
 DECL|field|deniedUnmarshallObjects
 specifier|private
 name|String
