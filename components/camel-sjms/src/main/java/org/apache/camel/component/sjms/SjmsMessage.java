@@ -423,6 +423,24 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// cover over exchange if none has been assigned
+if|if
+condition|(
+name|getExchange
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|setExchange
+argument_list|(
+name|that
+operator|.
+name|getExchange
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// copy body and fault flag
 name|setBody
 argument_list|(
