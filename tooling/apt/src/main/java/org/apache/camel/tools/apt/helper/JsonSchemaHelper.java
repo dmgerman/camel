@@ -152,7 +152,7 @@ specifier|final
 name|String
 name|VALID_CHARS
 init|=
-literal|".,-='/\\!&%():;"
+literal|".,-='/\\!&%():;#"
 decl_stmt|;
 DECL|method|JsonSchemaHelper ()
 specifier|private
@@ -1615,6 +1615,46 @@ operator|.
 name|trim
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"**"
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+comment|// remove leading javadoc *
+if|if
+condition|(
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"*"
+argument_list|)
+condition|)
+block|{
+name|line
+operator|=
+name|line
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|line
+operator|=
+name|line
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+block|}
 comment|// terminate if we reach @param, @return or @deprecated as we only want the javadoc summary
 if|if
 condition|(
@@ -1668,13 +1708,14 @@ literal|""
 argument_list|)
 expr_stmt|;
 comment|// remove all inlined javadoc links, eg such as {@link org.apache.camel.spi.Registry}
+comment|// use #? to remove leading # in case its a local reference
 name|line
 operator|=
 name|line
 operator|.
 name|replaceAll
 argument_list|(
-literal|"\\{\\@\\w+\\s([\\w.]+)\\}"
+literal|"\\{\\@\\w+\\s#?([\\w.#(\\d,)]+)\\}"
 argument_list|,
 literal|"$1"
 argument_list|)
