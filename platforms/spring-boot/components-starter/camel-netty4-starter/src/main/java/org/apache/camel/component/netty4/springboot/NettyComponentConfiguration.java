@@ -342,6 +342,12 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
+DECL|field|sslContextParameters
+specifier|private
+name|String
+name|sslContextParameters
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -452,6 +458,32 @@ operator|.
 name|useGlobalSslContextParameters
 operator|=
 name|useGlobalSslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|String
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (String sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|String
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
