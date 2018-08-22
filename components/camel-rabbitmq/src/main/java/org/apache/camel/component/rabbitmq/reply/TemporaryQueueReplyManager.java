@@ -637,10 +637,7 @@ argument_list|(
 name|getReplyTo
 argument_list|()
 argument_list|,
-name|endpoint
-operator|.
-name|isAutoAck
-argument_list|()
+literal|true
 argument_list|,
 name|this
 argument_list|)
