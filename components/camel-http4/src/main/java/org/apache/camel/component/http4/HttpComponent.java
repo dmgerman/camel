@@ -346,6 +346,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|RestProducerFactoryHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FileUtil
@@ -2952,6 +2966,33 @@ operator|+
 name|query
 expr_stmt|;
 block|}
+comment|// there are cases where we might end up here without component being created beforehand
+comment|// we need to abide by the component properties specified in the parameters when creating
+comment|// the component, one such case is when we switch from "http4" to "https4" component name
+name|RestProducerFactoryHelper
+operator|.
+name|setupComponentFor
+argument_list|(
+name|url
+argument_list|,
+name|camelContext
+argument_list|,
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+operator|)
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"component"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|HttpEndpoint
 name|endpoint
 init|=

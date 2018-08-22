@@ -140,6 +140,20 @@ specifier|private
 name|URI
 name|specificationUri
 decl_stmt|;
+comment|/**      * Customize TLS parameters used by the component. If not set defaults to      * the TLS parameters set in the Camel context. The option is a      * org.apache.camel.util.jsse.SSLContextParameters type.      */
+DECL|field|sslContextParameters
+specifier|private
+name|String
+name|sslContextParameters
+decl_stmt|;
+comment|/**      * Enable usage of global SSL context parameters.      */
+DECL|field|useGlobalSslContextParameters
+specifier|private
+name|Boolean
+name|useGlobalSslContextParameters
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -302,6 +316,58 @@ operator|.
 name|specificationUri
 operator|=
 name|specificationUri
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|String
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (String sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|String
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getUseGlobalSslContextParameters ()
+specifier|public
+name|Boolean
+name|getUseGlobalSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|useGlobalSslContextParameters
+return|;
+block|}
+DECL|method|setUseGlobalSslContextParameters ( Boolean useGlobalSslContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSslContextParameters
+parameter_list|(
+name|Boolean
+name|useGlobalSslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSslContextParameters
+operator|=
+name|useGlobalSslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
