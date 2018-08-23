@@ -148,6 +148,20 @@ name|DefaultConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_class
 DECL|class|RabbitMQConsumer
 specifier|public
@@ -287,7 +301,7 @@ name|conn
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the exiting open connection or opens a new one      * @throws IOException      * @throws TimeoutException      */
+comment|/**      * Returns the exiting open connection or opens a new one      */
 DECL|method|getConnection ()
 specifier|protected
 specifier|synchronized
@@ -431,8 +445,12 @@ name|startConsumers
 parameter_list|()
 block|{
 comment|// Try starting consumers (which will fail if RabbitMQ can't connect)
-try|try
-block|{
+name|Throwable
+name|fail
+init|=
+literal|null
+decl_stmt|;
+comment|// attempt to start all consumers if possible
 for|for
 control|(
 name|RabbitConsumer
@@ -443,26 +461,42 @@ operator|.
 name|consumers
 control|)
 block|{
-name|consumer
+try|try
+block|{
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
+block|{
+name|fail
+operator|=
+name|e
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|fail
+operator|!=
+literal|null
+condition|)
 block|{
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Connection failed, will start background thread to retry!"
+literal|"Connection failed starting consumers, will start background thread to retry!"
 argument_list|,
-name|e
+name|fail
 argument_list|)
 expr_stmt|;
 name|reconnect
@@ -592,15 +626,17 @@ control|)
 block|{
 try|try
 block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopAndShutdownService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|TimeoutException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -608,7 +644,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred while stopping consumer. This exception is ignored"
+literal|"Error occurred while stopping consumer. This exception is ignored"
 argument_list|,
 name|e
 argument_list|)

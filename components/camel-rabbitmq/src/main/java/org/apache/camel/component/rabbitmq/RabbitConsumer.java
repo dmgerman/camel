@@ -176,6 +176,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -196,6 +224,8 @@ begin_class
 DECL|class|RabbitConsumer
 class|class
 name|RabbitConsumer
+extends|extends
+name|ServiceSupport
 implements|implements
 name|com
 operator|.
@@ -968,14 +998,15 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Bind consumer to channel      */
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 if|if
 condition|(
@@ -1032,21 +1063,16 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Unbind consumer from channel      */
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
-name|IOException
-throws|,
-name|TimeoutException
+name|Exception
 block|{
-name|stopping
-operator|=
-literal|true
-expr_stmt|;
 if|if
 condition|(
 name|channel
@@ -1230,11 +1256,30 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|this
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error starting consumer"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * No-op implementation of {@link Consumer#handleShutdownSignal}.      */
 DECL|method|handleShutdownSignal (String consumerTag, ShutdownSignalException sig)
@@ -1278,7 +1323,8 @@ operator|!
 name|connected
 operator|&&
 operator|!
-name|stopping
+name|isStopping
+argument_list|()
 condition|)
 block|{
 try|try
@@ -1293,9 +1339,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
-decl||
-name|TimeoutException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1408,9 +1452,7 @@ name|void
 name|reconnect
 parameter_list|()
 throws|throws
-name|IOException
-throws|,
-name|TimeoutException
+name|Exception
 block|{
 if|if
 condition|(
@@ -1418,6 +1460,10 @@ name|isChannelOpen
 argument_list|()
 condition|)
 block|{
+comment|// ensure we are started
+name|start
+argument_list|()
+expr_stmt|;
 comment|// The connection is good, so nothing to do
 return|return;
 block|}
