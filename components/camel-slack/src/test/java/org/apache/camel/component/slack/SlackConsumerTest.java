@@ -116,7 +116,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|9
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
