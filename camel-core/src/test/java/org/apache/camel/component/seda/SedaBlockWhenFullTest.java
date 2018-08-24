@@ -81,7 +81,7 @@ specifier|final
 name|int
 name|DELAY_LONG
 init|=
-literal|100
+literal|130
 decl_stmt|;
 DECL|field|MOCK_URI
 specifier|private
@@ -128,7 +128,7 @@ specifier|final
 name|String
 name|BLOCK_WHEN_FULL_URI
 init|=
-literal|"seda:blockingFoo"
+literal|"seda:blockingBar"
 operator|+
 name|String
 operator|.
