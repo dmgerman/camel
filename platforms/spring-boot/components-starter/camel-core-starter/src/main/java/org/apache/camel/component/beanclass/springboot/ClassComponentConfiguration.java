@@ -92,6 +92,12 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * If enabled, Camel will cache the result of the first Registry look-up.      * Cache can be enabled if the bean in the Registry is defined as a      * singleton scope.      */
+DECL|field|cache
+specifier|private
+name|Boolean
+name|cache
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -100,6 +106,32 @@ name|resolvePropertyPlaceholders
 init|=
 literal|true
 decl_stmt|;
+DECL|method|getCache ()
+specifier|public
+name|Boolean
+name|getCache
+parameter_list|()
+block|{
+return|return
+name|cache
+return|;
+block|}
+DECL|method|setCache (Boolean cache)
+specifier|public
+name|void
+name|setCache
+parameter_list|(
+name|Boolean
+name|cache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cache
+operator|=
+name|cache
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean

@@ -62,6 +62,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IntrospectionSupport
@@ -151,7 +165,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|field|cache
+DECL|field|beanInfoCache
 specifier|private
 specifier|final
 name|Map
@@ -160,7 +174,7 @@ name|BeanInfoCacheKey
 argument_list|,
 name|BeanInfo
 argument_list|>
-name|cache
+name|beanInfoCache
 init|=
 name|LRUCacheFactory
 operator|.
@@ -168,6 +182,24 @@ name|newLRUSoftCache
 argument_list|(
 literal|1000
 argument_list|)
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"If enabled, Camel will cache the result of the first Registry look-up."
+operator|+
+literal|" Cache can be enabled if the bean in the Registry is defined as a singleton scope."
+argument_list|)
+DECL|field|cache
+specifier|private
+name|Boolean
+name|cache
 decl_stmt|;
 DECL|method|BeanComponent ()
 specifier|public
@@ -243,6 +275,13 @@ argument_list|(
 name|remaining
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|setCache
+argument_list|(
+name|cache
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -288,7 +327,7 @@ name|key
 parameter_list|)
 block|{
 return|return
-name|cache
+name|beanInfoCache
 operator|.
 name|get
 argument_list|(
@@ -307,7 +346,7 @@ name|BeanInfo
 name|beanInfo
 parameter_list|)
 block|{
-name|cache
+name|beanInfoCache
 operator|.
 name|put
 argument_list|(
@@ -334,7 +373,7 @@ operator|.
 name|isDebugEnabled
 argument_list|()
 operator|&&
-name|cache
+name|beanInfoCache
 operator|instanceof
 name|LRUCache
 condition|)
@@ -347,7 +386,7 @@ name|LRUCache
 operator|)
 name|this
 operator|.
-name|cache
+name|beanInfoCache
 decl_stmt|;
 name|LOG
 operator|.
@@ -382,10 +421,37 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|cache
+name|beanInfoCache
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getCache ()
+specifier|public
+name|Boolean
+name|getCache
+parameter_list|()
+block|{
+return|return
+name|cache
+return|;
+block|}
+comment|/**      * If enabled, Camel will cache the result of the first Registry look-up.      * Cache can be enabled if the bean in the Registry is defined as a singleton scope.      */
+DECL|method|setCache (Boolean cache)
+specifier|public
+name|void
+name|setCache
+parameter_list|(
+name|Boolean
+name|cache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cache
+operator|=
+name|cache
 expr_stmt|;
 block|}
 block|}
