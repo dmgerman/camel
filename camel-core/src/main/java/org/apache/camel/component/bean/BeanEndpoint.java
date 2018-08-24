@@ -255,7 +255,7 @@ literal|" Cache can be enabled if the bean in the Registry is defined as a singl
 argument_list|)
 DECL|field|cache
 specifier|private
-name|boolean
+name|Boolean
 name|cache
 decl_stmt|;
 annotation|@
@@ -500,7 +500,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|cache
+name|isCache
+argument_list|()
 condition|)
 block|{
 name|holder
@@ -548,6 +549,13 @@ name|setMultiParameterArray
 argument_list|(
 name|isMultiParameterArray
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|processor
+operator|.
+name|setCache
+argument_list|(
+name|cache
 argument_list|)
 expr_stmt|;
 if|if
@@ -648,15 +656,31 @@ parameter_list|()
 block|{
 return|return
 name|cache
+operator|!=
+literal|null
+condition|?
+name|cache
+else|:
+literal|false
+return|;
+block|}
+DECL|method|getCache ()
+specifier|public
+name|Boolean
+name|getCache
+parameter_list|()
+block|{
+return|return
+name|cache
 return|;
 block|}
 comment|/**      * If enabled, Camel will cache the result of the first Registry look-up.      * Cache can be enabled if the bean in the Registry is defined as a singleton scope.      */
-DECL|method|setCache (boolean cache)
+DECL|method|setCache (Boolean cache)
 specifier|public
 name|void
 name|setCache
 parameter_list|(
-name|boolean
+name|Boolean
 name|cache
 parameter_list|)
 block|{

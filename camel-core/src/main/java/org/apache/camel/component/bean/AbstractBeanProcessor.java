@@ -212,6 +212,11 @@ specifier|private
 name|boolean
 name|multiParameterArray
 decl_stmt|;
+DECL|field|cache
+specifier|private
+name|Boolean
+name|cache
+decl_stmt|;
 DECL|field|method
 specifier|private
 name|String
@@ -469,22 +474,41 @@ name|beanInfo
 argument_list|)
 condition|)
 block|{
-name|processor
-operator|=
+name|Processor
+name|target
+init|=
 name|getProcessor
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|processor
+name|target
 operator|==
 literal|null
-operator|&&
+condition|)
+block|{
+comment|// only attempt to lookup the processor once or nearly once
+name|boolean
+name|allowCache
+init|=
+name|cache
+operator|==
+literal|null
+operator|||
+name|cache
+decl_stmt|;
+comment|// allow cache by default
+if|if
+condition|(
+name|allowCache
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|lookupProcessorDone
 condition|)
 block|{
-comment|// only attempt to lookup the processor once or nearly once
 synchronized|synchronized
 init|(
 name|lock
@@ -495,7 +519,38 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// so if there is a custom type converter for the bean to processor
+name|target
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|tryConvertTo
+argument_list|(
+name|Processor
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|bean
+argument_list|)
+expr_stmt|;
 name|processor
+operator|=
+name|target
+expr_stmt|;
+block|}
+block|}
+block|}
+else|else
+block|{
+comment|// so if there is a custom type converter for the bean to processor
+name|target
 operator|=
 name|exchange
 operator|.
@@ -520,7 +575,7 @@ block|}
 block|}
 if|if
 condition|(
-name|processor
+name|target
 operator|!=
 literal|null
 condition|)
@@ -531,12 +586,12 @@ name|trace
 argument_list|(
 literal|"Using a custom adapter as bean invocation: {}"
 argument_list|,
-name|processor
+name|target
 argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|processor
+name|target
 operator|.
 name|process
 argument_list|(
@@ -984,6 +1039,32 @@ block|{
 name|multiParameterArray
 operator|=
 name|mpArray
+expr_stmt|;
+block|}
+DECL|method|getCache ()
+specifier|public
+name|Boolean
+name|getCache
+parameter_list|()
+block|{
+return|return
+name|cache
+return|;
+block|}
+DECL|method|setCache (Boolean cache)
+specifier|public
+name|void
+name|setCache
+parameter_list|(
+name|Boolean
+name|cache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cache
+operator|=
+name|cache
 expr_stmt|;
 block|}
 comment|/**      * Sets the method name to use      */

@@ -332,6 +332,36 @@ name|mpArray
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getCache ()
+specifier|public
+name|Boolean
+name|getCache
+parameter_list|()
+block|{
+return|return
+name|delegate
+operator|.
+name|getCache
+argument_list|()
+return|;
+block|}
+DECL|method|setCache (Boolean cache)
+specifier|public
+name|void
+name|setCache
+parameter_list|(
+name|Boolean
+name|cache
+parameter_list|)
+block|{
+name|delegate
+operator|.
+name|setCache
+argument_list|(
+name|cache
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setMethod (String method)
 specifier|public
 name|void
