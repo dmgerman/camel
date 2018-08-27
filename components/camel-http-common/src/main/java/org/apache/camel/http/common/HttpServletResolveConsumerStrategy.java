@@ -240,28 +240,6 @@ argument_list|,
 name|consumers
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|candidates
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|1
-condition|)
-block|{
-name|answer
-operator|=
-name|candidates
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// extra filter by restrict
 name|candidates
 operator|=
@@ -315,7 +293,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|answer
