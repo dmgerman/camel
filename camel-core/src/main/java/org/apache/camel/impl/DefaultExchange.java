@@ -42,16 +42,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -93,6 +83,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
 import|;
 end_import
 
@@ -2605,7 +2607,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 return|;
@@ -2631,7 +2633,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<>
 argument_list|(
 name|properties
