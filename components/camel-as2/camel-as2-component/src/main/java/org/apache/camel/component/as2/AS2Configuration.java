@@ -393,6 +393,28 @@ name|String
 index|[]
 name|signedReceiptMicAlgorithms
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|encryptingAlgorithmName
+specifier|private
+name|String
+name|encryptingAlgorithmName
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|encryptingCertificateChain
+specifier|private
+name|Certificate
+index|[]
+name|encryptingCertificateChain
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|encryptingPrivateKey
+specifier|private
+name|PrivateKey
+name|encryptingPrivateKey
+decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|AS2ApiName
@@ -1172,6 +1194,89 @@ operator|.
 name|signedReceiptMicAlgorithms
 operator|=
 name|signedReceiptMicAlgorithms
+expr_stmt|;
+block|}
+DECL|method|getEncryptingingAlgorithmName ()
+specifier|public
+name|String
+name|getEncryptingingAlgorithmName
+parameter_list|()
+block|{
+return|return
+name|signingAlgorithmName
+return|;
+block|}
+comment|/**      * The name of algorithm used to encrypt EDI message.      */
+DECL|method|setEncryptingAlgorithmName (String signingAlgorithmName)
+specifier|public
+name|void
+name|setEncryptingAlgorithmName
+parameter_list|(
+name|String
+name|signingAlgorithmName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptingAlgorithmName
+operator|=
+name|signingAlgorithmName
+expr_stmt|;
+block|}
+DECL|method|getEncryptingCertificateChain ()
+specifier|public
+name|Certificate
+index|[]
+name|getEncryptingCertificateChain
+parameter_list|()
+block|{
+return|return
+name|encryptingCertificateChain
+return|;
+block|}
+comment|/**      * The chain of certificates used to encrypt EDI message.      */
+DECL|method|setEncryptingCertificateChain (Certificate[] signingCertificateChain)
+specifier|public
+name|void
+name|setEncryptingCertificateChain
+parameter_list|(
+name|Certificate
+index|[]
+name|signingCertificateChain
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptingCertificateChain
+operator|=
+name|signingCertificateChain
+expr_stmt|;
+block|}
+DECL|method|getEncryptingPrivateKey ()
+specifier|public
+name|PrivateKey
+name|getEncryptingPrivateKey
+parameter_list|()
+block|{
+return|return
+name|encryptingPrivateKey
+return|;
+block|}
+comment|/**      * The key used to encrypt the EDI message.      */
+DECL|method|setEncryptingPrivateKey (PrivateKey signingPrivateKey)
+specifier|public
+name|void
+name|setEncryptingPrivateKey
+parameter_list|(
+name|PrivateKey
+name|signingPrivateKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptingPrivateKey
+operator|=
+name|signingPrivateKey
 expr_stmt|;
 block|}
 block|}

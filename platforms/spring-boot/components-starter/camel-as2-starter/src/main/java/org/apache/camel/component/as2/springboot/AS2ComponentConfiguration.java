@@ -409,6 +409,25 @@ name|String
 index|[]
 name|signedReceiptMicAlgorithms
 decl_stmt|;
+comment|/**          * The name of algorithm used to encrypt EDI message.          */
+DECL|field|encryptingAlgorithmName
+specifier|private
+name|String
+name|encryptingAlgorithmName
+decl_stmt|;
+comment|/**          * The chain of certificates used to encrypt EDI message.          */
+DECL|field|encryptingCertificateChain
+specifier|private
+name|Certificate
+index|[]
+name|encryptingCertificateChain
+decl_stmt|;
+comment|/**          * The key used to encrypt the EDI message.          */
+DECL|field|encryptingPrivateKey
+specifier|private
+name|PrivateKey
+name|encryptingPrivateKey
+decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|AS2ApiName
@@ -1009,6 +1028,86 @@ operator|.
 name|signedReceiptMicAlgorithms
 operator|=
 name|signedReceiptMicAlgorithms
+expr_stmt|;
+block|}
+DECL|method|getEncryptingAlgorithmName ()
+specifier|public
+name|String
+name|getEncryptingAlgorithmName
+parameter_list|()
+block|{
+return|return
+name|encryptingAlgorithmName
+return|;
+block|}
+DECL|method|setEncryptingAlgorithmName (String encryptingAlgorithmName)
+specifier|public
+name|void
+name|setEncryptingAlgorithmName
+parameter_list|(
+name|String
+name|encryptingAlgorithmName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptingAlgorithmName
+operator|=
+name|encryptingAlgorithmName
+expr_stmt|;
+block|}
+DECL|method|getEncryptingCertificateChain ()
+specifier|public
+name|Certificate
+index|[]
+name|getEncryptingCertificateChain
+parameter_list|()
+block|{
+return|return
+name|encryptingCertificateChain
+return|;
+block|}
+DECL|method|setEncryptingCertificateChain ( Certificate[] encryptingCertificateChain)
+specifier|public
+name|void
+name|setEncryptingCertificateChain
+parameter_list|(
+name|Certificate
+index|[]
+name|encryptingCertificateChain
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptingCertificateChain
+operator|=
+name|encryptingCertificateChain
+expr_stmt|;
+block|}
+DECL|method|getEncryptingPrivateKey ()
+specifier|public
+name|PrivateKey
+name|getEncryptingPrivateKey
+parameter_list|()
+block|{
+return|return
+name|encryptingPrivateKey
+return|;
+block|}
+DECL|method|setEncryptingPrivateKey (PrivateKey encryptingPrivateKey)
+specifier|public
+name|void
+name|setEncryptingPrivateKey
+parameter_list|(
+name|PrivateKey
+name|encryptingPrivateKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptingPrivateKey
+operator|=
+name|encryptingPrivateKey
 expr_stmt|;
 block|}
 block|}
