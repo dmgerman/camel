@@ -729,8 +729,6 @@ block|,
 literal|"camel-quartz"
 block|,
 comment|/* currently incompatible */
-literal|"camel-jclouds"
-block|,
 literal|"camel-spark-rest"
 block|,
 comment|/* others (not managed) -> */
