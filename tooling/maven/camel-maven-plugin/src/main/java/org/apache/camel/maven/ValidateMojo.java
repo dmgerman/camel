@@ -138,7 +138,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|SimpleValidationResult
+name|LanguageValidationResult
 import|;
 end_import
 
@@ -2222,7 +2222,7 @@ range|:
 name|simpleExpressions
 control|)
 block|{
-name|SimpleValidationResult
+name|LanguageValidationResult
 name|result
 decl_stmt|;
 name|boolean
@@ -2257,6 +2257,8 @@ name|catalog
 operator|.
 name|validateSimplePredicate
 argument_list|(
+literal|null
+argument_list|,
 name|detail
 operator|.
 name|getSimple
@@ -2285,6 +2287,8 @@ name|catalog
 operator|.
 name|validateSimpleExpression
 argument_list|(
+literal|null
+argument_list|,
 name|detail
 operator|.
 name|getSimple
@@ -2835,7 +2839,7 @@ name|append
 argument_list|(
 name|result
 operator|.
-name|getSimple
+name|getText
 argument_list|()
 argument_list|)
 expr_stmt|;
