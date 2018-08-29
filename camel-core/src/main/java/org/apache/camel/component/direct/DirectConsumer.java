@@ -176,48 +176,6 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// add consumer to endpoint
-name|boolean
-name|existing
-init|=
-name|this
-operator|==
-name|endpoint
-operator|.
-name|getConsumer
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|existing
-operator|&&
-name|endpoint
-operator|.
-name|hasConsumer
-argument_list|(
-name|this
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Cannot add a 2nd consumer to the same endpoint. Endpoint "
-operator|+
-name|endpoint
-operator|+
-literal|" only allows one consumer."
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-operator|!
-name|existing
-condition|)
-block|{
 name|endpoint
 operator|.
 name|addConsumer
@@ -225,7 +183,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -279,8 +236,12 @@ throws|throws
 name|Exception
 block|{
 comment|// resume by using the start logic
-name|doStart
-argument_list|()
+name|endpoint
+operator|.
+name|addConsumer
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
