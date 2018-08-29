@@ -250,6 +250,26 @@ name|api
 operator|.
 name|entity
 operator|.
+name|ApplicationPkcs7MimeEntity
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
+name|api
+operator|.
+name|entity
+operator|.
 name|ApplicationPkcs7SignatureEntity
 import|;
 end_import
@@ -2844,7 +2864,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Test
+annotation|@
+name|Test
 DECL|method|envelopeddMessageTest ()
 specifier|public
 name|void
@@ -2900,7 +2921,7 @@ name|AS2_NAME
 argument_list|,
 name|AS2MessageStructure
 operator|.
-name|SIGNED
+name|ENCRYPTED
 argument_list|,
 name|ContentType
 operator|.
@@ -2937,11 +2958,25 @@ name|DISPOSITION_NOTIFICATION_TO
 argument_list|,
 name|SIGNED_RECEIPT_MIC_ALGORITHMS
 argument_list|,
-literal|null
+name|AS2AlgorithmConstants
+operator|.
+name|AES128_CCM
 argument_list|,
-literal|null
+name|certList
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|Certificate
+index|[
+literal|0
+index|]
+argument_list|)
 argument_list|,
-literal|null
+name|signingKP
+operator|.
+name|getPrivate
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|HttpRequest
@@ -3206,9 +3241,9 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-name|AS2MediaType
+name|AS2MimeType
 operator|.
-name|MULTIPART_SIGNED
+name|APPLICATION_PKCS7_MIME
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3247,14 +3282,14 @@ literal|"Unexpected request entity type"
 argument_list|,
 name|entity
 operator|instanceof
-name|MultipartSignedEntity
+name|ApplicationPkcs7MimeEntity
 argument_list|)
 expr_stmt|;
-name|MultipartSignedEntity
-name|signedEntity
+name|ApplicationPkcs7MimeEntity
+name|envelopedEntity
 init|=
 operator|(
-name|MultipartSignedEntity
+name|ApplicationPkcs7MimeEntity
 operator|)
 name|entity
 decl_stmt|;
@@ -3262,35 +3297,31 @@ name|assertTrue
 argument_list|(
 literal|"Entity not set as main body of request"
 argument_list|,
-name|signedEntity
+name|envelopedEntity
 operator|.
 name|isMainBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Request contains invalid number of mime parts"
-argument_list|,
-name|signedEntity
+comment|// Validated enveloped part.
+name|MimeEntity
+name|encryptedEntity
+init|=
+name|envelopedEntity
 operator|.
-name|getPartCount
+name|getEncryptedEntity
+argument_list|(
+name|signingKP
+operator|.
+name|getPrivate
 argument_list|()
-operator|==
-literal|2
 argument_list|)
-expr_stmt|;
-comment|// Validated first mime part.
+decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"First mime part incorrect type "
+literal|"Enveloped mime part incorrect type "
 argument_list|,
-name|signedEntity
-operator|.
-name|getPart
-argument_list|(
-literal|0
-argument_list|)
+name|encryptedEntity
 operator|instanceof
 name|ApplicationEDIFACTEntity
 argument_list|)
@@ -3301,16 +3332,11 @@ init|=
 operator|(
 name|ApplicationEDIFACTEntity
 operator|)
-name|signedEntity
-operator|.
-name|getPart
-argument_list|(
-literal|0
-argument_list|)
+name|encryptedEntity
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Unexpected content type for first mime part"
+literal|"Unexpected content type for enveloped mime part"
 argument_list|,
 name|ediEntity
 operator|.
@@ -3330,67 +3356,9 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"First mime type set as main body of request"
+literal|"Enveloped mime type set as main body of request"
 argument_list|,
 name|ediEntity
-operator|.
-name|isMainBody
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// Validate second mime part.
-name|assertTrue
-argument_list|(
-literal|"Second mime part incorrect type "
-argument_list|,
-name|signedEntity
-operator|.
-name|getPart
-argument_list|(
-literal|1
-argument_list|)
-operator|instanceof
-name|ApplicationPkcs7SignatureEntity
-argument_list|)
-expr_stmt|;
-name|ApplicationPkcs7SignatureEntity
-name|signatureEntity
-init|=
-operator|(
-name|ApplicationPkcs7SignatureEntity
-operator|)
-name|signedEntity
-operator|.
-name|getPart
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Unexpected content type for second mime part"
-argument_list|,
-name|signatureEntity
-operator|.
-name|getContentType
-argument_list|()
-operator|.
-name|getValue
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-name|AS2MediaType
-operator|.
-name|APPLICATION_PKCS7_SIGNATURE
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"First mime type set as main body of request"
-argument_list|,
-name|signatureEntity
 operator|.
 name|isMainBody
 argument_list|()
