@@ -319,6 +319,29 @@ operator|new
 name|TestName
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|getName
+argument_list|()
+operator|+
+literal|"("
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|")"
+return|;
+block|}
 DECL|method|getName ()
 specifier|public
 name|String
