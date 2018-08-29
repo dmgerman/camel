@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -104,6 +114,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentSimpleLanguage ()
 specifier|public
 name|void
@@ -175,6 +187,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentDualSimpleLanguage ()
 specifier|public
 name|void
@@ -246,6 +260,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentSimpleLanguageWithLocations ()
 specifier|public
 name|void
@@ -317,6 +333,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoExistingPropertiesComponentWithLocation ()
 specifier|public
 name|void
@@ -395,6 +413,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoExistingPropertiesComponentWithLocations ()
 specifier|public
 name|void
@@ -475,6 +495,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoExistingPropertiesComponentWithoutLocation ()
 specifier|public
 name|void

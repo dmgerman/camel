@@ -20,11 +20,41 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -94,7 +124,7 @@ specifier|public
 class|class
 name|TwoCamelContextDirectEndpointTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|camel1
 specifier|private
@@ -107,20 +137,15 @@ name|DefaultCamelContext
 name|camel2
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|camel1
 operator|=
 operator|new
@@ -227,9 +252,9 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -246,12 +271,9 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoCamelContextDirectEndpoint ()
 specifier|public
 name|void

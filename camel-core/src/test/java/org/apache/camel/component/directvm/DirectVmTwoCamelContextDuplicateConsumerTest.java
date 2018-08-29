@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -86,6 +96,8 @@ name|DirectVmTwoCamelContextDuplicateConsumerTest
 extends|extends
 name|AbstractDirectVmTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testThirdClash ()
 specifier|public
 name|void

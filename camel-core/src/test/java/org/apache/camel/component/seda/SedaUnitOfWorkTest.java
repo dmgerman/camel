@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -148,6 +158,8 @@ specifier|volatile
 name|String
 name|lastOne
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSedaUOW ()
 specifier|public
 name|void
@@ -233,6 +245,8 @@ name|foo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSedaUOWWithException ()
 specifier|public
 name|void

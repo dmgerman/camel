@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -88,6 +98,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionExactType ()
 specifier|public
 name|void
@@ -223,6 +235,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionDifferentType ()
 specifier|public
 name|void
@@ -358,6 +372,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionSameTypeRouteLast ()
 specifier|public
 name|void
@@ -493,6 +509,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionDifferentTypeRouteLast ()
 specifier|public
 name|void
@@ -628,6 +646,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionExactTypeDLC ()
 specifier|public
 name|void
@@ -781,6 +801,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoOnExceptionExactType ()
 specifier|public
 name|void
@@ -966,6 +988,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionRouteAndGlobalExactType ()
 specifier|public
 name|void
@@ -1084,6 +1108,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionRouteAndGlobalDifferentType ()
 specifier|public
 name|void
@@ -1202,6 +1228,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionRouteAndOnlyGlobalExactType ()
 specifier|public
 name|void
@@ -1321,6 +1349,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionRouteAndOnlyGlobalBestMatchType ()
 specifier|public
 name|void
@@ -1440,6 +1470,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionRouteBestMatchAndGlobalSameType ()
 specifier|public
 name|void

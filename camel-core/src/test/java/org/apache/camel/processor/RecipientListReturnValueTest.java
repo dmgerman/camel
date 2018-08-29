@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -133,6 +143,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRecipientListWithRecipientList ()
 specifier|public
 name|void
@@ -147,6 +159,8 @@ literal|"direct:recipientList"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRecipientListWithBeanRef ()
 specifier|public
 name|void

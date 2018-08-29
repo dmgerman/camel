@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -180,6 +190,8 @@ specifier|static
 name|String
 name|afterThreadName
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testAsyncTraceHandler ()
 specifier|public
 name|void

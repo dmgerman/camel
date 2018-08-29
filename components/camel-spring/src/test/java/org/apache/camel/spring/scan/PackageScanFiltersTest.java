@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -52,11 +62,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -228,8 +238,10 @@ specifier|public
 class|class
 name|PackageScanFiltersTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testAssignableToPackageScanFilter ()
 specifier|public
 name|void
@@ -387,6 +399,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAnnotatedWithAnyPackageScanFilter ()
 specifier|public
 name|void
@@ -493,6 +507,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAnnotatedWithPackageScanFilter ()
 specifier|public
 name|void
@@ -568,6 +584,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCompositePackageScanFilter ()
 specifier|public
 name|void
@@ -687,6 +705,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvertingFilter ()
 specifier|public
 name|void

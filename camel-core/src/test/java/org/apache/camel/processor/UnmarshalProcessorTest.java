@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -160,6 +170,8 @@ name|UnmarshalProcessorTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testDataFormatReturnsSameExchange ()
 specifier|public
 name|void
@@ -216,6 +228,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDataFormatReturnsAnotherExchange ()
 specifier|public
 name|void
@@ -303,6 +317,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDataFormatReturnsMessage ()
 specifier|public
 name|void
@@ -395,6 +411,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDataFormatReturnsBody ()
 specifier|public
 name|void

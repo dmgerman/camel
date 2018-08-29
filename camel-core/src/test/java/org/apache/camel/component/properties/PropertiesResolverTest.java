@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -88,6 +98,8 @@ name|PropertiesResolverTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testPropertiesResolver ()
 specifier|public
 name|void

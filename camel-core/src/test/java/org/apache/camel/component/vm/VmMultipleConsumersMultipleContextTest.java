@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -106,6 +116,8 @@ name|VmMultipleConsumersMultipleContextTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testMultipleVMConsumersSameContext ()
 specifier|public
 name|void
@@ -300,6 +312,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testVmMultipleConsumersMultipleContext ()
 specifier|public
 name|void
@@ -559,6 +573,8 @@ return|return
 name|rc
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testVmMultipleConsumersDifferentEndpoints ()
 specifier|public
 name|void

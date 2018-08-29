@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -83,6 +93,8 @@ name|CUSTOM_DOMAIN_NAME
 init|=
 literal|"custom"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testPerformanceCounterStats ()
 specifier|public
 name|void

@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -89,6 +99,8 @@ literal|"org/apache/camel/spring/processor/interceptSendToEndpointDynamic.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInterceptFile ()
 specifier|public
 name|void
@@ -130,6 +142,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoInterceptFile ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -193,6 +203,8 @@ specifier|private
 name|MyProducer
 name|myProducer
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testInterceptSendToEndpointServicePoolProducer ()
 specifier|public
 name|void

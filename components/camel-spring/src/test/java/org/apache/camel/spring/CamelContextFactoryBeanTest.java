@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -48,11 +68,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -186,26 +206,23 @@ specifier|public
 class|class
 name|CamelContextFactoryBeanTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|factory
 specifier|private
 name|CamelContextFactoryBean
 name|factory
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|factory
 operator|=
 operator|new
@@ -220,6 +237,8 @@ literal|"camelContext"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetDefaultUuidGenerator ()
 specifier|public
 name|void
@@ -261,6 +280,8 @@ name|DefaultUuidGenerator
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetCustomUuidGenerator ()
 specifier|public
 name|void
@@ -318,6 +339,8 @@ name|SimpleUuidGenerator
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetEndpoints ()
 specifier|public
 name|void
@@ -440,6 +463,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCustomModelJAXBContextFactory ()
 specifier|public
 name|void

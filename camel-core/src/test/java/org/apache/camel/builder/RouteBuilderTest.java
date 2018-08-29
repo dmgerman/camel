@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -466,6 +476,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleRoute ()
 specifier|public
 name|void
@@ -644,6 +656,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleRouteWithHeaderPredicate ()
 specifier|public
 name|void
@@ -878,6 +892,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleRouteWithChoice ()
 specifier|public
 name|void
@@ -1164,6 +1180,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCustomProcessor ()
 specifier|public
 name|void
@@ -1289,6 +1307,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCustomProcessorWithFilter ()
 specifier|public
 name|void
@@ -1415,6 +1435,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWireTap ()
 specifier|public
 name|void
@@ -1667,6 +1689,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithInterceptor ()
 specifier|public
 name|void
@@ -1825,6 +1849,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testComplexExpressions ()
 specifier|public
 name|void
@@ -2059,6 +2085,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteDynamicReceipentList ()
 specifier|public
 name|void
@@ -2297,6 +2325,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitter ()
 specifier|public
 name|void
@@ -2468,6 +2498,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIdempotentConsumer ()
 specifier|public
 name|void
@@ -2702,6 +2734,8 @@ name|builder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreads ()
 specifier|public
 name|void
@@ -3150,6 +3184,8 @@ name|processor
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCorrectNumberOfRoutes ()
 specifier|public
 name|void

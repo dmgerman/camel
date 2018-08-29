@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -38,11 +48,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -130,8 +140,10 @@ specifier|public
 class|class
 name|TypeConverterRegistryTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testDefaultTypeConverterRegistry ()
 specifier|public
 name|void
@@ -179,6 +191,8 @@ name|tc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddTypeConverter ()
 specifier|public
 name|void
@@ -250,6 +264,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddDuplicateTypeConverter ()
 specifier|public
 name|void
@@ -304,6 +320,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddDuplicateTypeConverterIgnore ()
 specifier|public
 name|void
@@ -382,6 +400,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddDuplicateTypeConverterFail ()
 specifier|public
 name|void
@@ -464,6 +484,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveTypeConverter ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -271,6 +281,8 @@ operator|.
 name|getBytes
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testToBytes ()
 specifier|public
 name|void
@@ -362,6 +374,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopy ()
 specifier|public
 name|void
@@ -463,6 +477,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToOutputStreamFile ()
 specifier|public
 name|void
@@ -520,6 +536,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToWriterFile ()
 specifier|public
 name|void
@@ -579,6 +597,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToReader ()
 specifier|public
 name|void
@@ -610,6 +630,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBytesToReader ()
 specifier|public
 name|void
@@ -682,6 +704,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamExchange ()
 specifier|public
 name|void
@@ -745,6 +769,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamStringBufferAndBuilderExchange ()
 specifier|public
 name|void
@@ -866,6 +892,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamBufferReader ()
 specifier|public
 name|void
@@ -929,6 +957,8 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteArrayFile ()
 specifier|public
 name|void
@@ -987,6 +1017,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStringBufferReader ()
 specifier|public
 name|void
@@ -1032,6 +1064,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteArrayBufferReader ()
 specifier|public
 name|void
@@ -1082,6 +1116,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteArrayReader ()
 specifier|public
 name|void
@@ -1132,6 +1168,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteArrayOutputStream ()
 specifier|public
 name|void
@@ -1183,6 +1221,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStringOutputStream ()
 specifier|public
 name|void
@@ -1233,6 +1273,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamOutputStream ()
 specifier|public
 name|void
@@ -1288,6 +1330,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamUrl ()
 specifier|public
 name|void
@@ -1326,6 +1370,8 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStringUrl ()
 specifier|public
 name|void
@@ -1362,6 +1408,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStringByBufferedReader ()
 specifier|public
 name|void
@@ -1397,6 +1445,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testByteArrayByBufferedReader ()
 specifier|public
 name|void
@@ -1452,6 +1502,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInputStreamToString ()
 specifier|public
 name|void
@@ -1521,6 +1573,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToPropertiesFromReader ()
 specifier|public
 name|void
@@ -1593,6 +1647,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToPropertiesFromFile ()
 specifier|public
 name|void

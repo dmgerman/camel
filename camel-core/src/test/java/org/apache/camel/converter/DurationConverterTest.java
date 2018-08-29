@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|time
@@ -84,6 +94,8 @@ name|DurationConverterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testToMillis ()
 specifier|public
 name|void
@@ -135,6 +147,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToMillisOverflow ()
 specifier|public
 name|void
@@ -198,6 +212,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testFromString ()
 specifier|public
 name|void
@@ -247,6 +263,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToString ()
 specifier|public
 name|void

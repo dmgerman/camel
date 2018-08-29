@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -42,11 +52,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -104,7 +114,7 @@ specifier|public
 class|class
 name|XsltTestErrorListenerTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|xsltBuilder
 specifier|private
@@ -127,6 +137,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testErrorListener ()
 specifier|public
 name|void

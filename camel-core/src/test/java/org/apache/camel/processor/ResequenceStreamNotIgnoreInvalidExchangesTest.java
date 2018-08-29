@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -66,6 +76,8 @@ name|ResequenceStreamNotIgnoreInvalidExchangesTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBadFirstMessage ()
 specifier|public
 name|void
@@ -156,6 +168,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBadSecondMessage ()
 specifier|public
 name|void
@@ -246,6 +260,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBadThirdMessage ()
 specifier|public
 name|void
@@ -336,6 +352,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBadForthMessage ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -200,6 +210,8 @@ name|String
 argument_list|>
 name|sagaIds
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testPropagationRequired ()
 specifier|public
 name|void
@@ -234,6 +246,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropagationRequiresNew ()
 specifier|public
 name|void
@@ -268,6 +282,8 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropagationNotSupported ()
 specifier|public
 name|void
@@ -302,6 +318,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropagationSupports ()
 specifier|public
 name|void
@@ -336,6 +354,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropagationMandatory ()
 specifier|public
 name|void
@@ -376,6 +396,8 @@ block|{
 comment|// fine
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropagationNever ()
 specifier|public
 name|void

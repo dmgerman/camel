@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -28,11 +38,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -122,7 +132,7 @@ specifier|public
 class|class
 name|HeaderFilterStrategyComponentTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|class|MyComponent
 specifier|private
@@ -256,6 +266,8 @@ literal|true
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderFilterStrategyComponent ()
 specifier|public
 name|void
@@ -306,6 +318,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderFilterStrategyAware ()
 specifier|public
 name|void

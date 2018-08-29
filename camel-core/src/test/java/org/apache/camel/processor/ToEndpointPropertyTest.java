@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -106,6 +116,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleToEndpoint ()
 specifier|public
 name|void
@@ -197,6 +209,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMediumToEndpoint ()
 specifier|public
 name|void
@@ -298,6 +312,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRecipientListToEndpoint ()
 specifier|public
 name|void
@@ -396,6 +412,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRoutingSlipToEndpoint ()
 specifier|public
 name|void
@@ -562,6 +580,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWireTapToEndpoint ()
 specifier|public
 name|void
@@ -692,6 +712,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMulticastToEndpoint ()
 specifier|public
 name|void
@@ -882,6 +904,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDLCToEndpoint ()
 specifier|public
 name|void
@@ -1025,6 +1049,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMediumDLCToEndpoint ()
 specifier|public
 name|void
@@ -1188,6 +1214,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMulticastDLC ()
 specifier|public
 name|void

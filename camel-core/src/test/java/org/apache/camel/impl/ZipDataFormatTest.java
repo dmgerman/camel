@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -225,6 +235,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMarshalMandatoryConversionFailed ()
 specifier|public
 name|void
@@ -278,6 +290,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMarshalTextToZipBestCompression ()
 specifier|public
 name|void
@@ -334,6 +348,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMarshalTextToZipBestSpeed ()
 specifier|public
 name|void
@@ -390,6 +406,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMarshalTextToZipDefaultCompression ()
 specifier|public
 name|void
@@ -446,6 +464,8 @@ name|sendText
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnMarshalTextToZip ()
 specifier|public
 name|void
@@ -558,6 +578,8 @@ index|[]
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStreamCacheUnzip ()
 specifier|public
 name|void

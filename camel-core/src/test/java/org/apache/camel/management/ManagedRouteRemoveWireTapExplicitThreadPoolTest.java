@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -113,6 +123,8 @@ specifier|private
 name|ExecutorService
 name|myThreadPool
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRemove ()
 specifier|public
 name|void

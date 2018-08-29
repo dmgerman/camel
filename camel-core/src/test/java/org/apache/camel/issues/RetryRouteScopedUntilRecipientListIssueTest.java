@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -459,6 +469,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryUntilRecipientListOkOnly ()
 specifier|public
 name|void
@@ -526,6 +538,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryUntilRecipientListOkNotFail ()
 specifier|public
 name|void
@@ -593,6 +607,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryUntilRecipientListFailOnly ()
 specifier|public
 name|void
@@ -694,6 +710,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryUntilRecipientListFailAndOk ()
 specifier|public
 name|void
@@ -795,6 +813,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryUntilRecipientListOkAndFail ()
 specifier|public
 name|void
@@ -896,6 +916,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryUntilRecipientNotFail ()
 specifier|public
 name|void
@@ -963,6 +985,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryUntilRecipientFailAndNotFail ()
 specifier|public
 name|void
@@ -1064,6 +1088,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryUntilRecipientNotFailAndFail ()
 specifier|public
 name|void

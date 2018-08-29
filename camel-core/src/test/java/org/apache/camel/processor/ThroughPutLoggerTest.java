@@ -18,11 +18,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -158,8 +168,10 @@ specifier|public
 class|class
 name|ThroughPutLoggerTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testLogStringDurationIsNotZero ()
 specifier|public
 name|void

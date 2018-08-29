@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -62,6 +72,8 @@ name|TimePatternConverterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testMillisecondsTimePattern ()
 specifier|public
 name|void
@@ -93,6 +105,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMilliseconds2TimePattern ()
 specifier|public
 name|void
@@ -125,6 +139,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSTimePattern ()
 specifier|public
 name|void
@@ -156,6 +172,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSecTimePattern ()
 specifier|public
 name|void
@@ -187,6 +205,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSecsTimePattern ()
 specifier|public
 name|void
@@ -218,6 +238,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSecondTimePattern ()
 specifier|public
 name|void
@@ -249,6 +271,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSecondsTimePattern ()
 specifier|public
 name|void
@@ -280,6 +304,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsiderLegalSTimePattern ()
 specifier|public
 name|void
@@ -311,6 +337,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMTimePattern ()
 specifier|public
 name|void
@@ -342,6 +370,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMinTimePattern ()
 specifier|public
 name|void
@@ -373,6 +403,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMinuteTimePattern ()
 specifier|public
 name|void
@@ -404,6 +436,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMinutesTimePattern ()
 specifier|public
 name|void
@@ -435,6 +469,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsiderLegalMTimePattern ()
 specifier|public
 name|void
@@ -466,6 +502,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHTimePattern ()
 specifier|public
 name|void
@@ -497,6 +535,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHourTimePattern ()
 specifier|public
 name|void
@@ -528,6 +568,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHoursTimePattern ()
 specifier|public
 name|void
@@ -559,6 +601,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHMSTimePattern ()
 specifier|public
 name|void
@@ -590,6 +634,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHMSTimePattern2 ()
 specifier|public
 name|void
@@ -621,6 +667,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHMSTimePattern3 ()
 specifier|public
 name|void
@@ -652,6 +700,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMSTimePattern ()
 specifier|public
 name|void
@@ -683,6 +733,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHMTimePattern ()
 specifier|public
 name|void
@@ -714,6 +766,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSTimePattern2 ()
 specifier|public
 name|void
@@ -745,6 +799,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMTimePattern2 ()
 specifier|public
 name|void
@@ -776,6 +832,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMTimePattern3 ()
 specifier|public
 name|void
@@ -807,6 +865,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMSTimePattern2 ()
 specifier|public
 name|void
@@ -839,6 +899,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//Negative Tests
+annotation|@
+name|Test
 DECL|method|testIllegalHMSTimePattern ()
 specifier|public
 name|void
@@ -860,6 +922,8 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHoursTwice ()
 specifier|public
 name|void
@@ -886,6 +950,8 @@ name|expectedMessage
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMinutesTwice ()
 specifier|public
 name|void
@@ -912,6 +978,8 @@ name|expectedMessage
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSecondsTwice ()
 specifier|public
 name|void
@@ -938,6 +1006,8 @@ name|expectedMessage
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIllegalMSTimePattern ()
 specifier|public
 name|void
@@ -959,6 +1029,8 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIllegalHMTimePattern ()
 specifier|public
 name|void
@@ -982,6 +1054,8 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIllegalCharacters ()
 specifier|public
 name|void
@@ -1005,6 +1079,8 @@ name|source
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSsCharacters ()
 specifier|public
 name|void

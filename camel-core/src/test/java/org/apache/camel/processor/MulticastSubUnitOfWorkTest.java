@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -84,6 +94,8 @@ specifier|static
 name|int
 name|counter
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testOK ()
 specifier|public
 name|void
@@ -159,6 +171,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testError ()
 specifier|public
 name|void
@@ -243,6 +257,8 @@ argument_list|)
 expr_stmt|;
 comment|// 1 first + 3 redeliveries
 block|}
+annotation|@
+name|Test
 DECL|method|testMulticastException ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -104,6 +114,8 @@ operator|new
 name|ExchangeAwareDelayCalcBean
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendingMessageGetsDelayed ()
 specifier|public
 name|void
@@ -177,6 +189,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDelayConstant ()
 specifier|public
 name|void
@@ -227,6 +241,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDelayBean ()
 specifier|public
 name|void
@@ -277,6 +293,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangeAwareDelayBean ()
 specifier|public
 name|void

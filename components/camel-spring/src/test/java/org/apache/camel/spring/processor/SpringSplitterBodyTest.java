@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -124,6 +134,8 @@ literal|"org/apache/camel/spring/processor/SpringSplitterBodyTest.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitBody ()
 specifier|public
 name|void

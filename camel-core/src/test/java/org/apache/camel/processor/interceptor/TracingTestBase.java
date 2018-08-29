@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -297,6 +307,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTracerInOnly ()
 specifier|public
 name|void
@@ -372,6 +384,8 @@ name|validateTestTracerInOnly
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTracerInOut ()
 specifier|public
 name|void
@@ -447,6 +461,8 @@ name|validateTestTracerInOut
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTracerExceptionInOut ()
 specifier|public
 name|void

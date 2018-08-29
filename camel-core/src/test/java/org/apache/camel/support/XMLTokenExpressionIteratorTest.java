@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -98,11 +118,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -130,7 +150,7 @@ specifier|public
 class|class
 name|XMLTokenExpressionIteratorTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|TEST_BODY
 specifier|private
@@ -712,9 +732,9 @@ argument_list|>
 name|nsmap
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -747,6 +767,8 @@ literal|"urn:c"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChild ()
 specifier|public
 name|void
@@ -771,6 +793,8 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildInjected ()
 specifier|public
 name|void
@@ -812,6 +836,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildNSMixed ()
 specifier|public
 name|void
@@ -836,6 +862,8 @@ name|RESULTS_CHILD_MIXED_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildNSMixedInjected ()
 specifier|public
 name|void
@@ -877,6 +905,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractAnyChild ()
 specifier|public
 name|void
@@ -901,6 +931,8 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractCxxxd ()
 specifier|public
 name|void
@@ -942,6 +974,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractUnqualifiedChild ()
 specifier|public
 name|void
@@ -966,6 +1000,8 @@ name|RESULTS_NULL
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractSomeUnqualifiedChild ()
 specifier|public
 name|void
@@ -990,6 +1026,8 @@ name|RESULTS_CHILD_NO_NS_MIXED_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractSomeUnqualifiedChildInjected ()
 specifier|public
 name|void
@@ -1031,6 +1069,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractSomeQualifiedChild ()
 specifier|public
 name|void
@@ -1064,6 +1104,8 @@ name|RESULTS_CHILD_NS_MIXED_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractSomeQualifiedChildInjected ()
 specifier|public
 name|void
@@ -1114,6 +1156,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractWithNullNamespaceMap ()
 specifier|public
 name|void
@@ -1159,6 +1203,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildWithAncestorGGPdGP ()
 specifier|public
 name|void
@@ -1183,6 +1229,8 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildWithAncestorGGPdP ()
 specifier|public
 name|void
@@ -1207,6 +1255,8 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildWithAncestorGPddP ()
 specifier|public
 name|void
@@ -1231,6 +1281,8 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildWithAncestorGPdP ()
 specifier|public
 name|void
@@ -1255,6 +1307,8 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildWithAncestorP ()
 specifier|public
 name|void
@@ -1279,6 +1333,8 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractChildWithAncestorGGPdGPdP ()
 specifier|public
 name|void
@@ -1303,6 +1359,8 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractParent ()
 specifier|public
 name|void
@@ -1327,6 +1385,8 @@ name|RESULTS_PARENT_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractParentInjected ()
 specifier|public
 name|void
@@ -1351,6 +1411,8 @@ name|RESULTS_PARENT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractAuntWC1 ()
 specifier|public
 name|void
@@ -1375,6 +1437,8 @@ name|RESULTS_AUNT_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractAuntWC2 ()
 specifier|public
 name|void
@@ -1399,6 +1463,8 @@ name|RESULTS_AUNT_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractAunt ()
 specifier|public
 name|void
@@ -1423,6 +1489,8 @@ name|RESULTS_AUNT_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractAuntInjected ()
 specifier|public
 name|void
@@ -1447,6 +1515,8 @@ name|RESULTS_AUNT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractAuntUnwrapped ()
 specifier|public
 name|void
@@ -1471,6 +1541,8 @@ name|RESULTS_AUNT_UNWRAPPED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractGrandParentText ()
 specifier|public
 name|void

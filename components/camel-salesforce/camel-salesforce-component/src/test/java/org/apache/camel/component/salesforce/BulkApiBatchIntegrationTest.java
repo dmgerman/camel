@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -361,6 +371,8 @@ return|;
 block|}
 annotation|@
 name|Theory
+annotation|@
+name|Test
 DECL|method|testBatchLifecycle (BatchTest request)
 specifier|public
 name|void

@@ -18,6 +18,36 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -138,6 +168,8 @@ name|exchange
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -173,6 +205,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -192,6 +226,8 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGroupIterator ()
 specifier|public
 name|void
@@ -287,6 +323,8 @@ name|gi
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGroupIteratorSkipFirst ()
 specifier|public
 name|void
@@ -382,6 +420,8 @@ name|gi
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGroupIteratorWithDifferentEncodingFromDefault ()
 specifier|public
 name|void

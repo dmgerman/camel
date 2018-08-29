@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -126,6 +136,8 @@ name|AggregatorExceptionInPredicateTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testExceptionInAggregationStrategy ()
 specifier|public
 name|void
@@ -140,6 +152,8 @@ literal|"direct:start"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionInPredicate ()
 specifier|public
 name|void

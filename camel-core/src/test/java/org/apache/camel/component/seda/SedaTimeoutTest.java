@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -111,6 +121,8 @@ name|timeout
 init|=
 literal|100
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSedaNoTimeout ()
 specifier|public
 name|void
@@ -149,6 +161,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSedaTimeout ()
 specifier|public
 name|void
@@ -261,6 +275,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSedaTimeoutWithStoppedRoute ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -130,16 +140,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|AssertionFailedError
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -158,6 +158,8 @@ name|SSLContextParametersTest
 extends|extends
 name|AbstractJsseParametersTest
 block|{
+annotation|@
+name|Test
 DECL|method|testFilter ()
 specifier|public
 name|void
@@ -342,7 +344,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|AssertionFailedError
+name|AssertionError
 name|ex
 parameter_list|)
 block|{
@@ -360,6 +362,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyPlaceholders ()
 specifier|public
 name|void
@@ -668,6 +672,8 @@ name|createSSLEngine
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testServerParametersClientAuthentication ()
 specifier|public
 name|void
@@ -1063,6 +1069,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testServerParameters ()
 specifier|public
 name|void
@@ -2143,6 +2151,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClientParameters ()
 specifier|public
 name|void
@@ -3145,6 +3155,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCipherSuites ()
 specifier|public
 name|void
@@ -3723,6 +3735,8 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCipherSuitesFilter ()
 specifier|public
 name|void
@@ -4335,6 +4349,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSecureSocketProtocols ()
 specifier|public
 name|void
@@ -4819,6 +4835,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSecureSocketProtocolsFilter ()
 specifier|public
 name|void
@@ -5390,6 +5408,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSessionTimeout ()
 specifier|public
 name|void
@@ -5487,6 +5507,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultSecureSocketProtocol ()
 specifier|public
 name|void
@@ -5588,6 +5610,8 @@ literal|"TLS"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSecureSocketProtocol ()
 specifier|public
 name|void
@@ -5839,6 +5863,8 @@ literal|"SSLv3"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProvider ()
 specifier|public
 name|void

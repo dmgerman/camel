@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -61,6 +71,8 @@ name|slip
 init|=
 literal|"direct:a,direct:b,direct:c"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRoutingSlipInOut ()
 specifier|public
 name|void
@@ -110,6 +122,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRoutingSlipInOnly ()
 specifier|public
 name|void

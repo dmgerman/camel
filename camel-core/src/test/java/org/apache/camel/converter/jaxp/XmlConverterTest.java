@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -298,8 +318,10 @@ name|ContextTestSupport
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -317,6 +339,8 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToResultNoSource ()
 specifier|public
 name|void
@@ -342,6 +366,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToBytesSource ()
 specifier|public
 name|void
@@ -390,6 +416,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStringFromSourceNoSource ()
 specifier|public
 name|void
@@ -430,6 +458,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStringWithBytesSource ()
 specifier|public
 name|void
@@ -478,6 +508,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStringWithDocument ()
 specifier|public
 name|void
@@ -545,6 +577,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStringWithDocumentSourceOutputProperties ()
 specifier|public
 name|void
@@ -630,6 +664,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSource ()
 specifier|public
 name|void
@@ -675,6 +711,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSourceUsingTypeConverter ()
 specifier|public
 name|void
@@ -765,6 +803,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteArrayWithExchange ()
 specifier|public
 name|void
@@ -827,6 +867,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteArrayWithNoExchange ()
 specifier|public
 name|void
@@ -880,6 +922,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomSourceByDomSource ()
 specifier|public
 name|void
@@ -923,6 +967,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomSourceByByteArray ()
 specifier|public
 name|void
@@ -991,6 +1037,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomSourceBySaxSource ()
 specifier|public
 name|void
@@ -1050,6 +1098,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomSourceByStAXSource ()
 specifier|public
 name|void
@@ -1110,6 +1160,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomSourceByCustomSource ()
 specifier|public
 name|void
@@ -1167,6 +1219,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSaxSourceByInputStream ()
 specifier|public
 name|void
@@ -1231,6 +1285,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStAXSourceByInputStream ()
 specifier|public
 name|void
@@ -1295,6 +1351,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSaxSourceFromFile ()
 specifier|public
 name|void
@@ -1371,6 +1429,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStAXSourceFromFile ()
 specifier|public
 name|void
@@ -1447,6 +1507,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSaxSourceByDomSource ()
 specifier|public
 name|void
@@ -1506,6 +1568,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSaxSourceBySaxSource ()
 specifier|public
 name|void
@@ -1553,6 +1617,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSaxSourceByCustomSource ()
 specifier|public
 name|void
@@ -1612,6 +1678,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByFile ()
 specifier|public
 name|void
@@ -1666,6 +1734,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByStreamSource ()
 specifier|public
 name|void
@@ -1725,6 +1795,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByDomSource ()
 specifier|public
 name|void
@@ -1784,6 +1856,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceBySaxSource ()
 specifier|public
 name|void
@@ -1845,6 +1919,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByStAXSource ()
 specifier|public
 name|void
@@ -1906,6 +1982,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByCustomSource ()
 specifier|public
 name|void
@@ -1965,6 +2043,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByInputStream ()
 specifier|public
 name|void
@@ -2027,6 +2107,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByReader ()
 specifier|public
 name|void
@@ -2089,6 +2171,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByByteArray ()
 specifier|public
 name|void
@@ -2164,6 +2248,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToStreamSourceByByteBuffer ()
 specifier|public
 name|void
@@ -2237,6 +2323,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToReaderFromSource ()
 specifier|public
 name|void
@@ -2301,6 +2389,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomSourceFromInputStream ()
 specifier|public
 name|void
@@ -2368,6 +2458,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomSourceFromFile ()
 specifier|public
 name|void
@@ -2442,6 +2534,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomElement ()
 specifier|public
 name|void
@@ -2504,6 +2598,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomElementFromDocumentNode ()
 specifier|public
 name|void
@@ -2571,6 +2667,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDomElementFromElementNode ()
 specifier|public
 name|void
@@ -2641,6 +2739,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDocumentFromBytes ()
 specifier|public
 name|void
@@ -2700,6 +2800,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDocumentFromInputStream ()
 specifier|public
 name|void
@@ -2767,6 +2869,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamFromDocument ()
 specifier|public
 name|void
@@ -2836,6 +2940,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamNonAsciiFromDocument ()
 specifier|public
 name|void
@@ -2905,6 +3011,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDocumentFromFile ()
 specifier|public
 name|void
@@ -2972,6 +3080,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamByDomSource ()
 specifier|public
 name|void
@@ -3041,6 +3151,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamNonAsciiByDomSource ()
 specifier|public
 name|void
@@ -3110,6 +3222,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputSource ()
 specifier|public
 name|void
@@ -3168,6 +3282,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputSourceFromFile ()
 specifier|public
 name|void
@@ -3218,6 +3334,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOutOptionsFromCamelContext ()
 specifier|public
 name|void
@@ -3332,6 +3450,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNodeListToNode ()
 specifier|public
 name|void

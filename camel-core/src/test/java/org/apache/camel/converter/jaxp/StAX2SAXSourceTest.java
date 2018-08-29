@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -233,6 +243,8 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testDefaultPrefixInRootElementWithCopyTransformer ()
 specifier|public
 name|void

@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -38,6 +48,8 @@ name|SpelTest
 extends|extends
 name|LanguageTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSpelExpressions ()
 specifier|public
 name|void
@@ -118,6 +130,8 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpelPredicates ()
 specifier|public
 name|void
@@ -142,6 +156,8 @@ literal|"#{request.headers['foo'] == 'badString'}"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetOutFalseKeepsNullOutMessage ()
 specifier|public
 name|void
@@ -166,6 +182,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResponseCreatesOutMessage ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -32,11 +42,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -50,7 +60,7 @@ specifier|public
 class|class
 name|SynchronousExecutorServiceTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|invoked
 specifier|private
@@ -70,6 +80,8 @@ specifier|static
 name|String
 name|name2
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSynchronousExecutorService ()
 specifier|public
 name|void
@@ -143,6 +155,8 @@ name|name2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSynchronousExecutorServiceShutdown ()
 specifier|public
 name|void

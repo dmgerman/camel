@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -153,6 +163,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderDefault ()
 specifier|public
 name|void
@@ -213,6 +225,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderMaxQueueSize ()
 specifier|public
 name|void
@@ -278,6 +292,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderMax ()
 specifier|public
 name|void
@@ -343,6 +359,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderCoreAndMax ()
 specifier|public
 name|void
@@ -413,6 +431,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderKeepAlive ()
 specifier|public
 name|void
@@ -478,6 +498,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderKeepAliveTimeUnit ()
 specifier|public
 name|void
@@ -547,6 +569,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderAll ()
 specifier|public
 name|void
@@ -638,6 +662,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderTwoPoolsDefault ()
 specifier|public
 name|void
@@ -735,6 +761,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderScheduled ()
 specifier|public
 name|void
@@ -801,6 +829,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderScheduledName ()
 specifier|public
 name|void
@@ -869,6 +899,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadPoolBuilderScheduledSourceName ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -54,6 +64,8 @@ name|XPathRouteConcurrentTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testXPathNotConcurrent ()
 specifier|public
 name|void
@@ -95,6 +107,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathTwoMessages ()
 specifier|public
 name|void
@@ -145,6 +159,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathTwoMessagesNotSameTime ()
 specifier|public
 name|void
@@ -202,6 +218,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoConcurrent ()
 specifier|public
 name|void
@@ -216,6 +234,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConcurrent ()
 specifier|public
 name|void

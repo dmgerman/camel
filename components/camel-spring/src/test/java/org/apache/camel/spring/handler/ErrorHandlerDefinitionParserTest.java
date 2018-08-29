@@ -20,11 +20,41 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -158,13 +188,15 @@ specifier|public
 class|class
 name|ErrorHandlerDefinitionParserTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|ctx
 specifier|protected
 name|ClassPathXmlApplicationContext
 name|ctx
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -182,6 +214,8 @@ literal|"org/apache/camel/spring/handler/ErrorHandlerDefinitionParser.xml"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|After
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -198,6 +232,8 @@ name|ctx
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoggingErrorHandler ()
 specifier|public
 name|void
@@ -250,6 +286,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultErrorHandler ()
 specifier|public
 name|void
@@ -343,6 +381,8 @@ name|errorHandler
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTransactionErrorHandler ()
 specifier|public
 name|void
@@ -394,6 +434,8 @@ name|MyErrorProcessor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTXErrorHandler ()
 specifier|public
 name|void
@@ -428,6 +470,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDeadLetterErrorHandler ()
 specifier|public
 name|void

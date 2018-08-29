@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -145,8 +165,10 @@ name|result
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -239,6 +261,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClosedCircuitPassesMessagesSync ()
 specifier|public
 name|void
@@ -258,6 +282,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClosedCircuitPassesMessagesAsync ()
 specifier|public
 name|void
@@ -322,6 +348,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailedMessagesOpenCircuitToPreventMessageThreeSync ()
 specifier|public
 name|void
@@ -341,6 +369,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailedMessagesOpenCircuitToPreventMessageThreeAsync ()
 specifier|public
 name|void
@@ -477,6 +507,8 @@ name|RejectedExecutionException
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHalfOpenAfterTimeoutSync ()
 specifier|public
 name|void
@@ -496,6 +528,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHalfOpenAfterTimeoutAsync ()
 specifier|public
 name|void
@@ -747,6 +781,8 @@ name|RejectedExecutionException
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHalfOpenToCloseTransitionSync ()
 specifier|public
 name|void
@@ -766,6 +802,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHalfOpenToCloseTransitionAsync ()
 specifier|public
 name|void
@@ -962,6 +1000,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHalfOpenCircuitClosesAfterTimeoutSync ()
 specifier|public
 name|void
@@ -981,6 +1021,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHalfOpenCircuitClosesAfterTimeoutAsync ()
 specifier|public
 name|void

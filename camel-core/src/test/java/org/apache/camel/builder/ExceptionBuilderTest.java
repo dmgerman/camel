@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -199,6 +209,8 @@ name|SECURITY_ERROR_QUEUE
 init|=
 literal|"mock:securityError"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testNPE ()
 specifier|public
 name|void
@@ -291,6 +303,8 @@ name|mock
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIOException ()
 specifier|public
 name|void
@@ -383,6 +397,8 @@ name|mock
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testException ()
 specifier|public
 name|void
@@ -475,6 +491,8 @@ name|mock
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMyBusinessException ()
 specifier|public
 name|void
@@ -567,6 +585,8 @@ name|mock
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSecurityConfiguredWithTwoExceptions ()
 specifier|public
 name|void
@@ -660,6 +680,8 @@ name|mock
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSecurityConfiguredWithExceptionList ()
 specifier|public
 name|void

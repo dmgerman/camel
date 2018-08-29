@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -101,6 +111,8 @@ specifier|private
 name|AtomicInteger
 name|maxFailures
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCompensationAfterFailures ()
 specifier|public
 name|void
@@ -145,6 +157,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoCompensationAfterMaxFailures ()
 specifier|public
 name|void
@@ -196,6 +210,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCompletionAfterFailures ()
 specifier|public
 name|void
@@ -260,6 +276,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoCompletionAfterMaxFailures ()
 specifier|public
 name|void

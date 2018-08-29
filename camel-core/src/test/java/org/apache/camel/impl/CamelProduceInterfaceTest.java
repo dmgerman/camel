@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -73,6 +83,8 @@ specifier|private
 name|Echo
 name|echo
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCamelProduceInterface ()
 specifier|public
 name|void

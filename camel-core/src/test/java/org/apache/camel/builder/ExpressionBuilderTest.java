@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -230,6 +250,8 @@ argument_list|(
 name|camelContext
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRegexTokenize ()
 specifier|public
 name|void
@@ -347,6 +369,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRegexReplaceAll ()
 specifier|public
 name|void
@@ -406,6 +430,8 @@ literal|"Islington,James,UK"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenize ()
 specifier|public
 name|void
@@ -523,6 +549,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeLines ()
 specifier|public
 name|void
@@ -589,6 +617,8 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSortLines ()
 specifier|public
 name|void
@@ -667,6 +697,8 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelContextPropertiesExpression ()
 specifier|public
 name|void
@@ -741,6 +773,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseSimpleOrFallbackToConstantExpression ()
 specifier|public
 name|void
@@ -813,6 +847,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFunction ()
 specifier|public
 name|void
@@ -868,8 +904,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

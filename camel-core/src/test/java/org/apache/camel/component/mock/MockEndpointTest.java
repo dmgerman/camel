@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -224,6 +234,8 @@ name|MockEndpointTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testAscendingMessagesPass ()
 specifier|public
 name|void
@@ -276,6 +288,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAscendingMessagesFail ()
 specifier|public
 name|void
@@ -328,6 +342,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDescendingMessagesPass ()
 specifier|public
 name|void
@@ -380,6 +396,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDescendingMessagesFail ()
 specifier|public
 name|void
@@ -432,6 +450,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectsBodiesInOrder ()
 specifier|public
 name|void
@@ -485,6 +505,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectsBodiesInAnyOrder ()
 specifier|public
 name|void
@@ -538,6 +560,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectsBodiesInAnyOrderWithDuplicates ()
 specifier|public
 name|void
@@ -603,6 +627,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectsHeadersInAnyOrder ()
 specifier|public
 name|void
@@ -655,6 +681,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectsHeadersInAnyOrderFail ()
 specifier|public
 name|void
@@ -732,6 +760,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectsPropertiesInAnyOrder ()
 specifier|public
 name|void
@@ -831,6 +861,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectsPropertiesInAnyOrderFail ()
 specifier|public
 name|void
@@ -955,6 +987,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNoDuplicateMessagesPass ()
 specifier|public
 name|void
@@ -1000,6 +1034,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDuplicateMessagesFail ()
 specifier|public
 name|void
@@ -1045,6 +1081,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectationsAfterMessagesArrivePass ()
 specifier|public
 name|void
@@ -1087,6 +1125,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectationsAfterMessagesArriveFail ()
 specifier|public
 name|void
@@ -1137,6 +1177,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReset ()
 specifier|public
 name|void
@@ -1199,6 +1241,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectationOfHeader ()
 specifier|public
 name|void
@@ -1324,6 +1368,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectationOfHeaderWithNumber ()
 specifier|public
 name|void
@@ -1368,6 +1414,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionExpectationOfHeader ()
 specifier|public
 name|void
@@ -1426,6 +1474,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionExpectationOfProperty ()
 specifier|public
 name|void
@@ -1484,6 +1534,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAscending ()
 specifier|public
 name|void
@@ -1535,6 +1587,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAscendingFailed ()
 specifier|public
 name|void
@@ -1588,6 +1642,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDescending ()
 specifier|public
 name|void
@@ -1639,6 +1695,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDescendingFaied ()
 specifier|public
 name|void
@@ -1692,6 +1750,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoDuplicates ()
 specifier|public
 name|void
@@ -1743,6 +1803,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoDuplicatesFaied ()
 specifier|public
 name|void
@@ -1796,6 +1858,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBody ()
 specifier|public
 name|void
@@ -1833,6 +1897,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyTransformed ()
 specifier|public
 name|void
@@ -1876,6 +1942,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyFailed ()
 specifier|public
 name|void
@@ -1913,6 +1981,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimulateError ()
 specifier|public
 name|void
@@ -2012,6 +2082,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSimulateErrorByThrowingException ()
 specifier|public
 name|void
@@ -2107,6 +2179,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSimulateErrorWithIndex ()
 specifier|public
 name|void
@@ -2224,6 +2298,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSimulateErrorWithIndexByThrowingException ()
 specifier|public
 name|void
@@ -2337,6 +2413,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMinimumCount ()
 specifier|public
 name|void
@@ -2389,6 +2467,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolve ()
 specifier|public
 name|void
@@ -2449,6 +2529,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveTimeout ()
 specifier|public
 name|void
@@ -2511,6 +2593,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSleepForEmptyTest ()
 specifier|public
 name|void
@@ -2571,6 +2655,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSleepForEmptyTestAssert ()
 specifier|public
 name|void
@@ -2636,6 +2722,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReporter ()
 specifier|public
 name|void
@@ -2727,6 +2815,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoArgCtr ()
 specifier|public
 name|void
@@ -2791,6 +2881,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderMissing ()
 specifier|public
 name|void
@@ -2874,6 +2966,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderInvalidValue ()
 specifier|public
 name|void
@@ -2948,6 +3042,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyMissing ()
 specifier|public
 name|void
@@ -3031,6 +3127,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyExpectedNull ()
 specifier|public
 name|void
@@ -3176,6 +3274,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyInvalidValue ()
 specifier|public
 name|void
@@ -3250,6 +3350,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMessageIndexIsEqualTo ()
 specifier|public
 name|void
@@ -3370,6 +3472,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicateEvaluationIsNull ()
 specifier|public
 name|void
@@ -3486,6 +3590,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicateEvaluationIsInstanceOf ()
 specifier|public
 name|void
@@ -3606,6 +3712,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangePattern ()
 specifier|public
 name|void
@@ -3685,6 +3793,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotExchangePattern ()
 specifier|public
 name|void
@@ -3766,6 +3876,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyPredicate ()
 specifier|public
 name|void
@@ -3855,6 +3967,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotBodyPredicate ()
 specifier|public
 name|void
@@ -3946,6 +4060,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderPredicate ()
 specifier|public
 name|void
@@ -4039,6 +4155,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotHeaderPredicate ()
 specifier|public
 name|void
@@ -4134,6 +4252,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectedExchangePattern ()
 specifier|public
 name|void
@@ -4211,6 +4331,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedHeaders ()
 specifier|public
 name|void
@@ -4300,6 +4422,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedHeaders2 ()
 specifier|public
 name|void
@@ -4400,6 +4524,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedHeaders3 ()
 specifier|public
 name|void
@@ -4480,6 +4606,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedHeaders4 ()
 specifier|public
 name|void
@@ -4582,6 +4710,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedHeadersShouldFail ()
 specifier|public
 name|void
@@ -4671,6 +4801,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedHeadersShouldFail2 ()
 specifier|public
 name|void
@@ -4760,6 +4892,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedHeadersShouldFail3 ()
 specifier|public
 name|void
@@ -4885,6 +5019,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedProperties ()
 specifier|public
 name|void
@@ -4974,6 +5110,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedProperties2 ()
 specifier|public
 name|void
@@ -5105,6 +5243,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedProperties3 ()
 specifier|public
 name|void
@@ -5185,6 +5325,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedPropertiesShouldFail ()
 specifier|public
 name|void
@@ -5274,6 +5416,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedPropertiesShouldFail2 ()
 specifier|public
 name|void
@@ -5363,6 +5507,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetMultipleExpectedPropertiesShouldFail3 ()
 specifier|public
 name|void
@@ -5494,6 +5640,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectedBodyTypeCoerce ()
 specifier|public
 name|void
@@ -5531,6 +5679,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpectedBodyExpression ()
 specifier|public
 name|void
@@ -5574,6 +5724,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResetDefaultProcessor ()
 specifier|public
 name|void
@@ -5686,6 +5838,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetainFirst ()
 specifier|public
 name|void
@@ -5884,6 +6038,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetainLast ()
 specifier|public
 name|void
@@ -6082,6 +6238,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetainFirstAndLast ()
 specifier|public
 name|void
@@ -6412,6 +6570,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetainFirstAndLastOverlap ()
 specifier|public
 name|void
@@ -6676,6 +6836,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetainFirstAndLastNoGap ()
 specifier|public
 name|void
@@ -6986,6 +7148,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetainFirstAndLastSingleGap ()
 specifier|public
 name|void

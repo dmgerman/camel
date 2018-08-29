@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -117,6 +127,8 @@ literal|"Claus,James,Willem"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeHeader ()
 specifier|public
 name|void
@@ -201,6 +213,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeBody ()
 specifier|public
 name|void
@@ -281,6 +295,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeBodyRegEx ()
 specifier|public
 name|void
@@ -375,6 +391,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeHeaderRegEx ()
 specifier|public
 name|void
@@ -461,6 +479,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeManualConfiguration ()
 specifier|public
 name|void
@@ -609,6 +629,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizePairSpecial ()
 specifier|public
 name|void
@@ -693,6 +715,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizePair ()
 specifier|public
 name|void
@@ -777,6 +801,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizePairSimple ()
 specifier|public
 name|void
@@ -885,6 +911,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizePairIncludeTokens ()
 specifier|public
 name|void
@@ -969,6 +997,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPair ()
 specifier|public
 name|void
@@ -1075,6 +1105,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairSimple ()
 specifier|public
 name|void
@@ -1193,6 +1225,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairNoXMLTag ()
 specifier|public
 name|void
@@ -1299,6 +1333,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithNoise ()
 specifier|public
 name|void
@@ -1407,6 +1443,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairEmpty ()
 specifier|public
 name|void
@@ -1465,6 +1503,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairNoData ()
 specifier|public
 name|void
@@ -1523,6 +1563,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairNullData ()
 specifier|public
 name|void
@@ -1576,6 +1618,8 @@ name|names
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithSimilarChildNames ()
 specifier|public
 name|void
@@ -1634,6 +1678,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithDefaultNamespace ()
 specifier|public
 name|void
@@ -1742,6 +1788,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithDefaultNamespaceNotInherit ()
 specifier|public
 name|void
@@ -1850,6 +1898,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithDefaultAndFooNamespace ()
 specifier|public
 name|void
@@ -1958,6 +2008,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithLocalNamespace ()
 specifier|public
 name|void
@@ -2066,6 +2118,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithLocalAndInheritedNamespace ()
 specifier|public
 name|void
@@ -2174,6 +2228,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithLocalAndNotInheritedNamespace ()
 specifier|public
 name|void
@@ -2282,6 +2338,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithAttributes ()
 specifier|public
 name|void
@@ -2390,6 +2448,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithAttributesInheritNamespace ()
 specifier|public
 name|void
@@ -2498,6 +2558,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTokenizeXMLPairWithAttributes2InheritNamespace ()
 specifier|public
 name|void

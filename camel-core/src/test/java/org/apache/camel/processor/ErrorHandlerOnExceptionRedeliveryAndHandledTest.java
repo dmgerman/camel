@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -118,6 +128,8 @@ name|counter
 init|=
 literal|""
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRedeliveryCounterIsResetWhenHandled ()
 specifier|public
 name|void

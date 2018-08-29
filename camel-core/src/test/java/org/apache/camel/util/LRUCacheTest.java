@@ -18,11 +18,31 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -48,7 +68,7 @@ specifier|public
 class|class
 name|LRUCacheTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|cache
 specifier|private
@@ -61,9 +81,9 @@ argument_list|>
 name|cache
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -91,6 +111,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUCache ()
 specifier|public
 name|void
@@ -164,6 +186,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUCacheEviction ()
 specifier|public
 name|void
@@ -486,6 +510,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUCacheHitsAndMisses ()
 specifier|public
 name|void

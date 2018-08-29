@@ -20,6 +20,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -61,6 +81,8 @@ specifier|protected
 name|InjectedBean
 name|bean
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testInjectionPoints ()
 specifier|public
 name|void
@@ -242,6 +264,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendAndReceive ()
 specifier|public
 name|void
@@ -252,8 +276,10 @@ name|Exception
 block|{     }
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

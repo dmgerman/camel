@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -181,6 +191,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCloseableIterator ()
 specifier|public
 name|void

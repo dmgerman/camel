@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -169,6 +189,8 @@ argument_list|>
 argument_list|>
 name|allClasses
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -255,6 +277,8 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoPattersIncludeAllClasses ()
 specifier|public
 name|void
@@ -267,6 +291,8 @@ name|allClasses
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIncludePatterns ()
 specifier|public
 name|void
@@ -528,6 +554,8 @@ name|validateMatchingSetContains
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExcludePatterns ()
 specifier|public
 name|void
@@ -823,6 +851,8 @@ name|allClasses
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExcludeHasPrecedenceOverInclude ()
 specifier|public
 name|void
@@ -856,6 +886,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBulkIncludeAdd ()
 specifier|public
 name|void
@@ -891,6 +923,8 @@ name|allClasses
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBulkExcludeAdd ()
 specifier|public
 name|void

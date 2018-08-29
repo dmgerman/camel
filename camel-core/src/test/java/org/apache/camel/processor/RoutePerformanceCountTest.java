@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -125,6 +135,8 @@ name|url
 init|=
 literal|"direct:start"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMessages ()
 specifier|public
 name|void

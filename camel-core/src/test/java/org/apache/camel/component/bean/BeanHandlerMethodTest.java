@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -104,6 +114,8 @@ name|BeanHandlerMethodTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testInterfaceBeanMethod ()
 specifier|public
 name|void
@@ -172,6 +184,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoHandleMethod ()
 specifier|public
 name|void
@@ -240,6 +254,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAmbigiousMethod ()
 specifier|public
 name|void
@@ -315,6 +331,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHandleMethod ()
 specifier|public
 name|void
@@ -383,6 +401,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHandleAndBodyMethod ()
 specifier|public
 name|void
@@ -451,6 +471,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHandleAmbigious ()
 specifier|public
 name|void
@@ -526,6 +548,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNoHandlerAmbigious ()
 specifier|public
 name|void

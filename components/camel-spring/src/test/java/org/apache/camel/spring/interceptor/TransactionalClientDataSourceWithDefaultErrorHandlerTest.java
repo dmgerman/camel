@@ -18,6 +18,16 @@ name|interceptor
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
 begin_comment
 comment|/**  * Using the default error handler = DeadLetterChannel to unit test that this works out of the box  * also, that Camel doesn't break.  */
 end_comment
@@ -32,8 +42,10 @@ name|TransactionalClientDataSourceTest
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

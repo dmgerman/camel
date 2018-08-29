@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -58,6 +68,8 @@ name|ManagedInterceptFromTest
 extends|extends
 name|ManagementTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testManageWithInterceptFrom ()
 specifier|public
 name|void

@@ -22,6 +22,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -71,6 +91,8 @@ specifier|protected
 name|MyServiceBean
 name|myServiceBean
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testNoError ()
 specifier|public
 name|void
@@ -112,6 +134,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoError2 ()
 specifier|public
 name|void
@@ -153,6 +177,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFunctionalError ()
 specifier|public
 name|void
@@ -195,6 +221,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFunctionalError2 ()
 specifier|public
 name|void
@@ -246,6 +274,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTechnicalError ()
 specifier|public
 name|void
@@ -297,6 +327,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTechnicalError2 ()
 specifier|public
 name|void
@@ -350,8 +382,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

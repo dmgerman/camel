@@ -18,6 +18,36 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -129,8 +159,10 @@ name|consumer
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -158,8 +190,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -177,6 +211,8 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceive ()
 specifier|public
 name|void
@@ -233,6 +269,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeTwiceReceive ()
 specifier|public
 name|void
@@ -315,6 +353,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveNoWait ()
 specifier|public
 name|void
@@ -404,6 +444,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveTimeout ()
 specifier|public
 name|void
@@ -490,6 +532,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveBody ()
 specifier|public
 name|void
@@ -525,6 +569,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeTwiceReceiveBody ()
 specifier|public
 name|void
@@ -585,6 +631,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveBodyNoWait ()
 specifier|public
 name|void
@@ -655,6 +703,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveBodyString ()
 specifier|public
 name|void
@@ -694,6 +744,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeTwiceReceiveBodyString ()
 specifier|public
 name|void
@@ -762,6 +814,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveBodyStringNoWait ()
 specifier|public
 name|void
@@ -840,6 +894,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpoint ()
 specifier|public
 name|void
@@ -899,6 +955,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpointTimeout ()
 specifier|public
 name|void
@@ -960,6 +1018,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpointNoWait ()
 specifier|public
 name|void
@@ -1067,6 +1127,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpointBody ()
 specifier|public
 name|void
@@ -1120,6 +1182,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpointBodyTimeout ()
 specifier|public
 name|void
@@ -1175,6 +1239,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpointBodyType ()
 specifier|public
 name|void
@@ -1232,6 +1298,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpointBodyTimeoutType ()
 specifier|public
 name|void
@@ -1291,6 +1359,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveBodyTimeoutType ()
 specifier|public
 name|void
@@ -1332,6 +1402,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpointBodyTypeNoWait ()
 specifier|public
 name|void
@@ -1428,6 +1500,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeReceiveEndpointBodyNoWait ()
 specifier|public
 name|void
@@ -1516,6 +1590,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReceiveException ()
 specifier|public
 name|void
@@ -1624,6 +1700,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testReceiveOut ()
 specifier|public
 name|void
@@ -1682,6 +1760,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheConsumers ()
 specifier|public
 name|void
@@ -1796,6 +1876,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheConsumersFromContext ()
 specifier|public
 name|void
@@ -1899,6 +1981,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoneUoW ()
 specifier|public
 name|void

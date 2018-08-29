@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -211,8 +231,10 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -232,6 +254,8 @@ name|newSingleThreadExecutor
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorTimeoutRestart ()
 specifier|public
 name|void
@@ -454,6 +478,8 @@ name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorTimeoutExpressionRestart ()
 specifier|public
 name|void
@@ -703,6 +729,8 @@ name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorTwoTimeoutExpressionRestart ()
 specifier|public
 name|void

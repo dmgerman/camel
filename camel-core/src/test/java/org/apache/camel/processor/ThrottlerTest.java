@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -144,6 +154,8 @@ literal|"windows"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendLotsOfMessagesButOnly3GetThroughWithin2Seconds ()
 specifier|public
 name|void
@@ -224,6 +236,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendLotsOfMessagesWithRejectExecution ()
 specifier|public
 name|void
@@ -314,6 +328,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendLotsOfMessagesSimultaneouslyButOnly3GetThrough ()
 specifier|public
 name|void
@@ -369,6 +385,8 @@ name|MESSAGE_COUNT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigurationWithConstantExpression ()
 specifier|public
 name|void
@@ -424,6 +442,8 @@ name|MESSAGE_COUNT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigurationWithHeaderExpression ()
 specifier|public
 name|void
@@ -495,6 +515,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigurationWithChangingHeaderExpression ()
 specifier|public
 name|void

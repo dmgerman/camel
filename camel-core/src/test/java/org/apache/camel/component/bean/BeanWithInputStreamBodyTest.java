@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -141,6 +151,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanWithInputStreamBody ()
 specifier|public
 name|void
@@ -227,6 +239,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanWithInputStreamBodyMethod ()
 specifier|public
 name|void
@@ -315,6 +329,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToBeanWithInputStreamBody ()
 specifier|public
 name|void
@@ -399,6 +415,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToBeanWithInputStreamBodyMethod ()
 specifier|public
 name|void
@@ -483,6 +501,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToBeanWithInputStreamBodyMethodOGNL ()
 specifier|public
 name|void

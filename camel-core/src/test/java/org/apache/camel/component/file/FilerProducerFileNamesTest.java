@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -92,8 +112,10 @@ name|ContextTestSupport
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -112,6 +134,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// START SNIPPET: e1
+annotation|@
+name|Test
 DECL|method|testProducerWithMessageIdAsFileName ()
 specifier|public
 name|void
@@ -206,6 +230,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProducerWithHeaderFileName ()
 specifier|public
 name|void

@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -38,11 +58,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -72,13 +92,15 @@ specifier|public
 class|class
 name|RegistryTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|registry
 specifier|protected
 name|JndiRegistry
 name|registry
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testBind ()
 specifier|public
 name|void
@@ -140,6 +162,8 @@ name|list
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultProviderAllowsValuesToBeCreatedInThePropertiesFile ()
 specifier|public
 name|void
@@ -168,6 +192,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupOfUnknownName ()
 specifier|public
 name|void
@@ -194,19 +220,16 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|registry
 operator|=
 operator|new

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -179,6 +189,8 @@ name|EXPECTED_XML_CONSTANT
 init|=
 literal|"<data>FOO DATA</data>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testXsltCustomURIResolverDirectInRouteUri ()
 specifier|public
 name|void

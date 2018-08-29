@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -119,6 +129,8 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMarshal ()
 specifier|public
 name|void
@@ -149,6 +161,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoProperties ()
 specifier|public
 name|void
@@ -240,6 +254,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnmarshal ()
 specifier|public
 name|void
@@ -364,6 +380,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSkipNonSerializableData ()
 specifier|public
 name|void
@@ -489,6 +507,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSkipNonSerializableDataFromList ()
 specifier|public
 name|void
@@ -640,6 +660,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSkipNonSerializableDataFromMap ()
 specifier|public
 name|void
@@ -797,6 +819,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCaughtException ()
 specifier|public
 name|void
@@ -996,6 +1020,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFileNotSupported ()
 specifier|public
 name|void

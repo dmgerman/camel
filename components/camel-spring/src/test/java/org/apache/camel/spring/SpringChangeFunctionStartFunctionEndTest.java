@@ -20,6 +20,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -86,6 +106,8 @@ literal|"org/apache/camel/spring/SpringChangeFunctionStartFunctionEndTest.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleWithPrefix ()
 specifier|public
 name|void
@@ -119,8 +141,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

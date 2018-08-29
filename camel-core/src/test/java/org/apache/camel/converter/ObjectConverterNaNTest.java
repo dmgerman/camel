@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -52,6 +62,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoubleToLongWithNaN ()
 specifier|public
 name|void
@@ -140,6 +152,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFloatToLongWithNaN ()
 specifier|public
 name|void
@@ -228,6 +242,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoubleToIntegerWithNaN ()
 specifier|public
 name|void
@@ -316,6 +332,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFloatToIntegerWithNaN ()
 specifier|public
 name|void
@@ -404,6 +422,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoubleToShortWithNaN ()
 specifier|public
 name|void
@@ -492,6 +512,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFloatToShortWithNaN ()
 specifier|public
 name|void
@@ -580,6 +602,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoubleToByteWithNaN ()
 specifier|public
 name|void
@@ -668,6 +692,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFloatToByteWithNaN ()
 specifier|public
 name|void
@@ -756,6 +782,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoubleToFloatWithNaN ()
 specifier|public
 name|void
@@ -795,6 +823,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Float
+operator|)
 name|Float
 operator|.
 name|NaN
@@ -846,6 +877,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFloatToDoubleWithNaN ()
 specifier|public
 name|void
@@ -885,6 +918,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Double
+operator|)
 name|Double
 operator|.
 name|NaN

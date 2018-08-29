@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -395,6 +405,8 @@ block|}
 return|;
 block|}
 comment|/**      * Test that the reference configuration params are correct      */
+annotation|@
+name|Test
 DECL|method|testReferenceConfiguration ()
 specifier|public
 name|void
@@ -534,6 +546,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that the 'value' configuration params are correct      */
+annotation|@
+name|Test
 DECL|method|testValueConfiguration ()
 specifier|public
 name|void

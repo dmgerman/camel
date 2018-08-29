@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -102,6 +112,8 @@ name|BAD_XML_STRING
 init|=
 literal|"<staff><programmer></programmer></staff>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testXsltException ()
 specifier|public
 name|void
@@ -172,6 +184,8 @@ expr_stmt|;
 block|}
 comment|// As the transformer is turned into security processing mode,
 comment|// This test behavior is changed.
+annotation|@
+name|Test
 DECL|method|testXsltWithoutException ()
 specifier|public
 name|void

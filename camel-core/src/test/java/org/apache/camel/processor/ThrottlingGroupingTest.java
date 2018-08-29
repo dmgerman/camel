@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -153,6 +163,8 @@ name|TOLERANCE
 init|=
 literal|50
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testGroupingWithSingleConstant ()
 specifier|public
 name|void
@@ -226,6 +238,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGroupingWithDynamicHeaderExpression ()
 specifier|public
 name|void
@@ -401,6 +415,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendLotsOfMessagesButOnly3GetThroughWithin2Seconds ()
 specifier|public
 name|void
@@ -825,6 +841,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSendLotsOfMessagesSimultaneouslyButOnlyGetThroughAsConstantThrottleValue ()
 specifier|public
 name|void
@@ -871,6 +889,8 @@ name|MESSAGE_COUNT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigurationWithHeaderExpression ()
 specifier|public
 name|void

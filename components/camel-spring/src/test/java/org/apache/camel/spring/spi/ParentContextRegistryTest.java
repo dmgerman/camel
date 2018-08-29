@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -145,6 +155,8 @@ name|parentContext
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupByName ()
 specifier|public
 name|void
@@ -167,6 +179,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupByNameAndType ()
 specifier|public
 name|void
@@ -193,6 +207,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByType ()
 specifier|public
 name|void
@@ -222,6 +238,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByTypeWithName ()
 specifier|public
 name|void

@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -79,6 +89,8 @@ name|body
 init|=
 literal|"James"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSayHello ()
 specifier|public
 name|void
@@ -109,6 +121,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSayGoodbye ()
 specifier|public
 name|void
@@ -139,6 +153,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChooseMethodUsingBodyType ()
 specifier|public
 name|void
@@ -169,6 +185,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAmbiguousMethodCallFails ()
 specifier|public
 name|void

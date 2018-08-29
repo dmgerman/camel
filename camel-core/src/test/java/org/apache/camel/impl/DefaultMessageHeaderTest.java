@@ -18,11 +18,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -60,7 +70,7 @@ specifier|public
 class|class
 name|DefaultMessageHeaderTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|camelContext
 specifier|private
@@ -71,6 +81,8 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testLookupCaseAgnostic ()
 specifier|public
 name|void
@@ -142,6 +154,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupCaseAgnosticAddHeader ()
 specifier|public
 name|void
@@ -278,6 +292,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupCaseAgnosticAddHeader2 ()
 specifier|public
 name|void
@@ -414,6 +430,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupCaseAgnosticAddHeaderRemoveHeader ()
 specifier|public
 name|void
@@ -577,6 +595,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetWithDifferentCase ()
 specifier|public
 name|void
@@ -657,6 +677,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveWithDifferentCase ()
 specifier|public
 name|void
@@ -791,6 +813,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveHeaderWithNullValue ()
 specifier|public
 name|void
@@ -844,6 +868,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveHeadersWithWildcard ()
 specifier|public
 name|void
@@ -951,6 +977,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveHeadersAllWithWildcard ()
 specifier|public
 name|void
@@ -1058,6 +1086,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveHeadersWithExclude ()
 specifier|public
 name|void
@@ -1168,6 +1198,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveHeadersAllWithExclude ()
 specifier|public
 name|void
@@ -1307,6 +1339,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveHeadersWithWildcardInExclude ()
 specifier|public
 name|void
@@ -1415,6 +1449,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveHeadersWithNulls ()
 specifier|public
 name|void
@@ -1549,6 +1585,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveHeadersWithNonExcludeHeaders ()
 specifier|public
 name|void
@@ -1626,6 +1664,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithDefaults ()
 specifier|public
 name|void

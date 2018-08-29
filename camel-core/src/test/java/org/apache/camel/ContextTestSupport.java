@@ -164,6 +164,26 @@ name|JndiTest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
 begin_comment
 comment|/**  * A useful base class which creates a {@link CamelContext} with some routes  * along with a {@link ProducerTemplate} for use in the test case  *  * @version   */
 end_comment
@@ -283,15 +303,20 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 comment|// make SEDA testing faster
 name|System
 operator|.
@@ -458,9 +483,9 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Override
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -521,6 +546,11 @@ name|clearProperty
 argument_list|(
 literal|"CamelSedaPollTimeout"
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Whether or not JMX should be used during testing.      *       * @return<tt>false</tt> by default.      */

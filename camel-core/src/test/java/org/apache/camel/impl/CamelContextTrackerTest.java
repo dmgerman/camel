@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -38,11 +48,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -92,7 +102,7 @@ specifier|public
 class|class
 name|CamelContextTrackerTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|class|MyContextTracker
 specifier|private
@@ -170,6 +180,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testContainerSet ()
 specifier|public
 name|void

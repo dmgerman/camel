@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -129,6 +139,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetMandatoryEndpoint ()
 specifier|public
 name|void
@@ -157,6 +169,8 @@ name|mock
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMandatoryConvertTo ()
 specifier|public
 name|void
@@ -190,6 +204,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMandatoryConvertToNotPossible ()
 specifier|public
 name|void
@@ -226,6 +242,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupBean ()
 specifier|public
 name|void
@@ -259,6 +277,8 @@ name|foo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupBeanAndType ()
 specifier|public
 name|void
@@ -287,6 +307,8 @@ name|foo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteStartupOrder ()
 specifier|public
 name|void

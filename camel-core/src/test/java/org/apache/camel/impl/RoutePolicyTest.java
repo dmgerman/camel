@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -111,6 +121,8 @@ operator|new
 name|MyRoutPolicy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testStartCalledWhenCamelStarts ()
 specifier|public
 name|void
@@ -130,6 +142,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStartCalledWhenRouteStarts ()
 specifier|public
 name|void
@@ -173,6 +187,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStopCalledWhenCamelStops ()
 specifier|public
 name|void
@@ -205,6 +221,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStopCalledWhenRouteStops ()
 specifier|public
 name|void
@@ -241,6 +259,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSuspendCalledWhenRouteSuspends ()
 specifier|public
 name|void
@@ -277,6 +297,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResumeCalledWhenRouteResumes ()
 specifier|public
 name|void
@@ -320,6 +342,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveCalledWhenRouteIsRemovedById ()
 specifier|public
 name|void
@@ -373,6 +397,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveCalledWhenCamelIsStopped ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -78,6 +88,8 @@ name|JmxRecipientListTest
 extends|extends
 name|ManagementTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testJmxEndpointsAddedDynamicallyDefaultRegister ()
 specifier|public
 name|void
@@ -264,6 +276,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testJmxEndpointsAddedDynamicallyAlwaysRegister ()
 specifier|public
 name|void

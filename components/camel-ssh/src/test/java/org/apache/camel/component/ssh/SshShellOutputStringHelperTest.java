@@ -20,11 +20,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -34,8 +44,10 @@ specifier|public
 class|class
 name|SshShellOutputStringHelperTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testBeforeLast ()
 specifier|public
 name|void
@@ -141,6 +153,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBetweenBeforeLast ()
 specifier|public
 name|void

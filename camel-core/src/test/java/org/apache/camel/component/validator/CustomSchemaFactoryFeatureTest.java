@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -128,6 +138,8 @@ name|registry
 return|;
 block|}
 comment|// just inject the SchemaFactory as we want
+annotation|@
+name|Test
 DECL|method|testCustomSchemaFactory ()
 specifier|public
 name|void

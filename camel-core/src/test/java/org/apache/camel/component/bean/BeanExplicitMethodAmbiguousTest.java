@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -113,6 +123,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanExplicitMethodAmbiguous ()
 specifier|public
 name|void
@@ -174,6 +186,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanExplicitMethodHandler ()
 specifier|public
 name|void
@@ -206,6 +220,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanExplicitMethodInvocationStringBody ()
 specifier|public
 name|void
@@ -238,6 +254,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanExplicitMethodInvocationInputStreamBody ()
 specifier|public
 name|void

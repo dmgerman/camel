@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -100,6 +110,8 @@ argument_list|(
 literal|"poll"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCreateRouteIfNoInvalidOptions ()
 specifier|public
 name|void
@@ -161,6 +173,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailIfThreadNameAndExecutorServiceRef ()
 specifier|public
 name|void
@@ -267,6 +281,8 @@ name|fail
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPassIfThreadNameWithoutExecutorServiceRef ()
 specifier|public
 name|void
@@ -325,6 +341,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailIfPoolSizeAndExecutorServiceRef ()
 specifier|public
 name|void
@@ -431,6 +449,8 @@ name|fail
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailIfMaxPoolSizeAndExecutorServiceRef ()
 specifier|public
 name|void
@@ -537,6 +557,8 @@ name|fail
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailIfKeepAliveTimeAndExecutorServiceRef ()
 specifier|public
 name|void
@@ -643,6 +665,8 @@ name|fail
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailIfMaxQueueSizeAndExecutorServiceRef ()
 specifier|public
 name|void
@@ -749,6 +773,8 @@ name|fail
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailIfRejectedPolicyAndExecutorServiceRef ()
 specifier|public
 name|void

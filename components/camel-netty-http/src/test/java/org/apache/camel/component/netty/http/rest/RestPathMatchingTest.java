@@ -24,11 +24,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -56,7 +66,7 @@ specifier|public
 class|class
 name|RestPathMatchingTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|matcher
 specifier|private
@@ -75,6 +85,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRestPathMatcher ()
 specifier|public
 name|void
@@ -406,6 +418,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRestPathMatcherNoWildcard ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -112,11 +122,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -170,8 +180,10 @@ specifier|public
 class|class
 name|IOHelperTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testIOException ()
 specifier|public
 name|void
@@ -214,6 +226,8 @@ name|IllegalArgumentException
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIOExceptionWithMessage ()
 specifier|public
 name|void
@@ -256,6 +270,8 @@ name|IllegalArgumentException
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewStringFromBytes ()
 specifier|public
 name|void
@@ -283,6 +299,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewStringFromBytesWithStart ()
 specifier|public
 name|void
@@ -314,6 +332,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyAndCloseInput ()
 specifier|public
 name|void
@@ -353,6 +373,8 @@ literal|256
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCharsetNormalize ()
 specifier|public
 name|void
@@ -410,6 +432,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLine1 ()
 specifier|public
 name|void
@@ -428,6 +452,8 @@ literal|"line1\n"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLine1LF ()
 specifier|public
 name|void
@@ -446,6 +472,8 @@ literal|"line1\n"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLine2 ()
 specifier|public
 name|void
@@ -464,6 +492,8 @@ literal|"line1\nline2\n"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLine2LF ()
 specifier|public
 name|void
@@ -603,6 +633,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCharsetName ()
 specifier|public
 name|void
@@ -700,6 +732,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetCharsetNameFromContentType ()
 specifier|public
 name|void

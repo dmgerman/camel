@@ -144,7 +144,7 @@ name|Override
 annotation|@
 name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -219,7 +219,7 @@ name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -143,6 +163,8 @@ DECL|field|resultEndpoint
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCounterLoop ()
 specifier|public
 name|void
@@ -159,6 +181,8 @@ literal|8
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionLoop ()
 specifier|public
 name|void
@@ -175,6 +199,8 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionClauseLoop ()
 specifier|public
 name|void
@@ -191,6 +217,8 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoopAsBlock ()
 specifier|public
 name|void
@@ -255,6 +283,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoopWithInvalidExpression ()
 specifier|public
 name|void
@@ -289,6 +319,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testLoopProperties ()
 specifier|public
 name|void
@@ -484,8 +516,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

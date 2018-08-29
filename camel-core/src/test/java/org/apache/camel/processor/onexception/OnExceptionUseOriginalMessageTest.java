@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -126,6 +136,8 @@ name|TEST_STRING
 init|=
 literal|"<firstName>James</firstName>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testOnExceptionError ()
 specifier|public
 name|void
@@ -215,6 +227,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionStreamReset ()
 specifier|public
 name|void

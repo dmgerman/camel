@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -36,6 +46,8 @@ name|TimePatternTypeConversionTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testForNoSideEffects ()
 specifier|public
 name|void
@@ -77,6 +89,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testForNoSideEffects2 ()
 specifier|public
 name|void
@@ -118,6 +132,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHMSTimePattern ()
 specifier|public
 name|void
@@ -151,6 +167,8 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMTimePattern ()
 specifier|public
 name|void

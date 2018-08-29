@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -109,6 +119,8 @@ literal|"org/apache/camel/spring/spi/bridgePropertyPlaceholderConfigurer.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProperty ()
 specifier|public
 name|void
@@ -153,6 +165,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyDefault ()
 specifier|public
 name|void

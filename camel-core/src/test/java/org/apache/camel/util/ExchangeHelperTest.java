@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -173,6 +193,8 @@ specifier|protected
 name|Exchange
 name|exchange
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testValidProperty ()
 specifier|public
 name|void
@@ -207,6 +229,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMissingProperty ()
 specifier|public
 name|void
@@ -259,6 +283,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyOfIncompatibleType ()
 specifier|public
 name|void
@@ -314,6 +340,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMissingHeader ()
 specifier|public
 name|void
@@ -366,6 +394,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderOfIncompatibleType ()
 specifier|public
 name|void
@@ -433,6 +463,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNoSuchBean ()
 specifier|public
 name|void
@@ -486,6 +518,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNoSuchBeanType ()
 specifier|public
 name|void
@@ -543,6 +577,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetExchangeById ()
 specifier|public
 name|void
@@ -649,6 +685,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPopulateVariableMap ()
 specifier|public
 name|void
@@ -844,6 +882,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateVariableMap ()
 specifier|public
 name|void
@@ -1032,6 +1072,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateVariableMapNoExistingOut ()
 specifier|public
 name|void
@@ -1239,6 +1281,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetContentType ()
 specifier|public
 name|void
@@ -1274,6 +1318,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetContentEncoding ()
 specifier|public
 name|void
@@ -1309,6 +1355,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsStreamCaching ()
 specifier|public
 name|void
@@ -1353,8 +1401,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

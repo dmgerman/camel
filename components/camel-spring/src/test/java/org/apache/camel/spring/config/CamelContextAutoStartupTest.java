@@ -20,11 +20,31 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -122,13 +142,15 @@ specifier|public
 class|class
 name|CamelContextAutoStartupTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|ac
 specifier|private
 name|AbstractXmlApplicationContext
 name|ac
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testAutoStartupFalse ()
 specifier|public
 name|void
@@ -327,6 +349,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoStartupTrue ()
 specifier|public
 name|void
@@ -463,9 +487,9 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -478,11 +502,6 @@ name|close
 argument_list|(
 name|ac
 argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|tearDown
-argument_list|()
 expr_stmt|;
 block|}
 block|}

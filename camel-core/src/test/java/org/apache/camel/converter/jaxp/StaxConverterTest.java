@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -362,6 +372,8 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEncodingXmlEventReader ()
 specifier|public
 name|void
@@ -578,6 +590,8 @@ name|equals
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEncodingXmlStreamReader ()
 specifier|public
 name|void
@@ -827,6 +841,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToReaderByXmlStreamReader ()
 specifier|public
 name|void
@@ -1039,6 +1055,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputSreamByXmlStreamReader ()
 specifier|public
 name|void

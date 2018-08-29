@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -146,6 +156,8 @@ name|BeanWithAnnotationInheritedTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testWithAnnotationsFromOneInterface ()
 specifier|public
 name|void
@@ -184,6 +196,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithAnnotationsFromTwoInterfaces ()
 specifier|public
 name|void
@@ -222,6 +236,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithAnnotationsFromSuperclassAndInterface ()
 specifier|public
 name|void
@@ -260,6 +276,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithAnnotationsFromImplementationClassAndInterface ()
 specifier|public
 name|void
@@ -298,6 +316,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithAnnotationsFromOneInterfaceInheritedByProxy ()
 specifier|public
 name|void

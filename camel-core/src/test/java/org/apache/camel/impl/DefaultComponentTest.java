@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -188,6 +198,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetAndRemoveParameterEmptyMap ()
 specifier|public
 name|void
@@ -240,6 +252,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetAndRemoveParameterEmptyMapDefault ()
 specifier|public
 name|void
@@ -299,6 +313,8 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetAndRemoveParameterEmptyMapDefaultIsNull ()
 specifier|public
 name|void
@@ -353,6 +369,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetAndRemoveParameterToInteger ()
 specifier|public
 name|void
@@ -419,6 +437,8 @@ literal|200
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetAndRemoveParameterToIntegerDefault ()
 specifier|public
 name|void
@@ -487,6 +507,8 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceParameter ()
 specifier|public
 name|void
@@ -590,6 +612,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceParameterWithConversion ()
 specifier|public
 name|void
@@ -656,6 +680,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceParameterWithFailedConversion ()
 specifier|public
 name|void
@@ -733,6 +759,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceParameterNotInRegistry ()
 specifier|public
 name|void
@@ -811,6 +839,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceParameterNotInMapDefault ()
 specifier|public
 name|void
@@ -884,6 +914,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceParameterNotInMapNull ()
 specifier|public
 name|void
@@ -945,6 +977,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceListParameterElement ()
 specifier|public
 name|void
@@ -1030,6 +1064,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceListParameterListComma ()
 specifier|public
 name|void
@@ -1198,6 +1234,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceListParameterListCommaTrim ()
 specifier|public
 name|void
@@ -1366,6 +1404,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceListParameterListBean ()
 specifier|public
 name|void
@@ -1534,6 +1574,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndRemoveReferenceListParameterInvalidBean ()
 specifier|public
 name|void
@@ -1612,6 +1654,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetAndRemoveOrResolveReferenceParameter ()
 specifier|public
 name|void
@@ -1777,6 +1821,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testContextShouldBeSet ()
 specifier|public
 name|void

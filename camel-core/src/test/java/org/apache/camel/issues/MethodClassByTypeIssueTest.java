@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -63,6 +73,8 @@ name|MyTransformBean
 operator|.
 name|class
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMethodClassByTypeAIssue ()
 specifier|public
 name|void
@@ -94,6 +106,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodClassByTypeBIssue ()
 specifier|public
 name|void

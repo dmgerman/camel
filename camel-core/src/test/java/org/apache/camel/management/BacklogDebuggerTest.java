@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -113,6 +123,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogDebugger ()
 specifier|public
 name|void
@@ -506,6 +518,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogDebuggerUpdateBodyAndHeader ()
 specifier|public
 name|void
@@ -1067,6 +1081,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogDebuggerUpdateBodyAndHeaderType ()
 specifier|public
 name|void
@@ -1636,6 +1652,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogDebuggerRemoveBodyAndHeader ()
 specifier|public
 name|void
@@ -2189,6 +2207,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogDebuggerSuspendOnlyOneAtBreakpoint ()
 specifier|public
 name|void
@@ -2558,6 +2578,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogDebuggerConditional ()
 specifier|public
 name|void
@@ -3114,6 +3136,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogDebuggerStep ()
 specifier|public
 name|void
@@ -3832,6 +3856,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogDebuggerStepCurrentNode ()
 specifier|public
 name|void

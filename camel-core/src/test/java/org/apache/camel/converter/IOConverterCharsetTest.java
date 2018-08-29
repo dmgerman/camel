@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -143,6 +153,8 @@ name|CONTENT
 init|=
 literal|"G\u00f6tzend\u00e4mmerung,Joseph und seine Br\u00fcder"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testToInputStreamFileWithCharsetUTF8 ()
 specifier|public
 name|void
@@ -261,6 +273,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamFileWithCharsetUTF8withOtherDefaultEncoding ()
 specifier|public
 name|void
@@ -379,6 +393,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamFileWithCharsetLatin1 ()
 specifier|public
 name|void
@@ -495,6 +511,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStreamFileDirectByteDumpWithCharsetLatin1 ()
 specifier|public
 name|void
@@ -602,6 +620,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToReaderFileWithCharsetUTF8 ()
 specifier|public
 name|void
@@ -696,6 +716,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToReaderFileWithCharsetLatin1 ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -102,6 +112,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRedeliveryErrorHandlerOnExceptionLogHandledDefault ()
 specifier|public
 name|void
@@ -200,6 +212,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRedeliveryErrorHandlerOnExceptionLogHandled ()
 specifier|public
 name|void
@@ -303,6 +317,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRedeliveryErrorHandlerOnExceptionLogRetryAttempted ()
 specifier|public
 name|void
@@ -411,6 +427,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRedeliveryErrorHandlerDoNotLogExhausted ()
 specifier|public
 name|void
@@ -533,6 +551,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRedeliveryErrorHandlerLogExhaustedDefault ()
 specifier|public
 name|void
@@ -650,6 +670,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRedeliveryErrorHandlerAllOptions ()
 specifier|public
 name|void
@@ -811,6 +833,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRedeliveryErrorHandlerOnExceptionAllOptions ()
 specifier|public
 name|void

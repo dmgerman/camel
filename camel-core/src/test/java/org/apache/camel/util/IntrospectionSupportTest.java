@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -158,6 +168,8 @@ name|IntrospectionSupportTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testOverloadSetterChooseStringSetter ()
 specifier|public
 name|void
@@ -200,6 +212,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOverloadSetterChooseBeanSetter ()
 specifier|public
 name|void
@@ -256,6 +270,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOverloadSetterChooseUsingTypeConverter ()
 specifier|public
 name|void
@@ -307,6 +323,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPassword ()
 specifier|public
 name|void
@@ -581,6 +599,8 @@ name|this
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIsSetterBuilderPatternSupport ()
 specifier|public
 name|void
@@ -710,6 +730,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasProperties ()
 specifier|public
 name|void
@@ -907,6 +929,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetProperties ()
 specifier|public
 name|void
@@ -1018,6 +1042,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAnotherGetProperties ()
 specifier|public
 name|void
@@ -1236,6 +1262,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetPropertiesOptionPrefix ()
 specifier|public
 name|void
@@ -1354,6 +1382,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetPropertiesSkipNull ()
 specifier|public
 name|void
@@ -1462,6 +1492,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetProperty ()
 specifier|public
 name|void
@@ -1518,6 +1550,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetProperty ()
 specifier|public
 name|void
@@ -1576,6 +1610,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAnotherGetProperty ()
 specifier|public
 name|void
@@ -1733,6 +1769,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetPropertyLocaleIndependent ()
 specifier|public
 name|void
@@ -1861,6 +1899,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetPropertyGetter ()
 specifier|public
 name|void
@@ -1951,6 +1991,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetPropertySetter ()
 specifier|public
 name|void
@@ -2041,6 +2083,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIsGetter ()
 specifier|public
 name|void
@@ -2149,6 +2193,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsSetter ()
 specifier|public
 name|void
@@ -2247,6 +2293,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOtherIsGetter ()
 specifier|public
 name|void
@@ -2488,6 +2536,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOtherIsSetter ()
 specifier|public
 name|void
@@ -2709,6 +2759,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractProperties ()
 specifier|public
 name|void
@@ -2834,6 +2886,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindSetterMethodsOrderedByParameterType ()
 specifier|public
 name|void

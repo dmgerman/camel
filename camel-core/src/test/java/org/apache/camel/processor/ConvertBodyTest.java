@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -158,6 +168,8 @@ name|ConvertBodyTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testConvertBodyTo ()
 specifier|public
 name|void
@@ -229,6 +241,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertBodyCharset ()
 specifier|public
 name|void
@@ -318,6 +332,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertBodyCharsetWithExistingCharsetName ()
 specifier|public
 name|void
@@ -436,6 +452,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertToInteger ()
 specifier|public
 name|void
@@ -472,6 +490,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertNullBody ()
 specifier|public
 name|void
@@ -521,6 +541,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertFailed ()
 specifier|public
 name|void
@@ -577,6 +599,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertToBytesCharset ()
 specifier|public
 name|void
@@ -624,6 +648,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertToStringCharset ()
 specifier|public
 name|void
@@ -674,6 +700,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertToBytesCharsetFail ()
 specifier|public
 name|void
@@ -724,6 +752,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertToStringCharsetFail ()
 specifier|public
 name|void

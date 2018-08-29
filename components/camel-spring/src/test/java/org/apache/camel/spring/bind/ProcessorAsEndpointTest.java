@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -125,6 +135,8 @@ name|body
 init|=
 literal|"<hello>world!</hello>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendingToProcessorEndpoint ()
 specifier|public
 name|void
@@ -189,6 +201,8 @@ name|list
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingToNonExistentEndpoint ()
 specifier|public
 name|void

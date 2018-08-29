@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -96,6 +106,8 @@ name|DefaultTraceFormatterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testDefaultTraceFormatter ()
 specifier|public
 name|void
@@ -106,6 +118,8 @@ name|getFormatter
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFormat ()
 specifier|public
 name|void
@@ -232,6 +246,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithException ()
 specifier|public
 name|void
@@ -288,6 +304,8 @@ block|{
 comment|// ignore
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNoShow ()
 specifier|public
 name|void

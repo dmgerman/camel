@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -158,6 +178,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoManagedCamelContextNoClashDefault ()
 specifier|public
 name|void
@@ -316,6 +338,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoManagedCamelContextNoClashCustomPattern ()
 specifier|public
 name|void
@@ -463,6 +487,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoManagedCamelContextClash ()
 specifier|public
 name|void
@@ -598,8 +624,10 @@ block|}
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

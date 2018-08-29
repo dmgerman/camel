@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -103,6 +113,8 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCamelContext1Wins ()
 specifier|public
 name|void
@@ -163,6 +175,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelContext2Wins ()
 specifier|public
 name|void

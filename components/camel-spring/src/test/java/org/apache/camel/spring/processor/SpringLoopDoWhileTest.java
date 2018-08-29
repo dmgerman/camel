@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -76,6 +86,8 @@ name|LoopDoWhileTest
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testLoopDoWhileFunctional ()
 specifier|public
 name|void

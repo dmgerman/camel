@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -156,6 +166,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsRejectedExecution ()
 specifier|public
 name|void
@@ -291,6 +303,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsRejectedExecutionCallerNotRuns ()
 specifier|public
 name|void
@@ -458,6 +472,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsRejectedDiscard ()
 specifier|public
 name|void
@@ -625,6 +641,8 @@ name|inflight
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsRejectedDiscardOldest ()
 specifier|public
 name|void
@@ -792,6 +810,8 @@ name|inflight
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsRejectedAbort ()
 specifier|public
 name|void
@@ -959,6 +979,8 @@ name|inflight
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsRejectedCallerRuns ()
 specifier|public
 name|void
@@ -1126,6 +1148,8 @@ name|inflight
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreadsRejectedAbortNoRedelivery ()
 specifier|public
 name|void

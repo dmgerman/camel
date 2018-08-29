@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -90,6 +100,8 @@ name|LRUSoftCacheTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testLRUSoftCacheGetAndPut ()
 specifier|public
 name|void
@@ -178,6 +190,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCacheHitsAndMisses ()
 specifier|public
 name|void
@@ -321,6 +335,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCachePutOverride ()
 specifier|public
 name|void
@@ -442,6 +458,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCachePutAll ()
 specifier|public
 name|void
@@ -550,6 +568,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCachePutAllAnotherLRUSoftCache ()
 specifier|public
 name|void
@@ -660,6 +680,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCacheRemove ()
 specifier|public
 name|void
@@ -733,6 +755,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCacheValues ()
 specifier|public
 name|void
@@ -827,6 +851,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCacheEmpty ()
 specifier|public
 name|void
@@ -921,6 +947,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCacheContainsKey ()
 specifier|public
 name|void
@@ -1028,6 +1056,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLRUSoftCacheKeySet ()
 specifier|public
 name|void

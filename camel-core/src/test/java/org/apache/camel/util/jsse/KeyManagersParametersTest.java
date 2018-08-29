@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|security
@@ -169,6 +179,8 @@ return|return
 name|kmp
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyPlaceholders ()
 specifier|public
 name|void
@@ -284,6 +296,8 @@ name|kms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateKeyManagers ()
 specifier|public
 name|void
@@ -315,6 +329,8 @@ name|kms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExplicitAlgorithm ()
 specifier|public
 name|void
@@ -356,6 +372,8 @@ name|kms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExplicitProvider ()
 specifier|public
 name|void
@@ -408,6 +426,8 @@ name|kms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidPassword ()
 specifier|public
 name|void
@@ -451,6 +471,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidExplicitAlgorithm ()
 specifier|public
 name|void
@@ -494,6 +516,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidExplicitProvider ()
 specifier|public
 name|void
@@ -537,6 +561,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testAliasedKeyManager ()
 specifier|public
 name|void

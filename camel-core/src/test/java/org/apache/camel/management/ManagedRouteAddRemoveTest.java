@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -158,6 +168,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithTo ()
 specifier|public
 name|void
@@ -484,6 +496,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientList ()
 specifier|public
 name|void
@@ -806,6 +820,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRoutingSlip ()
 specifier|public
 name|void
@@ -1128,6 +1144,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientListAndRouteScopedOnException ()
 specifier|public
 name|void
@@ -1444,6 +1462,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientListAndContextScopedOnException ()
 specifier|public
 name|void
@@ -1757,6 +1777,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientListAndRouteScopedOnCompletion ()
 specifier|public
 name|void
@@ -2055,6 +2077,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientListAndContextScopedOnCompletion ()
 specifier|public
 name|void

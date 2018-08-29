@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -108,6 +118,8 @@ name|SimpleParserPredicateTest
 extends|extends
 name|ExchangeTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSimpleBooleanValue ()
 specifier|public
 name|void
@@ -183,6 +195,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleEq ()
 specifier|public
 name|void
@@ -231,6 +245,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleEqNumeric ()
 specifier|public
 name|void
@@ -281,6 +297,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleEqFunctionFunction ()
 specifier|public
 name|void
@@ -343,6 +361,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleEqFunctionNumeric ()
 specifier|public
 name|void
@@ -393,6 +413,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleGtFunctionNumeric ()
 specifier|public
 name|void
@@ -443,6 +465,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleUnaryInc ()
 specifier|public
 name|void
@@ -493,6 +517,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleUnaryDec ()
 specifier|public
 name|void
@@ -543,6 +569,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleEqFunctionBoolean ()
 specifier|public
 name|void
@@ -605,6 +633,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleEqFunctionBooleanSpaces ()
 specifier|public
 name|void
@@ -667,6 +697,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleLogicalAnd ()
 specifier|public
 name|void
@@ -741,6 +773,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleLogicalOr ()
 specifier|public
 name|void
@@ -815,6 +849,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleLogicalAndAnd ()
 specifier|public
 name|void
@@ -901,6 +937,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleManyAndLogical ()
 specifier|public
 name|void
@@ -1028,6 +1066,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleManyOrLogical ()
 specifier|public
 name|void
@@ -1148,6 +1188,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleExpressionPredicate ()
 specifier|public
 name|void
@@ -1210,6 +1252,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleMap ()
 specifier|public
 name|void
@@ -1434,6 +1478,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleIn ()
 specifier|public
 name|void
@@ -1582,6 +1628,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleInEmpty ()
 specifier|public
 name|void

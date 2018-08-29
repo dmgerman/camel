@@ -19,6 +19,16 @@ package|;
 end_package
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -47,6 +57,8 @@ name|CamelSpringRunnerPlainTest
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testExcludedRoute ()
 specifier|public
 name|void

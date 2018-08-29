@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -72,6 +82,8 @@ name|XPathNamespaceTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespace ()
 specifier|public
 name|void
@@ -110,6 +122,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespaceOther ()
 specifier|public
 name|void
@@ -148,6 +162,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespaceDifferentNamespace ()
 specifier|public
 name|void

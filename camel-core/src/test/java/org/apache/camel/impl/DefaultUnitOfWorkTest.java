@@ -18,11 +18,31 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -44,26 +64,23 @@ specifier|public
 class|class
 name|DefaultUnitOfWorkTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|unitOfWork
 specifier|private
 name|DefaultUnitOfWork
 name|unitOfWork
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|CamelContext
 name|context
 init|=
@@ -93,6 +110,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetId ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -28,11 +38,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -46,8 +56,10 @@ specifier|public
 class|class
 name|FileUtilTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testNormalizePath ()
 specifier|public
 name|void
@@ -139,6 +151,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testStripLeadingSeparator ()
 specifier|public
 name|void
@@ -230,6 +244,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasLeadingSeparator ()
 specifier|public
 name|void
@@ -321,6 +337,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStripFirstLeadingSeparator ()
 specifier|public
 name|void
@@ -412,6 +430,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStripTrailingSeparator ()
 specifier|public
 name|void
@@ -575,6 +595,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStripPath ()
 specifier|public
 name|void
@@ -654,6 +676,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStripPathWithMixedSeparators ()
 specifier|public
 name|void
@@ -745,6 +769,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStripExt ()
 specifier|public
 name|void
@@ -800,6 +826,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnlyExt ()
 specifier|public
 name|void
@@ -879,6 +907,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnlyPath ()
 specifier|public
 name|void
@@ -982,6 +1012,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnlyPathWithMixedSeparators ()
 specifier|public
 name|void
@@ -1085,6 +1117,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCompactPath ()
 specifier|public
 name|void
@@ -1556,6 +1590,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCompactWindowsStylePath ()
 specifier|public
 name|void
@@ -1587,6 +1623,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCompactPathSeparator ()
 specifier|public
 name|void
@@ -1664,6 +1702,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultTempFileSuffixAndPrefix ()
 specifier|public
 name|void
@@ -1700,6 +1740,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultTempFile ()
 specifier|public
 name|void
@@ -1736,6 +1778,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultTempFileParent ()
 specifier|public
 name|void
@@ -1778,6 +1822,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateNewFile ()
 specifier|public
 name|void
@@ -1838,6 +1884,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testShutdown ()
 specifier|public
 name|void
@@ -1888,6 +1936,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRenameUsingDelete ()
 specifier|public
 name|void

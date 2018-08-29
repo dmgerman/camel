@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -177,6 +197,8 @@ specifier|private
 name|MockEndpoint
 name|aEndpoint
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testNoException ()
 specifier|public
 name|void
@@ -213,6 +235,8 @@ name|assertEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithExceptionThrowingComponentFirstInList ()
 specifier|public
 name|void
@@ -249,6 +273,8 @@ name|assertEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithExceptionThrowingComponentSecondInList ()
 specifier|public
 name|void
@@ -285,6 +311,8 @@ name|assertEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithExceptionSettingComponentFirstInList ()
 specifier|public
 name|void
@@ -321,6 +349,8 @@ name|assertEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithExceptionSettingComponentSecondInList ()
 specifier|public
 name|void
@@ -485,8 +515,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

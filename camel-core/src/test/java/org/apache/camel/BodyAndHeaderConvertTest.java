@@ -16,6 +16,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -70,11 +90,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -130,13 +150,15 @@ specifier|public
 class|class
 name|BodyAndHeaderConvertTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|exchange
 specifier|protected
 name|Exchange
 name|exchange
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testConversionOfBody ()
 specifier|public
 name|void
@@ -186,6 +208,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConversionOfExchangeProperties ()
 specifier|public
 name|void
@@ -218,6 +242,8 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConversionOfMessageHeaders ()
 specifier|public
 name|void
@@ -253,6 +279,8 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConversionOfMessageAttachments ()
 specifier|public
 name|void
@@ -303,20 +331,15 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|exchange
 operator|=
 operator|new

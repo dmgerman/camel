@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|text
@@ -126,6 +136,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFiredInFutureWithTPattern ()
 specifier|public
 name|void
@@ -227,6 +239,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFiredInFutureWithTPatternNoPeriod ()
 specifier|public
 name|void
@@ -327,6 +341,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFiredInFutureWithTPatternFixedRate ()
 specifier|public
 name|void
@@ -428,6 +444,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFiredInFutureWithoutTPattern ()
 specifier|public
 name|void
@@ -529,6 +547,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFiredInFutureWithoutTPatternNoPeriod ()
 specifier|public
 name|void
@@ -629,6 +649,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFiredInFutureCustomPattern ()
 specifier|public
 name|void
@@ -730,6 +752,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFiredInFutureCustomPatternNoPeriod ()
 specifier|public
 name|void
@@ -830,6 +854,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFiredInFutureIllegalTime ()
 specifier|public
 name|void

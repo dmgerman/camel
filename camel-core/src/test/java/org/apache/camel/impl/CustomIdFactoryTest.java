@@ -20,6 +20,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -208,8 +228,10 @@ name|ids
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -344,6 +366,8 @@ block|}
 return|;
 block|}
 comment|/**      * Test path 1      */
+annotation|@
+name|Test
 DECL|method|testHello ()
 specifier|public
 name|void
@@ -402,6 +426,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test path 2      */
+annotation|@
+name|Test
 DECL|method|testOther ()
 specifier|public
 name|void

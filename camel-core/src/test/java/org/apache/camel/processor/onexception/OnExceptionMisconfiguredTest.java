@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -102,6 +112,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionMisconfigured ()
 specifier|public
 name|void
@@ -194,6 +206,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionMisconfigured2 ()
 specifier|public
 name|void
@@ -289,6 +303,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionMisconfigured3 ()
 specifier|public
 name|void
@@ -382,6 +398,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionMisconfigured4 ()
 specifier|public
 name|void
@@ -478,6 +496,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionMisconfigured5 ()
 specifier|public
 name|void
@@ -577,6 +597,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionNotMisconfigured ()
 specifier|public
 name|void
@@ -636,6 +658,8 @@ argument_list|()
 expr_stmt|;
 comment|// okay
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionNotMisconfigured2 ()
 specifier|public
 name|void
@@ -695,6 +719,8 @@ argument_list|()
 expr_stmt|;
 comment|// okay
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionNotMisconfigured3 ()
 specifier|public
 name|void
@@ -753,6 +779,8 @@ argument_list|()
 expr_stmt|;
 comment|// okay
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionNotMisconfigured4 ()
 specifier|public
 name|void
@@ -811,6 +839,8 @@ argument_list|()
 expr_stmt|;
 comment|// okay
 block|}
+annotation|@
+name|Test
 DECL|method|testOnExceptionNotMisconfigured5 ()
 specifier|public
 name|void

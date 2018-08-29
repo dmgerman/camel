@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -68,6 +78,8 @@ literal|"org/apache/camel/spring/disableJmxConfig.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClassLoader ()
 specifier|public
 name|void

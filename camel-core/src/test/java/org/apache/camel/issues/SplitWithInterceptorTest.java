@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -353,6 +363,8 @@ literal|0
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitOne ()
 specifier|public
 name|void
@@ -400,6 +412,8 @@ name|doneCount
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitTwo ()
 specifier|public
 name|void

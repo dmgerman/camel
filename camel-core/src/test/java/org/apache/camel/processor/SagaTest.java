@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -212,6 +222,8 @@ specifier|private
 name|CreditService
 name|creditService
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCreditExhausted ()
 specifier|public
 name|void
@@ -298,6 +310,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTotalCompensation ()
 specifier|public
 name|void

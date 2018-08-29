@@ -18,11 +18,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -84,7 +94,7 @@ specifier|public
 class|class
 name|ExchangeBuilderTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|CONTEXT
 specifier|private
@@ -142,6 +152,8 @@ name|PROPERTY_VALUE
 init|=
 literal|"Property value"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testBuildAnExchangeWithDefaultPattern ()
 specifier|public
 name|void
@@ -184,6 +196,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBuildAnExchangeWithBodyHeaderAndPattern ()
 specifier|public
 name|void

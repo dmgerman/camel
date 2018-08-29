@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -139,6 +149,8 @@ operator|new
 name|MyBean
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMessage ()
 specifier|public
 name|void
@@ -194,6 +206,8 @@ name|foo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendTwoMessages ()
 specifier|public
 name|void

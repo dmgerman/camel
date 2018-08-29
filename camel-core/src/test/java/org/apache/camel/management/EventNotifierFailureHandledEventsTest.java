@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -314,6 +334,8 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -431,6 +453,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangeDeadLetterChannel ()
 specifier|public
 name|void
@@ -814,6 +838,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangeOnException ()
 specifier|public
 name|void
@@ -1158,6 +1184,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangeDoTryDoCatch ()
 specifier|public
 name|void

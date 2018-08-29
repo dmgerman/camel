@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -80,6 +90,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRecursion ()
 specifier|public
 name|void
@@ -285,6 +297,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRecursionHandled ()
 specifier|public
 name|void
@@ -495,6 +509,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRecursionDirectNoErrorHandler ()
 specifier|public
 name|void
@@ -737,6 +753,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRecursionHandledDirectNoErrorHandler ()
 specifier|public
 name|void
@@ -984,6 +1002,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRecursionDirect ()
 specifier|public
 name|void
@@ -1192,6 +1212,8 @@ expr_stmt|;
 comment|// we can only see the NPE from the direct route
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRecursionHandledDirect ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -224,6 +234,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectRouteIdWithOptions ()
 specifier|public
 name|void
@@ -249,6 +261,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectRouteId ()
 specifier|public
 name|void
@@ -274,6 +288,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRestRouteIdWithVerbUri ()
 specifier|public
 name|void
@@ -299,6 +315,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRestRouteIdWithoutVerbUri ()
 specifier|public
 name|void
@@ -324,6 +342,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRestRouteIdWithoutPathUri ()
 specifier|public
 name|void

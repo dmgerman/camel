@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -178,6 +188,8 @@ name|DefaultScheduledPollConsumerBridgeErrorHandlerTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testDefaultConsumerBridgeErrorHandler ()
 specifier|public
 name|void

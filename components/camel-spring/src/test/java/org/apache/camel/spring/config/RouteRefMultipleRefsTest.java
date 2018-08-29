@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -72,6 +82,8 @@ name|RouteRefMultipleRefsTest
 extends|extends
 name|SpringTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testRouteRefOutside ()
 specifier|public
 name|void

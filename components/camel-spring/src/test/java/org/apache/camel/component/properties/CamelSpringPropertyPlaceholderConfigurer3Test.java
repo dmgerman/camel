@@ -20,6 +20,36 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -122,8 +152,10 @@ name|SpringTestSupport
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -153,8 +185,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -191,6 +225,8 @@ literal|"org/apache/camel/component/properties/CamelSpringPropertyPlaceholderCon
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelSpringPropertyPlaceholderConfigurerTest ()
 specifier|public
 name|void

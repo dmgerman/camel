@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -115,6 +125,8 @@ name|messageCount
 init|=
 literal|100
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendingLotsOfMessagesGetAggregatedToTheLatestMessage ()
 specifier|public
 name|void
@@ -187,6 +199,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOneMessage ()
 specifier|public
 name|void
@@ -262,6 +276,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBatchTimeoutExpiry ()
 specifier|public
 name|void
@@ -308,6 +324,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregatorNotAtStart ()
 specifier|public
 name|void

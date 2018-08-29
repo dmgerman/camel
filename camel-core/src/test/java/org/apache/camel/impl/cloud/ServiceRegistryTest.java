@@ -126,16 +126,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|assertj
 operator|.
 name|core
@@ -143,8 +133,16 @@ operator|.
 name|api
 operator|.
 name|Assertions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|assertThat
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -317,6 +315,8 @@ operator|.
 name|getDefinitions
 argument_list|()
 decl_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -328,6 +328,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// basic properties
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -346,6 +348,8 @@ argument_list|,
 name|serviceName
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -364,6 +368,8 @@ argument_list|,
 name|serviceId
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -382,6 +388,8 @@ argument_list|,
 literal|"localhost"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -401,6 +409,8 @@ name|port
 argument_list|)
 expr_stmt|;
 comment|// metadata
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -423,6 +433,8 @@ argument_list|,
 name|serviceName
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -445,6 +457,8 @@ argument_list|,
 name|serviceId
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -467,6 +481,8 @@ argument_list|,
 literal|"localhost"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -491,6 +507,8 @@ operator|+
 name|port
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -511,6 +529,8 @@ argument_list|,
 literal|"meta1"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -691,6 +711,8 @@ operator|.
 name|getDefinitions
 argument_list|()
 decl_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -702,6 +724,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// basic properties
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -720,6 +744,8 @@ argument_list|,
 name|serviceName
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -738,6 +764,8 @@ argument_list|,
 name|serviceId
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -756,6 +784,8 @@ argument_list|,
 literal|"localhost"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -775,6 +805,8 @@ name|port
 argument_list|)
 expr_stmt|;
 comment|// metadata
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -797,6 +829,8 @@ argument_list|,
 name|serviceName
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -819,6 +853,8 @@ argument_list|,
 name|serviceId
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -841,6 +877,8 @@ argument_list|,
 literal|"localhost"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -865,6 +903,8 @@ operator|+
 name|port
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -885,6 +925,8 @@ argument_list|,
 literal|"meta1"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1058,6 +1100,8 @@ operator|.
 name|getDefinitions
 argument_list|()
 decl_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1069,6 +1113,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// basic properties
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1087,6 +1133,8 @@ argument_list|,
 name|serviceName
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1105,6 +1153,8 @@ argument_list|,
 name|serviceId
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1123,6 +1173,8 @@ argument_list|,
 literal|"localhost"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1142,6 +1194,8 @@ name|port
 argument_list|)
 expr_stmt|;
 comment|// metadata
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1164,6 +1218,8 @@ argument_list|,
 name|serviceName
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1186,6 +1242,8 @@ argument_list|,
 name|serviceId
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1208,6 +1266,8 @@ argument_list|,
 literal|"localhost"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1232,6 +1292,8 @@ operator|+
 name|port
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs
@@ -1252,6 +1314,8 @@ argument_list|,
 literal|"meta1"
 argument_list|)
 expr_stmt|;
+name|Assertions
+operator|.
 name|assertThat
 argument_list|(
 name|defs

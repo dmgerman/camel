@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -112,6 +122,8 @@ name|ManagedResetIncludeProcessorsTest
 extends|extends
 name|ManagementTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testReset ()
 specifier|public
 name|void

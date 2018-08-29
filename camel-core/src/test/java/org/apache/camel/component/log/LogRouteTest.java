@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -78,6 +88,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMessageToLog ()
 specifier|public
 name|void
@@ -96,6 +108,8 @@ literal|"<level>default</level>"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToInfoLog ()
 specifier|public
 name|void
@@ -114,6 +128,8 @@ literal|"<level>INFO</level>"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToWarnLog ()
 specifier|public
 name|void
@@ -132,6 +148,8 @@ literal|"<level>WARN</level>"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToBadLevel ()
 specifier|public
 name|void

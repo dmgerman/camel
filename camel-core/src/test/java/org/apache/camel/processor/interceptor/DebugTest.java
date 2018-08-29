@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -259,8 +279,10 @@ name|breakpoint
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -503,6 +525,8 @@ block|}
 block|}
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDebug ()
 specifier|public
 name|void
@@ -591,6 +615,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDebugEvent ()
 specifier|public
 name|void
@@ -679,6 +705,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDebugSuspended ()
 specifier|public
 name|void
@@ -822,6 +850,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDebugRemoveBreakpoint ()
 specifier|public
 name|void

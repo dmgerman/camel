@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -68,6 +78,8 @@ name|ValidatorIncludeRelativeRouteTest
 extends|extends
 name|ValidatorIncludeRouteTest
 block|{
+annotation|@
+name|Test
 DECL|method|testValidMessage ()
 specifier|public
 name|void

@@ -18,11 +18,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -32,7 +42,7 @@ specifier|public
 class|class
 name|UnsafeCharactersEncoderTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|method|testEncoding (String before, String after)
 specifier|private
@@ -66,6 +76,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testQnameEncoder ()
 specifier|public
 name|void
@@ -90,6 +102,8 @@ name|afterEncoding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoEncoding ()
 specifier|public
 name|void
@@ -109,6 +123,8 @@ name|noEncoding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnicodes ()
 specifier|public
 name|void
@@ -128,6 +144,8 @@ name|noEncoding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPercentEncode ()
 specifier|public
 name|void
@@ -152,6 +170,8 @@ name|afterEncoding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPercentEncodeAlready ()
 specifier|public
 name|void
@@ -176,6 +196,8 @@ name|afterEncoding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPercentEncodeDanishChar ()
 specifier|public
 name|void
@@ -200,6 +222,8 @@ name|afterEncoding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPercentEncodeDanishCharEncoded ()
 specifier|public
 name|void
@@ -224,6 +248,8 @@ name|afterEncoding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAlreadyEncoded ()
 specifier|public
 name|void
@@ -248,6 +274,8 @@ name|afterEncoding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPercentEncodedLast ()
 specifier|public
 name|void

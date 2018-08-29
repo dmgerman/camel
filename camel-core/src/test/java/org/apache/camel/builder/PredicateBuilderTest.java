@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -171,6 +191,8 @@ name|DefaultCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRegexPredicates ()
 specifier|public
 name|void
@@ -206,6 +228,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicates ()
 specifier|public
 name|void
@@ -276,6 +300,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailingPredicates ()
 specifier|public
 name|void
@@ -336,6 +362,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCompoundOrPredicates ()
 specifier|public
 name|void
@@ -394,6 +422,8 @@ name|or
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCompoundAndPredicates ()
 specifier|public
 name|void
@@ -452,6 +482,8 @@ name|and
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCompoundAndPredicatesVarargs ()
 specifier|public
 name|void
@@ -528,6 +560,8 @@ name|and
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrSignatures ()
 specifier|public
 name|void
@@ -678,6 +712,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCompoundAndOrPredicates ()
 specifier|public
 name|void
@@ -761,6 +797,8 @@ name|andor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicateIn ()
 specifier|public
 name|void
@@ -796,6 +834,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testValueIn ()
 specifier|public
 name|void
@@ -824,6 +864,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEmptyHeaderValueIn ()
 specifier|public
 name|void
@@ -853,6 +895,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStartsWith ()
 specifier|public
 name|void
@@ -1005,6 +1049,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndsWith ()
 specifier|public
 name|void
@@ -1157,6 +1203,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNot ()
 specifier|public
 name|void
@@ -1248,8 +1296,10 @@ block|}
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

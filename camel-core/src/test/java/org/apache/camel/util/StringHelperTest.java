@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -38,11 +48,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -56,8 +66,10 @@ specifier|public
 class|class
 name|StringHelperTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testSimpleSanitized ()
 specifier|public
 name|void
@@ -105,6 +117,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotFileFriendlySimpleSanitized ()
 specifier|public
 name|void
@@ -152,6 +166,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCountChar ()
 specifier|public
 name|void
@@ -243,6 +259,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveQuotes ()
 specifier|public
 name|void
@@ -384,6 +402,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveLeadingAndEndingQuotes ()
 specifier|public
 name|void
@@ -477,6 +497,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasUpper ()
 specifier|public
 name|void
@@ -583,6 +605,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsClassName ()
 specifier|public
 name|void
@@ -689,6 +713,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasStartToken ()
 specifier|public
 name|void
@@ -867,6 +893,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsQuoted ()
 specifier|public
 name|void
@@ -1044,6 +1072,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReplaceAll ()
 specifier|public
 name|void
@@ -1229,6 +1259,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveInitialCharacters ()
 specifier|public
 name|void
@@ -1280,6 +1312,8 @@ literal|"foo"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBefore ()
 specifier|public
 name|void
@@ -1371,6 +1405,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAfter ()
 specifier|public
 name|void
@@ -1462,6 +1498,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBetween ()
 specifier|public
 name|void
@@ -1563,6 +1601,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBetweenOuterPair ()
 specifier|public
 name|void
@@ -1712,6 +1752,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsJavaIdentifier ()
 specifier|public
 name|void
@@ -1767,6 +1809,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeClassName ()
 specifier|public
 name|void
@@ -1830,6 +1874,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChangedLines ()
 specifier|public
 name|void
@@ -2034,6 +2080,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTrimToNull ()
 specifier|public
 name|void
@@ -2117,6 +2165,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHumanReadableBytes ()
 specifier|public
 name|void
@@ -2268,6 +2318,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHumanReadableBytesNullLocale ()
 specifier|public
 name|void
@@ -2289,6 +2341,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHumanReadableBytesDefaultLocale ()
 specifier|public
 name|void

@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -135,6 +145,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathTransform ()
 specifier|public
 name|void

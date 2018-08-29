@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -86,6 +96,8 @@ name|MessageSupportTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSetBodyType ()
 specifier|public
 name|void
@@ -135,6 +147,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetMandatoryBody ()
 specifier|public
 name|void
@@ -199,6 +213,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetMessageId ()
 specifier|public
 name|void
@@ -242,6 +258,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetMessageIdWithoutAnExchange ()
 specifier|public
 name|void
@@ -266,6 +284,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyFromSameHeadersInstance ()
 specifier|public
 name|void
@@ -378,6 +398,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyOverExchange ()
 specifier|public
 name|void

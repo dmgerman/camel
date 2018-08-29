@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -79,6 +89,8 @@ extends|extends
 name|ContextTestSupport
 block|{
 comment|// START SNIPPET: e1
+annotation|@
+name|Test
 DECL|method|testBeanInvocation ()
 specifier|public
 name|void
@@ -112,6 +124,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanInvocationFailure ()
 specifier|public
 name|void

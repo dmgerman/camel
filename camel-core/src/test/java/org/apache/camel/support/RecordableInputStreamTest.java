@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -28,11 +38,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -46,7 +56,7 @@ specifier|public
 class|class
 name|RecordableInputStreamTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|DATA
 specifier|private
@@ -107,6 +117,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testReadAndGetTextsBufferPurge ()
 specifier|public
 name|void
@@ -296,6 +308,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReadAndGetTextsAutoStopRecord ()
 specifier|public
 name|void

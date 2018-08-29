@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -108,11 +118,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -174,7 +184,7 @@ specifier|public
 class|class
 name|ModelSanityCheckerTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|LOG
 specifier|private
@@ -244,6 +254,8 @@ name|packages
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSanity ()
 specifier|public
 name|void

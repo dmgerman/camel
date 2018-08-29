@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|math
@@ -58,11 +68,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -76,8 +86,10 @@ specifier|public
 class|class
 name|ObjectConverterTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testIsCollection ()
 specifier|public
 name|void
@@ -143,6 +155,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIterator ()
 specifier|public
 name|void
@@ -198,6 +212,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testIterable ()
 specifier|public
 name|void
@@ -243,6 +259,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToByte ()
 specifier|public
 name|void
@@ -325,6 +343,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToClass ()
 specifier|public
 name|void
@@ -398,6 +418,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToShort ()
 specifier|public
 name|void
@@ -540,6 +562,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInteger ()
 specifier|public
 name|void
@@ -682,6 +706,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToLong ()
 specifier|public
 name|void
@@ -824,6 +850,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToFloat ()
 specifier|public
 name|void
@@ -907,6 +935,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Float
+operator|)
 name|Float
 operator|.
 name|NaN
@@ -923,6 +954,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Float
+operator|)
 name|Float
 operator|.
 name|NaN
@@ -960,6 +994,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToDouble ()
 specifier|public
 name|void
@@ -1043,6 +1079,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Double
+operator|)
 name|Double
 operator|.
 name|NaN
@@ -1059,6 +1098,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Double
+operator|)
 name|Double
 operator|.
 name|NaN
@@ -1096,6 +1138,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToBigInteger ()
 specifier|public
 name|void
@@ -1271,6 +1315,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToString ()
 specifier|public
 name|void
@@ -1342,6 +1388,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToChar ()
 specifier|public
 name|void
@@ -1378,6 +1426,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNaN ()
 specifier|public
 name|void
@@ -1388,6 +1438,9 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
+operator|(
+name|Double
+operator|)
 name|Double
 operator|.
 name|NaN
@@ -1404,6 +1457,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Double
+operator|)
 name|Double
 operator|.
 name|NaN
@@ -1420,6 +1476,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Float
+operator|)
 name|Float
 operator|.
 name|NaN
@@ -1436,6 +1495,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Float
+operator|)
 name|Float
 operator|.
 name|NaN

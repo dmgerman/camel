@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -186,6 +206,8 @@ name|scanPackage
 init|=
 literal|"org.apache.camel.spring.scan"
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -244,6 +266,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAccepableSchema ()
 specifier|public
 name|void
@@ -294,6 +318,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByAnnotationWithoutExtraFilters ()
 specifier|public
 name|void
@@ -376,6 +402,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByAnnotationsWithoutExtraFilters ()
 specifier|public
 name|void
@@ -418,6 +446,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindImplementationsWithoutExtraFilters ()
 specifier|public
 name|void
@@ -458,6 +488,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByAnnotationWithIncludePackageFilter ()
 specifier|public
 name|void
@@ -538,6 +570,8 @@ name|scanned
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByAnnotationsWithIncludePackageFilter ()
 specifier|public
 name|void
@@ -601,6 +635,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByAnnotationWithExcludePackageFilter ()
 specifier|public
 name|void
@@ -690,6 +726,8 @@ name|scanned
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByAnnotationsWithExcludePackageFilter ()
 specifier|public
 name|void
@@ -737,6 +775,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByFilterWithIncludePackageFilter ()
 specifier|public
 name|void
@@ -795,6 +835,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindImplementationsWithIncludePackageFilter ()
 specifier|public
 name|void
@@ -847,6 +889,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindImplementationsWithExcludePackageFilter ()
 specifier|public
 name|void
@@ -899,6 +943,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByFilterPackageInJarUrl ()
 specifier|public
 name|void
@@ -1063,6 +1109,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testFindByFilterPackageInJarUrlWithPlusChars ()
 specifier|public
 name|void

@@ -40,11 +40,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -119,7 +119,7 @@ specifier|public
 class|class
 name|Jt400DataQueueConsumerTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 comment|/**      * The deviation of the actual timeout value that we permit in our timeout      * tests.      */
 DECL|field|TIMEOUT_TOLERANCE

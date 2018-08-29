@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -151,6 +161,8 @@ specifier|private
 name|MyBean
 name|bean
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testEcho ()
 specifier|public
 name|void
@@ -212,6 +224,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEchoWithMethodHeaderHi ()
 specifier|public
 name|void
@@ -277,6 +291,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMixedBeanEndpoints ()
 specifier|public
 name|void
@@ -342,6 +358,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHi ()
 specifier|public
 name|void
@@ -378,6 +396,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFail ()
 specifier|public
 name|void
@@ -447,6 +467,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodNotExists ()
 specifier|public
 name|void
@@ -547,6 +569,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodNotExistsOnInstance ()
 specifier|public
 name|void

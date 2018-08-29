@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -173,8 +193,10 @@ literal|"target/chmoddir/foo/"
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -207,6 +229,8 @@ literal|"windows"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWriteValidNoDir ()
 specifier|public
 name|void
@@ -234,6 +258,8 @@ literal|"rwxr-xr-x"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWriteValidChmod0755 ()
 specifier|public
 name|void
@@ -261,6 +287,8 @@ literal|"rwxr-xr-x"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWriteValidChmod666 ()
 specifier|public
 name|void

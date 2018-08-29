@@ -56,16 +56,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -166,6 +156,88 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|AfterClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Rule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|rules
+operator|.
+name|TestName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -193,7 +265,7 @@ specifier|abstract
 class|class
 name|TestSupport
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|LS
 specifier|protected
@@ -236,24 +308,39 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// Builder methods for expressions used when testing
-comment|// -------------------------------------------------------------------------
-comment|/**      * Runs the bare test sequence only if this platform is supported      *      * @throws Throwable if any exception is thrown      */
 annotation|@
-name|Override
-DECL|method|runBare ()
+name|Rule
+DECL|field|name
+specifier|public
+name|TestName
+name|name
+init|=
+operator|new
+name|TestName
+argument_list|()
+decl_stmt|;
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+operator|.
+name|getMethodName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Before
+DECL|method|setUp ()
 specifier|public
 name|void
-name|runBare
+name|setUp
 parameter_list|()
 throws|throws
-name|Throwable
-block|{
-if|if
-condition|(
-name|canRunOnThisPlatform
-argument_list|()
-condition|)
+name|Exception
 block|{
 comment|//start with a clean slate
 name|DefaultCamelContext
@@ -268,11 +355,25 @@ operator|.
 name|resetCounters
 argument_list|()
 expr_stmt|;
-name|super
+name|Assume
 operator|.
-name|runBare
+name|assumeTrue
+argument_list|(
+name|canRunOnThisPlatform
 argument_list|()
+argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|After
+DECL|method|tearDown ()
+specifier|public
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 comment|// make sure we cleanup the platform mbean server
 name|TestSupportJmxCleanup
 operator|.
@@ -281,7 +382,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|canRunOnThisPlatform ()
 specifier|protected
@@ -293,6 +393,8 @@ return|return
 literal|true
 return|;
 block|}
+comment|// Builder methods for expressions used when testing
+comment|// -------------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
 DECL|method|header (String name)
 specifier|public

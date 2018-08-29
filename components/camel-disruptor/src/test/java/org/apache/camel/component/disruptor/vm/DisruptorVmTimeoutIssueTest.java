@@ -24,6 +24,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -110,6 +120,8 @@ name|DisruptorVmTimeoutIssueTest
 extends|extends
 name|AbstractVmTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testDisruptorVmTimeoutWithAnotherDisruptorVm ()
 specifier|public
 name|void
@@ -168,6 +180,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testDisruptorVmTimeoutWithProcessor ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -260,6 +270,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessagesInWrongOrderButReceiveThemInCorrectOrder ()
 specifier|public
 name|void
@@ -332,6 +344,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMultithreaded ()
 specifier|public
 name|void
@@ -573,6 +587,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStreamResequencerTypeWithJmx ()
 specifier|public
 name|void
@@ -585,6 +601,8 @@ name|doTestStreamResequencerType
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStreamResequencerTypeWithoutJmx ()
 specifier|public
 name|void
