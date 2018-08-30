@@ -810,6 +810,24 @@ specifier|private
 name|HostnameVerifier
 name|x509HostnameVerifier
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,proxy"
+argument_list|,
+name|description
+operator|=
+literal|"Ignore Content-Length Header"
+argument_list|)
+DECL|field|ignoreContentLengthHeader
+specifier|private
+name|boolean
+name|ignoreContentLengthHeader
+init|=
+literal|true
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1896,6 +1914,33 @@ operator|.
 name|socketTimeout
 operator|=
 name|socketTimeout
+expr_stmt|;
+block|}
+comment|/**      * Ignore Content-Length Header      */
+DECL|method|isIgnoreContentLengthHeader ()
+specifier|public
+name|boolean
+name|isIgnoreContentLengthHeader
+parameter_list|()
+block|{
+return|return
+name|ignoreContentLengthHeader
+return|;
+block|}
+DECL|method|setIgnoreContentLengthHeader (boolean ignoreContentLengthHeader)
+specifier|public
+name|void
+name|setIgnoreContentLengthHeader
+parameter_list|(
+name|boolean
+name|ignoreContentLengthHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreContentLengthHeader
+operator|=
+name|ignoreContentLengthHeader
 expr_stmt|;
 block|}
 block|}
