@@ -1916,7 +1916,7 @@ operator|=
 name|socketTimeout
 expr_stmt|;
 block|}
-comment|/**      * Ignore Content-Length Header      */
+comment|/**      * Ignore Content-Length Header      *<p>      * Ignore the HTTP Content-Length Header when sending the       * request to the HttpProducer.  Set this to false to explicitly       * set Content-Length of a request body.      *</p>      *<p>      * Default: {@code true}      *</p>      */
 DECL|method|isIgnoreContentLengthHeader ()
 specifier|public
 name|boolean
