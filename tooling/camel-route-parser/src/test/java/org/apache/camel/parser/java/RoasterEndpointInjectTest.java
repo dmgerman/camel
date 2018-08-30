@@ -559,7 +559,7 @@ name|details
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|6
 argument_list|)
 operator|.
 name|getEndpointUri
@@ -576,7 +576,7 @@ name|details
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|6
 argument_list|)
 operator|.
 name|getLineNumber
@@ -593,7 +593,7 @@ name|details
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|6
 argument_list|)
 operator|.
 name|getLineNumberEnd
@@ -610,7 +610,7 @@ name|details
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|6
 argument_list|)
 operator|.
 name|getAbsolutePosition
@@ -627,7 +627,7 @@ name|details
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|6
 argument_list|)
 operator|.
 name|getLinePosition
@@ -739,7 +739,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|6
+literal|7
 argument_list|,
 name|details
 operator|.
@@ -757,7 +757,7 @@ name|details
 operator|.
 name|get
 argument_list|(
-literal|3
+literal|4
 argument_list|)
 operator|.
 name|getEndpointUri
