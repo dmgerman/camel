@@ -46,6 +46,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -119,9 +129,11 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Before
+annotation|@
 name|Override
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
