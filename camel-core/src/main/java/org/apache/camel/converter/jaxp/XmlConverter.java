@@ -4024,7 +4024,7 @@ name|in
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
+comment|/**      * Converts the given {@link Reader} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
 DECL|method|toDOMDocument (Reader in)
@@ -4053,7 +4053,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
+comment|/**      * Converts the given {@link Reader} to a DOM document      *      * @param in is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
 annotation|@
 name|Converter
 DECL|method|toDOMDocument (Reader in, Exchange exchange)
