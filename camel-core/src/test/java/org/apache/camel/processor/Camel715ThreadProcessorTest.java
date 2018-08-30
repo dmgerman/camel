@@ -42,11 +42,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -186,7 +186,7 @@ specifier|public
 class|class
 name|Camel715ThreadProcessorTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|ITERS
 specifier|private

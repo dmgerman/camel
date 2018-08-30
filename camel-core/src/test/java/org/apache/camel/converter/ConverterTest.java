@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|beans
@@ -118,11 +138,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -344,7 +364,7 @@ specifier|public
 class|class
 name|ConverterTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|LOG
 specifier|private
@@ -451,9 +471,9 @@ return|;
 block|}
 block|}
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -481,6 +501,8 @@ name|converter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIntegerPropertyEditorConversion ()
 specifier|public
 name|void
@@ -545,6 +567,8 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertStringToAndFromByteArray ()
 specifier|public
 name|void
@@ -609,6 +633,8 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertStringToAndFromCharArray ()
 specifier|public
 name|void
@@ -673,6 +699,8 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertStringAndStreams ()
 specifier|public
 name|void
@@ -724,6 +752,8 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testArrayToListAndSetConversion ()
 specifier|public
 name|void
@@ -866,6 +896,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCollectionToArrayConversion ()
 specifier|public
 name|void
@@ -954,6 +986,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCollectionToPrimitiveArrayConversion ()
 specifier|public
 name|void
@@ -1109,6 +1143,8 @@ name|resultList
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStringToFile ()
 specifier|public
 name|void
@@ -1149,6 +1185,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFileToString ()
 specifier|public
 name|void
@@ -1237,6 +1275,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPrimitiveBooleanConversion ()
 specifier|public
 name|void
@@ -1265,6 +1305,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPrimitiveIntConversion ()
 specifier|public
 name|void
@@ -1297,6 +1339,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPrimitiveIntPropertySetter ()
 specifier|public
 name|void
@@ -1338,6 +1382,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStringToBoolean ()
 specifier|public
 name|void
@@ -1418,6 +1464,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStaticMethodConversionWithExchange ()
 specifier|public
 name|void
@@ -1494,6 +1542,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInstanceMethodConversionWithExchange ()
 specifier|public
 name|void
@@ -1583,6 +1633,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMandatoryConvertTo ()
 specifier|public
 name|void
@@ -1641,6 +1693,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testStringToChar ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -124,6 +134,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMainSupport ()
 specifier|public
 name|void
@@ -154,6 +166,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMainSupportMaxMessages ()
 specifier|public
 name|void
@@ -188,6 +202,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMainSupportHelp ()
 specifier|public
 name|void

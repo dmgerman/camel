@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -207,6 +217,8 @@ name|Object
 argument_list|>
 name|sendFuture
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testDoSomething ()
 specifier|public
 name|void
@@ -251,6 +263,8 @@ name|doSomething
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChangeSomething ()
 specifier|public
 name|void
@@ -293,6 +307,8 @@ name|changeSomething
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoNothing ()
 specifier|public
 name|void
@@ -337,6 +353,8 @@ name|doNothing
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThrowSomething ()
 specifier|public
 name|void

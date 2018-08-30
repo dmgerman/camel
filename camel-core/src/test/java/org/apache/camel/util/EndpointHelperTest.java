@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -158,6 +168,8 @@ specifier|private
 name|Endpoint
 name|bar
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testPollEndpoint ()
 specifier|public
 name|void
@@ -278,6 +290,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPollEndpointTimeout ()
 specifier|public
 name|void
@@ -474,6 +488,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupEndpointRegistryId ()
 specifier|public
 name|void
@@ -524,6 +540,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupEndpointRegistryIdUsingRef ()
 specifier|public
 name|void
@@ -592,6 +610,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveReferenceParameter ()
 specifier|public
 name|void
@@ -629,6 +649,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndConvertReferenceParameter ()
 specifier|public
 name|void
@@ -670,6 +692,8 @@ name|number
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveAndConvertMissingReferenceParameter ()
 specifier|public
 name|void
@@ -702,6 +726,8 @@ name|number
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMandatoryResolveAndConvertMissingReferenceParameter ()
 specifier|public
 name|void
@@ -749,6 +775,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveParameter ()
 specifier|public
 name|void

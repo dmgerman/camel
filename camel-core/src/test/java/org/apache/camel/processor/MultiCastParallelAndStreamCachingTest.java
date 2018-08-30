@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -688,6 +698,8 @@ block|}
 block|}
 block|}
 comment|/**      * Tests the ByteArrayInputStreamCache. The send byte array is transformed      * to a ByteArrayInputStreamCache before the multi-cast processor is called.      *       * @throws Exception      */
+annotation|@
+name|Test
 DECL|method|testByteArrayInputStreamCache ()
 specifier|public
 name|void
@@ -748,6 +760,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Tests the FileInputStreamCache.      *       * The sent input stream is transformed to FileInputStreamCache before the      * multi-cast processor is called.      *       * @throws Exception      */
+annotation|@
+name|Test
 DECL|method|testFileInputStreamCache ()
 specifier|public
 name|void
@@ -814,6 +828,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Tests the FileInputStreamCache.      *       * The sent input stream is transformed to InputStreamCache before the      * multi-cast processor is called.      *       * @throws Exception      */
+annotation|@
+name|Test
 DECL|method|testInputStreamCache ()
 specifier|public
 name|void
@@ -882,6 +898,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Tests the ReaderCache.      *       * The sent InputStreamReader is transformed to a ReaderCache before the      * multi-cast processor is called.      *       * @throws Exception      */
+annotation|@
+name|Test
 DECL|method|testReaderCache ()
 specifier|public
 name|void
@@ -958,6 +976,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStreamSourceCacheWithInputStream ()
 specifier|public
 name|void
@@ -1031,6 +1051,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStreamSourceCacheWithReader ()
 specifier|public
 name|void
@@ -1116,6 +1138,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSourceCache ()
 specifier|public
 name|void

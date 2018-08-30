@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -383,6 +393,8 @@ block|}
 end_class
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testDynamicRouterOne ()
 specifier|public
 name|void
@@ -453,6 +465,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Test
 DECL|method|testDynamicRouterTwo ()
 specifier|public
 name|void

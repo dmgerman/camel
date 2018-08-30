@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -68,6 +78,8 @@ name|NotifyBuilderTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testMustBeCreated ()
 specifier|public
 name|void
@@ -121,6 +133,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testDestroyUnregistersBuilder ()
 specifier|public
 name|void
@@ -192,6 +206,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDestroyResetsBuilder ()
 specifier|public
 name|void
@@ -256,6 +272,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testDestroyedBuilderCannotBeRecreated ()
 specifier|public
 name|void
@@ -320,6 +338,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectWhenExchangeDoneSimple ()
 specifier|public
 name|void
@@ -390,6 +410,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectBeerWhenExchangeDoneSimple ()
 specifier|public
 name|void
@@ -460,6 +482,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectFromRoute ()
 specifier|public
 name|void
@@ -549,6 +573,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectFromRouteReceived ()
 specifier|public
 name|void
@@ -638,6 +664,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeDone ()
 specifier|public
 name|void
@@ -800,6 +828,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeDoneAnd ()
 specifier|public
 name|void
@@ -1002,6 +1032,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFromRouteWhenExchangeDoneAnd ()
 specifier|public
 name|void
@@ -1204,6 +1236,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFromRouteAndNot ()
 specifier|public
 name|void
@@ -1366,6 +1400,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeDoneOr ()
 specifier|public
 name|void
@@ -1560,6 +1596,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeDoneNot ()
 specifier|public
 name|void
@@ -1727,6 +1765,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeDoneOrFailure ()
 specifier|public
 name|void
@@ -1853,6 +1893,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeDoneNotFailure ()
 specifier|public
 name|void
@@ -1987,6 +2029,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFilterWhenExchangeDone ()
 specifier|public
 name|void
@@ -2156,6 +2200,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFromFilterWhenExchangeDone ()
 specifier|public
 name|void
@@ -2348,6 +2394,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFromFilterBuilderWhenExchangeDone ()
 specifier|public
 name|void
@@ -2468,6 +2516,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeCompleted ()
 specifier|public
 name|void
@@ -2630,6 +2680,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeExactlyDone ()
 specifier|public
 name|void
@@ -2750,6 +2802,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeExactlyComplete ()
 specifier|public
 name|void
@@ -2870,6 +2924,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExchangeExactlyFailed ()
 specifier|public
 name|void
@@ -3066,6 +3122,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenAnyReceivedMatches ()
 specifier|public
 name|void
@@ -3165,6 +3223,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenAllReceivedMatches ()
 specifier|public
 name|void
@@ -3264,6 +3324,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenAnyDoneMatches ()
 specifier|public
 name|void
@@ -3363,6 +3425,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenAllDoneMatches ()
 specifier|public
 name|void
@@ -3462,6 +3526,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenBodiesReceived ()
 specifier|public
 name|void
@@ -3577,6 +3643,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenBodiesDone ()
 specifier|public
 name|void
@@ -3673,6 +3741,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExactBodiesReceived ()
 specifier|public
 name|void
@@ -3788,6 +3858,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenExactBodiesDone ()
 specifier|public
 name|void
@@ -3884,6 +3956,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenReceivedSatisfied ()
 specifier|public
 name|void
@@ -4023,6 +4097,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenReceivedNotSatisfied ()
 specifier|public
 name|void
@@ -4135,6 +4211,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenNotSatisfiedUsingSatisfied ()
 specifier|public
 name|void
@@ -4246,6 +4324,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testComplexOrCamel ()
 specifier|public
 name|void
@@ -4463,6 +4543,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenDoneSatisfied ()
 specifier|public
 name|void
@@ -4577,6 +4659,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenDoneNotSatisfied ()
 specifier|public
 name|void
@@ -4691,6 +4775,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReset ()
 specifier|public
 name|void
@@ -4809,6 +4895,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResetBodiesReceived ()
 specifier|public
 name|void
@@ -4919,6 +5007,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOneNonAbstractPredicate ()
 specifier|public
 name|void
@@ -4967,6 +5057,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testWereSentTo ()
 specifier|public
 name|void
@@ -5036,6 +5128,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoWereSentTo ()
 specifier|public
 name|void
@@ -5111,6 +5205,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWhenDoneWereSentTo ()
 specifier|public
 name|void
@@ -5257,6 +5353,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWereSentToWhenDone ()
 specifier|public
 name|void
@@ -5403,6 +5501,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoWereSentToRegExp ()
 specifier|public
 name|void
@@ -5473,6 +5573,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoWereSentToDoneAndFailed ()
 specifier|public
 name|void

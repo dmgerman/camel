@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -81,6 +91,8 @@ extends|extends
 name|ContextTestSupport
 block|{
 comment|// START SNIPPET: e2
+annotation|@
+name|Test
 DECL|method|testFutureEcho ()
 specifier|public
 name|void
@@ -158,6 +170,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// END SNIPPET: e2
+annotation|@
+name|Test
 DECL|method|testFutureEchoCallTwoTimes ()
 specifier|public
 name|void

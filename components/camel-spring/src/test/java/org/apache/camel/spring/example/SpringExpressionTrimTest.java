@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -88,6 +98,8 @@ literal|"org/apache/camel/spring/example/expressionTrim.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefault ()
 specifier|public
 name|void
@@ -120,6 +132,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTrim ()
 specifier|public
 name|void
@@ -152,6 +166,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoTrim ()
 specifier|public
 name|void

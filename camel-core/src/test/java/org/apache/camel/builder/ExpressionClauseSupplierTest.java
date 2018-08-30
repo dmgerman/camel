@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -61,6 +71,8 @@ name|BODY_SUPPLIER_MSG
 init|=
 literal|"I am the body supplier!"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testBodySupplier ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -106,6 +116,8 @@ name|AdviceWithIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNoAdvice ()
 specifier|public
 name|void
@@ -162,6 +174,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAdviceWithErrorHandler ()
 specifier|public
 name|void
@@ -240,6 +254,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testAdviceWithOnException ()
 specifier|public
 name|void
@@ -343,6 +359,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAdviceWithInterceptFrom ()
 specifier|public
 name|void
@@ -442,6 +460,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAdviceWithInterceptSendToEndpoint ()
 specifier|public
 name|void
@@ -543,6 +563,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAdviceWithOnCompletion ()
 specifier|public
 name|void

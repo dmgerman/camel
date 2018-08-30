@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -166,6 +176,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMarshalTextToGZip ()
 specifier|public
 name|void
@@ -249,6 +261,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnMarshalTextToGzip ()
 specifier|public
 name|void

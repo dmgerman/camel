@@ -18,6 +18,36 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -183,9 +213,9 @@ extends|extends
 name|TestSupport
 block|{
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -202,16 +232,11 @@ argument_list|,
 literal|"10"
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -225,12 +250,9 @@ argument_list|(
 literal|"CamelSedaPollTimeout"
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOverloadingTheDefaultErrorHandler ()
 specifier|public
 name|void
@@ -386,6 +408,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOverloadingTheHandlerOnASingleRoute ()
 specifier|public
 name|void
@@ -469,6 +493,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigureDeadLetterChannel ()
 specifier|public
 name|void
@@ -604,6 +630,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testConfigureDeadLetterChannelWithCustomRedeliveryPolicy ()
 specifier|public
 name|void
@@ -788,6 +816,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testLoggingErrorHandler ()
 specifier|public
 name|void

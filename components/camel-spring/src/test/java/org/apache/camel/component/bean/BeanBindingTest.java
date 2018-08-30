@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -102,6 +112,8 @@ literal|"org/apache/camel/component/bean/beanBindingTest.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanBindingUsingBeanExpression ()
 specifier|public
 name|void
@@ -190,6 +202,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanBindingUsingConstantExpression ()
 specifier|public
 name|void
@@ -278,6 +292,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanBindingUsingHeaderExpression ()
 specifier|public
 name|void
@@ -374,6 +390,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanBindingUsingManyExpression ()
 specifier|public
 name|void

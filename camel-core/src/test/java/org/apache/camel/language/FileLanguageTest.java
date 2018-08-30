@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -244,6 +254,8 @@ return|return
 literal|"file"
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConstantExpression ()
 specifier|public
 name|void
@@ -260,6 +272,8 @@ literal|"MyBigFile.txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMessageId ()
 specifier|public
 name|void
@@ -297,6 +311,8 @@ literal|".bak"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidSyntax ()
 specifier|public
 name|void
@@ -354,6 +370,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testFile ()
 specifier|public
 name|void
@@ -545,6 +563,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFileUsingAlternativeStartToken ()
 specifier|public
 name|void
@@ -706,6 +726,8 @@ name|modified
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDate ()
 specifier|public
 name|void
@@ -809,6 +831,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testDateUsingAlternativeStartToken ()
 specifier|public
 name|void
@@ -912,6 +936,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleAndFile ()
 specifier|public
 name|void
@@ -941,6 +967,8 @@ literal|"backup-abc-hello.bak"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleAndFileAndBean ()
 specifier|public
 name|void
@@ -970,6 +998,8 @@ literal|"backup-abc-generatorbybean-hello.bak"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBean ()
 specifier|public
 name|void
@@ -993,6 +1023,8 @@ literal|"backup-generatorbybean.txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoEscapeAllowed ()
 specifier|public
 name|void
@@ -1023,6 +1055,8 @@ literal|"target\\newdir\\onwindows\\hello.txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFileNameDoubleExtension ()
 specifier|public
 name|void
@@ -1283,6 +1317,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIllegalSyntax ()
 specifier|public
 name|void
@@ -1398,6 +1434,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testConstantFilename ()
 specifier|public
 name|void

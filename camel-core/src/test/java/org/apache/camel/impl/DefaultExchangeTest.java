@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -134,6 +144,8 @@ name|DefaultExchangeTest
 extends|extends
 name|ExchangeTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBody ()
 specifier|public
 name|void
@@ -214,6 +226,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMandatoryBody ()
 specifier|public
 name|void
@@ -321,6 +335,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionAsType ()
 specifier|public
 name|void
@@ -467,6 +483,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeader ()
 specifier|public
 name|void
@@ -769,6 +787,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProperty ()
 specifier|public
 name|void
@@ -952,6 +972,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveProperties ()
 specifier|public
 name|void
@@ -1123,6 +1145,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveAllProperties ()
 specifier|public
 name|void
@@ -1210,6 +1234,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemovePropertiesWithExclusion ()
 specifier|public
 name|void
@@ -1422,6 +1448,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemovePropertiesPatternWithAllExcluded ()
 specifier|public
 name|void
@@ -1638,6 +1666,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInType ()
 specifier|public
 name|void
@@ -1673,6 +1703,8 @@ name|my
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOutType ()
 specifier|public
 name|void
@@ -1708,6 +1740,8 @@ name|my
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopy ()
 specifier|public
 name|void
@@ -1769,6 +1803,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFaultCopy ()
 specifier|public
 name|void
@@ -1781,6 +1817,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFaultSafeCopy ()
 specifier|public
 name|void

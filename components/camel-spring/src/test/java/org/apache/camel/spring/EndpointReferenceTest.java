@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -160,6 +170,8 @@ name|body
 init|=
 literal|"<hello>world!</hello>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testContextToString ()
 specifier|public
 name|void
@@ -177,6 +189,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointConfiguration ()
 specifier|public
 name|void
@@ -305,6 +319,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointConfigurationAfterEnsuringThatTheStatementRouteBuilderWasCreated ()
 specifier|public
 name|void
@@ -344,6 +360,8 @@ name|testEndpointConfiguration
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReferenceEndpointFromOtherCamelContext ()
 specifier|public
 name|void

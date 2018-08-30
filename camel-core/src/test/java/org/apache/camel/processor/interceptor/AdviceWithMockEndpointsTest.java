@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -70,6 +80,8 @@ name|AdviceWithMockEndpointsTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNoAdvised ()
 specifier|public
 name|void
@@ -103,6 +115,8 @@ expr_stmt|;
 block|}
 comment|// START SNIPPET: e1
 comment|// tag::e1[]
+annotation|@
+name|Test
 DECL|method|testAdvisedMockEndpoints ()
 specifier|public
 name|void
@@ -277,6 +291,8 @@ comment|// end::e1[]
 comment|// END SNIPPET: e1
 comment|// START SNIPPET: e2
 comment|// tag::e2[]
+annotation|@
+name|Test
 DECL|method|testAdvisedMockEndpointsWithPattern ()
 specifier|public
 name|void

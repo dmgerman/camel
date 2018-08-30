@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -96,6 +106,8 @@ specifier|static
 name|int
 name|counter
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRedeliveryTest ()
 specifier|public
 name|void
@@ -142,6 +154,8 @@ argument_list|)
 expr_stmt|;
 comment|// One call + 2 re-deliveries
 block|}
+annotation|@
+name|Test
 DECL|method|testNoRedeliveriesTest ()
 specifier|public
 name|void
@@ -188,6 +202,8 @@ argument_list|)
 expr_stmt|;
 comment|// One call
 block|}
+annotation|@
+name|Test
 DECL|method|testOneRedeliveryTest ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -190,6 +200,8 @@ name|SamplingThrottlerTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSamplingFromExchangeStream ()
 specifier|public
 name|void
@@ -276,6 +288,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBurstySampling ()
 specifier|public
 name|void
@@ -379,6 +393,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendLotsOfMessagesSimultaneouslyButOnly3GetThrough ()
 specifier|public
 name|void
@@ -500,6 +516,8 @@ name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSamplingUsingMessageFrequency ()
 specifier|public
 name|void
@@ -570,6 +588,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSamplingUsingMessageFrequencyViaDSL ()
 specifier|public
 name|void

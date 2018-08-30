@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -152,6 +172,8 @@ literal|"</xsl:stylesheet>"
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -212,6 +234,8 @@ name|Exception
 block|{
 comment|// Override so we can start the context ourself in the setUp
 block|}
+annotation|@
+name|Test
 DECL|method|testNotCached ()
 specifier|public
 name|void
@@ -293,6 +317,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCached ()
 specifier|public
 name|void
@@ -374,6 +400,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCachedIsDefault ()
 specifier|public
 name|void
@@ -455,6 +483,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClearCachedStylesheetViaJmx ()
 specifier|public
 name|void

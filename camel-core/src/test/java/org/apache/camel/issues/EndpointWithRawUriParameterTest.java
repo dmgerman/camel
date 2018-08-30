@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -470,6 +480,8 @@ name|lines
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRawUriParameter ()
 specifier|public
 name|void
@@ -525,6 +537,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUriParameterLines ()
 specifier|public
 name|void
@@ -623,6 +637,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRawUriParameterLines ()
 specifier|public
 name|void

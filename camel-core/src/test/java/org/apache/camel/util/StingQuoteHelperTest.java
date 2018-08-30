@@ -18,11 +18,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -36,8 +46,10 @@ specifier|public
 class|class
 name|StingQuoteHelperTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testSplitSafeQuote ()
 specifier|public
 name|void
@@ -849,6 +861,8 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLastIsQuote ()
 specifier|public
 name|void
@@ -964,6 +978,8 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSingleInDoubleQuote ()
 specifier|public
 name|void
@@ -1079,6 +1095,8 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoubleInSingleQuote ()
 specifier|public
 name|void

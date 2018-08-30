@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -135,6 +145,8 @@ literal|"<sentDate>2009-10-12T12:22:02+02:00</sentDate><receivedDate>2009-10-12T
 operator|+
 literal|"<intproperty>1</intproperty><stringproperty>aaaaaaabbbbbbbccccccccdddddddd</stringproperty></message>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testConcurrent ()
 specifier|public
 name|void

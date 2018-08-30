@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -82,6 +92,8 @@ name|NIOConverterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testToByteArray ()
 specifier|public
 name|void
@@ -128,6 +140,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test if returned array size is only to limit of ByteBuffer.      *       * If byteBuffer capacity is bigger that limit, we MUST return data only to the limit.      */
+annotation|@
+name|Test
 DECL|method|testToByteArrayBigBuffer ()
 specifier|public
 name|void
@@ -185,6 +199,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToString ()
 specifier|public
 name|void
@@ -232,6 +248,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * ToString need to deal the array size issue as ToByteArray does       */
+annotation|@
+name|Test
 DECL|method|testByteBufferToStringConversion ()
 specifier|public
 name|void
@@ -290,6 +308,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteBuffer ()
 specifier|public
 name|void
@@ -315,6 +335,8 @@ name|bb
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteBufferString ()
 specifier|public
 name|void
@@ -339,6 +361,8 @@ name|bb
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteBufferFile ()
 specifier|public
 name|void
@@ -396,6 +420,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteBufferShort ()
 specifier|public
 name|void
@@ -433,6 +459,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteBufferInteger ()
 specifier|public
 name|void
@@ -470,6 +498,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteBufferLong ()
 specifier|public
 name|void
@@ -507,6 +537,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteBufferDouble ()
 specifier|public
 name|void
@@ -541,9 +573,13 @@ name|bb
 operator|.
 name|getDouble
 argument_list|()
+argument_list|,
+literal|1e-5d
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToByteBufferFloat ()
 specifier|public
 name|void
@@ -578,9 +614,13 @@ name|bb
 operator|.
 name|getFloat
 argument_list|()
+argument_list|,
+literal|1e-5f
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToInputStream ()
 specifier|public
 name|void

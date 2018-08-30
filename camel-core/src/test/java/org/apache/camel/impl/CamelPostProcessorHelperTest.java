@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -429,6 +439,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConstructor ()
 specifier|public
 name|void
@@ -466,6 +478,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConstructorCamelContext ()
 specifier|public
 name|void
@@ -490,6 +504,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMatchContext ()
 specifier|public
 name|void
@@ -529,6 +545,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsume ()
 specifier|public
 name|void
@@ -609,6 +627,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumePrivate ()
 specifier|public
 name|void
@@ -718,6 +738,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumeSynchronization ()
 specifier|public
 name|void
@@ -824,6 +846,8 @@ name|isOnDone
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProduceSynchronization ()
 specifier|public
 name|void
@@ -922,6 +946,8 @@ name|isOnDone
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectProducerTemplate ()
 specifier|public
 name|void
@@ -1085,6 +1111,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectProducer ()
 specifier|public
 name|void
@@ -1267,6 +1295,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectPollingConsumer ()
 specifier|public
 name|void
@@ -1449,6 +1479,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectProducerTemplateField ()
 specifier|public
 name|void
@@ -1599,6 +1631,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectFluentProducerTemplateField ()
 specifier|public
 name|void
@@ -1749,6 +1783,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectProducerTemplateFieldNoDefaultEndpoint ()
 specifier|public
 name|void
@@ -1899,6 +1935,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectProducerTemplateFieldNameUnknown ()
 specifier|public
 name|void
@@ -2018,6 +2056,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectProducerTemplateFieldUrlUnknown ()
 specifier|public
 name|void
@@ -2137,6 +2177,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointInjectBothUriAndRef ()
 specifier|public
 name|void
@@ -2256,6 +2298,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyFieldInject ()
 specifier|public
 name|void
@@ -2436,6 +2480,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyFieldDefaultValueInject ()
 specifier|public
 name|void
@@ -2607,6 +2653,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyMethodInject ()
 specifier|public
 name|void
@@ -2801,6 +2849,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanInject ()
 specifier|public
 name|void
@@ -2903,6 +2953,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanInjectNotFound ()
 specifier|public
 name|void
@@ -2996,6 +3048,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanInjectByType ()
 specifier|public
 name|void
@@ -3098,6 +3152,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFluentProducerTemplateWithNoInjection ()
 specifier|public
 name|void

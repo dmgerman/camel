@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -162,6 +172,8 @@ name|DefaultProducerTemplateTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testIn ()
 specifier|public
 name|void
@@ -218,6 +230,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOut ()
 specifier|public
 name|void
@@ -264,6 +278,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFault ()
 specifier|public
 name|void
@@ -310,6 +326,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionUsingBody ()
 specifier|public
 name|void
@@ -384,6 +402,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionOnRequestBodyWithResponseType ()
 specifier|public
 name|void
@@ -462,6 +482,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionUsingProcessor ()
 specifier|public
 name|void
@@ -549,6 +571,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionUsingExchange ()
 specifier|public
 name|void
@@ -632,6 +656,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestExceptionUsingBody ()
 specifier|public
 name|void
@@ -706,6 +732,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestExceptionUsingProcessor ()
 specifier|public
 name|void
@@ -793,6 +821,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestExceptionUsingExchange ()
 specifier|public
 name|void
@@ -880,6 +910,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestBody ()
 specifier|public
 name|void
@@ -1090,6 +1122,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestUsingDefaultEndpoint ()
 specifier|public
 name|void
@@ -1211,6 +1245,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendUsingDefaultEndpoint ()
 specifier|public
 name|void
@@ -1522,6 +1558,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheProducers ()
 specifier|public
 name|void
@@ -1638,6 +1676,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheProducersFromContext ()
 specifier|public
 name|void

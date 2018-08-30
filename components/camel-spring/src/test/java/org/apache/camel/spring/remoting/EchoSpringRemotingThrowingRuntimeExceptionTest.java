@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -98,6 +108,8 @@ literal|"org/apache/camel/spring/remoting/echo.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEchoOk ()
 specifier|public
 name|void
@@ -130,6 +142,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEchoKabom ()
 specifier|public
 name|void
@@ -192,6 +206,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteOk ()
 specifier|public
 name|void
@@ -224,6 +240,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteKabom ()
 specifier|public
 name|void

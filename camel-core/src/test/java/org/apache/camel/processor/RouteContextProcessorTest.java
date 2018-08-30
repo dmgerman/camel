@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -203,6 +213,8 @@ name|NUMBER_OF_MESSAGES
 init|=
 literal|10000
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testForkAndJoin ()
 specifier|public
 name|void

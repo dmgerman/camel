@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -38,11 +58,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -78,7 +98,7 @@ specifier|public
 class|class
 name|ContainerTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|class|MyContainer
 specifier|private
@@ -125,9 +145,9 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Override
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -143,12 +163,9 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testContainerSet ()
 specifier|public
 name|void
@@ -314,6 +331,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoContainerSet ()
 specifier|public
 name|void

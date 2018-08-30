@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -72,11 +92,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -194,7 +214,7 @@ specifier|public
 class|class
 name|MessageHelperTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|message
 specifier|private
@@ -211,9 +231,9 @@ name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -230,6 +250,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * Tests the {@link MessageHelper#resetStreamCache(Message)} method      */
+annotation|@
+name|Test
 DECL|method|testResetStreamCache ()
 specifier|public
 name|void
@@ -365,6 +387,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetContentType ()
 specifier|public
 name|void
@@ -397,6 +421,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetContentEncpding ()
 specifier|public
 name|void
@@ -429,6 +455,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyHeaders ()
 specifier|public
 name|void
@@ -514,6 +542,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyHeadersOverride ()
 specifier|public
 name|void
@@ -599,6 +629,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyHeadersWithHeaderFilterStrategy ()
 specifier|public
 name|void
@@ -730,6 +762,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDumpAsXmlPlainBody ()
 specifier|public
 name|void
@@ -806,6 +840,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDumpAsXmlBody ()
 specifier|public
 name|void
@@ -900,6 +936,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDumpAsXmlNoBody ()
 specifier|public
 name|void
@@ -985,6 +1023,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDumpAsXmlNoBodyIndent ()
 specifier|public
 name|void
@@ -1072,6 +1112,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMessageDump ()
 specifier|public
 name|void

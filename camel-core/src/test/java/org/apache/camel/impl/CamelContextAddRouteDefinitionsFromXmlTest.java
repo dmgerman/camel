@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -145,8 +165,10 @@ name|jaxbContext
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -252,6 +274,8 @@ name|route
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddRouteDefinitionsFromXml ()
 specifier|public
 name|void
@@ -354,6 +378,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveRouteDefinitionsFromXml ()
 specifier|public
 name|void
@@ -490,6 +516,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddRouteDefinitionsFromXml2 ()
 specifier|public
 name|void
@@ -614,6 +642,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddRouteDefinitionsFromXmlIsPrepared ()
 specifier|public
 name|void
@@ -744,6 +774,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testAddRouteDefinitionsFromXml3 ()
 specifier|public
 name|void
@@ -903,6 +935,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddRouteDefinitionsAfterExceptionFromXml ()
 specifier|public
 name|void

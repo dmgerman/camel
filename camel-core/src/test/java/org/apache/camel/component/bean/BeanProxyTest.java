@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -106,6 +116,8 @@ name|BeanProxyTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBeanProxyStringReturnString ()
 specifier|public
 name|void
@@ -158,6 +170,8 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e2
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyStringReturnDocument ()
 specifier|public
 name|void
@@ -230,6 +244,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyDocumentReturnString ()
 specifier|public
 name|void
@@ -297,6 +313,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyDocumentReturnDocument ()
 specifier|public
 name|void
@@ -388,6 +406,8 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e3
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyFailure ()
 specifier|public
 name|void
@@ -438,6 +458,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyFailureNotXMLBody ()
 specifier|public
 name|void
@@ -494,6 +516,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyVoidReturnType ()
 specifier|public
 name|void
@@ -534,6 +558,8 @@ literal|"<order>ping</order>"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyFailureInvalidReturnType ()
 specifier|public
 name|void
@@ -617,6 +643,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyCallAnotherBean ()
 specifier|public
 name|void
@@ -668,6 +696,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// START SNIPPET: e4
+annotation|@
+name|Test
 DECL|method|testProxyBuilderProxyCallAnotherBean ()
 specifier|public
 name|void
@@ -717,6 +747,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// END SNIPPET: e4
+annotation|@
+name|Test
 DECL|method|testBeanProxyCallAnotherBeanWithNoArgs ()
 specifier|public
 name|void
@@ -765,6 +797,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProxyBuilderProxyCallAnotherBeanWithNoArgs ()
 specifier|public
 name|void
@@ -820,6 +854,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanProxyVoidAsInOut ()
 specifier|public
 name|void
@@ -885,6 +921,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProxyBuilderVoidAsInOut ()
 specifier|public
 name|void

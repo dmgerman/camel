@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|security
@@ -68,6 +78,8 @@ name|SecureRandomParametersTest
 extends|extends
 name|AbstractJsseParametersTest
 block|{
+annotation|@
+name|Test
 DECL|method|testPropertyPlaceholders ()
 specifier|public
 name|void
@@ -125,6 +137,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateSecureRandom ()
 specifier|public
 name|void
@@ -223,6 +237,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExplicitInvalidAlgorithm ()
 specifier|public
 name|void
@@ -265,6 +281,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExplicitInvalidProvider ()
 specifier|public
 name|void

@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|awt
@@ -424,6 +434,8 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testProducer ()
 specifier|public
 name|void

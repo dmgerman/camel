@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -102,6 +112,8 @@ name|ManagedRouteStopUsingMBeanAPITest
 extends|extends
 name|ManagementTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testStopRoute ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -181,6 +191,8 @@ name|order
 init|=
 literal|""
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testEndpointMustBeStartedBeforeProducer ()
 specifier|public
 name|void
@@ -243,6 +255,8 @@ name|order
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointMustBeStartedBeforeConsumer ()
 specifier|public
 name|void
@@ -305,6 +319,8 @@ name|order
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointMustBeStartedBeforeConsumerAndProducer ()
 specifier|public
 name|void
@@ -372,6 +388,8 @@ name|order
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointStartedOnceAndOnlyStoppedOnShutdown ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -128,6 +138,8 @@ name|FluentProducerTemplateTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNoEndpoint ()
 specifier|public
 name|void
@@ -197,6 +209,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultEndpoint ()
 specifier|public
 name|void
@@ -269,6 +283,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFromCamelContext ()
 specifier|public
 name|void
@@ -339,6 +355,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIn ()
 specifier|public
 name|void
@@ -406,6 +424,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOut ()
 specifier|public
 name|void
@@ -463,6 +483,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutWithBodyConversion ()
 specifier|public
 name|void
@@ -524,6 +546,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInOutWithBodyConversionFault ()
 specifier|public
 name|void
@@ -608,6 +632,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFault ()
 specifier|public
 name|void
@@ -665,6 +691,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionUsingBody ()
 specifier|public
 name|void
@@ -746,6 +774,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionUsingProcessor ()
 specifier|public
 name|void
@@ -827,6 +857,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionUsingExchange ()
 specifier|public
 name|void
@@ -927,6 +959,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestExceptionUsingBody ()
 specifier|public
 name|void
@@ -1012,6 +1046,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestExceptionUsingProcessor ()
 specifier|public
 name|void
@@ -1097,6 +1133,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestExceptionUsingExchange ()
 specifier|public
 name|void
@@ -1201,6 +1239,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithExchange ()
 specifier|public
 name|void
@@ -1318,6 +1358,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestBody ()
 specifier|public
 name|void
@@ -1557,6 +1599,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncRequest ()
 specifier|public
 name|void
@@ -1805,6 +1849,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncSend ()
 specifier|public
 name|void

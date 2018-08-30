@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -206,6 +216,8 @@ name|xml
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void

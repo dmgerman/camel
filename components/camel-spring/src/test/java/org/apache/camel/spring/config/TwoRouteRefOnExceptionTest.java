@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -84,6 +94,8 @@ name|TwoRouteRefOnExceptionTest
 extends|extends
 name|SpringTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testTwoRouteRefNoOnException ()
 specifier|public
 name|void
@@ -165,6 +177,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoRouteRefOnException ()
 specifier|public
 name|void

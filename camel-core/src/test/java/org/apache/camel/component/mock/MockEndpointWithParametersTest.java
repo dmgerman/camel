@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -75,6 +85,8 @@ name|uri
 init|=
 literal|"smtp://host:9999?username=smtpusername&password=smtppassword"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMockEndpointWithParameter ()
 specifier|public
 name|void

@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -108,6 +118,8 @@ name|BeanNoTypeConvertionPossibleWhenHeaderTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBeanHeaderNoTypeConvertionPossibleFail ()
 specifier|public
 name|void
@@ -275,6 +287,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanHeaderNoTypeConvertionPossibleOK ()
 specifier|public
 name|void
@@ -315,6 +329,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanHeaderNoTypeConvertionPossibleOKNullHeader ()
 specifier|public
 name|void
@@ -380,6 +396,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanHeaderNoTypeConvertionPossibleOKNoHeader ()
 specifier|public
 name|void

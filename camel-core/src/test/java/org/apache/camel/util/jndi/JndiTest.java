@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -192,6 +212,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupOfSimpleName ()
 specifier|public
 name|void
@@ -218,6 +240,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupOfTypedObject ()
 specifier|public
 name|void
@@ -262,12 +286,14 @@ name|assertEquals
 argument_list|(
 literal|"Bean.price"
 argument_list|,
-literal|2.34
+literal|2.34d
 argument_list|,
 name|bean
 operator|.
 name|getPrice
 argument_list|()
+argument_list|,
+literal|1e-5d
 argument_list|)
 expr_stmt|;
 name|log
@@ -318,8 +344,10 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -184,6 +204,8 @@ name|String
 argument_list|>
 name|repo
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testDuplicateMessagesAreFilteredOut ()
 specifier|public
 name|void
@@ -522,6 +544,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDuplicateMessagesCountAreCorrectlyCounted ()
 specifier|public
 name|void
@@ -876,8 +900,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

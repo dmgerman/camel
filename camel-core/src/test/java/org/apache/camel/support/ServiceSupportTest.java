@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -65,6 +75,8 @@ throws|throws
 name|Exception
 block|{         }
 block|}
+annotation|@
+name|Test
 DECL|method|testServiceSupport ()
 specifier|public
 name|void
@@ -171,6 +183,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testServiceSupportIsRunAllowed ()
 specifier|public
 name|void
@@ -333,6 +347,8 @@ name|shutdown
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testServiceSupportShutdown ()
 specifier|public
 name|void
@@ -459,6 +475,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionOnStart ()
 specifier|public
 name|void

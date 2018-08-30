@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -170,6 +180,8 @@ block|}
 comment|/**      * It retrieves a mbean for each "to" processor instance in the query ":type=processor"      */
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testMBeansRegistered ()
 specifier|public
 name|void
@@ -332,6 +344,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testCounters ()
 specifier|public
 name|void

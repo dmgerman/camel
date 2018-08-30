@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -104,6 +114,8 @@ literal|"org/apache/camel/spring/processor/SpringManagedThreadsThreadPoolTest.xm
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedThreadPool ()
 specifier|public
 name|void

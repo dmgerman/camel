@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -100,6 +110,8 @@ name|uri
 init|=
 literal|"dataset:foo?initialDelay=0&produceDelay=1"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testDataSetWithSeda ()
 specifier|public
 name|void

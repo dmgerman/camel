@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -64,6 +74,8 @@ name|DefaultComponentValidateURITest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNoParameters ()
 specifier|public
 name|void
@@ -90,6 +102,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnknownParameter ()
 specifier|public
 name|void
@@ -122,6 +136,8 @@ block|{
 comment|// ok
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testDoubleAmpersand ()
 specifier|public
 name|void
@@ -154,6 +170,8 @@ block|{
 comment|// ok
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testTrailingAmpersand ()
 specifier|public
 name|void
@@ -186,6 +204,8 @@ block|{
 comment|// ok
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testScheduledPollConsumerOptions ()
 specifier|public
 name|void

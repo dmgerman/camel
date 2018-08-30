@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -320,6 +330,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathExpressions ()
 specifier|public
 name|void
@@ -383,6 +395,8 @@ literal|"123"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathPredicates ()
 specifier|public
 name|void
@@ -437,6 +451,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithCustomVariable ()
 specifier|public
 name|void
@@ -468,6 +484,8 @@ literal|"Hiram"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidXPath ()
 specifier|public
 name|void
@@ -523,6 +541,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathBooleanResult ()
 specifier|public
 name|void
@@ -573,6 +593,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathNodeResult ()
 specifier|public
 name|void
@@ -642,6 +664,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathNodeSetResult ()
 specifier|public
 name|void
@@ -711,6 +735,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathNumberResult ()
 specifier|public
 name|void
@@ -761,6 +787,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathStringResult ()
 specifier|public
 name|void
@@ -808,6 +836,8 @@ name|num
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathCustomResult ()
 specifier|public
 name|void
@@ -862,6 +892,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathBuilder ()
 specifier|public
 name|void
@@ -909,6 +941,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithDocument ()
 specifier|public
 name|void
@@ -980,6 +1014,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithDocumentTypeDOMSource ()
 specifier|public
 name|void
@@ -1065,6 +1101,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithDocumentTypeInputSource ()
 specifier|public
 name|void
@@ -1159,6 +1197,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithDocumentTypeInputSourceFluentBuilder ()
 specifier|public
 name|void
@@ -1251,6 +1291,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithDocumentTypeInputSourceNoResultQName ()
 specifier|public
 name|void
@@ -1352,6 +1394,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithDocumentTypeDOMSourceNoResultQName ()
 specifier|public
 name|void
@@ -1444,6 +1488,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithStringTypeDOMSourceNoResultQName ()
 specifier|public
 name|void
@@ -1510,6 +1556,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespaceBooleanResult ()
 specifier|public
 name|void
@@ -1564,6 +1612,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespaceBooleanResultType ()
 specifier|public
 name|void
@@ -1624,6 +1674,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespaceStringResult ()
 specifier|public
 name|void
@@ -1676,6 +1728,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespacesBooleanResult ()
 specifier|public
 name|void
@@ -1739,6 +1793,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespacesStringResult ()
 specifier|public
 name|void
@@ -1800,6 +1856,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathWithNamespacesNodeResult ()
 specifier|public
 name|void
@@ -1873,6 +1931,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUsingJavaExtensions ()
 specifier|public
 name|void
@@ -2138,6 +2198,8 @@ return|return
 name|exchange
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathNotUsingExchangeMatches ()
 specifier|public
 name|void
@@ -2181,6 +2243,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathNotUsingExchangeEvaluate ()
 specifier|public
 name|void
@@ -2307,6 +2371,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotUsingExchangeResultType ()
 specifier|public
 name|void
@@ -2372,6 +2438,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathSplit ()
 specifier|public
 name|void
@@ -2429,6 +2497,8 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathSplitConcurrent ()
 specifier|public
 name|void
@@ -2648,6 +2718,8 @@ name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathNodeListTest ()
 specifier|public
 name|void
@@ -2738,6 +2810,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathNodeListSimpleTest ()
 specifier|public
 name|void
@@ -2817,6 +2891,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathNodeListSimpleTestText ()
 specifier|public
 name|void
@@ -2896,6 +2972,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathString ()
 specifier|public
 name|void

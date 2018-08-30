@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -137,6 +147,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogTracerEventMessage ()
 specifier|public
 name|void
@@ -479,6 +491,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBacklogTracerEventMessageAsXml ()
 specifier|public
 name|void
@@ -716,6 +730,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogTracerEventMessageDumpAll ()
 specifier|public
 name|void
@@ -1241,6 +1257,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBacklogTracerEventMessageDumpAllAsXml ()
 specifier|public
 name|void
@@ -1441,6 +1459,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogTracerNotRemoveOnDump ()
 specifier|public
 name|void
@@ -1759,6 +1779,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogTracerNotRemoveOnDumpPattern ()
 specifier|public
 name|void
@@ -2149,6 +2171,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testBacklogTracerNotRemoveOverflow ()
 specifier|public
 name|void

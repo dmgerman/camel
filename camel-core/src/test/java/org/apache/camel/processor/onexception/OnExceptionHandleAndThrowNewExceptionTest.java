@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -102,6 +112,8 @@ name|OnExceptionHandleAndThrowNewExceptionTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testOnExceptionHandleAndThrowNewException ()
 specifier|public
 name|void

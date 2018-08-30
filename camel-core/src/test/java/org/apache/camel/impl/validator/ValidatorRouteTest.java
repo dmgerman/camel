@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -303,6 +313,8 @@ name|VALIDATOR_INVOKED
 init|=
 literal|"validator-invoked"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testPredicateValidator ()
 specifier|public
 name|void
@@ -381,6 +393,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndpointValidator ()
 specifier|public
 name|void
@@ -473,6 +487,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCustomValidator ()
 specifier|public
 name|void

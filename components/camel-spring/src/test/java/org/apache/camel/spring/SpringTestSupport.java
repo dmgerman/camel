@@ -170,6 +170,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -248,6 +268,8 @@ name|createApplicationContext
 parameter_list|()
 function_decl|;
 annotation|@
+name|Before
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
@@ -255,7 +277,7 @@ argument_list|)
 annotation|@
 name|Override
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -346,9 +368,11 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|After
+annotation|@
 name|Override
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

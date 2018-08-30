@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -139,6 +149,8 @@ name|ERROR_QUEUE
 init|=
 literal|"mock:error"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testHandledException ()
 specifier|public
 name|void
@@ -205,6 +217,8 @@ name|mock
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHandledExceptionWithExpression ()
 specifier|public
 name|void
@@ -275,6 +289,8 @@ name|mock
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnhandledException ()
 specifier|public
 name|void

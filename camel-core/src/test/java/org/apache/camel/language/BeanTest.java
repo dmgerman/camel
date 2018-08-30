@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -130,6 +140,8 @@ name|BeanTest
 extends|extends
 name|LanguageTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSimpleExpressions ()
 specifier|public
 name|void
@@ -202,6 +214,8 @@ literal|"e::o"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicates ()
 specifier|public
 name|void
@@ -226,6 +240,8 @@ literal|"my.company.MyClass::isFooHeaderAbc"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDoubleColon ()
 specifier|public
 name|void
@@ -245,6 +261,8 @@ literal|"foo:isFooHeaderAbc"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanTypeExpression ()
 specifier|public
 name|void
@@ -297,6 +315,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanTypeAndMethodExpression ()
 specifier|public
 name|void
@@ -349,6 +369,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanInstanceAndMethodExpression ()
 specifier|public
 name|void
@@ -406,6 +428,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoMethod ()
 specifier|public
 name|void
@@ -504,6 +528,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoMethodBeanLookup ()
 specifier|public
 name|void

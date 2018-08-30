@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -86,6 +96,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Tests that no external DTD call is executed for StringSource. */
+annotation|@
+name|Test
 DECL|method|testInvalidMessageWithExternalDTDStringSource ()
 specifier|public
 name|void
@@ -130,6 +142,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Tests that external DTD call is not executed  for StreamSource. */
+annotation|@
+name|Test
 DECL|method|testInvalidMessageWithExternalDTDStreamSource ()
 specifier|public
 name|void
@@ -190,6 +204,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Tests that XXE is not possible for StreamSource. */
+annotation|@
+name|Test
 DECL|method|testInvalidMessageXXESourceStream ()
 specifier|public
 name|void

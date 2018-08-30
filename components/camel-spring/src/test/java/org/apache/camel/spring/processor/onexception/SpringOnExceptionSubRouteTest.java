@@ -24,6 +24,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -90,6 +100,8 @@ name|SpringOnExceptionSubRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testOrderOk ()
 specifier|public
 name|void
@@ -179,6 +191,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderError ()
 specifier|public
 name|void
@@ -268,6 +282,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderErrorWithNoExceptionClause ()
 specifier|public
 name|void

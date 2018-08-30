@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -80,6 +90,8 @@ name|OptionalPropertiesDslInvalidSyntaxTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testPlaceholderDslKeyNotFoundTest ()
 specifier|public
 name|void
@@ -189,6 +201,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPlaceholderDslSetterNotFoundTest ()
 specifier|public
 name|void

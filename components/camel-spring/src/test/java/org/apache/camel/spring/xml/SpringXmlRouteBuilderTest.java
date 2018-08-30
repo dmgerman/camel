@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -349,6 +359,8 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testIdempotentConsumer ()
 specifier|public
 name|void
@@ -361,6 +373,8 @@ comment|// is tested elsewhere
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testRouteWithInterceptor ()
 specifier|public
 name|void

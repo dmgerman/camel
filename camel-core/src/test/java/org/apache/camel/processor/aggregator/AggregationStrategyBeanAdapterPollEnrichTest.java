@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -77,6 +87,8 @@ operator|new
 name|MyBodyAppender
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testNoData ()
 specifier|public
 name|void
@@ -108,6 +120,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testData ()
 specifier|public
 name|void

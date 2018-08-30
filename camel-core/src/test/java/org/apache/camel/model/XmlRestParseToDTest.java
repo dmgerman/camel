@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -84,6 +94,8 @@ name|XmlRestParseToDTest
 extends|extends
 name|XmlTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testParseSimpleRestXml ()
 specifier|public
 name|void

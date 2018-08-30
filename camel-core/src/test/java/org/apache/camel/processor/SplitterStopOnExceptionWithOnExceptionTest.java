@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -94,6 +104,8 @@ name|SplitterStopOnExceptionWithOnExceptionTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSplitStopOnExceptionOk ()
 specifier|public
 name|void
@@ -142,6 +154,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitStopOnExceptionStop1 ()
 specifier|public
 name|void
@@ -198,6 +212,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitStopOnExceptionStop2 ()
 specifier|public
 name|void
@@ -259,6 +275,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitStopOnExceptionStop3 ()
 specifier|public
 name|void

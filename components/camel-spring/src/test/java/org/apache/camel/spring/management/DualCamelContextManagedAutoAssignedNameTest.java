@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -112,6 +122,8 @@ literal|"org/apache/camel/spring/management/dualCamelContextManagedAutoAssignedN
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDualCamelContextManaged ()
 specifier|public
 name|void

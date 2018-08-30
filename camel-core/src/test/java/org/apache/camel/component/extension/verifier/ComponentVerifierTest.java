@@ -22,11 +22,11 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Test
 import|;
 end_import
 
@@ -76,8 +76,10 @@ specifier|public
 class|class
 name|ComponentVerifierTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testGetErrorDetails ()
 specifier|public
 name|void
@@ -212,6 +214,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNullCode ()
 specifier|public
 name|void
@@ -256,6 +260,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNullAttribute ()
 specifier|public
 name|void
@@ -300,6 +306,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testScopeFromString ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -166,6 +176,8 @@ name|SedaConcurrentTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSedaConcurrentInOnly ()
 specifier|public
 name|void
@@ -228,6 +240,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSedaConcurrentInOnlyWithAsync ()
 specifier|public
 name|void
@@ -290,6 +304,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSedaConcurrentInOut ()
 specifier|public
 name|void
@@ -442,6 +458,8 @@ name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSedaConcurrentInOutWithAsync ()
 specifier|public
 name|void

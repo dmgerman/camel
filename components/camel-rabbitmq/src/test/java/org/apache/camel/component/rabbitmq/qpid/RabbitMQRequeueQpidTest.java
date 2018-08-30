@@ -24,6 +24,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -113,6 +143,8 @@ annotation|@
 name|Ignore
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testNoRequeueHeaderCausesReject ()
 specifier|public
 name|void
@@ -125,6 +157,8 @@ annotation|@
 name|Ignore
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testNonBooleanRequeueHeaderCausesReject ()
 specifier|public
 name|void
@@ -137,6 +171,8 @@ annotation|@
 name|Ignore
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testFalseRequeueHeaderCausesReject ()
 specifier|public
 name|void

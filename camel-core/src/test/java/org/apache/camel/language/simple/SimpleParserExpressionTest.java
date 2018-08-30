@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -70,6 +80,8 @@ name|SimpleParserExpressionTest
 extends|extends
 name|ExchangeTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSimpleParserEol ()
 specifier|public
 name|void
@@ -114,6 +126,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSingleQuote ()
 specifier|public
 name|void
@@ -158,6 +172,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleStringList ()
 specifier|public
 name|void
@@ -202,6 +218,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSingleQuoteWithFunction ()
 specifier|public
 name|void
@@ -256,6 +274,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSingleQuoteWithFunctionBodyAs ()
 specifier|public
 name|void
@@ -310,6 +330,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSingleQuoteEol ()
 specifier|public
 name|void
@@ -354,6 +376,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleFunction ()
 specifier|public
 name|void
@@ -408,6 +432,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSingleQuoteDollar ()
 specifier|public
 name|void
@@ -452,6 +478,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSingleQuoteDollarEnd ()
 specifier|public
 name|void
@@ -496,6 +524,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleUnaryInc ()
 specifier|public
 name|void
@@ -550,6 +580,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleUnaryDec ()
 specifier|public
 name|void
@@ -604,6 +636,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleUnaryIncInt ()
 specifier|public
 name|void
@@ -663,6 +697,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleUnaryDecInt ()
 specifier|public
 name|void
@@ -722,6 +758,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderNestedFunction ()
 specifier|public
 name|void
@@ -798,6 +836,8 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyAsNestedFunction ()
 specifier|public
 name|void
@@ -889,6 +929,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreeNestedFunctions ()
 specifier|public
 name|void
@@ -1004,6 +1046,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNestedNestedFunctions ()
 specifier|public
 name|void
@@ -1107,6 +1151,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleMap ()
 specifier|public
 name|void
@@ -1225,6 +1271,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnaryLenient ()
 specifier|public
 name|void
@@ -1291,6 +1339,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnaryLenient2 ()
 specifier|public
 name|void
@@ -1357,6 +1407,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnaryLenient3 ()
 specifier|public
 name|void

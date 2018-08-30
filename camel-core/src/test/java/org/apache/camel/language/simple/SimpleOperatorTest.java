@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -119,6 +129,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testValueWithSpace ()
 specifier|public
 name|void
@@ -145,6 +157,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNullValue ()
 specifier|public
 name|void
@@ -202,6 +216,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEmptyValue ()
 specifier|public
 name|void
@@ -307,6 +323,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAnd ()
 specifier|public
 name|void
@@ -358,6 +376,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoAnd ()
 specifier|public
 name|void
@@ -391,6 +411,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreeAnd ()
 specifier|public
 name|void
@@ -417,6 +439,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoOr ()
 specifier|public
 name|void
@@ -464,6 +488,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThreeOr ()
 specifier|public
 name|void
@@ -518,6 +544,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAndWithQuotation ()
 specifier|public
 name|void
@@ -569,6 +597,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOr ()
 specifier|public
 name|void
@@ -634,6 +664,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrWithQuotation ()
 specifier|public
 name|void
@@ -699,6 +731,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEqualOperator ()
 specifier|public
 name|void
@@ -766,6 +800,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEqualIgnoreOperator ()
 specifier|public
 name|void
@@ -847,6 +883,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotEqualOperator ()
 specifier|public
 name|void
@@ -914,6 +952,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFloatingNumber ()
 specifier|public
 name|void
@@ -997,6 +1037,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGreaterThanOperator ()
 specifier|public
 name|void
@@ -1057,6 +1099,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGreaterThanStringToInt ()
 specifier|public
 name|void
@@ -1157,6 +1201,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLessThanStringToInt ()
 specifier|public
 name|void
@@ -1257,6 +1303,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGreaterThanOrEqualOperator ()
 specifier|public
 name|void
@@ -1324,6 +1372,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLessThanOperator ()
 specifier|public
 name|void
@@ -1384,6 +1434,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAgainstNegativeValue ()
 specifier|public
 name|void
@@ -1682,6 +1734,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLessThanOrEqualOperator ()
 specifier|public
 name|void
@@ -1749,6 +1803,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsNull ()
 specifier|public
 name|void
@@ -1772,6 +1828,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsNotNull ()
 specifier|public
 name|void
@@ -1795,6 +1853,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRightOperatorIsSimpleLanguage ()
 specifier|public
 name|void
@@ -1819,6 +1879,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRightOperatorIsBeanLanguage ()
 specifier|public
 name|void
@@ -1850,6 +1912,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testContains ()
 specifier|public
 name|void
@@ -1887,6 +1951,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotContains ()
 specifier|public
 name|void
@@ -1924,6 +1990,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testContainsIgnoreCase ()
 specifier|public
 name|void
@@ -1961,6 +2029,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRegex ()
 specifier|public
 name|void
@@ -2012,6 +2082,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotRegex ()
 specifier|public
 name|void
@@ -2063,6 +2135,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIn ()
 specifier|public
 name|void
@@ -2123,6 +2197,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotIn ()
 specifier|public
 name|void
@@ -2183,6 +2259,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIs ()
 specifier|public
 name|void
@@ -2252,6 +2330,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIsNot ()
 specifier|public
 name|void
@@ -2321,6 +2401,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRange ()
 specifier|public
 name|void
@@ -2503,6 +2585,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotRange ()
 specifier|public
 name|void
@@ -2657,6 +2741,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testUnaryInc ()
 specifier|public
 name|void
@@ -2729,6 +2815,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUnaryDec ()
 specifier|public
 name|void
@@ -2801,6 +2889,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStartsWith ()
 specifier|public
 name|void
@@ -2862,6 +2952,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEndsWith ()
 specifier|public
 name|void

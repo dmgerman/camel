@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -148,6 +158,8 @@ name|ResourceHelperTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testLoadFile ()
 specifier|public
 name|void
@@ -228,6 +240,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadFileWithSpace ()
 specifier|public
 name|void
@@ -330,6 +344,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadClasspath ()
 specifier|public
 name|void
@@ -410,6 +426,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadRegistry ()
 specifier|public
 name|void
@@ -508,6 +526,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadBeanDoubleColon ()
 specifier|public
 name|void
@@ -617,6 +637,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadBeanDoubleColonLong ()
 specifier|public
 name|void
@@ -726,6 +748,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadBeanDot ()
 specifier|public
 name|void
@@ -835,6 +859,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadClasspathDefault ()
 specifier|public
 name|void
@@ -915,6 +941,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadFileNotFound ()
 specifier|public
 name|void
@@ -978,6 +1006,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadClasspathNotFound ()
 specifier|public
 name|void
@@ -1038,6 +1068,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadFileAsUrl ()
 specifier|public
 name|void
@@ -1116,6 +1148,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadClasspathAsUrl ()
 specifier|public
 name|void
@@ -1194,6 +1228,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadCustomUrlasInputStream ()
 specifier|public
 name|void
@@ -1279,6 +1315,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadCustomUrlasInputStreamFail ()
 specifier|public
 name|void
@@ -1342,6 +1380,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadCustomUrl ()
 specifier|public
 name|void
@@ -1439,6 +1479,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadCustomUrlFail ()
 specifier|public
 name|void
@@ -1497,6 +1539,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsHttp ()
 specifier|public
 name|void
@@ -1556,6 +1600,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetScheme ()
 specifier|public
 name|void
@@ -1625,6 +1671,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAppendParameters ()
 specifier|public
 name|void

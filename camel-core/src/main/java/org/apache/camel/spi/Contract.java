@@ -152,7 +152,7 @@ return|return
 name|outputType
 return|;
 block|}
-comment|/**     * Set the output data type.     *     * @param outputType output data type     */
+comment|/**      * Set the output data type.      *      * @param outputType output data type      */
 DECL|method|setOutputType (String outputType)
 specifier|public
 name|void

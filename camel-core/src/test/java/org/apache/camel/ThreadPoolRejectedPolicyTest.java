@@ -16,6 +16,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -136,6 +146,8 @@ name|ThreadPoolRejectedPolicyTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testAbortAsRejectedExecutionHandler ()
 specifier|public
 name|void
@@ -266,6 +278,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAbortAsRejectedExecutionHandlerWithRejectableTasks ()
 specifier|public
 name|void
@@ -418,6 +432,8 @@ name|result4
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCallerRunsAsRejectedExecutionHandler ()
 specifier|public
 name|void
@@ -533,6 +549,8 @@ name|result3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCallerRunsAsRejectedExecutionHandlerWithRejectableTasks ()
 specifier|public
 name|void
@@ -648,6 +666,8 @@ name|result3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDiscardAsRejectedExecutionHandler ()
 specifier|public
 name|void
@@ -763,6 +783,8 @@ name|result3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDiscardAsRejectedExecutionHandlerWithRejectableTasks ()
 specifier|public
 name|void
@@ -878,6 +900,8 @@ name|result3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDiscardOldestAsRejectedExecutionHandler ()
 specifier|public
 name|void
@@ -993,6 +1017,8 @@ name|result3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDiscardOldestAsRejectedExecutionHandlerWithRejectableTasks ()
 specifier|public
 name|void

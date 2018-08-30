@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -138,6 +148,8 @@ name|MockEndpointTimeClauseTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testReceivedTimestamp ()
 specifier|public
 name|void
@@ -243,6 +255,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAssertPeriod ()
 specifier|public
 name|void
@@ -286,6 +300,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAssertPeriodNot ()
 specifier|public
 name|void
@@ -341,6 +357,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAssertPeriodSecondMessageArrives ()
 specifier|public
 name|void
@@ -478,6 +496,8 @@ name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoAssertPeriodSecondMessageArrives ()
 specifier|public
 name|void
@@ -596,6 +616,8 @@ name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testArrivesBeforeNext ()
 specifier|public
 name|void
@@ -669,6 +691,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testArrivesAfterPrevious ()
 specifier|public
 name|void
@@ -742,6 +766,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testArrivesBeforeAndAfter ()
 specifier|public
 name|void
@@ -852,6 +878,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testArrivesWithinAfterPrevious ()
 specifier|public
 name|void
@@ -927,6 +955,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testArrivesWithinBeforeNext ()
 specifier|public
 name|void
@@ -1002,6 +1032,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testArrivesAllMessages ()
 specifier|public
 name|void

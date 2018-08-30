@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -68,6 +78,8 @@ name|AdviceWithTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNoAdvised ()
 specifier|public
 name|void
@@ -110,6 +122,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// START SNIPPET: e1
+annotation|@
+name|Test
 DECL|method|testAdvised ()
 specifier|public
 name|void
@@ -213,6 +227,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// END SNIPPET: e1
+annotation|@
+name|Test
 DECL|method|testAdvisedNoNewRoutesAllowed ()
 specifier|public
 name|void
@@ -297,6 +313,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testAdvisedThrowException ()
 specifier|public
 name|void

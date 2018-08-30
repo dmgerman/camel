@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -42,11 +52,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -152,7 +162,7 @@ specifier|public
 class|class
 name|StopRouteFromRouteTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|latch
 specifier|final
@@ -166,6 +176,8 @@ literal|1
 argument_list|)
 decl_stmt|;
 comment|// START SNIPPET: e1
+annotation|@
+name|Test
 DECL|method|testStopRouteFromRoute ()
 specifier|public
 name|void

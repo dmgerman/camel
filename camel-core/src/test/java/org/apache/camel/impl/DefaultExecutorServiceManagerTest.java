@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -140,6 +150,8 @@ name|DefaultExecutorServiceManagerTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testResolveThreadNameDefaultPattern ()
 specifier|public
 name|void
@@ -236,6 +248,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadNameCustomPattern ()
 specifier|public
 name|void
@@ -341,6 +355,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadNameCustomPatternCamelId ()
 specifier|public
 name|void
@@ -447,6 +463,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadNameCustomPatternWithDollar ()
 specifier|public
 name|void
@@ -486,6 +504,8 @@ name|foo
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadNameCustomPatternLongName ()
 specifier|public
 name|void
@@ -578,6 +598,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadNameCustomPatternWithParameters ()
 specifier|public
 name|void
@@ -670,6 +692,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadNameCustomPatternNoCounter ()
 specifier|public
 name|void
@@ -736,6 +760,8 @@ name|bar
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadNameCustomPatternInvalid ()
 specifier|public
 name|void
@@ -801,6 +827,8 @@ literal|"Camel Thread #counter# - #name#"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultThreadPool ()
 specifier|public
 name|void
@@ -906,6 +934,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultUnboundedQueueThreadPool ()
 specifier|public
 name|void
@@ -1075,6 +1105,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultNoMaxQueueThreadPool ()
 specifier|public
 name|void
@@ -1240,6 +1272,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCustomDefaultThreadPool ()
 specifier|public
 name|void
@@ -1405,6 +1439,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadPoolProfile ()
 specifier|public
 name|void
@@ -1489,6 +1525,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoGetThreadPoolProfile ()
 specifier|public
 name|void
@@ -1674,6 +1712,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadPoolProfileInheritDefaultValues ()
 specifier|public
 name|void
@@ -1814,6 +1854,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadPoolProfileInheritCustomDefaultValues ()
 specifier|public
 name|void
@@ -2017,6 +2059,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetThreadPoolProfileInheritCustomDefaultValues2 ()
 specifier|public
 name|void
@@ -2184,6 +2228,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewThreadPoolProfile ()
 specifier|public
 name|void
@@ -2332,6 +2378,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewThreadPoolProfileById ()
 specifier|public
 name|void
@@ -2490,6 +2538,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewThreadPoolMinMax ()
 specifier|public
 name|void
@@ -2590,6 +2640,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewFixedThreadPool ()
 specifier|public
 name|void
@@ -2693,6 +2745,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewSingleThreadExecutor ()
 specifier|public
 name|void
@@ -2794,6 +2848,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewScheduledThreadPool ()
 specifier|public
 name|void
@@ -2895,6 +2951,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewSingleThreadScheduledExecutor ()
 specifier|public
 name|void
@@ -2994,6 +3052,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewCachedThreadPool ()
 specifier|public
 name|void
@@ -3092,6 +3152,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewScheduledThreadPoolProfileById ()
 specifier|public
 name|void
@@ -3253,6 +3315,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNewThread ()
 specifier|public
 name|void

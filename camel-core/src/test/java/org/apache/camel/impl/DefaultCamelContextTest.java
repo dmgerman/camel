@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -268,6 +278,8 @@ name|DefaultCamelContextTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testAutoCreateComponentsOn ()
 specifier|public
 name|void
@@ -314,6 +326,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoCreateComponentsOff ()
 specifier|public
 name|void
@@ -355,6 +369,8 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoStartComponentsOff ()
 specifier|public
 name|void
@@ -410,6 +426,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoStartComponentsOn ()
 specifier|public
 name|void
@@ -465,6 +483,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateDefaultUuidGenerator ()
 specifier|public
 name|void
@@ -509,6 +529,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetComponents ()
 specifier|public
 name|void
@@ -578,6 +600,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetEndpoint ()
 specifier|public
 name|void
@@ -637,6 +661,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetEndpointNoScheme ()
 specifier|public
 name|void
@@ -673,6 +699,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetEndPointByTypeUnknown ()
 specifier|public
 name|void
@@ -721,6 +749,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveEndpoint ()
 specifier|public
 name|void
@@ -947,6 +977,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetEndpointNotFound ()
 specifier|public
 name|void
@@ -1003,6 +1035,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetEndpointUnknownComponentNoScheme ()
 specifier|public
 name|void
@@ -1049,6 +1083,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRestartCamelContext ()
 specifier|public
 name|void
@@ -1207,6 +1243,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testName ()
 specifier|public
 name|void
@@ -1269,6 +1307,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testVersion ()
 specifier|public
 name|void
@@ -1298,6 +1338,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasComponent ()
 specifier|public
 name|void
@@ -1348,6 +1390,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetComponent ()
 specifier|public
 name|void
@@ -1435,6 +1479,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHasEndpoint ()
 specifier|public
 name|void
@@ -1529,6 +1575,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetRouteById ()
 specifier|public
 name|void
@@ -1662,6 +1710,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSuspend ()
 specifier|public
 name|void
@@ -1798,6 +1848,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResume ()
 specifier|public
 name|void
@@ -1934,6 +1986,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSuspendResume ()
 specifier|public
 name|void
@@ -2070,6 +2124,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddServiceInjectCamelContext ()
 specifier|public
 name|void
@@ -2146,6 +2202,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAddServiceType ()
 specifier|public
 name|void

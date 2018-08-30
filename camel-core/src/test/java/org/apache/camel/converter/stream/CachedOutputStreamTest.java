@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -283,8 +303,10 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -412,6 +434,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCachedStreamAccessStreamWhenExchangeOnCompletion ()
 specifier|public
 name|void
@@ -560,6 +584,8 @@ name|cos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheStreamToFileAndCloseStream ()
 specifier|public
 name|void
@@ -761,6 +787,8 @@ name|cos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheStreamToFileAndCloseStreamEncrypted ()
 specifier|public
 name|void
@@ -1036,6 +1064,8 @@ name|cos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheStreamToFileCloseStreamBeforeDone ()
 specifier|public
 name|void
@@ -1239,6 +1269,8 @@ name|cos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheStreamToMemory ()
 specifier|public
 name|void
@@ -1361,6 +1393,8 @@ name|cos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheStreamToMemoryAsDiskIsDisabled ()
 specifier|public
 name|void
@@ -1495,6 +1529,8 @@ name|cos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCachedOutputStreamCustomBufferSize ()
 specifier|public
 name|void
@@ -1722,6 +1758,8 @@ name|cos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCachedOutputStreamEmptyInput ()
 specifier|public
 name|void

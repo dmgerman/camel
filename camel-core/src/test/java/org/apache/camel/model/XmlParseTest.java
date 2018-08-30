@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -162,6 +172,8 @@ name|XmlParseTest
 extends|extends
 name|XmlTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testParseSimpleRouteXml ()
 specifier|public
 name|void
@@ -195,6 +207,8 @@ literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseProcessorXml ()
 specifier|public
 name|void
@@ -243,6 +257,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseProcessorWithFilterXml ()
 specifier|public
 name|void
@@ -291,6 +307,8 @@ literal|"in.header.foo == 'bar'"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseProcessorWithHeaderFilterXml ()
 specifier|public
 name|void
@@ -339,6 +357,8 @@ literal|"foo"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseProcessorWithElFilterXml ()
 specifier|public
 name|void
@@ -387,6 +407,8 @@ literal|"$in.header.foo == 'bar'"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseProcessorWithGroovyFilterXml ()
 specifier|public
 name|void
@@ -435,6 +457,8 @@ literal|"in.headers.any { h -> h.startsWith('foo')}"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseRecipientListXml ()
 specifier|public
 name|void
@@ -486,6 +510,8 @@ literal|"foo"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseStaticRecipientListXml ()
 specifier|public
 name|void
@@ -521,6 +547,8 @@ literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseTransformXml ()
 specifier|public
 name|void
@@ -580,6 +608,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseSagaXml ()
 specifier|public
 name|void
@@ -635,6 +665,8 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseScriptXml ()
 specifier|public
 name|void
@@ -694,6 +726,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseSetBodyXml ()
 specifier|public
 name|void
@@ -753,6 +787,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseSetHeaderXml ()
 specifier|public
 name|void
@@ -822,6 +858,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseSetHeaderToConstantXml ()
 specifier|public
 name|void
@@ -896,6 +934,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testParseSetOutHeaderXml ()
 specifier|public
 name|void
@@ -970,6 +1010,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testParseSetOutHeaderToConstantXml ()
 specifier|public
 name|void
@@ -1039,6 +1081,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseConvertBodyXml ()
 specifier|public
 name|void
@@ -1085,6 +1129,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseRoutingSlipXml ()
 specifier|public
 name|void
@@ -1149,6 +1195,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseRoutingSlipWithHeaderSetXml ()
 specifier|public
 name|void
@@ -1213,6 +1261,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseRoutingSlipWithHeaderAndDelimiterSetXml ()
 specifier|public
 name|void
@@ -1275,6 +1325,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseRouteWithChoiceXml ()
 specifier|public
 name|void
@@ -1379,6 +1431,8 @@ literal|"seda:d"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseSplitterXml ()
 specifier|public
 name|void
@@ -1436,6 +1490,8 @@ literal|"seda:b"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseLoadBalance ()
 specifier|public
 name|void
@@ -1499,6 +1555,8 @@ name|RoundRobinLoadBalancerDefinition
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseCircuitBreakerLoadBalance ()
 specifier|public
 name|void
@@ -1618,6 +1676,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseStickyLoadBalance ()
 specifier|public
 name|void
@@ -1702,6 +1762,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseFailoverLoadBalance ()
 specifier|public
 name|void
@@ -1791,6 +1853,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseRandomLoadBalance ()
 specifier|public
 name|void
@@ -1854,6 +1918,8 @@ name|RandomLoadBalancerDefinition
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseTopicLoadBalance ()
 specifier|public
 name|void
@@ -1917,6 +1983,8 @@ name|TopicLoadBalancerDefinition
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseHL7DataFormat ()
 specifier|public
 name|void
@@ -1941,6 +2009,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseXStreamDataFormat ()
 specifier|public
 name|void
@@ -1965,6 +2035,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseJibxDataFormat ()
 specifier|public
 name|void
@@ -1989,6 +2061,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseXMLBeansDataFormat ()
 specifier|public
 name|void
@@ -2013,6 +2087,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseXMLSecurityDataFormat ()
 specifier|public
 name|void
@@ -2037,6 +2113,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseTidyMarkupDataFormat ()
 specifier|public
 name|void
@@ -2061,6 +2139,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseRSSDataFormat ()
 specifier|public
 name|void
@@ -2085,6 +2165,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseJSonDataFormat ()
 specifier|public
 name|void
@@ -2109,6 +2191,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseJaxbDataFormat ()
 specifier|public
 name|void
@@ -2133,6 +2217,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseFlatpackDataFormat ()
 specifier|public
 name|void
@@ -2157,6 +2243,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseCvsDataFormat ()
 specifier|public
 name|void
@@ -2181,6 +2269,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseZipFileDataFormat ()
 specifier|public
 name|void
@@ -2205,6 +2295,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseBindyDataFormat ()
 specifier|public
 name|void
@@ -2229,6 +2321,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseCastorDataFormat ()
 specifier|public
 name|void
@@ -2253,6 +2347,8 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseBatchResequencerXml ()
 specifier|public
 name|void
@@ -2324,6 +2420,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseStreamResequencerXml ()
 specifier|public
 name|void
@@ -2395,6 +2493,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoop ()
 specifier|public
 name|void

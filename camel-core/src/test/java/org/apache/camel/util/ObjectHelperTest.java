@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -164,11 +174,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -332,8 +342,10 @@ specifier|public
 class|class
 name|ObjectHelperTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testLoadResourceAsStream ()
 specifier|public
 name|void
@@ -384,6 +396,8 @@ name|res2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadResource ()
 specifier|public
 name|void
@@ -425,6 +439,8 @@ name|url2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetPropertyName ()
 specifier|public
 name|void
@@ -486,6 +502,8 @@ parameter_list|)
 block|{
 comment|// used in the above unit test
 block|}
+annotation|@
+name|Test
 DECL|method|testContains ()
 specifier|public
 name|void
@@ -590,6 +608,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testContainsStringBuilder ()
 specifier|public
 name|void
@@ -701,6 +721,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testContainsStringBuffer ()
 specifier|public
 name|void
@@ -812,6 +834,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEqual ()
 specifier|public
 name|void
@@ -1049,6 +1073,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEqualByteArray ()
 specifier|public
 name|void
@@ -1410,6 +1436,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateIterator ()
 specifier|public
 name|void
@@ -1453,6 +1481,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateIteratorAllowEmpty ()
 specifier|public
 name|void
@@ -1522,6 +1552,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateIteratorPattern ()
 specifier|public
 name|void
@@ -1583,6 +1615,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateIteratorWithStringAndCommaSeparator ()
 specifier|public
 name|void
@@ -1640,6 +1674,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateIteratorWithStringAndCommaSeparatorEmptyString ()
 specifier|public
 name|void
@@ -1718,6 +1754,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateIteratorWithStringAndSemiColonSeparator ()
 specifier|public
 name|void
@@ -1775,6 +1813,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateIteratorWithStringAndCommaInParanthesesSeparator ()
 specifier|public
 name|void
@@ -1812,6 +1852,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateIteratorWithStringAndCommaInParanthesesSeparatorTwo ()
 specifier|public
 name|void
@@ -1860,6 +1902,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// CHECKSTYLE:OFF
+annotation|@
+name|Test
 DECL|method|testCreateIteratorWithPrimitiveArrayTypes ()
 specifier|public
 name|void
@@ -3971,6 +4015,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// CHECKSTYLE:ON
+annotation|@
+name|Test
 DECL|method|testArrayAsIterator ()
 specifier|public
 name|void
@@ -4067,6 +4113,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsEmpty ()
 specifier|public
 name|void
@@ -4146,6 +4194,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsNotEmpty ()
 specifier|public
 name|void
@@ -4225,6 +4275,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIteratorWithComma ()
 specifier|public
 name|void
@@ -4275,6 +4327,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIteratorWithOtherDelimiter ()
 specifier|public
 name|void
@@ -4327,6 +4381,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIteratorEmpty ()
 specifier|public
 name|void
@@ -4478,6 +4534,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIteratorIdempotentNext ()
 specifier|public
 name|void
@@ -4558,6 +4616,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIteratorIdempotentNextWithNodeList ()
 specifier|public
 name|void
@@ -4694,6 +4754,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testGetCamelContextPropertiesWithPrefix ()
 specifier|public
 name|void
@@ -4800,6 +4862,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEvaluateAsPredicate ()
 specifier|public
 name|void
@@ -4959,6 +5023,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsPrimitiveArrayType ()
 specifier|public
 name|void
@@ -5223,6 +5289,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetDefaultCharSet ()
 specifier|public
 name|void
@@ -5238,6 +5306,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertPrimitiveTypeToWrapper ()
 specifier|public
 name|void
@@ -5399,6 +5469,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsString ()
 specifier|public
 name|void
@@ -5441,6 +5513,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testName ()
 specifier|public
 name|void
@@ -5474,6 +5548,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClassName ()
 specifier|public
 name|void
@@ -5510,6 +5586,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetSystemPropertyDefault ()
 specifier|public
 name|void
@@ -5531,6 +5609,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetSystemPropertyBooleanDefault ()
 specifier|public
 name|void
@@ -5554,6 +5634,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMatches ()
 specifier|public
 name|void
@@ -5648,6 +5730,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToBoolean ()
 specifier|public
 name|void
@@ -5737,6 +5821,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIteratorWithMessage ()
 specifier|public
 name|void
@@ -5834,6 +5920,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIteratorWithEmptyMessage ()
 specifier|public
 name|void
@@ -5911,6 +5999,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIteratorWithNullMessage ()
 specifier|public
 name|void
@@ -5978,6 +6068,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIterable ()
 specifier|public
 name|void
@@ -6120,6 +6212,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupConstantFieldValue ()
 specifier|public
 name|void
@@ -6173,6 +6267,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasDefaultPublicNoArgConstructor ()
 specifier|public
 name|void
@@ -6204,6 +6300,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIdentityHashCode ()
 specifier|public
 name|void
@@ -6273,6 +6371,8 @@ name|code3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsNaN ()
 specifier|public
 name|void
@@ -6386,6 +6486,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotNull ()
 specifier|public
 name|void
@@ -6517,6 +6619,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSameMethodIsOverride ()
 specifier|public
 name|void
@@ -6556,6 +6660,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOverloadIsNotOverride ()
 specifier|public
 name|void
@@ -6611,6 +6717,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOverrideEquivalentSignatureFromSiblingClassIsNotOverride ()
 specifier|public
 name|void
@@ -6658,6 +6766,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOverrideEquivalentSignatureFromUpperClassIsOverride ()
 specifier|public
 name|void
@@ -6705,6 +6815,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInheritedMethodCanOverrideInterfaceMethod ()
 specifier|public
 name|void
@@ -6756,6 +6868,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNonInheritedMethodCantOverrideInterfaceMethod ()
 specifier|public
 name|void

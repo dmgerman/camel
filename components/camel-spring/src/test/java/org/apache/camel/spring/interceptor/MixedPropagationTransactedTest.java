@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|sql
@@ -164,8 +184,10 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -200,6 +222,8 @@ name|ds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequiredOnly ()
 specifier|public
 name|void
@@ -263,6 +287,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequired2Only ()
 specifier|public
 name|void
@@ -327,6 +353,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequiresNewOnly ()
 specifier|public
 name|void
@@ -390,6 +418,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequiredAndRequiresNew ()
 specifier|public
 name|void
@@ -453,6 +483,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequiredOnlyRollback ()
 specifier|public
 name|void
@@ -573,6 +605,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequiresNewOnlyRollback ()
 specifier|public
 name|void
@@ -693,6 +727,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequiredAndNewRollback ()
 specifier|public
 name|void

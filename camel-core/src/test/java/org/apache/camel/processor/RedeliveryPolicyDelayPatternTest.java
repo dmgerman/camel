@@ -18,11 +18,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -36,7 +46,7 @@ specifier|public
 class|class
 name|RedeliveryPolicyDelayPatternTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|policy
 specifier|private
@@ -47,6 +57,8 @@ operator|new
 name|RedeliveryPolicy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testDelayPattern ()
 specifier|public
 name|void

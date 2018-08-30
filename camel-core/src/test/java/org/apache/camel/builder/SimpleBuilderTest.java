@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -105,6 +115,8 @@ name|DefaultCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testPredicate ()
 specifier|public
 name|void
@@ -154,6 +166,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpression ()
 specifier|public
 name|void
@@ -213,6 +227,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFormatExpression ()
 specifier|public
 name|void
@@ -276,6 +292,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFormatExpressionWithResultType ()
 specifier|public
 name|void
@@ -324,6 +342,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResultType ()
 specifier|public
 name|void
@@ -615,6 +635,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRegexAllWithPlaceHolders ()
 specifier|public
 name|void

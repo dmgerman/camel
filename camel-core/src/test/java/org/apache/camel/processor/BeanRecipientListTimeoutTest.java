@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -160,6 +170,8 @@ specifier|volatile
 name|long
 name|receivedTimeout
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testBeanRecipientListParallelTimeout ()
 specifier|public
 name|void
@@ -437,7 +449,7 @@ name|timeout
 parameter_list|)
 block|{
 comment|// we can't assert on the expected values here as the contract of this method doesn't
-comment|// allow to throw any Throwable (including AssertionFailedError) so that we assert
+comment|// allow to throw any Throwable (including AssertionError) so that we assert
 comment|// about the expected values directly inside the test method itself. other than that
 comment|// asserting inside a thread other than the main thread dosen't make much sense as
 comment|// junit would not realize the failed assertion!

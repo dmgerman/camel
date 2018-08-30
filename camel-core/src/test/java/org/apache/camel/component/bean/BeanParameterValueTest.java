@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -90,6 +100,8 @@ name|BeanParameterValueTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBeanParameterValueBoolean ()
 specifier|public
 name|void
@@ -121,6 +133,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanParameterValueBoolean2 ()
 specifier|public
 name|void
@@ -152,6 +166,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanParameterValueBoolean3 ()
 specifier|public
 name|void
@@ -183,6 +199,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanParameterValueBoolean4 ()
 specifier|public
 name|void
@@ -214,6 +232,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanParameterValueInteger ()
 specifier|public
 name|void
@@ -245,6 +265,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanParameterValueHeaderInteger ()
 specifier|public
 name|void
@@ -280,6 +302,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanParameterValueMap ()
 specifier|public
 name|void
@@ -315,6 +339,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanParameterNoBody ()
 specifier|public
 name|void

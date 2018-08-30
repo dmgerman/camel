@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|sql
@@ -120,6 +130,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStaticFallbackConverter ()
 specifier|public
 name|void
@@ -172,6 +184,8 @@ name|money
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStaticFallbackMandatoryConverter ()
 specifier|public
 name|void
@@ -224,6 +238,8 @@ name|money
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStaticFallbackMandatoryFailed ()
 specifier|public
 name|void
@@ -278,6 +294,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testStaticFallbackFailed ()
 specifier|public
 name|void

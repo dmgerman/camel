@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -70,6 +80,8 @@ name|RecipientListDirectNoConsumerIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testDirectNoConsumerOneMessage ()
 specifier|public
 name|void
@@ -115,6 +127,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectNoConsumerTwoMessages ()
 specifier|public
 name|void
@@ -173,6 +187,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectNoConsumerOneMessageBar ()
 specifier|public
 name|void

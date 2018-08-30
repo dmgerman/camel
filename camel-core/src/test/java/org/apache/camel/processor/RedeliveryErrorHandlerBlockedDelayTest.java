@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -137,6 +147,8 @@ specifier|volatile
 name|int
 name|attempt
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRedelivery ()
 specifier|public
 name|void

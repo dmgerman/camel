@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -176,11 +186,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -204,8 +214,10 @@ specifier|public
 class|class
 name|CaseInsensitiveMapTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testLookupCaseAgnostic ()
 specifier|public
 name|void
@@ -280,6 +292,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupCaseAgnosticAddHeader ()
 specifier|public
 name|void
@@ -419,6 +433,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupCaseAgnosticAddHeader2 ()
 specifier|public
 name|void
@@ -558,6 +574,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupCaseAgnosticAddHeaderRemoveHeader ()
 specifier|public
 name|void
@@ -724,6 +742,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSetWithDifferentCase ()
 specifier|public
 name|void
@@ -807,6 +827,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRemoveWithDifferentCase ()
 specifier|public
 name|void
@@ -941,6 +963,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPutAll ()
 specifier|public
 name|void
@@ -1164,6 +1188,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPutAllOther ()
 specifier|public
 name|void
@@ -1303,6 +1329,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPutAllEmpty ()
 specifier|public
 name|void
@@ -1397,6 +1425,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConstructFromOther ()
 specifier|public
 name|void
@@ -1521,6 +1551,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testKeySet ()
 specifier|public
 name|void
@@ -1679,6 +1711,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRetainKeysCopyToAnotherMap ()
 specifier|public
 name|void
@@ -1842,6 +1876,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testValues ()
 specifier|public
 name|void
@@ -2002,6 +2038,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRomeks ()
 specifier|public
 name|void
@@ -2206,6 +2244,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRomeksUsingRegularHashMap ()
 specifier|public
 name|void
@@ -2375,6 +2415,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRomeksTransferredToHashMapAfterwards ()
 specifier|public
 name|void
@@ -2508,6 +2550,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSerialization ()
 specifier|public
 name|void
@@ -2599,6 +2643,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyToAnotherMapPreserveKeyCaseEntrySet ()
 specifier|public
 name|void
@@ -2785,6 +2831,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyToAnotherMapPreserveKeyCasePutAll ()
 specifier|public
 name|void
@@ -2934,6 +2982,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyToAnotherMapPreserveKeyCaseCtr ()
 specifier|public
 name|void
@@ -3078,6 +3128,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyToAnotherMapPreserveKeyKeySet ()
 specifier|public
 name|void
@@ -3252,6 +3304,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConcurrent ()
 specifier|public
 name|void

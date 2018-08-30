@@ -16,6 +16,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -64,6 +74,8 @@ name|CamelExceptionsTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testExpectedBodyTypeException ()
 specifier|public
 name|void
@@ -115,6 +127,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionEvaluationException ()
 specifier|public
 name|void
@@ -186,6 +200,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailedToCreateConsumerException ()
 specifier|public
 name|void
@@ -239,6 +255,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailedToCreateProducerException ()
 specifier|public
 name|void
@@ -292,6 +310,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidPayloadRuntimeException ()
 specifier|public
 name|void
@@ -429,6 +449,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRuntimeTransformException ()
 specifier|public
 name|void
@@ -527,6 +549,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRuntimeExpressionException ()
 specifier|public
 name|void
@@ -625,6 +649,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRollbackExchangeException ()
 specifier|public
 name|void
@@ -709,6 +735,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testValidationException ()
 specifier|public
 name|void
@@ -789,6 +817,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoSuchBeanException ()
 specifier|public
 name|void
@@ -856,6 +886,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelExecutionException ()
 specifier|public
 name|void
@@ -952,6 +984,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelException ()
 specifier|public
 name|void
@@ -1063,6 +1097,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testServiceStatus ()
 specifier|public
 name|void
@@ -1240,6 +1276,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRuntimeExchangeException ()
 specifier|public
 name|void
@@ -1312,6 +1350,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangePattern ()
 specifier|public
 name|void
@@ -1470,6 +1510,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidPayloadException ()
 specifier|public
 name|void
@@ -1521,6 +1563,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangeTimedOutException ()
 specifier|public
 name|void
@@ -1568,6 +1612,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionIllegalSyntaxException ()
 specifier|public
 name|void
@@ -1594,6 +1640,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoFactoryAvailableException ()
 specifier|public
 name|void
@@ -1634,6 +1682,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelExchangeException ()
 specifier|public
 name|void
@@ -1679,6 +1729,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoSuchHeaderException ()
 specifier|public
 name|void
@@ -1742,6 +1794,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoSuchPropertyException ()
 specifier|public
 name|void
@@ -1805,6 +1859,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRuntimeCamelException ()
 specifier|public
 name|void
@@ -1835,6 +1891,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFailedToStartRouteException ()
 specifier|public
 name|void
@@ -1875,6 +1933,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoTypeConversionAvailableException ()
 specifier|public
 name|void
@@ -1972,6 +2032,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveEndpointFailedException ()
 specifier|public
 name|void

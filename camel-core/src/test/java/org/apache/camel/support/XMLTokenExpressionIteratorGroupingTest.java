@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -98,11 +118,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -116,7 +136,7 @@ specifier|public
 class|class
 name|XMLTokenExpressionIteratorGroupingTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 comment|// the input containing multiple Cs
 DECL|field|TEST_BODY
@@ -758,7 +778,7 @@ argument_list|>
 name|nsmap
 decl_stmt|;
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -792,6 +812,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// wrapped mode
+annotation|@
+name|Test
 DECL|method|testExtractWrappedSize1 ()
 specifier|public
 name|void
@@ -820,6 +842,8 @@ name|RESULTS_WRAPPED_SIZE1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractWrappedSize2 ()
 specifier|public
 name|void
@@ -848,6 +872,8 @@ name|RESULTS_WRAPPED_SIZE2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractWrappedSize3L ()
 specifier|public
 name|void
@@ -905,6 +931,8 @@ name|RESULTS_WRAPPED_SIZE3U
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractWrappedSize4 ()
 specifier|public
 name|void
@@ -933,6 +961,8 @@ name|RESULTS_WRAPPED_SIZE4
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractWrappedSize5L ()
 specifier|public
 name|void
@@ -991,6 +1021,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// injected mode
+annotation|@
+name|Test
 DECL|method|testExtractInjectedSize1 ()
 specifier|public
 name|void
@@ -1019,6 +1051,8 @@ name|RESULTS_INJECTED_SIZE1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractInjectedSize2 ()
 specifier|public
 name|void
@@ -1047,6 +1081,8 @@ name|RESULTS_INJECTED_SIZE2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractInjectedSize3 ()
 specifier|public
 name|void
@@ -1075,6 +1111,8 @@ name|RESULTS_INJECTED_SIZE3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractInjectedSize4 ()
 specifier|public
 name|void
@@ -1103,6 +1141,8 @@ name|RESULTS_INJECTED_SIZE4
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractInjectedSize5 ()
 specifier|public
 name|void
@@ -1131,6 +1171,8 @@ name|RESULTS_INJECTED_SIZE5
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExtractWrappedLeftOver ()
 specifier|public
 name|void

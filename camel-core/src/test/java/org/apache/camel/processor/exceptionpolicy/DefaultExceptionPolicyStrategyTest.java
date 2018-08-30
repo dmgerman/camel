@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -80,11 +90,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -172,7 +182,7 @@ specifier|public
 class|class
 name|DefaultExceptionPolicyStrategyTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|strategy
 specifier|private
@@ -497,6 +507,8 @@ name|type3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectMatch1 ()
 specifier|public
 name|void
@@ -534,6 +546,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectMatch2 ()
 specifier|public
 name|void
@@ -569,6 +583,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDirectMatch3 ()
 specifier|public
 name|void
@@ -604,6 +620,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClosetMatch3 ()
 specifier|public
 name|void
@@ -685,6 +703,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClosetMatch2 ()
 specifier|public
 name|void
@@ -766,6 +786,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClosetMatch1 ()
 specifier|public
 name|void
@@ -829,6 +851,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoMatch1ThenMatchingJustException ()
 specifier|public
 name|void
@@ -862,6 +886,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoMatch1ThenNull ()
 specifier|public
 name|void
@@ -895,6 +921,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCausedBy ()
 specifier|public
 name|void
@@ -946,6 +974,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCausedByWrapped ()
 specifier|public
 name|void
@@ -1001,6 +1031,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCausedByNotConnected ()
 specifier|public
 name|void
@@ -1052,6 +1084,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCausedByOtherIO ()
 specifier|public
 name|void

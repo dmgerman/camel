@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -226,6 +246,8 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testConvertStreamSourceWithRouteBuilderStreamCaching ()
 specifier|public
 name|void
@@ -285,6 +307,8 @@ name|StreamCache
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoConversionForOtherXmlSourceTypes ()
 specifier|public
 name|void
@@ -405,6 +429,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertStreamSourceWithRouteOnlyStreamCaching ()
 specifier|public
 name|void
@@ -486,6 +512,8 @@ name|MESSAGE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConvertInputStreamWithRouteBuilderStreamCaching ()
 specifier|public
 name|void
@@ -566,6 +594,8 @@ name|MESSAGE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIgnoreAlreadyRereadable ()
 specifier|public
 name|void
@@ -612,6 +642,8 @@ name|String
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStreamCachingInterceptorToString ()
 specifier|public
 name|void
@@ -651,8 +683,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

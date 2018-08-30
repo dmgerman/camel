@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -114,6 +124,8 @@ name|expectedBody
 init|=
 literal|"Some Output"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testWorks ()
 specifier|public
 name|void
@@ -176,6 +188,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderPredicateFails ()
 specifier|public
 name|void

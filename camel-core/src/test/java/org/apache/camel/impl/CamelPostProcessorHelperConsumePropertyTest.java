@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -80,6 +90,8 @@ name|CamelPostProcessorHelperConsumePropertyTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testConsumePropertyExplicit ()
 specifier|public
 name|void
@@ -167,6 +179,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumePropertyImplicit ()
 specifier|public
 name|void
@@ -254,6 +268,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumePropertyOnImplicit ()
 specifier|public
 name|void
@@ -341,6 +357,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumePropertyEndpointImplicit ()
 specifier|public
 name|void
@@ -428,6 +446,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumePropertyOnEndpointImplicit ()
 specifier|public
 name|void

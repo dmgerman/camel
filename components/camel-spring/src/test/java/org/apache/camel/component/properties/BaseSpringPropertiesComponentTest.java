@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -84,6 +94,8 @@ literal|"org/apache/camel/component/properties/SpringPropertiesComponentTest.xml
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpringPropertiesComponentStart ()
 specifier|public
 name|void
@@ -115,6 +127,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpringPropertiesComponentBar ()
 specifier|public
 name|void
@@ -146,6 +160,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpringPropertiesComponentStart2 ()
 specifier|public
 name|void
@@ -177,6 +193,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpringPropertiesComponentBar2 ()
 specifier|public
 name|void

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -90,6 +100,8 @@ name|URISupportTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNormalizeEndpointUri ()
 specifier|public
 name|void
@@ -258,6 +270,8 @@ name|out2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeEndpointUriNoParam ()
 specifier|public
 name|void
@@ -394,6 +408,8 @@ name|out2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeEndpointUriWithFragments ()
 specifier|public
 name|void
@@ -455,6 +471,8 @@ name|out2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeHttpEndpoint ()
 specifier|public
 name|void
@@ -515,6 +533,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeIPv6HttpEndpoint ()
 specifier|public
 name|void
@@ -541,6 +561,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeHttpEndpointUnicodedParameter ()
 specifier|public
 name|void
@@ -567,6 +589,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseParametersUnicodedValue ()
 specifier|public
 name|void
@@ -632,6 +656,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeHttpEndpointURLEncodedParameter ()
 specifier|public
 name|void
@@ -658,6 +684,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseParametersURLEncodeddValue ()
 specifier|public
 name|void
@@ -723,6 +751,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeUriWhereParamererIsFaulty ()
 specifier|public
 name|void
@@ -747,6 +777,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateRemaingURI ()
 specifier|public
 name|void
@@ -819,6 +851,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateURIWithQueryHasOneFragment ()
 specifier|public
 name|void
@@ -864,6 +898,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateURIWithQueryHasOneFragmentAndQueryParameter ()
 specifier|public
 name|void
@@ -909,6 +945,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeEndpointWithEqualSignInParameter ()
 specifier|public
 name|void
@@ -941,6 +979,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeEndpointWithPercentSignInParameter ()
 specifier|public
 name|void
@@ -973,6 +1013,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseParameters ()
 specifier|public
 name|void
@@ -1079,6 +1121,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateRemainingURIEncoding ()
 specifier|public
 name|void
@@ -1178,6 +1222,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeEndpointUriWithDualParameters ()
 specifier|public
 name|void
@@ -1221,6 +1267,8 @@ name|out2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSanitizeUriWithUserInfo ()
 specifier|public
 name|void
@@ -1250,6 +1298,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSanitizePathWithUserInfo ()
 specifier|public
 name|void
@@ -1279,6 +1329,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSanitizePathWithoutSensitiveInfoIsUnchanged ()
 specifier|public
 name|void
@@ -1303,6 +1355,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSanitizeUriWithRawPassword ()
 specifier|public
 name|void
@@ -1332,6 +1386,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSanitizeUriRawUnsafePassword ()
 specifier|public
 name|void
@@ -1361,6 +1417,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNormalizeEndpointUriWithUserInfoSpecialSign ()
 specifier|public
 name|void
@@ -1438,6 +1496,8 @@ name|out4
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpecialUriFromXmppComponent ()
 specifier|public
 name|void
@@ -1464,6 +1524,8 @@ name|out1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRawParameter ()
 specifier|public
 name|void
@@ -1508,6 +1570,8 @@ name|out2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseQuery ()
 specifier|public
 name|void
@@ -1695,6 +1759,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testParseQueryLenient ()
 specifier|public
 name|void
@@ -1784,6 +1850,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveRawParameterValues ()
 specifier|public
 name|void
@@ -1949,6 +2017,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAppendParameterToUriAndReplaceExistingOne ()
 specifier|public
 name|void
@@ -2008,6 +2078,8 @@ name|newUri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPathAndQueryOf ()
 specifier|public
 name|void

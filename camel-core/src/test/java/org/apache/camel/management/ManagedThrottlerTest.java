@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -186,6 +196,8 @@ name|ManagedThrottlerTest
 extends|extends
 name|ManagementTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testManageThrottler ()
 specifier|public
 name|void
@@ -538,6 +550,8 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThrottleVisableViaJmx ()
 specifier|public
 name|void
@@ -702,6 +716,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThrottleAsyncVisableViaJmx ()
 specifier|public
 name|void
@@ -868,6 +884,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testThrottleAsyncExceptionVisableViaJmx ()
 specifier|public
 name|void
@@ -1041,6 +1059,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRejectedExecution ()
 specifier|public
 name|void
@@ -1157,6 +1177,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRejectedExecutionCallerRuns ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -178,6 +188,8 @@ name|simpleRegistry
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testArrayBlockingQueueFactory ()
 specifier|public
 name|void
@@ -224,6 +236,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testArrayBlockingQueueFactoryAndSize ()
 specifier|public
 name|void
@@ -283,6 +297,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDefaultBlockingQueueFactory ()
 specifier|public
 name|void

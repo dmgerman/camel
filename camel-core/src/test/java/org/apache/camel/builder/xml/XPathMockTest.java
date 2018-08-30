@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -106,6 +116,8 @@ name|XPathMockTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testXPathMock ()
 specifier|public
 name|void
@@ -156,6 +168,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathMock2 ()
 specifier|public
 name|void
@@ -200,6 +214,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathMock2Fail ()
 specifier|public
 name|void
@@ -246,6 +262,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathMock3 ()
 specifier|public
 name|void
@@ -290,6 +308,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathMockMatches ()
 specifier|public
 name|void
@@ -329,6 +349,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXPathMockMatchesTwo ()
 specifier|public
 name|void
@@ -382,6 +404,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNonXPathMockMatches ()
 specifier|public
 name|void

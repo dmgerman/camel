@@ -20,11 +20,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -50,7 +60,7 @@ specifier|public
 class|class
 name|OptimisticLockRetryPolicyTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|precision
 specifier|private
@@ -61,6 +71,8 @@ init|=
 literal|100L
 decl_stmt|;
 comment|// give or take 100ms
+annotation|@
+name|Test
 DECL|method|testRandomBackOff ()
 specifier|public
 name|void
@@ -140,6 +152,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExponentialBackOff ()
 specifier|public
 name|void
@@ -219,6 +233,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExponentialBackOffMaximumRetryDelay ()
 specifier|public
 name|void
@@ -326,6 +342,8 @@ break|break;
 block|}
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRetryDelay ()
 specifier|public
 name|void
@@ -403,6 +421,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMaximumRetries ()
 specifier|public
 name|void

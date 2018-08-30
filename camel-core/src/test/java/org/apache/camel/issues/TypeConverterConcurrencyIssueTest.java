@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -139,6 +149,8 @@ literal|100
 operator|*
 literal|1000
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testTypeConverter ()
 specifier|public
 name|void

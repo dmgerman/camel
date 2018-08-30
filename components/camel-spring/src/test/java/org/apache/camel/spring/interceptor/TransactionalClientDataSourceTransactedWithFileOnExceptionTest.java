@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -110,6 +120,8 @@ name|TransactionalClientDataSourceTransactedWithFileOnExceptionTest
 extends|extends
 name|TransactionClientDataSourceSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testTransactionSuccess ()
 specifier|public
 name|void
@@ -178,6 +190,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTransactionRollback ()
 specifier|public
 name|void

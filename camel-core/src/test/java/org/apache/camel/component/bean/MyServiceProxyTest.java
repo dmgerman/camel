@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -92,6 +102,8 @@ name|MyServiceProxyTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testOk ()
 specifier|public
 name|void
@@ -137,6 +149,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testKaboom ()
 specifier|public
 name|void
@@ -197,6 +211,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCheckedException ()
 specifier|public
 name|void
@@ -267,6 +283,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNestedRuntimeCheckedException ()
 specifier|public
 name|void
@@ -337,6 +355,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNestedCheckedCheckedException ()
 specifier|public
 name|void
@@ -407,6 +427,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAndResponse ()
 specifier|public
 name|void

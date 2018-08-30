@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -70,6 +80,8 @@ name|SplitTokenizerTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSplitTokenizerA ()
 specifier|public
 name|void
@@ -110,6 +122,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitTokenizerB ()
 specifier|public
 name|void
@@ -154,6 +168,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitTokenizerC ()
 specifier|public
 name|void
@@ -194,6 +210,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitTokenizerD ()
 specifier|public
 name|void
@@ -234,6 +252,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitTokenizerE ()
 specifier|public
 name|void
@@ -279,6 +299,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitTokenizerEWithSlash ()
 specifier|public
 name|void
@@ -325,6 +347,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitTokenizerF ()
 specifier|public
 name|void

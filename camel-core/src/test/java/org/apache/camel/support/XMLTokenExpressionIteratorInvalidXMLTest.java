@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -100,11 +110,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -118,7 +128,7 @@ specifier|public
 class|class
 name|XMLTokenExpressionIteratorInvalidXMLTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|DATA_TEMPLATE
 specifier|private
@@ -158,6 +168,8 @@ argument_list|,
 literal|"http://www.apache.org/xml/test"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testExtractToken ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -49,16 +59,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
 import|;
 end_import
 
@@ -176,7 +176,7 @@ specifier|public
 class|class
 name|BeanInfoTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|LOG
 specifier|private
@@ -203,6 +203,8 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testObjectOperations ()
 specifier|public
 name|void
@@ -261,6 +263,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testGetOperations ()
 specifier|public
 name|void
@@ -407,6 +411,8 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodPatternUsingMethodAnnotations ()
 specifier|public
 name|void
@@ -459,6 +465,8 @@ name|RobustInOnly
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodPatternUsingClassAnnotationsOnInterface ()
 specifier|public
 name|void
@@ -489,6 +497,8 @@ name|InOnly
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodPatternUsingMethodAnnotationsOnInterface ()
 specifier|public
 name|void
@@ -541,6 +551,8 @@ name|InOut
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodPatternUsingClassAnnotationsButOverloadingOnMethod ()
 specifier|public
 name|void
@@ -582,6 +594,8 @@ name|RobustInOnly
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodPatternUsingClassAnnotationsButOverloadingOnBaseClassMethod ()
 specifier|public
 name|void
@@ -623,6 +637,8 @@ name|RobustInOnly
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodPatternUsingClassAnnotationsOnClassWithAnnotationsOnInterface ()
 specifier|public
 name|void
@@ -664,6 +680,8 @@ name|RobustInOnly
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testMethodPatternUsingClassAnnotationsOnBaseInterfaceAndOverloadingMethodOnDerivedInterface ()
 specifier|public
 name|void
@@ -716,6 +734,8 @@ name|InOut
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testImplementLevel2InterfaceMethodInPackagePrivateClass ()
 specifier|public
 name|void
@@ -818,6 +838,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPublicClassImplementingInterfaceMethodBySuperPackagePrivateClass ()
 specifier|public
 name|void

@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -242,8 +262,10 @@ name|ContextTestSupport
 block|{
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -266,6 +288,8 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltUrl ()
 specifier|public
 name|void
@@ -335,6 +359,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltTransformerUrl ()
 specifier|public
 name|void
@@ -408,6 +434,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltFile ()
 specifier|public
 name|void
@@ -475,6 +503,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltTransformerFile ()
 specifier|public
 name|void
@@ -546,6 +576,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltInputStream ()
 specifier|public
 name|void
@@ -626,6 +658,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltTransformerInputStream ()
 specifier|public
 name|void
@@ -710,6 +744,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltSource ()
 specifier|public
 name|void
@@ -803,6 +839,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltTemplates ()
 specifier|public
 name|void
@@ -916,6 +954,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltOutputString ()
 specifier|public
 name|void
@@ -1003,6 +1043,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltOutputBytes ()
 specifier|public
 name|void
@@ -1095,6 +1137,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltOutputDOM ()
 specifier|public
 name|void
@@ -1186,6 +1230,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltOutputFile ()
 specifier|public
 name|void
@@ -1318,6 +1364,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltOutputFileDelete ()
 specifier|public
 name|void
@@ -1487,6 +1535,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltSetConverter ()
 specifier|public
 name|void
@@ -1580,6 +1630,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testXsltResultHandler ()
 specifier|public
 name|void
@@ -1678,6 +1730,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNullBodyDefault ()
 specifier|public
 name|void
@@ -1750,6 +1804,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testFailNullBody ()
 specifier|public
 name|void
@@ -1829,6 +1885,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testNotFailNullBody ()
 specifier|public
 name|void

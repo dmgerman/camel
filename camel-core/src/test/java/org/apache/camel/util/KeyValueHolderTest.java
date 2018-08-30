@@ -18,11 +18,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -36,8 +46,10 @@ specifier|public
 class|class
 name|KeyValueHolderTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testKeyValueHolder ()
 specifier|public
 name|void
@@ -85,6 +97,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEqualsAndHashCodeOnEqualObjects ()
 specifier|public
 name|void
@@ -153,6 +167,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEqualsAndHashCodeOnUnequalObjects ()
 specifier|public
 name|void
@@ -221,6 +237,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEqualsAndHashCodeOnUnequalObjectsWithSameKeys ()
 specifier|public
 name|void
@@ -289,6 +307,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEqualsAndHashCodeOnUnequalObjectsWithSameValues ()
 specifier|public
 name|void
@@ -357,6 +377,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToString ()
 specifier|public
 name|void

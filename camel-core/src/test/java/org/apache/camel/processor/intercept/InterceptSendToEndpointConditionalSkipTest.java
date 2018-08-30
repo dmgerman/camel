@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -57,6 +67,8 @@ extends|extends
 name|ContextTestSupport
 block|{
 comment|/**      * Verify that the endpoint is only skipped if the adjacent 'when' condition is satisfied      */
+annotation|@
+name|Test
 DECL|method|testInterceptSendToEndpointSkipConditionSatisfied ()
 specifier|public
 name|void
@@ -119,6 +131,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Verify that the endpoint is not skipped if the adjacent 'when' condition evaluates to false      */
+annotation|@
+name|Test
 DECL|method|testInterceptSendToEndpointSkipConditionNotSatisfied ()
 specifier|public
 name|void
@@ -181,6 +195,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Verify that the conditional skip support is only activated when using interceptSendToEndpoint().when() and not      * interceptSendToEndpoint().choice()..., as the choice keyword is not directly associated with the interception behaviour and it belongs to the      * interception body (initiating a new routing block)      */
+annotation|@
+name|Test
 DECL|method|testInterceptSendToEndpointSkipConditionNoEffectChoice ()
 specifier|public
 name|void
@@ -262,6 +278,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Test that when multiple conditions are chained together in Java DSL, only the first one will determine whether the endpoint is skipped or not      */
+annotation|@
+name|Test
 DECL|method|testInterceptSendToEndpointSkipMultipleConditions ()
 specifier|public
 name|void

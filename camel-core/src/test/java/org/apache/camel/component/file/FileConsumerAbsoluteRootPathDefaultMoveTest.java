@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -92,6 +102,8 @@ name|base
 init|=
 literal|"/tmp/mytemp"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testDummy ()
 specifier|public
 name|void

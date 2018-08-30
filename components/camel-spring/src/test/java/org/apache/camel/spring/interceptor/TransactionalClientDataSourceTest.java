@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -87,6 +97,8 @@ extends|extends
 name|TransactionClientDataSourceSupport
 block|{
 comment|// START SNIPPET: e3
+annotation|@
+name|Test
 DECL|method|testTransactionSuccess ()
 specifier|public
 name|void
@@ -130,6 +142,8 @@ expr_stmt|;
 block|}
 comment|// END SNIPPET: e3
 comment|// START SNIPPET: e4
+annotation|@
+name|Test
 DECL|method|testTransactionRollback ()
 specifier|public
 name|void

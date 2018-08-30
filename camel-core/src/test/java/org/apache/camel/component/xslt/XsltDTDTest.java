@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -161,6 +171,8 @@ name|MESSAGE
 init|=
 literal|"<!DOCTYPE foo [<!ENTITY xxe SYSTEM \"file:///etc//user//test\">]><task><name>&xxe;</name></task>"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendingStringMessage ()
 specifier|public
 name|void
@@ -175,6 +187,8 @@ name|MESSAGE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingInputStreamMessage ()
 specifier|public
 name|void

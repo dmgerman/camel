@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -98,11 +108,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -130,7 +140,7 @@ specifier|public
 class|class
 name|CollectionConverterTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|field|SMURFS
 specifier|private
@@ -155,6 +165,8 @@ argument_list|,
 literal|"Jokey smurf"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testIteratorToList ()
 specifier|public
 name|void
@@ -177,6 +189,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIterableToList ()
 specifier|public
 name|void
@@ -282,6 +296,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testToArray ()
 specifier|public
 name|void
@@ -309,6 +325,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToList ()
 specifier|public
 name|void
@@ -339,6 +357,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToSet ()
 specifier|public
 name|void
@@ -398,6 +418,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToHashMap ()
 specifier|public
 name|void
@@ -451,6 +473,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToHashtable ()
 specifier|public
 name|void
@@ -504,6 +528,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testToProperties ()
 specifier|public
 name|void

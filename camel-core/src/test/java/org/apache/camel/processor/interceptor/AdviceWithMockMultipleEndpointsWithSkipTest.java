@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -88,6 +98,8 @@ name|ContextTestSupport
 block|{
 comment|// START SNIPPET: e1
 comment|// tag::e1[]
+annotation|@
+name|Test
 DECL|method|testAdvisedMockEndpointsWithSkip ()
 specifier|public
 name|void

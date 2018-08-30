@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -248,6 +258,8 @@ name|fatalError
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testErrorListener ()
 specifier|public
 name|void

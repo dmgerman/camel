@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -52,6 +62,8 @@ name|PredicateBinaryCoerceRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testNoHeader ()
 specifier|public
 name|void
@@ -103,6 +115,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAsNumber123 ()
 specifier|public
 name|void
@@ -158,6 +172,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAsNumber456 ()
 specifier|public
 name|void
@@ -213,6 +229,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAsNumber999 ()
 specifier|public
 name|void
@@ -268,6 +286,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAsString123 ()
 specifier|public
 name|void
@@ -323,6 +343,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAsString456 ()
 specifier|public
 name|void
@@ -378,6 +400,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAsString999 ()
 specifier|public
 name|void
@@ -433,6 +457,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAsEnum ()
 specifier|public
 name|void
@@ -470,6 +496,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAsEnumString ()
 specifier|public
 name|void
@@ -505,6 +533,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOtherMax ()
 specifier|public
 name|void
@@ -550,6 +580,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOtherMin ()
 specifier|public
 name|void
@@ -595,6 +627,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOtherAlways ()
 specifier|public
 name|void
@@ -650,6 +684,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOtherNewer ()
 specifier|public
 name|void
@@ -715,6 +751,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOtherIfReplyExpected ()
 specifier|public
 name|void

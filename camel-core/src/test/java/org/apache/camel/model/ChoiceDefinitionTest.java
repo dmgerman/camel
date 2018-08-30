@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -40,6 +50,8 @@ name|ChoiceDefinitionTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testChoiceOutputOrder ()
 specifier|public
 name|void
@@ -172,6 +184,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOutputOrderIterate ()
 specifier|public
 name|void
@@ -323,6 +337,8 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOutputOrderNoOtherwise ()
 specifier|public
 name|void
@@ -426,6 +442,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOutputOrderNoOtherwiseIterate ()
 specifier|public
 name|void
@@ -596,6 +614,8 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOtherwiseAlwaysLast ()
 specifier|public
 name|void
@@ -730,6 +750,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOtherwiseAlwaysLastIterate ()
 specifier|public
 name|void
@@ -941,6 +963,8 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOutputRemoveFirst ()
 specifier|public
 name|void
@@ -1081,6 +1105,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOutputRemoveLast ()
 specifier|public
 name|void
@@ -1221,6 +1247,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOutputSetFirst ()
 specifier|public
 name|void
@@ -1393,6 +1421,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testChoiceOutputClear ()
 specifier|public
 name|void

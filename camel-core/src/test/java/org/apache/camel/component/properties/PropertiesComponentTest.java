@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -104,6 +114,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponent ()
 specifier|public
 name|void
@@ -171,6 +183,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentTwo ()
 specifier|public
 name|void
@@ -247,6 +261,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentCustomTokens ()
 specifier|public
 name|void
@@ -400,6 +416,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentTemplate ()
 specifier|public
 name|void
@@ -476,6 +494,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentResult ()
 specifier|public
 name|void
@@ -543,6 +563,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentMockMock ()
 specifier|public
 name|void
@@ -610,6 +632,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentConcat ()
 specifier|public
 name|void
@@ -677,6 +701,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentLocationOverride ()
 specifier|public
 name|void
@@ -744,6 +770,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentLocationsOverride ()
 specifier|public
 name|void
@@ -842,6 +870,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentInvalidKey ()
 specifier|public
 name|void
@@ -942,6 +972,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentCircularReference ()
 specifier|public
 name|void
@@ -1042,6 +1074,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentCacheDefault ()
 specifier|public
 name|void
@@ -1129,6 +1163,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentCacheDisabled ()
 specifier|public
 name|void
@@ -1236,6 +1272,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentPropertyPrefix ()
 specifier|public
 name|void
@@ -1343,6 +1381,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentParameterizedPropertyPrefix ()
 specifier|public
 name|void
@@ -1473,6 +1513,8 @@ literal|"myPrefix"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentPropertyPrefixFallbackDefault ()
 specifier|public
 name|void
@@ -1580,6 +1622,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentPropertyPrefixFallbackDefaultNotFound ()
 specifier|public
 name|void
@@ -1701,6 +1745,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentPropertyPrefixFallbackFalse ()
 specifier|public
 name|void
@@ -1839,6 +1885,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentPropertySuffix ()
 specifier|public
 name|void
@@ -1927,6 +1975,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentPropertySuffixFallbackDefault ()
 specifier|public
 name|void
@@ -2015,6 +2065,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentPropertySuffixFallbackFalse ()
 specifier|public
 name|void
@@ -2143,6 +2195,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testJvmSystemPropertyNotFound ()
 specifier|public
 name|void
@@ -2231,6 +2285,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCache ()
 specifier|public
 name|void
@@ -2304,6 +2360,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCacheRoute ()
 specifier|public
 name|void
@@ -2395,6 +2453,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testQuotedPrefix ()
 specifier|public
 name|void
@@ -2488,6 +2548,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentOverride ()
 specifier|public
 name|void
@@ -2604,6 +2666,8 @@ literal|"cool.result"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentFallback ()
 specifier|public
 name|void
@@ -2751,6 +2815,8 @@ literal|"beer"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentNever ()
 specifier|public
 name|void
@@ -2884,6 +2950,8 @@ literal|"beer"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelProperties ()
 specifier|public
 name|void

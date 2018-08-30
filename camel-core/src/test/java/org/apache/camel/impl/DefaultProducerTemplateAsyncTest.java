@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -215,6 +225,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testRequestAsync ()
 specifier|public
 name|void
@@ -335,6 +347,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendAsyncProcessor ()
 specifier|public
 name|void
@@ -458,6 +472,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAsyncBody ()
 specifier|public
 name|void
@@ -557,6 +573,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAsyncBodyType ()
 specifier|public
 name|void
@@ -654,6 +672,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAsyncBodyAndHeader ()
 specifier|public
 name|void
@@ -784,6 +804,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAsyncBodyAndHeaderType ()
 specifier|public
 name|void
@@ -912,6 +934,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAsyncBodyAndHeaders ()
 specifier|public
 name|void
@@ -1080,6 +1104,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAsyncBodyAndHeadersType ()
 specifier|public
 name|void
@@ -1246,6 +1272,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAsyncErrorWhenProcessing ()
 specifier|public
 name|void
@@ -1381,6 +1409,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRequestAsyncBodyErrorWhenProcessing ()
 specifier|public
 name|void
@@ -1497,6 +1527,8 @@ literal|50
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackExchangeInOnly ()
 specifier|public
 name|void
@@ -1648,6 +1680,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackExchangeInOut ()
 specifier|public
 name|void
@@ -1795,6 +1829,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackExchangeInOnlyGetResult ()
 specifier|public
 name|void
@@ -1942,6 +1978,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackExchangeInOutGetResult ()
 specifier|public
 name|void
@@ -2098,6 +2136,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackBodyInOnly ()
 specifier|public
 name|void
@@ -2226,6 +2266,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackBodyInOut ()
 specifier|public
 name|void
@@ -2341,6 +2383,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackBodyInOnlyGetResult ()
 specifier|public
 name|void
@@ -2468,6 +2512,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackBodyInOutGetResult ()
 specifier|public
 name|void
@@ -2581,6 +2627,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackInOnlyProcessor ()
 specifier|public
 name|void
@@ -2734,6 +2782,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackInOutProcessor ()
 specifier|public
 name|void
@@ -2883,6 +2933,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackThreadsInOutProcessor ()
 specifier|public
 name|void
@@ -3032,6 +3084,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackExchangeInOnlyWithFailure ()
 specifier|public
 name|void
@@ -3170,6 +3224,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAsyncCallbackExchangeInOutWithFailure ()
 specifier|public
 name|void

@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -165,6 +185,8 @@ comment|// Do nothing here
 block|}
 block|}
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testUriConfigurations ()
 specifier|public
 name|void
@@ -287,6 +309,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUriWithParameters ()
 specifier|public
 name|void
@@ -423,6 +447,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUriWithCharset ()
 specifier|public
 name|void
@@ -497,6 +523,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testConsumerConfigurations ()
 specifier|public
 name|void
@@ -550,8 +578,10 @@ block|}
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

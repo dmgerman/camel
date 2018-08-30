@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -149,6 +159,8 @@ return|return
 name|ksp
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertyPlaceholders ()
 specifier|public
 name|void
@@ -226,6 +238,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testValidParameters ()
 specifier|public
 name|void
@@ -356,6 +370,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExplicitType ()
 specifier|public
 name|void
@@ -398,6 +414,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExplicitProvider ()
 specifier|public
 name|void
@@ -449,6 +467,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExplicitInvalidProvider ()
 specifier|public
 name|void
@@ -492,6 +512,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExplicitInvalidType ()
 specifier|public
 name|void
@@ -579,6 +601,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIncorrectPassword ()
 specifier|public
 name|void
@@ -622,6 +646,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIncorrectResource ()
 specifier|public
 name|void

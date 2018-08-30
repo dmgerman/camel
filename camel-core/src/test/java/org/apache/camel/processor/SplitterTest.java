@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -214,6 +224,8 @@ name|SplitterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSendingAMessageUsingMulticastReceivesItsOwnExchange ()
 specifier|public
 name|void
@@ -434,6 +446,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitterWithAggregationStrategy ()
 specifier|public
 name|void
@@ -556,6 +570,8 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEmptyBody ()
 specifier|public
 name|void
@@ -612,6 +628,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendingAMessageUsingMulticastReceivesItsOwnExchangeParallel ()
 specifier|public
 name|void
@@ -822,6 +840,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitterWithAggregationStrategyParallel ()
 specifier|public
 name|void
@@ -934,6 +954,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitterWithAggregationStrategyParallelStreaming ()
 specifier|public
 name|void
@@ -1061,6 +1083,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitterParallelAggregate ()
 specifier|public
 name|void
@@ -1170,6 +1194,8 @@ argument_list|)
 expr_stmt|;
 comment|// we aggregate parallel and therefore its not thread-safe when setting values
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitterWithStreamingAndFileBody ()
 specifier|public
 name|void
@@ -1216,6 +1242,8 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitterWithStreamingAndStringBody ()
 specifier|public
 name|void
@@ -1446,6 +1474,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitterWithException ()
 specifier|public
 name|void
@@ -1567,6 +1597,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitterWithIterable ()
 specifier|public
 name|void

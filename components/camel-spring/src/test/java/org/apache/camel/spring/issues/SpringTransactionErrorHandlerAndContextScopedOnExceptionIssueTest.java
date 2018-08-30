@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|sql
@@ -125,8 +145,10 @@ specifier|protected
 name|JdbcTemplate
 name|jdbc
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -177,6 +199,8 @@ literal|"org/apache/camel/spring/issues/SpringTransactionErrorHandlerAndContextS
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpringTXOnExceptionIssueCommit ()
 specifier|public
 name|void
@@ -265,6 +289,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpringTXOnExceptionIssueRollback ()
 specifier|public
 name|void

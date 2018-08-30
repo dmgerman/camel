@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -71,6 +81,8 @@ extends|extends
 name|TestSupport
 block|{
 comment|// TODO: We should have a JMX test of this as well
+annotation|@
+name|Test
 DECL|method|testAutoStartupFalseContextStart ()
 specifier|public
 name|void
@@ -247,6 +259,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoStartupFalseRouteStart ()
 specifier|public
 name|void
@@ -425,6 +439,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoStartupTrue ()
 specifier|public
 name|void
@@ -579,6 +595,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoStartupFalseRouteOverride ()
 specifier|public
 name|void

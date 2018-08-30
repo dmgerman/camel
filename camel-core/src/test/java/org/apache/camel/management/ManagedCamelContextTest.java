@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -195,6 +205,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextClient ()
 specifier|public
 name|void
@@ -274,6 +286,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContext ()
 specifier|public
 name|void
@@ -952,6 +966,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextCreateEndpoint ()
 specifier|public
 name|void
@@ -1126,6 +1142,8 @@ name|registered
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextRemoveEndpoint ()
 specifier|public
 name|void
@@ -1370,6 +1388,8 @@ name|registered
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFindComponentsInClasspath ()
 specifier|public
 name|void
@@ -1518,6 +1538,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextCreateRouteStaticEndpointJson ()
 specifier|public
 name|void
@@ -1627,6 +1649,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextExplainEndpointUriFalse ()
 specifier|public
 name|void
@@ -1813,6 +1837,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextExplainEndpointUriTrue ()
 specifier|public
 name|void
@@ -1999,6 +2025,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextExplainEipFalse ()
 specifier|public
 name|void
@@ -2105,6 +2133,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextExplainEipTrue ()
 specifier|public
 name|void
@@ -2222,6 +2252,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextExplainEipModel ()
 specifier|public
 name|void
@@ -2337,6 +2369,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManagedCamelContextExplainComponentModel ()
 specifier|public
 name|void

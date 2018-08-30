@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -99,8 +119,10 @@ literal|"file://target/tempandrename/?tempPrefix=inprogress."
 decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -118,6 +140,8 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateTempFileName ()
 specifier|public
 name|void
@@ -195,6 +219,8 @@ name|tempFileName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCreateTempFileNameUsingComplexName ()
 specifier|public
 name|void
@@ -272,6 +298,8 @@ name|tempFileName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoPathCreateTempFileName ()
 specifier|public
 name|void
@@ -349,6 +377,8 @@ name|tempFileName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTempPrefix ()
 specifier|public
 name|void
@@ -396,6 +426,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTempPrefixUUIDFilename ()
 specifier|public
 name|void

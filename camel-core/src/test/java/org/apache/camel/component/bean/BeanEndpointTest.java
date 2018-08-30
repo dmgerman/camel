@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -115,6 +125,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanEndpointCtr ()
 specifier|public
 name|void
@@ -258,6 +270,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanEndpointCtrComponent ()
 specifier|public
 name|void
@@ -413,6 +427,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanEndpointCtrComponentBeanProcessor ()
 specifier|public
 name|void
@@ -584,6 +600,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanEndpointCtrWithMethod ()
 specifier|public
 name|void
@@ -729,6 +747,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanEndpointCtrWithMethodAndCache ()
 specifier|public
 name|void
@@ -910,6 +930,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBeanEndpointCtrWithBeanHolder ()
 specifier|public
 name|void

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -128,6 +138,8 @@ name|DefaultExchangeFormatterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSendMessageToLogDefault ()
 specifier|public
 name|void
@@ -146,6 +158,8 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToLogAllOff ()
 specifier|public
 name|void
@@ -164,6 +178,8 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToLogSingleOptions ()
 specifier|public
 name|void
@@ -343,6 +359,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToLogMultiOptions ()
 specifier|public
 name|void
@@ -370,6 +388,8 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToLogShowFalse ()
 specifier|public
 name|void
@@ -388,6 +408,8 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToLogMultiLine ()
 specifier|public
 name|void
@@ -406,6 +428,8 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendByteArrayMessageToLogDefault ()
 specifier|public
 name|void
@@ -427,6 +451,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendMessageToLogMaxChars ()
 specifier|public
 name|void
@@ -463,6 +489,8 @@ literal|"Hello World this is a very long string that is going to be chopped by m
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendExchangeWithOut ()
 specifier|public
 name|void
@@ -533,6 +561,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendExchangeWithException ()
 specifier|public
 name|void
@@ -604,6 +634,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendCaughtExchangeWithException ()
 specifier|public
 name|void
@@ -679,6 +711,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendCaughtExchangeWithExceptionAndMultiline ()
 specifier|public
 name|void
@@ -754,6 +788,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendExchangeWithExceptionAndStackTrace ()
 specifier|public
 name|void
@@ -825,6 +861,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendCaughtExchangeWithExceptionAndStackTrace ()
 specifier|public
 name|void
@@ -900,6 +938,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConfiguration ()
 specifier|public
 name|void

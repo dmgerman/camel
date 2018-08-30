@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -67,6 +77,8 @@ specifier|private
 name|LimitedPollingConsumerPollStrategy
 name|strategy
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testLimitedPollingConsumerPollStrategy ()
 specifier|public
 name|void
@@ -180,6 +192,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLimitAtTwoLimitedPollingConsumerPollStrategy ()
 specifier|public
 name|void
@@ -278,6 +292,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLimitedPollingConsumerPollStrategySuccess ()
 specifier|public
 name|void
@@ -414,6 +430,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLimitedPollingConsumerPollStrategySuccessThenFail ()
 specifier|public
 name|void
@@ -604,6 +622,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTwoConsumersLimitedPollingConsumerPollStrategy ()
 specifier|public
 name|void
@@ -790,6 +810,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRestartManuallyLimitedPollingConsumerPollStrategy ()
 specifier|public
 name|void

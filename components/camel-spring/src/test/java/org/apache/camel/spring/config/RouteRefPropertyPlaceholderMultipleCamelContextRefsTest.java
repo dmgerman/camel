@@ -20,11 +20,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -106,7 +116,7 @@ specifier|public
 class|class
 name|RouteRefPropertyPlaceholderMultipleCamelContextRefsTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
 DECL|method|createApplicationContext ()
 specifier|protected
@@ -122,6 +132,8 @@ literal|"org/apache/camel/spring/config/RouteRefPropertyPlaceholderMultipleCamel
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSpringTwoCamelContextDirectEndpoint ()
 specifier|public
 name|void

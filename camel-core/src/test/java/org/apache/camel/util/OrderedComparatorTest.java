@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -38,11 +48,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -68,8 +78,10 @@ specifier|public
 class|class
 name|OrderedComparatorTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testOrderedComparatorGet ()
 specifier|public
 name|void
@@ -230,6 +242,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderedComparator ()
 specifier|public
 name|void
@@ -389,6 +403,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderedComparatorGetReverse ()
 specifier|public
 name|void
@@ -549,6 +565,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderedComparatorReverse ()
 specifier|public
 name|void
@@ -710,6 +728,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderedComparatorHigh ()
 specifier|public
 name|void
@@ -899,6 +919,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderedComparatorHighReverse ()
 specifier|public
 name|void
@@ -1090,6 +1112,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderedComparatorLow ()
 specifier|public
 name|void
@@ -1283,6 +1307,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOrderedComparatorLowReverse ()
 specifier|public
 name|void

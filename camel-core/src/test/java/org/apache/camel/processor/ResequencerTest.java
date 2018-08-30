@@ -18,6 +18,36 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -160,6 +190,8 @@ specifier|protected
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMessagesInWrongOrderButReceiveThemInCorrectOrder ()
 specifier|public
 name|void
@@ -202,8 +234,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -225,8 +259,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -299,6 +335,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBatchResequencerTypeWithJmx ()
 specifier|public
 name|void
@@ -311,6 +349,8 @@ name|testBatchResequencerTypeWithoutJmx
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBatchResequencerTypeWithoutJmx ()
 specifier|public
 name|void

@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -158,6 +178,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithTo ()
 specifier|public
 name|void
@@ -167,16 +189,16 @@ throws|throws
 name|Exception
 block|{
 comment|// JMX tests dont work well on AIX CI servers (hangs them)
-if|if
-condition|(
+name|Assume
+operator|.
+name|assumeFalse
+argument_list|(
 name|isPlatform
 argument_list|(
 literal|"aix"
 argument_list|)
-condition|)
-block|{
-return|return;
-block|}
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|result
 init|=
@@ -484,6 +506,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientList ()
 specifier|public
 name|void
@@ -806,6 +830,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRoutingSlip ()
 specifier|public
 name|void
@@ -1128,6 +1154,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientListAndRouteScopedOnException ()
 specifier|public
 name|void
@@ -1444,6 +1472,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientListAndContextScopedOnException ()
 specifier|public
 name|void
@@ -1757,6 +1787,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientListAndRouteScopedOnCompletion ()
 specifier|public
 name|void
@@ -2055,6 +2087,8 @@ literal|"Shutting down..."
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteAddRemoteRouteWithRecipientListAndContextScopedOnCompletion ()
 specifier|public
 name|void

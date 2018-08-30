@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -173,6 +183,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReceivesFooResponse ()
 specifier|public
 name|void
@@ -189,6 +201,8 @@ literal|"Bye said foo"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReceivesBarResponse ()
 specifier|public
 name|void

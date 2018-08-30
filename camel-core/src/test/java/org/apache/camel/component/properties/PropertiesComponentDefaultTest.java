@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -90,6 +100,8 @@ name|PropertiesComponentDefaultTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentDefault ()
 specifier|public
 name|void
@@ -157,6 +169,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentDefaultNoFileFound ()
 specifier|public
 name|void
@@ -257,6 +271,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIgnoreMissingPropertyFilesOnClasspath ()
 specifier|public
 name|void
@@ -333,6 +349,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIgnoreMissingPropertyFilesFromRegistry ()
 specifier|public
 name|void
@@ -409,6 +427,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIgnoreMissingPropertyFilesFromFilePath ()
 specifier|public
 name|void
@@ -485,6 +505,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIgnoreMissingPropertySystemPropertyOnClasspath ()
 specifier|public
 name|void
@@ -554,6 +576,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNotIgnoreMissingPropertySystemPropertyOnClasspath ()
 specifier|public
 name|void

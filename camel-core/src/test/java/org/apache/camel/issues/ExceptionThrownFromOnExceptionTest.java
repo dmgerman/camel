@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -148,6 +158,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionThrownFromOnException ()
 specifier|public
 name|void
@@ -449,6 +461,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionThrownFromOnExceptionAndHandled ()
 specifier|public
 name|void
@@ -756,6 +770,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionThrownFromOnExceptionWithDeadLetterChannel ()
 specifier|public
 name|void
@@ -1085,6 +1101,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionThrownFromOnExceptionAndHandledWithDeadLetterChannel ()
 specifier|public
 name|void
@@ -1420,6 +1438,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoExceptionThrownFromOnExceptionWithDeadLetterChannel ()
 specifier|public
 name|void
@@ -1745,6 +1765,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNoExceptionThrownFromOnExceptionAndHandledWithDeadLetterChannel ()
 specifier|public
 name|void

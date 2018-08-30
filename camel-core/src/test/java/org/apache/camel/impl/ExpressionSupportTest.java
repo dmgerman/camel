@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -147,6 +157,8 @@ name|in
 return|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionSupport ()
 specifier|public
 name|void
@@ -191,6 +203,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExpressionSupportFail ()
 specifier|public
 name|void

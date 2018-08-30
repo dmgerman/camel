@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|activation
@@ -314,6 +334,8 @@ specifier|protected
 name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMessageThroughAPipeline ()
 specifier|public
 name|void
@@ -400,6 +422,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResultsReturned ()
 specifier|public
 name|void
@@ -473,6 +497,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Disabled for now until we figure out fault processing in the pipeline.      *       * @throws Exception      */
+annotation|@
+name|Test
 DECL|method|testFaultStopsPipeline ()
 specifier|public
 name|void
@@ -564,6 +590,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnlyProperties ()
 specifier|public
 name|void
@@ -638,6 +666,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCopyInOutExchange ()
 specifier|public
 name|void
@@ -800,8 +830,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

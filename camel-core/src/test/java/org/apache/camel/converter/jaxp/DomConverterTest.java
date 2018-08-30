@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -100,6 +110,8 @@ name|DomConverterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testDomConverterToString ()
 specifier|public
 name|void
@@ -150,6 +162,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDomConverterToBytes ()
 specifier|public
 name|void
@@ -213,6 +227,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDomConverterToNoAssicBytes ()
 specifier|public
 name|void
@@ -276,6 +292,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDomConverterToInteger ()
 specifier|public
 name|void
@@ -325,6 +343,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDomConverterToLong ()
 specifier|public
 name|void
@@ -374,6 +394,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDomConverterToList ()
 specifier|public
 name|void
@@ -518,6 +540,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDomConverterToInputStream ()
 specifier|public
 name|void

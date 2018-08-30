@@ -20,6 +20,36 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -137,6 +167,8 @@ name|Integer
 argument_list|>
 name|buffer
 decl_stmt|;
+annotation|@
+name|Before
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -145,6 +177,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
+annotation|@
+name|After
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -180,6 +214,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testTimeout1 ()
 specifier|public
 name|void
@@ -239,6 +275,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTimeout2 ()
 specifier|public
 name|void
@@ -305,6 +343,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTimeout3 ()
 specifier|public
 name|void
@@ -363,6 +403,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTimeout4 ()
 specifier|public
 name|void
@@ -443,6 +485,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRandom ()
 specifier|public
 name|void
@@ -687,6 +731,8 @@ literal|" ms"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReverse1 ()
 specifier|public
 name|void
@@ -708,6 +754,8 @@ literal|10
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testReverse2 ()
 specifier|public
 name|void

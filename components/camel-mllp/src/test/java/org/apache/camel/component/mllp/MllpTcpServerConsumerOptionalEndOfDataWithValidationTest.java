@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -92,6 +102,8 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testInvalidMessage ()
 specifier|public
 name|void
@@ -110,6 +122,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testNthInvalidMessage ()
 specifier|public
 name|void
@@ -128,6 +142,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testMessageContainingEmbeddedStartOfBlock ()
 specifier|public
 name|void
@@ -146,6 +162,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testNthMessageContainingEmbeddedStartOfBlock ()
 specifier|public
 name|void
@@ -164,6 +182,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testMessageContainingEmbeddedEndOfBlock ()
 specifier|public
 name|void
@@ -237,6 +257,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testInvalidMessageContainingEmbeddedEndOfBlock ()
 specifier|public
 name|void
@@ -255,6 +277,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testNthMessageContainingEmbeddedEndOfBlock ()
 specifier|public
 name|void
@@ -273,6 +297,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testMessageWithoutEndOfDataByte ()
 specifier|public
 name|void

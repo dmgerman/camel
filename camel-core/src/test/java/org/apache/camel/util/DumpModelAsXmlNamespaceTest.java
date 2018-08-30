@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -106,6 +116,8 @@ name|URL_BAR
 init|=
 literal|"http://bar.com"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testDumpModelAsXml ()
 specifier|public
 name|void

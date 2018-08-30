@@ -18,6 +18,16 @@ name|mllp
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|MllpTcpClientProducerRequiredEndOfDataWithValidationTest
 specifier|public
@@ -50,6 +60,8 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testSendSingleMessageWithoutEndOfData ()
 specifier|public
 name|void
@@ -68,6 +80,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testSendMultipleMessagesWithoutEndOfDataByte ()
 specifier|public
 name|void
@@ -84,6 +98,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testEmptyAcknowledgement ()
 specifier|public
 name|void
@@ -100,6 +116,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testInvalidAcknowledgement ()
 specifier|public
 name|void
@@ -116,6 +134,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testMissingEndOfDataByte ()
 specifier|public
 name|void
@@ -138,6 +158,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testInvalidAcknowledgementContainingEmbeddedStartOfBlock ()
 specifier|public
 name|void
@@ -156,6 +178,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testInvalidAcknowledgementContainingEmbeddedEndOfBlockByte ()
 specifier|public
 name|void
@@ -174,6 +198,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Test
 DECL|method|testSendMultipleMessagesWithoutSomeEndOfDataByte ()
 specifier|public
 name|void

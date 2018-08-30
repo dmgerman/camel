@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -80,6 +90,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentFoundKey ()
 specifier|public
 name|void
@@ -147,6 +159,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentUseDefaultValue ()
 specifier|public
 name|void
@@ -214,6 +228,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentSimpleLanguage ()
 specifier|public
 name|void
@@ -285,6 +301,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testPropertiesComponentSimpleLanguageUsingDefaultValue ()
 specifier|public
 name|void

@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -112,6 +122,8 @@ name|SagaComponentTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testManualCompletion ()
 specifier|public
 name|void
@@ -150,6 +162,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManualCompletionIsNotTriggeredAutomatically ()
 specifier|public
 name|void
@@ -195,6 +209,8 @@ name|assertIsNotSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testManualCompensationIsTriggeredOnly ()
 specifier|public
 name|void
@@ -260,6 +276,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoCompletion ()
 specifier|public
 name|void
@@ -298,6 +316,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAutoCompensationIsTriggeredOnly ()
 specifier|public
 name|void

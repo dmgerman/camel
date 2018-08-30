@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -92,6 +102,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedHeString ()
 specifier|public
 name|void
@@ -172,6 +184,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedWildcard ()
 specifier|public
 name|void
@@ -252,6 +266,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedStringString ()
 specifier|public
 name|void
@@ -334,6 +350,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedWildcardString ()
 specifier|public
 name|void
@@ -414,6 +432,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedWildcardWildcard ()
 specifier|public
 name|void
@@ -496,6 +516,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedPickCamelAnnotated ()
 specifier|public
 name|void
@@ -576,6 +598,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedAmbiguousStringStringString ()
 specifier|public
 name|void
@@ -686,6 +710,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedStringInt ()
 specifier|public
 name|void
@@ -796,6 +822,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHelloOverloadedIntString ()
 specifier|public
 name|void
@@ -906,6 +934,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testTimesOverloadedStringInt ()
 specifier|public
 name|void
@@ -986,6 +1016,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTimesOverloadedBytesInt ()
 specifier|public
 name|void

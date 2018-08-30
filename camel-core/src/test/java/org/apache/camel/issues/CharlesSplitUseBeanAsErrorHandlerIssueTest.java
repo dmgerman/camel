@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -112,6 +122,8 @@ specifier|static
 name|String
 name|logged
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSplitBeanErrorHandlerOK ()
 specifier|public
 name|void
@@ -182,6 +194,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSplitBeanErrorHandlerHandled ()
 specifier|public
 name|void

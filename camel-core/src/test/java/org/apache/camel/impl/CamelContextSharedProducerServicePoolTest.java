@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -212,6 +222,8 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSharedProducerServicePool ()
 specifier|public
 name|void
@@ -259,6 +271,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSharedProducerServicePoolHitMax ()
 specifier|public
 name|void

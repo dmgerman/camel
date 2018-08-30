@@ -22,6 +22,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -70,6 +80,8 @@ name|AdviceWithTasksSelectTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSelectFirst ()
 specifier|public
 name|void
@@ -207,6 +219,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSelectLast ()
 specifier|public
 name|void
@@ -344,6 +358,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSelectIndexZero ()
 specifier|public
 name|void
@@ -483,6 +499,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSelectIndexOne ()
 specifier|public
 name|void
@@ -622,6 +640,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSelectIndexTwo ()
 specifier|public
 name|void
@@ -761,6 +781,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSelectIndexOutOfBounds ()
 specifier|public
 name|void
@@ -861,6 +883,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSelectRangeZeroOne ()
 specifier|public
 name|void
@@ -1002,6 +1026,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSelectRangeOneTwo ()
 specifier|public
 name|void

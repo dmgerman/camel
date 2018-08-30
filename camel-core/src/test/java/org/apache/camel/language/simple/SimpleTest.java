@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -361,6 +371,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleExpressionOrPredicate ()
 specifier|public
 name|void
@@ -613,6 +625,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResultType ()
 specifier|public
 name|void
@@ -723,6 +737,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRefExpression ()
 specifier|public
 name|void
@@ -792,6 +808,8 @@ literal|"Hello "
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConstantExpression ()
 specifier|public
 name|void
@@ -808,6 +826,8 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNull ()
 specifier|public
 name|void
@@ -836,6 +856,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleFileDir ()
 specifier|public
 name|void
@@ -852,6 +874,8 @@ literal|"file:mydir"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEmptyExpression ()
 specifier|public
 name|void
@@ -953,6 +977,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangeExpression ()
 specifier|public
 name|void
@@ -1000,6 +1026,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExchangeOgnlExpression ()
 specifier|public
 name|void
@@ -1060,6 +1088,8 @@ literal|"org.apache.camel.impl.DefaultExchange"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyExpression ()
 specifier|public
 name|void
@@ -1084,6 +1114,8 @@ name|exp
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlExpression ()
 specifier|public
 name|void
@@ -1132,6 +1164,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyExpressionUsingAlternativeStartToken ()
 specifier|public
 name|void
@@ -1156,6 +1190,8 @@ name|exp
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyExpressionNotStringType ()
 specifier|public
 name|void
@@ -1220,6 +1256,8 @@ name|val
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyExpressionWithArray ()
 specifier|public
 name|void
@@ -1323,6 +1361,8 @@ name|val
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleExpressions ()
 specifier|public
 name|void
@@ -1421,6 +1461,8 @@ literal|"myRouteId"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTrimSimpleExpressions ()
 specifier|public
 name|void
@@ -1479,6 +1521,8 @@ literal|"<hello id='m123'>world!</hello>"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleThreadName ()
 specifier|public
 name|void
@@ -1515,6 +1559,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleOutExpressions ()
 specifier|public
 name|void
@@ -1567,6 +1613,8 @@ literal|"Camel rocks"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimplePropertyExpressions ()
 specifier|public
 name|void
@@ -1592,6 +1640,8 @@ literal|"gold"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleExchangePropertyExpressions ()
 specifier|public
 name|void
@@ -1617,6 +1667,8 @@ literal|"gold"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSystemPropertyExpressions ()
 specifier|public
 name|void
@@ -1642,6 +1694,8 @@ literal|"I was here"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSystemEnvironmentExpressions ()
 specifier|public
 name|void
@@ -1676,6 +1730,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleSystemEnvironmentExpressionsIfLowercase ()
 specifier|public
 name|void
@@ -1710,6 +1766,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleCamelId ()
 specifier|public
 name|void
@@ -1729,6 +1787,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLBodyListAndMap ()
 specifier|public
 name|void
@@ -1839,6 +1899,8 @@ literal|4321
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLBodyEmptyList ()
 specifier|public
 name|void
@@ -1895,6 +1957,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLBodyExpression ()
 specifier|public
 name|void
@@ -1928,6 +1992,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLBodyAsExpression ()
 specifier|public
 name|void
@@ -2032,6 +2098,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLMandatoryBodyAsExpression ()
 specifier|public
 name|void
@@ -2136,6 +2204,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLCallReplace ()
 specifier|public
 name|void
@@ -2193,6 +2263,8 @@ literal|"Camel is so cool"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLBodyListAndMapAndMethod ()
 specifier|public
 name|void
@@ -2334,6 +2406,8 @@ literal|"Camel in Action"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLPropertyList ()
 specifier|public
 name|void
@@ -2467,6 +2541,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLPropertyLinesList ()
 specifier|public
 name|void
@@ -2612,6 +2688,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLPropertyMap ()
 specifier|public
 name|void
@@ -2713,6 +2791,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLExchangePropertyMap ()
 specifier|public
 name|void
@@ -2814,6 +2894,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLPropertyMapWithDot ()
 specifier|public
 name|void
@@ -2861,6 +2943,8 @@ literal|"This code"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLPropertyMapNotMap ()
 specifier|public
 name|void
@@ -2917,6 +3001,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLPropertyMapIllegalSyntax ()
 specifier|public
 name|void
@@ -2961,6 +3047,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLExchangePropertyMapIllegalSyntax ()
 specifier|public
 name|void
@@ -3005,6 +3093,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLHeaderEmptyTest ()
 specifier|public
 name|void
@@ -3134,6 +3224,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDateExpressions ()
 specifier|public
 name|void
@@ -3376,6 +3468,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testDateAndTimeExpressions ()
 specifier|public
 name|void
@@ -3452,6 +3546,8 @@ literal|"1974-04-20T08:55:47:123"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDateWithTimezone ()
 specifier|public
 name|void
@@ -3540,6 +3636,8 @@ literal|"1974-04-20T00:55:47:123"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDateNow ()
 specifier|public
 name|void
@@ -3564,6 +3662,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDatePredicates ()
 specifier|public
 name|void
@@ -3583,6 +3683,8 @@ literal|"${date:now-2s+2s} == ${date:now}"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLanguagesInContext ()
 specifier|public
 name|void
@@ -3634,6 +3736,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testComplexExpressions ()
 specifier|public
 name|void
@@ -3692,6 +3796,8 @@ literal|"abc!"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testComplexExpressionsUsingAlternativeStartToken ()
 specifier|public
 name|void
@@ -3750,6 +3856,8 @@ literal|"abc!"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvalidComplexExpression ()
 specifier|public
 name|void
@@ -3791,6 +3899,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testPredicates ()
 specifier|public
 name|void
@@ -3817,6 +3927,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionMessage ()
 specifier|public
 name|void
@@ -3851,6 +3963,8 @@ literal|"Hello Just testing World"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionStacktrace ()
 specifier|public
 name|void
@@ -3915,6 +4029,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testException ()
 specifier|public
 name|void
@@ -3978,6 +4094,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyAs ()
 specifier|public
 name|void
@@ -4083,6 +4201,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testMandatoryBodyAs ()
 specifier|public
 name|void
@@ -4215,6 +4335,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderEmptyBody ()
 specifier|public
 name|void
@@ -4291,6 +4413,8 @@ literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeadersWithBracket ()
 specifier|public
 name|void
@@ -4321,6 +4445,8 @@ literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnglOnHeadersWithBracket ()
 specifier|public
 name|void
@@ -4422,6 +4548,8 @@ literal|"Camel in Action"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOnglOnExchangePropertiesWithBracket ()
 specifier|public
 name|void
@@ -4511,6 +4639,8 @@ literal|"Camel in Action"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIsInstanceOfEmptyBody ()
 specifier|public
 name|void
@@ -4563,6 +4693,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaders ()
 specifier|public
 name|void
@@ -4626,6 +4758,8 @@ name|headers
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderKeyWithSpace ()
 specifier|public
 name|void
@@ -4733,6 +4867,8 @@ literal|"Some Value"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderAs ()
 specifier|public
 name|void
@@ -4909,6 +5045,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testIllegalSyntax ()
 specifier|public
 name|void
@@ -5023,6 +5161,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLHeaderList ()
 specifier|public
 name|void
@@ -5159,6 +5299,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLHeaderLinesList ()
 specifier|public
 name|void
@@ -5307,6 +5449,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLHeaderMap ()
 specifier|public
 name|void
@@ -5411,6 +5555,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLHeaderMapWithDot ()
 specifier|public
 name|void
@@ -5461,6 +5607,8 @@ literal|"This code"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLHeaderMapNotMap ()
 specifier|public
 name|void
@@ -5517,6 +5665,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testOGNLHeaderMapIllegalSyntax ()
 specifier|public
 name|void
@@ -5561,6 +5711,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLAsMap ()
 specifier|public
 name|void
@@ -5625,6 +5777,8 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLAsMapWithDot ()
 specifier|public
 name|void
@@ -5673,6 +5827,8 @@ literal|"Camel"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLAsMapShorthand ()
 specifier|public
 name|void
@@ -5737,6 +5893,8 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLSimple ()
 specifier|public
 name|void
@@ -5781,6 +5939,8 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionOGNLSimple ()
 specifier|public
 name|void
@@ -5828,6 +5988,8 @@ literal|"myPolicy"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLSimpleShorthand ()
 specifier|public
 name|void
@@ -5872,6 +6034,8 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLSimpleOperator ()
 specifier|public
 name|void
@@ -5976,6 +6140,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLSimpleOperatorShorthand ()
 specifier|public
 name|void
@@ -6080,6 +6246,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLNested ()
 specifier|public
 name|void
@@ -6156,6 +6324,8 @@ literal|"13"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLNestedShorthand ()
 specifier|public
 name|void
@@ -6232,6 +6402,8 @@ literal|"13"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLOrderList ()
 specifier|public
 name|void
@@ -6353,6 +6525,8 @@ literal|"Camel in Action"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLOrderListShorthand ()
 specifier|public
 name|void
@@ -6481,6 +6655,8 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLListMap ()
 specifier|public
 name|void
@@ -6625,6 +6801,8 @@ literal|"789"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLList ()
 specifier|public
 name|void
@@ -6709,6 +6887,8 @@ literal|"ActiveMQ in Action"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLListShorthand ()
 specifier|public
 name|void
@@ -6793,6 +6973,8 @@ literal|"ActiveMQ in Action"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLArray ()
 specifier|public
 name|void
@@ -6876,6 +7058,8 @@ literal|"ActiveMQ in Action"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLArrayShorthand ()
 specifier|public
 name|void
@@ -6959,6 +7143,8 @@ literal|"ActiveMQ in Action"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLOrderListOutOfBounds ()
 specifier|public
 name|void
@@ -7171,6 +7357,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLOrderListOutOfBoundsShorthand ()
 specifier|public
 name|void
@@ -7383,6 +7571,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLOrderListOutOfBoundsWithNullSafe ()
 specifier|public
 name|void
@@ -7455,6 +7645,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLOrderListOutOfBoundsWithNullSafeShorthand ()
 specifier|public
 name|void
@@ -7527,6 +7719,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLOrderListNoMethodNameWithNullSafe ()
 specifier|public
 name|void
@@ -7639,6 +7833,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLOrderListNoMethodNameWithNullSafeShorthand ()
 specifier|public
 name|void
@@ -7751,6 +7947,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLNullSafeToAvoidNPE ()
 specifier|public
 name|void
@@ -7870,6 +8068,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLNullSafeToAvoidNPEShorthand ()
 specifier|public
 name|void
@@ -7990,6 +8190,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLReentrant ()
 specifier|public
 name|void
@@ -8084,6 +8286,8 @@ literal|"Big Ella"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLReentrantShorthand ()
 specifier|public
 name|void
@@ -8178,6 +8382,8 @@ literal|"Big Ella"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOGNLBoolean ()
 specifier|public
 name|void
@@ -8257,6 +8463,8 @@ literal|"false"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlOnString ()
 specifier|public
 name|void
@@ -8325,6 +8533,8 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlOnStringWithOgnlParams ()
 specifier|public
 name|void
@@ -8375,6 +8585,8 @@ literal|"me"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHeaderOgnlOnStringWithOgnlParams ()
 specifier|public
 name|void
@@ -8437,6 +8649,8 @@ literal|"me"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelContextStartRoute ()
 specifier|public
 name|void
@@ -8463,6 +8677,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlReplace ()
 specifier|public
 name|void
@@ -8489,6 +8705,8 @@ literal|"Camel is a cool Camel"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlReplaceEscapedChar ()
 specifier|public
 name|void
@@ -8515,6 +8733,8 @@ literal|"foo-bar-baz"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlReplaceEscapedBackslashChar ()
 specifier|public
 name|void
@@ -8541,6 +8761,8 @@ literal|"foo\\\\bar\\\\baz"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlReplaceFirst ()
 specifier|public
 name|void
@@ -8595,6 +8817,8 @@ literal|" camel.apache.org"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlReplaceSingleQuoteInDouble ()
 specifier|public
 name|void
@@ -8649,6 +8873,8 @@ literal|"Hello O\n'Conner"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlSpaces ()
 specifier|public
 name|void
@@ -8728,6 +8954,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testClassSimpleName ()
 specifier|public
 name|void
@@ -8779,6 +9007,8 @@ literal|"Animal"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testExceptionClassSimpleName ()
 specifier|public
 name|void
@@ -8846,6 +9076,8 @@ literal|"IllegalArgumentException"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSlashBeforeHeader ()
 specifier|public
 name|void
@@ -8869,6 +9101,8 @@ literal|"foo\\abc"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testJSonLike ()
 specifier|public
 name|void
@@ -8895,6 +9129,8 @@ literal|"{\n\"data\": \"Something\"\n}"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFunctionEnds ()
 specifier|public
 name|void
@@ -8956,6 +9192,8 @@ literal|"{{Something-Something}}"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEscape ()
 specifier|public
 name|void
@@ -9046,6 +9284,8 @@ literal|"$Something"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testEscapeEndFunction ()
 specifier|public
 name|void
@@ -9079,6 +9319,8 @@ literal|"Something{hello}"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelContextOGNL ()
 specifier|public
 name|void
@@ -9108,6 +9350,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTypeConstant ()
 specifier|public
 name|void
@@ -9150,6 +9394,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testTypeConstantInnerClass ()
 specifier|public
 name|void
@@ -9173,6 +9419,8 @@ literal|456
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testStringArrayLength ()
 specifier|public
 name|void
@@ -9246,6 +9494,8 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testByteArrayLength ()
 specifier|public
 name|void
@@ -9302,6 +9552,8 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testIntArrayLength ()
 specifier|public
 name|void
@@ -9358,6 +9610,8 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleMapBoolean ()
 specifier|public
 name|void
@@ -9472,6 +9726,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSimpleRegexp ()
 specifier|public
 name|void
@@ -9573,6 +9829,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCollateEven ()
 specifier|public
 name|void
@@ -9780,6 +10038,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCollateOdd ()
 specifier|public
 name|void
@@ -10027,6 +10287,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRandomExpression ()
 specifier|public
 name|void
@@ -10381,6 +10643,8 @@ literal|20
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testListRemoveByInstance ()
 specifier|public
 name|void
@@ -10478,6 +10742,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testListRemoveIndex ()
 specifier|public
 name|void
@@ -10575,6 +10841,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testBodyOgnlOnAnimalWithOgnlParams ()
 specifier|public
 name|void
@@ -10696,6 +10964,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNestedTypeFunction ()
 specifier|public
 name|void
@@ -10764,6 +11034,8 @@ literal|"456"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testListIndexByNestedFunction ()
 specifier|public
 name|void

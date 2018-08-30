@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -251,8 +271,10 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -272,6 +294,8 @@ name|newSingleThreadExecutor
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorCompletionPredicate ()
 specifier|public
 name|void
@@ -545,6 +569,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorCompletionPredicateEager ()
 specifier|public
 name|void
@@ -818,6 +844,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorCompletionAggregatedSize ()
 specifier|public
 name|void
@@ -832,6 +860,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorCompletionAggregatedSizeEager ()
 specifier|public
 name|void
@@ -1111,6 +1141,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorCompletionTimeout ()
 specifier|public
 name|void
@@ -1125,6 +1157,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateProcessorCompletionTimeoutEager ()
 specifier|public
 name|void
@@ -1432,6 +1466,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateCompletionInterval ()
 specifier|public
 name|void
@@ -1709,6 +1745,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateIgnoreInvalidCorrelationKey ()
 specifier|public
 name|void
@@ -1959,6 +1997,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateBadCorrelationKey ()
 specifier|public
 name|void
@@ -2228,6 +2268,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateCloseCorrelationKeyOnCompletion ()
 specifier|public
 name|void
@@ -2516,6 +2558,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateUseBatchSizeFromConsumer ()
 specifier|public
 name|void
@@ -2983,6 +3027,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateLogFailedExchange ()
 specifier|public
 name|void
@@ -2997,6 +3043,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateHandleFailedExchange ()
 specifier|public
 name|void
@@ -3483,6 +3531,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAggregateForceCompletion ()
 specifier|public
 name|void

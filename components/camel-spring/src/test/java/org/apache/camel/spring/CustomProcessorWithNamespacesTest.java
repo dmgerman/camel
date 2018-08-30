@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -180,6 +200,8 @@ specifier|protected
 name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testXMLRouteLoading ()
 specifier|public
 name|void
@@ -406,8 +428,10 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

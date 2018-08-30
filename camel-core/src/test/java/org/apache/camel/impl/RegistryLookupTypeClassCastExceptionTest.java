@@ -18,11 +18,21 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|TestCase
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -60,8 +70,10 @@ specifier|public
 class|class
 name|RegistryLookupTypeClassCastExceptionTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testLookupOk ()
 specifier|public
 name|void
@@ -146,6 +158,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelContextLookupOk ()
 specifier|public
 name|void
@@ -251,6 +265,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLookupClassCast ()
 specifier|public
 name|void
@@ -332,6 +348,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testCamelContextLookupClassCast ()
 specifier|public
 name|void

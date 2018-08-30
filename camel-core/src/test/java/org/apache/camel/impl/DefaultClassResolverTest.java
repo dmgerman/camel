@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -38,11 +48,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 
@@ -56,8 +66,10 @@ specifier|public
 class|class
 name|DefaultClassResolverTest
 extends|extends
-name|TestCase
+name|Assert
 block|{
+annotation|@
+name|Test
 DECL|method|testResolveClass ()
 specifier|public
 name|void
@@ -90,6 +102,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveClassType ()
 specifier|public
 name|void
@@ -126,6 +140,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveClassClassLoader ()
 specifier|public
 name|void
@@ -165,6 +181,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveClassClassLoaderType ()
 specifier|public
 name|void
@@ -208,6 +226,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveMandatoryClass ()
 specifier|public
 name|void
@@ -242,6 +262,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveMandatoryClassType ()
 specifier|public
 name|void
@@ -280,6 +302,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveMandatorySimpleClassType ()
 specifier|public
 name|void
@@ -545,6 +569,8 @@ name|clazz6
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveMandatoryClassClassLoader ()
 specifier|public
 name|void
@@ -586,6 +612,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveMandatoryClassClassLoaderType ()
 specifier|public
 name|void
@@ -631,6 +659,8 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testResolveMandatoryClassNotFound ()
 specifier|public
 name|void
@@ -668,6 +698,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadResourceAsUri ()
 specifier|public
 name|void
@@ -697,6 +729,8 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testLoadResourceAsStream ()
 specifier|public
 name|void

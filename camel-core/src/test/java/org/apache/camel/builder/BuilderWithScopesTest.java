@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -603,6 +613,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithFilterEnd ()
 specifier|public
 name|void
@@ -698,6 +710,8 @@ literal|"banana"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithFilterNoEnd ()
 specifier|public
 name|void
@@ -873,6 +887,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithChoice1 ()
 specifier|public
 name|void
@@ -917,6 +933,8 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithChoice2 ()
 specifier|public
 name|void
@@ -961,6 +979,8 @@ literal|"cheese"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithChoice3 ()
 specifier|public
 name|void
@@ -998,6 +1018,8 @@ literal|"banana"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithChoiceNoEnd ()
 specifier|public
 name|void
@@ -1210,6 +1232,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithChoiceOtherwise1 ()
 specifier|public
 name|void
@@ -1254,6 +1278,8 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithChoiceOtherwise2 ()
 specifier|public
 name|void
@@ -1298,6 +1324,8 @@ literal|"cheese"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithChoiceOtherwise3 ()
 specifier|public
 name|void
@@ -1342,6 +1370,8 @@ literal|"banana"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithChoiceOtherwiseNoEnd ()
 specifier|public
 name|void
@@ -1522,6 +1552,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchNoEndNoException ()
 specifier|public
 name|void
@@ -1566,6 +1598,8 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchNoEndWithCaughtException ()
 specifier|public
 name|void
@@ -1617,6 +1651,8 @@ literal|"banana"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchNoEndWithUncaughtException ()
 specifier|public
 name|void
@@ -1710,6 +1746,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchEndNoException ()
 specifier|public
 name|void
@@ -1761,6 +1799,8 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchEndWithCaughtException ()
 specifier|public
 name|void
@@ -1812,6 +1852,8 @@ literal|"banana"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchEndWithUncaughtException ()
 specifier|public
 name|void
@@ -1911,6 +1953,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchFinallyNoEndNoException ()
 specifier|public
 name|void
@@ -1969,6 +2013,8 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchFinallyNoEndWithCaughtException ()
 specifier|public
 name|void
@@ -2027,6 +2073,8 @@ literal|"banana"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchFinallyNoEndWithUncaughtException ()
 specifier|public
 name|void
@@ -2142,6 +2190,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchFinallyEndNoException ()
 specifier|public
 name|void
@@ -2200,6 +2250,8 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchFinallyEndWithCaughtException ()
 specifier|public
 name|void
@@ -2258,6 +2310,8 @@ literal|"banana"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRouteWithTryCatchFinallyEndWithUncaughtException ()
 specifier|public
 name|void

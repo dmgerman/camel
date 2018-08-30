@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -62,6 +72,8 @@ name|ManagedLogEndpointTest
 extends|extends
 name|ManagementTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testLogEndpoint ()
 specifier|public
 name|void
@@ -384,6 +396,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Double
+operator|)
 literal|0.0d
 argument_list|,
 name|rate
@@ -405,6 +420,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|(
+name|Double
+operator|)
 literal|0.0d
 argument_list|,
 name|average
