@@ -264,6 +264,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -856,8 +870,7 @@ name|isLenientProperties
 argument_list|()
 condition|)
 block|{
-comment|// only use the endpoint uri without parameters as the properties is
-comment|// lenient
+comment|// only use the endpoint uri without parameters as the properties are lenient
 name|String
 name|uri
 init|=
@@ -878,7 +891,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

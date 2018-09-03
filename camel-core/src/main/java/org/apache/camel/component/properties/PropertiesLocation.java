@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -147,7 +147,7 @@ name|this
 operator|.
 name|optional
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

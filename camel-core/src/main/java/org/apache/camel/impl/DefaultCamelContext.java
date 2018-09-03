@@ -4831,7 +4831,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -4941,7 +4941,7 @@ name|String
 name|splitURI
 index|[]
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|splitOnCharacter
 argument_list|(
@@ -5508,7 +5508,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -10784,7 +10784,7 @@ block|}
 block|}
 name|json
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -11235,7 +11235,7 @@ condition|)
 block|{
 name|dataFormatName
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -11822,7 +11822,7 @@ block|}
 block|}
 name|json
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -12847,7 +12847,7 @@ block|}
 block|}
 name|json
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -13960,7 +13960,7 @@ block|}
 comment|// skip component properties
 name|json
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

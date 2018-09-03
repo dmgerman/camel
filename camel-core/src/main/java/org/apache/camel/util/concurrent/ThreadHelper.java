@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -175,7 +175,7 @@ argument_list|(
 literal|"?"
 argument_list|)
 condition|?
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

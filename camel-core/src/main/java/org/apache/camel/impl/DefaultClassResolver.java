@@ -112,6 +112,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default class resolver that uses regular class loader to load classes.  */
 end_comment
@@ -591,7 +605,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -621,7 +635,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -673,7 +687,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -706,7 +720,7 @@ name|ClassLoader
 name|loader
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

@@ -2145,7 +2145,7 @@ name|getMethod
 argument_list|(
 literal|"is"
 operator|+
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|capitalize
 argument_list|(
@@ -2163,7 +2163,7 @@ name|getMethod
 argument_list|(
 literal|"get"
 operator|+
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|capitalize
 argument_list|(
@@ -2196,7 +2196,7 @@ name|name
 init|=
 literal|"set"
 operator|+
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|capitalize
 argument_list|(
@@ -2279,7 +2279,7 @@ name|getMethod
 argument_list|(
 literal|"is"
 operator|+
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|capitalize
 argument_list|(
@@ -2523,7 +2523,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -4090,7 +4090,7 @@ name|name
 operator|=
 literal|"set"
 operator|+
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|capitalize
 argument_list|(

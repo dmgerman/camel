@@ -110,6 +110,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -166,7 +180,7 @@ literal|"method"
 argument_list|)
 decl_stmt|;
 comment|// ref is mandatory
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

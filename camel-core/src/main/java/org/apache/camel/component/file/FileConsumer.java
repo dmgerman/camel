@@ -196,6 +196,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * File consumer.  */
 end_comment
@@ -1278,7 +1292,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

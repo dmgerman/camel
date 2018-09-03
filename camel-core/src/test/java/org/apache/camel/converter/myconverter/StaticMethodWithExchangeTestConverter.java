@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|String
 index|[]
 name|values
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|splitOnCharacter
 argument_list|(

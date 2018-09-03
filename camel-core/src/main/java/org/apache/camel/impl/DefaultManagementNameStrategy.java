@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -418,7 +418,7 @@ name|boolean
 name|invalidCheck
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -427,7 +427,7 @@ argument_list|,
 literal|"pattern"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

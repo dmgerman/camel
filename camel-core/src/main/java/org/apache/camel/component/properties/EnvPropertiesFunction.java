@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -89,7 +89,7 @@ condition|)
 block|{
 name|key
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -100,7 +100,7 @@ argument_list|)
 expr_stmt|;
 name|defaultValue
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

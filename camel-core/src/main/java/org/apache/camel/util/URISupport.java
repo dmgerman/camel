@@ -1517,7 +1517,7 @@ decl_stmt|;
 name|String
 name|before
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1535,7 +1535,7 @@ condition|)
 block|{
 name|before
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

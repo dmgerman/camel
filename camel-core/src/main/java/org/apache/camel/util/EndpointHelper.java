@@ -304,7 +304,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 import|;
@@ -586,7 +586,7 @@ comment|// try without :// also
 name|String
 name|scheme
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -630,7 +630,7 @@ comment|// try with :// also
 name|String
 name|scheme
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

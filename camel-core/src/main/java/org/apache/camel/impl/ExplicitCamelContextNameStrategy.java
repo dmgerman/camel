@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

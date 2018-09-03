@@ -994,7 +994,7 @@ condition|)
 block|{
 name|uri
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1124,7 +1124,7 @@ condition|)
 block|{
 name|uri
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1316,7 +1316,7 @@ comment|// check if file exists first
 name|String
 name|name
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1412,7 +1412,7 @@ condition|)
 block|{
 name|uri
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

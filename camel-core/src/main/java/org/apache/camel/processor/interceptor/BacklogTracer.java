@@ -234,7 +234,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -1082,7 +1082,7 @@ comment|// assume simple language
 name|String
 name|name
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

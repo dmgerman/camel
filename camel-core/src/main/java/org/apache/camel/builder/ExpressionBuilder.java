@@ -6138,7 +6138,7 @@ name|String
 name|inheritNamespaceTagName
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -6170,7 +6170,7 @@ name|char
 name|mode
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -6205,7 +6205,7 @@ name|int
 name|group
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -10620,7 +10620,7 @@ comment|// the remainder is the rest of the ognl without the key
 name|String
 name|remainder
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

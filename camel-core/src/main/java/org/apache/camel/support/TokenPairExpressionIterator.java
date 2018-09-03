@@ -138,6 +138,20 @@ name|Scanner
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * {@link org.apache.camel.Expression} to walk a {@link org.apache.camel.Message} body  * using an {@link Iterator}, which grabs the content between a start and end token.  *<p/>  * The message body must be able to convert to {@link InputStream} type which is used as stream  * to access the message body.  *<p/>  * For splitting XML files use {@link org.apache.camel.support.TokenXMLExpressionIterator} instead.  */
 end_comment
@@ -182,7 +196,7 @@ name|boolean
 name|includeTokens
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -191,7 +205,7 @@ argument_list|,
 literal|"startToken"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -873,7 +887,7 @@ condition|)
 block|{
 name|next
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

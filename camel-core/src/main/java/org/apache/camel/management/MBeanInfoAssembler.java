@@ -334,6 +334,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -1340,7 +1354,7 @@ block|}
 comment|// they key must be capitalized
 name|key
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|capitalize
 argument_list|(

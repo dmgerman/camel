@@ -244,7 +244,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -380,7 +380,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -502,7 +502,7 @@ comment|// the part may have optional language to use, so you can mix languages
 name|String
 name|value
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -521,7 +521,7 @@ block|{
 name|String
 name|before
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -533,7 +533,7 @@ decl_stmt|;
 name|String
 name|after
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

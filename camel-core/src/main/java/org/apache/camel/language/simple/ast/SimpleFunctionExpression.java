@@ -1150,7 +1150,7 @@ condition|)
 block|{
 name|locations
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1161,7 +1161,7 @@ argument_list|)
 expr_stmt|;
 name|key
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1327,7 +1327,7 @@ block|{
 name|String
 name|type
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1369,7 +1369,7 @@ argument_list|)
 expr_stmt|;
 name|remainder
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1461,7 +1461,7 @@ block|{
 name|String
 name|type
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1503,7 +1503,7 @@ argument_list|)
 expr_stmt|;
 name|remainder
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1696,7 +1696,7 @@ block|{
 name|String
 name|keyAndType
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1730,7 +1730,7 @@ block|}
 name|String
 name|key
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1742,7 +1742,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1753,7 +1753,7 @@ argument_list|)
 decl_stmt|;
 name|remainder
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -2727,7 +2727,7 @@ block|{
 name|String
 name|values
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -2873,7 +2873,7 @@ block|{
 name|String
 name|values
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -2960,7 +2960,7 @@ block|{
 name|String
 name|values
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -3050,7 +3050,7 @@ decl_stmt|;
 name|String
 name|values
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|between
 argument_list|(

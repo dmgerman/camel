@@ -1017,7 +1017,7 @@ argument_list|(
 name|target
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

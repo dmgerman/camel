@@ -220,6 +220,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * {@link org.apache.camel.Expression} to walk a {@link org.apache.camel.Message} XML body  * using an {@link java.util.Iterator}, which grabs the content between a XML start and end token,  * where the end token corresponds implicitly to either the end tag or the self-closing start tag.  *<p/>  * The message body must be able to convert to {@link java.io.InputStream} type which is used as stream  * to access the message body.  *<p/>  * Can be used to split big XML files.  *<p/>  * This implementation supports inheriting namespaces from a parent/root tag.  */
 end_comment
@@ -305,7 +319,7 @@ name|String
 name|inheritNamespaceToken
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -1140,7 +1154,7 @@ comment|// REVISIT should skip the prefixes that are declared within the child i
 name|String
 name|head
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1197,7 +1211,7 @@ comment|// grab the text
 name|String
 name|tail
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

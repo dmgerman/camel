@@ -561,7 +561,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

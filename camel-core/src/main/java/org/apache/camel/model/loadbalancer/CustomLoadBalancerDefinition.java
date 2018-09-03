@@ -170,7 +170,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -307,7 +307,7 @@ return|return
 name|loadBalancer
 return|;
 block|}
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

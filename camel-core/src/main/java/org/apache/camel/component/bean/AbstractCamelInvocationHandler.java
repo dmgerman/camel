@@ -354,6 +354,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -1622,7 +1636,7 @@ comment|// representation
 name|String
 name|name
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|between
 argument_list|(
@@ -1656,7 +1670,7 @@ block|{
 comment|// we only need the outer type
 name|name
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

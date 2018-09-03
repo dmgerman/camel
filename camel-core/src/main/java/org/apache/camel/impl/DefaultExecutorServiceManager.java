@@ -362,6 +362,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|TimeUtils
 import|;
 end_import
@@ -685,7 +699,7 @@ argument_list|,
 literal|"profile"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -2721,7 +2735,7 @@ literal|")"
 expr_stmt|;
 block|}
 comment|// id is mandatory
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

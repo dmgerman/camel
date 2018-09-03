@@ -4762,7 +4762,7 @@ name|ClassLoader
 name|loader
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

@@ -4773,7 +4773,7 @@ init|=
 name|getDoneFileName
 argument_list|()
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -4962,7 +4962,7 @@ init|=
 name|getDoneFileName
 argument_list|()
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

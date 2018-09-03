@@ -106,6 +106,20 @@ name|ResourceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/language-component.html">Language component</a> enables sending  * {@link org.apache.camel.Exchange}s to a given language in order to have a script executed.  *  * @version   */
 end_comment
@@ -165,7 +179,7 @@ block|{
 name|String
 name|name
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -177,7 +191,7 @@ decl_stmt|;
 name|String
 name|script
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

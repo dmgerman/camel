@@ -256,7 +256,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -653,7 +653,7 @@ block|}
 name|String
 name|method
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -665,7 +665,7 @@ decl_stmt|;
 name|String
 name|s
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -696,7 +696,7 @@ condition|)
 block|{
 name|path
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -707,7 +707,7 @@ argument_list|)
 expr_stmt|;
 name|uriTemplate
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
