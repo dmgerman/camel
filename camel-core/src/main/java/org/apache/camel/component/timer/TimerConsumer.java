@@ -338,7 +338,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Run now allowed for timer: {}"
+literal|"Run not allowed for timer: {}"
 argument_list|,
 name|endpoint
 argument_list|)
