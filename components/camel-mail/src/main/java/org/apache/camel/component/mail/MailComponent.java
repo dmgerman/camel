@@ -172,7 +172,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -608,7 +608,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// sanity check that we know the mail server
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -620,7 +620,7 @@ argument_list|,
 literal|"host"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

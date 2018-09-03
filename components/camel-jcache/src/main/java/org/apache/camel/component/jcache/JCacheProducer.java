@@ -132,6 +132,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The JCache producer.  */
 end_comment
@@ -220,7 +234,7 @@ name|getAction
 argument_list|()
 expr_stmt|;
 block|}
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

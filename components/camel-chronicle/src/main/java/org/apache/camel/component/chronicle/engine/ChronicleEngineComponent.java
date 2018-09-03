@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -181,7 +181,7 @@ name|answer
 operator|.
 name|setAddresses
 argument_list|(
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -195,7 +195,7 @@ name|answer
 operator|.
 name|setPath
 argument_list|(
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

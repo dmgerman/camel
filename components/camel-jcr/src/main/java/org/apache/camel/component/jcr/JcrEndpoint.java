@@ -200,6 +200,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The jcr component allows you to add/read nodes to/from a JCR compliant content repository.  */
 end_comment
@@ -557,7 +571,7 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -1020,7 +1034,7 @@ block|{
 name|String
 name|remainder
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1076,7 +1090,7 @@ block|{
 comment|// remove parameters
 name|remainder
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

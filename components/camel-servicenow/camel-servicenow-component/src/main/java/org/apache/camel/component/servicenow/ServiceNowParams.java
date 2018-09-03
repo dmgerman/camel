@@ -56,6 +56,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_enum
 DECL|enum|ServiceNowParams
 specifier|public
@@ -884,7 +898,7 @@ name|ServiceNowConstants
 operator|.
 name|CAMEL_HEADER_PREFIX
 operator|+
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|capitalize
 argument_list|(

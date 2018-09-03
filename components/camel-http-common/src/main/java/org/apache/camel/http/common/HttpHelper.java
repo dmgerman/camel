@@ -701,7 +701,7 @@ condition|)
 block|{
 name|charset
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1907,7 +1907,7 @@ condition|)
 block|{
 name|relativeUrl
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(

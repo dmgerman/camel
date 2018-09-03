@@ -192,6 +192,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
@@ -3908,7 +3922,7 @@ literal|null
 condition|)
 block|{
 comment|// host and port must be configured
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

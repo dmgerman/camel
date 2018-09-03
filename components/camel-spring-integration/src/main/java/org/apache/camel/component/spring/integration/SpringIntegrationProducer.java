@@ -90,6 +90,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|integration
@@ -313,7 +327,7 @@ name|getInputChannel
 argument_list|()
 expr_stmt|;
 block|}
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -375,7 +389,7 @@ argument_list|()
 condition|)
 block|{
 comment|// we need to setup right inputChannel for further processing
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

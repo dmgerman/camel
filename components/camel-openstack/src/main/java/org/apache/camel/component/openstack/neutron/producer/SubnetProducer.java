@@ -156,6 +156,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|openstack4j
 operator|.
 name|api
@@ -457,7 +471,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -582,7 +596,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -664,7 +678,7 @@ operator|.
 name|subnet
 argument_list|()
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -702,7 +716,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

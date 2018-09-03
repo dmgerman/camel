@@ -264,6 +264,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|netty
@@ -1298,7 +1312,7 @@ condition|)
 block|{
 name|url
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1820,7 +1834,7 @@ block|{
 name|String
 name|constraint
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1852,7 +1866,7 @@ block|{
 name|String
 name|decoded
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -1901,7 +1915,7 @@ decl_stmt|;
 name|String
 name|username
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -1913,7 +1927,7 @@ decl_stmt|;
 name|String
 name|password
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

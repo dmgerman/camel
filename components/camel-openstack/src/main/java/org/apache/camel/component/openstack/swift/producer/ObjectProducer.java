@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -418,7 +418,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -427,7 +427,7 @@ argument_list|,
 literal|"Container name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -517,7 +517,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -526,7 +526,7 @@ argument_list|,
 literal|"Container name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -610,7 +610,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -704,7 +704,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -713,7 +713,7 @@ argument_list|,
 literal|"Container name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -815,7 +815,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -824,7 +824,7 @@ argument_list|,
 literal|"Container name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -906,7 +906,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -915,7 +915,7 @@ argument_list|,
 literal|"Container name"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
