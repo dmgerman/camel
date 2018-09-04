@@ -1086,7 +1086,7 @@ name|instrumentationProcessor
 argument_list|)
 expr_stmt|;
 block|}
-comment|// then wrap the output with the backlog and tracer (backlog first, as we do not want regular tracer to tracer the backlog)
+comment|// then wrap the output with the backlog and tracer (backlog first, as we do not want regular tracer to trace the backlog)
 name|InterceptStrategy
 name|tracer
 init|=
