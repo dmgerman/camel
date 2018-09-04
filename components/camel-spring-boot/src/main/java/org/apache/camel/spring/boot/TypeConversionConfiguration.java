@@ -180,7 +180,7 @@ name|ConditionalOnProperty
 argument_list|(
 name|value
 operator|=
-literal|"camel.springboot.typeConversion"
+literal|"camel.springboot.type-conversion"
 argument_list|,
 name|matchIfMissing
 operator|=
