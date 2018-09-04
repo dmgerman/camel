@@ -85,7 +85,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo"
+literal|"seda:bar"
 argument_list|)
 operator|.
 name|end
