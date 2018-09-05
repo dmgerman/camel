@@ -73,6 +73,8 @@ comment|/**  * MBean exporter to register the {@link CamelCatalog} in JMX.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CamelCatalogMBeanExporter
 specifier|public
 class|class

@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|lang
@@ -55,6 +45,26 @@ operator|.
 name|management
 operator|.
 name|ObjectName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -95,6 +105,10 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
+annotation|@
+name|Ignore
 DECL|class|CamelCatalogMBeanExporterTest
 specifier|public
 class|class
