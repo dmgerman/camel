@@ -230,7 +230,7 @@ literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
-literal|"/users/123/basicrestletMethod=DELETE"
+literal|"/users/123/basic"
 argument_list|)
 expr_stmt|;
 name|from
