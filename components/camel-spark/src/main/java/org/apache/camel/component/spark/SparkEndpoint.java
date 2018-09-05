@@ -150,7 +150,21 @@ name|spark
 operator|.
 name|sql
 operator|.
-name|DataFrame
+name|Dataset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|spark
+operator|.
+name|sql
+operator|.
+name|Row
 import|;
 end_import
 
@@ -263,7 +277,10 @@ annotation|@
 name|UriParam
 DECL|field|dataFrame
 specifier|private
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|dataFrame
 decl_stmt|;
 annotation|@
@@ -588,7 +605,10 @@ expr_stmt|;
 block|}
 DECL|method|getDataFrame ()
 specifier|public
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|getDataFrame
 parameter_list|()
 block|{
@@ -597,12 +617,15 @@ name|dataFrame
 return|;
 block|}
 comment|/**      * DataFrame to compute against.      */
-DECL|method|setDataFrame (DataFrame dataFrame)
+DECL|method|setDataFrame (Dataset<Row> dataFrame)
 specifier|public
 name|void
 name|setDataFrame
 parameter_list|(
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|dataFrame
 parameter_list|)
 block|{

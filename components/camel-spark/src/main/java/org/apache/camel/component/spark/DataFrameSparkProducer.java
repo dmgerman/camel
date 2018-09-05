@@ -80,7 +80,21 @@ name|spark
 operator|.
 name|sql
 operator|.
-name|DataFrame
+name|Dataset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|spark
+operator|.
+name|sql
+operator|.
+name|Row
 import|;
 end_import
 
@@ -173,7 +187,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|dataFrame
 init|=
 name|resolveDataFrame
@@ -358,7 +375,10 @@ block|}
 block|}
 DECL|method|resolveDataFrame (Exchange exchange)
 specifier|protected
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|resolveDataFrame
 parameter_list|(
 name|Exchange
@@ -382,7 +402,10 @@ condition|)
 block|{
 return|return
 operator|(
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 operator|)
 name|exchange
 operator|.

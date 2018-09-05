@@ -64,7 +64,21 @@ name|spark
 operator|.
 name|sql
 operator|.
-name|DataFrame
+name|Dataset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|spark
+operator|.
+name|sql
+operator|.
+name|Row
 import|;
 end_import
 
@@ -140,7 +154,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|resultFrame
 init|=
 name|hiveContext

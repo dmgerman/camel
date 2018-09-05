@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -202,7 +192,7 @@ name|spark
 operator|.
 name|sql
 operator|.
-name|DataFrame
+name|Dataset
 import|;
 end_import
 
@@ -233,6 +223,16 @@ operator|.
 name|hive
 operator|.
 name|HiveContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
 import|;
 end_import
 
@@ -477,7 +477,10 @@ argument_list|,
 name|hiveContext
 argument_list|)
 expr_stmt|;
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|jsonCars
 init|=
 name|hiveContext
@@ -1573,7 +1576,10 @@ specifier|public
 name|Long
 name|onDataFrame
 parameter_list|(
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|dataFrame
 parameter_list|,
 name|Object
@@ -1652,7 +1658,10 @@ specifier|public
 name|Long
 name|onDataFrame
 parameter_list|(
-name|DataFrame
+name|Dataset
+argument_list|<
+name|Row
+argument_list|>
 name|dataFrame
 parameter_list|,
 name|Object
