@@ -57,7 +57,7 @@ argument_list|<
 name|Exchange
 argument_list|>
 block|{
-comment|/**      * Set the expression sed for comparing {@link Exchange}s.      *       * @param expression the expression      */
+comment|/**      * Set the expression used for comparing {@link Exchange}s.      *       * @param expression the expression      */
 DECL|method|setExpression (Expression expression)
 name|void
 name|setExpression
