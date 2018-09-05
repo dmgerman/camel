@@ -2027,7 +2027,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @param classType the canonical class name for the array passed as output      *      * @deprecated as of 2.19.0. Replaced wtih {@link #outType(Class)} with {@code []} appended to canonical class name      * , e.g. {@code outType(MyClass[].class}      */
+comment|/**      * @param classType the canonical class name for the array passed as output      *      * @deprecated as of 2.19.0. Replaced with {@link #outType(Class)} with {@code []} appended to canonical class name,      * e.g. {@code outType(MyClass[].class}      */
 annotation|@
 name|Deprecated
 DECL|method|outTypeList (Class<?> classType)
