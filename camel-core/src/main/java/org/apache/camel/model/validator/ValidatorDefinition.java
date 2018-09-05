@@ -82,18 +82,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|InputTypeDefinition
@@ -195,37 +183,6 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
-DECL|method|createValidator (CamelContext context)
-specifier|public
-name|Validator
-name|createValidator
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|doCreateValidator
-argument_list|(
-name|context
-argument_list|)
-return|;
-block|}
-empty_stmt|;
-DECL|method|doCreateValidator (CamelContext context)
-specifier|protected
-specifier|abstract
-name|Validator
-name|doCreateValidator
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 DECL|method|getType ()
 specifier|public
 name|String

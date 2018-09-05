@@ -78,6 +78,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|reifier
+operator|.
+name|RouteReifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -106,6 +120,10 @@ name|Exception
 block|{
 comment|// advice the first route using the inlined AdviceWith route builder
 comment|// which has extended capabilities than the regular route builder
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -115,9 +133,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new

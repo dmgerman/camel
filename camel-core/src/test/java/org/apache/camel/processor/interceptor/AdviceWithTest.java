@@ -60,6 +60,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|reifier
+operator|.
+name|RouteReifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -129,6 +143,10 @@ throws|throws
 name|Exception
 block|{
 comment|// advice the first route using the inlined route builder
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -138,9 +156,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new
@@ -235,6 +251,10 @@ name|Exception
 block|{
 try|try
 block|{
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -244,9 +264,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new
@@ -319,6 +337,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -328,9 +350,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new

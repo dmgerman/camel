@@ -118,6 +118,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|reifier
+operator|.
+name|RouteReifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -148,6 +162,10 @@ name|Exception
 block|{
 try|try
 block|{
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -157,9 +175,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new
@@ -237,6 +253,10 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -246,9 +266,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new
@@ -348,6 +366,10 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e2
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -357,9 +379,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new
@@ -425,6 +445,10 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e3
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -434,9 +458,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new
@@ -511,6 +533,10 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e4
+name|RouteReifier
+operator|.
+name|adviceWith
+argument_list|(
 name|context
 operator|.
 name|getRouteDefinitions
@@ -520,9 +546,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|adviceWith
-argument_list|(
+argument_list|,
 name|context
 argument_list|,
 operator|new

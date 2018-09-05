@@ -152,35 +152,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
 import|;
 end_import
 
@@ -304,27 +278,6 @@ block|{
 return|return
 literal|"hystrix"
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createProcessor (RouteContext routeContext)
-specifier|public
-name|Processor
-name|createProcessor
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Cannot find camel-hystrix on the classpath."
-argument_list|)
-throw|;
 block|}
 DECL|method|getOutputs ()
 specifier|public
@@ -490,7 +443,7 @@ argument_list|()
 return|;
 block|}
 DECL|method|preCreateProcessor ()
-specifier|protected
+specifier|public
 name|void
 name|preCreateProcessor
 parameter_list|()

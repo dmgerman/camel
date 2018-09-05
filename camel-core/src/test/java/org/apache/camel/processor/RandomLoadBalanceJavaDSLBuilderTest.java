@@ -464,9 +464,7 @@ name|getLoadBalancerType
 argument_list|()
 operator|.
 name|getLoadBalancer
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

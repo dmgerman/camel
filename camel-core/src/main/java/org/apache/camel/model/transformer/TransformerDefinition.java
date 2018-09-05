@@ -82,18 +82,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|InputTypeDefinition
@@ -142,22 +130,8 @@ name|Metadata
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Transformer
-import|;
-end_import
-
 begin_comment
-comment|/**  *<p>Represents a {@link Transformer} which declaratively transforms message content  * according to the input type declared by {@link InputTypeDefinition} and/or output type  * declared by {@link OutputTypeDefinition}.</p>  *<p>If you specify from='java:com.example.ABC' and to='xml:XYZ', the transformer  * will be picked up when current message type is 'java:com.example.ABC' and expected  * message type is 'xml:XYZ'.  * If you specify from='java' to='xml', then it will be picked up for all of java  * to xml transformation.  * Also it's possible to specify scheme='xml' so that the transformer will be picked up  * for all of java to xml and xml to java transformation.</p>  *   * {@see Transformer}  * {@see InputTypeDefinition}  * {@see OutputTypeDefinition}  */
+comment|/**  *<p>Represents a {@link org.apache.camel.spi.Transformer} which declaratively transforms message content  * according to the input type declared by {@link InputTypeDefinition} and/or output type  * declared by {@link OutputTypeDefinition}.</p>  *<p>If you specify from='java:com.example.ABC' and to='xml:XYZ', the transformer  * will be picked up when current message type is 'java:com.example.ABC' and expected  * message type is 'xml:XYZ'.  * If you specify from='java' to='xml', then it will be picked up for all of java  * to xml transformation.  * Also it's possible to specify scheme='xml' so that the transformer will be picked up  * for all of java to xml and xml to java transformation.</p>  *   * {@see org.apache.camel.spi.Transformer}  * {@see InputTypeDefinition}  * {@see OutputTypeDefinition}  */
 end_comment
 
 begin_class
@@ -209,37 +183,6 @@ specifier|private
 name|String
 name|toType
 decl_stmt|;
-DECL|method|createTransformer (CamelContext context)
-specifier|public
-name|Transformer
-name|createTransformer
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|doCreateTransformer
-argument_list|(
-name|context
-argument_list|)
-return|;
-block|}
-empty_stmt|;
-DECL|method|doCreateTransformer (CamelContext context)
-specifier|protected
-specifier|abstract
-name|Transformer
-name|doCreateTransformer
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 DECL|method|getScheme ()
 specifier|public
 name|String

@@ -132,48 +132,6 @@ name|Metadata
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|CamelContextHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StringHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Custom load balancer  */
 end_comment
@@ -258,10 +216,10 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-DECL|method|getLoadBalancer ()
+DECL|method|getCustomLoadBalancer ()
 specifier|public
 name|LoadBalancer
-name|getLoadBalancer
+name|getCustomLoadBalancer
 parameter_list|()
 block|{
 return|return
@@ -269,10 +227,10 @@ name|loadBalancer
 return|;
 block|}
 comment|/**      * The custom load balancer to use.      */
-DECL|method|setLoadBalancer (LoadBalancer loadBalancer)
+DECL|method|setCustomLoadBalancer (LoadBalancer loadBalancer)
 specifier|public
 name|void
-name|setLoadBalancer
+name|setCustomLoadBalancer
 parameter_list|(
 name|LoadBalancer
 name|loadBalancer
@@ -287,57 +245,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createLoadBalancer (RouteContext routeContext)
-specifier|protected
-name|LoadBalancer
-name|createLoadBalancer
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-block|{
-if|if
-condition|(
-name|loadBalancer
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|loadBalancer
-return|;
-block|}
-name|StringHelper
-operator|.
-name|notEmpty
-argument_list|(
-name|ref
-argument_list|,
-literal|"ref"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-return|return
-name|CamelContextHelper
-operator|.
-name|mandatoryLookup
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|ref
-argument_list|,
-name|LoadBalancer
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -346,7 +253,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|loadBalancer
+name|getCustomLoadBalancer
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -354,7 +262,8 @@ block|{
 return|return
 literal|"CustomLoadBalancer["
 operator|+
-name|loadBalancer
+name|getCustomLoadBalancer
+argument_list|()
 operator|+
 literal|"]"
 return|;
