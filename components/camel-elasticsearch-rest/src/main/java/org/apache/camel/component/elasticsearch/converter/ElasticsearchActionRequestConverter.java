@@ -435,6 +435,16 @@ operator|(
 name|String
 operator|)
 name|document
+argument_list|,
+name|XContentFactory
+operator|.
+name|xContent
+argument_list|(
+operator|(
+name|String
+operator|)
+name|document
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
