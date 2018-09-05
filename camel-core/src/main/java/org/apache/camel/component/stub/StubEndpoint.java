@@ -74,11 +74,51 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|WaitForTaskToComplete
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|seda
 operator|.
 name|BlockingQueueFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|seda
+operator|.
+name|SedaProducer
 import|;
 end_import
 
@@ -129,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The stub component provides a simple way to stub out any physical endpoints while in development or testing.  *  * For example to run a route without needing to actually connect to a specific SMTP or Http endpoint.  * Just add stub: in front of any endpoint URI to stub out the endpoint.  * Internally the Stub component creates VM endpoints. The main difference between Stub and VM is that VM  * will validate the URI and parameters you give it, so putting vm: in front of a typical URI with  * query arguments will usually fail. Stub won't though, as it basically ignores all query parameters  * to let you quickly stub out one or more endpoints in your route temporarily.  */
+comment|/**  * The stub component provides a simple way to stub out any physical endpoints while in development or testing.  *  * For example to run a route without needing to actually connect to a specific SMTP or HTTP endpoint.  * Just add stub: in front of any endpoint URI to stub out the endpoint.  * Internally the Stub component creates VM endpoints. The main difference between Stub and VM is that VM  * will validate the URI and parameters you give it, so putting vm: in front of a typical URI with  * query arguments will usually fail. Stub won't though, as it basically ignores all query parameters  * to let you quickly stub out one or more endpoints in your route temporarily.  */
 end_comment
 
 begin_class
@@ -278,6 +318,36 @@ argument_list|(
 name|this
 argument_list|,
 name|processor
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createProducer ()
+specifier|public
+name|Producer
+name|createProducer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|StubProducer
+argument_list|(
+name|this
+argument_list|,
+name|getWaitForTaskToComplete
+argument_list|()
+argument_list|,
+name|getTimeout
+argument_list|()
+argument_list|,
+name|isBlockWhenFull
+argument_list|()
+argument_list|,
+name|getOfferTimeout
+argument_list|()
 argument_list|)
 return|;
 block|}
