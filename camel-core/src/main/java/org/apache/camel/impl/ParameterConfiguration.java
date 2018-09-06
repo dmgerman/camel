@@ -17,22 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StringQuoteHelper
-operator|.
-name|doubleQuote
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -83,6 +67,22 @@ operator|.
 name|util
 operator|.
 name|JsonSchemaHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringQuoteHelper
+operator|.
+name|doubleQuote
 import|;
 end_import
 

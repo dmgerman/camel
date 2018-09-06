@@ -17,38 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|MDCUnitOfWork
-operator|.
-name|MDC_CAMEL_CONTEXT_ID
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|MDCUnitOfWork
-operator|.
-name|MDC_ROUTE_ID
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -433,6 +401,38 @@ operator|.
 name|slf4j
 operator|.
 name|MDC
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|MDCUnitOfWork
+operator|.
+name|MDC_CAMEL_CONTEXT_ID
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|MDCUnitOfWork
+operator|.
+name|MDC_ROUTE_ID
 import|;
 end_import
 
