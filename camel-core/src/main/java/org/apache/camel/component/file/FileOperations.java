@@ -704,7 +704,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Setting chmod: {} on directory: {} "
+literal|"Setting chmod: {} on directory: {}"
 argument_list|,
 name|PosixFilePermissions
 operator|.
@@ -1515,7 +1515,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Setting chmod: {} on file: {} "
+literal|"Setting chmod: {} on file: {}"
 argument_list|,
 name|PosixFilePermissions
 operator|.
@@ -1639,7 +1639,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Setting chmod: {} on file: {} "
+literal|"Setting chmod: {} on file: {}"
 argument_list|,
 name|PosixFilePermissions
 operator|.
@@ -1839,7 +1839,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Setting chmod: {} on file: {} "
+literal|"Setting chmod: {} on file: {}"
 argument_list|,
 name|PosixFilePermissions
 operator|.

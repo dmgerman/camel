@@ -2405,7 +2405,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Closing {} "
+literal|"Closing {}"
 argument_list|,
 name|threadId
 argument_list|)

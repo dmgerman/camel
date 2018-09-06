@@ -781,7 +781,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Droplet {} "
+literal|"Droplet {}"
 argument_list|,
 name|droplet
 argument_list|)
@@ -1309,7 +1309,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Delete Droplet {} "
+literal|"Delete Droplet {}"
 argument_list|,
 name|delete
 argument_list|)
@@ -1895,7 +1895,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Droplets created {} "
+literal|"Droplets created {}"
 argument_list|,
 name|droplets
 argument_list|)
@@ -1970,7 +1970,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Droplet created {} "
+literal|"Droplet created {}"
 argument_list|,
 name|droplet
 argument_list|)

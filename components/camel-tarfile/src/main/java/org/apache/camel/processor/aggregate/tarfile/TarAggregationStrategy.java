@@ -1554,7 +1554,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting tar file on completion: {} "
+literal|"Deleting tar file on completion: {}"
 argument_list|,
 name|this
 operator|.

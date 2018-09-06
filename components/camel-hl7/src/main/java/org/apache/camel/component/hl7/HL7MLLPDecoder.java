@@ -525,7 +525,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No complete message yet at position {} "
+literal|"No complete message yet at position {}"
 argument_list|,
 name|in
 operator|.

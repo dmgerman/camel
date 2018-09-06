@@ -710,7 +710,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Volume created {} "
+literal|"Volume created {}"
 argument_list|,
 name|volume
 argument_list|)

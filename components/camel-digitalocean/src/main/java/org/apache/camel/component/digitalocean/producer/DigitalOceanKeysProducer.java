@@ -568,7 +568,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Delete Key {} "
+literal|"Delete Key {}"
 argument_list|,
 name|delete
 argument_list|)
@@ -721,7 +721,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Key created {} "
+literal|"Key created {}"
 argument_list|,
 name|key
 argument_list|)

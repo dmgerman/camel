@@ -338,7 +338,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Send action {} "
+literal|"Send action {}"
 argument_list|,
 name|action
 argument_list|)

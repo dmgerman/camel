@@ -438,7 +438,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Removing an exchange with ID {} for key {} "
+literal|"Removing an exchange with ID {} for key {}"
 argument_list|,
 name|exchange
 operator|.

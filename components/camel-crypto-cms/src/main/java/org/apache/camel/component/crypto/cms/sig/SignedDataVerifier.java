@@ -889,7 +889,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"    Signer {}: {} "
+literal|"    Signer {}: {}"
 argument_list|,
 operator|new
 name|Object

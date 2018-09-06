@@ -1651,7 +1651,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Configuring Zipkin URLConnectionSender using endpoint: {} "
+literal|"Configuring Zipkin URLConnectionSender using endpoint: {}"
 argument_list|,
 name|endpoint
 argument_list|)

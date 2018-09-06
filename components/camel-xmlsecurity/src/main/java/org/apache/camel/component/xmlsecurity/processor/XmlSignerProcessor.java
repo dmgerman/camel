@@ -2884,7 +2884,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sibling element of the detached XML Signature with reference URI {}: {}  {} "
+literal|"Sibling element of the detached XML Signature with reference URI {}: {}  {}"
 argument_list|,
 operator|new
 name|Object

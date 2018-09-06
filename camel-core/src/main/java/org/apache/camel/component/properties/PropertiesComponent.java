@@ -2084,7 +2084,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Parsing location: {} "
+literal|"Parsing location: {}"
 argument_list|,
 name|location
 argument_list|)
@@ -2108,7 +2108,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Parsed location: {} "
+literal|"Parsed location: {}"
 argument_list|,
 name|path
 argument_list|)

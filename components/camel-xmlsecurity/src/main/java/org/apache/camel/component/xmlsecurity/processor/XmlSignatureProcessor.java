@@ -818,7 +818,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"schema resource URI: {} "
+literal|"schema resource URI: {}"
 argument_list|,
 name|getConfiguration
 argument_list|()

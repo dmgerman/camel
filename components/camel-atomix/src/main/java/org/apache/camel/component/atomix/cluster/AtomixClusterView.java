@@ -891,7 +891,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Joining group: {} "
+literal|"Joining group: {}"
 argument_list|,
 name|group
 argument_list|)

@@ -318,7 +318,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using String for unexpected message type {} "
+literal|"Using String for unexpected message type {}"
 argument_list|,
 name|message
 operator|.

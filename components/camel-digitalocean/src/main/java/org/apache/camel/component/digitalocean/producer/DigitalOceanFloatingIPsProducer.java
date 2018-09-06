@@ -569,7 +569,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Floating IP {} "
+literal|"Floating IP {}"
 argument_list|,
 name|ip
 argument_list|)
@@ -655,7 +655,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Delete Floating IP {} "
+literal|"Delete Floating IP {}"
 argument_list|,
 name|delete
 argument_list|)
@@ -784,7 +784,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Assign Floating IP to Droplet {} "
+literal|"Assign Floating IP to Droplet {}"
 argument_list|,
 name|action
 argument_list|)
@@ -870,7 +870,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Unassign Floating IP {} "
+literal|"Unassign Floating IP {}"
 argument_list|,
 name|action
 argument_list|)

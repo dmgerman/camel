@@ -656,7 +656,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"SjmsMessageConsumer invoked for Exchange id:{} "
+literal|"SjmsMessageConsumer invoked for Exchange id:{}"
 argument_list|,
 name|exchange
 operator|.

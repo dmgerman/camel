@@ -1011,7 +1011,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Selecting key {} "
+literal|"Selecting key {}"
 argument_list|,
 name|pkValues
 argument_list|)
@@ -1262,7 +1262,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting If Id {} "
+literal|"Deleting If Id {}"
 argument_list|,
 name|cqlParams
 argument_list|)

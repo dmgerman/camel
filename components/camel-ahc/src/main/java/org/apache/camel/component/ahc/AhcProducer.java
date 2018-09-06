@@ -229,7 +229,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Executing request {} "
+literal|"Executing request {}"
 argument_list|,
 name|request
 argument_list|)

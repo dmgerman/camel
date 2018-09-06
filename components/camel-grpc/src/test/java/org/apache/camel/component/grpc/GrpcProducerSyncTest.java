@@ -607,7 +607,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Multiple sync invocation time {} milliseconds, everage operations/sec {} "
+literal|"Multiple sync invocation time {} milliseconds, everage operations/sec {}"
 argument_list|,
 name|stopwatch
 operator|.
