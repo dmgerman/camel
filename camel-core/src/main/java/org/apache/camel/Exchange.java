@@ -544,12 +544,6 @@ name|HTTP_SERVLET_RESPONSE
 init|=
 literal|"CamelHttpServletResponse"
 decl_stmt|;
-DECL|field|IGNORE_CONTENT_LENGTH_HEADER
-name|String
-name|IGNORE_CONTENT_LENGTH_HEADER
-init|=
-literal|"CamelIgnoreContentLengthHeader"
-decl_stmt|;
 DECL|field|INTERCEPTED_ENDPOINT
 name|String
 name|INTERCEPTED_ENDPOINT

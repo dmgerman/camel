@@ -300,7 +300,7 @@ argument_list|)
 operator|.
 name|registerHandler
 argument_list|(
-literal|"/content-ignore"
+literal|"/content-streamed"
 argument_list|,
 operator|new
 name|HttpRequestHandler
@@ -408,7 +408,7 @@ argument_list|)
 operator|.
 name|registerHandler
 argument_list|(
-literal|"/content-no-ignore"
+literal|"/content-not-streamed"
 argument_list|,
 operator|new
 name|HttpRequestHandler
@@ -486,10 +486,10 @@ argument_list|()
 else|:
 literal|""
 decl_stmt|;
-comment|//Content-Length was overridden to 10
+comment|//Content-Length should match byte array
 name|assertEquals
 argument_list|(
-literal|"10"
+literal|"35"
 argument_list|,
 name|contentLength
 argument_list|)
@@ -561,10 +561,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testContentLengthIgnore ()
+DECL|method|testContentLengthStream ()
 specifier|public
 name|void
-name|testContentLengthIgnore
+name|testContentLengthStream
 parameter_list|()
 throws|throws
 name|Exception
@@ -593,7 +593,7 @@ operator|.
 name|getLocalPort
 argument_list|()
 operator|+
-literal|"/content-ignore?bridgeEndpoint=true"
+literal|"/content-streamed?bridgeEndpoint=true"
 argument_list|,
 operator|new
 name|Processor
@@ -682,10 +682,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testContentLengthNoIgnore ()
+DECL|method|testContentLengthNotStreamed ()
 specifier|public
 name|void
-name|testContentLengthNoIgnore
+name|testContentLengthNotStreamed
 parameter_list|()
 throws|throws
 name|Exception
@@ -714,7 +714,7 @@ operator|.
 name|getLocalPort
 argument_list|()
 operator|+
-literal|"/content-no-ignore?bridgeEndpoint=true&ignoreContentLengthHeader=false"
+literal|"/content-not-streamed?bridgeEndpoint=true"
 argument_list|,
 operator|new
 name|Processor
@@ -743,7 +743,7 @@ name|Exchange
 operator|.
 name|CONTENT_LENGTH
 argument_list|,
-literal|"10"
+literal|"1000"
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -767,18 +767,10 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-operator|new
-name|ByteArrayInputStreamCache
-argument_list|(
-operator|new
-name|ByteArrayInputStream
-argument_list|(
 name|bodyContent
 operator|.
 name|getBytes
 argument_list|()
-argument_list|)
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
