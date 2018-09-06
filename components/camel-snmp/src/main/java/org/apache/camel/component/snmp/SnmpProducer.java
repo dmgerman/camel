@@ -736,7 +736,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown protocol: {} "
+literal|"Unknown protocol: "
 operator|+
 name|this
 operator|.

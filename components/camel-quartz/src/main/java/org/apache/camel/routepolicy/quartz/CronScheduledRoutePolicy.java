@@ -282,7 +282,14 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Scheduled Route Policy for route {} has no start/stop/suspend/resume times specified"
+literal|"Scheduled Route Policy for route "
+operator|+
+name|route
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" has no start/stop/suspend/resume times specified"
 argument_list|)
 throw|;
 block|}
