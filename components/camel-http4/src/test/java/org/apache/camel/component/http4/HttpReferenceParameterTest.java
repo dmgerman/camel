@@ -22,16 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -129,6 +119,16 @@ operator|.
 name|protocol
 operator|.
 name|HttpContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
 import|;
 end_import
 
