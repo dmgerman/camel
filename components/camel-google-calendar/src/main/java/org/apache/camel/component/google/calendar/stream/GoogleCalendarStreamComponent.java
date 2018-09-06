@@ -34,6 +34,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|api
+operator|.
+name|services
+operator|.
+name|calendar
+operator|.
+name|Calendar
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -117,22 +133,6 @@ operator|.
 name|spi
 operator|.
 name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|services
-operator|.
-name|calendar
-operator|.
-name|Calendar
 import|;
 end_import
 
