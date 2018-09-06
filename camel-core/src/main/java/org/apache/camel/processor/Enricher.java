@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+operator|.
+name|copyResultsPreservePattern
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -337,22 +353,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-operator|.
-name|copyResultsPreservePattern
 import|;
 end_import
 

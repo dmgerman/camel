@@ -22,9 +22,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Test
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|OptimisticLockRetryPolicy
 import|;
 end_import
 
@@ -42,15 +48,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|OptimisticLockRetryPolicy
+name|Test
 import|;
 end_import
 

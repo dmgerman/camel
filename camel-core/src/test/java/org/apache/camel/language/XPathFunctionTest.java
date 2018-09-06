@@ -17,34 +17,20 @@ package|;
 end_package
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|camel
 operator|.
-name|junit
+name|component
 operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|mock
 operator|.
-name|w3c
+name|MockEndpoint
 operator|.
-name|dom
-operator|.
-name|NodeList
+name|expectsMessageCount
 import|;
 end_import
 
@@ -103,20 +89,34 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|component
+name|junit
 operator|.
-name|mock
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|MockEndpoint
+name|w3c
 operator|.
-name|expectsMessageCount
+name|dom
+operator|.
+name|NodeList
 import|;
 end_import
 

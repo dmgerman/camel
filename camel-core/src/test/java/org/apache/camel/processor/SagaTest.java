@@ -17,12 +17,26 @@ package|;
 end_package
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|awaitility
 operator|.
-name|Test
+name|Awaitility
+operator|.
+name|await
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -181,26 +195,12 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|awaitility
+name|junit
 operator|.
-name|Awaitility
-operator|.
-name|await
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
+name|Test
 import|;
 end_import
 

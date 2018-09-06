@@ -19,6 +19,38 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
+operator|.
+name|findByType
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
+operator|.
+name|lookup
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -519,38 +551,6 @@ operator|.
 name|function
 operator|.
 name|Suppliers
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CamelContextHelper
-operator|.
-name|findByType
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CamelContextHelper
-operator|.
-name|lookup
 import|;
 end_import
 

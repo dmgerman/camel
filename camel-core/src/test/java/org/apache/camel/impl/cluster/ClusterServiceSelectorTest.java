@@ -19,6 +19,42 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|cluster
+operator|.
+name|ClusterServiceHelper
+operator|.
+name|lookupService
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|cluster
+operator|.
+name|ClusterServiceHelper
+operator|.
+name|mandatoryLookupService
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -151,42 +187,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|cluster
-operator|.
-name|ClusterServiceHelper
-operator|.
-name|lookupService
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|cluster
-operator|.
-name|ClusterServiceHelper
-operator|.
-name|mandatoryLookupService
 import|;
 end_import
 

@@ -17,12 +17,18 @@ package|;
 end_package
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Test
+name|camel
+operator|.
+name|builder
+operator|.
+name|Builder
+operator|.
+name|constant
 import|;
 end_import
 
@@ -91,18 +97,12 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|Builder
-operator|.
-name|constant
+name|Test
 import|;
 end_import
 

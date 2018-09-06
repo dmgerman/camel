@@ -22,11 +22,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|w3c
+name|apache
 operator|.
-name|dom
+name|camel
 operator|.
-name|Document
+name|Header
 import|;
 end_import
 
@@ -34,11 +34,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|w3c
 operator|.
-name|camel
+name|dom
 operator|.
-name|Header
+name|Document
 import|;
 end_import
 

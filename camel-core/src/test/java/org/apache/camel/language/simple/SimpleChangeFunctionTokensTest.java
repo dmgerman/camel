@@ -22,9 +22,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Before
+name|camel
+operator|.
+name|LanguageTestSupport
 import|;
 end_import
 
@@ -44,7 +46,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Test
+name|Before
 import|;
 end_import
 
@@ -52,11 +54,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|LanguageTestSupport
+name|Test
 import|;
 end_import
 

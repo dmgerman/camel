@@ -19,22 +19,38 @@ package|;
 end_package
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|mockito
 operator|.
-name|Before
+name|Mockito
+operator|.
+name|atMost
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|mockito
 operator|.
-name|Test
+name|Mockito
+operator|.
+name|spy
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|verify
 import|;
 end_import
 
@@ -163,38 +179,22 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|mockito
+name|junit
 operator|.
-name|Mockito
-operator|.
-name|atMost
+name|Before
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|mockito
+name|junit
 operator|.
-name|Mockito
-operator|.
-name|spy
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|verify
+name|Test
 import|;
 end_import
 

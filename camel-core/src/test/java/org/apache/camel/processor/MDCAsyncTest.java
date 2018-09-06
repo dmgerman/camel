@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -156,21 +146,19 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|junit
 operator|.
-name|MDC
+name|Test
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|junit
+name|slf4j
 operator|.
-name|Assert
-operator|.
-name|assertNotEquals
+name|MDC
 import|;
 end_import
 

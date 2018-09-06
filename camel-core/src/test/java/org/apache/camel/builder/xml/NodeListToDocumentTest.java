@@ -22,16 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -65,6 +55,16 @@ end_import
 begin_comment
 comment|//import com.sun.org.apache.xerces.internal.dom.ElementNSImpl;
 end_comment
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
 
 begin_class
 annotation|@

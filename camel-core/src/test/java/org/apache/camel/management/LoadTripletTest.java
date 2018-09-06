@@ -20,9 +20,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Test
+name|camel
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|LoadTriplet
 import|;
 end_import
 
@@ -40,15 +46,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|LoadTriplet
+name|Test
 import|;
 end_import
 

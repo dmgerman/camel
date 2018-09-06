@@ -274,20 +274,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StringHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|w3c
 operator|.
 name|dom
@@ -560,6 +546,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -667,7 +667,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *<p/>  * An XPath object is not thread-safe and not reentrant. In other words, it is the application's responsibility to make  * sure that one XPath object is not used from more than one thread at any given time, and while the evaluate method  * is invoked, applications may not recursively call the evaluate method.  *<p/>  * This implementation is thread safe by using thread locals and pooling to allow concurrency.  *<p/>  *<b>Important:</b> After configuring the {@link XPathBuilder} its advised to invoke {@link #start()}  * to prepare the builder before using; though the builder will auto-start on first use.  *  * @see XPathConstants#NODESET  */
+comment|/**  * Creates an XPath expression builder which creates a nodeset result by  * default. If you want to evaluate a String expression then call  * {@link #stringResult()}  *<p/>  * An XPath object is not thread-safe and not reentrant. In other words, it is  * the application's responsibility to make sure that one XPath object is not  * used from more than one thread at any given time, and while the evaluate  * method is invoked, applications may not recursively call the evaluate method.  *<p/>  * This implementation is thread safe by using thread locals and pooling to  * allow concurrency.  *<p/>  *<b>Important:</b> After configuring the {@link XPathBuilder} its advised to  * invoke {@link #start()} to prepare the builder before using; though the  * builder will auto-start on first use.  *  * @see XPathConstants#NODESET  */
 end_comment
 
 begin_class
@@ -930,7 +930,7 @@ specifier|volatile
 name|XPathFunction
 name|simpleFunction
 decl_stmt|;
-comment|/**      * The name of the header we want to apply the XPath expression to, which when set will cause      * the xpath to be evaluated on the required header, otherwise it will be applied to the body      */
+comment|/**      * The name of the header we want to apply the XPath expression to, which      * when set will cause the xpath to be evaluated on the required header,      * otherwise it will be applied to the body      */
 DECL|field|headerName
 specifier|private
 specifier|volatile
@@ -972,7 +972,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text       The XPath expression      * @param resultType The result type that the XPath expression will return.      * @return A new XPathBuilder object      */
+comment|/**      * @param text The XPath expression      * @param resultType The result type that the XPath expression will return.      * @return A new XPathBuilder object      */
 DECL|method|xpath (String text, Class<?> resultType)
 specifier|public
 specifier|static
@@ -1174,7 +1174,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Matches the given xpath using the provided body.      *      * @param context the camel context      * @param body    the body      * @return<tt>true</tt> if matches,<tt>false</tt> otherwise      */
+comment|/**      * Matches the given xpath using the provided body.      *      * @param context the camel context      * @param body the body      * @return<tt>true</tt> if matches,<tt>false</tt> otherwise      */
 DECL|method|matches (CamelContext context, Object body)
 specifier|public
 name|boolean
@@ -1235,7 +1235,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Evaluates the given xpath using the provided body.      *<p/>      * The evaluation uses by default {@link javax.xml.xpath.XPathConstants#NODESET} as the type      * used during xpath evaluation. The output from xpath is then afterwards type converted      * using Camel's type converter to the given type.      *<p/>      * If you want to evaluate xpath using a different type, then call {@link #setResultType(Class)}      * prior to calling this evaluate method.      *      * @param context the camel context      * @param body    the body      * @param type    the type to return      * @return result of the evaluation      */
+comment|/**      * Evaluates the given xpath using the provided body.      *<p/>      * The evaluation uses by default      * {@link javax.xml.xpath.XPathConstants#NODESET} as the type used during      * xpath evaluation. The output from xpath is then afterwards type converted      * using Camel's type converter to the given type.      *<p/>      * If you want to evaluate xpath using a different type, then call      * {@link #setResultType(Class)} prior to calling this evaluate method.      *      * @param context the camel context      * @param body the body      * @param type the type to return      * @return result of the evaluation      */
 DECL|method|evaluate (CamelContext context, Object body, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1307,7 +1307,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Evaluates the given xpath using the provided body as a String return type.      *      * @param context the camel context      * @param body    the body      * @return result of the evaluation      */
+comment|/**      * Evaluates the given xpath using the provided body as a String return      * type.      *      * @param context the camel context      * @param body the body      * @return result of the evaluation      */
 DECL|method|evaluate (CamelContext context, Object body)
 specifier|public
 name|String
@@ -1507,8 +1507,11 @@ name|String
 name|uri
 parameter_list|)
 block|{
-comment|// Careful! Setting the Object Model URI this way will set the *Default* XPath Factory, which since is a static field,
-comment|// will set the XPath Factory system-wide. Decide what to do, as changing this behaviour can break compatibility. Provided the setObjectModel which changes
+comment|// Careful! Setting the Object Model URI this way will set the *Default*
+comment|// XPath Factory, which since is a static field,
+comment|// will set the XPath Factory system-wide. Decide what to do, as
+comment|// changing this behaviour can break compatibility. Provided the
+comment|// setObjectModel which changes
 comment|// this instance's XPath Factory rather than the static field
 name|this
 operator|.
@@ -1540,7 +1543,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures to use Saxon as the XPathFactory which allows you to use XPath 2.0 functions      * which may not be part of the build in JDK XPath parser.      *      * @return the current builder      */
+comment|/**      * Configures to use Saxon as the XPathFactory which allows you to use XPath      * 2.0 functions which may not be part of the build in JDK XPath parser.      *      * @return the current builder      */
 DECL|method|saxon ()
 specifier|public
 name|XPathBuilder
@@ -1583,7 +1586,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Registers the namespace prefix and URI with the builder so that the      * prefix can be used in XPath expressions      *      * @param prefix is the namespace prefix that can be used in the XPath      *               expressions      * @param uri    is the namespace URI to which the prefix refers      * @return the current builder      */
+comment|/**      * Registers the namespace prefix and URI with the builder so that the      * prefix can be used in XPath expressions      *      * @param prefix is the namespace prefix that can be used in the XPath      *            expressions      * @param uri is the namespace URI to which the prefix refers      * @return the current builder      */
 DECL|method|namespace (String prefix, String uri)
 specifier|public
 name|XPathBuilder
@@ -1609,7 +1612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Registers namespaces with the builder so that the registered      * prefixes can be used in XPath expressions      *      * @param namespaces is namespaces object that should be used in the      *                   XPath expression      * @return the current builder      */
+comment|/**      * Registers namespaces with the builder so that the registered prefixes can      * be used in XPath expressions      *      * @param namespaces is namespaces object that should be used in the XPath      *            expression      * @return the current builder      */
 DECL|method|namespaces (Namespaces namespaces)
 specifier|public
 name|XPathBuilder
@@ -1630,7 +1633,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Registers a variable (in the global namespace) which can be referred to      * from XPath expressions      *      * @param name  name of variable      * @param value value of variable      * @return the current builder      */
+comment|/**      * Registers a variable (in the global namespace) which can be referred to      * from XPath expressions      *      * @param name name of variable      * @param value value of variable      * @return the current builder      */
 DECL|method|variable (String name, Object value)
 specifier|public
 name|XPathBuilder
@@ -1657,7 +1660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures the document type to use.      *<p/>      * The document type controls which kind of Class Camel should convert the payload      * to before doing the xpath evaluation.      *<p/>      * For example you can set it to {@link InputSource} to use SAX streams.      * By default Camel uses {@link Document} as the type.      *      * @param documentType the document type      * @return the current builder      */
+comment|/**      * Configures the document type to use.      *<p/>      * The document type controls which kind of Class Camel should convert the      * payload to before doing the xpath evaluation.      *<p/>      * For example you can set it to {@link InputSource} to use SAX streams. By      * default Camel uses {@link Document} as the type.      *      * @param documentType the document type      * @return the current builder      */
 DECL|method|documentType (Class<?> documentType)
 specifier|public
 name|XPathBuilder
@@ -1698,7 +1701,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Activates trace logging of all discovered namespaces in the message - to simplify debugging namespace-related issues      *<p/>      * Namespaces are printed in Hashmap style<code>{xmlns:prefix=[namespaceURI], xmlns:prefix=[namespaceURI]}</code>.      *<p/>      * The implicit XML namespace is omitted (http://www.w3.org/XML/1998/namespace).      * XML allows for namespace prefixes to be redefined/overridden due to hierarchical scoping, i.e. prefix abc can be mapped to http://abc.com,      * and deeper in the document it can be mapped to http://def.com. When two prefixes are detected which are equal but are mapped to different      * namespace URIs, Camel will show all namespaces URIs it is mapped to in an array-style.      *<p/>      * This feature is disabled by default.      *      * @return the current builder.      */
+comment|/**      * Activates trace logging of all discovered namespaces in the message - to      * simplify debugging namespace-related issues      *<p/>      * Namespaces are printed in Hashmap style      *<code>{xmlns:prefix=[namespaceURI], xmlns:prefix=[namespaceURI]}</code>.      *<p/>      * The implicit XML namespace is omitted      * (http://www.w3.org/XML/1998/namespace). XML allows for namespace prefixes      * to be redefined/overridden due to hierarchical scoping, i.e. prefix abc      * can be mapped to http://abc.com, and deeper in the document it can be      * mapped to http://def.com. When two prefixes are detected which are equal      * but are mapped to different namespace URIs, Camel will show all      * namespaces URIs it is mapped to in an array-style.      *<p/>      * This feature is disabled by default.      *      * @return the current builder.      */
 DECL|method|logNamespaces ()
 specifier|public
 name|XPathBuilder
@@ -1714,7 +1717,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether to enable thread-safety for the returned result of the xpath expression.      * This applies to when using NODESET as the result type, and the returned set has      * multiple elements. In this situation there can be thread-safety issues if you      * process the NODESET concurrently such as from a Camel Splitter EIP in parallel processing mode.      * This option prevents concurrency issues by doing defensive copies of the nodes.      *<p/>      * It is recommended to turn this option on if you are using camel-saxon or Saxon in your application.      * Saxon has thread-safety issues which can be prevented by turning this option on.      *<p/>      * Thread-safety is disabled by default      *      * @return the current builder.      */
+comment|/**      * Whether to enable thread-safety for the returned result of the xpath      * expression. This applies to when using NODESET as the result type, and      * the returned set has multiple elements. In this situation there can be      * thread-safety issues if you process the NODESET concurrently such as from      * a Camel Splitter EIP in parallel processing mode. This option prevents      * concurrency issues by doing defensive copies of the nodes.      *<p/>      * It is recommended to turn this option on if you are using camel-saxon or      * Saxon in your application. Saxon has thread-safety issues which can be      * prevented by turning this option on.      *<p/>      * Thread-safety is disabled by default      *      * @return the current builder.      */
 DECL|method|threadSafety (boolean threadSafety)
 specifier|public
 name|XPathBuilder
@@ -1735,7 +1738,7 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-comment|/**      * Gets the xpath factory, can be<tt>null</tt> if no custom factory has been assigned.      *<p/>      * A default factory will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the factory, or<tt>null</tt> if this builder has not been started/used before.      */
+comment|/**      * Gets the xpath factory, can be<tt>null</tt> if no custom factory has      * been assigned.      *<p/>      * A default factory will be assigned (if no custom assigned) when either      * starting this builder or on first evaluation.      *      * @return the factory, or<tt>null</tt> if this builder has not been      *         started/used before.      */
 DECL|method|getXPathFactory ()
 specifier|public
 name|XPathFactory
@@ -1882,7 +1885,7 @@ operator|=
 name|threadSafety
 expr_stmt|;
 block|}
-comment|/**      * Gets the namespace context, can be<tt>null</tt> if no custom context has been assigned.      *<p/>      * A default context will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the context, or<tt>null</tt> if this builder has not been started/used before.      */
+comment|/**      * Gets the namespace context, can be<tt>null</tt> if no custom context has      * been assigned.      *<p/>      * A default context will be assigned (if no custom assigned) when either      * starting this builder or on first evaluation.      *      * @return the context, or<tt>null</tt> if this builder has not been      *         started/used before.      */
 DECL|method|getNamespaceContext ()
 specifier|public
 name|DefaultNamespaceContext
@@ -1981,7 +1984,7 @@ return|return
 name|namespaces
 return|;
 block|}
-comment|/**      * Gets the {@link XPathFunction} for getting the input message body.      *<p/>      * A default function will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been started/used before.      */
+comment|/**      * Gets the {@link XPathFunction} for getting the input message body.      *<p/>      * A default function will be assigned (if no custom assigned) when either      * starting this builder or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been      *         started/used before.      */
 DECL|method|getBodyFunction ()
 specifier|public
 name|XPathFunction
@@ -2050,7 +2053,7 @@ operator|=
 name|bodyFunction
 expr_stmt|;
 block|}
-comment|/**      * Gets the {@link XPathFunction} for getting the input message header.      *<p/>      * A default function will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been started/used before.      */
+comment|/**      * Gets the {@link XPathFunction} for getting the input message header.      *<p/>      * A default function will be assigned (if no custom assigned) when either      * starting this builder or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been      *         started/used before.      */
 DECL|method|getHeaderFunction ()
 specifier|public
 name|XPathFunction
@@ -2175,7 +2178,7 @@ operator|=
 name|headerFunction
 expr_stmt|;
 block|}
-comment|/**      * Gets the {@link XPathFunction} for getting the output message body.      *<p/>      * A default function will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been started/used before.      */
+comment|/**      * Gets the {@link XPathFunction} for getting the output message body.      *<p/>      * A default function will be assigned (if no custom assigned) when either      * starting this builder or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been      *         started/used before.      */
 DECL|method|getOutBodyFunction ()
 specifier|public
 name|XPathFunction
@@ -2266,7 +2269,7 @@ operator|=
 name|outBodyFunction
 expr_stmt|;
 block|}
-comment|/**      * Gets the {@link XPathFunction} for getting the output message header.      *<p/>      * A default function will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been started/used before.      */
+comment|/**      * Gets the {@link XPathFunction} for getting the output message header.      *<p/>      * A default function will be assigned (if no custom assigned) when either      * starting this builder or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been      *         started/used before.      */
 DECL|method|getOutHeaderFunction ()
 specifier|public
 name|XPathFunction
@@ -2398,7 +2401,7 @@ operator|=
 name|outHeaderFunction
 expr_stmt|;
 block|}
-comment|/**      * Gets the {@link XPathFunction} for getting the exchange properties.      *<p/>      * A default function will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been started/used before.      */
+comment|/**      * Gets the {@link XPathFunction} for getting the exchange properties.      *<p/>      * A default function will be assigned (if no custom assigned) when either      * starting this builder or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been      *         started/used before.      */
 DECL|method|getPropertiesFunction ()
 specifier|public
 name|XPathFunction
@@ -2486,7 +2489,8 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// use the property placeholder resolver to lookup the property for us
+comment|// use the property placeholder resolver to lookup
+comment|// the property for us
 name|Object
 name|answer
 init|=
@@ -2550,7 +2554,7 @@ operator|=
 name|propertiesFunction
 expr_stmt|;
 block|}
-comment|/**      * Gets the {@link XPathFunction} for executing<a href="http://camel.apache.org/simple">simple</a>      * language as xpath function.      *<p/>      * A default function will be assigned (if no custom assigned) when either starting this builder      * or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been started/used before.      */
+comment|/**      * Gets the {@link XPathFunction} for executing      *<a href="http://camel.apache.org/simple">simple</a> language as xpath      * function.      *<p/>      * A default function will be assigned (if no custom assigned) when either      * starting this builder or on first evaluation.      *      * @return the function, or<tt>null</tt> if this builder has not been      *         started/used before.      */
 DECL|method|getSimpleFunction ()
 specifier|public
 name|XPathFunction
@@ -2849,7 +2853,7 @@ return|return
 name|logNamespaces
 return|;
 block|}
-comment|/**      * Enables Saxon on this particular XPath expression, as {@link #saxon()} sets the default static XPathFactory which may have already been initialised      * by previous XPath expressions      */
+comment|/**      * Enables Saxon on this particular XPath expression, as {@link #saxon()}      * sets the default static XPathFactory which may have already been      * initialised by previous XPath expressions      */
 DECL|method|enableSaxon ()
 specifier|public
 name|void
@@ -3295,7 +3299,8 @@ name|SAXSource
 operator|)
 name|document
 decl_stmt|;
-comment|// since its a SAXSource it may not return an NodeList (for example if using Saxon)
+comment|// since its a SAXSource it may not return an NodeList (for
+comment|// example if using Saxon)
 name|Object
 name|result
 init|=
@@ -3598,7 +3603,8 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// the underlying input stream, which we need to close to avoid locking files or other resources
+comment|// the underlying input stream, which we need to close to avoid locking
+comment|// files or other resources
 name|InputStream
 name|is
 init|=
@@ -3977,8 +3983,10 @@ name|NodeList
 operator|)
 name|answer
 decl_stmt|;
-comment|// when the result is NodeList and it has 2+ elements then its not thread-safe to use concurrently
-comment|// and we need to clone each node and build a thread-safe list to be used instead
+comment|// when the result is NodeList and it has 2+ elements then its
+comment|// not thread-safe to use concurrently
+comment|// and we need to clone each node and build a thread-safe list
+comment|// to be used instead
 name|boolean
 name|threadSafetyNeeded
 init|=
@@ -4083,7 +4091,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a new xpath expression as there we no available in the pool.      *<p/>      * This implementation must be synchronized to ensure thread safety, as this XPathBuilder instance may not have been      * started prior to being used.      */
+comment|/**      * Creates a new xpath expression as there we no available in the pool.      *<p/>      * This implementation must be synchronized to ensure thread safety, as this      * XPathBuilder instance may not have been started prior to being used.      */
 DECL|method|createXPathExpression ()
 specifier|protected
 specifier|synchronized
@@ -4659,7 +4667,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Checks whether we need an {@link InputStream} to access the message body.      *<p/>      * Depending on the content in the message body, we may not need to convert      * to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand converting afterwards.      */
+comment|/**      * Checks whether we need an {@link InputStream} to access the message body.      *<p/>      * Depending on the content in the message body, we may not need to convert      * to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand      *         converting afterwards.      */
 DECL|method|isInputStreamNeeded (Exchange exchange)
 specifier|protected
 name|boolean
@@ -4689,7 +4697,7 @@ name|body
 argument_list|)
 return|;
 block|}
-comment|/**      * Checks whether we need an {@link InputStream} to access the message header.      *<p/>      * Depending on the content in the message header, we may not need to convert      * to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand converting afterwards.      */
+comment|/**      * Checks whether we need an {@link InputStream} to access the message      * header.      *<p/>      * Depending on the content in the message header, we may not need to      * convert to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand      *         converting afterwards.      */
 DECL|method|isInputStreamNeeded (Exchange exchange, String headerName)
 specifier|protected
 name|boolean
@@ -4724,7 +4732,7 @@ name|header
 argument_list|)
 return|;
 block|}
-comment|/**      * Checks whether we need an {@link InputStream} to access this object      *<p/>      * Depending on the content in the object, we may not need to convert      * to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand converting afterwards.      */
+comment|/**      * Checks whether we need an {@link InputStream} to access this object      *<p/>      * Depending on the content in the object, we may not need to convert to      * {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand      *         converting afterwards.      */
 DECL|method|isInputStreamNeededForObject (Exchange exchange, Object obj)
 specifier|protected
 name|boolean
@@ -4778,7 +4786,8 @@ operator|instanceof
 name|File
 condition|)
 block|{
-comment|// input stream is needed for File to avoid locking the file in case of errors etc
+comment|// input stream is needed for File to avoid locking the file in case
+comment|// of errors etc
 return|return
 literal|true
 return|;
@@ -4922,7 +4931,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// we want to store the caused exception, if we could not convert
+comment|// we want to store the caused exception, if we could not
+comment|// convert
 name|cause
 operator|=
 name|e
@@ -5210,7 +5220,8 @@ argument_list|)
 operator|)
 condition|)
 block|{
-comment|// from Saxon 9.7 onwards you should favour to create the class directly
+comment|// from Saxon 9.7 onwards you should favour to create the class
+comment|// directly
 comment|// https://www.saxonica.com/html/documentation/xpath-api/jaxp-xpath/factory.html
 try|try
 block|{

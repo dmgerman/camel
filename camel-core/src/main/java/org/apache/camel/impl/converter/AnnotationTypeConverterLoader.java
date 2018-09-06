@@ -19,6 +19,48 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
+operator|.
+name|isAbstract
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
+operator|.
+name|isPublic
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
+operator|.
+name|isStatic
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -149,48 +191,6 @@ operator|.
 name|util
 operator|.
 name|StringTokenizer
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-operator|.
-name|isAbstract
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-operator|.
-name|isPublic
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-operator|.
-name|isStatic
 import|;
 end_import
 

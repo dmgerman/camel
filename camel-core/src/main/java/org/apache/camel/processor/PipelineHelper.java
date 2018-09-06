@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+operator|.
+name|hasExceptionBeenHandledByErrorHandler
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -47,22 +63,6 @@ operator|.
 name|slf4j
 operator|.
 name|Logger
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-operator|.
-name|hasExceptionBeenHandledByErrorHandler
 import|;
 end_import
 

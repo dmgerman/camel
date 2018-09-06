@@ -46,18 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|ErrorHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -75,6 +63,18 @@ operator|.
 name|camel
 operator|.
 name|ValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|ErrorHandler
 import|;
 end_import
 

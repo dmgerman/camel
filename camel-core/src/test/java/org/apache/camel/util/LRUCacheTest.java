@@ -20,19 +20,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|camel
 operator|.
-name|junit
-operator|.
-name|Test
+name|Service
 import|;
 end_import
 
@@ -50,11 +42,19 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|Service
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
