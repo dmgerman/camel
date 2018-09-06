@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The google-mail component provides access to Google Mail.  */
+comment|/**  * The google-calendar component provides access to Google Calendar in a streaming mod.  */
 end_comment
 
 begin_class
@@ -292,7 +292,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"The camel google mail stream component doesn't support producer"
+literal|"The camel google calendar stream component doesn't support producer"
 argument_list|)
 throw|;
 block|}
@@ -450,23 +450,6 @@ operator|.
 name|setBody
 argument_list|(
 name|event
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Ciao "
-operator|+
-name|message
-operator|.
-name|getBody
-argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

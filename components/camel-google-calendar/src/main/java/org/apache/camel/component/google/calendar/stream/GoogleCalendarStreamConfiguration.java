@@ -338,7 +338,7 @@ return|return
 name|applicationName
 return|;
 block|}
-comment|/**      * Google mail application name. Example would be "camel-google-mail/1.0"      */
+comment|/**      * Google Calendar application name. Example would be "camel-google-calendar/1.0"      */
 DECL|method|setApplicationName (String applicationName)
 specifier|public
 name|void
@@ -368,7 +368,7 @@ return|return
 name|scopes
 return|;
 block|}
-comment|/**      * Specifies the level of permissions you want a mail application to have to      * a user account. See https://developers.google.com/gmail/api/auth/scopes      * for more info.      */
+comment|/**      * Specifies the level of permissions you want a mail application to have to      * a user account. See https://developers.google.com/calendar/api/auth/scopes      * for more info.      */
 DECL|method|setScopes (List<String> scopes)
 specifier|public
 name|void
@@ -425,7 +425,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * The query to execute on gmail box      */
+comment|/**      * The query to execute on calendar      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
