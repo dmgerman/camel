@@ -84,38 +84,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|v2
-operator|.
-name|schemagen
-operator|.
-name|xmlschema
-operator|.
-name|Any
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -270,7 +238,7 @@ name|mockito
 operator|.
 name|ArgumentMatchers
 operator|.
-name|same
+name|any
 import|;
 end_import
 
@@ -282,7 +250,7 @@ name|mockito
 operator|.
 name|ArgumentMatchers
 operator|.
-name|any
+name|same
 import|;
 end_import
 
