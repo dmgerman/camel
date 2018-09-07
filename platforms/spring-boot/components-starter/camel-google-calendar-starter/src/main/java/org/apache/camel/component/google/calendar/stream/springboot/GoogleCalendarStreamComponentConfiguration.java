@@ -291,6 +291,14 @@ name|maxResults
 init|=
 literal|10
 decl_stmt|;
+comment|/**          * Calendar Summary name to use          */
+DECL|field|calendarSummaryName
+specifier|private
+name|String
+name|calendarSummaryName
+init|=
+literal|"primary"
+decl_stmt|;
 DECL|method|getClientId ()
 specifier|public
 name|String
@@ -523,6 +531,32 @@ operator|.
 name|maxResults
 operator|=
 name|maxResults
+expr_stmt|;
+block|}
+DECL|method|getCalendarSummaryName ()
+specifier|public
+name|String
+name|getCalendarSummaryName
+parameter_list|()
+block|{
+return|return
+name|calendarSummaryName
+return|;
+block|}
+DECL|method|setCalendarSummaryName (String calendarSummaryName)
+specifier|public
+name|void
+name|setCalendarSummaryName
+parameter_list|(
+name|String
+name|calendarSummaryName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|calendarSummaryName
+operator|=
+name|calendarSummaryName
 expr_stmt|;
 block|}
 block|}
