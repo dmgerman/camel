@@ -2913,16 +2913,11 @@ name|trace
 argument_list|(
 literal|"In progress aggregated oldExchange: {}, newExchange: {} with correlation key: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|oldExchange
-block|,
+argument_list|,
 name|newExchange
-block|,
+argument_list|,
 name|key
-block|}
 argument_list|)
 expr_stmt|;
 if|if

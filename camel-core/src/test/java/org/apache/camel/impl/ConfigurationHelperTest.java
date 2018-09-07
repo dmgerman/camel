@@ -1728,10 +1728,6 @@ name|info
 argument_list|(
 literal|"  {} {}={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|field
 operator|.
 name|getType
@@ -1739,12 +1735,12 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-block|,
+argument_list|,
 name|field
 operator|.
 name|getName
 argument_list|()
-block|,
+argument_list|,
 name|config
 operator|.
 name|getParameter
@@ -1754,7 +1750,6 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-block|}
 argument_list|)
 expr_stmt|;
 block|}

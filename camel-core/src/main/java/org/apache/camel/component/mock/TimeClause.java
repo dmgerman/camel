@@ -691,19 +691,14 @@ name|debug
 argument_list|(
 literal|"Evaluated time clause [{}] with current: {}, other: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|toString
 argument_list|()
-block|,
+argument_list|,
 name|currentDate
-block|,
+argument_list|,
 name|otherDate
-block|,
+argument_list|,
 name|answer
-block|}
 argument_list|)
 expr_stmt|;
 block|}

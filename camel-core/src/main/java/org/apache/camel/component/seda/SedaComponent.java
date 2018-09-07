@@ -647,19 +647,14 @@ name|debug
 argument_list|(
 literal|"Reusing existing queue {} with size {} and reference count {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|key
-block|,
+argument_list|,
 name|size
-block|,
+argument_list|,
 name|ref
 operator|.
 name|getCount
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -1450,17 +1450,12 @@ name|trace
 argument_list|(
 literal|"About to write [{}] to [{}] from exchange [{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|fileName
-block|,
+argument_list|,
 name|getEndpoint
 argument_list|()
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}

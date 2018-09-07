@@ -799,16 +799,11 @@ name|debug
 argument_list|(
 literal|"doRun() backoff due subsequent {} idles (backoff at {}/{})"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|idleCounter
-block|,
+argument_list|,
 name|backoffCounter
-block|,
+argument_list|,
 name|backoffMultiplier
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -820,16 +815,11 @@ name|debug
 argument_list|(
 literal|"doRun() backoff due subsequent {} errors (backoff at {}/{})"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|errorCounter
-block|,
+argument_list|,
 name|backoffCounter
-block|,
+argument_list|,
 name|backoffMultiplier
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1801,19 +1791,14 @@ name|debug
 argument_list|(
 literal|"Using backoff[multiplier={}, idleThreshold={}, errorThreshold={}] on {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|backoffMultiplier
-block|,
+argument_list|,
 name|backoffIdleThreshold
-block|,
+argument_list|,
 name|backoffErrorThreshold
-block|,
+argument_list|,
 name|getEndpoint
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -2645,16 +2645,11 @@ name|trace
 argument_list|(
 literal|"Creating MethodInfo for class: {} method: {} having {} parameters"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|clazz
-block|,
+argument_list|,
 name|method
-block|,
+argument_list|,
 name|size
-block|}
 argument_list|)
 expr_stmt|;
 block|}

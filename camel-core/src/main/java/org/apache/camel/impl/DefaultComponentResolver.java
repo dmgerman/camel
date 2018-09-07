@@ -277,24 +277,19 @@ name|debug
 argument_list|(
 literal|"Found component: {} via type: {} via: {}{}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|name
-block|,
+argument_list|,
 name|type
 operator|.
 name|getName
 argument_list|()
-block|,
+argument_list|,
 name|factoryFinder
 operator|.
 name|getResourcePath
 argument_list|()
-block|,
+argument_list|,
 name|name
-block|}
 argument_list|)
 expr_stmt|;
 block|}

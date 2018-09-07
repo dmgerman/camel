@@ -1891,23 +1891,18 @@ name|debug
 argument_list|(
 literal|"{} child service on route: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|shutdown
 condition|?
 literal|"Shutting down"
 else|:
 literal|"Stopping"
-block|,
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
-block|,
+argument_list|,
 name|service
-block|}
 argument_list|)
 expr_stmt|;
 if|if

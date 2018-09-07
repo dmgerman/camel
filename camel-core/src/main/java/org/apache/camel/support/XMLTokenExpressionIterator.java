@@ -2859,16 +2859,11 @@ name|trace
 argument_list|(
 literal|"se={}; depth={}; trackdepth={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|name
-block|,
+argument_list|,
 name|depth
-block|,
+argument_list|,
 name|trackdepth
-block|}
 argument_list|)
 expr_stmt|;
 block|}

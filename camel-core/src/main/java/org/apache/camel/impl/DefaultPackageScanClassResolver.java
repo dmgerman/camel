@@ -2501,16 +2501,11 @@ name|trace
 argument_list|(
 literal|"Testing for class {} matches criteria [{}] using classloader: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|externalName
-block|,
+argument_list|,
 name|test
-block|,
+argument_list|,
 name|classLoader
-block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -2029,16 +2029,11 @@ name|debug
 argument_list|(
 literal|"Retrying attempt {} to rename file from: {} to: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|count
-block|,
+argument_list|,
 name|from
-block|,
+argument_list|,
 name|to
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2134,18 +2129,13 @@ name|debug
 argument_list|(
 literal|"Tried {} to rename file: {} to: {} with result: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|count
-block|,
+argument_list|,
 name|from
-block|,
+argument_list|,
 name|to
-block|,
+argument_list|,
 name|renamed
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2386,16 +2376,11 @@ name|debug
 argument_list|(
 literal|"Tried {} to delete file: {} with result: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|count
-block|,
+argument_list|,
 name|file
-block|,
+argument_list|,
 name|deleted
-block|}
 argument_list|)
 expr_stmt|;
 block|}

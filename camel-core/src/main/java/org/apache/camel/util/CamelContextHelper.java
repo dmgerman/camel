@@ -2320,12 +2320,7 @@ name|debug
 argument_list|(
 literal|"Finding all components using class resolver: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|resolver
-block|}
 argument_list|)
 expr_stmt|;
 name|Enumeration
@@ -2978,12 +2973,7 @@ name|debug
 argument_list|(
 literal|"Finding all EIPs using class resolver: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|resolver
-block|}
 argument_list|)
 expr_stmt|;
 name|URL
@@ -3850,16 +3840,11 @@ name|debug
 argument_list|(
 literal|"Changed property [{}] from: {} to: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|name
-block|,
+argument_list|,
 name|value
-block|,
+argument_list|,
 name|text
-block|}
 argument_list|)
 expr_stmt|;
 block|}

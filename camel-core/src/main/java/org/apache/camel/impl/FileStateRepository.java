@@ -690,16 +690,11 @@ name|debug
 argument_list|(
 literal|"Appending {}={} to state filestore: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|key
-block|,
+argument_list|,
 name|value
-block|,
+argument_list|,
 name|fileStore
-block|}
 argument_list|)
 expr_stmt|;
 block|}

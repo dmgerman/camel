@@ -1193,14 +1193,10 @@ name|info
 argument_list|(
 literal|"Endpoint {} is using shared queue: {} with size: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|this
-block|,
+argument_list|,
 name|key
-block|,
+argument_list|,
 name|ref
 operator|.
 name|getSize
@@ -1216,7 +1212,6 @@ else|:
 name|Integer
 operator|.
 name|MAX_VALUE
-block|}
 argument_list|)
 expr_stmt|;
 comment|// and set the size we are using
@@ -1254,18 +1249,13 @@ name|info
 argument_list|(
 literal|"Endpoint {} is using queue: {} with size: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|this
-block|,
+argument_list|,
 name|getEndpointUri
 argument_list|()
-block|,
+argument_list|,
 name|getSize
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

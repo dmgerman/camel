@@ -773,22 +773,17 @@ name|trace
 argument_list|(
 literal|"Found field {}.{} as candidate for parameter {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|clazz
 operator|.
 name|getName
 argument_list|()
-block|,
+argument_list|,
 name|found
 operator|.
 name|getName
 argument_list|()
-block|,
+argument_list|,
 name|name
-block|}
 argument_list|)
 expr_stmt|;
 return|return

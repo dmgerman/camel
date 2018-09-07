@@ -2029,16 +2029,11 @@ name|trace
 argument_list|(
 literal|"Using name: {} in ObjectName[{}] exists? {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|name
-block|,
+argument_list|,
 name|on
-block|,
+argument_list|,
 name|done
-block|}
 argument_list|)
 expr_stmt|;
 block|}

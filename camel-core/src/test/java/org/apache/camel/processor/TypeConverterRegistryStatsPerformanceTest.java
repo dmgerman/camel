@@ -306,18 +306,13 @@ name|info
 argument_list|(
 literal|"Noop: before={}, after={}, delta={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|noop
-block|,
+argument_list|,
 name|noop2
-block|,
+argument_list|,
 name|noop2
 operator|-
 name|noop
-block|}
 argument_list|)
 expr_stmt|;
 name|log
@@ -326,18 +321,13 @@ name|info
 argument_list|(
 literal|"Attempt: before={}, after={}, delta={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|attempt
-block|,
+argument_list|,
 name|attempt2
-block|,
+argument_list|,
 name|attempt2
 operator|-
 name|attempt
-block|}
 argument_list|)
 expr_stmt|;
 name|log
@@ -346,18 +336,13 @@ name|info
 argument_list|(
 literal|"Failed: before={}, after={}, delta={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|failed
-block|,
+argument_list|,
 name|failed2
-block|,
+argument_list|,
 name|failed2
 operator|-
 name|failed
-block|}
 argument_list|)
 expr_stmt|;
 name|log
@@ -366,18 +351,13 @@ name|info
 argument_list|(
 literal|"Hit: before={}, after={}, delta={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|hit
-block|,
+argument_list|,
 name|hit2
-block|,
+argument_list|,
 name|hit2
 operator|-
 name|hit
-block|}
 argument_list|)
 expr_stmt|;
 name|log
@@ -386,18 +366,13 @@ name|info
 argument_list|(
 literal|"Miss: before={}, after={}, delta={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|miss
-block|,
+argument_list|,
 name|miss2
-block|,
+argument_list|,
 name|miss2
 operator|-
 name|miss
-block|}
 argument_list|)
 expr_stmt|;
 block|}

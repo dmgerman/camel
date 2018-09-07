@@ -5056,21 +5056,16 @@ name|debug
 argument_list|(
 literal|"{} converted to endpoint: {} by component: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
 name|uri
 argument_list|)
-block|,
+argument_list|,
 name|answer
-block|,
+argument_list|,
 name|component
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -5223,21 +5218,16 @@ name|debug
 argument_list|(
 literal|"{} converted to endpoint: {} by component: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
 name|uri
 argument_list|)
-block|,
+argument_list|,
 name|answer
-block|,
+argument_list|,
 name|component
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -9757,16 +9747,11 @@ name|debug
 argument_list|(
 literal|"Loading component JSON Schema for: {} using class resolver: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|componentName
-block|,
+argument_list|,
 name|resolver
-block|,
+argument_list|,
 name|inputStream
-block|}
 argument_list|)
 expr_stmt|;
 if|if
@@ -9957,16 +9942,11 @@ name|debug
 argument_list|(
 literal|"Loading dataformat JSON Schema for: {} using class resolver: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|dataFormatName
-block|,
+argument_list|,
 name|resolver
-block|,
+argument_list|,
 name|inputStream
-block|}
 argument_list|)
 expr_stmt|;
 if|if
@@ -10133,16 +10113,11 @@ name|debug
 argument_list|(
 literal|"Loading language JSON Schema for: {} using class resolver: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|languageName
-block|,
+argument_list|,
 name|resolver
-block|,
+argument_list|,
 name|inputStream
-block|}
 argument_list|)
 expr_stmt|;
 if|if
@@ -10274,16 +10249,11 @@ name|debug
 argument_list|(
 literal|"Loading eip JSON Schema for: {} using class resolver: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|eipName
-block|,
+argument_list|,
 name|resolver
-block|,
+argument_list|,
 name|inputStream
-block|}
 argument_list|)
 expr_stmt|;
 try|try
@@ -18289,16 +18259,11 @@ name|debug
 argument_list|(
 literal|"Camel property with key {} replaced value from {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|key
-block|,
+argument_list|,
 name|value
-block|,
+argument_list|,
 name|replaced
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -20650,17 +20615,13 @@ name|info
 argument_list|(
 literal|"Route: {} is {}, was consuming from: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|route
 operator|.
 name|getId
 argument_list|()
-block|,
+argument_list|,
 name|state
-block|,
+argument_list|,
 name|route
 operator|.
 name|getConsumer
@@ -20668,7 +20629,6 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

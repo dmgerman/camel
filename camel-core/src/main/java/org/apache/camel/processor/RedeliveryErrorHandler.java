@@ -978,19 +978,14 @@ name|trace
 argument_list|(
 literal|"Redelivering exchangeId: {} -> {} for Exchange: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|exchange
 operator|.
 name|getExchangeId
 argument_list|()
-block|,
+argument_list|,
 name|outputAsync
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}

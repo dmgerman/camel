@@ -511,18 +511,13 @@ name|trace
 argument_list|(
 literal|"{}> 0&& {}> {} evaluated as {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|maxInflightExchanges
-block|,
+argument_list|,
 name|size
-block|,
+argument_list|,
 name|maxInflightExchanges
-block|,
+argument_list|,
 name|stop
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -599,16 +594,11 @@ name|trace
 argument_list|(
 literal|"{}<= {} evaluated as {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|size
-block|,
+argument_list|,
 name|resumeInflightExchanges
-block|,
+argument_list|,
 name|start
-block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -1335,16 +1335,11 @@ name|trace
 argument_list|(
 literal|"canScheduleOrExecute {}< {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|size
-block|,
+argument_list|,
 name|queueSize
-block|,
+argument_list|,
 name|answer
-block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -722,19 +722,14 @@ name|debug
 argument_list|(
 literal|"BeanHolder bean: {} and beanInvocation bean: {} is same instance: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|bean
 operator|.
 name|getClass
 argument_list|()
-block|,
+argument_list|,
 name|clazz
-block|,
+argument_list|,
 name|sameBean
-block|}
 argument_list|)
 expr_stmt|;
 block|}

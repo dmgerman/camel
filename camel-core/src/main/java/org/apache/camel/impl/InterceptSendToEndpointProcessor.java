@@ -332,20 +332,15 @@ name|debug
 argument_list|(
 literal|"Sending to endpoint: {} is intercepted and detoured to: {} for exchange: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|getEndpoint
 argument_list|()
-block|,
+argument_list|,
 name|endpoint
 operator|.
 name|getDetour
 argument_list|()
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}

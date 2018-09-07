@@ -1900,24 +1900,19 @@ name|trace
 argument_list|(
 literal|"Heap memory: [used={}M ({}%), committed={}M, max={}M]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|u
 operator|>>
 literal|20
-block|,
+argument_list|,
 name|percentage
-block|,
+argument_list|,
 name|c
 operator|>>
 literal|20
-block|,
+argument_list|,
 name|m
 operator|>>
 literal|20
-block|}
 argument_list|)
 expr_stmt|;
 block|}

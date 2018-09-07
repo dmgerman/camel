@@ -213,20 +213,15 @@ name|debug
 argument_list|(
 literal|"Validation {} for {} with Predicate[{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|matches
 condition|?
 literal|"succeed"
 else|:
 literal|"failed"
-block|,
+argument_list|,
 name|exchange
-block|,
+argument_list|,
 name|predicate
-block|}
 argument_list|)
 expr_stmt|;
 block|}

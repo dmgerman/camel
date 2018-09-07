@@ -2311,16 +2311,11 @@ name|trace
 argument_list|(
 literal|"Keeping last modified timestamp: {} on file: {} with result: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|last
-block|,
+argument_list|,
 name|file
-block|,
+argument_list|,
 name|result
-block|}
 argument_list|)
 expr_stmt|;
 block|}

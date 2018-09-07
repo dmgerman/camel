@@ -2884,19 +2884,14 @@ name|trace
 argument_list|(
 literal|"Found {} {} packages: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|packages
 operator|.
 name|size
 argument_list|()
-block|,
+argument_list|,
 name|META_INF_TYPE_CONVERTER
-block|,
+argument_list|,
 name|packages
-block|}
 argument_list|)
 expr_stmt|;
 block|}

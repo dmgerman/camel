@@ -4074,16 +4074,11 @@ name|trace
 argument_list|(
 literal|"Done evaluating exchange: {} as: {} with result: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|exchange
-block|,
+argument_list|,
 name|resultQName
-block|,
+argument_list|,
 name|answer
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -5494,16 +5489,11 @@ name|info
 argument_list|(
 literal|"Using system property {} with value {} when created default XPathFactory {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|key
-block|,
+argument_list|,
 name|uri
-block|,
+argument_list|,
 name|factory
-block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -481,10 +481,6 @@ name|trace
 argument_list|(
 literal|"{}Recording duration: {} millis for exchange: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|type
 operator|!=
 literal|null
@@ -494,11 +490,10 @@ operator|+
 literal|": "
 else|:
 literal|""
-block|,
+argument_list|,
 name|duration
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}

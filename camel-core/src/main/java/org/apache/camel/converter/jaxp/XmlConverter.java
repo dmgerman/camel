@@ -4920,16 +4920,11 @@ name|warn
 argument_list|(
 literal|"DocumentBuilderFactory doesn't support the feature {} with value {}, due to {}."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|uri
-block|,
+argument_list|,
 name|value
-block|,
+argument_list|,
 name|e
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -5423,10 +5418,6 @@ name|warn
 argument_list|(
 literal|"TransformerFactory doesn't support the feature {} with value {}, due to {}."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|javax
 operator|.
 name|xml
@@ -5434,11 +5425,10 @@ operator|.
 name|XMLConstants
 operator|.
 name|FEATURE_SECURE_PROCESSING
-block|,
+argument_list|,
 literal|"true"
-block|,
+argument_list|,
 name|e
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -5642,10 +5632,6 @@ name|warn
 argument_list|(
 literal|"SAXParser doesn't support the feature {} with value {}, due to {}."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|javax
 operator|.
 name|xml
@@ -5653,11 +5639,10 @@ operator|.
 name|XMLConstants
 operator|.
 name|FEATURE_SECURE_PROCESSING
-block|,
+argument_list|,
 literal|"true"
-block|,
+argument_list|,
 name|e
-block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -600,22 +600,17 @@ name|info
 argument_list|(
 literal|"Sent {} exchanges in {}ms, with throttle rate of {} per {}ms. Calculated min {}ms and max {}ms"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|messageCount
-block|,
+argument_list|,
 name|elapsedTimeMs
-block|,
+argument_list|,
 name|throttle
-block|,
+argument_list|,
 name|intervalMs
-block|,
+argument_list|,
 name|minimum
-block|,
+argument_list|,
 name|maximum
-block|}
 argument_list|)
 expr_stmt|;
 name|assertTrue

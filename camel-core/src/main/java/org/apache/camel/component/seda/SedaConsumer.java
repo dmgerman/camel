@@ -982,21 +982,16 @@ name|trace
 argument_list|(
 literal|"Polled queue {} with timeout {} ms. -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|ObjectHelper
 operator|.
 name|getIdentityHashCode
 argument_list|(
 name|queue
 argument_list|)
-block|,
+argument_list|,
 name|pollTimeout
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}

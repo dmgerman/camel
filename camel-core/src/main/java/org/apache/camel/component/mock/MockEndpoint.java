@@ -6008,18 +6008,13 @@ name|debug
 argument_list|(
 literal|"{} failed and received[{}]: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|getEndpointUri
 argument_list|()
-block|,
+argument_list|,
 operator|++
 name|index
-block|,
+argument_list|,
 name|exchange
-block|}
 argument_list|)
 expr_stmt|;
 block|}

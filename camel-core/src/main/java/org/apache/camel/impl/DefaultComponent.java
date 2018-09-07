@@ -743,24 +743,19 @@ name|debug
 argument_list|(
 literal|"Creating endpoint uri=[{}], path=[{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
 name|uri
 argument_list|)
-block|,
+argument_list|,
 name|URISupport
 operator|.
 name|sanitizePath
 argument_list|(
 name|path
 argument_list|)
-block|}
 argument_list|)
 expr_stmt|;
 block|}

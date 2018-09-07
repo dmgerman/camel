@@ -597,19 +597,14 @@ name|trace
 argument_list|(
 literal|"Should trace evaluated {} -> pattern: {}, filter: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|definition
 operator|.
 name|getId
 argument_list|()
-block|,
+argument_list|,
 name|pattern
-block|,
+argument_list|,
 name|filter
-block|}
 argument_list|)
 expr_stmt|;
 block|}

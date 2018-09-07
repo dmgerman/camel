@@ -1083,19 +1083,14 @@ name|debug
 argument_list|(
 literal|"Property with key [{}] applied by function [{}] -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|key
-block|,
+argument_list|,
 name|function
 operator|.
 name|getName
 argument_list|()
-block|,
+argument_list|,
 name|value
-block|}
 argument_list|)
 expr_stmt|;
 block|}
