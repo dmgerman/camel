@@ -84,6 +84,38 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|v2
+operator|.
+name|schemagen
+operator|.
+name|xmlschema
+operator|.
+name|Any
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -239,6 +271,18 @@ operator|.
 name|ArgumentMatchers
 operator|.
 name|same
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|ArgumentMatchers
+operator|.
+name|any
 import|;
 end_import
 
@@ -828,6 +872,9 @@ name|same
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|,
+name|any
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1110,6 +1157,9 @@ name|same
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|,
+name|any
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|verifyNoMoreInteractions
@@ -1295,6 +1345,9 @@ name|same
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|,
+name|any
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1449,6 +1502,9 @@ name|same
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|,
+name|any
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1711,6 +1767,9 @@ name|same
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|,
+name|any
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|verifyNoMoreInteractions
