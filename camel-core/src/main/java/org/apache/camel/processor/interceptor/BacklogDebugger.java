@@ -696,13 +696,6 @@ argument_list|(
 name|camelContext
 argument_list|)
 decl_stmt|;
-name|debugger
-operator|.
-name|setUseTracer
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|debugger

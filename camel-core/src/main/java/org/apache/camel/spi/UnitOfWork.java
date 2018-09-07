@@ -208,14 +208,6 @@ name|Message
 name|getOriginalInMessage
 parameter_list|()
 function_decl|;
-comment|/**      * Gets tracing information      *      * @return trace information      */
-annotation|@
-name|Deprecated
-DECL|method|getTracedRouteNodes ()
-name|TracedRouteNodes
-name|getTracedRouteNodes
-parameter_list|()
-function_decl|;
 comment|/**      * Are we transacted?      *      * @return<tt>true</tt> if transacted,<tt>false</tt> otherwise      */
 DECL|method|isTransacted ()
 name|boolean
