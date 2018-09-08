@@ -868,7 +868,7 @@ specifier|public
 class|class
 name|RestSwaggerReader
 block|{
-comment|/**      * Read the REST-DSL definition's and parse that as a Swagger model representation      *      * @param rests             the rest-dsl      * @param route             optional route path to filter the rest-dsl to only include from the chose route      * @param config            the swagger configuration      * @param classResolver     class resolver to use      * @return the swagger model      */
+comment|/**      * Read the REST-DSL definition's and parse that as a Swagger model representation      *      * @param rests             the rest-dsl      * @param route             optional route path to filter the rest-dsl to only include from the chose route      * @param config            the swagger configuration      * @param classResolver     class resolver to use      * @return the swagger model      * @throws ClassNotFoundException       */
 DECL|method|read (List<RestDefinition> rests, String route, BeanConfig config, String camelContextId, ClassResolver classResolver)
 specifier|public
 name|Swagger
@@ -892,6 +892,8 @@ parameter_list|,
 name|ClassResolver
 name|classResolver
 parameter_list|)
+throws|throws
+name|ClassNotFoundException
 block|{
 name|Swagger
 name|swagger
@@ -987,6 +989,8 @@ parameter_list|,
 name|ClassResolver
 name|classResolver
 parameter_list|)
+throws|throws
+name|ClassNotFoundException
 block|{
 name|List
 argument_list|<
@@ -1674,7 +1678,7 @@ name|clazz
 init|=
 name|classResolver
 operator|.
-name|resolveClass
+name|resolveMandatoryClass
 argument_list|(
 name|type
 argument_list|)

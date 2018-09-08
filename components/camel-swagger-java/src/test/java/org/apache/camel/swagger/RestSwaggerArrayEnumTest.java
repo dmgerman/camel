@@ -195,6 +195,8 @@ specifier|public
 name|void
 name|shouldGenerateEnumValuesForArraysAndNonArrays
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|RestSwaggerReader
