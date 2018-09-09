@@ -2975,12 +2975,6 @@ name|success
 init|=
 literal|false
 decl_stmt|;
-name|String
-name|originalDirectory
-init|=
-name|getCurrentDirectory
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 comment|// maybe the full directory already exists
@@ -2988,7 +2982,7 @@ try|try
 block|{
 name|channel
 operator|.
-name|cd
+name|ls
 argument_list|(
 name|directory
 argument_list|)
@@ -3056,23 +3050,7 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|GenericFileOperationFailedException
-argument_list|(
-literal|"Cannot build directory: "
-operator|+
-name|directory
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|SftpException
 name|e
 parameter_list|)
@@ -3088,23 +3066,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-comment|// change back to original directory
-if|if
-condition|(
-name|originalDirectory
-operator|!=
-literal|null
-condition|)
-block|{
-name|changeCurrentDirectory
-argument_list|(
-name|originalDirectory
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|success
