@@ -640,8 +640,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"MDN not return due to response status code: "
-operator|+
+literal|"MDN not return due to response status code: {}"
+argument_list|,
 name|statusCode
 argument_list|)
 expr_stmt|;
@@ -700,8 +700,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing MDN for request: "
-operator|+
+literal|"Processing MDN for request: {}"
+argument_list|,
 name|request
 argument_list|)
 expr_stmt|;

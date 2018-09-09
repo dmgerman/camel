@@ -443,8 +443,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"resolve producer atmos endpoint {"
-operator|+
+literal|"resolve producer atmos endpoint {{}}"
+argument_list|,
 name|configuration
 operator|.
 name|getOperation
@@ -452,16 +452,14 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|"}"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"resolve producer atmos attached client: "
-operator|+
+literal|"resolve producer atmos attached client: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getClient
@@ -592,8 +590,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"resolve consumer atmos endpoint {"
-operator|+
+literal|"resolve consumer atmos endpoint {{}}"
+argument_list|,
 name|configuration
 operator|.
 name|getOperation
@@ -601,16 +599,14 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|"}"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"resolve consumer atmos attached client:"
-operator|+
+literal|"resolve consumer atmos attached client:{}"
+argument_list|,
 name|configuration
 operator|.
 name|getClient

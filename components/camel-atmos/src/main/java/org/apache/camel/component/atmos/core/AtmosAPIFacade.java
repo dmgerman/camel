@@ -1337,8 +1337,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot download from "
-operator|+
+literal|"Cannot download from {}"
+argument_list|,
 name|entry
 operator|.
 name|getFilename

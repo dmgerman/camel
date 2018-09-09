@@ -1057,8 +1057,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Deleting orphaned lock file: "
-operator|+
+literal|"Deleting orphaned lock file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;

@@ -272,8 +272,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting folder at path="
-operator|+
+literal|"Getting folder at path={}"
+argument_list|,
 name|Arrays
 operator|.
 name|toString
@@ -1423,11 +1423,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting folder(id="
-operator|+
+literal|"Deleting folder(id={})"
+argument_list|,
 name|folderId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1518,11 +1516,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for folder(id="
-operator|+
+literal|"Getting info for folder(id={})"
+argument_list|,
 name|folderId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1636,11 +1632,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating info for folder(id="
-operator|+
+literal|"Updating info for folder(id={})"
+argument_list|,
 name|folderId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if

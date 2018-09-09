@@ -339,8 +339,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for exclusive read lock to file: "
-operator|+
+literal|"Waiting for exclusive read lock to file: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
@@ -821,11 +821,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exclusive read lock not granted. Sleeping for "
-operator|+
+literal|"Exclusive read lock not granted. Sleeping for {} millis."
+argument_list|,
 name|checkInterval
-operator|+
-literal|" millis."
 argument_list|)
 expr_stmt|;
 try|try

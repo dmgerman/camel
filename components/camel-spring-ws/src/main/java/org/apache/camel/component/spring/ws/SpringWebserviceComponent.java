@@ -657,8 +657,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Building Spring Web Services consumer of type "
-operator|+
+literal|"Building Spring Web Services consumer of type {}"
+argument_list|,
 name|type
 argument_list|)
 expr_stmt|;

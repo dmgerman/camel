@@ -340,8 +340,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Resolving "
-operator|+
+literal|"Resolving {}"
+argument_list|,
 name|hostname
 argument_list|)
 expr_stmt|;
@@ -703,8 +703,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Local ip: "
-operator|+
+literal|"Local ip: {}"
+argument_list|,
 name|ip
 argument_list|)
 expr_stmt|;

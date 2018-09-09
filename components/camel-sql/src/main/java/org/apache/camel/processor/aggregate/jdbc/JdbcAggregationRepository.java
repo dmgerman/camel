@@ -2494,8 +2494,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"On startup there are no existing aggregate exchanges (not completed) in repository: "
-operator|+
+literal|"On startup there are no existing aggregate exchanges (not completed) in repository: {}"
+argument_list|,
 name|getRepositoryName
 argument_list|()
 argument_list|)
@@ -2529,8 +2529,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"On startup there are no completed exchanges to be recovered in repository: "
-operator|+
+literal|"On startup there are no completed exchanges to be recovered in repository: {}"
+argument_list|,
 name|getRepositoryNameCompleted
 argument_list|()
 argument_list|)

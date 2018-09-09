@@ -993,8 +993,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not find QName for class "
-operator|+
+literal|"Could not find QName for class {}"
+argument_list|,
 name|bodyObj
 operator|.
 name|getClass
@@ -1056,8 +1056,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not find QName for class "
-operator|+
+literal|"Could not find QName for class {}"
+argument_list|,
 name|headerObj
 operator|.
 name|getClass

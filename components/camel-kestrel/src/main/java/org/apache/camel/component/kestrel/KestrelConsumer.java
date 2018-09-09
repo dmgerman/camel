@@ -293,8 +293,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Starting consumer for "
-operator|+
+literal|"Starting consumer for {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri
@@ -456,8 +456,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Stopping consumer for "
-operator|+
+literal|"Stopping consumer for {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri

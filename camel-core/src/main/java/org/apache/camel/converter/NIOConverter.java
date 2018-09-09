@@ -457,8 +457,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot convert the byte to String with the charset "
-operator|+
+literal|"Cannot convert the byte to String with the charset {}"
+argument_list|,
 name|charsetName
 argument_list|,
 name|e

@@ -291,8 +291,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating group name="
-operator|+
+literal|"Creating group name={}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
@@ -383,11 +383,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting group("
-operator|+
+literal|"Deleting group({})"
+argument_list|,
 name|groupId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -472,11 +470,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for group(id="
-operator|+
+literal|"Getting info for group(id={})"
+argument_list|,
 name|groupId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -565,11 +561,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating info for group(id="
-operator|+
+literal|"Updating info for group(id={})"
+argument_list|,
 name|groupId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -677,11 +671,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting information about all memberships for group(id="
-operator|+
+literal|"Getting information about all memberships for group(id={})"
+argument_list|,
 name|groupId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -911,11 +903,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting groupMembership(id="
-operator|+
+literal|"Deleting groupMembership(id={})"
+argument_list|,
 name|groupMembershipId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1000,11 +990,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for groupMemebership(id="
-operator|+
+literal|"Getting info for groupMemebership(id={})"
+argument_list|,
 name|groupMemebershipId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1093,11 +1081,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating info for groupMembership(id="
-operator|+
+literal|"Updating info for groupMembership(id={})"
+argument_list|,
 name|groupMembershipId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if

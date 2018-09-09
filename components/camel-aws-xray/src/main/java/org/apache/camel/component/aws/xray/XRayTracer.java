@@ -2173,14 +2173,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring closing of (sub)segment "
-operator|+
+literal|"Ignoring closing of (sub)segment {} as the segment was already emitted."
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" as the segment was already emitted."
 argument_list|)
 expr_stmt|;
 block|}

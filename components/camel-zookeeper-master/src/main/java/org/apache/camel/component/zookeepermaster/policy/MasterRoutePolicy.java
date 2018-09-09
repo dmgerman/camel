@@ -1108,8 +1108,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Failed to start master consumer for: "
-operator|+
+literal|"Failed to start master consumer for: {}"
+argument_list|,
 name|route
 operator|.
 name|getEndpoint
@@ -1173,8 +1173,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to stop master consumer: "
-operator|+
+literal|"Failed to stop master consumer: {}"
+argument_list|,
 name|route
 operator|.
 name|getEndpoint

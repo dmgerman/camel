@@ -405,11 +405,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Shutting down the default connection pool "
-operator|+
+literal|"Shutting down the default connection pool {} ..."
+argument_list|,
 name|connectionPool
-operator|+
-literal|" ..."
 argument_list|)
 expr_stmt|;
 name|connectionPool

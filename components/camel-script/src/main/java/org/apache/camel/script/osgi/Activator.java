@@ -1042,13 +1042,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} OSGi ScriptEngineResolver services"
+argument_list|,
 name|refs
 operator|.
 name|length
-operator|+
-literal|" OSGi ScriptEngineResolver services"
 argument_list|)
 expr_stmt|;
 for|for
@@ -1594,8 +1592,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot create the ScriptEngineFactory: "
-operator|+
+literal|"Cannot create the ScriptEngineFactory: {}"
+argument_list|,
 name|e
 operator|.
 name|getClass
@@ -1764,8 +1762,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot create ScriptEngineFactory: "
-operator|+
+literal|"Cannot create ScriptEngineFactory: {}"
+argument_list|,
 name|e
 operator|.
 name|getClass

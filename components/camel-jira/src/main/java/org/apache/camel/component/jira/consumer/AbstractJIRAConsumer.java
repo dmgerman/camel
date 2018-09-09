@@ -320,8 +320,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"JerseyJiraRestClientFactory found in registry "
-operator|+
+literal|"JerseyJiraRestClientFactory found in registry {}"
+argument_list|,
 name|target
 operator|.
 name|getClass

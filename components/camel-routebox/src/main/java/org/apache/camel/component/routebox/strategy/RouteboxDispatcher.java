@@ -776,8 +776,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Dispatch URI set to: "
-operator|+
+literal|"Dispatch URI set to: {}"
+argument_list|,
 name|dispatchUri
 operator|.
 name|toASCIIString

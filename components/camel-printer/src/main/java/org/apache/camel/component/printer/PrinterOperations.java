@@ -421,8 +421,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Print Service: "
-operator|+
+literal|"Print Service: {}"
+argument_list|,
 name|this
 operator|.
 name|printService
@@ -556,8 +556,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing print job to file: "
-operator|+
+literal|"Writing print job to file: {}"
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath

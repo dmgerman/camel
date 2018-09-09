@@ -523,8 +523,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Building service for endpoint: "
-operator|+
+literal|"Building service for endpoint: {}"
+argument_list|,
 name|clientAddress
 operator|+
 name|configuration

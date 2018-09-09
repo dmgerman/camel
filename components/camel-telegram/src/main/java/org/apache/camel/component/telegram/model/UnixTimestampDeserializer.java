@@ -180,8 +180,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to deserialize the unix timestamp "
-operator|+
+literal|"Unable to deserialize the unix timestamp {}"
+argument_list|,
 name|jsonParser
 operator|.
 name|getText

@@ -635,8 +635,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to cast value to Header<List> due to "
-operator|+
+literal|"Failed to cast value to Header<List> due to {}"
+argument_list|,
 name|t
 operator|.
 name|toString

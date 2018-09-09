@@ -309,8 +309,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"No CamelContext defined yet so cannot inject into bean: "
-operator|+
+literal|"No CamelContext defined yet so cannot inject into bean: {}"
+argument_list|,
 name|beanName
 argument_list|)
 expr_stmt|;
@@ -1318,8 +1318,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: "
-operator|+
+literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: {}"
+argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
@@ -1429,8 +1429,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: "
-operator|+
+literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: {}"
+argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
@@ -1535,8 +1535,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: "
-operator|+
+literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: {}"
+argument_list|,
 name|method
 argument_list|)
 expr_stmt|;

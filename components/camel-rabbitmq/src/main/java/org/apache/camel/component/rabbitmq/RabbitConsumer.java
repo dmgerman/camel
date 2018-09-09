@@ -1347,14 +1347,12 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to obtain a RabbitMQ channel. Will try again. Caused by: "
-operator|+
+literal|"Unable to obtain a RabbitMQ channel. Will try again. Caused by: {}. Stacktrace logged at DEBUG logging level."
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|+
-literal|". Stacktrace logged at DEBUG logging level."
 argument_list|)
 expr_stmt|;
 comment|// include stacktrace in DEBUG logging

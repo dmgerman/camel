@@ -686,8 +686,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"attempting add of "
-operator|+
+literal|"attempting add of {}"
+argument_list|,
 name|ldifEntry
 operator|.
 name|toString
@@ -727,8 +727,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"attempting modify of "
-operator|+
+literal|"attempting modify of {}"
+argument_list|,
 name|ldifEntry
 operator|.
 name|toString
@@ -773,8 +773,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"attempting delete of "
-operator|+
+literal|"attempting delete of {}"
+argument_list|,
 name|ldifEntry
 operator|.
 name|toString
@@ -814,8 +814,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"attempting DN move of "
-operator|+
+literal|"attempting DN move of {}"
+argument_list|,
 name|ldifEntry
 operator|.
 name|toString
@@ -874,8 +874,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"attempting RDN move of "
-operator|+
+literal|"attempting RDN move of {}"
+argument_list|,
 name|ldifEntry
 operator|.
 name|toString

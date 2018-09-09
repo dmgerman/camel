@@ -108,8 +108,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Warning parsing XSLT file: "
-operator|+
+literal|"Warning parsing XSLT file: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessageAndLocation
@@ -134,8 +134,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error parsing XSLT file: "
-operator|+
+literal|"Error parsing XSLT file: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessageAndLocation
@@ -163,8 +163,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Fatal error parsing XSLT file: "
-operator|+
+literal|"Fatal error parsing XSLT file: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessageAndLocation

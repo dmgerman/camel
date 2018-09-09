@@ -308,8 +308,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Failed to find endpoint "
-operator|+
+literal|"Failed to find endpoint {}"
+argument_list|,
 name|getCamelDestinationUri
 argument_list|()
 argument_list|)

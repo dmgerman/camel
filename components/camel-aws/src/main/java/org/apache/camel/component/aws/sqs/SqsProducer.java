@@ -603,8 +603,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"found delay: "
-operator|+
+literal|"found delay: {}"
+argument_list|,
 name|delayValue
 argument_list|)
 expr_stmt|;

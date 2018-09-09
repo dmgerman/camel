@@ -1173,8 +1173,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Caught expected assertion error: "
-operator|+
+literal|"Caught expected assertion error: {}"
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -1991,14 +1991,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Deletion of file: "
-operator|+
+literal|"Deletion of file: {} failed"
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath
 argument_list|()
-operator|+
-literal|" failed"
 argument_list|)
 expr_stmt|;
 block|}

@@ -6549,8 +6549,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: "
-operator|+
+literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: {}"
+argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
@@ -6652,8 +6652,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: "
-operator|+
+literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: {}"
+argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
@@ -6743,8 +6743,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: "
-operator|+
+literal|"Ignoring badly annotated method for injection due to incorrect number of parameters: {}"
+argument_list|,
 name|method
 argument_list|)
 expr_stmt|;

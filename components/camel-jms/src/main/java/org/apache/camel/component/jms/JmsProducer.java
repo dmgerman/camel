@@ -2764,8 +2764,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Testing JMS Connection on startup for destination: "
-operator|+
+literal|"Testing JMS Connection on startup for destination: {}"
+argument_list|,
 name|template
 operator|.
 name|getDefaultDestinationName
@@ -2795,8 +2795,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Successfully tested JMS Connection on startup for destination: "
-operator|+
+literal|"Successfully tested JMS Connection on startup for destination: {}"
+argument_list|,
 name|template
 operator|.
 name|getDefaultDestinationName

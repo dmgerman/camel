@@ -455,8 +455,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Resolve producer dropbox endpoint {"
-operator|+
+literal|"Resolve producer dropbox endpoint {{}}"
+argument_list|,
 name|configuration
 operator|.
 name|getOperation
@@ -464,16 +464,14 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|"}"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Resolve producer dropbox attached client: "
-operator|+
+literal|"Resolve producer dropbox attached client: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getClient
@@ -629,8 +627,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Resolve consumer dropbox endpoint {"
-operator|+
+literal|"Resolve consumer dropbox endpoint {{}}"
+argument_list|,
 name|configuration
 operator|.
 name|getOperation
@@ -638,16 +636,14 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|"}"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Resolve consumer dropbox attached client:"
-operator|+
+literal|"Resolve consumer dropbox attached client: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getClient

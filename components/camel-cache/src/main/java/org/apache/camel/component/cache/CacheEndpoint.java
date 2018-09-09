@@ -786,8 +786,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Added a new cache: "
-operator|+
+literal|"Added a new cache: {}"
+argument_list|,
 name|cache
 operator|.
 name|getName

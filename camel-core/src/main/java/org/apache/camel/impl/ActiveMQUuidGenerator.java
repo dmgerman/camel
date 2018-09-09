@@ -429,8 +429,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot generate unique stub by using DNS and binding to local port: "
-operator|+
+literal|"Cannot generate unique stub by using DNS and binding to local port: {}"
+argument_list|,
 name|idGeneratorPort
 argument_list|,
 name|e

@@ -224,8 +224,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Reconnecting to: "
-operator|+
+literal|"Reconnecting to: {}"
+argument_list|,
 name|XmppEndpoint
 operator|.
 name|getConnectionMessage

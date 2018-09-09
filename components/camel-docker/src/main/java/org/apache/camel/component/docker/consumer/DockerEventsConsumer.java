@@ -496,8 +496,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received Docker Event: "
-operator|+
+literal|"Received Docker Event: {}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;

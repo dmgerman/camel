@@ -2566,11 +2566,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Scaling on application with id "
-operator|+
+literal|"Scaling on application with id {} is not enabled"
+argument_list|,
 name|name
-operator|+
-literal|" is not enabled"
 argument_list|)
 expr_stmt|;
 block|}

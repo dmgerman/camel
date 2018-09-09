@@ -201,11 +201,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting tasks of file(id="
-operator|+
+literal|"Getting tasks of file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -431,11 +429,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting task(id="
-operator|+
+literal|"Deleting task(id={})"
+argument_list|,
 name|taskId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -520,11 +516,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for task(id="
-operator|+
+literal|"Getting info for task(id={})"
+argument_list|,
 name|taskId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -613,11 +607,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating info for task(id="
-operator|+
+literal|"Updating info for task(id={})"
+argument_list|,
 name|taskId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -725,11 +717,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting assignments for task(id="
-operator|+
+literal|"Getting assignments for task(id={})"
+argument_list|,
 name|taskId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -939,11 +929,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for task(id="
-operator|+
+literal|"Getting info for task(id={})"
+argument_list|,
 name|taskAssignmentId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1026,7 +1014,7 @@ comment|// */
 comment|// public BoxTaskAssignment updateTaskAssignmentInfo(String
 comment|// taskAssignmentId, BoxTaskAssignment.Info info) {
 comment|// try {
-comment|// LOG.debug("Updating info for task(id=" + taskAssignmentId + ")");
+comment|// LOG.debug("Updating info for task(id={})", taskAssignmentId);
 comment|// if (taskAssignmentId == null) {
 comment|// throw new IllegalArgumentException("Parameter 'taskAssignmentId' can not
 comment|// be null");
@@ -1062,11 +1050,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting task(id="
-operator|+
+literal|"Deleting task(id={})"
+argument_list|,
 name|taskAssignmentId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if

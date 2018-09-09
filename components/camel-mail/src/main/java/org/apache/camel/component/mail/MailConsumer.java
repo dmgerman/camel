@@ -543,8 +543,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Polling mailbox folder: "
-operator|+
+literal|"Polling mailbox folder: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -2669,8 +2669,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Exchange failed, so rolling back message status: "
-operator|+
+literal|"Exchange failed, so rolling back message status: {}"
+argument_list|,
 name|exchange
 argument_list|,
 name|cause

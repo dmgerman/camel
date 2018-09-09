@@ -260,8 +260,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"onInit "
-operator|+
+literal|"onInit {}"
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -294,8 +294,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"onRemove "
-operator|+
+literal|"onRemove {}"
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -319,8 +319,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"onStart "
-operator|+
+literal|"onStart {}"
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -344,8 +344,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"onStop "
-operator|+
+literal|"onStop {}"
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -369,8 +369,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"onSuspend "
-operator|+
+literal|"onSuspend {}"
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -394,8 +394,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"onResume "
-operator|+
+literal|"onResume {}"
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -728,8 +728,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting "
-operator|+
+literal|"Starting {}"
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -756,8 +756,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Resuming "
-operator|+
+literal|"Resuming {}"
+argument_list|,
 name|route
 operator|.
 name|getId
@@ -889,8 +889,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Stopping "
-operator|+
+literal|"Stopping {}"
+argument_list|,
 name|route
 operator|.
 name|getId

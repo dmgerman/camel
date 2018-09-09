@@ -256,8 +256,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using DataService found in registry "
-operator|+
+literal|"Using DataService found in registry {}"
+argument_list|,
 name|service
 operator|.
 name|getClass

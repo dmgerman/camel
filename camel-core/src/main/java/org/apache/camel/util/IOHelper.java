@@ -1152,8 +1152,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot force FileChannel. Reason: "
-operator|+
+literal|"Cannot force FileChannel. Reason: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1252,8 +1252,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot sync FileDescriptor. Reason: "
-operator|+
+literal|"Cannot sync FileDescriptor. Reason: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1357,8 +1357,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot flush Writer. Reason: "
-operator|+
+literal|"Cannot flush Writer. Reason: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1472,8 +1472,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot close. Reason: "
-operator|+
+literal|"Cannot close. Reason: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

@@ -302,11 +302,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Topic "
-operator|+
+literal|"Topic {} already exist"
+argument_list|,
 name|topic
-operator|+
-literal|" already exist"
 argument_list|)
 expr_stmt|;
 block|}
@@ -376,11 +374,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Subscription "
-operator|+
+literal|"Subscription {} already exist"
+argument_list|,
 name|subscriptionName
-operator|+
-literal|" already exist"
 argument_list|)
 expr_stmt|;
 block|}

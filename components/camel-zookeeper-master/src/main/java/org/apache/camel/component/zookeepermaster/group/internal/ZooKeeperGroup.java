@@ -1911,8 +1911,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting partially created znode: "
-operator|+
+literal|"Deleting partially created znode: {}"
+argument_list|,
 name|child
 operator|.
 name|getPath

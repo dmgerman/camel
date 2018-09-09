@@ -1566,11 +1566,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot load ScriptEngine for "
-operator|+
+literal|"Cannot load ScriptEngine for {}. Please ensure correct JARs is provided on classpath (stacktrace in DEBUG logging)."
+argument_list|,
 name|name
-operator|+
-literal|". Please ensure correct JARs is provided on classpath (stacktrace in DEBUG logging)."
 argument_list|)
 expr_stmt|;
 comment|// include stacktrace in debug logging
@@ -1854,8 +1852,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Script evaluation failed: "
-operator|+
+literal|"Script evaluation failed: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

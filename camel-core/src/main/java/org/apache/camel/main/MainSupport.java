@@ -1079,8 +1079,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Failed: "
-operator|+
+literal|"Failed: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e

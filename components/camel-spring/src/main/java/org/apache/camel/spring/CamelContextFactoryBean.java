@@ -2396,8 +2396,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using shutdownEager: "
-operator|+
+literal|"Using shutdownEager: {}"
+argument_list|,
 name|shutdownEager
 argument_list|)
 expr_stmt|;
@@ -2453,8 +2453,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom Registry: "
-operator|+
+literal|"Using custom Registry: {}"
+argument_list|,
 name|registry
 argument_list|)
 expr_stmt|;
@@ -2542,8 +2542,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Bridging Camel and Spring property placeholder configurer with id: "
-operator|+
+literal|"Bridging Camel and Spring property placeholder configurer with id: {}"
+argument_list|,
 name|id
 argument_list|)
 expr_stmt|;

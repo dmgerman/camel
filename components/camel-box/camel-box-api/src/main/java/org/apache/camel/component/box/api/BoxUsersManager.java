@@ -272,8 +272,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting all enterprise users matching filterTerm="
-operator|+
+literal|"Getting all enterprise users matching filterTerm={}"
+argument_list|,
 name|filterTerm
 argument_list|)
 expr_stmt|;
@@ -541,8 +541,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating app user with name="
-operator|+
+literal|"Creating app user with name={}"
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
@@ -651,11 +651,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for user(id="
-operator|+
+literal|"Getting info for user(id={})"
+argument_list|,
 name|userId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -744,11 +742,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating info for user(id="
-operator|+
+literal|"Updating info for user(id={})"
+argument_list|,
 name|userId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1069,11 +1065,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Get email aliases for user(id="
-operator|+
+literal|"Get email aliases for user(id={})"
+argument_list|,
 name|userId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if

@@ -1025,11 +1025,9 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Unable to set nick: "
-operator|+
+literal|"Unable to set nick: {} disconnecting"
+argument_list|,
 name|nick
-operator|+
-literal|" disconnecting"
 argument_list|)
 expr_stmt|;
 block|}

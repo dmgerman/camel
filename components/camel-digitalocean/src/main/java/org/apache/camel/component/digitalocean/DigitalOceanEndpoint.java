@@ -524,14 +524,12 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Resolve producer digitalocean endpoint {"
-operator|+
+literal|"Resolve producer digitalocean endpoint {{}}"
+argument_list|,
 name|configuration
 operator|.
 name|getResource
 argument_list|()
-operator|+
-literal|"}"
 argument_list|)
 expr_stmt|;
 switch|switch

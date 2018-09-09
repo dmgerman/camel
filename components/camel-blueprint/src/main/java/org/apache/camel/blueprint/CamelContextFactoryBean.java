@@ -1809,8 +1809,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom Registry: "
-operator|+
+literal|"Using custom Registry: {}"
+argument_list|,
 name|registry
 argument_list|)
 expr_stmt|;

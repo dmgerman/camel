@@ -790,8 +790,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error performing action: "
-operator|+
+literal|"Error performing action: {}"
+argument_list|,
 name|action
 argument_list|,
 name|e

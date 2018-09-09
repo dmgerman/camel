@@ -418,8 +418,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Retrying attempt: "
-operator|+
+literal|"Retrying attempt: {}"
+argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
@@ -732,8 +732,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Caught: "
-operator|+
+literal|"Caught: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e

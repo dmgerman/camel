@@ -1093,8 +1093,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Reconnected to "
-operator|+
+literal|"Reconnected to {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.

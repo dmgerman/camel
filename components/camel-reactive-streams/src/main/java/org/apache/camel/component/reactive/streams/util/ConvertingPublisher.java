@@ -401,8 +401,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to convert body to the specified type: "
-operator|+
+literal|"Unable to convert body to the specified type: {}"
+argument_list|,
 name|type
 operator|.
 name|getName

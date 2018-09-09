@@ -220,8 +220,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Validation warning: "
-operator|+
+literal|"Validation warning: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e
@@ -259,8 +259,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Validation error: "
-operator|+
+literal|"Validation error: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e
@@ -298,8 +298,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Validation fatalError: "
-operator|+
+literal|"Validation fatalError: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e

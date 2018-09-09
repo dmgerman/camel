@@ -179,11 +179,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting collaborations for folder(id="
-operator|+
+literal|"Getting collaborations for folder(id={})"
+argument_list|,
 name|folderId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -553,11 +551,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for collaboration(id="
-operator|+
+literal|"Getting info for collaboration(id={})"
+argument_list|,
 name|collaborationId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -646,11 +642,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating info for collaboration(id="
-operator|+
+literal|"Updating info for collaboration(id={})"
+argument_list|,
 name|collaborationId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -738,11 +732,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting collaboration(id="
-operator|+
+literal|"Deleting collaboration(id={})"
+argument_list|,
 name|collaborationId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if

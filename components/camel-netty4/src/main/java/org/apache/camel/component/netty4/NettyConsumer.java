@@ -341,8 +341,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Netty consumer bound to: "
-operator|+
+literal|"Netty consumer bound to: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getAddress
@@ -383,8 +383,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Netty consumer unbound from: "
-operator|+
+literal|"Netty consumer unbound from: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getAddress

@@ -216,8 +216,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"No message body to send to: "
-operator|+
+literal|"No message body to send to: {}"
+argument_list|,
 name|queue
 argument_list|)
 expr_stmt|;

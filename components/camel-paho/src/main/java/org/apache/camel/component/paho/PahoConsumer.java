@@ -308,8 +308,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"MQTT resubscribe failed "
-operator|+
+literal|"MQTT resubscribe failed {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -335,8 +335,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"MQTT broker connection lost due "
-operator|+
+literal|"MQTT broker connection lost due {}"
+argument_list|,
 name|cause
 operator|.
 name|getMessage

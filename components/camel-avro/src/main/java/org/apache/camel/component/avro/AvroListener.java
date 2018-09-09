@@ -572,11 +572,9 @@ name|Log
 operator|.
 name|warn
 argument_list|(
-literal|"Consumer with message name "
-operator|+
+literal|"Consumer with message name {} was already unregistered."
+argument_list|,
 name|messageName
-operator|+
-literal|" was already unregistered."
 argument_list|)
 expr_stmt|;
 block|}

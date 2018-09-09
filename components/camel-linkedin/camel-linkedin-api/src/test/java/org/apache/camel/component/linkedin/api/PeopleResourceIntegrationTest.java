@@ -338,8 +338,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"getPerson result: "
-operator|+
+literal|"getPerson result: {}"
+argument_list|,
 name|person
 argument_list|)
 expr_stmt|;
@@ -473,8 +473,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"getPosts result: "
-operator|+
+literal|"getPosts result: {}"
+argument_list|,
 name|posts
 argument_list|)
 expr_stmt|;
@@ -579,8 +579,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"getPerson error: "
-operator|+
+literal|"getPerson error: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -686,8 +686,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Suggested Jobs "
-operator|+
+literal|"Suggested Jobs {}"
+argument_list|,
 name|suggestedJobs
 operator|.
 name|getJobs

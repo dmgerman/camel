@@ -2722,8 +2722,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Created ClientConnectionManager "
-operator|+
+literal|"Created ClientConnectionManager {}"
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
@@ -3478,8 +3478,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Shutting down ClientConnectionManager: "
-operator|+
+literal|"Shutting down ClientConnectionManager: {}"
+argument_list|,
 name|clientConnectionManager
 argument_list|)
 expr_stmt|;

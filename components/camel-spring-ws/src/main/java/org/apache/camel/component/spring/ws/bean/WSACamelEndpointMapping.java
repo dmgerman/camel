@@ -410,8 +410,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found mapping for key"
-operator|+
+literal|"Found mapping for key {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
@@ -533,8 +533,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found mapping for key"
-operator|+
+literal|"Found mapping for key {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;

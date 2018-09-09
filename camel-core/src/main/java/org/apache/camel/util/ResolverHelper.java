@@ -659,8 +659,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Ignored error looking up bean: "
-operator|+
+literal|"Ignored error looking up bean: {}"
+argument_list|,
 name|name
 argument_list|,
 name|e

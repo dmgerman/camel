@@ -735,8 +735,8 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to create the MessageConsumerResource: "
-operator|+
+literal|"Unable to create the MessageConsumerResource: {}"
+argument_list|,
 name|e
 operator|.
 name|getLocalizedMessage

@@ -333,14 +333,12 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"There was an error, cannot open "
-operator|+
+literal|"There was an error, cannot open {} repository"
+argument_list|,
 name|endpoint
 operator|.
 name|getLocalPath
 argument_list|()
-operator|+
-literal|" repository"
 argument_list|)
 expr_stmt|;
 throw|throw

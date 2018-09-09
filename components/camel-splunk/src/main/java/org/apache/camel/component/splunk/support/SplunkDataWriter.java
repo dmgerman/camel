@@ -294,8 +294,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"writing event to splunk:"
-operator|+
+literal|"writing event to splunk:{}"
+argument_list|,
 name|event
 argument_list|)
 expr_stmt|;

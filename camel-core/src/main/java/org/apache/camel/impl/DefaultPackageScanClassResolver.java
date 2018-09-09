@@ -1370,8 +1370,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot read package: "
-operator|+
+literal|"Cannot read package: {}"
+argument_list|,
 name|packageName
 argument_list|,
 name|ioe
@@ -1789,8 +1789,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot read entries in url: "
-operator|+
+literal|"Cannot read entries in url: {}"
+argument_list|,
 name|url
 argument_list|,
 name|e

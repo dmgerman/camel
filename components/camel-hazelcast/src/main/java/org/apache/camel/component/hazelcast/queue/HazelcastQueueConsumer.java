@@ -543,8 +543,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Hazelcast Queue Consumer Interrupted: "
-operator|+
+literal|"Hazelcast Queue Consumer Interrupted: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e

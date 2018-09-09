@@ -2559,8 +2559,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom ShutdownStrategy: "
-operator|+
+literal|"Using custom ShutdownStrategy: {}"
+argument_list|,
 name|shutdownStrategy
 argument_list|)
 expr_stmt|;
@@ -3217,8 +3217,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using RouteController: "
-operator|+
+literal|"Using RouteController: {}"
+argument_list|,
 name|routeController
 argument_list|)
 expr_stmt|;

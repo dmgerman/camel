@@ -970,8 +970,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error occurred during starting CamelContext: "
-operator|+
+literal|"Error occurred during starting CamelContext: {}"
+argument_list|,
 name|this
 operator|.
 name|getName
@@ -1025,8 +1025,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error occurred during stopping CamelContext: "
-operator|+
+literal|"Error occurred during stopping CamelContext: {}"
+argument_list|,
 name|this
 operator|.
 name|getName

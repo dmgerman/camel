@@ -298,8 +298,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Subscribing to: "
-operator|+
+literal|"Subscribing to: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getNodeAddress
@@ -938,8 +938,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Subscribed: "
-operator|+
+literal|"Subscribed: {}"
+argument_list|,
 name|this
 operator|.
 name|configuration
@@ -1044,8 +1044,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"processEthBlock "
-operator|+
+literal|"processEthBlock {}"
+argument_list|,
 name|x
 argument_list|)
 expr_stmt|;
@@ -1089,8 +1089,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"processEthBlock "
-operator|+
+literal|"processEthBlock {}"
+argument_list|,
 name|x
 argument_list|)
 expr_stmt|;
@@ -1144,8 +1144,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"processEthBlock "
-operator|+
+literal|"processEthBlock {}"
+argument_list|,
 name|block
 argument_list|)
 expr_stmt|;
@@ -1189,8 +1189,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"processTransaction "
-operator|+
+literal|"processTransaction {}"
+argument_list|,
 name|x
 argument_list|)
 expr_stmt|;
@@ -1234,8 +1234,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"processLogObservable "
-operator|+
+literal|"processLogObservable {}"
+argument_list|,
 name|x
 argument_list|)
 expr_stmt|;
@@ -1279,8 +1279,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"processEvent "
-operator|+
+literal|"processEvent {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -1325,8 +1325,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"processDone for operation: "
-operator|+
+literal|"processDone for operation: {}"
+argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;

@@ -1832,8 +1832,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Disconnecting from ElasticSearch cluster: "
-operator|+
+literal|"Disconnecting from ElasticSearch cluster: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getClusterName

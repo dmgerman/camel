@@ -1407,8 +1407,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"OpenTracing: start client span="
-operator|+
+literal|"OpenTracing: start client span={}"
+argument_list|,
 name|span
 argument_list|)
 expr_stmt|;
@@ -1497,8 +1497,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"OpenTracing: start client span="
-operator|+
+literal|"OpenTracing: start client span={}"
+argument_list|,
 name|span
 argument_list|)
 expr_stmt|;
@@ -1542,8 +1542,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"OpenTracing: could not find managed span for exchange="
-operator|+
+literal|"OpenTracing: could not find managed span for exchange={}"
+argument_list|,
 name|ese
 operator|.
 name|getExchange
@@ -1761,8 +1761,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"OpenTracing: start server span="
-operator|+
+literal|"OpenTracing: start server span={}"
+argument_list|,
 name|span
 argument_list|)
 expr_stmt|;
@@ -1846,8 +1846,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"OpenTracing: finish server span="
-operator|+
+literal|"OpenTracing: finish server span={}"
+argument_list|,
 name|span
 argument_list|)
 expr_stmt|;
@@ -1896,8 +1896,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"OpenTracing: could not find managed span for exchange="
-operator|+
+literal|"OpenTracing: could not find managed span for exchange={}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

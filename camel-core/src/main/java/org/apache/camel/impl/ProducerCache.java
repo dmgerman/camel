@@ -1358,8 +1358,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring exchange sent after processor is stopped: "
-operator|+
+literal|"Ignoring exchange sent after processor is stopped: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -1471,8 +1471,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error stopping/shutting down producer: "
-operator|+
+literal|"Error stopping/shutting down producer: {}"
+argument_list|,
 name|producer
 argument_list|,
 name|e
@@ -1544,8 +1544,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring exchange sent after processor is stopped: "
-operator|+
+literal|"Ignoring exchange sent after processor is stopped: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -1785,8 +1785,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error stopping/shutting down producer: "
-operator|+
+literal|"Error stopping/shutting down producer: {}"
+argument_list|,
 name|producer
 argument_list|,
 name|e

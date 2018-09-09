@@ -665,8 +665,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"This consumer is stopped during polling an exchange, so putting it back on the seda queue: "
-operator|+
+literal|"This consumer is stopped during polling an exchange, so putting it back on the seda queue: {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

@@ -225,8 +225,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using CommitService found in registry "
-operator|+
+literal|"Using CommitService found in registry {}"
+argument_list|,
 name|service
 operator|.
 name|getClass

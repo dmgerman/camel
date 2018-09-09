@@ -659,8 +659,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting Additional ApplicationContext: "
-operator|+
+literal|"Starting Additional ApplicationContext: {}"
+argument_list|,
 name|additionalApplicationContext
 operator|.
 name|getId
@@ -678,8 +678,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Starting Spring ApplicationContext: "
-operator|+
+literal|"Starting Spring ApplicationContext: {}"
+argument_list|,
 name|applicationContext
 operator|.
 name|getId
@@ -756,8 +756,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping Additional ApplicationContext: "
-operator|+
+literal|"Stopping Additional ApplicationContext: {}"
+argument_list|,
 name|additionalApplicationContext
 operator|.
 name|getId
@@ -783,8 +783,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping Spring ApplicationContext: "
-operator|+
+literal|"Stopping Spring ApplicationContext: {}"
+argument_list|,
 name|applicationContext
 operator|.
 name|getId

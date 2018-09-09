@@ -128,11 +128,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Server: "
-operator|+
+literal|"Server: {} - onDisconnected"
+argument_list|,
 name|server
-operator|+
-literal|" - onDisconnected"
 argument_list|)
 expr_stmt|;
 block|}
@@ -620,11 +618,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Server: "
-operator|+
+literal|"Server: {} - onRegistered"
+argument_list|,
 name|server
-operator|+
-literal|" - onRegistered"
 argument_list|)
 expr_stmt|;
 block|}

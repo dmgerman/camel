@@ -3016,11 +3016,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Invalid acknowledgement type ["
-operator|+
+literal|"Invalid acknowledgement type [{}] found in message - should be AA, AE or AR"
+argument_list|,
 name|acknowledgementMessageType
-operator|+
-literal|"] found in message - should be AA, AE or AR"
 argument_list|)
 expr_stmt|;
 block|}

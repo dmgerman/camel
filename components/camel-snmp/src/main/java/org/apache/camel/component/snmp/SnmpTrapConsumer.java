@@ -579,8 +579,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Stopped trap consumer on "
-operator|+
+literal|"Stopped trap consumer on {}"
+argument_list|,
 name|this
 operator|.
 name|endpoint

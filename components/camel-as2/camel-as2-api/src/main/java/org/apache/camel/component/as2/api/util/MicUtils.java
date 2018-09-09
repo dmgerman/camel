@@ -498,11 +498,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"failed to get message digets '"
-operator|+
+literal|"failed to get message digets '{}'"
+argument_list|,
 name|algorithmId
-operator|+
-literal|"'"
 argument_list|)
 expr_stmt|;
 return|return
@@ -735,14 +733,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"can not create MIC: invalid content type '"
-operator|+
+literal|"can not create MIC: invalid content type '{}' for message integrity check"
+argument_list|,
 name|contentType
 operator|.
 name|getMimeType
 argument_list|()
-operator|+
-literal|"' for message integrity check"
 argument_list|)
 expr_stmt|;
 return|return

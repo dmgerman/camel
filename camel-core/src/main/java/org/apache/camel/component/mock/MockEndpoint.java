@@ -2055,8 +2055,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Caught expected failure: "
-operator|+
+literal|"Caught expected failure: {}"
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -2114,8 +2114,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Caught expected failure: "
-operator|+
+literal|"Caught expected failure: {}"
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;

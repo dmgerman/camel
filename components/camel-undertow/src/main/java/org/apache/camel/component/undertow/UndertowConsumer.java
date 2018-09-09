@@ -966,8 +966,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"No payload to send as reply for exchange: "
-operator|+
+literal|"No payload to send as reply for exchange: {}"
+argument_list|,
 name|camelExchange
 argument_list|)
 expr_stmt|;

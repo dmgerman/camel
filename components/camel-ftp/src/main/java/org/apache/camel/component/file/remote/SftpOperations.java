@@ -838,8 +838,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Connecting use connectTimeout: "
-operator|+
+literal|"Connecting use connectTimeout: {} ..."
+argument_list|,
 name|endpoint
 operator|.
 name|getConfiguration
@@ -847,8 +847,6 @@ argument_list|()
 operator|.
 name|getConnectTimeout
 argument_list|()
-operator|+
-literal|" ..."
 argument_list|)
 expr_stmt|;
 name|session
@@ -917,8 +915,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Connecting use connectTimeout: "
-operator|+
+literal|"Connecting use connectTimeout: {} ..."
+argument_list|,
 name|endpoint
 operator|.
 name|getConfiguration
@@ -926,8 +924,6 @@ argument_list|()
 operator|.
 name|getConnectTimeout
 argument_list|()
-operator|+
-literal|" ..."
 argument_list|)
 expr_stmt|;
 name|channel
@@ -963,8 +959,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Connected to "
-operator|+
+literal|"Connected to {}"
+argument_list|,
 name|configuration
 operator|.
 name|remoteServerInformation
@@ -2171,11 +2167,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Server asks for confirmation (yes|no): "
-operator|+
+literal|"Server asks for confirmation (yes|no): {}. Camel will answer no."
+argument_list|,
 name|s
-operator|+
-literal|". Camel will answer no."
 argument_list|)
 expr_stmt|;
 comment|// Return 'false' indicating modification of the hosts file is disabled.
@@ -2195,8 +2189,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Message received from Server: "
-operator|+
+literal|"Message received from Server: {}"
+argument_list|,
 name|s
 argument_list|)
 expr_stmt|;
@@ -2821,8 +2815,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot delete file: "
-operator|+
+literal|"Cannot delete file: {}"
+argument_list|,
 name|name
 argument_list|,
 name|e

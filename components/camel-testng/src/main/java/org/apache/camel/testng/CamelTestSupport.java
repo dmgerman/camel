@@ -1188,8 +1188,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using created route builder: "
-operator|+
+literal|"Using created route builder: {}"
+argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
@@ -1257,8 +1257,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using route builder from the created context: "
-operator|+
+literal|"Using route builder from the created context: {}"
+argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -1267,8 +1267,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Routing Rules are: "
-operator|+
+literal|"Routing Rules are: {}"
+argument_list|,
 name|context
 operator|.
 name|getRoutes

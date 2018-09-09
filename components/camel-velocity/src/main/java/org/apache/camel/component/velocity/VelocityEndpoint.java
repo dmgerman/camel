@@ -596,8 +596,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Loaded the velocity configuration file "
-operator|+
+literal|"Loaded the velocity configuration file {}"
+argument_list|,
 name|getPropertiesFile
 argument_list|()
 argument_list|)

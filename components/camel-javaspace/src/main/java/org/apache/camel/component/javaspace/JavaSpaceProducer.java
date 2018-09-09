@@ -506,8 +506,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Writing body : "
-operator|+
+literal|"Writing body : {}"
+argument_list|,
 name|entry
 argument_list|)
 expr_stmt|;

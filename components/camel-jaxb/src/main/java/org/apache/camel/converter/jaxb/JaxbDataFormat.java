@@ -2809,8 +2809,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating JAXBContext with contextPath: "
-operator|+
+literal|"Creating JAXBContext with contextPath: {}"
+argument_list|,
 name|contextPath
 argument_list|)
 expr_stmt|;

@@ -597,8 +597,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Using "
-operator|+
+literal|"Using {}"
+argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;

@@ -462,8 +462,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to parse LinkedIn error: "
-operator|+
+literal|"Unable to parse LinkedIn error: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

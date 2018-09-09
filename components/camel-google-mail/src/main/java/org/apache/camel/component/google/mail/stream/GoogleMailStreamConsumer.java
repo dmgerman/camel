@@ -975,8 +975,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Exchange failed, so rolling back mail {} to un "
-operator|+
+literal|"Exchange failed, so rolling back mail {} to un {}"
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;

@@ -383,8 +383,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Exception caught at Channel: "
-operator|+
+literal|"Exception caught at Channel: {}"
+argument_list|,
 name|ctx
 operator|.
 name|channel

@@ -281,11 +281,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting comments of file(id="
-operator|+
+literal|"Getting comments of file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -371,11 +369,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for comment(id="
-operator|+
+literal|"Getting info for comment(id={})"
+argument_list|,
 name|commentId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -685,11 +681,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting comment(id="
-operator|+
+literal|"Deleting comment(id={})"
+argument_list|,
 name|commentId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if

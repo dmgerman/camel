@@ -474,8 +474,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Joining ElasticSearch cluster "
-operator|+
+literal|"Joining ElasticSearch cluster {}"
+argument_list|,
 name|configuration
 operator|.
 name|getClusterName
@@ -835,8 +835,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Leaving ElasticSearch cluster "
-operator|+
+literal|"Leaving ElasticSearch cluster {}"
+argument_list|,
 name|configuration
 operator|.
 name|getClusterName

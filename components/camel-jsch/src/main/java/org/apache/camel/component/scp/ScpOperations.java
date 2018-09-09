@@ -1542,8 +1542,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Known host file not configured, using user known host file: "
-operator|+
+literal|"Known host file not configured, using user known host file: {}"
+argument_list|,
 name|userKnownHostFile
 argument_list|)
 expr_stmt|;
@@ -1834,8 +1834,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not create ssh session for "
-operator|+
+literal|"Could not create ssh session for {}"
+argument_list|,
 name|config
 operator|.
 name|remoteServerInformation

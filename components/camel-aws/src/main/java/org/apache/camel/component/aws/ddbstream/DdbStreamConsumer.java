@@ -388,8 +388,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Expired Shard Iterator, attempting to resume from "
-operator|+
+literal|"Expired Shard Iterator, attempting to resume from {}"
+argument_list|,
 name|lastSeenSequenceNumber
 argument_list|,
 name|e

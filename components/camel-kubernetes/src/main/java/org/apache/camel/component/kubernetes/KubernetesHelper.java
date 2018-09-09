@@ -215,8 +215,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Create Kubernetes client with the following Configuration: "
-operator|+
+literal|"Create Kubernetes client with the following Configuration: {}"
+argument_list|,
 name|configuration
 operator|.
 name|toString

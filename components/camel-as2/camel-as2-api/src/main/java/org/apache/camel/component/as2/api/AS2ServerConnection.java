@@ -556,8 +556,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Listening on port "
-operator|+
+literal|"Listening on port {}"
+argument_list|,
 name|this
 operator|.
 name|serversocket
@@ -611,8 +611,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Incoming connection from "
-operator|+
+literal|"Incoming connection from {}"
+argument_list|,
 name|insocket
 operator|.
 name|getInetAddress
@@ -684,8 +684,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"I/O error initialising connection thread: "
-operator|+
+literal|"I/O error initialising connection thread: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -965,8 +965,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"I/O error: "
-operator|+
+literal|"I/O error: {}"
+argument_list|,
 name|ex
 operator|.
 name|getMessage
@@ -985,8 +985,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Unrecoverable HTTP protocol violation: "
-operator|+
+literal|"Unrecoverable HTTP protocol violation: {}"
+argument_list|,
 name|ex
 operator|.
 name|getMessage

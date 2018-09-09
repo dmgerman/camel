@@ -1555,8 +1555,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Connecting to the ElasticSearch cluster: "
-operator|+
+literal|"Connecting to the ElasticSearch cluster: {}"
+argument_list|,
 name|configuration
 operator|.
 name|getClusterName

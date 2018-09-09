@@ -266,8 +266,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using RepositoryService found in registry "
-operator|+
+literal|"Using RepositoryService found in registry {}"
+argument_list|,
 name|service
 operator|.
 name|getClass

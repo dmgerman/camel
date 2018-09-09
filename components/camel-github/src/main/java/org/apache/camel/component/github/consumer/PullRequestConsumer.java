@@ -253,8 +253,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using PullRequestService found in registry "
-operator|+
+literal|"Using PullRequestService found in registry {}"
+argument_list|,
 name|service
 operator|.
 name|getClass

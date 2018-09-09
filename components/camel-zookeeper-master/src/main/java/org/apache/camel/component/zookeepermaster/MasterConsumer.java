@@ -912,8 +912,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Failed to start master consumer for: "
-operator|+
+literal|"Failed to start master consumer for: {}"
+argument_list|,
 name|endpoint
 argument_list|,
 name|e
@@ -962,8 +962,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to stop master consumer for: "
-operator|+
+literal|"Failed to stop master consumer for: {}"
+argument_list|,
 name|endpoint
 argument_list|,
 name|e

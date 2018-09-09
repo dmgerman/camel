@@ -288,11 +288,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting info for file(id="
-operator|+
+literal|"Getting info for file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -406,11 +404,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating info for file(id="
-operator|+
+literal|"Updating info for file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -751,11 +747,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Uploading new version of file(id="
-operator|+
+literal|"Uploading new version of file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -909,11 +903,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting versions of file(id="
-operator|+
+literal|"Getting versions of file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1009,11 +1001,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Downloading file(id="
-operator|+
+literal|"Downloading file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1965,11 +1955,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting file(id="
-operator|+
+literal|"Deleting file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2336,11 +2324,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting download URL for file(id="
-operator|+
+literal|"Getting download URL for file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2424,11 +2410,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Getting preview link for file(id="
-operator|+
+literal|"Getting preview link for file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2727,11 +2711,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating metadata for file(id="
-operator|+
+literal|"Creating metadata for file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2856,11 +2838,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Get metadata for file(id="
-operator|+
+literal|"Get metadata for file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2966,11 +2946,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Updating metadata for file(id="
-operator|+
+literal|"Updating metadata for file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if
@@ -3071,11 +3049,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Deleting metadata for file(id="
-operator|+
+literal|"Deleting metadata for file(id={})"
+argument_list|,
 name|fileId
-operator|+
-literal|")"
 argument_list|)
 expr_stmt|;
 if|if

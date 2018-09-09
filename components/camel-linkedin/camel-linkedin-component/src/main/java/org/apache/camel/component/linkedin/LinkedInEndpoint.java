@@ -971,8 +971,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error closing LinkedIn REST proxy: "
-operator|+
+literal|"Error closing LinkedIn REST proxy: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

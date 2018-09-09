@@ -297,8 +297,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"prePollCheck on "
-operator|+
+literal|"prePollCheck on {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -436,8 +436,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"postPollCheck on "
-operator|+
+literal|"postPollCheck on {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -1001,8 +1001,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception checking connection status: "
-operator|+
+literal|"Exception checking connection status: {}"
+argument_list|,
 name|ex
 operator|.
 name|getMessage
@@ -1064,8 +1064,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Connected and logged in to: "
-operator|+
+literal|"Connected and logged in to: {}"
+argument_list|,
 name|remoteServer
 argument_list|()
 argument_list|)

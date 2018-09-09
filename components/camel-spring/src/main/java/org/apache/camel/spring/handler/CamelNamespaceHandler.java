@@ -1387,8 +1387,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot find class so assuming not running in OSGi container: "
-operator|+
+literal|"Cannot find class so assuming not running in OSGi container: {}"
+argument_list|,
 name|t
 operator|.
 name|getMessage

@@ -687,8 +687,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error processing trace event (original Exchange will continue): "
-operator|+
+literal|"Error processing trace event (original Exchange will continue): {}"
+argument_list|,
 name|event
 argument_list|,
 name|e

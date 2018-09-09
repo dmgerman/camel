@@ -272,8 +272,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not determine version of package: "
-operator|+
+literal|"Could not determine version of package: {}"
+argument_list|,
 name|packageName
 argument_list|,
 name|e

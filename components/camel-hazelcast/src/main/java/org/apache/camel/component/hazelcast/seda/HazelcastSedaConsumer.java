@@ -661,8 +661,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Hzlq Exception caught: "
-operator|+
+literal|"Hzlq Exception caught: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e
@@ -748,8 +748,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Hzlq Consumer Interrupted: "
-operator|+
+literal|"Hzlq Consumer Interrupted: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e

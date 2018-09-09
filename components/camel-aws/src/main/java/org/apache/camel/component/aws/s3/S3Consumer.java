@@ -810,8 +810,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error getting S3Object due: "
-operator|+
+literal|"Error getting S3Object due: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -1186,8 +1186,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Exchange failed, so rolling back message status: "
-operator|+
+literal|"Exchange failed, so rolling back message status: {}"
+argument_list|,
 name|exchange
 argument_list|,
 name|cause

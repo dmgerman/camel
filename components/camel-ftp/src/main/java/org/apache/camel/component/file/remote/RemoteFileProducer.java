@@ -353,8 +353,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Exception occurred during stopping: "
-operator|+
+literal|"Exception occurred during stopping: {}"
+argument_list|,
 name|exception
 operator|.
 name|getMessage
@@ -368,8 +368,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Writing file failed with: "
-operator|+
+literal|"Writing file failed with: {}"
+argument_list|,
 name|exception
 operator|.
 name|getMessage
@@ -393,8 +393,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Ignored exception during disconnect: "
-operator|+
+literal|"Ignored exception during disconnect: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage
@@ -818,8 +818,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Interrupted during connect to: "
-operator|+
+literal|"Interrupted during connect to: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|,
@@ -1026,8 +1026,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Connected and logged in to: "
-operator|+
+literal|"Connected and logged in to: {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|)

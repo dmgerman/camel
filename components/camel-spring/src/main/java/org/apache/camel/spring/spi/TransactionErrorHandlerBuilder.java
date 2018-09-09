@@ -572,8 +572,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found TransactionTemplate in registry to use: "
-operator|+
+literal|"Found TransactionTemplate in registry to use: {}"
+argument_list|,
 name|transactionTemplate
 argument_list|)
 expr_stmt|;

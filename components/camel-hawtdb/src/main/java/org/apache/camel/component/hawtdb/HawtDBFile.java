@@ -439,8 +439,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Aggregation repository data store created using file: "
-operator|+
+literal|"Aggregation repository data store created using file: {}"
+argument_list|,
 name|getFile
 argument_list|()
 argument_list|)

@@ -473,8 +473,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Test: "
-operator|+
+literal|"Test: {}"
+argument_list|,
 name|testName
 operator|.
 name|getMethodName

@@ -1168,8 +1168,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring unsupported remote file type: "
-operator|+
+literal|"Ignoring unsupported remote file type: {}"
+argument_list|,
 name|file
 argument_list|)
 expr_stmt|;

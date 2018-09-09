@@ -711,8 +711,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error closing OAuth2 request filter: "
-operator|+
+literal|"Error closing OAuth2 request filter: {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

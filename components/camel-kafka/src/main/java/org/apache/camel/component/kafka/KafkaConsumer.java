@@ -1225,8 +1225,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error creating org.apache.kafka.clients.consumer.KafkaConsumer due "
-operator|+
+literal|"Error creating org.apache.kafka.clients.consumer.KafkaConsumer due {}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

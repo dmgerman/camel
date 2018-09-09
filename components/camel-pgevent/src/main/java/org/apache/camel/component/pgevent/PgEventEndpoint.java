@@ -607,8 +607,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"URI: "
-operator|+
+literal|"URI: {}"
+argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;

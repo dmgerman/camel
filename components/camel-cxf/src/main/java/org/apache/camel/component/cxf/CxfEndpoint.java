@@ -5815,8 +5815,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"shutdown the bus ... "
-operator|+
+literal|"shutdown the bus ... {}"
+argument_list|,
 name|bus
 argument_list|)
 expr_stmt|;

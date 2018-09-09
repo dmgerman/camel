@@ -2400,8 +2400,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Exception unregistering MBean with name "
-operator|+
+literal|"Exception unregistering MBean with name {}"
+argument_list|,
 name|name
 argument_list|,
 name|e
@@ -2673,8 +2673,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Cannot determine localhost name or address. Using default: "
-operator|+
+literal|"Cannot determine localhost name or address. Using default: {}"
+argument_list|,
 name|DEFAULT_REGISTRY_PORT
 argument_list|,
 name|uhe

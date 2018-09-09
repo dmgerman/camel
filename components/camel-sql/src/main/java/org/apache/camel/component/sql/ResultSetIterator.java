@@ -421,8 +421,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error by closing result set: "
-operator|+
+literal|"Error by closing result set: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e
@@ -454,8 +454,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error by closing statement: "
-operator|+
+literal|"Error by closing statement: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e
@@ -487,8 +487,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error by closing connection: "
-operator|+
+literal|"Error by closing connection: {}"
+argument_list|,
 name|e
 argument_list|,
 name|e

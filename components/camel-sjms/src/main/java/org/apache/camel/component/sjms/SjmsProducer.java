@@ -1392,8 +1392,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Exception: "
-operator|+
+literal|"Exception: {}"
+argument_list|,
 name|e
 operator|.
 name|getLocalizedMessage

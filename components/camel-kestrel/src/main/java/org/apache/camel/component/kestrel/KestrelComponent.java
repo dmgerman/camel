@@ -755,8 +755,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Creating MemcachedClient for "
-operator|+
+literal|"Creating MemcachedClient for {}"
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
@@ -855,8 +855,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to close client connection to "
-operator|+
+literal|"Failed to close client connection to {}"
+argument_list|,
 name|key
 argument_list|,
 name|e

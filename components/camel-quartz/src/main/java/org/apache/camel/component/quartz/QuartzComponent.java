@@ -1565,8 +1565,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"There are no more jobs registered, so shutting down Quartz scheduler: "
-operator|+
+literal|"There are no more jobs registered, so shutting down Quartz scheduler: {}"
+argument_list|,
 name|scheduler
 operator|.
 name|getSchedulerName
@@ -2238,8 +2238,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Forcing shutdown of Quartz scheduler: "
-operator|+
+literal|"Forcing shutdown of Quartz scheduler: {}"
+argument_list|,
 name|scheduler
 operator|.
 name|getSchedulerName
@@ -2418,8 +2418,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting Quartz scheduler: "
-operator|+
+literal|"Starting Quartz scheduler: {}"
+argument_list|,
 name|getScheduler
 argument_list|()
 operator|.

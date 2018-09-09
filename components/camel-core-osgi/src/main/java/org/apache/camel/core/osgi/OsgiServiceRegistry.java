@@ -501,8 +501,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Invalid OSGi service reference filter, skipped lookup by service.pid. Filter expression: "
-operator|+
+literal|"Invalid OSGi service reference filter, skipped lookup by service.pid. Filter expression: {}"
+argument_list|,
 name|filterExpression
 argument_list|,
 name|ex

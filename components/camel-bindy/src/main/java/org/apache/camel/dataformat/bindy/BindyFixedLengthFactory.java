@@ -1059,8 +1059,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"skipping ahead ["
-operator|+
+literal|"skipping ahead [{}] chars."
+argument_list|,
 operator|(
 name|dataField
 operator|.
@@ -1069,8 +1069,6 @@ argument_list|()
 operator|-
 name|offset
 operator|)
-operator|+
-literal|"] chars."
 argument_list|)
 expr_stmt|;
 name|offset

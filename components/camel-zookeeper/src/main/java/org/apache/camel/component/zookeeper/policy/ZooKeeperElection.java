@@ -802,8 +802,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error setting up election node "
-operator|+
+literal|"Error setting up election node {}"
+argument_list|,
 name|fullpath
 argument_list|,
 name|e

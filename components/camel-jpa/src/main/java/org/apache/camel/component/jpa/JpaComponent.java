@@ -588,14 +588,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not find a single EntityManagerFactory in registry as there was "
-operator|+
+literal|"Could not find a single EntityManagerFactory in registry as there was {} instances."
+argument_list|,
 name|map
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" instances."
 argument_list|)
 expr_stmt|;
 block|}
@@ -607,8 +605,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using EntityManagerFactory configured: "
-operator|+
+literal|"Using EntityManagerFactory configured: {}"
+argument_list|,
 name|entityManagerFactory
 argument_list|)
 expr_stmt|;
@@ -701,14 +699,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not find a single TransactionManager in registry as there was "
-operator|+
+literal|"Could not find a single TransactionManager in registry as there was {} instances."
+argument_list|,
 name|map
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" instances."
 argument_list|)
 expr_stmt|;
 block|}
@@ -720,8 +716,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using TransactionManager configured on this component: "
-operator|+
+literal|"Using TransactionManager configured on this component: {}"
+argument_list|,
 name|transactionManager
 argument_list|)
 expr_stmt|;
@@ -817,14 +813,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not find a single TransactionTemplate in registry as there was "
-operator|+
+literal|"Could not find a single TransactionTemplate in registry as there was {} instances."
+argument_list|,
 name|map
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" instances."
 argument_list|)
 expr_stmt|;
 block|}

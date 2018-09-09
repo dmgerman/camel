@@ -564,8 +564,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Caught exception stopping service: "
-operator|+
+literal|"Caught exception stopping service: {}"
+argument_list|,
 name|value
 argument_list|,
 name|e
@@ -786,8 +786,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Caught exception shutting down service: "
-operator|+
+literal|"Caught exception shutting down service: {}"
+argument_list|,
 name|value
 argument_list|,
 name|e
@@ -899,8 +899,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Caught exception resuming service: "
-operator|+
+literal|"Caught exception resuming service: {}"
+argument_list|,
 name|service
 argument_list|,
 name|e
@@ -1090,8 +1090,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Caught exception suspending service: "
-operator|+
+literal|"Caught exception suspending service: {}"
+argument_list|,
 name|service
 argument_list|,
 name|e

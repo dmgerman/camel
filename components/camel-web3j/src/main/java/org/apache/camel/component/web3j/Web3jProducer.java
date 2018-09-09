@@ -9360,8 +9360,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"setRequestId "
-operator|+
+literal|"setRequestId {}"
+argument_list|,
 name|id
 argument_list|)
 expr_stmt|;

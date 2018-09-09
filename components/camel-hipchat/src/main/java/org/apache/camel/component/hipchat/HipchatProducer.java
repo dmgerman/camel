@@ -521,8 +521,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Response status for send room message: "
-operator|+
+literal|"Response status for send room message: {}"
+argument_list|,
 name|statusLine
 argument_list|)
 expr_stmt|;
@@ -611,8 +611,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Response status for send user message: "
-operator|+
+literal|"Response status for send user message: {}"
+argument_list|,
 name|statusLine
 argument_list|)
 expr_stmt|;

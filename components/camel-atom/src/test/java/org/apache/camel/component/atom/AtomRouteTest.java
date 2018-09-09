@@ -283,8 +283,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"<<<< "
-operator|+
+literal|"<<<< {}"
+argument_list|,
 name|entry
 argument_list|)
 expr_stmt|;
