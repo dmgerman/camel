@@ -3400,16 +3400,11 @@ name|trace
 argument_list|(
 literal|"Compacted path: {} -> {} using separator: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|before
-block|,
+argument_list|,
 name|path
-block|,
+argument_list|,
 name|separatorChar
-block|}
 argument_list|)
 expr_stmt|;
 block|}

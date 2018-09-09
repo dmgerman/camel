@@ -1127,14 +1127,9 @@ name|trace
 argument_list|(
 literal|"Attempting to login user: {} using password: ******** and account: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|username
-block|,
+argument_list|,
 name|account
-block|}
 argument_list|)
 expr_stmt|;
 name|login

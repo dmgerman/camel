@@ -1020,18 +1020,13 @@ name|debug
 argument_list|(
 literal|"Velocity content read from resource {} with resourceUri: {} for endpoint {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|getResourceUri
 argument_list|()
-block|,
+argument_list|,
 name|path
-block|,
+argument_list|,
 name|getEndpointUri
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

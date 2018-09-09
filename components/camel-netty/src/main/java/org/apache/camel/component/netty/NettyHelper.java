@@ -338,16 +338,11 @@ name|debug
 argument_list|(
 literal|"Channel: {} remote address: {} writing body: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|channel
-block|,
+argument_list|,
 name|remoteAddress
-block|,
+argument_list|,
 name|body
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -379,14 +374,9 @@ name|debug
 argument_list|(
 literal|"Channel: {} writing body: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|channel
-block|,
+argument_list|,
 name|body
-block|}
 argument_list|)
 expr_stmt|;
 block|}

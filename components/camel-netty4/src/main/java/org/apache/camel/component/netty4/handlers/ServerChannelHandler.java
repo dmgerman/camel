@@ -489,17 +489,12 @@ name|debug
 argument_list|(
 literal|"Channel: {} received body: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|ctx
 operator|.
 name|channel
 argument_list|()
-block|,
+argument_list|,
 name|in
-block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -279,16 +279,11 @@ name|info
 argument_list|(
 literal|"Sent {} expecting reply 'Hello {}' got --> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|num
-block|,
+argument_list|,
 name|num
-block|,
+argument_list|,
 name|reply
-block|}
 argument_list|)
 expr_stmt|;
 name|assertNotNull

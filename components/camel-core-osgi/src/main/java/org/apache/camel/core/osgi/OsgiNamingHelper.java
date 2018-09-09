@@ -334,10 +334,6 @@ name|debug
 argument_list|(
 literal|"Generated free name for bundle id: {}, clash: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|context
 operator|.
 name|getBundle
@@ -345,11 +341,10 @@ argument_list|()
 operator|.
 name|getBundleId
 argument_list|()
-block|,
+argument_list|,
 name|clash
-block|,
+argument_list|,
 name|candidate
-block|}
 argument_list|)
 expr_stmt|;
 return|return

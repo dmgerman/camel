@@ -1088,16 +1088,11 @@ name|debug
 argument_list|(
 literal|"Transaction begin ({}) redelivered({}) for {})"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1154,16 +1149,11 @@ name|info
 argument_list|(
 literal|"Transaction commit ({}) redelivered({}) for {})"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|}
 argument_list|)
 expr_stmt|;
 comment|// return after we have logged
@@ -1177,16 +1167,11 @@ name|debug
 argument_list|(
 literal|"Transaction commit ({}) redelivered({}) for {})"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1246,16 +1231,11 @@ name|error
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} due exchange was marked for rollbackOnly"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1267,21 +1247,16 @@ name|error
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} caught: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|,
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1312,16 +1287,11 @@ name|warn
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} due exchange was marked for rollbackOnly"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1333,21 +1303,16 @@ name|warn
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} caught: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|,
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1378,16 +1343,11 @@ name|info
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} due exchange was marked for rollbackOnly"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1399,21 +1359,16 @@ name|info
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} caught: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|,
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1444,16 +1399,11 @@ name|debug
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} due exchange was marked for rollbackOnly"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1465,21 +1415,16 @@ name|debug
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} caught: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|,
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1510,16 +1455,11 @@ name|trace
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} due exchange was marked for rollbackOnly"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1531,21 +1471,16 @@ name|trace
 argument_list|(
 literal|"Transaction rollback ({}) redelivered({}) for {} caught: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|transactionKey
-block|,
+argument_list|,
 name|redelivered
-block|,
+argument_list|,
 name|ids
-block|,
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

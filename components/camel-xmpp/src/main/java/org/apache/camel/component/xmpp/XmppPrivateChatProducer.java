@@ -489,22 +489,17 @@ name|debug
 argument_list|(
 literal|"Sending XMPP message to {} from {} : {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|participant
-block|,
+argument_list|,
 name|endpoint
 operator|.
 name|getUser
 argument_list|()
-block|,
+argument_list|,
 name|message
 operator|.
 name|getBody
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

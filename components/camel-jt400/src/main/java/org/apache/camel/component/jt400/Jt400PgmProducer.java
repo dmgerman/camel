@@ -441,19 +441,14 @@ name|trace
 argument_list|(
 literal|"Executed PGM '{}' in host '{}'. Success? {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|commandStr
-block|,
+argument_list|,
 name|iSeries
 operator|.
 name|getSystemName
 argument_list|()
-block|,
+argument_list|,
 name|result
-block|}
 argument_list|)
 expr_stmt|;
 block|}

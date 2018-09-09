@@ -979,25 +979,20 @@ name|trace
 argument_list|(
 literal|"FtpFile[name={}, dir={}, file={}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|file
 operator|.
 name|getName
 argument_list|()
-block|,
+argument_list|,
 name|file
 operator|.
 name|isDirectory
 argument_list|()
-block|,
+argument_list|,
 name|file
 operator|.
 name|isFile
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

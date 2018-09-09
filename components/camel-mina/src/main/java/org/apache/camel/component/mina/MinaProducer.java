@@ -1149,16 +1149,11 @@ name|debug
 argument_list|(
 literal|"Creating connector to address: {} using connector: {} timeout: {} millis."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|address
-block|,
+argument_list|,
 name|connector
-block|,
+argument_list|,
 name|timeout
-block|}
 argument_list|)
 expr_stmt|;
 block|}

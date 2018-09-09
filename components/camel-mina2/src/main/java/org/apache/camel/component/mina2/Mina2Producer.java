@@ -2535,14 +2535,9 @@ name|debug
 argument_list|(
 literal|"{}: Using CodecFactory: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|type
-block|,
+argument_list|,
 name|codecFactory
-block|}
 argument_list|)
 expr_stmt|;
 block|}

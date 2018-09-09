@@ -4399,19 +4399,14 @@ name|debug
 argument_list|(
 literal|"Registered default: {} with id: {} on camel context: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|definition
 operator|.
 name|getBeanClassName
 argument_list|()
-block|,
+argument_list|,
 name|id
-block|,
+argument_list|,
 name|contextId
-block|}
 argument_list|)
 expr_stmt|;
 block|}

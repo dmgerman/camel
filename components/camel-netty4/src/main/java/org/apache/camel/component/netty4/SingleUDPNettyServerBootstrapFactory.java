@@ -1123,25 +1123,20 @@ name|info
 argument_list|(
 literal|"ConnectionlessBootstrap joining {}:{} using network interface: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|configuration
 operator|.
 name|getHost
 argument_list|()
-block|,
+argument_list|,
 name|configuration
 operator|.
 name|getPort
 argument_list|()
-block|,
+argument_list|,
 name|multicastNetworkInterface
 operator|.
 name|getName
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 name|datagramChannel

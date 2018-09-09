@@ -4782,16 +4782,11 @@ name|debug
 argument_list|(
 literal|"Created HttpClient with thread pool {}-{} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|minThreads
-block|,
+argument_list|,
 name|maxThreads
-block|,
+argument_list|,
 name|httpClient
-block|}
 argument_list|)
 expr_stmt|;
 block|}

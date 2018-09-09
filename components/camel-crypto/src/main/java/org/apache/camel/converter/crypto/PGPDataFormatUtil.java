@@ -1489,22 +1489,17 @@ name|debug
 argument_list|(
 literal|"User ID {} found in primary key with key ID {} containing one of the parts {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|foundKeyUserIdForUserIdPart
 index|[
 literal|0
 index|]
-block|,
+argument_list|,
 name|primaryKey
 operator|.
 name|getKeyID
 argument_list|()
-block|,
+argument_list|,
 name|useridParts
-block|}
 argument_list|)
 expr_stmt|;
 comment|// add adequate keys to the result
@@ -2815,22 +2810,17 @@ name|debug
 argument_list|(
 literal|"User ID {} found in primary key with key ID {} containing one of the parts {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|foundKeyUserIdForUserIdPart
 index|[
 literal|0
 index|]
-block|,
+argument_list|,
 name|primaryKey
 operator|.
 name|getKeyID
 argument_list|()
-block|,
+argument_list|,
 name|useridParts
-block|}
 argument_list|)
 expr_stmt|;
 comment|// add all signing keys

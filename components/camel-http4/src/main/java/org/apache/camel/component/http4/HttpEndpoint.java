@@ -1245,16 +1245,11 @@ name|debug
 argument_list|(
 literal|"CamelContext properties http.proxyHost, http.proxyPort, and http.proxyScheme detected. Using http proxy host: {} port: {} scheme: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|host
-block|,
+argument_list|,
 name|port
-block|,
+argument_list|,
 name|scheme
-block|}
 argument_list|)
 expr_stmt|;
 name|HttpHost

@@ -214,16 +214,11 @@ name|debug
 argument_list|(
 literal|"Spark-rest: {}({}) accepting: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|verb
-block|,
+argument_list|,
 name|path
-block|,
+argument_list|,
 name|accept
-block|}
 argument_list|)
 expr_stmt|;
 block|}

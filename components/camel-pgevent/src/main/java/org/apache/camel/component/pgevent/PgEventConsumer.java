@@ -299,16 +299,11 @@ name|debug
 argument_list|(
 literal|"Notification processId: {}, channel: {}, payload: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|processId
-block|,
+argument_list|,
 name|channel
-block|,
+argument_list|,
 name|payload
-block|}
 argument_list|)
 expr_stmt|;
 block|}

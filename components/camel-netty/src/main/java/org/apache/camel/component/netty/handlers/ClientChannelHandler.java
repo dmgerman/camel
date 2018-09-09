@@ -1104,17 +1104,12 @@ name|debug
 argument_list|(
 literal|"Channel: {} received body: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|messageEvent
 operator|.
 name|getChannel
 argument_list|()
-block|,
+argument_list|,
 name|body
-block|}
 argument_list|)
 expr_stmt|;
 block|}

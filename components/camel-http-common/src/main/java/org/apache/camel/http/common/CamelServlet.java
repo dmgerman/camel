@@ -429,14 +429,9 @@ name|trace
 argument_list|(
 literal|"servlet '{}' initialized with: async={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|servletName
-block|,
+argument_list|,
 name|async
-block|}
 argument_list|)
 expr_stmt|;
 block|}

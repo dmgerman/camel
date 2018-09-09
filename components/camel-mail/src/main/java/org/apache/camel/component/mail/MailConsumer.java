@@ -1871,21 +1871,16 @@ name|trace
 argument_list|(
 literal|"Mail #{} is of type: {} - {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|i
-block|,
+argument_list|,
 name|ObjectHelper
 operator|.
 name|classCanonicalName
 argument_list|(
 name|message
 argument_list|)
-block|,
+argument_list|,
 name|message
-block|}
 argument_list|)
 expr_stmt|;
 block|}

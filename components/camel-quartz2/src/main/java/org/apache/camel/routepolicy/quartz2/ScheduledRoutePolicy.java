@@ -781,22 +781,17 @@ name|info
 argument_list|(
 literal|"Scheduled trigger: {} for action: {} on route {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|trigger
 operator|.
 name|getKey
 argument_list|()
-block|,
+argument_list|,
 name|action
-block|,
+argument_list|,
 name|route
 operator|.
 name|getId
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

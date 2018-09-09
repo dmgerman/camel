@@ -827,19 +827,14 @@ name|info
 argument_list|(
 literal|"Connected to server address: {} using connector: {} timeout: {} millis."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|address
-block|,
+argument_list|,
 name|connector
-block|,
+argument_list|,
 name|configuration
 operator|.
 name|getTimeout
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2146,14 +2141,9 @@ name|debug
 argument_list|(
 literal|"{}: Using CodecFactory: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|type
-block|,
+argument_list|,
 name|codecFactory
-block|}
 argument_list|)
 expr_stmt|;
 block|}

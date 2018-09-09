@@ -379,19 +379,14 @@ name|trace
 argument_list|(
 literal|"Created exchange [exchange={}, _id={}, seq={}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|exchange
-block|,
+argument_list|,
 name|feed
 operator|.
 name|getId
 argument_list|()
-block|,
+argument_list|,
 name|seq
-block|}
 argument_list|)
 expr_stmt|;
 block|}

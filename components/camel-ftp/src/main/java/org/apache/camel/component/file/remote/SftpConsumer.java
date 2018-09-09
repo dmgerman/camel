@@ -865,25 +865,20 @@ name|trace
 argument_list|(
 literal|"SftpFile[fileName={}, longName={}, dir={}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|file
 operator|.
 name|getFilename
 argument_list|()
-block|,
+argument_list|,
 name|file
 operator|.
 name|getLongname
 argument_list|()
-block|,
+argument_list|,
 name|file
 operator|.
 name|isDirectory
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

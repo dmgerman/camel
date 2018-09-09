@@ -1095,16 +1095,11 @@ name|debug
 argument_list|(
 literal|"Match contextId: {} with pattern: {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|name
-block|,
+argument_list|,
 name|apiContextIdPattern
-block|,
+argument_list|,
 name|match
-block|}
 argument_list|)
 expr_stmt|;
 block|}

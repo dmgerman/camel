@@ -3950,16 +3950,11 @@ name|info
 argument_list|(
 literal|"Starting static resources server {}:{} with static resource: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|host
-block|,
+argument_list|,
 name|port
-block|,
+argument_list|,
 name|staticResources
-block|}
 argument_list|)
 expr_stmt|;
 name|ServletContextHandler
@@ -4177,16 +4172,11 @@ name|info
 argument_list|(
 literal|"Stopping static resources server {}:{} with static resource: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|host
-block|,
+argument_list|,
 name|port
-block|,
+argument_list|,
 name|staticResources
-block|}
 argument_list|)
 expr_stmt|;
 name|staticResourcesServer

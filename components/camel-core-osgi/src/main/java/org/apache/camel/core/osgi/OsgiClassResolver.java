@@ -342,19 +342,14 @@ name|trace
 argument_list|(
 literal|"Loading class {} using BundleContext {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|name
-block|,
+argument_list|,
 name|bundleContext
 operator|.
 name|getBundle
 argument_list|()
-block|,
+argument_list|,
 name|clazz
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -399,16 +394,11 @@ name|trace
 argument_list|(
 literal|"Loading class {} using CamelContext {} -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|name
-block|,
+argument_list|,
 name|camelContext
-block|,
+argument_list|,
 name|clazz
-block|}
 argument_list|)
 expr_stmt|;
 block|}

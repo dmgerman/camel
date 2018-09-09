@@ -895,16 +895,11 @@ name|debug
 argument_list|(
 literal|"Writing as text: {} to {} using encoding: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|body
-block|,
+argument_list|,
 name|outputStream
-block|,
+argument_list|,
 name|charset
-block|}
 argument_list|)
 expr_stmt|;
 block|}

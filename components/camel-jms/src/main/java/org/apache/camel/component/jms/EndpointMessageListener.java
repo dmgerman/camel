@@ -1660,16 +1660,11 @@ name|debug
 argument_list|(
 literal|"{} sending reply JMS message [correlationId:{}]: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|endpoint
-block|,
+argument_list|,
 name|correlationID
-block|,
+argument_list|,
 name|reply
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1800,16 +1795,11 @@ name|debug
 argument_list|(
 literal|"{} sending reply JMS message [correlationId:{}]: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|endpoint
-block|,
+argument_list|,
 name|correlationID
-block|,
+argument_list|,
 name|reply
-block|}
 argument_list|)
 expr_stmt|;
 block|}
