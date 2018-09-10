@@ -248,6 +248,20 @@ name|consumeFromNow
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|considerLastUpdate
+specifier|private
+name|boolean
+name|considerLastUpdate
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getClientId ()
 specifier|public
 name|String
@@ -549,6 +563,33 @@ operator|.
 name|consumeFromNow
 operator|=
 name|consumeFromNow
+expr_stmt|;
+block|}
+DECL|method|isConsiderLastUpdate ()
+specifier|public
+name|boolean
+name|isConsiderLastUpdate
+parameter_list|()
+block|{
+return|return
+name|considerLastUpdate
+return|;
+block|}
+comment|/**      * Take into account the lastUpdate of the last event polled as start date for the next poll      */
+DECL|method|setConsiderLastUpdate (boolean considerLastUpdate)
+specifier|public
+name|void
+name|setConsiderLastUpdate
+parameter_list|(
+name|boolean
+name|considerLastUpdate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|considerLastUpdate
+operator|=
+name|considerLastUpdate
 expr_stmt|;
 block|}
 comment|// *************************************************
