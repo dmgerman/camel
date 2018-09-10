@@ -291,13 +291,21 @@ name|maxResults
 init|=
 literal|10
 decl_stmt|;
-comment|/**          * Calendar Summary name to use          */
+comment|/**          * Calendar Summary Name to use          */
 DECL|field|calendarSummaryName
 specifier|private
 name|String
 name|calendarSummaryName
 init|=
 literal|"primary"
+decl_stmt|;
+comment|/**          * Consume events in the selected calendar from now on          */
+DECL|field|consumeFromNow
+specifier|private
+name|Boolean
+name|consumeFromNow
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getClientId ()
 specifier|public
@@ -557,6 +565,32 @@ operator|.
 name|calendarSummaryName
 operator|=
 name|calendarSummaryName
+expr_stmt|;
+block|}
+DECL|method|getConsumeFromNow ()
+specifier|public
+name|Boolean
+name|getConsumeFromNow
+parameter_list|()
+block|{
+return|return
+name|consumeFromNow
+return|;
+block|}
+DECL|method|setConsumeFromNow (Boolean consumeFromNow)
+specifier|public
+name|void
+name|setConsumeFromNow
+parameter_list|(
+name|Boolean
+name|consumeFromNow
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumeFromNow
+operator|=
+name|consumeFromNow
 expr_stmt|;
 block|}
 block|}

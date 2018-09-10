@@ -234,6 +234,20 @@ name|calendarSummaryName
 init|=
 literal|"primary"
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|consumeFromNow
+specifier|private
+name|boolean
+name|consumeFromNow
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getClientId ()
 specifier|public
 name|String
@@ -493,7 +507,7 @@ return|return
 name|calendarSummaryName
 return|;
 block|}
-comment|/**      * Calendar Summary name to use      */
+comment|/**      * Calendar Summary Name to use      */
 DECL|method|setCalendarSummaryName (String calendarSummaryName)
 specifier|public
 name|void
@@ -508,6 +522,33 @@ operator|.
 name|calendarSummaryName
 operator|=
 name|calendarSummaryName
+expr_stmt|;
+block|}
+DECL|method|isConsumeFromNow ()
+specifier|public
+name|boolean
+name|isConsumeFromNow
+parameter_list|()
+block|{
+return|return
+name|consumeFromNow
+return|;
+block|}
+comment|/**      * Consume events in the selected calendar from now on      */
+DECL|method|setConsumeFromNow (boolean consumeFromNow)
+specifier|public
+name|void
+name|setConsumeFromNow
+parameter_list|(
+name|boolean
+name|consumeFromNow
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumeFromNow
+operator|=
+name|consumeFromNow
 expr_stmt|;
 block|}
 comment|// *************************************************
