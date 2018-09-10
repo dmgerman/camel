@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.csv
+DECL|package|org.apache.camel.dataformat.bindy
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|dataformat
 operator|.
 name|bindy
-operator|.
-name|csv
 package|;
 end_package
 
@@ -26,6 +24,7 @@ end_comment
 
 begin_class
 DECL|class|WrappedException
+specifier|public
 class|class
 name|WrappedException
 extends|extends
@@ -39,6 +38,7 @@ name|exception
 decl_stmt|;
 comment|/**      * Mandatory constructor.      * @param wrappedException the checked exception being passed in      */
 DECL|method|WrappedException (Exception wrappedException)
+specifier|public
 name|WrappedException
 parameter_list|(
 name|Exception
@@ -53,6 +53,7 @@ name|wrappedException
 expr_stmt|;
 block|}
 DECL|method|getWrappedException ()
+specifier|public
 name|Exception
 name|getWrappedException
 parameter_list|()
