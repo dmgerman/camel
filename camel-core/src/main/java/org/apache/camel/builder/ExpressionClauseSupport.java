@@ -94,22 +94,6 @@ name|model
 operator|.
 name|language
 operator|.
-name|ELExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
 name|ExchangePropertyExpression
 import|;
 end_import
@@ -159,22 +143,6 @@ operator|.
 name|language
 operator|.
 name|HeaderExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|JXPathExpression
 import|;
 end_import
 
@@ -286,55 +254,7 @@ name|model
 operator|.
 name|language
 operator|.
-name|PhpExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|PythonExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
 name|RefExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|RubyExpression
 import|;
 end_import
 
@@ -367,22 +287,6 @@ operator|.
 name|language
 operator|.
 name|SpELExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|SqlExpression
 import|;
 end_import
 
@@ -1066,29 +970,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates the<a href="http://camel.apache.org/el.html">EL      * Language from JSP and JSF</a> using the<a      * href="http://camel.apache.org/juel.html">JUEL library</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-annotation|@
-name|Deprecated
-DECL|method|el (String text)
-specifier|public
-name|T
-name|el
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|expression
-argument_list|(
-operator|new
-name|ELExpression
-argument_list|(
-name|text
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates a<a href="http://camel.apache.org/groovy.html">Groovy      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|groovy (String text)
 specifier|public
@@ -1634,65 +1515,6 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-annotation|@
-name|Deprecated
-DECL|method|jxpath (String text)
-specifier|public
-name|T
-name|jxpath
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|jxpath
-argument_list|(
-name|text
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *      * @param text the expression to be evaluated      * @param lenient to configure whether lenient is in use or not      * @return the builder to continue processing the DSL      */
-annotation|@
-name|Deprecated
-DECL|method|jxpath (String text, boolean lenient)
-specifier|public
-name|T
-name|jxpath
-parameter_list|(
-name|String
-name|text
-parameter_list|,
-name|boolean
-name|lenient
-parameter_list|)
-block|{
-name|JXPathExpression
-name|answer
-init|=
-operator|new
-name|JXPathExpression
-argument_list|(
-name|text
-argument_list|)
-decl_stmt|;
-name|answer
-operator|.
-name|setLenient
-argument_list|(
-name|lenient
-argument_list|)
-expr_stmt|;
-return|return
-name|expression
-argument_list|(
-name|answer
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/ognl.html">OGNL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ognl (String text)
 specifier|public
@@ -1735,52 +1557,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/php.html">PHP      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-annotation|@
-name|Deprecated
-DECL|method|php (String text)
-specifier|public
-name|T
-name|php
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|expression
-argument_list|(
-operator|new
-name|PhpExpression
-argument_list|(
-name|text
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/python.html">Python      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-annotation|@
-name|Deprecated
-DECL|method|python (String text)
-specifier|public
-name|T
-name|python
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|expression
-argument_list|(
-operator|new
-name|PythonExpression
-argument_list|(
-name|text
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates a {@link Expression} by looking up existing {@link Expression}      * from the {@link org.apache.camel.spi.Registry}      *      * @param ref refers to the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ref (String ref)
 specifier|public
@@ -1802,29 +1578,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/ruby.html">Ruby      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-annotation|@
-name|Deprecated
-DECL|method|ruby (String text)
-specifier|public
-name|T
-name|ruby
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|expression
-argument_list|(
-operator|new
-name|RubyExpression
-argument_list|(
-name|text
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/spel.html">SpEL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|spel (String text)
 specifier|public
@@ -1840,29 +1593,6 @@ name|expression
 argument_list|(
 operator|new
 name|SpELExpression
-argument_list|(
-name|text
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates an<a href="http://camel.apache.org/sql.html">SQL      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-annotation|@
-name|Deprecated
-DECL|method|sql (String text)
-specifier|public
-name|T
-name|sql
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|expression
-argument_list|(
-operator|new
-name|SqlExpression
 argument_list|(
 name|text
 argument_list|)

@@ -371,7 +371,7 @@ operator|.
 name|when
 argument_list|()
 operator|.
-name|el
+name|simple
 argument_list|(
 literal|"${in.headers."
 operator|+
@@ -394,7 +394,7 @@ operator|.
 name|when
 argument_list|()
 operator|.
-name|el
+name|simple
 argument_list|(
 literal|"${in.headers."
 operator|+

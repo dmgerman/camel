@@ -1421,25 +1421,6 @@ name|method
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates the<a href="http://camel.apache.org/el.html">EL      * Language from JSP and JSF</a> using the<a      * href="http://camel.apache.org/juel.html">JUEL library</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|el (String text)
-specifier|public
-name|T
-name|el
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|el
-argument_list|(
-name|text
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates a<a href="http://camel.apache.org/groovy.html">Groovy      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|groovy (String text)
 specifier|public
@@ -1693,49 +1674,6 @@ name|headerName
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|jxpath (String text)
-specifier|public
-name|T
-name|jxpath
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|jxpath
-argument_list|(
-name|text
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *      * @param text the expression to be evaluated      * @param lenient to configure whether lenient is in use or not      * @return the builder to continue processing the DSL      */
-DECL|method|jxpath (String text, boolean lenient)
-specifier|public
-name|T
-name|jxpath
-parameter_list|(
-name|String
-name|text
-parameter_list|,
-name|boolean
-name|lenient
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|jxpath
-argument_list|(
-name|text
-argument_list|,
-name|lenient
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/ognl.html">OGNL      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ognl (String text)
 specifier|public
@@ -1774,44 +1712,6 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/php.html">PHP      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|php (String text)
-specifier|public
-name|T
-name|php
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|php
-argument_list|(
-name|text
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/python.html">Python      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|python (String text)
-specifier|public
-name|T
-name|python
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|python
-argument_list|(
-name|text
-argument_list|)
-return|;
-block|}
 comment|/**      * Evaluates a<a href="http://camel.apache.org/ref-language.html">Ref      * expression</a>      *       * @param ref refers to the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|ref (String ref)
 specifier|public
@@ -1828,44 +1728,6 @@ operator|.
 name|ref
 argument_list|(
 name|ref
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/ruby.html">Ruby      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|ruby (String text)
-specifier|public
-name|T
-name|ruby
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|ruby
-argument_list|(
-name|text
-argument_list|)
-return|;
-block|}
-comment|/**      * Evaluates an<a href="http://camel.apache.org/sql.html">SQL      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|sql (String text)
-specifier|public
-name|T
-name|sql
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|sql
-argument_list|(
-name|text
 argument_list|)
 return|;
 block|}

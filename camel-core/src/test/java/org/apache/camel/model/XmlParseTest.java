@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -147,16 +157,6 @@ operator|.
 name|loadbalancer
 operator|.
 name|TopicLoadBalancerDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -359,10 +359,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testParseProcessorWithElFilterXml ()
+DECL|method|testParseProcessorWithSimpleFilterXml ()
 specifier|public
 name|void
-name|testParseProcessorWithElFilterXml
+name|testParseProcessorWithSimpleFilterXml
 parameter_list|()
 throws|throws
 name|Exception
@@ -372,7 +372,7 @@ name|route
 init|=
 name|assertOneRoute
 argument_list|(
-literal|"processorWithElFilter.xml"
+literal|"processorWithSimpleFilter.xml"
 argument_list|)
 decl_stmt|;
 name|assertFrom
@@ -401,9 +401,9 @@ operator|.
 name|getExpression
 argument_list|()
 argument_list|,
-literal|"el"
+literal|"simple"
 argument_list|,
-literal|"$in.header.foo == 'bar'"
+literal|"${in.header.foo} == 'bar'"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2063,32 +2063,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testParseXMLBeansDataFormat ()
-specifier|public
-name|void
-name|testParseXMLBeansDataFormat
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|RouteDefinition
-name|route
-init|=
-name|assertOneRoute
-argument_list|(
-literal|"routeWithXMLBeansDataFormat.xml"
-argument_list|)
-decl_stmt|;
-name|assertFrom
-argument_list|(
-name|route
-argument_list|,
-literal|"seda:a"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testParseXMLSecurityDataFormat ()
 specifier|public
 name|void
@@ -2311,32 +2285,6 @@ init|=
 name|assertOneRoute
 argument_list|(
 literal|"routeWithBindyDataFormat.xml"
-argument_list|)
-decl_stmt|;
-name|assertFrom
-argument_list|(
-name|route
-argument_list|,
-literal|"seda:a"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testParseCastorDataFormat ()
-specifier|public
-name|void
-name|testParseCastorDataFormat
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|RouteDefinition
-name|route
-init|=
-name|assertOneRoute
-argument_list|(
-literal|"routeWithCastorDataFormat.xml"
 argument_list|)
 decl_stmt|;
 name|assertFrom
