@@ -259,8 +259,6 @@ DECL|field|considerLastUpdate
 specifier|private
 name|boolean
 name|considerLastUpdate
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getClientId ()
 specifier|public
