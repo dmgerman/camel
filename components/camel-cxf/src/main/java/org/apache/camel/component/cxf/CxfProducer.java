@@ -2509,9 +2509,6 @@ argument_list|(
 literal|"Operation qname = {}"
 argument_list|,
 name|qname
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|answer

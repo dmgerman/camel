@@ -4150,9 +4150,6 @@ literal|"Creating new XPath expression in pool. Namespaces on XPath expression: 
 argument_list|,
 name|getNamespaceContext
 argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4174,9 +4171,6 @@ argument_list|(
 literal|"Creating new XPath expression in pool. Namespaces on XPath expression: {}"
 argument_list|,
 name|getNamespaceContext
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

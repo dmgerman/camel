@@ -399,9 +399,6 @@ name|getPort
 argument_list|()
 argument_list|,
 name|hdfsPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -432,9 +429,6 @@ name|getPort
 argument_list|()
 argument_list|,
 name|hdfsPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -477,9 +471,6 @@ name|getPort
 argument_list|()
 argument_list|,
 name|hdfsPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -510,9 +501,6 @@ name|getPort
 argument_list|()
 argument_list|,
 name|hdfsPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -765,9 +753,6 @@ name|status
 operator|.
 name|getPath
 argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|config
 operator|.
@@ -840,9 +825,6 @@ argument_list|,
 name|status
 operator|.
 name|getPath
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

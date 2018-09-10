@@ -1170,9 +1170,6 @@ argument_list|(
 literal|"Initialising MongoDb endpoint: {}"
 argument_list|,
 name|this
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

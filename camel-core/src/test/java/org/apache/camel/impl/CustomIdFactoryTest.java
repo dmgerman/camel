@@ -556,9 +556,6 @@ argument_list|(
 literal|"Debugging at: {} with id: {} with exchange: {}"
 argument_list|,
 name|definition
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|definition
 operator|.

@@ -350,9 +350,6 @@ argument_list|(
 literal|"Merchandise notification: {}"
 argument_list|,
 name|merchandise
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNotNull

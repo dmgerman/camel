@@ -897,9 +897,6 @@ name|getSymbolicName
 argument_list|()
 argument_list|,
 name|event
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1127,9 +1124,6 @@ argument_list|(
 literal|"Service: {} changed to: {}"
 argument_list|,
 name|event
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|eventTypeString
 argument_list|)

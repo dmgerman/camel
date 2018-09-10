@@ -380,9 +380,6 @@ argument_list|(
 literal|"Downloaded: {}"
 argument_list|,
 name|result
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

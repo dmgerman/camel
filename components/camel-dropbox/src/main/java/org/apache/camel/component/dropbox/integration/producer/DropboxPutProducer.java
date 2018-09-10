@@ -514,9 +514,6 @@ argument_list|(
 literal|"Uploaded: {}"
 argument_list|,
 name|result
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

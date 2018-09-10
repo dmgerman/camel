@@ -243,9 +243,6 @@ argument_list|(
 literal|"Validating SMSMessage instance provided: {}"
 argument_list|,
 name|smsMessage
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -351,9 +348,6 @@ argument_list|(
 literal|"SMSMessage instance is valid: {}"
 argument_list|,
 name|smsMessage
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// We have a valid (immutable) SMSMessage instance, lets extend to
@@ -468,9 +462,6 @@ argument_list|(
 literal|"Request accepted by CM Host: {}"
 argument_list|,
 name|cmMessage
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

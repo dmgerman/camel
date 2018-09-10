@@ -893,9 +893,6 @@ argument_list|(
 literal|"Manufacturer: {}"
 argument_list|,
 name|properties
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -659,9 +659,6 @@ name|getPort
 argument_list|()
 argument_list|,
 name|actualPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -692,9 +689,6 @@ name|getPort
 argument_list|()
 argument_list|,
 name|actualPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -736,9 +730,6 @@ name|getPort
 argument_list|()
 argument_list|,
 name|actualPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -769,9 +760,6 @@ name|getPort
 argument_list|()
 argument_list|,
 name|actualPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

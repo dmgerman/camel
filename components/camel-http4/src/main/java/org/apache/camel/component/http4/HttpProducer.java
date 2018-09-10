@@ -1457,9 +1457,6 @@ name|httpRequest
 operator|.
 name|getURI
 argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

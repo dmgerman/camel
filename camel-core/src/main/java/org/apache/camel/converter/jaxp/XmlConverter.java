@@ -4989,9 +4989,6 @@ argument_list|(
 literal|"DocumentBuilderFactory has been set with features {{}}."
 argument_list|,
 name|featureString
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

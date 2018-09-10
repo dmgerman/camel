@@ -1964,9 +1964,6 @@ argument_list|(
 literal|"Founded property {}"
 argument_list|,
 name|founded
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -2010,9 +2007,6 @@ argument_list|(
 literal|"Founded property {}"
 argument_list|,
 name|founded
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final

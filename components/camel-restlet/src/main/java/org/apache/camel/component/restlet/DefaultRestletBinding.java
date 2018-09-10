@@ -4011,9 +4011,6 @@ argument_list|(
 literal|"Setting the Content-Type to be {}"
 argument_list|,
 name|mediaType
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|exchange

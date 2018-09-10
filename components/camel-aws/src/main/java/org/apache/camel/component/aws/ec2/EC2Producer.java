@@ -1585,9 +1585,6 @@ argument_list|,
 name|ami
 argument_list|,
 name|instanceType
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|Message

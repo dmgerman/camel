@@ -2823,9 +2823,6 @@ argument_list|(
 literal|"Unable to bind to {} - retrying in {} milliseconds"
 argument_list|,
 name|listenAddress
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|bindRetryDelay
 argument_list|)
@@ -3982,9 +3979,6 @@ argument_list|(
 literal|"Received START_OF_BLOCK before END_OF_DATA.  Discarding data: {}"
 argument_list|,
 name|parsedMessage
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -4002,9 +3996,6 @@ argument_list|(
 literal|"Received END_OF_STREAM without END_OF_DATA.  Discarding data: {}"
 argument_list|,
 name|parsedMessage
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

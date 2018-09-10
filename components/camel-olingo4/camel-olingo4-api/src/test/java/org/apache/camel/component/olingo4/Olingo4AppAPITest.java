@@ -2107,9 +2107,6 @@ name|name
 operator|.
 name|asPrimitive
 argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -2164,9 +2161,6 @@ argument_list|(
 literal|"Airport name property value {}"
 argument_list|,
 name|nameValue
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|TestOlingo4ResponseHandler

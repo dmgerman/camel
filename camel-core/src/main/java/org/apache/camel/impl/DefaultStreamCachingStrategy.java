@@ -1496,9 +1496,6 @@ argument_list|(
 literal|"StreamCaching configuration {}"
 argument_list|,
 name|this
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1520,9 +1517,6 @@ name|getPath
 argument_list|()
 argument_list|,
 name|spoolRules
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1535,9 +1529,6 @@ argument_list|(
 literal|"StreamCaching in use with rules: {}"
 argument_list|,
 name|spoolRules
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1603,9 +1594,6 @@ argument_list|(
 literal|"Stopping StreamCachingStrategy with statistics: {}"
 argument_list|,
 name|statistics
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
