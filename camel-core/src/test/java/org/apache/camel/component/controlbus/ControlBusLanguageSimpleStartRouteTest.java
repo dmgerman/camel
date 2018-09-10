@@ -118,7 +118,7 @@ name|sendBody
 argument_list|(
 literal|"controlbus:language:simple"
 argument_list|,
-literal|"camelContext.startRoute('foo')"
+literal|"${camelContext.startRoute('foo')}"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -131,7 +131,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"controlbus:language:simple"
 argument_list|,
-literal|"camelContext.stopRoute(header.me)"
+literal|"${camelContext.stopRoute(${header.me})}"
 argument_list|,
 literal|"me"
 argument_list|,
@@ -188,7 +188,7 @@ name|requestBody
 argument_list|(
 literal|"controlbus:language:simple"
 argument_list|,
-literal|"camelContext.getRouteStatus('foo')"
+literal|"${camelContext.getRouteStatus('foo')}"
 argument_list|,
 name|String
 operator|.
@@ -217,7 +217,7 @@ name|requestBody
 argument_list|(
 literal|"controlbus:language:simple"
 argument_list|,
-literal|"camelContext.getRouteStatus('foo')"
+literal|"${camelContext.getRouteStatus('foo')}"
 argument_list|,
 name|String
 operator|.

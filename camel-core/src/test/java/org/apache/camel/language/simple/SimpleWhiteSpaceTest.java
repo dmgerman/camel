@@ -80,7 +80,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.body} contains 'some' and ${in.body} contains 'text'"
+literal|"${in.body} contains 'some'&& ${in.body} contains 'text'"
 argument_list|,
 literal|true
 argument_list|)
@@ -106,7 +106,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.body} contains 'some' and\t${in.body} contains 'text'"
+literal|"${in.body} contains 'some'&&\t${in.body} contains 'text'"
 argument_list|,
 literal|true
 argument_list|)
@@ -132,7 +132,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.body} contains 'some' and\n${in.body} contains 'text'"
+literal|"${in.body} contains 'some'&&\n${in.body} contains 'text'"
 argument_list|,
 literal|true
 argument_list|)
@@ -158,7 +158,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.body} contains 'some' and\r\n${in.body} contains 'text'"
+literal|"${in.body} contains 'some'&&\r\n${in.body} contains 'text'"
 argument_list|,
 literal|true
 argument_list|)
@@ -184,7 +184,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"${in.body} contains 'some' and\r${in.body} contains 'text'"
+literal|"${in.body} contains 'some'&&\r${in.body} contains 'text'"
 argument_list|,
 literal|true
 argument_list|)

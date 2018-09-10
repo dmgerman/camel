@@ -95,34 +95,9 @@ argument_list|,
 literal|"<hello id='m123'>world!</hello>"
 argument_list|)
 expr_stmt|;
-name|assertExpression
-argument_list|(
-name|exchange
-argument_list|,
-literal|"$simple{body}"
-argument_list|,
-literal|"<hello id='m123'>world!</hello>"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-name|exchange
-argument_list|,
-literal|"body"
-argument_list|,
-literal|"<hello id='m123'>world!</hello>"
-argument_list|)
-expr_stmt|;
 name|assertPredicate
 argument_list|(
 literal|"${body}"
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-name|assertPredicate
-argument_list|(
-literal|"body"
 argument_list|,
 literal|true
 argument_list|)
@@ -159,15 +134,6 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-name|assertExpression
-argument_list|(
-name|exchange
-argument_list|,
-literal|"header.foo"
-argument_list|,
-literal|123
-argument_list|)
-expr_stmt|;
 name|assertPredicate
 argument_list|(
 literal|"${header.foo}"
@@ -177,21 +143,7 @@ argument_list|)
 expr_stmt|;
 name|assertPredicate
 argument_list|(
-literal|"header.foo"
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-name|assertPredicate
-argument_list|(
 literal|"${header.unknown}"
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-name|assertPredicate
-argument_list|(
-literal|"header.unknown"
 argument_list|,
 literal|false
 argument_list|)
@@ -247,9 +199,11 @@ init|=
 operator|new
 name|SimplePredicateParser
 argument_list|(
-literal|"${header.high} == true and ${header.foo} == 123"
+literal|"${header.high} == true&& ${header.foo} == 123"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -323,9 +277,11 @@ init|=
 operator|new
 name|SimplePredicateParser
 argument_list|(
-literal|"${header.high} == false or ${header.foo} == 123"
+literal|"${header.high} == false || ${header.foo} == 123"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate

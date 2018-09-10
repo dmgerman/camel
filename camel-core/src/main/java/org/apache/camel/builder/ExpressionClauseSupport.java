@@ -563,7 +563,7 @@ argument_list|(
 operator|new
 name|SimpleExpression
 argument_list|(
-literal|"body"
+literal|"${body}"
 argument_list|)
 argument_list|)
 return|;

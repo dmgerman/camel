@@ -523,26 +523,6 @@ argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
-comment|// support old simple language syntax
-name|answer
-operator|=
-name|SimpleBackwardsCompatibleParser
-operator|.
-name|parsePredicate
-argument_list|(
-name|expression
-argument_list|,
-name|allowEscape
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
-comment|// use the new parser
 name|SimplePredicateParser
 name|parser
 init|=
@@ -563,7 +543,6 @@ operator|.
 name|parsePredicate
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|cachePredicate
@@ -643,26 +622,6 @@ argument_list|(
 name|expression
 argument_list|)
 expr_stmt|;
-comment|// support old simple language syntax
-name|answer
-operator|=
-name|SimpleBackwardsCompatibleParser
-operator|.
-name|parseExpression
-argument_list|(
-name|expression
-argument_list|,
-name|allowEscape
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
-comment|// use the new parser
 name|SimpleExpressionParser
 name|parser
 init|=
@@ -683,7 +642,6 @@ operator|.
 name|parseExpression
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|cacheExpression

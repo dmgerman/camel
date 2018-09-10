@@ -223,7 +223,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"body"
+literal|"${body}"
 argument_list|,
 name|node
 operator|.

@@ -441,7 +441,7 @@ name|setBody
 argument_list|(
 name|simple
 argument_list|(
-literal|"header.text.replace('a','b')"
+literal|"${header.text.replace('a','b')}"
 argument_list|)
 argument_list|)
 operator|.
