@@ -66,7 +66,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -80,7 +80,7 @@ specifier|public
 class|class
 name|GuavaEventBusComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|eventBus
 specifier|private
@@ -99,15 +99,7 @@ DECL|method|GuavaEventBusComponent ()
 specifier|public
 name|GuavaEventBusComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|GuavaEventBusEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

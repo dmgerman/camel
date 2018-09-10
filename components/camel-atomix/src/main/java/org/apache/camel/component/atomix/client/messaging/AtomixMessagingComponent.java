@@ -99,11 +99,7 @@ DECL|method|AtomixMessagingComponent ()
 specifier|public
 name|AtomixMessagingComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AtomixMessagingComponent (CamelContext camelContext)
 specifier|public
 name|AtomixMessagingComponent

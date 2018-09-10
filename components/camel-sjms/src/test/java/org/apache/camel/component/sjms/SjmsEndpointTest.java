@@ -671,11 +671,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"sjms:queue:test2?messageExchangePattern="
-operator|+
-name|ExchangePattern
-operator|.
-name|OutOnly
+literal|"sjms:queue:test2?messageExchangePattern=OutOnly"
 argument_list|)
 expr_stmt|;
 block|}

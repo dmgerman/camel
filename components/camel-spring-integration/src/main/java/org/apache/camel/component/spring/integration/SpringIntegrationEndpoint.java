@@ -313,31 +313,6 @@ operator|=
 name|channel
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|SpringIntegrationEndpoint (String endpointUri, MessageChannel messageChannel)
-specifier|public
-name|SpringIntegrationEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|MessageChannel
-name|messageChannel
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|messageChannel
-operator|=
-name|messageChannel
-expr_stmt|;
-block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer

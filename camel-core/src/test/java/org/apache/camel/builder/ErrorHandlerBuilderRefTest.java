@@ -179,7 +179,7 @@ argument_list|()
 decl_stmt|;
 name|context
 operator|.
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 name|errorHandlerBuilderRef
 argument_list|)
@@ -226,6 +226,9 @@ literal|2
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

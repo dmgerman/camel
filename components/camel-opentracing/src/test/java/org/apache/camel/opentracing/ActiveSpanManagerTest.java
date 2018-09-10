@@ -316,9 +316,7 @@ init|=
 name|exchange
 operator|.
 name|copy
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Exchange
 name|path2
@@ -326,9 +324,7 @@ init|=
 name|exchange
 operator|.
 name|copy
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// Check the parent span is available in the new exchanges
 name|assertEquals

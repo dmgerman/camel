@@ -957,6 +957,8 @@ operator|.
 name|toDOMSource
 argument_list|(
 name|source
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertSame
@@ -1074,6 +1076,8 @@ operator|.
 name|toDOMSource
 argument_list|(
 name|source
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotSame
@@ -1136,6 +1140,8 @@ operator|.
 name|toDOMSource
 argument_list|(
 name|source
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotSame
@@ -1211,6 +1217,8 @@ operator|.
 name|toDOMSource
 argument_list|(
 name|dummy
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -2431,6 +2439,8 @@ operator|.
 name|toDOMSource
 argument_list|(
 name|is
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2507,6 +2517,8 @@ operator|.
 name|toDOMSource
 argument_list|(
 name|file
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2773,6 +2785,8 @@ operator|.
 name|toDOMDocument
 argument_list|(
 name|bytes
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2842,6 +2856,8 @@ operator|.
 name|toDOMDocument
 argument_list|(
 name|is
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -3045,6 +3061,8 @@ operator|.
 name|toDOMDocument
 argument_list|(
 name|file
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull

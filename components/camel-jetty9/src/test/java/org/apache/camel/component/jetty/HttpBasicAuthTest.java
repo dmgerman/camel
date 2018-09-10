@@ -405,10 +405,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testHttpBaiscAuth ()
+DECL|method|testHttpBasicAuth ()
 specifier|public
 name|void
-name|testHttpBaiscAuth
+name|testHttpBasicAuth
 parameter_list|()
 throws|throws
 name|Exception

@@ -397,6 +397,9 @@ name|assertThat
 argument_list|(
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"single_route"
@@ -414,6 +417,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

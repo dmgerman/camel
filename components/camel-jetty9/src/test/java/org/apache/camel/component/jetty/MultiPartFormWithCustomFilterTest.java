@@ -668,7 +668,7 @@ comment|// The option works rightly from Camel 2.4.0
 name|getContext
 argument_list|()
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

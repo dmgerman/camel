@@ -857,6 +857,9 @@ argument_list|)
 expr_stmt|;
 name|secondCamelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startAllRoutes
 argument_list|()
 expr_stmt|;

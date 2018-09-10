@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|DozerComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -130,15 +130,7 @@ DECL|method|DozerComponent ()
 specifier|public
 name|DozerComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|DozerEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|DozerComponent (CamelContext context)
 specifier|public
 name|DozerComponent
@@ -150,10 +142,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|DozerEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

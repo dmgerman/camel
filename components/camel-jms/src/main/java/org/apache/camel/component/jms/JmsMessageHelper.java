@@ -1641,6 +1641,13 @@ name|isNull
 init|=
 literal|true
 decl_stmt|;
+if|if
+condition|(
+name|bytes
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|byte
@@ -1660,6 +1667,7 @@ name|isNull
 operator|=
 literal|false
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

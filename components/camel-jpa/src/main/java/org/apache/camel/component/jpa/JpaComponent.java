@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -160,7 +160,7 @@ specifier|public
 class|class
 name|JpaComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -216,15 +216,7 @@ DECL|method|JpaComponent ()
 specifier|public
 name|JpaComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|JpaEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getEntityManagerFactory ()

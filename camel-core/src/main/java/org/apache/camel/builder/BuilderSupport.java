@@ -90,18 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LoggingLevel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|NoSuchEndpointException
 import|;
 end_import
@@ -198,26 +186,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *  * @version  */
 end_comment
@@ -301,35 +269,6 @@ name|exp
 argument_list|)
 return|;
 block|}
-comment|/**      *      * Returns a value builder for the given exchange property      * @deprecated use {@link #exchangeProperty(String)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|property (String name)
-specifier|public
-name|ValueBuilder
-name|property
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|Expression
-name|exp
-init|=
-operator|new
-name|ExchangePropertyExpression
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|ValueBuilder
-argument_list|(
-name|exp
-argument_list|)
-return|;
-block|}
 comment|/**      * Returns a value builder for the given exchange property      */
 DECL|method|exchangeProperty (String name)
 specifier|public
@@ -371,31 +310,6 @@ name|body
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      *      * @deprecated use {@link #bodyAs(Class)}      */
-annotation|@
-name|Deprecated
-DECL|method|body (Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|ValueBuilder
-name|body
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-block|{
-return|return
-name|bodyAs
-argument_list|(
-name|type
-argument_list|)
-return|;
-block|}
 comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      */
 DECL|method|bodyAs (Class<T> type)
 specifier|public
@@ -416,90 +330,6 @@ return|return
 name|Builder
 operator|.
 name|bodyAs
-argument_list|(
-name|type
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      *      * @deprecated use {@link #body()}      */
-annotation|@
-name|Deprecated
-DECL|method|outBody ()
-specifier|public
-name|ValueBuilder
-name|outBody
-parameter_list|()
-block|{
-return|return
-name|Builder
-operator|.
-name|outBody
-argument_list|()
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      *      * @deprecated use {@link #bodyAs(Class)}      */
-annotation|@
-name|Deprecated
-DECL|method|outBody (Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|ValueBuilder
-name|outBody
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-block|{
-return|return
-name|Builder
-operator|.
-name|outBodyAs
-argument_list|(
-name|type
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the fault body on an      * exchange      */
-DECL|method|faultBody ()
-specifier|public
-name|ValueBuilder
-name|faultBody
-parameter_list|()
-block|{
-return|return
-name|Builder
-operator|.
-name|faultBody
-argument_list|()
-return|;
-block|}
-comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      *      * @deprecated use {@link #bodyAs(Class)}      */
-annotation|@
-name|Deprecated
-DECL|method|faultBodyAs (Class<T> type)
-specifier|public
-parameter_list|<
-name|T
-parameter_list|>
-name|ValueBuilder
-name|faultBodyAs
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-block|{
-return|return
-name|Builder
-operator|.
-name|faultBodyAs
 argument_list|(
 name|type
 argument_list|)
@@ -837,106 +667,6 @@ name|resultType
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      * @deprecated use {@link #method(Object)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|bean (Object beanOrBeanRef)
-specifier|public
-name|ValueBuilder
-name|bean
-parameter_list|(
-name|Object
-name|beanOrBeanRef
-parameter_list|)
-block|{
-return|return
-name|bean
-argument_list|(
-name|beanOrBeanRef
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      * @deprecated use {@link #method(Object, String)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|bean (Object beanOrBeanRef, String method)
-specifier|public
-name|ValueBuilder
-name|bean
-parameter_list|(
-name|Object
-name|beanOrBeanRef
-parameter_list|,
-name|String
-name|method
-parameter_list|)
-block|{
-return|return
-name|Builder
-operator|.
-name|bean
-argument_list|(
-name|beanOrBeanRef
-argument_list|,
-name|method
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder      * @deprecated use {@link #method(Class)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|bean (Class<?> beanType)
-specifier|public
-name|ValueBuilder
-name|bean
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|beanType
-parameter_list|)
-block|{
-return|return
-name|Builder
-operator|.
-name|bean
-argument_list|(
-name|beanType
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param method   name of method to invoke      * @return the builder      * @deprecated use {@link #method(Class, String)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|bean (Class<?> beanType, String method)
-specifier|public
-name|ValueBuilder
-name|bean
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|beanType
-parameter_list|,
-name|String
-name|method
-parameter_list|)
-block|{
-return|return
-name|Builder
-operator|.
-name|bean
-argument_list|(
-name|beanType
-argument_list|,
-name|method
-argument_list|)
-return|;
-block|}
 comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      */
 DECL|method|method (Object beanOrBeanRef)
 specifier|public
@@ -1026,27 +756,6 @@ argument_list|(
 name|beanType
 argument_list|,
 name|method
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns an expression processing the exchange to the given endpoint uri      *      * @param uri endpoint uri to send the exchange to      * @return the builder      * @deprecated not in use, and not available in XML DSL      */
-annotation|@
-name|Deprecated
-DECL|method|sendTo (String uri)
-specifier|public
-name|ValueBuilder
-name|sendTo
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-return|return
-name|Builder
-operator|.
-name|sendTo
-argument_list|(
-name|uri
 argument_list|)
 return|;
 block|}

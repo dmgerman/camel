@@ -574,6 +574,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 name|route
@@ -602,6 +605,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|resumeRoute
 argument_list|(
 name|route
@@ -628,6 +634,9 @@ name|getRouteContext
 argument_list|()
 operator|.
 name|getCamelContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|suspendRoute
@@ -664,6 +673,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|suspendRoute
 argument_list|(
 name|route
@@ -695,6 +707,9 @@ name|getRouteContext
 argument_list|()
 operator|.
 name|getCamelContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|stopRoute
@@ -730,6 +745,9 @@ name|getRouteContext
 argument_list|()
 operator|.
 name|getCamelContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|stopRoute
@@ -789,6 +807,9 @@ name|getRouteContext
 argument_list|()
 operator|.
 name|getCamelContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|stopRoute

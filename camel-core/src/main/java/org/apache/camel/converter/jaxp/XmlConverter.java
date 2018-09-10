@@ -674,18 +674,6 @@ specifier|public
 class|class
 name|XmlConverter
 block|{
-annotation|@
-name|Deprecated
-comment|//It will be removed in Camel 3.0, please use the Exchange.DEFAULT_CHARSET
-DECL|field|DEFAULT_CHARSET_PROPERTY
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_CHARSET_PROPERTY
-init|=
-literal|"org.apache.camel.default.charset"
-decl_stmt|;
 DECL|field|OUTPUT_PROPERTIES_PREFIX
 specifier|public
 specifier|static
@@ -1039,49 +1027,6 @@ name|data
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Document to a Source      * @deprecated use toDOMSource instead      */
-annotation|@
-name|Deprecated
-DECL|method|toSource (Document document)
-specifier|public
-name|DOMSource
-name|toSource
-parameter_list|(
-name|Document
-name|document
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DOMSource
-argument_list|(
-name|document
-argument_list|)
-return|;
-block|}
-comment|/**      * Converts the given Node to a Source      * @deprecated  use toDOMSource instead      */
-annotation|@
-name|Deprecated
-DECL|method|toSource (Node node)
-specifier|public
-name|Source
-name|toSource
-parameter_list|(
-name|Node
-name|node
-parameter_list|)
-throws|throws
-name|ParserConfigurationException
-throws|,
-name|TransformerException
-block|{
-return|return
-name|toDOMSource
-argument_list|(
-name|node
-argument_list|)
-return|;
-block|}
 comment|/**      * Converts the given Node to a Source      */
 annotation|@
 name|Converter
@@ -1151,29 +1096,6 @@ operator|new
 name|StringSource
 argument_list|(
 name|data
-argument_list|)
-return|;
-block|}
-comment|/**      * Converts the given input Source into text.      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toString (Source source)
-specifier|public
-name|String
-name|toString
-parameter_list|(
-name|Source
-name|source
-parameter_list|)
-throws|throws
-name|TransformerException
-block|{
-return|return
-name|toString
-argument_list|(
-name|source
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -1452,29 +1374,6 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Converts the given input Node into text      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toString (Node node)
-specifier|public
-name|String
-name|toString
-parameter_list|(
-name|Node
-name|node
-parameter_list|)
-throws|throws
-name|TransformerException
-block|{
-return|return
-name|toString
-argument_list|(
-name|node
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 comment|/**      * Converts the given input Node into text      */
 annotation|@
 name|Converter
@@ -1565,35 +1464,6 @@ name|buffer
 operator|.
 name|toString
 argument_list|()
-return|;
-block|}
-comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMSource (Source source)
-specifier|public
-name|DOMSource
-name|toDOMSource
-parameter_list|(
-name|Source
-name|source
-parameter_list|)
-throws|throws
-name|ParserConfigurationException
-throws|,
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|TransformerException
-block|{
-return|return
-name|toDOMSource
-argument_list|(
-name|source
-argument_list|,
-literal|null
-argument_list|)
 return|;
 block|}
 comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
@@ -1731,6 +1601,8 @@ operator|(
 name|StreamSource
 operator|)
 name|source
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1768,6 +1640,8 @@ return|return
 name|toDOMSource
 argument_list|(
 name|is
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1781,33 +1655,6 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toSAXSource (String source)
-specifier|public
-name|SAXSource
-name|toSAXSource
-parameter_list|(
-name|String
-name|source
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|TransformerException
-block|{
-return|return
-name|toSAXSource
-argument_list|(
-name|source
-argument_list|,
-literal|null
-argument_list|)
-return|;
 block|}
 comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
 annotation|@
@@ -1924,33 +1771,6 @@ operator|new
 name|StAXSource
 argument_list|(
 name|r
-argument_list|)
-return|;
-block|}
-comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toSAXSource (InputStream source)
-specifier|public
-name|SAXSource
-name|toSAXSource
-parameter_list|(
-name|InputStream
-name|source
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|TransformerException
-block|{
-return|return
-name|toSAXSource
-argument_list|(
-name|source
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -2161,33 +1981,6 @@ name|r
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toSAXSource (Source source)
-specifier|public
-name|SAXSource
-name|toSAXSource
-parameter_list|(
-name|Source
-name|source
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|TransformerException
-block|{
-return|return
-name|toSAXSource
-argument_list|(
-name|source
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
 annotation|@
 name|Converter
@@ -2289,29 +2082,6 @@ return|return
 literal|null
 return|;
 block|}
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toStreamSource (Source source)
-specifier|public
-name|StreamSource
-name|toStreamSource
-parameter_list|(
-name|Source
-name|source
-parameter_list|)
-throws|throws
-name|TransformerException
-block|{
-return|return
-name|toStreamSource
-argument_list|(
-name|source
-argument_list|,
-literal|null
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Converter
@@ -2566,29 +2336,6 @@ name|is
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toStreamSourceFromSAX (SAXSource source)
-specifier|public
-name|StreamSource
-name|toStreamSourceFromSAX
-parameter_list|(
-name|SAXSource
-name|source
-parameter_list|)
-throws|throws
-name|TransformerException
-block|{
-return|return
-name|toStreamSourceFromSAX
-argument_list|(
-name|source
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toStreamSourceFromSAX (SAXSource source, Exchange exchange)
@@ -2681,29 +2428,6 @@ name|result
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toStreamSourceFromDOM (DOMSource source)
-specifier|public
-name|StreamSource
-name|toStreamSourceFromDOM
-parameter_list|(
-name|DOMSource
-name|source
-parameter_list|)
-throws|throws
-name|TransformerException
-block|{
-return|return
-name|toStreamSourceFromDOM
-argument_list|(
-name|source
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toStreamSourceFromDOM (DOMSource source, Exchange exchange)
@@ -2769,29 +2493,6 @@ operator|new
 name|StringSource
 argument_list|(
 name|result
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toSAXSourceFromStream (StreamSource source)
-specifier|public
-name|SAXSource
-name|toSAXSourceFromStream
-parameter_list|(
-name|StreamSource
-name|source
-parameter_list|)
-throws|throws
-name|SAXException
-block|{
-return|return
-name|toSAXSourceFromStream
-argument_list|(
-name|source
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -2996,29 +2697,6 @@ name|inputSource
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toReaderFromSource (Source src)
-specifier|public
-name|Reader
-name|toReaderFromSource
-parameter_list|(
-name|Source
-name|src
-parameter_list|)
-throws|throws
-name|TransformerException
-block|{
-return|return
-name|toReaderFromSource
-argument_list|(
-name|src
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toReaderFromSource (Source src, Exchange exchange)
@@ -3074,33 +2752,6 @@ expr_stmt|;
 block|}
 return|return
 name|r
-return|;
-block|}
-comment|/**     * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.     */
-annotation|@
-name|Deprecated
-DECL|method|toDOMSource (InputStream is)
-specifier|public
-name|DOMSource
-name|toDOMSource
-parameter_list|(
-name|InputStream
-name|is
-parameter_list|)
-throws|throws
-name|ParserConfigurationException
-throws|,
-name|IOException
-throws|,
-name|SAXException
-block|{
-return|return
-name|toDOMSource
-argument_list|(
-name|is
-argument_list|,
-literal|null
-argument_list|)
 return|;
 block|}
 annotation|@
@@ -3171,33 +2822,6 @@ name|systemId
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMSource (File file)
-specifier|public
-name|DOMSource
-name|toDOMSource
-parameter_list|(
-name|File
-name|file
-parameter_list|)
-throws|throws
-name|ParserConfigurationException
-throws|,
-name|IOException
-throws|,
-name|SAXException
-block|{
-return|return
-name|toDOMSource
-argument_list|(
-name|file
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toDOMSource (File file, Exchange exchange)
@@ -3238,33 +2862,6 @@ argument_list|(
 name|is
 argument_list|,
 name|exchange
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMSourceFromStream (StreamSource source)
-specifier|public
-name|DOMSource
-name|toDOMSourceFromStream
-parameter_list|(
-name|StreamSource
-name|source
-parameter_list|)
-throws|throws
-name|ParserConfigurationException
-throws|,
-name|IOException
-throws|,
-name|SAXException
-block|{
-return|return
-name|toDOMSourceFromStream
-argument_list|(
-name|source
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -3402,29 +2999,6 @@ argument_list|(
 name|document
 argument_list|,
 name|systemId
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toSAXSourceFromDOM (DOMSource source)
-specifier|public
-name|SAXSource
-name|toSAXSourceFromDOM
-parameter_list|(
-name|DOMSource
-name|source
-parameter_list|)
-throws|throws
-name|TransformerException
-block|{
-return|return
-name|toSAXSourceFromDOM
-argument_list|(
-name|source
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -3798,6 +3372,8 @@ init|=
 name|toDOMSource
 argument_list|(
 name|source
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 return|return
@@ -3910,34 +3486,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Converts the given data to a DOM document      *      * @param data is the data to be parsed      * @return the parsed document      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMDocument (byte[] data)
-specifier|public
-name|Document
-name|toDOMDocument
-parameter_list|(
-name|byte
-index|[]
-name|data
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|ParserConfigurationException
-block|{
-return|return
-name|toDOMDocument
-argument_list|(
-name|data
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 comment|/**      * Converts the given data to a DOM document      *      * @param data is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
 annotation|@
 name|Converter
@@ -3981,33 +3529,6 @@ name|ByteArrayInputStream
 argument_list|(
 name|data
 argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMDocument (InputStream in)
-specifier|public
-name|Document
-name|toDOMDocument
-parameter_list|(
-name|InputStream
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|ParserConfigurationException
-block|{
-return|return
-name|toDOMDocument
-argument_list|(
-name|in
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -4090,35 +3611,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Converts the given {@link Reader} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMDocument (Reader in)
-specifier|public
-name|Document
-name|toDOMDocument
-parameter_list|(
-name|Reader
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|ParserConfigurationException
-block|{
-return|return
-name|toDOMDocument
-argument_list|(
-operator|new
-name|InputSource
-argument_list|(
-name|in
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * Converts the given {@link Reader} to a DOM document      *      * @param in is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
 annotation|@
 name|Converter
@@ -4150,33 +3642,6 @@ name|in
 argument_list|)
 argument_list|,
 name|exchange
-argument_list|)
-return|;
-block|}
-comment|/**      * Converts the given {@link InputSource} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMDocument (InputSource in)
-specifier|public
-name|Document
-name|toDOMDocument
-parameter_list|(
-name|InputSource
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|ParserConfigurationException
-block|{
-return|return
-name|toDOMDocument
-argument_list|(
-name|in
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -4221,35 +3686,6 @@ name|in
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link String} to a DOM document      *      * @param text is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMDocument (String text)
-specifier|public
-name|Document
-name|toDOMDocument
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|ParserConfigurationException
-block|{
-return|return
-name|toDOMDocument
-argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-name|text
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * Converts the given {@link String} to a DOM document      *      * @param text is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
 annotation|@
 name|Converter
@@ -4281,33 +3717,6 @@ name|text
 argument_list|)
 argument_list|,
 name|exchange
-argument_list|)
-return|;
-block|}
-comment|/**      * Converts the given {@link File} to a DOM document      *      * @param file is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toDOMDocument (File file)
-specifier|public
-name|Document
-name|toDOMDocument
-parameter_list|(
-name|File
-name|file
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|SAXException
-throws|,
-name|ParserConfigurationException
-block|{
-return|return
-name|toDOMDocument
-argument_list|(
-name|file
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -4519,31 +3928,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toInputStream (DOMSource source)
-specifier|public
-name|InputStream
-name|toInputStream
-parameter_list|(
-name|DOMSource
-name|source
-parameter_list|)
-throws|throws
-name|TransformerException
-throws|,
-name|IOException
-block|{
-return|return
-name|toInputStream
-argument_list|(
-name|source
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toInputStream (DOMSource source, Exchange exchange)
@@ -4572,31 +3956,6 @@ name|source
 argument_list|,
 name|exchange
 argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toInputStream (Document dom)
-specifier|public
-name|InputStream
-name|toInputStream
-parameter_list|(
-name|Document
-name|dom
-parameter_list|)
-throws|throws
-name|TransformerException
-throws|,
-name|IOException
-block|{
-return|return
-name|toInputStream
-argument_list|(
-name|dom
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -5262,22 +4621,6 @@ return|return
 name|builder
 operator|.
 name|newDocument
-argument_list|()
-return|;
-block|}
-comment|/**      * @deprecated use {@link #createTransformer}, will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|createTransfomer ()
-specifier|public
-name|Transformer
-name|createTransfomer
-parameter_list|()
-throws|throws
-name|TransformerConfigurationException
-block|{
-return|return
-name|createTransformer
 argument_list|()
 return|;
 block|}

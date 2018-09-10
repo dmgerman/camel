@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -176,7 +176,7 @@ specifier|public
 class|class
 name|HBaseComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|connection
 specifier|private
@@ -213,15 +213,7 @@ DECL|method|HBaseComponent ()
 specifier|public
 name|HBaseComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|HBaseEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HBaseComponent (CamelContext context)
 specifier|public
 name|HBaseComponent
@@ -233,10 +225,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|HBaseEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

@@ -98,11 +98,7 @@ DECL|method|HazelcastSedaComponent ()
 specifier|public
 name|HazelcastSedaComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HazelcastSedaComponent (final CamelContext context)
 specifier|public
 name|HazelcastSedaComponent

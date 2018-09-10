@@ -1744,7 +1744,7 @@ expr_stmt|;
 name|getRouteCollection
 argument_list|()
 operator|.
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 name|getErrorHandlerBuilder
 argument_list|()
@@ -1789,17 +1789,20 @@ if|if
 condition|(
 name|camelContext
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
-operator|!=
-literal|null
+operator|instanceof
+name|ErrorHandlerBuilder
 condition|)
 block|{
 name|setErrorHandlerBuilder
 argument_list|(
+operator|(
+name|ErrorHandlerBuilder
+operator|)
 name|camelContext
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2377,26 +2380,6 @@ name|route
 parameter_list|)
 block|{
 comment|// noop
-block|}
-comment|/**      * Adds a collection of routes to this context      *      * @param routes the routes      * @throws Exception if the routes could not be created for whatever reason      * @deprecated will be removed in Camel 3.0. Instead use {@link #includeRoutes(org.apache.camel.RoutesBuilder) includeRoutes} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|addRoutes (RoutesBuilder routes)
-specifier|protected
-name|void
-name|addRoutes
-parameter_list|(
-name|RoutesBuilder
-name|routes
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|includeRoutes
-argument_list|(
-name|routes
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

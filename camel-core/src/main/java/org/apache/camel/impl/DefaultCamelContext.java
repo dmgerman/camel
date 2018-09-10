@@ -924,22 +924,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|converter
-operator|.
-name|LazyLoadingTypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|health
 operator|.
 name|DefaultHealthCheckRegistry
@@ -1314,39 +1298,7 @@ name|processor
 operator|.
 name|interceptor
 operator|.
-name|Delayer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
 name|HandleFault
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|StreamCaching
 import|;
 end_import
 
@@ -1431,20 +1383,6 @@ operator|.
 name|spi
 operator|.
 name|ComponentResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Container
 import|;
 end_import
 
@@ -2881,15 +2819,6 @@ DECL|field|disableJMX
 specifier|private
 name|Boolean
 name|disableJMX
-init|=
-name|Boolean
-operator|.
-name|FALSE
-decl_stmt|;
-DECL|field|lazyLoadTypeConverters
-specifier|private
-name|Boolean
-name|lazyLoadTypeConverters
 init|=
 name|Boolean
 operator|.
@@ -4589,6 +4518,10 @@ condition|(
 name|oldEndpoint
 operator|!=
 literal|null
+operator|&&
+name|oldEndpoint
+operator|!=
+name|endpoint
 condition|)
 block|{
 name|stopServices
@@ -6334,28 +6267,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|setRoutes (List<Route> routes)
-specifier|public
-name|void
-name|setRoutes
-parameter_list|(
-name|List
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Overriding existing routes is not supported yet, use addRouteCollection instead"
-argument_list|)
-throw|;
-block|}
 DECL|method|removeRouteCollection (Collection<Route> routes)
 name|void
 name|removeRouteCollection
@@ -8047,7 +7958,7 @@ expr_stmt|;
 comment|// remove the route from ErrorHandlerBuilder if possible
 if|if
 condition|(
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 operator|instanceof
 name|ErrorHandlerBuilderSupport
@@ -8059,7 +7970,7 @@ init|=
 operator|(
 name|ErrorHandlerBuilderSupport
 operator|)
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 name|builder
@@ -9562,21 +9473,6 @@ name|findEips
 argument_list|(
 name|this
 argument_list|)
-return|;
-block|}
-DECL|method|getComponentDocumentation (String componentName)
-specifier|public
-name|String
-name|getComponentDocumentation
-parameter_list|(
-name|String
-name|componentName
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-literal|null
 return|;
 block|}
 DECL|method|getComponentParameterJsonSchema (String componentName)
@@ -13358,13 +13254,17 @@ name|Object
 argument_list|>
 name|options
 init|=
-name|EndpointHelper
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|(
+name|getRuntimeCamelCatalog
+argument_list|()
 operator|.
 name|endpointProperties
 argument_list|(
-name|this
-argument_list|,
 name|uri
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// extract consumer. prefix options
@@ -16292,42 +16192,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|interceptStrategy
-operator|instanceof
-name|StreamCaching
-condition|)
-block|{
-name|setStreamCaching
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|interceptStrategy
-operator|instanceof
-name|Delayer
-condition|)
-block|{
-name|setDelayer
-argument_list|(
-operator|(
-operator|(
-name|Delayer
-operator|)
-name|interceptStrategy
-operator|)
-operator|.
-name|getDelay
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|getRoutePolicyFactories ()
 specifier|public
@@ -16823,10 +16687,10 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getErrorHandlerBuilder ()
+DECL|method|getErrorHandlerFactory ()
 specifier|public
 name|ErrorHandlerBuilder
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 parameter_list|()
 block|{
 return|return
@@ -16836,20 +16700,20 @@ operator|)
 name|errorHandlerBuilder
 return|;
 block|}
-DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
+DECL|method|setErrorHandlerFactory (ErrorHandlerFactory errorHandlerFactory)
 specifier|public
 name|void
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 parameter_list|(
 name|ErrorHandlerFactory
-name|errorHandlerBuilder
+name|errorHandlerFactory
 parameter_list|)
 block|{
 name|this
 operator|.
 name|errorHandlerBuilder
 operator|=
-name|errorHandlerBuilder
+name|errorHandlerFactory
 expr_stmt|;
 block|}
 DECL|method|getErrorHandlerExecutorService ()
@@ -17311,7 +17175,7 @@ block|}
 block|}
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 expr_stmt|;
 if|if
@@ -17572,18 +17436,6 @@ argument_list|()
 argument_list|,
 name|getName
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// Note: This is done on context start as we want to avoid doing it during object construction
-comment|// where we could be dealing with CDI proxied camel contexts which may never be started (CAMEL-9657)
-comment|// [TODO] Remove in 3.0
-name|Container
-operator|.
-name|Instance
-operator|.
-name|manage
-argument_list|(
-name|this
 argument_list|)
 expr_stmt|;
 comment|// Start the route controller
@@ -19670,16 +19522,6 @@ comment|// and clear start date
 name|startDate
 operator|=
 literal|null
-expr_stmt|;
-comment|// [TODO] Remove in 3.0
-name|Container
-operator|.
-name|Instance
-operator|.
-name|unmanage
-argument_list|(
-name|this
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Starts or resumes the routes      *      * @param routeServices  the routes to start (will only start a route if its not already started)      * @param checkClash     whether to check for startup ordering clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes   whether we are adding new routes      * @throws Exception is thrown if error starting routes      */
@@ -22101,29 +21943,6 @@ block|{
 name|BaseTypeConverterRegistry
 name|answer
 decl_stmt|;
-if|if
-condition|(
-name|isLazyLoadTypeConverters
-argument_list|()
-condition|)
-block|{
-name|answer
-operator|=
-operator|new
-name|LazyLoadingTypeConverter
-argument_list|(
-name|packageScanClassResolver
-argument_list|,
-name|getInjector
-argument_list|()
-argument_list|,
-name|getDefaultFactoryFinder
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|answer
 operator|=
 operator|new
@@ -22141,7 +21960,6 @@ name|isLoadTypeConverters
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|answer
 operator|.
 name|setCamelContext
@@ -22456,24 +22274,6 @@ name|dataFormats
 return|;
 block|}
 annotation|@
-name|Deprecated
-DECL|method|getProperties ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getProperties
-parameter_list|()
-block|{
-return|return
-name|getGlobalOptions
-argument_list|()
-return|;
-block|}
-annotation|@
 name|Override
 DECL|method|getGlobalOptions ()
 specifier|public
@@ -22490,32 +22290,6 @@ return|return
 name|globalOptions
 return|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|setProperties (Map<String, String> properties)
-specifier|public
-name|void
-name|setProperties
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|properties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|setGlobalOptions
-argument_list|(
-name|properties
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|setGlobalOptions (Map<String, String> globalOptions)
 specifier|public
 name|void
@@ -23107,40 +22881,6 @@ operator|&&
 name|autoStartup
 return|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|isLazyLoadTypeConverters ()
-specifier|public
-name|Boolean
-name|isLazyLoadTypeConverters
-parameter_list|()
-block|{
-return|return
-name|lazyLoadTypeConverters
-operator|!=
-literal|null
-operator|&&
-name|lazyLoadTypeConverters
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
-specifier|public
-name|void
-name|setLazyLoadTypeConverters
-parameter_list|(
-name|Boolean
-name|lazyLoadTypeConverters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|lazyLoadTypeConverters
-operator|=
-name|lazyLoadTypeConverters
-expr_stmt|;
-block|}
 DECL|method|isLoadTypeConverters ()
 specifier|public
 name|Boolean
@@ -23547,26 +23287,6 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * @deprecated use {@link org.apache.camel.util.CamelContextHelper#lookupPropertiesComponent(org.apache.camel.CamelContext, boolean)}      */
-annotation|@
-name|Deprecated
-DECL|method|lookupPropertiesComponent ()
-specifier|protected
-name|Component
-name|lookupPropertiesComponent
-parameter_list|()
-block|{
-return|return
-name|CamelContextHelper
-operator|.
-name|lookupPropertiesComponent
-argument_list|(
-name|this
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
 DECL|method|getShutdownStrategy ()
 specifier|public
 name|ShutdownStrategy
@@ -23685,32 +23405,6 @@ return|return
 name|this
 operator|.
 name|executorServiceManager
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|getExecutorServiceStrategy ()
-specifier|public
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ExecutorServiceStrategy
-name|getExecutorServiceStrategy
-parameter_list|()
-block|{
-comment|// its okay to create a new instance as its stateless, and just delegate
-comment|// ExecutorServiceManager which is the new API
-return|return
-operator|new
-name|DefaultExecutorServiceStrategy
-argument_list|(
-name|this
-argument_list|)
 return|;
 block|}
 DECL|method|setExecutorServiceManager (ExecutorServiceManager executorServiceManager)
@@ -23898,26 +23592,6 @@ name|restRegistry
 operator|=
 name|restRegistry
 expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-annotation|@
-name|Override
-DECL|method|getProperty (String key)
-specifier|public
-name|String
-name|getProperty
-parameter_list|(
-name|String
-name|key
-parameter_list|)
-block|{
-return|return
-name|getGlobalOption
-argument_list|(
-name|key
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Override

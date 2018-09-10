@@ -317,11 +317,11 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"aggregatingServiceDiscovery"
+literal|"combinedServiceDiscovery"
 argument_list|,
 name|type
 operator|=
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 operator|.
 name|class
 argument_list|)
@@ -633,17 +633,17 @@ return|return
 name|conf
 return|;
 block|}
-DECL|method|aggregatingServiceDiscovery ()
+DECL|method|combinedServiceDiscovery ()
 specifier|public
-name|AggregatingServiceCallServiceDiscoveryConfiguration
-name|aggregatingServiceDiscovery
+name|CombinedServiceCallServiceDiscoveryConfiguration
+name|combinedServiceDiscovery
 parameter_list|()
 block|{
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 name|conf
 init|=
 operator|new
-name|AggregatingServiceCallServiceDiscoveryConfiguration
+name|CombinedServiceCallServiceDiscoveryConfiguration
 argument_list|()
 decl_stmt|;
 name|setServiceDiscoveryConfiguration

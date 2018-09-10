@@ -1204,6 +1204,9 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 name|route

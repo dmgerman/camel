@@ -146,6 +146,9 @@ literal|"Started"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -160,6 +163,9 @@ argument_list|(
 literal|"Started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

@@ -121,13 +121,10 @@ name|ErrorHandlerType
 block|{
 DECL|enumConstant|DefaultErrorHandler
 DECL|enumConstant|DeadLetterChannel
-DECL|enumConstant|LoggingErrorHandler
 DECL|enumConstant|NoErrorHandler
 name|DefaultErrorHandler
 block|,
 name|DeadLetterChannel
-block|,
-name|LoggingErrorHandler
 block|,
 name|NoErrorHandler
 block|;

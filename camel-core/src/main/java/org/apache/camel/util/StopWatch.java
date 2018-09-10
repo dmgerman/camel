@@ -115,20 +115,6 @@ name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Reports the time taken (does not stop the stop watch)      *      * @return the time taken in millis.      * @deprecated use {@link #taken()}      */
-annotation|@
-name|Deprecated
-DECL|method|stop ()
-specifier|public
-name|long
-name|stop
-parameter_list|()
-block|{
-return|return
-name|taken
-argument_list|()
-return|;
-block|}
 comment|/**      * Returns the time taken in millis.      *      * @return time in millis, or<tt>0</tt> if not started yet.      */
 DECL|method|taken ()
 specifier|public

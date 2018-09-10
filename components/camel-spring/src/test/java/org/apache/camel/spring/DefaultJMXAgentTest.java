@@ -343,6 +343,9 @@ decl_stmt|;
 comment|// start route should enlist the consumer to JMX
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"foo"

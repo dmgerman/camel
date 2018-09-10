@@ -98,6 +98,9 @@ name|assertTrue
 argument_list|(
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -110,6 +113,9 @@ expr_stmt|;
 name|assertFalse
 argument_list|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -156,6 +162,9 @@ name|assertFalse
 argument_list|(
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -168,6 +177,9 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

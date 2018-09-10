@@ -322,23 +322,6 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**      *<b>Note:</b> It is preferred to create endpoints using the associated      * component.      * @deprecated      */
-annotation|@
-name|Deprecated
-DECL|method|EventEndpoint (String endpointUri)
-specifier|public
-name|EventEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

@@ -86,6 +86,18 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ServiceStatus
+import|;
+end_import
+
 begin_comment
 comment|// TODO: Add javadoc
 end_comment
@@ -110,6 +122,28 @@ name|Route
 argument_list|>
 name|getControlledRoutes
 parameter_list|()
+function_decl|;
+comment|/**      * Starts all the routes which currently is not started.      *      * @throws Exception is thrown if a route could not be started for whatever reason      */
+DECL|method|startAllRoutes ()
+name|void
+name|startAllRoutes
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Indicates whether current thread is starting route(s).      *<p/>      * This can be useful to know by {@link LifecycleStrategy} or the likes, in case      * they need to react differently.      *      * @return<tt>true</tt> if current thread is starting route(s), or<tt>false</tt> if not.      */
+DECL|method|isStartingRoutes ()
+name|boolean
+name|isStartingRoutes
+parameter_list|()
+function_decl|;
+DECL|method|getRouteStatus (String routeId)
+name|ServiceStatus
+name|getRouteStatus
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
 function_decl|;
 DECL|method|startRoute (String routeId)
 name|void

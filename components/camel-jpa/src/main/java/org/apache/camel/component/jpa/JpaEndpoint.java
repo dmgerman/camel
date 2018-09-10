@@ -805,23 +805,6 @@ specifier|public
 name|JpaEndpoint
 parameter_list|()
 block|{     }
-comment|/**      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|JpaEndpoint (String endpointUri)
-specifier|public
-name|JpaEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|JpaEndpoint (String uri, JpaComponent component)
 specifier|public
 name|JpaEndpoint
@@ -840,6 +823,13 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|component
+operator|!=
+literal|null
+condition|)
+block|{
 name|entityManagerFactory
 operator|=
 name|component
@@ -855,66 +845,6 @@ name|getTransactionManager
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|JpaEndpoint (String endpointUri, EntityManagerFactory entityManagerFactory)
-specifier|public
-name|JpaEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|EntityManagerFactory
-name|entityManagerFactory
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|entityManagerFactory
-operator|=
-name|entityManagerFactory
-expr_stmt|;
-block|}
-comment|/**      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|JpaEndpoint (String endpointUri, EntityManagerFactory entityManagerFactory, PlatformTransactionManager transactionManager)
-specifier|public
-name|JpaEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|EntityManagerFactory
-name|entityManagerFactory
-parameter_list|,
-name|PlatformTransactionManager
-name|transactionManager
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|entityManagerFactory
-operator|=
-name|entityManagerFactory
-expr_stmt|;
-name|this
-operator|.
-name|transactionManager
-operator|=
-name|transactionManager
-expr_stmt|;
 block|}
 annotation|@
 name|Override

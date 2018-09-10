@@ -139,6 +139,9 @@ name|stopped
 init|=
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"foo"
@@ -164,6 +167,9 @@ argument_list|(
 literal|"Route should be stopped"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

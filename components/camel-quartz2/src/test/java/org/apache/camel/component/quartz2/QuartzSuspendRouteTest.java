@@ -100,6 +100,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|suspendRoute
 argument_list|(
 literal|"foo"
@@ -150,6 +153,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|resumeRoute
 argument_list|(

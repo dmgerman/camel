@@ -969,9 +969,6 @@ operator|.
 name|createSSLContext
 argument_list|(
 name|camelContext
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|configuration
 operator|.
@@ -1028,9 +1025,6 @@ operator|.
 name|createSSLContext
 argument_list|(
 name|camelContext
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|configuration
 operator|.

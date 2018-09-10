@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -126,7 +126,7 @@ specifier|public
 class|class
 name|Jt400Component
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 comment|/**      * Name of the connection pool URI option.      */
 DECL|field|CONNECTION_POOL
@@ -173,11 +173,7 @@ name|Jt400Component
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|Jt400Endpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -156,7 +156,7 @@ specifier|public
 class|class
 name|XmlSignatureComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -186,15 +186,7 @@ DECL|method|XmlSignatureComponent ()
 specifier|public
 name|XmlSignatureComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|XmlSignatureEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|XmlSignatureComponent (CamelContext context)
 specifier|public
 name|XmlSignatureComponent
@@ -206,10 +198,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|XmlSignatureEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

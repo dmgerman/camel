@@ -348,6 +348,9 @@ name|this
 operator|.
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"second"
@@ -356,6 +359,9 @@ expr_stmt|;
 name|this
 operator|.
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -370,6 +376,9 @@ name|this
 operator|.
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"first"
@@ -378,6 +387,9 @@ expr_stmt|;
 name|this
 operator|.
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

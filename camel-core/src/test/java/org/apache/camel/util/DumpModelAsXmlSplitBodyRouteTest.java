@@ -179,6 +179,8 @@ operator|.
 name|toDOMDocument
 argument_list|(
 name|xml
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|NodeList

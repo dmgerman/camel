@@ -311,20 +311,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @deprecated use {@link #getCamelContext()}      */
-annotation|@
-name|Deprecated
-DECL|method|getContext ()
-specifier|public
-name|CamelContext
-name|getContext
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-return|;
-block|}
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext

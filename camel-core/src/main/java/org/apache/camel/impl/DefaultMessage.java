@@ -217,14 +217,34 @@ name|Attachment
 argument_list|>
 name|attachmentObjects
 decl_stmt|;
-comment|/**      * @deprecated use {@link #DefaultMessage(CamelContext)}      */
-annotation|@
-name|Deprecated
-DECL|method|DefaultMessage ()
+DECL|method|DefaultMessage (Exchange exchange)
 specifier|public
 name|DefaultMessage
-parameter_list|()
-block|{     }
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|setExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|setCamelContext
+argument_list|(
+name|exchange
+operator|!=
+literal|null
+condition|?
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+else|:
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|DefaultMessage (CamelContext camelContext)
 specifier|public
 name|DefaultMessage
@@ -1718,16 +1738,6 @@ block|{
 return|return
 name|headers
 operator|!=
-literal|null
-return|;
-block|}
-DECL|method|createExchangeId ()
-specifier|public
-name|String
-name|createExchangeId
-parameter_list|()
-block|{
-return|return
 literal|null
 return|;
 block|}

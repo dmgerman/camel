@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -70,21 +70,13 @@ specifier|public
 class|class
 name|PrinterComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|PrinterComponent ()
 specifier|public
 name|PrinterComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|PrinterEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

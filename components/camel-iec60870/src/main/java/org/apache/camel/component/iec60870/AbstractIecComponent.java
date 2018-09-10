@@ -217,7 +217,7 @@ specifier|private
 name|T2
 name|defaultConnectionOptions
 decl_stmt|;
-DECL|method|AbstractIecComponent (final Class<T2> connectionOptionsClazz, final T2 defaultConnectionOptions, final Class<? extends Endpoint> endpointClass)
+DECL|method|AbstractIecComponent (final Class<T2> connectionOptionsClazz, final T2 defaultConnectionOptions)
 specifier|public
 name|AbstractIecComponent
 parameter_list|(
@@ -231,15 +231,6 @@ parameter_list|,
 specifier|final
 name|T2
 name|defaultConnectionOptions
-parameter_list|,
-specifier|final
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
 parameter_list|)
 block|{
 name|this
@@ -255,7 +246,7 @@ operator|=
 name|defaultConnectionOptions
 expr_stmt|;
 block|}
-DECL|method|AbstractIecComponent (final Class<T2> connectionOptionsClazz, final T2 defaultConnectionOptions, final CamelContext context, final Class<? extends Endpoint> endpointClass)
+DECL|method|AbstractIecComponent (final Class<T2> connectionOptionsClazz, final T2 defaultConnectionOptions, final CamelContext context)
 specifier|public
 name|AbstractIecComponent
 parameter_list|(
@@ -273,15 +264,6 @@ parameter_list|,
 specifier|final
 name|CamelContext
 name|context
-parameter_list|,
-specifier|final
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
 parameter_list|)
 block|{
 name|super

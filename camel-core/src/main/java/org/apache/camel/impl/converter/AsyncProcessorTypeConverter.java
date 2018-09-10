@@ -158,28 +158,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * @deprecated use {@link AsyncProcessorConverterHelper#convert(org.apache.camel.Processor)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|convert (Processor value)
-specifier|public
-specifier|static
-name|AsyncProcessor
-name|convert
-parameter_list|(
-name|Processor
-name|value
-parameter_list|)
-block|{
-return|return
-name|AsyncProcessorConverterHelper
-operator|.
-name|convert
-argument_list|(
-name|value
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 

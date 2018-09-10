@@ -372,15 +372,7 @@ DECL|method|AhcComponent ()
 specifier|public
 name|AhcComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|AhcEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

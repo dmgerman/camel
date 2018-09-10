@@ -179,14 +179,6 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 expr_stmt|;
-comment|// saves 5 seconds on this unit test
-name|context
-operator|.
-name|setLazyLoadTypeConverters
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test

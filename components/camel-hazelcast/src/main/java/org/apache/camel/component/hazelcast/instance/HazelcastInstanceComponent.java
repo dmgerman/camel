@@ -98,11 +98,7 @@ DECL|method|HazelcastInstanceComponent ()
 specifier|public
 name|HazelcastInstanceComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HazelcastInstanceComponent (final CamelContext context)
 specifier|public
 name|HazelcastInstanceComponent

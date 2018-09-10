@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|api
 operator|.
 name|management
@@ -83,6 +71,22 @@ operator|.
 name|management
 operator|.
 name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|ComponentVerifierExtension
 import|;
 end_import
 
@@ -187,7 +191,7 @@ operator|=
 literal|"Verify options against a given scope"
 argument_list|)
 DECL|method|verify (String scope, Map<String, String> options)
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 name|verify

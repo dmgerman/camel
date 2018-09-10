@@ -198,11 +198,9 @@ argument_list|(
 name|on
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
 literal|"Should be registered"
-argument_list|,
-literal|true
 argument_list|,
 name|registered
 argument_list|)

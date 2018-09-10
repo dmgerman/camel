@@ -157,22 +157,6 @@ name|Expression
 argument_list|>
 name|cacheExpression
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|method|SimpleFunctionExpression (SimpleToken token)
-specifier|public
-name|SimpleFunctionExpression
-parameter_list|(
-name|SimpleToken
-name|token
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|token
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|SimpleFunctionExpression (SimpleToken token, Map<String, Expression> cacheExpression)
 specifier|public
 name|SimpleFunctionExpression

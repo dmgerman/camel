@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ClassResolver
@@ -151,13 +163,13 @@ specifier|public
 name|SSLEngineFactory
 parameter_list|()
 block|{     }
-DECL|method|createSSLContext (ClassResolver classResolver, String keyStoreFormat, String securityProvider, String keyStoreResource, String trustStoreResource, char[] passphrase)
+DECL|method|createSSLContext (CamelContext camelContext, String keyStoreFormat, String securityProvider, String keyStoreResource, String trustStoreResource, char[] passphrase)
 specifier|public
 name|SSLContext
 name|createSSLContext
 parameter_list|(
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|String
 name|keyStoreFormat
@@ -198,7 +210,7 @@ name|ResourceHelper
 operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
-name|classResolver
+name|camelContext
 argument_list|,
 name|keyStoreResource
 argument_list|)
@@ -276,7 +288,7 @@ name|ResourceHelper
 operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
-name|classResolver
+name|camelContext
 argument_list|,
 name|trustStoreResource
 argument_list|)

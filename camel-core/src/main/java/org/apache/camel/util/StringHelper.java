@@ -272,31 +272,6 @@ return|return
 name|matches
 return|;
 block|}
-comment|/**      * Limits the length of a string      *       * @param s the string      * @param maxLength the maximum length of the returned string      * @return s if the length of s is less than maxLength or the first maxLength characters of s      * @deprecated use {@link #limitLength(String, int)}      */
-annotation|@
-name|Deprecated
-DECL|method|limitLenght (String s, int maxLength)
-specifier|public
-specifier|static
-name|String
-name|limitLenght
-parameter_list|(
-name|String
-name|s
-parameter_list|,
-name|int
-name|maxLength
-parameter_list|)
-block|{
-return|return
-name|limitLength
-argument_list|(
-name|s
-argument_list|,
-name|maxLength
-argument_list|)
-return|;
-block|}
 comment|/**      * Limits the length of a string      *      * @param s the string      * @param maxLength the maximum length of the returned string      * @return s if the length of s is less than maxLength or the first maxLength characters of s      */
 DECL|method|limitLength (String s, int maxLength)
 specifier|public

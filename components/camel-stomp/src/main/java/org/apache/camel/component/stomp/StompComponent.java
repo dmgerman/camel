@@ -182,15 +182,7 @@ DECL|method|StompComponent ()
 specifier|public
 name|StompComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|StompEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@

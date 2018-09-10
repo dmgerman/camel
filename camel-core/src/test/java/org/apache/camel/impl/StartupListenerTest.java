@@ -177,6 +177,9 @@ name|assertTrue
 argument_list|(
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -193,6 +196,9 @@ comment|// the routes should not have been started as they start afterwards
 name|assertTrue
 argument_list|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -240,6 +246,9 @@ comment|// and now the routes are started
 name|assertTrue
 argument_list|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -305,6 +314,9 @@ comment|// and now the routes are started
 name|assertTrue
 argument_list|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

@@ -666,30 +666,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @deprecated will be removed in the near future. Use {@link #redeliveryDelay(long)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|redeliverDelay (long delay)
-specifier|public
-name|DefaultErrorHandlerBuilder
-name|redeliverDelay
-parameter_list|(
-name|long
-name|delay
-parameter_list|)
-block|{
-name|getRedeliveryPolicy
-argument_list|()
-operator|.
-name|redeliveryDelay
-argument_list|(
-name|delay
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 DECL|method|redeliveryDelay (long delay)
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -1322,24 +1298,6 @@ block|{
 name|setDeadLetterHandleNewException
 argument_list|(
 name|handleNewException
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * @deprecated use {@link #deadLetterHandleNewException(boolean)}} with value<tt>false</tt>      */
-annotation|@
-name|Deprecated
-DECL|method|checkException ()
-specifier|public
-name|DefaultErrorHandlerBuilder
-name|checkException
-parameter_list|()
-block|{
-name|setDeadLetterHandleNewException
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 return|return

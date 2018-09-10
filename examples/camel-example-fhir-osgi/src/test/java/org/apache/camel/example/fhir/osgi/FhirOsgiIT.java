@@ -484,6 +484,9 @@ name|Started
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"fhir-example-osgi"

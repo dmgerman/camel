@@ -118,12 +118,18 @@ expr_stmt|;
 comment|// restart foo
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"foo"
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -197,12 +203,18 @@ expr_stmt|;
 comment|// restart bar
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(

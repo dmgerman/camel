@@ -76,20 +76,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ManagementAware
-import|;
-end_import
-
 begin_comment
 comment|/**  * CustomEndpoint is used to test {@link org.apache.camel.management.JmxInstrumentationCustomMBeanTest}  * and must be declared a public class otherwise the mbean server connection cannot access its methods.  */
 end_comment
@@ -114,11 +100,6 @@ class|class
 name|CustomEndpoint
 extends|extends
 name|MockEndpoint
-implements|implements
-name|ManagementAware
-argument_list|<
-name|CustomEndpoint
-argument_list|>
 block|{
 DECL|method|CustomEndpoint (final String endpointUri, final Component component)
 specifier|public
@@ -140,19 +121,6 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getManagedObject (CustomEndpoint object)
-specifier|public
-name|Object
-name|getManagedObject
-parameter_list|(
-name|CustomEndpoint
-name|object
-parameter_list|)
-block|{
-return|return
-name|this
-return|;
 block|}
 DECL|method|isSingleton ()
 specifier|public

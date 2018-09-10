@@ -855,6 +855,9 @@ argument_list|()
 expr_stmt|;
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 name|CamelTestConfiguration
@@ -893,6 +896,9 @@ try|try
 block|{
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 name|CamelTestConfiguration
@@ -920,7 +926,7 @@ block|}
 comment|// Stop all routes
 comment|// for (Route route : camelContext.getRoutes()) {
 comment|// try {
-comment|// camelContext.stopRoute(route.getId());
+comment|// camelContext.getRouteController().stopRoute(route.getId());
 comment|// } catch (Exception e) {
 comment|// logger.error("Exception trying to stop de routes", e);
 comment|// }

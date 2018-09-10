@@ -236,15 +236,7 @@ DECL|method|CxfComponent ()
 specifier|public
 name|CxfComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|CxfEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|CxfComponent (CamelContext context)
 specifier|public
 name|CxfComponent
@@ -256,10 +248,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|CxfEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

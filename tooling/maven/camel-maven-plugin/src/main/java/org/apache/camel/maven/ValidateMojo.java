@@ -3641,9 +3641,11 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateSimplePredicate
+name|validateLanguagePredicate
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 name|detail
 operator|.
@@ -3671,9 +3673,11 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateSimpleExpression
+name|validateLanguagePredicate
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 name|detail
 operator|.

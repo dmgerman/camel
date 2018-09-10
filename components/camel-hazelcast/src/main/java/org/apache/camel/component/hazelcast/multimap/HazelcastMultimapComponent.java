@@ -98,11 +98,7 @@ DECL|method|HazelcastMultimapComponent ()
 specifier|public
 name|HazelcastMultimapComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HazelcastMultimapComponent (final CamelContext context)
 specifier|public
 name|HazelcastMultimapComponent

@@ -263,25 +263,6 @@ name|original
 return|;
 block|}
 annotation|@
-name|Deprecated
-DECL|method|setOriginal (Exchange original)
-specifier|public
-name|void
-name|setOriginal
-parameter_list|(
-name|Exchange
-name|original
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"This method is deprecated"
-argument_list|)
-throw|;
-block|}
-annotation|@
 name|Override
 DECL|method|toString ()
 specifier|public

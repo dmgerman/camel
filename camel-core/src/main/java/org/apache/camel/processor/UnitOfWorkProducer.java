@@ -187,57 +187,6 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-name|producer
-operator|.
-name|createExchange
-argument_list|()
-return|;
-block|}
-DECL|method|createExchange (ExchangePattern pattern)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-return|return
-name|producer
-operator|.
-name|createExchange
-argument_list|(
-name|pattern
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|createExchange (Exchange exchange)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-name|producer
-operator|.
-name|createExchange
-argument_list|(
-name|exchange
-argument_list|)
-return|;
-block|}
 DECL|method|process (final Exchange exchange)
 specifier|public
 name|void

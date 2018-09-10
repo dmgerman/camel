@@ -560,6 +560,8 @@ operator|=
 operator|new
 name|LoggingExceptionHandler
 argument_list|(
+literal|null
+argument_list|,
 name|getClass
 argument_list|()
 argument_list|)
@@ -766,6 +768,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 name|route
@@ -925,6 +930,9 @@ name|getRouteContext
 argument_list|()
 operator|.
 name|getCamelContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|getRouteStatus

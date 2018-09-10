@@ -147,6 +147,8 @@ argument_list|(
 literal|"true"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -175,6 +177,8 @@ argument_list|(
 literal|"false"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|pre
@@ -224,6 +228,8 @@ argument_list|(
 literal|"${body} == 'foo'"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -274,6 +280,8 @@ argument_list|(
 literal|"${body} == 123"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -338,6 +346,8 @@ argument_list|(
 literal|"${body} == ${header.val}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -390,6 +400,8 @@ argument_list|(
 literal|"${body} == 122"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -442,6 +454,8 @@ argument_list|(
 literal|"${body}> 120"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -494,6 +508,8 @@ argument_list|(
 literal|"${body}++ == 123"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -546,6 +562,8 @@ argument_list|(
 literal|"${body}-- == 121"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -610,6 +628,8 @@ argument_list|(
 literal|"${header.high} == true"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -674,6 +694,8 @@ argument_list|(
 literal|"${header.high}   ==     true"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -750,6 +772,8 @@ argument_list|(
 literal|"${header.high} == true&& ${header.foo} == 123"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -826,6 +850,8 @@ argument_list|(
 literal|"${header.high} == false || ${header.foo} == 123"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -914,6 +940,8 @@ argument_list|(
 literal|"${header.high} == true&& ${header.foo} == 123&& ${header.bar} == 'beer'"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -1043,6 +1071,8 @@ name|toString
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -1165,6 +1195,8 @@ name|toString
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -1229,6 +1261,8 @@ argument_list|(
 literal|"${in.header.number} regex '\\d{4}'"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -1312,6 +1346,8 @@ argument_list|(
 literal|"${body[foo]} == 123"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -1342,6 +1378,8 @@ argument_list|(
 literal|"${body['foo bar']} == 456"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|pre
@@ -1372,6 +1410,8 @@ argument_list|(
 literal|"${body[foo bar]} == 456"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|pre
@@ -1402,6 +1442,8 @@ argument_list|(
 literal|"${body[unknown]} == 456"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|pre
@@ -1547,6 +1589,8 @@ argument_list|(
 literal|"${body[key]} in ${ref:myList}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -1577,6 +1621,8 @@ argument_list|(
 literal|"${body[key2]} in ${ref:myList}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|pre
@@ -1606,6 +1652,8 @@ argument_list|(
 literal|"${body[key3]} in ${ref:myList}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|pre
@@ -1647,6 +1695,8 @@ argument_list|(
 literal|"${body} in ',,gold,silver'"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Predicate

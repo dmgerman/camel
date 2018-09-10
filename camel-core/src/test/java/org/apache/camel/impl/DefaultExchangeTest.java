@@ -44,6 +44,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -1682,7 +1694,9 @@ name|setIn
 argument_list|(
 operator|new
 name|MyMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|MyMessage
@@ -1719,7 +1733,9 @@ name|setOut
 argument_list|(
 operator|new
 name|MyMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|MyMessage
@@ -1762,7 +1778,9 @@ name|sourceIn
 init|=
 operator|new
 name|MyMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|sourceExchange
 operator|.
@@ -1805,20 +1823,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testFaultCopy ()
-specifier|public
-name|void
-name|testFaultCopy
-parameter_list|()
-block|{
-name|testFaultCopy
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testFaultSafeCopy ()
 specifier|public
 name|void
@@ -1826,19 +1830,14 @@ name|testFaultSafeCopy
 parameter_list|()
 block|{
 name|testFaultCopy
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testFaultCopy (boolean safe)
+DECL|method|testFaultCopy ()
 specifier|private
 name|void
 name|testFaultCopy
-parameter_list|(
-name|boolean
-name|safe
-parameter_list|)
+parameter_list|()
 block|{
 name|DefaultExchange
 name|sourceExchange
@@ -1854,7 +1853,9 @@ name|source
 init|=
 operator|new
 name|MyMessage
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|source
 operator|.
@@ -1883,9 +1884,7 @@ init|=
 name|sourceExchange
 operator|.
 name|copy
-argument_list|(
-name|safe
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1938,6 +1937,20 @@ name|MyMessage
 extends|extends
 name|DefaultMessage
 block|{
+DECL|method|MyMessage (CamelContext camelContext)
+specifier|public
+name|MyMessage
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|newInstance ()
@@ -1949,7 +1962,10 @@ block|{
 return|return
 operator|new
 name|MyMessage
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

@@ -390,20 +390,6 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|AtmosEndpoint (String endpointUri)
-specifier|public
-name|AtmosEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|AtmosConfiguration

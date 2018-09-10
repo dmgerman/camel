@@ -99,11 +99,7 @@ DECL|method|AtomixValueComponent ()
 specifier|public
 name|AtomixValueComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AtomixValueComponent (CamelContext camelContext)
 specifier|public
 name|AtomixValueComponent

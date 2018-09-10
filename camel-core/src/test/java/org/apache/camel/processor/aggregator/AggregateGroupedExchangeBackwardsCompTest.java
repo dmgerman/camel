@@ -86,9 +86,43 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|GroupedExchangeAggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|toolbox
+operator|.
+name|AggregationStrategies
+operator|.
+name|groupedExchange
 import|;
 end_import
 
@@ -384,8 +418,11 @@ literal|500L
 argument_list|)
 comment|// group the exchanges so we get one single exchange containing all the others
 operator|.
-name|groupExchanges
+name|aggregationStrategy
+argument_list|(
+name|groupedExchange
 argument_list|()
+argument_list|)
 operator|.
 name|to
 argument_list|(

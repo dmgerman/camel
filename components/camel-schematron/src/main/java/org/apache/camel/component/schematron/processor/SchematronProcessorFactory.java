@@ -170,11 +170,11 @@ argument_list|()
 throw|;
 block|}
 comment|/**      * Creates an instance of SchematronEngine      *      * @param rules the given schematron rules      * @return an instance of SchematronEngine      */
-DECL|method|newScehamtronEngine (final Templates rules)
+DECL|method|newSchematronEngine (final Templates rules)
 specifier|public
 specifier|static
 name|SchematronProcessor
-name|newScehamtronEngine
+name|newSchematronEngine
 parameter_list|(
 specifier|final
 name|Templates

@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -64,21 +64,13 @@ specifier|public
 class|class
 name|RestApiComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|RestApiComponent ()
 specifier|public
 name|RestApiComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|RestApiEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

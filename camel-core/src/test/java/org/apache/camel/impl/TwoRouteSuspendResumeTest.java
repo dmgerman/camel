@@ -192,6 +192,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|suspendRoute
 argument_list|(
 literal|"foo"
@@ -275,6 +278,9 @@ literal|"Suspended"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -289,6 +295,9 @@ argument_list|(
 literal|"Started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -319,6 +328,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|resumeRoute
 argument_list|(
 literal|"foo"
@@ -332,6 +344,9 @@ argument_list|(
 literal|"Started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -347,6 +362,9 @@ argument_list|(
 literal|"Started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

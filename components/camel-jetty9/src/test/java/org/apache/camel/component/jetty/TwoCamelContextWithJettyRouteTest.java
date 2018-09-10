@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|ConnectException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -89,6 +79,18 @@ operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|NoHttpResponseException
 import|;
 end_import
 
@@ -331,7 +333,7 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|ConnectException
+name|NoHttpResponseException
 argument_list|)
 expr_stmt|;
 block|}

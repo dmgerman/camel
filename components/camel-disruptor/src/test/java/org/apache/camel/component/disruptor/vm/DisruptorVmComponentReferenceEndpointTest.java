@@ -240,6 +240,9 @@ expr_stmt|;
 comment|// remove the 1st route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"foo"
@@ -282,6 +285,9 @@ argument_list|)
 expr_stmt|;
 comment|// remove the 2nd route
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

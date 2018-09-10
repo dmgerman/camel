@@ -104,7 +104,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -118,7 +118,7 @@ specifier|public
 class|class
 name|JCacheComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|cachingProvider
 specifier|private
@@ -144,15 +144,7 @@ DECL|method|JCacheComponent ()
 specifier|public
 name|JCacheComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|JCacheEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|JCacheComponent (CamelContext context)
 specifier|public
 name|JCacheComponent
@@ -164,10 +156,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|JCacheEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

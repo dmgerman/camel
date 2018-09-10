@@ -158,22 +158,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|loadbalancer
-operator|.
-name|CircuitBreakerLoadBalancer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|RoutePolicy
@@ -215,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Modeled after the {@link CircuitBreakerLoadBalancer} and {@link ThrottlingInflightRoutePolicy}  * this {@link RoutePolicy} will stop consuming from an endpoint based on the type of exceptions that are  * thrown and the threshold setting.  *  * the scenario: if a route cannot process data from an endpoint due to problems with resources used by the route  * (ie database down) then it will stop consuming new messages from the endpoint by stopping the consumer.  * The implementation is comparable to the Circuit Breaker pattern. After a set amount of time, it will move  * to a half open state and attempt to determine if the consumer can be started.  * There are two ways to determine if a route can be closed after being opened  * (1) start the consumer and check the failure threshold  * (2) call the {@link ThrottlingExceptionHalfOpenHandler}  * The second option allows a custom check to be performed without having to take on the possibility of  * multiple messages from the endpoint. The idea is that a handler could run a simple test (ie select 1 from dual)  * to determine if the processes that cause the route to be open are now available  */
+comment|/**  * Modeled after the circuit breaker {@link ThrottlingInflightRoutePolicy}  * this {@link RoutePolicy} will stop consuming from an endpoint based on the type of exceptions that are  * thrown and the threshold setting.  *  * the scenario: if a route cannot process data from an endpoint due to problems with resources used by the route  * (ie database down) then it will stop consuming new messages from the endpoint by stopping the consumer.  * The implementation is comparable to the Circuit Breaker pattern. After a set amount of time, it will move  * to a half open state and attempt to determine if the consumer can be started.  * There are two ways to determine if a route can be closed after being opened  * (1) start the consumer and check the failure threshold  * (2) call the {@link ThrottlingExceptionHalfOpenHandler}  * The second option allows a custom check to be performed without having to take on the possibility of  * multiple messages from the endpoint. The idea is that a handler could run a simple test (ie select 1 from dual)  * to determine if the processes that cause the route to be open are now available  */
 end_comment
 
 begin_class
@@ -629,7 +613,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * uses similar approach as {@link CircuitBreakerLoadBalancer}      * if the exchange has an exception that we are watching      * then we count that as a failure otherwise we ignore it      */
+comment|/**      * uses similar approach as circuit breaker      * if the exchange has an exception that we are watching      * then we count that as a failure otherwise we ignore it      */
 DECL|method|hasFailed (Exchange exchange)
 specifier|private
 name|boolean

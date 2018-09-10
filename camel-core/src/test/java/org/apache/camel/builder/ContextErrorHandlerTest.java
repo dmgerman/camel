@@ -229,7 +229,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 name|deadLetterChannelBuilder
 argument_list|)

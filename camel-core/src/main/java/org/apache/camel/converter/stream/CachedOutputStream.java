@@ -126,50 +126,6 @@ name|CachedOutputStream
 extends|extends
 name|OutputStream
 block|{
-annotation|@
-name|Deprecated
-DECL|field|THRESHOLD
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|THRESHOLD
-init|=
-literal|"CamelCachedOutputStreamThreshold"
-decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|field|BUFFER_SIZE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|BUFFER_SIZE
-init|=
-literal|"CamelCachedOutputStreamBufferSize"
-decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|field|TEMP_DIR
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TEMP_DIR
-init|=
-literal|"CamelCachedOutputStreamOutputDirectory"
-decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|field|CIPHER_TRANSFORMATION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|CIPHER_TRANSFORMATION
-init|=
-literal|"CamelCachedOutputStreamCipherTransformation"
-decl_stmt|;
 DECL|field|strategy
 specifier|private
 specifier|final
@@ -566,22 +522,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated  use {@link #newStreamCache()}      */
-annotation|@
-name|Deprecated
-DECL|method|getStreamCache ()
-specifier|public
-name|StreamCache
-name|getStreamCache
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|newStreamCache
-argument_list|()
-return|;
-block|}
 comment|/**      * Creates a new {@link StreamCache} from the data cached in this {@link OutputStream}.      */
 DECL|method|newStreamCache ()
 specifier|public
@@ -694,20 +634,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-block|}
-comment|/**      * @deprecated  use {@link #getStrategyBufferSize()}      */
-annotation|@
-name|Deprecated
-DECL|method|getBufferSize ()
-specifier|public
-name|int
-name|getBufferSize
-parameter_list|()
-block|{
-return|return
-name|getStrategyBufferSize
-argument_list|()
-return|;
 block|}
 DECL|method|getStrategyBufferSize ()
 specifier|public

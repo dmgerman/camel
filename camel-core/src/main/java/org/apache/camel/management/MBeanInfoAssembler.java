@@ -178,18 +178,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Service
 import|;
 end_import
@@ -412,16 +400,6 @@ DECL|method|MBeanInfoAssembler ()
 specifier|public
 name|MBeanInfoAssembler
 parameter_list|()
-block|{     }
-annotation|@
-name|Deprecated
-DECL|method|MBeanInfoAssembler (CamelContext camelContext)
-specifier|public
-name|MBeanInfoAssembler
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
 block|{     }
 annotation|@
 name|Override

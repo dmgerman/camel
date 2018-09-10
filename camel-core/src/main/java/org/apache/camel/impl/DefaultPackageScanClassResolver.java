@@ -734,29 +734,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|setClassLoaders (Set<ClassLoader> classLoaders)
-specifier|public
-name|void
-name|setClassLoaders
-parameter_list|(
-name|Set
-argument_list|<
-name|ClassLoader
-argument_list|>
-name|classLoaders
-parameter_list|)
-block|{
-comment|// add all the class loaders
-name|this
-operator|.
-name|classLoaders
-operator|.
-name|addAll
-argument_list|(
-name|classLoaders
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|findAnnotated (Class<? extends Annotation> annotation, String... packageNames)
 specifier|public
 name|Set

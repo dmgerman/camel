@@ -76,7 +76,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -90,7 +90,7 @@ specifier|public
 class|class
 name|IronMQComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|IronMQComponent (CamelContext context)
 specifier|public
@@ -103,10 +103,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|IronMQEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -114,15 +110,7 @@ DECL|method|IronMQComponent ()
 specifier|public
 name|IronMQComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|IronMQEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

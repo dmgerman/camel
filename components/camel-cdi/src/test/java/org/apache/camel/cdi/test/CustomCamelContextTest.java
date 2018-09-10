@@ -507,6 +507,9 @@ name|assertThat
 argument_list|(
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"uri-route"
@@ -543,6 +546,9 @@ throws|throws
 name|Exception
 block|{
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startAllRoutes
 argument_list|()

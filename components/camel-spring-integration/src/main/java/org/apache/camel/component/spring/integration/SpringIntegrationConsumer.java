@@ -526,6 +526,8 @@ argument_list|(
 operator|new
 name|SpringIntegrationMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|siInMessage
 argument_list|)
 argument_list|)

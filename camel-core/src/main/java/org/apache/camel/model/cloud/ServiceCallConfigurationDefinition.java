@@ -394,20 +394,6 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"aggregatingServiceDiscovery"
-argument_list|,
-name|type
-operator|=
-name|AggregatingServiceCallServiceDiscoveryConfiguration
-operator|.
-name|class
-argument_list|)
-block|,
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
 literal|"combinedServiceDiscovery"
 argument_list|,
 name|type
@@ -521,20 +507,6 @@ argument_list|,
 name|type
 operator|=
 name|BlacklistServiceCallServiceFilterConfiguration
-operator|.
-name|class
-argument_list|)
-block|,
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"chainedServiceFilter"
-argument_list|,
-name|type
-operator|=
-name|ChainedServiceCallServiceFilterConfiguration
 operator|.
 name|class
 argument_list|)
@@ -1774,52 +1746,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @deprecated As of version 2.22.0, replaced by {@link #combinedServiceDiscovery()}      */
-annotation|@
-name|Deprecated
-DECL|method|multiServiceDiscovery ()
-specifier|public
-name|AggregatingServiceCallServiceDiscoveryConfiguration
-name|multiServiceDiscovery
-parameter_list|()
-block|{
-name|AggregatingServiceCallServiceDiscoveryConfiguration
-name|conf
-init|=
-operator|new
-name|AggregatingServiceCallServiceDiscoveryConfiguration
-argument_list|()
-decl_stmt|;
-name|setServiceDiscoveryConfiguration
-argument_list|(
-name|conf
-argument_list|)
-expr_stmt|;
-return|return
-name|conf
-return|;
-block|}
-comment|/**      * @deprecated As of version 2.22.0, replaced by {@link #combinedServiceDiscovery(CombinedServiceCallServiceDiscoveryConfiguration)}      */
-annotation|@
-name|Deprecated
-DECL|method|multiServiceDiscovery (AggregatingServiceCallServiceDiscoveryConfiguration conf)
-specifier|public
-name|ServiceCallConfigurationDefinition
-name|multiServiceDiscovery
-parameter_list|(
-name|AggregatingServiceCallServiceDiscoveryConfiguration
-name|conf
-parameter_list|)
-block|{
-name|setServiceDiscoveryConfiguration
-argument_list|(
-name|conf
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 DECL|method|combinedServiceDiscovery ()
 specifier|public
 name|CombinedServiceCallServiceDiscoveryConfiguration
@@ -2009,31 +1935,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
-return|;
-block|}
-comment|/**      * @deprecated As of version 2.22.0, replaced by {@link #combinedFilter()}      */
-annotation|@
-name|Deprecated
-DECL|method|multiFilter ()
-specifier|public
-name|ChainedServiceCallServiceFilterConfiguration
-name|multiFilter
-parameter_list|()
-block|{
-name|ChainedServiceCallServiceFilterConfiguration
-name|conf
-init|=
-operator|new
-name|ChainedServiceCallServiceFilterConfiguration
-argument_list|()
-decl_stmt|;
-name|setServiceFilterConfiguration
-argument_list|(
-name|conf
-argument_list|)
-expr_stmt|;
-return|return
-name|conf
 return|;
 block|}
 DECL|method|combinedFilter ()

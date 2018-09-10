@@ -173,7 +173,7 @@ decl_stmt|;
 comment|// enable jackson type converter by setting this property on CamelContext
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

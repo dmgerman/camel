@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -104,21 +104,13 @@ specifier|public
 class|class
 name|SpringLdapComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|SpringLdapComponent ()
 specifier|public
 name|SpringLdapComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|SpringLdapEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * creates a Spring LDAP endpoint      * @param remaining name of the Spring LDAP template bean to be used for the LDAP operation      * @param parameters key-value pairs to be set on @see org.apache.camel.component.springldap.SpringLdapEndpoint.      * Currently supported keys are operation and scope.      * 'operation' is defined in org.apache.camel.component.springldap.LdapOperation.      * 'scope' must be one of "object", "onelevel", or "subtree".      */
 annotation|@
 name|Override

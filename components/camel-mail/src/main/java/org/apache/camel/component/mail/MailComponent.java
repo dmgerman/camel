@@ -130,7 +130,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -186,7 +186,7 @@ specifier|public
 class|class
 name|MailComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -234,15 +234,7 @@ DECL|method|MailComponent ()
 specifier|public
 name|MailComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|MailEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|MailComponent (MailConfiguration configuration)
 specifier|public
 name|MailComponent
@@ -252,11 +244,7 @@ name|configuration
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|MailEndpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -276,10 +264,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|MailEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

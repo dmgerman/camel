@@ -142,7 +142,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -232,7 +232,7 @@ specifier|public
 class|class
 name|PropertiesComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 comment|/**      * The default prefix token.      */
 DECL|field|DEFAULT_PREFIX_TOKEN
@@ -253,30 +253,6 @@ name|String
 name|DEFAULT_SUFFIX_TOKEN
 init|=
 literal|"}}"
-decl_stmt|;
-comment|/**      * The default prefix token.      * @deprecated Use {@link #DEFAULT_PREFIX_TOKEN} instead.      */
-annotation|@
-name|Deprecated
-DECL|field|PREFIX_TOKEN
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PREFIX_TOKEN
-init|=
-name|DEFAULT_PREFIX_TOKEN
-decl_stmt|;
-comment|/**      * The default suffix token.      * @deprecated Use {@link #DEFAULT_SUFFIX_TOKEN} instead.      */
-annotation|@
-name|Deprecated
-DECL|field|SUFFIX_TOKEN
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SUFFIX_TOKEN
-init|=
-name|DEFAULT_SUFFIX_TOKEN
 decl_stmt|;
 comment|/**      *  Never check system properties.      */
 DECL|field|SYSTEM_PROPERTIES_MODE_NEVER
@@ -598,11 +574,7 @@ name|PropertiesComponent
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|PropertiesEndpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// include out of the box functions
 name|addFunction

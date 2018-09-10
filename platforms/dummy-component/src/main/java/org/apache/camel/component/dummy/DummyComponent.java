@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -60,21 +60,13 @@ specifier|public
 class|class
 name|DummyComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|DummyComponent ()
 specifier|public
 name|DummyComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|DummyEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

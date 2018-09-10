@@ -404,6 +404,9 @@ expr_stmt|;
 comment|// now remove the 2nd route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"

@@ -483,20 +483,6 @@ operator|=
 name|path
 expr_stmt|;
 block|}
-DECL|method|SchematronEndpoint (String endpointUri)
-specifier|public
-name|SchematronEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer

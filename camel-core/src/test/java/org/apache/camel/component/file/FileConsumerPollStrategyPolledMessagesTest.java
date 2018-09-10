@@ -304,6 +304,9 @@ expr_stmt|;
 comment|// start route now files have been created
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"foo"

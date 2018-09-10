@@ -361,6 +361,9 @@ name|Exception
 block|{
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"continuousQuery"
@@ -589,6 +592,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"continuousQuery.fireExistingEntries"
@@ -690,6 +696,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"remoteFilter"
@@ -753,6 +762,9 @@ literal|100
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -1167,6 +1179,9 @@ if|if
 condition|(
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 name|route
@@ -1183,6 +1198,9 @@ block|{
 return|return;
 block|}
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

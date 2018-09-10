@@ -268,7 +268,7 @@ block|{
 comment|// setup the camel property for the PrettyPrint
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

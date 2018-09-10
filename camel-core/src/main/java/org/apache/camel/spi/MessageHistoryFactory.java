@@ -60,23 +60,6 @@ specifier|public
 interface|interface
 name|MessageHistoryFactory
 block|{
-comment|/**      * Creates a new {@link MessageHistory}      *      * @param routeId   the route id      * @param node      the node in the route      * @param timestamp the time the message processed at this node.      * @return a new {@link MessageHistory}      * @deprecated use {@link #newMessageHistory(String, NamedNode, long)}      */
-annotation|@
-name|Deprecated
-DECL|method|newMessageHistory (String routeId, NamedNode node, Date timestamp)
-name|MessageHistory
-name|newMessageHistory
-parameter_list|(
-name|String
-name|routeId
-parameter_list|,
-name|NamedNode
-name|node
-parameter_list|,
-name|Date
-name|timestamp
-parameter_list|)
-function_decl|;
 comment|/**      * Creates a new {@link MessageHistory}      *      * @param routeId   the route id      * @param node      the node in the route      * @param timestamp the time the message processed at this node.      * @return a new {@link MessageHistory}      */
 DECL|method|newMessageHistory (String routeId, NamedNode node, long timestamp)
 name|MessageHistory

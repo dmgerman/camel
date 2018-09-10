@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Component
 import|;
 end_import
@@ -178,30 +166,6 @@ specifier|public
 name|LuceneEndpoint
 parameter_list|()
 block|{     }
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-DECL|method|LuceneEndpoint (String endpointUri, CamelContext camelContext)
-specifier|public
-name|LuceneEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|camelContext
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|LuceneEndpoint (String endpointUri, Component component)
 specifier|public
 name|LuceneEndpoint
@@ -218,25 +182,6 @@ argument_list|(
 name|endpointUri
 argument_list|,
 name|component
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-DECL|method|LuceneEndpoint (String endpointUri)
-specifier|public
-name|LuceneEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}

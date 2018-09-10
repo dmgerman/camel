@@ -96,7 +96,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|XQueryComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -196,15 +196,7 @@ DECL|method|XQueryComponent ()
 specifier|public
 name|XQueryComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|XQueryEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

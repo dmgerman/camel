@@ -2425,7 +2425,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|setRestHostNameResolver
+name|setHostNameResolver
 argument_list|(
 name|hostNameResolver
 operator|.

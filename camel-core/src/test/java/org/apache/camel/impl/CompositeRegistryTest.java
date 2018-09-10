@@ -192,7 +192,7 @@ name|result
 operator|=
 name|registry
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"test"
 argument_list|,

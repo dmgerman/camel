@@ -104,34 +104,6 @@ specifier|final
 name|boolean
 name|binding
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|method|CamelInvocationHandler (Endpoint endpoint, Producer producer, MethodInfoCache methodInfoCache)
-specifier|public
-name|CamelInvocationHandler
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
-name|Producer
-name|producer
-parameter_list|,
-name|MethodInfoCache
-name|methodInfoCache
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|endpoint
-argument_list|,
-literal|false
-argument_list|,
-name|producer
-argument_list|,
-name|methodInfoCache
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|CamelInvocationHandler (Endpoint endpoint, boolean binding, Producer producer, MethodInfoCache methodInfoCache)
 specifier|public
 name|CamelInvocationHandler

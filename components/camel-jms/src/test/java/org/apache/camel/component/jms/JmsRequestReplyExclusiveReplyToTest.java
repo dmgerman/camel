@@ -240,7 +240,7 @@ name|delta
 init|=
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 decl_stmt|;
 name|assertTrue

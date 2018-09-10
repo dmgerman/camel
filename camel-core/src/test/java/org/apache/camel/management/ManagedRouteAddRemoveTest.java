@@ -434,6 +434,9 @@ expr_stmt|;
 comment|// now remove the 2nd route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"
@@ -758,6 +761,9 @@ expr_stmt|;
 comment|// now remove the 2nd route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"
@@ -1081,6 +1087,9 @@ argument_list|)
 expr_stmt|;
 comment|// now remove the 2nd route
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(
@@ -1415,6 +1424,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"
@@ -1730,6 +1742,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"
@@ -2030,6 +2045,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"
@@ -2326,6 +2344,9 @@ literal|"Stopping 2nd route"
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

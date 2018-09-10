@@ -814,25 +814,6 @@ return|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the initial redelivery delay in milliseconds      *      * @deprecated will be removed in the near future. Instead use {@link #redeliveryDelay(long)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|redeliverDelay (long delay)
-specifier|public
-name|RedeliveryPolicy
-name|redeliverDelay
-parameter_list|(
-name|long
-name|delay
-parameter_list|)
-block|{
-return|return
-name|redeliveryDelay
-argument_list|(
-name|delay
-argument_list|)
-return|;
-block|}
 comment|/**      * Sets the initial redelivery delay in milliseconds      */
 DECL|method|redeliveryDelay (long delay)
 specifier|public
@@ -1266,38 +1247,6 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-comment|/**      * @deprecated will be removed in the near future. Instead use {@link #getRedeliveryDelay()}      */
-annotation|@
-name|Deprecated
-DECL|method|getRedeliverDelay ()
-specifier|public
-name|long
-name|getRedeliverDelay
-parameter_list|()
-block|{
-return|return
-name|getRedeliveryDelay
-argument_list|()
-return|;
-block|}
-comment|/**      * @deprecated will be removed in the near future. Instead use {@link #setRedeliveryDelay(long)}      */
-annotation|@
-name|Deprecated
-DECL|method|setRedeliverDelay (long redeliveryDelay)
-specifier|public
-name|void
-name|setRedeliverDelay
-parameter_list|(
-name|long
-name|redeliveryDelay
-parameter_list|)
-block|{
-name|setRedeliveryDelay
-argument_list|(
-name|redeliveryDelay
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getRedeliveryDelay ()
 specifier|public
 name|long

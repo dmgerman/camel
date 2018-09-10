@@ -44,14 +44,6 @@ name|String
 name|getEndpointUri
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the object representation of the endpoint configuration      *      * @return the endpoint configuration      */
-annotation|@
-name|Deprecated
-DECL|method|getEndpointConfiguration ()
-name|EndpointConfiguration
-name|getEndpointConfiguration
-parameter_list|()
-function_decl|;
 comment|/**      * Returns a string key of this endpoint.      *<p/>      * This key is used by {@link org.apache.camel.spi.LifecycleStrategy} when registering endpoint.      * This allows to register different instances of endpoints with the same key.      *<p/>      * For JMX mbeans this allows us to use the same JMX Mbean for all endpoints that are logical      * the same but have different parameters. For instance the http endpoint.      *      * @return the endpoint key      */
 DECL|method|getEndpointKey ()
 name|String
@@ -71,17 +63,6 @@ name|createExchange
 parameter_list|(
 name|ExchangePattern
 name|pattern
-parameter_list|)
-function_decl|;
-comment|/**      * Creates a new exchange for communicating with this endpoint using the      * given exchange to pre-populate the values of the headers and messages      *      * @param exchange given exchange to use for pre-populate      * @return a new exchange      * @deprecated will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|createExchange (Exchange exchange)
-name|Exchange
-name|createExchange
-parameter_list|(
-name|Exchange
-name|exchange
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the context which created the endpoint      *      * @return the context which created the endpoint      */

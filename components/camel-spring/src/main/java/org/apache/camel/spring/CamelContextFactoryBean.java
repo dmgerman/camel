@@ -510,20 +510,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|PropertiesDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|RestContextRefDefinition
 import|;
 end_import
@@ -1277,22 +1263,6 @@ decl_stmt|;
 annotation|@
 name|XmlAttribute
 annotation|@
-name|Deprecated
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
-DECL|field|lazyLoadTypeConverters
-specifier|private
-name|Boolean
-name|lazyLoadTypeConverters
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
 name|Metadata
 argument_list|(
 name|defaultValue
@@ -1338,20 +1308,6 @@ DECL|field|typeConverterExistsLoggingLevel
 specifier|private
 name|LoggingLevel
 name|typeConverterExistsLoggingLevel
-decl_stmt|;
-annotation|@
-name|Deprecated
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"properties"
-argument_list|)
-DECL|field|properties
-specifier|private
-name|PropertiesDefinition
-name|properties
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -2418,7 +2374,7 @@ literal|"afterPropertiesSet() took {} millis"
 argument_list|,
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3316,18 +3272,6 @@ name|interceptSendToEndpoints
 expr_stmt|;
 block|}
 annotation|@
-name|Deprecated
-DECL|method|getProperties ()
-specifier|public
-name|PropertiesDefinition
-name|getProperties
-parameter_list|()
-block|{
-return|return
-name|properties
-return|;
-block|}
-annotation|@
 name|Override
 DECL|method|getGlobalOptions ()
 specifier|public
@@ -3338,25 +3282,6 @@ block|{
 return|return
 name|globalOptions
 return|;
-block|}
-comment|/**      * Configuration of CamelContext properties such as limit of debug logging      * and other general options.      *       * @deprecated Use {@link GlobalOptionsDefinition} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setProperties (PropertiesDefinition properties)
-specifier|public
-name|void
-name|setProperties
-parameter_list|(
-name|PropertiesDefinition
-name|properties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|properties
-operator|=
-name|properties
-expr_stmt|;
 block|}
 comment|/**      * Configuration of CamelContext properties such as limit of debug logging      * and other general options.      */
 DECL|method|setGlobalOptions (GlobalOptionsDefinition globalOptions)
@@ -3726,7 +3651,7 @@ return|return
 name|autoStartup
 return|;
 block|}
-comment|/**      * Sets whether the object should automatically start when Camel starts.      *<p/>      *<b>Important:</b> Currently only routes can be disabled, as {@link CamelContext}s are always started.      *<br/>      *<b>Note:</b> When setting auto startup<tt>false</tt> on {@link CamelContext} then that takes precedence      * and<i>no</i> routes is started. You would need to start {@link CamelContext} explicit using      * the {@link org.apache.camel.CamelContext#start()} method, to start the context, and then      * you would need to start the routes manually using {@link CamelContext#startRoute(String)}.      */
+comment|/**      * Sets whether the object should automatically start when Camel starts.      *<p/>      *<b>Important:</b> Currently only routes can be disabled, as {@link CamelContext}s are always started.      *<br/>      *<b>Note:</b> When setting auto startup<tt>false</tt> on {@link CamelContext} then that takes precedence      * and<i>no</i> routes is started. You would need to start {@link CamelContext} explicit using      * the {@link org.apache.camel.CamelContext#start()} method, to start the context, and then      * you would need to start the routes manually using {@link org.apache.camel.spi.RouteController#startRoute(String)}.      */
 DECL|method|setAutoStartup (String autoStartup)
 specifier|public
 name|void
@@ -3984,37 +3909,6 @@ operator|.
 name|threadNamePattern
 operator|=
 name|threadNamePattern
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|getLazyLoadTypeConverters ()
-specifier|public
-name|Boolean
-name|getLazyLoadTypeConverters
-parameter_list|()
-block|{
-return|return
-name|lazyLoadTypeConverters
-return|;
-block|}
-comment|/**      * Sets whether type converters should be loaded lazy      */
-annotation|@
-name|Deprecated
-DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
-specifier|public
-name|void
-name|setLazyLoadTypeConverters
-parameter_list|(
-name|Boolean
-name|lazyLoadTypeConverters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|lazyLoadTypeConverters
-operator|=
-name|lazyLoadTypeConverters
 expr_stmt|;
 block|}
 annotation|@

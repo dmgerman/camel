@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeExchangeException
 import|;
 end_import
@@ -251,10 +263,13 @@ specifier|private
 name|JmsBinding
 name|binding
 decl_stmt|;
-DECL|method|SjmsMessage (Message jmsMessage, Session jmsSession, JmsBinding binding)
+DECL|method|SjmsMessage (Exchange exchange, Message jmsMessage, Session jmsSession, JmsBinding binding)
 specifier|public
 name|SjmsMessage
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|Message
 name|jmsMessage
 parameter_list|,
@@ -265,6 +280,11 @@ name|JmsBinding
 name|binding
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|setJmsMessage
 argument_list|(
 name|jmsMessage
@@ -902,6 +922,8 @@ init|=
 operator|new
 name|SjmsMessage
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 literal|null

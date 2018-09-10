@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -134,21 +122,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Metadata
+name|DefaultComponent
 import|;
 end_import
 
@@ -218,7 +192,7 @@ specifier|public
 class|class
 name|WeatherComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|httpClient
 specifier|private
@@ -239,33 +213,7 @@ DECL|method|WeatherComponent ()
 specifier|public
 name|WeatherComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|WeatherEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|WeatherComponent (CamelContext context)
-specifier|public
-name|WeatherComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|,
-name|WeatherEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

@@ -484,29 +484,6 @@ name|callback
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated use {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|processNext (Exchange exchange, AsyncCallback callback)
-specifier|protected
-name|boolean
-name|processNext
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"This method is deprecated, use process(Exchange, AsyncCallback) instead"
-argument_list|)
-throw|;
-block|}
 DECL|method|hasNext ()
 specifier|public
 name|boolean

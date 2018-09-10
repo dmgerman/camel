@@ -286,6 +286,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -328,6 +338,8 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Ignore
 DECL|class|PropertyEndpointTest
 specifier|public
 class|class

@@ -70,6 +70,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -867,6 +881,13 @@ expr_stmt|;
 block|}
 comment|// update the routes (add will remove and shutdown first)
 name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|ModelCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addRouteDefinitions
 argument_list|(

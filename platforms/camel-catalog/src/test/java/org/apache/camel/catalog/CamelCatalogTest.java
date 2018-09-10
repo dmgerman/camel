@@ -6055,14 +6055,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SimpleValidationResult
+name|LanguageValidationResult
 name|result
 init|=
 name|catalog
 operator|.
-name|validateSimpleExpression
+name|validateLanguageExpression
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 literal|"${body}"
 argument_list|)
@@ -6081,7 +6083,7 @@ literal|"${body}"
 argument_list|,
 name|result
 operator|.
-name|getSimple
+name|getText
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6089,9 +6091,11 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateSimpleExpression
+name|validateLanguageExpression
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 literal|"${body"
 argument_list|)
@@ -6110,7 +6114,7 @@ literal|"${body"
 argument_list|,
 name|result
 operator|.
-name|getSimple
+name|getText
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6161,9 +6165,11 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateSimpleExpression
+name|validateLanguageExpression
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 literal|"${bodyxxx}"
 argument_list|)
@@ -6182,7 +6188,7 @@ literal|"${bodyxxx}"
 argument_list|,
 name|result
 operator|.
-name|getSimple
+name|getText
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6227,14 +6233,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SimpleValidationResult
+name|LanguageValidationResult
 name|result
 init|=
 name|catalog
 operator|.
-name|validateSimplePredicate
+name|validateLanguagePredicate
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 literal|"${body} == 'abc'"
 argument_list|)
@@ -6253,7 +6261,7 @@ literal|"${body} == 'abc'"
 argument_list|,
 name|result
 operator|.
-name|getSimple
+name|getText
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6261,9 +6269,11 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateSimplePredicate
+name|validateLanguagePredicate
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 literal|"${body}> ${header.size"
 argument_list|)
@@ -6282,7 +6292,7 @@ literal|"${body}> ${header.size"
 argument_list|,
 name|result
 operator|.
-name|getSimple
+name|getText
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6332,22 +6342,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSimplePredicatePlaceholder ()
+DECL|method|testPredicatePlaceholder ()
 specifier|public
 name|void
-name|testSimplePredicatePlaceholder
+name|testPredicatePlaceholder
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SimpleValidationResult
+name|LanguageValidationResult
 name|result
 init|=
 name|catalog
 operator|.
-name|validateSimplePredicate
+name|validateLanguagePredicate
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 literal|"${body} contains '{{danger}}'"
 argument_list|)
@@ -6366,7 +6378,7 @@ literal|"${body} contains '{{danger}}'"
 argument_list|,
 name|result
 operator|.
-name|getSimple
+name|getText
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6374,9 +6386,11 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateSimplePredicate
+name|validateLanguagePredicate
 argument_list|(
 literal|null
+argument_list|,
+literal|"simple"
 argument_list|,
 literal|"${bdy} contains '{{danger}}'"
 argument_list|)
@@ -6395,7 +6409,7 @@ literal|"${bdy} contains '{{danger}}'"
 argument_list|,
 name|result
 operator|.
-name|getSimple
+name|getText
 argument_list|()
 argument_list|)
 expr_stmt|;

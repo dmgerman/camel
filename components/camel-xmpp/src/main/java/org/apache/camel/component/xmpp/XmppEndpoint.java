@@ -822,22 +822,6 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|XmppEndpoint (String endpointUri)
-specifier|public
-name|XmppEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -1045,6 +1029,8 @@ argument_list|(
 operator|new
 name|XmppMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|packet
 argument_list|)
 argument_list|)

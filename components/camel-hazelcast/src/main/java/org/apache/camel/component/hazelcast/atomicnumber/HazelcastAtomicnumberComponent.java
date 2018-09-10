@@ -98,11 +98,7 @@ DECL|method|HazelcastAtomicnumberComponent ()
 specifier|public
 name|HazelcastAtomicnumberComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HazelcastAtomicnumberComponent (final CamelContext context)
 specifier|public
 name|HazelcastAtomicnumberComponent

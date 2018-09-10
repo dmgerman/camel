@@ -292,7 +292,13 @@ operator|.
 name|wireTap
 argument_list|(
 literal|"direct:a"
-argument_list|,
+argument_list|)
+operator|.
+name|copy
+argument_list|()
+operator|.
+name|newExchange
+argument_list|(
 operator|new
 name|AnimalDeepClonePrepare
 argument_list|()

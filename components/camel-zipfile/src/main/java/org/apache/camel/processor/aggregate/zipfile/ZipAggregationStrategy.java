@@ -298,6 +298,22 @@ specifier|private
 name|boolean
 name|useFilenameHeader
 decl_stmt|;
+DECL|field|parentDir
+specifier|private
+name|File
+name|parentDir
+init|=
+operator|new
+name|File
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|)
+decl_stmt|;
 DECL|method|ZipAggregationStrategy ()
 specifier|public
 name|ZipAggregationStrategy
@@ -409,6 +425,54 @@ operator|=
 name|fileSuffix
 expr_stmt|;
 block|}
+DECL|method|getParentDir ()
+specifier|public
+name|File
+name|getParentDir
+parameter_list|()
+block|{
+return|return
+name|parentDir
+return|;
+block|}
+comment|/**      * Sets the parent directory to use for writing temporary files.      */
+DECL|method|setParentDir (File parentDir)
+specifier|public
+name|void
+name|setParentDir
+parameter_list|(
+name|File
+name|parentDir
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parentDir
+operator|=
+name|parentDir
+expr_stmt|;
+block|}
+comment|/**      * Sets the parent directory to use for writing temporary files.      */
+DECL|method|setParentDir (String parentDir)
+specifier|public
+name|void
+name|setParentDir
+parameter_list|(
+name|String
+name|parentDir
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parentDir
+operator|=
+operator|new
+name|File
+argument_list|(
+name|parentDir
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
@@ -466,6 +530,10 @@ argument_list|,
 name|this
 operator|.
 name|fileSuffix
+argument_list|,
+name|this
+operator|.
+name|parentDir
 argument_list|)
 expr_stmt|;
 block|}

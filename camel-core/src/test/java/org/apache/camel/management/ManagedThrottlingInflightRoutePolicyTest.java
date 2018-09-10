@@ -217,11 +217,11 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
-name|Integer
+name|Long
 name|val
 init|=
 operator|(
-name|Integer
+name|Long
 operator|)
 name|mbeanServer
 operator|.
@@ -229,17 +229,17 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"InflightExchanges"
+literal|"ExchangesInflight"
 argument_list|)
 decl_stmt|;
 comment|// the route has no inflight exchanges
 name|assertEquals
 argument_list|(
-literal|0
+literal|0L
 argument_list|,
 name|val
 operator|.
-name|intValue
+name|longValue
 argument_list|()
 argument_list|)
 expr_stmt|;

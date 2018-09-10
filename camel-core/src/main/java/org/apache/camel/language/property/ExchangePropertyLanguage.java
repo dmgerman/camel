@@ -110,26 +110,6 @@ name|Language
 implements|,
 name|IsSingleton
 block|{
-comment|/**      * @deprecated use {@link #exchangeProperty(String)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|property (String propertyName)
-specifier|public
-specifier|static
-name|Expression
-name|property
-parameter_list|(
-name|String
-name|propertyName
-parameter_list|)
-block|{
-return|return
-name|exchangeProperty
-argument_list|(
-name|propertyName
-argument_list|)
-return|;
-block|}
 DECL|method|exchangeProperty (String propertyName)
 specifier|public
 specifier|static

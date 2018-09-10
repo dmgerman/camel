@@ -305,6 +305,9 @@ name|status
 init|=
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo-route"
@@ -358,6 +361,9 @@ name|status
 operator|=
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo-route"
@@ -389,6 +395,9 @@ expr_stmt|;
 name|status
 operator|=
 name|camelContext
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

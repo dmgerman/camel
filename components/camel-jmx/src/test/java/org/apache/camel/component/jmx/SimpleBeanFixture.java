@@ -593,13 +593,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|mContext
-operator|.
-name|setLazyLoadTypeConverters
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 specifier|final
 name|MockEndpoint
 name|mock

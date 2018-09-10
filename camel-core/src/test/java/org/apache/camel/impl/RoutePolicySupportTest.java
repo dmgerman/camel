@@ -143,6 +143,9 @@ name|Stopped
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -163,6 +166,9 @@ operator|.
 name|Started
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -185,6 +191,9 @@ name|Suspended
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -206,6 +215,9 @@ name|Started
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -226,6 +238,9 @@ operator|.
 name|Stopped
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

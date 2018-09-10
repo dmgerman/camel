@@ -124,7 +124,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -158,7 +158,7 @@ specifier|public
 class|class
 name|CMComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -185,15 +185,7 @@ DECL|method|CMComponent ()
 specifier|public
 name|CMComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|CMEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|CMComponent (final CamelContext context)
 specifier|public
 name|CMComponent
@@ -206,10 +198,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|CMEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

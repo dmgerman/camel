@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -62,7 +74,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -104,18 +116,24 @@ specifier|public
 class|class
 name|MockComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|MockComponent ()
 specifier|public
 name|MockComponent
 parameter_list|()
+block|{     }
+DECL|method|MockComponent (CamelContext context)
+specifier|public
+name|MockComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
 block|{
 name|super
 argument_list|(
-name|MockEndpoint
-operator|.
-name|class
+name|context
 argument_list|)
 expr_stmt|;
 block|}

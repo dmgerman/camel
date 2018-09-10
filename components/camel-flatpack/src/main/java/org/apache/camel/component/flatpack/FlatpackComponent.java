@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -64,7 +64,7 @@ specifier|public
 class|class
 name|FlatpackComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|HEADER_ID
 specifier|public
@@ -88,15 +88,7 @@ DECL|method|FlatpackComponent ()
 specifier|public
 name|FlatpackComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|FlatpackEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

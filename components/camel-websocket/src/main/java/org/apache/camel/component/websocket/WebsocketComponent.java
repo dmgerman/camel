@@ -150,7 +150,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -534,7 +534,7 @@ specifier|public
 class|class
 name|WebsocketComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -878,11 +878,7 @@ name|WebsocketComponent
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|WebsocketEndpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 if|if
 condition|(

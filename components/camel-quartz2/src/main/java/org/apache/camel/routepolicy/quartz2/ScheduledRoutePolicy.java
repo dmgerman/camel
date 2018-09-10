@@ -351,6 +351,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 name|route

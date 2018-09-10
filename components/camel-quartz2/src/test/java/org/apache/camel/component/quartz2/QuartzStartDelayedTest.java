@@ -86,7 +86,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|1900
 argument_list|)

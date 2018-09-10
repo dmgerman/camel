@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|FacebookComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -225,10 +225,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|FacebookEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|this

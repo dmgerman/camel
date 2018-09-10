@@ -75,9 +75,7 @@ operator|=
 name|exchange
 operator|.
 name|copy
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getExchangeCopy ()

@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of {@link Route}.  *<p/>  * Use the API from {@link org.apache.camel.CamelContext} to control the lifecycle of a route,  * such as starting and stopping using the {@link org.apache.camel.CamelContext#startRoute(String)}  * and {@link org.apache.camel.CamelContext#stopRoute(String)} methods.  *  * @version   */
+comment|/**  * Default implementation of {@link Route}.  *<p/>  * Use the API from {@link org.apache.camel.CamelContext} to control the lifecycle of a route,  * such as starting and stopping using the {@link org.apache.camel.spi.RouteController#startRoute(String)}  * and {@link org.apache.camel.spi.RouteController#stopRoute(String)} methods.  *  * @version   */
 end_comment
 
 begin_class
@@ -526,7 +526,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Do not invoke this method directly, use {@link org.apache.camel.CamelContext#startRoute(String)} to start a route.      */
+comment|/**      * Do not invoke this method directly, use {@link org.apache.camel.spi.RouteController#startRoute(String)} to start a route.      */
 annotation|@
 name|Override
 DECL|method|start ()
@@ -543,7 +543,7 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Do not invoke this method directly, use {@link org.apache.camel.CamelContext#stopRoute(String)} to stop a route.      */
+comment|/**      * Do not invoke this method directly, use {@link org.apache.camel.spi.RouteController#stopRoute(String)} to stop a route.      */
 annotation|@
 name|Override
 DECL|method|stop ()

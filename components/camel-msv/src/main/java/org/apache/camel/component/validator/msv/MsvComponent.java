@@ -112,15 +112,7 @@ DECL|method|MsvComponent ()
 specifier|public
 name|MsvComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|MsvEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

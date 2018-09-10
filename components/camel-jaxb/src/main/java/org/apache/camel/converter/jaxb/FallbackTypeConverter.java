@@ -684,7 +684,7 @@ name|property
 init|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|PRETTY_PRINT
 argument_list|)
@@ -726,7 +726,7 @@ name|property
 operator|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|OBJECT_FACTORY
 argument_list|)

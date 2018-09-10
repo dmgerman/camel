@@ -89,27 +89,6 @@ name|boolean
 name|useRawUri
 parameter_list|()
 function_decl|;
-comment|/**      * Attempt to create a configuration object from the given uri      *      * @param uri the configuration URI      * @return a newly created {@link EndpointConfiguration}      * @throws Exception is thrown if the configuration URI is invalid      *      * @since Camel 2.9.0      */
-annotation|@
-name|Deprecated
-DECL|method|createConfiguration (String uri)
-name|EndpointConfiguration
-name|createConfiguration
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Creates a configuration helper object for a component that lets you configure the various      * URI and parameter values; then create the full URI for it, create a new Endpoint from it      * or configure an existing Endpoint from the values.      *      * This method is intended to be used in cases where there is not yet a full URI to      * configure an endpoint yet; but rather there are a number of parameters to configure      * to then build up a new URI or directly create an Endpoint from the parameter values.      */
-annotation|@
-name|Deprecated
-DECL|method|createComponentConfiguration ()
-name|ComponentConfiguration
-name|createComponentConfiguration
-parameter_list|()
-function_decl|;
 comment|/**      * Gets a list of supported extensions.      *      * @return the list of extensions.      */
 DECL|method|getSupportedExtensions ()
 specifier|default

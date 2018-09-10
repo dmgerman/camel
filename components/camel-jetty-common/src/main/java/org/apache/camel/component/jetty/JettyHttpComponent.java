@@ -1346,15 +1346,7 @@ DECL|method|JettyHttpComponent ()
 specifier|public
 name|JettyHttpComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|JettyHttpEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|class|ConnectorRef
 class|class
 name|ConnectorRef
@@ -3105,7 +3097,7 @@ name|isNotEmpty
 argument_list|(
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|TMP_DIR
 argument_list|)
@@ -3120,7 +3112,7 @@ name|File
 argument_list|(
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|TMP_DIR
 argument_list|)
@@ -3143,7 +3135,7 @@ literal|"The temp file directory of camel-jetty is not exists, please recheck it
 operator|+
 name|camelContext
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|get
@@ -4546,7 +4538,7 @@ name|isNotEmpty
 argument_list|(
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
@@ -4558,7 +4550,7 @@ name|isNotEmpty
 argument_list|(
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)
@@ -4570,7 +4562,7 @@ name|host
 init|=
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
@@ -4584,7 +4576,7 @@ name|parseInt
 argument_list|(
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)
@@ -6350,7 +6342,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -6370,7 +6362,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -6393,7 +6385,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration

@@ -346,6 +346,9 @@ literal|"Route should be started"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -463,6 +466,9 @@ literal|"Route should be started"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -495,6 +501,9 @@ expr_stmt|;
 name|assertNull
 argument_list|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -588,6 +597,9 @@ literal|"Route should be stopped"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -599,6 +611,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"foo"
@@ -609,6 +624,9 @@ argument_list|(
 literal|"Route should be started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -713,6 +731,9 @@ argument_list|(
 literal|"Route should be started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -845,6 +866,9 @@ argument_list|(
 literal|"Route should be started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

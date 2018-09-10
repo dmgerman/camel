@@ -120,18 +120,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|TypeConverter
 import|;
 end_import
@@ -245,8 +233,6 @@ class|class
 name|DefaultComponentVerifierExtension
 implements|implements
 name|ComponentVerifierExtension
-implements|,
-name|ComponentVerifier
 implements|,
 name|CamelContextAware
 implements|,

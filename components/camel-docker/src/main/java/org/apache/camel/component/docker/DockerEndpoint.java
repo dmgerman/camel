@@ -265,20 +265,6 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|DockerEndpoint (String endpointUri)
-specifier|public
-name|DockerEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createProducer ()

@@ -169,6 +169,9 @@ block|{
 comment|// stop Jetty route so there should not be a connection
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"jetty"

@@ -158,6 +158,9 @@ name|stopRouteResponse
 init|=
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"start"
@@ -186,6 +189,9 @@ argument_list|,
 literal|true
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -293,6 +299,9 @@ name|stopRouteResponse
 init|=
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"start"
@@ -321,6 +330,9 @@ argument_list|,
 literal|true
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

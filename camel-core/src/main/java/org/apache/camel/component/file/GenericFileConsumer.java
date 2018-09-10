@@ -2699,43 +2699,6 @@ argument_list|>
 name|files
 parameter_list|)
 function_decl|;
-comment|/**      * Is the given file already in progress.      *      * @param file the file      * @return<tt>true</tt> if the file is already in progress      * @deprecated no longer in use, use {@link org.apache.camel.component.file.GenericFileEndpoint#getInProgressRepository()} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|isInProgress (GenericFile<T> file)
-specifier|protected
-name|boolean
-name|isInProgress
-parameter_list|(
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-name|file
-parameter_list|)
-block|{
-name|String
-name|key
-init|=
-name|file
-operator|.
-name|getAbsoluteFilePath
-argument_list|()
-decl_stmt|;
-comment|// must use add, to have operation as atomic
-return|return
-operator|!
-name|endpoint
-operator|.
-name|getInProgressRepository
-argument_list|()
-operator|.
-name|add
-argument_list|(
-name|key
-argument_list|)
-return|;
-block|}
 DECL|method|evaluateFileExpression ()
 specifier|protected
 name|String

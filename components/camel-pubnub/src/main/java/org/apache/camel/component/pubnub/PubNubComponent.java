@@ -106,11 +106,7 @@ DECL|method|PubNubComponent ()
 specifier|public
 name|PubNubComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

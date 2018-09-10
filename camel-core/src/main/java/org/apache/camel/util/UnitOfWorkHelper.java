@@ -164,34 +164,6 @@ specifier|private
 name|UnitOfWorkHelper
 parameter_list|()
 block|{     }
-comment|/**      * Creates a new {@link UnitOfWork}.      *      * @param exchange the exchange      * @return the created unit of work (is not started)      * @deprecated use {@link org.apache.camel.CamelContext#getUnitOfWorkFactory()} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|createUoW (Exchange exchange)
-specifier|public
-specifier|static
-name|UnitOfWork
-name|createUoW
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getUnitOfWorkFactory
-argument_list|()
-operator|.
-name|createUnitOfWork
-argument_list|(
-name|exchange
-argument_list|)
-return|;
-block|}
 comment|/**      * Done and stop the {@link UnitOfWork}.      *      * @param uow the unit of work      * @param exchange the exchange (will unset the UoW on the exchange)      */
 DECL|method|doneUow (UnitOfWork uow, Exchange exchange)
 specifier|public

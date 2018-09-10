@@ -109,15 +109,7 @@ DECL|method|CxfBeanComponent ()
 specifier|public
 name|CxfBeanComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|CxfBeanEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

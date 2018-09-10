@@ -99,6 +99,8 @@ argument_list|(
 literal|"Hello"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -145,6 +147,8 @@ argument_list|(
 literal|"'Hello'"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -191,6 +195,8 @@ argument_list|(
 literal|"\"Hello\" \"World\""
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -247,6 +253,8 @@ argument_list|(
 literal|"'Hello ${body} how are you?'"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -303,6 +311,8 @@ argument_list|(
 literal|"'Hello ${bodyAs(String)} how are you?'"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -349,6 +359,8 @@ argument_list|(
 literal|"'Hello' World"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -405,6 +417,8 @@ argument_list|(
 literal|"${body}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -451,6 +465,8 @@ argument_list|(
 literal|"Pay 200$ today"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -497,6 +513,8 @@ argument_list|(
 literal|"Pay 200$"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -553,6 +571,8 @@ argument_list|(
 literal|"${body}++"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -609,6 +629,8 @@ argument_list|(
 literal|"${body}--"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -665,6 +687,8 @@ argument_list|(
 literal|"${body}++"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -726,6 +750,8 @@ argument_list|(
 literal|"${body}--"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -799,6 +825,8 @@ argument_list|(
 literal|"${header.${body}}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -877,6 +905,8 @@ argument_list|(
 literal|"${bodyAs(${header.foo})}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -994,6 +1024,8 @@ argument_list|(
 literal|"${bodyAs(${header.foo}${header.bar}${header.baz})}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -1099,6 +1131,8 @@ argument_list|(
 literal|"${bodyAs(${header.${header.bar}})}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -1211,6 +1245,8 @@ argument_list|(
 literal|"${body[foo]}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -1245,6 +1281,8 @@ argument_list|(
 literal|"${body['foo bar']}"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|exp
@@ -1312,6 +1350,8 @@ argument_list|(
 literal|"THE MSG ID ${header.JMSMessageID} isA --"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -1380,6 +1420,8 @@ argument_list|(
 literal|"------------THE MSG ID ${header.JMSMessageID}------------"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -1448,6 +1490,8 @@ argument_list|(
 literal|"------------ THE MSG ID ${header.JMSMessageID} ------------"
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Expression

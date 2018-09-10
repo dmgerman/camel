@@ -216,7 +216,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|get

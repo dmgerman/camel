@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -102,7 +102,7 @@ specifier|public
 class|class
 name|DirectComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 comment|// must keep a map of consumers on the component to ensure endpoints can lookup old consumers
 comment|// later in case the DirectEndpoint was re-created due the old was evicted from the endpoints LRUCache
@@ -163,15 +163,7 @@ DECL|method|DirectComponent ()
 specifier|public
 name|DirectComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|DirectEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

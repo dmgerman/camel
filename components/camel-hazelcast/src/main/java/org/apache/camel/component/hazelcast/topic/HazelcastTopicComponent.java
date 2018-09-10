@@ -98,11 +98,7 @@ DECL|method|HazelcastTopicComponent ()
 specifier|public
 name|HazelcastTopicComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HazelcastTopicComponent (final CamelContext context)
 specifier|public
 name|HazelcastTopicComponent

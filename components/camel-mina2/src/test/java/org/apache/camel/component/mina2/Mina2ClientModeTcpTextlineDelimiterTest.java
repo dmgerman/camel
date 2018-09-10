@@ -252,6 +252,9 @@ expr_stmt|;
 comment|// start the camel route to connect to the server
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"minaRoute"

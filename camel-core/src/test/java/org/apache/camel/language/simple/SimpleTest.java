@@ -8577,7 +8577,7 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${camelContext.startRoute('foo')}"
+literal|"${camelContext.getRouteController().startRoute('foo')}"
 argument_list|,
 literal|null
 argument_list|)

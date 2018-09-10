@@ -191,6 +191,9 @@ condition|(
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|isStartingRoutes
 argument_list|()
 operator|&&

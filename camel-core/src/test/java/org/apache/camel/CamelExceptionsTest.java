@@ -1392,16 +1392,6 @@ name|assertFalse
 argument_list|(
 name|ExchangePattern
 operator|.
-name|RobustOutOnly
-operator|.
-name|isInCapable
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-name|ExchangePattern
-operator|.
 name|InOnly
 operator|.
 name|isFaultCapable

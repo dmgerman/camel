@@ -977,6 +977,9 @@ name|answer
 init|=
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 name|this
@@ -1124,7 +1127,7 @@ name|handler
 init|=
 name|camelContext
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 if|if
@@ -1393,14 +1396,14 @@ operator|.
 name|getRouteCollection
 argument_list|()
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 operator|!=
 literal|null
 operator|&&
 name|camelContext
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 operator|!=
 name|builder
@@ -1408,7 +1411,7 @@ operator|.
 name|getRouteCollection
 argument_list|()
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 condition|)
 block|{
@@ -3419,7 +3422,7 @@ name|contextScoped
 init|=
 name|context
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 return|return

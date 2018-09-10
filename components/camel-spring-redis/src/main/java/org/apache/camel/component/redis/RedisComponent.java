@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -64,7 +64,7 @@ specifier|public
 class|class
 name|RedisComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|exchangeConverter
 specifier|private
@@ -80,15 +80,7 @@ DECL|method|RedisComponent ()
 specifier|public
 name|RedisComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|RedisEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

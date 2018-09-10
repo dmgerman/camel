@@ -1287,16 +1287,6 @@ literal|null
 else|:
 name|nextProcessor
 expr_stmt|;
-comment|// skip stream caching as it must be wrapped as outer most, which we do later
-if|if
-condition|(
-name|strategy
-operator|instanceof
-name|StreamCaching
-condition|)
-block|{
-continue|continue;
-block|}
 comment|// use the fine grained definition (eg the child if available). Its always possible to get back to the parent
 name|Processor
 name|wrapped

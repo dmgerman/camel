@@ -519,45 +519,6 @@ name|Expression
 argument_list|>
 name|cacheExpression
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|method|SimplePredicateParser (String expression)
-specifier|public
-name|SimplePredicateParser
-parameter_list|(
-name|String
-name|expression
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|expression
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|SimplePredicateParser (String expression, boolean allowEscape)
-specifier|public
-name|SimplePredicateParser
-parameter_list|(
-name|String
-name|expression
-parameter_list|,
-name|boolean
-name|allowEscape
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|expression
-argument_list|,
-name|allowEscape
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|SimplePredicateParser (String expression, boolean allowEscape, Map<String, Expression> cacheExpression)
 specifier|public
 name|SimplePredicateParser

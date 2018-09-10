@@ -140,6 +140,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -274,7 +288,7 @@ argument_list|)
 expr_stmt|;
 name|name
 operator|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|normalizeClassName
 argument_list|(
@@ -453,7 +467,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -552,7 +566,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -618,7 +632,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -682,7 +696,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -883,7 +897,7 @@ name|Bundle
 name|loader
 parameter_list|)
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

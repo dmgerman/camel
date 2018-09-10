@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 import|;
 end_import
 
@@ -183,7 +183,7 @@ condition|)
 block|{
 name|id
 operator|=
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 operator|.
 name|generateSanitizedId
 argument_list|(
@@ -197,7 +197,7 @@ else|else
 block|{
 name|id
 operator|=
-name|ActiveMQUuidGenerator
+name|DefaultUuidGenerator
 operator|.
 name|generateSanitizedId
 argument_list|(

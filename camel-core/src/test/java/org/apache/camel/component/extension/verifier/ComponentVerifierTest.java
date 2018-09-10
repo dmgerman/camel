@@ -28,7 +28,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
+name|component
+operator|.
+name|extension
+operator|.
+name|ComponentVerifierExtension
 import|;
 end_import
 
@@ -318,13 +322,13 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.
 name|PARAMETERS
 argument_list|,
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.
@@ -336,7 +340,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.

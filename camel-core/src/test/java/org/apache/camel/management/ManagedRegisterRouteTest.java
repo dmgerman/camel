@@ -269,11 +269,11 @@ argument_list|,
 name|desc
 argument_list|)
 expr_stmt|;
-name|Integer
+name|Long
 name|val
 init|=
 operator|(
-name|Integer
+name|Long
 operator|)
 name|mbeanServer
 operator|.
@@ -281,17 +281,17 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"InflightExchanges"
+literal|"ExchangesInflight"
 argument_list|)
 decl_stmt|;
 comment|// the route has no inflight exchanges
 name|assertEquals
 argument_list|(
-literal|0
+literal|0L
 argument_list|,
 name|val
 operator|.
-name|intValue
+name|longValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -328,6 +328,9 @@ expr_stmt|;
 comment|// stop the route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 name|context
@@ -339,6 +342,9 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|registered

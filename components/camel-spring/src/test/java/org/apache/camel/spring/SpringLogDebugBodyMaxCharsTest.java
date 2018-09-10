@@ -43,6 +43,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -65,6 +75,8 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|SpringLogDebugBodyMaxCharsTest
 specifier|public
 class|class

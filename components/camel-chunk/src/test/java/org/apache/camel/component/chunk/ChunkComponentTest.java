@@ -374,7 +374,7 @@ literal|"Chunk performance: "
 operator|+
 name|stopwatch
 operator|.
-name|stop
+name|taken
 argument_list|()
 operator|+
 literal|"ms for "

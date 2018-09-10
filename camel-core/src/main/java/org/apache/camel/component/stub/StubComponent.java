@@ -112,15 +112,7 @@ DECL|method|StubComponent ()
 specifier|public
 name|StubComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|StubEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|validateURI (String uri, String path, Map<String, Object> parameters)

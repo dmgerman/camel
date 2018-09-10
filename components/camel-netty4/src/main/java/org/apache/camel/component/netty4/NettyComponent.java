@@ -134,7 +134,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -204,7 +204,7 @@ specifier|public
 class|class
 name|NettyComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -271,15 +271,7 @@ DECL|method|NettyComponent ()
 specifier|public
 name|NettyComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|NettyEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|NettyComponent (Class<? extends Endpoint> endpointClass)
 specifier|public
 name|NettyComponent
@@ -294,9 +286,7 @@ name|endpointClass
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|endpointClass
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|NettyComponent (CamelContext context)
@@ -310,10 +300,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|NettyEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

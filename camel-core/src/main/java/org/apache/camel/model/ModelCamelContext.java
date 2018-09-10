@@ -78,6 +78,22 @@ name|camel
 operator|.
 name|model
 operator|.
+name|cloud
+operator|.
+name|ServiceCallConfigurationDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|rest
 operator|.
 name|RestDefinition
@@ -97,6 +113,38 @@ operator|.
 name|rest
 operator|.
 name|RestsDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|transformer
+operator|.
+name|TransformerDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|validator
+operator|.
+name|ValidatorDefinition
 import|;
 end_import
 
@@ -225,32 +273,6 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      * @deprecated favor using {@link CamelContext#startRoute(String)}      */
-annotation|@
-name|Deprecated
-DECL|method|startRoute (RouteDefinition route)
-name|void
-name|startRoute
-parameter_list|(
-name|RouteDefinition
-name|route
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Stops the given route.      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @deprecated favor using {@link CamelContext#stopRoute(String)}      */
-annotation|@
-name|Deprecated
-DECL|method|stopRoute (RouteDefinition route)
-name|void
-name|stopRoute
-parameter_list|(
-name|RouteDefinition
-name|route
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Sets the data formats that can be referenced in the routes.      *      * @param dataFormats the data formats      */
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
 name|void
@@ -283,6 +305,161 @@ name|resolveDataFormatDefinition
 parameter_list|(
 name|String
 name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the processor definition from any of the routes which with the given id      *      * @param id id of the processor definition      * @return the processor definition or<tt>null</tt> if not found      */
+DECL|method|getProcessorDefinition (String id)
+name|ProcessorDefinition
+name|getProcessorDefinition
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the processor definition from any of the routes which with the given id      *      * @param id id of the processor definition      * @param type the processor definition type      * @return the processor definition or<tt>null</tt> if not found      * @throws java.lang.ClassCastException is thrown if the type is not correct type      */
+DECL|method|getProcessorDefinition (String id, Class<T> type)
+parameter_list|<
+name|T
+extends|extends
+name|ProcessorDefinition
+parameter_list|>
+name|T
+name|getProcessorDefinition
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the validators that can be referenced in the routes.      *      * @param validators the validators      */
+DECL|method|setValidators (List<ValidatorDefinition> validators)
+name|void
+name|setValidators
+parameter_list|(
+name|List
+argument_list|<
+name|ValidatorDefinition
+argument_list|>
+name|validators
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the Hystrix configuration by the given name. If no name is given      * the default configuration is returned, see<tt>setHystrixConfiguration</tt>      *      * @param id id of the configuration, or<tt>null</tt> to return the default configuration      * @return the configuration, or<tt>null</tt> if no configuration has been registered      */
+DECL|method|getHystrixConfiguration (String id)
+name|HystrixConfigurationDefinition
+name|getHystrixConfiguration
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the default Hystrix configuration      *      * @param configuration the configuration      */
+DECL|method|setHystrixConfiguration (HystrixConfigurationDefinition configuration)
+name|void
+name|setHystrixConfiguration
+parameter_list|(
+name|HystrixConfigurationDefinition
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the Hystrix configurations      *      * @param configurations the configuration list      */
+DECL|method|setHystrixConfigurations (List<HystrixConfigurationDefinition> configurations)
+name|void
+name|setHystrixConfigurations
+parameter_list|(
+name|List
+argument_list|<
+name|HystrixConfigurationDefinition
+argument_list|>
+name|configurations
+parameter_list|)
+function_decl|;
+comment|/**      * Adds the Hystrix configuration      *      * @param id name of the configuration      * @param configuration the configuration      */
+DECL|method|addHystrixConfiguration (String id, HystrixConfigurationDefinition configuration)
+name|void
+name|addHystrixConfiguration
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|HystrixConfigurationDefinition
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the validators that can be referenced in the routes.      *      * @return the validators available      */
+DECL|method|getValidators ()
+name|List
+argument_list|<
+name|ValidatorDefinition
+argument_list|>
+name|getValidators
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the transformers that can be referenced in the routes.      *      * @param transformers the transformers      */
+DECL|method|setTransformers (List<TransformerDefinition> transformers)
+name|void
+name|setTransformers
+parameter_list|(
+name|List
+argument_list|<
+name|TransformerDefinition
+argument_list|>
+name|transformers
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the transformers that can be referenced in the routes.      *      * @return the transformers available      */
+DECL|method|getTransformers ()
+name|List
+argument_list|<
+name|TransformerDefinition
+argument_list|>
+name|getTransformers
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the service call configuration by the given name. If no name is given      * the default configuration is returned, see<tt>setServiceCallConfiguration</tt>      *      * @param serviceName name of service, or<tt>null</tt> to return the default configuration      * @return the configuration, or<tt>null</tt> if no configuration has been registered      */
+DECL|method|getServiceCallConfiguration (String serviceName)
+name|ServiceCallConfigurationDefinition
+name|getServiceCallConfiguration
+parameter_list|(
+name|String
+name|serviceName
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the default service call configuration      *      * @param configuration the configuration      */
+DECL|method|setServiceCallConfiguration (ServiceCallConfigurationDefinition configuration)
+name|void
+name|setServiceCallConfiguration
+parameter_list|(
+name|ServiceCallConfigurationDefinition
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the service call configurations      *      * @param configurations the configuration list      */
+DECL|method|setServiceCallConfigurations (List<ServiceCallConfigurationDefinition> configurations)
+name|void
+name|setServiceCallConfigurations
+parameter_list|(
+name|List
+argument_list|<
+name|ServiceCallConfigurationDefinition
+argument_list|>
+name|configurations
+parameter_list|)
+function_decl|;
+comment|/**      * Adds the service call configuration      *      * @param serviceName name of the service      * @param configuration the configuration      */
+DECL|method|addServiceCallConfiguration (String serviceName, ServiceCallConfigurationDefinition configuration)
+name|void
+name|addServiceCallConfiguration
+parameter_list|(
+name|String
+name|serviceName
+parameter_list|,
+name|ServiceCallConfigurationDefinition
+name|configuration
 parameter_list|)
 function_decl|;
 block|}

@@ -209,34 +209,7 @@ DECL|method|VmComponent ()
 specifier|public
 name|VmComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|VmEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|VmComponent (Class<? extends Endpoint> endpointClass)
-specifier|public
-name|VmComponent
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointClass
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getQueues ()

@@ -98,7 +98,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -174,7 +174,7 @@ specifier|public
 class|class
 name|XsltComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -304,15 +304,7 @@ DECL|method|XsltComponent ()
 specifier|public
 name|XsltComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|XsltEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|getXmlConverter ()
 specifier|public
 name|XmlConverter

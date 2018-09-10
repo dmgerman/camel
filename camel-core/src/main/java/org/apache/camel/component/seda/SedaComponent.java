@@ -96,7 +96,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -158,7 +158,7 @@ specifier|public
 class|class
 name|SedaComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|log
 specifier|protected
@@ -296,34 +296,7 @@ DECL|method|SedaComponent ()
 specifier|public
 name|SedaComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|SedaEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|SedaComponent (Class<? extends Endpoint> endpointClass)
-specifier|public
-name|SedaComponent
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointClass
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Sets the default maximum capacity of the SEDA queue (i.e., the number of messages it can hold).      */
 DECL|method|setQueueSize (int size)
 specifier|public
@@ -460,65 +433,6 @@ name|defaultOfferTimeout
 operator|=
 name|defaultOfferTimeout
 expr_stmt|;
-block|}
-comment|/**      * @deprecated use      */
-annotation|@
-name|Deprecated
-DECL|method|getOrCreateQueue (SedaEndpoint endpoint, Integer size)
-specifier|public
-specifier|synchronized
-name|QueueReference
-name|getOrCreateQueue
-parameter_list|(
-name|SedaEndpoint
-name|endpoint
-parameter_list|,
-name|Integer
-name|size
-parameter_list|)
-block|{
-return|return
-name|getOrCreateQueue
-argument_list|(
-name|endpoint
-argument_list|,
-name|size
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated use {@link #getOrCreateQueue(SedaEndpoint, Integer, Boolean, BlockingQueueFactory)}      */
-annotation|@
-name|Deprecated
-DECL|method|getOrCreateQueue (SedaEndpoint endpoint, Integer size, Boolean multipleConsumers)
-specifier|public
-specifier|synchronized
-name|QueueReference
-name|getOrCreateQueue
-parameter_list|(
-name|SedaEndpoint
-name|endpoint
-parameter_list|,
-name|Integer
-name|size
-parameter_list|,
-name|Boolean
-name|multipleConsumers
-parameter_list|)
-block|{
-return|return
-name|getOrCreateQueue
-argument_list|(
-name|endpoint
-argument_list|,
-name|size
-argument_list|,
-name|multipleConsumers
-argument_list|,
-literal|null
-argument_list|)
-return|;
 block|}
 DECL|method|getOrCreateQueue (SedaEndpoint endpoint, Integer size, Boolean multipleConsumers, BlockingQueueFactory<Exchange> customQueueFactory)
 specifier|public

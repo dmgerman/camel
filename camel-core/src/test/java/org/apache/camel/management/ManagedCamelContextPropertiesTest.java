@@ -250,7 +250,7 @@ name|invoke
 argument_list|(
 name|on
 argument_list|,
-literal|"setProperty"
+literal|"setGlobalOption"
 argument_list|,
 operator|new
 name|String
@@ -279,7 +279,7 @@ name|invoke
 argument_list|(
 name|on
 argument_list|,
-literal|"setProperty"
+literal|"setGlobalOption"
 argument_list|,
 operator|new
 name|String
@@ -311,7 +311,7 @@ name|invoke
 argument_list|(
 name|on
 argument_list|,
-literal|"getProperty"
+literal|"getGlobalOption"
 argument_list|,
 operator|new
 name|String
@@ -345,7 +345,7 @@ name|invoke
 argument_list|(
 name|on
 argument_list|,
-literal|"getProperty"
+literal|"getGlobalOption"
 argument_list|,
 operator|new
 name|String

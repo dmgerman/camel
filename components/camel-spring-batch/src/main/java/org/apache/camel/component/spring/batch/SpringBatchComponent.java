@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|SpringBatchComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|DEFAULT_JOB_LAUNCHER_REF_NAME
 specifier|private
@@ -134,15 +134,7 @@ DECL|method|SpringBatchComponent ()
 specifier|public
 name|SpringBatchComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|SpringBatchEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

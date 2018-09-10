@@ -529,7 +529,7 @@ parameter_list|()
 block|{
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put

@@ -82,11 +82,7 @@ DECL|method|TestXRayComponent ()
 specifier|public
 name|TestXRayComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|TestXRayComponent (final CamelContext context)
 specifier|public
 name|TestXRayComponent

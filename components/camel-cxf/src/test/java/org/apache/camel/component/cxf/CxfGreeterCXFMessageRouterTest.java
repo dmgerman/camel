@@ -199,7 +199,7 @@ parameter_list|()
 block|{
 name|context
 operator|.
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 operator|new
 name|NoErrorHandlerBuilder

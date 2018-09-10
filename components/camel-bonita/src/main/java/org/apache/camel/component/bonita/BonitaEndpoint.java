@@ -229,20 +229,6 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|BonitaEndpoint (String endpointUri)
-specifier|public
-name|BonitaEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer

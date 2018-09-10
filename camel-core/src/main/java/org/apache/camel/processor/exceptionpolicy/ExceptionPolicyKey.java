@@ -66,35 +66,6 @@ specifier|final
 name|WhenDefinition
 name|when
 decl_stmt|;
-comment|/**      * @deprecated will be removed in the near future, use the other constructor      */
-annotation|@
-name|Deprecated
-DECL|method|ExceptionPolicyKey (Class<? extends Throwable> exceptionClass, WhenDefinition when)
-specifier|public
-name|ExceptionPolicyKey
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
-name|exceptionClass
-parameter_list|,
-name|WhenDefinition
-name|when
-parameter_list|)
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|,
-name|exceptionClass
-argument_list|,
-name|when
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Key for exception clause      *      * @param routeId          the route, or use<tt>null</tt> for a global scoped      * @param exceptionClass   the exception class      * @param when             optional predicate when the exception clause should trigger      */
 DECL|method|ExceptionPolicyKey (String routeId, Class<? extends Throwable> exceptionClass, WhenDefinition when)
 specifier|public
@@ -165,65 +136,6 @@ parameter_list|()
 block|{
 return|return
 name|routeId
-return|;
-block|}
-comment|/**      * @deprecated will be removed in the near future. Use the constructor instead.      */
-annotation|@
-name|Deprecated
-DECL|method|newInstance (Class<? extends Throwable> exceptionClass)
-specifier|public
-specifier|static
-name|ExceptionPolicyKey
-name|newInstance
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
-name|exceptionClass
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ExceptionPolicyKey
-argument_list|(
-name|exceptionClass
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in the near future. Use the constructor instead.      */
-annotation|@
-name|Deprecated
-DECL|method|newInstance (Class<? extends Throwable> exceptionClass, WhenDefinition when)
-specifier|public
-specifier|static
-name|ExceptionPolicyKey
-name|newInstance
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
-name|exceptionClass
-parameter_list|,
-name|WhenDefinition
-name|when
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ExceptionPolicyKey
-argument_list|(
-name|exceptionClass
-argument_list|,
-name|when
-argument_list|)
 return|;
 block|}
 annotation|@

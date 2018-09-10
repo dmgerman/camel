@@ -2657,20 +2657,6 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-comment|/**      * @deprecated use {@link #getCamelContext()}      */
-annotation|@
-name|Deprecated
-DECL|method|getContext ()
-specifier|public
-name|CamelContext
-name|getContext
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-return|;
-block|}
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -2728,40 +2714,6 @@ name|endpointUri
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * @deprecated use {@link CamelContext#getEndpoint(String, Class)}      */
-annotation|@
-name|Deprecated
-DECL|method|getResolvedEndpoint (String endpointUri, Class<T> expectedClass)
-specifier|public
-parameter_list|<
-name|T
-extends|extends
-name|Endpoint
-parameter_list|>
-name|T
-name|getResolvedEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|expectedClass
-parameter_list|)
-block|{
-return|return
-name|camelContext
-operator|.
-name|getEndpoint
-argument_list|(
-name|endpointUri
-argument_list|,
-name|expectedClass
-argument_list|)
-return|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------

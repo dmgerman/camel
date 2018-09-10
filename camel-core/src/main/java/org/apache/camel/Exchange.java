@@ -1242,20 +1242,11 @@ name|CamelContext
 name|getContext
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a copy of the current message exchange so that it can be      * forwarded to another destination      *<p/>      * Notice this operation invokes<tt>copy(false)</tt>      */
+comment|/**      * Creates a copy of the current message exchange so that it can be      * forwarded to another destination      */
 DECL|method|copy ()
 name|Exchange
 name|copy
 parameter_list|()
-function_decl|;
-comment|/**      * Creates a copy of the current message exchange so that it can be      * forwarded to another destination      *      * @param safeCopy whether to copy exchange properties and message headers safely to a new map instance,      *                 or allow sharing the same map instances in the returned copy.      */
-DECL|method|copy (boolean safeCopy)
-name|Exchange
-name|copy
-parameter_list|(
-name|boolean
-name|safeCopy
-parameter_list|)
 function_decl|;
 comment|/**      * Returns the endpoint which originated this message exchange if a consumer on an endpoint      * created the message exchange, otherwise this property will be<tt>null</tt>      */
 DECL|method|getFromEndpoint ()

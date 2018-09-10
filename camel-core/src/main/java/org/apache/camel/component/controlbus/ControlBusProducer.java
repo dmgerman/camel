@@ -812,6 +812,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 name|id
@@ -842,6 +845,9 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|getCamelContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|stopRoute
@@ -876,6 +882,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|suspendRoute
 argument_list|(
 name|id
@@ -908,6 +917,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|resumeRoute
 argument_list|(
 name|id
@@ -938,6 +950,9 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|getCamelContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|stopRoute
@@ -997,6 +1012,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 name|id
@@ -1030,6 +1048,9 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|getCamelContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|getRouteStatus

@@ -704,6 +704,9 @@ name|exchange
 init|=
 name|producer
 operator|.
+name|getEndpoint
+argument_list|()
+operator|.
 name|createExchange
 argument_list|(
 name|ExchangePattern

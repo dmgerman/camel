@@ -94,7 +94,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -104,21 +104,13 @@ specifier|public
 class|class
 name|QueueServiceComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|QueueServiceComponent ()
 specifier|public
 name|QueueServiceComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|QueueServiceEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|QueueServiceComponent (CamelContext context)
 specifier|public
 name|QueueServiceComponent
@@ -130,10 +122,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|QueueServiceEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

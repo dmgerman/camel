@@ -112,24 +112,6 @@ specifier|final
 name|boolean
 name|allowNull
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|method|StaticMethodTypeConverter (Method method)
-specifier|public
-name|StaticMethodTypeConverter
-parameter_list|(
-name|Method
-name|method
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|method
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|StaticMethodTypeConverter (Method method, boolean allowNull)
 specifier|public
 name|StaticMethodTypeConverter

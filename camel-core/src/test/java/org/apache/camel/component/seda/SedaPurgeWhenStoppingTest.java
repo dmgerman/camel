@@ -208,6 +208,9 @@ expr_stmt|;
 block|}
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"myRoute"
@@ -225,6 +228,9 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

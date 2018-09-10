@@ -92,6 +92,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ServiceStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|RouteController
@@ -212,6 +224,72 @@ block|}
 comment|// ***************************************************
 comment|// Route management
 comment|// ***************************************************
+annotation|@
+name|Override
+DECL|method|startAllRoutes ()
+specifier|public
+name|void
+name|startAllRoutes
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+operator|(
+operator|(
+name|DefaultCamelContext
+operator|)
+name|camelContext
+operator|)
+operator|.
+name|startAllRoutes
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isStartingRoutes ()
+specifier|public
+name|boolean
+name|isStartingRoutes
+parameter_list|()
+block|{
+return|return
+operator|(
+operator|(
+name|DefaultCamelContext
+operator|)
+name|camelContext
+operator|)
+operator|.
+name|isStartingRoutes
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getRouteStatus (String routeId)
+specifier|public
+name|ServiceStatus
+name|getRouteStatus
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+return|return
+operator|(
+operator|(
+name|DefaultCamelContext
+operator|)
+name|camelContext
+operator|)
+operator|.
+name|getRouteStatus
+argument_list|(
+name|routeId
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|startRoute (String routeId)

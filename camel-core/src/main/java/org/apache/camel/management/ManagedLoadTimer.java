@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link org.apache.camel.support.TimerListenerManager} used for tracking load statistics.  *<p/>  * From Camel 2.13 onwards the {@link ManagedLoadTimer} is only enabled if  * {@link org.apache.camel.spi.ManagementStrategy#isLoadStatisticsEnabled()} is enabled.  */
+comment|/**  * The {@link org.apache.camel.support.TimerListenerManager} used for tracking load statistics.  *<p/>  * From Camel 2.13 onwards the {@link ManagedLoadTimer} is only enabled if  * {@link org.apache.camel.spi.ManagementAgent#getLoadStatisticsEnabled()} is enabled.  */
 end_comment
 
 begin_class

@@ -246,6 +246,9 @@ comment|// this test actually removes the route... so in effect we have one rout
 comment|// a "multipleConsumer" seda queue
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"route2"

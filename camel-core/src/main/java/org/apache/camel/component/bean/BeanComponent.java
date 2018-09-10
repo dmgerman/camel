@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -140,7 +140,7 @@ specifier|public
 class|class
 name|BeanComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -205,34 +205,7 @@ DECL|method|BeanComponent ()
 specifier|public
 name|BeanComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|BeanEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|BeanComponent (Class<? extends Endpoint> endpointClass)
-specifier|public
-name|BeanComponent
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointClass
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|// Implementation methods
 comment|//-----------------------------------------------------------------------
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

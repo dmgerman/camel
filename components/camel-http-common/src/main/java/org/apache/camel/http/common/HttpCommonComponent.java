@@ -131,25 +131,11 @@ specifier|protected
 name|boolean
 name|allowJavaSerializedObject
 decl_stmt|;
-DECL|method|HttpCommonComponent (Class<? extends HttpCommonEndpoint> endpointClass)
+DECL|method|HttpCommonComponent ()
 specifier|public
 name|HttpCommonComponent
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|HttpCommonEndpoint
-argument_list|>
-name|endpointClass
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointClass
-argument_list|)
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 comment|/**      * Gets the parameter. This method doesn't resolve reference parameters in the registry.      *      * @param parameters    the parameters      * @param key           the key      * @param type          the requested type to convert the value from the parameter      * @return  the converted value parameter      */
 DECL|method|getParameter (Map<String, Object> parameters, String key, Class<T> type)
 specifier|public

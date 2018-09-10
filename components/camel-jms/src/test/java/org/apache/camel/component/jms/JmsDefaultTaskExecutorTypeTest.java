@@ -279,6 +279,9 @@ name|Exception
 block|{
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"threadPool"
@@ -376,6 +379,9 @@ throws|throws
 name|Exception
 block|{
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -475,6 +481,9 @@ name|Exception
 block|{
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"default"
@@ -570,6 +579,9 @@ block|{
 comment|// the default behaviour changes in this test, see createCamelContext method below
 comment|// the behaviour is the same as with testThreadPoolTaskExecutor test method above
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(

@@ -631,9 +631,6 @@ operator|=
 name|createScriptReader
 argument_list|(
 name|camelContext
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|scriptResource
 argument_list|)
@@ -2062,7 +2059,7 @@ name|propertyValue
 init|=
 name|camelContext
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|propertyKey
 argument_list|)
@@ -2197,9 +2194,6 @@ argument_list|(
 name|exchange
 operator|.
 name|getContext
-argument_list|()
-operator|.
-name|getClassResolver
 argument_list|()
 argument_list|,
 name|scriptResource
@@ -2640,14 +2634,14 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|createScriptReader (ClassResolver classResolver, String resource)
+DECL|method|createScriptReader (CamelContext camelContext, String resource)
 specifier|protected
 specifier|static
 name|InputStreamReader
 name|createScriptReader
 parameter_list|(
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|String
 name|resource
@@ -2662,7 +2656,7 @@ name|ResourceHelper
 operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
-name|classResolver
+name|camelContext
 argument_list|,
 name|resource
 argument_list|)

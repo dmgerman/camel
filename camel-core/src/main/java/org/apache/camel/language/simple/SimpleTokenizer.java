@@ -714,37 +714,6 @@ literal|"||"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: @deprecated logical operators, to be removed in Camel 3.0
-name|KNOWN_TOKENS
-operator|.
-name|add
-argument_list|(
-operator|new
-name|SimpleTokenType
-argument_list|(
-name|TokenType
-operator|.
-name|logicalOperator
-argument_list|,
-literal|"and"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|KNOWN_TOKENS
-operator|.
-name|add
-argument_list|(
-operator|new
-name|SimpleTokenType
-argument_list|(
-name|TokenType
-operator|.
-name|logicalOperator
-argument_list|,
-literal|"or"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|//binary operator
 comment|// it is added as the last item because unary -- has the priority
 comment|// if unary not found it is highly possible - operator is run into.

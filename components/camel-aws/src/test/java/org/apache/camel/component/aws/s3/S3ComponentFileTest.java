@@ -335,7 +335,11 @@ literal|"test"
 argument_list|,
 literal|"file"
 argument_list|,
-literal|null
+operator|new
+name|File
+argument_list|(
+literal|"target/tmp"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|FileWriter

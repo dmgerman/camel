@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -180,7 +180,7 @@ specifier|public
 class|class
 name|IrcComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -237,15 +237,7 @@ DECL|method|IrcComponent ()
 specifier|public
 name|IrcComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|IrcEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|public
 name|IrcEndpoint

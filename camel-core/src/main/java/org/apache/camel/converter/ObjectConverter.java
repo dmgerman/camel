@@ -103,39 +103,6 @@ specifier|private
 name|ObjectConverter
 parameter_list|()
 block|{     }
-comment|/**      * @deprecated not in use      */
-annotation|@
-name|Deprecated
-DECL|method|isCollection (Object value)
-specifier|public
-specifier|static
-name|boolean
-name|isCollection
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-return|return
-name|value
-operator|instanceof
-name|Collection
-operator|||
-operator|(
-name|value
-operator|!=
-literal|null
-operator|&&
-name|value
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|isArray
-argument_list|()
-operator|)
-return|;
-block|}
 comment|/**      * Converts the given value to a boolean, handling strings or Boolean      * objects; otherwise returning false if the value could not be converted to      * a boolean      */
 annotation|@
 name|Converter

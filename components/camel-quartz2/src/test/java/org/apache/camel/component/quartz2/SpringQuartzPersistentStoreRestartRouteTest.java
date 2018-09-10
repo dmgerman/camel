@@ -159,6 +159,9 @@ comment|// restart route
 name|context
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"myRoute"
@@ -201,6 +204,9 @@ literal|2
 argument_list|)
 expr_stmt|;
 name|context
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|startRoute

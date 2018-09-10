@@ -402,17 +402,6 @@ return|return
 name|destination
 return|;
 block|}
-DECL|method|setDestination (String uri)
-specifier|public
-name|void
-name|setDestination
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-comment|// noop
-block|}
 DECL|method|getMessageExchangePattern ()
 specifier|public
 name|String

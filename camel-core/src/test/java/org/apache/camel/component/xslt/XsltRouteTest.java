@@ -202,6 +202,8 @@ operator|.
 name|toDOMDocument
 argument_list|(
 literal|"<mail><subject>Hey</subject><body>Hello world!</body></mail>"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|sendMessageAndHaveItTransformed

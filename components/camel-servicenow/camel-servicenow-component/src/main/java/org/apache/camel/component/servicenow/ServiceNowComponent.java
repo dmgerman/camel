@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -73,18 +61,6 @@ operator|.
 name|camel
 operator|.
 name|SSLContextParametersAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|VerifiableComponent
 import|;
 end_import
 
@@ -197,8 +173,6 @@ name|ServiceNowComponent
 extends|extends
 name|DefaultComponent
 implements|implements
-name|VerifiableComponent
-implements|,
 name|SSLContextParametersAware
 block|{
 annotation|@
@@ -779,11 +753,9 @@ operator|=
 name|useGlobalSslContextParameters
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|getVerifier ()
 specifier|public
-name|ComponentVerifier
+name|ComponentVerifierExtension
 name|getVerifier
 parameter_list|()
 block|{

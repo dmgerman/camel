@@ -345,6 +345,9 @@ expr_stmt|;
 comment|// Stop route and make sure all exchanges have been flushed.
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar1"

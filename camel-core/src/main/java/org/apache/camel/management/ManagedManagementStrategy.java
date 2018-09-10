@@ -403,22 +403,6 @@ specifier|public
 name|ManagedManagementStrategy
 parameter_list|()
 block|{     }
-annotation|@
-name|Deprecated
-DECL|method|ManagedManagementStrategy (ManagementAgent managementAgent)
-specifier|public
-name|ManagedManagementStrategy
-parameter_list|(
-name|ManagementAgent
-name|managementAgent
-parameter_list|)
-block|{
-name|setManagementAgent
-argument_list|(
-name|managementAgent
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|ManagedManagementStrategy (CamelContext camelContext, ManagementAgent managementAgent)
 specifier|public
 name|ManagedManagementStrategy

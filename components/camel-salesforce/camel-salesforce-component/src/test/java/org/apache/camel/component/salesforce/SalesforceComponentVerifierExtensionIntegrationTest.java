@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|extension
@@ -694,7 +682,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
@@ -712,7 +700,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
@@ -849,7 +837,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 operator|.

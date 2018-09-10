@@ -108,7 +108,7 @@ parameter_list|)
 block|{
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 expr_stmt|;
 block|}

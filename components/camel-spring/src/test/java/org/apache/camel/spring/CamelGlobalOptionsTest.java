@@ -100,7 +100,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"VALUE_2_OVERIDDEN"
+literal|"VALUE_2"
 argument_list|,
 name|context
 operator|.

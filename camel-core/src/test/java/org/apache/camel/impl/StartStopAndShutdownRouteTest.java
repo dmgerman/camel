@@ -118,6 +118,9 @@ expr_stmt|;
 comment|// stop the route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"foo"
@@ -139,6 +142,9 @@ argument_list|)
 expr_stmt|;
 comment|// shutting down the route, by stop and remove
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

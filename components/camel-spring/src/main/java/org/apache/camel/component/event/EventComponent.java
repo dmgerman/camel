@@ -58,7 +58,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -152,7 +152,7 @@ specifier|public
 class|class
 name|EventComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|ApplicationContextAware
 block|{
@@ -195,15 +195,7 @@ DECL|method|EventComponent ()
 specifier|public
 name|EventComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|EventEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|EventComponent (ApplicationContext applicationContext)
 specifier|public
 name|EventComponent
@@ -213,11 +205,7 @@ name|applicationContext
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|EventEndpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|setApplicationContext
 argument_list|(

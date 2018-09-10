@@ -1508,15 +1508,6 @@ specifier|private
 name|DataFormatDefinition
 name|dataFormatType
 decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|ref
-specifier|private
-name|String
-name|ref
-decl_stmt|;
 DECL|method|MarshalDefinition ()
 specifier|public
 name|MarshalDefinition
@@ -1535,21 +1526,6 @@ operator|.
 name|dataFormatType
 operator|=
 name|dataFormatType
-expr_stmt|;
-block|}
-DECL|method|MarshalDefinition (String ref)
-specifier|public
-name|MarshalDefinition
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ref
-operator|=
-name|ref
 expr_stmt|;
 block|}
 annotation|@
@@ -1585,9 +1561,7 @@ operator|.
 name|toString
 argument_list|()
 else|:
-literal|"ref:"
-operator|+
-name|ref
+literal|""
 return|;
 block|}
 annotation|@
@@ -1618,35 +1592,6 @@ argument_list|()
 operator|+
 literal|"]"
 return|;
-block|}
-DECL|method|getRef ()
-specifier|public
-name|String
-name|getRef
-parameter_list|()
-block|{
-return|return
-name|ref
-return|;
-block|}
-comment|/**      * To refer to a custom data format to use as marshaller      *      * @deprecated use uri with ref:uri instead      */
-annotation|@
-name|Deprecated
-DECL|method|setRef (String ref)
-specifier|public
-name|void
-name|setRef
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ref
-operator|=
-name|ref
-expr_stmt|;
 block|}
 DECL|method|getDataFormatType ()
 specifier|public
@@ -1698,7 +1643,7 @@ argument_list|,
 name|getDataFormatType
 argument_list|()
 argument_list|,
-name|ref
+literal|null
 argument_list|)
 decl_stmt|;
 return|return

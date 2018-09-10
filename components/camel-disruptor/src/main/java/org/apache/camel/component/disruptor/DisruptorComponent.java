@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|DisruptorComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|DEFAULT_BUFFER_SIZE
 specifier|public
@@ -279,15 +279,7 @@ DECL|method|DisruptorComponent ()
 specifier|public
 name|DisruptorComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|DisruptorEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)

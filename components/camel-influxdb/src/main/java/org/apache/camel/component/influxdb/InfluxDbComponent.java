@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -80,7 +80,7 @@ specifier|public
 class|class
 name|InfluxDbComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -102,15 +102,7 @@ DECL|method|InfluxDbComponent ()
 specifier|public
 name|InfluxDbComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|InfluxDbEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

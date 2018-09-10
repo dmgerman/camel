@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -60,21 +60,13 @@ specifier|public
 class|class
 name|CouchDbComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|CouchDbComponent ()
 specifier|public
 name|CouchDbComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|CouchDbEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|CouchDbComponent (CamelContext context)
 specifier|public
 name|CouchDbComponent
@@ -86,10 +78,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|CouchDbEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

@@ -212,15 +212,6 @@ name|String
 name|uri
 decl_stmt|;
 annotation|@
-name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|ref
-specifier|protected
-name|String
-name|ref
-decl_stmt|;
-annotation|@
 name|XmlTransient
 DECL|field|endpoint
 specifier|protected
@@ -302,9 +293,6 @@ name|resolveEndpoint
 argument_list|(
 name|getUri
 argument_list|()
-argument_list|,
-name|getRef
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -338,37 +326,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// Properties
-comment|// -----------------------------------------------------------------------
-DECL|method|getRef ()
-specifier|public
-name|String
-name|getRef
-parameter_list|()
-block|{
-return|return
-name|ref
-return|;
-block|}
-comment|/**      * Sets the reference of the endpoint to send to.      *      * @param ref the reference of the endpoint      * @deprecated use uri with ref:uri instead      */
-annotation|@
-name|Deprecated
-DECL|method|setRef (String ref)
-specifier|public
-name|void
-name|setRef
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ref
-operator|=
-name|ref
-expr_stmt|;
-block|}
 DECL|method|getUri ()
 specifier|public
 name|String
@@ -396,7 +353,7 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
-comment|/**      * Gets tne endpoint if an {@link Endpoint} instance was set.      *<p/>      * This implementation may return<tt>null</tt> which means you need to use      * {@link #getRef()} or {@link #getUri()} to get information about the endpoint.      *      * @return the endpoint instance, or<tt>null</tt>      */
+comment|/**      * Gets tne endpoint if an {@link Endpoint} instance was set.      *<p/>      * This implementation may return<tt>null</tt> which means you need to use      * {@link #getUri()} to get information about the endpoint.      *      * @return the endpoint instance, or<tt>null</tt>      */
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -456,53 +413,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Returns the endpoint URI or the name of the reference to it      */
-DECL|method|getUriOrRef ()
-specifier|public
-name|String
-name|getUriOrRef
-parameter_list|()
-block|{
-name|String
-name|uri
-init|=
-name|getUri
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|uri
-argument_list|)
-condition|)
-block|{
-return|return
-name|uri
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|endpoint
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-return|;
-block|}
-return|return
-name|getRef
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|getLabel ()
@@ -517,9 +427,6 @@ operator|.
 name|description
 argument_list|(
 name|getUri
-argument_list|()
-argument_list|,
-name|getRef
 argument_list|()
 argument_list|,
 name|getEndpoint

@@ -255,7 +255,7 @@ argument_list|)
 operator|.
 name|recipientList
 argument_list|(
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"myProperty"
 argument_list|)

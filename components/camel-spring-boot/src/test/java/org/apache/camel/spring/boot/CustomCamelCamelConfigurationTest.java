@@ -298,6 +298,9 @@ try|try
 block|{
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"foo"
@@ -348,6 +351,9 @@ comment|// should be started now from the custom camel configuration
 name|assertTrue
 argument_list|(
 name|camelContext
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

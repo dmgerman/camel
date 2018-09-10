@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|DirectVmComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|START_COUNTER
 specifier|private
@@ -253,15 +253,7 @@ DECL|method|DirectVmComponent ()
 specifier|public
 name|DirectVmComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|DirectVmEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Gets all the consumer endpoints.      *      * @return consumer endpoints      */
 DECL|method|getConsumerEndpoints ()
 specifier|public

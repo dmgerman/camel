@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -96,7 +96,7 @@ specifier|public
 class|class
 name|LuceneComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -116,11 +116,7 @@ name|LuceneComponent
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|LuceneEndpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|config
 operator|=
@@ -140,10 +136,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|LuceneEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|config

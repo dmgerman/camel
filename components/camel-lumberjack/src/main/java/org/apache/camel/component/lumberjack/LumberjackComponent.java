@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|LumberjackComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -173,9 +173,7 @@ name|endpointClass
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|endpointClass
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

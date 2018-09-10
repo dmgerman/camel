@@ -232,7 +232,7 @@ name|report
 init|=
 name|SchematronProcessorFactory
 operator|.
-name|newScehamtronEngine
+name|newSchematronEngine
 argument_list|(
 name|endpoint
 operator|.

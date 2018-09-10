@@ -177,20 +177,15 @@ specifier|final
 name|HdfsConfiguration
 name|config
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-DECL|method|HdfsEndpoint (String endpointUri, CamelContext context)
+DECL|method|HdfsEndpoint (String endpointUri, HdfsComponent component)
 specifier|public
 name|HdfsEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|CamelContext
-name|context
+name|HdfsComponent
+name|component
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -199,7 +194,7 @@ name|super
 argument_list|(
 name|endpointUri
 argument_list|,
-name|context
+name|component
 argument_list|)
 expr_stmt|;
 name|this

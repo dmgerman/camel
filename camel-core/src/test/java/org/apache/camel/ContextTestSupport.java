@@ -564,19 +564,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Whether or not type converters should be lazy loaded (notice core converters is always loaded)      *      * @return<tt>false</tt> by default.      */
-annotation|@
-name|Deprecated
-DECL|method|isLazyLoadingTypeConverter ()
-specifier|protected
-name|boolean
-name|isLazyLoadingTypeConverter
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 comment|/**      * Whether to load additional type converters by scanning the classpath.      * This should only be enabled for tests that uses custom type converters.      */
 DECL|method|isLoadTypeConverters ()
 specifier|protected
@@ -713,14 +700,6 @@ name|createRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|context
-operator|.
-name|setLazyLoadTypeConverters
-argument_list|(
-name|isLazyLoadingTypeConverter
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|setLoadTypeConverters

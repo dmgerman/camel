@@ -198,21 +198,6 @@ name|long
 name|getUptimeMillis
 parameter_list|()
 function_decl|;
-comment|/**      * @deprecated use {@link #getExchangesInflight()}      */
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Current number of inflight Exchanges"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|getInflightExchanges ()
-name|Integer
-name|getInflightExchanges
-parameter_list|()
-function_decl|;
 annotation|@
 name|ManagedAttribute
 argument_list|(

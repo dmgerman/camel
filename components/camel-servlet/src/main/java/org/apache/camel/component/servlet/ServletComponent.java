@@ -260,7 +260,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|StringHelper
 import|;
 end_import
 
@@ -422,15 +422,7 @@ DECL|method|ServletComponent ()
 specifier|public
 name|ServletComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|ServletEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ServletComponent (Class<? extends ServletEndpoint> endpointClass)
 specifier|public
 name|ServletComponent
@@ -445,9 +437,7 @@ name|endpointClass
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|endpointClass
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -643,7 +633,7 @@ comment|// forget to add and then the servlet consumer cannot match the context-
 name|String
 name|scheme
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -655,7 +645,7 @@ decl_stmt|;
 name|String
 name|after
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(

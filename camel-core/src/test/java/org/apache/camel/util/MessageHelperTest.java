@@ -48,6 +48,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -277,20 +291,12 @@ argument_list|)
 expr_stmt|;
 comment|// handle StreamCache
 specifier|final
-name|ValueHolder
-argument_list|<
-name|Boolean
-argument_list|>
+name|AtomicBoolean
 name|reset
 init|=
 operator|new
-name|ValueHolder
-argument_list|<>
-argument_list|(
-name|Boolean
-operator|.
-name|FALSE
-argument_list|)
+name|AtomicBoolean
+argument_list|()
 decl_stmt|;
 name|message
 operator|.
@@ -314,9 +320,7 @@ name|reset
 operator|.
 name|set
 argument_list|(
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

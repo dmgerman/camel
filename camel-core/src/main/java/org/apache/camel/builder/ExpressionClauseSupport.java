@@ -746,29 +746,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * An expression of an exchange property of the given name      *      * @deprecated use {@link #exchangeProperty(String)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|property (String name)
-specifier|public
-name|T
-name|property
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|expression
-argument_list|(
-operator|new
-name|ExchangePropertyExpression
-argument_list|(
-name|name
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * An expression of an exchange property of the given name      */
 DECL|method|exchangeProperty (String name)
 specifier|public
@@ -788,20 +765,6 @@ argument_list|(
 name|name
 argument_list|)
 argument_list|)
-return|;
-block|}
-comment|/**      * An expression of the exchange properties      *      * @deprecated use {@link #exchangeProperties()} instead      */
-annotation|@
-name|Deprecated
-DECL|method|properties ()
-specifier|public
-name|T
-name|properties
-parameter_list|()
-block|{
-return|return
-name|exchangeProperties
-argument_list|()
 return|;
 block|}
 comment|/**      * An expression of the exchange properties      */

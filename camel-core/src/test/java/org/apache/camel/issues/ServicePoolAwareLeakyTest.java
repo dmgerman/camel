@@ -854,6 +854,9 @@ expr_stmt|;
 block|}
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"sieve-transient"
@@ -1028,6 +1031,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(

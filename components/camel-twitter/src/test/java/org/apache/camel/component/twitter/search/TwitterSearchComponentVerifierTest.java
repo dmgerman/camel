@@ -58,7 +58,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
+name|component
+operator|.
+name|extension
+operator|.
+name|ComponentVerifierExtension
 import|;
 end_import
 
@@ -158,7 +162,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 name|verifier
 init|=
 name|component
@@ -168,7 +172,7 @@ argument_list|()
 decl_stmt|;
 block|{
 comment|// Parameters validation
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 name|result
@@ -177,7 +181,7 @@ name|verifier
 operator|.
 name|verify
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.
@@ -193,7 +197,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
@@ -270,7 +274,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 name|error
@@ -312,7 +316,7 @@ expr_stmt|;
 block|}
 block|{
 comment|// Connectivity validation
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 name|result
@@ -321,7 +325,7 @@ name|verifier
 operator|.
 name|verify
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.
@@ -337,7 +341,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
@@ -370,7 +374,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 operator|.
@@ -411,7 +415,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 operator|.
@@ -440,7 +444,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 operator|.

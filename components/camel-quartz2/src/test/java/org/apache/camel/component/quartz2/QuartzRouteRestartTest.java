@@ -102,6 +102,9 @@ comment|// restart route
 name|context
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"trigger"
@@ -144,6 +147,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|context
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|startRoute

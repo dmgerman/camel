@@ -333,36 +333,6 @@ operator|=
 name|remaining
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-DECL|method|LdapEndpoint (String endpointUri, String remaining)
-specifier|public
-name|LdapEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|String
-name|remaining
-parameter_list|)
-throws|throws
-name|URISyntaxException
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|dirContextName
-operator|=
-name|remaining
-expr_stmt|;
-block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

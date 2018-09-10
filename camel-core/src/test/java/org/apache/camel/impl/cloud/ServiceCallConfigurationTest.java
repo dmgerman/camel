@@ -291,7 +291,7 @@ argument_list|(
 literal|"mock"
 argument_list|)
 expr_stmt|;
-name|CamelContext
+name|DefaultCamelContext
 name|context
 init|=
 operator|new
@@ -523,7 +523,7 @@ argument_list|(
 name|sf
 argument_list|)
 expr_stmt|;
-name|CamelContext
+name|DefaultCamelContext
 name|context
 init|=
 operator|new
@@ -1245,7 +1245,7 @@ literal|"service@127.0.0.1:8084"
 argument_list|)
 expr_stmt|;
 comment|// Camel context
-name|CamelContext
+name|DefaultCamelContext
 name|context
 init|=
 operator|new
@@ -1616,7 +1616,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContext
+name|DefaultCamelContext
 name|context
 init|=
 literal|null
@@ -2046,7 +2046,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContext
+name|DefaultCamelContext
 name|context
 init|=
 literal|null

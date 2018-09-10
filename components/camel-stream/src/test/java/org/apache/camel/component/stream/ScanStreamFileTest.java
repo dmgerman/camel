@@ -266,6 +266,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startAllRoutes
 argument_list|()
 expr_stmt|;
@@ -383,6 +386,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startAllRoutes
 argument_list|()
 expr_stmt|;
@@ -488,6 +494,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startAllRoutes
 argument_list|()

@@ -220,6 +220,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -267,6 +277,8 @@ name|ImportResource
 argument_list|(
 literal|"imported-routes.xml"
 argument_list|)
+annotation|@
+name|Ignore
 DECL|class|XmlBeansTest
 specifier|public
 class|class

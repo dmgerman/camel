@@ -68,18 +68,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|extension
@@ -253,8 +241,6 @@ class|class
 name|RestComponentVerifierExtension
 extends|extends
 name|DefaultComponentVerifierExtension
-implements|implements
-name|ComponentVerifier
 block|{
 DECL|field|CUSTOMIZER
 specifier|private

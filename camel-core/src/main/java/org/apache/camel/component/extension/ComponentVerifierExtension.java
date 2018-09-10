@@ -85,6 +85,108 @@ operator|.
 name|verifier
 operator|.
 name|ComponentVerifierExtensionHelper
+operator|.
+name|ErrorAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|verifier
+operator|.
+name|ComponentVerifierExtensionHelper
+operator|.
+name|ErrorCode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|verifier
+operator|.
+name|ComponentVerifierExtensionHelper
+operator|.
+name|ExceptionErrorAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|verifier
+operator|.
+name|ComponentVerifierExtensionHelper
+operator|.
+name|GroupErrorAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|verifier
+operator|.
+name|ComponentVerifierExtensionHelper
+operator|.
+name|HttpErrorAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|extension
+operator|.
+name|verifier
+operator|.
+name|ComponentVerifierExtensionHelper
+operator|.
+name|StandardErrorCode
 import|;
 end_import
 
@@ -133,14 +235,10 @@ extends|extends
 name|ComponentExtension
 block|{
 comment|/**      * Verify the given parameters against a provided scope.      *      *<p>      * The supported scopes are:      *<ul>      *<li><strong>{@link ComponentVerifierExtension.Scope#PARAMETERS}</strong>: to validate that all the mandatory options are provided and syntactically correct.</li>      *<li><strong>{@link ComponentVerifierExtension.Scope#CONNECTIVITY}</strong>: to validate that the given options (i.e. credentials, addresses) are correct. Verifying with this      *       scope typically implies reaching out to the backend via some sort of network connection.</li>      *</ul>      *      * @param scope the scope of the verification      * @param parameters the parameters to verify which are interpreted individually by each component verifier      * @return the verification result      */
-DECL|method|verify (ComponentVerifierExtension.Scope scope, Map<String, Object> parameters)
-name|ComponentVerifierExtension
-operator|.
+DECL|method|verify (Scope scope, Map<String, Object> parameters)
 name|Result
 name|verify
 parameter_list|(
-name|ComponentVerifierExtension
-operator|.
 name|Scope
 name|scope
 parameter_list|,
@@ -177,20 +275,14 @@ comment|/**              * Verification is not supported. This can depend on the
 DECL|enumConstant|UNSUPPORTED
 name|UNSUPPORTED
 block|}
-comment|/**          * Scope of the verification. This is the scope given to the call to {@link #verify(ComponentVerifierExtension.Scope, Map)}  and          * can be used for correlation.          *          * @return the scope against which the parameters have been validated.          */
+comment|/**          * Scope of the verification. This is the scope given to the call to {@link #verify(Scope, Map)}  and          * can be used for correlation.          *          * @return the scope against which the parameters have been validated.          */
 DECL|method|getScope ()
-name|ComponentVerifierExtension
-operator|.
 name|Scope
 name|getScope
 parameter_list|()
 function_decl|;
 comment|/**          * Result of the validation as status. This should be the first datum to check after a verification          * happened.          *          * @return the status          */
 DECL|method|getStatus ()
-name|ComponentVerifierExtension
-operator|.
-name|Result
-operator|.
 name|Status
 name|getStatus
 parameter_list|()
@@ -199,8 +291,6 @@ comment|/**          * Collection of errors happened for the verification. This 
 DECL|method|getErrors ()
 name|List
 argument_list|<
-name|ComponentVerifierExtension
-operator|.
 name|VerificationError
 argument_list|>
 name|getErrors
@@ -237,8 +327,6 @@ comment|/**          * Get an instance of this scope from a string representatio
 DECL|method|fromString (String scope)
 specifier|public
 specifier|static
-name|ComponentVerifierExtension
-operator|.
 name|Scope
 name|fromString
 parameter_list|(
@@ -248,8 +336,6 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|ComponentVerifierExtension
-operator|.
 name|Scope
 name|value
 range|:
@@ -324,10 +410,6 @@ comment|/**          * Details about the failed verification. The keys can be ei
 DECL|method|getDetails ()
 name|Map
 argument_list|<
-name|ComponentVerifierExtension
-operator|.
-name|VerificationError
-operator|.
 name|Attribute
 argument_list|,
 name|Object
@@ -336,25 +418,17 @@ name|getDetails
 parameter_list|()
 function_decl|;
 comment|/**          * Get a single detail for a given attribute          *          * @param attribute the attribute to lookup          * @return the detail value or null if no such attribute exists          */
-DECL|method|getDetail (ComponentVerifierExtension.VerificationError.Attribute attribute)
+DECL|method|getDetail (Attribute attribute)
 specifier|default
 name|Object
 name|getDetail
 parameter_list|(
-name|ComponentVerifierExtension
-operator|.
-name|VerificationError
-operator|.
 name|Attribute
 name|attribute
 parameter_list|)
 block|{
 name|Map
 argument_list|<
-name|ComponentVerifierExtension
-operator|.
-name|VerificationError
-operator|.
 name|Attribute
 argument_list|,
 name|Object
@@ -416,8 +490,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|ErrorCode
 argument_list|(
 name|code
@@ -436,8 +508,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|ErrorAttribute
 argument_list|(
 name|attribute
@@ -483,8 +553,6 @@ name|StandardCode
 name|AUTHENTICATION
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"AUTHENTICATION"
@@ -496,8 +564,6 @@ name|StandardCode
 name|EXCEPTION
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"EXCEPTION"
@@ -509,8 +575,6 @@ name|StandardCode
 name|INTERNAL
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"INTERNAL"
@@ -522,8 +586,6 @@ name|StandardCode
 name|MISSING_PARAMETER
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"MISSING_PARAMETER"
@@ -535,8 +597,6 @@ name|StandardCode
 name|UNKNOWN_PARAMETER
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"UNKNOWN_PARAMETER"
@@ -548,21 +608,17 @@ name|StandardCode
 name|ILLEGAL_PARAMETER
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"ILLEGAL_PARAMETER"
 argument_list|)
 decl_stmt|;
-comment|/**              * A combination of parameters is illegal. See {@link ComponentVerifierExtension.VerificationError#getParameterKeys()} for the set              * of affected parameters              */
+comment|/**              * A combination of parameters is illegal. See {@link VerificationError#getParameterKeys()} for the set              * of affected parameters              */
 DECL|field|ILLEGAL_PARAMETER_GROUP_COMBINATION
 name|StandardCode
 name|ILLEGAL_PARAMETER_GROUP_COMBINATION
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"ILLEGAL_PARAMETER_GROUP_COMBINATION"
@@ -574,8 +630,6 @@ name|StandardCode
 name|ILLEGAL_PARAMETER_VALUE
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"ILLEGAL_PARAMETER_VALUE"
@@ -587,8 +641,6 @@ name|StandardCode
 name|INCOMPLETE_PARAMETER_GROUP
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"INCOMPLETE_PARAMETER_GROUP"
@@ -600,21 +652,17 @@ name|StandardCode
 name|UNSUPPORTED
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"UNSUPPORTED"
 argument_list|)
 decl_stmt|;
-comment|/**              * The requested {@link ComponentVerifierExtension.Scope} is not supported              */
+comment|/**              * The requested {@link Scope} is not supported              */
 DECL|field|UNSUPPORTED_SCOPE
 name|StandardCode
 name|UNSUPPORTED_SCOPE
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"UNSUPPORTED_SCOPE"
@@ -626,21 +674,17 @@ name|StandardCode
 name|UNSUPPORTED_COMPONENT
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"UNSUPPORTED_COMPONENT"
 argument_list|)
 decl_stmt|;
-comment|/**              * Generic error which is explained in more details with {@link ComponentVerifierExtension.VerificationError#getDetails()}              */
+comment|/**              * Generic error which is explained in more details with {@link VerificationError#getDetails()}              */
 DECL|field|GENERIC
 name|StandardCode
 name|GENERIC
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|StandardErrorCode
 argument_list|(
 literal|"GENERIC"
@@ -686,8 +730,6 @@ name|ExceptionAttribute
 name|EXCEPTION_INSTANCE
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|ExceptionErrorAttribute
 argument_list|(
 literal|"EXCEPTION_INSTANCE"
@@ -699,8 +741,6 @@ name|ExceptionAttribute
 name|EXCEPTION_CLASS
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|ExceptionErrorAttribute
 argument_list|(
 literal|"EXCEPTION_CLASS"
@@ -720,8 +760,6 @@ name|HttpAttribute
 name|HTTP_CODE
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|HttpErrorAttribute
 argument_list|(
 literal|"HTTP_CODE"
@@ -733,8 +771,6 @@ name|HttpAttribute
 name|HTTP_TEXT
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|HttpErrorAttribute
 argument_list|(
 literal|"HTTP_TEXT"
@@ -746,8 +782,6 @@ name|HttpAttribute
 name|HTTP_REDIRECT
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|HttpErrorAttribute
 argument_list|(
 literal|"HTTP_REDIRECT"
@@ -767,8 +801,6 @@ name|GroupAttribute
 name|GROUP_NAME
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|GroupErrorAttribute
 argument_list|(
 literal|"GROUP_NAME"
@@ -780,8 +812,6 @@ name|GroupAttribute
 name|GROUP_OPTIONS
 init|=
 operator|new
-name|ComponentVerifierExtensionHelper
-operator|.
 name|GroupErrorAttribute
 argument_list|(
 literal|"GROUP_OPTIONS"

@@ -99,11 +99,7 @@ DECL|method|AtomixMapComponent ()
 specifier|public
 name|AtomixMapComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AtomixMapComponent (CamelContext camelContext)
 specifier|public
 name|AtomixMapComponent

@@ -560,67 +560,6 @@ name|writer
 argument_list|)
 return|;
 block|}
-comment|/**      * A factory method which creates an {@link IOException} from the given      * exception and message      *      * @deprecated IOException support nested exception in Java 1.6. Will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|createIOException (Throwable cause)
-specifier|public
-specifier|static
-name|IOException
-name|createIOException
-parameter_list|(
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-return|return
-name|createIOException
-argument_list|(
-name|cause
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|cause
-argument_list|)
-return|;
-block|}
-comment|/**      * A factory method which creates an {@link IOException} from the given      * exception and message      *      * @deprecated IOException support nested exception in Java 1.6. Will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|createIOException (String message, Throwable cause)
-specifier|public
-specifier|static
-name|IOException
-name|createIOException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|IOException
-name|answer
-init|=
-operator|new
-name|IOException
-argument_list|(
-name|message
-argument_list|)
-decl_stmt|;
-name|answer
-operator|.
-name|initCause
-argument_list|(
-name|cause
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
 DECL|method|copy (InputStream input, OutputStream output)
 specifier|public
 specifier|static

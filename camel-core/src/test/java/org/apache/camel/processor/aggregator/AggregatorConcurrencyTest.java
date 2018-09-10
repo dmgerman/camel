@@ -560,7 +560,7 @@ argument_list|)
 operator|.
 name|completionPredicate
 argument_list|(
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.

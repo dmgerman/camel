@@ -135,6 +135,9 @@ try|try
 block|{
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"first"
@@ -206,6 +209,9 @@ expr_stmt|;
 comment|// this should be okay
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"third"
@@ -214,6 +220,9 @@ expr_stmt|;
 try|try
 block|{
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(

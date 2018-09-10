@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Component
 import|;
 end_import
 
@@ -177,24 +177,22 @@ specifier|private
 name|String
 name|contentHandlerClass
 decl_stmt|;
-DECL|method|StAXEndpoint (String endpointUri, CamelContext context)
+DECL|method|StAXEndpoint (String endpointUri, Component component)
 specifier|public
 name|StAXEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|CamelContext
-name|context
+name|Component
+name|component
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|endpointUri
 argument_list|,
-name|context
-argument_list|,
-literal|null
+name|component
 argument_list|)
 expr_stmt|;
 block|}

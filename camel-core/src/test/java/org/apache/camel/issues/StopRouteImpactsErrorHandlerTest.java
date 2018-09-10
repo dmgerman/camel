@@ -208,6 +208,9 @@ expr_stmt|;
 comment|// stopping a route after advice with causes problem with error handlers
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"pollRoute"

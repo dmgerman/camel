@@ -482,7 +482,7 @@ decl_stmt|;
 return|return
 name|to
 operator|.
-name|getUriOrRef
+name|getUri
 argument_list|()
 operator|.
 name|startsWith

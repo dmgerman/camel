@@ -114,7 +114,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -128,7 +128,7 @@ specifier|public
 class|class
 name|TimerComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|timers
 specifier|private
@@ -166,15 +166,7 @@ DECL|method|TimerComponent ()
 specifier|public
 name|TimerComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|TimerEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|getTimer (TimerConsumer consumer)
 specifier|public
 name|Timer

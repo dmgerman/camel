@@ -78,6 +78,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Enumeration
 import|;
 end_import
@@ -2402,8 +2412,6 @@ block|}
 comment|// Mail messages can repeat the same header...
 if|if
 condition|(
-name|ObjectConverter
-operator|.
 name|isCollection
 argument_list|(
 name|headerValue
@@ -2550,8 +2558,6 @@ block|{
 comment|// special handling of recipients
 if|if
 condition|(
-name|ObjectConverter
-operator|.
 name|isCollection
 argument_list|(
 name|headerValue
@@ -4515,6 +4521,36 @@ argument_list|)
 expr_stmt|;
 return|return
 name|internetAddress
+return|;
+block|}
+DECL|method|isCollection (Object value)
+specifier|private
+specifier|static
+name|boolean
+name|isCollection
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|value
+operator|instanceof
+name|Collection
+operator|||
+operator|(
+name|value
+operator|!=
+literal|null
+operator|&&
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isArray
+argument_list|()
+operator|)
 return|;
 block|}
 block|}

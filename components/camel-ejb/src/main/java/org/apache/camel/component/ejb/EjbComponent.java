@@ -166,15 +166,7 @@ DECL|method|EjbComponent ()
 specifier|public
 name|EjbComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|EjbEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

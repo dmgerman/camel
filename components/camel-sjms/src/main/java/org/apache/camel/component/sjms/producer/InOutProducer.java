@@ -1316,6 +1316,8 @@ init|=
 operator|new
 name|SjmsMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|message
 argument_list|,
 name|consumer

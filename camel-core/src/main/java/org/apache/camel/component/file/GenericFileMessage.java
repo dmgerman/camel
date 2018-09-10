@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -79,14 +91,6 @@ name|T
 argument_list|>
 name|file
 decl_stmt|;
-comment|/**      * @deprecated use {@link #GenericFileMessage(CamelContext)}      */
-annotation|@
-name|Deprecated
-DECL|method|GenericFileMessage ()
-specifier|public
-name|GenericFileMessage
-parameter_list|()
-block|{     }
 DECL|method|GenericFileMessage (CamelContext camelContext)
 specifier|public
 name|GenericFileMessage
@@ -101,13 +105,13 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated use {@link #GenericFileMessage(CamelContext, GenericFile)}      */
-annotation|@
-name|Deprecated
-DECL|method|GenericFileMessage (GenericFile<T> file)
+DECL|method|GenericFileMessage (Exchange exchange, GenericFile<T> file)
 specifier|public
 name|GenericFileMessage
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|GenericFile
 argument_list|<
 name|T
@@ -115,6 +119,11 @@ argument_list|>
 name|file
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|file

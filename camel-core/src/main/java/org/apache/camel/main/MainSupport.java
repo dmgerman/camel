@@ -204,6 +204,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|RouteDefinition
 import|;
 end_import
@@ -1101,9 +1115,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**      * Hangup support is enabled by default.      *      * @deprecated is enabled by default now, so no longer need to call this method.      */
-annotation|@
-name|Deprecated
+comment|/**      * Hangup support is enabled by default.      */
 DECL|method|enableHangupSupport ()
 specifier|public
 name|void
@@ -2176,6 +2188,13 @@ operator|.
 name|addAll
 argument_list|(
 name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|ModelCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getRouteDefinitions
 argument_list|()

@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -90,7 +90,7 @@ specifier|public
 class|class
 name|ApnsComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -108,15 +108,7 @@ DECL|method|ApnsComponent ()
 specifier|public
 name|ApnsComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|ApnsEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ApnsComponent (ApnsService apnsService)
 specifier|public
 name|ApnsComponent

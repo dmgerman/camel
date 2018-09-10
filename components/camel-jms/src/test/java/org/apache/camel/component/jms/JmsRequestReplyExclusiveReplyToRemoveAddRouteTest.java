@@ -137,6 +137,9 @@ expr_stmt|;
 comment|// stop and remove route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"start"

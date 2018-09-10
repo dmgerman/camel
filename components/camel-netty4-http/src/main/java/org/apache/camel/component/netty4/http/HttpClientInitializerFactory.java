@@ -921,9 +921,6 @@ name|producer
 operator|.
 name|getContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|configuration
 operator|.
@@ -982,9 +979,6 @@ argument_list|(
 name|producer
 operator|.
 name|getContext
-argument_list|()
-operator|.
-name|getClassResolver
 argument_list|()
 argument_list|,
 name|configuration

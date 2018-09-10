@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -194,7 +194,7 @@ specifier|public
 class|class
 name|MicrometerComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|DEFAULT_METER_TYPE
 specifier|public
@@ -243,15 +243,7 @@ DECL|method|MicrometerComponent ()
 specifier|public
 name|MicrometerComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|MicrometerEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

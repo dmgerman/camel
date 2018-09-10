@@ -667,56 +667,6 @@ operator|=
 name|apiVendorExtension
 expr_stmt|;
 block|}
-comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      * @deprecated use getHostNameResolver      */
-annotation|@
-name|Deprecated
-DECL|method|getRestHostNameResolver ()
-specifier|public
-name|RestHostNameResolver
-name|getRestHostNameResolver
-parameter_list|()
-block|{
-return|return
-name|getHostNameResolver
-argument_list|()
-return|;
-block|}
-comment|/**      * Sets the resolver to use for resolving hostname      *      * @param restHostNameResolver the resolver      * @deprecated use setHostNameResolver      */
-annotation|@
-name|Deprecated
-DECL|method|setRestHostNameResolver (RestHostNameResolver restHostNameResolver)
-specifier|public
-name|void
-name|setRestHostNameResolver
-parameter_list|(
-name|RestHostNameResolver
-name|restHostNameResolver
-parameter_list|)
-block|{
-name|setHostNameResolver
-argument_list|(
-name|restHostNameResolver
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Sets the resolver to use for resolving hostname      *      * @param restHostNameResolver the resolver      * @deprecated use setHostNameResolver      */
-annotation|@
-name|Deprecated
-DECL|method|setRestHostNameResolver (String restHostNameResolver)
-specifier|public
-name|void
-name|setRestHostNameResolver
-parameter_list|(
-name|String
-name|restHostNameResolver
-parameter_list|)
-block|{
-name|settHostNameResolver
-argument_list|(
-name|restHostNameResolver
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      */
 DECL|method|getHostNameResolver ()
 specifier|public
@@ -746,10 +696,10 @@ name|hostNameResolver
 expr_stmt|;
 block|}
 comment|/**      * Sets the resolver to use for resolving hostname      *      * @param hostNameResolver the resolver      */
-DECL|method|settHostNameResolver (String hostNameResolver)
+DECL|method|setHostNameResolver (String hostNameResolver)
 specifier|public
 name|void
-name|settHostNameResolver
+name|setHostNameResolver
 parameter_list|(
 name|String
 name|hostNameResolver

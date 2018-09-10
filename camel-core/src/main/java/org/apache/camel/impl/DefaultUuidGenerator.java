@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link UuidGenerator} that is based on the {@link ActiveMQUuidGenerator} but  * is optimized for Camel usage to startup faster and avoid use local network binding to obtain a random number.  */
+comment|/**  * Default {@link UuidGenerator} optimized for Camel usage.  */
 end_comment
 
 begin_class

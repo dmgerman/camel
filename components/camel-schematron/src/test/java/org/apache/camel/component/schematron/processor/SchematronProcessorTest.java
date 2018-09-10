@@ -576,7 +576,7 @@ decl_stmt|;
 return|return
 name|SchematronProcessorFactory
 operator|.
-name|newScehamtronEngine
+name|newSchematronEngine
 argument_list|(
 name|rules
 argument_list|)

@@ -226,7 +226,7 @@ name|originalInstance
 init|=
 name|registry
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"something"
 argument_list|,
@@ -267,7 +267,7 @@ name|assertNotSame
 argument_list|(
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"something"
 argument_list|)
@@ -301,7 +301,7 @@ name|originalInstance
 init|=
 name|registry
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"something"
 argument_list|,
@@ -342,7 +342,7 @@ name|assertNotSame
 argument_list|(
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"something"
 argument_list|)

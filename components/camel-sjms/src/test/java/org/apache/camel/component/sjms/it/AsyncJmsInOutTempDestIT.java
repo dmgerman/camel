@@ -201,7 +201,7 @@ literal|"Took "
 operator|+
 name|watch
 operator|.
-name|stop
+name|taken
 argument_list|()
 operator|+
 literal|" ms. to process 100 messages request/reply over JMS"

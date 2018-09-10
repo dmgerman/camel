@@ -58,7 +58,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
@@ -70,9 +72,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|extension
+operator|.
+name|ComponentVerifierExtension
 import|;
 end_import
 
@@ -129,7 +133,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 name|verifier
 init|=
 name|component
@@ -171,7 +175,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 name|result
@@ -180,7 +184,7 @@ name|verifier
 operator|.
 name|verify
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.
@@ -193,7 +197,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
@@ -232,7 +236,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 name|verifier
 init|=
 name|component
@@ -262,7 +266,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 name|result
@@ -271,7 +275,7 @@ name|verifier
 operator|.
 name|verify
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.
@@ -284,7 +288,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
@@ -317,7 +321,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 operator|.
@@ -411,7 +415,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 name|verifier
 init|=
 name|component
@@ -453,7 +457,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 name|result
@@ -462,7 +466,7 @@ name|verifier
 operator|.
 name|verify
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.
@@ -475,7 +479,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
@@ -515,7 +519,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 name|verifier
 init|=
 name|component
@@ -548,7 +552,7 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 name|result
@@ -557,7 +561,7 @@ name|verifier
 operator|.
 name|verify
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Scope
 operator|.
@@ -570,7 +574,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|Result
 operator|.
@@ -599,7 +603,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 name|error
@@ -618,7 +622,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 operator|.
@@ -640,7 +644,7 @@ name|error
 operator|.
 name|getDetail
 argument_list|(
-name|ComponentVerifier
+name|ComponentVerifierExtension
 operator|.
 name|VerificationError
 operator|.

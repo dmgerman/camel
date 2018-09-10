@@ -308,11 +308,12 @@ argument_list|(
 literal|"new"
 argument_list|)
 operator|.
-name|typeList
+name|type
 argument_list|(
 name|UserPojo
+index|[]
 operator|.
-name|class
+expr|class
 argument_list|)
 operator|.
 name|to

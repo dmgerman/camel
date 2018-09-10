@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeExchangeException
 import|;
 end_import
@@ -215,33 +227,13 @@ specifier|private
 name|JmsBinding
 name|binding
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|method|JmsMessage (Message jmsMessage, JmsBinding binding)
+DECL|method|JmsMessage (Exchange exchange, Message jmsMessage, Session jmsSession, JmsBinding binding)
 specifier|public
 name|JmsMessage
 parameter_list|(
-name|Message
-name|jmsMessage
+name|Exchange
+name|exchange
 parameter_list|,
-name|JmsBinding
-name|binding
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|jmsMessage
-argument_list|,
-literal|null
-argument_list|,
-name|binding
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|JmsMessage (Message jmsMessage, Session jmsSession, JmsBinding binding)
-specifier|public
-name|JmsMessage
-parameter_list|(
 name|Message
 name|jmsMessage
 parameter_list|,
@@ -252,6 +244,11 @@ name|JmsBinding
 name|binding
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|setJmsMessage
 argument_list|(
 name|jmsMessage
@@ -801,6 +798,8 @@ init|=
 operator|new
 name|JmsMessage
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 literal|null

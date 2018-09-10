@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -209,25 +199,6 @@ name|getManagementStatisticsLevel
 parameter_list|()
 function_decl|;
 annotation|@
-name|Deprecated
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel Properties"
-argument_list|)
-DECL|method|getProperties ()
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getProperties
-parameter_list|()
-function_decl|;
-annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
@@ -292,25 +263,6 @@ name|String
 name|getHeadersMapFactoryClassName
 parameter_list|()
 function_decl|;
-annotation|@
-name|Deprecated
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Gets the value of a Camel global option"
-argument_list|)
-DECL|method|getProperty (String key)
-name|String
-name|getProperty
-parameter_list|(
-name|String
-name|key
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Gets the value of a CamelContext global option      *      * @param key the global option key      * @return the global option value      * @throws Exception when an error occurred      */
 annotation|@
 name|ManagedOperation
@@ -325,28 +277,6 @@ name|getGlobalOption
 parameter_list|(
 name|String
 name|key
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-annotation|@
-name|Deprecated
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Sets the value of a Camel global option"
-argument_list|)
-DECL|method|setProperty (String key, String value)
-name|void
-name|setProperty
-parameter_list|(
-name|String
-name|key
-parameter_list|,
-name|String
-name|value
 parameter_list|)
 throws|throws
 name|Exception
@@ -398,21 +328,6 @@ parameter_list|(
 name|Boolean
 name|tracing
 parameter_list|)
-function_decl|;
-comment|/**      * @deprecated use {@link #getExchangesInflight()}      */
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Current number of inflight Exchanges"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|getInflightExchanges ()
-name|Integer
-name|getInflightExchanges
-parameter_list|()
 function_decl|;
 annotation|@
 name|ManagedAttribute
@@ -1289,60 +1204,6 @@ name|includeRoutes
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
-comment|/**      * Helper method for tooling which returns the completion list of the endpoint path      * from the given endpoint name, properties and current path expression.      *<p/>      * For example if using the file endpoint, this should complete a list of files (rather like bash completion)      * or for an ActiveMQ component this should complete the list of queues or topics.      *      * @param componentName  the component name      * @param endpointParameters  parameters of the endpoint      * @param completionText  the entered text which we want to have completion suggestions for      * @throws Exception is thrown if error occurred      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Returns the list of available endpoint paths for the given component name, endpoint properties and completion text"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|completeEndpointPath (String componentName, Map<String, Object> endpointParameters, String completionText)
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|completeEndpointPath
-parameter_list|(
-name|String
-name|componentName
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|endpointParameters
-parameter_list|,
-name|String
-name|completionText
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Returns the HTML documentation for the given camel component      *      * @param componentName  the component name      * @deprecated use camel-catalog instead      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Returns the HTML documentation for the given camel component"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|method|getComponentDocumentation (String componentName)
-name|String
-name|getComponentDocumentation
-parameter_list|(
-name|String
-name|componentName
-parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
 annotation|@
 name|ManagedOperation

@@ -98,11 +98,7 @@ DECL|method|HazelcastRingbufferComponent ()
 specifier|public
 name|HazelcastRingbufferComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HazelcastRingbufferComponent (final CamelContext context)
 specifier|public
 name|HazelcastRingbufferComponent

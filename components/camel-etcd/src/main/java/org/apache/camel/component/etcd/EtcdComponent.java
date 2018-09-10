@@ -182,11 +182,7 @@ DECL|method|EtcdComponent ()
 specifier|public
 name|EtcdComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|EtcdComponent (CamelContext context)
 specifier|public
 name|EtcdComponent

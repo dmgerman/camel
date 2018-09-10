@@ -2629,35 +2629,6 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param routeContext the route context      * @param definition   the definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      * @deprecated use {@link #resolvePropertyPlaceholders(org.apache.camel.CamelContext, Object)}      */
-annotation|@
-name|Deprecated
-DECL|method|resolvePropertyPlaceholders (RouteContext routeContext, Object definition)
-specifier|public
-specifier|static
-name|void
-name|resolvePropertyPlaceholders
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
-name|Object
-name|definition
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|resolvePropertyPlaceholders
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|definition
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved. The definition should implement {@link OtherAttributesAware}      *      * @param camelContext the Camel context      * @param definition   the definition which should implement {@link OtherAttributesAware}      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
 DECL|method|resolvePropertyPlaceholders (CamelContext camelContext, Object definition)
 specifier|public

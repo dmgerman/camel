@@ -428,20 +428,6 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|DropboxEndpoint (String endpointUri)
-specifier|public
-name|DropboxEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Create one of the camel producer available based on the configuration      * @return the camel producer      * @throws Exception      */
 DECL|method|createProducer ()
 specifier|public

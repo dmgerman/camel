@@ -232,7 +232,7 @@ argument_list|()
 decl_stmt|;
 name|context
 operator|.
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 operator|new
 name|DeadLetterChannelBuilder

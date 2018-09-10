@@ -96,7 +96,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -154,7 +154,7 @@ specifier|public
 class|class
 name|Mina2Component
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -192,11 +192,7 @@ name|Mina2Component
 parameter_list|()
 block|{
 name|super
-argument_list|(
-name|Mina2Endpoint
-operator|.
-name|class
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|Mina2Component (CamelContext context)
@@ -210,10 +206,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|Mina2Endpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

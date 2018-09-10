@@ -379,7 +379,7 @@ name|AvroConstants
 operator|.
 name|AVRO_MESSAGE_NAME
 operator|+
-literal|" == 'put'}"
+literal|"} == 'put'"
 argument_list|)
 operator|.
 name|process
@@ -402,7 +402,7 @@ name|AvroConstants
 operator|.
 name|AVRO_MESSAGE_NAME
 operator|+
-literal|" == 'get'}"
+literal|"} == 'get'"
 argument_list|)
 operator|.
 name|process

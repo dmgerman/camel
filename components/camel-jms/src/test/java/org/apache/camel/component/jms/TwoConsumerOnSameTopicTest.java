@@ -226,6 +226,9 @@ expr_stmt|;
 comment|// now stop route A
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"a"
@@ -274,6 +277,9 @@ expr_stmt|;
 comment|// now start route A
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"a"
@@ -298,6 +304,9 @@ argument_list|()
 expr_stmt|;
 comment|// now stop and remove route A
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

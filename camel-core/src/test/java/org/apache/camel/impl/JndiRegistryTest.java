@@ -170,7 +170,7 @@ literal|"Hello bar"
 argument_list|,
 name|jndi
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -208,7 +208,7 @@ name|assertNull
 argument_list|(
 name|jndi
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"unknown"
 argument_list|)
@@ -317,7 +317,7 @@ name|set
 init|=
 name|jndi
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|Language
 operator|.
@@ -416,7 +416,7 @@ literal|"Hello bar"
 argument_list|,
 name|jndi
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -479,7 +479,7 @@ literal|"Hello bar"
 argument_list|,
 name|jndi
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"bar"
 argument_list|)

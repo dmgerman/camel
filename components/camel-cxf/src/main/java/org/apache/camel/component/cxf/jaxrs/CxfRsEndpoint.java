@@ -110,18 +110,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Component
 import|;
 end_import
@@ -1050,32 +1038,6 @@ specifier|public
 name|CxfRsEndpoint
 parameter_list|()
 block|{     }
-annotation|@
-name|Deprecated
-DECL|method|CxfRsEndpoint (String endpointUri, CamelContext camelContext)
-specifier|public
-name|CxfRsEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|camelContext
-argument_list|)
-expr_stmt|;
-name|setAddress
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|CxfRsEndpoint (String endpointUri, Component component)
 specifier|public
 name|CxfRsEndpoint

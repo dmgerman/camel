@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -76,21 +76,13 @@ specifier|public
 class|class
 name|DrillComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|DrillComponent ()
 specifier|public
 name|DrillComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|DrillEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|DrillComponent (final CamelContext context)
 specifier|public
 name|DrillComponent
@@ -103,10 +95,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|DrillEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

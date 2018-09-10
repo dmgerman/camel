@@ -207,10 +207,6 @@ name|ClientOptions
 argument_list|()
 argument_list|,
 name|context
-argument_list|,
-name|ClientEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -228,10 +224,6 @@ argument_list|,
 operator|new
 name|ClientOptions
 argument_list|()
-argument_list|,
-name|ClientEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

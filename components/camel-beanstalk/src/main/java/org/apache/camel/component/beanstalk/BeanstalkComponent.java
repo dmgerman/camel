@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -64,7 +64,7 @@ specifier|public
 class|class
 name|BeanstalkComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|DEFAULT_TUBE
 specifier|public
@@ -172,15 +172,7 @@ DECL|method|BeanstalkComponent ()
 specifier|public
 name|BeanstalkComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|BeanstalkEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|useRawUri ()

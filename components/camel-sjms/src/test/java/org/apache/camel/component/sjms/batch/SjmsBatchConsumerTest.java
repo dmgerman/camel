@@ -675,6 +675,9 @@ argument_list|()
 decl_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"batchConsumer"
@@ -688,7 +691,7 @@ name|time
 init|=
 name|stopWatch
 operator|.
-name|stop
+name|taken
 argument_list|()
 decl_stmt|;
 name|LOG
@@ -2039,6 +2042,9 @@ argument_list|()
 decl_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"batchConsumer"
@@ -2049,7 +2055,7 @@ argument_list|()
 expr_stmt|;
 name|stopWatch
 operator|.
-name|stop
+name|taken
 argument_list|()
 expr_stmt|;
 block|}

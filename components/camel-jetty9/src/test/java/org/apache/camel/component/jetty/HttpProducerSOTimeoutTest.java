@@ -124,7 +124,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:{{port}}/myservice?httpClient.soTimeout=5000"
+literal|"http://localhost:{{port}}/myservice?socketTimeout=5000"
 argument_list|,
 literal|null
 argument_list|,
@@ -176,7 +176,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:{{port}}/myservice?httpClient.soTimeout=1000"
+literal|"http://localhost:{{port}}/myservice?socketTimeout=1000"
 argument_list|,
 literal|null
 argument_list|,

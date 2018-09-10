@@ -1148,7 +1148,7 @@ name|split
 argument_list|(
 name|simple
 argument_list|(
-literal|"body"
+literal|"${body}"
 argument_list|)
 argument_list|)
 operator|.
@@ -1171,7 +1171,7 @@ name|split
 argument_list|(
 name|simple
 argument_list|(
-literal|"body"
+literal|"${body}"
 argument_list|)
 argument_list|)
 operator|.

@@ -519,6 +519,9 @@ literal|"Configured route is incorrect!"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"simple"
@@ -587,6 +590,9 @@ argument_list|(
 literal|"Configured route is incorrect!"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

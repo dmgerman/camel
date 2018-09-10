@@ -214,20 +214,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixConfigurationDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|ProcessorDefinition
 import|;
 end_import
@@ -257,22 +243,6 @@ operator|.
 name|model
 operator|.
 name|RoutesDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|cloud
-operator|.
-name|ServiceCallConfigurationDefinition
 import|;
 end_import
 
@@ -1600,90 +1570,6 @@ argument_list|>
 name|getRestConfigurations
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the service call configuration by the given name. If no name is given      * the default configuration is returned, see<tt>setServiceCallConfiguration</tt>      *      * @param serviceName name of service, or<tt>null</tt> to return the default configuration      * @return the configuration, or<tt>null</tt> if no configuration has been registered      */
-DECL|method|getServiceCallConfiguration (String serviceName)
-name|ServiceCallConfigurationDefinition
-name|getServiceCallConfiguration
-parameter_list|(
-name|String
-name|serviceName
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the default service call configuration      *      * @param configuration the configuration      */
-DECL|method|setServiceCallConfiguration (ServiceCallConfigurationDefinition configuration)
-name|void
-name|setServiceCallConfiguration
-parameter_list|(
-name|ServiceCallConfigurationDefinition
-name|configuration
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the service call configurations      *      * @param configurations the configuration list      */
-DECL|method|setServiceCallConfigurations (List<ServiceCallConfigurationDefinition> configurations)
-name|void
-name|setServiceCallConfigurations
-parameter_list|(
-name|List
-argument_list|<
-name|ServiceCallConfigurationDefinition
-argument_list|>
-name|configurations
-parameter_list|)
-function_decl|;
-comment|/**      * Adds the service call configuration      *      * @param serviceName name of the service      * @param configuration the configuration      */
-DECL|method|addServiceCallConfiguration (String serviceName, ServiceCallConfigurationDefinition configuration)
-name|void
-name|addServiceCallConfiguration
-parameter_list|(
-name|String
-name|serviceName
-parameter_list|,
-name|ServiceCallConfigurationDefinition
-name|configuration
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the Hystrix configuration by the given name. If no name is given      * the default configuration is returned, see<tt>setHystrixConfiguration</tt>      *      * @param id id of the configuration, or<tt>null</tt> to return the default configuration      * @return the configuration, or<tt>null</tt> if no configuration has been registered      */
-DECL|method|getHystrixConfiguration (String id)
-name|HystrixConfigurationDefinition
-name|getHystrixConfiguration
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the default Hystrix configuration      *      * @param configuration the configuration      */
-DECL|method|setHystrixConfiguration (HystrixConfigurationDefinition configuration)
-name|void
-name|setHystrixConfiguration
-parameter_list|(
-name|HystrixConfigurationDefinition
-name|configuration
-parameter_list|)
-function_decl|;
-comment|/**      * Sets the Hystrix configurations      *      * @param configurations the configuration list      */
-DECL|method|setHystrixConfigurations (List<HystrixConfigurationDefinition> configurations)
-name|void
-name|setHystrixConfigurations
-parameter_list|(
-name|List
-argument_list|<
-name|HystrixConfigurationDefinition
-argument_list|>
-name|configurations
-parameter_list|)
-function_decl|;
-comment|/**      * Adds the Hystrix configuration      *      * @param id name of the configuration      * @param configuration the configuration      */
-DECL|method|addHystrixConfiguration (String id, HystrixConfigurationDefinition configuration)
-name|void
-name|addHystrixConfiguration
-parameter_list|(
-name|String
-name|id
-parameter_list|,
-name|HystrixConfigurationDefinition
-name|configuration
-parameter_list|)
-function_decl|;
 comment|/**      * Returns the order in which the route inputs was started.      *<p/>      * The order may not be according to the startupOrder defined on the route.      * For example a route could be started manually later, or new routes added at runtime.      *      * @return a list in the order how routes was started      */
 DECL|method|getRouteStartupOrder ()
 name|List
@@ -1911,14 +1797,6 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Starts all the routes which currently is not started.      *      * @throws Exception is thrown if a route could not be started for whatever reason      */
-DECL|method|startAllRoutes ()
-name|void
-name|startAllRoutes
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Starts the given route if it has been previously stopped      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be started for whatever reason      */
 DECL|method|startRoute (String routeId)
 name|void
@@ -2081,12 +1959,6 @@ parameter_list|(
 name|String
 name|routeId
 parameter_list|)
-function_decl|;
-comment|/**      * Indicates whether current thread is starting route(s).      *<p/>      * This can be useful to know by {@link LifecycleStrategy} or the likes, in case      * they need to react differently.      *      * @return<tt>true</tt> if current thread is starting route(s), or<tt>false</tt> if not.      */
-DECL|method|isStartingRoutes ()
-name|boolean
-name|isStartingRoutes
-parameter_list|()
 function_decl|;
 comment|/**      * Indicates whether current thread is setting up route(s) as part of starting Camel from spring/blueprint.      *<p/>      * This can be useful to know by {@link LifecycleStrategy} or the likes, in case      * they need to react differently.      *<p/>      * As the startup procedure of {@link CamelContext} is slightly different when using plain Java versus      * Spring or Blueprint, then we need to know when Spring/Blueprint is setting up the routes, which      * can happen after the {@link CamelContext} itself is in started state, due the asynchronous event nature      * of especially Blueprint.      *      * @return<tt>true</tt> if current thread is setting up route(s), or<tt>false</tt> if not.      */
 DECL|method|isSetupRoutes ()
@@ -2263,52 +2135,25 @@ argument_list|>
 name|getInterceptStrategies
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the default error handler builder which is inherited by the routes      *      * @return the builder      * @deprecated The return type will be switched to {@link ErrorHandlerFactory} in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|getErrorHandlerBuilder ()
-name|ErrorHandlerBuilder
-name|getErrorHandlerBuilder
+comment|/**      * Gets the default error handler builder which is inherited by the routes      *      * @return the builder      */
+DECL|method|getErrorHandlerFactory ()
+name|ErrorHandlerFactory
+name|getErrorHandlerFactory
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the default error handler builder which is inherited by the routes      *      * @param errorHandlerBuilder the builder      */
-DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
+comment|/**      * Sets the default error handler builder which is inherited by the routes      *      * @param errorHandlerFactory the builder      */
+DECL|method|setErrorHandlerFactory (ErrorHandlerFactory errorHandlerFactory)
 name|void
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 parameter_list|(
 name|ErrorHandlerFactory
-name|errorHandlerBuilder
+name|errorHandlerFactory
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the default shared thread pool for error handlers which      * leverages this for asynchronous redelivery tasks.      */
 DECL|method|getErrorHandlerExecutorService ()
 name|ScheduledExecutorService
 name|getErrorHandlerExecutorService
-parameter_list|()
-function_decl|;
-comment|/**      * Sets the data formats that can be referenced in the routes.      *      * @param dataFormats the data formats      */
-DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
-name|void
-name|setDataFormats
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|DataFormatDefinition
-argument_list|>
-name|dataFormats
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the data formats that can be referenced in the routes.      *      * @return the data formats available      */
-DECL|method|getDataFormats ()
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|DataFormatDefinition
-argument_list|>
-name|getDataFormats
 parameter_list|()
 function_decl|;
 comment|/**      * Resolve a data format given its name      *      * @param name the data format name or a reference to it in the {@link Registry}      * @return the resolved data format, or<tt>null</tt> if not found      */
@@ -2453,22 +2298,6 @@ argument_list|>
 name|getValidatorRegistry
 parameter_list|()
 function_decl|;
-comment|/**      * @deprecated use {@link #setGlobalOptions(Map) setGlobalOptions(Map<String,String>) instead}.      */
-annotation|@
-name|Deprecated
-DECL|method|setProperties (Map<String, String> properties)
-name|void
-name|setProperties
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|properties
-parameter_list|)
-function_decl|;
 comment|/**      * Sets global options that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global options on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @param globalOptions global options that can be referenced in the camel context      */
 DECL|method|setGlobalOptions (Map<String, String> globalOptions)
 name|void
@@ -2483,19 +2312,6 @@ argument_list|>
 name|globalOptions
 parameter_list|)
 function_decl|;
-comment|/**      * @deprecated use {@link #getGlobalOptions()} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|getProperties ()
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getProperties
-parameter_list|()
-function_decl|;
 comment|/**      * Gets global options that can be referenced in the camel context.      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global options on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return global options for this context      */
 DECL|method|getGlobalOptions ()
 name|Map
@@ -2506,17 +2322,6 @@ name|String
 argument_list|>
 name|getGlobalOptions
 parameter_list|()
-function_decl|;
-comment|/**      * @deprecated use {@link #getGlobalOption(String)} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|getProperty (String key)
-name|String
-name|getProperty
-parameter_list|(
-name|String
-name|key
-parameter_list|)
 function_decl|;
 comment|/**      * Gets the global option value that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global options on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @return the string value of the global option      */
 DECL|method|getGlobalOption (String key)
@@ -2767,22 +2572,6 @@ name|ExecutorServiceManager
 name|getExecutorServiceManager
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the current {@link org.apache.camel.spi.ExecutorServiceStrategy}      *      * @return the manager      * @deprecated use {@link #getExecutorServiceManager()}      */
-annotation|@
-name|Deprecated
-DECL|method|getExecutorServiceStrategy ()
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ExecutorServiceStrategy
-name|getExecutorServiceStrategy
-parameter_list|()
-function_decl|;
 comment|/**      * Sets a custom {@link org.apache.camel.spi.ExecutorServiceManager}      *      * @param executorServiceManager the custom manager      */
 DECL|method|setExecutorServiceManager (ExecutorServiceManager executorServiceManager)
 name|void
@@ -2850,25 +2639,6 @@ name|setUuidGenerator
 parameter_list|(
 name|UuidGenerator
 name|uuidGenerator
-parameter_list|)
-function_decl|;
-comment|/**      * Whether or not type converters should be loaded lazy      *      * @return<tt>true</tt> to load lazy,<tt>false</tt> to load on startup      * @deprecated this option is no longer supported, will be removed in a future Camel release.      */
-annotation|@
-name|Deprecated
-DECL|method|isLazyLoadTypeConverters ()
-name|Boolean
-name|isLazyLoadTypeConverters
-parameter_list|()
-function_decl|;
-comment|/**      * Sets whether type converters should be loaded lazy      *      * @param lazyLoadTypeConverters<tt>true</tt> to load lazy,<tt>false</tt> to load on startup      * @deprecated this option is no longer supported, will be removed in a future Camel release.      */
-annotation|@
-name|Deprecated
-DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
-name|void
-name|setLazyLoadTypeConverters
-parameter_list|(
-name|Boolean
-name|lazyLoadTypeConverters
 parameter_list|)
 function_decl|;
 comment|/**      * Sets whether to load custom type converters by scanning classpath.      * This can be turned off if you are only using Camel components      * that does not provide type converters which is needed at runtime.      * In such situations setting this option to false, can speedup starting      * Camel.      */
@@ -2983,19 +2753,6 @@ parameter_list|()
 throws|throws
 name|LoadPropertiesException
 throws|,
-name|IOException
-function_decl|;
-comment|/**      * Returns the HTML documentation for the given Camel component      *      * @return the HTML or<tt>null</tt> if the component is<b>not</b> built with HTML document included.      * @deprecated use camel-catalog instead      */
-annotation|@
-name|Deprecated
-DECL|method|getComponentDocumentation (String componentName)
-name|String
-name|getComponentDocumentation
-parameter_list|(
-name|String
-name|componentName
-parameter_list|)
-throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the JSON schema representation of the component and endpoint parameters for the given component name.      *      * @return the json or<tt>null</tt> if the component is<b>not</b> built with JSon schema support      */

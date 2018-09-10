@@ -196,6 +196,9 @@ expr_stmt|;
 comment|// now start all routes
 name|camel
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startAllRoutes
 argument_list|()
 expr_stmt|;
@@ -730,6 +733,9 @@ argument_list|)
 expr_stmt|;
 comment|// now start all the routes
 name|camel
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startAllRoutes
 argument_list|()

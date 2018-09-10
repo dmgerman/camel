@@ -134,15 +134,7 @@ DECL|method|ClassComponent ()
 specifier|public
 name|ClassComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|ClassEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

@@ -295,7 +295,7 @@ name|Exchange
 operator|.
 name|CHARSET_NAME
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|normalizeCharset
 argument_list|(

@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -92,21 +92,13 @@ specifier|public
 class|class
 name|ChronicleEngineComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|ChronicleEngineComponent ()
 specifier|public
 name|ChronicleEngineComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|ChronicleEngineEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ChronicleEngineComponent (CamelContext context)
 specifier|public
 name|ChronicleEngineComponent
@@ -118,10 +110,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|ChronicleEngineEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

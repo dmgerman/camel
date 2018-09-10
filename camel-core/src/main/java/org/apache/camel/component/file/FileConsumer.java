@@ -1086,41 +1086,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param endpointPath the starting directory the endpoint was configured with      * @param file the source file      * @return wrapped as a GenericFile      * @deprecated use {@link #asGenericFile(String, File, String, boolean)}      */
-annotation|@
-name|Deprecated
-DECL|method|asGenericFile (String endpointPath, File file, String charset)
-specifier|public
-specifier|static
-name|GenericFile
-argument_list|<
-name|File
-argument_list|>
-name|asGenericFile
-parameter_list|(
-name|String
-name|endpointPath
-parameter_list|,
-name|File
-name|file
-parameter_list|,
-name|String
-name|charset
-parameter_list|)
-block|{
-return|return
-name|asGenericFile
-argument_list|(
-name|endpointPath
-argument_list|,
-name|file
-argument_list|,
-name|charset
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
 comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param endpointPath the starting directory the endpoint was configured with      * @param file the source file      * @param probeContentType whether to probe the content type of the file or not      * @return wrapped as a GenericFile      */
 DECL|method|asGenericFile (String endpointPath, File file, String charset, boolean probeContentType)
 specifier|public

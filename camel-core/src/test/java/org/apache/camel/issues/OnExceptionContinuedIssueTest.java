@@ -161,7 +161,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 argument_list|(
 name|defaultErrorHandlerBuilder
 argument_list|)

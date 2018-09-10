@@ -497,15 +497,7 @@ DECL|method|SjmsComponent ()
 specifier|public
 name|SjmsComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|SjmsEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SjmsComponent (Class<? extends Endpoint> endpointClass)
 specifier|protected
 name|SjmsComponent
@@ -520,9 +512,7 @@ name|endpointClass
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|endpointClass
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

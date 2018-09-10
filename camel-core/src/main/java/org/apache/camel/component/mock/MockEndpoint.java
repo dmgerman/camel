@@ -896,6 +896,11 @@ name|copyOnExchange
 init|=
 literal|true
 decl_stmt|;
+DECL|method|MockEndpoint ()
+specifier|public
+name|MockEndpoint
+parameter_list|()
+block|{     }
 DECL|method|MockEndpoint (String endpointUri, Component component)
 specifier|public
 name|MockEndpoint
@@ -916,36 +921,6 @@ argument_list|)
 expr_stmt|;
 name|init
 argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|MockEndpoint (String endpointUri)
-specifier|public
-name|MockEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|init
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|MockEndpoint ()
-specifier|public
-name|MockEndpoint
-parameter_list|()
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * A helper method to resolve the mock endpoint of the given URI on the given context      *      * @param context the camel context to try resolve the mock endpoint from      * @param uri the uri of the endpoint to resolve      * @return the endpoint      */
@@ -4877,24 +4852,6 @@ operator|.
 name|resultMinimumWaitTime
 operator|=
 name|resultMinimumWaitTime
-expr_stmt|;
-block|}
-comment|/**      * @deprecated use {@link #setResultMinimumWaitTime(long)}      */
-annotation|@
-name|Deprecated
-DECL|method|setMinimumResultWaitTime (long resultMinimumWaitTime)
-specifier|public
-name|void
-name|setMinimumResultWaitTime
-parameter_list|(
-name|long
-name|resultMinimumWaitTime
-parameter_list|)
-block|{
-name|setResultMinimumWaitTime
-argument_list|(
-name|resultMinimumWaitTime
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint.      *<p/>      *<b>Beware:</b> If you want to expect that<tt>0</tt> messages, then take extra care,      * as<tt>0</tt> matches when the tests starts, so you need to set a assert period time      * to let the test run for a while to make sure there are still no messages arrived; for      * that use {@link #setAssertPeriod(long)}.      * An alternative is to use<a href="http://camel.apache.org/notifybuilder.html">NotifyBuilder</a>, and use the notifier      * to know when Camel is done routing some messages, before you call the {@link #assertIsSatisfied()} method on the mocks.      * This allows you to not use a fixed assert period, to speedup testing times.      *<p/>      * If you want to assert that<b>exactly</b> n'th message arrives to this mock      * endpoint, then see also the {@link #setAssertPeriod(long)} method for further details.      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      * @see #setAssertPeriod(long)                            */

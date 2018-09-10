@@ -126,20 +126,6 @@ name|RouteContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Act as a message source as input to a route  *  * @version   */
 end_comment
@@ -191,15 +177,6 @@ DECL|field|uri
 specifier|private
 name|String
 name|uri
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|ref
-specifier|private
-name|String
-name|ref
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -284,9 +261,6 @@ argument_list|(
 name|getUri
 argument_list|()
 argument_list|,
-name|getRef
-argument_list|()
-argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|)
@@ -314,9 +288,6 @@ operator|.
 name|resolveEndpoint
 argument_list|(
 name|getUri
-argument_list|()
-argument_list|,
-name|getRef
 argument_list|()
 argument_list|)
 return|;
@@ -402,39 +373,7 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
-DECL|method|getRef ()
-specifier|public
-name|String
-name|getRef
-parameter_list|()
-block|{
-return|return
-name|ref
-return|;
-block|}
-comment|/**      * Sets the name of the endpoint within the registry (such as the Spring      * ApplicationContext or JNDI) to use      *      * @param ref the reference name to use      * @deprecated use uri with ref:uri instead      */
-annotation|@
-name|Deprecated
-DECL|method|setRef (String ref)
-specifier|public
-name|void
-name|setRef
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-name|clear
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|ref
-operator|=
-name|ref
-expr_stmt|;
-block|}
-comment|/**      * Gets tne endpoint if an {@link Endpoint} instance was set.      *<p/>      * This implementation may return<tt>null</tt> which means you need to use      * {@link #getRef()} or {@link #getUri()} to get information about the endpoint.      *      * @return the endpoint instance, or<tt>null</tt>      */
+comment|/**      * Gets tne endpoint if an {@link Endpoint} instance was set.      *<p/>      * This implementation may return<tt>null</tt> which means you need to use      * {@link #getUri()} to get information about the endpoint.      *      * @return the endpoint instance, or<tt>null</tt>      */
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -484,49 +423,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the endpoint URI or the name of the reference to it      */
-DECL|method|getUriOrRef ()
-specifier|public
-name|Object
-name|getUriOrRef
-parameter_list|()
-block|{
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|uri
-argument_list|)
-condition|)
-block|{
-return|return
-name|uri
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|endpoint
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-return|;
-block|}
-return|return
-name|ref
-return|;
-block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
-DECL|method|description (String uri, String ref, Endpoint endpoint)
+DECL|method|description (String uri, Endpoint endpoint)
 specifier|protected
 specifier|static
 name|String
@@ -535,27 +434,10 @@ parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|String
-name|ref
-parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-if|if
-condition|(
-name|ref
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-literal|"ref:"
-operator|+
-name|ref
-return|;
-block|}
-elseif|else
 if|if
 condition|(
 name|endpoint
@@ -598,12 +480,6 @@ block|{
 name|this
 operator|.
 name|endpoint
-operator|=
-literal|null
-expr_stmt|;
-name|this
-operator|.
-name|ref
 operator|=
 literal|null
 expr_stmt|;

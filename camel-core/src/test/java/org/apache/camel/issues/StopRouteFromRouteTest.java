@@ -213,6 +213,9 @@ literal|"Route myRoute should be started"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"myRoute"
@@ -227,6 +230,9 @@ argument_list|(
 literal|"Route bar should be started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -317,6 +323,9 @@ literal|"Route myRoute should be stopped"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"myRoute"
@@ -331,6 +340,9 @@ argument_list|(
 literal|"Route bar should be started"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -447,6 +459,9 @@ block|{
 name|exchange
 operator|.
 name|getContext
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|stopRoute

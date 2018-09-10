@@ -1524,7 +1524,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|setProperties
+name|setGlobalOptions
 argument_list|(
 name|map
 argument_list|)
@@ -1583,7 +1583,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 decl_stmt|;
 name|LOG

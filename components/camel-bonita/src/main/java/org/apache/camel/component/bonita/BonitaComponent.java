@@ -80,7 +80,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -90,21 +90,13 @@ specifier|public
 class|class
 name|BonitaComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|BonitaComponent ()
 specifier|public
 name|BonitaComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|BonitaEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|BonitaComponent (CamelContext context)
 specifier|public
 name|BonitaComponent
@@ -116,10 +108,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|BonitaEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

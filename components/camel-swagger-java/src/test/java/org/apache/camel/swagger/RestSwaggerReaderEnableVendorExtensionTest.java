@@ -382,11 +382,12 @@ argument_list|(
 literal|"Find all users"
 argument_list|)
 operator|.
-name|outTypeList
+name|outType
 argument_list|(
 name|User
+index|[]
 operator|.
-name|class
+expr|class
 argument_list|)
 operator|.
 name|responseMessage

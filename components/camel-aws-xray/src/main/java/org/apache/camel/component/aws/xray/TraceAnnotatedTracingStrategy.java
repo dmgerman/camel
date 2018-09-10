@@ -331,7 +331,7 @@ init|=
 operator|(
 name|BeanProcessor
 operator|)
-name|nextTarget
+name|target
 decl_stmt|;
 if|if
 condition|(
@@ -373,7 +373,7 @@ init|=
 operator|(
 name|DelegateSyncProcessor
 operator|)
-name|nextTarget
+name|target
 decl_stmt|;
 if|if
 condition|(

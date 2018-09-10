@@ -234,26 +234,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testToWithRobustInOnlyParam ()
-specifier|public
-name|void
-name|testToWithRobustInOnlyParam
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertMessageReceivedWithPattern
-argument_list|(
-literal|"direct:testToWithRobustInOnlyParam"
-argument_list|,
-name|ExchangePattern
-operator|.
-name|RobustInOnly
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testSetExchangePatternInOnly ()
 specifier|public
 name|void
@@ -531,9 +511,6 @@ break|break;
 case|case
 name|InOnly
 case|:
-case|case
-name|RobustInOnly
-case|:
 name|sendPattern
 operator|=
 name|ExchangePattern
@@ -723,20 +700,6 @@ argument_list|(
 name|ExchangePattern
 operator|.
 name|InOut
-argument_list|,
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"direct:testToWithRobustInOnlyParam"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-name|ExchangePattern
-operator|.
-name|RobustInOnly
 argument_list|,
 literal|"mock:result"
 argument_list|)

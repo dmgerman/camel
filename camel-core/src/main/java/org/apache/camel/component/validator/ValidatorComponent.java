@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|ValidatorComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -100,34 +100,7 @@ DECL|method|ValidatorComponent ()
 specifier|public
 name|ValidatorComponent
 parameter_list|()
-block|{
-name|this
-argument_list|(
-name|ValidatorEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ValidatorComponent (Class<? extends Endpoint> endpointClass)
-specifier|public
-name|ValidatorComponent
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointClass
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

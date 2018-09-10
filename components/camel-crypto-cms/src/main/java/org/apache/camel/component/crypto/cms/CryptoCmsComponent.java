@@ -306,7 +306,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -378,7 +378,7 @@ specifier|public
 class|class
 name|CryptoCmsComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -424,15 +424,7 @@ DECL|method|CryptoCmsComponent ()
 specifier|public
 name|CryptoCmsComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|CryptoCmsEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|CryptoCmsComponent (CamelContext context)
 specifier|public
 name|CryptoCmsComponent
@@ -444,10 +436,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|CryptoCmsEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

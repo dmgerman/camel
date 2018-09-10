@@ -186,6 +186,9 @@ expr_stmt|;
 comment|// we should only get 3 messages as we have a repeat count limit at 3
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startAllRoutes
 argument_list|()
 expr_stmt|;

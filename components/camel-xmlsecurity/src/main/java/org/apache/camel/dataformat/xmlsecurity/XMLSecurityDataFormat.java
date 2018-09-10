@@ -2225,7 +2225,7 @@ name|contextProps
 init|=
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 decl_stmt|;
 if|if
@@ -2241,7 +2241,7 @@ name|recipientKeyAlias
 operator|=
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|XML_ENC_RECIPIENT_ALIAS
 argument_list|)
@@ -2283,7 +2283,7 @@ name|URL
 argument_list|(
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|XML_ENC_TRUST_STORE_URL
 argument_list|)
@@ -2300,7 +2300,7 @@ name|trustStorePassword
 operator|=
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|XML_ENC_TRUST_STORE_PASSWORD
 argument_list|)
@@ -2358,7 +2358,7 @@ name|URL
 argument_list|(
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|XML_ENC_KEY_STORE_URL
 argument_list|)
@@ -2375,7 +2375,7 @@ name|keyStorePassword
 operator|=
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|XML_ENC_KEY_STORE_PASSWORD
 argument_list|)
@@ -2401,7 +2401,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|containsKey
@@ -2420,7 +2420,7 @@ name|recipientKeyAlias
 operator|=
 name|context
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 name|XML_ENC_KEY_STORE_ALIAS
 argument_list|)

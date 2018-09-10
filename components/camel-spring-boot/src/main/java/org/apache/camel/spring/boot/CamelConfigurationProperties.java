@@ -322,7 +322,7 @@ specifier|private
 name|boolean
 name|handleFault
 decl_stmt|;
-comment|/**      * Sets whether the object should automatically start when Camel starts.      * Important: Currently only routes can be disabled, as CamelContext's are always started.      * Note: When setting auto startup false on CamelContext then that takes precedence      * and no routes is started. You would need to start CamelContext explicit using      * the org.apache.camel.CamelContext.start() method, to start the context, and then      * you would need to start the routes manually using CamelContext.startRoute(String).      *      * Default is true to always start up.      */
+comment|/**      * Sets whether the object should automatically start when Camel starts.      * Important: Currently only routes can be disabled, as CamelContext's are always started.      * Note: When setting auto startup false on CamelContext then that takes precedence      * and no routes is started. You would need to start CamelContext explicit using      * the org.apache.camel.CamelContext.start() method, to start the context, and then      * you would need to start the routes manually using Camelcontext.getRouteController().startRoute(String).      *      * Default is true to always start up.      */
 DECL|field|autoStartup
 specifier|private
 name|boolean

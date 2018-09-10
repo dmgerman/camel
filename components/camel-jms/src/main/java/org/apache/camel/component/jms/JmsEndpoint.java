@@ -892,6 +892,8 @@ name|encode
 argument_list|(
 name|endpointUri
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|this
@@ -1879,6 +1881,8 @@ argument_list|(
 operator|new
 name|JmsMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|message
 argument_list|,
 name|session

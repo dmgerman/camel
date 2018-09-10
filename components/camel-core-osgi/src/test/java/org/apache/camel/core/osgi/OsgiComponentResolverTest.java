@@ -50,31 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|EndpointConfiguration
 import|;
 end_import
 
@@ -469,43 +445,6 @@ DECL|method|useRawUri ()
 specifier|public
 name|boolean
 name|useRawUri
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Should not be called"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
-DECL|method|createConfiguration (String uri)
-specifier|public
-name|EndpointConfiguration
-name|createConfiguration
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Should not be called"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
-DECL|method|createComponentConfiguration ()
-specifier|public
-name|ComponentConfiguration
-name|createComponentConfiguration
 parameter_list|()
 block|{
 throw|throw

@@ -526,20 +526,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|PropertiesDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|RestContextRefDefinition
 import|;
 end_import
@@ -980,15 +966,6 @@ name|shutdownRunningTask
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|lazyLoadTypeConverters
-specifier|private
-name|Boolean
-name|lazyLoadTypeConverters
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|loadTypeConverters
 specifier|private
 name|Boolean
@@ -1014,20 +991,6 @@ DECL|field|typeConverterExistsLoggingLevel
 specifier|private
 name|LoggingLevel
 name|typeConverterExistsLoggingLevel
-decl_stmt|;
-annotation|@
-name|Deprecated
-annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"properties"
-argument_list|)
-DECL|field|properties
-specifier|private
-name|PropertiesDefinition
-name|properties
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -2649,45 +2612,6 @@ name|threadNamePattern
 expr_stmt|;
 block|}
 annotation|@
-name|Deprecated
-DECL|method|getLazyLoadTypeConverters ()
-specifier|public
-name|Boolean
-name|getLazyLoadTypeConverters
-parameter_list|()
-block|{
-comment|// use false by default
-return|return
-name|lazyLoadTypeConverters
-operator|!=
-literal|null
-condition|?
-name|lazyLoadTypeConverters
-else|:
-name|Boolean
-operator|.
-name|FALSE
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
-specifier|public
-name|void
-name|setLazyLoadTypeConverters
-parameter_list|(
-name|Boolean
-name|lazyLoadTypeConverters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|lazyLoadTypeConverters
-operator|=
-name|lazyLoadTypeConverters
-expr_stmt|;
-block|}
-annotation|@
 name|Override
 DECL|method|getLoadTypeConverters ()
 specifier|public
@@ -3240,18 +3164,6 @@ name|errorHandlerRef
 expr_stmt|;
 block|}
 annotation|@
-name|Deprecated
-DECL|method|getProperties ()
-specifier|public
-name|PropertiesDefinition
-name|getProperties
-parameter_list|()
-block|{
-return|return
-name|properties
-return|;
-block|}
-annotation|@
 name|Override
 DECL|method|getGlobalOptions ()
 specifier|public
@@ -3262,24 +3174,6 @@ block|{
 return|return
 name|globalOptions
 return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setProperties (PropertiesDefinition properties)
-specifier|public
-name|void
-name|setProperties
-parameter_list|(
-name|PropertiesDefinition
-name|properties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|properties
-operator|=
-name|properties
-expr_stmt|;
 block|}
 DECL|method|setGlobalOptions (GlobalOptionsDefinition globalOptions)
 specifier|public

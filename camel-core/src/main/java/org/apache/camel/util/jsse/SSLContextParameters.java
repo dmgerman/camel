@@ -501,26 +501,6 @@ name|certAlias
 expr_stmt|;
 block|}
 comment|////////////////////////////////////////////
-comment|/**      * Creates an {@link SSLContext} based on the related configuration options      * of this instance. Namely, {@link #keyManagers}, {@link #trustManagers}, and      * {@link #secureRandom}, but also respecting the chosen provider and secure      * socket protocol as well.      *      * @return a newly configured instance      *      * @throws GeneralSecurityException if there is a problem in this instances      *             configuration or that of its nested configuration options      * @throws IOException if there is an error reading a key/trust store      * @deprecated use {@link #configureSSLContext(SSLContext)}      */
-annotation|@
-name|Deprecated
-DECL|method|createSSLContext ()
-specifier|public
-name|SSLContext
-name|createSSLContext
-parameter_list|()
-throws|throws
-name|GeneralSecurityException
-throws|,
-name|IOException
-block|{
-return|return
-name|createSSLContext
-argument_list|(
-literal|null
-argument_list|)
-return|;
-block|}
 comment|/**      * Creates an {@link SSLContext} based on the related configuration options      * of this instance. Namely, {@link #keyManagers}, {@link #trustManagers}, and      * {@link #secureRandom}, but also respecting the chosen provider and secure      * socket protocol as well.      *      * @param camelContext  The camel context      *      * @return a newly configured instance      *      * @throws GeneralSecurityException if there is a problem in this instances      *             configuration or that of its nested configuration options      * @throws IOException if there is an error reading a key/trust store      */
 DECL|method|createSSLContext (CamelContext camelContext)
 specifier|public

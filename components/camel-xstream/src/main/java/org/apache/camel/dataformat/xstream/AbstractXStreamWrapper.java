@@ -545,6 +545,8 @@ operator|=
 name|createXStream
 argument_list|(
 name|resolver
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -604,27 +606,6 @@ name|xstream
 operator|=
 name|xstream
 expr_stmt|;
-block|}
-comment|/**      * @deprecated Use {@link #createXStream(ClassResolver, ClassLoader)}      */
-annotation|@
-name|Deprecated
-DECL|method|createXStream (ClassResolver resolver)
-specifier|protected
-name|XStream
-name|createXStream
-parameter_list|(
-name|ClassResolver
-name|resolver
-parameter_list|)
-block|{
-return|return
-name|createXStream
-argument_list|(
-name|resolver
-argument_list|,
-literal|null
-argument_list|)
-return|;
 block|}
 DECL|method|createXStream (ClassResolver resolver, ClassLoader classLoader)
 specifier|protected

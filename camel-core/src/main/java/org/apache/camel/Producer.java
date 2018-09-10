@@ -31,38 +31,7 @@ extends|,
 name|IsSingleton
 extends|,
 name|EndpointAware
-block|{
-comment|/**      * Creates a new exchange to send to this endpoint      *       * @return a newly created exchange      * @deprecated use {@link Endpoint#createExchange()} - will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|createExchange ()
-name|Exchange
-name|createExchange
-parameter_list|()
-function_decl|;
-comment|/**      * Creates a new exchange of the given pattern to send to this endpoint      *      * @param pattern the exchange pattern      * @return a newly created exchange      * @deprecated use {@link Endpoint#createExchange(ExchangePattern)} - will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|createExchange (ExchangePattern pattern)
-name|Exchange
-name|createExchange
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|)
-function_decl|;
-comment|/**      * Creates a new exchange for communicating with this exchange using the      * given exchange to pre-populate the values of the headers and messages      *      * @param exchange the existing exchange      * @return the created exchange      * @deprecated will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|createExchange (Exchange exchange)
-name|Exchange
-name|createExchange
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-function_decl|;
-block|}
+block|{  }
 end_interface
 
 end_unit

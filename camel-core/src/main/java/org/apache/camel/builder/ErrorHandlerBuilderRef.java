@@ -684,7 +684,7 @@ name|answer
 init|=
 name|camelContext
 operator|.
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 if|if

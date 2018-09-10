@@ -172,6 +172,9 @@ literal|true
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"C"
@@ -315,6 +318,9 @@ expr_stmt|;
 comment|// start C
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"C"
@@ -336,6 +342,9 @@ argument_list|(
 literal|true
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

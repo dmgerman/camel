@@ -607,6 +607,9 @@ name|Exception
 block|{
 name|secondCamelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startAllRoutes
 argument_list|()
 expr_stmt|;

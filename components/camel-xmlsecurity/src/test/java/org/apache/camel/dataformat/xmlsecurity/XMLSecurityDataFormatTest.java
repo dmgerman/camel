@@ -320,7 +320,7 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 operator|.
 name|put
@@ -1140,7 +1140,7 @@ name|contextProps
 init|=
 name|context
 operator|.
-name|getProperties
+name|getGlobalOptions
 argument_list|()
 decl_stmt|;
 name|contextProps

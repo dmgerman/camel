@@ -133,7 +133,10 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|suspendRoute
+name|getRouteController
+argument_list|()
+operator|.
+name|resumeRoute
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -150,6 +153,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|resumeRoute
 argument_list|(

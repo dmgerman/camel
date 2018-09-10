@@ -155,9 +155,15 @@ name|ServiceSupport
 implements|implements
 name|AsyncProcessor
 implements|,
-name|Traceable
-implements|,
 name|IdAware
+implements|,
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Traceable
 block|{
 DECL|field|id
 specifier|private

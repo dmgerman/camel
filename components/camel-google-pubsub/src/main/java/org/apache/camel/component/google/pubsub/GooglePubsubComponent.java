@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -64,7 +52,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -78,7 +66,7 @@ specifier|public
 class|class
 name|GooglePubsubComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|connectionFactory
 specifier|private
@@ -89,33 +77,7 @@ DECL|method|GooglePubsubComponent ()
 specifier|public
 name|GooglePubsubComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|GooglePubsubEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|GooglePubsubComponent (CamelContext context)
-specifier|public
-name|GooglePubsubComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|,
-name|GooglePubsubEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

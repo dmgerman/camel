@@ -629,7 +629,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.

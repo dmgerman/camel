@@ -131,6 +131,9 @@ expr_stmt|;
 comment|// now stop& remove the route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"sedaToMock"

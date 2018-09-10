@@ -120,7 +120,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -232,6 +232,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -242,7 +256,7 @@ specifier|public
 class|class
 name|SparkComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|RestConsumerFactory
 implements|,
@@ -412,19 +426,6 @@ operator|new
 name|DefaultSparkBinding
 argument_list|()
 decl_stmt|;
-DECL|method|SparkComponent ()
-specifier|public
-name|SparkComponent
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|SparkEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getPort ()
 specifier|public
 name|int
@@ -817,7 +818,7 @@ block|}
 name|String
 name|verb
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|before
 argument_list|(
@@ -829,7 +830,7 @@ decl_stmt|;
 name|String
 name|path
 init|=
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|after
 argument_list|(
@@ -986,7 +987,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -1006,7 +1007,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -1029,7 +1030,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration

@@ -144,18 +144,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Consumer
 import|;
 end_import
@@ -205,18 +193,6 @@ operator|.
 name|camel
 operator|.
 name|SSLContextParametersAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|VerifiableComponent
 import|;
 end_import
 
@@ -496,8 +472,6 @@ implements|,
 name|RestApiConsumerFactory
 implements|,
 name|RestProducerFactory
-implements|,
-name|VerifiableComponent
 implements|,
 name|SSLContextParametersAware
 block|{
@@ -1264,7 +1238,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -1284,7 +1258,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -1307,7 +1281,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -2323,11 +2297,9 @@ operator|=
 name|hostOptions
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|getVerifier ()
 specifier|public
-name|ComponentVerifier
+name|ComponentVerifierExtension
 name|getVerifier
 parameter_list|()
 block|{

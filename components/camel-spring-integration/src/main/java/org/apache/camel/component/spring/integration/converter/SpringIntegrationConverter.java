@@ -317,6 +317,8 @@ return|return
 operator|new
 name|SpringIntegrationMessage
 argument_list|(
+literal|null
+argument_list|,
 name|springMessage
 argument_list|)
 return|;

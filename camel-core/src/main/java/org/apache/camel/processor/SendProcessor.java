@@ -590,18 +590,6 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-comment|/**      * @deprecated not longer supported.      */
-annotation|@
-name|Deprecated
-DECL|method|setDestination (Endpoint destination)
-specifier|public
-name|void
-name|setDestination
-parameter_list|(
-name|Endpoint
-name|destination
-parameter_list|)
-block|{     }
 DECL|method|getTraceLabel ()
 specifier|public
 name|String

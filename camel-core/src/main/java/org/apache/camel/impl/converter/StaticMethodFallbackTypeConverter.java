@@ -120,29 +120,6 @@ specifier|final
 name|boolean
 name|allowNull
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|method|StaticMethodFallbackTypeConverter (Method method, TypeConverterRegistry registry)
-specifier|public
-name|StaticMethodFallbackTypeConverter
-parameter_list|(
-name|Method
-name|method
-parameter_list|,
-name|TypeConverterRegistry
-name|registry
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|method
-argument_list|,
-name|registry
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|StaticMethodFallbackTypeConverter (Method method, TypeConverterRegistry registry, boolean allowNull)
 specifier|public
 name|StaticMethodFallbackTypeConverter

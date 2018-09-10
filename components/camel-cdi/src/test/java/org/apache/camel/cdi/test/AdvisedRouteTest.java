@@ -328,6 +328,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -370,6 +380,8 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Ignore
 DECL|class|AdvisedRouteTest
 specifier|public
 class|class
@@ -581,6 +593,9 @@ block|}
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startAllRoutes
 argument_list|()

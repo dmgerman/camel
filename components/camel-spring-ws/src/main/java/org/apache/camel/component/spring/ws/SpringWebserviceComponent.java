@@ -258,7 +258,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -392,7 +392,7 @@ specifier|public
 class|class
 name|SpringWebserviceComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|SSLContextParametersAware
 block|{
@@ -432,15 +432,7 @@ DECL|method|SpringWebserviceComponent ()
 specifier|public
 name|SpringWebserviceComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|SpringWebserviceEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SpringWebserviceComponent (CamelContext context)
 specifier|public
 name|SpringWebserviceComponent
@@ -452,10 +444,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|SpringWebserviceEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

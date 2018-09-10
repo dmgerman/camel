@@ -357,20 +357,6 @@ argument_list|>
 name|allowableValues
 decl_stmt|;
 annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|""
-argument_list|)
-DECL|field|access
-specifier|private
-name|String
-name|access
-decl_stmt|;
-annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -727,44 +713,6 @@ operator|=
 name|allowableValues
 expr_stmt|;
 block|}
-comment|/**      * Gets the Swagger Parameter paramAccess flag.      *      * @deprecated is not in use in swagger specification 2.0      */
-annotation|@
-name|Deprecated
-DECL|method|getAccess ()
-specifier|public
-name|String
-name|getAccess
-parameter_list|()
-block|{
-return|return
-name|access
-operator|!=
-literal|null
-condition|?
-name|access
-else|:
-literal|""
-return|;
-block|}
-comment|/**      * Sets the Swagger Parameter paramAccess flag.      *      * @deprecated is not in use in swagger specification 2.0      */
-annotation|@
-name|Deprecated
-DECL|method|setAccess (String access)
-specifier|public
-name|void
-name|setAccess
-parameter_list|(
-name|String
-name|access
-parameter_list|)
-block|{
-name|this
-operator|.
-name|access
-operator|=
-name|access
-expr_stmt|;
-block|}
 DECL|method|getExamples ()
 specifier|public
 name|List
@@ -1010,27 +958,6 @@ block|{
 name|setType
 argument_list|(
 name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Parameter access. Use<tt>false</tt> or<tt>internal</tt> to indicate the parameter      * should be hidden for the public.      *      * @deprecated is not in use in swagger specification 2.0      */
-annotation|@
-name|Deprecated
-DECL|method|access (String paramAccess)
-specifier|public
-name|RestOperationParamDefinition
-name|access
-parameter_list|(
-name|String
-name|paramAccess
-parameter_list|)
-block|{
-name|setAccess
-argument_list|(
-name|paramAccess
 argument_list|)
 expr_stmt|;
 return|return

@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -158,18 +148,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -184,21 +162,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|EndpointCompleter
+name|DefaultComponent
 import|;
 end_import
 
@@ -260,9 +224,7 @@ specifier|public
 class|class
 name|VertxComponent
 extends|extends
-name|UriEndpointComponent
-implements|implements
-name|EndpointCompleter
+name|DefaultComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -336,15 +298,7 @@ DECL|method|VertxComponent ()
 specifier|public
 name|VertxComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|VertxEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|VertxComponent (CamelContext context)
 specifier|public
 name|VertxComponent
@@ -356,10 +310,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|VertxEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -569,26 +519,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|endpoint
-return|;
-block|}
-DECL|method|completeEndpointPath (ComponentConfiguration componentConfiguration, String text)
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|completeEndpointPath
-parameter_list|(
-name|ComponentConfiguration
-name|componentConfiguration
-parameter_list|,
-name|String
-name|text
-parameter_list|)
-block|{
-comment|// TODO is there any way to find out the list of endpoint names in vertx?
-return|return
-literal|null
 return|;
 block|}
 annotation|@

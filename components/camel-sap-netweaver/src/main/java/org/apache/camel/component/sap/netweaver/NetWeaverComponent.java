@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -62,21 +62,13 @@ specifier|public
 class|class
 name|NetWeaverComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|NetWeaverComponent ()
 specifier|public
 name|NetWeaverComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|NetWeaverEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

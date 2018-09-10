@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -74,7 +74,7 @@ specifier|public
 class|class
 name|CMISComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|sessionFacadeFactory
 specifier|private
@@ -85,15 +85,7 @@ DECL|method|CMISComponent ()
 specifier|public
 name|CMISComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|CMISEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, final String remaining, final Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

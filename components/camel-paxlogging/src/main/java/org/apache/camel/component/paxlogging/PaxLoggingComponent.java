@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -90,26 +90,13 @@ specifier|public
 class|class
 name|PaxLoggingComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|bundleContext
 specifier|private
 name|BundleContext
 name|bundleContext
 decl_stmt|;
-DECL|method|PaxLoggingComponent ()
-specifier|public
-name|PaxLoggingComponent
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|PaxLoggingEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getBundleContext ()
 specifier|public
 name|BundleContext

@@ -686,6 +686,9 @@ argument_list|()
 operator|||
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|isStartingRoutes
 argument_list|()
 condition|)

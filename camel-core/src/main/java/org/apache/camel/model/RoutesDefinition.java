@@ -295,10 +295,10 @@ name|camelContext
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|errorHandlerBuilder
+DECL|field|errorHandlerFactory
 specifier|private
 name|ErrorHandlerFactory
-name|errorHandlerBuilder
+name|errorHandlerFactory
 decl_stmt|;
 DECL|method|RoutesDefinition ()
 specifier|public
@@ -564,30 +564,30 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-DECL|method|getErrorHandlerBuilder ()
+DECL|method|getErrorHandlerFactory ()
 specifier|public
 name|ErrorHandlerFactory
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 parameter_list|()
 block|{
 return|return
-name|errorHandlerBuilder
+name|errorHandlerFactory
 return|;
 block|}
-DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
+DECL|method|setErrorHandlerFactory (ErrorHandlerFactory errorHandlerFactory)
 specifier|public
 name|void
-name|setErrorHandlerBuilder
+name|setErrorHandlerFactory
 parameter_list|(
 name|ErrorHandlerFactory
-name|errorHandlerBuilder
+name|errorHandlerFactory
 parameter_list|)
 block|{
 name|this
 operator|.
-name|errorHandlerBuilder
+name|errorHandlerFactory
 operator|=
-name|errorHandlerBuilder
+name|errorHandlerFactory
 expr_stmt|;
 block|}
 comment|// Fluent API
@@ -1001,7 +1001,7 @@ decl_stmt|;
 name|ErrorHandlerFactory
 name|handler
 init|=
-name|getErrorHandlerBuilder
+name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
 if|if

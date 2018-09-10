@@ -102,31 +102,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ComponentVerifier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|VerifiableComponent
 import|;
 end_import
 
@@ -296,8 +272,6 @@ class|class
 name|RestComponent
 extends|extends
 name|DefaultComponent
-implements|implements
-name|VerifiableComponent
 block|{
 annotation|@
 name|Metadata
@@ -1332,11 +1306,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
 DECL|method|getVerifier ()
 specifier|public
-name|ComponentVerifier
+name|ComponentVerifierExtension
 name|getVerifier
 parameter_list|()
 block|{

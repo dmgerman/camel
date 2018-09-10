@@ -70,6 +70,24 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|toolbox
+operator|.
+name|AggregationStrategies
+operator|.
+name|groupedExchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for aggregate grouped exchanges.  */
 end_comment
@@ -232,8 +250,14 @@ literal|"size"
 argument_list|)
 argument_list|)
 operator|.
-name|groupExchanges
+name|eagerCheckCompletion
 argument_list|()
+operator|.
+name|aggregationStrategy
+argument_list|(
+name|groupedExchange
+argument_list|()
+argument_list|)
 operator|.
 name|to
 argument_list|(

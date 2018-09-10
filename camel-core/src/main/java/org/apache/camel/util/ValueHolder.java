@@ -31,17 +31,10 @@ parameter_list|>
 block|{
 DECL|field|value
 specifier|private
+specifier|final
 name|V
 name|value
 decl_stmt|;
-comment|/**      * @deprecated should be immutable, will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|ValueHolder ()
-specifier|public
-name|ValueHolder
-parameter_list|()
-block|{     }
 DECL|method|ValueHolder (V val)
 specifier|public
 name|ValueHolder
@@ -64,23 +57,6 @@ block|{
 return|return
 name|value
 return|;
-block|}
-comment|/**      * @deprecated should be immutable, will be removed in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|set (V val)
-specifier|public
-name|void
-name|set
-parameter_list|(
-name|V
-name|val
-parameter_list|)
-block|{
-name|value
-operator|=
-name|val
-expr_stmt|;
 block|}
 annotation|@
 name|Override

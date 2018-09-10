@@ -666,6 +666,9 @@ comment|// let start the route
 name|context
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 name|SERVICE_ID
@@ -805,6 +808,9 @@ argument_list|)
 expr_stmt|;
 comment|// let stop the route
 name|context
+argument_list|()
+operator|.
+name|getRouteController
 argument_list|()
 operator|.
 name|stopRoute

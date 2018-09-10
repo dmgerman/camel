@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|FlinkComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|ds
 specifier|private
@@ -124,15 +124,7 @@ DECL|method|FlinkComponent ()
 specifier|public
 name|FlinkComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|FlinkEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

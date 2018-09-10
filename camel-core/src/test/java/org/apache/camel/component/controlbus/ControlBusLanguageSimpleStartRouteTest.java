@@ -82,6 +82,9 @@ literal|"Stopped"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -118,7 +121,7 @@ name|sendBody
 argument_list|(
 literal|"controlbus:language:simple"
 argument_list|,
-literal|"${camelContext.startRoute('foo')}"
+literal|"${camelContext.getRouteController().startRoute('foo')}"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -131,7 +134,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"controlbus:language:simple"
 argument_list|,
-literal|"${camelContext.stopRoute(${header.me})}"
+literal|"${camelContext.getRouteController().stopRoute(${header.me})}"
 argument_list|,
 literal|"me"
 argument_list|,
@@ -143,6 +146,9 @@ argument_list|(
 literal|"Stopped"
 argument_list|,
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -170,6 +176,9 @@ literal|"Stopped"
 argument_list|,
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -188,7 +197,7 @@ name|requestBody
 argument_list|(
 literal|"controlbus:language:simple"
 argument_list|,
-literal|"${camelContext.getRouteStatus('foo')}"
+literal|"${camelContext.getRouteController().getRouteStatus('foo')}"
 argument_list|,
 name|String
 operator|.
@@ -204,6 +213,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"foo"
@@ -217,7 +229,7 @@ name|requestBody
 argument_list|(
 literal|"controlbus:language:simple"
 argument_list|,
-literal|"${camelContext.getRouteStatus('foo')}"
+literal|"${camelContext.getRouteController().getRouteStatus('foo')}"
 argument_list|,
 name|String
 operator|.

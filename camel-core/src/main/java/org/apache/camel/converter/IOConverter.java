@@ -513,33 +513,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toReader (File file)
-specifier|public
-specifier|static
-name|BufferedReader
-name|toReader
-parameter_list|(
-name|File
-name|file
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toReader
-argument_list|(
-name|file
-argument_list|,
-operator|(
-name|String
-operator|)
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toReader (File file, Exchange exchange)
@@ -657,48 +630,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toWriter (File file)
-specifier|public
-specifier|static
-name|BufferedWriter
-name|toWriter
-parameter_list|(
-name|File
-name|file
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|FileOutputStream
-name|os
-init|=
-operator|new
-name|FileOutputStream
-argument_list|(
-name|file
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
-return|return
-name|toWriter
-argument_list|(
-name|os
-argument_list|,
-name|IOHelper
-operator|.
-name|getCharsetName
-argument_list|(
-literal|null
-argument_list|,
-literal|true
-argument_list|)
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toWriter (File file, Exchange exchange)
@@ -804,30 +735,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toReader (InputStream in)
-specifier|public
-specifier|static
-name|Reader
-name|toReader
-parameter_list|(
-name|InputStream
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toReader
-argument_list|(
-name|in
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toReader (InputStream in, Exchange exchange)
@@ -896,30 +803,6 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toWriter (OutputStream out)
-specifier|public
-specifier|static
-name|Writer
-name|toWriter
-parameter_list|(
-name|OutputStream
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toWriter
-argument_list|(
-name|out
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toWriter (OutputStream out, Exchange exchange)
@@ -976,30 +859,6 @@ operator|new
 name|StringReader
 argument_list|(
 name|text
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toInputStream (String text)
-specifier|public
-specifier|static
-name|InputStream
-name|toInputStream
-parameter_list|(
-name|String
-name|text
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toInputStream
-argument_list|(
-name|text
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -1095,30 +954,6 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toInputStream (BufferedReader buffer)
-specifier|public
-specifier|static
-name|InputStream
-name|toInputStream
-parameter_list|(
-name|BufferedReader
-name|buffer
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toInputStream
-argument_list|(
-name|buffer
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toInputStream (BufferedReader buffer, Exchange exchange)
@@ -1145,31 +980,6 @@ name|buffer
 argument_list|)
 argument_list|,
 name|exchange
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toString (byte[] data)
-specifier|public
-specifier|static
-name|String
-name|toString
-parameter_list|(
-name|byte
-index|[]
-name|data
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toString
-argument_list|(
-name|data
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -1203,30 +1013,6 @@ name|getCharsetName
 argument_list|(
 name|exchange
 argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toString (File file)
-specifier|public
-specifier|static
-name|String
-name|toString
-parameter_list|(
-name|File
-name|file
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toString
-argument_list|(
-name|file
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -1306,31 +1092,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toByteArray (Reader reader)
-specifier|public
-specifier|static
-name|byte
-index|[]
-name|toByteArray
-parameter_list|(
-name|Reader
-name|reader
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toByteArray
-argument_list|(
-name|reader
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toByteArray (Reader reader, Exchange exchange)
@@ -1360,30 +1121,6 @@ name|reader
 argument_list|)
 argument_list|,
 name|exchange
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toString (URL url)
-specifier|public
-specifier|static
-name|String
-name|toString
-parameter_list|(
-name|URL
-name|url
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toString
-argument_list|(
-name|url
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -1554,31 +1291,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toByteArray (BufferedReader reader)
-specifier|public
-specifier|static
-name|byte
-index|[]
-name|toByteArray
-parameter_list|(
-name|BufferedReader
-name|reader
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toByteArray
-argument_list|(
-name|reader
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toByteArray (BufferedReader reader, Exchange exchange)
@@ -1614,31 +1326,6 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toByteArray (String value)
-specifier|public
-specifier|static
-name|byte
-index|[]
-name|toByteArray
-parameter_list|(
-name|String
-name|value
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toByteArray
-argument_list|(
-name|value
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toByteArray (String value, Exchange exchange)
@@ -1668,30 +1355,6 @@ name|getCharsetName
 argument_list|(
 name|exchange
 argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toString (InputStream in)
-specifier|public
-specifier|static
-name|String
-name|toString
-parameter_list|(
-name|InputStream
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toString
-argument_list|(
-name|in
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -2046,30 +1709,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
-annotation|@
-name|Deprecated
-DECL|method|toString (ByteArrayOutputStream os)
-specifier|public
-specifier|static
-name|String
-name|toString
-parameter_list|(
-name|ByteArrayOutputStream
-name|os
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|toString
-argument_list|(
-name|os
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Converter
 DECL|method|toString (ByteArrayOutputStream os, Exchange exchange)
@@ -2239,54 +1878,6 @@ expr_stmt|;
 block|}
 return|return
 name|prop
-return|;
-block|}
-comment|/**      * Gets the charset name if set as header or property {@link Exchange#CHARSET_NAME}.      *      * @param exchange  the exchange      * @param useDefault should we fallback and use JVM default charset if no property existed?      * @return the charset, or<tt>null</tt> if no found      */
-annotation|@
-name|Deprecated
-DECL|method|getCharsetName (Exchange exchange, boolean useDefault)
-specifier|public
-specifier|static
-name|String
-name|getCharsetName
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|boolean
-name|useDefault
-parameter_list|)
-block|{
-return|return
-name|IOHelper
-operator|.
-name|getCharsetName
-argument_list|(
-name|exchange
-argument_list|,
-name|useDefault
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|getCharsetName (Exchange exchange)
-specifier|public
-specifier|static
-name|String
-name|getCharsetName
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-name|getCharsetName
-argument_list|(
-name|exchange
-argument_list|,
-literal|true
-argument_list|)
 return|;
 block|}
 comment|/**      * Encoding-aware input stream.      */
@@ -2635,50 +2226,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * This method will take off the quotes and double quotes of the charset      */
-annotation|@
-name|Deprecated
-DECL|method|normalizeCharset (String charset)
-specifier|public
-specifier|static
-name|String
-name|normalizeCharset
-parameter_list|(
-name|String
-name|charset
-parameter_list|)
-block|{
-return|return
-name|IOHelper
-operator|.
-name|normalizeCharset
-argument_list|(
-name|charset
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|validateCharset (String charset)
-specifier|public
-specifier|static
-name|void
-name|validateCharset
-parameter_list|(
-name|String
-name|charset
-parameter_list|)
-throws|throws
-name|UnsupportedCharsetException
-block|{
-name|IOHelper
-operator|.
-name|validateCharset
-argument_list|(
-name|charset
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

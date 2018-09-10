@@ -70,18 +70,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -313,19 +301,6 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
-DECL|method|getEndpointConfiguration ()
-specifier|public
-name|EndpointConfiguration
-name|getEndpointConfiguration
-parameter_list|()
-block|{
-return|return
-name|delegate
-operator|.
-name|getEndpointConfiguration
-argument_list|()
-return|;
-block|}
 DECL|method|getEndpointKey ()
 specifier|public
 name|String
@@ -367,26 +342,6 @@ operator|.
 name|createExchange
 argument_list|(
 name|pattern
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|createExchange (Exchange exchange)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|createExchange
-argument_list|(
-name|exchange
 argument_list|)
 return|;
 block|}

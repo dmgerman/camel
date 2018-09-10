@@ -56,18 +56,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelException
 import|;
 end_import
@@ -94,7 +82,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -122,7 +110,7 @@ specifier|public
 class|class
 name|ZooKeeperComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -140,33 +128,7 @@ DECL|method|ZooKeeperComponent ()
 specifier|public
 name|ZooKeeperComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|ZooKeeperEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ZooKeeperComponent (CamelContext context)
-specifier|public
-name|ZooKeeperComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|,
-name|ZooKeeperEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ZooKeeperComponent (ZooKeeperConfiguration configuration)
 specifier|public
 name|ZooKeeperComponent
@@ -175,13 +137,6 @@ name|ZooKeeperConfiguration
 name|configuration
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|ZooKeeperEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|configuration

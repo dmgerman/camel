@@ -58,6 +58,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -91,6 +101,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|SpringManagedThreadsThreadPoolTest
 specifier|public
 class|class

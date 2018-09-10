@@ -369,6 +369,9 @@ expr_stmt|;
 comment|// now stop and remove the bar route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"

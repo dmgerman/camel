@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|MalformedURLException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Set
@@ -123,15 +113,7 @@ DECL|method|AMQPComponent ()
 specifier|public
 name|AMQPComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|AMQPEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AMQPComponent (JmsConfiguration configuration)
 specifier|public
 name|AMQPComponent
@@ -157,10 +139,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|AMQPEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -280,45 +258,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Factory methods
-comment|/**      * Use {@code amqpComponent(String uri)} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|amqp10Component (String uri)
-specifier|public
-specifier|static
-name|AMQPComponent
-name|amqp10Component
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-throws|throws
-name|MalformedURLException
-block|{
-name|JmsConnectionFactory
-name|connectionFactory
-init|=
-operator|new
-name|JmsConnectionFactory
-argument_list|(
-name|uri
-argument_list|)
-decl_stmt|;
-name|connectionFactory
-operator|.
-name|setTopicPrefix
-argument_list|(
-literal|"topic://"
-argument_list|)
-expr_stmt|;
-return|return
-operator|new
-name|AMQPComponent
-argument_list|(
-name|connectionFactory
-argument_list|)
-return|;
-block|}
 DECL|method|amqpComponent (String uri)
 specifier|public
 specifier|static

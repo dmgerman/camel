@@ -934,6 +934,9 @@ if|if
 condition|(
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 name|route
@@ -950,6 +953,9 @@ block|{
 return|return;
 block|}
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

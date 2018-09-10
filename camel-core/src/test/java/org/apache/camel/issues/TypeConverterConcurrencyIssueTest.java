@@ -200,6 +200,8 @@ operator|new
 name|StaticMethodTypeConverter
 argument_list|(
 name|method
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

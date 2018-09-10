@@ -95,11 +95,7 @@ DECL|method|GoogleBigQueryComponent ()
 specifier|public
 name|GoogleBigQueryComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|GoogleBigQueryComponent (CamelContext camelContext)
 specifier|public
 name|GoogleBigQueryComponent

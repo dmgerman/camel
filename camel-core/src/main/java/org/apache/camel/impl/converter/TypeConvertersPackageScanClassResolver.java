@@ -163,31 +163,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setClassLoaders (Set<ClassLoader> classLoaders)
-specifier|public
-name|void
-name|setClassLoaders
-parameter_list|(
-name|Set
-argument_list|<
-name|ClassLoader
-argument_list|>
-name|classLoaders
-parameter_list|)
-block|{
-comment|// add all the class loaders
-name|this
-operator|.
-name|classLoaders
-operator|.
-name|addAll
-argument_list|(
-name|classLoaders
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|getClassLoaders ()
 specifier|public
 name|Set

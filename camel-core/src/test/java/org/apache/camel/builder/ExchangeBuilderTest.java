@@ -239,7 +239,7 @@ name|withPattern
 argument_list|(
 name|ExchangePattern
 operator|.
-name|OutIn
+name|InOut
 argument_list|)
 operator|.
 name|build
@@ -282,7 +282,7 @@ argument_list|()
 argument_list|,
 name|ExchangePattern
 operator|.
-name|OutIn
+name|InOut
 argument_list|)
 expr_stmt|;
 name|assertEquals

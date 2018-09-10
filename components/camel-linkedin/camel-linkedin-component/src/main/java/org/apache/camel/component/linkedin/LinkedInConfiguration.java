@@ -168,6 +168,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|lang3
@@ -883,7 +897,7 @@ parameter_list|()
 throws|throws
 name|IllegalArgumentException
 block|{
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -914,7 +928,7 @@ literal|"Property userPassword or secureStorage is required"
 argument_list|)
 throw|;
 block|}
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -923,7 +937,7 @@ argument_list|,
 literal|"clientId"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(
@@ -932,7 +946,7 @@ argument_list|,
 literal|"clientSecret"
 argument_list|)
 expr_stmt|;
-name|ObjectHelper
+name|StringHelper
 operator|.
 name|notEmpty
 argument_list|(

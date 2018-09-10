@@ -987,28 +987,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @deprecated will be removed in Camel 3.0 Instead use {@link #newExchangeBody(org.apache.camel.Expression)}      */
-annotation|@
-name|Deprecated
-DECL|method|newExchange (Expression expression)
-specifier|public
-name|WireTapDefinition
-argument_list|<
-name|Type
-argument_list|>
-name|newExchange
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|)
-block|{
-return|return
-name|newExchangeBody
-argument_list|(
-name|expression
-argument_list|)
-return|;
-block|}
 comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param expression expression that creates the new body to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
 DECL|method|newExchangeBody (Expression expression)
 specifier|public
@@ -1079,7 +1057,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a header on the<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}.      *<p/>      * Use this together with the {@link #newExchange(org.apache.camel.Expression)} or {@link #newExchange(org.apache.camel.Processor)}      * methods.      *      * @param headerName  the header name      * @param expression  the expression setting the header value      * @return the builder      */
+comment|/**      * Sets a header on the<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}.      *<p/>      * Use this together with the {@link #newExchangeBody(org.apache.camel.Expression)} or {@link #newExchange(org.apache.camel.Processor)}      * methods.      *      * @param headerName  the header name      * @param expression  the expression setting the header value      * @return the builder      */
 DECL|method|newExchangeHeader (String headerName, Expression expression)
 specifier|public
 name|WireTapDefinition

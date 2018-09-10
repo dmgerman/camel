@@ -194,6 +194,9 @@ name|Exception
 block|{
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"issues"

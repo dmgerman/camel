@@ -652,35 +652,6 @@ block|}
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|ResolveEndpointFailedException
-operator|.
-name|class
-argument_list|)
-DECL|method|testUnsupportedMessageExchangePattern ()
-specifier|public
-name|void
-name|testUnsupportedMessageExchangePattern
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"sjms2:queue:test2?messageExchangePattern="
-operator|+
-name|ExchangePattern
-operator|.
-name|OutOnly
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testNamedReplyToAndMEPMatch ()
 specifier|public
 name|void

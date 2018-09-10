@@ -116,7 +116,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -266,7 +266,7 @@ specifier|public
 class|class
 name|CoAPComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 implements|implements
 name|RestConsumerFactory
 block|{
@@ -313,33 +313,7 @@ DECL|method|CoAPComponent ()
 specifier|public
 name|CoAPComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|CoAPEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|CoAPComponent (CamelContext context)
-specifier|public
-name|CoAPComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|,
-name|CoAPEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|getServer (int port)
 specifier|public
 specifier|synchronized
@@ -633,7 +607,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -653,7 +627,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration
@@ -676,7 +650,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getRestHostNameResolver
+name|getHostNameResolver
 argument_list|()
 operator|==
 name|RestConfiguration

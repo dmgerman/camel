@@ -333,15 +333,6 @@ name|ExpressionDefinition
 block|{
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|bean
-specifier|private
-name|String
-name|bean
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|ref
 specifier|private
 name|String
@@ -539,33 +530,6 @@ block|{
 return|return
 literal|"bean"
 return|;
-block|}
-DECL|method|getBean ()
-specifier|public
-name|String
-name|getBean
-parameter_list|()
-block|{
-return|return
-name|bean
-return|;
-block|}
-comment|/**      * Either a reference or a class name of the bean to use      */
-DECL|method|setBean (String bean)
-specifier|public
-name|void
-name|setBean
-parameter_list|(
-name|String
-name|bean
-parameter_list|)
-block|{
-name|this
-operator|.
-name|bean
-operator|=
-name|bean
-expr_stmt|;
 block|}
 DECL|method|getRef ()
 specifier|public
@@ -1182,18 +1146,6 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|bean
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|bean
-return|;
-block|}
-elseif|else
-if|if
-condition|(
 name|ref
 operator|!=
 literal|null
@@ -1236,10 +1188,6 @@ block|{
 name|boolean
 name|isRef
 init|=
-name|bean
-operator|!=
-literal|null
-operator|||
 name|ref
 operator|!=
 literal|null

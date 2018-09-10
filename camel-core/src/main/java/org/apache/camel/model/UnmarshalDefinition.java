@@ -54,20 +54,6 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlElement
 import|;
 end_import
@@ -1508,15 +1494,6 @@ name|DataFormatDefinition
 name|dataFormatType
 decl_stmt|;
 comment|// cannot use @XmlElementRef as it doesn't allow optional properties
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|ref
-specifier|private
-name|String
-name|ref
-decl_stmt|;
 DECL|method|UnmarshalDefinition ()
 specifier|public
 name|UnmarshalDefinition
@@ -1535,21 +1512,6 @@ operator|.
 name|dataFormatType
 operator|=
 name|dataFormatType
-expr_stmt|;
-block|}
-DECL|method|UnmarshalDefinition (String ref)
-specifier|public
-name|UnmarshalDefinition
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ref
-operator|=
-name|ref
 expr_stmt|;
 block|}
 annotation|@
@@ -1592,9 +1554,7 @@ block|}
 else|else
 block|{
 return|return
-literal|"ref:"
-operator|+
-name|ref
+literal|""
 return|;
 block|}
 block|}
@@ -1626,35 +1586,6 @@ argument_list|()
 operator|+
 literal|"]"
 return|;
-block|}
-DECL|method|getRef ()
-specifier|public
-name|String
-name|getRef
-parameter_list|()
-block|{
-return|return
-name|ref
-return|;
-block|}
-comment|/**      * To refer to a custom data format to use as unmarshaller      *      * @deprecated use custom dataformat instead      */
-annotation|@
-name|Deprecated
-DECL|method|setRef (String ref)
-specifier|public
-name|void
-name|setRef
-parameter_list|(
-name|String
-name|ref
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ref
-operator|=
-name|ref
-expr_stmt|;
 block|}
 DECL|method|getDataFormatType ()
 specifier|public
@@ -1706,7 +1637,7 @@ argument_list|,
 name|getDataFormatType
 argument_list|()
 argument_list|,
-name|ref
+literal|null
 argument_list|)
 decl_stmt|;
 return|return

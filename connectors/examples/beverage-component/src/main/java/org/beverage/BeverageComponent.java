@@ -44,7 +44,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -54,21 +54,13 @@ specifier|public
 class|class
 name|BeverageComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|BeverageComponent ()
 specifier|public
 name|BeverageComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|BeverageEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

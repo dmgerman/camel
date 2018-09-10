@@ -48,20 +48,6 @@ specifier|public
 interface|interface
 name|PackageScanClassResolver
 block|{
-comment|/**      * Sets the ClassLoader instances that should be used when scanning for      * classes. If none is set then the context classloader will be used.      *      * @param classLoaders loaders to use when scanning for classes      * @deprecated will be removed in Camel 3.0. Use {@link #addClassLoader(ClassLoader)} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setClassLoaders (Set<ClassLoader> classLoaders)
-name|void
-name|setClassLoaders
-parameter_list|(
-name|Set
-argument_list|<
-name|ClassLoader
-argument_list|>
-name|classLoaders
-parameter_list|)
-function_decl|;
 comment|/**      * Gets the ClassLoader instances that should be used when scanning for classes.      *<p/>      * This implementation will return a new unmodifiable set containing the classloaders.      * Use the {@link #addClassLoader(ClassLoader)} method if you want to add new classloaders      * to the class loaders list.      *      * @return the class loaders to use      */
 DECL|method|getClassLoaders ()
 name|Set

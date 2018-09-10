@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|VelocityComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 annotation|@
 name|Metadata
@@ -124,15 +124,7 @@ DECL|method|VelocityComponent ()
 specifier|public
 name|VelocityComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|VelocityEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|getVelocityEngine ()
 specifier|public
 name|VelocityEngine

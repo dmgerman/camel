@@ -230,9 +230,7 @@ condition|?
 name|exchange
 operator|.
 name|copy
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 else|:
 name|exchange
 decl_stmt|;

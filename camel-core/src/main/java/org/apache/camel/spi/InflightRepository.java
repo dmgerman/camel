@@ -109,14 +109,6 @@ name|String
 name|getFromRouteId
 parameter_list|()
 function_decl|;
-comment|/**          * The id of the route where the exchange currently is being processed          *<p/>          * Is<tt>null</tt> if message history is disabled.          * @deprecated use {@link #getAtRouteId()}          */
-annotation|@
-name|Deprecated
-DECL|method|getRouteId ()
-name|String
-name|getRouteId
-parameter_list|()
-function_decl|;
 comment|/**          * The id of the route where the exchange currently is being processed          *<p/>          * Is<tt>null</tt> if message history is disabled.          */
 DECL|method|getAtRouteId ()
 name|String
@@ -171,17 +163,6 @@ DECL|method|size ()
 name|int
 name|size
 parameter_list|()
-function_decl|;
-comment|/**      * Will always return 0 due method is deprecated.      * @deprecated will be removed in a future Camel release.      */
-annotation|@
-name|Deprecated
-DECL|method|size (Endpoint endpoint)
-name|int
-name|size
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
 function_decl|;
 comment|/**      * Adds the route from the in flight registry.      *<p/>      * Is used for initializing up resources      *      * @param routeId the id of the route      */
 DECL|method|addRoute (String routeId)

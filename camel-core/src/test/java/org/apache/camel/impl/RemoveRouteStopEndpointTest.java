@@ -243,6 +243,9 @@ expr_stmt|;
 comment|// stop and remove bar route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"
@@ -372,6 +375,9 @@ expr_stmt|;
 comment|// stop and remove baz route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"baz"
@@ -470,6 +476,9 @@ argument_list|)
 expr_stmt|;
 comment|// stop and remove foo route
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(
@@ -755,6 +764,9 @@ expr_stmt|;
 comment|// stop and remove bar route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"bar"
@@ -883,6 +895,9 @@ argument_list|)
 expr_stmt|;
 comment|// stop and remove baz route
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(

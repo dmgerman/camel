@@ -304,38 +304,6 @@ operator|=
 name|url
 expr_stmt|;
 block|}
-comment|/**      * @deprecated replaced by {@link #getDatacenter()} ()}      */
-annotation|@
-name|Deprecated
-DECL|method|getDc ()
-specifier|public
-name|String
-name|getDc
-parameter_list|()
-block|{
-return|return
-name|datacenter
-return|;
-block|}
-comment|/**      * The data center      *      * @deprecated replaced by {@link #setDatacenter(String)} ()}      */
-annotation|@
-name|Deprecated
-DECL|method|setDc (String dc)
-specifier|public
-name|void
-name|setDc
-parameter_list|(
-name|String
-name|dc
-parameter_list|)
-block|{
-name|this
-operator|.
-name|datacenter
-operator|=
-name|dc
-expr_stmt|;
-block|}
 DECL|method|getDatacenter ()
 specifier|public
 name|String
@@ -602,16 +570,16 @@ name|this
 return|;
 block|}
 comment|/**      * The data center      */
-DECL|method|dc (String dc)
+DECL|method|dataCenter (String dc)
 specifier|public
 name|ConsulServiceCallServiceDiscoveryConfiguration
-name|dc
+name|dataCenter
 parameter_list|(
 name|String
 name|dc
 parameter_list|)
 block|{
-name|setDc
+name|setDatacenter
 argument_list|(
 name|dc
 argument_list|)

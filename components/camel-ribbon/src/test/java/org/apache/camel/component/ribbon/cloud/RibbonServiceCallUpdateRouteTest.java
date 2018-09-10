@@ -271,6 +271,9 @@ expr_stmt|;
 comment|// stop the first server and remove it from the known list of servers
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"9090"

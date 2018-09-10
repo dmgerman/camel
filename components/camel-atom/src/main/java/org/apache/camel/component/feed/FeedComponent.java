@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -65,27 +65,13 @@ specifier|abstract
 class|class
 name|FeedComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
-DECL|method|FeedComponent (Class<? extends Endpoint> endpointClass)
+DECL|method|FeedComponent ()
 specifier|public
 name|FeedComponent
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointClass
-argument_list|)
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 specifier|abstract

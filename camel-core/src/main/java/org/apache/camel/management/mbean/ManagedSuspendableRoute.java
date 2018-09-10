@@ -156,6 +156,9 @@ throw|;
 block|}
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|suspendRoute
 argument_list|(
 name|getRouteId
@@ -195,6 +198,9 @@ argument_list|)
 throw|;
 block|}
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|suspendRoute
 argument_list|(
@@ -238,6 +244,9 @@ argument_list|)
 throw|;
 block|}
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|resumeRoute
 argument_list|(

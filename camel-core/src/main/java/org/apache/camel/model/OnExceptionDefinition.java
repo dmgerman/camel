@@ -1678,30 +1678,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the initial redelivery delay      *      * @param delay the initial redelivery delay      * @return the builder      * @deprecated will be removed in the near future. Instead use {@link #redeliveryDelay(String)}      */
-annotation|@
-name|Deprecated
-DECL|method|redeliverDelay (long delay)
-specifier|public
-name|OnExceptionDefinition
-name|redeliverDelay
-parameter_list|(
-name|long
-name|delay
-parameter_list|)
-block|{
-name|getOrCreateRedeliveryPolicy
-argument_list|()
-operator|.
-name|redeliveryDelay
-argument_list|(
-name|delay
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier the back off multiplier      * @return the builder      */
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
@@ -2520,26 +2496,6 @@ operator|.
 name|setDelayPattern
 argument_list|(
 name|delayPattern
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * @deprecated this method will be removed in Camel 3.0, please use {@link #useOriginalMessage()}      * @see #useOriginalMessage()      */
-annotation|@
-name|Deprecated
-DECL|method|useOriginalBody ()
-specifier|public
-name|OnExceptionDefinition
-name|useOriginalBody
-parameter_list|()
-block|{
-name|setUseOriginalMessagePolicy
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
 argument_list|)
 expr_stmt|;
 return|return

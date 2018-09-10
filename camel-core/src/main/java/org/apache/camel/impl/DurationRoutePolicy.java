@@ -719,6 +719,9 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 name|routeId
@@ -747,6 +750,9 @@ name|tail
 argument_list|)
 expr_stmt|;
 name|camelContext
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|suspendRoute
 argument_list|(

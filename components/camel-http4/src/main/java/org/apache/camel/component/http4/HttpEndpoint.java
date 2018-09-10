@@ -1225,7 +1225,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
@@ -1238,7 +1238,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)
@@ -1251,7 +1251,7 @@ init|=
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
@@ -1266,7 +1266,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)
@@ -1278,7 +1278,7 @@ init|=
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperty
+name|getGlobalOption
 argument_list|(
 literal|"http.proxyScheme"
 argument_list|)

@@ -584,26 +584,6 @@ operator|=
 name|propertyName
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|initialize (CamelContext context)
-specifier|protected
-name|void
-name|initialize
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|context
-expr_stmt|;
-block|}
 DECL|method|configureOutput (XsltBuilder xslt, String output)
 specifier|protected
 name|void

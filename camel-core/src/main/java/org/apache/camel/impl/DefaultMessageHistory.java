@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -151,20 +141,6 @@ parameter_list|()
 block|{
 return|return
 name|node
-return|;
-block|}
-DECL|method|getTimestamp ()
-specifier|public
-name|Date
-name|getTimestamp
-parameter_list|()
-block|{
-return|return
-operator|new
-name|Date
-argument_list|(
-name|timestamp
-argument_list|)
 return|;
 block|}
 annotation|@

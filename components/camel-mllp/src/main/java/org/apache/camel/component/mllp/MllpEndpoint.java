@@ -531,36 +531,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createExchange (Exchange exchange)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|Exchange
-name|mllpExchange
-init|=
-name|super
-operator|.
-name|createExchange
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-name|setExchangeProperties
-argument_list|(
-name|mllpExchange
-argument_list|)
-expr_stmt|;
-return|return
-name|mllpExchange
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createExchange (ExchangePattern exchangePattern)
 specifier|public
 name|Exchange

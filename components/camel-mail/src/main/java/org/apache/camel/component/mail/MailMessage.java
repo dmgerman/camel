@@ -78,6 +78,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -153,31 +165,13 @@ specifier|private
 name|boolean
 name|mapMailMessage
 decl_stmt|;
-DECL|method|MailMessage ()
-specifier|public
-name|MailMessage
-parameter_list|()
-block|{     }
-DECL|method|MailMessage (Message message)
+DECL|method|MailMessage (Exchange exchange, Message message, boolean mapMailMessage)
 specifier|public
 name|MailMessage
 parameter_list|(
-name|Message
-name|message
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|message
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|MailMessage (Message message, boolean mapMailMessage)
-specifier|public
-name|MailMessage
-parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|Message
 name|message
 parameter_list|,
@@ -185,6 +179,11 @@ name|boolean
 name|mapMailMessage
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|originalMailMessage
@@ -335,6 +334,8 @@ init|=
 operator|new
 name|MailMessage
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|this

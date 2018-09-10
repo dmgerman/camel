@@ -1092,7 +1092,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Override to enable auto mocking endpoints based on the pattern.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+comment|/**      * Override to enable auto mocking endpoints based on the pattern.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String)      */
 DECL|method|isMockEndpoints ()
 specifier|public
 name|String
@@ -1103,7 +1103,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Override to enable auto mocking endpoints based on the pattern, and<b>skip</b> sending      * to original endpoint.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+comment|/**      * Override to enable auto mocking endpoints based on the pattern, and<b>skip</b> sending      * to original endpoint.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String)      */
 DECL|method|isMockEndpointsAndSkip ()
 specifier|public
 name|String
@@ -3704,14 +3704,6 @@ name|createRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|context
-operator|.
-name|setLazyLoadTypeConverters
-argument_list|(
-name|isLazyLoadingTypeConverter
-argument_list|()
-argument_list|)
-expr_stmt|;
 return|return
 name|context
 return|;

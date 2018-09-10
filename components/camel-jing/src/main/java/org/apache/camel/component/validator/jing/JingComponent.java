@@ -52,7 +52,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -66,21 +66,13 @@ specifier|public
 class|class
 name|JingComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|method|JingComponent ()
 specifier|public
 name|JingComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|JingEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

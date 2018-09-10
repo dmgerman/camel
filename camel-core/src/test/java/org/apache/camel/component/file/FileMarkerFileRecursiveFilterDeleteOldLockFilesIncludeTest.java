@@ -322,6 +322,9 @@ expr_stmt|;
 comment|// start the route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"foo"

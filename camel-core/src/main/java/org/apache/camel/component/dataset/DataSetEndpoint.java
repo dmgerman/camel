@@ -468,33 +468,6 @@ name|dataSetIndex
 init|=
 literal|"lenient"
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|method|DataSetEndpoint ()
-specifier|public
-name|DataSetEndpoint
-parameter_list|()
-block|{
-name|this
-operator|.
-name|log
-operator|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DataSetEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-comment|// optimize as we dont need to copy the exchange
-name|setCopyOnExchange
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|DataSetEndpoint (String endpointUri, Component component, DataSet dataSet)
 specifier|public
 name|DataSetEndpoint

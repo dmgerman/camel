@@ -144,7 +144,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -182,7 +182,7 @@ specifier|public
 class|class
 name|AvroComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
 DECL|field|listenerRegistry
 specifier|private
@@ -215,15 +215,7 @@ DECL|method|AvroComponent ()
 specifier|public
 name|AvroComponent
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|AvroEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AvroComponent (CamelContext context)
 specifier|public
 name|AvroComponent
@@ -235,10 +227,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|,
-name|AvroEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

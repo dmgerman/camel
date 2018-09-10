@@ -227,22 +227,6 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Deprecated
-annotation|@
-name|Metadata
-argument_list|(
-name|description
-operator|=
-literal|"Not in use"
-argument_list|)
-DECL|field|singleton
-specifier|private
-name|Boolean
-name|singleton
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 argument_list|(
 name|required
 operator|=
@@ -259,22 +243,6 @@ DECL|field|uri
 specifier|private
 name|String
 name|uri
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Deprecated
-annotation|@
-name|Metadata
-argument_list|(
-name|description
-operator|=
-literal|"Sets the exchange pattern of the endpoint"
-argument_list|)
-DECL|field|pattern
-specifier|private
-name|ExchangePattern
-name|pattern
 decl_stmt|;
 annotation|@
 name|XmlElementRef
@@ -393,36 +361,6 @@ operator|.
 name|class
 return|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|getSingleton ()
-specifier|public
-name|Boolean
-name|getSingleton
-parameter_list|()
-block|{
-return|return
-name|singleton
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setSingleton (Boolean singleton)
-specifier|public
-name|void
-name|setSingleton
-parameter_list|(
-name|Boolean
-name|singleton
-parameter_list|)
-block|{
-name|this
-operator|.
-name|singleton
-operator|=
-name|singleton
-expr_stmt|;
-block|}
 DECL|method|getUri ()
 specifier|public
 name|String
@@ -448,37 +386,6 @@ operator|.
 name|uri
 operator|=
 name|uri
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|getPattern ()
-specifier|public
-name|ExchangePattern
-name|getPattern
-parameter_list|()
-block|{
-return|return
-name|pattern
-return|;
-block|}
-comment|/**      * Sets the exchange pattern of the endpoint      *      * @deprecated set the pattern in the uri      */
-annotation|@
-name|Deprecated
-DECL|method|setPattern (ExchangePattern pattern)
-specifier|public
-name|void
-name|setPattern
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-name|this
-operator|.
-name|pattern
-operator|=
-name|pattern
 expr_stmt|;
 block|}
 DECL|method|getProperties ()

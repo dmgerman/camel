@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|UriEndpointComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -60,21 +60,8 @@ specifier|public
 class|class
 name|StAXComponent
 extends|extends
-name|UriEndpointComponent
+name|DefaultComponent
 block|{
-DECL|method|StAXComponent ()
-specifier|public
-name|StAXComponent
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|StAXEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -107,8 +94,7 @@ name|StAXEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|)
 decl_stmt|;
 name|answer

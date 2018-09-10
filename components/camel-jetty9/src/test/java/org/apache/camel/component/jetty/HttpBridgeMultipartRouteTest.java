@@ -265,6 +265,14 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"content-length"
+argument_list|)
+expr_stmt|;
 name|setOutFilterPattern
 argument_list|(
 literal|"(?i)(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*"

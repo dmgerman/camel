@@ -638,6 +638,9 @@ block|{
 name|context
 argument_list|()
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 name|route

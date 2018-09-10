@@ -209,7 +209,7 @@ expr_stmt|;
 comment|// should at least take 3 sec
 name|mock
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|3000
 argument_list|)
@@ -274,7 +274,7 @@ expr_stmt|;
 comment|// should at least take 3 sec
 name|mock
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|3000
 argument_list|)
@@ -352,7 +352,7 @@ expr_stmt|;
 comment|// should at least take 3 sec
 name|mock
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|3000
 argument_list|)
@@ -512,7 +512,7 @@ expr_stmt|;
 comment|// should at least take 3 sec
 name|mock
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|3000
 argument_list|)

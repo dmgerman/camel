@@ -324,6 +324,8 @@ literal|"src/test/resources/germanbooks-utf8.json"
 argument_list|)
 argument_list|,
 literal|"UTF-8"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -346,6 +348,8 @@ literal|"src/test/resources/germanbooks-utf8.json"
 argument_list|)
 argument_list|,
 literal|"UTF-8"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -433,6 +437,8 @@ literal|"src/test/resources/germanbooks-utf8.json"
 argument_list|)
 argument_list|,
 literal|"UTF-8"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -455,6 +461,8 @@ literal|"src/test/resources/germanbooks-utf8.json"
 argument_list|)
 argument_list|,
 literal|"UTF-8"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -542,6 +550,8 @@ literal|"src/test/resources/germanbooks-iso-8859-1.json"
 argument_list|)
 argument_list|,
 literal|"ISO-8859-1"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -564,6 +574,8 @@ literal|"src/test/resources/germanbooks-iso-8859-1.json"
 argument_list|)
 argument_list|,
 literal|"ISO-8859-1"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -72,38 +62,6 @@ name|DefaultMessageHistoryFactory
 implements|implements
 name|MessageHistoryFactory
 block|{
-annotation|@
-name|Override
-DECL|method|newMessageHistory (String routeId, NamedNode node, Date timestamp)
-specifier|public
-name|MessageHistory
-name|newMessageHistory
-parameter_list|(
-name|String
-name|routeId
-parameter_list|,
-name|NamedNode
-name|node
-parameter_list|,
-name|Date
-name|timestamp
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DefaultMessageHistory
-argument_list|(
-name|routeId
-argument_list|,
-name|node
-argument_list|,
-name|timestamp
-operator|.
-name|getTime
-argument_list|()
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|newMessageHistory (String routeId, NamedNode node, long timestamp)

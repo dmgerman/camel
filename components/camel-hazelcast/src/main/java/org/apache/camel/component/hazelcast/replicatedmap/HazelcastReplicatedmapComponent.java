@@ -98,11 +98,7 @@ DECL|method|HazelcastReplicatedmapComponent ()
 specifier|public
 name|HazelcastReplicatedmapComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HazelcastReplicatedmapComponent (final CamelContext context)
 specifier|public
 name|HazelcastReplicatedmapComponent

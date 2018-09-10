@@ -158,15 +158,7 @@ DECL|method|FtpsComponent ()
 specifier|public
 name|FtpsComponent
 parameter_list|()
-block|{
-name|setEndpointClass
-argument_list|(
-name|FtpsEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|FtpsComponent (CamelContext context)
 specifier|public
 name|FtpsComponent
@@ -178,13 +170,6 @@ block|{
 name|super
 argument_list|(
 name|context
-argument_list|)
-expr_stmt|;
-name|setEndpointClass
-argument_list|(
-name|FtpsEndpoint
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}

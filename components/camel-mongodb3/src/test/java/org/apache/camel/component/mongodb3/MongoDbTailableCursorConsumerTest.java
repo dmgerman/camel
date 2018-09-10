@@ -292,6 +292,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"tailableCursorConsumer1"
@@ -310,6 +313,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(
@@ -403,6 +409,9 @@ name|addTestRoutes
 argument_list|()
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -517,6 +526,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"tailableCursorConsumer1"
@@ -605,6 +617,9 @@ name|addTestRoutes
 argument_list|()
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -718,6 +733,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"tailableCursorConsumer1"
@@ -828,6 +846,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"tailableCursorConsumer2"
@@ -924,6 +945,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"tailableCursorConsumer2"
@@ -932,6 +956,9 @@ expr_stmt|;
 while|while
 condition|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -944,6 +971,9 @@ name|Stopped
 condition|)
 block|{         }
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -1118,6 +1148,9 @@ expr_stmt|;
 comment|// stop the route and verify the last value has been updated
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"tailableCursorConsumer2"
@@ -1126,6 +1159,9 @@ expr_stmt|;
 while|while
 condition|(
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -1297,6 +1333,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"tailableCursorConsumer2"
@@ -1443,6 +1482,9 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"tailableCursorConsumer2"
@@ -1479,6 +1521,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -1674,6 +1719,9 @@ comment|// check that the persisted lastVal after stopping the route is
 comment|// startTimestamp + 600min
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"tailableCursorConsumer2"
@@ -1857,6 +1905,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 literal|"tailableCursorConsumer3"
@@ -1954,6 +2005,9 @@ expr_stmt|;
 comment|// stop the route to ensure that our lastVal is persisted, and check it
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"tailableCursorConsumer3"
@@ -1987,6 +2041,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|startRoute
 argument_list|(
@@ -2129,6 +2186,9 @@ expr_stmt|;
 comment|// check that the persisted lastVal after stopping the route is 600,
 comment|// newton is the name of the trackingField we are using
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(
@@ -2314,6 +2374,9 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|startRoute
 argument_list|(
 name|routeId
@@ -2332,6 +2395,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|context
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|stopRoute
 argument_list|(
