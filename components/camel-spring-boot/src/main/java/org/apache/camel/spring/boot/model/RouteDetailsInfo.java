@@ -76,6 +76,20 @@ name|ManagedRouteMBean
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|ManagedCamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * Container for exposing {@link org.apache.camel.Route} information  * with route details as JSON. Route details are retrieved from JMX.  */
 end_comment

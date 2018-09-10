@@ -76,7 +76,7 @@ DECL|method|PrinterComponent ()
 specifier|public
 name|PrinterComponent
 parameter_list|()
-block|{     }
+block|{      }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

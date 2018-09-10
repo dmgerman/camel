@@ -5,6 +5,7 @@ end_comment
 
 begin_package
 DECL|package|org.apache.camel.catalog
+DECL|package|org.apache.camel.catalog
 package|package
 name|org
 operator|.
@@ -600,12 +601,14 @@ end_comment
 
 begin_class
 DECL|class|AbstractCamelCatalog
+DECL|class|AbstractCamelCatalog
 specifier|public
 specifier|abstract
 class|class
 name|AbstractCamelCatalog
 block|{
 comment|// CHECKSTYLE:OFF
+DECL|field|SYNTAX_PATTERN
 DECL|field|SYNTAX_PATTERN
 specifier|private
 specifier|static
@@ -621,6 +624,7 @@ literal|"([\\w.]+)"
 argument_list|)
 decl_stmt|;
 DECL|field|COMPONENT_SYNTAX_PARSER
+DECL|field|COMPONENT_SYNTAX_PARSER
 specifier|private
 specifier|static
 specifier|final
@@ -635,15 +639,18 @@ literal|"([^\\w-]*)([\\w-]+)"
 argument_list|)
 decl_stmt|;
 DECL|field|suggestionStrategy
+DECL|field|suggestionStrategy
 specifier|private
 name|SuggestionStrategy
 name|suggestionStrategy
 decl_stmt|;
 DECL|field|jsonSchemaResolver
+DECL|field|jsonSchemaResolver
 specifier|private
 name|JSonSchemaResolver
 name|jsonSchemaResolver
 decl_stmt|;
+DECL|method|getSuggestionStrategy ()
 DECL|method|getSuggestionStrategy ()
 specifier|public
 name|SuggestionStrategy
@@ -654,6 +661,7 @@ return|return
 name|suggestionStrategy
 return|;
 block|}
+DECL|method|setSuggestionStrategy (SuggestionStrategy suggestionStrategy)
 DECL|method|setSuggestionStrategy (SuggestionStrategy suggestionStrategy)
 specifier|public
 name|void
@@ -671,6 +679,7 @@ name|suggestionStrategy
 expr_stmt|;
 block|}
 DECL|method|getJSonSchemaResolver ()
+DECL|method|getJSonSchemaResolver ()
 specifier|public
 name|JSonSchemaResolver
 name|getJSonSchemaResolver
@@ -680,6 +689,7 @@ return|return
 name|jsonSchemaResolver
 return|;
 block|}
+DECL|method|setJSonSchemaResolver (JSonSchemaResolver resolver)
 DECL|method|setJSonSchemaResolver (JSonSchemaResolver resolver)
 specifier|public
 name|void
@@ -697,6 +707,7 @@ name|resolver
 expr_stmt|;
 block|}
 DECL|method|validateTimePattern (String pattern)
+DECL|method|validateTimePattern (String pattern)
 specifier|public
 name|boolean
 name|validateTimePattern
@@ -712,6 +723,7 @@ name|pattern
 argument_list|)
 return|;
 block|}
+DECL|method|validateEndpointProperties (String uri)
 DECL|method|validateEndpointProperties (String uri)
 specifier|public
 name|EndpointValidationResult
@@ -734,6 +746,7 @@ literal|false
 argument_list|)
 return|;
 block|}
+DECL|method|validateEndpointProperties (String uri, boolean ignoreLenientProperties)
 DECL|method|validateEndpointProperties (String uri, boolean ignoreLenientProperties)
 specifier|public
 name|EndpointValidationResult
@@ -759,6 +772,7 @@ literal|false
 argument_list|)
 return|;
 block|}
+DECL|method|validateProperties (String scheme, Map<String, String> properties)
 DECL|method|validateProperties (String scheme, Map<String, String> properties)
 specifier|public
 name|EndpointValidationResult
@@ -1837,6 +1851,7 @@ return|return
 name|result
 return|;
 block|}
+DECL|method|validateEndpointProperties (String uri, boolean ignoreLenientProperties, boolean consumerOnly, boolean producerOnly)
 DECL|method|validateEndpointProperties (String uri, boolean ignoreLenientProperties, boolean consumerOnly, boolean producerOnly)
 specifier|public
 name|EndpointValidationResult
@@ -3119,6 +3134,7 @@ return|return
 name|result
 return|;
 block|}
+DECL|method|endpointProperties (String uri)
 DECL|method|endpointProperties (String uri)
 specifier|public
 name|Map
@@ -4490,6 +4506,7 @@ name|answer
 return|;
 block|}
 DECL|method|endpointLenientProperties (String uri)
+DECL|method|endpointLenientProperties (String uri)
 specifier|public
 name|Map
 argument_list|<
@@ -4744,6 +4761,7 @@ name|answer
 return|;
 block|}
 DECL|method|endpointComponentName (String uri)
+DECL|method|endpointComponentName (String uri)
 specifier|public
 name|String
 name|endpointComponentName
@@ -4793,6 +4811,7 @@ literal|null
 return|;
 block|}
 DECL|method|asEndpointUri (String scheme, String json, boolean encode)
+DECL|method|asEndpointUri (String scheme, String json, boolean encode)
 specifier|public
 name|String
 name|asEndpointUri
@@ -4823,6 +4842,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|asEndpointUriXml (String scheme, String json, boolean encode)
+DECL|method|asEndpointUriXml (String scheme, String json, boolean encode)
 specifier|public
 name|String
 name|asEndpointUriXml
@@ -4852,6 +4872,7 @@ name|encode
 argument_list|)
 return|;
 block|}
+DECL|method|doAsEndpointUri (String scheme, String json, String ampersand, boolean encode)
 DECL|method|doAsEndpointUri (String scheme, String json, String ampersand, boolean encode)
 specifier|private
 name|String
@@ -5076,6 +5097,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|asEndpointUri (String scheme, Map<String, String> properties, boolean encode)
+DECL|method|asEndpointUri (String scheme, Map<String, String> properties, boolean encode)
 specifier|public
 name|String
 name|asEndpointUri
@@ -5111,6 +5133,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|asEndpointUriXml (String scheme, Map<String, String> properties, boolean encode)
+DECL|method|asEndpointUriXml (String scheme, Map<String, String> properties, boolean encode)
 specifier|public
 name|String
 name|asEndpointUriXml
@@ -5145,6 +5168,7 @@ name|encode
 argument_list|)
 return|;
 block|}
+DECL|method|doAsEndpointUri (String scheme, Map<String, String> properties, String ampersand, boolean encode)
 DECL|method|doAsEndpointUri (String scheme, Map<String, String> properties, String ampersand, boolean encode)
 name|String
 name|doAsEndpointUri
@@ -6051,6 +6075,7 @@ return|;
 block|}
 block|}
 DECL|method|syntaxKeys (String syntax)
+DECL|method|syntaxKeys (String syntax)
 specifier|private
 specifier|static
 name|String
@@ -6191,20 +6216,24 @@ index|]
 argument_list|)
 return|;
 block|}
-DECL|method|doValidateSimple (ClassLoader classLoader, String simple, boolean predicate)
+operator|<<
+operator|<<
+operator|<<
+operator|<
+name|HEAD
 specifier|private
 name|LanguageValidationResult
 name|doValidateSimple
-parameter_list|(
+argument_list|(
 name|ClassLoader
 name|classLoader
-parameter_list|,
+argument_list|,
 name|String
 name|simple
-parameter_list|,
+argument_list|,
 name|boolean
 name|predicate
-parameter_list|)
+argument_list|)
 block|{
 if|if
 condition|(
@@ -6228,7 +6257,7 @@ comment|// with property placeholders setup so we need to dummy this by replace 
 comment|// therefore we use an more unlikely character: {{XXX}} to ~^XXX^~
 name|String
 name|resolved
-init|=
+operator|=
 name|simple
 operator|.
 name|replaceAll
@@ -6237,7 +6266,7 @@ literal|"\\{\\{(.+)\\}\\}"
 argument_list|,
 literal|"~^$1^~"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|LanguageValidationResult
 name|answer
 init|=
@@ -6643,20 +6672,39 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|validateLanguagePredicate (ClassLoader classLoader, String language, String text)
+end_class
+
+begin_expr_stmt
+operator|==
+operator|==
+operator|==
+operator|=
+operator|>>>
+operator|>>>
+operator|>
+literal|79866dfb308
+operator|...
+index|[
+name|CAMEL
+operator|-
+literal|12818
+index|]
+name|Remove
+name|deprecated
+name|stuff
 specifier|public
 name|LanguageValidationResult
 name|validateLanguagePredicate
-parameter_list|(
+argument_list|(
 name|ClassLoader
 name|classLoader
-parameter_list|,
+argument_list|,
 name|String
 name|language
-parameter_list|,
+argument_list|,
 name|String
 name|text
-parameter_list|)
+argument_list|)
 block|{
 if|if
 condition|(
@@ -6679,6 +6727,9 @@ literal|true
 argument_list|)
 return|;
 block|}
+end_expr_stmt
+
+begin_else
 else|else
 block|{
 return|return
@@ -6694,9 +6745,10 @@ literal|true
 argument_list|)
 return|;
 block|}
-block|}
-DECL|method|validateLanguageExpression (ClassLoader classLoader, String language, String text)
-specifier|public
+end_else
+
+begin_function
+unit|}      public
 name|LanguageValidationResult
 name|validateLanguageExpression
 parameter_list|(
@@ -6747,7 +6799,9 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|doValidateLanguage (ClassLoader classLoader, String language, String text, boolean predicate)
+end_function
+
+begin_function
 specifier|private
 name|LanguageValidationResult
 name|doValidateLanguage
@@ -6907,6 +6961,9 @@ init|=
 literal|null
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 literal|null
@@ -6925,6 +6982,9 @@ expr_stmt|;
 name|instance
 operator|=
 name|clazz
+operator|.
+name|getDeclaredConstructor
+argument_list|()
 operator|.
 name|newInstance
 argument_list|()
@@ -7056,8 +7116,13 @@ return|return
 name|answer
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Special logic for log endpoints to deal when showAll=true      */
-DECL|method|filterProperties (String scheme, Map<String, String> options)
+end_comment
+
+begin_function
 specifier|private
 name|Map
 argument_list|<
@@ -7197,7 +7262,9 @@ return|return
 name|options
 return|;
 block|}
-DECL|method|validateInteger (String value)
+end_function
+
+begin_function
 specifier|private
 specifier|static
 name|boolean
@@ -7268,9 +7335,12 @@ return|return
 name|valid
 return|;
 block|}
-comment|// CHECKSTYLE:ON
-block|}
-end_class
+end_function
 
+begin_comment
+comment|// CHECKSTYLE:ON
+end_comment
+
+unit|}
 end_unit
 
