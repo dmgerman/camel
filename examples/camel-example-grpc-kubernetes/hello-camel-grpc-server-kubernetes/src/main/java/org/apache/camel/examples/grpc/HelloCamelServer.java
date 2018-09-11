@@ -188,8 +188,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Server started. I'm listening on {}"
-argument_list|,
+literal|"Server started. I'm listening on "
+operator|+
 name|port
 argument_list|)
 expr_stmt|;
