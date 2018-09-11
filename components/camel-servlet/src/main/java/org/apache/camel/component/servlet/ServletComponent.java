@@ -1715,7 +1715,7 @@ name|map
 operator|.
 name|containsKey
 argument_list|(
-literal|"httpBindingRef"
+literal|"httpBinding"
 argument_list|)
 condition|)
 block|{
