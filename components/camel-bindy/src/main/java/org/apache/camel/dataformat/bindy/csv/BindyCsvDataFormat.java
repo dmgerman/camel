@@ -896,6 +896,14 @@ operator|.
 name|getQuote
 argument_list|()
 decl_stmt|;
+name|Boolean
+name|quoting
+init|=
+name|factory
+operator|.
+name|getQuoting
+argument_list|()
+decl_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -1101,6 +1109,11 @@ name|tokens
 argument_list|)
 decl_stmt|;
 comment|// must unquote tokens before use
+if|if
+condition|(
+name|quoting
+condition|)
+block|{
 name|result
 operator|=
 name|unquoteTokens
@@ -1112,6 +1125,7 @@ argument_list|,
 name|quote
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|result

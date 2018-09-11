@@ -3893,6 +3893,16 @@ return|return
 name|quote
 return|;
 block|}
+DECL|method|getQuoting ()
+specifier|public
+name|Boolean
+name|getQuoting
+parameter_list|()
+block|{
+return|return
+name|quoting
+return|;
+block|}
 DECL|method|getMaxpos ()
 specifier|public
 name|int
