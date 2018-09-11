@@ -912,8 +912,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not disconnect from {}: "
-operator|+
+literal|"Could not disconnect from {}. This exception is ignored."
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
@@ -922,8 +922,6 @@ argument_list|()
 operator|.
 name|getMailStoreLogInformation
 argument_list|()
-operator|+
-literal|". This exception is ignored."
 argument_list|,
 name|e
 argument_list|)

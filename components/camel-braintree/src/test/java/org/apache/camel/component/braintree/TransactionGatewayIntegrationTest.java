@@ -1007,7 +1007,7 @@ operator|.
 name|debug
 argument_list|(
 literal|"Transaction submitted for settlement - id={}"
-operator|+
+argument_list|,
 name|result
 operator|.
 name|getTarget
@@ -1188,7 +1188,7 @@ operator|.
 name|debug
 argument_list|(
 literal|"Transaction submitted for settlement - id={}"
-operator|+
+argument_list|,
 name|result
 operator|.
 name|getTarget
@@ -1376,7 +1376,7 @@ operator|.
 name|debug
 argument_list|(
 literal|"Transaction submitted for settlement - id={}"
-operator|+
+argument_list|,
 name|result
 operator|.
 name|getTarget
