@@ -194,6 +194,13 @@ name|getCollection
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|GoogleMailComponentVerifierExtension
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|GoogleMailComponent (CamelContext context)
 specifier|public
@@ -218,6 +225,13 @@ argument_list|,
 name|GoogleMailApiCollection
 operator|.
 name|getCollection
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|registerExtension
+argument_list|(
+operator|new
+name|GoogleMailComponentVerifierExtension
 argument_list|()
 argument_list|)
 expr_stmt|;
