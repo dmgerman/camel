@@ -461,9 +461,6 @@ name|configuration
 operator|.
 name|getOperation
 argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -632,9 +629,6 @@ argument_list|,
 name|configuration
 operator|.
 name|getOperation
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

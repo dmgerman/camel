@@ -1111,9 +1111,6 @@ argument_list|(
 literal|"The following threads are blocked and will be interrupted so the threads are released:\n{}"
 argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -1172,9 +1169,6 @@ argument_list|(
 literal|"The following threads are blocked, and may reside in the JVM:\n{}"
 argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

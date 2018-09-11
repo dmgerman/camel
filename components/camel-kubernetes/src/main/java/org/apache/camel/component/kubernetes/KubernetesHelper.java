@@ -218,9 +218,6 @@ argument_list|(
 literal|"Create Kubernetes client with the following Configuration: {}"
 argument_list|,
 name|configuration
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|ConfigBuilder
