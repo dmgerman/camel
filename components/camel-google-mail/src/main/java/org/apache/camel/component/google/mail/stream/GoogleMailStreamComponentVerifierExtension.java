@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.google.mail
+DECL|package|org.apache.camel.component.google.mail.stream
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|google
 operator|.
 name|mail
+operator|.
+name|stream
 package|;
 end_package
 
@@ -118,28 +120,82 @@ name|ResultErrorHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|google
+operator|.
+name|mail
+operator|.
+name|BatchGoogleMailClientFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|google
+operator|.
+name|mail
+operator|.
+name|GoogleMailClientFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|google
+operator|.
+name|mail
+operator|.
+name|GoogleMailConfiguration
+import|;
+end_import
+
 begin_class
-DECL|class|GoogleMailComponentVerifierExtension
+DECL|class|GoogleMailStreamComponentVerifierExtension
 specifier|public
 class|class
-name|GoogleMailComponentVerifierExtension
+name|GoogleMailStreamComponentVerifierExtension
 extends|extends
 name|DefaultComponentVerifierExtension
 block|{
-DECL|method|GoogleMailComponentVerifierExtension ()
+DECL|method|GoogleMailStreamComponentVerifierExtension ()
 specifier|public
-name|GoogleMailComponentVerifierExtension
+name|GoogleMailStreamComponentVerifierExtension
 parameter_list|()
 block|{
 name|this
 argument_list|(
-literal|"google-mail"
+literal|"google-mail-stream"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|GoogleMailComponentVerifierExtension (String scheme)
+DECL|method|GoogleMailStreamComponentVerifierExtension (String scheme)
 specifier|public
-name|GoogleMailComponentVerifierExtension
+name|GoogleMailStreamComponentVerifierExtension
 parameter_list|(
 name|String
 name|scheme
