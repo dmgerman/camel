@@ -891,6 +891,9 @@ expr_stmt|;
 comment|// Split the message according to the pair separator defined in
 comment|// annotated class @Message
 comment|// Explicitly replace any occurrence of the Unicode new line character.
+comment|// Simply reading the line in with the File stream doesn't get us around the fact
+comment|// that this character is still present in the data set, and we don't wish for it
+comment|// to be present when storing the actual data in the model.
 name|List
 argument_list|<
 name|String
