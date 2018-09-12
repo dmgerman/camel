@@ -362,15 +362,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Io pollo"
-argument_list|)
-expr_stmt|;
 name|com
 operator|.
 name|google
@@ -773,15 +764,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Io ho pollato"
-argument_list|)
-expr_stmt|;
 return|return
 name|total
 return|;
