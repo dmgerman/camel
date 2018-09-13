@@ -17,22 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ExpressionBuilder
-operator|.
-name|routeIdExpression
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -105,6 +89,22 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|ExpressionBuilder
+operator|.
+name|routeIdExpression
 import|;
 end_import
 

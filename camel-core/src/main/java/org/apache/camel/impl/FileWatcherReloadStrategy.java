@@ -199,6 +199,34 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|StandardWatchEventKinds
+operator|.
+name|ENTRY_CREATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|StandardWatchEventKinds
+operator|.
+name|ENTRY_MODIFY
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -269,34 +297,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|StandardWatchEventKinds
-operator|.
-name|ENTRY_CREATE
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|StandardWatchEventKinds
-operator|.
-name|ENTRY_MODIFY
 import|;
 end_import
 

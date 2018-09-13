@@ -19,22 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|Builder
-operator|.
-name|constant
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -105,6 +89,22 @@ operator|.
 name|processor
 operator|.
 name|Throttler
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|Builder
+operator|.
+name|constant
 import|;
 end_import
 

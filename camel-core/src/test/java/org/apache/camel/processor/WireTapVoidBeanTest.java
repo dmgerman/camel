@@ -17,18 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|awaitility
-operator|.
-name|Awaitility
-operator|.
-name|await
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -107,6 +95,18 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
 import|;
 end_import
 

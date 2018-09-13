@@ -17,20 +17,14 @@ package|;
 end_package
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|apache
+name|w3c
 operator|.
-name|camel
+name|dom
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-operator|.
-name|expectsMessageCount
+name|NodeList
 import|;
 end_import
 
@@ -109,14 +103,20 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|w3c
+name|apache
 operator|.
-name|dom
+name|camel
 operator|.
-name|NodeList
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+operator|.
+name|expectsMessageCount
 import|;
 end_import
 

@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|awaitility
-operator|.
-name|Awaitility
-operator|.
-name|await
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -59,6 +47,34 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|ls
+operator|.
+name|LSInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|ls
+operator|.
+name|LSResourceResolver
 import|;
 end_import
 
@@ -183,30 +199,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|w3c
+name|awaitility
 operator|.
-name|dom
+name|Awaitility
 operator|.
-name|ls
-operator|.
-name|LSInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|ls
-operator|.
-name|LSResourceResolver
+name|await
 import|;
 end_import
 

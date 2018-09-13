@@ -17,22 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|ExchangeAwareDelayCalcBean
-operator|.
-name|BEAN_DELAYER_HEADER
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -81,6 +65,22 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|ExchangeAwareDelayCalcBean
+operator|.
+name|BEAN_DELAYER_HEADER
 import|;
 end_import
 
