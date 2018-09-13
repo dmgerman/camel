@@ -897,11 +897,11 @@ name|getQuote
 argument_list|()
 decl_stmt|;
 name|Boolean
-name|quoting
+name|removeQuotes
 init|=
 name|factory
 operator|.
-name|getQuoting
+name|getRemoveQuotes
 argument_list|()
 decl_stmt|;
 name|ObjectHelper
@@ -1111,7 +1111,7 @@ decl_stmt|;
 comment|// must unquote tokens before use
 if|if
 condition|(
-name|quoting
+name|removeQuotes
 condition|)
 block|{
 name|result

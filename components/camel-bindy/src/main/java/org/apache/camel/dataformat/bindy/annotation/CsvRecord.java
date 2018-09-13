@@ -186,6 +186,15 @@ parameter_list|()
 default|default
 literal|true
 function_decl|;
+comment|/**      * The remove quotes parameter flags if unmarshalling should try to remove quotes for each field      */
+DECL|method|removeQuotes ()
+DECL|field|true
+name|boolean
+name|removeQuotes
+parameter_list|()
+default|default
+literal|true
+function_decl|;
 block|}
 end_annotation_defn
 

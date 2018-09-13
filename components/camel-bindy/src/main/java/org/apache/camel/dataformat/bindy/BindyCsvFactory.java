@@ -501,6 +501,11 @@ specifier|private
 name|boolean
 name|endWithLineBreak
 decl_stmt|;
+DECL|field|removeQuotes
+specifier|private
+name|boolean
+name|removeQuotes
+decl_stmt|;
 DECL|method|BindyCsvFactory (Class<?> type)
 specifier|public
 name|BindyCsvFactory
@@ -3606,6 +3611,22 @@ argument_list|,
 name|endWithLineBreak
 argument_list|)
 expr_stmt|;
+name|removeQuotes
+operator|=
+name|record
+operator|.
+name|removeQuotes
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Remove quotes: {}"
+argument_list|,
+name|removeQuotes
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3893,14 +3914,14 @@ return|return
 name|quote
 return|;
 block|}
-DECL|method|getQuoting ()
+DECL|method|getRemoveQuotes ()
 specifier|public
 name|Boolean
-name|getQuoting
+name|getRemoveQuotes
 parameter_list|()
 block|{
 return|return
-name|quoting
+name|removeQuotes
 return|;
 block|}
 DECL|method|getMaxpos ()
