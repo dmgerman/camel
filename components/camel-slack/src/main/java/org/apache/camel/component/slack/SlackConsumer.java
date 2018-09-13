@@ -19,6 +19,26 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|slack
+operator|.
+name|utils
+operator|.
+name|SlackUtils
+operator|.
+name|readResponse
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -301,26 +321,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|slack
-operator|.
-name|utils
-operator|.
-name|SlackUtils
-operator|.
-name|readResponse
 import|;
 end_import
 
@@ -629,6 +629,16 @@ name|LinkedList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|list
+argument_list|)
+condition|)
+block|{
 name|Iterator
 name|it
 init|=
@@ -709,6 +719,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|answer
