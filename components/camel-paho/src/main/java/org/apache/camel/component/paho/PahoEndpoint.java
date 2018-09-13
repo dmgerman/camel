@@ -489,6 +489,20 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|resolveMqttConnectOptions
+specifier|private
+name|boolean
+name|resolveMqttConnectOptions
+init|=
+literal|true
+decl_stmt|;
 comment|// Collaboration members
 annotation|@
 name|UriParam
@@ -740,6 +754,11 @@ return|return
 name|connectOptions
 return|;
 block|}
+if|if
+condition|(
+name|resolveMqttConnectOptions
+condition|)
+block|{
 name|Set
 argument_list|<
 name|MqttConnectOptions
@@ -811,6 +830,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|MqttConnectOptions
 name|options
@@ -1255,6 +1275,34 @@ operator|.
 name|password
 operator|=
 name|password
+expr_stmt|;
+block|}
+DECL|method|isResolveMqttConnectOptions ()
+specifier|public
+specifier|synchronized
+name|boolean
+name|isResolveMqttConnectOptions
+parameter_list|()
+block|{
+return|return
+name|resolveMqttConnectOptions
+return|;
+block|}
+DECL|method|setResolveMqttConnectOptions (boolean resolveMqttConnectOptions)
+specifier|public
+specifier|synchronized
+name|void
+name|setResolveMqttConnectOptions
+parameter_list|(
+name|boolean
+name|resolveMqttConnectOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resolveMqttConnectOptions
+operator|=
+name|resolveMqttConnectOptions
 expr_stmt|;
 block|}
 block|}
