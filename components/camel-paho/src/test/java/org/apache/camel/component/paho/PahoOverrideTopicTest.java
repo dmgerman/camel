@@ -22,16 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|activemq
@@ -113,6 +103,16 @@ operator|.
 name|mqttv3
 operator|.
 name|MqttConnectOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
 import|;
 end_import
 
