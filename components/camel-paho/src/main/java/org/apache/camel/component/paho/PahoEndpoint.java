@@ -1288,6 +1288,7 @@ return|return
 name|resolveMqttConnectOptions
 return|;
 block|}
+comment|/**      * Define if you don't want to resolve the MQTT Connect Options from registry      * @param resolveMqttConnectOptions      */
 DECL|method|setResolveMqttConnectOptions (boolean resolveMqttConnectOptions)
 specifier|public
 specifier|synchronized
