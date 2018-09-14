@@ -22,16 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -55,6 +45,16 @@ operator|.
 name|concurrent
 operator|.
 name|SizedScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
