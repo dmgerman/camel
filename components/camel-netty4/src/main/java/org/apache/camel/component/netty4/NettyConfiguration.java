@@ -2468,7 +2468,7 @@ return|return
 name|allowDefaultCodec
 return|;
 block|}
-comment|/**      * The netty component installs a default codec if both, encoder/deocder is null and textline is false.      * Setting allowDefaultCodec to false prevents the netty component from installing a default codec as the first element in the filter chain.      */
+comment|/**      * The netty component installs a default codec if both, encoder/decoder is null and textline is false.      * Setting allowDefaultCodec to false prevents the netty component from installing a default codec as the first element in the filter chain.      */
 DECL|method|setAllowDefaultCodec (boolean allowDefaultCodec)
 specifier|public
 name|void
