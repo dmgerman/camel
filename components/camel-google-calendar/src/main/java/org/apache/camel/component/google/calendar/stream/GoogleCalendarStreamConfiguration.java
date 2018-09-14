@@ -227,10 +227,10 @@ name|defaultValue
 operator|=
 literal|"primary"
 argument_list|)
-DECL|field|calendarSummaryName
+DECL|field|calendarId
 specifier|private
 name|String
-name|calendarSummaryName
+name|calendarId
 init|=
 literal|"primary"
 decl_stmt|;
@@ -509,31 +509,31 @@ operator|=
 name|maxResults
 expr_stmt|;
 block|}
-DECL|method|getCalendarSummaryName ()
+DECL|method|getCalendarId ()
 specifier|public
 name|String
-name|getCalendarSummaryName
+name|getCalendarId
 parameter_list|()
 block|{
 return|return
-name|calendarSummaryName
+name|calendarId
 return|;
 block|}
-comment|/**      * Calendar Summary Name to use      */
-DECL|method|setCalendarSummaryName (String calendarSummaryName)
+comment|/**      * The calendarId to be used      */
+DECL|method|setCalendarId (String calendarId)
 specifier|public
 name|void
-name|setCalendarSummaryName
+name|setCalendarId
 parameter_list|(
 name|String
-name|calendarSummaryName
+name|calendarId
 parameter_list|)
 block|{
 name|this
 operator|.
-name|calendarSummaryName
+name|calendarId
 operator|=
-name|calendarSummaryName
+name|calendarId
 expr_stmt|;
 block|}
 DECL|method|isConsumeFromNow ()

@@ -268,17 +268,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|calendarId
-specifier|private
-name|String
-name|calendarId
-decl_stmt|;
 DECL|field|lastUpdate
 specifier|private
 name|DateTime
 name|lastUpdate
 decl_stmt|;
-DECL|method|GoogleCalendarStreamConsumer (Endpoint endpoint, Processor processor, String calendarId)
+DECL|method|GoogleCalendarStreamConsumer (Endpoint endpoint, Processor processor)
 specifier|public
 name|GoogleCalendarStreamConsumer
 parameter_list|(
@@ -287,9 +282,6 @@ name|endpoint
 parameter_list|,
 name|Processor
 name|processor
-parameter_list|,
-name|String
-name|calendarId
 parameter_list|)
 block|{
 name|super
@@ -298,12 +290,6 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|calendarId
-operator|=
-name|calendarId
 expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
@@ -387,7 +373,11 @@ argument_list|()
 operator|.
 name|list
 argument_list|(
-name|calendarId
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCalendarId
+argument_list|()
 argument_list|)
 operator|.
 name|setOrderBy
