@@ -554,7 +554,7 @@ name|routeContext
 argument_list|,
 name|this
 argument_list|,
-name|async
+literal|true
 argument_list|)
 decl_stmt|;
 name|ScheduledExecutorService
@@ -570,7 +570,7 @@ literal|"Throttle"
 argument_list|,
 name|this
 argument_list|,
-name|async
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// should be default 1000 millis
