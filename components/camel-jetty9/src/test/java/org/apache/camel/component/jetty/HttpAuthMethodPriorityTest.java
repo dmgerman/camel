@@ -562,7 +562,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"org.apache.camel.component.http.AuthMethod.foo"
+literal|"org.apache.camel.component.http4.AuthMethod.foo"
 argument_list|)
 decl_stmt|;
 name|assertTrue

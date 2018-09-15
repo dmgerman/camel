@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|http4
 operator|.
 name|HttpEndpoint
 import|;

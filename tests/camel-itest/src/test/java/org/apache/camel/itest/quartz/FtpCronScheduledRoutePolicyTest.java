@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|routepolicy
 operator|.
-name|quartz
+name|quartz2
 operator|.
 name|CronScheduledRoutePolicy
 import|;

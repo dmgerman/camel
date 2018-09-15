@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|netty
+name|netty4
 operator|.
 name|http
 operator|.

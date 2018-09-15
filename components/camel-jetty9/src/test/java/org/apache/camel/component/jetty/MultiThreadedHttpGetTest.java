@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|http4
 operator|.
 name|HttpComponent
 import|;
@@ -114,25 +114,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|impl
 operator|.
-name|HttpConnectionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|conn
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|MultiThreadedHttpConnectionManager
+name|PoolingHttpClientConnectionManager
 import|;
 end_import
 
@@ -198,19 +186,16 @@ comment|// This is needed as by default there are 2 parallel
 comment|// connections to some host and there is nothing that
 comment|// closes the http connection here.
 comment|// Need to set the httpConnectionManager
-name|HttpConnectionManager
+name|PoolingHttpClientConnectionManager
 name|httpConnectionManager
 init|=
 operator|new
-name|MultiThreadedHttpConnectionManager
+name|PoolingHttpClientConnectionManager
 argument_list|()
 decl_stmt|;
 name|httpConnectionManager
 operator|.
-name|getParams
-argument_list|()
-operator|.
-name|setDefaultMaxConnectionsPerHost
+name|setDefaultMaxPerRoute
 argument_list|(
 literal|5
 argument_list|)
@@ -226,7 +211,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|setHttpConnectionManager
+name|setClientConnectionManager
 argument_list|(
 name|httpConnectionManager
 argument_list|)
