@@ -318,7 +318,7 @@ name|WeatherConstants
 operator|.
 name|WEATHER_LOCATION
 argument_list|,
-literal|"current"
+literal|"Rome,Italy"
 argument_list|)
 expr_stmt|;
 name|mock
