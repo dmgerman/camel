@@ -159,14 +159,8 @@ argument_list|)
 expr_stmt|;
 name|errorHandler
 argument_list|(
-name|loggingErrorHandler
-argument_list|(
-name|getClass
+name|defaultErrorHandler
 argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|String

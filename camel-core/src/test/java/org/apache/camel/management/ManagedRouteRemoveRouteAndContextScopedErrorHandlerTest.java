@@ -370,30 +370,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should be the context scoped logging error handler
-name|assertTrue
-argument_list|(
-literal|"Should be context scoped error handler: "
-operator|+
-name|set
-argument_list|,
-name|set
-operator|.
-name|iterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"Logging"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -763,9 +739,9 @@ block|{
 comment|// context scoped error handler
 name|errorHandler
 argument_list|(
-name|loggingErrorHandler
+name|deadLetterChannel
 argument_list|(
-literal|"global"
+literal|"log:global"
 argument_list|)
 argument_list|)
 expr_stmt|;

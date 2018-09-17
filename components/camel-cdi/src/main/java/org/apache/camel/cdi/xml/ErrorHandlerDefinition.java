@@ -167,24 +167,10 @@ name|deadLetterHandleNewException
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|level
-specifier|private
-name|LoggingLevel
-name|level
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|rollbackLoggingLevel
 specifier|private
 name|LoggingLevel
 name|rollbackLoggingLevel
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|logName
-specifier|private
-name|String
-name|logName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -334,32 +320,6 @@ operator|=
 name|deadLetterHandleNewException
 expr_stmt|;
 block|}
-DECL|method|getLevel ()
-specifier|public
-name|LoggingLevel
-name|getLevel
-parameter_list|()
-block|{
-return|return
-name|level
-return|;
-block|}
-DECL|method|setLevel (LoggingLevel level)
-specifier|public
-name|void
-name|setLevel
-parameter_list|(
-name|LoggingLevel
-name|level
-parameter_list|)
-block|{
-name|this
-operator|.
-name|level
-operator|=
-name|level
-expr_stmt|;
-block|}
 DECL|method|getRollbackLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -384,32 +344,6 @@ operator|.
 name|rollbackLoggingLevel
 operator|=
 name|rollbackLoggingLevel
-expr_stmt|;
-block|}
-DECL|method|getLogName ()
-specifier|public
-name|String
-name|getLogName
-parameter_list|()
-block|{
-return|return
-name|logName
-return|;
-block|}
-DECL|method|setLogName (String logName)
-specifier|public
-name|void
-name|setLogName
-parameter_list|(
-name|String
-name|logName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|logName
-operator|=
-name|logName
 expr_stmt|;
 block|}
 DECL|method|getUseOriginalMessage ()

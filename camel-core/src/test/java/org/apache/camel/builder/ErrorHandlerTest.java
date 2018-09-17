@@ -138,20 +138,6 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|LoggingErrorHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
 name|RedeliveryPolicy
 import|;
 end_import
@@ -277,9 +263,9 @@ block|{
 comment|// use logging error handler
 name|errorHandler
 argument_list|(
-name|loggingErrorHandler
+name|deadLetterChannel
 argument_list|(
-literal|"com.mycompany.foo"
+literal|"log:com.mycompany.foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -376,7 +362,7 @@ argument_list|)
 decl_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|LoggingErrorHandler
+name|DeadLetterChannel
 operator|.
 name|class
 argument_list|,
@@ -440,9 +426,9 @@ comment|// here we configure the logging error handler
 operator|.
 name|errorHandler
 argument_list|(
-name|loggingErrorHandler
+name|deadLetterChannel
 argument_list|(
-literal|"com.mycompany.foo"
+literal|"log:com.mycompany.foo"
 argument_list|)
 argument_list|)
 comment|// and we continue with the routing here
@@ -846,9 +832,9 @@ argument_list|)
 operator|.
 name|errorHandler
 argument_list|(
-name|loggingErrorHandler
+name|deadLetterChannel
 argument_list|(
-literal|"FOO.BAR"
+literal|"log:FOO.BAR"
 argument_list|)
 argument_list|)
 operator|.
@@ -950,7 +936,7 @@ argument_list|)
 decl_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|LoggingErrorHandler
+name|DeadLetterChannel
 operator|.
 name|class
 argument_list|,

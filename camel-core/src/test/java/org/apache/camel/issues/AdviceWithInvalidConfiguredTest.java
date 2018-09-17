@@ -116,7 +116,7 @@ name|Exception
 block|{
 name|errorHandler
 argument_list|(
-name|loggingErrorHandler
+name|defaultErrorHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
