@@ -24,16 +24,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|commons
@@ -43,6 +33,16 @@ operator|.
 name|ftp
 operator|.
 name|FTPClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
 import|;
 end_import
 

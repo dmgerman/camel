@@ -22,26 +22,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -57,16 +37,6 @@ operator|.
 name|annotation
 operator|.
 name|Resource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
 import|;
 end_import
 
@@ -129,6 +99,16 @@ operator|.
 name|junit
 operator|.
 name|AfterClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
