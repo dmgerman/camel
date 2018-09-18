@@ -862,9 +862,17 @@ name|queueUrl
 operator|=
 literal|"https://sqs."
 operator|+
+name|Regions
+operator|.
+name|valueOf
+argument_list|(
 name|configuration
 operator|.
 name|getRegion
+argument_list|()
+argument_list|)
+operator|.
+name|getName
 argument_list|()
 operator|+
 literal|"."
