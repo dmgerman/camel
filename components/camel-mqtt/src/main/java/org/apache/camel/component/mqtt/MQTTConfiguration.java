@@ -385,7 +385,7 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"AtMostOnce,AtLeastOne,ExactlyOnce"
+literal|"AtMostOnce,AtLeastOnce,ExactlyOnce"
 argument_list|,
 name|defaultValue
 operator|=
@@ -566,7 +566,7 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"AtMostOnce,AtLeastOne,ExactlyOnce"
+literal|"AtMostOnce,AtLeastOnce,ExactlyOnce"
 argument_list|,
 name|defaultValue
 operator|=
