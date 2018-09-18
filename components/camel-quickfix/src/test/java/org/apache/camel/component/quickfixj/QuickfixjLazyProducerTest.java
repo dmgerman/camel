@@ -166,7 +166,7 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
+name|is
 import|;
 end_import
 
@@ -178,7 +178,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 

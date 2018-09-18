@@ -144,7 +144,27 @@ name|embedded
 operator|.
 name|TestUtils
 operator|.
-name|*
+name|constructTempDir
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|kafka
+operator|.
+name|embedded
+operator|.
+name|TestUtils
+operator|.
+name|perTest
 import|;
 end_import
 

@@ -24,16 +24,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
 name|net
 operator|.
 name|javacrumbs
@@ -97,6 +87,16 @@ operator|.
 name|spring
 operator|.
 name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
 import|;
 end_import
 

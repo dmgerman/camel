@@ -80,7 +80,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 

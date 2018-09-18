@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|netty
@@ -65,6 +55,16 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
 import|;
 end_import
 

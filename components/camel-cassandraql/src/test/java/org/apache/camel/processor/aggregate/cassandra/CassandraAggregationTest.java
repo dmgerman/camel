@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|datastax
@@ -145,6 +135,16 @@ operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
 import|;
 end_import
 

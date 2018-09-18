@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -173,6 +163,16 @@ operator|.
 name|tar
 operator|.
 name|TarArchiveInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
 import|;
 end_import
 
