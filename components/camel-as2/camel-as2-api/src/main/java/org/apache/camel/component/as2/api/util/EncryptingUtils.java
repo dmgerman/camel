@@ -72,7 +72,7 @@ name|as2
 operator|.
 name|api
 operator|.
-name|AS2Algorithm
+name|AS2EncryptionAlgorithm
 import|;
 end_import
 
@@ -99,18 +99,6 @@ operator|.
 name|util
 operator|.
 name|Args
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|asn1
-operator|.
-name|ASN1ObjectIdentifier
 import|;
 end_import
 
@@ -296,14 +284,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createEncryptor (String encryptionAlgorithmName)
+DECL|method|createEncryptor (AS2EncryptionAlgorithm encryptionAlgorithm)
 specifier|public
 specifier|static
 name|OutputEncryptor
 name|createEncryptor
 parameter_list|(
-name|String
-name|encryptionAlgorithmName
+name|AS2EncryptionAlgorithm
+name|encryptionAlgorithm
 parameter_list|)
 throws|throws
 name|HttpException
@@ -312,31 +300,21 @@ name|Args
 operator|.
 name|notNull
 argument_list|(
-name|encryptionAlgorithmName
+name|encryptionAlgorithm
 argument_list|,
 literal|"encryptionAlgorithmName"
 argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|ASN1ObjectIdentifier
-name|algorithmOID
-init|=
-name|AS2Algorithm
-operator|.
-name|getAS2Algorithm
-argument_list|(
-name|encryptionAlgorithmName
-argument_list|)
-operator|.
-name|getAlgorithmOID
-argument_list|()
-decl_stmt|;
 return|return
 operator|new
 name|JceCMSContentEncryptorBuilder
 argument_list|(
-name|algorithmOID
+name|encryptionAlgorithm
+operator|.
+name|getAlgorithmOID
+argument_list|()
 argument_list|)
 operator|.
 name|build

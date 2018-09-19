@@ -488,12 +488,12 @@ operator|+
 literal|"signing-private-key"
 decl_stmt|;
 comment|/**      * The HTTP Context Attribute containing the algorithm name used to encrypt EDI      * message      */
-DECL|field|ENCRYPTING_ALGORITHM_NAME
+DECL|field|ENCRYPTING_ALGORITHM
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|ENCRYPTING_ALGORITHM_NAME
+name|ENCRYPTING_ALGORITHM
 init|=
 name|CAMEL_AS2_CLIENT_PREFIX
 operator|+
@@ -568,8 +568,8 @@ operator|=
 name|as2ClientConnection
 expr_stmt|;
 block|}
-comment|/**      * Send<code>ediMessage</code> to trading partner.      *      * @param ediMessage      *            - EDI message to transport      * @param requestUri      *            - resource location to deliver message      * @param subject - message subject      * @param from - RFC2822 address of sender      * @param as2From - AS2 name of sender      * @param as2To - AS2 name of recipient      * @param as2MessageStructure - the structure of AS2 to send; see {@link AS2MessageStructure}      * @param ediMessageContentType - the content typw of EDI message      * @param ediMessageTransferEncoding - the transfer encoding used to transport EDI message      * @param signingCertificateChain - the chain of certificates used to sign the message or<code>null</code> if sending EDI message unsigned      * @param signingPrivateKey - the private key used to sign EDI message      * @param dispositionNotificationTo - an RFC2822 address to request a receipt or<code>null</code> if no receipt requested      * @param signedReceiptMicAlgorithms - the senders list of signing algorithms for signing receipt, in preferred order,  or<code>null</code> if requesting an unsigned receipt.      * @param encryptionAlgorithmName - the name of the algorithm used to encrypt the message or<code>null</code> if sending EDI message unencrypted      * @param encryptionCertificateChain - the chain of certificates used to encrypt the message or<code>null</code> if sending EDI message unencrypted      * @param encryptionPrivateKey - the private key used to encrypt EDI message      * @return {@link HttpCoreContext} containing request and response used to send EDI message      * @throws HttpException when things go wrong.      */
-DECL|method|send (String ediMessage, String requestUri, String subject, String from, String as2From, String as2To, AS2MessageStructure as2MessageStructure, ContentType ediMessageContentType, String ediMessageTransferEncoding, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey, String dispositionNotificationTo, String[] signedReceiptMicAlgorithms, String encryptionAlgorithmName, Certificate[] encryptionCertificateChain, PrivateKey encryptionPrivateKey)
+comment|/**      * Send<code>ediMessage</code> to trading partner.      *      * @param ediMessage      *            - EDI message to transport      * @param requestUri      *            - resource location to deliver message      * @param subject - message subject      * @param from - RFC2822 address of sender      * @param as2From - AS2 name of sender      * @param as2To - AS2 name of recipient      * @param as2MessageStructure - the structure of AS2 to send; see {@link AS2MessageStructure}      * @param ediMessageContentType - the content typw of EDI message      * @param ediMessageTransferEncoding - the transfer encoding used to transport EDI message      * @param signingCertificateChain - the chain of certificates used to sign the message or<code>null</code> if sending EDI message unsigned      * @param signingPrivateKey - the private key used to sign EDI message      * @param dispositionNotificationTo - an RFC2822 address to request a receipt or<code>null</code> if no receipt requested      * @param signedReceiptMicAlgorithms - the senders list of signing algorithms for signing receipt, in preferred order,  or<code>null</code> if requesting an unsigned receipt.      * @param encryptionAlgorithm - the algorithm used to encrypt the message or<code>null</code> if sending EDI message unencrypted      * @param encryptionCertificateChain - the chain of certificates used to encrypt the message or<code>null</code> if sending EDI message unencrypted      * @param encryptionPrivateKey - the private key used to encrypt EDI message      * @return {@link HttpCoreContext} containing request and response used to send EDI message      * @throws HttpException when things go wrong.      */
+DECL|method|send (String ediMessage, String requestUri, String subject, String from, String as2From, String as2To, AS2MessageStructure as2MessageStructure, ContentType ediMessageContentType, String ediMessageTransferEncoding, Certificate[] signingCertificateChain, PrivateKey signingPrivateKey, String dispositionNotificationTo, String[] signedReceiptMicAlgorithms, AS2EncryptionAlgorithm encryptionAlgorithm, Certificate[] encryptionCertificateChain, PrivateKey encryptionPrivateKey)
 specifier|public
 name|HttpCoreContext
 name|send
@@ -615,8 +615,8 @@ name|String
 index|[]
 name|signedReceiptMicAlgorithms
 parameter_list|,
-name|String
-name|encryptionAlgorithmName
+name|AS2EncryptionAlgorithm
+name|encryptionAlgorithm
 parameter_list|,
 name|Certificate
 index|[]
@@ -811,9 +811,9 @@ name|setAttribute
 argument_list|(
 name|AS2ClientManager
 operator|.
-name|ENCRYPTING_ALGORITHM_NAME
+name|ENCRYPTING_ALGORITHM
 argument_list|,
-name|encryptionAlgorithmName
+name|encryptionAlgorithm
 argument_list|)
 expr_stmt|;
 name|httpContext
@@ -1260,23 +1260,23 @@ parameter_list|)
 throws|throws
 name|HttpException
 block|{
-name|String
-name|algorithmName
+name|AS2EncryptionAlgorithm
+name|encryptionAlgorithm
 init|=
 name|httpContext
 operator|.
 name|getAttribute
 argument_list|(
-name|ENCRYPTING_ALGORITHM_NAME
+name|ENCRYPTING_ALGORITHM
 argument_list|,
-name|String
+name|AS2EncryptionAlgorithm
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|algorithmName
+name|encryptionAlgorithm
 operator|==
 literal|null
 condition|)
@@ -1285,7 +1285,7 @@ throw|throw
 operator|new
 name|HttpException
 argument_list|(
-literal|"Encrypting algorithm name missing"
+literal|"Encrypting algorithm missing"
 argument_list|)
 throw|;
 block|}
@@ -1294,7 +1294,7 @@ name|EncryptingUtils
 operator|.
 name|createEncryptor
 argument_list|(
-name|algorithmName
+name|encryptionAlgorithm
 argument_list|)
 return|;
 block|}
