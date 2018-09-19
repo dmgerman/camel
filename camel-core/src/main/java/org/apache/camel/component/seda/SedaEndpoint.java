@@ -358,6 +358,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|SedaConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -554,18 +568,18 @@ name|defaultValue
 operator|=
 literal|""
 operator|+
-name|Integer
+name|SedaConstants
 operator|.
-name|MAX_VALUE
+name|QUEUE_SIZE
 argument_list|)
 DECL|field|size
 specifier|private
 name|int
 name|size
 init|=
-name|Integer
+name|SedaConstants
 operator|.
-name|MAX_VALUE
+name|QUEUE_SIZE
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1138,12 +1152,21 @@ comment|// use null to indicate default size (= use what the existing queue has 
 name|Integer
 name|size
 init|=
+operator|(
 name|getSize
 argument_list|()
 operator|==
 name|Integer
 operator|.
 name|MAX_VALUE
+operator|||
+name|getSize
+argument_list|()
+operator|==
+name|SedaConstants
+operator|.
+name|QUEUE_SIZE
+operator|)
 condition|?
 literal|null
 else|:
@@ -1575,7 +1598,7 @@ return|return
 name|size
 return|;
 block|}
-comment|/**      * The maximum capacity of the SEDA queue (i.e., the number of messages it can hold).      */
+comment|/**      * The maximum capacity of the SEDA queue (i.e., the number of messages it can hold).      * Will by default use the defaultSize set on the SEDA component.      */
 DECL|method|setSize (int size)
 specifier|public
 name|void
