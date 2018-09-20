@@ -1396,8 +1396,6 @@ specifier|private
 specifier|volatile
 name|int
 name|throttleRate
-init|=
-literal|0
 decl_stmt|;
 DECL|method|ThrottlingState (String key)
 name|ThrottlingState

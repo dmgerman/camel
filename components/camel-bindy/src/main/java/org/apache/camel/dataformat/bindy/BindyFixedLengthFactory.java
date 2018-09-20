@@ -1061,14 +1061,12 @@ name|debug
 argument_list|(
 literal|"skipping ahead [{}] chars."
 argument_list|,
-operator|(
 name|dataField
 operator|.
 name|pos
 argument_list|()
 operator|-
 name|offset
-operator|)
 argument_list|)
 expr_stmt|;
 name|offset

@@ -24,9 +24,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Test
+name|camel
+operator|.
+name|guice
+operator|.
+name|Main
 import|;
 end_import
 
@@ -44,13 +48,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|guice
-operator|.
-name|Main
+name|Test
 import|;
 end_import
 

@@ -42,16 +42,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -119,6 +109,16 @@ operator|.
 name|springboot
 operator|.
 name|SpringBootRuntimeProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 

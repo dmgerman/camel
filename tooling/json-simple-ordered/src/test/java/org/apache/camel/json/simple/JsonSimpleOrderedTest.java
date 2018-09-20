@@ -102,16 +102,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|json
 operator|.
 name|simple
@@ -129,6 +119,16 @@ operator|.
 name|simple
 operator|.
 name|Jsoner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
