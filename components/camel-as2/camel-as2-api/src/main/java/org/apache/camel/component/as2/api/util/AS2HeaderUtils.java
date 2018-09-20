@@ -829,11 +829,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|getBoundaryParameterValue (Header[] headers, String headerName)
+DECL|method|getParameterValue (Header[] headers, String headerName, String parameterName)
 specifier|public
 specifier|static
 name|String
-name|getBoundaryParameterValue
+name|getParameterValue
 parameter_list|(
 name|Header
 index|[]
@@ -841,6 +841,9 @@ name|headers
 parameter_list|,
 name|String
 name|headerName
+parameter_list|,
+name|String
+name|parameterName
 parameter_list|)
 block|{
 name|Args
@@ -913,7 +916,7 @@ argument_list|()
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"boundary"
+name|parameterName
 argument_list|)
 condition|)
 block|{

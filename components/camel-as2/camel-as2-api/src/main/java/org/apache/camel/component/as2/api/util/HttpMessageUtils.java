@@ -580,17 +580,20 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getBoundaryParameterValue (HttpMessage message, String headerName)
+DECL|method|getParameterValue (HttpMessage message, String headerName, String parameterName)
 specifier|public
 specifier|static
 name|String
-name|getBoundaryParameterValue
+name|getParameterValue
 parameter_list|(
 name|HttpMessage
 name|message
 parameter_list|,
 name|String
 name|headerName
+parameter_list|,
+name|String
+name|parameterName
 parameter_list|)
 block|{
 name|Args
@@ -609,6 +612,15 @@ argument_list|(
 name|headerName
 argument_list|,
 literal|"headerName"
+argument_list|)
+expr_stmt|;
+name|Args
+operator|.
+name|notNull
+argument_list|(
+name|parameterName
+argument_list|,
+literal|"parameterName"
 argument_list|)
 expr_stmt|;
 name|Header
@@ -663,7 +675,7 @@ argument_list|()
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"boundary"
+name|parameterName
 argument_list|)
 condition|)
 block|{
