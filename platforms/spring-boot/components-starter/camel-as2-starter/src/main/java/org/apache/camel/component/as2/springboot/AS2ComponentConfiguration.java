@@ -66,6 +66,24 @@ name|as2
 operator|.
 name|api
 operator|.
+name|AS2EncryptionAlgorithm
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|as2
+operator|.
+name|api
+operator|.
 name|AS2MessageStructure
 import|;
 end_import
@@ -409,11 +427,11 @@ name|String
 index|[]
 name|signedReceiptMicAlgorithms
 decl_stmt|;
-comment|/**          * The name of algorithm used to encrypt EDI message.          */
-DECL|field|encryptingAlgorithmName
+comment|/**          * The algorithm used to encrypt EDI message.          */
+DECL|field|encryptingAlgorithm
 specifier|private
-name|String
-name|encryptingAlgorithmName
+name|AS2EncryptionAlgorithm
+name|encryptingAlgorithm
 decl_stmt|;
 comment|/**          * The chain of certificates used to encrypt EDI message.          */
 DECL|field|encryptingCertificateChain
@@ -1030,30 +1048,30 @@ operator|=
 name|signedReceiptMicAlgorithms
 expr_stmt|;
 block|}
-DECL|method|getEncryptingAlgorithmName ()
+DECL|method|getEncryptingAlgorithm ()
 specifier|public
-name|String
-name|getEncryptingAlgorithmName
+name|AS2EncryptionAlgorithm
+name|getEncryptingAlgorithm
 parameter_list|()
 block|{
 return|return
-name|encryptingAlgorithmName
+name|encryptingAlgorithm
 return|;
 block|}
-DECL|method|setEncryptingAlgorithmName (String encryptingAlgorithmName)
+DECL|method|setEncryptingAlgorithm ( AS2EncryptionAlgorithm encryptingAlgorithm)
 specifier|public
 name|void
-name|setEncryptingAlgorithmName
+name|setEncryptingAlgorithm
 parameter_list|(
-name|String
-name|encryptingAlgorithmName
+name|AS2EncryptionAlgorithm
+name|encryptingAlgorithm
 parameter_list|)
 block|{
 name|this
 operator|.
-name|encryptingAlgorithmName
+name|encryptingAlgorithm
 operator|=
-name|encryptingAlgorithmName
+name|encryptingAlgorithm
 expr_stmt|;
 block|}
 DECL|method|getEncryptingCertificateChain ()
