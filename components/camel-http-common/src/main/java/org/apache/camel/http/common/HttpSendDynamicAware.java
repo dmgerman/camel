@@ -780,6 +780,10 @@ decl_stmt|;
 if|if
 condition|(
 name|port
+operator|>
+literal|0
+operator|&&
+name|port
 operator|!=
 literal|80
 operator|&&
