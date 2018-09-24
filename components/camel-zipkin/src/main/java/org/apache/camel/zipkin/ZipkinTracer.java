@@ -1028,9 +1028,7 @@ expr_stmt|;
 return|return
 operator|new
 name|ZipkinRoutePolicy
-argument_list|(
-name|routeId
-argument_list|)
+argument_list|()
 return|;
 block|}
 comment|/**      * Registers this {@link ZipkinTracer} on the {@link CamelContext} if not already registered.      */
@@ -4050,32 +4048,6 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|hasZipkinTraceId (Exchange exchange)
-specifier|private
-name|boolean
-name|hasZipkinTraceId
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// must have zipkin headers to start a server event
-return|return
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|ZipkinConstants
-operator|.
-name|TRACE_ID
-argument_list|)
-operator|!=
-literal|null
-return|;
-block|}
 DECL|class|ZipkinEventNotifier
 specifier|private
 specifier|final
@@ -4278,26 +4250,6 @@ name|ZipkinRoutePolicy
 extends|extends
 name|RoutePolicySupport
 block|{
-DECL|field|routeId
-specifier|private
-specifier|final
-name|String
-name|routeId
-decl_stmt|;
-DECL|method|ZipkinRoutePolicy (String routeId)
-name|ZipkinRoutePolicy
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|routeId
-operator|=
-name|routeId
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|onExchangeBegin (Route route, Exchange exchange)
