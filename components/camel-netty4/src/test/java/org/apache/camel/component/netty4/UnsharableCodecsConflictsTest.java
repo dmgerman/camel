@@ -498,7 +498,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"?decoder=#length-decoder&sync=false"
+literal|"?decoders=#length-decoder&sync=false"
 argument_list|)
 operator|.
 name|process
@@ -512,7 +512,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"?decoder=#length-decoder2&sync=false"
+literal|"?decoders=#length-decoder2&sync=false"
 argument_list|)
 operator|.
 name|process

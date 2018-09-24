@@ -257,7 +257,7 @@ argument_list|(
 literal|"cpf"
 argument_list|,
 operator|new
-name|TestClientChannelPipelineFactory
+name|TestClientChannelInitializerFactory
 argument_list|(
 literal|null
 argument_list|)
@@ -345,10 +345,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCustomClientPipelineFactory ()
+DECL|method|testCustomClientInitializerFactory ()
 specifier|public
 name|void
-name|testCustomClientPipelineFactory
+name|testCustomClientInitializerFactory
 parameter_list|()
 throws|throws
 name|Exception
@@ -390,10 +390,10 @@ name|serverInvoked
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|TestClientChannelPipelineFactory
+DECL|class|TestClientChannelInitializerFactory
 specifier|public
 class|class
-name|TestClientChannelPipelineFactory
+name|TestClientChannelInitializerFactory
 extends|extends
 name|ClientInitializerFactory
 block|{
@@ -409,9 +409,9 @@ specifier|private
 name|NettyProducer
 name|producer
 decl_stmt|;
-DECL|method|TestClientChannelPipelineFactory (NettyProducer producer)
+DECL|method|TestClientChannelInitializerFactory (NettyProducer producer)
 specifier|public
-name|TestClientChannelPipelineFactory
+name|TestClientChannelInitializerFactory
 parameter_list|(
 name|NettyProducer
 name|producer
@@ -526,7 +526,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TestClientChannelPipelineFactory
+name|TestClientChannelInitializerFactory
 argument_list|(
 name|producer
 argument_list|)

@@ -649,7 +649,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?textline=true&clientMode=true&ssl=true&passphrase=changeit&keyStoreFile=#ksf&trustStoreFile=#tsf"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&clientMode=true&ssl=true&passphrase=changeit&keyStoreResource=#ksf&trustStoreResource=#tsf"
 argument_list|)
 operator|.
 name|id

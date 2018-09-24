@@ -223,7 +223,7 @@ block|{
 comment|// needClientAuth=true so we can get the client certificate details
 name|from
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreFile=#ksf&trustStoreFile=#tsf"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreResource=#ksf&trustStoreResource=#tsf"
 operator|+
 literal|"&needClientAuth=true&sslClientCertHeaders=true"
 argument_list|)
@@ -257,7 +257,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreFile=#ksf&trustStoreFile=#tsf"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreResource=#ksf&trustStoreResource=#tsf"
 argument_list|,
 literal|"Hello World"
 argument_list|,

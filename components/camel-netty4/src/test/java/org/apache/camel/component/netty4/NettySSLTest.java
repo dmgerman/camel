@@ -217,7 +217,7 @@ block|{
 comment|// needClientAuth=true so we can get the client certificate details
 name|from
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreFile=#ksf&trustStoreFile=#tsf&needClientAuth=true"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreResource=#ksf&trustStoreResource=#tsf&needClientAuth=true"
 argument_list|)
 operator|.
 name|process
@@ -343,7 +343,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreFile=#ksf&trustStoreFile=#tsf"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreResource=#ksf&trustStoreResource=#tsf"
 argument_list|,
 literal|"Epitaph in Kohima, India marking the WWII Battle of Kohima and Imphal, Burma Campaign - Attributed to John Maxwell Edmonds"
 argument_list|,

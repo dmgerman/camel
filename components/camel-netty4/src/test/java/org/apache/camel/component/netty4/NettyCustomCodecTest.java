@@ -85,7 +85,7 @@ name|uri
 init|=
 literal|"netty4:tcp://localhost:{{port}}?disconnect=true&sync=false"
 operator|+
-literal|"&allowDefaultCodec=false&decoders=#myCustomDecoder,#myCustomDecoder2&encoder=#myCustomEncoder"
+literal|"&allowDefaultCodec=false&decoders=#myCustomDecoder,#myCustomDecoder2&encoders=#myCustomEncoder"
 decl_stmt|;
 comment|// use reaadble bytes
 DECL|field|data

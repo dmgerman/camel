@@ -264,12 +264,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?encoder=#encoder&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?encoders=#encoder&sync=false"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?decoder=#decoder&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?decoders=#decoder&sync=false"
 argument_list|)
 operator|.
 name|to
