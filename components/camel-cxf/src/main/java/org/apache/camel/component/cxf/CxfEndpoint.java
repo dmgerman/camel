@@ -1419,7 +1419,7 @@ literal|false
 argument_list|)
 decl_stmt|;
 DECL|field|createBus
-specifier|private
+specifier|protected
 specifier|volatile
 name|boolean
 name|createBus

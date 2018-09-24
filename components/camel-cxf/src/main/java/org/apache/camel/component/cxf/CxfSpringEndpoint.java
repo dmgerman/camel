@@ -1162,6 +1162,10 @@ operator|==
 literal|null
 condition|)
 block|{
+name|createBus
+operator|=
+literal|true
+expr_stmt|;
 name|bus
 operator|=
 name|BusWiringBeanFactoryPostProcessor
