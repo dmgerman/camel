@@ -1339,7 +1339,7 @@ literal|"fhir://"
 operator|+
 name|PATH_PREFIX
 operator|+
-literal|"/resourceByIdAndVersion"
+literal|"/resourceById"
 argument_list|)
 expr_stmt|;
 comment|// test route for resourceById
@@ -1354,7 +1354,7 @@ literal|"fhir://"
 operator|+
 name|PATH_PREFIX
 operator|+
-literal|"/resourceByIdAndVersion"
+literal|"/resourceById"
 argument_list|)
 expr_stmt|;
 comment|// test route for resourceByUrl
