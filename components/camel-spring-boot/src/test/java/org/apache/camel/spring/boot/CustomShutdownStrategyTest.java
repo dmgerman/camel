@@ -258,13 +258,6 @@ annotation|@
 name|EnableAutoConfiguration
 annotation|@
 name|SpringBootTest
-argument_list|(
-name|classes
-operator|=
-name|CustomShutdownStrategyTest
-operator|.
-name|class
-argument_list|)
 DECL|class|CustomShutdownStrategyTest
 specifier|public
 class|class

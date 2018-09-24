@@ -197,12 +197,6 @@ name|EnableAutoConfiguration
 annotation|@
 name|SpringBootTest
 argument_list|(
-name|classes
-operator|=
-name|SpringConverterDelegationTest
-operator|.
-name|class
-argument_list|,
 name|properties
 operator|=
 literal|"camel.springboot.typeConversion=true"

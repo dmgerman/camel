@@ -207,12 +207,6 @@ name|EnableAutoConfiguration
 annotation|@
 name|SpringBootTest
 argument_list|(
-name|classes
-operator|=
-name|CamelConfigurationLocationsTest
-operator|.
-name|class
-argument_list|,
 name|properties
 operator|=
 literal|"camel.springboot.file-configurations=file:src/test/secret/*.properties"
