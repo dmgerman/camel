@@ -277,7 +277,7 @@ literal|"?username=cameltest&password=cameltest&exchangeType=headers&queue="
 operator|+
 name|QUEUE
 operator|+
-literal|"&bindingArgs=#bindArgs"
+literal|"&args=#args"
 argument_list|)
 DECL|field|headersExchangeWithQueue
 specifier|private
@@ -393,7 +393,7 @@ name|jndi
 operator|.
 name|bind
 argument_list|(
-literal|"bindArgs"
+literal|"args"
 argument_list|,
 name|bindingArgs
 argument_list|)
