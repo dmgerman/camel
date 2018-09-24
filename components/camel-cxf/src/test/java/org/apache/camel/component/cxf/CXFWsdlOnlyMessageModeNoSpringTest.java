@@ -35,7 +35,7 @@ name|getDataFormat
 parameter_list|()
 block|{
 return|return
-literal|"MESSAGE"
+literal|"RAW"
 return|;
 block|}
 block|}

@@ -78,7 +78,7 @@ comment|// Use message mode to send the raw message
 operator|.
 name|to
 argument_list|(
-literal|"cxf:bean:serviceEndpoint?dataFormat=MESSAGE"
+literal|"cxf:bean:serviceEndpoint?dataFormat=RAW"
 argument_list|)
 comment|// Convert to String to make testing the result easier
 operator|.

@@ -912,7 +912,7 @@ argument_list|(
 name|getWrongEndpointUri
 argument_list|()
 operator|+
-literal|"&dataFormat=MESSAGE"
+literal|"&dataFormat=RAW"
 argument_list|)
 expr_stmt|;
 name|assertNotNull

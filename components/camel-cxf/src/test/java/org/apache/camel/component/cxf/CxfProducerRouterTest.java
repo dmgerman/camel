@@ -467,7 +467,7 @@ argument_list|(
 name|getSimpleEndpointUri
 argument_list|()
 operator|+
-literal|"&dataFormat=MESSAGE"
+literal|"&dataFormat=RAW"
 argument_list|)
 expr_stmt|;
 name|from
@@ -665,7 +665,7 @@ argument_list|(
 name|getSimpleEndpointUri
 argument_list|()
 operator|+
-literal|"&dataFormat=MESSAGE"
+literal|"&dataFormat=RAW"
 argument_list|,
 name|CxfEndpoint
 operator|.
@@ -683,7 +683,7 @@ argument_list|(
 name|getSimpleEndpointUri
 argument_list|()
 operator|+
-literal|"&dataFormat=MESSAGE"
+literal|"&dataFormat=RAW"
 argument_list|)
 argument_list|,
 name|endpoint

@@ -278,14 +278,14 @@ name|to
 argument_list|(
 name|simpleEndpointURI
 operator|+
-literal|"&continuationTimeout=5000&dataFormat=MESSAGE"
+literal|"&continuationTimeout=5000&dataFormat=RAW"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
 name|simpleEndpointURI
 operator|+
-literal|"&continuationTimeout=5000&dataFormat=MESSAGE"
+literal|"&continuationTimeout=5000&dataFormat=RAW"
 argument_list|)
 operator|.
 name|process

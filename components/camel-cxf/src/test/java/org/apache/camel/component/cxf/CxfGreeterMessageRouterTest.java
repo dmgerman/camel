@@ -189,12 +189,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"cxf:bean:routerEndpoint?dataFormat=Message&publishedEndpointUrl=http://www.simple.com/services/test"
+literal|"cxf:bean:routerEndpoint?dataFormat=RAW&publishedEndpointUrl=http://www.simple.com/services/test"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"cxf:bean:serviceEndpoint?dataFormat=Message"
+literal|"cxf:bean:serviceEndpoint?dataFormat=RAW"
 argument_list|)
 expr_stmt|;
 block|}

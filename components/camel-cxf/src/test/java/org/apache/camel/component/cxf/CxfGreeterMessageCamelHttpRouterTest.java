@@ -198,7 +198,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"cxf:bean:routerEndpoint?dataFormat=Message&publishedEndpointUrl=http://www.simple.com/services/test"
+literal|"cxf:bean:routerEndpoint?dataFormat=RAW&publishedEndpointUrl=http://www.simple.com/services/test"
 argument_list|)
 comment|// The fix the side effect of CAMEL-7436
 operator|.

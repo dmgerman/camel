@@ -62,7 +62,7 @@ literal|"?"
 operator|+
 name|SERVICE_CLASS
 operator|+
-literal|"&DataFormat=MESSAGE"
+literal|"&DataFormat=RAW"
 expr_stmt|;
 name|super
 operator|.

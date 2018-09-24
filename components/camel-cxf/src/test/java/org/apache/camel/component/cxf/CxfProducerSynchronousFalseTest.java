@@ -187,7 +187,7 @@ literal|"cxf://"
 operator|+
 name|SIMPLE_SERVER_ADDRESS
 operator|+
-literal|"?serviceClass=org.apache.camel.component.cxf.HelloService&dataFormat=MESSAGE&synchronous=false"
+literal|"?serviceClass=org.apache.camel.component.cxf.HelloService&dataFormat=RAW&synchronous=false"
 decl_stmt|;
 annotation|@
 name|Override

@@ -257,7 +257,7 @@ name|from
 argument_list|(
 name|simpleEndpointURI
 operator|+
-literal|"&dataFormat=MESSAGE"
+literal|"&dataFormat=RAW"
 argument_list|)
 operator|.
 name|process

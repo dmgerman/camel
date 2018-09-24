@@ -142,7 +142,7 @@ literal|"?"
 operator|+
 name|SERVICE_CLASS
 operator|+
-literal|"&dataFormat=MESSAGE"
+literal|"&dataFormat=RAW"
 decl_stmt|;
 DECL|field|serviceEndpointURI
 specifier|private
@@ -158,7 +158,7 @@ literal|"?"
 operator|+
 name|SERVICE_CLASS
 operator|+
-literal|"&dataFormat=MESSAGE"
+literal|"&dataFormat=RAW"
 decl_stmt|;
 DECL|method|createRouteBuilder ()
 specifier|protected

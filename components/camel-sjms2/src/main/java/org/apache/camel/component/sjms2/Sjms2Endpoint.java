@@ -259,8 +259,6 @@ return|;
 block|}
 comment|/**      * Sets the durable subscription Id required for durable topics.      */
 annotation|@
-name|Deprecated
-annotation|@
 name|Override
 DECL|method|setDurableSubscriptionId (String durableSubscriptionId)
 specifier|public
