@@ -400,22 +400,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"Whether DOMSource/DOMResult or SaxSource/SaxResult should be used by the validator."
-argument_list|)
-DECL|field|useDom
-specifier|private
-name|boolean
-name|useDom
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
@@ -793,14 +777,6 @@ argument_list|)
 expr_stmt|;
 name|validator
 operator|.
-name|setUseDom
-argument_list|(
-name|isUseDom
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|validator
-operator|.
 name|setUseSharedSchema
 argument_list|(
 name|isUseSharedSchema
@@ -938,33 +914,6 @@ operator|.
 name|errorHandler
 operator|=
 name|errorHandler
-expr_stmt|;
-block|}
-DECL|method|isUseDom ()
-specifier|public
-name|boolean
-name|isUseDom
-parameter_list|()
-block|{
-return|return
-name|useDom
-return|;
-block|}
-comment|/**      * Whether DOMSource/DOMResult or SaxSource/SaxResult should be used by the validator.      */
-DECL|method|setUseDom (boolean useDom)
-specifier|public
-name|void
-name|setUseDom
-parameter_list|(
-name|boolean
-name|useDom
-parameter_list|)
-block|{
-name|this
-operator|.
-name|useDom
-operator|=
-name|useDom
 expr_stmt|;
 block|}
 DECL|method|isUseSharedSchema ()

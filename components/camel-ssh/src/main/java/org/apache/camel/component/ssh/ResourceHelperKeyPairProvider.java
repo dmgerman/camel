@@ -70,15 +70,25 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ClassResolver
+name|CamelContext
 import|;
 end_import
 
@@ -204,18 +214,6 @@ name|bouncycastle
 operator|.
 name|openssl
 operator|.
-name|PasswordFinder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|openssl
-operator|.
 name|jcajce
 operator|.
 name|JcaPEMKeyConverter
@@ -282,10 +280,10 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|classResolver
+DECL|field|camelContext
 specifier|private
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|field|resources
 specifier|private
@@ -295,7 +293,11 @@ name|resources
 decl_stmt|;
 DECL|field|passwordFinder
 specifier|private
-name|PasswordFinder
+name|Supplier
+argument_list|<
+name|char
+index|[]
+argument_list|>
 name|passwordFinder
 decl_stmt|;
 DECL|method|ResourceHelperKeyPairProvider ()
@@ -303,7 +305,7 @@ specifier|public
 name|ResourceHelperKeyPairProvider
 parameter_list|()
 block|{     }
-DECL|method|ResourceHelperKeyPairProvider (String[] resources, ClassResolver classResolver)
+DECL|method|ResourceHelperKeyPairProvider (String[] resources, CamelContext camelContext)
 specifier|public
 name|ResourceHelperKeyPairProvider
 parameter_list|(
@@ -311,15 +313,15 @@ name|String
 index|[]
 name|resources
 parameter_list|,
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|classResolver
+name|camelContext
 operator|=
-name|classResolver
+name|camelContext
 expr_stmt|;
 name|this
 operator|.
@@ -328,7 +330,7 @@ operator|=
 name|resources
 expr_stmt|;
 block|}
-DECL|method|ResourceHelperKeyPairProvider (String[] resources, PasswordFinder passwordFinder, ClassResolver classResolver)
+DECL|method|ResourceHelperKeyPairProvider (String[] resources, Supplier<char[]> passwordFinder, CamelContext camelContext)
 specifier|public
 name|ResourceHelperKeyPairProvider
 parameter_list|(
@@ -336,18 +338,22 @@ name|String
 index|[]
 name|resources
 parameter_list|,
-name|PasswordFinder
+name|Supplier
+argument_list|<
+name|char
+index|[]
+argument_list|>
 name|passwordFinder
 parameter_list|,
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|classResolver
+name|camelContext
 operator|=
-name|classResolver
+name|camelContext
 expr_stmt|;
 name|this
 operator|.
@@ -362,30 +368,30 @@ operator|=
 name|passwordFinder
 expr_stmt|;
 block|}
-DECL|method|getClassResolver ()
+DECL|method|getCamelContext ()
 specifier|public
-name|ClassResolver
-name|getClassResolver
+name|CamelContext
+name|getCamelContext
 parameter_list|()
 block|{
 return|return
-name|classResolver
+name|camelContext
 return|;
 block|}
-DECL|method|setClassResolver (ClassResolver classResolver)
+DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
-name|setClassResolver
+name|setCamelContext
 parameter_list|(
-name|ClassResolver
-name|classResolver
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|classResolver
+name|camelContext
 operator|=
-name|classResolver
+name|camelContext
 expr_stmt|;
 block|}
 DECL|method|getResources ()
@@ -418,7 +424,11 @@ expr_stmt|;
 block|}
 DECL|method|getPasswordFinder ()
 specifier|public
-name|PasswordFinder
+name|Supplier
+argument_list|<
+name|char
+index|[]
+argument_list|>
 name|getPasswordFinder
 parameter_list|()
 block|{
@@ -426,12 +436,16 @@ return|return
 name|passwordFinder
 return|;
 block|}
-DECL|method|setPasswordFinder (PasswordFinder passwordFinder)
+DECL|method|setPasswordFinder (Supplier<char[]> passwordFinder)
 specifier|public
 name|void
 name|setPasswordFinder
 parameter_list|(
-name|PasswordFinder
+name|Supplier
+argument_list|<
+name|char
+index|[]
+argument_list|>
 name|passwordFinder
 parameter_list|)
 block|{
@@ -519,7 +533,7 @@ name|ResourceHelper
 operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
-name|classResolver
+name|camelContext
 argument_list|,
 name|resource
 argument_list|)
@@ -589,7 +603,7 @@ name|build
 argument_list|(
 name|passwordFinder
 operator|.
-name|getPassword
+name|get
 argument_list|()
 argument_list|)
 decl_stmt|;

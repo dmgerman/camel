@@ -320,7 +320,7 @@ name|to
 argument_list|(
 literal|"mock:result"
 argument_list|)
-comment|// catch IOExcption that we do not want to handle, eg the caller should get the error back
+comment|// catch IOException that we do not want to handle, eg the caller should get the error back
 operator|.
 name|doCatch
 argument_list|(
@@ -328,17 +328,14 @@ name|IOException
 operator|.
 name|class
 argument_list|)
-comment|// mark this as NOT handled, eg the caller will also get the exception
-operator|.
-name|handled
-argument_list|(
-literal|false
-argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"mock:io"
 argument_list|)
+operator|.
+name|rethrow
+argument_list|()
 operator|.
 name|doCatch
 argument_list|(

@@ -491,11 +491,6 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
-DECL|field|useDom
-specifier|private
-name|boolean
-name|useDom
-decl_stmt|;
 DECL|field|useSharedSchema
 specifier|private
 name|boolean
@@ -1390,37 +1385,6 @@ operator|=
 name|errorHandler
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|isUseDom ()
-specifier|public
-name|boolean
-name|isUseDom
-parameter_list|()
-block|{
-return|return
-name|useDom
-return|;
-block|}
-comment|/**      * Sets whether DOMSource and DOMResult should be used.      *      * @param useDom true to use DOM otherwise      */
-annotation|@
-name|Deprecated
-DECL|method|setUseDom (boolean useDom)
-specifier|public
-name|void
-name|setUseDom
-parameter_list|(
-name|boolean
-name|useDom
-parameter_list|)
-block|{
-name|this
-operator|.
-name|useDom
-operator|=
-name|useDom
-expr_stmt|;
-block|}
 DECL|method|isUseSharedSchema ()
 specifier|public
 name|boolean
@@ -1740,34 +1704,6 @@ name|Object
 name|content
 parameter_list|)
 block|{
-if|if
-condition|(
-name|isUseDom
-argument_list|()
-condition|)
-block|{
-comment|// force DOM
-return|return
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|tryConvertTo
-argument_list|(
-name|DOMSource
-operator|.
-name|class
-argument_list|,
-name|exchange
-argument_list|,
-name|content
-argument_list|)
-return|;
-block|}
 comment|// body or header may already be a source
 if|if
 condition|(
