@@ -218,6 +218,20 @@ name|inject
 operator|.
 name|spi
 operator|.
+name|AnnotatedType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|inject
+operator|.
+name|spi
+operator|.
 name|Bean
 import|;
 end_import
@@ -743,7 +757,7 @@ name|extension
 argument_list|)
 return|;
 block|}
-DECL|method|beansFrom (String path)
+DECL|method|beansFrom (String path, AnnotatedType<?> annotatedType)
 name|Set
 argument_list|<
 name|SyntheticBean
@@ -755,6 +769,12 @@ name|beansFrom
 parameter_list|(
 name|String
 name|path
+parameter_list|,
+name|AnnotatedType
+argument_list|<
+name|?
+argument_list|>
+name|annotatedType
 parameter_list|)
 throws|throws
 name|JAXBException
@@ -767,6 +787,14 @@ init|=
 name|getResource
 argument_list|(
 name|path
+argument_list|,
+name|annotatedType
+operator|.
+name|getJavaClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -794,10 +822,12 @@ return|return
 name|beansFrom
 argument_list|(
 name|url
+argument_list|,
+name|annotatedType
 argument_list|)
 return|;
 block|}
-DECL|method|beansFrom (URL url)
+DECL|method|beansFrom (URL url, AnnotatedType<?> annotatedType)
 name|Set
 argument_list|<
 name|SyntheticBean
@@ -809,6 +839,12 @@ name|beansFrom
 parameter_list|(
 name|URL
 name|url
+parameter_list|,
+name|AnnotatedType
+argument_list|<
+name|?
+argument_list|>
+name|annotatedType
 parameter_list|)
 throws|throws
 name|JAXBException
@@ -1037,6 +1073,8 @@ name|definition
 operator|.
 name|getResource
 argument_list|()
+argument_list|,
+name|annotatedType
 argument_list|)
 argument_list|)
 expr_stmt|;
