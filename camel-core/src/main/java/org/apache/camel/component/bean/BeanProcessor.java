@@ -302,36 +302,6 @@ name|getMethod
 argument_list|()
 return|;
 block|}
-DECL|method|isMultiParameterArray ()
-specifier|public
-name|boolean
-name|isMultiParameterArray
-parameter_list|()
-block|{
-return|return
-name|delegate
-operator|.
-name|isMultiParameterArray
-argument_list|()
-return|;
-block|}
-DECL|method|setMultiParameterArray (boolean mpArray)
-specifier|public
-name|void
-name|setMultiParameterArray
-parameter_list|(
-name|boolean
-name|mpArray
-parameter_list|)
-block|{
-name|delegate
-operator|.
-name|setMultiParameterArray
-argument_list|(
-name|mpArray
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getCache ()
 specifier|public
 name|Boolean

@@ -781,13 +781,6 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setMultiParameterArray
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
 name|setBeanName
 argument_list|(
 literal|"foo"

@@ -300,7 +300,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"bean://service?multiParameterArray=true"
+literal|"bean://service?method=invoke(${body[0]}, ${body[1]})"
 argument_list|)
 expr_stmt|;
 name|from
@@ -314,9 +314,7 @@ name|ServiceUtil
 operator|.
 name|class
 argument_list|,
-literal|"invoke"
-argument_list|,
-literal|true
+literal|"invoke(${body[0]}, ${body[1]})"
 argument_list|)
 expr_stmt|;
 block|}

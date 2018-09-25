@@ -207,11 +207,6 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
-DECL|field|multiParameterArray
-specifier|private
-name|boolean
-name|multiParameterArray
-decl_stmt|;
 DECL|field|cache
 specifier|private
 name|Boolean
@@ -805,27 +800,6 @@ literal|true
 return|;
 block|}
 block|}
-comment|// set temporary header which is a hint for the bean info that introspect the bean
-if|if
-condition|(
-name|isMultiParameterArray
-argument_list|()
-condition|)
-block|{
-name|in
-operator|.
-name|setHeader
-argument_list|(
-name|Exchange
-operator|.
-name|BEAN_MULTI_PARAMETER_ARRAY
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-expr_stmt|;
-block|}
 comment|// set explicit method name to invoke as a header, which is how BeanInfo can detect it
 if|if
 condition|(
@@ -890,22 +864,6 @@ block|}
 finally|finally
 block|{
 comment|// must remove headers as they were provisional
-if|if
-condition|(
-name|isMultiParameterArray
-argument_list|()
-condition|)
-block|{
-name|in
-operator|.
-name|removeHeader
-argument_list|(
-name|Exchange
-operator|.
-name|BEAN_MULTI_PARAMETER_ARRAY
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|explicitMethodName
@@ -1011,30 +969,6 @@ block|{
 return|return
 name|method
 return|;
-block|}
-DECL|method|isMultiParameterArray ()
-specifier|public
-name|boolean
-name|isMultiParameterArray
-parameter_list|()
-block|{
-return|return
-name|multiParameterArray
-return|;
-block|}
-DECL|method|setMultiParameterArray (boolean mpArray)
-specifier|public
-name|void
-name|setMultiParameterArray
-parameter_list|(
-name|boolean
-name|mpArray
-parameter_list|)
-block|{
-name|multiParameterArray
-operator|=
-name|mpArray
-expr_stmt|;
 block|}
 DECL|method|getCache ()
 specifier|public

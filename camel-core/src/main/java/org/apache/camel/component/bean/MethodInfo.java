@@ -3514,61 +3514,6 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
-name|boolean
-name|multiParameterArray
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|Exchange
-operator|.
-name|BEAN_MULTI_PARAMETER_ARRAY
-argument_list|,
-literal|false
-argument_list|,
-name|boolean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|multiParameterArray
-condition|)
-block|{
-comment|// Just change the message body to an Object array
-if|if
-condition|(
-operator|!
-operator|(
-name|body
-operator|instanceof
-name|Object
-index|[]
-operator|)
-condition|)
-block|{
-name|body
-operator|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|Object
-index|[]
-operator|.
-expr|class
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// if there was an explicit method name to invoke, then we should support using
 comment|// any provided parameter values in the method name
 name|String
@@ -3658,24 +3603,6 @@ comment|// a @Bean expression which would by mistake read these headers. So the 
 comment|// must be removed at this point of time
 if|if
 condition|(
-name|multiParameterArray
-condition|)
-block|{
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|Exchange
-operator|.
-name|BEAN_MULTI_PARAMETER_ARRAY
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|methodName
 operator|!=
 literal|null
@@ -3704,8 +3631,6 @@ name|exchange
 argument_list|,
 name|body
 argument_list|,
-name|multiParameterArray
-argument_list|,
 name|it
 argument_list|)
 decl_stmt|;
@@ -3717,7 +3642,7 @@ name|answer
 return|;
 block|}
 comment|/**          * Evaluates all the parameter expressions          */
-DECL|method|evaluateParameterExpressions (Exchange exchange, Object body, boolean multiParameterArray, Iterator<?> it)
+DECL|method|evaluateParameterExpressions (Exchange exchange, Object body, Iterator<?> it)
 specifier|private
 name|Object
 index|[]
@@ -3728,9 +3653,6 @@ name|exchange
 parameter_list|,
 name|Object
 name|body
-parameter_list|,
-name|boolean
-name|multiParameterArray
 parameter_list|,
 name|Iterator
 argument_list|<
@@ -3830,47 +3752,6 @@ name|value
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
-name|multiParameterArray
-operator|&&
-name|body
-operator|instanceof
-name|Object
-index|[]
-condition|)
-block|{
-comment|// get the value from the array
-name|Object
-index|[]
-name|array
-init|=
-operator|(
-name|Object
-index|[]
-operator|)
-name|body
-decl_stmt|;
-if|if
-condition|(
-name|array
-operator|.
-name|length
-operator|>=
-name|i
-condition|)
-block|{
-name|value
-operator|=
-name|array
-index|[
-name|i
-index|]
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
 comment|// prefer to use parameter value if given, as they override any bean parameter binding
 comment|// we should skip * as its a type placeholder to indicate any type
 if|if
@@ -3936,7 +3817,6 @@ argument_list|,
 name|parameterType
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// remember the value to use
 if|if

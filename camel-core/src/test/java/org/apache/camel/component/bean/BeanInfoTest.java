@@ -1065,12 +1065,6 @@ name|void
 name|inOnlyMethod
 parameter_list|()
 block|{         }
-DECL|method|robustInOnlyMethod ()
-specifier|public
-name|void
-name|robustInOnlyMethod
-parameter_list|()
-block|{         }
 DECL|method|inOutMethod ()
 specifier|public
 name|Object

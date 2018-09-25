@@ -354,15 +354,6 @@ name|Boolean
 name|cache
 decl_stmt|;
 annotation|@
-name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|multiParameterArray
-specifier|private
-name|Boolean
-name|multiParameterArray
-decl_stmt|;
-annotation|@
 name|XmlTransient
 DECL|field|beanClass
 specifier|private
@@ -701,35 +692,6 @@ operator|.
 name|cache
 operator|=
 name|cache
-expr_stmt|;
-block|}
-DECL|method|getMultiParameterArray ()
-specifier|public
-name|Boolean
-name|getMultiParameterArray
-parameter_list|()
-block|{
-return|return
-name|multiParameterArray
-return|;
-block|}
-comment|/**      * Whether the message body is an array type.      *      * @deprecated is to be replaced with a better solution in Camel 3.0      */
-annotation|@
-name|Deprecated
-DECL|method|setMultiParameterArray (Boolean multiParameterArray)
-specifier|public
-name|void
-name|setMultiParameterArray
-parameter_list|(
-name|Boolean
-name|multiParameterArray
-parameter_list|)
-block|{
-name|this
-operator|.
-name|multiParameterArray
-operator|=
-name|multiParameterArray
 expr_stmt|;
 block|}
 comment|// Fluent API
@@ -1162,22 +1124,6 @@ operator|new
 name|BeanProcessor
 argument_list|(
 name|beanHolder
-argument_list|)
-expr_stmt|;
-block|}
-comment|// check for multiParameterArray setting
-if|if
-condition|(
-name|multiParameterArray
-operator|!=
-literal|null
-condition|)
-block|{
-name|answer
-operator|.
-name|setMultiParameterArray
-argument_list|(
-name|multiParameterArray
 argument_list|)
 expr_stmt|;
 block|}

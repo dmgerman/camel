@@ -186,14 +186,6 @@ name|BEAN_METHOD_NAME
 init|=
 literal|"CamelBeanMethodName"
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|field|BEAN_MULTI_PARAMETER_ARRAY
-name|String
-name|BEAN_MULTI_PARAMETER_ARRAY
-init|=
-literal|"CamelBeanMultiParameterArray"
-decl_stmt|;
 DECL|field|BINDING
 name|String
 name|BINDING

@@ -261,33 +261,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"How to treat the parameters which are passed from the message body."
-operator|+
-literal|"true means the message body should be an array of parameters."
-argument_list|)
-annotation|@
-name|Deprecated
-annotation|@
-name|Metadata
-argument_list|(
-name|deprecationNode
-operator|=
-literal|"This option is used internally by Camel, and is not intended for end users to use."
-argument_list|)
-DECL|field|multiParameterArray
-specifier|private
-name|boolean
-name|multiParameterArray
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
 name|prefix
 operator|=
 literal|"bean."
@@ -545,14 +518,6 @@ expr_stmt|;
 block|}
 name|processor
 operator|.
-name|setMultiParameterArray
-argument_list|(
-name|isMultiParameterArray
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|processor
-operator|.
 name|setCache
 argument_list|(
 name|cache
@@ -619,33 +584,6 @@ operator|.
 name|beanName
 operator|=
 name|beanName
-expr_stmt|;
-block|}
-DECL|method|isMultiParameterArray ()
-specifier|public
-name|boolean
-name|isMultiParameterArray
-parameter_list|()
-block|{
-return|return
-name|multiParameterArray
-return|;
-block|}
-comment|/**      * How to treat the parameters which are passed from the message body;      * if it is true, the message body should be an array of parameters.      *<p/>      * Note: This option is used internally by Camel, and is not intended for end users to use.      *      * @deprecated this option is used internally by Camel, and is not intended for end users to use      */
-annotation|@
-name|Deprecated
-DECL|method|setMultiParameterArray (boolean mpArray)
-specifier|public
-name|void
-name|setMultiParameterArray
-parameter_list|(
-name|boolean
-name|mpArray
-parameter_list|)
-block|{
-name|multiParameterArray
-operator|=
-name|mpArray
 expr_stmt|;
 block|}
 DECL|method|isCache ()

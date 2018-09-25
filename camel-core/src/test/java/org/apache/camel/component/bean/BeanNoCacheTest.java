@@ -184,8 +184,6 @@ argument_list|,
 literal|"doSomething"
 argument_list|,
 literal|false
-argument_list|,
-literal|false
 argument_list|)
 operator|.
 name|to

@@ -290,27 +290,6 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
-comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      *      * @deprecated will be removed in the near future. Instead use {@link ProcessorDefinition#inOnly()}      * or {@link ProcessorDefinition#inOut()}      */
-annotation|@
-name|Deprecated
-DECL|method|pattern (ExchangePattern pattern)
-specifier|public
-name|ToDefinition
-name|pattern
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|)
-block|{
-name|setPattern
-argument_list|(
-name|pattern
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 end_class
 
