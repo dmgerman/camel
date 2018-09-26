@@ -8473,7 +8473,9 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression processing the exchange to the given endpoint uri      *      * @param uri endpoint uri to send the exchange to      * @return an expression object which will return the OUT body      */
+comment|/**      * Returns an expression processing the exchange to the given endpoint uri      *      * @param uri endpoint uri to send the exchange to      * @return an expression object which will return the OUT body      * @deprecated not in use, and not available in XML DSL      */
+annotation|@
+name|Deprecated
 DECL|method|toExpression (final String uri)
 specifier|public
 specifier|static
