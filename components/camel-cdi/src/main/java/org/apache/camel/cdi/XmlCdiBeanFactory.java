@@ -586,6 +586,22 @@ name|camel
 operator|.
 name|cdi
 operator|.
+name|CdiSpiHelper
+operator|.
+name|createCamelContextWithTCCL
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
 name|DefaultLiteral
 operator|.
 name|DEFAULT
@@ -959,6 +975,8 @@ argument_list|(
 name|factory
 argument_list|,
 name|url
+argument_list|,
+name|annotatedType
 argument_list|)
 decl_stmt|;
 name|beans
@@ -1210,6 +1228,8 @@ argument_list|(
 name|factory
 argument_list|,
 name|url
+argument_list|,
+name|annotatedType
 argument_list|)
 decl_stmt|;
 name|beans
@@ -1299,7 +1319,7 @@ name|emptySet
 argument_list|()
 return|;
 block|}
-DECL|method|camelContextBean (CamelContextFactoryBean factory, URL url)
+DECL|method|camelContextBean (CamelContextFactoryBean factory, URL url, AnnotatedType annotatedType)
 specifier|private
 name|SyntheticBean
 argument_list|<
@@ -1312,6 +1332,9 @@ name|factory
 parameter_list|,
 name|URL
 name|url
+parameter_list|,
+name|AnnotatedType
+name|annotatedType
 parameter_list|)
 block|{
 name|Set
@@ -1426,6 +1449,11 @@ operator|.
 name|getTypeClosure
 argument_list|()
 argument_list|,
+name|annotatedType
+operator|.
+name|getJavaClass
+argument_list|()
+argument_list|,
 name|annotations
 argument_list|)
 decl_stmt|;
@@ -1456,9 +1484,14 @@ block|{
 name|DefaultCamelContext
 name|context
 init|=
-operator|new
+name|createCamelContextWithTCCL
+argument_list|(
 name|DefaultCamelContext
-argument_list|()
+operator|::
+operator|new
+argument_list|,
+name|annotated
+argument_list|)
 decl_stmt|;
 name|factory
 operator|.

@@ -286,6 +286,22 @@ name|cdi
 operator|.
 name|CdiSpiHelper
 operator|.
+name|createCamelContextWithTCCL
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|CdiSpiHelper
+operator|.
 name|getRawType
 import|;
 end_import
@@ -446,11 +462,18 @@ block|{
 name|T
 name|context
 init|=
+name|createCamelContextWithTCCL
+argument_list|(
+parameter_list|()
+lambda|->
 name|super
 operator|.
 name|produce
 argument_list|(
 name|ctx
+argument_list|)
+argument_list|,
+name|annotated
 argument_list|)
 decl_stmt|;
 comment|// Do not override the name if it's been already set (in the bean constructor for example)
