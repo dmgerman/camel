@@ -1139,6 +1139,10 @@ if|if
 condition|(
 operator|!
 name|foundEndBoundary
+operator|&&
+name|boundary
+operator|!=
+literal|null
 condition|)
 block|{
 throw|throw

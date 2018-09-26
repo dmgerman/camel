@@ -268,6 +268,16 @@ specifier|protected
 name|MultipartMimeEntity
 parameter_list|()
 block|{     }
+DECL|method|getBoundary ()
+specifier|public
+name|String
+name|getBoundary
+parameter_list|()
+block|{
+return|return
+name|boundary
+return|;
+block|}
 DECL|method|addPart (MimeEntity part)
 specifier|public
 name|void
