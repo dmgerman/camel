@@ -128,6 +128,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -173,16 +183,6 @@ operator|.
 name|junit4
 operator|.
 name|AbstractJUnit4SpringContextTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
 import|;
 end_import
 
@@ -243,7 +243,8 @@ specifier|private
 name|String
 name|expected
 decl_stmt|;
-comment|//Without removesQuotes=false annotation on product this will fail to unmarshall properly
+comment|// Without removesQuotes=false annotation on product this will fail to
+comment|// unmarshall properly
 annotation|@
 name|Test
 annotation|@

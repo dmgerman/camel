@@ -499,7 +499,8 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// the body is not a prepared list of map that bindy expects so help a bit here and create one for us
+comment|// the body is not a prepared list of map that bindy expects so help a
+comment|// bit here and create one for us
 name|Iterator
 argument_list|<
 name|Object
@@ -703,7 +704,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * check emptyStream and if CVSRecord is allow to process emptyStreams      * avoid IllegalArgumentException and return empty list when unmarshalling      */
+comment|/**      * check emptyStream and if CVSRecord is allow to process emptyStreams avoid      * IllegalArgumentException and return empty list when unmarshalling      */
 DECL|method|checkEmptyStream (BindyCsvFactory factory, InputStream inputStream)
 specifier|private
 name|boolean
@@ -1288,7 +1289,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Unquote the tokens, by removing leading and trailing quote chars,      * as will handling fixing broken tokens which may have been split      * by a separator inside a quote.      */
+comment|/**      * Unquote the tokens, by removing leading and trailing quote chars, as will      * handling fixing broken tokens which may have been split by a separator      * inside a quote.      */
 DECL|method|unquoteTokens (List<String> result, List<String> separators, String quote)
 specifier|private
 name|List
@@ -1316,7 +1317,8 @@ block|{
 comment|// a current quoted token which we assemble from the broken pieces
 comment|// we need to do this as we use the split method on the String class
 comment|// to split the line using regular expression, and it does not handle
-comment|// if the separator char is also inside a quoted token, therefore we need
+comment|// if the separator char is also inside a quoted token, therefore we
+comment|// need
 comment|// to fix this afterwards
 name|StringBuilder
 name|current
@@ -1346,7 +1348,7 @@ name|idxSeparator
 init|=
 literal|0
 decl_stmt|;
-comment|//parsing assumes matching close and end quotes
+comment|// parsing assumes matching close and end quotes
 for|for
 control|(
 name|String
@@ -1385,7 +1387,7 @@ name|quote
 argument_list|)
 condition|)
 block|{
-comment|//token is just a quote
+comment|// token is just a quote
 if|if
 condition|(
 name|s
@@ -1400,7 +1402,8 @@ name|s
 operator|=
 literal|""
 expr_stmt|;
-comment|//if token is a quote then it can only close processing if it has begun
+comment|// if token is a quote then it can only close processing if
+comment|// it has begun
 if|if
 condition|(
 name|inProgress
@@ -1421,7 +1424,7 @@ block|}
 block|}
 else|else
 block|{
-comment|//quote+"not empty"
+comment|// quote+"not empty"
 name|cutStart
 operator|=
 literal|true
@@ -1432,7 +1435,7 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-comment|//"not empty"+quote
+comment|// "not empty"+quote
 if|if
 condition|(
 name|s
@@ -1452,7 +1455,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|//optimize to only substring once
+comment|// optimize to only substring once
 if|if
 condition|(
 name|cutEnd
@@ -1565,7 +1568,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//case where no quotes
+comment|// case where no quotes
 name|answer
 operator|.
 name|add
