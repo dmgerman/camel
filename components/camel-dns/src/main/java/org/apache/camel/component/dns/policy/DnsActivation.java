@@ -185,7 +185,6 @@ name|hostname
 decl_stmt|;
 DECL|field|resolvesTo
 specifier|private
-specifier|final
 name|List
 argument_list|<
 name|String
@@ -248,6 +247,16 @@ operator|=
 name|hostname
 expr_stmt|;
 block|}
+DECL|method|getHostname ()
+specifier|public
+name|String
+name|getHostname
+parameter_list|()
+block|{
+return|return
+name|hostname
+return|;
+block|}
 DECL|method|setResolvesTo (List<String> resolvesTo)
 specifier|public
 name|void
@@ -260,6 +269,15 @@ argument_list|>
 name|resolvesTo
 parameter_list|)
 block|{
+name|this
+operator|.
+name|resolvesTo
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|resolvesTo
@@ -282,12 +300,34 @@ block|{
 name|this
 operator|.
 name|resolvesTo
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|resolvesTo
 operator|.
 name|add
 argument_list|(
 name|resolvesTo
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getResolvesTo ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getResolvesTo
+parameter_list|()
+block|{
+return|return
+name|resolvesTo
+return|;
 block|}
 DECL|method|isActive ()
 specifier|public

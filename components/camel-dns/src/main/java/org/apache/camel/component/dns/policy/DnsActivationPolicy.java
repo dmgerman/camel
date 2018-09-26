@@ -602,6 +602,19 @@ name|hostname
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getHostname ()
+specifier|public
+name|String
+name|getHostname
+parameter_list|()
+block|{
+return|return
+name|dnsActivation
+operator|.
+name|getHostname
+argument_list|()
+return|;
+block|}
 DECL|method|setResolvesTo (List<String> resolvesTo)
 specifier|public
 name|void
@@ -639,6 +652,40 @@ name|resolvesTo
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getResolvesTo ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getResolvesTo
+parameter_list|()
+block|{
+return|return
+name|dnsActivation
+operator|.
+name|getResolvesTo
+argument_list|()
+return|;
+block|}
+DECL|method|setTtl (long ttl)
+specifier|public
+name|void
+name|setTtl
+parameter_list|(
+name|long
+name|ttl
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|this
+operator|.
+name|ttl
+operator|=
+name|ttl
+expr_stmt|;
+block|}
 DECL|method|setTtl (String ttl)
 specifier|public
 name|void
@@ -661,6 +708,18 @@ argument_list|(
 name|ttl
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getTtl ()
+specifier|public
+name|long
+name|getTtl
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|ttl
+return|;
 block|}
 DECL|method|setStopRoutesOnException (String stopRoutesOnException)
 specifier|public
@@ -976,6 +1035,21 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|isActive ()
+specifier|protected
+name|boolean
+name|isActive
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|dnsActivation
+operator|.
+name|isActive
+argument_list|()
+return|;
+block|}
 DECL|class|DnsActivationTask
 class|class
 name|DnsActivationTask
@@ -992,8 +1066,6 @@ try|try
 block|{
 if|if
 condition|(
-name|dnsActivation
-operator|.
 name|isActive
 argument_list|()
 condition|)
