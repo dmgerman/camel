@@ -102,18 +102,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServicePoolAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|sip
@@ -145,8 +133,6 @@ class|class
 name|SipPublisher
 extends|extends
 name|DefaultProducer
-implements|implements
-name|ServicePoolAware
 block|{
 DECL|field|configuration
 specifier|private

@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -158,6 +170,9 @@ argument_list|(
 name|this
 argument_list|,
 name|context
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 name|cache
@@ -175,11 +190,11 @@ argument_list|(
 literal|"dummy:foo"
 argument_list|)
 decl_stmt|;
-name|DefaultProducer
+name|DefaultAsyncProducer
 name|producer
 init|=
 operator|(
-name|DefaultProducer
+name|DefaultAsyncProducer
 operator|)
 name|cache
 operator|.
@@ -363,7 +378,7 @@ specifier|private
 class|class
 name|MyDummyProducer
 extends|extends
-name|DefaultProducer
+name|DefaultAsyncProducer
 block|{
 DECL|method|MyDummyProducer (Endpoint endpoint)
 specifier|public
@@ -381,18 +396,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange)
+DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
-comment|// noop
+return|return
+literal|false
+return|;
 block|}
 block|}
 block|}

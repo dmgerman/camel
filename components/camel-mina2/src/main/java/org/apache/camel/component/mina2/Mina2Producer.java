@@ -150,32 +150,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServicePoolAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|IOConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -615,8 +589,6 @@ class|class
 name|Mina2Producer
 extends|extends
 name|DefaultProducer
-implements|implements
-name|ServicePoolAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -879,7 +851,8 @@ block|{
 comment|// the producer should not be singleton otherwise cannot use concurrent producers and safely
 comment|// use request/reply with correct correlation
 return|return
-literal|false
+operator|!
+name|sync
 return|;
 block|}
 annotation|@
@@ -913,11 +886,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|doProcess (Exchange exchange)
 specifier|protected
 name|void

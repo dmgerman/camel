@@ -196,6 +196,8 @@ argument_list|(
 name|this
 argument_list|,
 name|context
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 name|context
@@ -229,7 +231,7 @@ name|consumer
 init|=
 name|cache
 operator|.
-name|getConsumer
+name|acquirePollingConsumer
 argument_list|(
 name|endpoint
 argument_list|)

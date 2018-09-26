@@ -284,6 +284,9 @@ literal|"Property CamelMaximumCachePoolSize must be a positive number, was: ABC"
 argument_list|,
 name|e
 operator|.
+name|getCause
+argument_list|()
+operator|.
 name|getMessage
 argument_list|()
 argument_list|)
@@ -336,6 +339,9 @@ argument_list|(
 literal|"Property CamelMaximumCachePoolSize must be a positive number, was: 0"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()

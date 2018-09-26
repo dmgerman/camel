@@ -44,6 +44,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -197,6 +209,20 @@ operator|.
 name|support
 operator|.
 name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AsyncProcessorConverterHelper
 import|;
 end_import
 
@@ -818,6 +844,26 @@ parameter_list|()
 block|{
 return|return
 name|camelContext
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createAsyncProducer ()
+specifier|public
+name|AsyncProducer
+name|createAsyncProducer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|AsyncProcessorConverterHelper
+operator|.
+name|convert
+argument_list|(
+name|createProducer
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns the component that created this endpoint.      *       * @return the component that created this endpoint, or<tt>null</tt> if      *         none set      */

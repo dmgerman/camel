@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -148,7 +160,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ProducerCache
+name|DefaultProducerTemplate
 import|;
 end_import
 
@@ -252,10 +264,10 @@ specifier|protected
 name|Exchange
 name|receivedExchange
 decl_stmt|;
-DECL|field|container
+DECL|field|context
 specifier|protected
 name|CamelContext
-name|container
+name|context
 init|=
 operator|new
 name|DefaultCamelContext
@@ -279,7 +291,7 @@ name|endpoint
 decl_stmt|;
 DECL|field|client
 specifier|protected
-name|ProducerCache
+name|ProducerTemplate
 name|client
 decl_stmt|;
 DECL|field|embeddedXmppTestServer
@@ -537,13 +549,9 @@ block|{
 name|client
 operator|=
 operator|new
-name|ProducerCache
+name|DefaultProducerTemplate
 argument_list|(
-name|this
-argument_list|,
-name|container
-argument_list|,
-literal|10
+name|context
 argument_list|)
 expr_stmt|;
 name|String
@@ -591,7 +599,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|=
-name|container
+name|context
 operator|.
 name|getEndpoint
 argument_list|(
@@ -606,7 +614,7 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 comment|// lets add some routes
-name|container
+name|context
 operator|.
 name|addRoutes
 argument_list|(
@@ -674,7 +682,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|container
+name|context
 operator|.
 name|start
 argument_list|()
@@ -718,7 +726,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|container
+name|context
 operator|.
 name|stop
 argument_list|()

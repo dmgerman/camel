@@ -15,17 +15,19 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Marker interface to indicate this service can be pooled using a {@link org.apache.camel.spi.ServicePool}.  *  * @deprecated favor not using non-singleton services  * @version   */
+comment|/**  * Asynchronous producer  */
 end_comment
 
 begin_interface
-annotation|@
-name|Deprecated
-DECL|interface|ServicePoolAware
+DECL|interface|AsyncProducer
 specifier|public
 interface|interface
-name|ServicePoolAware
-block|{ }
+name|AsyncProducer
+extends|extends
+name|Producer
+extends|,
+name|AsyncProcessor
+block|{  }
 end_interface
 
 end_unit

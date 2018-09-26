@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -37,18 +49,6 @@ operator|.
 name|camel
 operator|.
 name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
 import|;
 end_import
 
@@ -84,11 +84,14 @@ name|ProducerCache
 name|cache
 init|=
 operator|new
-name|EmptyProducerCache
+name|ProducerCache
 argument_list|(
 name|this
 argument_list|,
 name|context
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 name|cache
@@ -119,7 +122,7 @@ argument_list|(
 literal|"direct:queue:1"
 argument_list|)
 decl_stmt|;
-name|Producer
+name|AsyncProducer
 name|p
 init|=
 name|cache
@@ -182,11 +185,14 @@ name|ProducerCache
 name|cache
 init|=
 operator|new
-name|EmptyProducerCache
+name|ProducerCache
 argument_list|(
 name|this
 argument_list|,
 name|context
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 name|cache
@@ -234,7 +240,7 @@ operator|+
 name|i
 argument_list|)
 decl_stmt|;
-name|Producer
+name|AsyncProducer
 name|p
 init|=
 name|cache
@@ -256,7 +262,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Size should be 1000"
+literal|"Size should be 0"
 argument_list|,
 literal|0
 argument_list|,

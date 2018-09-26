@@ -79,6 +79,14 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Creates a new producer which is used send messages into the endpoint      *      * @return a newly created producer      * @throws Exception can be thrown      */
+DECL|method|createAsyncProducer ()
+name|AsyncProducer
+name|createAsyncProducer
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Creates a new<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a> which consumes messages from the endpoint using the      * given processor      *      * @param processor  the given processor      * @return a newly created consumer      * @throws Exception can be thrown      */
 DECL|method|createConsumer (Processor processor)
 name|Consumer

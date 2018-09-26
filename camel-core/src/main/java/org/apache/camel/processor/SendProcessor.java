@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProducerCallback
+name|AsyncProducer
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServicePoolAware
+name|Traceable
 import|;
 end_import
 
@@ -164,7 +164,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Traceable
+name|impl
+operator|.
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -193,6 +195,20 @@ operator|.
 name|impl
 operator|.
 name|ProducerCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ServicePool
 import|;
 end_import
 
@@ -417,7 +433,7 @@ name|producerCache
 decl_stmt|;
 DECL|field|producer
 specifier|protected
-name|AsyncProcessor
+name|AsyncProducer
 name|producer
 decl_stmt|;
 DECL|field|destination
@@ -891,57 +907,13 @@ return|return
 literal|true
 return|;
 block|}
-comment|// send the exchange to the destination using the producer cache for the non optimized producers
-return|return
-name|producerCache
-operator|.
-name|doInAsyncProducer
-argument_list|(
-name|destination
-argument_list|,
-name|exchange
-argument_list|,
-name|pattern
-argument_list|,
-name|callback
-argument_list|,
-operator|new
-name|AsyncProducerCallback
-argument_list|()
-block|{
-specifier|public
-name|boolean
-name|doInAsyncProducer
-parameter_list|(
-name|Producer
-name|producer
-parameter_list|,
-name|AsyncProcessor
-name|asyncProducer
-parameter_list|,
-specifier|final
-name|Exchange
-name|exchange
-parameter_list|,
-name|ExchangePattern
-name|pattern
-parameter_list|,
-specifier|final
-name|AsyncCallback
-name|callback
-parameter_list|)
-block|{
-specifier|final
-name|Exchange
-name|target
-init|=
 name|configureExchange
 argument_list|(
 name|exchange
 argument_list|,
 name|pattern
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -953,52 +925,63 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// send the exchange to the destination using the producer cache for the non optimized producers
 return|return
-name|asyncProducer
+name|producerCache
+operator|.
+name|doInAsyncProducer
+argument_list|(
+name|destination
+argument_list|,
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+parameter_list|(
+name|producer
+parameter_list|,
+name|ex
+parameter_list|,
+name|cb
+parameter_list|)
+lambda|->
+name|producer
 operator|.
 name|process
 argument_list|(
-name|target
+name|ex
 argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
 name|doneSync
-parameter_list|)
+lambda|->
 block|{
 comment|// restore previous MEP
-name|target
+name|exchange
 operator|.
 name|setPattern
 argument_list|(
 name|existingPattern
 argument_list|)
-expr_stmt|;
+argument_list|;
 comment|// signal we are done
-name|callback
+name|cb
 operator|.
 name|done
 argument_list|(
 name|doneSync
 argument_list|)
-expr_stmt|;
+argument_list|;
 block|}
-block|}
-argument_list|)
-return|;
-block|}
-block|}
-argument_list|)
-return|;
-block|}
+block|)
+end_class
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_function
+unit|}          public
 DECL|method|getDestination ()
-specifier|public
 name|Endpoint
 name|getDestination
 parameter_list|()
@@ -1007,6 +990,9 @@ return|return
 name|destination
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getPattern ()
 specifier|public
 name|ExchangePattern
@@ -1017,6 +1003,9 @@ return|return
 name|pattern
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|configureExchange (Exchange exchange, ExchangePattern pattern)
 specifier|protected
 name|Exchange
@@ -1080,6 +1069,9 @@ return|return
 name|exchange
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCounter ()
 specifier|public
 name|long
@@ -1090,6 +1082,9 @@ return|return
 name|counter
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|reset ()
 specifier|public
 name|void
@@ -1101,6 +1096,9 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1129,16 +1127,7 @@ name|this
 argument_list|,
 name|camelContext
 argument_list|,
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Producer
-argument_list|>
-argument_list|(
 literal|1
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// do not add as service as we do not want to manage the producer cache
@@ -1226,7 +1215,7 @@ comment|// this SendProcessor is used a lot in Camel (eg every .to in the route 
 comment|// want to optimize for regular producers, by using the producer directly instead of the ProducerCache.
 comment|// Only for pooled and non-singleton producers we have to use the ProducerCache as it supports these
 comment|// kind of producer better (though these kind of producer should be rare)
-name|Producer
+name|AsyncProducer
 name|producer
 init|=
 name|producerCache
@@ -1238,10 +1227,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|producer
-operator|instanceof
-name|ServicePoolAware
-operator|||
 operator|!
 name|producer
 operator|.
@@ -1268,15 +1253,13 @@ name|this
 operator|.
 name|producer
 operator|=
-name|AsyncProcessorConverterHelper
-operator|.
-name|convert
-argument_list|(
 name|producer
-argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -1295,6 +1278,9 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|doShutdown ()
 specifier|protected
 name|void
@@ -1313,8 +1299,8 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

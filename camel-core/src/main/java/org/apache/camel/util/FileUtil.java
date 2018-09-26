@@ -102,6 +102,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|slf4j
@@ -323,7 +333,7 @@ return|return
 name|windowsOs
 return|;
 block|}
-DECL|method|createTempFile (String prefix, String suffix, File parent)
+DECL|method|createTempFile (String prefix, String suffix, File parentDir)
 specifier|public
 specifier|static
 name|File
@@ -336,11 +346,18 @@ name|String
 name|suffix
 parameter_list|,
 name|File
-name|parent
+name|parentDir
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|parentDir
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|suffix
@@ -384,7 +401,7 @@ literal|"camel"
 expr_stmt|;
 block|}
 comment|// create parent folder
-name|parent
+name|parentDir
 operator|.
 name|mkdirs
 argument_list|()
@@ -398,7 +415,7 @@ name|prefix
 argument_list|,
 name|suffix
 argument_list|,
-name|parent
+name|parentDir
 argument_list|)
 return|;
 block|}

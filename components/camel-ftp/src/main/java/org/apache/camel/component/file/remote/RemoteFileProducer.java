@@ -40,18 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServicePoolAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|file
@@ -107,8 +95,6 @@ name|GenericFileProducer
 argument_list|<
 name|T
 argument_list|>
-implements|implements
-name|ServicePoolAware
 block|{
 DECL|field|loggedIn
 specifier|private

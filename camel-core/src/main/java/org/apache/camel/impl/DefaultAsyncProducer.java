@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -79,7 +91,7 @@ name|DefaultAsyncProducer
 extends|extends
 name|DefaultProducer
 implements|implements
-name|AsyncProcessor
+name|AsyncProducer
 block|{
 DECL|method|DefaultAsyncProducer (Endpoint endpoint)
 specifier|public

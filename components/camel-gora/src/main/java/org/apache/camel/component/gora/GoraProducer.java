@@ -36,31 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ServicePoolAware
 import|;
 end_import
 
@@ -197,8 +173,6 @@ class|class
 name|GoraProducer
 extends|extends
 name|DefaultProducer
-implements|implements
-name|ServicePoolAware
 block|{
 comment|/**      * logger      */
 DECL|field|LOG
@@ -237,12 +211,12 @@ argument_list|>
 name|dataStore
 decl_stmt|;
 comment|/**      * Constructor      *      * @param endpoint      Reference to the Camel-Gora endpoint      * @param configuration Reference to Camel-Gora endpoint configuration      * @param dataStore     Reference to the datastore      */
-DECL|method|GoraProducer (final Endpoint endpoint, final GoraConfiguration configuration, final DataStore<Object, Persistent> dataStore)
+DECL|method|GoraProducer (final GoraEndpoint endpoint, final GoraConfiguration configuration, final DataStore<Object, Persistent> dataStore)
 specifier|public
 name|GoraProducer
 parameter_list|(
 specifier|final
-name|Endpoint
+name|GoraEndpoint
 name|endpoint
 parameter_list|,
 specifier|final
