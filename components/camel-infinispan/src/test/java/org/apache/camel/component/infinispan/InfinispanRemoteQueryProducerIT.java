@@ -352,24 +352,6 @@ name|infinispan
 operator|.
 name|InfinispanConstants
 operator|.
-name|QUERY
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|infinispan
-operator|.
-name|InfinispanConstants
-operator|.
 name|QUERY_BUILDER
 import|;
 end_import
@@ -1232,6 +1214,8 @@ name|setHeader
 argument_list|(
 name|OPERATION
 argument_list|,
+name|InfinispanOperation
+operator|.
 name|QUERY
 argument_list|)
 expr_stmt|;

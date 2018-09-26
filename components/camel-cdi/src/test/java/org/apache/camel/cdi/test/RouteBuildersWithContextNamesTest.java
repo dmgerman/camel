@@ -648,7 +648,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|sendMessageToFirstInbound (@rivalue = R, context = R) ProducerTemplate inbound, @Uri(value = R, context = R) MockEndpoint outbound)
+DECL|method|sendMessageToFirstInbound (@rivalue = R) @ontextNameR) ProducerTemplate inbound, @Uri(value = R) @ContextName(R) MockEndpoint outbound)
 specifier|public
 name|void
 name|sendMessageToFirstInbound
@@ -659,9 +659,10 @@ argument_list|(
 name|value
 operator|=
 literal|"direct:inbound"
-argument_list|,
-name|context
-operator|=
+argument_list|)
+annotation|@
+name|ContextName
+argument_list|(
 literal|"first"
 argument_list|)
 name|ProducerTemplate
@@ -673,9 +674,10 @@ argument_list|(
 name|value
 operator|=
 literal|"mock:outbound"
-argument_list|,
-name|context
-operator|=
+argument_list|)
+annotation|@
+name|ContextName
+argument_list|(
 literal|"first"
 argument_list|)
 name|MockEndpoint

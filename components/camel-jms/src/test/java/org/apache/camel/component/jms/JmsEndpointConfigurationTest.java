@@ -1504,11 +1504,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testDefaultEndpointOptions ()
 specifier|public
@@ -2305,14 +2300,6 @@ name|assertFalse
 argument_list|(
 name|endpoint
 operator|.
-name|isTransactedInOut
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-name|endpoint
-operator|.
 name|isTransferException
 argument_list|()
 argument_list|)
@@ -2326,11 +2313,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testSettingEndpointOptions ()
@@ -2977,21 +2959,6 @@ argument_list|(
 name|endpoint
 operator|.
 name|isTransacted
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
-name|setTransactedInOut
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|endpoint
-operator|.
-name|isTransactedInOut
 argument_list|()
 argument_list|)
 expr_stmt|;

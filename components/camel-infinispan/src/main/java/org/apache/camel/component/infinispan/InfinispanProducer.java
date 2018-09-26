@@ -289,13 +289,6 @@ name|InvokeOnHeader
 argument_list|(
 literal|"PUT"
 argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|PUT
-argument_list|)
 DECL|method|onPut (Message message)
 name|void
 name|onPut
@@ -499,13 +492,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"PUTASYNC"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|PUT_ASYNC
 argument_list|)
 DECL|method|onPutAsync (Message message)
 name|void
@@ -714,13 +700,6 @@ name|InvokeOnHeader
 argument_list|(
 literal|"PUTALL"
 argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|PUT_ALL
-argument_list|)
 DECL|method|onPutAll (Message message)
 name|void
 name|onPutAll
@@ -897,13 +876,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"PUTALLASYNC"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|PUT_ALL_ASYNC
 argument_list|)
 DECL|method|onPutAllAsync (Message message)
 name|void
@@ -1101,13 +1073,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"PUTIFABSENT"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|PUT_IF_ABSENT
 argument_list|)
 DECL|method|onPutIfAbsent (Message message)
 name|void
@@ -1312,13 +1277,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"PUTIFABSENTASYNC"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|PUT_IF_ABSENT_ASYNC
 argument_list|)
 DECL|method|onPutIfAbsentAsync (Message message)
 name|void
@@ -1527,13 +1485,6 @@ name|InvokeOnHeader
 argument_list|(
 literal|"GET"
 argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|GET
-argument_list|)
 DECL|method|onGet (Message message)
 name|void
 name|onGet
@@ -1679,13 +1630,6 @@ name|InvokeOnHeader
 argument_list|(
 literal|"CONTAINSKEY"
 argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|CONTAINS_KEY
-argument_list|)
 DECL|method|onContainsKey (Message message)
 name|void
 name|onContainsKey
@@ -1751,13 +1695,6 @@ name|InvokeOnHeader
 argument_list|(
 literal|"CONTAINSVALUE"
 argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|CONTAINS_VALUE
-argument_list|)
 DECL|method|onContainsValue (Message message)
 name|void
 name|onContainsValue
@@ -1822,13 +1759,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"REMOVE"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|REMOVE
 argument_list|)
 DECL|method|onRemove (Message message)
 name|void
@@ -1934,13 +1864,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"REMOVEASYNC"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|REMOVE_ASYNC
 argument_list|)
 DECL|method|onRemoveAsync (Message message)
 name|void
@@ -2063,13 +1986,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"REPLACE"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|REPLACE
 argument_list|)
 DECL|method|onReplace (Message message)
 name|void
@@ -2380,13 +2296,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"REPLACEASYNC"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|REPLACE_ASYNC
 argument_list|)
 DECL|method|onReplaceAsync (Message message)
 name|void
@@ -2743,13 +2652,6 @@ name|InvokeOnHeader
 argument_list|(
 literal|"SIZE"
 argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|SIZE
-argument_list|)
 DECL|method|onSize (Message message)
 name|void
 name|onSize
@@ -2800,13 +2702,6 @@ name|InvokeOnHeader
 argument_list|(
 literal|"CLEAR"
 argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|CLEAR
-argument_list|)
 DECL|method|onClear (Message message)
 name|void
 name|onClear
@@ -2845,13 +2740,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"CLEARASYNC"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|CLEAR_ASYNC
 argument_list|)
 DECL|method|onCLearAsync (Message message)
 name|void
@@ -2905,13 +2793,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"QUERY"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|QUERY
 argument_list|)
 DECL|method|onQuery (Message message)
 name|void
@@ -3000,13 +2881,6 @@ annotation|@
 name|InvokeOnHeader
 argument_list|(
 literal|"STATS"
-argument_list|)
-annotation|@
-name|InvokeOnHeader
-argument_list|(
-name|InfinispanConstants
-operator|.
-name|STATS
 argument_list|)
 DECL|method|onStats (Message message)
 name|void

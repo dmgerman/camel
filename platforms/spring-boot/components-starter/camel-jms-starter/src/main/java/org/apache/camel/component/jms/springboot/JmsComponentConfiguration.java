@@ -244,22 +244,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|DeprecatedConfigurationProperty
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|core
 operator|.
 name|task
@@ -3409,13 +3393,6 @@ name|transacted
 init|=
 literal|false
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|field|transactedInOut
-specifier|private
-name|Boolean
-name|transactedInOut
-decl_stmt|;
 comment|/**          * If true, Camel will create a JmsTransactionManager, if there is no          * transactionManager injected when option transacted=true.          */
 DECL|field|lazyCreateTransactionManager
 specifier|private
@@ -4952,38 +4929,6 @@ operator|.
 name|transacted
 operator|=
 name|transacted
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-annotation|@
-name|DeprecatedConfigurationProperty
-DECL|method|getTransactedInOut ()
-specifier|public
-name|Boolean
-name|getTransactedInOut
-parameter_list|()
-block|{
-return|return
-name|transactedInOut
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setTransactedInOut (Boolean transactedInOut)
-specifier|public
-name|void
-name|setTransactedInOut
-parameter_list|(
-name|Boolean
-name|transactedInOut
-parameter_list|)
-block|{
-name|this
-operator|.
-name|transactedInOut
-operator|=
-name|transactedInOut
 expr_stmt|;
 block|}
 DECL|method|getLazyCreateTransactionManager ()

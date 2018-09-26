@@ -113,6 +113,8 @@ operator|.
 name|springCamelContext
 argument_list|(
 name|applicationContext
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 return|return

@@ -1148,22 +1148,6 @@ name|shutdownEager
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|field|registerEndpointIdsFromRoute
-specifier|private
-name|String
-name|registerEndpointIdsFromRoute
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|useMDCLogging
 specifier|private
 name|String
@@ -3693,33 +3677,6 @@ operator|.
 name|shutdownEager
 operator|=
 name|shutdownEager
-expr_stmt|;
-block|}
-DECL|method|getRegisterEndpointIdsFromRoute ()
-specifier|public
-name|String
-name|getRegisterEndpointIdsFromRoute
-parameter_list|()
-block|{
-return|return
-name|registerEndpointIdsFromRoute
-return|;
-block|}
-comment|/**      * Sets whether to register endpoints that has id attribute assigned in the Spring registry.      *<p/>      * This mode is by default false, but can be turned on for backwards compatibility.      */
-DECL|method|setRegisterEndpointIdsFromRoute (String registerEndpointIdsFromRoute)
-specifier|public
-name|void
-name|setRegisterEndpointIdsFromRoute
-parameter_list|(
-name|String
-name|registerEndpointIdsFromRoute
-parameter_list|)
-block|{
-name|this
-operator|.
-name|registerEndpointIdsFromRoute
-operator|=
-name|registerEndpointIdsFromRoute
 expr_stmt|;
 block|}
 DECL|method|getUseMDCLogging ()

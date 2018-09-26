@@ -74,6 +74,20 @@ name|SpringCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
+import|;
+end_import
+
 begin_class
 DECL|class|SpringComponentTest
 specifier|public
@@ -95,7 +109,13 @@ name|SpringCamelContext
 operator|.
 name|springCamelContext
 argument_list|(
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
 literal|"SpringCryptoCmsTests.xml"
+argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

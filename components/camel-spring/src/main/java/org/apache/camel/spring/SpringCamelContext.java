@@ -358,20 +358,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|ClassPathXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|core
 operator|.
 name|Ordered
@@ -523,30 +509,6 @@ block|}
 comment|/**      * @deprecated its better to create and boot Spring the standard Spring way and to get hold of CamelContext      * using the Spring API.      */
 annotation|@
 name|Deprecated
-DECL|method|springCamelContext (ApplicationContext applicationContext)
-specifier|public
-specifier|static
-name|SpringCamelContext
-name|springCamelContext
-parameter_list|(
-name|ApplicationContext
-name|applicationContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|springCamelContext
-argument_list|(
-name|applicationContext
-argument_list|,
-literal|true
-argument_list|)
-return|;
-block|}
-comment|/**      * @deprecated its better to create and boot Spring the standard Spring way and to get hold of CamelContext      * using the Spring API.      */
-annotation|@
-name|Deprecated
 DECL|method|springCamelContext (ApplicationContext applicationContext, boolean maybeStart)
 specifier|public
 specifier|static
@@ -636,32 +598,6 @@ expr_stmt|;
 block|}
 return|return
 name|answer
-return|;
-block|}
-comment|/**      * @deprecated its better to create and boot Spring the standard Spring way and to get hold of CamelContext      * using the Spring API.      */
-annotation|@
-name|Deprecated
-DECL|method|springCamelContext (String configLocations)
-specifier|public
-specifier|static
-name|SpringCamelContext
-name|springCamelContext
-parameter_list|(
-name|String
-name|configLocations
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|springCamelContext
-argument_list|(
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-name|configLocations
-argument_list|)
-argument_list|)
 return|;
 block|}
 annotation|@
@@ -1018,31 +954,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-annotation|@
-name|Deprecated
-DECL|method|getEventEndpoint ()
-specifier|public
-name|EventEndpoint
-name|getEventEndpoint
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|setEventEndpoint (EventEndpoint eventEndpoint)
-specifier|public
-name|void
-name|setEventEndpoint
-parameter_list|(
-name|EventEndpoint
-name|eventEndpoint
-parameter_list|)
-block|{
-comment|// noop
 block|}
 comment|/**      * Whether to shutdown this {@link org.apache.camel.spring.SpringCamelContext} eager (first)      * when Spring {@link org.springframework.context.ApplicationContext} is being stopped.      *<p/>      *<b>Important:</b> This option is default<tt>true</tt> which ensures we shutdown Camel      * before other beans. Setting this to<tt>false</tt> restores old behavior in earlier      * Camel releases, which can be used for special cases to behave as before.      *      * @return<tt>true</tt> to shutdown eager (first),<tt>false</tt> to shutdown last      */
 DECL|method|isShutdownEager ()

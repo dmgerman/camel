@@ -266,9 +266,7 @@ name|json
 operator|.
 name|simple
 operator|.
-name|parser
-operator|.
-name|JSONParser
+name|Jsoner
 import|;
 end_import
 
@@ -907,22 +905,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|JSONParser
-name|parser
-init|=
-operator|new
-name|JSONParser
-argument_list|()
-decl_stmt|;
 name|JSONObject
 name|obj
 init|=
 operator|(
 name|JSONObject
 operator|)
-name|parser
+name|Jsoner
 operator|.
-name|parse
+name|deserialize
 argument_list|(
 name|jsonString
 argument_list|)

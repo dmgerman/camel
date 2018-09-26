@@ -116,6 +116,8 @@ name|ClassPathXmlApplicationContext
 argument_list|(
 literal|"org/apache/camel/spring/example/xpathFilter.xml"
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

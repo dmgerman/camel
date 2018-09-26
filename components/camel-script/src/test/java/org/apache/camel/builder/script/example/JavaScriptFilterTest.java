@@ -138,6 +138,8 @@ name|ClassPathXmlApplicationContext
 argument_list|(
 literal|"org/apache/camel/builder/script/example/javaScriptFilter.xml"
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

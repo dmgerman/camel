@@ -44,6 +44,20 @@ name|SpringCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for Camel loadbalancer failover with JMS  */
 end_comment
@@ -81,7 +95,13 @@ name|SpringCamelContext
 operator|.
 name|springCamelContext
 argument_list|(
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
 literal|"org/apache/camel/component/jms/JmsSpringLoadBalanceFailoverTest.xml"
+argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

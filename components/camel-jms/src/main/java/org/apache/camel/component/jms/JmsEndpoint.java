@@ -3430,24 +3430,6 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-annotation|@
-name|Deprecated
-DECL|method|isTransactedInOut ()
-specifier|public
-name|boolean
-name|isTransactedInOut
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|isTransactedInOut
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|isUseMessageIDAsCorrelationID ()
 specifier|public
 name|boolean
@@ -4437,28 +4419,6 @@ operator|.
 name|setTransacted
 argument_list|(
 name|consumerTransacted
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|ManagedAttribute
-annotation|@
-name|Deprecated
-DECL|method|setTransactedInOut (boolean transactedInOut)
-specifier|public
-name|void
-name|setTransactedInOut
-parameter_list|(
-name|boolean
-name|transactedInOut
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setTransactedInOut
-argument_list|(
-name|transactedInOut
 argument_list|)
 expr_stmt|;
 block|}

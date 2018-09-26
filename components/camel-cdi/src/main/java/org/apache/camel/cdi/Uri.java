@@ -146,18 +146,6 @@ name|String
 name|value
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the name of the {@code CamelContext} to use to resolve the Camel resource for this URI.      *      * @deprecated Use the {@link ContextName} qualifier to specify the name of the {@code CamelContext} instead:      *<pre><code>      * {@literal @}Inject      * {@literal @}ContextName("foo")      * {@literal @}Uri("seda:bar")      * Endpoint endpoint;      *</code></pre>      */
-annotation|@
-name|Deprecated
-DECL|method|context ()
-annotation|@
-name|Nonbinding
-name|String
-name|context
-parameter_list|()
-default|default
-literal|""
-function_decl|;
 DECL|class|Literal
 specifier|final
 class|class
@@ -228,18 +216,6 @@ parameter_list|()
 block|{
 return|return
 name|uri
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|context ()
-specifier|public
-name|String
-name|context
-parameter_list|()
-block|{
-return|return
-literal|""
 return|;
 block|}
 block|}

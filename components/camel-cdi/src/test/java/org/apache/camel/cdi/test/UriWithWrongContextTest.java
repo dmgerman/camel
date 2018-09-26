@@ -308,37 +308,14 @@ name|RuntimeException
 operator|.
 name|class
 argument_list|)
+comment|//        .expectMessage(containsString("Error adding routes of type [" + UriWithWrongContextRoute.class.getName() + "] to Camel context [first]"))
+comment|//        .expectMessage(containsString("Error injecting endpoint annotated with @org.apache.camel.cdi.Uri"))
 operator|.
 name|expectMessage
 argument_list|(
 name|containsString
 argument_list|(
-literal|"Error adding routes of type ["
-operator|+
-name|UriWithWrongContextRoute
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"] to Camel context [first]"
-argument_list|)
-argument_list|)
-operator|.
-name|expectMessage
-argument_list|(
-name|containsString
-argument_list|(
-literal|"Error injecting endpoint annotated with @org.apache.camel.cdi.Uri"
-argument_list|)
-argument_list|)
-operator|.
-name|expectMessage
-argument_list|(
-name|containsString
-argument_list|(
-literal|"No Camel context with name [second] is deployed!"
+literal|"WELD-001408 Unsatisfied dependencies for type [Endpoint] with qualifiers [@Uri @ContextName] at injection point [[field] @Uri @ContextName @Inject org.apache.camel.cdi.test.UriWithWrongContextRoute.inbound]"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -429,9 +406,10 @@ argument_list|(
 name|value
 operator|=
 literal|"direct:inbound"
-argument_list|,
-name|context
-operator|=
+argument_list|)
+annotation|@
+name|ContextName
+argument_list|(
 literal|"second"
 argument_list|)
 DECL|field|inbound
