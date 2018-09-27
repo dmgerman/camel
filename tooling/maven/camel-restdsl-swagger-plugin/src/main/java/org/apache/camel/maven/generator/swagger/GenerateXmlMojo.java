@@ -529,6 +529,15 @@ name|e
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|dto
+condition|)
+block|{
+name|generateDto
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
