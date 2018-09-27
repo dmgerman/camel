@@ -658,7 +658,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Cannot moved existing file"
+literal|"Cannot move existing file"
 argument_list|)
 argument_list|)
 expr_stmt|;
