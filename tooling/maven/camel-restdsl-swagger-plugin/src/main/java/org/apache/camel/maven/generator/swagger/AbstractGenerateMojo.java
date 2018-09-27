@@ -410,17 +410,6 @@ name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
-literal|"true"
-argument_list|)
-DECL|field|dto
-name|boolean
-name|dto
-decl_stmt|;
-annotation|@
-name|Parameter
-argument_list|(
-name|defaultValue
-operator|=
 literal|"2.3.1"
 argument_list|)
 DECL|field|swaggerCodegenMavenPluginVersion

@@ -473,6 +473,16 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Generating Camel DSL source in directory: "
+operator|+
+name|outputPath
+argument_list|)
+expr_stmt|;
 name|generator
 operator|.
 name|generate
@@ -499,15 +509,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-if|if
-condition|(
-name|dto
-condition|)
-block|{
-name|generateDto
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
