@@ -2149,7 +2149,7 @@ throw|throw
 operator|new
 name|GenericFileOperationFailedException
 argument_list|(
-literal|"Cannot moved existing file from: "
+literal|"Cannot move existing file from: "
 operator|+
 name|fileName
 operator|+
