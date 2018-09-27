@@ -104,6 +104,14 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|twitter4j
+operator|.
+name|User
+import|;
+end_import
+
 begin_comment
 comment|/**  * Produces text as a direct message.  */
 end_comment
@@ -261,6 +269,22 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
+name|User
+name|userStatus
+init|=
+name|endpoint
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|getTwitter
+argument_list|()
+operator|.
+name|showUser
+argument_list|(
+name|toUsername
+argument_list|)
+decl_stmt|;
 name|endpoint
 operator|.
 name|getProperties
@@ -271,7 +295,10 @@ argument_list|()
 operator|.
 name|sendDirectMessage
 argument_list|(
-name|toUsername
+name|userStatus
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|text
 argument_list|)
