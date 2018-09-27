@@ -140,7 +140,9 @@ name|execute
 argument_list|()
 expr_stmt|;
 name|generateDto
-argument_list|()
+argument_list|(
+literal|"java"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
