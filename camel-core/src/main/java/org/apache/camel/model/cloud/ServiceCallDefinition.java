@@ -537,6 +537,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|ThrowingHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -3042,7 +3058,7 @@ argument_list|)
 expr_stmt|;
 name|endpointScheme
 operator|=
-name|ObjectHelper
+name|ThrowingHelper
 operator|.
 name|applyIfNotEmpty
 argument_list|(
@@ -3061,7 +3077,7 @@ argument_list|)
 expr_stmt|;
 name|endpointUri
 operator|=
-name|ObjectHelper
+name|ThrowingHelper
 operator|.
 name|applyIfNotEmpty
 argument_list|(

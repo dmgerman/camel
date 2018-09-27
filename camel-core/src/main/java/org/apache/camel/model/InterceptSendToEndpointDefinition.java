@@ -537,6 +537,9 @@ comment|// an exchange to the endpoint, see InterceptSendToEndpoint for details.
 name|RouteDefinition
 name|route
 init|=
+operator|(
+name|RouteDefinition
+operator|)
 name|routeContext
 operator|.
 name|getRoute

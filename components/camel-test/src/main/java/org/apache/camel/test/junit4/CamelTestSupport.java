@@ -390,6 +390,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoSuchEndpointException
 import|;
 end_import
@@ -698,6 +710,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|management
+operator|.
+name|ManagedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ModelCamelContext
@@ -715,6 +741,20 @@ operator|.
 name|model
 operator|.
 name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteDefinition
 import|;
 end_import
 
@@ -2055,6 +2095,13 @@ literal|null
 condition|?
 name|context
 operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getManagedCamelContext
 argument_list|()
 else|:
@@ -2463,6 +2510,13 @@ name|ManagedRouteMBean
 name|managedRoute
 init|=
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getManagedRoute
 argument_list|(
@@ -2962,6 +3016,13 @@ name|ManagedProcessorMBean
 name|managedProcessor
 init|=
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getManagedProcessor
 argument_list|(
@@ -4595,7 +4656,7 @@ name|BreakpointSupport
 block|{
 annotation|@
 name|Override
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|void
 name|beforeProcess
@@ -4606,10 +4667,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -4623,6 +4681,9 @@ name|exchange
 argument_list|,
 name|processor
 argument_list|,
+operator|(
+name|RouteDefinition
+operator|)
 name|definition
 argument_list|,
 name|definition
@@ -4639,7 +4700,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
+DECL|method|afterProcess (Exchange exchange, Processor processor, NamedNode definition, long timeTaken)
 specifier|public
 name|void
 name|afterProcess
@@ -4650,10 +4711,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|long
@@ -4670,6 +4728,9 @@ name|exchange
 argument_list|,
 name|processor
 argument_list|,
+operator|(
+name|RouteDefinition
+operator|)
 name|definition
 argument_list|,
 name|definition

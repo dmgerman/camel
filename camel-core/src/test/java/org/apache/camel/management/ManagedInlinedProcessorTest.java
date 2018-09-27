@@ -203,6 +203,13 @@ name|mb
 init|=
 name|context
 operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getManagedProcessor
 argument_list|(
 literal|"custom"

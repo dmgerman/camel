@@ -60,48 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|InputTypeDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|OutputTypeDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|ContractAdvice
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -109,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<a href="http://camel.apache.org/transformer.html">Transformer</a>  * performs message transformation according to the declared data type.  * {@link ContractAdvice} looks for a required Transformer and apply if  * input/output type declared on a route is different from current message type.  *    * @see {@link ContractAdvice}  * {@link DataType} {@link InputTypeDefinition} {@link OutputTypeDefinition}  */
+comment|/**  *<a href="http://camel.apache.org/transformer.html">Transformer</a>  * performs message transformation according to the declared data type.  * {@link org.apache.camel.processor.ContractAdvice} looks for a required Transformer and apply if  * input/output type declared on a route is different from current message type.  *    * @see {@link org.apache.camel.processor.ContractAdvice}  * {@link DataType} {@link org.apache.camel.model.InputTypeDefinition} {@link org.apache.camel.model.OutputTypeDefinition}  */
 end_comment
 
 begin_class

@@ -72,48 +72,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|InputTypeDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|OutputTypeDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|ContractAdvice
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -121,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<a href="http://camel.apache.org/validator.html">Validator</a>  * performs message content validation according to the declared data type.  * {@link ContractAdvice} applies Validator if input/output type is declared on  * a route with validation enabled.  *    * @see {@link ContractAdvice}  * {@link InputTypeDefinition} {@link OutputTypeDefinition}  */
+comment|/**  *<a href="http://camel.apache.org/validator.html">Validator</a>  * performs message content validation according to the declared data type.  * {@link org.apache.camel.processor.ContractAdvice} applies Validator if input/output type is declared on  * a route with validation enabled.  *    * @see {@link org.apache.camel.processor.ContractAdvice}  * {@link org.apache.camel.model.InputTypeDefinition} {@link org.apache.camel.model.OutputTypeDefinition}  */
 end_comment
 
 begin_class

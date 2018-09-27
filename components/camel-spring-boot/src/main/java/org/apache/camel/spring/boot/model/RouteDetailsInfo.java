@@ -152,6 +152,13 @@ name|RouteDetails
 argument_list|(
 name|camelContext
 operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getManagedRoute
 argument_list|(
 name|route

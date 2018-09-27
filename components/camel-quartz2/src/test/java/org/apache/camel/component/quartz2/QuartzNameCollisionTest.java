@@ -777,6 +777,9 @@ argument_list|)
 expr_stmt|;
 name|camel1
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 literal|"route-1"

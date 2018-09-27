@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -2886,7 +2898,7 @@ block|,
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, ProcessorDefinition<?> definition, Route route)
+DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, NamedNode node, Route route)
 specifier|public
 name|Object
 name|getManagedObjectForProcessor
@@ -2897,11 +2909,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|definition
+name|NamedNode
+name|node
 parameter_list|,
 name|Route
 name|route
@@ -2911,6 +2920,20 @@ name|ManagedProcessor
 name|answer
 init|=
 literal|null
+decl_stmt|;
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|definition
+init|=
+operator|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+operator|)
+name|node
 decl_stmt|;
 if|if
 condition|(

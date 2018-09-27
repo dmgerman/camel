@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|management
 operator|.
 name|event
@@ -543,15 +555,12 @@ operator|=
 name|managementAgent
 expr_stmt|;
 block|}
-DECL|method|manageProcessor (ProcessorDefinition<?> definition)
+DECL|method|manageProcessor (NamedNode definition)
 specifier|public
 name|boolean
 name|manageProcessor
 parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{

@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -53,20 +65,6 @@ operator|.
 name|impl
 operator|.
 name|BreakpointSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ProcessorDefinition
 import|;
 end_import
 
@@ -280,7 +278,7 @@ name|breakpointHit
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|void
 name|beforeProcess
@@ -291,10 +289,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{

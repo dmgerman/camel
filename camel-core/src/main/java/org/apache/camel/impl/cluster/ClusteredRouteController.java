@@ -190,6 +190,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -1270,7 +1282,7 @@ name|RoutePolicyFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, RouteDefinition route)
+DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, NamedNode node)
 specifier|public
 name|RoutePolicy
 name|createRoutePolicy
@@ -1281,10 +1293,18 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|,
-name|RouteDefinition
-name|route
+name|NamedNode
+name|node
 parameter_list|)
 block|{
+name|RouteDefinition
+name|route
+init|=
+operator|(
+name|RouteDefinition
+operator|)
+name|node
+decl_stmt|;
 comment|// All the filter have to be match to include the route in the
 comment|// clustering set-up
 if|if

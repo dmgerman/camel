@@ -104,6 +104,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|RouteDefinition
 import|;
 end_import
@@ -244,9 +258,15 @@ expr_stmt|;
 comment|// stop the route
 name|context
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|stopRoute
 argument_list|(
 name|route
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// lets mutate the route...
@@ -270,7 +290,14 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|startRoute
+name|adapt
+argument_list|(
+name|ModelCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|addRouteDefinition
 argument_list|(
 name|route
 argument_list|)

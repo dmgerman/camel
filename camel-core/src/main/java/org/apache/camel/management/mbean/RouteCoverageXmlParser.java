@@ -220,6 +220,20 @@ name|ManagedRouteMBean
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|ManagedCamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * An XML parser that uses SAX to enrich route stats in the route dump.  *<p/>  * The coverage details:  *<ul>  *<li>exchangesTotal - Total number of exchanges</li>  *<li>totalProcessingTime - Total processing time in millis</li>  *</ul>  * Is included as attributes on the route nodes.  */
 end_comment
@@ -452,6 +466,13 @@ name|route
 init|=
 name|camelContext
 operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getManagedRoute
 argument_list|(
 name|id
@@ -550,6 +571,13 @@ name|route
 init|=
 name|camelContext
 operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getManagedRoute
 argument_list|(
 name|routeId
@@ -623,6 +651,13 @@ name|ManagedProcessorMBean
 name|processor
 init|=
 name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getManagedProcessor
 argument_list|(

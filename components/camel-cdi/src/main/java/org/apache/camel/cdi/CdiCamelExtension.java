@@ -3996,6 +3996,13 @@ condition|)
 block|{
 name|context
 operator|.
+name|adapt
+argument_list|(
+name|ModelCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|addRouteDefinitions
 argument_list|(
 operator|(

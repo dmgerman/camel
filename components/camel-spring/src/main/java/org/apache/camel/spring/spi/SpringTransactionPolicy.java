@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -68,7 +80,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|RouteDefinition
 import|;
 end_import
 
@@ -239,7 +251,7 @@ operator|=
 name|transactionManager
 expr_stmt|;
 block|}
-DECL|method|beforeWrap (RouteContext routeContext, ProcessorDefinition<?> definition)
+DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|void
 name|beforeWrap
@@ -247,10 +259,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{     }
@@ -275,16 +284,24 @@ comment|// and wrap the processor in the transacted error handler as we can have
 comment|// propagation behavior, eg: from A required -> B -> requiresNew C (advanced use-case)
 comment|// if we should not support this we do not need to wrap the processor as we only need one transacted error handler
 comment|// find the existing error handler builder
+name|RouteDefinition
+name|route
+init|=
+operator|(
+name|RouteDefinition
+operator|)
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+decl_stmt|;
 name|ErrorHandlerBuilder
 name|builder
 init|=
 operator|(
 name|ErrorHandlerBuilder
 operator|)
-name|routeContext
-operator|.
-name|getRoute
-argument_list|()
+name|route
 operator|.
 name|getErrorHandlerBuilder
 argument_list|()
@@ -515,10 +532,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 comment|// set the route to use our transacted error handler builder
-name|routeContext
-operator|.
-name|getRoute
-argument_list|()
+name|route
 operator|.
 name|setErrorHandlerBuilder
 argument_list|(

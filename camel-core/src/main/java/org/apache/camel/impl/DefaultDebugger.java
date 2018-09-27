@@ -744,10 +744,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -775,10 +772,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|long
@@ -811,10 +805,7 @@ parameter_list|,
 name|EventObject
 name|event
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -1117,7 +1108,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|boolean
 name|beforeProcess
@@ -1128,10 +1119,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -1247,7 +1235,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
+DECL|method|afterProcess (Exchange exchange, Processor processor, NamedNode definition, long timeTaken)
 specifier|public
 name|boolean
 name|afterProcess
@@ -1258,10 +1246,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|long
@@ -1500,7 +1485,7 @@ return|return
 name|match
 return|;
 block|}
-DECL|method|onBeforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, Breakpoint breakpoint)
+DECL|method|onBeforeProcess (Exchange exchange, Processor processor, NamedNode definition, Breakpoint breakpoint)
 specifier|protected
 name|void
 name|onBeforeProcess
@@ -1511,10 +1496,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|Breakpoint
@@ -1556,7 +1538,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|onAfterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken, Breakpoint breakpoint)
+DECL|method|onAfterProcess (Exchange exchange, Processor processor, NamedNode definition, long timeTaken, Breakpoint breakpoint)
 specifier|protected
 name|void
 name|onAfterProcess
@@ -1567,10 +1549,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|long
@@ -1743,7 +1722,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|matchConditions (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, BreakpointConditions breakpoint)
+DECL|method|matchConditions (Exchange exchange, Processor processor, NamedNode definition, BreakpointConditions breakpoint)
 specifier|private
 name|boolean
 name|matchConditions
@@ -1754,10 +1733,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|BreakpointConditions

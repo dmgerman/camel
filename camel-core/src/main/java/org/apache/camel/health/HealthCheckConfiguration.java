@@ -46,9 +46,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 operator|.
-name|TimePatternConverter
+name|ObjectHelper
 import|;
 end_import
 
@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|TimeUtils
 import|;
 end_import
 
@@ -210,7 +210,7 @@ name|Duration
 operator|.
 name|ofMillis
 argument_list|(
-name|TimePatternConverter
+name|TimeUtils
 operator|.
 name|toMilliSeconds
 argument_list|(
@@ -542,7 +542,7 @@ argument_list|)
 condition|?
 name|interval
 argument_list|(
-name|TimePatternConverter
+name|TimeUtils
 operator|.
 name|toMilliSeconds
 argument_list|(

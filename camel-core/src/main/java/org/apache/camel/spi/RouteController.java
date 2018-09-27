@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContextAware
 import|;
 end_import
@@ -98,13 +110,23 @@ name|ServiceStatus
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
+import|;
+end_import
+
 begin_comment
 comment|// TODO: Add javadoc
 end_comment
 
 begin_interface
-annotation|@
-name|Experimental
 DECL|interface|RouteController
 specifier|public
 interface|interface
@@ -112,7 +134,7 @@ name|RouteController
 extends|extends
 name|CamelContextAware
 extends|,
-name|Service
+name|StaticService
 block|{
 comment|/**      * Return the list of routes controlled by this controller.      *      * @return the list of controlled routes      */
 DECL|method|getControlledRoutes ()
@@ -137,6 +159,7 @@ name|boolean
 name|isStartingRoutes
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the current status of the given route      *      * @param routeId the route id      * @return the status for the route      */
 DECL|method|getRouteStatus (String routeId)
 name|ServiceStatus
 name|getRouteStatus
@@ -145,6 +168,7 @@ name|String
 name|routeId
 parameter_list|)
 function_decl|;
+comment|/**      * Starts the given route if it has been previously stopped      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be started for whatever reason      */
 DECL|method|startRoute (String routeId)
 name|void
 name|startRoute
@@ -155,6 +179,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Stops the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @see #suspendRoute(String)      */
 DECL|method|stopRoute (String routeId)
 name|void
 name|stopRoute
@@ -165,6 +190,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Stops the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @see #suspendRoute(String, long, java.util.concurrent.TimeUnit)      */
 DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit)
 name|void
 name|stopRoute
@@ -181,6 +207,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Stops the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout      * and optional abortAfterTimeout mode.      *      * @param routeId the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @param abortAfterTimeout should abort shutdown after timeout      * @return<tt>true</tt> if the route is stopped before the timeout      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @see #suspendRoute(String, long, java.util.concurrent.TimeUnit)      */
 DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit, boolean abortAfterTimeout)
 name|boolean
 name|stopRoute
@@ -200,6 +227,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Suspends the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *<p/>      * Suspending a route is more gently than stopping, as the route consumers will be suspended (if they support)      * otherwise the consumers will be stopped.      *<p/>      * By suspending the route services will be kept running (if possible) and therefore its faster to resume the route.      *<p/>      * If the route does<b>not</b> support suspension the route will be stopped instead      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be suspended for whatever reason      */
 DECL|method|suspendRoute (String routeId)
 name|void
 name|suspendRoute
@@ -210,6 +238,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Suspends the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *<p/>      * Suspending a route is more gently than stopping, as the route consumers will be suspended (if they support)      * otherwise the consumers will be stopped.      *<p/>      * By suspending the route services will be kept running (if possible) and therefore its faster to resume the route.      *<p/>      * If the route does<b>not</b> support suspension the route will be stopped instead      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be suspended for whatever reason      */
 DECL|method|suspendRoute (String routeId, long timeout, TimeUnit timeUnit)
 name|void
 name|suspendRoute
@@ -226,6 +255,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Resumes the given route if it has been previously suspended      *<p/>      * If the route does<b>not</b> support suspension the route will be started instead      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be resumed for whatever reason      */
 DECL|method|resumeRoute (String routeId)
 name|void
 name|resumeRoute

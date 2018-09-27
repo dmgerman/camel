@@ -112,6 +112,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -376,10 +388,7 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|Processor
@@ -461,10 +470,15 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// remove me from the route so I am not invoked in a regular route path
+operator|(
+operator|(
+name|RouteDefinition
+operator|)
 name|routeContext
 operator|.
 name|getRoute
 argument_list|()
+operator|)
 operator|.
 name|getOutputs
 argument_list|()

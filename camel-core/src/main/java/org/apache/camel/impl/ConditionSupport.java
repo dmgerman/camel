@@ -46,7 +46,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|NamedNode
 import|;
 end_import
 
@@ -58,9 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
+name|Processor
 import|;
 end_import
 
@@ -90,7 +88,7 @@ name|ConditionSupport
 implements|implements
 name|Condition
 block|{
-DECL|method|matchProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|matchProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|boolean
 name|matchProcess
@@ -101,10 +99,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{

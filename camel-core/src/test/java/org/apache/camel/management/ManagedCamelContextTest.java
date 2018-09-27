@@ -231,6 +231,13 @@ name|client
 init|=
 name|context
 operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getManagedCamelContext
 argument_list|()
 decl_stmt|;

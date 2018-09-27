@@ -253,15 +253,6 @@ name|RegistryRepository
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|repositories
-operator|.
-name|addAll
-argument_list|(
-name|repositories
-argument_list|)
-expr_stmt|;
 name|setCamelContext
 argument_list|(
 name|camelContext

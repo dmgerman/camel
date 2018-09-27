@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -101,6 +113,20 @@ operator|.
 name|model
 operator|.
 name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteDefinition
 import|;
 end_import
 
@@ -222,7 +248,7 @@ name|transactionManager
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|beforeWrap (RouteContext routeContext, ProcessorDefinition<?> definition)
+DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|void
 name|beforeWrap
@@ -230,10 +256,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -241,7 +264,15 @@ comment|// do not inherit since we create our own
 comment|// (otherwise the default error handler would be used two times
 comment|// because we inherit it on our own but only in case of a
 comment|// non-transactional error handler)
+operator|(
+operator|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+operator|)
 name|definition
+operator|)
 operator|.
 name|setInheritErrorHandler
 argument_list|(
@@ -289,16 +320,24 @@ comment|// (advanced use-case)
 comment|// if we should not support this we do not need to wrap the processor as
 comment|// we only need one transacted error handler
 comment|// find the existing error handler builder
+name|RouteDefinition
+name|route
+init|=
+operator|(
+name|RouteDefinition
+operator|)
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+decl_stmt|;
 name|ErrorHandlerBuilder
 name|builder
 init|=
 operator|(
 name|ErrorHandlerBuilder
 operator|)
-name|routeContext
-operator|.
-name|getRoute
-argument_list|()
+name|route
 operator|.
 name|getErrorHandlerBuilder
 argument_list|()
@@ -512,10 +551,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 comment|// set the route to use our transacted error handler builder
-name|routeContext
-operator|.
-name|getRoute
-argument_list|()
+name|route
 operator|.
 name|setErrorHandlerBuilder
 argument_list|(

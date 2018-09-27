@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|NamedNode
 import|;
 end_import
 
@@ -36,9 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
+name|Processor
 import|;
 end_import
 
@@ -52,18 +50,15 @@ specifier|public
 interface|interface
 name|Policy
 block|{
-comment|/**      * Hook invoked before the wrap.      *<p/>      * This allows you to do any custom logic before the processor is wrapped. For example to      * manipulate the {@link org.apache.camel.model.ProcessorDefinition definiton}      *      * @param routeContext   the route context      * @param definition     the processor definition      */
-DECL|method|beforeWrap (RouteContext routeContext, ProcessorDefinition<?> definition)
+comment|/**      * Hook invoked before the wrap.      *<p/>      * This allows you to do any custom logic before the processor is wrapped. For example to      * manipulate the {@link org.apache.camel.model.ProcessorDefinition definiton}.      *      * @param routeContext   the route context      * @param definition     the processor definition      */
+DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 name|void
 name|beforeWrap
 parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 function_decl|;

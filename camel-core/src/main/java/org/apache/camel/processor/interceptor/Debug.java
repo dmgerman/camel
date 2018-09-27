@@ -62,7 +62,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|NamedNode
 import|;
 end_import
 
@@ -74,9 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
+name|Processor
 import|;
 end_import
 
@@ -169,7 +167,7 @@ operator|=
 name|debugger
 expr_stmt|;
 block|}
-DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition<?> definition, final Processor target, final Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (final CamelContext context, final NamedNode definition, final Processor target, final Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -179,10 +177,7 @@ name|CamelContext
 name|context
 parameter_list|,
 specifier|final
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 specifier|final

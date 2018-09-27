@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -101,20 +113,6 @@ operator|.
 name|model
 operator|.
 name|IdentifiedType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ProcessorDefinition
 import|;
 end_import
 
@@ -427,7 +425,7 @@ name|useThreadSecurityContext
 init|=
 literal|true
 decl_stmt|;
-DECL|method|beforeWrap (RouteContext routeContext, ProcessorDefinition<?> definition)
+DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|void
 name|beforeWrap
@@ -435,10 +433,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{     }

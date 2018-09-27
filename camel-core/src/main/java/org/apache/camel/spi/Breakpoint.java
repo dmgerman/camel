@@ -46,7 +46,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|NamedNode
 import|;
 end_import
 
@@ -58,9 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
+name|Processor
 import|;
 end_import
 
@@ -103,8 +101,8 @@ name|void
 name|activate
 parameter_list|()
 function_decl|;
-comment|/**      * Callback invoked when the breakpoint was hit and the {@link Exchange} is about to be processed (before).      *      * @param exchange   the {@link Exchange}      * @param processor  the {@link Processor} about to be processed      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the processor      */
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+comment|/**      * Callback invoked when the breakpoint was hit and the {@link Exchange} is about to be processed (before).      *  @param exchange   the {@link Exchange}      * @param processor  the {@link Processor} about to be processed      * @param definition the {@link NamedNode} definition of the processor      */
+DECL|method|beforeProcess (Exchange exchange, Processor processor, NamedNode definition)
 name|void
 name|beforeProcess
 parameter_list|(
@@ -114,15 +112,12 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 function_decl|;
-comment|/**      * Callback invoked when the breakpoint was hit and the {@link Exchange} has been processed (after).      *      * @param exchange   the {@link Exchange}      * @param processor  the {@link Processor} which was processed      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the processor      * @param timeTaken  time in millis it took to process the {@link Exchange} - time spend in breakpoint callbacks may affect this time      */
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
+comment|/**      * Callback invoked when the breakpoint was hit and the {@link Exchange} has been processed (after).      *  @param exchange   the {@link Exchange}      * @param processor  the {@link Processor} which was processed      * @param definition the {@link NamedNode} definition of the processor      * @param timeTaken  time in millis it took to process the {@link Exchange} - time spend in breakpoint callbacks may affect this time      */
+DECL|method|afterProcess (Exchange exchange, Processor processor, NamedNode definition, long timeTaken)
 name|void
 name|afterProcess
 parameter_list|(
@@ -132,18 +127,15 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|long
 name|timeTaken
 parameter_list|)
 function_decl|;
-comment|/**      * Callback invoked when the breakpoint was hit and any of the {@link Exchange} {@link EventObject event}s occurred.      *      * @param exchange   the {@link Exchange}      * @param event      the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the last processor executed,      *                   may be<tt>null</tt> if not possible to resolve from tracing      * @see org.apache.camel.management.event.AbstractExchangeEvent      */
-DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition<?> definition)
+comment|/**      * Callback invoked when the breakpoint was hit and any of the {@link Exchange} {@link EventObject event}s occurred.      *      * @param exchange   the {@link Exchange}      * @param event      the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @param definition the {@link NamedNode} definition of the last processor executed,      *                   may be<tt>null</tt> if not possible to resolve from tracing      * @see org.apache.camel.management.event.AbstractExchangeEvent      */
+DECL|method|onEvent (Exchange exchange, EventObject event, NamedNode definition)
 name|void
 name|onEvent
 parameter_list|(
@@ -153,10 +145,7 @@ parameter_list|,
 name|EventObject
 name|event
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 function_decl|;

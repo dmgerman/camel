@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -99,6 +111,20 @@ operator|.
 name|model
 operator|.
 name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteDefinition
 import|;
 end_import
 
@@ -489,7 +515,7 @@ name|InterceptStrategy
 block|{
 annotation|@
 name|Override
-DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition<?> definition, final Processor target, final Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (final CamelContext context, final NamedNode node, final Processor target, final Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -499,11 +525,8 @@ name|CamelContext
 name|context
 parameter_list|,
 specifier|final
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|definition
+name|NamedNode
+name|node
 parameter_list|,
 specifier|final
 name|Processor
@@ -516,6 +539,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|definition
+init|=
+operator|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+operator|)
+name|node
+decl_stmt|;
 name|String
 name|targetId
 init|=

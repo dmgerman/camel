@@ -92,6 +92,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -105,48 +117,6 @@ operator|.
 name|camel
 operator|.
 name|RuntimeConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|FromDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RouteDefinition
 import|;
 end_import
 
@@ -166,13 +136,13 @@ name|EndpointAware
 block|{
 comment|/**      * Gets the from type      *      * @return the from type      */
 DECL|method|getFrom ()
-name|FromDefinition
+name|NamedNode
 name|getFrom
 parameter_list|()
 function_decl|;
 comment|/**      * Get the route type      *      * @return the route type      */
 DECL|method|getRoute ()
-name|RouteDefinition
+name|NamedNode
 name|getRoute
 parameter_list|()
 function_decl|;
@@ -319,7 +289,7 @@ name|InterceptStrategy
 name|getManagedInterceptStrategy
 parameter_list|()
 function_decl|;
-comment|/**      * If this flag is true, {@link ProcessorDefinition#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
+comment|/**      * If this flag is true, {@link org.apache.camel.model.ProcessorDefinition#addRoutes(RouteContext, java.util.Collection)}      * will not add processor to addEventDrivenProcessor to the RouteContext and it      * will prevent from adding an EventDrivenRoute.      *      * @param value the flag      */
 DECL|method|setIsRouteAdded (boolean value)
 name|void
 name|setIsRouteAdded
@@ -356,14 +326,11 @@ name|routePolicyList
 parameter_list|)
 function_decl|;
 comment|/**      * A private counter that increments, is used to as book keeping      * when building a route based on the model      *<p/>      * We need this special book keeping be able to assign the correct      * {@link org.apache.camel.model.ProcessorDefinition} to the {@link org.apache.camel.Channel}      *      * @param node the current node      * @return the current count      */
-DECL|method|getAndIncrement (ProcessorDefinition<?> node)
+DECL|method|getAndIncrement (NamedNode node)
 name|int
 name|getAndIncrement
 parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|node
 parameter_list|)
 function_decl|;

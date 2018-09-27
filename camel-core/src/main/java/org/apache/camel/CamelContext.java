@@ -28,16 +28,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collection
@@ -98,72 +88,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedCamelContextMBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedProcessorMBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|mbean
-operator|.
-name|ManagedRouteMBean
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -173,126 +97,6 @@ operator|.
 name|health
 operator|.
 name|HealthCheckRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|DataFormatDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RouteDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RoutesDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|rest
-operator|.
-name|RestDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|rest
-operator|.
-name|RestsDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|transformer
-operator|.
-name|TransformerDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|validator
-operator|.
-name|ValidatorDefinition
 import|;
 end_import
 
@@ -1456,47 +1260,6 @@ name|boolean
 name|done
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      */
-DECL|method|getRouteDefinitions ()
-name|List
-argument_list|<
-name|RouteDefinition
-argument_list|>
-name|getRouteDefinitions
-parameter_list|()
-function_decl|;
-comment|/**      * Gets the route definition with the given id      *      * @param id id of the route      * @return the route definition or<tt>null</tt> if not found      */
-DECL|method|getRouteDefinition (String id)
-name|RouteDefinition
-name|getRouteDefinition
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-function_decl|;
-comment|/**      * Returns a list of the current REST definitions      *      * @return list of the current REST definitions      */
-DECL|method|getRestDefinitions ()
-name|List
-argument_list|<
-name|RestDefinition
-argument_list|>
-name|getRestDefinitions
-parameter_list|()
-function_decl|;
-comment|/**      * Adds a collection of rest definitions to the context      *      * @param restDefinitions the rest(s) definition to add      */
-DECL|method|addRestDefinitions (Collection<RestDefinition> restDefinitions)
-name|void
-name|addRestDefinitions
-parameter_list|(
-name|Collection
-argument_list|<
-name|RestDefinition
-argument_list|>
-name|restDefinitions
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
 DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
 name|void
@@ -1598,81 +1361,6 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the managed processor client api from any of the routes which with the given id      *      * @param id id of the processor      * @param type the managed processor type from the {@link org.apache.camel.api.management.mbean} package.      * @return the processor or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
-DECL|method|getManagedProcessor (String id, Class<T> type)
-parameter_list|<
-name|T
-extends|extends
-name|ManagedProcessorMBean
-parameter_list|>
-name|T
-name|getManagedProcessor
-parameter_list|(
-name|String
-name|id
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the managed route client api with the given route id      *      * @param routeId id of the route      * @param type the managed route type from the {@link org.apache.camel.api.management.mbean} package.      * @return the route or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
-DECL|method|getManagedRoute (String routeId, Class<T> type)
-parameter_list|<
-name|T
-extends|extends
-name|ManagedRouteMBean
-parameter_list|>
-name|T
-name|getManagedRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the managed Camel CamelContext client api      */
-DECL|method|getManagedCamelContext ()
-name|ManagedCamelContextMBean
-name|getManagedCamelContext
-parameter_list|()
-function_decl|;
-comment|/**      * Gets the processor definition from any of the routes which with the given id      *      * @param id id of the processor definition      * @return the processor definition or<tt>null</tt> if not found      */
-DECL|method|getProcessorDefinition (String id)
-name|ProcessorDefinition
-name|getProcessorDefinition
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the processor definition from any of the routes which with the given id      *      * @param id id of the processor definition      * @param type the processor definition type      * @return the processor definition or<tt>null</tt> if not found      * @throws java.lang.ClassCastException is thrown if the type is not correct type      */
-DECL|method|getProcessorDefinition (String id, Class<T> type)
-parameter_list|<
-name|T
-extends|extends
-name|ProcessorDefinition
-parameter_list|>
-name|T
-name|getProcessorDefinition
-parameter_list|(
-name|String
-name|id
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|type
-parameter_list|)
-function_decl|;
 comment|/**      * Adds a collection of routes to this CamelContext using the given builder      * to build them.      *<p/>      *<b>Important:</b> The added routes will<b>only</b> be started, if {@link CamelContext}      * is already started. You may want to check the state of {@link CamelContext} before      * adding the routes, using the {@link org.apache.camel.CamelContext#getStatus()} method.      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link org.apache.camel.model.ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param builder the builder which will create the routes and add them to this CamelContext      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (RoutesBuilder builder)
 name|void
@@ -1680,195 +1368,6 @@ name|addRoutes
 parameter_list|(
 name|RoutesBuilder
 name|builder
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Loads a collection of route definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be loaded for whatever reason      * @return the route definitions      */
-DECL|method|loadRoutesDefinition (InputStream is)
-name|RoutesDefinition
-name|loadRoutesDefinition
-parameter_list|(
-name|InputStream
-name|is
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Loads a collection of rest definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the rest(s) definition to add      * @throws Exception if the rest definitions could not be loaded for whatever reason      * @return the rest definitions      */
-DECL|method|loadRestsDefinition (InputStream is)
-name|RestsDefinition
-name|loadRestsDefinition
-parameter_list|(
-name|InputStream
-name|is
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Adds a collection of route definitions to the context      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
-DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
-name|void
-name|addRouteDefinitions
-parameter_list|(
-name|Collection
-argument_list|<
-name|RouteDefinition
-argument_list|>
-name|routeDefinitions
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Add a route definition to the context      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be created for whatever reason      */
-DECL|method|addRouteDefinition (RouteDefinition routeDefinition)
-name|void
-name|addRouteDefinition
-parameter_list|(
-name|RouteDefinition
-name|routeDefinition
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Removes a collection of route definitions from the CamelContext - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route(s) definitions to remove      * @throws Exception if the route definitions could not be removed for whatever reason      */
-DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
-name|void
-name|removeRouteDefinitions
-parameter_list|(
-name|Collection
-argument_list|<
-name|RouteDefinition
-argument_list|>
-name|routeDefinitions
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Removes a route definition from the CamelContext - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinition route definition to remove      * @throws Exception if the route definition could not be removed for whatever reason      */
-DECL|method|removeRouteDefinition (RouteDefinition routeDefinition)
-name|void
-name|removeRouteDefinition
-parameter_list|(
-name|RouteDefinition
-name|routeDefinition
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      * @deprecated favor using {@link CamelContext#startRoute(String)}      */
-annotation|@
-name|Deprecated
-DECL|method|startRoute (RouteDefinition route)
-name|void
-name|startRoute
-parameter_list|(
-name|RouteDefinition
-name|route
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Starts the given route if it has been previously stopped      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be started for whatever reason      */
-DECL|method|startRoute (String routeId)
-name|void
-name|startRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Stops the given route.      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @deprecated favor using {@link CamelContext#stopRoute(String)}      */
-annotation|@
-name|Deprecated
-DECL|method|stopRoute (RouteDefinition route)
-name|void
-name|stopRoute
-parameter_list|(
-name|RouteDefinition
-name|route
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Stops the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @see #suspendRoute(String)      */
-DECL|method|stopRoute (String routeId)
-name|void
-name|stopRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Stops the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @see #suspendRoute(String, long, java.util.concurrent.TimeUnit)      */
-DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit)
-name|void
-name|stopRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|,
-name|long
-name|timeout
-parameter_list|,
-name|TimeUnit
-name|timeUnit
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Stops the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout       * and optional abortAfterTimeout mode.      *      * @param routeId the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @param abortAfterTimeout should abort shutdown after timeout      * @return<tt>true</tt> if the route is stopped before the timeout      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @see #suspendRoute(String, long, java.util.concurrent.TimeUnit)      */
-DECL|method|stopRoute (String routeId, long timeout, TimeUnit timeUnit, boolean abortAfterTimeout)
-name|boolean
-name|stopRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|,
-name|long
-name|timeout
-parameter_list|,
-name|TimeUnit
-name|timeUnit
-parameter_list|,
-name|boolean
-name|abortAfterTimeout
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String)} and {@link #removeRoute(String)}      */
-annotation|@
-name|Deprecated
-DECL|method|shutdownRoute (String routeId)
-name|void
-name|shutdownRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Shutdown and<b>removes</b> the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be shutdown for whatever reason      * @deprecated use {@link #stopRoute(String, long, java.util.concurrent.TimeUnit)} and {@link #removeRoute(String)}      */
-annotation|@
-name|Deprecated
-DECL|method|shutdownRoute (String routeId, long timeout, TimeUnit timeUnit)
-name|void
-name|shutdownRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|,
-name|long
-name|timeout
-parameter_list|,
-name|TimeUnit
-name|timeUnit
 parameter_list|)
 throws|throws
 name|Exception
@@ -1883,54 +1382,6 @@ name|routeId
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
-comment|/**      * Resumes the given route if it has been previously suspended      *<p/>      * If the route does<b>not</b> support suspension the route will be started instead      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be resumed for whatever reason      */
-DECL|method|resumeRoute (String routeId)
-name|void
-name|resumeRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Suspends the given route using {@link org.apache.camel.spi.ShutdownStrategy}.      *<p/>      * Suspending a route is more gently than stopping, as the route consumers will be suspended (if they support)      * otherwise the consumers will be stopped.      *<p/>      * By suspending the route services will be kept running (if possible) and therefore its faster to resume the route.      *<p/>      * If the route does<b>not</b> support suspension the route will be stopped instead      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be suspended for whatever reason      */
-DECL|method|suspendRoute (String routeId)
-name|void
-name|suspendRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Suspends the given route using {@link org.apache.camel.spi.ShutdownStrategy} with a specified timeout.      *<p/>      * Suspending a route is more gently than stopping, as the route consumers will be suspended (if they support)      * otherwise the consumers will be stopped.      *<p/>      * By suspending the route services will be kept running (if possible) and therefore its faster to resume the route.      *<p/>      * If the route does<b>not</b> support suspension the route will be stopped instead      *      * @param routeId  the route id      * @param timeout  timeout      * @param timeUnit the unit to use      * @throws Exception is thrown if the route could not be suspended for whatever reason      */
-DECL|method|suspendRoute (String routeId, long timeout, TimeUnit timeUnit)
-name|void
-name|suspendRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|,
-name|long
-name|timeout
-parameter_list|,
-name|TimeUnit
-name|timeUnit
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Returns the current status of the given route      *      * @param routeId the route id      * @return the status for the route      */
-DECL|method|getRouteStatus (String routeId)
-name|ServiceStatus
-name|getRouteStatus
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
 function_decl|;
 comment|/**      * Indicates whether current thread is setting up route(s) as part of starting Camel from spring/blueprint.      *<p/>      * This can be useful to know by {@link LifecycleStrategy} or the likes, in case      * they need to react differently.      *<p/>      * As the startup procedure of {@link CamelContext} is slightly different when using plain Java versus      * Spring or Blueprint, then we need to know when Spring/Blueprint is setting up the routes, which      * can happen after the {@link CamelContext} itself is in started state, due the asynchronous event nature      * of especially Blueprint.      *      * @return<tt>true</tt> if current thread is setting up route(s), or<tt>false</tt> if not.      */
 DECL|method|isSetupRoutes ()
@@ -2146,15 +1597,6 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Resolve a data format definition given its name      *      * @param name the data format definition name or a reference to it in the {@link Registry}      * @return the resolved data format definition, or<tt>null</tt> if not found      */
-DECL|method|resolveDataFormatDefinition (String name)
-name|DataFormatDefinition
-name|resolveDataFormatDefinition
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-function_decl|;
 comment|/**      * Gets the current data format resolver      *      * @return the resolver      */
 DECL|method|getDataFormatResolver ()
 name|DataFormatResolver
@@ -2169,27 +1611,6 @@ parameter_list|(
 name|DataFormatResolver
 name|dataFormatResolver
 parameter_list|)
-function_decl|;
-comment|/**      * Sets the transformers that can be referenced in the routes.      *      * @param transformers the transformers      */
-DECL|method|setTransformers (List<TransformerDefinition> transformers)
-name|void
-name|setTransformers
-parameter_list|(
-name|List
-argument_list|<
-name|TransformerDefinition
-argument_list|>
-name|transformers
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the transformers that can be referenced in the routes.      *      * @return the transformers available      */
-DECL|method|getTransformers ()
-name|List
-argument_list|<
-name|TransformerDefinition
-argument_list|>
-name|getTransformers
-parameter_list|()
 function_decl|;
 comment|/**      * Resolve a transformer given a scheme      *      * @param model data model name.      * @return the resolved transformer, or<tt>null</tt> if not found      */
 DECL|method|resolveTransformer (String model)
@@ -2224,27 +1645,6 @@ name|String
 argument_list|>
 argument_list|>
 name|getTransformerRegistry
-parameter_list|()
-function_decl|;
-comment|/**      * Sets the validators that can be referenced in the routes.      *      * @param validators the validators      */
-DECL|method|setValidators (List<ValidatorDefinition> validators)
-name|void
-name|setValidators
-parameter_list|(
-name|List
-argument_list|<
-name|ValidatorDefinition
-argument_list|>
-name|validators
-parameter_list|)
-function_decl|;
-comment|/**      * Gets the validators that can be referenced in the routes.      *      * @return the validators available      */
-DECL|method|getValidators ()
-name|List
-argument_list|<
-name|ValidatorDefinition
-argument_list|>
-name|getValidators
 parameter_list|()
 function_decl|;
 comment|/**      * Resolve a validator given from/to data type.      *      * @param type the data type      * @return the resolved validator, or<tt>null</tt> if not found      */

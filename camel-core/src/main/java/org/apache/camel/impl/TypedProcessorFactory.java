@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -115,7 +127,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createChildProcessor (RouteContext routeContext, ProcessorDefinition<?> definition, boolean mandatory)
+DECL|method|createChildProcessor (RouteContext routeContext, NamedNode definition, boolean mandatory)
 specifier|public
 name|Processor
 name|createChildProcessor
@@ -123,10 +135,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|boolean
@@ -171,7 +180,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProcessor (RouteContext routeContext, ProcessorDefinition<?> definition)
+DECL|method|createProcessor (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|Processor
 name|createProcessor
@@ -179,10 +188,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 throws|throws

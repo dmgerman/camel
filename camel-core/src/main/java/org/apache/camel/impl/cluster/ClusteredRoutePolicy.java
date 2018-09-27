@@ -290,6 +290,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|RouteDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|EventNotifierSupport
@@ -870,6 +884,28 @@ block|}
 comment|// ****************************************************
 comment|// life-cycle
 comment|// ****************************************************
+DECL|method|definition (Route route)
+specifier|private
+name|RouteDefinition
+name|definition
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+return|return
+operator|(
+name|RouteDefinition
+operator|)
+name|route
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|getRoute
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|onInit (Route route)
@@ -903,13 +939,10 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|definition
+argument_list|(
 name|route
-operator|.
-name|getRouteContext
-argument_list|()
-operator|.
-name|getRoute
-argument_list|()
+argument_list|)
 operator|.
 name|setAutoStartup
 argument_list|(
@@ -1168,13 +1201,10 @@ block|{
 name|ServiceStatus
 name|status
 init|=
+name|definition
+argument_list|(
 name|route
-operator|.
-name|getRouteContext
-argument_list|()
-operator|.
-name|getRoute
-argument_list|()
+argument_list|)
 operator|.
 name|getStatus
 argument_list|(
@@ -1298,13 +1328,10 @@ block|{
 name|ServiceStatus
 name|status
 init|=
+name|definition
+argument_list|(
 name|route
-operator|.
-name|getRouteContext
-argument_list|()
-operator|.
-name|getRoute
-argument_list|()
+argument_list|)
 operator|.
 name|getStatus
 argument_list|(

@@ -36,9 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|RouteDefinition
+name|NamedNode
 import|;
 end_import
 
@@ -126,7 +124,7 @@ name|STOP_ROUTE
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, RouteDefinition route)
+DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, NamedNode route)
 specifier|public
 name|RoutePolicy
 name|createRoutePolicy
@@ -137,7 +135,7 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|,
-name|RouteDefinition
+name|NamedNode
 name|route
 parameter_list|)
 block|{

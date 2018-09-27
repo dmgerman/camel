@@ -270,6 +270,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -2812,6 +2824,9 @@ name|getDefinition
 parameter_list|()
 block|{
 return|return
+operator|(
+name|RouteDefinition
+operator|)
 name|this
 operator|.
 name|route
@@ -3040,7 +3055,7 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, RouteDefinition route)
+DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, NamedNode route)
 specifier|public
 name|RoutePolicy
 name|createRoutePolicy
@@ -3051,7 +3066,7 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|,
-name|RouteDefinition
+name|NamedNode
 name|route
 parameter_list|)
 block|{
@@ -3134,6 +3149,10 @@ specifier|final
 name|String
 name|autoStartup
 init|=
+operator|(
+operator|(
+name|RouteDefinition
+operator|)
 name|route
 operator|.
 name|getRouteContext
@@ -3141,6 +3160,7 @@ argument_list|()
 operator|.
 name|getRoute
 argument_list|()
+operator|)
 operator|.
 name|getAutoStartup
 argument_list|()

@@ -132,7 +132,7 @@ name|RouteController
 block|{
 DECL|field|camelContext
 specifier|private
-name|CamelContext
+name|DefaultCamelContext
 name|camelContext
 decl_stmt|;
 DECL|method|DefaultRouteController ()
@@ -146,11 +146,11 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultRouteController (CamelContext camelContext)
+DECL|method|DefaultRouteController (DefaultCamelContext camelContext)
 specifier|public
 name|DefaultRouteController
 parameter_list|(
-name|CamelContext
+name|DefaultCamelContext
 name|camelContext
 parameter_list|)
 block|{
@@ -179,6 +179,9 @@ name|this
 operator|.
 name|camelContext
 operator|=
+operator|(
+name|DefaultCamelContext
+operator|)
 name|camelContext
 expr_stmt|;
 block|}
@@ -234,12 +237,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-operator|(
-operator|(
-name|DefaultCamelContext
-operator|)
 name|camelContext
-operator|)
 operator|.
 name|startAllRoutes
 argument_list|()
@@ -254,12 +252,7 @@ name|isStartingRoutes
 parameter_list|()
 block|{
 return|return
-operator|(
-operator|(
-name|DefaultCamelContext
-operator|)
 name|camelContext
-operator|)
 operator|.
 name|isStartingRoutes
 argument_list|()
@@ -277,12 +270,7 @@ name|routeId
 parameter_list|)
 block|{
 return|return
-operator|(
-operator|(
-name|DefaultCamelContext
-operator|)
 name|camelContext
-operator|)
 operator|.
 name|getRouteStatus
 argument_list|(

@@ -46,7 +46,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|NamedNode
 import|;
 end_import
 
@@ -58,9 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
+name|Processor
 import|;
 end_import
 
@@ -136,7 +134,7 @@ operator|.
 name|Active
 expr_stmt|;
 block|}
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|void
 name|beforeProcess
@@ -147,16 +145,13 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
+DECL|method|afterProcess (Exchange exchange, Processor processor, NamedNode definition, long timeTaken)
 specifier|public
 name|void
 name|afterProcess
@@ -167,10 +162,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|long
@@ -179,7 +171,7 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition<?> definition)
+DECL|method|onEvent (Exchange exchange, EventObject event, NamedNode definition)
 specifier|public
 name|void
 name|onEvent
@@ -190,10 +182,7 @@ parameter_list|,
 name|EventObject
 name|event
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{

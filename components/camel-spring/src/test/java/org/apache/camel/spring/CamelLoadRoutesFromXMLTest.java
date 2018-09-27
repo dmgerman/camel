@@ -226,6 +226,9 @@ name|assertTrue
 argument_list|(
 name|camel
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -238,6 +241,9 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|camel
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -342,6 +348,9 @@ name|assertNull
 argument_list|(
 name|camel
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -352,6 +361,9 @@ name|assertNull
 argument_list|(
 name|camel
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"bar"
@@ -359,10 +371,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// you can also do this manually via their route ids
-comment|//camel.stopRoute("foo");
-comment|//camel.removeRoute("foo");
-comment|//camel.stopRoute("bar");
-comment|//camel.removeRoute("bar");
+comment|//camel.getRouteController().stopRoute("foo");
+comment|//camel.getRouteController().removeRoute("foo");
+comment|//camel.getRouteController().stopRoute("bar");
+comment|//camel.getRouteController().removeRoute("bar");
 comment|// load updated xml
 name|is
 operator|=
@@ -413,6 +425,9 @@ name|assertTrue
 argument_list|(
 name|camel
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -425,6 +440,9 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|camel
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

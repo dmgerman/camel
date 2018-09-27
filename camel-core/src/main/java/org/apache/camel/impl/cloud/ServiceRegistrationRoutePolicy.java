@@ -162,6 +162,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|RouteDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|RoutePolicySupport
@@ -771,8 +785,12 @@ literal|null
 condition|)
 block|{
 comment|// if not check if the route id is custom and use it
-if|if
-condition|(
+name|RouteDefinition
+name|definition
+init|=
+operator|(
+name|RouteDefinition
+operator|)
 name|route
 operator|.
 name|getRouteContext
@@ -780,6 +798,10 @@ argument_list|()
 operator|.
 name|getRoute
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|definition
 operator|.
 name|hasCustomIdAssigned
 argument_list|()

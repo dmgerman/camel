@@ -184,6 +184,13 @@ name|mr
 init|=
 name|context
 operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
 name|getManagedRoute
 argument_list|(
 literal|"foo"
@@ -204,6 +211,13 @@ comment|// change the attribute so JMX triggers
 name|mr
 operator|=
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ManagedCamelContext
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getManagedRoute
 argument_list|(

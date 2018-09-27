@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -91,20 +103,6 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ProcessorDefinition
 import|;
 end_import
 
@@ -413,7 +411,7 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition<?> definition, final Processor target, final Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (final CamelContext context, final NamedNode definition, final Processor target, final Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -423,10 +421,7 @@ name|CamelContext
 name|context
 parameter_list|,
 specifier|final
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 specifier|final

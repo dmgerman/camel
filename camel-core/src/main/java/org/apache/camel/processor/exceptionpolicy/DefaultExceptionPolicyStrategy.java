@@ -661,6 +661,9 @@ argument_list|()
 operator|!=
 literal|null
 condition|?
+operator|(
+name|RouteDefinition
+operator|)
 name|exchange
 operator|.
 name|getUnitOfWork

@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|NamedNode
 import|;
 end_import
 
@@ -48,9 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
+name|Processor
 import|;
 end_import
 
@@ -65,18 +63,15 @@ interface|interface
 name|InterceptStrategy
 block|{
 comment|// TODO: Camel 3.0 make this an internal API
-comment|/**      * This method is invoked by      * {@link ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *<p/>      *<b>Important:</b> See the class javadoc for advice on letting interceptor be compatible with the      * asynchronous routing engine.      *      * @param context       Camel context      * @param definition    the model this interceptor represents      * @param target        the processor to be wrapped      * @param nextTarget    the next processor to be routed to      * @return processor    wrapped with an interceptor or not wrapped.      * @throws Exception can be thrown      */
-DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
+comment|/**      * This method is invoked by      * {@link org.apache.camel.model.ProcessorDefinition#wrapProcessor(RouteContext, Processor)}      * to give the implementor an opportunity to wrap the target processor      * in a route.      *<p/>      *<b>Important:</b> See the class javadoc for advice on letting interceptor be compatible with the      * asynchronous routing engine.      *      * @param context       Camel context      * @param definition    the model this interceptor represents      * @param target        the processor to be wrapped      * @param nextTarget    the next processor to be routed to      * @return processor    wrapped with an interceptor or not wrapped.      * @throws Exception can be thrown      */
+DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, Processor target, Processor nextTarget)
 name|Processor
 name|wrapProcessorInInterceptors
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|Processor

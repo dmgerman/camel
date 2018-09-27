@@ -188,6 +188,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoTypeConversionAvailableException
 import|;
 end_import
@@ -707,7 +719,7 @@ annotation|@
 name|Override
 annotation|@
 name|Deprecated
-DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -715,10 +727,7 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|Processor
@@ -3056,7 +3065,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|void
 name|beforeProcess
@@ -3067,10 +3076,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -3275,7 +3281,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|matchProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|matchProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|boolean
 name|matchProcess
@@ -3286,10 +3292,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -3399,7 +3402,7 @@ name|Condition
 block|{
 annotation|@
 name|Override
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|void
 name|beforeProcess
@@ -3410,10 +3413,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -3632,7 +3632,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|matchProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|matchProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|boolean
 name|matchProcess
@@ -3643,10 +3643,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{
@@ -3676,7 +3673,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition<?> definition)
+DECL|method|onEvent (Exchange exchange, EventObject event, NamedNode definition)
 specifier|public
 name|void
 name|onEvent
@@ -3687,10 +3684,7 @@ parameter_list|,
 name|EventObject
 name|event
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.extension.verifier
+DECL|package|org.apache.camel.component.extension
 package|package
 name|org
 operator|.
@@ -15,26 +15,8 @@ operator|.
 name|component
 operator|.
 name|extension
-operator|.
-name|verifier
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|extension
-operator|.
-name|ComponentVerifierExtension
-import|;
-end_import
 
 begin_import
 import|import
@@ -162,14 +144,12 @@ end_comment
 
 begin_class
 DECL|class|ComponentVerifierExtensionHelper
-specifier|public
 specifier|final
 class|class
 name|ComponentVerifierExtensionHelper
 block|{
 comment|/**      * Custom class for error codes      */
 DECL|class|ErrorCode
-specifier|public
 specifier|static
 class|class
 name|ErrorCode
@@ -183,7 +163,6 @@ name|String
 name|name
 decl_stmt|;
 DECL|method|ErrorCode (String name)
-specifier|public
 name|ErrorCode
 parameter_list|(
 name|String
@@ -310,7 +289,6 @@ return|;
 block|}
 block|}
 DECL|class|ErrorAttribute
-specifier|public
 specifier|static
 class|class
 name|ErrorAttribute
@@ -324,7 +302,6 @@ name|String
 name|name
 decl_stmt|;
 DECL|method|ErrorAttribute (String name)
-specifier|public
 name|ErrorAttribute
 parameter_list|(
 name|String
@@ -453,7 +430,6 @@ block|}
 comment|// ===========================================================================================================
 comment|// Helper classes for implementing the constants in ComponentVerifier:
 DECL|class|StandardErrorCode
-specifier|public
 specifier|static
 class|class
 name|StandardErrorCode
@@ -463,7 +439,6 @@ implements|implements
 name|StandardCode
 block|{
 DECL|method|StandardErrorCode (String name)
-specifier|public
 name|StandardErrorCode
 parameter_list|(
 name|String
@@ -478,7 +453,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ExceptionErrorAttribute
-specifier|public
 specifier|static
 class|class
 name|ExceptionErrorAttribute
@@ -488,7 +462,6 @@ implements|implements
 name|ExceptionAttribute
 block|{
 DECL|method|ExceptionErrorAttribute (String name)
-specifier|public
 name|ExceptionErrorAttribute
 parameter_list|(
 name|String
@@ -503,7 +476,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|HttpErrorAttribute
-specifier|public
 specifier|static
 class|class
 name|HttpErrorAttribute
@@ -513,7 +485,6 @@ implements|implements
 name|HttpAttribute
 block|{
 DECL|method|HttpErrorAttribute (String name)
-specifier|public
 name|HttpErrorAttribute
 parameter_list|(
 name|String
@@ -528,7 +499,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|GroupErrorAttribute
-specifier|public
 specifier|static
 class|class
 name|GroupErrorAttribute
@@ -538,7 +508,6 @@ implements|implements
 name|GroupAttribute
 block|{
 DECL|method|GroupErrorAttribute (String name)
-specifier|public
 name|GroupErrorAttribute
 parameter_list|(
 name|String

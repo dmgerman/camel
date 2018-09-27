@@ -82,8 +82,6 @@ name|component
 operator|.
 name|extension
 operator|.
-name|verifier
-operator|.
 name|ComponentVerifierExtensionHelper
 operator|.
 name|ErrorAttribute
@@ -101,8 +99,6 @@ operator|.
 name|component
 operator|.
 name|extension
-operator|.
-name|verifier
 operator|.
 name|ComponentVerifierExtensionHelper
 operator|.
@@ -122,8 +118,6 @@ name|component
 operator|.
 name|extension
 operator|.
-name|verifier
-operator|.
 name|ComponentVerifierExtensionHelper
 operator|.
 name|ExceptionErrorAttribute
@@ -141,8 +135,6 @@ operator|.
 name|component
 operator|.
 name|extension
-operator|.
-name|verifier
 operator|.
 name|ComponentVerifierExtensionHelper
 operator|.
@@ -162,8 +154,6 @@ name|component
 operator|.
 name|extension
 operator|.
-name|verifier
-operator|.
 name|ComponentVerifierExtensionHelper
 operator|.
 name|HttpErrorAttribute
@@ -181,8 +171,6 @@ operator|.
 name|component
 operator|.
 name|extension
-operator|.
-name|verifier
 operator|.
 name|ComponentVerifierExtensionHelper
 operator|.

@@ -270,6 +270,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -427,20 +439,6 @@ operator|.
 name|event
 operator|.
 name|ExchangeSentEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RouteDefinition
 import|;
 end_import
 
@@ -1018,7 +1016,7 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, RouteDefinition route)
+DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, NamedNode route)
 specifier|public
 name|RoutePolicy
 name|createRoutePolicy
@@ -1029,7 +1027,7 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|,
-name|RouteDefinition
+name|NamedNode
 name|route
 parameter_list|)
 block|{

@@ -36,9 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|RouteDefinition
+name|NamedNode
 import|;
 end_import
 
@@ -53,7 +51,7 @@ interface|interface
 name|RoutePolicyFactory
 block|{
 comment|/**      * Creates a new {@link org.apache.camel.spi.RoutePolicy} which will be assigned to the given route.      *      * @param camelContext the camel context      * @param routeId      the route id      * @param route        the route definition      * @return the created {@link org.apache.camel.spi.RoutePolicy}, or<tt>null</tt> to not use a policy for this route      */
-DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, RouteDefinition route)
+DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, NamedNode route)
 name|RoutePolicy
 name|createRoutePolicy
 parameter_list|(
@@ -63,7 +61,7 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|,
-name|RouteDefinition
+name|NamedNode
 name|route
 parameter_list|)
 function_decl|;

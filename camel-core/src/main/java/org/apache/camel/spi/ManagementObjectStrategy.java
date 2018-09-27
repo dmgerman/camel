@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -147,20 +159,6 @@ operator|.
 name|cluster
 operator|.
 name|CamelClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ProcessorDefinition
 import|;
 end_import
 
@@ -284,7 +282,7 @@ name|Producer
 name|producer
 parameter_list|)
 function_decl|;
-DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, ProcessorDefinition<?> definition, Route route)
+DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, NamedNode definition, Route route)
 name|Object
 name|getManagedObjectForProcessor
 parameter_list|(
@@ -294,10 +292,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|Route

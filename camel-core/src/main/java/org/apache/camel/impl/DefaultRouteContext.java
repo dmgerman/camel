@@ -112,6 +112,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoSuchEndpointException
 import|;
 end_import
@@ -403,10 +415,7 @@ specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 argument_list|,
 name|AtomicInteger
 argument_list|>
@@ -2332,15 +2341,12 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|getAndIncrement (ProcessorDefinition<?> node)
+DECL|method|getAndIncrement (NamedNode node)
 specifier|public
 name|int
 name|getAndIncrement
 parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|node
 parameter_list|)
 block|{

@@ -4412,6 +4412,9 @@ comment|// and wrap the appropriate processor by InstrumentationInterceptStrateg
 name|RouteDefinition
 name|route
 init|=
+operator|(
+name|RouteDefinition
+operator|)
 name|routeContext
 operator|.
 name|getRoute

@@ -154,6 +154,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ExecutorServiceManager
@@ -660,16 +672,13 @@ return|;
 block|}
 block|}
 comment|/**      * Gets the route definition the given node belongs to.      *      * @param node the node      * @return the route, or<tt>null</tt> if not possible to find      */
-DECL|method|getRoute (ProcessorDefinition<?> node)
+DECL|method|getRoute (NamedNode node)
 specifier|public
 specifier|static
 name|RouteDefinition
 name|getRoute
 parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|node
 parameter_list|)
 block|{
@@ -690,6 +699,9 @@ name|?
 argument_list|>
 name|def
 init|=
+operator|(
+name|ProcessorDefinition
+operator|)
 name|node
 decl_stmt|;
 comment|// drill to the top
@@ -738,16 +750,13 @@ return|;
 block|}
 block|}
 comment|/**      * Gets the route id the given node belongs to.      *      * @param node the node      * @return the route id, or<tt>null</tt> if not possible to find      */
-DECL|method|getRouteId (ProcessorDefinition<?> node)
+DECL|method|getRouteId (NamedNode node)
 specifier|public
 specifier|static
 name|String
 name|getRouteId
 parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|node
 parameter_list|)
 block|{

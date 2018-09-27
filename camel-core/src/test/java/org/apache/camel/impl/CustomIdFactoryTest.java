@@ -100,6 +100,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|OptionalIdentifiedDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ProcessorDefinition
 import|;
 end_import
@@ -493,7 +507,7 @@ name|MyDebuggerCheckingId
 implements|implements
 name|InterceptStrategy
 block|{
-DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (final CamelContext context, final NamedNode definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -503,10 +517,7 @@ name|CamelContext
 name|context
 parameter_list|,
 specifier|final
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|,
 name|Processor
@@ -520,7 +531,15 @@ name|Exception
 block|{
 comment|// MUST DO THIS
 comment|// force id creation as sub nodes have lazy assigned ids
+operator|(
+operator|(
+name|OptionalIdentifiedDefinition
+argument_list|<
+name|?
+argument_list|>
+operator|)
 name|definition
+operator|)
 operator|.
 name|idOrCreate
 argument_list|(

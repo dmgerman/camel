@@ -522,13 +522,21 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// and wrap this in an error handler
-name|ErrorHandlerFactory
-name|builder
+name|RouteDefinition
+name|route
 init|=
+operator|(
+name|RouteDefinition
+operator|)
 name|routeContext
 operator|.
 name|getRoute
 argument_list|()
+decl_stmt|;
+name|ErrorHandlerFactory
+name|builder
+init|=
+name|route
 operator|.
 name|getErrorHandlerBuilder
 argument_list|()

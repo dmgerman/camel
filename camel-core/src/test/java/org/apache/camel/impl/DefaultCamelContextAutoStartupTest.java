@@ -184,6 +184,9 @@ literal|true
 argument_list|,
 name|camel
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -207,6 +210,9 @@ argument_list|(
 literal|true
 argument_list|,
 name|camel
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -365,6 +371,9 @@ literal|true
 argument_list|,
 name|camel
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -387,6 +396,9 @@ argument_list|(
 literal|true
 argument_list|,
 name|camel
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -544,6 +556,9 @@ argument_list|(
 literal|true
 argument_list|,
 name|camel
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -707,6 +722,9 @@ literal|true
 argument_list|,
 name|camel
 operator|.
+name|getRouteController
+argument_list|()
+operator|.
 name|getRouteStatus
 argument_list|(
 literal|"foo"
@@ -721,6 +739,9 @@ argument_list|(
 literal|false
 argument_list|,
 name|camel
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(
@@ -745,6 +766,9 @@ argument_list|(
 literal|true
 argument_list|,
 name|camel
+operator|.
+name|getRouteController
+argument_list|()
 operator|.
 name|getRouteStatus
 argument_list|(

@@ -48,52 +48,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|CamelLogProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|LogProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|CamelLogger
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Marker
-import|;
-end_import
-
 begin_comment
-comment|/**  * An event listener SPI for logging. Listeners are registered into {@link LogProcessor} and  * {@link CamelLogProcessor} so that the logging events are delivered for both of Log Component and Log EIP.  *   */
+comment|/**  * An event listener SPI for logging. Listeners are registered into {@link org.apache.camel.processor.LogProcessor} and  * {@link org.apache.camel.processor.CamelLogProcessor} so that the logging events are delivered for both of Log Component and Log EIP.  *   */
 end_comment
 
 begin_interface
@@ -102,7 +64,7 @@ specifier|public
 interface|interface
 name|LogListener
 block|{
-comment|/**      * Invoked right before Log component or Log EIP logs.      * Note that {@link CamelLogger} holds the {@link LoggingLevel} and {@link Marker}.      * The listener can check {@link CamelLogger#getLevel()} to see in which log level      * this is going to be logged.      *       * @param exchange camel exchange      * @param camelLogger {@link CamelLogger}      * @param message log message      * @return log message, possibly enriched by the listener      */
+comment|/**      * Invoked right before Log component or Log EIP logs.      * Note that {@link CamelLogger} holds the {@link LoggingLevel} and {@link org.slf4j.Marker}.      * The listener can check {@link CamelLogger#getLevel()} to see in which log level      * this is going to be logged.      *       * @param exchange camel exchange      * @param camelLogger {@link CamelLogger}      * @param message log message      * @return log message, possibly enriched by the listener      */
 DECL|method|onLog (Exchange exchange, CamelLogger camelLogger, String message)
 name|String
 name|onLog
